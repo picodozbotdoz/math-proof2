@@ -275,3 +275,52 @@ literature (eth paper not on arXiv; O'Donnell [O'D26]/Kintali [Kin26] exposition
 blog-level; IPW examination group pending per openai `history.md`). Novelty 5
 assessment stands, now with the two taken cells fenced off by the differentiators
 above.
+
+---
+
+## Pilot outcome
+
+2026-11-10, pilot-10 lane. Milestone **M1 = prework lemma L3** (space-annotated assembly), run
+first per the G1 audit's CASE A sequencing (`research/pilots/10-prework.md` §9). File
+`research/pilots/10/M1.lean`; blueprint and run log `research/pilots/10-blueprint.md`; raw logs
+`research/pilots/10/logs/m1-run{1,2-green,3-confirm-axcheck,4-final}.log`.
+
+- **Verdict: GREEN, unconditional.** Mathlib `ff2494ea`, `leanprover/lean4:v4.36.0-rc2`, kernel only:
+  0 errors, 0 `sorry`, 0 warnings (run 4, on the committed file). No hypothesis binders: eth's host
+  stack (Run/Frag/Tree/Stacks/Rename/Move/Ops/Lift/StepMachineStatements/Enc/Bound/PolyT/Host,
+  ~1.3k LoC) was transcribed with its proofs, and every transcribed proof elaborated verbatim on
+  v4.36. That is a measured data point for the feasibility claim "statement-port ≈ 0": for eth's
+  machine layer, *proof*-port cost was also ≈ 0.
+- **Proved (`Groundwork.exists_tm_space`).** For every `M : Stepped (List Bool) Bool` with
+  `[IsPolyT M]` and every d there are a machine `N` with finite alphabets and a constant c such that
+  if `M.Runs x T S b` and `S ≤ (|x|+2)^d`, then N outputs b within c·(T+1)·(|x|+1)^c steps (eth's
+  `exists_tm`, same machine `tmOf (prog Pi Ps Po)`) **and, for every t, `SpaceWithin N x t
+  (c·(|x|+1)^c)`**. The space bound is polynomial in |x| alone, independent of T. `SpaceWithin`
+  is this dossier's definition verbatim (every configuration reached in s ≤ t steps has total
+  stack content ≤ S), stated through mathlib's `EvalsTo` iteration.
+- **Corollaries proved in the same file:** `exists_tm` (eth's statement verbatim, the time half);
+  `exists_tm_space_at_time` (this dossier's exact conjunct shape); `spaceWithinTM_iff_trace`
+  (equivalence with openai's `Computation.Trace` per-prefix form); `exists_tm_space_monitor`
+  (openai's located-monitor form for stacks: high-water marks per stack, visited ≤ |K|·S, shape
+  of `SqrtLogSpace/Final.lean:122–128`). These discharge strategy step 5.
+- **Axioms.** All four headline theorems: `[propext, Classical.choice, Quot.sound]`. Full sweep
+  over all 135 non-private theorems (`research/pilots/10/axcheck_full.py`): every axiom set is a
+  subset of those three, 0 `sorryAx`. The file is added to `feasibility/probe/make_axcheck.py`
+  TARGETS (`AxPilot10_M1`); that copy elaborates OK too.
+- **What the proof actually uses** (new mathematics at the machine level). (i) One TM2 step running
+  statement q grows the total stack content by at most `pushes q` (`stkLen_stepAux`), so every
+  fragment has a growth constant and every n-step run stays below start + growth·n
+  (`Frag.Runs.toB`). No fragment internals are needed: `PolyT`'s time bound alone controls a
+  fragment's transient space. This is the dossier's step-4 claim that "polynomial-time fragments
+  have polynomial-size words", now a theorem. (ii) The host's loop resets to one coded state and one
+  optional bit at the head of every round, so one ceiling L + 5 + growth(body)·(tS L + 3L + 3 +
+  tO L), with L = 7(|x|+2)^d, holds for all rounds (`mainLoop_withinB`).
+- **Strategy-sketch status.** Step 3's `exists_tm_padded_space` is NOT yet available, and should not
+  be expected from M1 alone: eth's `padM` has states of size 2|x| + 2·2^{e x} + 3, so feeding it
+  into `exists_tm_space` gives exponential space. M1 is the reusable assembly half. The pad half
+  is L1 (counter combinators) + L2 (PolyTVal certificates), which yield a counter-`padM` with
+  poly-size states. Then `exists_tm_space` replaces `exists_tm` and the time bound is unchanged.
+  Remaining effort is unchanged from the prework: M, with L2 dominant.
+- **Novelty status of the headline theorem:** unchanged (the conjunction is still open; M1 is
+  infrastructure). The space-annotated host is itself absent from every corpus: eth has no space
+  predicate (0 hits, novelty check above), and openai's monitor is for TM0 tapes and per-k machines.

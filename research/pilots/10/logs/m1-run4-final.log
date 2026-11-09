@@ -1,0 +1,29 @@
+# provenance: raw modal run, pilot 10 M1.lean (FINAL, committed file sha256 8822167f8c187a61675a8f89d53f5a8b3a5ff0a167e5c3658b38c3aa7c62c0cf) staged as Pilot10_M1.lean (crossmath-pilot-32 app) | 2026-11-10 00:26 +08 | producing lane: pilot-10 executor | command: research/pilots/32/run_pilot.sh /tmp/crossmath-p10-src/Pilot10_M1.lean | verdict: OK errors=0 sorry=0 warnings=0; headline axioms [propext, Classical.choice, Quot.sound]
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-L9PapNKIGgi0q5m2jQ0XsL
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pilot10_M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pilot10_M1.lean
+[pilot] Pilot10_M1.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   Pilot10_M1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-L9PapNKIGgi0q5m2jQ0XsL
+EXIT=0

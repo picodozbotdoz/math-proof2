@@ -1,0 +1,45 @@
+# provenance: raw modal run, pilot 10 M1.lean staged as Pilot10_M1.lean (crossmath-pilot-32 app) | 2026-11-10 00:20 +08 | producing lane: pilot-10 executor | command: research/pilots/32/run_pilot.sh /tmp/crossmath-p10-src/Pilot10_M1.lean (stages to /tmp/crossmath-pilot-stage, sudo -u xyz modal run run_pilot.py) | verdict: FAIL errors=3 sorry=0
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-bmTyUgARt8xTiKxa1ptK1G
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pilot10_M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pilot10_M1.lean
+[pilot] Pilot10_M1.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Pilot10_M1.lean:1318:2: error: Type mismatch
+  RunIn.of_run (fun c => stkLen ?m.33) (fun x x_1 hab => ?m.51) h
+has type
+  RunIn (fun x => TM2.step P.m x)
+    (fun c => stkLen ?m.33 ≤ stkLen (?m.37 { l := some P.entry, var := v, stk := S }) + ?m.38 * n)
+···
+  P.RunsB v S n S' (stkLen S + P.growth * n)
+Pilot10_M1.lean:1352:89: error: Application type mismatch: The argument
+  hB
+has type
+  Bd.RunsB v S₁ n S₂ B
+but is expected to have type
+···
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Pilot10_M1.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  List.map id ?l
+in the target expression
+  SpaceWithinTM (tmOf (prog Pi Ps Po)) (List.map id x) t ((c + c') * (x.length + 1) ^ (c + c'))
+
+···
+
+[pilot] SUMMARY
+[pilot]   Pilot10_M1.lean: FAIL rc=1 errors=3 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-bmTyUgARt8xTiKxa1ptK1G
+EXIT=0

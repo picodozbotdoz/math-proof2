@@ -66,6 +66,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/pilots/42-blueprint.md` | pilot | COMPLETE — M1/M2a/M3/M2b GREEN, landing theorems proved (R1) | Dossier 42 (zeta-K two-thirds product assembly), mirroring pilot 01's pattern.
 - `research/pilots/11-blueprint.md` | pilot | M1 COMPLETE (R4) | Milestone-1 statement-file spec for dossier 11; work dir `pilots/11/` (RedCompA/B, P11T1/T2).
 - `research/pilots/10-prework.md` | pilot | DONE — G1 audit CASE A, GO unconditional (R4) | Dossier 10 pre-pilot work.
+- `research/pilots/10-blueprint.md` + `pilots/10/` | pilot | **M1 GREEN axioms-clean 2026-11-10** (pilot-10 lane) | Milestone L3: `M1.lean` (2,043 lines; eth host stack transcribed with proofs + new space layer) proves `exists_tm_space` (eth's `exists_tm` ∧ ∀t SpaceWithin poly(|x|)), eth's `exists_tm` as corollary, and openai's per-prefix monitor form; `logs/m1-run{1,2-green,3-confirm-axcheck,4-final}.log`; `axcheck_full.py` (full-coverage #print-axioms generator).
 - `research/pilots/50-blueprint.md` + `pilots/50/M1.lean` | pilot | M1 + M2a (Dirichlet) GREEN, axioms clean | Dossier 50 pilot (S1a zero-confinement first).
 - `research/pilots/21-milestoneC.md` | pilot | spec landed, not executing (R5) | In-Lean proof path for dossier 21's milestone (C) (trig series route).
 - `research/pilots/32/M1.lean` | pilot | GREEN (run3; see `pilots/32-blueprint.md`) | Dossier 32 frontier pilot.
