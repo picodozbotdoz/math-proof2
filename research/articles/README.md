@@ -1,7 +1,8 @@
 # Research articles — one per discovery
 
-Written 2026-11-09 at project close, per the standing instruction in `AGENT_INSTRUCTION.md`
-("a complete research article for each discovery, each in its own file, not mixed").
+Written 2026-11-09 at project close, per the user's standing instruction conveyed in the
+close-out session ("a complete research article for each discovery, each in its own file,
+not mixed"; no in-repo instruction file exists — citation corrected 2026-11-10).
 Each article is self-contained: statement, proof, formal-verification record (Lean
 declarations, files, axioms, binders), relation to prior work, limitations. Every Lean claim
 is backed by `research/pilots/<NN>/logs/axcheck-final.log` (final sweep: 29/29 files OK,

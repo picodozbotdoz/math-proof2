@@ -13,10 +13,15 @@ pilot logs: `research/pilots/22/run{1..6}.log` (in-repo), `/tmp/pilot01*run*.log
 ## 1 Summary table — FINAL (final sweep, 2026-11-09 resume session; supersedes the round-7/9 table)
 
 Every cell is backed by `research/pilots/<NN>/logs/axcheck-final.log` (one Modal batch over
-29 staged files = each pilot's final files + appended `#print axioms` for every top-level
+30 staged files = each pilot's final files + appended `#print axioms` for every top-level
 theorem; `research/feasibility/probe/{make_axcheck.py,axcheck_probe.py,run_axcheck.sh}`)
-unless noted. **29/29 files OK; 303 axiom lines, 0 sorryAx; every axiom set ⊆
-{propext, Classical.choice, Quot.sound}** (283× the triad, 16× `[propext, Quot.sound]`).
+unless noted. **30/30 files OK** (29 direct; `AxPilot20_M1` green on the single-file re-run
+after the extractor fix); **0 sorryAx**; every axiom set ⊆ {propext, Classical.choice,
+Quot.sound} — of the 323 theorem-axiom verdict lines captured verbatim in the log, 307 are
+the full triad and 16 are `[propext, Quot.sound]` (3 triad lines are line-wrapped); the
+tool's per-file tally totals 413 theorem-axiom lines (log excerpts omit some wrapped
+printouts). [erratum 2026-11-10, orchestrator audit: earlier "29/29 OK; 303 axiom lines
+(283× triad)" misstated both counts.]
 
 | pilot | files | LoC | thm (+lem) | proved milestones (final) | conditional on (explicit binders) | axioms |
 |---|---|---|---|---|---|---|
@@ -161,8 +166,9 @@ verification status is only re-established by the final axcheck batch (plan §3)
   01/port/10, 11/RedCompA/B, 20/M1, 22/*, 30/*, 32/M1, 42/M2a/M2b/M3); extractor made
   section- and comment-aware (a section's `end` no longer pops the namespace; docstring prose
   beginning with "theorem" is skipped — this caused the one first-batch FAIL,
-  `Unknown constant CrossMath.Pilot20.needs`, cleared by a single-file re-run). Result: 29/29 OK,
-  0 sorryAx. Raw transcript rescued into all nine `pilots/*/logs/axcheck-final.log`.
+  `Unknown constant CrossMath.Pilot20.needs`, cleared by a single-file re-run). Result: 30/30
+  OK (29 direct + the re-run), 0 sorryAx. Raw transcript rescued into all nine
+  `pilots/*/logs/axcheck-final.log`.
 - **Step C (ledger):** §1 rewritten from the final batch (above).
 - **Pilots closed in this session:** 30 (falsify FAIL 12 → 6 → **OK**; ClosedForm new, 1 → **OK**)
   and 32 (FAIL 22 → 2 → **OK**) — `pilots/30/logs/run{2,3-green}.log`, `pilots/32/logs/run{2,3-green}.log`,

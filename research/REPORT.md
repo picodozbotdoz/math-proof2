@@ -15,7 +15,8 @@ session), the program surveyed **201,134 Lean files / 2,888,273 declarations**, 
 maps, wrote and graded **19 candidate dossiers** (novelty: 5 rounds; feasibility: 19/19; QA:
 230 citation items, 0 wrong), and kernel-verified first milestones in **9 Lean pilots** —
 **6,539 LoC of new pilot Lean plus an 11,068-LoC ported spine** (32 files, 357 theorems,
-554 lemmas). The final sweep found all 29 kept files OK with 0 `sorryAx`; every axiom set is
+554 lemmas). The final sweep found all 30 staged files OK (29 direct; one green on re-run
+after an extractor-side fix) with 0 `sorryAx`; every axiom set is
 ⊆ {propext, Classical.choice, Quot.sound}; there is no `native_decide` and no external CAS
 (`VERIFICATION-LEDGER.md` §7 sign-off).
 
@@ -151,8 +152,9 @@ From `novelty/VERDICTS.md` + `novelty/knausgaard-as-donor.md`:
 ## 7. Proved Lean artifacts ledger (ours; kernel-only)
 
 **Canonical source: `feasibility/VERIFICATION-LEDGER.md` §1 (FINAL) + `pilots/*/logs/axcheck-final.log`.**
-Final sweep: 29/29 files OK, 303 axiom lines, 0 sorryAx, all ⊆ {propext, Classical.choice,
-Quot.sound}.
+Final sweep: 30/30 files OK (29 direct + one re-run after an extractor fix), 0 sorryAx;
+tool-tallied 413 theorem-axiom lines, all ⊆ {propext, Classical.choice, Quot.sound}
+(323 captured verbatim: 307 triad, 16 `[propext, Quot.sound]`).
 
 | pilot | headline declarations | posture |
 |---|---|---|

@@ -7,7 +7,8 @@ lane status. The orchestrator messages status changes to H, who updates this boa
 
 All lanes closed. R7's 30/32 work (interrupted twice) was finished in the resume session:
 **30** Theorem B refuted + closed form proved; **32** M1 green. R9's final sweep was executed
-per `feasibility/probe/FINAL-SWEEP-PLAN.md`: 29/29 kept files OK, 0 sorryAx, sign-off in
+per `feasibility/probe/FINAL-SWEEP-PLAN.md`: 30/30 staged files OK (29 direct + one
+extractor-fix re-run), 0 sorryAx, sign-off in
 `feasibility/VERIFICATION-LEDGER.md` §7. H's final polish is done (`REPORT.md` FINAL, §1
 integrated with re-pulled counts; `REPORT-INPUTS.md` §E). Articles, one per discovery:
 `articles/` (10 + README). Erratum: `pilots/20-hCZ-NOTE.md` (Route A is a necessity

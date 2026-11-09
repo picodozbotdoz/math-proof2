@@ -187,5 +187,5 @@ flag), **21** (absorbed), **51** (killed).
   identification) untouched and still the dossier's core; alternate slot unchanged.
 - **32**: M1 green — frontier formula, unique crossing, phase transition at ε*, ceiling
   (`pilots/32/M1.lean`); crossing point as a parameter; lane proposal ≈ 6 (N3·S2÷E1).
-- Final sweep: 29/29 kept files OK, 0 sorryAx (`feasibility/VERIFICATION-LEDGER.md` §6–§7).
+- Final sweep: 30/30 staged files OK, 0 sorryAx (`feasibility/VERIFICATION-LEDGER.md` §1, §6–§7).
 - Articles, one per discovery: `research/articles/` (10 articles + README).
