@@ -150,7 +150,8 @@ openai: per-fixed-k, weaker formal rate; eth: uniform, no space). NOVEL-SUPPORTE
 conditional-GO after the W3/FitsG wall analysis with a bounded G1 audit as first milestone.
 Rank 6.67.
 - Pilot plan sketch: pad-compression route (a) vs clocked simulation (b) decision first;
-  space-invariant threading through Wrap/Sim; prework landed (`pilots/10-prework.md`).
+  space-invariant threading through Wrap/Sim; prework landed (`pilots/10-prework.md`);
+  M1 (= L3) proved 2026-11-10 (`pilots/10-blueprint.md`).
 - First Lean milestone: bounded G1 audit (per orchestrator's decision text).
 
 ### 3. Candidate 01 — inertial defect-form master identity + tightness (structural)

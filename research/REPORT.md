@@ -185,7 +185,11 @@ one sanctioned deviation is clean-layer consumption with certificate binders (En
 2. **10 (Z3) — uniform-in-k ∧ min-rate ∧ polynomial-space ETH refutation** — G1 audit
    **CASE A** (`pilots/10-prework.md:262`): the W3 wall dissolves (piece count polynomial;
    the pad is exponential only on the time side), so GO is unconditional, effort M,
-   L3-first (space-annotated `exists_tm` as first milestone). Not yet executed.
+   L3-first (space-annotated `exists_tm` as first milestone). **M1 (= L3) landed 2026-11-10**:
+   `Groundwork.exists_tm_space` (`pilots/10/M1.lean`, 2,043 LoC) proves eth's host machine runs in
+   eth's time AND within polynomial-in-|x| stack space for every t, unconditionally (no binders),
+   axioms ⊆ {propext, Classical.choice, Quot.sound} on all 135 theorems; remaining = L1 counter
+   combinators and L2 `PolyTVal` for the padded-machine assembly (`pilots/10-blueprint.md`).
 3. **01 — inertial defect-form master identity + tightness** — **complete**: identity,
    faithfulness anchor and simultaneous tightness proved; remaining = corollaries A2/A3/A5 and
    upstreaming. Article 01.

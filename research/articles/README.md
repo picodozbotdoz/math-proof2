@@ -24,4 +24,6 @@ is backed by `research/pilots/<NN>/logs/axcheck-final.log` (final sweep: 29/29 f
 Ordering above is by how new the mathematics is (01, 30, 52, 32 first), not by triage
 rank. Candidates without a Lean or certified result (02, 03, 10, 12, 31, 40, 41, 51, 60) remain
 proposals in `research/candidates/` and have no article; dossier 10 (Top-3 #2) is cleared to
-pilot (G1 audit CASE A) but nothing is proved yet.
+pilot (G1 audit CASE A) and its first milestone (M1 = L3, `exists_tm_space`) is proved
+axioms-clean (`pilots/10-blueprint.md`), but the headline refutation still needs L1/L2, so it has
+no article yet.

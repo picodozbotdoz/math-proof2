@@ -41,6 +41,13 @@ spine is 11,068) **/ 357 theorems / 554 lemmas**; 76 persisted `.log` files befo
 sweep + 9 `axcheck-final.log` copies. Probe-convention theorem counts unchanged (*B1=3, B2=1,
 C1=1, D=4 stubs; E=1 proved).
 
+Post-sweep addition (2026-11-10, not in the totals above): pilot 10 M1 (`pilots/10/M1.lean`,
+2,043 LoC, 135 non-private theorems; headline `exists_tm_space`, unconditional) is GREEN on Modal
+(run 4 on the committed file: 0 errors / 0 sorry / 0 warnings). Axioms ⊆ {propext, Classical.choice,
+Quot.sound} for all 135, checked with `pilots/10/axcheck_full.py`; the `AxPilot10_M1` target in
+`make_axcheck.py` only covers the first component of dotted names, so use the full generator.
+Logs: `pilots/10/logs/m1-run{1,2-green,3-confirm-axcheck,4-final}.log`.
+
 Pilot 21 (milestone C) is a numeric certification outside Lean (`research/pilots/21-milestoneC.md`),
 not a kernel artifact; it is listed in REPORT §7 separately.
 
