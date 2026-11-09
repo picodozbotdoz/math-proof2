@@ -1,0 +1,137 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-2StrlHZWIUzJ26R4nVYpMZ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot42_M2a.lean', 'Pilot42_M3.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2a.lean
+[probe] Pilot42_M2a.lean: FAIL rc=1; errors=8, sorry-warnings=0, other-warnings=0
+---- output head ----
+Pilot42_M2a.lean:379:67: error: Function expected at
+  h
+but this term has type
+  f =ᶠ[𝓝 ρ] g
+
+Note: Expected a function because this term is being applied to the argument
+  z
+Pilot42_M2a.lean:379:58: error: unsolved goals
+f g : ℂ → ℂ
+ρ : ℂ
+h : f =ᶠ[𝓝 ρ] g
+hF : AnalyticAt ℂ f ρ
+hG : AnalyticAt ℂ g ρ
+h1 : analyticOrderAt f ρ = ⊤
+z : ℂ
+hz : f z = 0
+⊢ g z = 0
+Pilot42_M2a.lean:383:67: error: Function expected at
+  h
+but this term has type
+  f =ᶠ[𝓝 ρ] g
+
+Note: Expected a function because this term is being applied to the argument
+  z
+Pilot42_M2a.lean:383:60: error: unsolved goals
+f g : ℂ → ℂ
+ρ : ℂ
+h : f =ᶠ[𝓝 ρ] g
+hF : AnalyticAt ℂ f ρ
+hG : AnalyticAt ℂ g ρ
+h1 : analyticOrderAt f ρ ≠ ⊤
+h2 : analyticOrderAt g ρ = ⊤
+z : ℂ
+hz : g z = 0
+⊢ f z = 0
+Pilot42_M2a.lean:389:40: error(lean.unknownIdentifier): Unknown identifier `analyticOrderAt_eq_natCast`
+Pilot42_M2a.lean:389:17: error: Tactic `rcases` failed: `x✝ : ?m.224` is not an inductive datatype
+Pilot42_M2a.lean:432:25: error(lean.unknownIdentifier): Unknown identifier `continuous_re`
+Pilot42_M2a.lean:432:50: error: unsolved goals
+fK fζ fχ : ℂ → ℂ
+hK : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fK s
+hζ : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fζ s
+hχ : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fχ s
+hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1
+hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1
+hfac : FactorizationOnHalfPlane fK fζ fχ
+hOne : ∀ (s : ℂ), AnalyticAt ℂ (fun z => z - 1) s
+hG : AnalyticOnNhd ℂ (fun s => (s - 1) * fK s) Set.univ
+hH : AnalyticOnNhd ℂ (fun s => (s - 1) * (fζ s * fχ s)) Set.univ
+⊢ ?m.292 < ?m.297 ?m.301
+Pilot42_M2a.lean:550:47: error: Type mismatch
+  differentiable_const 0 s
+has type
+  DifferentiableAt ?m.55 (fun x => 0) s
+but is expected to have type
+  DifferentiableWithinAt ℂ (fun x => 0) Set.univ s
+Pilot42_M2a.lean:553:8: error(lean.unknownIdentifier): Unknown identifier `LFunction_apply_one_ne_zero`
+Pilot42_M2a.lean:559:48: error: Application type mismatch: The argument
+  analyticOrderAt_eq_top.mp
+has type
+---- (…5 more lines) tail ----
+Pilot42_M2a.lean:550:47: error: Type mismatch
+  differentiable_const 0 s
+has type
+  DifferentiableAt ?m.55 (fun x => 0) s
+but is expected to have type
+  DifferentiableWithinAt ℂ (fun x => 0) Set.univ s
+Pilot42_M2a.lean:553:8: error(lean.unknownIdentifier): Unknown identifier `LFunction_apply_one_ne_zero`
+Pilot42_M2a.lean:559:48: error: Application type mismatch: The argument
+  analyticOrderAt_eq_top.mp
+has type
+  analyticOrderAt ?m.26 ?m.27 = ⊤ → ∀ᶠ (z : ?m.21) in 𝓝 ?m.27, ?m.26 z = 0
+but is expected to have type
+  ∀ᶠ (z : ℂ) in 𝓝 ρ, DirichletCharacter.LFunction χ z = 0
+in the application
+  LFunction_not_eventuallyEq_zero hχ ρ analyticOrderAt_eq_top.mp
+
+=== Pilot42_M3.lean
+[probe] Pilot42_M3.lean: FAIL rc=1; errors=3, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M3.lean:350:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Pilot42_M3.lean:392:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.161` is a value of type
+  ?m.160
+Pilot42_M3.lean:392:9: error: Function expected at
+  Finite.toFinset_inj
+but this term has type
+  Finite.toFinset ?m.173 = hU.toFinset ↔
+    ?m.171 = supp z.mult ∩ lineWindow T (2 * T) ∪ supp w.mult ∩ lineWindow T (2 * T)
+
+Note: Expected a function because this term is being applied to the argument
+  hK
+Pilot42_M3.lean:396:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  #(?s ∪ ?t) + #(?s ∩ ?t)
+in the target expression
+  #(hA.toFinset ∪ hB.toFinset) + #hI.toFinset = #hA.toFinset + #hB.toFinset
+
+z w : ZeroMult
+T : ℝ
+hA : (supp z.mult ∩ lineWindow T (2 * T)).Finite
+hB : (supp w.mult ∩ lineWindow T (2 * T)).Finite
+hU : (supp z.mult ∩ lineWindow T (2 * T) ∪ supp w.mult ∩ lineWindow T (2 * T)).Finite
+hset :
+  supp (z.add w).mult ∩ lineWindow T (2 * T) = supp z.mult ∩ lineWindow T (2 * T) ∪ supp w.mult ∩ lineWindow T (2 * T)
+hK : (supp (z.add w).mult ∩ lineWindow T (2 * T)).Finite
+hI : (supp z.mult ∩ lineWindow T (2 * T) ∩ (supp w.mult ∩ lineWindow T (2 * T))).Finite
+eL : (z.add w).countDistinctOn T = #hU.toFinset
+eI : commonOnLine z w T = #hI.toFinset
+eA : z.countDistinctOn T = #hA.toFinset
+eB : w.countDistinctOn T = #hB.toFinset
+⊢ #(hA.toFinset ∪ hB.toFinset) + #hI.toFinset = #hA.toFinset + #hB.toFinset
+
+[probe] SUMMARY
+[probe]   Pilot42_M2a.lean: FAIL (8 errors)
+[probe]   Pilot42_M3.lean: FAIL (3 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-2StrlHZWIUzJ26R4nVYpMZ

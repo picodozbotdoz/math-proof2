@@ -1,0 +1,140 @@
+# provenance: /tmp/pilot11-run4.log | mtime 2026-11-09 19:38 | producing lane: R4 (pilot 11) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-nusVUSeFSFC9olsPlda8F2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot11-stage/pilot11_probe.py
+└── ✓ Created Function pilot.
+[p11] staging 4 file(s): ['P11T1.lean', 'P11T2.lean', 'RedCompA.lean', 'RedCompB.lean']
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P11T1.lean
+[p11] P11T1.lean: OK; errors=0, sorry-warnings=0
+
+=== P11T2.lean
+[p11] P11T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== RedCompA.lean
+[p11] RedCompA.lean: FAIL rc=1; errors=6, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompA.lean:53:8: error: `simp` made no progress
+RedCompA.lean:98:2: error: ring failed, ring expressions not equal up to an additive constant
+M : DetTimeModel
+MM : ℕ → ℝ
+D g : ℕ → ℕ
+C : ℝ
+hC : 0 ≤ C
+h17 :
+  ∀ (T : ℕ → ℕ → ℕ → ℝ),
+    M.lopDetect T →
+      ∃ T',
+        M.exactTriangle T' ∧
+          ∀ (n : ℕ) (κ u : ℝ),
+            16 ≤ D n →
+              D n ≤ n →
+                1 ≤ g n →
+                  ↑(g n) ≤ √↑(D n) →
+                    1 ≤ κ →
+                      u ≤ ↑n ^ κ →
+                        T' n u ≤
+                          4 * ↑n * ↑(g n) * (T n (D n) (queryCap n (D n)) + C * (↑n ^ 2 / √↑(D n))) +
+                            C * (termScans n (g n) κ + termPrime MM n (D n) + termBuild n (D n) (g n))
+f : ℕ → ℕ → ℕ → ℝ
+hf : M.lopDetect f
+T' : ℕ → ℝ → ℝ
+hA : M.exactTriangle T'
+hb :
+  ∀ (n : ℕ) (κ u : ℝ),
+    16 ≤ D n →
+      D n ≤ n →
+        1 ≤ g n →
+          ↑(g n) ≤ √↑(D n) →
+            1 ≤ κ →
+              u ≤ ↑n ^ κ →
+                T' n u ≤
+                  4 * ↑n * ↑(g n) * (f n (D n) (queryCap n (D n)) + C * (↑n ^ 2 / √↑(D n))) +
+                    C * (termScans n (g n) κ + termPrime MM n (D n) + termBuild n (D n) (g n))
+p : ℕ × ℝ × ℝ
+h1 : 16 ≤ D p.1
+h2 : D p.1 ≤ p.1
+---- (…149 more lines) tail ----
+            (4 * ↑n * ↑(paramG₂₆ n) * C * (↑n ^ 2 / √↑(paramD₂₆ n)) +
+              C *
+                (termScans n (paramG₂₆ n) κ + termPrime strassen n (paramD₂₆ n) +
+                  termBuild n (paramD₂₆ n) (paramG₂₆ n))) +
+          ecorr (n, κ, u) +
+        0 *
+          Td (((fun q => q) ∘ fun p => (p.1, paramD₂₆ p.1, queryCap p.1 (paramD₂₆ p.1))) (n, κ, u)).1
+            (((fun q => q) ∘ fun p => (p.1, paramD₂₆ p.1, queryCap p.1 (paramD₂₆ p.1))) (n, κ, u)).2.1
+            (((fun q => q) ∘ fun p => (p.1, paramD₂₆ p.1, queryCap p.1 (paramD₂₆ p.1))) (n, κ, u)).2.2 +
+      Ccomp
+⊢ -(↑n * ↑(paramG₂₆ n) * C₁₆ * ↑(queryCap n (paramD₂₆ n)) * ↑(paramD₂₆ n) ^ 0.437 * 4) +
+            ↑n ^ 3 * ↑(paramG₂₆ n) * C * (√↑(paramD₂₆ n))⁻¹ * 4 -
+          ↑n ^ 3 * ↑(paramG₂₆ n) * C₁₆ * (↑(paramD₂₆ n) ^ 63e-3)⁻¹ * 4 +
+        ecorr (n, κ, u) +
+      Ccomp ≤
+    0
+RedCompA.lean:140:66: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [beta17, calls17, extra17, Pi.zero_apply, mul_zero] at hbd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+=== RedCompB.lean
+[p11] RedCompB.lean: FAIL rc=1; errors=3, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompB.lean:86:81: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+RedCompB.lean:127:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2
+but is expected to have type
+  Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 + 0 * T q
+RedCompB.lean:140:7: error: Application type mismatch: The argument
+  P.sixteen_le
+has type
+  16 ≤ paramD₂₆ n
+but is expected to have type
+  1 ≤ ((fun p => beta17 paramD₂₆ p) (n, κ, u)).2.1
+in the application
+  And.intro P.sixteen_le
+RedCompB.lean:144:74: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 1
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+ b := ↑((fun p => beta17 paramD₂₆ p) (n, κ, u)).2.1
+ c := ↑((fun p => beta17 paramD₂₆ p) (n, κ, u)).1
+ d := ↑(((fun p => beta17 paramD₂₆ p) (n, κ, u)).2.1 ^ 18)
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   RedCompA.lean: FAIL (6 errors)
+[p11]   RedCompB.lean: FAIL (3 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-nusVUSeFSFC9olsPlda8F2

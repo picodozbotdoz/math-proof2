@@ -1,0 +1,96 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-7YYv1j1qJuo3x8doo2Re9p
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot22-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['M1.lean', 'ProbeP1_PNT.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== M1.lean
+[probe] M1.lean: FAIL rc=1; errors=6, sorry-warnings=0, other-warnings=0
+---- output head ----
+M1.lean:32:20: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:33:64: error: Application type mismatch: The argument
+  hs
+has type
+  s ∈ ?m.83
+but is expected to have type
+  s ≠ 1
+in the application
+  differentiableAt_riemannZeta hs
+M1.lean:39:24: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:41:35: error: Application type mismatch: The argument
+  fun s' hs' => Function.update_of_ne hs'
+has type
+  ∀ (s' : ℂ) (hs' : ?m.251 s' ≠ ?m.252 s') (v : ?m.253 s' hs' (?m.252 s')) (f : (a : ?m.250 s') → ?m.253 s' hs' a),
+    Function.update f (?m.252 s') v (?m.251 s') = f (?m.251 s')
+but is expected to have type
+  ∀ (x : ℂ), ?m.235 x = (fun s => (s - 1) * riemannZeta s) x
+in the application
+  Eventually.of_forall fun s' hs' => Function.update_of_ne hs'
+M1.lean:48:20: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:50:6: error: Type mismatch
+  Function.update_self
+has type
+  ∀ (a : ?m.399) (v : ?m.400 a) (f : (a : ?m.399) → ?m.400 a), Function.update f a v a = v
+but is expected to have type
+  Function.update (fun s => (s - 1) * riemannZeta s) 1 1 1 = 1
+M1.lean:52:37: error: Type mismatch
+  Function.update_of_ne ?m.439
+has type
+  ∀ (v : ?m.435 ?m.438) (f : (a : ?m.434) → ?m.435 a), Function.update f ?m.438 v ?m.437 = f ?m.437
+but is expected to have type
+  Function.update (fun s => (s - 1) * riemannZeta s) 1 1 s = (s - 1) * riemannZeta s
+M1.lean:52:59: error: Application type mismatch: The argument
+  hs
+has type
+  s ∈ ?m.364
+but is expected to have type
+  ?m.437 ≠ ?m.438
+in the application
+  Function.update_of_ne hs
+M1.lean:57:19: error: Application type mismatch: The argument
+  heq
+has type
+  (fun s => riemannZeta s - 1 / (s - 1)) =ᶠ[𝓝[≠] 1] slope (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) 1
+but is expected to have type
+  slope (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) 1 =ᶠ[𝓝[≠] 1] fun s => riemannZeta s - 1 / (s - 1)
+in the application
+  Tendsto.congr' heq
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+=== ProbeP1_PNT.lean
+[probe] ProbeP1_PNT.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in 𝓝[≠] c, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (𝓝 A)
+
+[probe] SUMMARY
+[probe]   M1.lean: FAIL (6 errors)
+[probe]   ProbeP1_PNT.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-7YYv1j1qJuo3x8doo2Re9p

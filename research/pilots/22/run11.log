@@ -1,0 +1,127 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-SLnScvHlGWbYp3OcocVG2W
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot22-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 3 probe file(s): ['M1.lean', 'ProbeP1_PNT.lean', 'Tier1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== M1.lean
+[probe] M1.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== ProbeP1_PNT.lean
+[probe] ProbeP1_PNT.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in 𝓝[≠] c, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (𝓝 A)
+
+=== Tier1.lean
+[probe] Tier1.lean: FAIL rc=1; errors=4, sorry-warnings=0, other-warnings=4
+---- output head ----
+Tier1.lean:122:6: error: Type mismatch
+  HasDerivAt.mul ha (DifferentiableAt.hasDerivAt (differentiableAt_riemannZeta hs))
+has type
+  HasDerivAt ((fun s => s - 1) * riemannZeta) (1 * riemannZeta s + (s - 1) * deriv riemannZeta s) s
+but is expected to have type
+  HasDerivAt F (riemannZeta s + (s - 1) * deriv riemannZeta s) s
+Tier1.lean:153:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Tier1.lean:178:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Tier1.lean:183:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Tier1.lean:170:42: warning: This simp argument is unused:
+  one_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Tier1.lean:258:4: error: Type mismatch
+  Tendsto.add h1 h2
+has type
+  Tendsto (fun x => ↑⌊x⌋₊ / x + 1 / x) atTop (𝓝 (1 + 0))
+but is expected to have type
+  Tendsto (fun x => ↑⌊x⌋₊ / x + 1 / x) atTop (𝓝 1)
+Tier1.lean:265:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Nat.succ ?n)
+in the target expression
+  (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / x =
+    (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / (↑⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x)
+
+C : ℝ
+hC : ∀ (n : ℕ), ∑ i ∈ Finset.range n, ArithmeticFunction.vonMangoldt i ≤ C * ↑n
+G : ℂ → ℂ
+hGcont : ContinuousOn G {s | 1 ≤ s.re}
+hGeq : Set.EqOn G (fun s => -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) {s | 1 < s.re}
+hG' : Set.EqOn G (fun s => LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s - ↑1 / (s - 1)) {s | 1 < s.re}
+hmain : Tendsto (fun N => (∑ i ∈ Finset.range N, ArithmeticFunction.vonMangoldt i) / ↑N) atTop (𝓝 1)
+hψsum : ∀ (x : ℝ), Chebyshev.psi x = ∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i
+hN : Tendsto (fun x => ⌊x⌋₊ + 1) atTop atTop
+hfac1 : Tendsto (fun x => (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / ↑(⌊x⌋₊ + 1)) atTop (𝓝 1)
+hfac2 : Tendsto (fun x => (↑⌊x⌋₊ + 1) / x) atTop (𝓝 1)
+x : ℝ
+hx : 1 ≤ x
+hx0 : x ≠ 0
+ha : ↑⌊x⌋₊ + 1 ≠ 0
+⊢ (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / x =
+    (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / (↑⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x)
+Tier1.lean:267:35: error: Application type mismatch: The argument
+  Tendsto.mul hfac1 hfac2
+has type
+  Tendsto (fun x => (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / ↑(⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x))
+    atTop (𝓝 (1 * 1))
+but is expected to have type
+---- (…8 more lines) tail ----
+    (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / (↑⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x)
+Tier1.lean:267:35: error: Application type mismatch: The argument
+  Tendsto.mul hfac1 hfac2
+has type
+  Tendsto (fun x => (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / ↑(⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x))
+    atTop (𝓝 (1 * 1))
+but is expected to have type
+  Tendsto (fun x => (∑ i ∈ Finset.range (⌊x⌋₊ + 1), ArithmeticFunction.vonMangoldt i) / (↑⌊x⌋₊ + 1) * ((↑⌊x⌋₊ + 1) / x))
+    atTop (𝓝 1)
+in the application
+  Tendsto.congr' (EventuallyEq.symm hsplit) (Tendsto.mul hfac1 hfac2)
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_logDerivExtension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_range_sum_vonMangoldt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.tendsto_psi_div_atTop' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   M1.lean: OK
+[probe]   ProbeP1_PNT.lean: OK
+[probe]   Tier1.lean: FAIL (4 errors)
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-SLnScvHlGWbYp3OcocVG2W

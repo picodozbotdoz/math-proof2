@@ -1,0 +1,32 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-GCN3G8xzOcjWFQUvWQOjy4
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['Pilot42_M2b.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2b.lean
+[probe] Pilot42_M2b.lean: OK; errors=0, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M2b.lean:636:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot42_M2b.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-GCN3G8xzOcjWFQUvWQOjy4

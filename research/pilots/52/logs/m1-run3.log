@@ -1,0 +1,357 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-knS0RRu6D2eD0yTVLn9bEF
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot52-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot50_Dirichlet.lean', 'Pilot52_M1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot50_Dirichlet.lean
+[probe] Pilot50_Dirichlet.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=0
+---- output head ----
+Pilot50_Dirichlet.lean:41:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot50_Dirichlet.lean:43:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot50_Dirichlet.lean:43:57: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot50_Dirichlet.lean:45:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot50_Dirichlet.lean:66:50: error: Function expected at
+  hp.right
+but this term has type
+  ρ = 1
+
+Note: Expected a function because this term is being applied to the argument
+  hρne1
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+=== Pilot52_M1.lean
+[probe] Pilot52_M1.lean: FAIL rc=1; errors=13, sorry-warnings=0, other-warnings=17
+---- output head ----
+Pilot52_M1.lean:79:13: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+Pilot52_M1.lean:80:4: warning: `Module.End.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : One F} [self : IsOneApplyEqSelf F]
+    (x : α), 1 x = x
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M] (x : M), 1 x = x
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+Pilot52_M1.lean:80:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Pilot52_M1.lean:80:4: warning: This simp argument is unused:
+  Module.End.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Module.End.mul_apply, LinearMap.add_apply, LinearMap.smul_apply, if_neg h] at h1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:86:13: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+Pilot52_M1.lean:87:4: warning: `Module.End.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : One F} [self : IsOneApplyEqSelf F]
+    (x : α), 1 x = x
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M] (x : M), 1 x = x
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+Pilot52_M1.lean:87:4: warning: This simp argument is unused:
+  Module.End.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Module.End.mul_apply, LinearMap.add_apply, LinearMap.smul_apply] at h1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:98:17: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+Pilot52_M1.lean:99:9: error: Application type mismatch: The argument
+  fun hm => hw ?m.99
+has type
+  ∀ (hm : ?m.98), False
+of sort `Prop` but is expected to have type
+  M
+of sort `Type u_2` in the application
+  ih fun hm => hw ?m.99
+Pilot52_M1.lean:99:33: error: Invalid argument: Variable `hm` is not a proposition or let-declaration
+Pilot52_M1.lean:99:24: error: unsolved goals
+R : Type u_1
+inst✝³ : CommRing R
+M : Type u_2
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ε : R
+ι : Type u_3
+inst✝ : DecidableEq ι
+P : OccupationPair R M ε ι
+i j : ι
+w' : List ι
+ih : ∀ (x : M), i ∉ w' → (P.a i) x = 0 → (P.a i) ((P.cW w') x) = 0
+x : M
+hw : i ∉ j :: w'
+hx : (P.a i) x = 0
+hij : i ≠ j
+hm : ?m.98
+⊢ i = j ∨ i ∈ w'
+Pilot52_M1.lean:114:47: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+Pilot52_M1.lean:118:49: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  j
+in the target expression
+  i ∈ t'
+
+R : Type u_1
+inst✝³ : CommRing R
+M : Type u_2
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ε : R
+ι : Type u_3
+inst✝ : DecidableEq ι
+P : OccupationPair R M ε ι
+i : ι
+t' : List ι
+ih : t'.Nodup → ∀ (x : M), (∀ j ∈ t', (P.a j) x = 0) → (P.aW t') ((P.cW t'.reverse) x) = x
+ht : (i :: t').Nodup
+x : M
+hx : ∀ j ∈ i :: t', (P.a j) x = 0
+hnd : t'.Nodup
+himem : i ∉ t'
+hsplit : (P.cW (i :: t').reverse) x = (P.cW t'.reverse) ((P.c i) x)
+j : ι
+hj : j ∈ t'
+h : j = i
+⊢ i ∈ t'
+Pilot52_M1.lean:118:70: error: Application type mismatch: The argument
+  hj
+has type
+  j ∈ t'
+but is expected to have type
+  j ∈ i :: t'
+in the application
+  hx j hj
+Pilot52_M1.lean:119:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (P.aW t') ((P.cW t'.reverse) ((P.c i) x))
+in the target expression
+  (P.a i * P.aW t') ((P.cW t'.reverse) ((P.c i) x)) = x
+
+case cons
+R : Type u_1
+inst✝³ : CommRing R
+M : Type u_2
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ε : R
+ι : Type u_3
+inst✝ : DecidableEq ι
+P : OccupationPair R M ε ι
+i : ι
+t' : List ι
+ih : t'.Nodup → ∀ (x : M), (∀ j ∈ t', (P.a j) x = 0) → (P.aW t') ((P.cW t'.reverse) x) = x
+ht : (i :: t').Nodup
+x : M
+hx : ∀ j ∈ i :: t', (P.a j) x = 0
+hnd : t'.Nodup
+himem : i ∉ t'
+hsplit : (P.cW (i :: t').reverse) x = (P.cW t'.reverse) ((P.c i) x)
+hx' : ∀ j ∈ t', (P.a j) ((P.c i) x) = 0
+⊢ (P.a i * P.aW t') ((P.cW t'.reverse) ((P.c i) x)) = x
+Pilot52_M1.lean:129:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a • ?f) ?x
+in the target expression
+  (P.aW [i, j]) (ε • (P.cW [j, i]) P.vac) = ε • P.vac
+
+R : Type u_1
+inst✝³ : CommRing R
+M : Type u_2
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ε : R
+ι : Type u_3
+inst✝ : DecidableEq ι
+P : OccupationPair R M ε ι
+i j : ι
+h : i ≠ j
+h1 : (P.cW [i, j]) P.vac = ε • (P.cW [j, i]) P.vac
+h2 : (P.aW [i, j]) ((P.cW [j, i]) P.vac) = P.vac
+⊢ (P.aW [i, j]) (ε • (P.cW [j, i]) P.vac) = ε • P.vac
+Pilot52_M1.lean:157:13: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+Pilot52_M1.lean:158:52: error: unsolved goals
+R : Type u_4
+inst✝³ : Field R
+M : Type u_5
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ι : Type u_6
+inst✝ : DecidableEq ι
+P : OccupationPair R M (-1) ι
+i : ι
+x : M
+h : (P.c i) ((P.c i) x) = (-1 • (P.c i * P.c i)) x
+⊢ -(P.c i) ((P.c i) x) = (P.c i) ((P.c i) x)
+Pilot52_M1.lean:163:10: error: Function expected at
+  add_neg_cancel ?m.235
+but this term has type
+  ?m.235 + -?m.235 = 0
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Pilot52_M1.lean:164:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero 2
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot52_M1.lean:214:28: warning: This simp argument is unused:
+  mul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:228:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  ((fermCreate n i * fermCreate n j).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝ =
+    ((-1 • (fermCreate n j * fermCreate n i)).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝
+
+n✝ n : ℕ
+i j : Fin n
+x : ℕ
+x✝ : Fin x → Fin n → ℂ
+⊢ ((fermCreate n i * fermCreate n j).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝ =
+    ((-1 • (fermCreate n j * fermCreate n i)).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝
+Pilot52_M1.lean:236:4: error: 'change' tactic failed, pattern
+  (CliffordAlgebra.contractLeft (LinearMap.proj i)) ((CliffordAlgebra.contractLeft (LinearMap.proj j)) ↑x) =
+    -1 • (CliffordAlgebra.contractLeft (LinearMap.proj j)) ((CliffordAlgebra.contractLeft (LinearMap.proj i)) ↑x)
+is not definitionally equal to target
+  ((fermAnnihilate n i * fermAnnihilate n j).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝ =
+    ((-1 • (fermAnnihilate n j * fermAnnihilate n i)).compAlternatingMap (ExteriorAlgebra.ιMulti ℂ x)) x✝
+Pilot52_M1.lean:246:4: error: unsolved goals
+case pos
+n✝ n : ℕ
+i : Fin n
+x : ℕ
+x✝ : Fin x → Fin n → ℂ
+⊢ (fermAnnihilate n i) ((fermCreate n i) ((ExteriorAlgebra.ιMulti ℂ x) x✝)) =
+    (ExteriorAlgebra.ιMulti ℂ x) x✝ + -(fermCreate n i) ((fermAnnihilate n i) ((ExteriorAlgebra.ιMulti ℂ x) x✝))
+Pilot52_M1.lean:248:4: error: unsolved goals
+case neg
+n✝ n : ℕ
+i j : Fin n
+x : ℕ
+x✝ : Fin x → Fin n → ℂ
+h : ¬i = j
+⊢ (fermAnnihilate n i) ((fermCreate n j) ((ExteriorAlgebra.ιMulti ℂ x) x✝)) =
+    -(fermCreate n j) ((fermAnnihilate n i) ((ExteriorAlgebra.ιMulti ℂ x) x✝))
+Pilot52_M1.lean:247:12: warning: This simp argument is unused:
+  eVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.proj, CliffordAlgebra.contractLeft_ι_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:247:18: warning: This simp argument is unused:
+  LinearMap.proj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, CliffordAlgebra.contractLeft_ι_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:247:34: warning: This simp argument is unused:
+  CliffordAlgebra.contractLeft_ι_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:248:12: warning: This simp argument is unused:
+  eVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.proj, h, CliffordAlgebra.contractLeft_ι_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:248:18: warning: This simp argument is unused:
+  LinearMap.proj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, h, CliffordAlgebra.contractLeft_ι_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:248:37: warning: This simp argument is unused:
+  CliffordAlgebra.contractLeft_ι_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.fermionicPair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot50_Dirichlet.lean: FAIL (1 errors)
+[probe]   Pilot52_M1.lean: FAIL (13 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-knS0RRu6D2eD0yTVLn9bEF

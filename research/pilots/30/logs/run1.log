@@ -1,0 +1,115 @@
+# provenance: raw modal run, pilot 30 30-falsify-TheoremB-h1.lean (crossmath-pilot-32 app runner) | mtime 2026-11-09 13:13 | producing lane: R7-prime (close-out of R7 interrupted run) | command: research/pilots/32/run_pilot.sh research/pilots/30-falsify-TheoremB-h1.lean
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-ZEkBpfuWpFugcnccNuKLGH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['30-falsify-TheoremB-h1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== 30-falsify-TheoremB-h1.lean
+[pilot] 30-falsify-TheoremB-h1.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'LemmaQc_V0' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LemmaQc_V2_t1sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'pairing_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:167:2: error: No goals to be solved
+30-falsify-TheoremB-h1.lean:179:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:186:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:186:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:196:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:196:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:209:4: warning: Unused tactic linter: `try` can be removed.
+···
+30-falsify-TheoremB-h1.lean:186:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:186:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:196:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:196:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:209:4: warning: Unused tactic linter: `try` can be removed.
+
+···
+30-falsify-TheoremB-h1.lean:186:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:196:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:196:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:209:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+···
+30-falsify-TheoremB-h1.lean:196:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:196:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:209:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:215:2: error: `simp` made no progress
+···
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:215:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:215:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:226:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:226:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:243:2: warning: Unused tactic linter: `try` can be removed.
+···
+30-falsify-TheoremB-h1.lean:215:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:215:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:226:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:226:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:243:2: warning: Unused tactic linter: `try` can be removed.
+
+···
+30-falsify-TheoremB-h1.lean:215:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:226:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:226:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:243:2: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+···
+30-falsify-TheoremB-h1.lean:226:2: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:226:54: error: unexpected token '('; expected command
+30-falsify-TheoremB-h1.lean:243:2: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:248:2: warning: Unused tactic linter: there are no goals left for `try module`.
+···
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:337:4: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:303:44: error: unsolved goals
+e1 : Q1 (-2) (Q1 (-2) (X 0)) = 1 • X 0
+e2 : Q1 (-1) (Q1 (-1) (X 0)) = 4 • X 0
+e3 : Q1 0 (Q1 0 (X 0)) = 9 • X 0
+···
+30-falsify-TheoremB-h1.lean:337:4: error: `simp` made no progress
+30-falsify-TheoremB-h1.lean:303:44: error: unsolved goals
+e1 : Q1 (-2) (Q1 (-2) (X 0)) = 1 • X 0
+e2 : Q1 (-1) (Q1 (-1) (X 0)) = 4 • X 0
+e3 : Q1 0 (Q1 0 (X 0)) = 9 • X 0
+e4 : Q1 1 (Q1 1 (X 0)) = 4 • X 0
+···
+⊢ ∑ s ∈ Finset.Icc (-2) 2, Q1 s (Q1 s (X 0)) ≠ 1 • X 0
+30-falsify-TheoremB-h1.lean:337:56: error: unexpected token '('; expected command
+'LemmaQc_V0' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   30-falsify-TheoremB-h1.lean: FAIL rc=1 errors=12 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-ZEkBpfuWpFugcnccNuKLGH
+# exit=0

@@ -1,0 +1,101 @@
+# provenance: /tmp/pilot01-run3.log | mtime 2026-11-09 19:08 | producing lane: R6 (pilot 01) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-8fUkkPrCGku3UwhhxV4aez
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot01-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['BindingSurface.lean', 'MasterIdentity.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== BindingSurface.lean
+[probe] BindingSurface.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+@Matrix.IsHermitian.eigenvalues₀ : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → Fin (Fintype.card n) → ℝ
+@Matrix.IsHermitian.eigenvalues₀_antitone : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), Antitone hA.eigenvalues₀
+@Matrix.IsHermitian.eigenvalues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] → {n : Type u_2} → [Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → n → ℝ
+@Matrix.IsHermitian.eigenvectorUnitary : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [inst_2 : DecidableEq n] → A.IsHermitian → ↥(Matrix.unitaryGroup n 𝕜)
+@Matrix.IsHermitian.spectral_theorem : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian),
+  A =
+    ((Unitary.conjStarAlgAut 𝕜 (Matrix n n 𝕜)) hA.eigenvectorUnitary) (Matrix.diagonal (RCLike.ofReal ∘ hA.eigenvalues))
+@Matrix.IsHermitian.rank_eq_card_non_zero_eigs : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), A.rank = Fintype.card { i // hA.eigenvalues i ≠ 0 }
+@Matrix.IsHermitian.trace_eq_sum_eigenvalues : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), A.trace = ∑ i, ↑(hA.eigenvalues i)
+@Matrix.PosSemidef : {n : Type u_1} →
+  {R : Type u_2} → [inst : Ring R] → [PartialOrder R] → [StarRing R] → Matrix n n R → Prop
+@Matrix.IsHermitian.posSemidef_iff_eigenvalues_nonneg : ∀ {n : Type u_1} {𝕜 : Type u_2} [inst : Fintype n]
+  [inst_1 : RCLike 𝕜] {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian),
+  A.PosSemidef ↔ 0 ≤ hA.eigenvalues
+@Matrix.posSemidef_self_mul_conjTranspose : ∀ {m : Type u_1} {n : Type u_2} {R : Type u_3} [inst : Ring R]
+  [inst_1 : PartialOrder R] [inst_2 : StarRing R] [inst_3 : Fintype n] [Finite m] [StarOrderedRing R]
+  (A : Matrix m n R), (A * A.conjTranspose).PosSemidef
+@Matrix.posSemidef_conjTranspose_mul_self : ∀ {m : Type u_1} {n : Type u_2} {R : Type u_3} [inst : Ring R]
+  [inst_1 : PartialOrder R] [inst_2 : StarRing R] [inst_3 : Fintype m] [Finite n] [StarOrderedRing R]
+  (A : Matrix m n R), (A.conjTranspose * A).PosSemidef
+@Matrix.posSemidef_diagonal_iff : ∀ {n : Type u_1} {R : Type u_2} [inst : Ring R] [inst_1 : PartialOrder R]
+  [inst_2 : StarRing R] [StarOrderedRing R] [inst_4 : DecidableEq n] {d : n → R},
+  (Matrix.diagonal d).PosSemidef ↔ ∀ (i : n), 0 ≤ d i
+@exists_eq_sum_perm_of_mem_doublyStochastic : ∀ {R : Type u_1} {n : Type u_2} [inst : Fintype n]
+  [inst_1 : DecidableEq n] [inst_2 : Field R] [inst_3 : LinearOrder R] [inst_4 : IsStrictOrderedRing R]
+  {M : Matrix n n R},
+  M ∈ doublyStochastic R n →
+    ∃ w, (∀ (σ : Equiv.Perm n), 0 ≤ w σ) ∧ ∑ σ, w σ = 1 ∧ ∑ σ, w σ • Equiv.Perm.permMatrix R σ = M
+doublyStochastic : (R : Type u_1) →
+  (n : Type u_2) →
+    [inst : Fintype n] →
+      [inst_1 : DecidableEq n] →
+        [inst_2 : Semiring R] → [inst_3 : PartialOrder R] → [IsOrderedRing R] → Submonoid (Matrix n n R)
+@mem_doublyStochastic_iff_sum : ∀ {R : Type u_1} {n : Type u_2} [inst : Fintype n] [inst_1 : DecidableEq n]
+  [inst_2 : Semiring R] [inst_3 : PartialOrder R] [inst_4 : IsOrderedRing R] {M : Matrix n n R},
+  M ∈ doublyStochastic R n ↔ (∀ (i j : n), 0 ≤ M i j) ∧ (∀ (i : n), ∑ j, M i j = 1) ∧ ∀ (j : n), ∑ i, M i j = 1
+@reindex_mem_doublyStochastic : ∀ {R : Type u_1} {n : Type u_2} [inst : Fintype n] [inst_1 : DecidableEq n]
+  [inst_2 : Semiring R] [inst_3 : PartialOrder R] [inst_4 : IsOrderedRing R] {m : Type u_3} [inst_5 : Fintype m]
+  [inst_6 : DecidableEq m] {M : Matrix n n R} {e₁ e₂ : n ≃ m},
+  M ∈ doublyStochastic R n → (Matrix.reindex e₁ e₂) M ∈ doublyStochastic R m
+@Monovary.sum_mul_comp_perm_le_sum_mul : ∀ {ι : Type u_1} {α : Type u_2} [inst : Semiring α] [inst_1 : LinearOrder α]
+  [IsStrictOrderedRing α] [ExistsAddOfLE α] {σ : Equiv.Perm ι} {f g : ι → α} [inst_4 : Fintype ι],
+  Monovary f g → ∑ i, f i * g (σ i) ≤ ∑ i, f i * g i
+@sq_sum_le_card_mul_sum_sq : ∀ {ι : Type u_1} {α : Type u_2} [inst : Semiring α] [inst_1 : LinearOrder α]
+  [IsStrictOrderedRing α] [ExistsAddOfLE α] {s : Finset ι} {f : ι → α}, (∑ i ∈ s, f i) ^ 2 ≤ ↑s.card * ∑ i ∈ s, f i ^ 2
+@Lagrange.interpolate : {F : Type u_1} →
+  [inst : Field F] → {ι : Type u_2} → [DecidableEq ι] → Finset ι → (ι → F) → (ι → F) →ₗ[F] Polynomial F
+@Lagrange.eval_interpolate_at_node : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} [inst_1 : DecidableEq ι]
+  {s : Finset ι} {i : ι} {v : ι → F} (r : ι → F),
+---- (…19 more lines) tail ----
+      [inst_1 : StarMul R] →
+        [inst_2 : SMul S R] → [IsScalarTower S R R] → [SMulCommClass S R R] → ↥(unitary R) →* R ≃⋆ₐ[S] R
+@Unitary.conjStarAlgAut_apply : ∀ {S : Type u_1} {R : Type u_2} [inst : Semiring R] [inst_1 : StarMul R]
+  [inst_2 : SMul S R] [inst_3 : IsScalarTower S R R] [inst_4 : SMulCommClass S R R] (u : ↥(unitary R)) (x : R),
+  ((Unitary.conjStarAlgAut S R) u) x = ↑u * x * star ↑u
+@Unitary.mul_star_self_of_mem : ∀ {R : Type u_1} [inst : Monoid R] [inst_1 : StarMul R] {U : R},
+  U ∈ unitary R → U * star U = 1
+@Unitary.star_mul_self_of_mem : ∀ {R : Type u_1} [inst : Monoid R] [inst_1 : StarMul R] {U : R},
+  U ∈ unitary R → star U * U = 1
+@Matrix.rank : {m : Type u_1} → {n : Type u_2} → {R : Type u_3} → [Fintype n] → [CommSemiring R] → Matrix m n R → ℕ
+@Matrix.rank_diagonal : ∀ {m : Type u_1} {R : Type u_2} [inst : Field R] [inst_1 : Fintype m] [inst_2 : DecidableEq m]
+  [inst_3 : DecidableEq R] (w : m → R), (Matrix.diagonal w).rank = Fintype.card { i // w i ≠ 0 }
+@LinearMap.finrank_range_of_inj : ∀ {R : Type u_1} {M : Type u_2} {N : Type u_3} [inst : Semiring R]
+  [inst_1 : AddCommMonoid M] [inst_2 : Module R M] [inst_3 : AddCommMonoid N] [inst_4 : Module R N] {f : M →ₗ[R] N},
+  Function.Injective ⇑f → Module.finrank R ↥f.range = Module.finrank R M
+
+=== MasterIdentity.lean
+[probe] MasterIdentity.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+[probe] SUMMARY
+[probe]   BindingSurface.lean: OK
+[probe]   MasterIdentity.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-8fUkkPrCGku3UwhhxV4aez

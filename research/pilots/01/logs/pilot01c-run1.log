@@ -1,0 +1,97 @@
+# provenance: /tmp/pilot01c-run1.log | mtime 2026-11-09 19:20 | producing lane: R6 (pilot 01) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-6cn228rvEW96cqyV45kfVX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot01c/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['09_MasterIdentity.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== 09_MasterIdentity.lean
+[probe] 09_MasterIdentity.lean: FAIL rc=1; errors=22, sorry-warnings=0, other-warnings=19
+---- output head ----
+09_MasterIdentity.lean:1112:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1115:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1136:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1138:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1338:32: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1338:60: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1345:30: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1345:43: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1370:32: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1370:58: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1453:20: warning: This simp argument is unused:
+  Matrix.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+09_MasterIdentity.lean:1648:28: warning: Variable name `hc` is not explicitly referenced.
+---- (…369 more lines) tail ----
+a✝ : ∑ j, kc c (m j * xsq v j) + c ^ 2 * ↑b < 2 * c * rtrace (Pmat m v + Q) - frobSq (Pmat m v + Q)
+⊢ False
+failed
+'CrossMath.RankTraceDefect.master_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.rank_trace_mult_k_of_master' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RHLinalg.rank_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_conj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.weyl_posIndexAbove_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   09_MasterIdentity.lean: FAIL (22 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-6cn228rvEW96cqyV45kfVX

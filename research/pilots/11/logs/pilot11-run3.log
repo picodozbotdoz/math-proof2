@@ -1,0 +1,134 @@
+# provenance: /tmp/pilot11-run3.log | mtime 2026-11-09 19:35 | producing lane: R4 (pilot 11) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-Yz52hvjt3uSxsTqhisnSUm
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot11-stage/pilot11_probe.py
+└── ✓ Created Function pilot.
+[p11] staging 4 file(s): ['P11T1.lean', 'P11T2.lean', 'RedCompA.lean', 'RedCompB.lean']
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P11T1.lean
+[p11] P11T1.lean: OK; errors=0, sorry-warnings=0
+
+=== P11T2.lean
+[p11] P11T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== RedCompA.lean
+[p11] RedCompA.lean: FAIL rc=1; errors=6, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompA.lean:42:76: error: failed to prove positivity/nonnegativity/nonzeroness
+RedCompA.lean:53:8: error: No goals to be solved
+RedCompA.lean:98:2: error: ring failed, ring expressions not equal up to an additive constant
+M : DetTimeModel
+MM : ℕ → ℝ
+D g : ℕ → ℕ
+C : ℝ
+hC : 0 ≤ C
+h17 :
+  ∀ (T : ℕ → ℕ → ℕ → ℝ),
+    M.lopDetect T →
+      ∃ T',
+        M.exactTriangle T' ∧
+          ∀ (n : ℕ) (κ u : ℝ),
+            16 ≤ D n →
+              D n ≤ n →
+                1 ≤ g n →
+                  ↑(g n) ≤ √↑(D n) →
+                    1 ≤ κ →
+                      u ≤ ↑n ^ κ →
+                        T' n u ≤
+                          4 * ↑n * ↑(g n) * (T n (D n) (queryCap n (D n)) + C * (↑n ^ 2 / √↑(D n))) +
+                            C * (termScans n (g n) κ + termPrime MM n (D n) + termBuild n (D n) (g n))
+f : ℕ → ℕ → ℕ → ℝ
+hf : M.lopDetect f
+T' : ℕ → ℝ → ℝ
+hA : M.exactTriangle T'
+hb :
+  ∀ (n : ℕ) (κ u : ℝ),
+    16 ≤ D n →
+      D n ≤ n →
+        1 ≤ g n →
+          ↑(g n) ≤ √↑(D n) →
+            1 ≤ κ →
+              u ≤ ↑n ^ κ →
+                T' n u ≤
+                  4 * ↑n * ↑(g n) * (f n (D n) (queryCap n (D n)) + C * (↑n ^ 2 / √↑(D n))) +
+                    C * (termScans n (g n) κ + termPrime MM n (D n) + termBuild n (D n) (g n))
+p : ℕ × ℝ × ℝ
+h1 : 16 ≤ D p.1
+---- (…39 more lines) tail ----
+but is expected to have type
+  Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 + 0 * x✝¹ q
+RedCompA.lean:119:24: error: Function expected at
+  rcomp.transfer
+but this term has type
+  ∃ C_1,
+    0 ≤ C_1 ∧
+      ∀ (T : ℕ × ℕ × ℕ → ℝ),
+        Lop M T →
+          ∃ T',
+            ET M T' ∧
+              ∀ (p : ℕ × ℝ × ℝ),
+                guard17 paramD₂₆ paramG₂₆ p ∧
+                    1 ≤ (beta17 paramD₂₆ p).2.1 ∧ (beta17 paramD₂₆ p).2.1 ^ 18 ≤ (beta17 paramD₂₆ p).1 →
+                  T' p ≤
+                    calls17 paramG₂₆ p * C * (↑p.1 ^ 2 / √↑(paramD₂₆ p.1)) + extra17 paramD₂₆ paramG₂₆ strassen C p +
+                          ecorr p +
+                        calls17 paramG₂₆ p * 0 (beta17 paramD₂₆ p) * T (((fun q => q) ∘ fun p => beta17 paramD₂₆ p) p) +
+                      C_1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun q => Td q.1 q.2.1 q.2.2)
+RedCompA.lean:119:9: error: Tactic `rcases` failed: `x✝ : ?m.290` is not an inductive datatype
+'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+=== RedCompB.lean
+[p11] RedCompB.lean: FAIL rc=1; errors=4, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompB.lean:57:8: error: No goals to be solved
+RedCompB.lean:88:81: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+RedCompB.lean:129:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2
+but is expected to have type
+  Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 + 0 * x✝¹ q
+RedCompB.lean:142:30: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+RedCompB.lean:146:70: error: Application type mismatch: The argument
+  P.sixteen_le
+has type
+  16 ≤ paramD₂₆ n
+but is expected to have type
+  1 ≤ paramD₂₆ n
+in the application
+  Theorem19.call_cost_corollary_16 P.sixteen_le
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   RedCompA.lean: FAIL (6 errors)
+[p11]   RedCompB.lean: FAIL (4 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-Yz52hvjt3uSxsTqhisnSUm

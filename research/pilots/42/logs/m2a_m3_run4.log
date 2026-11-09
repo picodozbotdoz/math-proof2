@@ -1,0 +1,115 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-GLa6Pe2pwrl7ChYczYft9R
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot42_M2a.lean', 'Pilot42_M3.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2a.lean
+[probe] Pilot42_M2a.lean: FAIL rc=1; errors=5, sorry-warnings=0, other-warnings=0
+---- output head ----
+Pilot42_M2a.lean:378:14: error(lean.unknownIdentifier): Unknown constant `AnalyticAt.analyticOrderAt_eq_top.mpr`
+Pilot42_M2a.lean:382:16: error(lean.unknownIdentifier): Unknown constant `AnalyticAt.analyticOrderAt_eq_top.mpr`
+Pilot42_M2a.lean:398:2: error: unsolved goals
+case neg
+f g : ℂ → ℂ
+ρ : ℂ
+h : f =ᶠ[𝓝 ρ] g
+hF : ¬AnalyticAt ℂ f ρ
+hG' : ¬AnalyticAt ℂ g ρ
+⊢ (if h : False then if h : ∀ᶠ (z : ℂ) in 𝓝 ρ, f z = 0 then ⊤ else ↑⋯.choose else 0).toNat =
+    (if h : False then if h : ∀ᶠ (z : ℂ) in 𝓝 ρ, g z = 0 then ⊤ else ↑⋯.choose else 0).toNat
+Pilot42_M2a.lean:432:6: error: Function expected at
+  isOpen_Ioi
+but this term has type
+  IsOpen[?m.292] (Set.Ioi ?m.295)
+
+Note: Expected a function because this term is being applied to the argument
+  (1 : ℝ)
+Pilot42_M2a.lean:435:37: error(lean.invalidField): Invalid field `mono`: The environment does not contain `Function.mono`, so it is not possible to project the field `mono` from an expression
+  eventually_of_mem hopen
+of type
+  (∀ x ∈ {z | 1 < z.re}, ?m.336 x) → ∀ᶠ (x : ℂ) in 𝓝 2, ?m.336 x
+Pilot42_M2a.lean:439:55: error: Application type mismatch: The argument
+  s
+has type
+  ℂ
+of sort `Type` but is expected to have type
+  ?m.376 ∈ Set.univ
+of sort `Prop` in the application
+  hall s
+Pilot42_M2a.lean:454:26: error: unexpected token 'open'; expected 'lemma'
+Pilot42_M2a.lean:540:14: error(lean.unknownIdentifier): Unknown identifier `differentiableAt_LFunction`
+Pilot42_M2a.lean:550:35: error(lean.invalidField): Invalid field `analyticOnNhd`: The environment does not contain `Function.analyticOnNhd`, so it is not possible to project the field `analyticOnNhd` from an expression
+  differentiable_const 0
+of type
+  ∀ (x : ?m.49), DifferentiableAt ?m.47 (fun x => 0) x
+Pilot42_M2a.lean:546:63: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+ρ : ℂ
+h : ∀ᶠ (z : ℂ) in 𝓝 ρ, DirichletCharacter.LFunction χ z = 0
+hL : AnalyticOnNhd ℂ (DirichletCharacter.LFunction χ) Set.univ
+⊢ False
+Pilot42_M2a.lean:559:48: error(lean.unknownIdentifier): Unknown constant `AnalyticAt.analyticOrderAt_eq_top.mp`
+
+=== Pilot42_M3.lean
+[probe] Pilot42_M3.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M3.lean:350:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Pilot42_M3.lean:386:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => #⋯.toFinset + #⋯.toFinset = #⋯.toFinset + #⋯.toFinset
+Error: Application type mismatch: The argument
+  ZeroMult.countOn._proof_1 (z.add w) T
+has type
+  (supp (z.add w).mult ∩ lineWindow T (2 * T)).Finite
+but is expected to have type
+  (supp _a ∩ lineWindow T (2 * T)).Finite
+in the application
+  @Eq.ndrec (Set ℂ) (supp _a ∩ lineWindow T (2 * T)) (fun {s} => s.Finite) (ZeroMult.countOn._proof_1 (z.add w) T)
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+z w : ZeroMult
+T : ℝ
+hA : (supp z.mult ∩ lineWindow T (2 * T)).Finite
+hB : (supp w.mult ∩ lineWindow T (2 * T)).Finite
+hU : (supp z.mult ∩ lineWindow T (2 * T) ∪ supp w.mult ∩ lineWindow T (2 * T)).Finite
+hset :
+  supp (z.mult + w.mult) ∩ lineWindow T (2 * T) =
+    supp z.mult ∩ lineWindow T (2 * T) ∪ supp w.mult ∩ lineWindow T (2 * T)
+hadd : (z.add w).mult = z.mult + w.mult
+⊢ #⋯.toFinset + #⋯.toFinset = #⋯.toFinset + #⋯.toFinset
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl (supp (z.mult + w.mult) ∩ lineWindow T (2 * T))
+  has type
+    supp (z.mult + w.mult) ∩ lineWindow T (2 * T) = supp (z.mult + w.mult) ∩ lineWindow T (2 * T)
+  but is expected to have type
+    supp (z.add w).mult ∩ lineWindow T (2 * T) = supp (z.mult + w.mult) ∩ lineWindow T (2 * T)
+  in the application
+    id (Eq.refl (supp (z.mult + w.mult) ∩ lineWindow T (2 * T)))
+
+[probe] SUMMARY
+[probe]   Pilot42_M2a.lean: FAIL (5 errors)
+[probe]   Pilot42_M3.lean: FAIL (1 errors)
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-GLa6Pe2pwrl7ChYczYft9R

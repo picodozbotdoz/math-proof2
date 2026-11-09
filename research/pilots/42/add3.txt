@@ -1,0 +1,122 @@
+
+/-! ## M3: the C_K common-zeros defect layer (dossier 42, Theorem C-K)
+
+**BINDER INVENTORY**: `zetaK_five_sixths_defect` carries `hDζ`/`hDχ` (the DISTINCT-count
+proportion binders — zeta23 `five_sixths_distinct` Challenge.lean:152 and
+`dirichlet_five_sixths_distinct` :205 shapes; donor-swap section applies to these exactly as
+to `hAζ`/`hAχ`); everything else is proved. `zetaK_five_sixths_of_negligible` adds the
+explicit analytic binder `hCZ` (common on-line zeros negligible — no corpus can supply it;
+this is the honest C_D obstruction). -/
+
+/-- ℕ-valued multiplicities make the support of a sum exactly the union of the supports
+(nonnegativity). -/
+theorem supp_add_eq (a b : ℂ → ℕ) : supp (a + b) = supp a ∪ supp b := by
+  ext ρ
+  rw [mem_supp_iff, Set.mem_union, mem_supp_iff, mem_supp_iff]
+  constructor
+  · intro h
+    by_contra hmem
+    push_neg at hmem
+    exact h (by rw [Pi.add_apply, hmem.1, hmem.2])
+  · rintro (h | h)
+    · intro hc
+      exact h (Nat.add_eq_zero_iff.mp hc).1
+    · intro hc
+      exact h (Nat.add_eq_zero_iff.mp hc).2
+
+open Classical in
+/-- Distinct on-line zero count: the number of distinct on-line zeros in the window
+(mirror of zeta23's distinct counts `N_d`/`N0star`, ChallengeDeps.lean:57). -/
+noncomputable def ZeroMult.countDistinctOn (z : ZeroMult) (T : ℝ) : ℕ :=
+  ((lineFinite z.windowFinite T).toFinset).card
+
+open Classical in
+/-- `C_D(T, 2T]`: the number of common on-line zeros of the two factors — the defect
+quantity of dossier 42 Theorem C-K. -/
+noncomputable def commonOnLine (z w : ZeroMult) (T : ℝ) : ℕ :=
+  let hI : ((supp z.mult ∩ lineWindow T (2 * T)) ∩
+      (supp w.mult ∩ lineWindow T (2 * T))).Finite :=
+    Set.Finite.subset (lineFinite z.windowFinite T) Set.inter_subset_left
+  hI.toFinset.card
+
+/-- Inclusion–exclusion for the distinct counts: `D_{z+w} + C_D = D_z + D_w`. -/
+theorem countDistinctOn_add (z w : ZeroMult) (T : ℝ) :
+    (ZeroMult.add z w).countDistinctOn T + commonOnLine z w T
+      = z.countDistinctOn T + w.countDistinctOn T := by
+  have hA : (supp z.mult ∩ lineWindow T (2 * T)).Finite := lineFinite z.windowFinite T
+  have hB : (supp w.mult ∩ lineWindow T (2 * T)).Finite := lineFinite w.windowFinite T
+  have hU : ((supp z.mult ∩ lineWindow T (2 * T)) ∪
+      (supp w.mult ∩ lineWindow T (2 * T))).Finite := hA.union hB
+  have hset : supp (ZeroMult.add z w).mult ∩ lineWindow T (2 * T)
+      = (supp z.mult ∩ lineWindow T (2 * T)) ∪ (supp w.mult ∩ lineWindow T (2 * T)) := by
+    show supp (z.mult + w.mult) ∩ lineWindow T (2 * T) = _
+    rw [supp_add_eq, Set.union_inter_distrib_right]
+  have hK : (supp (ZeroMult.add z w).mult ∩ lineWindow T (2 * T)).Finite :=
+    lineFinite (ZeroMult.add z w).windowFinite T
+  have hI : ((supp z.mult ∩ lineWindow T (2 * T)) ∩
+      (supp w.mult ∩ lineWindow T (2 * T))).Finite :=
+    Set.Finite.subset hA Set.inter_subset_left
+  have eL : (ZeroMult.add z w).countDistinctOn T = hU.toFinset.card := by
+    unfold ZeroMult.countDistinctOn
+    rw [((Set.Finite.toFinset_inj (hs := hK) (ht := hU))).mpr hset]
+  have eI : commonOnLine z w T = hI.toFinset.card := rfl
+  have eA : z.countDistinctOn T = hA.toFinset.card := rfl
+  have eB : w.countDistinctOn T = hB.toFinset.card := rfl
+  rw [eL, eI, eA, eB, Set.Finite.toFinset_union hA hB, Set.Finite.toFinset_inter hA hB,
+    Finset.card_union_add_card_inter]
+
+/-- The ε-form distinct-count proportion statement. -/
+def EpsLowerDistinct (z : ZeroMult) (c : ℝ) : Prop :=
+  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+    (c - ε) * (z.count T : ℝ) ≤ (z.countDistinctOn T : ℝ)
+
+/-- **Theorem C-K (defect form)** — dossier 42: the distinct-count proportion assembles
+over the product zero data up to the explicit common-zeros defect `C_D`. -/
+theorem assemble_eps_defect {z w : ZeroMult} {c : ℝ}
+    (hz : EpsLowerDistinct z c) (hw : EpsLowerDistinct w c) :
+    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (c - ε) * ((ZeroMult.add z w).count T : ℝ)
+        ≤ ((ZeroMult.add z w).countDistinctOn T : ℝ) + (commonOnLine z w T : ℝ) := by
+  intro ε hε
+  obtain ⟨T₁, hT₁⟩ := hz ε hε
+  obtain ⟨T₂, hT₂⟩ := hw ε hε
+  refine ⟨max T₁ T₂, fun T hT => ?_⟩
+  have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
+  have e2 := hT₂ T (le_trans (le_max_right T₁ T₂) hT)
+  have hcard := countDistinctOn_add z w T
+  rw [ZeroMult.count_add]
+  push_cast
+  have hmul : (c - ε) * ((z.count T : ℝ) + (w.count T : ℝ))
+      = (c - ε) * (z.count T : ℝ) + (c - ε) * (w.count T : ℝ) := mul_add _ _ _
+  have hd : (z.countDistinctOn T : ℝ) + (w.countDistinctOn T : ℝ)
+      = ((ZeroMult.add z w).countDistinctOn T : ℝ) + (commonOnLine z w T : ℝ) :=
+    by exact_mod_cast hcard.symm
+  linarith
+
+/-- **M3 HEADLINE (conditional)** — dossier 42 Theorem C-K at 5/6. Binders: `hDζ` =
+zeta23 `five_sixths_distinct` (`Challenge.lean:152`), `hDχ` =
+`dirichlet_five_sixths_distinct` (`Challenge.lean:205`). -/
+theorem zetaK_five_sixths_defect {zζ zχ : ZeroMult}
+    (hDζ : EpsLowerDistinct zζ (5 / 6)) (hDχ : EpsLowerDistinct zχ (5 / 6)) :
+    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (5 / 6 - ε) * ((ZeroMult.add zζ zχ).count T : ℝ)
+        ≤ ((ZeroMult.add zζ zχ).countDistinctOn T : ℝ) + (commonOnLine zζ zχ T : ℝ) :=
+  assemble_eps_defect hDζ hDχ
+
+/-- **The hCZ binder form**: if the common-zeros defect is negligible (`hCZ`), the full
+distinct-count proportion is recovered — the conditional content that no corpus can supply
+(a common zero of ζ and L(χ_D) is a multiple zero of ζ_K; no bound on their count exists
+anywhere). -/
+theorem zetaK_five_sixths_of_negligible {zζ zχ : ZeroMult}
+    (hDζ : EpsLowerDistinct zζ (5 / 6)) (hDχ : EpsLowerDistinct zχ (5 / 6))
+    (hCZ : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (commonOnLine zζ zχ T : ℝ) ≤ ε * ((ZeroMult.add zζ zχ).count T : ℝ)) :
+    EpsLowerDistinct (ZeroMult.add zζ zχ) (5 / 6) := by
+  intro δ hδ
+  obtain ⟨T₁, hT₁⟩ := zetaK_five_sixths_defect hDζ hDχ (δ / 2) (by linarith)
+  obtain ⟨T₂, hT₂⟩ := hCZ (δ / 2) (by linarith)
+  refine ⟨max T₁ T₂, fun T hT => ?_⟩
+  have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
+  have e2 := hT₂ T (le_trans (le_max_right T₁ T₂) hT)
+  have hN : (0 : ℝ) ≤ ((ZeroMult.add zζ zχ).count T : ℝ) := Nat.cast_nonneg _
+  nlinarith

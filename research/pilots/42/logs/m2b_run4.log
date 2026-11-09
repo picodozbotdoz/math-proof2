@@ -1,0 +1,96 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-UbOgJc8czGsSF8izvLzDiy
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['Pilot42_M2b.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2b.lean
+[probe] Pilot42_M2b.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M2b.lean:636:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Pilot42_M2b.lean:921:51: error: unsolved goals
+fK fζ fχ : ℂ → ℂ
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+hfinK : WindowFinite (multOf fK)
+hfinζ : WindowFinite (multOf fζ)
+hfinχ : WindowFinite (multOf fχ)
+T : ℝ
+ρ : ℂ
+hρ : ρ ∈ lineWindow 0 T
+h1 : multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+⊢ multOf fζ ρ = 0 → ¬multOf fχ ρ = 0 ↔ ¬multOf fζ ρ = 0 ∨ ¬multOf fχ ρ = 0
+Pilot42_M2b.lean:1102:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  countCumOf hfinζ T + countCumOf hfinχ T
+in the target expression
+  countCumOf hfinK T =
+    ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).countCum T
+
+fK fζ fχ : ℂ → ℂ
+cert : Prop
+hfinK : WindowFinite (multOf fK)
+hfinζ : WindowFinite (multOf fζ)
+hfinχ : WindowFinite (multOf fχ)
+hCert : cert
+hK839 : K839OfLocal cert { mult := multOf fζ, windowFinite := hfinζ }
+hEχd : EpsLowerDistinctCum { mult := multOf fχ, windowFinite := hfinχ } (5 / 6)
+hζ : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fζ s
+hχ : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fχ s
+hK : ∀ (s : ℂ), s ≠ 1 → AnalyticAt ℂ fK s
+hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1
+hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1
+hntopζ : ∀ (ρ : ℂ), analyticOrderAt fζ ρ ≠ ⊤
+hntopχ : ∀ (ρ : ℂ), analyticOrderAt fχ ρ ≠ ⊤
+hfac : FactorizationOnHalfPlane fK fζ fχ
+ε : ℝ
+hε : ε > 0
+hζ' : EpsLowerDistinctCum { mult := multOf fζ, windowFinite := hfinζ } (5 / 6)
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+T : ℝ
+h1 : countCumOf hfinK T = countCumOf hfinζ T + countCumOf hfinχ T
+h2 :
+  ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).countCum T =
+    { mult := multOf fζ, windowFinite := hfinζ }.countCum T + { mult := multOf fχ, windowFinite := hfinχ }.countCum T
+eζ : { mult := multOf fζ, windowFinite := hfinζ }.countCum T = countCumOf hfinζ T
+eχ : { mult := multOf fχ, windowFinite := hfinχ }.countCum T = countCumOf hfinχ T
+eK : { mult := multOf fK, windowFinite := hfinK }.countCum T = countCumOf hfinK T
+⊢ countCumOf hfinK T =
+    ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).countCum T
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+---- (…3 more lines) tail ----
+    { mult := multOf fζ, windowFinite := hfinζ }.countCum T + { mult := multOf fχ, windowFinite := hfinχ }.countCum T
+eζ : { mult := multOf fζ, windowFinite := hfinζ }.countCum T = countCumOf hfinζ T
+eχ : { mult := multOf fχ, windowFinite := hfinχ }.countCum T = countCumOf hfinχ T
+eK : { mult := multOf fK, windowFinite := hfinK }.countCum T = countCumOf hfinK T
+⊢ countCumOf hfinK T =
+    ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).countCum T
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot42_M2b.lean: FAIL (2 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-UbOgJc8czGsSF8izvLzDiy

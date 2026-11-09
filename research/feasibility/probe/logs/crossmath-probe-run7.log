@@ -1,0 +1,186 @@
+# provenance: /tmp/crossmath-probe-run7.log | mtime 2026-11-09 19:28 | producing lane: R9 (probe lane) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-1rz2LZowZi9XNJ8jK1CRNq
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 13 probe file(s): ['Probe0_Smoke.lean', 'ProbeA.lean', 'ProbeA2.lean', 'ProbeA3_F1batch.lean', 'ProbeA4.lean', 'ProbeB1_RHLinalg.lean', 'ProbeB2_EthTime.lean', 'ProbeB3_3sumEnd.lean', 'ProbeC1_OAI_QuasiRH.lean', 'ProbeC2_OAI_Model.lean', 'ProbeD_PairCeiling.lean', 'ProbeE_Zeta23Binder.lean', 'ProbeF_MathlibBatch.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Probe0_Smoke.lean
+[probe] Probe0_Smoke.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== ProbeA.lean
+[probe] ProbeA.lean: FAIL rc=1; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+Turing.FinTM2 : Type 1
+Turing.TM2ComputableAux : Type → Type → Type 1
+Turing.TM2OutputsInTime : (tm : Turing.FinTM2) → List (tm.Γ tm.k₀) → Option (List (tm.Γ tm.k₁)) → ℕ → Type
+@Turing.TM2ComputableInPolyTime : {α β αΓ βΓ : Type} → (α → List αΓ) → (β → List βΓ) → (α → β) → Type 1
+ProbeA.lean:29:8: error(lean.unknownIdentifier): Unknown identifier `tendsto_sum_div`
+riemannZetaZeros : Set ℂ
+isDiscrete_riemannZetaZeros : IsDiscrete riemannZetaZeros
+@IsCompact.inter_riemannZetaZeros_finite : ∀ {S : Set ℂ}, IsCompact S → (S ∩ riemannZetaZeros).Finite
+@analyticOrderAt : {𝕜 : Type u_1} →
+  {E : Type u_2} →
+    [inst : NontriviallyNormedField 𝕜] → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → ℕ∞
+completedRiemannZeta₀ : ℂ → ℂ
+hardyZ : ℝ → ℝ
+@Matrix.IsHermitian.eigenvalues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] → {n : Type u_2} → [Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → n → ℝ
+@Matrix.IsHermitian.eigenvalues₀ : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → Fin (Fintype.card n) → ℝ
+@Matrix.PosSemidef : {n : Type u_1} →
+  {R : Type u_2} → [inst : Ring R] → [PartialOrder R] → [StarRing R] → Matrix n n R → Prop
+@Matrix.rank : {m : Type u_1} → {n : Type u_2} → {R : Type u_3} → [Fintype n] → [CommSemiring R] → Matrix m n R → ℕ
+ProbeA.lean:42:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigPos`
+ProbeA.lean:43:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigNeg`
+@LinearMap.singularValues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {E : Type u_2} →
+      [inst_1 : NormedAddCommGroup E] →
+        [inst_2 : InnerProductSpace 𝕜 E] →
+          [FiniteDimensional 𝕜 E] →
+            {F : Type u_3} →
+              [inst_4 : NormedAddCommGroup F] →
+                [inst_5 : InnerProductSpace 𝕜 F] → [FiniteDimensional 𝕜 F] → (E →ₗ[𝕜] F) → ℕ →₀ ℝ
+Real.smoothTransition : ℝ → ℝ
+ProbeA.lean:48:8: error(lean.unknownIdentifier): Unknown identifier `digamma`
+@Holor.CPRankMax : {α : Type} → [Mul α] → [AddMonoid α] → ℕ → {ds : List ℕ} → Holor α ds → Prop
+@Holor.CPRankMax1 : {α : Type} → [Mul α] → {ds : List ℕ} → Holor α ds → Prop
+
+=== ProbeA2.lean
+[probe] ProbeA2.lean: FAIL rc=1; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+@WienerIkehara.tendsto_sum_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Filter.Tendsto (fun x => (∑ n ∈ Finset.Icc 0 ⌊x⌋₊, f n) / x) Filter.atTop (nhds A)
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Filter.Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) Filter.atTop (nhds A)
+Complex.digamma : ℂ → ℂ
+Complex.digamma_apply_add_one : ∀ (s : ℂ), (∀ (m : ℕ), s ≠ -↑m) → (s + 1).digamma = s.digamma + s⁻¹
+ProbeA2.lean:15:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigPos`
+ProbeA2.lean:16:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigNeg`
+
+=== ProbeA3_F1batch.lean
+[probe] ProbeA3_F1batch.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+@Matrix.IsHermitian.spectral_theorem : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian),
+  A =
+    ((Unitary.conjStarAlgAut 𝕜 (Matrix n n 𝕜)) hA.eigenvectorUnitary) (Matrix.diagonal (RCLike.ofReal ∘ hA.eigenvalues))
+@Matrix.IsHermitian.trace_eq_sum_eigenvalues : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), A.trace = ∑ i, ↑(hA.eigenvalues i)
+@sq_sum_le_card_mul_sum_sq : ∀ {ι : Type u_1} {α : Type u_2} [inst : Semiring α] [inst_1 : LinearOrder α]
+  [IsStrictOrderedRing α] [ExistsAddOfLE α] {s : Finset ι} {f : ι → α}, (∑ i ∈ s, f i) ^ 2 ≤ ↑s.card * ∑ i ∈ s, f i ^ 2
+@Monovary.sum_mul_comp_perm_le_sum_mul : ∀ {ι : Type u_1} {α : Type u_2} [inst : Semiring α] [inst_1 : LinearOrder α]
+  [IsStrictOrderedRing α] [ExistsAddOfLE α] {σ : Equiv.Perm ι} {f g : ι → α} [inst_4 : Fintype ι],
+  Monovary f g → ∑ i, f i * g (σ i) ≤ ∑ i, f i * g i
+@Matrix.isSymmetric_toLin_iff : ∀ {𝕜 : Type u_1} {n : Type u_2} {A : Matrix n n 𝕜} [inst : RCLike 𝕜]
+  [inst_1 : Fintype n] [inst_2 : DecidableEq n] {E : Type u_3} [inst_3 : NormedAddCommGroup E]
+  [inst_4 : InnerProductSpace 𝕜 E] (b : OrthonormalBasis n 𝕜 E),
+  ((Matrix.toLin b.toBasis b.toBasis) A).IsSymmetric ↔ A.IsHermitian
+@LinearMap.IsSymmetric.eigenvalues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {E : Type u_2} →
+      [inst_1 : NormedAddCommGroup E] →
+        [inst_2 : InnerProductSpace 𝕜 E] →
+          {T : E →ₗ[𝕜] E} → [FiniteDimensional 𝕜 E] → {n : ℕ} → T.IsSymmetric → Module.finrank 𝕜 E = n → Fin n → ℝ
+@Matrix.rank_mul_le : ∀ {m : Type u_1} {n : Type u_2} {o : Type u_3} {R : Type u_4} [inst : Fintype n]
+  [inst_1 : Fintype o] [inst_2 : CommSemiring R] [StrongRankCondition R] (A : Matrix m n R) (B : Matrix n o R),
+  (A * B).rank ≤ min A.rank B.rank
+@Matrix.rank_mul_le_left : ∀ {m : Type u_1} {n : Type u_2} {o : Type u_3} {R : Type u_4} [inst : Fintype n]
+  [inst_1 : Fintype o] [inst_2 : CommSemiring R] [StrongRankCondition R] (A : Matrix m n R) (B : Matrix n o R),
+  (A * B).rank ≤ A.rank
+@Matrix.rank_mul_le_right : ∀ {m : Type u_1} {n : Type u_2} {o : Type u_3} {R : Type u_4} [inst : Fintype n]
+  [inst_1 : Fintype o] [inst_2 : CommSemiring R] [StrongRankCondition R] (A : Matrix m n R) (B : Matrix n o R),
+  (A * B).rank ≤ B.rank
+
+=== ProbeA4.lean
+[probe] ProbeA4.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+@sigPos : {R : Type u_1} →
+  {M : Type u_2} →
+    [inst : AddCommGroup M] → [inst_1 : CommRing R] → [LinearOrder R] → [inst_3 : Module R M] → QuadraticForm R M → ℕ
+@sigNeg : {R : Type u_1} →
+  {M : Type u_2} →
+    [inst : AddCommGroup M] → [inst_1 : CommRing R] → [LinearOrder R] → [inst_3 : Module R M] → QuadraticForm R M → ℕ
+@QuadraticForm.sigPos_of_equiv_weightedSumSquares : ∀ {M : Type u_1} [inst : AddCommGroup M] {𝕜 : Type u_2}
+  [inst_1 : Field 𝕜] [inst_2 : LinearOrder 𝕜] [inst_3 : Module 𝕜 M] {Q : QuadraticForm 𝕜 M} {ι : Type u_3}
+  [inst_4 : Fintype ι] {w : ι → 𝕜} [IsStrictOrderedRing 𝕜],
+  QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares 𝕜 w) → sigPos Q = {i | 0 < w i}.ncard
+@QuadraticForm.sigNeg_of_equiv_weightedSumSquares : ∀ {M : Type u_1} [inst : AddCommGroup M] {𝕜 : Type u_2}
+  [inst_1 : Field 𝕜] [inst_2 : LinearOrder 𝕜] [inst_3 : Module 𝕜 M] {Q : QuadraticForm 𝕜 M} {ι : Type u_3}
+  [inst_4 : Fintype ι] {w : ι → 𝕜} [IsStrictOrderedRing 𝕜],
+  QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares 𝕜 w) → sigNeg Q = {i | w i < 0}.ncard
+@QuadraticForm.sigPos_add_sigNeg_add_radical : ∀ {M : Type u_1} [inst : AddCommGroup M] {𝕜 : Type u_2}
+  [inst_1 : Field 𝕜] [inst_2 : LinearOrder 𝕜] [inst_3 : Module 𝕜 M] {Q : QuadraticForm 𝕜 M} [IsStrictOrderedRing 𝕜]
+  [FiniteDimensional 𝕜 M], sigPos Q + sigNeg Q + Module.finrank 𝕜 ↥(QuadraticMap.radical Q) = Module.finrank 𝕜 M
+
+=== ProbeB1_RHLinalg.lean
+[probe] ProbeB1_RHLinalg.lean: OK; errors=0, sorry-warnings=0, other-warnings=3
+---- output head ----
+ProbeB1_RHLinalg.lean:47:8: warning: declaration uses `sorry`
+ProbeB1_RHLinalg.lean:54:8: warning: declaration uses `sorry`
+ProbeB1_RHLinalg.lean:63:8: warning: declaration uses `sorry`
+
+=== ProbeB2_EthTime.lean
+[probe] ProbeB2_EthTime.lean: OK; errors=0, sorry-warnings=0, other-warnings=1
+---- output head ----
+ProbeB2_EthTime.lean:24:8: warning: declaration uses `sorry`
+
+=== ProbeB3_3sumEnd.lean
+[probe] ProbeB3_3sumEnd.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== ProbeC1_OAI_QuasiRH.lean
+[probe] ProbeC1_OAI_QuasiRH.lean: OK; errors=0, sorry-warnings=0, other-warnings=1
+---- output head ----
+ProbeC1_OAI_QuasiRH.lean:12:8: warning: declaration uses `sorry`
+
+=== ProbeC2_OAI_Model.lean
+[probe] ProbeC2_OAI_Model.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== ProbeD_PairCeiling.lean
+[probe] ProbeD_PairCeiling.lean: OK; errors=0, sorry-warnings=0, other-warnings=4
+---- output head ----
+ProbeD_PairCeiling.lean:51:8: warning: declaration uses `sorry`
+ProbeD_PairCeiling.lean:60:8: warning: declaration uses `sorry`
+ProbeD_PairCeiling.lean:74:8: warning: declaration uses `sorry`
+ProbeD_PairCeiling.lean:81:8: warning: declaration uses `sorry`
+
+=== ProbeE_Zeta23Binder.lean
+[probe] ProbeE_Zeta23Binder.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== ProbeF_MathlibBatch.lean
+[probe] ProbeF_MathlibBatch.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=0
+---- output head ----
+ProbeF_MathlibBatch.lean:6:0: error: object file '/opt/mathlib/.lake/build/lib/lean/Mathlib/Algebra/CliffordAlgebra.olean' of module Mathlib.Algebra.CliffordAlgebra does not exist
+
+[probe] SUMMARY
+[probe]   Probe0_Smoke.lean: OK
+[probe]   ProbeA.lean: FAIL rc=1
+[probe]   ProbeA2.lean: FAIL rc=1
+[probe]   ProbeA3_F1batch.lean: OK
+[probe]   ProbeA4.lean: OK
+[probe]   ProbeB1_RHLinalg.lean: OK
+[probe]   ProbeB2_EthTime.lean: OK
+[probe]   ProbeB3_3sumEnd.lean: OK
+[probe]   ProbeC1_OAI_QuasiRH.lean: OK
+[probe]   ProbeC2_OAI_Model.lean: OK
+[probe]   ProbeD_PairCeiling.lean: OK
+[probe]   ProbeE_Zeta23Binder.lean: OK
+[probe]   ProbeF_MathlibBatch.lean: FAIL (1 errors)
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-1rz2LZowZi9XNJ8jK1CRNq

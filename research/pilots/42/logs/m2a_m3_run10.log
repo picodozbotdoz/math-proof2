@@ -1,0 +1,31 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-rywtvKLFBMPMTNvI4UdYEC
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot42_M2a.lean', 'Pilot42_M3.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2a.lean
+[probe] Pilot42_M2a.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== Pilot42_M3.lean
+[probe] Pilot42_M3.lean: OK; errors=0, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M3.lean:350:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+
+[probe] SUMMARY
+[probe]   Pilot42_M2a.lean: OK
+[probe]   Pilot42_M3.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-rywtvKLFBMPMTNvI4UdYEC

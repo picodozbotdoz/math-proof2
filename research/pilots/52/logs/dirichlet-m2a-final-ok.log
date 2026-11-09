@@ -1,0 +1,247 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-EbTYVE9s1bSteSSipgIvBi
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot52-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot50_Dirichlet.lean', 'Pilot52_M1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot50_Dirichlet.lean
+[probe] Pilot50_Dirichlet.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Pilot52_M1.lean
+[probe] Pilot52_M1.lean: FAIL rc=1; errors=7, sorry-warnings=0, other-warnings=11
+---- output head ----
+Pilot52_M1.lean:82:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Pilot52_M1.lean:82:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if i = j then ?m.112 else ?m.113
+in the target expression
+  P.a i * P.c j = ε • (P.c j * P.a i)
+
+R : Type u_1
+inst✝³ : CommRing R
+M : Type u_2
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ε : R
+ι : Type u_3
+inst✝ : DecidableEq ι
+P : OccupationPair R M ε ι
+i j : ι
+h : i ≠ j
+x : M
+h2 : P.a i * P.c j = ε • (P.c j * P.a i)
+⊢ P.a i * P.c j = ε • (P.c j * P.a i)
+Pilot52_M1.lean:122:11: error: Application type mismatch: The argument
+  (P.c i) x
+has type
+  M
+of sort `Type u_2` but is expected to have type
+  t'.Nodup
+of sort `Prop` in the application
+  ih ((P.c i) x)
+Pilot52_M1.lean:164:52: error: unsolved goals
+R : Type u_4
+inst✝³ : CommRing R
+M : Type u_5
+inst✝² : AddCommGroup M
+inst✝¹ : Module R M
+ι : Type u_6
+inst✝ : DecidableEq ι
+P : OccupationPair R M (-1) ι
+h2 : 1 + 1 ≠ 0
+i : ι
+x : M
+h : (P.c i) ((P.c i) x) = -1 • (P.c i) ((P.c i) x)
+⊢ -(P.c i) ((P.c i) x) = (P.c i) ((P.c i) x)
+Pilot52_M1.lean:172:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module.IsTorsionFree R M
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot52_M1.lean:172:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsCancelMulZero R
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot52_M1.lean:224:28: warning: This simp argument is unused:
+  mul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:239:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  { toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n i) * x, map_add' := ⋯, map_smul' := ⋯ }
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n j) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    -1 •
+      { toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n j) * x, map_add' := ⋯, map_smul' := ⋯ }
+        ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n i) * x, map_add' := ⋯, map_smul' := ⋯ } x)
+
+n✝ n : ℕ
+i j : Fin n
+x : Sp n
+⊢ { toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n i) * x, map_add' := ⋯, map_smul' := ⋯ }
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n j) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    -1 •
+      { toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n j) * x, map_add' := ⋯, map_smul' := ⋯ }
+        ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (eVec n i) * x, map_add' := ⋯, map_smul' := ⋯ } x)
+Pilot52_M1.lean:257:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Pilot52_M1.lean:258:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+    ((CliffordAlgebra.ι 0) (Pi.single i 1) * x)
+in the target expression
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    x +
+      -{ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x, map_add' := ⋯, map_smul' := ⋯ }
+          ((CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+
+n✝ n : ℕ
+i : Fin n
+x : Sp n
+h1 :
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ((CliffordAlgebra.ι 0) (Pi.single i 1) * x) =
+    { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ } (Pi.single i 1) • x +
+      -((CliffordAlgebra.ι 0) (Pi.single i 1) *
+          (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+⊢ (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    x +
+      -{ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x, map_add' := ⋯, map_smul' := ⋯ }
+          ((CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x
+  has type
+    (fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x) = fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x
+  but is expected to have type
+    (fun x => (ExteriorAlgebra.ι ℂ) (eVec n i) * x) = fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x
+  in the application
+    id (Eq.refl fun x => (ExteriorAlgebra.ι ℂ) (Pi.single i 1) * x)
+Pilot52_M1.lean:265:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Pilot52_M1.lean:266:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+    ((CliffordAlgebra.ι 0) (Pi.single j 1) * x)
+in the target expression
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    -1 •
+      { toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x, map_add' := ⋯, map_smul' := ⋯ }
+        ((CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+
+n✝ n : ℕ
+i j : Fin n
+h : i ≠ j
+x : Sp n
+h1 :
+  (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ((CliffordAlgebra.ι 0) (Pi.single j 1) * x) =
+    { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ } (Pi.single j 1) • x -
+      (CliffordAlgebra.ι 0) (Pi.single j 1) *
+        (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x
+⊢ (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ })
+      ({ toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x, map_add' := ⋯, map_smul' := ⋯ } x) =
+    -1 •
+      { toFun := fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x, map_add' := ⋯, map_smul' := ⋯ }
+        ((CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x
+  has type
+    (fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x) = fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x
+  but is expected to have type
+    (fun x => (ExteriorAlgebra.ι ℂ) (eVec n j) * x) = fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x
+  in the application
+    id (Eq.refl fun x => (ExteriorAlgebra.ι ℂ) (Pi.single j 1) * x)
+Pilot52_M1.lean:270:4: error: Type mismatch: After simplification, term
+  CliffordAlgebra.contractLeft_one 0 (LinearMap.proj ?m.184)
+ has type
+  True
+but is expected to have type
+  (fermAnnihilate n x✝) 1 = 0
+Pilot52_M1.lean:256:69: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.add_apply, LinearMap.smul_apply,
+    one_apply_eq_self, eVec, LinearMap.proj, if_pos rfl, one_smul, neg_one_smul, sub_eq_add_neg] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:257:6: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.add_apply, LinearMap.smul_apply,
+    one_apply_eq_self, eVec, LinearMap.proj, Pi.single_apply, one_smul, neg_one_smul, sub_eq_add_neg] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:257:18: warning: This simp argument is unused:
+  one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.add_apply, LinearMap.smul_apply,
+    one_apply_eq_self, eVec, LinearMap.proj, Pi.single_apply, if_pos rfl, neg_one_smul, sub_eq_add_neg] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:265:22: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.smul_apply, eVec, LinearMap.proj,
+    if_neg h, zero_smul, zero_sub] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:265:39: warning: This simp argument is unused:
+  if_neg h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.smul_apply, eVec, LinearMap.proj,
+    Pi.single_apply, zero_smul, zero_sub] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:265:49: warning: This simp argument is unused:
+  zero_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.smul_apply, eVec, LinearMap.proj,
+    Pi.single_apply, if_neg h, zero_sub] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:265:60: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fermCreate, fermAnnihilate, mul_apply_eq_comp, LinearMap.smul_apply, eVec, LinearMap.proj,
+    Pi.single_apply, if_neg h, zero_smul] at h1 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.fermionicPair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot50_Dirichlet.lean: OK
+[probe]   Pilot52_M1.lean: FAIL (7 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-EbTYVE9s1bSteSSipgIvBi

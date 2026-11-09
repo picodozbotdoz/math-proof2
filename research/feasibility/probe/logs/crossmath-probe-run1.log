@@ -1,0 +1,298 @@
+# provenance: /tmp/crossmath-probe-run1.log | mtime 2026-11-09 18:44 | producing lane: R9 (probe lane) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-PUlXy5WhqiKpcPvxi0Aepw
+Building image im-wyhoSZWDEdNFvnW0653jGY
+
+=> Step 0: FROM base
+
+=> Step 1: RUN curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /tmp
+
+=> Step 2: RUN mkdir -p /opt/elan
+
+=> Step 3: RUN ELAN_HOME=/opt/elan /tmp/elan-init -y --default-toolchain none
+
+=> Step 4: RUN ELAN_HOME=/opt/elan /opt/elan/bin/elan toolchain install leanprover/lean4:v4.36.0-rc2
+info: downloading https://releases.lean-lang.org/lean4/v4.36.0-rc2/lean-4.36.0-rc2-linux.tar.zst
+info: installing /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2
+
+leanprover/lean4:v4.36.0-rc2 installed - Lean (version 4.36.0-rc2, x86_64-unknown-linux-gnu, commit b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a, Release)
+
+Saving image...
+Image saved, took 4.57s
+
+Built image im-wyhoSZWDEdNFvnW0653jGY in 25.53s
+
+
+Building image im-sMYNnu0NcSVDx2WPQgvVen
+
+=> Step 0: FROM base
+
+=> Step 1: RUN git init /opt/mathlib
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /opt/mathlib/.git/
+
+=> Step 2: RUN cd /opt/mathlib && git remote add origin https://github.com/leanprover-community/mathlib4.git
+
+=> Step 3: RUN cd /opt/mathlib && git fetch --depth 1 origin ff2494ea5e438f8a8452db803068acd711fa0059 && git checkout -q FETCH_HEAD
+From https://github.com/leanprover-community/mathlib4
+ * branch            ff2494ea5e438f8a8452db803068acd711fa0059 -> FETCH_HEAD
+
+=> Step 4: RUN cd /opt/mathlib && ELAN_HOME=/opt/elan /opt/elan/bin/lake exe cache get
+info: plausible: materializing new dependency
+info: plausible: fetching revision '129d1ba9a16bc0660f46c79e9fb041ef5d5d80de' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '129d1ba9a16bc0660f46c79e9fb041ef5d5d80de'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision 'c61286b7b63cbfd563b28e11e81d0a18233a044a' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c61286b7b63cbfd563b28e11e81d0a18233a044a'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision 'e5d5639bedc7feecfbcb98e30b3bf26463d9f722' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e5d5639bedc7feecfbcb98e30b3bf26463d9f722'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision '16259c0d07d61ee37d999d05b5cf96338b8daa11' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '16259c0d07d61ee37d999d05b5cf96338b8daa11'
+info: aesop: materializing new dependency
+info: aesop: fetching revision '7d11bfa88558f8d3d90afdf6bd877ed70001498d' from https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '7d11bfa88558f8d3d90afdf6bd877ed70001498d'
+info: Qq: materializing new dependency
+info: Qq: fetching revision 'b0256621cb88178e9ad932a53633077b3029e621' from https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'b0256621cb88178e9ad932a53633077b3029e621'
+info: batteries: materializing new dependency
+info: batteries: fetching revision '4af7237d146261353907b06a01b6f3fc06cfa067' from https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '4af7237d146261353907b06a01b6f3fc06cfa067'
+info: Cli: materializing new dependency
+info: Cli: fetching revision 'c09cb1e4f1e6e1c231a1175a12b681b075054a1b' from https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'c09cb1e4f1e6e1c231a1175a12b681b075054a1b'
+✔ [1/7] Built Cache.Cli (301ms)
+✔ [3/7] Built Cache.Lean (346ms)
+✔ [8/61] Built Cache.Env (281ms)
+✔ [10/61] Built Cache.Infra (286ms)
+✔ [12/61] Built Batteries.Tactic.OpenPrivate (844ms)
+✔ [14/61] Built Cache.Cli:c.o (879ms)
+✔ [15/61] Built Cache.Lean:c.o (912ms)
+✔ [16/61] Built Cache.Env:c.o (634ms)
+✔ [17/61] Built Cache.Infra:c.o (353ms)
+✔ [18/61] Built Cache.Location (517ms)
+✔ [20/61] Built Cache.Location:c.o (193ms)
+✔ [21/61] Built Batteries.Tactic.OpenPrivate:c.o (756ms)
+✔ [22/61] Built Cache.IO (1.0s)
+✔ [24/61] Built Cache.Hashing (501ms)
+✔ [26/61] Built Cache.Hashing:c.o (433ms)
+✔ [27/61] Built Cache.IO:c.o (1.1s)
+✔ [28/61] Built Cache.Requests (1.4s)
+✔ [30/61] Built Cache.Marker (325ms)
+✔ [32/61] Built Cache.Marker:c.o (115ms)
+✔ [33/61] Built Cache.Upload.Curl (355ms)
+✔ [35/61] Built Cache.Upload.Rclone (393ms)
+✔ [37/61] Built Cache.Query (415ms)
+✔ [39/61] Built Cache.Upload.Curl:c.o (161ms)
+✔ [40/61] Built Cache.Upload.Rclone:c.o (186ms)
+✔ [41/61] Built Cache.Query:c.o (204ms)
+✔ [42/61] Built Cache.Upload.Azure (354ms)
+✔ [44/61] Built Cache.Upload.S3 (449ms)
+✔ [46/61] Built Cache.Warning (408ms)
+✔ [48/61] Built Cache.Upload.Azure:c.o (106ms)
+✔ [49/61] Built Cache.Warning:c.o (228ms)
+✔ [50/61] Built Cache.Upload.S3:c.o (222ms)
+✔ [51/61] Built Cache.Upload.Defs (345ms)
+✔ [53/61] Built Cache.Upload.Defs:c.o (142ms)
+✔ [54/61] Built Cache.Upload (303ms)
+✔ [56/61] Built Cache.Requests:c.o (1.9s)
+✔ [57/61] Built Cache.Upload:c.o (89ms)
+✔ [58/61] Built Cache.Main (633ms)
+✔ [60/61] Built Cache.Main:c.o (634ms)
+✔ [61/61] Built cache:exe (2.0s)
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Attempting to download 9096 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+[1ADownloaded: 28 file(s) [attempted 28/9096 = 0%, 417 KB/s][K
+[1ADownloaded: 155 file(s) [attempted 155/9096 = 1%, 122 KB/s][K
+[1ADownloaded: 282 file(s) [attempted 282/9096 = 3%, 2288 KB/s][K
+[1ADownloaded: 350 file(s) [attempted 350/9096 = 3%, 897 KB/s][K
+[1ADownloaded: 464 file(s) [attempted 464/9096 = 5%, 1523 KB/s][K
+[1ADownloaded: 597 file(s) [attempted 597/9096 = 6%, 877 KB/s][K
+[1ADownloaded: 694 file(s) [attempted 694/9096 = 7%, 1334 KB/s][K
+[1ADownloaded: 794 file(s) [attempted 794/9096 = 8%, 1163 KB/s][K
+[1ADownloaded: 904 file(s) [attempted 904/9096 = 9%, 856 KB/s][K
+[1ADownloaded: 988 file(s) [attempted 988/9096 = 10%, 787 KB/s][K
+[1ADownloaded: 1112 file(s) [attempted 1112/9096 = 12%, 588 KB/s][K
+[1ADownloaded: 1237 file(s) [attempted 1237/9096 = 13%, 1074 KB/s][K
+[1ADownloaded: 1371 file(s) [attempted 1371/9096 = 15%, 1245 KB/s][K
+[1ADownloaded: 1495 file(s) [attempted 1495/9096 = 16%, 2419 KB/s][K
+[1ADownloaded: 1628 file(s) [attempted 1628/9096 = 17%, 104 KB/s][K
+[1ADownloaded: 1759 file(s) [attempted 1759/9096 = 19%, 2887 KB/s][K
+[1ADownloaded: 1866 file(s) [attempted 1866/9096 = 20%, 2181 KB/s][K
+[1ADownloaded: 1983 file(s) [attempted 1983/9096 = 21%, 4554 KB/s][K
+[1ADownloaded: 2089 file(s) [attempted 2089/9096 = 22%, 733 KB/s][K
+[1ADownloaded: 2196 file(s) [attempted 2196/9096 = 24%, 2833 KB/s][K
+[1ADownloaded: 2292 file(s) [attempted 2292/9096 = 25%, 1862 KB/s][K
+[1ADownloaded: 2422 file(s) [attempted 2422/9096 = 26%, 2411 KB/s][K
+[1ADownloaded: 2534 file(s) [attempted 2534/9096 = 27%, 2001 KB/s][K
+[1ADownloaded: 2649 file(s) [attempted 2649/9096 = 29%, 1339 KB/s][K
+[1ADownloaded: 2762 file(s) [attempted 2762/9096 = 30%, 1191 KB/s][K
+[1ADownloaded: 2865 file(s) [attempted 2865/9096 = 31%, 576 KB/s][K
+[1ADownloaded: 3003 file(s) [attempted 3003/9096 = 33%, 4793 KB/s][K
+[1ADownloaded: 3124 file(s) [attempted 3124/9096 = 34%, 4398 KB/s][K
+[1ADownloaded: 3233 file(s) [attempted 3233/9096 = 35%, 2580 KB/s][K
+[1ADownloaded: 3357 file(s) [attempted 3357/9096 = 36%, 1734 KB/s][K
+[1ADownloaded: 3484 file(s) [attempted 3484/9096 = 38%, 1447 KB/s][K
+[1ADownloaded: 3600 file(s) [attempted 3600/9096 = 39%, 2240 KB/s][K
+[1ADownloaded: 3724 file(s) [attempted 3724/9096 = 40%, 1233 KB/s][K
+[1ADownloaded: 3844 file(s) [attempted 3844/9096 = 42%, 690 KB/s][K
+[1ADownloaded: 3953 file(s) [attempted 3953/9096 = 43%, 1627 KB/s][K
+[1ADownloaded: 4058 file(s) [attempted 4058/9096 = 44%, 431 KB/s][K
+[1ADownloaded: 4176 file(s) [attempted 4176/9096 = 45%, 1227 KB/s][K
+[1ADownloaded: 4284 file(s) [attempted 4284/9096 = 47%, 3395 KB/s][K
+[1ADownloaded: 4387 file(s) [attempted 4387/9096 = 48%, 1126 KB/s][K
+[1ADownloaded: 4521 file(s) [attempted 4521/9096 = 49%, 2814 KB/s][K
+[1ADownloaded: 4637 file(s) [attempted 4637/9096 = 50%, 3432 KB/s][K
+[1ADownloaded: 4751 file(s) [attempted 4751/9096 = 52%, 1232 KB/s][K
+[1ADownloaded: 4865 file(s) [attempted 4865/9096 = 53%, 987 KB/s][K
+[1ADownloaded: 4971 file(s) [attempted 4971/9096 = 54%, 490 KB/s][K
+[1ADownloaded: 5081 file(s) [attempted 5081/9096 = 55%, 810 KB/s][K
+[1ADownloaded: 5218 file(s) [attempted 5218/9096 = 57%, 4924 KB/s][K
+[1ADownloaded: 5287 file(s) [attempted 5287/9096 = 58%, 829 KB/s][K
+[1ADownloaded: 5397 file(s) [attempted 5397/9096 = 59%, 525 KB/s][K
+[1ADownloaded: 5510 file(s) [attempted 5510/9096 = 60%, 1021 KB/s][K
+[1ADownloaded: 5610 file(s) [attempted 5610/9096 = 61%, 76 KB/s][K
+[1ADownloaded: 5717 file(s) [attempted 5717/9096 = 62%, 1017 KB/s][K
+[1ADownloaded: 5820 file(s) [attempted 5820/9096 = 63%, 2467 KB/s][K
+[1ADownloaded: 5926 file(s) [attempted 5926/9096 = 65%, 2424 KB/s][K
+[1ADownloaded: 6021 file(s) [attempted 6021/9096 = 66%, 3025 KB/s][K
+[1ADownloaded: 6091 file(s) [attempted 6091/9096 = 66%, 346 KB/s][K
+[1ADownloaded: 6218 file(s) [attempted 6218/9096 = 68%, 444 KB/s][K
+[1ADownloaded: 6331 file(s) [attempted 6331/9096 = 69%, 2381 KB/s][K
+[1ADownloaded: 6421 file(s) [attempted 6421/9096 = 70%, 2003 KB/s][K
+[1ADownloaded: 6496 file(s) [attempted 6496/9096 = 71%, 2809 KB/s][K
+[1ADownloaded: 6578 file(s) [attempted 6578/9096 = 72%, 1382 KB/s][K
+[1ADownloaded: 6675 file(s) [attempted 6675/9096 = 73%, 878 KB/s][K
+[1ADownloaded: 6778 file(s) [attempted 6778/9096 = 74%, 764 KB/s][K
+[1ADownloaded: 6875 file(s) [attempted 6875/9096 = 75%, 262 KB/s][K
+[1ADownloaded: 6988 file(s) [attempted 6988/9096 = 76%, 488 KB/s][K
+[1ADownloaded: 7098 file(s) [attempted 7098/9096 = 78%, 5762 KB/s][K
+[1ADownloaded: 7211 file(s) [attempted 7211/9096 = 79%, 4192 KB/s][K
+[1ADownloaded: 7335 file(s) [attempted 7335/9096 = 80%, 679 KB/s][K
+[1ADownloaded: 7461 file(s) [attempted 7461/9096 = 82%, 615 KB/s][K
+[1ADownloaded: 7578 file(s) [attempted 7578/9096 = 83%, 606 KB/s][K
+[1ADownloaded: 7685 file(s) [attempted 7685/9096 = 84%, 303 KB/s][K
+[1ADownloaded: 7757 file(s) [attempted 7757/9096 = 85%, 1099 KB/s][K
+[1ADownloaded: 7884 file(s) [attempted 7884/9096 = 86%, 613 KB/s][K
+[1ADownloaded: 7974 file(s) [attempted 7974/9096 = 87%, 743 KB/s][K
+[1ADownloaded: 8104 file(s) [attempted 8104/9096 = 89%, 568 KB/s][K
+[1ADownloaded: 8223 file(s) [attempted 8223/9096 = 90%, 749 KB/s][K
+[1ADownloaded: 8334 file(s) [attempted 8334/9096 = 91%, 336 KB/s][K
+[1ADownloaded: 8458 file(s) [attempted 8458/9096 = 92%, 3081 KB/s][K
+[1ADownloaded: 8571 file(s) [attempted 8571/9096 = 94%, 810 KB/s][K
+[1ADownloaded: 8687 file(s) [attempted 8687/9096 = 95%, 5022 KB/s][K
+[1ADownloaded: 8791 file(s) [attempted 8791/9096 = 96%, 409 KB/s][K
+[1ADownloaded: 8897 file(s) [attempted 8897/9096 = 97%, 410 KB/s][K
+[1ADownloaded: 8980 file(s) [attempted 8980/9096 = 98%, 1125 KB/s][K
+[1ADownloaded: 9076 file(s) [attempted 9076/9096 = 99%, 167 KB/s][KDownloaded: 9096 file(s) [attempted 9096/9096 = 100%, 167 KB/s][K
+Still decompressing downloaded files...
+Decompressed 9096 file(s)
+Already decompressed 9096 file(s)
+Saving image...
+Image saved, took 55.14s
+
+Built image im-sMYNnu0NcSVDx2WPQgvVen in 142.12s
+
+
+Building image im-M33Q5aCYaZzLfxsgEn0ygv
+
+=> Step 0: FROM base
+
+=> Step 1: ENV ELAN_HOME=/opt/elan
+
+=> Step 2: ENV PATH=/opt/elan/bin:/usr/local/bin:/usr/bin:/bin
+Saving image...
+Image saved, took 6.12s
+
+Built image im-M33Q5aCYaZzLfxsgEn0ygv in 7.56s
+
+
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 5 probe file(s): ['Probe0_Smoke.lean', 'ProbeA.lean', 'ProbeB1_RHLinalg.lean', 'ProbeB2_EthTime.lean', 'ProbeB3_3sumEnd.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Probe0_Smoke.lean
+[probe] Probe0_Smoke.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== ProbeA.lean
+[probe] ProbeA.lean: FAIL rc=1; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+Turing.FinTM2 : Type 1
+Turing.TM2ComputableAux : Type → Type → Type 1
+Turing.TM2OutputsInTime : (tm : Turing.FinTM2) → List (tm.Γ tm.k₀) → Option (List (tm.Γ tm.k₁)) → ℕ → Type
+@Turing.TM2ComputableInPolyTime : {α β αΓ βΓ : Type} → (α → List αΓ) → (β → List βΓ) → (α → β) → Type 1
+ProbeA.lean:29:8: error(lean.unknownIdentifier): Unknown identifier `tendsto_sum_div`
+riemannZetaZeros : Set ℂ
+isDiscrete_riemannZetaZeros : IsDiscrete riemannZetaZeros
+@IsCompact.inter_riemannZetaZeros_finite : ∀ {S : Set ℂ}, IsCompact S → (S ∩ riemannZetaZeros).Finite
+@analyticOrderAt : {𝕜 : Type u_1} →
+  {E : Type u_2} →
+    [inst : NontriviallyNormedField 𝕜] → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → ℕ∞
+completedRiemannZeta₀ : ℂ → ℂ
+hardyZ : ℝ → ℝ
+@Matrix.IsHermitian.eigenvalues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] → {n : Type u_2} → [Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → n → ℝ
+@Matrix.IsHermitian.eigenvalues₀ : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → Fin (Fintype.card n) → ℝ
+@Matrix.PosSemidef : {n : Type u_1} →
+  {R : Type u_2} → [inst : Ring R] → [PartialOrder R] → [StarRing R] → Matrix n n R → Prop
+@Matrix.rank : {m : Type u_1} → {n : Type u_2} → {R : Type u_3} → [Fintype n] → [CommSemiring R] → Matrix m n R → ℕ
+ProbeA.lean:42:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigPos`
+ProbeA.lean:43:8: error(lean.unknownIdentifier): Unknown constant `QuadraticForm.sigNeg`
+@LinearMap.singularValues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {E : Type u_2} →
+      [inst_1 : NormedAddCommGroup E] →
+        [inst_2 : InnerProductSpace 𝕜 E] →
+          [FiniteDimensional 𝕜 E] →
+            {F : Type u_3} →
+              [inst_4 : NormedAddCommGroup F] →
+                [inst_5 : InnerProductSpace 𝕜 F] → [FiniteDimensional 𝕜 F] → (E →ₗ[𝕜] F) → ℕ →₀ ℝ
+Real.smoothTransition : ℝ → ℝ
+ProbeA.lean:48:8: error(lean.unknownIdentifier): Unknown identifier `digamma`
+@Holor.CPRankMax : {α : Type} → [Mul α] → [AddMonoid α] → ℕ → {ds : List ℕ} → Holor α ds → Prop
+@Holor.CPRankMax1 : {α : Type} → [Mul α] → {ds : List ℕ} → Holor α ds → Prop
+
+=== ProbeB1_RHLinalg.lean
+[probe] ProbeB1_RHLinalg.lean: OK; errors=0, sorry-warnings=0, other-warnings=3
+---- output head ----
+ProbeB1_RHLinalg.lean:47:8: warning: declaration uses `sorry`
+ProbeB1_RHLinalg.lean:54:8: warning: declaration uses `sorry`
+ProbeB1_RHLinalg.lean:63:8: warning: declaration uses `sorry`
+
+=== ProbeB2_EthTime.lean
+[probe] ProbeB2_EthTime.lean: OK; errors=0, sorry-warnings=0, other-warnings=1
+---- output head ----
+ProbeB2_EthTime.lean:24:8: warning: declaration uses `sorry`
+
+=== ProbeB3_3sumEnd.lean
+[probe] ProbeB3_3sumEnd.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+[probe] SUMMARY
+[probe]   Probe0_Smoke.lean: OK
+[probe]   ProbeA.lean: FAIL rc=1
+[probe]   ProbeB1_RHLinalg.lean: OK
+[probe]   ProbeB2_EthTime.lean: OK
+[probe]   ProbeB3_3sumEnd.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-PUlXy5WhqiKpcPvxi0Aepw

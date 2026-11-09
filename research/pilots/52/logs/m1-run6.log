@@ -1,0 +1,72 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-xsoUTWVNQYMYQGfNvwAWaj
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot52-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot50_Dirichlet.lean', 'Pilot52_M1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot50_Dirichlet.lean
+[probe] Pilot50_Dirichlet.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Pilot52_M1.lean
+[probe] Pilot52_M1.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=2
+---- output head ----
+Pilot52_M1.lean:222:28: warning: This simp argument is unused:
+  mul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot52_M1.lean:241:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 * ?a
+in the target expression
+  ((ExteriorAlgebra.ι ℂ) (eVec n i) * (ExteriorAlgebra.ι ℂ) (eVec n j) +
+        (ExteriorAlgebra.ι ℂ) (eVec n j) * (ExteriorAlgebra.ι ℂ) (eVec n i)) *
+      x =
+    (ExteriorAlgebra.ι ℂ) ?x * (ExteriorAlgebra.ι ℂ) ?y + (ExteriorAlgebra.ι ℂ) ?y * (ExteriorAlgebra.ι ℂ) ?x
+
+n✝ n : ℕ
+i j : Fin n
+x : Sp n
+⊢ ((ExteriorAlgebra.ι ℂ) (eVec n i) * (ExteriorAlgebra.ι ℂ) (eVec n j) +
+        (ExteriorAlgebra.ι ℂ) (eVec n j) * (ExteriorAlgebra.ι ℂ) (eVec n i)) *
+      x =
+    (ExteriorAlgebra.ι ℂ) ?x * (ExteriorAlgebra.ι ℂ) ?y + (ExteriorAlgebra.ι ℂ) ?y * (ExteriorAlgebra.ι ℂ) ?x
+Pilot52_M1.lean:256:13: error: unsolved goals
+n✝ n : ℕ
+i : Fin n
+x : Sp n
+h1 :
+  (CliffordAlgebra.contractLeft (LinearMap.proj i)) ((CliffordAlgebra.ι 0) (eVec n i) * x) =
+    (LinearMap.proj i) (eVec n i) • x -
+      (CliffordAlgebra.ι 0) (eVec n i) * (CliffordAlgebra.contractLeft (LinearMap.proj i)) x
+⊢ x -
+      (CliffordAlgebra.ι 0) (Pi.single i 1) *
+        (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x =
+    x +
+      -((ExteriorAlgebra.ι ℂ) (Pi.single i 1) *
+          (CliffordAlgebra.contractLeft { toFun := Function.eval i, map_add' := ⋯, map_smul' := ⋯ }) x)
+Pilot52_M1.lean:279:51: warning: This simp argument is unused:
+  neg_one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, h, sub_eq_add_neg, zero_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.fermionicPair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot50_Dirichlet.lean: OK
+[probe]   Pilot52_M1.lean: FAIL (2 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-xsoUTWVNQYMYQGfNvwAWaj

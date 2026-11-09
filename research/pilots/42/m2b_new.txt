@@ -1,0 +1,378 @@
+
+/-! ## M2b: the donor swap — cumulative layer, transcribed clean-layer statements, landed theorems
+
+**BINDER INVENTORY (post-M2b)** — the landed theorems carry, and only carry:
+  - `hCert : cert` — Knausgård's local-inequality certificate as an explicit hypothesis
+    (his `LocalInequality` Prop; opaque here). EnclOK precedent (zeta23
+    `PairCeiling/NumericCert.lean:72`): his headline theorems carry a `native_decide`
+    axiom (his `lean/axioms.txt`, 2026-10-06) and are NEVER consumed; his clean
+    `*_of_local`/`*_of_layers` endpoints (propext/Classical.choice/Quot.sound only) are
+    what is transcribed. External audit artifacts (never run): C++ box verifier
+    (60,467,309 boxes), Python checkers, CHECKSUMS.sha256 (R8,
+    `research/novelty/knausgaard-as-donor.md` §1b).
+  - `hK673` / `hK839` — the transcriptions (defs below), cumulative (0,T] forms.
+  - `hEχ` / `hEχd` — the χ-side statements from zeta23's ThmE (unmodified in his tree;
+    cumulative variant), still binders.
+  - the M2a structural set: `hζ`, `hχ`, `hK`, `hK1`, `hP1`, `hfac`, `hfinK/ζ/χ` (tauceti
+    ported statements) and `hntopζ` — the M2a residue as its own named binder (discharge
+    path: `IsCompact.inter_riemannZetaZeros_finite`, ZetaZeros.lean:68, vs an infinite
+    ball family; blueprint §M2a). `hntopχ` is discharged for nonprincipal χ.
+
+Transcribed sources (GitHub raw, kristianmk/839, paper 2 = arXiv:2610.08965):
+  * `lean/Distinct839/Compose.lean`:
+    `theorem distinct_zeros_839_of_local (hLoc : LocalInequality) : ∀ ε > 0, ∃ T₀ : ℝ,
+    ∀ T ≥ T₀, (1645064 / 1960733 - ε) * (Ncount 0 T : ℝ) ≤ Ndist 0 T`
+  * `lean/Simple673/Compose.lean`: `theorem simple_critical_zeros_673_of_layers (hWin …)
+    (hLoc : LocalInequality) : SimpleCritical673` with `simpleCritical673_iff` the ε-form
+    at 1669159 / 2478195 (N₀ˢ numerator, cumulative) — transcribed with the a-fortiori
+    numerator upgrade (his N₀ˢ ≤ our `countOnCum`). -/
+
+/-! ### Cumulative layer -/
+
+/-- Finiteness of the critical-line support in a cumulative window (0, T]. -/
+theorem lineFiniteCum {m : ℂ → ℕ} (hfin : WindowFinite m) (T : ℝ) :
+    (supp m ∩ lineWindow 0 T).Finite :=
+  Set.Finite.subset (hfin 0 T)
+    (Set.inter_subset_inter (Subset.refl _) (lineWindow_subset 0 T))
+
+open Classical in
+/-- Cumulative count with multiplicity `N(0, T]` (his `Ncount 0 T`). -/
+noncomputable def ZeroMult.countCum (z : ZeroMult) (T : ℝ) : ℕ :=
+  ∑ ρ ∈ (z.windowFinite 0 T).toFinset, z.mult ρ
+
+open Classical in
+/-- Cumulative critical-line count with multiplicity. -/
+noncomputable def ZeroMult.countOnCum (z : ZeroMult) (T : ℝ) : ℕ :=
+  ∑ ρ ∈ (lineFiniteCum z.windowFinite T).toFinset, z.mult ρ
+
+open Classical in
+/-- Cumulative distinct on-line count (his `Ndist 0 T` shape). -/
+noncomputable def ZeroMult.countDistinctOnCum (z : ZeroMult) (T : ℝ) : ℕ :=
+  (lineFiniteCum z.windowFinite T).toFinset.card
+
+open Classical in
+/-- The cumulative common-zeros defect `C_D(0, T]`. -/
+noncomputable def commonOnLineCum (z w : ZeroMult) (T : ℝ) : ℕ :=
+  let hI : ((supp z.mult ∩ lineWindow 0 T) ∩ (supp w.mult ∩ lineWindow 0 T)).Finite :=
+    Set.Finite.subset (lineFiniteCum z.windowFinite T) Set.inter_subset_left
+  hI.toFinset.card
+
+/-- The ε-form cumulative proportion statement (with-multiplicity numerator). -/
+def EpsLowerCum (z : ZeroMult) (c : ℝ) : Prop :=
+  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T → (c - ε) * (z.countCum T : ℝ) ≤ (z.countOnCum T : ℝ)
+
+/-- The ε-form cumulative distinct-count proportion statement. -/
+def EpsLowerDistinctCum (z : ZeroMult) (c : ℝ) : Prop :=
+  ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+    (c - ε) * (z.countCum T : ℝ) ≤ (z.countDistinctOnCum T : ℝ)
+
+theorem countCum_add (z w : ZeroMult) (T : ℝ) :
+    (ZeroMult.add z w).countCum T = z.countCum T + w.countCum T :=
+  sum_inter_distrib (a := z.mult) (b := w.mult) (c := z.mult + w.mult)
+    (fun ρ => Pi.add_apply z.mult w.mult ρ)
+    (z.windowFinite 0 T) (w.windowFinite 0 T) ((ZeroMult.add z w).windowFinite 0 T)
+
+theorem countOnCum_add (z w : ZeroMult) (T : ℝ) :
+    (ZeroMult.add z w).countOnCum T = z.countOnCum T + w.countOnCum T :=
+  sum_inter_distrib (a := z.mult) (b := w.mult) (c := z.mult + w.mult)
+    (fun ρ => Pi.add_apply z.mult w.mult ρ)
+    (lineFiniteCum z.windowFinite T) (lineFiniteCum w.windowFinite T)
+    (lineFiniteCum (ZeroMult.add z w).windowFinite T)
+
+theorem countDistinctOnCum_add (z w : ZeroMult) (T : ℝ) :
+    (ZeroMult.add z w).countDistinctOnCum T + commonOnLineCum z w T
+      = z.countDistinctOnCum T + w.countDistinctOnCum T := by
+  have hA : (supp z.mult ∩ lineWindow 0 T).Finite := lineFiniteCum z.windowFinite T
+  have hB : (supp w.mult ∩ lineWindow 0 T).Finite := lineFiniteCum w.windowFinite T
+  have hU : ((supp z.mult ∩ lineWindow 0 T) ∪ (supp w.mult ∩ lineWindow 0 T)).Finite :=
+    hA.union hB
+  have hset : supp (ZeroMult.add z w).mult ∩ lineWindow 0 T
+      = (supp z.mult ∩ lineWindow 0 T) ∪ (supp w.mult ∩ lineWindow 0 T) := by
+    show supp (z.mult + w.mult) ∩ lineWindow 0 T = _
+    rw [supp_add_eq, Set.union_inter_distrib_right]
+  have hK : (supp (ZeroMult.add z w).mult ∩ lineWindow 0 T).Finite :=
+    lineFiniteCum (ZeroMult.add z w).windowFinite T
+  have hI : ((supp z.mult ∩ lineWindow 0 T) ∩ (supp w.mult ∩ lineWindow 0 T)).Finite :=
+    Set.Finite.subset hA Set.inter_subset_left
+  have eL : (ZeroMult.add z w).countDistinctOnCum T = hU.toFinset.card := by
+    unfold ZeroMult.countDistinctOnCum
+    rw [((Set.Finite.toFinset_inj (hs := hK) (ht := hU))).mpr hset]
+  have eI : commonOnLineCum z w T = hI.toFinset.card := rfl
+  have eA : z.countDistinctOnCum T = hA.toFinset.card := rfl
+  have eB : w.countDistinctOnCum T = hB.toFinset.card := rfl
+  rw [eL, eI, eA, eB, Set.Finite.toFinset_union hA hB, Set.Finite.toFinset_inter hA hB,
+    Finset.card_union_add_card_inter]
+
+/-- **Monotone absorption** (the discharge engine; direction verified by R8 §2a): a
+strictly stronger constant is absorbed for free — `(c−ε)·N ≤ (c′−ε)·N ≤ X`. -/
+theorem EpsLowerCum_mono {z : ZeroMult} {c c' : ℝ} (hc : c ≤ c')
+    (h : EpsLowerCum z c') : EpsLowerCum z c := by
+  intro ε hε
+  obtain ⟨T₀, hT₀⟩ := h ε hε
+  refine ⟨T₀, fun T hT => ?_⟩
+  have hN : (0 : ℝ) ≤ (z.countCum T : ℝ) := Nat.cast_nonneg _
+  exact le_trans (mul_le_mul_of_nonneg_right (by linarith) hN) (hT₀ T hT)
+
+theorem EpsLowerDistinctCum_mono {z : ZeroMult} {c c' : ℝ} (hc : c ≤ c')
+    (h : EpsLowerDistinctCum z c') : EpsLowerDistinctCum z c := by
+  intro ε hε
+  obtain ⟨T₀, hT₀⟩ := h ε hε
+  refine ⟨T₀, fun T hT => ?_⟩
+  have hN : (0 : ℝ) ≤ (z.countCum T : ℝ) := Nat.cast_nonneg _
+  exact le_trans (mul_le_mul_of_nonneg_right (by linarith) hN) (hT₀ T hT)
+
+theorem two_thirds_le_673 : (2 / 3 : ℝ) ≤ 1669159 / 2478195 := by norm_num
+
+theorem five_sixths_le_839 : (5 / 6 : ℝ) ≤ 1645064 / 1960733 := by norm_num
+
+/-! ### Transcribed clean-layer statements (Knausgård donor) -/
+
+/-- **Transcription of `simple_critical_zeros_673_of_layers`** (kristianmk/839,
+`lean/Simple673/Compose.lean`; his layer hypotheses + `LocalInequality` rolled into
+`hyps`). Numerator upgrade is a fortiori: his N₀ˢ ≤ our `countOnCum`. -/
+def K673OfLayers (hyps : Prop) (z : ZeroMult) : Prop :=
+  hyps → EpsLowerCum z (1669159 / 2478195)
+
+/-- **Transcription of `distinct_zeros_839_of_local`** (kristianmk/839,
+`lean/Distinct839/Compose.lean`; `hyps` = his `LocalInequality`). -/
+def K839OfLocal (hyps : Prop) (z : ZeroMult) : Prop :=
+  hyps → EpsLowerDistinctCum z (1645064 / 1960733)
+
+/-! ### Cumulative wiring -/
+
+open Classical in
+noncomputable def countCumOf {f : ℂ → ℂ} (hfin : WindowFinite (multOf f)) (T : ℝ) : ℕ :=
+  ∑ ρ ∈ (hfin 0 T).toFinset, multOf f ρ
+
+open Classical in
+noncomputable def countOnCumOf {f : ℂ → ℂ} (hfin : WindowFinite (multOf f)) (T : ℝ) : ℕ :=
+  ∑ ρ ∈ (lineFiniteCum hfin T).toFinset, multOf f ρ
+
+theorem countCumOf_add_of_factorization {fK fζ fχ : ℂ → ℂ}
+    (hmult : ∀ ρ : ℂ, ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ)
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ)) (T : ℝ) :
+    countCumOf hfinK T = countCumOf hfinζ T + countCumOf hfinχ T :=
+  sum_inter_distrib_mem (fun ρ hρ => hmult ρ (stripWindow_ne_one hρ))
+    (hfinζ 0 T) (hfinχ 0 T) (hfinK 0 T)
+
+theorem countOnCumOf_add_of_factorization {fK fζ fχ : ℂ → ℂ}
+    (hmult : ∀ ρ : ℂ, ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ)
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ)) (T : ℝ) :
+    countOnCumOf hfinK T = countOnCumOf hfinζ T + countOnCumOf hfinχ T :=
+  sum_inter_distrib_mem (fun ρ hρ => hmult ρ (lineWindow_ne_one hρ))
+    (lineFiniteCum hfinζ T) (lineFiniteCum hfinχ T) (lineFiniteCum hfinK T)
+
+theorem countDistinctOnCum_of_factorization {fK fζ fχ : ℂ → ℂ}
+    (hmult : ∀ ρ : ℂ, ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ)
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ)) (T : ℝ) :
+    (⟨multOf fK, hfinK⟩ : ZeroMult).countDistinctOnCum T
+      = (⟨multOf fζ, hfinζ⟩ : ZeroMult).countDistinctOnCum T
+        + (⟨multOf fχ, hfinχ⟩ : ZeroMult).countDistinctOnCum T := by
+  have hset : supp (multOf fK) ∩ lineWindow 0 T
+      = (supp (multOf fζ) ∩ lineWindow 0 T) ∪ (supp (multOf fχ) ∩ lineWindow 0 T) := by
+    ext ρ
+    by_cases hρ : ρ ∈ lineWindow 0 T
+    · have h1 := hmult ρ (lineWindow_ne_one hρ)
+      simp only [Set.mem_inter_iff, Set.mem_union, mem_supp_iff]
+      rw [h1]
+      simp [Nat.add_eq_zero_iff]
+    · simp only [Set.mem_inter_iff, Set.mem_union]
+      constructor
+      · rintro ⟨h, h'⟩; exact hρ h'
+      · rintro (⟨h, h'⟩ | ⟨h, h'⟩) <;> exact hρ h'
+  have hKey : supp (ZeroMult.add (⟨multOf fζ, hfinζ⟩ : ZeroMult)
+        ⟨multOf fχ, hfinχ⟩).mult ∩ lineWindow 0 T = supp (multOf fK) ∩ lineWindow 0 T := by
+    rw [supp_add_eq]
+    exact hset.symm
+  have hcardK : (⟨multOf fK, hfinK⟩ : ZeroMult).countDistinctOnCum T
+      = (ZeroMult.add (⟨multOf fζ, hfinζ⟩ : ZeroMult) ⟨multOf fχ, hfinχ⟩).countDistinctOnCum T := by
+    unfold ZeroMult.countDistinctOnCum
+    rw [((Set.Finite.toFinset_inj
+        (hs := lineFiniteCum hfinK T)
+        (ht := lineFiniteCum (ZeroMult.add (⟨multOf fζ, hfinζ⟩ : ZeroMult)
+          ⟨multOf fχ, hfinχ⟩).windowFinite T))).mpr hKey]
+  rw [hcardK, countDistinctOnCum_add]
+
+theorem EpsLowerCum_congr {z w : ZeroMult} {c : ℝ}
+    (hcount : ∀ T, z.countCum T = w.countCum T) (hon : ∀ T, z.countOnCum T = w.countOnCum T)
+    (h : EpsLowerCum z c) : EpsLowerCum w c := by
+  intro ε hε
+  obtain ⟨T₀, hT₀⟩ := h ε hε
+  exact ⟨T₀, fun T hT => by rw [← hcount, ← hon]; exact hT₀ T hT⟩
+
+/-- Cumulative assembly (same max-T₀ algebra as the dyadic `assemble_eps`). -/
+theorem assemble_eps_cum {z w : ZeroMult} {c : ℝ}
+    (hz : EpsLowerCum z c) (hw : EpsLowerCum w c) :
+    EpsLowerCum (ZeroMult.add z w) c := by
+  intro ε hε
+  obtain ⟨T₁, hT₁⟩ := hz ε hε
+  obtain ⟨T₂, hT₂⟩ := hw ε hε
+  refine ⟨max T₁ T₂, fun T hT => ?_⟩
+  have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
+  have e2 := hT₂ T (le_trans (le_max_right T₁ T₂) hT)
+  rw [ZeroMult.countCum_add, ZeroMult.countOnCum_add]
+  push_cast
+  have hmul : (c - ε) * ((z.countCum T : ℝ) + (w.countCum T : ℝ))
+      = (c - ε) * (z.countCum T : ℝ) + (c - ε) * (w.countCum T : ℝ) := mul_add _ _ _
+  linarith
+
+/-- Cumulative defect assembly (mirror of `assemble_eps_defect`). -/
+theorem assemble_eps_defect_cum {z w : ZeroMult} {c : ℝ}
+    (hz : EpsLowerDistinctCum z c) (hw : EpsLowerDistinctCum w c) :
+    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (c - ε) * ((ZeroMult.add z w).countCum T : ℝ)
+        ≤ ((ZeroMult.add z w).countDistinctOnCum T : ℝ) + (commonOnLineCum z w T : ℝ) := by
+  intro ε hε
+  obtain ⟨T₁, hT₁⟩ := hz ε hε
+  obtain ⟨T₂, hT₂⟩ := hw ε hε
+  refine ⟨max T₁ T₂, fun T hT => ?_⟩
+  have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
+  have e2 := hT₂ T (le_trans (le_max_right T₁ T₂) hT)
+  have hcard := countDistinctOnCum_add z w T
+  rw [ZeroMult.countCum_add]
+  push_cast
+  have hmul : (c - ε) * ((z.countCum T : ℝ) + (w.countCum T : ℝ))
+      = (c - ε) * (z.countCum T : ℝ) + (c - ε) * (w.countCum T : ℝ) := mul_add _ _ _
+  have hd : (z.countDistinctOnCum T : ℝ) + (w.countDistinctOnCum T : ℝ)
+      = ((ZeroMult.add z w).countDistinctOnCum T : ℝ) + (commonOnLineCum z w T : ℝ) :=
+    by exact_mod_cast hcard.symm
+  linarith
+
+/-- The cumulative wiring core: factorization + the two cumulative proportion statements
+give the cumulative proportion statement for `fK`'s zero data. -/
+theorem epsLowerCum_of_factorization {fK fζ fχ : ℂ → ℂ} {c : ℝ}
+    (hζ : ∀ s ≠ 1, AnalyticAt ℂ fζ s) (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
+    (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
+    (hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1)
+    (hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1)
+    (hntopζ : ∀ ρ : ℂ, analyticOrderAt fζ ρ ≠ ⊤)
+    (hntopχ : ∀ ρ : ℂ, analyticOrderAt fχ ρ ≠ ⊤)
+    (hfac : FactorizationOnHalfPlane fK fζ fχ)
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ))
+    (hAζ : EpsLowerCum ⟨multOf fζ, hfinζ⟩ c) (hAχ : EpsLowerCum ⟨multOf fχ, hfinχ⟩ c) :
+    EpsLowerCum ⟨multOf fK, hfinK⟩ c := by
+  have hmult := hfac_of_factorization hK hζ hχ hK1 hP1 hntopζ hntopχ hfac
+  refine EpsLowerCum_congr (z := ZeroMult.add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩)
+      (w := ⟨multOf fK, hfinK⟩) ?_ ?_
+    (assemble_eps_cum (z := ⟨multOf fζ, hfinζ⟩) (w := ⟨multOf fχ, hfinχ⟩) hAζ hAχ)
+  · intro T
+    have h1 := countCumOf_add_of_factorization hmult hfinK hfinζ hfinχ T
+    have h2 := ZeroMult.countCum_add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T
+    have eζ : (⟨multOf fζ, hfinζ⟩ : ZeroMult).countCum T = countCumOf hfinζ T := rfl
+    have eχ : (⟨multOf fχ, hfinχ⟩ : ZeroMult).countCum T = countCumOf hfinχ T := rfl
+    rw [h2, eζ, eχ, ← h1]
+    rfl
+  · intro T
+    have h1 := countOnCumOf_add_of_factorization hmult hfinK hfinζ hfinχ T
+    have h2 := ZeroMult.countOnCum_add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T
+    have eζ : (⟨multOf fζ, hfinζ⟩ : ZeroMult).countOnCum T = countOnCumOf hfinζ T := rfl
+    have eχ : (⟨multOf fχ, hfinχ⟩ : ZeroMult).countOnCum T = countOnCumOf hfinχ T := rfl
+    rw [h2, eζ, eχ, ← h1]
+    rfl
+
+/-! ### The landed theorems -/
+
+/-- **LANDED (2/3, with-multiplicity, cumulative)** — the pilot's landing theorem: for the
+zero data of the quadratic Dedekind zeta (`fK`, identified via the factorization binders),
+liminf N^{on}(0,T]/N(0,T] ≥ 2/3. Conditional ONLY on: Knausgård's certificate
+(`hCert` + the transcribed clean layer `hK673`), zeta23's Dirichlet ThmE (`hEχ`), the
+tauceti ported statements (`hζ`–`hfin*`, `hfac`), and the M2a residue binder `hntopζ`. -/
+theorem zetaK_two_thirds_landed {fK fζ fχ : ℂ → ℂ} {cert : Prop}
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ))
+    (hCert : cert)
+    (hK673 : K673OfLayers cert ⟨multOf fζ, hfinζ⟩)
+    (hEχ : EpsLowerCum ⟨multOf fχ, hfinχ⟩ (2 / 3))
+    (hζ : ∀ s ≠ 1, AnalyticAt ℂ fζ s) (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
+    (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
+    (hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1)
+    (hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1)
+    (hntopζ : ∀ ρ : ℂ, analyticOrderAt fζ ρ ≠ ⊤)
+    (hntopχ : ∀ ρ : ℂ, analyticOrderAt fχ ρ ≠ ⊤)
+    (hfac : FactorizationOnHalfPlane fK fζ fχ) :
+    EpsLowerCum ⟨multOf fK, hfinK⟩ (2 / 3) :=
+  epsLowerCum_of_factorization hζ hχ hK hK1 hP1 hntopζ hntopχ hfac hfinK hfinζ hfinχ
+    (EpsLowerCum_mono two_thirds_le_673 (hK673 hCert)) hEχ
+
+/-- **LANDED (distinct 5/6 + C_D defect, cumulative)**: the defect-form distinct theorem,
+conditional on `hCert` + `hK839` + ThmE-distinct (`hEχd`) + the structural set. -/
+theorem zetaK_distinct_five_sixths_landed {fK fζ fχ : ℂ → ℂ} {cert : Prop}
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ))
+    (hCert : cert)
+    (hK839 : K839OfLocal cert ⟨multOf fζ, hfinζ⟩)
+    (hEχd : EpsLowerDistinctCum ⟨multOf fχ, hfinχ⟩ (5 / 6))
+    (hζ : ∀ s ≠ 1, AnalyticAt ℂ fζ s) (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
+    (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
+    (hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1)
+    (hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1)
+    (hntopζ : ∀ ρ : ℂ, analyticOrderAt fζ ρ ≠ ⊤)
+    (hntopχ : ∀ ρ : ℂ, analyticOrderAt fχ ρ ≠ ⊤)
+    (hfac : FactorizationOnHalfPlane fK fζ fχ) (ε : ℝ) (hε : ε > 0) :
+    ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (5 / 6 - ε) * ((⟨multOf fK, hfinK⟩ : ZeroMult).countCum T : ℝ)
+        ≤ ((⟨multOf fK, hfinK⟩ : ZeroMult).countDistinctOnCum T : ℝ)
+          + (commonOnLineCum ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T : ℝ) := by
+  have hζ' : EpsLowerDistinctCum ⟨multOf fζ, hfinζ⟩ (5 / 6) :=
+    EpsLowerDistinctCum_mono five_sixths_le_839 (hK839 hCert)
+  have hmult := hfac_of_factorization hK hζ hχ hK1 hP1 hntopζ hntopχ hfac
+  have hcum : ∀ T, (⟨multOf fK, hfinK⟩ : ZeroMult).countCum T
+      = (ZeroMult.add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩).countCum T := by
+    intro T
+    have h1 := countCumOf_add_of_factorization hmult hfinK hfinζ hfinχ T
+    have h2 := ZeroMult.countCum_add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T
+    have eζ : (⟨multOf fζ, hfinζ⟩ : ZeroMult).countCum T = countCumOf hfinζ T := rfl
+    have eχ : (⟨multOf fχ, hfinχ⟩ : ZeroMult).countCum T = countCumOf hfinχ T := rfl
+    have eK : (⟨multOf fK, hfinK⟩ : ZeroMult).countCum T = countCumOf hfinK T := rfl
+    rw [eK, ← h1, ← eζ, ← eχ, ← h2]
+  have hdist : ∀ T, (⟨multOf fK, hfinK⟩ : ZeroMult).countDistinctOnCum T
+      = (ZeroMult.add ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩).countDistinctOnCum T := by
+    intro T
+    have h1 := countDistinctOnCum_of_factorization hmult hfinK hfinζ hfinχ T
+    have h2 := countDistinctOnCum_add (⟨multOf fζ, hfinζ⟩ : ZeroMult)
+      (⟨multOf fχ, hfinχ⟩ : ZeroMult) T
+    rw [h1, ← h2]
+    ring_nf
+    linarith
+  obtain ⟨T₀, hT₀⟩ := assemble_eps_defect_cum hζ' hEχd ε hε
+  refine ⟨T₀, fun T hT => ?_⟩
+  rw [hcum T, hdist T]
+  exact hT₀ T hT
+
+/-- **LANDED, hCZ-seamed stronger form**: with the common-zeros negligibility binder
+`hCZ` (the honest obstruction — no corpus can supply it), the full distinct proportion
+5/6 holds for the product zero data. -/
+theorem zetaK_distinct_five_sixths_landed_of_negligible {fK fζ fχ : ℂ → ℂ} {cert : Prop}
+    (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf fζ))
+    (hfinχ : WindowFinite (multOf fχ))
+    (hCert : cert)
+    (hK839 : K839OfLocal cert ⟨multOf fζ, hfinζ⟩)
+    (hEχd : EpsLowerDistinctCum ⟨multOf fχ, hfinχ⟩ (5 / 6))
+    (hζ : ∀ s ≠ 1, AnalyticAt ℂ fζ s) (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
+    (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
+    (hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1)
+    (hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1)
+    (hntopζ : ∀ ρ : ℂ, analyticOrderAt fζ ρ ≠ ⊤)
+    (hntopχ : ∀ ρ : ℂ, analyticOrderAt fχ ρ ≠ ⊤)
+    (hfac : FactorizationOnHalfPlane fK fζ fχ)
+    (hCZ : ∀ ε > 0, ∃ T₀ : ℝ, ∀ T : ℝ, T₀ ≤ T →
+      (commonOnLineCum ⟨multOf fζ, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T : ℝ)
+        ≤ ε * ((⟨multOf fK, hfinK⟩ : ZeroMult).countCum T : ℝ)) :
+    EpsLowerDistinctCum ⟨multOf fK, hfinK⟩ (5 / 6) := by
+  intro δ hδ
+  obtain ⟨T₁, hT₁⟩ := zetaK_distinct_five_sixths_landed hfinK hfinζ hfinχ hCert hK839 hEχd
+    hζ hχ hK hK1 hP1 hntopζ hntopχ hfac (δ / 2) (by linarith)
+  obtain ⟨T₂, hT₂⟩ := hCZ (δ / 2) (by linarith)
+  refine ⟨max T₁ T₂, fun T hT => ?_⟩
+  have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
+  have e2 := hT₂ T (le_trans (le_max_right T₁ T₂) hT)
+  have hN : (0 : ℝ) ≤ ((⟨multOf fK, hfinK⟩ : ZeroMult).countCum T : ℝ) := Nat.cast_nonneg _
+  nlinarith
+
+#print axioms zetaK_two_thirds_landed
+#print axioms zetaK_distinct_five_sixths_landed
+#print axioms zetaK_distinct_five_sixths_landed_of_negligible

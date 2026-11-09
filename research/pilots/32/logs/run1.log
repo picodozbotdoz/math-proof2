@@ -1,0 +1,184 @@
+# provenance: raw modal run, pilot 32 M1.lean (crossmath-pilot-32 app) | mtime 2026-11-09 12:53 | producing lane: R7' (close-out of R7's interrupted run) | command: research/pilots/32/run_pilot.sh research/pilots/32/M1.lean (stages to /tmp/crossmath-pilot-stage, sudo -u xyz modal run run_pilot.py)
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-jrUeQKr3x9vhyG6JSlKP7g
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M1.lean
+[pilot] M1.lean: FAIL rc=1 errors=22 sorry=0
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:164:4: error: Type mismatch
+  HasDerivAt.sub (hasDerivAt_id c) (hasDerivAt_const c 1)
+has type
+  HasDerivAt (id - fun x => 1) (1 - 0) c
+but is expected to have type
+···
+  HasDerivAt (fun x => x - 1) 1 c
+M1.lean:170:4: error: Type mismatch
+  Real.hasDerivAt_log (ne_of_gt ?m.204)
+has type
+  HasDerivAt Real.log c⁻¹ c
+but is expected to have type
+···
+M1.lean:172:4: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_id.mul`
+M1.lean:196:24: error: Application type mismatch: The argument
+  ?m.158
+has type
+  0 < 10 / 9
+but is expected to have type
+···
+M1.lean:203:8: error(lean.unknownIdentifier): Unknown identifier `continuousOn_iff_continuousWithinAt`
+M1.lean:213:28: error: linarith failed to find a contradiction
+c₁ c₂ : ℝ
+h₁ : 10 ≤ c₁
+h : c₁ < c₂
+hopen : ∀ x ∈ Icc c₁ c₂, 1 < x
+···
+failed
+M1.lean:290:49: error: Application type mismatch: The argument
+  hc
+has type
+  10 ≤ c
+but is expected to have type
+···
+  lnΛ_mono hc
+M1.lean:297:39: error: Application type mismatch: The argument
+  ha
+has type
+  ℝ
+of sort `Type` but is expected to have type
+···
+  mem_Ici.mp ha
+M1.lean:299:21: error: Application type mismatch: The argument
+  b
+has type
+  a ∈ Ici 10
+of sort `Prop` but is expected to have type
+···
+  lnΛ b
+M1.lean:301:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a / ?b
+in the target expression
+  (fun c => Real.log 4 / lnΛ c 0) ha < (fun c => Real.log 4 / lnΛ c 0) a
+
+···
+⊢ (fun c => Real.log 4 / lnΛ c 0) ha < (fun c => Real.log 4 / lnΛ c 0) a
+M1.lean:307:48: error: linarith failed to find a contradiction
+c γ γ' : ℝ
+hc : 10 ≤ c
+hγ : 0 ≤ γ
+h : γ < γ'
+···
+failed
+M1.lean:309:33: error: linarith failed to find a contradiction
+c γ γ' : ℝ
+hc : 10 ≤ c
+hγ : 0 ≤ γ
+h : γ < γ'
+···
+failed
+M1.lean:318:39: error: Application type mismatch: The argument
+  hc
+has type
+  10 < c
+but is expected to have type
+···
+  lnΛ_mono (le_of_lt hc) hc
+M1.lean:340:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.62 < ?m.63 / lnΛ c γ
+in the target expression
+  ε < Real.log 4 / (lnΛ c 0 + γ * Real.log 4)
+
+···
+⊢ γ < (Real.log 4 / ε - lnΛ c 0) / Real.log 4
+M1.lean:345:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.69 < ?m.70 / lnΛ c γ
+in the target expression
+  ε < Real.log 4 / (lnΛ c 0 + γ * Real.log 4)
+
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M1.lean:398:81: error: unsolved goals
+c γ : ℝ
+hc : 10 < c
+hg : gammaOf c (9 / 10) = 9 / 10 * Real.log ((c - 1) / 9) / Real.log 4
+hA : Real.log ((c - 1) / 9) * Real.log 4 ≠ 0
+···
+⊢ γ * Real.log (-1 / 9 + c * (1 / 9)) * (Real.log (-1 / 9 + c * (1 / 9)))⁻¹ = γ
+M1.lean:415:17: error: unexpected token ','; expected term
+M1.lean:414:22: error(lean.unknownIdentifier): Unknown identifier `c`
+M1.lean:414:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (ℝ → ℝ) ℝ ?m.44
+
+···
+M1.lean:415:15: error(lean.unknownIdentifier): Unknown identifier `c`
+M1.lean:429:27: error: unexpected token 'with'; expected term
+M1.lean:448:19: error: Application type mismatch: The argument
+  hbb
+has type
+  BddAbove (FrontierSet ε)
+···
+M1.lean:429:27: error: unexpected token 'with'; expected term
+M1.lean:448:19: error: Application type mismatch: The argument
+  hbb
+has type
+  BddAbove (FrontierSet ε)
+but is expected to have type
+···
+  csSup_le hbb
+M1.lean:451:21: error: Application type mismatch: The argument
+  le_csSup hbb hhalf
+has type
+  gammaOf cₓ (9 / 10) / 2 ≤ sSup (FrontierSet ε)
+but is expected to have type
+···
+  lt_of_le_of_ne (le_csSup hbb hhalf)
+M1.lean:451:51: error: Application type mismatch: The argument
+  hnot
+has type
+  ¬gammaOf cₓ (9 / 10) ≤ sSup (FrontierSet ε)
+but is expected to have type
+···
+  Ne.symm hnot
+M1.lean:467:32: error: linarith failed to find a contradiction
+ε : ℝ
+hε : 0 < ε
+γ : ℝ
+hγpos : 0 < γ
+···
+failed
+M1.lean:467:25: error: Application type mismatch: The argument
+  hε
+has type
+  0 < ε
+but is expected to have type
+···
+  lt_of_le_of_lt hε
+M1.lean:472:76: error: linarith failed to find a contradiction
+ε : ℝ
+hε : 0 < ε
+hlt : ε < Real.log 4 / (5 * Real.log 10)
+h5 : 0 < 5 * Real.log 10
+···
+
+[pilot] SUMMARY
+[pilot]   M1.lean: FAIL rc=1 errors=22 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-jrUeQKr3x9vhyG6JSlKP7g
+# exit=0

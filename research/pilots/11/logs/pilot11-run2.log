@@ -1,0 +1,138 @@
+# provenance: /tmp/pilot11-run2.log | mtime 2026-11-09 19:30 | producing lane: R4 (pilot 11) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-as51FFhi6QDeSBW32plJaC
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot11-stage/pilot11_probe.py
+└── ✓ Created Function pilot.
+[p11] staging 4 file(s): ['P11T1.lean', 'P11T2.lean', 'RedCompA.lean', 'RedCompB.lean']
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P11T1.lean
+[p11] P11T1.lean: OK; errors=0, sorry-warnings=0
+
+=== P11T2.lean
+[p11] P11T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== RedCompA.lean
+[p11] RedCompA.lean: FAIL rc=1; errors=6, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompA.lean:17:2: error: failed to generate projection `CrossMath.RedA.Red.C` for the 'Prop'-valued type `Red`, field must be a proof, but it has type
+  ℝ
+RedCompA.lean:32:46: error(lean.invalidField): Invalid field `C`: The environment does not contain `CrossMath.RedA.Red.C`, so it is not possible to project the field `C` from an expression
+  r₂
+of type `Red B Cc β₂ c₂ e₂ H₂`
+RedCompA.lean:45:8: error: Type mismatch
+  add_le_add_right (mul_le_mul_of_nonneg_left h2 (hc₁ p)) C₁
+has type
+  C₁ + c₁ p * T₂' (β₁ p) ≤ C₁ + c₁ p * (e₂ (β₁ p) + c₂ (β₁ p) * T (β₂ (β₁ p)) + C₂)
+but is expected to have type
+  e₁ p + c₁ p * T₂' (β₁ p) + C₁ ≤ e₁ p + c₁ p * (e₂ (β₁ p) + c₂ (β₁ p) * T (β₂ (β₁ p)) + C₂) + C₁
+RedCompA.lean:33:37: error: unsolved goals
+case calc.step
+π ρ σ : Type
+A : (π → ℝ) → Prop
+B : (ρ → ℝ) → Prop
+Cc : (σ → ℝ) → Prop
+β₁ : π → ρ
+β₂ : ρ → σ
+c₁ e₁ : π → ℝ
+c₂ e₂ : ρ → ℝ
+H₁ : π → Prop
+H₂ : ρ → Prop
+C₁ : ℝ
+hC₁ : 0 ≤ C₁
+hc₁ : ∀ (p : π), 0 ≤ c₁ p
+t₁ : ∀ (T : ρ → ℝ), B T → ∃ T', A T' ∧ ∀ (p : π), H₁ p → T' p ≤ e₁ p + c₁ p * T (β₁ p) + C₁
+C₂ : ℝ
+hC₂ : 0 ≤ C₂
+hc₂ : ∀ (p : ρ), 0 ≤ c₂ p
+t₂ : ∀ (T : σ → ℝ), Cc T → ∃ T', B T' ∧ ∀ (p : ρ), H₂ p → T' p ≤ e₂ p + c₂ p * T (β₂ p) + C₂
+T : σ → ℝ
+hT : Cc T
+T₂' : ρ → ℝ
+hB₂' : B T₂'
+hb₂ : ∀ (p : ρ), H₂ p → T₂' p ≤ e₂ p + c₂ p * T (β₂ p) + C₂
+T₁' : π → ℝ
+hA : A T₁'
+hb₁ : ∀ (p : π), H₁ p → T₁' p ≤ e₁ p + c₁ p * T₂' (β₁ p) + C₁
+p : π
+---- (…15 more lines) tail ----
+t₂ : ∀ (T : σ → ℝ), Cc T → ∃ T', B T' ∧ ∀ (p : ρ), H₂ p → T' p ≤ e₂ p + c₂ p * T (β₂ p) + C₂
+T : σ → ℝ
+hT : Cc T
+T₂' : ρ → ℝ
+hB₂' : B T₂'
+hb₂ : ∀ (p : ρ), H₂ p → T₂' p ≤ e₂ p + c₂ p * T (β₂ p) + C₂
+T₁' : π → ℝ
+hA : A T₁'
+hb₁ : ∀ (p : π), H₁ p → T₁' p ≤ e₁ p + c₁ p * T₂' (β₁ p) + C₁
+p : π
+hp₁ : H₁ p
+hp₂ : H₂ (β₁ p)
+h2 : T₂' (β₁ p) ≤ e₂ (β₁ p) + c₂ (β₁ p) * T (β₂ (β₁ p)) + C₂
+⊢ e₁ p + c₁ p * (e₂ (β₁ p) + C₂) + c₁ p * c₂ (β₁ p) * T (β₂ (β₁ p)) + C₁ ≤
+    e₁ p + c₁ p * (e₂ (β₁ p) + sorry) + c₁ p * c₂ (β₁ p) * T ((β₂ ∘ β₁) p) + C₁
+RedCompA.lean:81:33: error: failed to prove positivity/nonnegativity/nonzeroness
+RedCompA.lean:105:68: error: Type mismatch
+  h16 q.1 q.2.1 q.2.2 hq.left hq.right
+has type
+  Tc q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 ∧ Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2
+but is expected to have type
+  (fun q => Td q.1 q.2.1 q.2.2) q ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 + 0 q * x✝¹ q + 0
+RedCompA.lean:107:9: error: Tactic `rcases` failed: `x✝ : ?m.257` is not an inductive datatype
+'CrossMath.RedA.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+=== RedCompB.lean
+[p11] RedCompB.lean: FAIL rc=1; errors=5, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedB.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedCompB.lean:55:8: error: Type mismatch
+  add_le_add_left (mul_le_mul_of_nonneg_left h2 (hc₁ p)) (e₁ p)
+has type
+  c₁ p * T₂' (β₁ p) + e₁ p ≤ c₁ p * (e₂ (β₁ p) + c₂ (β₁ p) * T (β₂ (β₁ p))) + e₁ p
+but is expected to have type
+  e₁ p + c₁ p * T₂' (β₁ p) ≤ e₁ p + c₁ p * (e₂ (β₁ p) + c₂ (β₁ p) * T (β₂ (β₁ p)))
+RedCompB.lean:95:22: error: failed to prove positivity/nonnegativity/nonzeroness
+RedCompB.lean:125:68: error: Type mismatch
+  h16 q.1 q.2.1 q.2.2 hq.left hq.right
+has type
+  Tc q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 ∧ Td q.1 q.2.1 q.2.2 ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2
+but is expected to have type
+  (fun q => Td q.1 q.2.1 q.2.2) q ≤ C₁₆ * wantedBound q.1 q.2.1 q.2.2 + 0 q * x✝¹ q
+RedCompB.lean:138:10: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+RedCompB.lean:142:74: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 1
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+ b := ↑((fun p => beta17 paramD₂₆ p) (n, κ, u)).2.1
+ c := ↑((fun p => beta17 paramD₂₆ p) (n, κ, u)).1
+ d := ↑(((fun p => beta17 paramD₂₆ p) (n, κ, u)).2.1 ^ 18)
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   RedCompA.lean: FAIL (6 errors)
+[p11]   RedCompB.lean: FAIL (5 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-as51FFhi6QDeSBW32plJaC

@@ -1,0 +1,32 @@
+# provenance: /tmp/pilot01b-run1.log | mtime 2026-11-09 19:15 | producing lane: R6 (pilot 01) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-OWq49TH6IP1ZkSMTaQRROf
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot01b/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 4 probe file(s): ['01_PosIndex.lean', '02_HermitianPosPart.lean', '03_VonNeumann.lean', '04_Sylvester.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== 01_PosIndex.lean
+[probe] 01_PosIndex.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== 02_HermitianPosPart.lean
+[probe] 02_HermitianPosPart.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== 03_VonNeumann.lean
+[probe] 03_VonNeumann.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+=== 04_Sylvester.lean
+[probe] 04_Sylvester.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+
+[probe] SUMMARY
+[probe]   01_PosIndex.lean: OK
+[probe]   02_HermitianPosPart.lean: OK
+[probe]   03_VonNeumann.lean: OK
+[probe]   04_Sylvester.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-OWq49TH6IP1ZkSMTaQRROf

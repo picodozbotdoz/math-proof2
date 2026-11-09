@@ -1,0 +1,129 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-sbJb97hrLjCNCkQ8EWwh4G
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Pilot42_M2a.lean', 'Pilot42_M3.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2a.lean
+[probe] Pilot42_M2a.lean: FAIL rc=1; errors=12, sorry-warnings=0, other-warnings=2
+---- output head ----
+Pilot42_M2a.lean:371:53: error: Function expected at
+  𝓝
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  ρ
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+Pilot42_M2a.lean:377:14: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.71` is a value of type
+  ?m.70
+Pilot42_M2a.lean:377:18: error(lean.invalidField): Invalid field `analyticOrderAt_eq_top`: The environment does not contain `Exists.analyticOrderAt_eq_top`, so it is not possible to project the field `analyticOrderAt_eq_top` from an expression
+  hG
+of type `∃ p, HasFPowerSeriesAt g p ρ`
+Pilot42_M2a.lean:381:16: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.109` is a value of type
+  ?m.108
+Pilot42_M2a.lean:384:50: error: Function expected at
+  𝓝
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  ρ
+Pilot42_M2a.lean:381:20: error(lean.invalidField): Invalid field `analyticOrderAt_eq_top`: The environment does not contain `Exists.analyticOrderAt_eq_top`, so it is not possible to project the field `analyticOrderAt_eq_top` from an expression
+  hF
+of type `∃ p, HasFPowerSeriesAt f p ρ`
+Pilot42_M2a.lean:391:11: error(lean.unknownIdentifier): Unknown constant `Nat.cast_analyticOrderAt`
+Pilot42_M2a.lean:398:8: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Pilot42_M2a.lean:398:20: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Pilot42_M2a.lean:418:49: error(lean.invalidField): Invalid field `analyticAt`: The environment does not contain `Exists.analyticAt`, so it is not possible to project the field `analyticAt` from an expression
+  DifferentiableAt.sub differentiableAt_id (differentiableAt_const 1)
+of type
+  ∃ f', HasFDerivAt (id - fun x => 1) f' s
+Pilot42_M2a.lean:422:6: error: Type mismatch
+  hK1
+has type
+  AnalyticAt ℂ (fun s => (s - 1) * fK s) 1
+but is expected to have type
+  AnalyticAt ℂ (fun s => (s - 1) * fK s) s
+Pilot42_M2a.lean:427:6: error: Type mismatch
+  hP1
+has type
+  AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1
+but is expected to have type
+  AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) s
+Pilot42_M2a.lean:429:36: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+Pilot42_M2a.lean:430:6: error: Function expected at
+  isOpen_Ioi
+but this term has type
+  IsOpen (Set.Ioi ?m.285)
+
+Note: Expected a function because this term is being applied to the argument
+  (1 : ℝ)
+Pilot42_M2a.lean:415:43: error: unsolved goals
+---- (…87 more lines) tail ----
+hK1 : AnalyticAt ℂ (fun s => (s - 1) * fK s) 1
+hP1 : AnalyticAt ℂ (fun s => (s - 1) * (fζ s * fχ s)) 1
+hntopζ : ∀ (ρ : ℂ), analyticOrderAt fζ ρ ≠ ⊤
+hntopχ : ∀ (ρ : ℂ), analyticOrderAt fχ ρ ≠ ⊤
+hfac : FactorizationOnHalfPlane fK fζ fχ
+hfinK : WindowFinite (multOf fK)
+hfinζ : WindowFinite (multOf fζ)
+hfinχ : WindowFinite (multOf fχ)
+hAζ : EpsLower { mult := multOf fζ, windowFinite := hfinζ } (2 / 3)
+hAχ : EpsLower { mult := multOf fχ, windowFinite := hfinχ } (2 / 3)
+ρ : ℂ
+hρ : ρ ≠ 1
+hne1 : ∀ᶠ (z : ℕ) in sorry, z ≠ 1
+hprod : fK =ᶠ[sorry] fζ * fχ
+⊢ ?m.179
+
+=== Pilot42_M3.lean
+[probe] Pilot42_M3.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=3
+---- output head ----
+Pilot42_M3.lean:350:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Pilot42_M3.lean:354:15: warning: `Nat.add_eq_zero` has been deprecated: Use `Nat.add_eq_zero_iff` instead
+
+Hint: Replace the deprecated name:
+  Nat.add_eq_zero_̲i̲f̲f̲
+Pilot42_M3.lean:356:15: warning: `Nat.add_eq_zero` has been deprecated: Use `Nat.add_eq_zero_iff` instead
+
+Hint: Replace the deprecated name:
+  Nat.add_eq_zero_̲i̲f̲f̲
+Pilot42_M3.lean:387:6: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.120` is a value of type
+  ?m.119
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl (supp (z.mult + w.mult) ∩ lineWindow T (2 * T))
+  has type
+    supp (z.mult + w.mult) ∩ lineWindow T (2 * T) = supp (z.mult + w.mult) ∩ lineWindow T (2 * T)
+  but is expected to have type
+    supp (z.add w).mult ∩ lineWindow T (2 * T) = supp (z.mult + w.mult) ∩ lineWindow T (2 * T)
+  in the application
+    id (Eq.refl (supp (z.mult + w.mult) ∩ lineWindow T (2 * T)))
+
+[probe] SUMMARY
+[probe]   Pilot42_M2a.lean: FAIL (12 errors)
+[probe]   Pilot42_M3.lean: FAIL (1 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-sbJb97hrLjCNCkQ8EWwh4G

@@ -1,0 +1,126 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-yvg4KZjbHg6t6ozoR88wn7
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot22-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 3 probe file(s): ['M1.lean', 'ProbeP1_PNT.lean', 'Tier1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== M1.lean
+[probe] M1.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== ProbeP1_PNT.lean
+[probe] ProbeP1_PNT.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in 𝓝[≠] c, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (𝓝 A)
+
+=== Tier1.lean
+[probe] Tier1.lean: FAIL rc=1; errors=9, sorry-warnings=0, other-warnings=3
+---- output head ----
+Tier1.lean:111:30: error: Application type mismatch: The argument
+  hn0
+has type
+  ∀ᶠ (s : ℂ) in 𝓝 1, h s ≠ 0
+but is expected to have type
+  ?m.507 ∈ 𝓝[≠] 1
+in the application
+  mp_mem hn0
+Tier1.lean:127:24: error: unsolved goals
+F : ℂ → ℂ := fun s => (s - 1) * riemannZeta s
+hFdef : F = fun s => (s - 1) * riemannZeta s
+h : ℂ → ℂ := Function.update F 1 1
+hhdef : h = Function.update F 1 1
+hne : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, s ≠ 1
+hdF : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ F s
+hch : ContinuousAt h 1
+hdh : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ h s
+hA : AnalyticAt ℂ h 1
+h1 : h 1 = 1
+hnz : h 1 ≠ 0
+hn0 : ∀ᶠ (s : ℂ) in 𝓝 1, h s ≠ 0
+hzeta : ∀ (s : ℂ), s ≠ 1 → riemannZeta s = h s / (s - 1)
+key : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, -deriv riemannZeta s / riemannZeta s - 1 / (s - 1) = -(deriv h s / h s)
+hs : True
+⊢ False
+Tier1.lean:128:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Tier1.lean:128:4: error: `simp` made no progress
+Tier1.lean:141:24: error: Application type mismatch: The argument
+  key
+has type
+  ∀ᶠ (s : ℂ) in 𝓝[≠] 1, -deriv riemannZeta s / riemannZeta s - 1 / (s - 1) = -(deriv h s / h s)
+but is expected to have type
+  ?m.798 ∈ 𝓝 1
+in the application
+  mp_mem key
+Tier1.lean:149:6: error: Type mismatch
+  ContinuousAt.continuousWithinAt (ContinuousAt.congr_of_eventuallyEq hu' hGeq)
+has type
+  ContinuousWithinAt (fun s => if s = 1 then -deriv h 1 else -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) ?m.875
+    1
+but is expected to have type
+  (fun s => if s = 1 then -deriv h 1 else -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) 1 =
+    (fun s => -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) 1
+Tier1.lean:152:8: error(lean.unknownIdentifier): Unknown constant `analyticOn_riemannZeta.analyticAt`
+Tier1.lean:155:72: error: Application type mismatch: The argument
+  hs₀
+has type
+  s₀ ∈ {s | 1 < s.re}
+but is expected to have type
+  1 ≤ s₀.re
+in the application
+  riemannZeta_ne_zero_of_one_le_re hs₀
+Tier1.lean:159:22: error: Type mismatch: After simplification, term
+  h₀
+ has type
+  ¬s₀ = 1
+but is expected to have type
+---- (…52 more lines) tail ----
+  ContinuousWithinAt (fun s => if s = 1 then -deriv h 1 else -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) ?m.1212
+    s₀
+but is expected to have type
+  (fun s => if s = 1 then -deriv h 1 else -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) s₀ =
+    (fun s => -deriv riemannZeta s / riemannZeta s - 1 / (s - 1)) s₀
+Tier1.lean:168:46: warning: This simp argument is unused:
+  one_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hs, div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_logDerivExtension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_range_sum_vonMangoldt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   M1.lean: OK
+[probe]   ProbeP1_PNT.lean: OK
+[probe]   Tier1.lean: FAIL (9 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-yvg4KZjbHg6t6ozoR88wn7

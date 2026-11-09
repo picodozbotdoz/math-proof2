@@ -1,0 +1,2234 @@
+/-
+Milestone (d) — tightness companion: port of zeta23 TightMult (lemmaR_tight, donor
+Zeta23/ZeroSide/TightMult.lean, verbatim body) + `tightness_of_master`: the five named
+defects of the master identity all VANISH on the TightMult extremal configuration —
+completing the structural pair (exact identity + exact tightness) of dossier 01.
+Contents: port bundle (01–08) + master-identity layer (09) + TightMult + this companion.
+Compile target: mathlib v4.36.0-rc2 @ ff2494ea (Modal, crossmath-probe pattern).
+-/
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.Analysis.Matrix.Spectrum
+import Mathlib.Analysis.Convex.Birkhoff
+import Mathlib.Analysis.Convex.DoublyStochasticMatrix
+import Mathlib.Algebra.Order.Rearrangement
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Algebra.Star.Unitary
+import Mathlib.Algebra.Star.UnitaryStarAlgAut
+import Mathlib.LinearAlgebra.Lagrange
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+import Mathlib.LinearAlgebra.Matrix.Diagonal
+import Mathlib.LinearAlgebra.Matrix.Rank
+
+/-!
+# Positive index of a Hermitian matrix
+
+For a Hermitian matrix `A` over `𝕜 = ℝ` or `ℂ`, the *positive index*
+`n₊(A)` is the number of strictly positive eigenvalues. By Sylvester's law
+of inertia this equals the maximal dimension of a subspace on which the
+Hermitian form `x ↦ xᴴ A x` is positive definite.
+
+This file defines `posIndex` via the eigenvalue count, together with the
+real-valued trace `rtrace` and squared Frobenius norm `frobSq` needed for
+the rank–trace inequality (paper §3, `lem:ranktrace`).
+-/
+
+noncomputable section
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- The positive index `n₊(A)` of a Hermitian matrix: the number of strictly
+positive eigenvalues. Equivalently (Sylvester's law of inertia), the maximal
+dimension of a subspace on which the form `x ↦ xᴴAx` is positive definite. -/
+def posIndex {A : Matrix n n 𝕜} (hA : A.IsHermitian) : ℕ :=
+  #{i | 0 < hA.eigenvalues i}
+
+/-- The negative index `n₋(A)`: the number of strictly negative eigenvalues. -/
+def negIndex {A : Matrix n n 𝕜} (hA : A.IsHermitian) : ℕ :=
+  #{i | hA.eigenvalues i < 0}
+
+/-- The thresholded positive index `n₊^θ(A)`: the number of eigenvalues
+strictly above `θ`. `posIndexAbove hA 0 = posIndex hA`. -/
+def posIndexAbove {A : Matrix n n 𝕜} (hA : A.IsHermitian) (θ : ℝ) : ℕ :=
+  #{i | θ < hA.eigenvalues i}
+
+lemma posIndex_le_card {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    posIndex hA ≤ Fintype.card n :=
+  (card_filter_le _ _).trans_eq card_univ
+
+/-- For a PSD Hermitian matrix the positive index is the rank (every nonzero
+eigenvalue is positive). -/
+lemma posIndex_eq_rank_of_posSemidef {A : Matrix n n 𝕜} (hA : A.PosSemidef) :
+    posIndex hA.isHermitian = A.rank := by
+  rw [hA.isHermitian.rank_eq_card_non_zero_eigs, Fintype.card_subtype]
+  unfold posIndex
+  congr 1
+  ext i
+  simp only [mem_filter, mem_univ, true_and, ne_eq]
+  exact ⟨fun h => h.ne', fun h => (hA.eigenvalues_nonneg i).lt_of_ne' h⟩
+
+/-- Real part of the trace. For a Hermitian matrix this is the full trace,
+since the trace of a Hermitian matrix is real. -/
+def rtrace (A : Matrix n n 𝕜) : ℝ := RCLike.re A.trace
+
+/-- Squared Frobenius norm, `‖A‖_F² = Re tr(AᴴA) = ∑ᵢⱼ |Aᵢⱼ|²`. -/
+def frobSq (A : Matrix n n 𝕜) : ℝ := RCLike.re (Aᴴ * A).trace
+
+lemma rtrace_eq_sum_eigenvalues {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    rtrace A = ∑ i, hA.eigenvalues i := by
+  unfold rtrace
+  rw [hA.trace_eq_sum_eigenvalues]
+  simp
+
+section Reindex
+
+variable {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+
+/-- The canonical equivalence `Fin (card n) ≃ n` under which
+`eigenvalues (e k) = eigenvalues₀ k`. -/
+def eigEquiv : Fin (Fintype.card n) ≃ n :=
+  Fintype.equivOfCardEq (Fintype.card_fin _)
+
+lemma eigenvalues_eigEquiv (k : Fin (Fintype.card n)) :
+    hA.eigenvalues (eigEquiv (n := n) k) = hA.eigenvalues₀ k := by
+  simp [Matrix.IsHermitian.eigenvalues, eigEquiv]
+
+/-- Any sum over `n` of a function of the eigenvalues equals the corresponding
+sum over `Fin (card n)` of the function applied to `eigenvalues₀`. -/
+lemma sum_eigenvalues_reindex {α : Type*} [AddCommMonoid α] (g : ℝ → α) :
+    ∑ i, g (hA.eigenvalues i) = ∑ k, g (hA.eigenvalues₀ k) := by
+  rw [← (eigEquiv (n := n)).sum_comp]
+  simp only [eigenvalues_eigEquiv]
+
+lemma card_eigenvalues_reindex (p : ℝ → Prop) [DecidablePred p] :
+    #{i | p (hA.eigenvalues i)} = #{k | p (hA.eigenvalues₀ k)} := by
+  apply Finset.card_nbij' (eigEquiv (n := n)).symm (eigEquiv (n := n))
+  · intro i hi
+    simp only [Finset.mem_coe, mem_filter, mem_univ, true_and] at hi ⊢
+    rwa [← eigenvalues_eigEquiv hA, Equiv.apply_symm_apply]
+  · intro k hk
+    simp only [Finset.mem_coe, mem_filter, mem_univ, true_and] at hk ⊢
+    rwa [eigenvalues_eigEquiv hA]
+  · exact fun i _ => Equiv.apply_symm_apply _ i
+  · exact fun k _ => Equiv.symm_apply_apply _ k
+
+end Reindex
+
+open Unitary in
+/-- For a Hermitian matrix, `‖A‖_F² = ∑ᵢ λᵢ²` (sum of squared eigenvalues). -/
+lemma frobSq_hermitian_eq_sum_sq_eigenvalues {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    frobSq A = ∑ i, (hA.eigenvalues i) ^ 2 := by
+  -- A = U D Uᴴ ⟹ AᴴA = A² = U D² Uᴴ ⟹ tr(AᴴA) = ∑ λᵢ²
+  unfold frobSq
+  rw [hA.eq]
+  conv_lhs => rw [hA.spectral_theorem, ← map_mul, conjStarAlgAut_apply,
+    trace_mul_cycle, coe_star_mul_self, one_mul,
+    diagonal_mul_diagonal, trace_diagonal]
+  simp [sq]
+
+end RHLinalg
+
+/-!
+# Positive and negative parts of a Hermitian matrix
+
+For a Hermitian matrix `Q` with spectral decomposition `Q = U diag(λ) Uᴴ`,
+define `Q₊ := U diag(λ⁺) Uᴴ` and `Q₋ := U diag(λ⁻) Uᴴ` where
+`λ⁺ = max(λ,0)`, `λ⁻ = max(−λ,0)`.
+
+Then `Q = Q₊ − Q₋`, both are PSD, `Q₊ Q₋ = 0`, and `rank Q₊ = n₊(Q)`.
+
+This is equivalent to the CFC `Q⁺`/`Q⁻` via `Matrix.IsHermitian.cfc_eq`, but
+the direct spectral construction keeps the eigenvalue bookkeeping explicit,
+which is what the rank–trace proof needs.
+-/
+
+noncomputable section
+
+open Matrix Finset Unitary
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- Apply a real function to a Hermitian matrix via its spectral decomposition:
+`specMap hA f := U diag(f ∘ λ) Uᴴ`. (This is `Matrix.IsHermitian.cfc`, reproduced
+here to keep imports light and bookkeeping explicit.) -/
+def specMap {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) : Matrix n n 𝕜 :=
+  conjStarAlgAut 𝕜 _ hA.eigenvectorUnitary
+    (diagonal (fun i => (f (hA.eigenvalues i) : 𝕜)))
+
+lemma specMap_isHermitian {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) :
+    (specMap hA f).IsHermitian := by
+  unfold specMap
+  rw [conjStarAlgAut_apply]
+  refine isHermitian_mul_mul_conjTranspose _ ?_
+  exact isHermitian_diagonal_of_self_adjoint _ (funext fun i => by simp [RCLike.star_def])
+
+lemma specMap_id {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    specMap hA id = A := by
+  conv_rhs => rw [hA.spectral_theorem]
+  rfl
+
+lemma specMap_sub {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f g : ℝ → ℝ) :
+    specMap hA (f - g) = specMap hA f - specMap hA g := by
+  unfold specMap
+  rw [← map_sub]
+  congr 1
+  simp only [← diagonal_sub, Pi.sub_apply, RCLike.ofReal_sub]
+
+lemma specMap_mul {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f g : ℝ → ℝ) :
+    specMap hA (f * g) = specMap hA f * specMap hA g := by
+  unfold specMap
+  rw [← map_mul, diagonal_mul_diagonal]
+  simp only [Pi.mul_apply, RCLike.ofReal_mul]
+
+lemma specMap_zero {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    specMap hA 0 = 0 := by
+  unfold specMap; simp
+
+/-- The Hermitian form `xᴴ(specMap hA f)x` in eigenbasis coordinates:
+setting `c := Uᴴx`, we have `Re(xᴴ(specMap hA f)x) = ∑ᵢ f(λᵢ)·‖cᵢ‖²`. -/
+lemma hermForm_specMap {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ)
+    (x : n → 𝕜) :
+    RCLike.re (star x ⬝ᵥ (specMap hA f *ᵥ x))
+      = ∑ i, f (hA.eigenvalues i) *
+          ‖(star (hA.eigenvectorUnitary : Matrix n n 𝕜) *ᵥ x) i‖ ^ 2 := by
+  set U : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+  set c := star U *ᵥ x with hc_def
+  -- `xᴴ U D Uᴴ x = cᴴ D c` where `c = Uᴴ x`, since `star x ᵥ* U = star c`.
+  have hsc : star x ᵥ* U = star c := by
+    rw [hc_def, star_mulVec, show (star U)ᴴ = U from conjTranspose_conjTranspose U]
+  unfold specMap
+  rw [conjStarAlgAut_apply, ← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec,
+    dotProduct_mulVec (star x) U, hsc, ← hc_def,
+    show star c ⬝ᵥ (diagonal (fun i => (f (hA.eigenvalues i) : 𝕜)) *ᵥ c)
+      = ∑ i, (f (hA.eigenvalues i) : 𝕜) * (starRingEnd 𝕜 (c i) * c i) by
+      simp only [dotProduct, mulVec_diagonal, Pi.star_apply, RCLike.star_def]
+      exact sum_congr rfl fun i _ => by ring]
+  simp only [RCLike.conj_mul, map_sum]
+  refine sum_congr rfl fun i _ => ?_
+  rw [show ((f (hA.eigenvalues i) : 𝕜) * (‖c i‖ : 𝕜) ^ 2 : 𝕜)
+      = ((f (hA.eigenvalues i) * ‖c i‖ ^ 2 : ℝ) : 𝕜) by push_cast; ring,
+    RCLike.ofReal_re]
+
+/-- The real-valued trace of `specMap hA f` is `∑ᵢ f(λᵢ)`. -/
+lemma rtrace_specMap {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) :
+    rtrace (specMap hA f) = ∑ i, f (hA.eigenvalues i) := by
+  unfold specMap rtrace
+  rw [conjStarAlgAut_apply, trace_mul_cycle, coe_star_mul_self, one_mul,
+    trace_diagonal]
+  simp
+
+/-- The squared Frobenius norm of `specMap hA f` is `∑ᵢ f(λᵢ)²`. -/
+lemma frobSq_specMap {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) :
+    frobSq (specMap hA f) = ∑ i, (f (hA.eigenvalues i)) ^ 2 := by
+  unfold frobSq
+  rw [(specMap_isHermitian hA f).eq, ← specMap_mul,
+    show (f * f : ℝ → ℝ) = fun x => (f x) ^ 2 from funext fun x => by
+      simp only [Pi.mul_apply, sq]]
+  exact rtrace_specMap hA _
+
+/-- The rank of `specMap hA f` is the number of `i` with `f(λᵢ) ≠ 0`. -/
+lemma rank_specMap {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) :
+    (specMap hA f).rank = #{i | f (hA.eigenvalues i) ≠ 0} := by
+  have hdet : IsUnit (hA.eigenvectorUnitary : Matrix n n 𝕜).det :=
+    Matrix.UnitaryGroup.det_isUnit hA.eigenvectorUnitary
+  have hdet' : IsUnit (star (hA.eigenvectorUnitary : Matrix n n 𝕜)).det := by
+    rw [show star (hA.eigenvectorUnitary : Matrix n n 𝕜)
+        = (hA.eigenvectorUnitary : Matrix n n 𝕜)ᴴ from rfl, det_conjTranspose]
+    exact hdet.star
+  unfold specMap
+  rw [conjStarAlgAut_apply,
+    rank_mul_eq_left_of_isUnit_det _ _ hdet',
+    rank_mul_eq_right_of_isUnit_det _ _ hdet,
+    rank_diagonal]
+  simp only [ne_eq, RCLike.ofReal_eq_zero, Fintype.card_subtype]
+
+/-- `specMap hA f` is PSD whenever `f(λᵢ) ≥ 0` for all `i`. -/
+lemma specMap_posSemidef {A : Matrix n n 𝕜} (hA : A.IsHermitian) {f : ℝ → ℝ}
+    (hf : ∀ i, 0 ≤ f (hA.eigenvalues i)) :
+    (specMap hA f).PosSemidef := by
+  unfold specMap
+  rw [conjStarAlgAut_apply]
+  refine (PosSemidef.diagonal ?_).mul_mul_conjTranspose_same _
+  intro i
+  exact RCLike.ofReal_nonneg (K := 𝕜) |>.mpr (hf i)
+
+section PosNegPart
+
+variable {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+
+/-- Positive part `A₊ := U diag(λ⁺) Uᴴ`. -/
+def hermPosPart : Matrix n n 𝕜 := specMap hA (·⁺)
+
+/-- Negative part `A₋ := U diag(λ⁻) Uᴴ`. -/
+def hermNegPart : Matrix n n 𝕜 := specMap hA (·⁻)
+
+lemma hermPosPart_sub_hermNegPart : hermPosPart hA - hermNegPart hA = A := by
+  unfold hermPosPart hermNegPart
+  rw [← specMap_sub, show ((·⁺) - (·⁻) : ℝ → ℝ) = id from
+    funext fun x => posPart_sub_negPart x, specMap_id]
+
+lemma hermPosPart_posSemidef : (hermPosPart hA).PosSemidef :=
+  specMap_posSemidef hA fun _ => posPart_nonneg _
+
+lemma hermNegPart_posSemidef : (hermNegPart hA).PosSemidef :=
+  specMap_posSemidef hA fun _ => negPart_nonneg _
+
+private lemma real_posPart_mul_negPart (x : ℝ) : x⁺ * x⁻ = 0 := by
+  rcases le_total 0 x with h | h
+  · simp [negPart_eq_zero.mpr h]
+  · simp [posPart_eq_zero.mpr h]
+
+lemma hermPosPart_mul_hermNegPart : hermPosPart hA * hermNegPart hA = 0 := by
+  unfold hermPosPart hermNegPart
+  rw [← specMap_mul, show ((·⁺) * (·⁻) : ℝ → ℝ) = 0 from
+    funext fun x => real_posPart_mul_negPart x, specMap_zero]
+
+lemma hermNegPart_mul_hermPosPart : hermNegPart hA * hermPosPart hA = 0 := by
+  unfold hermPosPart hermNegPart
+  rw [← specMap_mul, show ((·⁻) * (·⁺) : ℝ → ℝ) = 0 from
+    funext fun x => by rw [Pi.mul_apply, mul_comm]; exact real_posPart_mul_negPart x,
+    specMap_zero]
+
+lemma rank_hermPosPart : (hermPosPart hA).rank = posIndex hA := by
+  unfold hermPosPart posIndex
+  rw [rank_specMap]
+  congr 1; ext i
+  simp only [mem_filter, mem_univ, true_and, ne_eq, posPart_eq_zero, not_le]
+
+lemma rtrace_hermPosPart : rtrace (hermPosPart hA) = ∑ i, (hA.eigenvalues i)⁺ :=
+  rtrace_specMap hA _
+
+lemma rtrace_hermNegPart : rtrace (hermNegPart hA) = ∑ i, (hA.eigenvalues i)⁻ :=
+  rtrace_specMap hA _
+
+lemma rtrace_sub_decomp : rtrace A = rtrace (hermPosPart hA) - rtrace (hermNegPart hA) := by
+  conv_lhs => rw [← hermPosPart_sub_hermNegPart hA]
+  simp [rtrace, trace_sub, map_sub]
+
+lemma frobSq_hermPosPart : frobSq (hermPosPart hA) = ∑ i, ((hA.eigenvalues i)⁺) ^ 2 :=
+  frobSq_specMap hA _
+
+lemma frobSq_hermNegPart : frobSq (hermNegPart hA) = ∑ i, ((hA.eigenvalues i)⁻) ^ 2 :=
+  frobSq_specMap hA _
+
+end PosNegPart
+
+end RHLinalg
+
+/-!
+# Von Neumann's trace inequality
+
+For Hermitian `A, B` with eigenvalues sorted in decreasing order
+`a₀ ≥ a₁ ≥ …` and `b₀ ≥ b₁ ≥ …`,
+
+  `Re tr(AB) ≤ ∑ᵢ aᵢ bᵢ`.
+
+## Proof outline
+
+Diagonalise `A = Uₐ Dₐ Uₐᴴ` and `B = Uᵦ Dᵦ Uᵦᴴ`. Setting `W := Uₐᴴ Uᵦ`
+(unitary), a direct calculation gives
+
+  `tr(AB) = tr(Dₐ W Dᵦ Wᴴ) = ∑ₖₗ aₖ · ‖Wₖₗ‖² · bₗ`.
+
+The matrix `Sₖₗ := ‖Wₖₗ‖²` is doubly stochastic over `ℝ` (rows and columns
+of a unitary matrix are unit vectors). By **Birkhoff–von Neumann**
+(`exists_eq_sum_perm_of_mem_doublyStochastic`) every doubly stochastic
+matrix is a convex combination of permutation matrices: `S = ∑_σ w_σ P_σ`.
+For each permutation `σ`, `∑ₖ aₖ b_{σ k} ≤ ∑ₖ aₖ bₖ` by the **rearrangement
+inequality** (`Monovary.sum_mul_comp_perm_le_sum_mul`), since both `a` and
+`b` are antitone (hence monovary). Averaging over `σ` with weights `w_σ`
+gives the result.
+-/
+
+noncomputable section
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- Entrywise squared-norm `‖Wᵢⱼ‖²` of a matrix, as a real matrix. -/
+def normSqMatrix (W : Matrix n n 𝕜) : Matrix n n ℝ :=
+  Matrix.of fun i j => ‖W i j‖ ^ 2
+
+section Bilinear
+
+/-- For a unitary matrix `W`, the entrywise-squared-norm matrix
+`(i, j) ↦ ‖Wᵢⱼ‖²` is doubly stochastic over `ℝ`. -/
+lemma normSqMatrix_mem_doublyStochastic_of_unitary
+    {W : Matrix n n 𝕜} (hW : W ∈ Matrix.unitaryGroup n 𝕜) :
+    normSqMatrix W ∈ doublyStochastic ℝ n := by
+  rw [mem_doublyStochastic_iff_sum]
+  refine ⟨fun i j => sq_nonneg _, fun i => ?_, fun j => ?_⟩
+  · -- row sum: `∑ⱼ ‖Wᵢⱼ‖² = re (W Wᴴ)ᵢᵢ = re 1 = 1`
+    have h : (W * star W) i i = 1 := by rw [Unitary.mul_star_self_of_mem hW]; simp
+    have h2 : RCLike.re ((W * star W) i i) = (1 : ℝ) := by rw [h]; simp
+    simpa [normSqMatrix, Matrix.mul_apply, star_apply, RCLike.star_def,
+      RCLike.mul_conj, map_sum] using h2
+  · -- column sum: `∑ᵢ ‖Wᵢⱼ‖² = re (Wᴴ W)ⱼⱼ = re 1 = 1`
+    have h : (star W * W) j j = 1 := by rw [Unitary.star_mul_self_of_mem hW]; simp
+    have h2 : RCLike.re ((star W * W) j j) = (1 : ℝ) := by rw [h]; simp
+    simpa [normSqMatrix, Matrix.mul_apply, star_apply, RCLike.star_def,
+      RCLike.conj_mul, map_sum] using h2
+
+/-- For Hermitian `A, B`, writing `W = Uₐᴴ Uᵦ` for the eigenvector unitaries,
+`Re tr(AB) = ∑ₖₗ λₖ(A) · ‖Wₖₗ‖² · λₗ(B)`. -/
+lemma re_trace_mul_eq_eigenvalue_bilinear {A B : Matrix n n 𝕜}
+    (hA : A.IsHermitian) (hB : B.IsHermitian) :
+    RCLike.re (A * B).trace =
+      ∑ k, ∑ l, hA.eigenvalues k *
+        normSqMatrix (star (hA.eigenvectorUnitary : Matrix n n 𝕜) *
+          (hB.eigenvectorUnitary : Matrix n n 𝕜)) k l * hB.eigenvalues l := by
+  set Ua : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+  set Ub : Matrix n n 𝕜 := ↑hB.eigenvectorUnitary
+  set Da : Matrix n n 𝕜 := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+  set Db : Matrix n n 𝕜 := diagonal (RCLike.ofReal ∘ hB.eigenvalues)
+  set W := star Ua * Ub
+  have hUaUa : Ua * star Ua = 1 := Unitary.mul_star_self_of_mem hA.eigenvectorUnitary.2
+  have hUaUa' : star Ua * Ua = 1 := Unitary.star_mul_self_of_mem hA.eigenvectorUnitary.2
+  -- Step 1: `tr(AB) = tr(Dₐ W Dᵦ Wᴴ)` by spectral theorem + trace cycling.
+  have hstarW : star Ub * Ua = star W := by
+    show star Ub * Ua = star (star Ua * Ub); rw [StarMul.star_mul, star_star]
+  have hAB : (A * B).trace = (Da * W * Db * star W).trace := by
+    -- `Ua (Da W Db Wᴴ) Uaᴴ = (Ua Da Uaᴴ)(Ub Db Ubᴴ)` since `Ua Uaᴴ = 1`.
+    have key : Ua * (Da * W * Db * star W) * star Ua
+        = Ua * Da * star Ua * (Ub * Db * star Ub) := by
+      have step : Ua * (Da * W * Db * star W) * star Ua
+          = Ua * Da * star Ua * (Ub * Db * star Ub) * (Ua * star Ua) := by
+        rw [← hstarW]
+        show Ua * (Da * (star Ua * Ub) * Db * (star Ub * Ua)) * star Ua = _
+        noncomm_ring
+      rw [step, hUaUa, mul_one]
+    conv_lhs => rw [hA.spectral_theorem, hB.spectral_theorem,
+      Unitary.conjStarAlgAut_apply, Unitary.conjStarAlgAut_apply, ← key,
+      trace_mul_comm, ← mul_assoc, hUaUa', one_mul]
+  -- Step 2: compute `tr(Dₐ W Dᵦ Wᴴ) = ∑ₖₗ aₖ Wₖₗ bₗ W̄ₖₗ`.
+  -- Use `diagonal_mul`/`mul_diagonal` to evaluate entries of `Dₐ W Dᵦ`.
+  have hentry : (Da * W * Db * star W).trace
+      = ∑ k, ∑ l, (hA.eigenvalues k : 𝕜) * (hB.eigenvalues l : 𝕜)
+          * (W k l * starRingEnd 𝕜 (W k l)) := by
+    unfold Matrix.trace
+    simp only [diag_apply]
+    refine sum_congr rfl fun k _ => ?_
+    rw [Matrix.mul_apply]
+    refine sum_congr rfl fun l _ => ?_
+    rw [mul_diagonal, diagonal_mul, star_apply, RCLike.star_def]
+    simp only [Function.comp_apply]; ring
+  rw [hAB, hentry]
+  -- Step 3: take `Re`; identify `z · conj z = ‖z‖²` and push reals.
+  simp only [RCLike.mul_conj, map_sum, normSqMatrix, Matrix.of_apply]
+  refine sum_congr rfl fun k _ => sum_congr rfl fun l _ => ?_
+  rw [show ((hA.eigenvalues k : 𝕜) * hB.eigenvalues l * (‖W k l‖ : 𝕜) ^ 2 : 𝕜)
+        = ((hA.eigenvalues k * hB.eigenvalues l * ‖W k l‖ ^ 2 : ℝ) : 𝕜) by push_cast; ring,
+    RCLike.ofReal_re]
+  ring
+
+end Bilinear
+
+section Rearrangement
+
+/-- Two antitone functions on a linear order monovary. -/
+lemma _root_.Antitone.monovary_antitone {ι α : Type*} [LinearOrder ι] [Preorder α]
+    {f g : ι → α} (hf : Antitone f) (hg : Antitone g) : Monovary f g :=
+  fun _ _ hgij => hf (not_lt.mp fun hij => hgij.not_ge (hg hij.le))
+
+/-- The core combinatorial step: for `a, b : n → ℝ` that monovary and
+`S` doubly stochastic, `∑ₖₗ aₖ Sₖₗ bₗ ≤ ∑ₖ aₖ bₖ`.
+
+Proof: `∑ₖₗ aₖ Sₖₗ bₗ = ∑ₖ aₖ (S *ᵥ b)ₖ = a ⬝ (S *ᵥ b)`. By Birkhoff,
+`S *ᵥ b = ∑_σ w_σ · (b ∘ σ)` (via `permMatrix_mulVec`). For each `σ`,
+`∑ₖ aₖ b(σ k) ≤ ∑ₖ aₖ bₖ` by rearrangement. Average with weights `w_σ`. -/
+lemma bilinear_doublyStochastic_le_of_monovary {a b : n → ℝ}
+    (hab : Monovary a b) {S : Matrix n n ℝ} (hS : S ∈ doublyStochastic ℝ n) :
+    ∑ k, ∑ l, a k * S k l * b l ≤ ∑ k, a k * b k := by
+  -- LHS `= ∑ₖ aₖ · (S *ᵥ b)ₖ`.
+  have hlhs : ∑ k, ∑ l, a k * S k l * b l = ∑ k, a k * (S *ᵥ b) k := by
+    simp only [mulVec, dotProduct, mul_sum, mul_assoc]
+  rw [hlhs]
+  -- Birkhoff: `S = ∑_σ w_σ • P_σ`.
+  obtain ⟨w, hw_nonneg, hw_sum, hw_eq⟩ :=
+    exists_eq_sum_perm_of_mem_doublyStochastic hS
+  rw [← hw_eq]
+  simp only [sum_mulVec, smul_mulVec, permMatrix_mulVec, Finset.sum_apply,
+    Pi.smul_apply, smul_eq_mul, Function.comp_apply, mul_sum]
+  rw [sum_comm]
+  -- `∑_σ ∑ₖ aₖ · (w_σ · b(σ k)) = ∑_σ w_σ · ∑ₖ aₖ · b(σ k) ≤ ∑ₖ aₖ bₖ`.
+  calc ∑ σ : Equiv.Perm n, ∑ k, a k * (w σ * b (σ k))
+      = ∑ σ, w σ * ∑ k, a k * b (σ k) := by
+        refine sum_congr rfl fun σ _ => ?_
+        rw [mul_sum]; exact sum_congr rfl fun k _ => by ring
+    _ ≤ ∑ σ, w σ * ∑ k, a k * b k := by
+        refine sum_le_sum fun σ _ => mul_le_mul_of_nonneg_left ?_ (hw_nonneg σ)
+        exact hab.sum_mul_comp_perm_le_sum_mul (σ := σ)
+    _ = ∑ k, a k * b k := by rw [← sum_mul, hw_sum, one_mul]
+
+end Rearrangement
+
+/-- **Von Neumann's trace inequality** (Hermitian case). For Hermitian `A, B`
+with eigenvalues sorted in decreasing order, `Re tr(AB) ≤ ∑ᵢ aᵢ bᵢ`. -/
+theorem vonNeumann_trace_ineq {A B : Matrix n n 𝕜}
+    (hA : A.IsHermitian) (hB : B.IsHermitian) :
+    RCLike.re (A * B).trace
+      ≤ ∑ i, hA.eigenvalues₀ i * hB.eigenvalues₀ i := by
+  -- Step 1: express `Re tr(AB)` via the bilinear form in `normSqMatrix W`.
+  rw [re_trace_mul_eq_eigenvalue_bilinear hA hB]
+  set W := star (hA.eigenvectorUnitary : Matrix n n 𝕜) *
+    (hB.eigenvectorUnitary : Matrix n n 𝕜)
+  have hW : W ∈ Matrix.unitaryGroup n 𝕜 :=
+    mul_mem (Unitary.star_mem hA.eigenvectorUnitary.2) hB.eigenvectorUnitary.2
+  have hDS := normSqMatrix_mem_doublyStochastic_of_unitary hW
+  -- Step 2: reindex `n → Fin (card n)` via the canonical equivalence `e`,
+  -- under which `eigenvalues (e k) = eigenvalues₀ k`.
+  set e : Fin (Fintype.card n) ≃ n :=
+    Fintype.equivOfCardEq (Fintype.card_fin _) with he_def
+  have hevA : ∀ k, hA.eigenvalues (e k) = hA.eigenvalues₀ k := by
+    intro k; simp [Matrix.IsHermitian.eigenvalues, he_def]
+  have hevB : ∀ k, hB.eigenvalues (e k) = hB.eigenvalues₀ k := by
+    intro k; simp [Matrix.IsHermitian.eigenvalues, he_def]
+  -- Reindex both sums by `e`.
+  have hre : ∑ k, ∑ l, hA.eigenvalues k * normSqMatrix W k l * hB.eigenvalues l
+      = ∑ k, ∑ l, hA.eigenvalues₀ k * normSqMatrix W (e k) (e l) * hB.eigenvalues₀ l := by
+    rw [← e.sum_comp]
+    refine Finset.sum_congr rfl fun k _ => ?_
+    rw [← e.sum_comp]
+    simp only [hevA, hevB]
+  rw [hre]
+  -- Step 3: apply the doubly-stochastic bilinear bound.
+  refine bilinear_doublyStochastic_le_of_monovary ?_ ?_
+  · exact hA.eigenvalues₀_antitone.monovary_antitone hB.eigenvalues₀_antitone
+  · -- Reindexed `normSqMatrix W` is still doubly stochastic.
+    exact reindex_mem_doublyStochastic (e₁ := e.symm) (e₂ := e.symm) hDS
+
+end RHLinalg
+
+/-!
+# Sylvester's law of inertia for Hermitian matrices (subspace bound)
+
+We prove the key inequality: any subspace `W ⊆ 𝕜ⁿ` on which the Hermitian
+form `x ↦ Re(xᴴAx)` is positive definite has dimension at most
+`posIndex hA`.
+
+The proof is short: `A = A₊ − A₋` with both parts PSD (`HermitianPosPart`).
+If `A₊ · x = 0` for `x ∈ W ∖ {0}`, then `xᴴAx = −xᴴA₋x ≤ 0`, contradicting
+positive-definiteness on `W`. So `(A₊ *ᵥ ·)|_W` is injective, hence
+`dim W ≤ rank A₊ = posIndex hA`.
+
+This is the engine behind `lem:inertia`: pulling back a Hermitian form
+cannot increase its positive index.
+-/
+
+noncomputable section
+
+open Matrix Finset Submodule
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- The Hermitian form `x ↦ Re(star x ⬝ (A *ᵥ x))` associated to a matrix. -/
+def hermForm (A : Matrix n n 𝕜) (x : n → 𝕜) : ℝ :=
+  RCLike.re (star x ⬝ᵥ (A *ᵥ x))
+
+/-- `W` is a subspace on which `hermForm A` is positive definite. -/
+def PosDefOn (A : Matrix n n 𝕜) (W : Submodule 𝕜 (n → 𝕜)) : Prop :=
+  ∀ x ∈ W, x ≠ 0 → 0 < hermForm A x
+
+omit [DecidableEq n] in
+lemma hermForm_conj {m : Type*} [Fintype m] [DecidableEq m]
+    (Q : Matrix n n 𝕜) (B : Matrix n m 𝕜) (x : m → 𝕜) :
+    hermForm (Bᴴ * Q * B) x = hermForm Q (B *ᵥ x) := by
+  unfold hermForm
+  congr 2
+  rw [← mulVec_mulVec, ← mulVec_mulVec, dotProduct_mulVec (star x) Bᴴ,
+    ← star_mulVec]
+
+omit [DecidableEq n] in
+lemma hermForm_add (A B : Matrix n n 𝕜) (x : n → 𝕜) :
+    hermForm (A + B) x = hermForm A x + hermForm B x := by
+  unfold hermForm
+  simp [add_mulVec, dotProduct_add, map_add]
+
+omit [DecidableEq n] in
+lemma hermForm_sub (A B : Matrix n n 𝕜) (x : n → 𝕜) :
+    hermForm (A - B) x = hermForm A x - hermForm B x := by
+  unfold hermForm
+  simp [sub_mulVec, dotProduct_sub, map_sub]
+
+omit [DecidableEq n] in
+/-- `hermForm A x ≥ 0` when `A` is PSD. -/
+lemma hermForm_nonneg_of_posSemidef {A : Matrix n n 𝕜} (hA : A.PosSemidef)
+    (x : n → 𝕜) : 0 ≤ hermForm A x :=
+  hA.re_dotProduct_nonneg x
+
+/-- **Sylvester's inequality (hard direction)**: any subspace on which the
+Hermitian form is positive definite has dimension at most `posIndex hA`.
+
+This is the subspace characterization of `n₊` that makes `lem:inertia`
+trivial. -/
+theorem finrank_le_posIndex_of_posDefOn {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+    {W : Submodule 𝕜 (n → 𝕜)} (hW : PosDefOn A W) :
+    Module.finrank 𝕜 W ≤ posIndex hA := by
+  -- `A₊ *ᵥ ·` is injective on `W`: kernel element has `xᴴAx = −xᴴA₋x ≤ 0`.
+  set L : (n → 𝕜) →ₗ[𝕜] (n → 𝕜) := (hermPosPart hA).mulVecLin
+  have hinj : Function.Injective (L.domRestrict W) := by
+    rw [← LinearMap.ker_eq_bot, eq_bot_iff]
+    rintro ⟨x, hxW⟩ hxL
+    simp only [LinearMap.mem_ker, LinearMap.domRestrict_apply] at hxL
+    -- `hxL : L ⟨x, hxW⟩ = 0`, i.e. `hermPosPart hA *ᵥ x = 0`.
+    have hxL' : hermPosPart hA *ᵥ x = 0 := hxL
+    simp only [mem_bot]
+    by_contra hne
+    have hne' : x ≠ 0 := fun h => hne (Subtype.ext h)
+    have hAx : hermForm A x ≤ 0 := by
+      rw [← hermPosPart_sub_hermNegPart hA, hermForm_sub]
+      have h1 : hermForm (hermPosPart hA) x = 0 := by
+        unfold hermForm; rw [hxL']; simp
+      have h2 : 0 ≤ hermForm (hermNegPart hA) x :=
+        hermForm_nonneg_of_posSemidef (hermNegPart_posSemidef hA) x
+      linarith
+    exact absurd (hW x hxW hne') (not_lt.mpr hAx)
+  -- `dim W = dim range(L|_W) ≤ dim range(L) = rank A₊ = posIndex hA`.
+  calc Module.finrank 𝕜 W
+      = Module.finrank 𝕜 (LinearMap.range (L.domRestrict W)) :=
+        (LinearMap.finrank_range_of_inj hinj).symm
+    _ ≤ Module.finrank 𝕜 (LinearMap.range L) := by
+        apply Submodule.finrank_mono
+        rintro y ⟨⟨x, hxW⟩, rfl⟩
+        exact ⟨x, rfl⟩
+    _ = (hermPosPart hA).rank := rfl
+    _ = posIndex hA := rank_hermPosPart hA
+
+open Unitary in
+/-- **Sylvester's inequality (easy direction)**: the Hermitian form is
+positive definite on `range A₊`, which has dimension `posIndex hA`.
+
+For `z = A₊ · y ∈ range A₊`, the eigenbasis coordinates `c := Uᴴz` satisfy
+`cᵢ = λᵢ⁺ · (Uᴴy)ᵢ`, so `cᵢ = 0` whenever `λᵢ ≤ 0`. Hence
+`zᴴAz = ∑ᵢ λᵢ|cᵢ|² = ∑_{λᵢ>0} λᵢ|cᵢ|²`, each term ≥ 0; and `z ≠ 0 ⟹ c ≠ 0`
+(U unitary) forces some positive term. -/
+theorem posDefOn_range_hermPosPart {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    PosDefOn A (LinearMap.range (hermPosPart hA).mulVecLin) := by
+  rintro _ ⟨y, rfl⟩ hne
+  set U : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+  set z := (hermPosPart hA).mulVecLin y with hz_def
+  change z ≠ 0 at hne
+  change 0 < hermForm A z
+  set d := star U *ᵥ y with hd_def
+  -- `c := Uᴴ · z = Uᴴ·U·diag(λ⁺)·Uᴴ·y = diag(λ⁺)·d`, so `cᵢ = λᵢ⁺·dᵢ`.
+  have hc_eq : star U *ᵥ z = fun i => (((hA.eigenvalues i)⁺ : ℝ) : 𝕜) * d i := by
+    have hz' : z = hermPosPart hA *ᵥ y := rfl
+    rw [hz']; unfold hermPosPart specMap
+    rw [conjStarAlgAut_apply, Matrix.mulVec_mulVec, ← mul_assoc, ← mul_assoc,
+      Unitary.star_mul_self_of_mem hA.eigenvectorUnitary.2, one_mul,
+      ← Matrix.mulVec_mulVec, ← hd_def]
+    funext i
+    simp only [mulVec, diagonal_dotProduct]
+  -- `hermForm A z = ∑ᵢ λᵢ · ‖(Uᴴz)ᵢ‖² = ∑ᵢ λᵢ · (λᵢ⁺)² · ‖dᵢ‖²`.
+  have hformA : hermForm A z
+      = ∑ i, hA.eigenvalues i * ((hA.eigenvalues i)⁺) ^ 2 * ‖d i‖ ^ 2 := by
+    have hAz : A *ᵥ z = specMap hA id *ᵥ z := by rw [specMap_id]
+    unfold hermForm
+    rw [hAz, hermForm_specMap hA id z, hc_eq]
+    refine sum_congr rfl fun i _ => ?_
+    simp only [id_eq, norm_mul, mul_pow, RCLike.norm_ofReal, sq_abs]
+    ring
+  rw [hformA]
+  -- Each term `≥ 0`; `z ≠ 0 ⟹ some cᵢ ≠ 0 ⟹ some term > 0`.
+  have hterm_nn : ∀ i, 0 ≤ hA.eigenvalues i * ((hA.eigenvalues i)⁺) ^ 2 * ‖d i‖ ^ 2 := by
+    intro i
+    rcases le_or_gt (hA.eigenvalues i) 0 with h | h
+    · simp [posPart_eq_zero.mpr h]
+    · exact mul_nonneg (mul_nonneg h.le (sq_nonneg _)) (sq_nonneg _)
+  refine sum_pos' (fun i _ => hterm_nn i) ?_
+  -- `z ≠ 0 ⟹ Uᴴz ≠ 0` (Uᴴ injective since U unitary).
+  have hUinj : Function.Injective (star U *ᵥ ·) := by
+    intro a b hab
+    have hab' : star U *ᵥ a = star U *ᵥ b := hab
+    have : (U * star U) *ᵥ a = (U * star U) *ᵥ b := by
+      rw [← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec, hab']
+    rwa [Unitary.mul_star_self_of_mem hA.eigenvectorUnitary.2, one_mulVec,
+      one_mulVec] at this
+  have hc_ne : (fun i => (((hA.eigenvalues i)⁺ : ℝ) : 𝕜) * d i) ≠ 0 := by
+    rw [← hc_eq]
+    intro h
+    exact hne (hUinj (h.trans (mulVec_zero _).symm))
+  obtain ⟨i, hi⟩ := Function.ne_iff.mp hc_ne
+  refine ⟨i, mem_univ i, ?_⟩
+  simp only [Pi.zero_apply, mul_ne_zero_iff, RCLike.ofReal_ne_zero] at hi
+  have hevi : 0 < hA.eigenvalues i := by
+    by_contra h
+    exact hi.1 (posPart_eq_zero.mpr (not_lt.mp h))
+  have hdi' : (0 : ℝ) < ‖d i‖ ^ 2 := pow_pos (norm_pos_iff.mpr hi.2) 2
+  have hpp : (0 : ℝ) < ((hA.eigenvalues i)⁺) ^ 2 := by
+    rw [posPart_eq_self.mpr hevi.le]; exact pow_pos hevi 2
+  exact mul_pos (mul_pos hevi hpp) hdi'
+
+/-- `hermForm I x = ∑ᵢ ‖xᵢ‖²` (the squared `ℓ²` norm). -/
+lemma hermForm_one (x : n → 𝕜) :
+    hermForm (1 : Matrix n n 𝕜) x = ∑ i, ‖x i‖ ^ 2 := by
+  unfold hermForm
+  simp only [one_mulVec, dotProduct, Pi.star_apply, RCLike.star_def, map_sum,
+    RCLike.conj_mul, ← RCLike.ofReal_pow, RCLike.ofReal_re]
+
+/-- `∑ᵢ ‖cᵢ‖²` is preserved by the unitary change of variables `c = Uᴴx`. -/
+lemma sum_normSq_unitary_mulVec {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+    (x : n → 𝕜) :
+    ∑ i, ‖(star (hA.eigenvectorUnitary : Matrix n n 𝕜) *ᵥ x) i‖ ^ 2
+      = ∑ i, ‖x i‖ ^ 2 := by
+  have h := hermForm_specMap hA 1 x
+  simp only [Pi.one_apply, one_mul] at h
+  rw [← h, ← hermForm_one x]
+  unfold hermForm
+  rw [show specMap hA 1 = (1 : Matrix n n 𝕜) by unfold specMap; simp]
+
+/-- `hermForm A x ≤ θ · ‖x‖²` whenever every eigenvalue of `A` is `≤ θ`.
+Equivalently, `A ⪯ θ·I`. -/
+lemma hermForm_le_of_eigenvalues_le {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+    {θ : ℝ} (hθ : ∀ i, hA.eigenvalues i ≤ θ) (x : n → 𝕜) :
+    hermForm A x ≤ θ * ∑ i, ‖x i‖ ^ 2 := by
+  have hAx : A *ᵥ x = specMap hA id *ᵥ x := by rw [specMap_id]
+  unfold hermForm
+  rw [hAx, hermForm_specMap hA id x, ← sum_normSq_unitary_mulVec hA x, mul_sum]
+  exact sum_le_sum fun i _ => mul_le_mul_of_nonneg_right (by simpa using hθ i) (sq_nonneg _)
+
+open Unitary in
+/-- **Generalized easy Sylvester direction**: on `range(specMap hA (·−θ)⁺)`,
+the form satisfies `hermForm A x > θ · ‖x‖²` for `x ≠ 0`. The dimension of
+this range is `posIndexAbove hA θ` (via `rank_specMap`).
+
+The proof is identical to `posDefOn_range_hermPosPart` (which is the `θ=0`
+case) with `λᵢ > 0` replaced by `λᵢ > θ`. -/
+theorem hermForm_gt_on_range_truncPos {A : Matrix n n 𝕜} (hA : A.IsHermitian)
+    (θ : ℝ) :
+    ∀ x ∈ LinearMap.range (specMap hA (fun t => (t - θ)⁺)).mulVecLin, x ≠ 0 →
+      θ * ∑ i, ‖x i‖ ^ 2 < hermForm A x := by
+  rintro _ ⟨y, rfl⟩ hne
+  set U : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+  set g : ℝ → ℝ := fun t => (t - θ)⁺
+  set z := (specMap hA g).mulVecLin y with hz_def
+  change z ≠ 0 at hne
+  set d := star U *ᵥ y with hd_def
+  -- `c := Uᴴz = diag(g∘λ)·d`, so `cᵢ = g(λᵢ)·dᵢ`, vanishing where `λᵢ ≤ θ`.
+  have hc_eq : star U *ᵥ z = fun i => ((g (hA.eigenvalues i) : ℝ) : 𝕜) * d i := by
+    have hz' : z = specMap hA g *ᵥ y := rfl
+    rw [hz']; unfold specMap
+    rw [conjStarAlgAut_apply, Matrix.mulVec_mulVec, ← mul_assoc, ← mul_assoc,
+      Unitary.star_mul_self_of_mem hA.eigenvectorUnitary.2, one_mul,
+      ← Matrix.mulVec_mulVec, ← hd_def]
+    funext i
+    simp only [mulVec, diagonal_dotProduct]
+  -- `hermForm A z = ∑ᵢ λᵢ·(g(λᵢ))²·‖dᵢ‖²` and `‖z‖² = ∑ᵢ (g(λᵢ))²·‖dᵢ‖²`.
+  have hformA : hermForm A z
+      = ∑ i, hA.eigenvalues i * (g (hA.eigenvalues i)) ^ 2 * ‖d i‖ ^ 2 := by
+    have hAz : A *ᵥ z = specMap hA id *ᵥ z := by rw [specMap_id]
+    unfold hermForm
+    rw [hAz, hermForm_specMap hA id z, hc_eq]
+    refine sum_congr rfl fun i _ => ?_
+    simp only [id_eq, norm_mul, mul_pow, RCLike.norm_ofReal, sq_abs]
+    ring
+  have hnormz : ∑ i, ‖z i‖ ^ 2
+      = ∑ i, (g (hA.eigenvalues i)) ^ 2 * ‖d i‖ ^ 2 := by
+    rw [← sum_normSq_unitary_mulVec hA z, hc_eq]
+    refine sum_congr rfl fun i _ => ?_
+    simp only [norm_mul, mul_pow, RCLike.norm_ofReal, sq_abs]
+  rw [hformA, hnormz, mul_sum]
+  -- Termwise: `(λᵢ − θ)·g(λᵢ)²·‖dᵢ‖² ≥ 0`, with strict `>` at some `i`.
+  rw [← sub_pos, ← sum_sub_distrib]
+  have hterm_nn : ∀ i, 0 ≤ hA.eigenvalues i * (g (hA.eigenvalues i))^2 * ‖d i‖^2
+      - θ * ((g (hA.eigenvalues i))^2 * ‖d i‖^2) := by
+    intro i
+    have heq : hA.eigenvalues i * (g (hA.eigenvalues i))^2 * ‖d i‖^2
+        - θ * ((g (hA.eigenvalues i))^2 * ‖d i‖^2)
+        = (hA.eigenvalues i - θ) * ((g (hA.eigenvalues i))^2 * ‖d i‖^2) := by ring
+    rw [heq]
+    rcases le_or_gt (hA.eigenvalues i) θ with h | h
+    · simp [g, posPart_eq_zero.mpr (sub_nonpos.mpr h)]
+    · exact mul_nonneg (sub_nonneg.mpr h.le) (mul_nonneg (sq_nonneg _) (sq_nonneg _))
+  refine sum_pos' (fun i _ => hterm_nn i) ?_
+  -- `z ≠ 0 ⟹ Uᴴz ≠ 0 ⟹ some cᵢ ≠ 0`, and that `i` has `λᵢ > θ`.
+  have hUinj : Function.Injective (star U *ᵥ ·) := by
+    intro a b hab
+    have hab' : star U *ᵥ a = star U *ᵥ b := hab
+    have : (U * star U) *ᵥ a = (U * star U) *ᵥ b := by
+      rw [← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec, hab']
+    rwa [Unitary.mul_star_self_of_mem hA.eigenvectorUnitary.2, one_mulVec,
+      one_mulVec] at this
+  have hc_ne : (fun i => ((g (hA.eigenvalues i) : ℝ) : 𝕜) * d i) ≠ 0 := by
+    rw [← hc_eq]
+    exact fun h => hne (hUinj (h.trans (mulVec_zero _).symm))
+  obtain ⟨i, hi⟩ := Function.ne_iff.mp hc_ne
+  refine ⟨i, mem_univ i, ?_⟩
+  simp only [Pi.zero_apply, mul_ne_zero_iff, RCLike.ofReal_ne_zero] at hi
+  have hevi : θ < hA.eigenvalues i := by
+    by_contra h
+    exact hi.1 (posPart_eq_zero.mpr (sub_nonpos.mpr (not_lt.mp h)))
+  have hgi : 0 < (g (hA.eigenvalues i)) ^ 2 := by
+    refine pow_pos ?_ 2
+    simp only [g]; rw [posPart_eq_self.mpr (sub_nonneg.mpr hevi.le)]; linarith
+  have hdi : 0 < ‖d i‖ ^ 2 := pow_pos (norm_pos_iff.mpr hi.2) 2
+  have heq : hA.eigenvalues i * (g (hA.eigenvalues i))^2 * ‖d i‖^2
+      - θ * ((g (hA.eigenvalues i))^2 * ‖d i‖^2)
+      = (hA.eigenvalues i - θ) * ((g (hA.eigenvalues i))^2 * ‖d i‖^2) := by ring
+  rw [heq]
+  exact mul_pos (sub_pos.mpr hevi) (mul_pos hgi hdi)
+
+lemma finrank_range_truncPos {A : Matrix n n 𝕜} (hA : A.IsHermitian) (θ : ℝ) :
+    Module.finrank 𝕜 (LinearMap.range (specMap hA (fun t => (t - θ)⁺)).mulVecLin)
+      = posIndexAbove hA θ := by
+  show (specMap hA (fun t => (t - θ)⁺)).rank = _
+  rw [rank_specMap]; unfold posIndexAbove
+  congr 1; ext i
+  simp only [mem_filter, mem_univ, true_and, ne_eq, posPart_eq_zero, not_le,
+    sub_pos]
+
+/-- The dimension of `range A₊` is `posIndex hA`. -/
+lemma finrank_range_hermPosPart {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    Module.finrank 𝕜 (LinearMap.range (hermPosPart hA).mulVecLin) = posIndex hA := by
+  rw [← rank_hermPosPart hA]; rfl
+
+/-- **Sylvester's law of inertia (subspace characterization)**. -/
+theorem posIndex_eq_max_finrank_posDefOn {A : Matrix n n 𝕜} (hA : A.IsHermitian) :
+    ∃ W : Submodule 𝕜 (n → 𝕜), PosDefOn A W ∧
+      Module.finrank 𝕜 W = posIndex hA :=
+  ⟨_, posDefOn_range_hermPosPart hA, finrank_range_hermPosPart hA⟩
+
+end RHLinalg
+
+/-!
+# Inertia under pull-back (paper §3, `lem:inertia`)
+
+For a Hermitian form `Q` on `ℂᵐ` and a linear map `𝒜 : U → ℂᵐ`, the positive
+index of the pulled-back form `Q ∘ 𝒜` is at most the positive index of `Q`.
+
+## Matrix formulation
+
+If `Q : Matrix m m 𝕜` is Hermitian and `B : Matrix m d 𝕜` represents a linear
+map `𝕜ᵈ → 𝕜ᵐ`, then `BᴴQB` is the matrix of the pulled-back form on `𝕜ᵈ`,
+and `n₊(BᴴQB) ≤ n₊(Q)`.
+
+## Proof
+
+Via the subspace characterization of `posIndex` (`Sylvester.lean`):
+- Let `Vp := range (BᴴQB)₊`, which has dimension `posIndex h(BᴴQB)` and on
+  which `BᴴQB` is positive definite (`posDefOn_range_hermPosPart`).
+- For `x ∈ Vp ∖ {0}`: `(Bx)ᴴQ(Bx) = xᴴ(BᴴQB)x > 0`, so `Bx ≠ 0`; hence
+  `B|_{Vp}` is injective.
+- `B(Vp) ⊆ 𝕜ᵐ` has dimension `= dim Vp` and `Q` is positive definite on it.
+- By `finrank_le_posIndex_of_posDefOn hQ`, `dim B(Vp) ≤ posIndex hQ`.
+-/
+
+noncomputable section
+
+open Matrix Finset Submodule
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {m d : Type*} [Fintype m] [DecidableEq m] [Fintype d] [DecidableEq d]
+
+/-- **Inertia under pull-back** (paper `lem:inertia`, matrix form).
+For Hermitian `Q` and any matrix `B`, the pulled-back form `BᴴQB` has
+positive index at most that of `Q`. -/
+theorem posIndex_conj_le {Q : Matrix m m 𝕜} (hQ : Q.IsHermitian) (B : Matrix m d 𝕜) :
+    posIndex (isHermitian_conjTranspose_mul_mul B hQ) ≤ posIndex hQ := by
+  set M := Bᴴ * Q * B
+  set hM : M.IsHermitian := isHermitian_conjTranspose_mul_mul B hQ
+  -- `Vp := range M₊`, dim = posIndex hM, M pos-def on it.
+  set Vp := LinearMap.range (hermPosPart hM).mulVecLin
+  have hdimV : Module.finrank 𝕜 Vp = posIndex hM := finrank_range_hermPosPart hM
+  have hposV : PosDefOn M Vp := posDefOn_range_hermPosPart hM
+  -- `B|_{Vp}` is injective (kernel vector `x ≠ 0` has `(Bx)ᴴQ(Bx) = xᴴMx > 0`,
+  -- so `Bx ≠ 0`).
+  set LB : (d → 𝕜) →ₗ[𝕜] (m → 𝕜) := B.mulVecLin
+  have hinj : Function.Injective (LB.domRestrict Vp) := by
+    rw [← LinearMap.ker_eq_bot, eq_bot_iff]
+    rintro ⟨x, hxV⟩ hxL
+    simp only [LinearMap.mem_ker, LinearMap.domRestrict_apply] at hxL
+    have hxL' : B *ᵥ x = 0 := hxL
+    simp only [mem_bot]
+    by_contra hne
+    have hne' : x ≠ 0 := fun h => hne (Subtype.ext h)
+    have hpos : 0 < hermForm M x := hposV x hxV hne'
+    rw [hermForm_conj Q B x, hxL'] at hpos
+    simp [hermForm] at hpos
+  -- `B(Vp) ⊆ 𝕜ᵐ` has `Q` pos-def on it.
+  have hposBV : PosDefOn Q (LinearMap.range (LB.domRestrict Vp)) := by
+    rintro _ ⟨⟨x, hxV⟩, rfl⟩ hne
+    simp only [LinearMap.domRestrict_apply, LB, mulVecLin_apply] at *
+    have hne' : x ≠ 0 := by
+      rintro rfl; apply hne; simp
+    rw [← hermForm_conj Q B x]
+    exact hposV x hxV hne'
+  -- Chain: posIndex hM = dim Vp = dim B(Vp) ≤ posIndex hQ.
+  calc posIndex hM
+      = Module.finrank 𝕜 Vp := hdimV.symm
+    _ = Module.finrank 𝕜 (LinearMap.range (LB.domRestrict Vp)) :=
+        (LinearMap.finrank_range_of_inj hinj).symm
+    _ ≤ posIndex hQ := finrank_le_posIndex_of_posDefOn hQ hposBV
+
+/-- **Subadditivity of the positive index** (paper §3, after `lem:inertia`).
+`n₊(Q₁ + Q₂) ≤ n₊(Q₁) + n₊(Q₂)`. -/
+theorem posIndex_add_le {Q₁ Q₂ : Matrix m m 𝕜}
+    (hQ₁ : Q₁.IsHermitian) (hQ₂ : Q₂.IsHermitian) :
+    posIndex (hQ₁.add hQ₂) ≤ posIndex hQ₁ + posIndex hQ₂ := by
+  -- Any `(Q₁+Q₂)`-pos-def subspace `Vp` satisfies: `(Q₁)₊ + (Q₂)₊` is
+  -- injective on it (same argument as the hard direction, with
+  -- `P := (Q₁)₊ + (Q₂)₊` which dominates `Q₁+Q₂`). Hence
+  -- `dim Vp ≤ rank((Q₁)₊ + (Q₂)₊) ≤ rank(Q₁)₊ + rank(Q₂)₊`.
+  obtain ⟨Vp, hposV, hdimV⟩ := posIndex_eq_max_finrank_posDefOn (hQ₁.add hQ₂)
+  rw [← hdimV]
+  set P := hermPosPart hQ₁ + hermPosPart hQ₂
+  set L : (m → 𝕜) →ₗ[𝕜] (m → 𝕜) := P.mulVecLin
+  -- `P − (Q₁+Q₂) = (Q₁)₋ + (Q₂)₋` is PSD, so on `ker P`, `hermForm (Q₁+Q₂) ≤ 0`.
+  have hPsub : P - (Q₁ + Q₂) = hermNegPart hQ₁ + hermNegPart hQ₂ := by
+    simp only [P, ← hermPosPart_sub_hermNegPart hQ₁, ← hermPosPart_sub_hermNegPart hQ₂]
+    abel
+  have hPsub_psd : (P - (Q₁ + Q₂)).PosSemidef := by
+    rw [hPsub]; exact (hermNegPart_posSemidef hQ₁).add (hermNegPart_posSemidef hQ₂)
+  have hinj : Function.Injective (L.domRestrict Vp) := by
+    rw [← LinearMap.ker_eq_bot, eq_bot_iff]
+    rintro ⟨x, hxV⟩ hxL
+    simp only [LinearMap.mem_ker, LinearMap.domRestrict_apply] at hxL
+    have hxL' : P *ᵥ x = 0 := hxL
+    simp only [mem_bot]
+    by_contra hne
+    have hne' : x ≠ 0 := fun h => hne (Subtype.ext h)
+    have hform_le : hermForm (Q₁ + Q₂) x ≤ 0 := by
+      have : hermForm (Q₁ + Q₂) x = hermForm P x - hermForm (P - (Q₁ + Q₂)) x := by
+        rw [hermForm_sub]; ring
+      rw [this, show hermForm P x = 0 by unfold hermForm; rw [hxL']; simp]
+      linarith [hermForm_nonneg_of_posSemidef hPsub_psd x]
+    exact absurd (hposV x hxV hne') (not_lt.mpr hform_le)
+  calc Module.finrank 𝕜 Vp
+      = Module.finrank 𝕜 (LinearMap.range (L.domRestrict Vp)) :=
+        (LinearMap.finrank_range_of_inj hinj).symm
+    _ ≤ Module.finrank 𝕜 (LinearMap.range L) := by
+        apply Submodule.finrank_mono
+        rintro y ⟨⟨x, hxV⟩, rfl⟩; exact ⟨x, rfl⟩
+    _ = P.rank := rfl
+    _ ≤ (hermPosPart hQ₁).rank + (hermPosPart hQ₂).rank := by
+        -- `rank(A+B) ≤ rank A + rank B` via `range(A+B) ⊆ range A ⊔ range B`.
+        unfold Matrix.rank
+        refine le_trans (Submodule.finrank_mono ?_)
+          (Submodule.finrank_add_le_finrank_add_finrank _ _)
+        rintro _ ⟨x, rfl⟩
+        simp only [P, mulVecLin_apply, add_mulVec]
+        exact Submodule.add_mem_sup ⟨x, rfl⟩ ⟨x, rfl⟩
+    _ = posIndex hQ₁ + posIndex hQ₂ := by rw [rank_hermPosPart, rank_hermPosPart]
+
+end RHLinalg
+
+/-!
+# Weyl's inequality and the thresholded Cauchy–Schwarz count
+
+Paper §3, `lem:weyl` and `lem:CS`. These are the remaining two linear-algebra
+tools (beyond `lem:inertia` and `lem:ranktrace`); they are needed for
+Theorems B and C (simple zeros, distinct zeros) but not for Theorem A (2/3 on
+the critical line).
+-/
+
+noncomputable section
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- **Weyl's eigenvalue perturbation inequality** (the paper's [lem:weyl], §3).
+If `A, E` are Hermitian and `θ ≥ ‖E‖_op`, then `n₊^θ(A + E) ≤ n₊(A)`.
+
+Proof in the paper: with eigenvalues in decreasing order, `λᵢ(A+E) ≤ λᵢ(A) + ‖E‖`
+(Courant–Fischer). Hence `λᵢ(A+E) > θ ≥ ‖E‖` forces `λᵢ(A) > 0`.
+
+That is the paper's proof. The Lean proof instead takes W := the range of the spectral truncation
+(t − θ)⁺ of A + E (so dim W = n₊^θ(A+E)), shows that the Hermitian form of A is positive definite on W
+(that of A + E exceeds θ‖x‖² there while that of E is at most θ‖x‖²), and concludes with the subspace
+characterization of the positive index (`finrank_le_posIndex_of_posDefOn`, Sylvester.lean); the
+hypothesis is stated as |λᵢ(E)| ≤ θ for every eigenvalue of E.
+The operator norm `‖E‖_op` is
+`Matrix.instNormedRing` (the `linftyOpNorm`), which for Hermitian matrices
+equals `max |λᵢ|`. -/
+theorem weyl_posIndexAbove_le {A E : Matrix n n 𝕜}
+    (hA : A.IsHermitian) (hE : E.IsHermitian) {θ : ℝ}
+    (hθ : ∀ i, |hE.eigenvalues i| ≤ θ) :
+    posIndexAbove (hA.add hE) θ ≤ posIndex hA := by
+  set hM : (A + E).IsHermitian := hA.add hE
+  -- `W := range(specMap hM (·−θ)⁺)` has `dim = posIndexAbove hM θ`
+  -- and `hermForm (A+E) x > θ·‖x‖²` on `W ∖ {0}`.
+  set W := LinearMap.range (specMap hM (fun t => (t - θ)⁺)).mulVecLin
+  have hdimW : Module.finrank 𝕜 W = posIndexAbove hM θ :=
+    finrank_range_truncPos hM θ
+  have hgt : ∀ x ∈ W, x ≠ 0 → θ * ∑ i, ‖x i‖ ^ 2 < hermForm (A + E) x :=
+    hermForm_gt_on_range_truncPos hM θ
+  -- `hermForm E x ≤ θ·‖x‖²` always (all `λᵢ(E) ≤ |λᵢ(E)| ≤ θ`).
+  have hEle : ∀ x, hermForm E x ≤ θ * ∑ i, ‖x i‖ ^ 2 := by
+    intro x
+    exact hermForm_le_of_eigenvalues_le hE
+      (fun i => (le_abs_self _).trans (hθ i)) x
+  -- Hence `A` is positive definite on `W`.
+  have hposW : PosDefOn A W := by
+    intro x hxW hne
+    have h1 := hgt x hxW hne
+    have h2 := hEle x
+    have h3 : hermForm (A + E) x = hermForm A x + hermForm E x := hermForm_add A E x
+    linarith
+  -- Hard Sylvester: `dim W ≤ posIndex hA`.
+  calc posIndexAbove hM θ
+      = Module.finrank 𝕜 W := hdimW.symm
+    _ ≤ posIndex hA := finrank_le_posIndex_of_posDefOn hA hposW
+
+/-- **Thresholded Cauchy–Schwarz count** (the paper's [lem:CS], §3).
+For Hermitian `R` with `tr R > θ · d`,
+  `n₊^θ(R) ≥ (tr R − θd)² / tr(R²)`.
+
+Proof: With `S := ∑_{λᵢ > θ} λᵢ`, note `S ≥ tr R − θd > 0` (negative
+eigenvalues only help). By Cauchy–Schwarz, `S² ≤ n₊^θ(R) · ∑_{λᵢ>θ} λᵢ²
+≤ n₊^θ(R) · tr(R²)`.
+
+This is a pure real-eigenvalue statement; the proof is Cauchy–Schwarz on the
+eigenvalues above the threshold. -/
+theorem cauchySchwarz_count {R : Matrix n n 𝕜} (hR : R.IsHermitian)
+    {θ : ℝ} (hθ : 0 ≤ θ) (htr : θ * Fintype.card n < rtrace R) :
+    (rtrace R - θ * Fintype.card n) ^ 2 / frobSq R
+      ≤ (posIndexAbove hR θ : ℝ) := by
+  set ev := hR.eigenvalues
+  set s : Finset n := {i | θ < ev i} with hs_def
+  -- `S := ∑ᵢ∈s evᵢ` satisfies `S ≥ rtrace R − θ·d`, since `∑ᵢ∉s evᵢ ≤ θ·d`.
+  have hcompl : ∑ i ∈ sᶜ, ev i ≤ θ * Fintype.card n :=
+    calc ∑ i ∈ sᶜ, ev i
+        ≤ ∑ _i ∈ sᶜ, θ := by
+          refine sum_le_sum fun i hi => ?_
+          simp only [hs_def, mem_compl, mem_filter, mem_univ, true_and, not_lt] at hi
+          exact hi
+      _ = θ * #sᶜ := by rw [sum_const, nsmul_eq_mul, mul_comm]
+      _ ≤ θ * Fintype.card n :=
+          mul_le_mul_of_nonneg_left (Nat.cast_le.mpr (card_le_univ _)) hθ
+  have hS : rtrace R - θ * Fintype.card n ≤ ∑ i ∈ s, ev i := by
+    have : rtrace R = ∑ i ∈ s, ev i + ∑ i ∈ sᶜ, ev i := by
+      rw [rtrace_eq_sum_eigenvalues hR, ← sum_add_sum_compl s]
+    linarith
+  have hSpos : 0 < ∑ i ∈ s, ev i := lt_of_lt_of_le (by linarith) hS
+  -- Cauchy–Schwarz: `S² ≤ #s · ∑ᵢ∈s evᵢ²`.
+  have hCS : (∑ i ∈ s, ev i) ^ 2 ≤ #s * ∑ i ∈ s, (ev i) ^ 2 :=
+    sq_sum_le_card_mul_sum_sq
+  -- `∑ᵢ∈s evᵢ² ≤ ∑ᵢ evᵢ² = frobSq R`.
+  have hsub : ∑ i ∈ s, (ev i) ^ 2 ≤ frobSq R := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hR]
+    exact sum_le_sum_of_subset_of_nonneg (subset_univ s) (fun i _ _ => sq_nonneg _)
+  -- `s` is nonempty (else `∑ᵢ∈s evᵢ = 0`, contradicting `hSpos`).
+  obtain ⟨i₀, hi₀⟩ := nonempty_of_sum_ne_zero hSpos.ne'
+  have hevi₀ : θ < ev i₀ := by simpa [hs_def, mem_filter] using hi₀
+  have hfrobpos : 0 < frobSq R :=
+    lt_of_lt_of_le
+      (lt_of_lt_of_le (pow_pos (hθ.trans_lt hevi₀) 2)
+        (single_le_sum (fun i _ => sq_nonneg (ev i)) hi₀))
+      hsub
+  -- Combine: `(rtrace R − θd)² ≤ S² ≤ #s · ∑ᵢ∈s evᵢ² ≤ #s · frobSq R`.
+  have hmain : (rtrace R - θ * Fintype.card n) ^ 2 ≤ #s * frobSq R := calc
+    (rtrace R - θ * Fintype.card n) ^ 2
+        ≤ (∑ i ∈ s, ev i) ^ 2 := by
+          apply sq_le_sq' <;> linarith
+    _ ≤ #s * ∑ i ∈ s, (ev i) ^ 2 := hCS
+    _ ≤ #s * frobSq R := mul_le_mul_of_nonneg_left hsub (Nat.cast_nonneg _)
+  -- Divide by `frobSq R > 0`.
+  rw [div_le_iff₀ hfrobpos]
+  simpa [posIndexAbove, hs_def, mul_comm] using hmain
+
+end RHLinalg
+
+/-!
+# The rank–trace inequality (paper §3, `lem:ranktrace`)
+
+Let `P, Q` be Hermitian `d × d` matrices with `P ⪰ 0`, `rank P ≤ r`, and
+`n₊(Q) ≤ b`. Then for every `c > 0`,
+
+  `‖P+Q‖_F² ≥ c · tr P − (c²/4) · r + 2c · tr Q − c² · b`.
+
+## Proof structure (the paper's proof of [lem:ranktrace], §3)
+
+Decompose `Q = Q₊ − Q₋` (spectral positive/negative parts). Expand
+`‖P+Q‖_F² = ‖P‖_F² + 2 tr(PQ₊) − 2 tr(PQ₋) + ‖Q₊‖_F² + ‖Q₋‖_F²` (using
+`Q₊Q₋ = 0`). Drop `tr(PQ₊) ≥ 0`. By von Neumann,
+`‖P‖_F² − 2 tr(PQ₋) + ‖Q₋‖_F² ≥ ∑(pᵢ−nᵢ)²`. The two elementary estimates
+`sum_sq_diff_lower` and `sum_sq_lower_of_card_pos_le` bound the remaining
+pieces, and `linarith` assembles.
+-/
+
+noncomputable section
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+/-! ### Elementary real-sequence estimates -/
+
+section Elementary
+
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- Elementary scalar inequality `x² ≥ c·x − c²/4`, i.e. `(x − c/2)² ≥ 0`. -/
+lemma sq_ge_linear (x c : ℝ) : c * x - c ^ 2 / 4 ≤ x ^ 2 := by
+  nlinarith [sq_nonneg (x - c / 2)]
+
+/-- Elementary scalar inequality `x² ≥ 2c·x − c²`, i.e. `(x − c)² ≥ 0`. -/
+lemma sq_ge_linear' (x c : ℝ) : 2 * c * x - c ^ 2 ≤ x ^ 2 := by
+  nlinarith [sq_nonneg (x - c)]
+
+/-- **Sum estimate A** (first elementary estimate in the proof of [lem:ranktrace]). For `p, m ≥ 0` with at most `r`
+indices where `p` is nonzero, and `c ≥ 0`:
+`∑(pᵢ − mᵢ)² ≥ c·∑pᵢ − (c²/4)·r − 2c·∑mᵢ`. -/
+lemma sum_sq_diff_lower {p m : ι → ℝ} (hm : ∀ i, 0 ≤ m i)
+    {r : ℕ} (hr : #{i | p i ≠ 0} ≤ r) {c : ℝ} (hc : 0 ≤ c) :
+    c * (∑ i, p i) - c ^ 2 / 4 * r - 2 * c * (∑ i, m i) ≤ ∑ i, (p i - m i) ^ 2 := by
+  classical
+  set s : Finset ι := {i | p i ≠ 0} with hs_def
+  -- Pointwise: `(pᵢ−mᵢ)² ≥ c·pᵢ − 2c·mᵢ − (c²/4)·1_{i∈s}`.
+  have hptwise : ∀ i ∈ (univ : Finset ι),
+      c * p i - 2 * c * m i - (if i ∈ s then c ^ 2 / 4 else 0) ≤ (p i - m i) ^ 2 := by
+    intro i _
+    rcases eq_or_ne (p i) 0 with hi | hi
+    · have his : i ∉ s := by simp [hs_def, mem_filter, hi]
+      rw [if_neg his, hi]
+      nlinarith [hm i, sq_nonneg (m i)]
+    · have his : i ∈ s := by simp [hs_def, mem_filter, hi]
+      rw [if_pos his]
+      nlinarith [sq_ge_linear (p i - m i) c, hm i]
+  have hsum := sum_le_sum hptwise
+  simp only [sum_sub_distrib, ← mul_sum, sum_ite_mem, univ_inter, sum_const,
+    nsmul_eq_mul] at hsum
+  have hcard : (#s : ℝ) * (c ^ 2 / 4) ≤ r * (c ^ 2 / 4) :=
+    mul_le_mul_of_nonneg_right (Nat.cast_le.mpr hr) (by positivity)
+  linarith
+
+/-- **Sum estimate B** (second elementary estimate in the proof of [lem:ranktrace]). For `q ≥ 0` with at most `b`
+indices where `q` is nonzero: `∑qᵢ² ≥ 2c·∑qᵢ − c²·b`. -/
+lemma sum_sq_lower_of_card_pos_le {q : ι → ℝ}
+    {b : ℕ} (hb : #{i | q i ≠ 0} ≤ b) (c : ℝ) :
+    2 * c * (∑ i, q i) - c ^ 2 * b ≤ ∑ i, (q i) ^ 2 := by
+  classical
+  set s : Finset ι := {i | q i ≠ 0} with hs_def
+  have hptwise : ∀ i ∈ (univ : Finset ι),
+      2 * c * q i - (if i ∈ s then c ^ 2 else 0) ≤ (q i) ^ 2 := by
+    intro i _
+    rcases eq_or_ne (q i) 0 with hi | hi
+    · have his : i ∉ s := by simp [hs_def, mem_filter, hi]
+      rw [if_neg his, hi]; simp
+    · have his : i ∈ s := by simp [hs_def, mem_filter, hi]
+      rw [if_pos his]; exact sq_ge_linear' (q i) c
+  have hsum := sum_le_sum hptwise
+  simp only [sum_sub_distrib, ← mul_sum, sum_ite_mem, univ_inter, sum_const,
+    nsmul_eq_mul] at hsum
+  have hcard : (#s : ℝ) * c ^ 2 ≤ b * c ^ 2 :=
+    mul_le_mul_of_nonneg_right (Nat.cast_le.mpr hb) (sq_nonneg c)
+  linarith
+
+end Elementary
+
+/-! ### Trace and Frobenius-norm identities -/
+
+/-- `tr(AB) ≥ 0` when `A, B ⪰ 0`. Proof: diagonalise `A = U D Uᴴ`; then
+`tr(AB) = tr((UᴴBU)D) = ∑ᵢ λᵢ · (UᴴBU)ᵢᵢ`, where each `λᵢ ≥ 0` (PSD
+eigenvalues) and each `(UᴴBU)ᵢᵢ ≥ 0` (diagonal of a PSD matrix). -/
+lemma trace_mul_nonneg_of_posSemidef {A B : Matrix n n 𝕜}
+    (hA : A.PosSemidef) (hB : B.PosSemidef) :
+    0 ≤ RCLike.re (A * B).trace := by
+  -- Reduce `tr(AB)` to `tr((UᴴBU)D)` by the spectral theorem + trace cycling.
+  rw [hA.isHermitian.spectral_theorem, Unitary.conjStarAlgAut_apply, mul_assoc,
+    trace_mul_comm, ← mul_assoc]
+  set M := star (hA.isHermitian.eigenvectorUnitary : Matrix n n 𝕜) * B *
+    (hA.isHermitian.eigenvectorUnitary : Matrix n n 𝕜) with hM_def
+  -- `M = UᴴBU` is PSD.
+  have hM : M.PosSemidef := hB.conjTranspose_mul_mul_same _
+  -- Now `0 ≤ re tr(M * diag λ) = ∑ᵢ λᵢ · re Mᵢᵢ`.
+  simp only [trace, diag_apply, mul_diagonal, Function.comp_apply, map_sum,
+    RCLike.mul_re, RCLike.ofReal_re, RCLike.ofReal_im, mul_zero, sub_zero]
+  refine Finset.sum_nonneg fun i _ => ?_
+  exact mul_nonneg (RCLike.nonneg_iff.mp hM.diag_nonneg).1 (hA.eigenvalues_nonneg i)
+
+omit [DecidableEq n] in
+/-- For Hermitian `A, B`: `Re tr(BA) = Re tr(AB)`. (In fact `tr(BA) = tr(AB)`.) -/
+lemma re_trace_mul_comm (A B : Matrix n n 𝕜) :
+    RCLike.re (B * A).trace = RCLike.re (A * B).trace := by
+  rw [trace_mul_comm]
+
+omit [DecidableEq n] in
+/-- Frobenius-norm expansion for a sum of two Hermitian matrices. -/
+lemma frobSq_add_hermitian {A B : Matrix n n 𝕜}
+    (hA : A.IsHermitian) (hB : B.IsHermitian) :
+    frobSq (A + B) = frobSq A + 2 * RCLike.re (A * B).trace + frobSq B := by
+  unfold frobSq
+  rw [(hA.add hB).eq, hA.eq, hB.eq, add_mul, mul_add, mul_add,
+    trace_add, trace_add, trace_add, map_add, map_add, map_add,
+    re_trace_mul_comm B A]
+  ring
+
+omit [DecidableEq n] in
+lemma rtrace_add (A B : Matrix n n 𝕜) : rtrace (A + B) = rtrace A + rtrace B := by
+  simp [rtrace, trace_add, map_add]
+
+omit [DecidableEq n] in
+lemma rtrace_sub (A B : Matrix n n 𝕜) : rtrace (A - B) = rtrace A - rtrace B := by
+  simp [rtrace, trace_sub, map_sub]
+
+/-! ### The main theorem -/
+
+/-- **Rank–trace inequality** (paper `lem:ranktrace`, eq. `eq:ranktrace`).
+
+Hypotheses: `P ⪰ 0` with `rank P ≤ r`; `Q` Hermitian with `n₊(Q) ≤ b`; `c > 0`.
+Conclusion:
+  `c · tr P − (c²/4) · r + 2c · tr Q − c² · b ≤ ‖P + Q‖_F²`.
+-/
+theorem rank_trace_ineq {P Q : Matrix n n 𝕜}
+    (hP : P.PosSemidef) (hQ : Q.IsHermitian)
+    {r b : ℕ} (hr : P.rank ≤ r) (hb : posIndex hQ ≤ b)
+    {c : ℝ} (hc : 0 < c) :
+    c * rtrace P - c ^ 2 / 4 * r + 2 * c * rtrace Q - c ^ 2 * b
+      ≤ frobSq (P + Q) := by
+  classical
+  -- Positive/negative parts of `Q`.
+  set Qp := hermPosPart hQ with hQp_def
+  set Qm := hermNegPart hQ with hQm_def
+  have hQdec : Q = Qp - Qm := (hermPosPart_sub_hermNegPart hQ).symm
+  have hQp_psd : Qp.PosSemidef := hermPosPart_posSemidef hQ
+  have hQm_psd : Qm.PosSemidef := hermNegPart_posSemidef hQ
+  have hQpQm : Qp * Qm = 0 := hermPosPart_mul_hermNegPart hQ
+  have hQmQp : Qm * Qp = 0 := hermNegPart_mul_hermPosPart hQ
+  have hrkQp : Qp.rank ≤ b := by
+    rw [hQp_def, rank_hermPosPart hQ]; exact hb
+  -- Sorted eigenvalues on `Fin d`.
+  set d := Fintype.card n
+  set p : Fin d → ℝ := hP.isHermitian.eigenvalues₀
+  set m : Fin d → ℝ := hQm_psd.isHermitian.eigenvalues₀
+  have hp_nn : ∀ k, 0 ≤ p k := fun k => by
+    rw [show p k = hP.isHermitian.eigenvalues (eigEquiv k) from
+      (eigenvalues_eigEquiv hP.isHermitian k).symm]
+    exact hP.eigenvalues_nonneg _
+  have hm_nn : ∀ k, 0 ≤ m k := fun k => by
+    rw [show m k = hQm_psd.isHermitian.eigenvalues (eigEquiv k) from
+      (eigenvalues_eigEquiv hQm_psd.isHermitian k).symm]
+    exact hQm_psd.eigenvalues_nonneg _
+  -- `#{k : pₖ ≠ 0} = rank P ≤ r`.
+  have hp_card : #{k | p k ≠ 0} ≤ r := by
+    calc #{k | p k ≠ 0}
+        = #{i | hP.isHermitian.eigenvalues i ≠ 0} :=
+          (card_eigenvalues_reindex hP.isHermitian (· ≠ 0)).symm
+      _ = P.rank := by
+          rw [hP.isHermitian.rank_eq_card_non_zero_eigs, Fintype.card_subtype]
+      _ ≤ r := hr
+  -- Trace/frobSq identities reindexed to `Fin d`.
+  have htraceP : rtrace P = ∑ k, p k := by
+    rw [rtrace_eq_sum_eigenvalues hP.isHermitian]
+    exact sum_eigenvalues_reindex hP.isHermitian id
+  have htraceQm : rtrace Qm = ∑ k, m k := by
+    rw [rtrace_eq_sum_eigenvalues hQm_psd.isHermitian]
+    exact sum_eigenvalues_reindex hQm_psd.isHermitian id
+  have hfrobP : frobSq P = ∑ k, (p k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hP.isHermitian]
+    exact sum_eigenvalues_reindex hP.isHermitian (· ^ 2)
+  have hfrobQm : frobSq Qm = ∑ k, (m k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hQm_psd.isHermitian]
+    exact sum_eigenvalues_reindex hQm_psd.isHermitian (· ^ 2)
+  -- Step 1: Frobenius expansion.
+  have hexpand : frobSq (P + Q)
+      = frobSq P + 2 * RCLike.re (P * Qp).trace - 2 * RCLike.re (P * Qm).trace
+        + frobSq Qp + frobSq Qm := by
+    have h1 : frobSq (-Qm) = frobSq Qm := by
+      unfold frobSq; rw [conjTranspose_neg, neg_mul_neg]
+    have h2 : RCLike.re (Qp * -Qm).trace = 0 := by
+      rw [mul_neg, hQpQm]; simp
+    rw [hQdec, frobSq_add_hermitian hP.isHermitian
+        (hQp_psd.isHermitian.sub hQm_psd.isHermitian),
+      sub_eq_add_neg Qp Qm,
+      frobSq_add_hermitian hQp_psd.isHermitian hQm_psd.isHermitian.neg,
+      h1, h2, mul_add, mul_neg, trace_add, trace_neg, map_add, map_neg]
+    ring
+  -- Step 2: drop `tr(PQ₊) ≥ 0`.
+  have hPQp : 0 ≤ RCLike.re (P * Qp).trace := trace_mul_nonneg_of_posSemidef hP hQp_psd
+  -- Step 3: von Neumann on `P, Q₋`.
+  have hvN : RCLike.re (P * Qm).trace ≤ ∑ k, p k * m k :=
+    vonNeumann_trace_ineq hP.isHermitian hQm_psd.isHermitian
+  -- Step 4: the von Neumann step gives `frobSq P − 2 tr(PQ₋) + frobSq Q₋ ≥ ∑(pₖ−mₖ)²`.
+  have hstep4 : ∑ k, (p k - m k) ^ 2
+      ≤ frobSq P - 2 * RCLike.re (P * Qm).trace + frobSq Qm := by
+    have hsplit : ∑ k, (p k - m k) ^ 2
+        = ∑ k, (p k)^2 - 2 * ∑ k, p k * m k + ∑ k, (m k)^2 := by
+      simp only [sub_sq, Finset.sum_add_distrib, Finset.sum_sub_distrib,
+        Finset.mul_sum, mul_assoc]
+    rw [hsplit, hfrobP, hfrobQm]; linarith
+  -- Step 5: elementary estimate A.
+  have hstep5 : c * rtrace P - c^2/4 * r - 2 * c * rtrace Qm
+      ≤ ∑ k, (p k - m k) ^ 2 := by
+    rw [htraceP, htraceQm]
+    exact sum_sq_diff_lower hm_nn hp_card hc.le
+  -- Step 6: elementary estimate B on `Q₊`.
+  have hstep6 : 2 * c * rtrace Qp - c^2 * b ≤ frobSq Qp := by
+    rw [hQp_def, rtrace_hermPosPart, frobSq_hermPosPart]
+    refine sum_sq_lower_of_card_pos_le ?_ c
+    calc #{i | (hQ.eigenvalues i)⁺ ≠ 0}
+        = #{i | 0 < hQ.eigenvalues i} := by
+          congr 1; ext i; simp [posPart_eq_zero, not_le]
+      _ ≤ b := hb
+  -- Step 7: combine. `rtrace Q = rtrace Qp − rtrace Qm`.
+  have htraceQ : 2 * c * rtrace Q = 2 * c * rtrace Qp - 2 * c * rtrace Qm := by
+    rw [hQdec, rtrace_sub]; ring
+  linarith [hstep4, hstep5, hstep6, hPQp, hexpand, htraceQ]
+
+/-- **Rank–trace inequality, `c = 2` form** (paper `lem:ranktrace`,
+"in particular"). Rearranged: `r ≥ 2 tr P + 4 tr Q − 4b − ‖P+Q‖_F²`. -/
+theorem rank_trace_ineq_two {P Q : Matrix n n 𝕜}
+    (hP : P.PosSemidef) (hQ : Q.IsHermitian)
+    {r b : ℕ} (hr : P.rank ≤ r) (hb : posIndex hQ ≤ b) :
+    2 * rtrace P + 4 * rtrace Q - 4 * (b : ℝ) - frobSq (P + Q) ≤ (r : ℝ) := by
+  have h := rank_trace_ineq hP hQ hr hb (c := 2) (by norm_num)
+  linarith
+
+end RHLinalg
+
+noncomputable section
+set_option linter.unusedSectionVars false
+
+open Matrix Finset
+open scoped ComplexOrder BigOperators
+
+namespace Zeta23.ZeroSide.RankTraceMult
+
+/-! ### (A) the scalar function g_c -/
+
+/-- g_c(x) = x² − cx − ((x−c)₊)²:  = x² − cx for x ≤ c,  = cx − c² for x ≥ c. -/
+def gc (c x : ℝ) : ℝ := x ^ 2 - c * x - (max (x - c) 0) ^ 2
+
+lemma gc_of_le {c x : ℝ} (h : x ≤ c) : gc c x = x ^ 2 - c * x := by
+  unfold gc; rw [max_eq_right (by linarith)]; ring
+
+lemma gc_of_ge {c x : ℝ} (h : c ≤ x) : gc c x = c * x - c ^ 2 := by
+  unfold gc; rw [max_eq_left (by linarith)]; ring
+
+@[simp] lemma gc_zero {c : ℝ} (hc : 0 ≤ c) : gc c 0 = 0 := by
+  rw [gc_of_le hc]; ring
+
+lemma gc_ge {c x : ℝ} (hc : 0 ≤ c) : -(c ^ 2 / 4) ≤ gc c x := by
+  rcases le_or_gt x c with h | h
+  · rw [gc_of_le h]; nlinarith [sq_nonneg (x - c / 2)]
+  · rw [gc_of_ge h.le]
+    have : c * c ≤ c * x := mul_le_mul_of_nonneg_left h.le hc
+    nlinarith
+
+/-- the affine minorants: for t ∈ [0,c] and x ≥ 0, (2t − c)x − t² ≤ g_c(x). -/
+lemma affine_le_gc {c t x : ℝ} (ht0 : 0 ≤ t) (htc : t ≤ c) (hx : 0 ≤ x) :
+    (2 * t - c) * x - t ^ 2 ≤ gc c x := by
+  rcases le_or_gt x c with h | h
+  · rw [gc_of_le h]; nlinarith [sq_nonneg (x - t)]
+  · rw [gc_of_ge h.le]; nlinarith [sq_nonneg (c - t)]
+
+/-- … with equality at t = min(x, c). -/
+lemma affine_eq_gc {c x : ℝ} (hc : 0 ≤ c) (hx : 0 ≤ x) :
+    (2 * min x c - c) * x - (min x c) ^ 2 = gc c x := by
+  rcases le_or_gt x c with h | h
+  · rw [min_eq_left h, gc_of_le h]; ring
+  · rw [min_eq_right h.le, gc_of_ge h.le]; ring
+
+/-- **Jensen for g_c** via the affine representation: weights w ≥ 0 with Σw = 1, points μ ≥ 0. -/
+theorem gc_sum_le {ι : Type*} (s : Finset ι) {c : ℝ} (hc : 0 ≤ c) (w μ : ι → ℝ)
+    (hw : ∀ i ∈ s, 0 ≤ w i) (hw1 : ∑ i ∈ s, w i = 1) (hμ : ∀ i ∈ s, 0 ≤ μ i) :
+    gc c (∑ i ∈ s, w i * μ i) ≤ ∑ i ∈ s, w i * gc c (μ i) := by
+  set xbar := ∑ i ∈ s, w i * μ i with hx
+  have hx0 : 0 ≤ xbar := Finset.sum_nonneg fun i hi => mul_nonneg (hw i hi) (hμ i hi)
+  set t := min xbar c with ht
+  have ht0 : 0 ≤ t := le_min hx0 hc
+  have htc : t ≤ c := min_le_right _ _
+  rw [← affine_eq_gc hc hx0]
+  -- the affine function at xbar is the w-average of its values at μ_i, each ≤ g_c(μ_i)
+  calc (2 * t - c) * xbar - t ^ 2 = (2 * t - c) * xbar - t ^ 2 * ∑ i ∈ s, w i := by rw [hw1, mul_one]
+    _ = ∑ i ∈ s, w i * ((2 * t - c) * μ i - t ^ 2) := by
+        rw [hx, Finset.mul_sum, Finset.mul_sum, ← Finset.sum_sub_distrib]
+        exact Finset.sum_congr rfl fun i _ => by ring
+    _ ≤ ∑ i ∈ s, w i * gc c (μ i) :=
+        Finset.sum_le_sum fun i hi => mul_le_mul_of_nonneg_left (affine_le_gc ht0 htc (hμ i hi)) (hw i hi)
+
+/-- the termwise step replacing the rank count:  (p − n)² ≥ c·p + g_c(p) − 2c·n  for p, n ≥ 0. -/
+lemma sq_sub_ge_gc {c p n : ℝ} (hp : 0 ≤ p) (hn : 0 ≤ n) (hc : 0 ≤ c) :
+    c * p + gc c p - 2 * c * n ≤ (p - n) ^ 2 := by
+  rcases le_or_gt p c with h | h
+  · rw [gc_of_le h]; nlinarith [mul_nonneg hn (sub_nonneg.mpr h)]
+  · rw [gc_of_ge h.le]; nlinarith [sq_nonneg (p - n - c)]
+
+lemma sum_sq_sub_ge_gc {ι : Type*} [Fintype ι] {p m : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hm : ∀ i, 0 ≤ m i)
+    {c : ℝ} (hc : 0 ≤ c) :
+    c * (∑ i, p i) + (∑ i, gc c (p i)) - 2 * c * (∑ i, m i) ≤ ∑ i, (p i - m i) ^ 2 := by
+  rw [Finset.mul_sum, Finset.mul_sum, ← Finset.sum_add_distrib, ← Finset.sum_sub_distrib]
+  exact Finset.sum_le_sum fun i _ => sq_sub_ge_gc (hp i) (hm i) hc
+
+/-! ### (B) the Schur step: the diagonal of a PSD matrix vs its spectrum, along the convex g_c -/
+
+section Schur
+open RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜] {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- diagonal entries through the spectral decomposition: re M_jj = Σ_i ‖U_ji‖²·μ_i. -/
+lemma re_diag_eq_sum_normSq_eigenvalues {M : Matrix ι ι 𝕜} (hM : M.IsHermitian) (j : ι) :
+    RCLike.re (M j j) = ∑ i, normSqMatrix (hM.eigenvectorUnitary : Matrix ι ι 𝕜) j i * hM.eigenvalues i := by
+  set U : Matrix ι ι 𝕜 := ↑hM.eigenvectorUnitary with hU
+  have hMjj : M j j = ∑ i, U j i * (hM.eigenvalues i : 𝕜) * starRingEnd 𝕜 (U j i) := by
+    conv_lhs => rw [hM.spectral_theorem, Unitary.conjStarAlgAut_apply]
+    rw [Matrix.mul_apply]
+    refine Finset.sum_congr rfl fun i _ => ?_
+    rw [mul_diagonal, star_apply, RCLike.star_def]
+    simp only [Function.comp_apply]
+    rfl
+  rw [hMjj, map_sum]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [show U j i * (hM.eigenvalues i : 𝕜) * starRingEnd 𝕜 (U j i) = (hM.eigenvalues i : 𝕜) * (U j i * starRingEnd 𝕜 (U j i)) by ring,
+    RCLike.mul_conj, show ((hM.eigenvalues i : 𝕜) * ((‖U j i‖ : 𝕜) ^ 2) : 𝕜) = ((hM.eigenvalues i * ‖U j i‖ ^ 2 : ℝ) : 𝕜) by push_cast; ring,
+    RCLike.ofReal_re]
+  simp [normSqMatrix, mul_comm]
+
+/-- **Schur–Jensen for g_c**: Σ_j g_c(re M_jj) ≤ Σ_i g_c(μ_i(M)) for PSD M and c ≥ 0. -/
+theorem sum_gc_diag_le_sum_gc_eigenvalues {M : Matrix ι ι 𝕜} (hM : M.PosSemidef) {c : ℝ} (hc : 0 ≤ c) :
+    ∑ j, gc c (RCLike.re (M j j)) ≤ ∑ i, gc c (hM.1.eigenvalues i) := by
+  set S := normSqMatrix (hM.1.eigenvectorUnitary : Matrix ι ι 𝕜) with hS
+  have hDS := normSqMatrix_mem_doublyStochastic_of_unitary (hM.1.eigenvectorUnitary).2
+  rw [mem_doublyStochastic_iff_sum] at hDS
+  obtain ⟨hnn, hrow, hcol⟩ := hDS
+  have hμ : ∀ i, 0 ≤ hM.1.eigenvalues i := fun i => hM.eigenvalues_nonneg i
+  calc ∑ j, gc c (RCLike.re (M j j)) = ∑ j, gc c (∑ i, S j i * hM.1.eigenvalues i) := by
+        refine Finset.sum_congr rfl fun j _ => by rw [re_diag_eq_sum_normSq_eigenvalues hM.1 j]
+    _ ≤ ∑ j, ∑ i, S j i * gc c (hM.1.eigenvalues i) :=
+        Finset.sum_le_sum fun j _ => gc_sum_le Finset.univ hc (fun i => S j i) _
+          (fun i _ => hnn j i) (hrow j) (fun i _ => hμ i)
+    _ = ∑ i, (∑ j, S j i) * gc c (hM.1.eigenvalues i) := by
+        rw [Finset.sum_comm]; refine Finset.sum_congr rfl fun i _ => by rw [Finset.sum_mul]
+    _ = ∑ i, gc c (hM.1.eigenvalues i) := by
+        refine Finset.sum_congr rfl fun i _ => by rw [hcol i, one_mul]
+
+end Schur
+
+/-! ### (C) transfer of the nonzero spectrum: Σ_i g(λ_i(W Wᴴ)) = Σ_j g(μ_j(Wᴴ W)) whenever g(0) = 0 -/
+
+section Transfer
+open RHLinalg Polynomial
+
+variable {𝕜 : Type*} [RCLike 𝕜] {n : Type*} [Fintype n] [DecidableEq n] {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- A^k = specMap (·^k) for k ≥ 1, hence rtrace (A^k) = Σ λ_i^k. -/
+lemma specMap_pow_succ {A : Matrix n n 𝕜} (hA : A.IsHermitian) (k : ℕ) :
+    specMap hA (fun x => x ^ (k + 1)) = A ^ (k + 1) := by
+  induction k with
+  | zero => simp only [zero_add, pow_one]; exact specMap_id hA
+  | succ k ih =>
+    rw [pow_succ, ← ih, show (fun x : ℝ => x ^ (k + 1 + 1)) = (fun x : ℝ => x ^ (k + 1)) * id by
+      funext x; simp [pow_succ], specMap_mul, specMap_id]
+
+lemma rtrace_pow_succ {A : Matrix n n 𝕜} (hA : A.IsHermitian) (k : ℕ) :
+    rtrace (A ^ (k + 1)) = ∑ i, hA.eigenvalues i ^ (k + 1) := by
+  rw [← specMap_pow_succ hA k, rtrace_specMap]
+
+/-- tr((W Wᴴ)^{k+1}) = tr((Wᴴ W)^{k+1}). -/
+lemma trace_pow_succ_comm (W : Matrix n ι 𝕜) (k : ℕ) :
+    ((W * Wᴴ) ^ (k + 1)).trace = ((Wᴴ * W) ^ (k + 1)).trace := by
+  have key : ∀ k : ℕ, (W * Wᴴ) ^ (k + 1) = W * (Wᴴ * W) ^ k * Wᴴ := by
+    intro k
+    induction k with
+    | zero => simp [Matrix.mul_assoc]
+    | succ k ih => rw [pow_succ, ih, pow_succ]; simp only [Matrix.mul_assoc]
+  rw [key, Matrix.mul_assoc, trace_mul_comm, Matrix.mul_assoc, ← pow_succ]
+
+/-- for any real polynomial q with q(0) = 0:  Σ_i q(λ_i(WWᴴ)) = Σ_j q(μ_j(WᴴW)). -/
+lemma sum_eval_eigenvalues_comm (W : Matrix n ι 𝕜) (q : ℝ[X]) (hq : q.eval 0 = 0) :
+    ∑ i, q.eval ((Matrix.posSemidef_self_mul_conjTranspose W).1.eigenvalues i)
+      = ∑ j, q.eval ((Matrix.posSemidef_conjTranspose_mul_self W).1.eigenvalues j) := by
+  set hP := (Matrix.posSemidef_self_mul_conjTranspose W).1
+  set hM := (Matrix.posSemidef_conjTranspose_mul_self W).1
+  have h0 : q.coeff 0 = 0 := by rwa [Polynomial.coeff_zero_eq_eval_zero]
+  simp_rw [Polynomial.eval_eq_sum_range]
+  rw [Finset.sum_comm, Finset.sum_comm (s := (Finset.univ : Finset ι))]
+  refine Finset.sum_congr rfl fun k hk => ?_
+  rw [← Finset.mul_sum, ← Finset.mul_sum]
+  rcases k with _ | k
+  · simp [h0]
+  · congr 1
+    have h1 := rtrace_pow_succ hP k
+    have h2 := rtrace_pow_succ hM k
+    rw [← h1, ← h2]
+    unfold rtrace
+    rw [trace_pow_succ_comm]
+
+/-- **Transfer**: for any g : ℝ → ℝ with g 0 = 0,  Σ_i g(λ_i(WWᴴ)) = Σ_j g(μ_j(WᴴW))  (interpolate g on the joint spectrum ∪ {0}). -/
+theorem sum_eigenvalues_comm (W : Matrix n ι 𝕜) (g : ℝ → ℝ) (hg : g 0 = 0) :
+    ∑ i, g ((Matrix.posSemidef_self_mul_conjTranspose W).1.eigenvalues i)
+      = ∑ j, g ((Matrix.posSemidef_conjTranspose_mul_self W).1.eigenvalues j) := by
+  classical
+  set lam := (Matrix.posSemidef_self_mul_conjTranspose W).1.eigenvalues
+  set mu := (Matrix.posSemidef_conjTranspose_mul_self W).1.eigenvalues
+  set nodes : Finset ℝ := insert 0 ((Finset.univ.image lam) ∪ (Finset.univ.image mu)) with hnodes
+  set q : ℝ[X] := Lagrange.interpolate nodes id g with hqdef
+  have hinj : Set.InjOn (id : ℝ → ℝ) nodes := fun _ _ _ _ h => h
+  have hq : ∀ x ∈ nodes, q.eval x = g x := fun x hx => by
+    rw [hqdef]
+    simpa only [id_eq] using Lagrange.eval_interpolate_at_node (r := g) hinj hx
+  have hq0 : q.eval 0 = 0 := by rw [hq 0 (Finset.mem_insert_self _ _), hg]
+  have hlam : ∀ i, lam i ∈ nodes := fun i =>
+    Finset.mem_insert_of_mem (Finset.mem_union_left _ (Finset.mem_image_of_mem _ (Finset.mem_univ i)))
+  have hmu : ∀ j, mu j ∈ nodes := fun j =>
+    Finset.mem_insert_of_mem (Finset.mem_union_right _ (Finset.mem_image_of_mem _ (Finset.mem_univ j)))
+  calc ∑ i, g (lam i) = ∑ i, q.eval (lam i) := Finset.sum_congr rfl fun i _ => (hq _ (hlam i)).symm
+    _ = ∑ j, q.eval (mu j) := sum_eval_eigenvalues_comm W q hq0
+    _ = ∑ j, g (mu j) := Finset.sum_congr rfl fun j _ => hq _ (hmu j)
+
+end Transfer
+
+/-! ### (D) Lemma R -/
+
+section Main
+open RHLinalg
+
+variable {𝕜 : Type*} [RCLike 𝕜] {n : Type*} [Fintype n] [DecidableEq n] {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- the d×s matrix with columns √m_j · v_j. -/
+def Wmat (m : ι → ℝ) (v : ι → n → 𝕜) : Matrix n ι 𝕜 := fun a j => (Real.sqrt (m j) : 𝕜) * v j a
+
+/-- P := W Wᴴ = Σ_j m_j v_j v_j*. -/
+def Pmat (m : ι → ℝ) (v : ι → n → 𝕜) : Matrix n n 𝕜 := Wmat m v * (Wmat m v)ᴴ
+
+/-- x_j := ‖v_j‖² = Σ_a ‖v_j a‖². -/
+def xsq (v : ι → n → 𝕜) (j : ι) : ℝ := ∑ a, ‖v j a‖ ^ 2
+
+lemma Pmat_apply {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜) (a b : n) :
+    Pmat m v a b = ∑ j, (m j : 𝕜) * (v j a * starRingEnd 𝕜 (v j b)) := by
+  unfold Pmat
+  rw [Matrix.mul_apply]
+  refine Finset.sum_congr rfl fun j _ => ?_
+  rw [Matrix.conjTranspose_apply]
+  simp only [Wmat]
+  rw [RCLike.star_def, map_mul, RCLike.conj_ofReal]
+  have : ((Real.sqrt (m j) : 𝕜)) * (Real.sqrt (m j) : 𝕜) = (m j : 𝕜) := by
+    rw [← RCLike.ofReal_mul, Real.mul_self_sqrt (hm j)]
+  calc (Real.sqrt (m j) : 𝕜) * v j a * ((Real.sqrt (m j) : 𝕜) * starRingEnd 𝕜 (v j b))
+      = ((Real.sqrt (m j) : 𝕜) * (Real.sqrt (m j) : 𝕜)) * (v j a * starRingEnd 𝕜 (v j b)) := by ring
+    _ = _ := by rw [this]
+
+lemma Pmat_posSemidef (m : ι → ℝ) (v : ι → n → 𝕜) : (Pmat m v).PosSemidef :=
+  Matrix.posSemidef_self_mul_conjTranspose _
+
+/-- the Gram matrix M := Wᴴ W has diagonal m_j x_j. -/
+lemma re_gram_diag {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜) (j : ι) :
+    RCLike.re (((Wmat m v)ᴴ * Wmat m v) j j) = m j * xsq v j := by
+  unfold xsq
+  rw [Matrix.mul_apply, map_sum, Finset.mul_sum]
+  refine Finset.sum_congr rfl fun a _ => ?_
+  rw [Matrix.conjTranspose_apply]
+  simp only [Wmat]
+  rw [RCLike.star_def, (starRingEnd 𝕜).map_mul, RCLike.conj_ofReal]
+  rw [show (Real.sqrt (m j) : 𝕜) * starRingEnd 𝕜 (v j a) * ((Real.sqrt (m j) : 𝕜) * v j a)
+      = ((Real.sqrt (m j) : 𝕜) * (Real.sqrt (m j) : 𝕜)) * (starRingEnd 𝕜 (v j a) * v j a) by ring,
+    ← RCLike.ofReal_mul, Real.mul_self_sqrt (hm j), RCLike.conj_mul,
+    show ((m j : 𝕜) * ((‖v j a‖ : 𝕜) ^ 2) : 𝕜) = ((m j * ‖v j a‖ ^ 2 : ℝ) : 𝕜) by push_cast; ring,
+    RCLike.ofReal_re]
+
+/-- tr P = Σ_j m_j x_j. -/
+lemma rtrace_Pmat {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜) :
+    rtrace (Pmat m v) = ∑ j, m j * xsq v j := by
+  unfold rtrace Pmat
+  rw [trace_mul_comm]
+  unfold Matrix.trace
+  rw [map_sum]
+  exact Finset.sum_congr rfl fun j _ => re_gram_diag hm v j
+
+/-- **tr g_c(P) ≥ Σ_j g_c(m_j x_j)** — Schur + transfer (this is where "per-zero integrality survives interaction"). -/
+theorem sum_gc_eigenvalues_ge {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜) {c : ℝ} (hc : 0 ≤ c) :
+    ∑ j, gc c (m j * xsq v j) ≤ ∑ i, gc c ((Pmat_posSemidef m v).1.eigenvalues i) := by
+  have hM : ((Wmat m v)ᴴ * Wmat m v).PosSemidef := Matrix.posSemidef_conjTranspose_mul_self _
+  calc ∑ j, gc c (m j * xsq v j) = ∑ j, gc c (RCLike.re (((Wmat m v)ᴴ * Wmat m v) j j)) :=
+        Finset.sum_congr rfl fun j _ => by rw [re_gram_diag hm v j]
+    _ ≤ ∑ j, gc c (hM.1.eigenvalues j) := sum_gc_diag_le_sum_gc_eigenvalues hM hc
+    _ = ∑ i, gc c ((Pmat_posSemidef m v).1.eigenvalues i) :=
+        (sum_eigenvalues_comm (Wmat m v) (gc c) (gc_zero hc)).symm
+
+/-- **Lemma R (multiplicity-aware rank–trace inequality).**  For P = Σ_j m_j v_jv_j* (m_j ≥ 0), Q Hermitian with n₊(Q) ≤ b,
+and c > 0:   c·tr P + Σ_j g_c(m_j‖v_j‖²) + 2c·tr Q − c²·b ≤ ‖P + Q‖_F². -/
+theorem rank_trace_mult {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜)
+    {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) {b : ℕ} (hb : posIndex hQ ≤ b) {c : ℝ} (hc : 0 < c) :
+    c * rtrace (Pmat m v) + (∑ j, gc c (m j * xsq v j)) + 2 * c * rtrace Q - c ^ 2 * b
+      ≤ frobSq (Pmat m v + Q) := by
+  classical
+  set P := Pmat m v with hPdef
+  have hP : P.PosSemidef := Pmat_posSemidef m v
+  -- Positive/negative parts of Q (verbatim from RHLinalg.rank_trace_ineq).
+  set Qp := hermPosPart hQ with hQp_def
+  set Qm := hermNegPart hQ with hQm_def
+  have hQdec : Q = Qp - Qm := (hermPosPart_sub_hermNegPart hQ).symm
+  have hQp_psd : Qp.PosSemidef := hermPosPart_posSemidef hQ
+  have hQm_psd : Qm.PosSemidef := hermNegPart_posSemidef hQ
+  have hQpQm : Qp * Qm = 0 := hermPosPart_mul_hermNegPart hQ
+  set d := Fintype.card n
+  set p : Fin d → ℝ := hP.isHermitian.eigenvalues₀
+  set mm : Fin d → ℝ := hQm_psd.isHermitian.eigenvalues₀
+  have hp_nn : ∀ k, 0 ≤ p k := fun k => by
+    rw [show p k = hP.isHermitian.eigenvalues (eigEquiv k) from (eigenvalues_eigEquiv hP.isHermitian k).symm]
+    exact hP.eigenvalues_nonneg _
+  have hm_nn : ∀ k, 0 ≤ mm k := fun k => by
+    rw [show mm k = hQm_psd.isHermitian.eigenvalues (eigEquiv k) from (eigenvalues_eigEquiv hQm_psd.isHermitian k).symm]
+    exact hQm_psd.eigenvalues_nonneg _
+  have htraceP : rtrace P = ∑ k, p k := by
+    rw [rtrace_eq_sum_eigenvalues hP.isHermitian]; exact sum_eigenvalues_reindex hP.isHermitian id
+  have htraceQm : rtrace Qm = ∑ k, mm k := by
+    rw [rtrace_eq_sum_eigenvalues hQm_psd.isHermitian]; exact sum_eigenvalues_reindex hQm_psd.isHermitian id
+  have hfrobP : frobSq P = ∑ k, (p k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hP.isHermitian]; exact sum_eigenvalues_reindex hP.isHermitian (· ^ 2)
+  have hfrobQm : frobSq Qm = ∑ k, (mm k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hQm_psd.isHermitian]
+    exact sum_eigenvalues_reindex hQm_psd.isHermitian (· ^ 2)
+  -- Step 1: Frobenius expansion.
+  have hexpand : frobSq (P + Q)
+      = frobSq P + 2 * RCLike.re (P * Qp).trace - 2 * RCLike.re (P * Qm).trace + frobSq Qp + frobSq Qm := by
+    have h1 : frobSq (-Qm) = frobSq Qm := by unfold frobSq; rw [conjTranspose_neg, neg_mul_neg]
+    have h2 : RCLike.re (Qp * -Qm).trace = 0 := by rw [mul_neg, hQpQm]; simp
+    rw [hQdec, frobSq_add_hermitian hP.isHermitian (hQp_psd.isHermitian.sub hQm_psd.isHermitian),
+      sub_eq_add_neg Qp Qm, frobSq_add_hermitian hQp_psd.isHermitian hQm_psd.isHermitian.neg,
+      h1, h2, mul_add, mul_neg, trace_add, trace_neg, map_add, map_neg]
+    ring
+  -- Step 2: drop tr(PQ₊) ≥ 0.
+  have hPQp : 0 ≤ RCLike.re (P * Qp).trace := trace_mul_nonneg_of_posSemidef hP hQp_psd
+  -- Step 3: von Neumann.
+  have hvN : RCLike.re (P * Qm).trace ≤ ∑ k, p k * mm k := vonNeumann_trace_ineq hP.isHermitian hQm_psd.isHermitian
+  have hstep4 : ∑ k, (p k - mm k) ^ 2 ≤ frobSq P - 2 * RCLike.re (P * Qm).trace + frobSq Qm := by
+    have hsplit : ∑ k, (p k - mm k) ^ 2 = ∑ k, (p k)^2 - 2 * ∑ k, p k * mm k + ∑ k, (mm k)^2 := by
+      simp only [sub_sq, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, mul_assoc]
+    rw [hsplit, hfrobP, hfrobQm]; linarith
+  -- Step 5': the multiplicity-aware termwise estimate + Schur/transfer.
+  have hgc_eig : ∑ j, gc c (m j * xsq v j) ≤ ∑ k, gc c (p k) := by
+    calc ∑ j, gc c (m j * xsq v j) ≤ ∑ i, gc c (hP.1.eigenvalues i) := sum_gc_eigenvalues_ge hm v hc.le
+      _ = ∑ k, gc c (p k) := sum_eigenvalues_reindex hP.isHermitian (gc c)
+  have hstep5 : c * rtrace P + (∑ j, gc c (m j * xsq v j)) - 2 * c * rtrace Qm ≤ ∑ k, (p k - mm k) ^ 2 := by
+    rw [htraceP, htraceQm]
+    have := sum_sq_sub_ge_gc hp_nn hm_nn hc.le
+    linarith
+  -- Step 6: estimate on Q₊ (verbatim).
+  have hstep6 : 2 * c * rtrace Qp - c^2 * b ≤ frobSq Qp := by
+    rw [hQp_def, rtrace_hermPosPart, frobSq_hermPosPart]
+    refine sum_sq_lower_of_card_pos_le ?_ c
+    calc #{i | (hQ.eigenvalues i)⁺ ≠ 0} = #{i | 0 < hQ.eigenvalues i} := by
+          congr 1; ext i; simp [posPart_eq_zero, not_le]
+      _ ≤ b := hb
+  have htraceQ : 2 * c * rtrace Q = 2 * c * rtrace Qp - 2 * c * rtrace Qm := by rw [hQdec, rtrace_sub]; ring
+  linarith [hstep4, hstep5, hstep6, hPQp, hexpand, htraceQ]
+
+/-! ### the k_c form (leak-free target) and the integer specializations -/
+
+/-- k_c(p) := c² − ((c−p)₊)²  (= 2cp − p² for p ≤ c, = c² for p ≥ c): nondecreasing, concave, k_c(0) = 0. -/
+def kc (c p : ℝ) : ℝ := c ^ 2 - (max (c - p) 0) ^ 2
+
+lemma kc_eq (c p : ℝ) : kc c p = c * p - gc c p := by
+  unfold kc gc
+  rcases le_or_gt p c with h | h
+  · rw [max_eq_left (by linarith), max_eq_right (by linarith)]; ring
+  · rw [max_eq_right (by linarith), max_eq_left (by linarith)]; ring
+
+lemma kc_mono {c p p' : ℝ} (hc : 0 ≤ c) (hpp : p ≤ p') : kc c p ≤ kc c p' := by
+  unfold kc
+  have h1 : max (c - p') 0 ≤ max (c - p) 0 := max_le_max (by linarith) le_rfl
+  have h2 : 0 ≤ max (c - p') 0 := le_max_right _ _
+  nlinarith [mul_le_mul h1 h1 h2 (le_trans h2 h1)]
+
+lemma kc_of_le {c p : ℝ} (h : p ≤ c) : kc c p = 2 * c * p - p ^ 2 := by rw [kc_eq, gc_of_le h]; ring
+lemma kc_of_ge {c p : ℝ} (h : c ≤ p) : kc c p = c ^ 2 := by rw [kc_eq, gc_of_ge h]; ring
+
+/-- **Lemma R, k-form**:  2c·tr(P+Q) − ‖P+Q‖_F² ≤ Σ_j k_c(m_j‖v_j‖²) + c²·b. -/
+theorem rank_trace_mult_k {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜)
+    {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) {b : ℕ} (hb : posIndex hQ ≤ b) {c : ℝ} (hc : 0 < c) :
+    2 * c * rtrace (Pmat m v + Q) - frobSq (Pmat m v + Q) ≤ (∑ j, kc c (m j * xsq v j)) + c ^ 2 * b := by
+  have h := rank_trace_mult hm v hQ hb hc
+  have htr : rtrace (Pmat m v) = ∑ j, m j * xsq v j := rtrace_Pmat hm v
+  have hk : ∑ j, kc c (m j * xsq v j) = c * ∑ j, m j * xsq v j - ∑ j, gc c (m j * xsq v j) := by
+    rw [Finset.mul_sum, ← Finset.sum_sub_distrib]; exact Finset.sum_congr rfl fun j _ => kc_eq c _
+  rw [rtrace_add, hk, ← htr]
+  linarith
+
+/-- … and the **leak-free** form: with ‖v_j‖² ≤ 1 the right side only increases when x_j ↦ 1. -/
+theorem rank_trace_mult_k_le {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜) (hx : ∀ j, xsq v j ≤ 1)
+    {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) {b : ℕ} (hb : posIndex hQ ≤ b) {c : ℝ} (hc : 0 < c) :
+    2 * c * rtrace (Pmat m v + Q) - frobSq (Pmat m v + Q) ≤ (∑ j, kc c (m j)) + c ^ 2 * b := by
+  have h1 := rank_trace_mult_k hm v hQ hb hc
+  have h2 : ∑ j, kc c (m j * xsq v j) ≤ ∑ j, kc c (m j) :=
+    Finset.sum_le_sum fun j _ => kc_mono hc.le (by nlinarith [hm j, hx j])
+  linarith
+
+/-- integer values: k₂(0)=0, k₂(1)=3, k₂(m)=4 for m ≥ 2;  k₃(0)=0, k₃(1)=5, k₃(2)=8, k₃(m)=9 for m ≥ 3. -/
+lemma kc_two_one : kc 2 1 = 3 := by rw [kc_of_le (by norm_num)]; norm_num
+lemma kc_two_of_two_le {x : ℝ} (h : 2 ≤ x) : kc 2 x = 4 := by rw [kc_of_ge h]; norm_num
+lemma kc_three_one : kc 3 1 = 5 := by rw [kc_of_le (by norm_num)]; norm_num
+lemma kc_three_two : kc 3 2 = 8 := by rw [kc_of_le (by norm_num)]; norm_num
+lemma kc_three_of_three_le {x : ℝ} (h : 3 ≤ x) : kc 3 x = 9 := by rw [kc_of_ge h]; norm_num
+
+end Main
+
+/-! ### integer bookkeeping for the assembly (c = 2: simple zeros; c = 3: distinct zeros) -/
+
+section Counting
+variable {ι : Type*} [Fintype ι]
+
+/-- Σ_j k₂(m_j) = 3·#{m_j = 1} + 4·#{m_j ≥ 2} for positive integer multiplicities. -/
+theorem sum_kc_two_nat [DecidableEq ι] (m : ι → ℕ) (hm : ∀ j, 1 ≤ m j) :
+    ∑ j, kc 2 (m j : ℝ) = 3 * ((Finset.univ.filter (fun j => m j = 1)).card : ℝ)
+      + 4 * ((Finset.univ.filter (fun j => 2 ≤ m j)).card : ℝ) := by
+  classical
+  have hsplit : ∀ j, kc 2 (m j : ℝ) = (if m j = 1 then 3 else 0) + (if 2 ≤ m j then 4 else 0) := by
+    intro j
+    rcases Nat.lt_or_ge (m j) 2 with h | h
+    · have : m j = 1 := by have := hm j; omega
+      simp [this, kc_two_one]
+    · have hne : m j ≠ 1 := by omega
+      rw [if_neg hne, if_pos h, kc_two_of_two_le (by exact_mod_cast h)]; ring
+  simp_rw [hsplit]
+  rw [Finset.sum_add_distrib, Finset.sum_ite, Finset.sum_ite]
+  simp [Finset.sum_const, mul_comm]
+
+/-- Σ_j k₃(m_j) = 5·#{m_j = 1} + 8·#{m_j = 2} + 9·#{m_j ≥ 3}. -/
+theorem sum_kc_three_nat [DecidableEq ι] (m : ι → ℕ) (hm : ∀ j, 1 ≤ m j) :
+    ∑ j, kc 3 (m j : ℝ) = 5 * ((Finset.univ.filter (fun j => m j = 1)).card : ℝ)
+      + 8 * ((Finset.univ.filter (fun j => m j = 2)).card : ℝ)
+      + 9 * ((Finset.univ.filter (fun j => 3 ≤ m j)).card : ℝ) := by
+  classical
+  have hsplit : ∀ j, kc 3 (m j : ℝ)
+      = (if m j = 1 then 5 else 0) + (if m j = 2 then 8 else 0) + (if 3 ≤ m j then 9 else 0) := by
+    intro j
+    rcases Nat.lt_or_ge (m j) 3 with h | h
+    · rcases Nat.lt_or_ge (m j) 2 with h2 | h2
+      · have : m j = 1 := by have := hm j; omega
+        simp [this, kc_three_one]
+      · have : m j = 2 := by omega
+        simp [this, kc_three_two]
+    · have h1 : m j ≠ 1 := by omega
+      have h2 : m j ≠ 2 := by omega
+      rw [if_neg h1, if_neg h2, if_pos h, kc_three_of_three_le (by exact_mod_cast h)]; ring
+  simp_rw [hsplit]
+  rw [Finset.sum_add_distrib, Finset.sum_add_distrib, Finset.sum_ite, Finset.sum_ite, Finset.sum_ite]
+  simp [Finset.sum_const, mul_comm]
+
+end Counting
+
+end Zeta23.ZeroSide.RankTraceMult
+
+/-! ## Milestone (c) layer: the master identity and its proof (dossier 01, Theorem A)
+
+Appended after the full ported bundle (prefix 08). Proof obligations map to donor steps
+(blueprint §2): S1 ← `hstep4` (RankTraceMult.lean:326); S2 ← `hstep5'` (:334) +
+`sq_sub_ge_gc` (:81); S2' ← `sum_gc_eigenvalues_ge` (:270); S3 ← `hstep6` (:339) at
+`b := posIndex hQ`; `frobSq_add_eq` ← `hexpand` (:314) promoted; MAIN replaces the
+`linarith` at RankTraceMult.lean:346; the ACCEPTANCE TEST re-derives `rank_trace_mult_k`
+(:369) by dropping the five defects. -/
+
+namespace CrossMath.RankTraceDefect
+
+open Matrix Finset Unitary
+open scoped ComplexOrder
+open RHLinalg Zeta23.ZeroSide.RankTraceMult
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+variable {n : Type*} [Fintype n] [DecidableEq n]
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-! ### The five defects -/
+
+/-- Scalar defect `Δ_c(p,m) := (p−m)² − c·p − g_c(p) + 2c·m`. -/
+def deltaC (c p m : ℝ) : ℝ := (p - m) ^ 2 - c * p - gc c p + 2 * c * m
+
+/-- Δ_pt — pairing defect over the decreasingly sorted spectra of `P`, `Q₋`. -/
+def pairingDefect (c : ℝ) {P Qm : Matrix n n 𝕜}
+    (hP : P.IsHermitian) (hQm : Qm.IsHermitian) : ℝ :=
+  ∑ k, deltaC c (hP.eigenvalues₀ k) (hQm.eigenvalues₀ k)
+
+/-- Δ_SJ — Schur–Jensen defect. -/
+def schurJensenDefect (c : ℝ) (m : ι → ℝ) (v : ι → n → 𝕜) {P : Matrix n n 𝕜}
+    (hP : P.IsHermitian) : ℝ :=
+  ∑ k, gc c (hP.eigenvalues₀ k) - ∑ j, gc c (m j * xsq v j)
+
+/-- Δ_vN — rearrangement defect. -/
+def rearrangementDefect {P Qm : Matrix n n 𝕜}
+    (hP : P.IsHermitian) (hQm : Qm.IsHermitian) : ℝ :=
+  ∑ k, hP.eigenvalues₀ k * hQm.eigenvalues₀ k - RCLike.re (P * Qm).trace
+
+/-- Δ₊ — positive-coupling defect. -/
+def posCouplingDefect (P Qp : Matrix n n 𝕜) : ℝ :=
+  2 * RCLike.re (P * Qp).trace
+
+/-- Δ_Q+ — pair-block defect (spectral sum-of-squares form over the positive spectrum). -/
+def pairBlockDefect (c : ℝ) {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) : ℝ :=
+  ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), (hQ.eigenvalues i - c) ^ 2
+
+/-! ### Nonnegativity of each defect -/
+
+theorem deltaC_nonneg {c p m : ℝ} (hp : 0 ≤ p) (hm : 0 ≤ m) (hc : 0 ≤ c) :
+    0 ≤ deltaC c p m := by
+  unfold deltaC
+  linarith [sq_sub_ge_gc hp hm hc]
+
+/-- Sorted eigenvalues of a PSD matrix are nonnegative (donor idiom :298). -/
+lemma eigenvalues₀_nonneg {P : Matrix n n 𝕜} (hP : P.PosSemidef)
+    (k : Fin (Fintype.card n)) : 0 ≤ hP.isHermitian.eigenvalues₀ k := by
+  rw [show hP.isHermitian.eigenvalues₀ k
+      = hP.isHermitian.eigenvalues (eigEquiv k) from
+    (eigenvalues_eigEquiv hP.isHermitian k).symm]
+  exact hP.eigenvalues_nonneg _
+
+theorem pairingDefect_nonneg {c : ℝ} {P Qm : Matrix n n 𝕜} (hP : P.PosSemidef)
+    (hQm : Qm.PosSemidef) (hc : 0 ≤ c) :
+    0 ≤ pairingDefect c hP.isHermitian hQm.isHermitian := by
+  unfold pairingDefect
+  exact Finset.sum_nonneg fun k _ => deltaC_nonneg (eigenvalues₀_nonneg hP k)
+    (eigenvalues₀_nonneg hQm k) hc
+
+theorem schurJensenDefect_nonneg {c : ℝ} (m : ι → ℝ) (hm : ∀ j, 0 ≤ m j)
+    (v : ι → n → 𝕜) (hc : 0 ≤ c) :
+    0 ≤ schurJensenDefect c m v (Pmat_posSemidef m v).1 := by
+  have h := sum_gc_eigenvalues_ge hm v hc
+  have e : ∑ i, gc c ((Pmat_posSemidef m v).1.eigenvalues i)
+      = ∑ k, gc c ((Pmat_posSemidef m v).1.eigenvalues₀ k) :=
+    sum_eigenvalues_reindex _ (gc c)
+  unfold schurJensenDefect
+  rw [← e]
+  linarith
+
+theorem rearrangementDefect_nonneg {P Qm : Matrix n n 𝕜}
+    (hP : P.IsHermitian) (hQm : Qm.IsHermitian) :
+    0 ≤ rearrangementDefect hP hQm := by
+  unfold rearrangementDefect
+  linarith [vonNeumann_trace_ineq hP hQm]
+
+theorem posCouplingDefect_nonneg {P Qp : Matrix n n 𝕜}
+    (hP : P.PosSemidef) (hQp : Qp.PosSemidef) :
+    0 ≤ posCouplingDefect P Qp := by
+  unfold posCouplingDefect
+  linarith [trace_mul_nonneg_of_posSemidef hP hQp]
+
+theorem pairBlockDefect_nonneg (c : ℝ) {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) :
+    0 ≤ pairBlockDefect c hQ :=
+  Finset.sum_nonneg fun i _ => sq_nonneg _
+
+/-! ### S1: the rearrangement-defect equality (donor `hstep4` promoted) -/
+
+theorem frob_split_rearrangement {P Qm : Matrix n n 𝕜}
+    (hP : P.IsHermitian) (hQm : Qm.IsHermitian) :
+    frobSq P - 2 * RCLike.re (P * Qm).trace + frobSq Qm
+      = ∑ k, (hP.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2
+        + 2 * rearrangementDefect hP hQm := by
+  have hfrobP : frobSq P = ∑ k, (hP.eigenvalues₀ k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hP]
+    exact sum_eigenvalues_reindex hP (· ^ 2)
+  have hfrobQm : frobSq Qm = ∑ k, (hQm.eigenvalues₀ k) ^ 2 := by
+    rw [frobSq_hermitian_eq_sum_sq_eigenvalues hQm]
+    exact sum_eigenvalues_reindex hQm (· ^ 2)
+  have hsplit : ∑ k, (hP.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2
+      = ∑ k, (hP.eigenvalues₀ k) ^ 2 - 2 * ∑ k, hP.eigenvalues₀ k * hQm.eigenvalues₀ k
+        + ∑ k, (hQm.eigenvalues₀ k) ^ 2 := by
+    simp only [sub_sq, Finset.sum_add_distrib, Finset.sum_sub_distrib,
+      Finset.mul_sum, mul_assoc]
+  unfold rearrangementDefect
+  linarith [hsplit, hfrobP, hfrobQm]
+
+/-! ### S2: the pairing-defect equality (donor `hstep5'` promoted) -/
+
+theorem pairing_split (c : ℝ) (m : ι → ℝ) (v : ι → n → 𝕜) (Qm : Matrix n n 𝕜)
+    (hPm : (Pmat m v).IsHermitian) (hQm : Qm.IsHermitian) :
+    ∑ k, (hPm.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2
+      = c * rtrace (Pmat m v) + (∑ k, gc c (hPm.eigenvalues₀ k))
+          - 2 * c * rtrace Qm
+        + pairingDefect c hPm hQm := by
+  have hterm : ∀ k : Fin (Fintype.card n),
+      (hPm.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2
+        = c * hPm.eigenvalues₀ k + gc c (hPm.eigenvalues₀ k)
+            - 2 * c * hQm.eigenvalues₀ k
+            + deltaC c (hPm.eigenvalues₀ k) (hQm.eigenvalues₀ k) := by
+    intro k; unfold deltaC; ring
+  have hsum : ∑ k, (hPm.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2
+      = (c * ∑ k, hPm.eigenvalues₀ k + ∑ k, gc c (hPm.eigenvalues₀ k)
+            - 2 * c * ∑ k, hQm.eigenvalues₀ k)
+        + ∑ k, deltaC c (hPm.eigenvalues₀ k) (hQm.eigenvalues₀ k) := by
+    rw [Finset.sum_congr rfl (fun k _ => hterm k), Finset.sum_add_distrib,
+      Finset.sum_sub_distrib, Finset.sum_add_distrib, Finset.mul_sum, Finset.mul_sum]
+  have htrP : rtrace (Pmat m v) = ∑ k, hPm.eigenvalues₀ k := by
+    rw [rtrace_eq_sum_eigenvalues hPm]
+    exact sum_eigenvalues_reindex hPm id
+  have htrQm : rtrace Qm = ∑ k, hQm.eigenvalues₀ k := by
+    rw [rtrace_eq_sum_eigenvalues hQm]
+    exact sum_eigenvalues_reindex hQm id
+  -- linarith is linear: pre-scale the trace↔sum bridges by c and 2c
+  have hctrP : c * rtrace (Pmat m v) = c * ∑ k, hPm.eigenvalues₀ k := by rw [htrP]
+  have hctrQm : 2 * c * rtrace Qm = 2 * c * ∑ k, hQm.eigenvalues₀ k := by rw [htrQm]
+  unfold pairingDefect
+  linarith [hsum, hctrP, hctrQm]
+
+/-! ### S2': the Schur–Jensen split (definitional) -/
+
+theorem schurJensenSplit (c : ℝ) (m : ι → ℝ) (v : ι → n → 𝕜)
+    {P : Matrix n n 𝕜} (hP : P.IsHermitian) :
+    ∑ k, gc c (hP.eigenvalues₀ k)
+      = ∑ j, gc c (m j * xsq v j) + schurJensenDefect c m v hP := by
+  unfold schurJensenDefect; ring
+
+/-! ### S3: the pair-block equality (donor `hstep6` at b := posIndex hQ) -/
+
+/-- Filter idiom: positive-part sums restrict to the positive spectrum (f 0 = 0). -/
+lemma sum_posPart_restrict {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) (f : ℝ → ℝ)
+    (hf0 : f 0 = 0) :
+    ∑ i, f ((hQ.eigenvalues i)⁺)
+      = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), f (hQ.eigenvalues i) := by
+  calc ∑ i, f ((hQ.eigenvalues i)⁺)
+      = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+          f ((hQ.eigenvalues i)⁺) :=
+        (Finset.sum_filter_of_ne
+          (fun i _ hi => by
+            by_contra h
+            push_neg at h
+            rw [posPart_eq_zero.mpr h] at hi
+            exact hi hf0)).symm
+    _ = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), f (hQ.eigenvalues i) :=
+        Finset.sum_congr rfl fun i hi => by
+          rw [posPart_eq_self.mpr ((Finset.mem_filter.mp hi).2).le]
+
+theorem pairBlock_split (c : ℝ) {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) :
+    frobSq (hermPosPart hQ)
+      = 2 * c * rtrace (hermPosPart hQ) - c ^ 2 * (posIndex hQ : ℝ)
+        + pairBlockDefect c hQ := by
+  have hfilt2' := sum_posPart_restrict hQ (fun x => x ^ 2) (by norm_num)
+  have hfilt2 : ∑ i, ((hQ.eigenvalues i)⁺) ^ 2
+      = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+          (hQ.eigenvalues i) ^ 2 := hfilt2'
+  have hfilt1' := sum_posPart_restrict hQ (fun x => x) (rfl)
+  have hfilt1 : ∑ i, (hQ.eigenvalues i)⁺
+      = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), hQ.eigenvalues i :=
+    hfilt1' 
+  have hfrob : frobSq (hermPosPart hQ) = ∑ i, ((hQ.eigenvalues i)⁺) ^ 2 :=
+    frobSq_hermPosPart hQ
+  have htr : rtrace (hermPosPart hQ) = ∑ i, (hQ.eigenvalues i)⁺ := rtrace_hermPosPart hQ
+  -- expand the defect on the filtered support: Σ (q−c)² = Σq² − 2c·Σq + c²·#filter
+  have hexp : pairBlockDefect c hQ
+      = (∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+            (hQ.eigenvalues i) ^ 2)
+        - 2 * c * (∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+            hQ.eigenvalues i)
+        + c ^ 2 * ((Finset.univ.filter (fun i => 0 < hQ.eigenvalues i)).card : ℝ) := by
+    have hterm : ∀ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+        (hQ.eigenvalues i - c) ^ 2
+          = (hQ.eigenvalues i) ^ 2 - 2 * c * hQ.eigenvalues i + c ^ 2 :=
+      fun i _ => by ring
+    have hcs : ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), c ^ 2
+        = ((Finset.univ.filter (fun i => 0 < hQ.eigenvalues i)).card : ℝ) * c ^ 2 := by
+      rw [Finset.sum_const, nsmul_eq_mul]
+    calc pairBlockDefect c hQ
+        = ∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+              ((hQ.eigenvalues i) ^ 2 - 2 * c * hQ.eigenvalues i + c ^ 2) := by
+          unfold pairBlockDefect
+          exact Finset.sum_congr rfl (fun i hi => hterm i hi)
+      _ = (∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i), (hQ.eigenvalues i) ^ 2)
+            - 2 * c * (∑ i ∈ Finset.univ.filter (fun i => 0 < hQ.eigenvalues i),
+                hQ.eigenvalues i)
+            + c ^ 2 * ((Finset.univ.filter (fun i => 0 < hQ.eigenvalues i)).card : ℝ) := by
+          rw [Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, hcs]
+          ring
+  -- #(positive spectrum) = posIndex by definition
+  have hcard : ((Finset.univ.filter (fun i => 0 < hQ.eigenvalues i)).card : ℝ)
+      = (posIndex hQ : ℝ) := by
+    unfold posIndex
+    rfl
+  rw [hfrob, htr, hfilt2, hfilt1, hexp, hcard]
+  linarith
+
+/-! ### `hexpand` promoted -/
+
+theorem frobSq_add_eq {P Qp Qm Q : Matrix n n 𝕜} (hP : P.IsHermitian)
+    (hQp : Qp.PosSemidef) (hQm : Qm.PosSemidef) (hQpQm : Qp * Qm = 0)
+    (hQdec : Q = Qp - Qm) :
+    frobSq (P + Q)
+      = frobSq P + 2 * RCLike.re (P * Qp).trace - 2 * RCLike.re (P * Qm).trace
+        + frobSq Qp + frobSq Qm := by
+  have h1 : frobSq (-Qm) = frobSq Qm := by
+    unfold frobSq; rw [conjTranspose_neg, neg_mul_neg]
+  have h2 : RCLike.re (Qp * -Qm).trace = 0 := by
+    rw [mul_neg, hQpQm]; simp
+  rw [hQdec, frobSq_add_hermitian hP (hQp.isHermitian.sub hQm.isHermitian),
+    sub_eq_add_neg Qp Qm,
+    frobSq_add_hermitian hQp.isHermitian hQm.isHermitian.neg,
+    h1, h2, mul_add, mul_neg, trace_add, trace_neg, map_add, map_neg]
+  ring
+
+/-! ### MAIN — the master identity -/
+
+/-- **Master identity** (dossier 01, Theorem A): Frobenius energy = rank–trace certificate
+(at the sharp budget `b = n₊(Q)`) + the five named defects, exactly. The Hermitian-proof
+binders `hPm`, `hQmm` are discharged by `(Pmat_posSemidef m v).1` and
+`specMap_isHermitian hQ _` at call sites. Replaces the `linarith` at
+`RankTraceMult.lean:346`. -/
+theorem master_identity (m : ι → ℝ) (v : ι → n → 𝕜) (Q : Matrix n n 𝕜)
+    (hQ : Q.IsHermitian) (hPm : (Pmat m v).IsHermitian)
+    (hQmm : (hermNegPart hQ).IsHermitian) {c : ℝ} (hc : 0 < c) :
+    frobSq (Pmat m v + Q)
+      = c * rtrace (Pmat m v) + (∑ j, gc c (m j * xsq v j)) + 2 * c * rtrace Q
+          - c ^ 2 * (posIndex hQ : ℝ)
+        + pairingDefect c hPm hQmm
+        + schurJensenDefect c m v hPm
+        + 2 * rearrangementDefect hPm hQmm
+        + posCouplingDefect (Pmat m v) (hermPosPart hQ)
+        + pairBlockDefect c hQ := by
+  have hexp := frobSq_add_eq hPm (hermPosPart_posSemidef hQ)
+    (hermNegPart_posSemidef hQ) (hermPosPart_mul_hermNegPart hQ)
+    (hermPosPart_sub_hermNegPart hQ).symm
+  have h1 := frob_split_rearrangement hPm hQmm
+  have h2 := pairing_split c m v (hermNegPart hQ) hPm hQmm
+  have h2' := schurJensenSplit c m v hPm
+  have h3 := pairBlock_split c hQ
+  have htrQ : 2 * c * rtrace Q
+      = 2 * c * rtrace (hermPosPart hQ) - 2 * c * rtrace (hermNegPart hQ) := by
+    have hrt : rtrace Q = rtrace (hermPosPart hQ) - rtrace (hermNegPart hQ) := by
+      have h := rtrace_sub (hermPosPart hQ) (hermNegPart hQ)
+      rw [hermPosPart_sub_hermNegPart hQ] at h
+      exact h
+    rw [hrt]; ring
+  unfold pairingDefect at h2 ⊢
+  unfold schurJensenDefect at h2' ⊢
+  unfold rearrangementDefect at h1 ⊢
+  unfold posCouplingDefect at ⊢
+  linarith [hexp, h1, h2, h2', h3, htrQ]
+
+/-! ### ACCEPTANCE TEST: re-derive the donor theorem by dropping the defects -/
+
+/-- Donor `rank_trace_mult_k` (RankTraceMult.lean:369) re-derived from `master_identity`
+by dropping the five nonnegative defects — the regression anchor proving the port and the
+identity faithful. -/
+theorem rank_trace_mult_k_of_master {m : ι → ℝ} (hm : ∀ j, 0 ≤ m j) (v : ι → n → 𝕜)
+    {Q : Matrix n n 𝕜} (hQ : Q.IsHermitian) {b : ℕ} (hb : posIndex hQ ≤ b)
+    {c : ℝ} (hc : 0 < c) :
+    2 * c * rtrace (Pmat m v + Q) - frobSq (Pmat m v + Q)
+      ≤ (∑ j, kc c (m j * xsq v j)) + c ^ 2 * b := by
+  have hPm : (Pmat m v).IsHermitian := (Pmat_posSemidef m v).1
+  have hQmm : (hermNegPart hQ).IsHermitian := specMap_isHermitian hQ _
+  have hmid := master_identity m v Q hQ hPm hQmm hc
+  have hnPt : 0 ≤ pairingDefect c hPm hQmm :=
+    pairingDefect_nonneg (Pmat_posSemidef m v) (hermNegPart_posSemidef hQ) hc.le
+  have hnSJ : 0 ≤ schurJensenDefect c m v hPm :=
+    schurJensenDefect_nonneg m hm v hc.le
+  have hnVn : 0 ≤ rearrangementDefect hPm hQmm := rearrangementDefect_nonneg hPm hQmm
+  have hnCp : 0 ≤ posCouplingDefect (Pmat m v) (hermPosPart hQ) :=
+    posCouplingDefect_nonneg (Pmat_posSemidef m v) (hermPosPart_posSemidef hQ)
+  have hnQp : 0 ≤ pairBlockDefect c hQ := pairBlockDefect_nonneg c hQ
+  have htrP : rtrace (Pmat m v) = ∑ j, m j * xsq v j := rtrace_Pmat hm v
+  have hkc : ∑ j, kc c (m j * xsq v j)
+      = c * ∑ j, m j * xsq v j - ∑ j, gc c (m j * xsq v j) := by
+    rw [Finset.mul_sum, ← Finset.sum_sub_distrib]
+    exact Finset.sum_congr rfl fun j _ => kc_eq c _
+  -- linarith is linear: pre-scale the two variable-coefficient bridges (2·c and c²)
+  have hsplit2 : 2 * c * rtrace (Pmat m v + Q)
+      = 2 * c * rtrace (Pmat m v) + 2 * c * rtrace Q := by
+    rw [rtrace_add]; ring
+  have hctrP : c * rtrace (Pmat m v) = c * ∑ j, m j * xsq v j := by rw [htrP]
+  have hc2 : c ^ 2 * (posIndex hQ : ℝ) ≤ c ^ 2 * (b : ℝ) :=
+    mul_le_mul_of_nonneg_left (by exact_mod_cast hb) (sq_nonneg c)
+  unfold posCouplingDefect at hmid hnCp
+  linarith [hmid, hnPt, hnSJ, hnVn, hnCp, hnQp, hkc, hsplit2, hctrP, hc2]
+
+end CrossMath.RankTraceDefect
+
+noncomputable section
+set_option linter.unusedSectionVars false
+
+open Matrix RHLinalg Finset
+open scoped ComplexOrder BigOperators
+
+namespace Zeta23.ZeroSide.TightMult
+
+open RankTraceMult
+
+variable (r b : ℕ) (m : Fin r → ℕ) (c : ℝ)
+
+abbrev idx := Fin r ⊕ Fin b
+
+/-- orthonormal on-line vectors: the standard basis vectors of the first r slots. -/
+def v : Fin r → idx r b → ℝ := fun j => Pi.single (Sum.inl j) 1
+
+/-- real multiplicities. -/
+def mR : Fin r → ℝ := fun j => (m j : ℝ)
+
+/-- the pair blocks: c × (projection onto the last b slots). -/
+def Q : Matrix (idx r b) (idx r b) ℝ := diagonal (Sum.elim (fun _ => 0) (fun _ => c))
+
+lemma xsq_v (j : Fin r) : xsq (v r b) j = 1 := by
+  unfold xsq v
+  rw [Finset.sum_eq_single (Sum.inl j)]
+  · simp
+  · intro a _ ha; simp [Pi.single_apply, ha]
+  · simp
+
+lemma Pmat_eq_diagonal : Pmat (𝕜 := ℝ) (mR r m) (v r b) = diagonal (Sum.elim (fun j => (m j : ℝ)) (fun _ => 0)) := by
+  ext a a'
+  rw [Pmat_apply (fun j => by unfold mR; positivity), diagonal_apply]
+  simp only [mR, v, RCLike.ofReal_real_eq_id, id_eq, starRingEnd_apply, star_trivial]
+  rcases a with j | i
+  · by_cases h : (Sum.inl j : idx r b) = a'
+    · subst h
+      rw [if_pos rfl, Finset.sum_eq_single j]
+      · simp
+      · intro k _ hk; simp [Pi.single_apply, Sum.inl_injective.eq_iff, Ne.symm hk]
+      · simp
+    · rw [if_neg h]
+      refine Finset.sum_eq_zero fun k _ => ?_
+      by_cases hk : (Sum.inl k : idx r b) = a'
+      · subst hk
+        have : k ≠ j := fun e => h (by rw [e])
+        simp [Pi.single_apply, Sum.inl_injective.eq_iff, Ne.symm this]
+      · simp [Pi.single_apply, hk]
+  · have : ∀ k : Fin r, (Pi.single (Sum.inl k) (1:ℝ) : idx r b → ℝ) (Sum.inr i) = 0 := fun k => by
+      simp [Pi.single_apply]
+    simp only [this, zero_mul, mul_zero, Finset.sum_const_zero, Sum.elim_inr]
+    split_ifs <;> simp
+
+lemma Q_posSemidef (hc : 0 ≤ c) : (Q r b c).PosSemidef := by
+  rw [Q, posSemidef_diagonal_iff]
+  rintro (i | i) <;> simp [hc]
+
+lemma Q_isHermitian (hc : 0 ≤ c) : (Q r b c).IsHermitian := (Q_posSemidef r b c hc).1
+
+lemma posIndex_Q (hc : 0 < c) : posIndex (Q_isHermitian r b c hc.le) = b := by
+  rw [posIndex_eq_rank_of_posSemidef (Q_posSemidef r b c hc.le), Q, rank_diagonal, Fintype.card_subtype]
+  have : (Finset.univ.filter fun i : idx r b => Sum.elim (fun _ => (0:ℝ)) (fun _ => c) i ≠ 0) = Finset.univ.image Sum.inr := by
+    ext i; rcases i with i | i <;> simp [hc.ne']
+  rw [this, Finset.card_image_of_injective _ Sum.inr_injective]; simp
+
+lemma rtrace_PQ : rtrace (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c) = (∑ j, (m j : ℝ)) + c * b := by
+  rw [Pmat_eq_diagonal, Q, diagonal_add]
+  simp [rtrace, trace_diagonal, Fintype.sum_sum_type]; ring
+
+lemma frobSq_PQ : frobSq (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c) = (∑ j, (m j : ℝ) ^ 2) + c ^ 2 * b := by
+  rw [Pmat_eq_diagonal, Q, diagonal_add]
+  simp [frobSq, diagonal_mul_diagonal, trace_diagonal, Fintype.sum_sum_type, sq]; ring
+
+/-- **Lemma R is tight**: for on-line multiplicities 1 ≤ m_j ≤ c on orthonormal vectors and b pair-blocks of eigenvalue c,
+   2c·tr(P+Q) − ‖P+Q‖² = Σ_j k_c(m_j) + c²b   — equality in rank_trace_mult_k. -/
+theorem lemmaR_tight (hc : 0 < c) (hm : ∀ j, (m j : ℝ) ≤ c) :
+    2 * c * rtrace (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c) - frobSq (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c)
+      = (∑ j, kc c (mR r m j * xsq (v r b) j)) + c ^ 2 * b := by
+  rw [rtrace_PQ, frobSq_PQ]
+  have : ∀ j, kc c (mR r m j * xsq (v r b) j) = 2 * c * m j - (m j : ℝ) ^ 2 := by
+    intro j; rw [xsq_v, mul_one]; unfold mR; rw [kc_of_le (hm j)]
+  simp_rw [this]
+  rw [Finset.sum_sub_distrib, ← Finset.mul_sum]
+  ring
+
+/-- … with the hypotheses of Lemma R all met exactly (m_j ≥ 0, ‖v_j‖² = 1 ≤ 1, n₊(Q) = b). -/
+theorem lemmaR_tight' (hc : 0 < c) (hm : ∀ j, (m j : ℝ) ≤ c) :
+    (∀ j, 0 ≤ mR r m j) ∧ (∀ j, xsq (v r b) j ≤ 1) ∧ posIndex (Q_isHermitian r b c hc.le) = b ∧
+    2 * c * rtrace (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c) - frobSq (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b c)
+      = (∑ j, kc c (mR r m j)) + c ^ 2 * b := by
+  refine ⟨fun j => by unfold mR; positivity, fun j => by rw [xsq_v], posIndex_Q r b c hc, ?_⟩
+  rw [lemmaR_tight r b m c hc hm]
+  simp_rw [xsq_v, mul_one]
+
+/-- c = 2: simples (m=1), doubles (m=2) and tight pairs are simultaneously extremal:
+   4·tr − ‖·‖² = 3·#{m=1} + 4·#{m=2} + 4·b. -/
+theorem lemmaR_tight_two (hm1 : ∀ j, 1 ≤ m j) (hm2 : ∀ j, m j ≤ 2) :
+    2 * 2 * rtrace (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b 2) - frobSq (Pmat (𝕜 := ℝ) (mR r m) (v r b) + Q r b 2)
+      = 3 * ((Finset.univ.filter (fun j => m j = 1)).card : ℝ) + 4 * ((Finset.univ.filter (fun j => 2 ≤ m j)).card : ℝ)
+        + 2 ^ 2 * b := by
+  rw [lemmaR_tight r b m 2 (by norm_num) (fun j => by exact_mod_cast hm2 j)]
+  simp_rw [xsq_v, mul_one]
+  unfold mR
+  rw [sum_kc_two_nat m hm1]
+
+end Zeta23.ZeroSide.TightMult
+
+/-! ## Milestone (d) companion: tightness of the master identity (dossier 01, A4 core)
+
+On the TightMult extremal configuration — on-line atoms with integer multiplicities
+`m_j ≤ c` on orthonormal vectors, plus `b` pair-blocks `Q = c·Π` (donor
+`Zeta23/ZeroSide/TightMult.lean`) — all five named defects of the master identity
+vanish simultaneously. Combined with donor `lemmaR_tight` (equality in the k-form) this
+completes the structural pair: exact identity + exact tightness, each defect separately.
+(No `set`/`have`-aliasing of the configuration terms: linarith needs syntactic atom
+identity with the donor statement.) -/
+
+namespace CrossMath.RankTraceDefect
+
+open Matrix Finset Unitary
+open scoped ComplexOrder
+open RHLinalg Zeta23.ZeroSide.RankTraceMult Zeta23.ZeroSide.TightMult
+
+variable {𝕜 : Type*} [RCLike 𝕜]
+
+/-- **Tightness companion** (dossier 01, A4 core; R8 round-2 §1 re-scope: this is the
+*finer five-defect simultaneous* characterization — AF v2 Lemma 3.2 states the base-lemma
+equality case `P = Π₁, Q = 2Π₂` only). On the TightMult configuration with `m_j ≤ c`,
+every defect of `master_identity` is exactly zero. -/
+theorem tightness_of_master (r b : ℕ) (m : Fin r → ℕ) {c : ℝ} (hc : 0 < c)
+    (hm : ∀ j, (m j : ℝ) ≤ c)
+    (hPm : (Pmat (mR r m) (v r b)).IsHermitian)
+    (hQmm : (hermNegPart (Q_isHermitian r b c hc.le)).IsHermitian) :
+    pairingDefect c hPm hQmm = 0 ∧
+    schurJensenDefect c (mR r m) (v r b) hPm = 0 ∧
+    rearrangementDefect hPm hQmm = 0 ∧
+    posCouplingDefect (Pmat (mR r m) (v r b)) (hermPosPart (Q_isHermitian r b c hc.le)) = 0 ∧
+    pairBlockDefect c (Q_isHermitian r b c hc.le) = 0 := by
+  have hQ : (Q r b c).IsHermitian := Q_isHermitian r b c hc.le
+  have hmR : ∀ j, 0 ≤ mR r m j := fun j => by unfold mR; positivity
+  -- donor tightness (equality in the k-form) and its index identification
+  have hdonor := lemmaR_tight r b m c hc hm
+  have hpi : posIndex hQ = b := posIndex_Q r b c hc
+  -- master identity on the same configuration
+  have hmid := master_identity (mR r m) (v r b) (Q r b c) hQ hPm hQmm hc
+  -- the linear bridges (linarith is linear; pre-scale the variable coefficients)
+  have hsplit2 : 2 * c * rtrace (Pmat (mR r m) (v r b) + Q r b c)
+      = 2 * c * rtrace (Pmat (mR r m) (v r b)) + 2 * c * rtrace (Q r b c) := by
+    rw [rtrace_add]; ring
+  have hctrP : c * rtrace (Pmat (mR r m) (v r b))
+      = c * ∑ j, mR r m j * xsq (v r b) j := by
+    rw [rtrace_Pmat hmR (v r b)]
+  have hkc : ∑ j, kc c (mR r m j * xsq (v r b) j)
+      = c * ∑ j, mR r m j * xsq (v r b) j
+        - ∑ j, gc c (mR r m j * xsq (v r b) j) := by
+    rw [Finset.mul_sum, ← Finset.sum_sub_distrib]
+    exact Finset.sum_congr rfl fun j _ => kc_eq c _
+  have hc2 : c ^ 2 * (posIndex hQ : ℝ) = c ^ 2 * (b : ℝ) := by rw [hpi]
+  -- defect nonnegativity on this configuration (all PSD instances available)
+  have hnPt : 0 ≤ pairingDefect c hPm hQmm :=
+    pairingDefect_nonneg (Pmat_posSemidef (mR r m) (v r b)) (hermNegPart_posSemidef hQ) hc.le
+  have hnSJ : 0 ≤ schurJensenDefect c (mR r m) (v r b) hPm :=
+    schurJensenDefect_nonneg (mR r m) hmR (v r b) hc.le
+  have hnVn : 0 ≤ rearrangementDefect hPm hQmm := rearrangementDefect_nonneg hPm hQmm
+  have hnCp : 0 ≤ posCouplingDefect (Pmat (mR r m) (v r b)) (hermPosPart hQ) :=
+    posCouplingDefect_nonneg (Pmat_posSemidef (mR r m) (v r b)) (hermPosPart_posSemidef hQ)
+  have hnQp : 0 ≤ pairBlockDefect c hQ := pairBlockDefect_nonneg c hQ
+  unfold posCouplingDefect at hmid hnCp ⊢
+  -- the sum of the five defects is zero (donor equality vs master identity)
+  have hD : pairingDefect c hPm hQmm + schurJensenDefect c (mR r m) (v r b) hPm
+      + 2 * rearrangementDefect hPm hQmm
+      + 2 * RCLike.re (Pmat (mR r m) (v r b) * hermPosPart hQ).trace
+      + pairBlockDefect c hQ = 0 := by
+    linarith [hdonor, hmid, hsplit2, hctrP, hkc, hc2]
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> linarith [hD, hnPt, hnSJ, hnVn, hnCp, hnQp]
+
+end CrossMath.RankTraceDefect
+
+#print axioms CrossMath.RankTraceDefect.master_identity
+#print axioms CrossMath.RankTraceDefect.rank_trace_mult_k_of_master
+#print axioms Zeta23.ZeroSide.TightMult.lemmaR_tight
+#print axioms CrossMath.RankTraceDefect.tightness_of_master

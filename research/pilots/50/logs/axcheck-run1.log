@@ -1,0 +1,166 @@
+# provenance: /tmp/crossmath-axcheck-run3.log | mtime 2026-11-09 19:48 | producing lane: R9 (axcheck batch over pilots 11/42/50/52) | rescued by R9 2026-11-09
+AxP11T1: 0 theorems -> 
+AxP11T2: 18 theorems -> Real.one_le_log_of_three_le, Real.one_le_log_natCast_of_three_le, Real.logb_two_seven_lt, Real.natCast_le_rpow_inv_iff …
+AxPilot42_M1: 15 theorems -> CrossMath.Pilot42.lineWindow_subset, CrossMath.Pilot42.multOf_mul, CrossMath.Pilot42.multOf_mul_of_forall, CrossMath.Pilot42.mem_supp_iff …
+AxPilot50_M1: 3 theorems -> CrossMath.Pilot50.strip_confinement, CrossMath.Pilot50.strip_confinement_mem, CrossMath.Pilot50.strip_confinement_set
+AxPilot50_Dirichlet: 1 theorems -> CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet
+AxPilot52_M1: 12 theorems -> CrossMath.Pilot52.OccupationPair.cW_append, CrossMath.Pilot52.OccupationPair.cW_swap_pair, CrossMath.Pilot52.OccupationPair.slide_ne, CrossMath.Pilot52.OccupationPair.slide_self …
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-gQ6Ih5IKGQhxpvT3WyhW8J
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 6 file(s): ['AxP11T1.lean', 'AxP11T2.lean', 'AxPilot42_M1.lean', 'AxPilot50_Dirichlet.lean', 'AxPilot50_M1.lean', 'AxPilot52_M1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxP11T1.lean
+[ax] AxP11T1.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxP11T2.lean
+[ax] AxP11T2.lean: OK; axiom-lines=19, sorryAx-lines=0
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_natCast_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.logb_two_seven_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.natCast_le_rpow_inv_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.le_root_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sixteen_le_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.pow_eighteen_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.ceil_le_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.exists_total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.choice_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.total_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sq_div_sqrt_le_sq_div_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.time_le_of_calls' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.call_cost_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot42_M1.lean
+[ax] AxPilot42_M1.lean: OK; axiom-lines=15, sorryAx-lines=0
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot50_Dirichlet.lean
+[ax] AxPilot50_Dirichlet.lean: FAIL rc=1 (5 errors); axiom-lines=2, sorryAx-lines=0
+AxPilot50_Dirichlet.lean:43:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot50_Dirichlet.lean:45:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot50_Dirichlet.lean:45:57: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot50_Dirichlet.lean:47:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot50_Dirichlet.lean:68:50: error: Function expected at
+  hp.right
+but this term has type
+  ρ = 1
+
+Note: Expected a function because this term is being applied to the argument
+  hρne1
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+=== AxPilot50_M1.lean
+[ax] AxPilot50_M1.lean: OK; axiom-lines=4, sorryAx-lines=0
+'CrossMath.Pilot50.strip_confinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot52_M1.lean
+[ax] AxPilot52_M1.lean: FAIL rc=1 (15 errors); axiom-lines=14, sorryAx-lines=9
+AxPilot52_M1.lean:81:13: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+AxPilot52_M1.lean:82:4: warning: `Module.End.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : One F} [self : IsOneApplyEqSelf F]
+    (x : α), 1 x = x
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M] (x : M), 1 x = x
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+AxPilot52_M1.lean:82:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot52_M1.lean:82:4: warning: This simp argument is unused:
+  Module.End.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Module.End.mul_apply, LinearMap.add_apply, LinearMap.smul_apply, if_neg h] at h1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot52_M1.lean:88:13: warning: `Module.End.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant has a different type:
+  ∀ {F : Type u_1} {α : outParam (Type u_2)} {inst : FunLike F α α} {inst_1 : Mul F} [self : IsMulApplyEqComp F]
+    (f g : F) (x : α), (f * g) x = f (g x)
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f g : Module.End R M) (x : M), (f * g) x = f (g x)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+(…280 more) tail:
+'CrossMath.Pilot52.OccupationPair.slide_self' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.annih_outside' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_dual_family_vac' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_sign_transposition' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_annih_outside' depends on axioms: [propext, sorryAx, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_create_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+AxPilot52_M1.lean:274:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot52.bosonic_unweighted`
+
+[ax] SUMMARY
+[ax]   AxP11T1.lean: OK | no axiom-lines
+[ax]   AxP11T2.lean: OK | 19 axiom-lines, 0 with sorryAx
+[ax]   AxPilot42_M1.lean: OK | 15 axiom-lines, 0 with sorryAx
+[ax]   AxPilot50_Dirichlet.lean: FAIL rc=1 (5 errors) | 2 axiom-lines, 0 with sorryAx
+[ax]   AxPilot50_M1.lean: OK | 4 axiom-lines, 0 with sorryAx
+[ax]   AxPilot52_M1.lean: FAIL rc=1 (15 errors) | 14 axiom-lines, 9 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-gQ6Ih5IKGQhxpvT3WyhW8J

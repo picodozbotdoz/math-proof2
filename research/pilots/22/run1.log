@@ -1,0 +1,104 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-CxqvPnKYXsjNXv1hS0ESw4
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot22-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['M1.lean', 'ProbeP1_PNT.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== M1.lean
+[probe] M1.lean: FAIL rc=1; errors=4, sorry-warnings=0, other-warnings=0
+---- output head ----
+M1.lean:32:20: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:33:64: error: Application type mismatch: The argument
+  hs
+has type
+  s ∈ ?m.83
+but is expected to have type
+  s ≠ 1
+in the application
+  differentiableAt_riemannZeta hs
+M1.lean:39:24: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:41:35: error: Application type mismatch: The argument
+  fun s' hs' => Function.update_of_ne hs'
+has type
+  ∀ (s' : ℂ) (hs' : ?m.251 s' ≠ ?m.252 s') (v : ?m.253 s' hs' (?m.252 s')) (f : (a : ?m.250 s') → ?m.253 s' hs' a),
+    Function.update f (?m.252 s') v (?m.251 s') = f (?m.251 s')
+but is expected to have type
+  ∀ (x : ℂ), ?m.235 x = (fun s => (s - 1) * riemannZeta s) x
+in the application
+  Eventually.of_forall fun s' hs' => Function.update_of_ne hs'
+M1.lean:48:20: error(lean.unknownIdentifier): Unknown identifier `eventually_ne`
+M1.lean:49:66: error: Application type mismatch: The argument
+  hs
+has type
+  s ∈ ?m.364
+but is expected to have type
+  ?m.378 ≠ ?m.379
+in the application
+  Function.update_of_ne hs
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M1.lean:47:84: error: unsolved goals
+hd : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ (fun s => (s - 1) * riemannZeta s) s
+hc : ContinuousAt (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) 1
+hd' : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) s
+hg : AnalyticAt ℂ (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) 1
+s : ℂ
+hs : s ∈ ?m.364
+⊢ riemannZeta s - (-1 + s)⁻¹ = (-1 + s)⁻¹ * (Function.update (fun s => s * riemannZeta s - riemannZeta s) 1 1 s -ᵥ 1)
+M1.lean:53:8: error(lean.invalidField): Invalid field `tendsto_iff`: The environment does not contain `Exists.tendsto_iff`, so it is not possible to project the field `tendsto_iff` from an expression
+  heq
+of type
+  ∃ a ∈ 𝓝 1,
+    ∃ b ∈ 𝓟 {1}ᶜ,
+      {x |
+          (fun x =>
+              (fun s => riemannZeta s - 1 / (s - 1)) x =
+                slope (Function.update (fun s => (s - 1) * riemannZeta s) 1 1) 1 x)
+            x} =
+        a ∩ b
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+=== ProbeP1_PNT.lean
+[probe] ProbeP1_PNT.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+---- output head ----
+ProbeP1_PNT.lean:41:60: error: unexpected token '≠'; expected ':' or term
+ProbeP1_PNT.lean:55:54: error: unexpected token '≠'; expected ':' or term
+ProbeP1_PNT.lean:64:4: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (nhdsWithin 1 {1}ᶜ) (nhds 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in nhdsWithin c {c}ᶜ, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (nhds A)
+
+[probe] SUMMARY
+[probe]   M1.lean: FAIL (4 errors)
+[probe]   ProbeP1_PNT.lean: FAIL (2 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-CxqvPnKYXsjNXv1hS0ESw4

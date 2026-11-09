@@ -1,0 +1,126 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-MRFGHw1sP5bfDYYVJM1Ad4
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot22-stage/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 3 probe file(s): ['M1.lean', 'ProbeP1_PNT.lean', 'Tier1.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== M1.lean
+[probe] M1.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== ProbeP1_PNT.lean
+[probe] ProbeP1_PNT.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in 𝓝[≠] c, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (𝓝 A)
+
+=== Tier1.lean
+[probe] Tier1.lean: FAIL rc=1; errors=10, sorry-warnings=0, other-warnings=1
+---- output head ----
+Tier1.lean:102:65: error: unsolved goals
+F : ℂ → ℂ := fun s => (s - 1) * riemannZeta s
+hFdef : F = fun s => (s - 1) * riemannZeta s
+h : ℂ → ℂ := Function.update F 1 1
+hhdef : h = Function.update F 1 1
+hne : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, s ≠ 1
+hdF : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ F s
+hch : ContinuousAt h 1
+hdh : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ h s
+hA : AnalyticAt ℂ h 1
+h1 : h 1 = 1
+hnz : h 1 ≠ 0
+s : ℂ
+hs : s ≠ 1
+hs' : h s = (s - 1) * riemannZeta s
+⊢ riemannZeta s * (s - 1) = h s
+Tier1.lean:111:6: error: Type mismatch
+  HasDerivAt.inv (HasDerivAt.sub_const 1 (hasDerivAt_id s)) ?m.567
+has type
+  HasDerivAt (fun x => id x - 1)⁻¹ (-1 / (id s - 1) ^ 2) s
+but is expected to have type
+  HasDerivAt (fun t => (t - 1)⁻¹) (-((s - 1)⁻¹ * (s - 1)⁻¹)) s
+Tier1.lean:111:46: error: Type mismatch: After simplification, term
+  hs
+ has type
+  ¬s = 1
+but is expected to have type
+  ¬s - 1 = 0
+Tier1.lean:112:63: error: unsolved goals
+F : ℂ → ℂ := fun s => (s - 1) * riemannZeta s
+hFdef : F = fun s => (s - 1) * riemannZeta s
+h : ℂ → ℂ := Function.update F 1 1
+hhdef : h = Function.update F 1 1
+hne : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, s ≠ 1
+hdF : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ F s
+hch : ContinuousAt h 1
+hdh : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, DifferentiableAt ℂ h s
+hA : AnalyticAt ℂ h 1
+h1 : h 1 = 1
+hnz : h 1 ≠ 0
+hzeta : ∀ (s : ℂ), s ≠ 1 → riemannZeta s = h s / (s - 1)
+s : ℂ
+hs : s ≠ 1
+hdhs : DifferentiableAt ℂ h s
+hinvs : HasDerivAt (fun t => (t - 1)⁻¹) (-((s - 1)⁻¹ * (s - 1)⁻¹)) s
+t : ℂ
+ht : t ≠ 1
+⊢ (t - 1)⁻¹ * h t = h t * (t - 1)⁻¹
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Tier1.lean:108:83: error: unsolved goals
+F : ℂ → ℂ := fun s => (s - 1) * riemannZeta s
+hFdef : F = fun s => (s - 1) * riemannZeta s
+h : ℂ → ℂ := Function.update F 1 1
+hhdef : h = Function.update F 1 1
+hne : ∀ᶠ (s : ℂ) in 𝓝[≠] 1, s ≠ 1
+---- (…71 more lines) tail ----
+Tier1.lean:154:67: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousInv ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Tier1.lean:154:75: error: Application type mismatch: The argument
+  hζ0
+has type
+  riemannZeta s₀ ≠ 0
+but is expected to have type
+  ?m.974 ∈ 𝓝 (riemannZeta⁻¹ s₀)
+in the application
+  ContinuousAt.inv hζc hζ0
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_logDerivExtension' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_range_sum_vonMangoldt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   M1.lean: OK
+[probe]   ProbeP1_PNT.lean: OK
+[probe]   Tier1.lean: FAIL (10 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-MRFGHw1sP5bfDYYVJM1Ad4

@@ -1,0 +1,96 @@
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-SC2LxUuaMa3r3hQzGTDwtX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot42-stage2/lean_probe.py
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['Pilot42_M2b.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Pilot42_M2b.lean
+[probe] Pilot42_M2b.lean: FAIL rc=1; errors=11, sorry-warnings=0, other-warnings=1
+---- output head ----
+Pilot42_M2b.lean:636:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Pilot42_M2b.lean:917:4: error: unsolved goals
+case pos
+fK fζ fχ : ℂ → ℂ
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+hfinK : WindowFinite (multOf fK)
+hfinζ : WindowFinite (multOf fζ)
+hfinχ : WindowFinite (multOf fχ)
+T : ℝ
+ρ : ℂ
+hρ : ρ ∈ lineWindow 0 T
+h1 : multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+⊢ (multOf fζ ρ = 0 → ¬multOf fχ ρ = 0) ∧ ρ ∈ lineWindow 0 T ↔
+    ¬multOf fζ ρ = 0 ∧ ρ ∈ lineWindow 0 T ∨ ¬multOf fχ ρ = 0 ∧ ρ ∈ lineWindow 0 T
+Pilot42_M2b.lean:923:24: error: Type mismatch
+  hρ h'
+has type
+  False
+but is expected to have type
+  ρ ∈ supp (multOf fζ) ∧ ρ ∈ lineWindow 0 T ∨ ρ ∈ supp (multOf fχ) ∧ ρ ∈ lineWindow 0 T
+Pilot42_M2b.lean:924:39: error: Type mismatch
+  hρ h'
+has type
+  False
+but is expected to have type
+  ρ ∈ supp (multOf fK) ∧ ρ ∈ lineWindow 0 T
+Pilot42_M2b.lean:924:39: error: Type mismatch
+  hρ h'
+has type
+  False
+but is expected to have type
+  ρ ∈ supp (multOf fK) ∧ ρ ∈ lineWindow 0 T
+Pilot42_M2b.lean:927:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  supp (?a + ?b)
+in the target expression
+  supp ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).mult ∩
+      lineWindow 0 T =
+    supp (multOf fK) ∩ lineWindow 0 T
+
+fK fζ fχ : ℂ → ℂ
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fK ρ = multOf fζ ρ + multOf fχ ρ
+hfinK : WindowFinite (multOf fK)
+hfinζ : WindowFinite (multOf fζ)
+hfinχ : WindowFinite (multOf fχ)
+T : ℝ
+hset : supp (multOf fK) ∩ lineWindow 0 T = supp (multOf fζ) ∩ lineWindow 0 T ∪ supp (multOf fχ) ∩ lineWindow 0 T
+⊢ supp ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).mult ∩
+      lineWindow 0 T =
+    supp (multOf fK) ∩ lineWindow 0 T
+Pilot42_M2b.lean:935:52: error: Application type mismatch: The argument
+  hKey
+has type
+  supp ({ mult := multOf fζ, windowFinite := hfinζ }.add { mult := multOf fχ, windowFinite := hfinχ }).mult ∩
+      lineWindow 0 T =
+---- (…121 more lines) tail ----
+    ∀ (T : ℝ),
+      T₀ ≤ T →
+        (5 / 6 - ε) * ↑({ mult := multOf fK, windowFinite := hfinK }.countCum T) ≤
+          ↑({ mult := multOf fK, windowFinite := hfinK }.countDistinctOnCum T) +
+            ↑(commonOnLineCum { mult := multOf fζ, windowFinite := hfinζ } { mult := multOf fχ, windowFinite := hfinχ }
+                T)
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+[probe] SUMMARY
+[probe]   Pilot42_M2b.lean: FAIL (11 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-SC2LxUuaMa3r3hQzGTDwtX

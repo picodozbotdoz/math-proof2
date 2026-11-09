@@ -1,0 +1,437 @@
+# provenance: /tmp/pilot01c-run2.log | mtime 2026-11-09 19:24 | producing lane: R6 (pilot 01) | rescued by R9 2026-11-09
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-1GVnwtGMZAHdASooCaWPCo
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot01c/lean_probe_full.py
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['09_MasterIdentity.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== 09_MasterIdentity.lean
+[probe] 09_MasterIdentity.lean: FAIL rc=1; errors=22, sorry-warnings=0, other-warnings=19
+---- output head ----
+09_MasterIdentity.lean:1112:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1115:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1136:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1138:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1338:32: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1338:60: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1345:30: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1345:43: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1370:32: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1370:58: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1453:20: warning: This simp argument is unused:
+  Matrix.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+09_MasterIdentity.lean:1648:28: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1702:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1702:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1724:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1724:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+09_MasterIdentity.lean:1724:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+09_MasterIdentity.lean:1760:16: error: Application type mismatch: The argument
+  hP.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  deltaC c hP.eigenvalues₀
+09_MasterIdentity.lean:1760:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℝ
+
+Hint: Adding the command `deriving instance Fintype for Real` may allow Lean to derive the missing instance.
+09_MasterIdentity.lean:1765:12: error: Application type mismatch: The argument
+  hP.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  gc c hP.eigenvalues₀
+09_MasterIdentity.lean:1798:2: error: Type mismatch
+  sum_nonneg fun k x => deltaC_nonneg (eigenvalues₀_nonneg hP k) (eigenvalues₀_nonneg hQm k) hc
+has type
+  0 ≤ ∑ i ∈ ?m.41, deltaC c (⋯.eigenvalues₀ i) (⋯.eigenvalues₀ i)
+but is expected to have type
+  0 ≤ pairingDefect c ⋯ ⋯
+09_MasterIdentity.lean:1805:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, gc c (⋯.eigenvalues i)
+in the target expression
+  ∑ j, gc c (m j * xsq v j) ≤ ∑ i, gc c (⋯.eigenvalues i)
+
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+n : Type u_2
+inst✝³ : Fintype n
+inst✝² : DecidableEq n
+ι : Type u_3
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+c : ℝ
+m : ι → ℝ
+hm : ∀ (j : ι), 0 ≤ m j
+v : ι → n → 𝕜
+P : Matrix n n 𝕜
+hP : P.PosSemidef
+hc : 0 ≤ c
+h : ∑ j, gc c (m j * xsq v j) ≤ ∑ i, gc c (⋯.eigenvalues i)
+⊢ 0 ≤ schurJensenDefect c m v ⋯
+09_MasterIdentity.lean:1812:2: error: Type mismatch
+  vonNeumann_trace_ineq hP hQm
+has type
+  RCLike.re (P * Qm).trace ≤ ∑ i, hP.eigenvalues₀ i * hQm.eigenvalues₀ i
+but is expected to have type
+  0 ≤ rearrangementDefect hP hQm
+09_MasterIdentity.lean:1817:2: error: Type mismatch
+  trace_mul_nonneg_of_posSemidef hP hQp
+has type
+  0 ≤ RCLike.re (P * Qp).trace
+but is expected to have type
+  0 ≤ posCouplingDefect P Qp
+09_MasterIdentity.lean:1821:24: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+09_MasterIdentity.lean:1849:43: error: Application type mismatch: The argument
+  hPm.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  gc c hPm.eigenvalues₀
+09_MasterIdentity.lean:1854:40: error: Application type mismatch: The argument
+  hPm.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  gc c hPm.eigenvalues₀
+09_MasterIdentity.lean:1856:23: error: Application type mismatch: The argument
+  hPm.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  deltaC c hPm.eigenvalues₀
+09_MasterIdentity.lean:1859:49: error: Application type mismatch: The argument
+  hPm.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  gc c hPm.eigenvalues₀
+09_MasterIdentity.lean:1861:24: error: Application type mismatch: The argument
+  hPm.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  deltaC c hPm.eigenvalues₀
+09_MasterIdentity.lean:1861:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℝ
+
+Hint: Adding the command `deriving instance Fintype for Real` may allow Lean to derive the missing instance.
+09_MasterIdentity.lean:1851:37: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+n : Type u_2
+inst✝³ : Fintype n
+inst✝² : DecidableEq n
+ι : Type u_3
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+c : ℝ
+m : ι → ℝ
+v : ι → n → 𝕜
+Qm : Matrix n n 𝕜
+hPm : (Pmat m v).IsHermitian
+hQm : Qm.IsHermitian
+hterm :
+  ∀ (k : Fin (Fintype.card n)),
+    (hPm.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2 = c * hPm.eigenvalues₀ k + sorry - 2 * c * hQm.eigenvalues₀ k + sorry
+⊢ ∑ k, (hPm.eigenvalues₀ k - hQm.eigenvalues₀ k) ^ 2 =
+    c * rtrace (Pmat m v) + ∑ k, sorry - 2 * c * rtrace Qm + pairingDefect c hPm hQm
+09_MasterIdentity.lean:1877:14: error: Application type mismatch: The argument
+  hP.eigenvalues₀
+has type
+  Fin (Fintype.card n) → ℝ
+but is expected to have type
+  ℝ
+in the application
+  gc c hP.eigenvalues₀
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+09_MasterIdentity.lean:1878:66: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+n : Type u_2
+inst✝³ : Fintype n
+inst✝² : DecidableEq n
+ι : Type u_3
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+c : ℝ
+m : ι → ℝ
+v : ι → n → 𝕜
+P : Matrix n n 𝕜
+hP : P.IsHermitian
+⊢ ∑ x, sorry = ∑ x, gc c (m x * xsq v x) + sorry c m v hP
+09_MasterIdentity.lean:1897:10: error(lean.unknownIdentifier): Unknown identifier `rw`
+09_MasterIdentity.lean:1893:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.153⁺
+in the target expression
+  0 < hQ.eigenvalues i
+
+𝕜 : Type u_1
+inst✝² : RCLike 𝕜
+n : Type u_2
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+Q : Matrix n n 𝕜
+hQ : Q.IsHermitian
+f : ℝ → ℝ
+hf0 : f 0 = 0
+i : n
+x✝ : i ∈ univ
+hi : f (hQ.eigenvalues i)⁺ ≠ 0
+⊢ 0 < hQ.eigenvalues i
+09_MasterIdentity.lean:1918:59: error: Invalid argument name `β` for function `sum_const`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `ι`: β̵ι̲
+  • `M`: β̵M̲
+  • `s`: β̵s̲
+  • `b`: β̵b̲
+09_MasterIdentity.lean:1930:4: error: No goals to be solved
+09_MasterIdentity.lean:1931:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, id (hQ.eigenvalues i)⁺
+in the target expression
+  ∑ i with 0 < hQ.eigenvalues i, hQ.eigenvalues i ^ 2 =
+    2 * c * ∑ i, (hQ.eigenvalues i)⁺ - c ^ 2 * ↑(posIndex hQ) + pairBlockDefect c hQ
+
+𝕜 : Type u_1
+inst✝² : RCLike 𝕜
+n : Type u_2
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+c : ℝ
+Q : Matrix n n 𝕜
+hQ : Q.IsHermitian
+hfilt2 : ∑ i, (hQ.eigenvalues i)⁺ ^ 2 = ∑ i with 0 < hQ.eigenvalues i, hQ.eigenvalues i ^ 2
+hfilt1 : ∑ i, id (hQ.eigenvalues i)⁺ = ∑ i with 0 < hQ.eigenvalues i, id (hQ.eigenvalues i)
+hfrob : frobSq (hermPosPart hQ) = ∑ i, (hQ.eigenvalues i)⁺ ^ 2
+htr : rtrace (hermPosPart hQ) = ∑ i, (hQ.eigenvalues i)⁺
+hexp :
+  pairBlockDefect c hQ =
+    ∑ i with 0 < hQ.eigenvalues i, hQ.eigenvalues i ^ 2 - 2 * c * ∑ i with 0 < hQ.eigenvalues i, hQ.eigenvalues i +
+      c ^ 2 * ↑(#{i | 0 < hQ.eigenvalues i})
+hcard : ↑(#{i | 0 < hQ.eigenvalues i}) = ↑(posIndex hQ)
+⊢ ∑ i with 0 < hQ.eigenvalues i, hQ.eigenvalues i ^ 2 =
+    2 * c * ∑ i, (hQ.eigenvalues i)⁺ - c ^ 2 * ↑(posIndex hQ) + pairBlockDefect c hQ
+09_MasterIdentity.lean:1929:15: warning: This simp argument is unused:
+  Nat.cast_inj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+09_MasterIdentity.lean:1948:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    frobSq (P + _a) =
+      frobSq P + 2 * RCLike.re (P * hermPosPart hQ).trace - 2 * RCLike.re (P * hermNegPart hQ).trace +
+          frobSq (hermPosPart hQ) +
+        frobSq (hermNegPart hQ)
+Error: Application type mismatch: The argument
+  hQ
+has type
+  Q.IsHermitian
+but is expected to have type
+  _a.IsHermitian
+in the application
+  hermPosPart hQ
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+𝕜 : Type u_1
+inst✝² : RCLike 𝕜
+n : Type u_2
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+P Q : Matrix n n 𝕜
+hP : P.IsHermitian
+hQ : Q.IsHermitian
+hQdec : Q = hermPosPart hQ - hermNegPart hQ
+hQpQm : hermPosPart hQ * hermNegPart hQ = 0
+h1 : frobSq (-hermNegPart hQ) = frobSq (hermNegPart hQ)
+h2 : RCLike.re (hermPosPart hQ * -hermNegPart hQ).trace = 0
+⊢ frobSq (P + Q) =
+    frobSq P + 2 * RCLike.re (P * hermPosPart hQ).trace - 2 * RCLike.re (P * hermNegPart hQ).trace +
+        frobSq (hermPosPart hQ) +
+      frobSq (hermNegPart hQ)
+09_MasterIdentity.lean:1976:13: error(lean.unknownIdentifier): Unknown identifier `pairing_split`
+09_MasterIdentity.lean:1973:34: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+n : Type u_2
+inst✝³ : Fintype n
+inst✝² : DecidableEq n
+ι : Type u_3
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+m : ι → ℝ
+v : ι → n → 𝕜
+Q : Matrix n n 𝕜
+hQ : Q.IsHermitian
+hPm : (Pmat m v).IsHermitian
+hQmm : (hermNegPart hQ).IsHermitian
+c : ℝ
+hc : 0 < c
+hexp :
+  frobSq (Pmat m v + Q) =
+    frobSq (Pmat m v) + 2 * RCLike.re (Pmat m v * hermPosPart hQ).trace -
+          2 * RCLike.re (Pmat m v * hermNegPart hQ).trace +
+        frobSq (hermPosPart hQ) +
+      frobSq (hermNegPart hQ)
+h1 :
+  frobSq (Pmat m v) - 2 * RCLike.re (Pmat m v * hermNegPart hQ).trace + frobSq (hermNegPart hQ) =
+    ∑ k, (hPm.eigenvalues₀ k - hQmm.eigenvalues₀ k) ^ 2 + 2 * rearrangementDefect hPm hQmm
+⊢ frobSq (Pmat m v + Q) =
+    c * rtrace (Pmat m v) + ∑ j, gc c (m j * xsq v j) + 2 * c * rtrace Q - c ^ 2 * ↑(posIndex hQ) +
+              pairingDefect c hPm hQmm +
+            schurJensenDefect c m v hPm +
+          2 * rearrangementDefect hPm hQmm +
+        posCouplingDefect (Pmat m v) (hermPosPart hQ) +
+      pairBlockDefect c hQ
+09_MasterIdentity.lean:2013:42: error: Type mismatch
+  Eq.symm (kc_eq c ?m.418)
+has type
+  c * ?m.418 - gc c ?m.418 = kc c ?m.418
+but is expected to have type
+  kc c (m j * xsq v j) = c * (m j * xsq v j) - gc c (m j * xsq v j)
+09_MasterIdentity.lean:2016:2: error: linarith failed to find a contradiction
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+n : Type u_2
+inst✝³ : Fintype n
+inst✝² : DecidableEq n
+ι : Type u_3
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+m : ι → ℝ
+hm : ∀ (j : ι), 0 ≤ m j
+v : ι → n → 𝕜
+Q : Matrix n n 𝕜
+hQ : Q.IsHermitian
+b : ℕ
+hb : posIndex hQ ≤ b
+c : ℝ
+hc : 0 < c
+hPm : (Pmat m v).IsHermitian
+hQmm : (hermNegPart hQ).IsHermitian
+hmid :
+  frobSq (Pmat m v + Q) =
+---- (…369 more lines) tail ----
+a✝ : ∑ j, kc c (m j * xsq v j) + c ^ 2 * ↑b < 2 * c * rtrace (Pmat m v + Q) - frobSq (Pmat m v + Q)
+⊢ False
+failed
+'CrossMath.RankTraceDefect.master_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.rank_trace_mult_k_of_master' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RHLinalg.rank_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_conj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.weyl_posIndexAbove_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   09_MasterIdentity.lean: FAIL (22 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-1GVnwtGMZAHdASooCaWPCo
