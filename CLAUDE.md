@@ -50,8 +50,9 @@ research/feasibility/probe/run_axcheck.sh
 # Check a single pilot (stages that pilot's .lean files); others: pilots/11/run_pilot11.sh, pilots/32/run_pilot.sh
 research/pilots/22/run_m1.sh
 
-# Rebuild the cross-corpus declaration index (qa/decl-index.tsv) for novelty checks
-bash research/qa/make-decl-index.sh
+# Cross-corpus declaration index (qa/decl-index.tsv, 273 MB) is gitignored; the repo tracks
+# only qa/decl-index.tsv.zip. Either unzip it or rebuild it, then query it for novelty checks:
+unzip -o research/qa/decl-index.tsv.zip -d research/qa/   # or: bash research/qa/make-decl-index.sh
 cut -f4 research/qa/decl-index.tsv | grep -xF 'NAME'
 ```
 

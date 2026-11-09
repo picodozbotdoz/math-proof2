@@ -5,6 +5,11 @@ lane status. The orchestrator messages status changes to H, who updates this boa
 
 ## FINAL STATE (2026-11-09 resume session) — project CLOSED
 
+**Post-close update (2026-11-10):** pilot 10 was resumed after the close-out and its first Lean
+milestone landed — M1 (= L3) `exists_tm_space`, green and axioms-clean (`pilots/10-blueprint.md`,
+`pilots/10/`, dossier 10 § Pilot outcome); branch merged into master (`37e2898`). Everything else
+below is unchanged; open items for 10 are L1 counter combinators and L2 `PolyTVal`.
+
 All lanes closed. R7's 30/32 work (interrupted twice) was finished in the resume session:
 **30** Theorem B refuted + closed form proved; **32** M1 green. R9's final sweep was executed
 per `feasibility/probe/FINAL-SWEEP-PLAN.md`: 30/30 staged files OK (29 direct + one

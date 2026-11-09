@@ -1,6 +1,6 @@
 # AGENTS.md — cross-math-fronttier
 
-Greenfield research project (git repo, no commits yet). Goal: **discover new
+Research project (git repo; main run closed 2026-11-09, pilot 10 resumed 2026-11-10). Goal: **discover new
 mathematics** — new theorems — by connecting classical results with recent
 formal/discovered results across several source projects. This is NOT a
 "formalize known math in Lean" project. Lean is the *verification vehicle* for
@@ -79,6 +79,8 @@ Modal (math-proof1's account and staging pattern). Canonical evidence:
   as extra args to `make_axcheck.py` to re-check a subset).
 - Axiom audit: `feasibility/probe/make_axcheck.py` builds stage copies = pilot file +
   appended `#print axioms <thm>` for every top-level theorem (repo file untouched);
+  `pilots/10/axcheck_full.py <file> <out>` is a full-coverage variant (dotted names and
+  `@[simp]` theorems, which make_axcheck's regex misses; no `section` tracking).
   `axcheck_probe.py` elaborates them in dependency order, one `lake env lean -o
   /tmp/axstage/<mod>.olean` per file (compiles + prints the axioms report).
 - Conventions: statement-elaboration probes may carry `sorry` only in probe-convention
