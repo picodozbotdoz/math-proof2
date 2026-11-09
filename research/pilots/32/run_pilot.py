@@ -90,9 +90,9 @@ def run(files: dict, order: list):
             print("---- error contexts ----", flush=True)
             shown = 0
             for i in err_lines:
-                if shown >= 40:
+                if shown >= 80:
                     break
-                print("\n".join(lines[max(0, i - 1):i + 5]), flush=True)
+                print("\n".join(lines[max(0, i - 1):i + 25]), flush=True)
                 print("···", flush=True)
                 shown += 1
         elif out.strip():

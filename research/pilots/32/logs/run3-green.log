@@ -1,0 +1,153 @@
+# provenance: raw modal run (app crossmath-pilot-32), batch run3 of 2026-11-09 resume session: files 30-falsify-TheoremB-h1.lean + 30/ClosedForm.lean + 32/M1.lean | producing lane: resume session (R7'' close-out) | command: research/pilots/32/run_pilot.sh pilots/30-falsify-TheoremB-h1.lean pilots/30/ClosedForm.lean pilots/32/M1.lean | result: ALL THREE OK (0 errors, 0 sorry-warnings), axioms standard-only
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-BQgwKyJPdMCWNEwDFdx8FU
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['30-falsify-TheoremB-h1.lean', 'ClosedForm.lean', 'M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== 30-falsify-TheoremB-h1.lean
+[pilot] 30-falsify-TheoremB-h1.lean: OK
+---- axioms ----
+'LemmaQc_V0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremB2_refuted_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment1_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  smul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sub_smul, coeff_sub, coeff_smul, hc, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:293:23: warning: This simp argument is unused:
+  sub_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_sub, coeff_sub, coeff_smul, hc, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:371:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'LemmaQc_V0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremB2_refuted_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment1_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== ClosedForm.lean
+[pilot] ClosedForm.lean: OK
+---- axioms ----
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_zero_t1sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ClosedForm.lean:84:30: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ClosedForm.lean:84:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ClosedForm.lean:84:30: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ClosedForm.lean:84:41: warning: Unused tactic linter: `simp` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ClosedForm.lean:118:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+ClosedForm.lean:118:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ClosedForm.lean:118:81: warning: Unused tactic linter: `module` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_zero_t1sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== M1.lean
+[pilot] M1.lean: OK
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+M1.lean:184:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+M1.lean:168:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:169:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:184:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:367:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M1.lean:471:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   30-falsify-TheoremB-h1.lean: OK
+[pilot]   ClosedForm.lean: OK
+[pilot]   M1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-BQgwKyJPdMCWNEwDFdx8FU
+# exit=0

@@ -10,7 +10,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/STATUS.md` | — | live | Coordination board: lane table, phase pipeline, file-ownership rule.
 - `research/INDEX.md` | — | live | This file.
 - `research/REPORT-INPUTS.md` | final input | DONE 2026-11-09 19:58 (H) | Orchestrator's §1-conclusion data pack: headline-numbers block + §A scale (QA recompute 230 items / 193 OK / 37 minor / 0 WRONG) + §B verification (final-disk) + §C decision + §D timeline (3 pivots 19:26–19:31). Every number file-cited.
-- `research/REPORT.md` | final | near-final (1,612 words) | §8 Top-3 DECIDED (42/10/01) + exec-summary pointer typeset; awaits orchestrator's final conclusions + R9's final sweep attestation.
+- `research/REPORT.md` | final | **FINAL** (≈2.4k words) | §1 executive summary integrated with final-sweep counts; §7 final proved-artifacts table; §8 Top-3 outcomes; §9 signed-off compliance.
 
 ## Phase 1 — surveys (research/survey/)
 
@@ -60,15 +60,15 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 
 ## Pilots (research/pilots/)
 
-- `research/pilots/01-blueprint.md` | pilot | milestone (a) GREEN; (b)+(c) running (R6) | Pre-pilot blueprint for dossier 01 (+ shared RHLinalg port bundling 01+03): port inventory, first-milestone spec, Modal pilot plan consuming R9's probe infra, risk register.
+- `research/pilots/01-blueprint.md` | pilot | COMPLETE — (a)–(d) GREEN: identity + anchor + tightness (R6) | Pre-pilot blueprint for dossier 01 (+ shared RHLinalg port bundling 01+03): port inventory, first-milestone spec, Modal pilot plan consuming R9's probe infra, risk register.
 - `research/pilots/01/` | pilot work | active (R6) | `BindingSurface.lean`, `MasterIdentity.lean`.
-- `research/pilots/22-blueprint.md` | pilot | M1 running (R3) | PNT assembly pilot (Wiener–Ikehara route) for candidate 22; work dir `pilots/22/` (`M1.lean`, `ProbeP1_PNT.lean`, `run_m1.sh`, `run1.log`).
-- `research/pilots/42-blueprint.md` | pilot | M1 running (R1) | Dossier 42 (zeta-K two-thirds product assembly), mirroring pilot 01's pattern.
-- `research/pilots/11-blueprint.md` | pilot | M1 running (R4) | Milestone-1 statement-file spec for dossier 11; work dir `pilots/11/` (RedCompA/B, P11T1/T2).
-- `research/pilots/10-prework.md` | pilot | prework running (R4) | Dossier 10 pre-pilot work.
-- `research/pilots/50-blueprint.md` + `pilots/50/M1.lean` | pilot | M1 axioms-recorded clean (axcheck); M2a Dirichlet open | Dossier 50 pilot (S1a zero-confinement first).
+- `research/pilots/22-blueprint.md` | pilot | PROVED-TO-M4 (R3) | PNT assembly pilot (Wiener–Ikehara route) for candidate 22; work dir `pilots/22/` (`M1.lean`, `ProbeP1_PNT.lean`, `run_m1.sh`, `run1.log`).
+- `research/pilots/42-blueprint.md` | pilot | COMPLETE — M1/M2a/M3/M2b GREEN, landing theorems proved (R1) | Dossier 42 (zeta-K two-thirds product assembly), mirroring pilot 01's pattern.
+- `research/pilots/11-blueprint.md` | pilot | M1 COMPLETE (R4) | Milestone-1 statement-file spec for dossier 11; work dir `pilots/11/` (RedCompA/B, P11T1/T2).
+- `research/pilots/10-prework.md` | pilot | DONE — G1 audit CASE A, GO unconditional (R4) | Dossier 10 pre-pilot work.
+- `research/pilots/50-blueprint.md` + `pilots/50/M1.lean` | pilot | M1 + M2a (Dirichlet) GREEN, axioms clean | Dossier 50 pilot (S1a zero-confinement first).
 - `research/pilots/21-milestoneC.md` | pilot | spec landed, not executing (R5) | In-Lean proof path for dossier 21's milestone (C) (trig series route).
-- `research/pilots/32/M1.lean` | pilot | landed-unrun | Dossier 32 frontier pilot.
+- `research/pilots/32/M1.lean` | pilot | GREEN (run3; see `pilots/32-blueprint.md`) | Dossier 32 frontier pilot.
 - `research/pilots/*/logs/` | evidence | R9 log-rescue LANDED | Per-pilot Modal run logs incl. `axcheck-run1` (axiom/sorryAx audit: 42-M1 OK 15/0, 50-M1 OK 4/0, 11-T2 OK 19/0; 52-M1 FAIL mid-iteration); `pilots/_unattributed/` holds one unplaced run (pilot52_run2).
 
 ## QA (research/qa/)
@@ -80,4 +80,28 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/qa/make-decl-index.sh` | tooling | DONE 2026-11-09 (H) | Re-runnable rg-based builder of the cross-corpus declaration index; usage header documents novelty-check recipes and caveats (ASCII names, prefixed/noncomputable headers excluded — use direct rg fallback).
 - `research/qa/decl-index.tsv` | tooling output | built 2026-11-09, 8.7s wall | 2,888,273 decl rows: openai-math 2,439,960, tauceti 242,275, mathlib 184,207, eth 10,148, 3sum-apsp 6,795, zeta23 4,888. **Caveat for novelty checks:** the OAI tree includes mathlib-like vendored content (2.4M decls), so a TSV miss is NOT evidence of absence in openai-math — always also run targeted `rg` in `openai-math/lean/OAI/`, `openai-math/lean/ComparatorChallenges/`, and `openai-math/preprints/` (manuscripts are not indexed at all).
 
-Still [expected] (not yet on disk): pilots 30-falsify work dir (running per orchestrator); Top-3 + final scores in TRIAGE (Phase 4 — orchestrator decision incoming); ledger's final re-attestation (R9, on coordinator's signal); 52's final N (lane R8, tasked).
+Nothing remains [expected]: every file owned by a lane is on disk (project closed 2026-11-09).
+
+## Articles (research/articles/) — one per discovery (project close, 2026-11-09)
+
+- `research/articles/README.md` | final | DONE | Index of the 10 articles with kind + status.
+- `articles/01-inertial-defect-master-identity.md` | final | DONE | Five-defect master identity + simultaneous tightness (proved, unconditional).
+- `articles/30-boson-operators-second-difference-closed-form.md` | final | DONE | Theorem B refuted; Q_s closed form as second differences of number operators; Σ s²Q_s = 4·Euler.
+- `articles/52-statistics-universal-occupation-calculus.md` | final | DONE | ε-universal dual-family theorem, Pauli boundary, fermionic exterior-algebra instance.
+- `articles/32-rc-savings-frontier.md` | final | DONE | Exact frontier Γ(ε), unique crossing, phase transition at ε*.
+- `articles/42-quadratic-dedekind-zeta-zero-proportions.md` | final | DONE | ζ_K proportions (certificate-conditional), C_D defect, hCZ.
+- `articles/20-common-zero-seam-dedekind-zero-density.md` | final | DONE | Engine instantiation, merge-vs-degrade dichotomy, hCZ requirements (corrected).
+- `articles/11-call-charged-reduction-calculus.md` | final | DONE | `Red` calculus; Theorem 19 as one composition.
+- `articles/50-zero-free-regions-cannot-move-certificate-constants.md` | final | DONE | Negative engine audit + formal strip confinement.
+- `articles/21-quartic-window-transplant-certified-loss.md` | final | DONE | Certified negative result (numeric, not kernel).
+- `articles/22-pnt-psi-form-from-mathlib-wiener-ikehara.md` | final | DONE | ψ(x) ~ x from mathlib's Wiener–Ikehara (formalization).
+
+## Close-out additions (resume session)
+
+- `research/pilots/30-note.md` | pilot | CLOSED | Pilot 30 outcome: Theorem B2 REFUTED (kernel), Theorem B′ closed form proved; run history.
+- `research/pilots/30/ClosedForm.lean` | pilot | GREEN | Faithful `MvPolynomial ℕ ℚ` model: `nab_nab`, `Qh1_closed_form`, `Qh1_monomial`, `Qh1_comm_monomial`.
+- `research/pilots/30/logs/` | evidence | DONE | run1 (R7'), run2, run3-green, axcheck-final.
+- `research/pilots/32-blueprint.md` | pilot | CLOSED | Pilot 32 inventory, run log (22 → 2 → 0 errors), novelty/must-cites.
+- `research/pilots/32/logs/` | evidence | DONE | run1, run2, run3-green, axcheck-final.
+- `research/pilots/*/logs/axcheck-final.log` | evidence | DONE | Final-sweep axcheck transcript (29/29 OK, 0 sorryAx), one copy per pilot (01, 11, 20, 22, 30, 32, 42, 50, 52).
+- `research/feasibility/probe/make_axcheck.py` | tooling | updated | Final target list; section- and comment-aware theorem extraction; optional stage-name filter.

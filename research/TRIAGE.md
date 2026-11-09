@@ -179,3 +179,13 @@ flag), **21** (absorbed), **51** (killed).
 | 2026-11-09 night 2 | Final 20/30/52 F4s transcribed; effort column cross-checked vs FEASIBILITY-SUMMARY (no drift); S-proposed-H for 30/31/32 + N-proposed-H for 51; COMPLETE 19-row DRAFT ranking (52 TBD) | H | per orchestrator Task 10 |
 | 2026-11-09 night 3 | Deferred-fix register applied (12 sites / 8 dossiers; 41 verified clean); 52 note added (final N pending lane R8); pilot statuses refreshed from rescued logs (42-M1/50-M1/11-T2 now axioms-recorded clean) | H | per orchestrator Task 11 |
 | 2026-11-09 final | **TOP-3 DECIDED (orchestrator): 42, 10, 01**; alternates 41/11/30; excluded 22/21/51. Inputs consumed: H's complete DRAFT ranking, R8 VERDICTS rounds 1–5 (42 N→4 r5(c); 52 N=3.5 final), FEASIBILITY-SUMMARY, VERIFICATION-LEDGER + rescued run logs (01 b+c GREEN; 42-M2a/M3 602+444 LoC/48 thms), donor mapping. Rows 01/42/52 updated; ranking finalized | orchestrator, typeset by H | charter Phase 4 |
+
+## Post-close outcomes (append, 2026-11-09 resume session — no re-ranking)
+
+- **30**: Theorem B **refuted** at h = 1 (kernel-verified, `pilots/30-falsify-TheoremB-h1.lean`);
+  replacement closed form proved (`pilots/30/ClosedForm.lean`). Theorem A (ω-twisted Hall
+  identification) untouched and still the dossier's core; alternate slot unchanged.
+- **32**: M1 green — frontier formula, unique crossing, phase transition at ε*, ceiling
+  (`pilots/32/M1.lean`); crossing point as a parameter; lane proposal ≈ 6 (N3·S2÷E1).
+- Final sweep: 29/29 kept files OK, 0 sorryAx (`feasibility/VERIFICATION-LEDGER.md` §6–§7).
+- Articles, one per discovery: `research/articles/` (10 articles + README).

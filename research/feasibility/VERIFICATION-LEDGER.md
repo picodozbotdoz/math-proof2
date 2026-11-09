@@ -10,32 +10,34 @@ toolchain v4.36.0-rc2 + mathlib `ff2494ea` with 8,710 cached olans; per-run cont
 pilot logs: `research/pilots/22/run{1..6}.log` (in-repo), `/tmp/pilot01*run*.log` (9),
 `/tmp/pilot11-run{2,3,4}.log` (3). Pilot stage dirs: `/tmp/crossmath-pilot{20,42,50,52}-stage/`.
 
-## 1 Summary table
+## 1 Summary table — FINAL (final sweep, 2026-11-09 resume session; supersedes the round-7/9 table)
 
-| pilot | files | LoC | theorems (+lemmas/+examples) | proved milestones | open / in-flight | conditional on | axioms clean? |
-|---|---|---|---|---|---|---|---|
-| 01 inertial-defect | 12 | 9,390 | 99 (+394) | port 01–08 all green (`logs/pilot01b-run2.log`: 8×OK, 0 err); BindingSurface + MasterIdentity statement layer OK (`logs/pilot01-run3.log`) | `port/09_MasterIdentity.lean`: latest recorded run `logs/pilot01c-run6.log` **FAIL (1 error)**, `master_identity` still error-recovery sorryAx (`:152`) — **in-flight, lane R6 active** | none (unconditional port + defect identity) | port spine YES (`rank_trace_ineq`, `rank_trace_mult(_k)` clean at `logs/pilot01c-run6.log:157+`); final milestone NO |
-| 11 reduction calculus | 4 | 751 | 26 | `P11T1.lean`, `P11T2.lean` OK and **axcheck-reverified with clean axioms** (`logs/pilot11-run4.log` + `logs/axcheck-run1.log`: P11T2's 18 theorems all `[propext, Classical.choice, Quot.sound]`-class, 0 sorryAx) | `RedCompA.lean` **FAIL (7 err)**, `RedCompB.lean` **FAIL (3 err)** (`logs/pilot11-run5.log` — in-flight, lane R4 active; `theorem19_of_red` still error-recovery sorryAx) | abstract `CostModel` interface (no cert binders) | T1/T2 **YES** (axcheck run, 0 sorryAx); RedComp NO |
-| 20 Hecke ζ_K | 1 | 576 | 27 (+2 ex) | none recorded — staged only (`/tmp/crossmath-pilot20-stage/M1.lean`, 19:40) | M1 not yet run (not in axcheck batch per task scope) | zeta23 PaperInputs card + traces-family step + factorization as explicit binders (header :3–5) | **[runs-unrecorded]** |
-| 22 quasi-RH PNT | 3 | 351 | 4 | **M1 kernel-proved**: `M1.lean: OK`, axioms `[propext, Classical.choice, Quot.sound]` (`run4.log:15`; header "no sorry, no axiom, no native_decide"); `ProbeP1_PNT.lean` OK | `Tier1.lean` **FAIL (9 err)** in latest run (`run6.log` tail); one mid-run sorryAx on `exists_logDerivExtension` (`run5.log:117`) from an earlier iteration, current files 0 sorries | M1: none (unconditional); Tier1: quasi-RH-conditional statement (per dossier 22) | M1 YES (clean 3); Tier1 NO (not elaborated) |
-| 30-falsify | 1 | 284 | 9 | none recorded — **landed ~19:4x** (`pilots/30-falsify-TheoremB-h1.lean`, lane R7; header: kernel-only, "no sorry, no native_decide, no external CAS") | **[in-flight, 0 tokens]** — not elaborated by R9; axioms unrecorded until the final batch | Theorem-B falsification hypothesis h1 (R7; constructions transcribed from read-only siblings, per header) | **[runs-unrecorded]** |
-| 32 Rc frontier | 1 | 492 | 13 | none recorded — **landed 19:48** (`pilots/32/M1.lean`) | **[in-flight, 0 tokens]**; axioms unrecorded until the final batch | none expected (dossier 32 is unconditional order/log work) | **[runs-unrecorded]** |
-| 42 ζ_K 2/3 assembly | 3 | 1,384 | 63 (+1 ex) | **[verified — `logs/axcheck-run1.log`]** M1 elaborates **OK, 15/15 theorem axiom-lines, 0 sorryAx** (first recorded run for this pilot) | **M2a** (606 LoC / 28 th, 19:51) and **M3** (441 LoC / 20 th, 19:51): **[in-flight, 0 tokens]** — not elaborated by R9; M2b pending per coordinator | M1: zeta23 density statements + tauceti factorization as hypothesis binders, glue PROVED from `analyticOrderNatAt_mul`; M2a header: "structural-binder discharge, carries the GREEN M1 layer verbatim"; M3 = C_K common-zeros defect theorem | M1 **YES** (axcheck: standard axioms only); M2a/M3 unrecorded |
-| 50 quasi-RH windows | 2 | 178 | 4 | **[verified — `logs/axcheck-run1.log`]** `M1.lean` **OK, 3/3 theorems clean** (`strip_confinement*` = `[propext, Classical.choice, Quot.sound]`-class) | `Dirichlet.lean` **[FAILED-REVERIFY]**: rc=1, **5 elaboration errors** (`logs/axcheck-run1.log`; lane's own 19:43 run had 4 — `logs/../../_unattributed/pilot52_run2.log`) — in-flight, lane R2 active | ONE binder `hQRH` = verbatim OAI quasi-RH challenge form (probe-validated standalone: `ProbeC1`, run 3 OK) (header :4–6) | M1 YES; Dirichlet NO (does not elaborate) |
-| 52 CCR/Fock layer | 1 | 275 | 13 | none green | **[FAILED-REVERIFY]**: rc=1, **15 elaboration errors**, 9 theorem axiom-lines carry **sorryAx** (`logs/axcheck-run1.log`) — mechanism: Lean error-recovery inserts sorryAx into proofs that fail to elaborate (e.g. `Unknown constant CrossMath.Pilot52.bosonic_unweighted`, :274); the file itself contains no `sorry` token (header still claims "sorry-free") — in-flight, lane R2 active | abstract `OccupationPair` structure, ε-parameterized; no external cert binders (header :5–6) | NO (does not elaborate) |
-| probes (R9) | 13 | 673 | 9* | 13/13 elaboration probes serve their purpose (final states: A2/A3/A4/B1/B2/B3/C1/C2/D/E/F all recorded OK/expected-FAIL-with-named-errors) | — (probes are point-in-time; A retains its 2 known-name FAILs by design) | none (statement elaboration only) | n/a by design (no `#print axioms`; sorried probes are scaffolding, never results) |
+Every cell is backed by `research/pilots/<NN>/logs/axcheck-final.log` (one Modal batch over
+29 staged files = each pilot's final files + appended `#print axioms` for every top-level
+theorem; `research/feasibility/probe/{make_axcheck.py,axcheck_probe.py,run_axcheck.sh}`)
+unless noted. **29/29 files OK; 303 axiom lines, 0 sorryAx; every axiom set ⊆
+{propext, Classical.choice, Quot.sound}** (283× the triad, 16× `[propext, Quot.sound]`).
 
-Totals (current tree, round-9 refresh — tree still moving, 9 files edited after 19:50):
-pilots **13,768 LoC / 256 theorems / 437 lemmas / 28 files** (includes newly landed
-30-falsify 284/9, 32-M1 492/13, 42-M2a 606/28, 42-M3 441/20 — all [in-flight, 0 tokens]);
-probes **673 LoC / 9 theorems (all probe-convention stubs)**. Project-wide proved (green +
-axioms-clean recorded): pilot 22 M1 (68 LoC, 1 theorem) is the only fully proved-and-
-axioms-recorded milestone; pilot 01's 8-file port (7,774 LoC green elaboration, axioms
-recorded clean for `RHLinalg.rank_trace_ineq` and `rank_trace_mult` at
-`pilot01c-run5.log:158–159`) plus pilot 11's T1/T2 (444 LoC green, axioms unrecorded).
+| pilot | files | LoC | thm (+lem) | proved milestones (final) | conditional on (explicit binders) | axioms |
+|---|---|---|---|---|---|---|
+| 01 inertial-defect | 14 (10 port, 2 probes, 2 layer fragments) | 11,704 | 137 (+478) | port spine 01–08; **`master_identity` + `rank_trace_mult_k_of_master`** (port/09); **`tightness_of_master`** (port/10) | none — unconditional | clean (port/09: 42 lines, port/10: 41 lines) |
+| 11 reduction calculus | 4 | 781 | 24 | P11T1/T2; **`Red.comp`**, `red_of_theorem_17`, **`theorem19_of_red`** (RedCompA/B — both designs green; B is the record) | abstract `DetTimeModel` interface only | clean |
+| 20 Hecke/ζ_K engine | 1 | 582 | 27 | instantiation theorems, λ→1 upgrades, `family_merge`, `merged_mult_of_common`, hCZ seam | zeta23 `PaperInputs` card + traces family + engine step (binders) | clean (36 lines; first batch FAIL was a docstring-extraction artifact, re-run OK) |
+| 22 quasi-RH PNT | 3 | 435 | 5 | M1 Laurent constant; **M4 `tendsto_psi_div_atTop` (ψ(x)/x → 1)** in Tier1 | none (unconditional) | clean |
+| 30 Hall/Parseval | 2 | 583 | 20 (+48) | **`TheoremB2_refuted_h1`** (refutation) + faithfulness checks; **`Qh1_closed_form`, `Qh1_monomial`, `Qh1_comm_monomial`** (ClosedForm) | none (unconditional) | clean (`scalar_second_diff`: propext + Quot.sound) |
+| 32 Rc frontier | 1 | 511 | 13 (+28) | **`frontier_of_crossing`, `frontier_nonempty_iff`, `ceiling`, `crossing_unique`**, `lnΛ_10_0` | crossing point as a parameter (`IsCrossing ε cₓ`) | clean |
+| 42 ζ_K 2/3 assembly | 4 | 2,552 | 115 | M1, M2a, M3, **M2b: `zetaK_two_thirds_landed`, `zetaK_distinct_five_sixths_landed`, `…_of_negligible`** | Knausgård cert + clean-layer transcriptions, zeta23 ThmE, tauceti ported statements, `hntopζ`; `hCZ` for the last | clean (M2b: 55 lines) |
+| 50 quasi-RH windows | 2 | 167 | 4 | `strip_confinement*` (M1), `strip_confinement_dirichlet` (M2a) | `hQRH`; `hQRHχ` + `hFEχ` | clean |
+| 52 occupation calculus | 1 | 292 | 12 | **`dual_family`**, `sign_transposition`, `fermionic_create_sq`, `fermionicPair` (6/6) | none (unconditional) | clean (`dual_family`: propext + Quot.sound) |
+| probes (R9) | 13 | 673 | 9* | 13/13 elaboration probes serve their purpose | n/a | n/a by design |
 
-*Probe theorem counts: B1=3, B2=1, C1=1, D=4 (statement stubs with `sorry`), E=1
-(trivial binder wrapper — actually proved, no sorry).
+Totals (final disk): pilots **32 files / 17,607 LoC** (of which the cumulative 10-file port
+spine is 11,068) **/ 357 theorems / 554 lemmas**; 76 persisted `.log` files before the final
+sweep + 9 `axcheck-final.log` copies. Probe-convention theorem counts unchanged (*B1=3, B2=1,
+C1=1, D=4 stubs; E=1 proved).
+
+Pilot 21 (milestone C) is a numeric certification outside Lean (`research/pilots/21-milestoneC.md`),
+not a kernel artifact; it is listed in REPORT §7 separately.
 
 ## 2 Probe files (R9's own artifacts) — per-file detail
 
@@ -148,3 +150,31 @@ the round-7/8 sweeps (owners' lanes active, no R9 action): `01/master_layer.lean
 `22/Tier1.lean` (now 283 LoC / 4 th), `50/Dirichlet.lean` (70 LoC), `52/M1.lean`.
 All remain 0 real sorry tokens (round-9 certificate, FINAL-SWEEP-PLAN.md §1); their
 verification status is only re-established by the final axcheck batch (plan §3).
+
+## 6 Final sweep (2026-11-09 resume session, executing `probe/FINAL-SWEEP-PLAN.md`)
+
+- **Step A (sorry tokens):** classifier re-run over 45 `.lean` files → exactly the 9 expected
+  probe-convention lines (ProbeB1 :51/:60/:67, ProbeB2 :26, ProbeC1 :14, ProbeD :57/:70/:78/:92);
+  0 tokens in any pilot file. `native_decide` occurs only in compliance-header prose
+  (11 files) and one M2b comment describing the donor's headlines.
+- **Step B (axioms):** `make_axcheck.py` TARGETS extended to the final file list (adds
+  01/port/10, 11/RedCompA/B, 20/M1, 22/*, 30/*, 32/M1, 42/M2a/M2b/M3); extractor made
+  section- and comment-aware (a section's `end` no longer pops the namespace; docstring prose
+  beginning with "theorem" is skipped — this caused the one first-batch FAIL,
+  `Unknown constant CrossMath.Pilot20.needs`, cleared by a single-file re-run). Result: 29/29 OK,
+  0 sorryAx. Raw transcript rescued into all nine `pilots/*/logs/axcheck-final.log`.
+- **Step C (ledger):** §1 rewritten from the final batch (above).
+- **Pilots closed in this session:** 30 (falsify FAIL 12 → 6 → **OK**; ClosedForm new, 1 → **OK**)
+  and 32 (FAIL 22 → 2 → **OK**) — `pilots/30/logs/run{2,3-green}.log`, `pilots/32/logs/run{2,3-green}.log`,
+  notes `pilots/30-note.md`, `pilots/32-blueprint.md`.
+
+## 7 Compliance sign-off (Step D)
+
+> Signed off (final sweep, 2026-11-09): all kept pilot artifacts elaborate on mathlib
+> `ff2494ea` (v4.36.0-rc2) with standard axioms only — no `sorry`, no `native_decide`,
+> no external CAS in any artifact of this project; the sole `sorry` tokens in the tree
+> are the 9 probe-convention stubs inside header-justified elaboration-probe files,
+> never cited as results; donor material enters only as verbatim marked probe copies,
+> explicit hypothesis binders, or ported-and-re-proved layers with clean axiom records
+> (`logs/axcheck-final.log`).
+

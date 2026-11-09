@@ -161,3 +161,21 @@ and wait on S₁ = o(N) or a direct engine discharge.
 | C: Li-2012 / Garunkštis–Kalpokas | [recorded for future literature check; lane retired] | verification + likely strength |
 | D: independent-zeros heuristic | S₁ = 0 eventually (folklore) | any unconditional proof |
 | **verdict** | **hCZ not provable today; weakest form S₁ = o(N), conjecture-grade** | |
+
+## Erratum (2026-11-09 resume session, append-only) — Route A is a necessity reduction, not an equivalence
+
+Route A's bound `SharedMass(T) ≤ S₁(T) + (1/6 + ε)·N` is correct, but the sentence
+"hCZ(η) for arbitrarily small η is *equivalent* (given Theorem C) to S₁ = o(N)" — and the
+verdict line "weakest sufficient statement: S₁ = o(N)" — overstate it. The bound controls the
+shared-multiple part `Σ_shared (min(m_ζ, m_χ) − 1)` only at level (1/6 + ε)·N, never o(N).
+Correct statements:
+- **Necessity:** hCZ ⇒ S₁ = o(N) (since S₁ ≤ SharedMass); likewise hCZ-distinct ⇒ S₁ = o(N).
+- **Sufficiency:** S₁ = o(N) **and** density-zero multiple zeros for ζ and for L(χ_D) (i.e.
+  Σ(m − 1) = o(N) for each factor) ⇒ hCZ. The second input is open even for ζ alone
+  (it follows from RH + Montgomery's pair-correlation conjecture, not from any proved
+  proportion theorem).
+- **Unconditional today:** hCZ(η) for every η > 1/6 (Route A, unchanged).
+The verdict "hCZ not provable today; conjecture-grade" stands; "weakest form S₁ = o(N)" should
+read "necessary weak form S₁ = o(N); sufficient with density-zero multiplicity of both factors".
+Consumers corrected in the same session: `research/articles/20-*.md`, `research/articles/42-*.md`,
+`research/REPORT.md` §1.

@@ -1,0 +1,301 @@
+# provenance: raw modal run (app crossmath-pilot-32), batch run2 of 2026-11-09 resume session: files 30-falsify-TheoremB-h1.lean + 30/ClosedForm.lean + 32/M1.lean | producing lane: resume session (R7'' close-out) | command: research/pilots/32/run_pilot.sh pilots/30-falsify-TheoremB-h1.lean pilots/30/ClosedForm.lean pilots/32/M1.lean | result: 30-falsify FAIL 6 err, ClosedForm FAIL 1 err, 32-M1 FAIL 2 err
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-0iIPfxW0MG3qJilECCMBi9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['30-falsify-TheoremB-h1.lean', 'ClosedForm.lean', 'M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== 30-falsify-TheoremB-h1.lean
+[pilot] 30-falsify-TheoremB-h1.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'LemmaQc_V0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t1sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'pairing_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'TheoremB2_refuted_h1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'moment1_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V2_t1sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:222:62: error: unsolved goals
+⊢ C 3 * X 0 ^ 2 + X 0 ^ 2 * 3 - X 0 ^ 2 * C 2 ^ 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:224:63: error: unsolved goals
+⊢ -(C 2 * X 0 ^ 2 * 2) = -(X 0 ^ 2 * C 4)
+30-falsify-TheoremB-h1.lean:226:62: error: unsolved goals
+⊢ X 0 ^ 2 * 5 = X 0 ^ 2 * C 5
+30-falsify-TheoremB-h1.lean:228:63: error: unsolved goals
+⊢ C 2 * X 0 ^ 2 * 2 = X 0 ^ 2 * C 4
+30-falsify-TheoremB-h1.lean:230:62: error: unsolved goals
+⊢ X 0 ^ 2 * 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:249:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:249:32: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.coeff_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:247:4: warning: Unused tactic linter: there are no goals left for `try module`.
+···
+⊢ C 3 * X 0 ^ 2 + X 0 ^ 2 * 3 - X 0 ^ 2 * C 2 ^ 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:224:63: error: unsolved goals
+⊢ -(C 2 * X 0 ^ 2 * 2) = -(X 0 ^ 2 * C 4)
+30-falsify-TheoremB-h1.lean:226:62: error: unsolved goals
+⊢ X 0 ^ 2 * 5 = X 0 ^ 2 * C 5
+30-falsify-TheoremB-h1.lean:228:63: error: unsolved goals
+⊢ C 2 * X 0 ^ 2 * 2 = X 0 ^ 2 * C 4
+30-falsify-TheoremB-h1.lean:230:62: error: unsolved goals
+⊢ X 0 ^ 2 * 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:249:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:249:32: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.coeff_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:247:4: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+···
+⊢ -(C 2 * X 0 ^ 2 * 2) = -(X 0 ^ 2 * C 4)
+30-falsify-TheoremB-h1.lean:226:62: error: unsolved goals
+⊢ X 0 ^ 2 * 5 = X 0 ^ 2 * C 5
+30-falsify-TheoremB-h1.lean:228:63: error: unsolved goals
+⊢ C 2 * X 0 ^ 2 * 2 = X 0 ^ 2 * C 4
+30-falsify-TheoremB-h1.lean:230:62: error: unsolved goals
+⊢ X 0 ^ 2 * 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:249:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:249:32: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.coeff_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:247:4: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:272:4: warning: Unused tactic linter: `try` can be removed.
+
+···
+⊢ X 0 ^ 2 * 5 = X 0 ^ 2 * C 5
+30-falsify-TheoremB-h1.lean:228:63: error: unsolved goals
+⊢ C 2 * X 0 ^ 2 * 2 = X 0 ^ 2 * C 4
+30-falsify-TheoremB-h1.lean:230:62: error: unsolved goals
+⊢ X 0 ^ 2 * 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:249:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:249:32: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.coeff_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:247:4: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:272:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:298:2: warning: Unused tactic linter: `try` can be removed.
+···
+⊢ C 2 * X 0 ^ 2 * 2 = X 0 ^ 2 * C 4
+30-falsify-TheoremB-h1.lean:230:62: error: unsolved goals
+⊢ X 0 ^ 2 * 2 = X 0 ^ 2 * C 2
+30-falsify-TheoremB-h1.lean:249:8: warning: This simp argument is unused:
+  MvPolynomial.coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:249:32: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [MvPolynomial.coeff_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+30-falsify-TheoremB-h1.lean:247:4: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:272:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+30-falsify-TheoremB-h1.lean:298:2: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+30-falsify-TheoremB-h1.lean:340:4: error: unsolved goals
+s : ℤ
+a : ℚ
+f : V
+k : ℤ
+g : V
+h✝¹ : ¬k < 0
+h✝ : 0 < k
+⊢ MulActionHomClass (Derivation ℚ (MvPolynomial (Fin 7) ℚ) (MvPolynomial (Fin 7) ℚ)) ℚ (MvPolynomial (Fin 7) ℚ)
+    (MvPolynomial (Fin 7) ℚ)
+30-falsify-TheoremB-h1.lean:389:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'LemmaQc_V0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t1sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'pairing_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'TheoremB2_refuted_h1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== ClosedForm.lean
+[pilot] ClosedForm.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ClosedForm.lean:148:6: error: unsolved goals
+s t : ℤ
+m : ℕ →₀ ℕ
+c : ℚ
+u : ℤ
+a : ℚ
+g✝ : W
+k : ℤ
+g : W
+h✝¹ : ¬k < 0
+h✝ : 0 < k
+⊢ MulActionHomClass (Derivation ℚ (MvPolynomial ℕ ℚ) (MvPolynomial ℕ ℚ)) ℚ (MvPolynomial ℕ ℚ) (MvPolynomial ℕ ℚ)
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== M1.lean
+[pilot] M1.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M1.lean:412:46: error: Application type mismatch: The argument
+  hy0
+has type
+  0 < y
+but is expected to have type
+  0 ≤ y
+in the application
+  lt_Rc_iff_gmax hε (le_of_lt hc) hy0
+M1.lean:500:61: error: Application type mismatch: The argument
+  hy0
+has type
+  0 < y
+but is expected to have type
+  0 ≤ y
+in the application
+  lt_Rc_iff_gmax hε
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.add_congr
+                (Mathlib.Tactic.Ring.Common.sub_congr
+                  (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                  (Mathlib.Tactic.Ring.Common.div_congr
+···
+  lt_Rc_iff_gmax hε (le_of_lt hc) hy0
+M1.lean:500:61: error: Application type mismatch: The argument
+  hy0
+has type
+  0 < y
+but is expected to have type
+  0 ≤ y
+in the application
+  lt_Rc_iff_gmax hε
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.add_congr
+                (Mathlib.Tactic.Ring.Common.sub_congr
+                  (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                  (Mathlib.Tactic.Ring.Common.div_congr
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.div_congr
+                        (Mathlib.Tactic.Ring.Common.atom_pf (Real.log 4) rfl
+                          (Eq.mpr
+                            (id
+                              (congrArg
+                                (fun _a => Real.log 4 ^ Nat.rawCast 1 * Nat.rawCast 1 = Real.log 4 ^ Nat.rawCast 1 * _a)
+                                (Eq.symm rfl)))
+···
+
+[pilot] SUMMARY
+[pilot]   30-falsify-TheoremB-h1.lean: FAIL rc=1 errors=6 sorry=0
+[pilot]   ClosedForm.lean: FAIL rc=1 errors=1 sorry=0
+[pilot]   M1.lean: FAIL rc=1 errors=2 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-0iIPfxW0MG3qJilECCMBi9
+# exit=0

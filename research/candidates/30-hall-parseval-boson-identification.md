@@ -266,3 +266,24 @@ Theorem B falsification milestone is a self-contained first Lean file).
   (ProbeB2 family); proofs stay tactic-churn M (per port-probe §4 caveat) — dossier F2's
   hypothesis-import route is the right one and is now validated by ProbeE's binder pattern.
 - Verdict: keep M; ω-module remains the driver; Theorem B stays L-if-attempted.
+
+## Pilot outcome (append, 2026-11-09 resume session — closes the Theorem-B falsification milestone)
+
+- **Verdict: Theorem B (B2) REFUTED at h = 1** — kernel-verified, `research/pilots/30-falsify-TheoremB-h1.lean`
+  (run `research/pilots/30/logs/run3-green.log`: OK, 0 errors, 0 sorry). On V₁ with a = b = t₁
+  (pairing = 1, `pairing_h1`) the Q_s act by (1, −2, 3, −2, 1): `B2_idempotence_fails`
+  (Q₀Q₀t₁ = 9t₁ ≠ 3t₁), `B2_annihilation_fails` (Q₋₂Q₀t₁ = 3t₁ ≠ 0), `B2_parseval_fails`
+  (Σ_s Q_s² t₁ = 19t₁ ≠ t₁), headline `TheoremB2_refuted_h1`. All `[propext, Classical.choice,
+  Quot.sound]`. Faithfulness checked in-file against the corpus's own LemmaQ (a)/(c) on V₀, V₁ and
+  the t₂-line of V₂, and the h = 2 pairing sign mechanism of Theorem A (`pairing_h2_check`).
+- **Replacement proved (Theorem B′, closed form at h = 1)** — `research/pilots/30/ClosedForm.lean`
+  (faithful `MvPolynomial ℕ ℚ` model, all labels): ∇_x∇_{−x} = x⁺·Id + |x|·N_{|x|} (`nab_nab`);
+  Q_s = [s=0]·Id + |1−s|N_{|1−s|} − 2|s|N_{|s|} + |s+1|N_{|s+1|} (`Qh1_closed_form`); Q_s is
+  diagonal on monomials with eigenvalue δ_{s0} + Δ²ψ_m(s), ψ_m(j) = |j|·m_{|j|} (`Qh1_monomial`),
+  and the Q_s commute (`Qh1_comm_monomial`). Corollary (paper proof from the closed form; instances
+  kernel-checked): Σ s·Q_s = 0 and **Σ s²·Q_s = 4·E·Id on V_E**. Details: `research/pilots/30-note.md`.
+- **Proposal impact:** drop Theorem B as stated; keep Theorem A (+A′) as the dossier's core
+  (its pilot is still to be built: ω-involution construction on the tauceti side). Add B′ +
+  the second-moment identity as a small proved structural result (N 3: new statement about eth's
+  operators, elementary once the number-operator form is seen). Novelty of the pairing–Hall
+  identification (N 4, VERDICTS row 30) is unaffected. Effort for Theorem A unchanged (M).

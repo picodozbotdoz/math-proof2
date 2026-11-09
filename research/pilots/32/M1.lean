@@ -160,28 +160,28 @@ lemma lnΛ_decompose {c : ℝ} (hc : 1 < c) :
 
 lemma hasDerivAt_Ffun {c : ℝ} (hc : 1 < c) :
     HasDerivAt Ffun (Real.log (c - 1) - Real.log c) c := by
-  have h1 : HasDerivAt (fun x => x - 1) (1:ℝ) c :=
-    (hasDerivAt_id (x := c)).sub (hasDerivAt_const (c := (1:ℝ)) (x := c))
+  have hc1 : c - 1 ≠ 0 := (show (0:ℝ) < c - 1 by linarith).ne'
+  have hc0 : c ≠ 0 := (show (0:ℝ) < c by linarith).ne'
+  have h1 : HasDerivAt (fun x : ℝ => x - 1) (1:ℝ) c := by
+    first
+    | exact (hasDerivAt_id' c).sub_const 1
+    | exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)
+    | simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1:ℝ))
   have h2 : HasDerivAt (fun x => Real.log (x - 1)) (1 / (c - 1)) c :=
-    h1.log (by linarith)
+    h1.log hc1
   have h3 : HasDerivAt (fun x => (x - 1) * Real.log (x - 1))
       ((1:ℝ) * Real.log (c - 1) + (c - 1) * (1 / (c - 1))) c := h1.mul h2
-  have h4 : HasDerivAt (fun x => Real.log x) (1 / c) c :=
-    Real.hasDerivAt_log (ne_of_gt (by linarith : (0:ℝ) < c))
-  have h5 : HasDerivAt (fun x => x * Real.log x) ((1:ℝ) * Real.log c + c * (1 / c)) c :=
-    hasDerivAt_id.mul h4
-  have hFinal : HasDerivAt (fun x => (x - 1) * Real.log (x - 1) - x * Real.log x)
-      ((1:ℝ) * Real.log (c - 1) + (c - 1) * (1 / (c - 1))
-        - ((1:ℝ) * Real.log c + c * (1 / c))) c := h3.sub h5
-  have e1' : (c - 1) * (1 / (c - 1)) = 1 := by field_simp
-  have e2' : c * (1 / c) = 1 := by field_simp
+  have h4 : HasDerivAt Real.log c⁻¹ c := Real.hasDerivAt_log hc0
+  have h5 : HasDerivAt (fun x => x * Real.log x) ((1:ℝ) * Real.log c + c * c⁻¹) c :=
+    (hasDerivAt_id' c).mul h4
+  have e1' : (c - 1) * (1 / (c - 1)) = 1 := mul_one_div_cancel hc1
+  have e2' : c * c⁻¹ = 1 := mul_inv_cancel₀ hc0
   have hde : ((1:ℝ) * Real.log (c - 1) + (c - 1) * (1 / (c - 1))
-      - ((1:ℝ) * Real.log c + c * (1 / c))) = Real.log (c - 1) - Real.log c := by
+      - ((1:ℝ) * Real.log c + c * c⁻¹)) = Real.log (c - 1) - Real.log c := by
     rw [e1', e2']; ring
-  have hFeq : Ffun = fun x => (x - 1) * Real.log (x - 1) - x * Real.log x := by
-    funext x; unfold Ffun; ring
-  rw [← hFeq, hde] at hFinal
-  exact hFinal
+  first
+  | exact (h3.sub h5).congr_deriv hde
+  | (convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])
 
 lemma deriv_Ffun_eq {c : ℝ} (hc : 1 < c) : deriv Ffun c = Real.log (c - 1) - Real.log c :=
   (hasDerivAt_Ffun hc).deriv
@@ -193,14 +193,13 @@ lemma log_quot_bound {ξ : ℝ} (hξ : 10 ≤ ξ) : Real.log (ξ / (ξ - 1)) ≤
     have h9 : ξ / (ξ - 1) * 9 = ξ * 9 / (ξ - 1) := by ring
     rw [h9, div_le_iff₀ h1]
     nlinarith
-  exact Real.log_le_log (by norm_num : (0:ℝ) < 10 / 9) hle
+  exact Real.log_le_log (div_pos (by linarith) h1) hle
 
 lemma Ffun_mvt {c₁ c₂ : ℝ} (h₁ : 10 ≤ c₁) (h : c₁ < c₂) :
     ∃ ξ, c₁ < ξ ∧ ξ < c₂ ∧ Ffun c₂ - Ffun c₁ = (c₂ - c₁) * (Real.log (ξ - 1) - Real.log ξ) := by
   have hopen : ∀ x ∈ Icc c₁ c₂, (1:ℝ) < x := fun x hx =>
     by have h := Set.mem_Icc.mp hx; linarith
   have hcont : ContinuousOn Ffun (Icc c₁ c₂) := by
-    rw [continuousOn_iff_continuousWithinAt]
     intro x hx
     exact ((hasDerivAt_Ffun (hopen x hx)).continuousAt).continuousWithinAt
   have hdiff : DifferentiableOn ℝ Ffun (Ioo c₁ c₂) := fun x hx =>
@@ -208,9 +207,10 @@ lemma Ffun_mvt {c₁ c₂ : ℝ} (h₁ : 10 ≤ c₁) (h : c₁ < c₂) :
       ).differentiableWithinAt
   obtain ⟨ξ, hξ, hsl⟩ := exists_deriv_eq_slope (f := Ffun) h hcont hdiff
   refine ⟨ξ, hξ.1, hξ.2, ?_⟩
+  have hne : c₂ - c₁ ≠ 0 := (sub_pos.mpr h).ne'
   have hF : Ffun c₂ - Ffun c₁ = (c₂ - c₁) * deriv Ffun ξ := by
     rw [hsl]; field_simp
-  rw [hF, deriv_Ffun_eq (by linarith : 1 < ξ)]
+  rw [hF, deriv_Ffun_eq (by linarith [hξ.1] : 1 < ξ)]
 
 lemma Ffun_drop {c₁ c₂ : ℝ} (h₁ : 10 ≤ c₁) (h : c₁ < c₂) :
     (c₂ - c₁) * (-(Real.log (10 / 9))) ≤ Ffun c₂ - Ffun c₁ := by
@@ -287,42 +287,51 @@ lemma lnΛ_pos {c : ℝ} (hc : 10 ≤ c) : 0 < lnΛ c 0 := by
   rcases eq_or_lt_of_le hc with rfl | hlt
   · rw [lnΛ_10_0]; positivity
   · have h10 : 0 < lnΛ 10 0 := by rw [lnΛ_10_0]; positivity
-    exact lt_of_lt_of_le h10 (le_of_lt (lnΛ_mono hc hlt))
+    exact lt_of_lt_of_le h10 (le_of_lt (lnΛ_mono (le_refl _) hlt))
+
+/-- `lnΛ c γ > 0` on the whole domain `c ≥ 10`, `γ ≥ 0`. -/
+lemma lnΛ_pos_gamma {c γ : ℝ} (hc : 10 ≤ c) (hγ : 0 ≤ γ) : 0 < lnΛ c γ := by
+  have e := lnΛ_affine c γ
+  have h0 := lnΛ_pos hc
+  have hp := mul_nonneg hγ log4_pos.le
+  linarith
 
 /-! ## Donor-shaped corollaries -/
 
 /-- Donor shape `Sec4_Rc_strictAntiOn` (PaperStatements.lean:2319–2321) at γ = 0. -/
 theorem Rc_strictAntiOn_zero : StrictAntiOn (fun c : ℝ => Rc c 0) (Set.Ici 10) := by
-  intro a b ha hb hab
+  intro a ha b hb hab
   have h10a : 10 ≤ a := Set.mem_Ici.mp ha
   have hLa : 0 < lnΛ a 0 := lnΛ_pos h10a
-  have hLb : 0 < lnΛ b 0 := lnΛ_pos (Set.mem_Ici.mp hb)
-  unfold Rc
-  rw [div_eq_mul_inv, div_eq_mul_inv]
-  exact mul_lt_mul_of_pos_left (inv_strictAnti₀ hLa (lnΛ_mono h10a hab)) log4_pos
+  show Rc b 0 < Rc a 0
+  exact div_inv_lt log4_pos hLa (lnΛ_mono h10a hab)
 
 /-- Theorem A(i): `Rc` strictly antitone in γ (on the positive-denominator domain). -/
 theorem Rc_antitone_gamma {c γ γ' : ℝ} (hc : 10 ≤ c) (hγ : 0 ≤ γ) (h : γ < γ') :
     Rc c γ' < Rc c γ := by
-  have hΛγ : 0 < lnΛ c γ := by rw [lnΛ_affine]; nlinarith [log4_pos]
+  have hΛγ : 0 < lnΛ c γ := lnΛ_pos_gamma hc hγ
   have hmono : lnΛ c γ < lnΛ c γ' := by
-    rw [lnΛ_affine, lnΛ_affine]; nlinarith [log4_pos]
-  unfold Rc
-  rw [div_eq_mul_inv, div_eq_mul_inv]
-  exact mul_lt_mul_of_pos_left (inv_strictAnti₀ hΛγ hmono) log4_pos
+    have e1 := lnΛ_affine c γ
+    have e2 := lnΛ_affine c γ'
+    have hp := mul_lt_mul_of_pos_right h log4_pos
+    linarith
+  exact div_inv_lt log4_pos hΛγ hmono
 
 /-- Donor shape `Sec4_Rc_lt_epsStar` (PaperStatements.lean:2334–2335), re-proved. -/
 theorem Rc_lt_epsStar {c γ : ℝ} (hc : 10 < c) (hγ : 0 ≤ γ) : Rc c γ < epsStar := by
   have hΛ0 : 0 < lnΛ c 0 := lnΛ_pos (le_of_lt hc)
   have hΛ10 : 0 < lnΛ 10 0 := by rw [lnΛ_10_0]; positivity
-  have hmono := lnΛ_mono (le_of_lt hc) hc
-  have hle : lnΛ c 0 ≤ lnΛ c γ := by rw [lnΛ_affine]; nlinarith [log4_pos]
+  have hmono := lnΛ_mono (le_refl 10) hc
+  have hle : lnΛ c 0 ≤ lnΛ c γ := by
+    have e := lnΛ_affine c γ
+    have hp := mul_nonneg hγ log4_pos.le
+    linarith
   have h1 : Real.log 4 / lnΛ c γ ≤ Real.log 4 / lnΛ c 0 :=
     div_inv_le log4_pos hΛ0 hle
-  have h2 : Real.log 4 / lnΛ c 0 < Real.log 4 / lnΛ 10 0 := by
-    rw [div_eq_mul_inv, div_eq_mul_inv]
-    exact mul_lt_mul_of_pos_left (inv_strictAnti₀ hΛ10 hmono) log4_pos
-  rw [Rc, Rc, Rc_10_0]
+  have h2 : Real.log 4 / lnΛ c 0 < Real.log 4 / lnΛ 10 0 :=
+    div_inv_lt log4_pos hΛ10 hmono
+  have h3 : Real.log 4 / lnΛ 10 0 = epsStar := Rc_10_0
+  show Real.log 4 / lnΛ c γ < epsStar
   linarith
 
 /-! ## gmax, the key equivalence, and the ceiling -/
@@ -332,22 +341,12 @@ noncomputable def gmax (ε c : ℝ) : ℝ := (Real.log 4 / ε - lnΛ c 0) / Real
 
 lemma lt_Rc_iff_gmax {ε c γ : ℝ} (hε : 0 < ε) (hc : 10 ≤ c) (hγ : 0 ≤ γ) :
     ε < Rc c γ ↔ γ < gmax ε c := by
-  have hΛ0 : 0 < lnΛ c 0 := lnΛ_pos hc
-  have hΛγ : 0 < lnΛ c γ := by rw [lnΛ_affine]; nlinarith [log4_pos]
+  have hΛγ : 0 < lnΛ c γ := lnΛ_pos_gamma hc hγ
+  have hL : lnΛ c γ = lnΛ c 0 + γ * Real.log 4 := lnΛ_affine c γ
   unfold Rc gmax
-  rw [lnΛ_affine]
-  constructor <;> intro h
-  · rw [lt_div_iff₀ hΛγ] at h
-    have e1 : γ * Real.log 4 < Real.log 4 / ε - lnΛ c 0 := by
-      rw [lt_div_iff₀ hε]
-      nlinarith [h, hε]
-    exact (lt_div_iff₀ log4_pos).mpr e1
-  · rw [lt_div_iff₀ hΛγ]
-    have e1 := (lt_div_iff₀ log4_pos).mp h
-    have e2 : (γ * Real.log 4 + lnΛ c 0) * ε < Real.log 4 := by
-      rw [lt_div_iff₀ hε]
-      linarith
-    nlinarith [hε]
+  rw [lt_div_iff₀ hΛγ, lt_div_iff₀ log4_pos, hL, lt_sub_iff_add_lt, lt_div_iff₀ hε]
+  have e : ε * (lnΛ c 0 + γ * Real.log 4) = (γ * Real.log 4 + lnΛ c 0) * ε := by ring
+  constructor <;> intro h <;> linarith [e]
 
 /-- The achievable set (dossier 32): the Corollary-31 certificate class. -/
 def AchievableAt (ε γ : ℝ) : Prop :=
@@ -396,27 +395,21 @@ lemma gammaOf_nine_tenth_pos {c : ℝ} (hc : 10 < c) : 0 < gammaOf c (9 / 10 : �
   gammaOf_pos hc (by norm_num : (0:ℝ) < 9 / 10)
 
 lemma theta_of_recover {c γ : ℝ} (hc : 10 < c) : gammaOf c (theta_of c γ) = γ := by
-  have hg : gammaOf c (9 / 10 : ℝ)
-      = (9 / 10 : ℝ) * Real.log ((c - 1) / 9) / Real.log 4 :=
-    gammaOf_eq (by linarith : c ≠ 9)
-  have hA : Real.log ((c - 1) / 9) * Real.log 4 ≠ 0 := by
-    apply mul_ne_zero
-    · exact ne_of_gt (log_quot_pos hc)
-    · exact ne_of_gt log4_pos
-  rw [theta_of, gammaOf_eq (by linarith : c ≠ 9), hg]
+  have hLq : Real.log ((c - 1) / 9) ≠ 0 := ne_of_gt (log_quot_pos hc)
+  have hl4 : Real.log 4 ≠ 0 := ne_of_gt log4_pos
+  simp only [theta_of, gammaOf_eq (show c ≠ 9 by linarith)]
   field_simp
-  ring
 
 theorem membership_of_lt {ε : ℝ} (hε : 0 < ε) {cₓ : ℝ} (hc : 10 < cₓ)
     (e : IsCrossing ε cₓ)
     {y : ℝ} (hy0 : 0 < y) (hy : y < gammaOf cₓ (9 / 10 : ℝ)) : y ∈ FrontierSet ε := by
   have hg : 0 < gammaOf cₓ (9 / 10 : ℝ) := gammaOf_nine_tenth_pos hc
-  have hrec : gammaOf c* (theta_of cₓ y) = y := theta_of_recover hc
-  refine ⟨hy0, c*, theta_of cₓ y, hc, ?_, ?_, le_of_eq hrec.symm, ?_⟩
+  have hrec : gammaOf cₓ (theta_of cₓ y) = y := theta_of_recover hc
+  refine ⟨hy0, cₓ, theta_of cₓ y, hc, ?_, ?_, le_of_eq hrec.symm, ?_⟩
   · exact div_pos (mul_pos (by norm_num : (0:ℝ) < 9 / 10) hy0) hg
-  · rw [theta_of, lt_div_iff₀ hg]
+  · rw [theta_of, div_lt_iff₀ hg]
     exact mul_lt_mul_of_pos_left hy (by norm_num : (0:ℝ) < 9 / 10)
-  · rw [hrec, lt_Rc_iff_gmax hε (le_of_lt hc) hy0]
+  · rw [hrec, lt_Rc_iff_gmax hε (le_of_lt hc) hy0.le]
     unfold IsCrossing at e
     linarith
 
@@ -426,7 +419,7 @@ theorem frontier_upper {ε : ℝ} (hε : 0 < ε) {cₓ : ℝ} (hc : 10 < cₓ) (
   have hγθpos : 0 < gammaOf c θ := gammaOf_pos hC hθ0
   have hθ9 : gammaOf c θ < gammaOf c (9 / 10 : ℝ) := gammaOf_lt_of_lt hC hθ1
   rw [lt_Rc_iff_gmax hε (le_of_lt hC) (le_of_lt hγθpos)] at hRc
-  rcases lt_trichotomy c c* with hlt | heq | hgt
+  rcases lt_trichotomy c cₓ with hlt | heq | hgt
   · have h2 := gammaOf_strictMono hC hlt
     unfold IsCrossing at e
     linarith
@@ -445,16 +438,14 @@ theorem frontier_of_crossing {ε : ℝ} (hε : 0 < ε) {cₓ : ℝ} (hc : 10 < c
   have hbb : BddAbove (FrontierSet ε) :=
     ⟨gammaOf cₓ (9 / 10 : ℝ), fun γ hγ => le_of_lt (frontier_upper hε hc e hγ)⟩
   apply le_antisymm
-  · exact csSup_le hbb (fun γ hγ => le_of_lt (frontier_upper hε hc e hγ))
+  · exact csSup_le ⟨_, hhalf⟩ (fun γ hγ => le_of_lt (frontier_upper hε hc e hγ))
   · by_contra hnot
-    have hlt : sSup (FrontierSet ε) < gammaOf cₓ (9 / 10 : ℝ) :=
-      lt_of_le_of_ne (le_csSup hbb hhalf) (Ne.symm hnot)
+    have hlt : sSup (FrontierSet ε) < gammaOf cₓ (9 / 10 : ℝ) := not_le.mp hnot
+    have h1 := le_csSup hbb hhalf
     have hmm : (sSup (FrontierSet ε) + gammaOf cₓ (9 / 10 : ℝ)) / 2 ∈ FrontierSet ε :=
-      membership_of_lt hε hc e (by
-        have h1 := le_csSup hbb hhalf
-        nlinarith [div_pos hg (by norm_num : (0:ℝ) < 2)]) (by linarith)
+      membership_of_lt hε hc e (by linarith) (by linarith)
     have hle := le_csSup hbb hmm
-    nlinarith
+    linarith
 
 /-! ## Phase transition: nonempty iff below ε* (approach lemma, no donor tendsto) -/
 
@@ -464,16 +455,17 @@ theorem frontier_nonempty_iff {ε : ℝ} (hε : 0 < ε) :
   · rintro ⟨γ, hγpos, c, θ, hc, hθ0, hθ1, hle, hRc⟩
     have hγθpos : 0 < gammaOf c θ := gammaOf_pos hc hθ0
     have := Rc_lt_epsStar hc (le_of_lt hγθpos)
-    exact lt_of_le_of_lt hε (by linarith)
+    exact lt_trans hRc this
   · intro hlt
     rw [epsStar] at hlt
     have h5 : (0:ℝ) < 5 * Real.log 10 := by positivity
     have hlt' : ε * (5 * Real.log 10) < Real.log 4 := (lt_div_iff₀ h5).mp hlt
-    have hden : 5 * Real.log 10 < Real.log 4 / ε := (lt_div_iff₀ hε).mp (by nlinarith [hlt'])
+    have hden : 5 * Real.log 10 < Real.log 4 / ε :=
+      (lt_div_iff₀ hε).mpr (by linarith [hlt', mul_comm ε (5 * Real.log 10)])
     set Δ : ℝ := (Real.log 4 / ε - 5 * Real.log 10) / (2 * Lconst) with hΔdef
     have hΔpos : 0 < Δ := div_pos (by linarith) (mul_pos (by norm_num : (0:ℝ) < 2) Lconst_pos)
     have hDL : Δ * Lconst = (Real.log 4 / ε - 5 * Real.log 10) / 2 := by
-      have h2L : (2:ℝ) * Lconst ≠ 0 := mul_ne_zero two_ne_zero (ne_of_gt Lconst_pos)
+      have hL0 : Lconst ≠ 0 := ne_of_gt Lconst_pos
       rw [hΔdef]
       field_simp
       try ring
@@ -503,9 +495,9 @@ theorem frontier_nonempty_iff {ε : ℝ} (hε : 0 < ε) :
     have hrec : gammaOf c (theta_of c y) = y := theta_of_recover hc10
     refine ⟨y, hy0, c, theta_of c y, hc10, ?_, ?_, le_of_eq hrec.symm, ?_⟩
     · exact div_pos (mul_pos (by norm_num : (0:ℝ) < 9 / 10) hy0) hg9
-    · rw [theta_of, lt_div_iff₀ hg9]
+    · rw [theta_of, div_lt_iff₀ hg9]
       exact mul_lt_mul_of_pos_left hy9 (by norm_num : (0:ℝ) < 9 / 10)
-    · rw [hrec, lt_Rc_iff_gmax hε (by linarith : (10:ℝ) ≤ c) hy0]
+    · rw [hrec, lt_Rc_iff_gmax hε (by linarith : (10:ℝ) ≤ c) hy0.le]
       exact hyg
 
 #print axioms lnΛ_10_0

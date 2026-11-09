@@ -72,6 +72,11 @@ Modal (math-proof1's account and staging pattern). Canonical evidence:
   `research/pilots/{20,22}/run_m1.sh` (same pattern, stage per pilot). Stage pattern: the
   Modal user cannot read `/home/doz` — copy `lean_probe.py` + the `.lean` files to a
   world-readable `/tmp/crossmath-*-stage/`, `chmod -R a+rX`, run, discard.
+- Generic multi-file runner: `research/pilots/32/run_pilot.sh <file.lean> …` (app
+  `crossmath-pilot-32`; each staged file elaborated independently, errors shown with 25 lines
+  of context). Final-sweep axiom audit over every pilot's final files:
+  `research/feasibility/probe/run_axcheck.sh` (TARGETS in `make_axcheck.py`; pass stage names
+  as extra args to `make_axcheck.py` to re-check a subset).
 - Axiom audit: `feasibility/probe/make_axcheck.py` builds stage copies = pilot file +
   appended `#print axioms <thm>` for every top-level theorem (repo file untouched);
   `axcheck_probe.py` elaborates them in dependency order, one `lake env lean -o

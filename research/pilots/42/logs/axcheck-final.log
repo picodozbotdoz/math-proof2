@@ -1,0 +1,965 @@
+# provenance: FINAL-SWEEP axcheck (FINAL-SWEEP-PLAN.md §3), 2026-11-09 resume session | command: research/feasibility/probe/run_axcheck.sh (29 staged files, Modal app crossmath-probe) + single-file re-run of AxPilot20_M1 after the comment-aware extractor fix | producing lane: final sweep (R9' role) | verdict: 29/29 OK, 0 sorryAx; all axiom lines ⊆ {propext, Classical.choice, Quot.sound}
+# ---- main batch ----
+AxP11T1: 0 theorems -> 
+AxP11T2: 18 theorems -> Real.one_le_log_of_three_le, Real.one_le_log_natCast_of_three_le, Real.logb_two_seven_lt, Real.natCast_le_rpow_inv_iff …
+AxPilot11_RedCompA: 3 theorems -> CrossMath.RedA.Red.comp, CrossMath.RedA.red_of_theorem_17, CrossMath.RedA.theorem19_of_red
+AxPilot11_RedCompB: 3 theorems -> CrossMath.RedB.Red.comp, CrossMath.RedB.red_of_theorem_17, CrossMath.RedB.theorem19_of_red
+AxPilot01_port01: 0 theorems -> 
+AxPilot01_port02: 0 theorems -> 
+AxPilot01_port03: 1 theorems -> RHLinalg.vonNeumann_trace_ineq
+AxPilot01_port04: 5 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port05: 7 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port06: 9 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port07: 11 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port08: 20 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port09: 33 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_port10: 37 theorems -> RHLinalg.vonNeumann_trace_ineq, RHLinalg.finrank_le_posIndex_of_posDefOn, RHLinalg.posDefOn_range_hermPosPart, RHLinalg.hermForm_gt_on_range_truncPos …
+AxPilot01_BindingSurface: 0 theorems -> 
+AxPilot01_MasterIdentity: 0 theorems -> 
+AxPilot20_M1: 27 theorems -> CrossMath.Pilot20.lineWindow_subset, CrossMath.Pilot20.mem_supp_iff, CrossMath.Pilot20.supp_add_subset, CrossMath.Pilot20.lineFinite …
+AxPilot22_M1: 1 theorems -> CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv
+AxPilot22_ProbeP1_PNT: 0 theorems -> 
+AxPilot22_Tier1: 4 theorems -> CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv, CrossMath.Pilot22.exists_logDerivExtension, CrossMath.Pilot22.exists_range_sum_vonMangoldt_le, CrossMath.Pilot22.tendsto_psi_div_atTop
+AxPilot30_falsify: 12 theorems -> LemmaQc_V0, LemmaQc_V1, LemmaQa_V1, LemmaQc_V2_t2 …
+AxPilot30_ClosedForm: 8 theorems -> Pilot30.nab_nab, Pilot30.scalar_second_diff, Pilot30.Qh1_closed, Pilot30.Qh1_closed_form …
+AxPilot32_M1: 13 theorems -> lnΛ_10_0, Rc_10_0, lnΛ_affine, lnΛ_mono …
+AxPilot42_M1: 15 theorems -> CrossMath.Pilot42.lineWindow_subset, CrossMath.Pilot42.multOf_mul, CrossMath.Pilot42.multOf_mul_of_forall, CrossMath.Pilot42.mem_supp_iff …
+AxPilot42_M2a: 28 theorems -> CrossMath.Pilot42.lineWindow_subset, CrossMath.Pilot42.multOf_mul, CrossMath.Pilot42.multOf_mul_of_forall, CrossMath.Pilot42.mem_supp_iff …
+AxPilot42_M2b: 52 theorems -> CrossMath.Pilot42.lineWindow_subset, CrossMath.Pilot42.multOf_mul, CrossMath.Pilot42.multOf_mul_of_forall, CrossMath.Pilot42.mem_supp_iff …
+AxPilot42_M3: 20 theorems -> CrossMath.Pilot42.lineWindow_subset, CrossMath.Pilot42.multOf_mul, CrossMath.Pilot42.multOf_mul_of_forall, CrossMath.Pilot42.mem_supp_iff …
+AxPilot50_M1: 3 theorems -> CrossMath.Pilot50.strip_confinement, CrossMath.Pilot50.strip_confinement_mem, CrossMath.Pilot50.strip_confinement_set
+AxPilot50_Dirichlet: 1 theorems -> CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet
+AxPilot52_M1: 12 theorems -> CrossMath.Pilot52.OccupationPair.cW_append, CrossMath.Pilot52.OccupationPair.cW_swap_pair, CrossMath.Pilot52.OccupationPair.slide_ne, CrossMath.Pilot52.OccupationPair.slide_self …
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-TlY6wYsgEW5cfWLBygUx9i
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 30 file(s): ['AxP11T1.lean', 'AxP11T2.lean', 'AxPilot01_BindingSurface.lean', 'AxPilot01_MasterIdentity.lean', 'AxPilot01_port01.lean', 'AxPilot01_port02.lean', 'AxPilot01_port03.lean', 'AxPilot01_port04.lean', 'AxPilot01_port05.lean', 'AxPilot01_port06.lean', 'AxPilot01_port07.lean', 'AxPilot01_port08.lean', 'AxPilot01_port09.lean', 'AxPilot01_port10.lean', 'AxPilot11_RedCompA.lean', 'AxPilot11_RedCompB.lean', 'AxPilot20_M1.lean', 'AxPilot22_M1.lean', 'AxPilot22_ProbeP1_PNT.lean', 'AxPilot22_Tier1.lean', 'AxPilot30_ClosedForm.lean', 'AxPilot30_falsify.lean', 'AxPilot32_M1.lean', 'AxPilot42_M1.lean', 'AxPilot42_M2a.lean', 'AxPilot42_M2b.lean', 'AxPilot42_M3.lean', 'AxPilot50_Dirichlet.lean', 'AxPilot50_M1.lean', 'AxPilot52_M1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxP11T1.lean
+[ax] AxP11T1.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxP11T2.lean
+[ax] AxP11T2.lean: OK; axiom-lines=19, sorryAx-lines=0
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_natCast_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.logb_two_seven_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.natCast_le_rpow_inv_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.le_root_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sixteen_le_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.pow_eighteen_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.ceil_le_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.exists_total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.choice_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.total_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sq_div_sqrt_le_sq_div_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.time_le_of_calls' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.call_cost_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_BindingSurface.lean
+[ax] AxPilot01_BindingSurface.lean: OK; axiom-lines=0, sorryAx-lines=0
+@Matrix.IsHermitian.eigenvalues₀ : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → Fin (Fintype.card n) → ℝ
+@Matrix.IsHermitian.eigenvalues₀_antitone : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), Antitone hA.eigenvalues₀
+@Matrix.IsHermitian.eigenvalues : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] → {n : Type u_2} → [Fintype n] → {A : Matrix n n 𝕜} → [DecidableEq n] → A.IsHermitian → n → ℝ
+@Matrix.IsHermitian.eigenvectorUnitary : {𝕜 : Type u_1} →
+  [inst : RCLike 𝕜] →
+    {n : Type u_2} →
+      [inst_1 : Fintype n] → {A : Matrix n n 𝕜} → [inst_2 : DecidableEq n] → A.IsHermitian → ↥(Matrix.unitaryGroup n 𝕜)
+@Matrix.IsHermitian.spectral_theorem : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian),
+  A =
+    ((Unitary.conjStarAlgAut 𝕜 (Matrix n n 𝕜)) hA.eigenvectorUnitary) (Matrix.diagonal (RCLike.ofReal ∘ hA.eigenvalues))
+@Matrix.IsHermitian.rank_eq_card_non_zero_eigs : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), A.rank = Fintype.card { i // hA.eigenvalues i ≠ 0 }
+@Matrix.IsHermitian.trace_eq_sum_eigenvalues : ∀ {𝕜 : Type u_1} [inst : RCLike 𝕜] {n : Type u_2} [inst_1 : Fintype n]
+  {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian), A.trace = ∑ i, ↑(hA.eigenvalues i)
+@Matrix.PosSemidef : {n : Type u_1} →
+  {R : Type u_2} → [inst : Ring R] → [PartialOrder R] → [StarRing R] → Matrix n n R → Prop
+@Matrix.IsHermitian.posSemidef_iff_eigenvalues_nonneg : ∀ {n : Type u_1} {𝕜 : Type u_2} [inst : Fintype n]
+  [inst_1 : RCLike 𝕜] {A : Matrix n n 𝕜} [inst_2 : DecidableEq n] (hA : A.IsHermitian),
+  A.PosSemidef ↔ 0 ≤ hA.eigenvalues
+@Matrix.posSemidef_self_mul_conjTranspose : ∀ {m : Type u_1} {n : Type u_2} {R : Type u_3} [inst : Ring R]
+  [inst_1 : PartialOrder R] [inst_2 : StarRing R] [inst_3 : Fintype n] [Finite m] [StarOrderedRing R]
+  (A : Matrix m n R), (A * A.conjTranspose).PosSemidef
+@Matrix.posSemidef_conjTranspose_mul_self : ∀ {m : Type u_1} {n : Type u_2} {R : Type u_3} [inst : Ring R]
+  [inst_1 : PartialOrder R] [inst_2 : StarRing R] [inst_3 : Fintype m] [Finite n] [StarOrderedRing R]
+  (A : Matrix m n R), (A.conjTranspose * A).PosSemidef
+@Matrix.posSemidef_diagonal_iff : ∀ {n : Type u_1} {R : Type u_2} [inst : Ring R] [inst_1 : PartialOrder R]
+  [inst_2 : StarRing R] [StarOrderedRing R] [inst_4 : DecidableEq n] {d : n → R},
+  (Matrix.diagonal d).PosSemidef ↔ ∀ (i : n), 0 ≤ d i
+@exists_eq_sum_perm_of_mem_doublyStochastic : ∀ {R : Type u_1} {n : Type u_2} [inst : Fintype n]
+  [inst_1 : DecidableEq n] [inst_2 : Field R] [inst_3 : LinearOrder R] [inst_4 : IsStrictOrderedRing R]
+  {M : Matrix n n R},
+  M ∈ doublyStochastic R n →
+    ∃ w, (∀ (σ : Equiv.Perm n), 0 ≤ w σ) ∧ ∑ σ, w σ = 1 ∧ ∑ σ, w σ • Equiv.Perm.permMatrix R σ = M
+doublyStochastic : (R : Type u_1) →
+(…39 more) tail:
+  [inst_2 : SMul S R] [inst_3 : IsScalarTower S R R] [inst_4 : SMulCommClass S R R] (u : ↥(unitary R)) (x : R),
+  ((Unitary.conjStarAlgAut S R) u) x = ↑u * x * star ↑u
+@Unitary.mul_star_self_of_mem : ∀ {R : Type u_1} [inst : Monoid R] [inst_1 : StarMul R] {U : R},
+  U ∈ unitary R → U * star U = 1
+@Unitary.star_mul_self_of_mem : ∀ {R : Type u_1} [inst : Monoid R] [inst_1 : StarMul R] {U : R},
+  U ∈ unitary R → star U * U = 1
+@Matrix.rank : {m : Type u_1} → {n : Type u_2} → {R : Type u_3} → [Fintype n] → [CommSemiring R] → Matrix m n R → ℕ
+@Matrix.rank_diagonal : ∀ {m : Type u_1} {R : Type u_2} [inst : Field R] [inst_1 : Fintype m] [inst_2 : DecidableEq m]
+  [inst_3 : DecidableEq R] (w : m → R), (Matrix.diagonal w).rank = Fintype.card { i // w i ≠ 0 }
+@LinearMap.finrank_range_of_inj : ∀ {R : Type u_1} {M : Type u_2} {N : Type u_3} [inst : Semiring R]
+  [inst_1 : AddCommMonoid M] [inst_2 : Module R M] [inst_3 : AddCommMonoid N] [inst_4 : Module R N] {f : M →ₗ[R] N},
+  Function.Injective ⇑f → Module.finrank R ↥f.range = Module.finrank R M
+
+=== AxPilot01_MasterIdentity.lean
+[ax] AxPilot01_MasterIdentity.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxPilot01_port01.lean
+[ax] AxPilot01_port01.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxPilot01_port02.lean
+[ax] AxPilot01_port02.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxPilot01_port03.lean
+[ax] AxPilot01_port03.lean: OK; axiom-lines=1, sorryAx-lines=0
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port04.lean
+[ax] AxPilot01_port04.lean: OK; axiom-lines=5, sorryAx-lines=0
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.finrank_le_posIndex_of_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posDefOn_range_hermPosPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.hermForm_gt_on_range_truncPos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_eq_max_finrank_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port05.lean
+[ax] AxPilot01_port05.lean: OK; axiom-lines=7, sorryAx-lines=0
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.finrank_le_posIndex_of_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posDefOn_range_hermPosPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.hermForm_gt_on_range_truncPos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_eq_max_finrank_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_conj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port06.lean
+[ax] AxPilot01_port06.lean: OK; axiom-lines=9, sorryAx-lines=0
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.finrank_le_posIndex_of_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posDefOn_range_hermPosPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.hermForm_gt_on_range_truncPos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_eq_max_finrank_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_conj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.weyl_posIndexAbove_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.cauchySchwarz_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port07.lean
+[ax] AxPilot01_port07.lean: OK; axiom-lines=11, sorryAx-lines=0
+AxPilot01_port07.lean:1113:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port07.lean:1116:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port07.lean:1137:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port07.lean:1139:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'RHLinalg.vonNeumann_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.finrank_le_posIndex_of_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posDefOn_range_hermPosPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.hermForm_gt_on_range_truncPos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_eq_max_finrank_posDefOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_conj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.posIndex_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.weyl_posIndexAbove_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.cauchySchwarz_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.rank_trace_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHLinalg.rank_trace_ineq_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port08.lean
+[ax] AxPilot01_port08.lean: OK; axiom-lines=20, sorryAx-lines=0
+AxPilot01_port08.lean:1114:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port08.lean:1117:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port08.lean:1138:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port08.lean:1140:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port08.lean:1340:32: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port08.lean:1340:60: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port08.lean:1347:30: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port08.lean:1347:43: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+(…67 more) tail:
+'RHLinalg.rank_trace_ineq_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.gc_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.sum_gc_diag_le_sum_gc_eigenvalues' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.sum_eigenvalues_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.sum_gc_eigenvalues_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.rank_trace_mult_k_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.sum_kc_two_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.RankTraceMult.sum_kc_three_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port09.lean
+[ax] AxPilot01_port09.lean: OK; axiom-lines=42, sorryAx-lines=0
+AxPilot01_port09.lean:1114:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port09.lean:1117:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port09.lean:1138:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port09.lean:1140:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port09.lean:1340:32: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port09.lean:1340:60: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port09.lean:1347:30: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port09.lean:1347:43: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+(…108 more) tail:
+'CrossMath.RankTraceDefect.pairingDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.schurJensenDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.rearrangementDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.posCouplingDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.pairBlockDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.frob_split_rearrangement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.pairing_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.schurJensenSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.pairBlock_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.frobSq_add_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.master_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.rank_trace_mult_k_of_master' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot01_port10.lean
+[ax] AxPilot01_port10.lean: OK; axiom-lines=41, sorryAx-lines=0
+AxPilot01_port10.lean:1115:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port10.lean:1118:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port10.lean:1139:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot01_port10.lean:1141:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot01_port10.lean:1341:32: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port10.lean:1341:60: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port10.lean:1348:30: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot01_port10.lean:1348:43: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+(…149 more) tail:
+'CrossMath.RankTraceDefect.pairBlockDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.frob_split_rearrangement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.pairing_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.schurJensenSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.pairBlock_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.frobSq_add_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.master_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.rank_trace_mult_k_of_master' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.TightMult.lemmaR_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.TightMult.lemmaR_tight'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.ZeroSide.TightMult.lemmaR_tight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RankTraceDefect.tightness_of_master' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot11_RedCompA.lean
+[ax] AxPilot11_RedCompA.lean: OK; axiom-lines=5, sorryAx-lines=0
+AxPilot11_RedCompA.lean:80:81: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.RedA.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedA.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedA.red_of_theorem_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedA.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot11_RedCompB.lean
+[ax] AxPilot11_RedCompB.lean: OK; axiom-lines=5, sorryAx-lines=0
+AxPilot11_RedCompB.lean:88:81: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.red_of_theorem_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot20_M1.lean
+[ax] AxPilot20_M1.lean: FAIL rc=1 (1 errors); axiom-lines=36, sorryAx-lines=0
+AxPilot20_M1.lean:440:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:445:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:450:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:556:26: warning: This simp argument is unused:
+  ZeroMult.countIn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZeroMult.countOn, zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot20_M1.lean:569:34: warning: This simp argument is unused:
+  supp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…29 more) tail:
+'CrossMath.Pilot20.count_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.sharedMass_eq_zero_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.merged_mult_of_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+AxPilot20_M1.lean:610:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot20.needs`
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot22_M1.lean
+[ax] AxPilot22_M1.lean: OK; axiom-lines=2, sorryAx-lines=0
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot22_ProbeP1_PNT.lean
+[ax] AxPilot22_ProbeP1_PNT.lean: OK; axiom-lines=0, sorryAx-lines=0
+riemannZeta_residue_one : Tendsto (fun s => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1)
+@differentiableAt_riemannZeta : ∀ {s : ℂ}, s ≠ 1 → DifferentiableAt ℂ riemannZeta s
+@MeromorphicNFAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → Prop
+@meromorphicOrderAt : {𝕜 : Type u_1} →
+  [inst : NontriviallyNormedField 𝕜] →
+    {E : Type u_2} → [inst_1 : NormedAddCommGroup E] → [NormedSpace 𝕜 E] → (𝕜 → E) → 𝕜 → WithTop ℤ
+@Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : NormedSpace ℂ E] [CompleteSpace E] {f : ℂ → E} {c : ℂ},
+  (∀ᶠ (z : ℂ) in 𝓝[≠] c, DifferentiableAt ℂ f z) → ContinuousAt f c → AnalyticAt ℂ f c
+@ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div : ∀ {s : ℂ},
+  1 < s.re → LSeries (fun n => ↑(ArithmeticFunction.vonMangoldt n)) s = -deriv riemannZeta s / riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@WienerIkehara.tendsto_sum_range_div : ∀ {f : ℕ → ℝ} {C A : ℝ} {G : ℂ → ℂ},
+  (∀ (n : ℕ), ∑ i ∈ Finset.range n, f i ≤ C * ↑n) →
+    ContinuousOn G {s | 1 ≤ s.re} →
+      Set.EqOn G (fun s => LSeries (fun n => ↑(f n)) s - ↑A / (s - 1)) {s | 1 < s.re} →
+        0 ≤ f → Tendsto (fun N => (∑ i ∈ Finset.range N, f i) / ↑N) atTop (𝓝 A)
+
+=== AxPilot22_Tier1.lean
+[ax] AxPilot22_Tier1.lean: OK; axiom-lines=8, sorryAx-lines=0
+AxPilot22_Tier1.lean:157:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot22_Tier1.lean:182:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot22_Tier1.lean:187:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot22_Tier1.lean:174:42: warning: This simp argument is unused:
+  one_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_logDerivExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_range_sum_vonMangoldt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.tendsto_psi_div_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_logDerivExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.exists_range_sum_vonMangoldt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot22.tendsto_psi_div_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot30_ClosedForm.lean
+[ax] AxPilot30_ClosedForm.lean: OK; axiom-lines=16, sorryAx-lines=0
+AxPilot30_ClosedForm.lean:56:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_ClosedForm.lean:56:4: warning: Unused tactic linter: `exact_mod_cast Int.natAbs_of_nonneg hx.le` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_ClosedForm.lean:86:30: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_ClosedForm.lean:86:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_ClosedForm.lean:86:30: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_ClosedForm.lean:86:41: warning: Unused tactic linter: `simp` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_ClosedForm.lean:120:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_ClosedForm.lean:120:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_ClosedForm.lean:120:81: warning: Unused tactic linter: `module` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_zero_t1sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…3 more) tail:
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_zero_t1sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.nab_nab' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.scalar_second_diff' depends on axioms: [propext, Quot.sound]
+'Pilot30.Qh1_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Num_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_comm_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot30.Qh1_zero_t1sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot30_falsify.lean
+[ax] AxPilot30_falsify.lean: OK; axiom-lines=25, sorryAx-lines=0
+AxPilot30_falsify.lean:142:2: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:148:2: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:154:2: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:160:2: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:166:2: warning: Unused tactic linter: there are no goals left for `try module`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:186:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_falsify.lean:186:59: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_falsify.lean:187:43: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_falsify.lean:187:50: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot30_falsify.lean:186:52: warning: Unused tactic linter: `simp` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:186:59: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:187:43: warning: Unused tactic linter: `simp` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:187:50: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot30_falsify.lean:191:52: warning: this tactic is never executed
+(…195 more) tail:
+'LemmaQc_V0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQa_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LemmaQc_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pairing_h2_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_idempotence_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_annihilation_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'B2_parseval_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremB2_refuted_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment1_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'moment2_V2_t2' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot32_M1.lean
+[ax] AxPilot32_M1.lean: OK; axiom-lines=22, sorryAx-lines=0
+AxPilot32_M1.lean:78:28: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot32_M1.lean:121:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot32_M1.lean:170:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot32_M1.lean:171:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot32_M1.lean:186:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxPilot32_M1.lean:170:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot32_M1.lean:171:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot32_M1.lean:186:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxPilot32_M1.lean:369:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot32_M1.lean:473:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…18 more) tail:
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'membership_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot42_M1.lean
+[ax] AxPilot42_M1.lean: OK; axiom-lines=15, sorryAx-lines=0
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot42_M2a.lean
+[ax] AxPilot42_M2a.lean: OK; axiom-lines=28, sorryAx-lines=0
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLower_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.funEq_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.stripWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_not_eventuallyEq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_analyticOrderAt_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_wired' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot42_M2b.lean
+[ax] AxPilot42_M2b.lean: OK; axiom-lines=55, sorryAx-lines=0
+AxPilot42_M2b.lean:638:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLower_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.funEq_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.stripWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_not_eventuallyEq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_analyticOrderAt_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_wired' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…26 more) tail:
+'CrossMath.Pilot42.countOnCumOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countDistinctOnCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerCum_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.hfac_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.epsLowerCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+=== AxPilot42_M3.lean
+[ax] AxPilot42_M3.lean: OK; axiom-lines=20, sorryAx-lines=0
+AxPilot42_M3.lean:352:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countDistinctOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_of_negligible' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot50_Dirichlet.lean
+[ax] AxPilot50_Dirichlet.lean: OK; axiom-lines=2, sorryAx-lines=0
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.Dirichlet.strip_confinement_dirichlet' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot50_M1.lean
+[ax] AxPilot50_M1.lean: OK; axiom-lines=4, sorryAx-lines=0
+'CrossMath.Pilot50.strip_confinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot52_M1.lean
+[ax] AxPilot52_M1.lean: OK; axiom-lines=15, sorryAx-lines=0
+AxPilot52_M1.lean:224:28: warning: This simp argument is unused:
+  mul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot52_M1.lean:269:48: warning: This simp argument is unused:
+  neg_one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot52_M1.lean:281:51: warning: This simp argument is unused:
+  neg_one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, h, sub_eq_add_neg, zero_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.fermionicPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.cW_append' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.cW_swap_pair' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.slide_ne' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.slide_self' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.annih_outside' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_dual_family_vac' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_annih_outside' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_create_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.bosonic_unweighted' depends on axioms: [propext, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxP11T1.lean: OK | no axiom-lines
+[ax]   AxP11T2.lean: OK | 19 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_BindingSurface.lean: OK | no axiom-lines
+[ax]   AxPilot01_MasterIdentity.lean: OK | no axiom-lines
+[ax]   AxPilot01_port01.lean: OK | no axiom-lines
+[ax]   AxPilot01_port02.lean: OK | no axiom-lines
+[ax]   AxPilot01_port03.lean: OK | 1 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port04.lean: OK | 5 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port05.lean: OK | 7 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port06.lean: OK | 9 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port07.lean: OK | 11 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port08.lean: OK | 20 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port09.lean: OK | 42 axiom-lines, 0 with sorryAx
+[ax]   AxPilot01_port10.lean: OK | 41 axiom-lines, 0 with sorryAx
+[ax]   AxPilot11_RedCompA.lean: OK | 5 axiom-lines, 0 with sorryAx
+[ax]   AxPilot11_RedCompB.lean: OK | 5 axiom-lines, 0 with sorryAx
+[ax]   AxPilot20_M1.lean: FAIL rc=1 (1 errors) | 36 axiom-lines, 0 with sorryAx
+[ax]   AxPilot22_M1.lean: OK | 2 axiom-lines, 0 with sorryAx
+[ax]   AxPilot22_ProbeP1_PNT.lean: OK | no axiom-lines
+[ax]   AxPilot22_Tier1.lean: OK | 8 axiom-lines, 0 with sorryAx
+[ax]   AxPilot30_ClosedForm.lean: OK | 16 axiom-lines, 0 with sorryAx
+[ax]   AxPilot30_falsify.lean: OK | 25 axiom-lines, 0 with sorryAx
+[ax]   AxPilot32_M1.lean: OK | 22 axiom-lines, 0 with sorryAx
+[ax]   AxPilot42_M1.lean: OK | 15 axiom-lines, 0 with sorryAx
+[ax]   AxPilot42_M2a.lean: OK | 28 axiom-lines, 0 with sorryAx
+[ax]   AxPilot42_M2b.lean: OK | 55 axiom-lines, 0 with sorryAx
+[ax]   AxPilot42_M3.lean: OK | 20 axiom-lines, 0 with sorryAx
+[ax]   AxPilot50_Dirichlet.lean: OK | 2 axiom-lines, 0 with sorryAx
+[ax]   AxPilot50_M1.lean: OK | 4 axiom-lines, 0 with sorryAx
+[ax]   AxPilot52_M1.lean: OK | 15 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-TlY6wYsgEW5cfWLBygUx9i
+# exit=0
+# ---- re-run: AxPilot20_M1 (first batch FAIL was a script artifact: '#print axioms CrossMath.Pilot20.needs' generated from docstring prose) ----
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-fD4zcRkFCzuv8DQshHg7Tx
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 1 file(s): ['AxPilot20_M1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxPilot20_M1.lean
+[ax] AxPilot20_M1.lean: OK; axiom-lines=36, sorryAx-lines=0
+AxPilot20_M1.lean:440:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:445:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:450:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:556:26: warning: This simp argument is unused:
+  ZeroMult.countIn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZeroMult.countOn, zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot20_M1.lean:569:34: warning: This simp argument is unused:
+  supp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…28 more) tail:
+'CrossMath.Pilot20.family_to_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.count_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.sharedMass_eq_zero_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.merged_mult_of_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxPilot20_M1.lean: OK | 36 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-fD4zcRkFCzuv8DQshHg7Tx
+# exit=0

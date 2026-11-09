@@ -1,7 +1,26 @@
 # STATUS — coordination board
 
-Last updated: 2026-11-09 (helper lane H). This file is the single source of truth for
+Last updated: 2026-11-09, resume session (project close). This file is the single source of truth for
 lane status. The orchestrator messages status changes to H, who updates this board.
+
+## FINAL STATE (2026-11-09 resume session) — project CLOSED
+
+All lanes closed. R7's 30/32 work (interrupted twice) was finished in the resume session:
+**30** Theorem B refuted + closed form proved; **32** M1 green. R9's final sweep was executed
+per `feasibility/probe/FINAL-SWEEP-PLAN.md`: 29/29 kept files OK, 0 sorryAx, sign-off in
+`feasibility/VERIFICATION-LEDGER.md` §7. H's final polish is done (`REPORT.md` FINAL, §1
+integrated with re-pulled counts; `REPORT-INPUTS.md` §E). Articles, one per discovery:
+`articles/` (10 + README). Erratum: `pilots/20-hCZ-NOTE.md` (Route A is a necessity
+reduction, not an equivalence).
+
+| Lane | Final status |
+|---|---|
+| R1–R6, R8 | CLOSED (artifacts intact; see history below) |
+| R7 | CLOSED — 30: `pilots/30-note.md` (REFUTED + Theorem B′); 32: `pilots/32-blueprint.md` (M1 GREEN); dossier appends landed |
+| R9 | CLOSED — final sweep A–D done; ledger §1 rewritten (FINAL) |
+| H | CLOSED — REPORT FINAL, INDEX/STATUS final |
+
+History (lane board as of the main run) follows.
 
 ## Lanes
 
@@ -41,14 +60,14 @@ novelty (R8) and feasibility (R9) sign-off before entering triage.
 | Pilot | Candidate | Stage | Note |
 |---|---|---|---|
 | 01 | 01-ez1 (+03 shared port) | **(a) GREEN; (b)+(c) GREEN — master_identity PROVED + anchor** (TOP-3 #3) | tightness companion landing |
-| 22 | 22-quasi-rh-pnt-effective | **M2–M6 running** | run1–4 logs |
-| 11 | 11-z1 | **M1 running (undecided)** | RedCompA/B, P11T1/T2 |
-| 42 | 42-zeta-k-two-thirds | **M1 PROVED axioms-clean; M2a/M3 landed (602+444 LoC/48 thms)** (TOP-3 #1) | M2b donor swap next |
-| 50 | 50-quasi-rh-truncated | **M1 PROVED** | `pilots/50/` |
-| 32 | 32-rc-savings-frontier | running | R7 |
-| 30 | 30-hall-parseval | **falsification milestone running (undecided)** | R7 |
-| 20 | 20-hecke-zetaK | blueprint/prework started | `20-prework.md` |
-| 10 | 10-z3 | prework running (**TOP-3 #2**; conditional-GO, G1 audit first) | `10-prework.md` |
+| 22 | 22-quasi-rh-pnt-effective | **PROVED-TO-M4 (ψ(x)/x → 1)**; M5/M6 skipped by rule | run1–12 logs |
+| 11 | 11-z1 | **M1 COMPLETE** | RedCompA/B, P11T1/T2 |
+| 42 | 42-zeta-k-two-thirds | **M1/M2a/M3/M2b GREEN — landing theorems proved** (TOP-3 #1) | `candidates/42-*.md` § Pilot outcome |
+| 50 | 50-quasi-rh-truncated | **M1 + M2a (Dirichlet) PROVED** | `pilots/50/` |
+| 32 | 32-rc-savings-frontier | **M1 GREEN** (frontier formula, phase transition, ceiling) | `pilots/32-blueprint.md` |
+| 30 | 30-hall-parseval | **Theorem B REFUTED (kernel) + closed form B′ PROVED** | `pilots/30-note.md` |
+| 20 | 20-hecke-zetaK | **M1 GREEN** (conditional core + hCZ seam) | `20-blueprint.md`, `20-hCZ-NOTE.md` |
+| 10 | 10-z3 | **G1 audit CASE A — GO unconditional** (TOP-3 #2); not executed | `10-prework.md` |
 | 21 | 21-quartic-window | **milestone-C DONE, certified** (cStar(1)−cFun_quartic ≥ 3.87e-4: B closed, A2 kernel) | `21-milestoneC.md` |
 
 ## Deferred-fix register (H-owned list) — CLOSED 2026-11-09 night (Task 11): all fixes applied (12 sites / 8 dossiers: 10,11,12,30,32,40,42,50; 41 verified already-clean); only 51/52's Part-4 minors remain documented-not-applied (R2 scope). Historic list:

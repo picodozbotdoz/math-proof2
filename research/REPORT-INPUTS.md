@@ -103,3 +103,18 @@ Five decision inputs: H complete DRAFT ranking; R8 VERDICTS r1–5; FEASIBILITY-
 Wall-time ≈ 8 h 58 m. Lane task counts: not recorded per-lane on disk; H executed 12 orchestrator
 tasks (T1 board/index/QA → T12 top-3 typeset); R9 rounds 1–9 (ledger/probe headers); R8 rounds
 1–5 (VERDICTS). 42/M2a.lean still being edited at 19:57 — final numbers to re-pull at polish.
+
+## §E Final re-pull (2026-11-09 resume session, after the final sweep) — supersedes §B counts
+
+| Metric | Value | Source |
+|---|---|---|
+| Pilot .lean files (all / port spine) | 32 / 10 | `find pilots -name '*.lean'` |
+| Pilot LoC (all / port spine / new) | 17,607 / 11,068 / 6,539 | `wc -l` |
+| theorems / lemmas | 357 / 554 | `grep -cE '^\s*(theorem|lemma) '` |
+| Final axcheck | 29/29 files OK; 303 axiom lines; 0 sorryAx; all ⊆ {propext, Classical.choice, Quot.sound} | `pilots/*/logs/axcheck-final.log` |
+| sorry tokens | 9 (probe-convention only) over 45 files | FINAL-SWEEP-PLAN Step A re-run |
+| Persisted logs | 76 before the sweep + 9 axcheck-final copies | `find -name '*.log'` |
+| Lean pilots with proved milestones | 9 (01, 11, 20, 22, 30, 32, 42, 50, 52) + 21 certified numerically | ledger §1 |
+| Articles | 10 + index | `articles/` |
+
+Per-pilot final one-liners: see `feasibility/VERIFICATION-LEDGER.md` §1 (FINAL) and REPORT §7.

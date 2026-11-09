@@ -250,3 +250,21 @@ falsification file; shares 31's step-3 glue).
 - **F1 confirmations**: order/log/tendsto API cited — stable; no corrections.
 - Verdict: keep S–M (~0.5–1.5k LoC); the `Real.log`-rational normalization risk (F5)
   stands as the main proof-side friction.
+
+## Pilot outcome (append, 2026-11-09 resume session)
+
+- **M1 GREEN** — `research/pilots/32/M1.lean`, run `research/pilots/32/logs/run3-green.log`
+  (OK, 0 errors, 0 sorry); full run log + inventory in `research/pilots/32-blueprint.md`.
+  All printed theorems `[propext, Classical.choice, Quot.sound]`.
+- **Proved:** A(i) `Rc_antitone_gamma`; A(ii) `lnΛ_10_0` / `Rc_10_0` (exact rational-log identity,
+  no binder); donor shapes re-proved independently (`Rc_strictAntiOn_zero`, `Rc_lt_epsStar` — MVT
+  route with a purely rational margin, no e-bounds); A(iii) `crossing_unique` and the frontier formula
+  `frontier_of_crossing` (sSup FrontierSet ε = gammaOf cₓ 0.9 for any crossing cₓ > 10);
+  A(iv)/B `frontier_nonempty_iff` (FrontierSet ε ≠ ∅ ⇔ ε < ε*, constructive) and `ceiling`.
+- **Parametric posture (per VERDICTS re-scope):** the crossing point enters as a parameter
+  (`IsCrossing ε cₓ`); its existence (IVT) and the continuity/limit half of A(iv) are paper-level,
+  not formalized; Theorem C untouched.
+- **Must-cite:** Majdoddin arXiv:2610.17420 (+ `github.com/Majdoddin/formal-math`) and
+  arXiv:2610.20297 — numerically supersede the constants; the frontier-function shape is ours.
+- **Proposal update:** N 3 (VERDICTS), S 2 (packaging-grade, but the first statement of the
+  certificate class's exact frontier), E 1 (done at ≈500 LoC, 3 runs) → rank ≈ 6.
