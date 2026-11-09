@@ -15,6 +15,7 @@ TARGETS = [
     ("AxPilot50_M1", PILOTS / "50/M1.lean"),
     ("AxPilot50_Dirichlet", PILOTS / "50/Dirichlet.lean"),
     ("AxPilot52_M1", PILOTS / "52/M1.lean"),
+    ("AxPilot10_M1", PILOTS / "10/M1.lean"),
 ]
 
 

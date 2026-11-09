@@ -1,0 +1,54 @@
+# provenance: raw modal run, pilot 10 M1.lean staged as Pilot10_M1.lean (crossmath-pilot-32 app) | 2026-11-10 00:22 +08 | producing lane: pilot-10 executor | command: research/pilots/32/run_pilot.sh /tmp/crossmath-p10-src/Pilot10_M1.lean | verdict: OK errors=0 sorry=0 (3 linter warnings) | fixes vs run1: Frag.Runs.toB explicit (f g sz) args; loop_runs_iterB unfolded RunsB via typed have; spaceWithinTM_of_withinB takes (hx : x' = x) like eth's outputs_of_within
+✓ Initialized. View run at 
+https://modal.com/apps/donniexyz888/main/ap-RJmH8Pmw1hiJZypvqsd8Xa
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pilot10_M1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pilot10_M1.lean
+[pilot] Pilot10_M1.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+Pilot10_M1.lean:1717:51: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Pilot10_M1.lean:1717:47: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Pilot10_M1.lean:1717:51: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Pilot10_M1.lean:1985:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Pilot10_M1.lean:2010:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   Pilot10_M1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/donniexyz888/main/ap-RJmH8Pmw1hiJZypvqsd8Xa
+EXIT=0

@@ -1,6 +1,6 @@
 # STATUS — coordination board
 
-Last updated: 2026-11-09 (helper lane H). This file is the single source of truth for
+Last updated: 2026-11-09 (helper lane H); pilot-10 row 2026-11-10 (pilot-10 lane, per the coordinating session's task). This file is the single source of truth for
 lane status. The orchestrator messages status changes to H, who updates this board.
 
 ## Lanes
@@ -48,7 +48,7 @@ novelty (R8) and feasibility (R9) sign-off before entering triage.
 | 32 | 32-rc-savings-frontier | running | R7 |
 | 30 | 30-hall-parseval | **falsification milestone running (undecided)** | R7 |
 | 20 | 20-hecke-zetaK | blueprint/prework started | `20-prework.md` |
-| 10 | 10-z3 | prework running (**TOP-3 #2**; conditional-GO, G1 audit first) | `10-prework.md` |
+| 10 | 10-z3 | **M1 (= L3) PROVED axioms-clean 2026-11-10** (TOP-3 #2; G1 = CASE A → GO): `exists_tm_space` — eth's host in eth's time AND poly(\|x\|) stack space ∀t, + openai monitor form; unconditional, 0 binders, 135/135 thms ⊆ std axioms | `10-prework.md`, `10-blueprint.md`, `pilots/10/` (M1.lean, logs run1–4); next: L1 counter combinators, L2 PolyTVal |
 | 21 | 21-quartic-window | **milestone-C DONE, certified** (cStar(1)−cFun_quartic ≥ 3.87e-4: B closed, A2 kernel) | `21-milestoneC.md` |
 
 ## Deferred-fix register (H-owned list) — CLOSED 2026-11-09 night (Task 11): all fixes applied (12 sites / 8 dossiers: 10,11,12,30,32,40,42,50; 41 verified already-clean); only 51/52's Part-4 minors remain documented-not-applied (R2 scope). Historic list:
