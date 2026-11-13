@@ -138,9 +138,9 @@ orchestrator-owned.
 | 52 | 52 unified CCR Fock layer | **M1 VERIFIED-GREEN** (A8 close-out 2026-11-13, see `pilots/52-note.md`; main-run FAIL was mid-iteration, superseded same-day by run14-green + axcheck-final) | reproduced Cycle 2: `m1-run15-cycle2-green` + `axcheck-cycle2` (15 axiom-lines, 0 sorryAx); `_unattributed/` emptied (run2 attributed); M2 = weighted refinement + adjointness layer |
 | 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`); A3: no hCZ/Card20 deltas — Hecke object layer may switch openai→DZDF at 31/32 (note only) |
 | 50 | 50-M2-R1 (gated continuation; A3) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable by DZDF (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md`; NOTE (2026-11-13): hQRH ζ-class formally dischargeable at FULL strength via external Liu-1 donor (registration `2d5a663`; probe pending A7/G7) |
-| 42 | 42-M4b-upgrade (gated continuation; A3) | **GO — executing** (M4a ~180 LoC green on disk; blueprint + M4a.lean mid-flight commit pending A3's report) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
+| 42 | 42-M4b-upgrade (gated continuation; A3) | **COMPLETE — primary route (disk-verified 2026-11-14: fallback m4b-run2 GREEN + axcheck triad-only; UPGRADE m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import, 1,571 LoC/68 thms final = PRIMARY; A3 official report pending)** | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
 | 11 | 11-M2 (A8-3, authorized) | RUNNING | pilot-11 revival: `pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` on disk, mid-flight (committed with A8's report) |
-| 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **SLOTTED — executing** (71-P0/P1 243 LoC green per empirical record) | Cycle-2 pilot-decision slot 1 (see decision block below) |
+| 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **71-P2 FINAL-GREEN (disk-verified 2026-11-14: p2-run6 "P2.lean: OK", 282 LoC/11 thms, ALL triad, 0 sorry; W1 honestly corrected as pole-family exclusion — A2 official report pending, incl. 73-C: Q0 probe CONFIRMED run1-q0, skeleton executing)** | Cycle-2 pilot-decision slot 1 (see decision block below) |
 | 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN OFFICIAL (A4 report 2026-11-14, commit 80dfd4b)** — run8 OK rc=0 errors=0 sorry=0, axcheck 11/11 declarations (5 public + 6 private) triad-only; run1–5 headers reconstructed+marked; deviations vs Appendix A documented (N1 regime 0<α≤β<1; N3 concrete-family False forms; Kuwahara as `hKL` binder) | Cycle-2 pilot-decision slot 2 (see decision block below) |
 | 75 | 75 abelian-assembly | **EXECUTING NOW (decision 2026-11-14: wave-4 pull-forward — the FINAL Cycle-2 pilot; lane A4; P-a then C1 per `pilots/75-prework.md`)**; A1 adds 75 to sweep TARGETS | Was DEFERRED to wave-4 (decision superseded 2026-11-14); spec complete |
 
@@ -379,6 +379,14 @@ standing authorization with a commit.
   Sweep-precondition update: seed triage + slot ledger both LANDED (seed-1 gate +
   seeds-6/11 differentiation in flight); A1 relabel + A9 reconciliation batches
   pending.
+- 2026-11-14 — batch-7: `Cycle 2: H — STEP-8 dry-run + integrity pre-pass` (09e28ee: 11
+  gates executed, 4 check fixes applied — stepB/C log naming, slot-ledger row-anchor,
+  TRIAGE staging-banner, articles glob; harness worktree + agent-0* worktrees recorded
+  as not-ours) + `Cycle 2: A1 — lp-duality bridge + iter-4 consequences + ledger §9
+  batch` (afb7f4b; H QA: mathlib Cone/Basic TODO quote VERBATIM vs checkout ✓,
+  m4b2-run2 "M4b.lean: OK" ✓, p2-run6 22 triad-lines/0 sorryAx ✓, seed-1 PASS wiring
+  consistent with the held iter4-seed-triage :29 ✓). Board: rows 71 + 42 flipped to
+  FINAL-GREEN / COMPLETE-primary (disk-verified; A2/A3 official reports pending).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
