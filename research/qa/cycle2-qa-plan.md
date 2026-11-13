@@ -308,3 +308,104 @@ MINOR / 0 WRONG.**
 §0.1/§5 for the Physlib locator, plus an A7/G5 premise flag); 71 clean. No load-bearing
 statement affected: 70's confinement-novelty substance holds; 72's pilot plan is if
 anything CHEAPER than written (Physlib likely unstaged).
+
+---
+
+# Part 4 (2026-11-13, passes P2 / P3 / P6c / P6d) — bridges + pilot audits (+ H self-correction)
+
+**H ERRATUM to Part 3, P5c item 8 (supersedes its verdict):** my Part-3 probe was wrong on
+both sub-points. (a) The Physlib import IS direct — Physlib's modules carry no "Physlib"
+prefix: `AreaLawForMathlib/QuantumInfo/Region/PartialTrace.lean:4` imports
+`QuantumInfo.ForMathlib.Matrix` (a Physlib module; :3 is mathlib's Kronecker), and
+`Region/TraceDistance.lean:3` imports it too; my literal `import Physlib` search was the
+wrong probe. (b) The manifest IS stale — for the **mathlib** entry (`db584cd6…` ≠ lakefile
+`ff2494ea`); my earlier check compared the *Physlib* entry (a50684a1, which matches).
+Consequences: A4's bridge §0.1 stands as written except the :3→:4 pin (one-line fix);
+**the "G5 staging may be unnecessary" tilt is RETRACTED — Physlib staging remains a real
+consumption cost** (A7/G5 unaffected); dossier 72's F2 claim is right in substance with the
+same :3→:4 pin slip. The Part-3 routing note to A4/A7 is amended accordingly.
+
+## P6c — pilot 52 close-out audit (trigger: A8 final state). **5/5 OK.**
+Provenance headers present and complete (run15 + axcheck logs: /tmp source, lane, command,
+file-mtime-unchanged-since-run14, substrate rev/toolchain/olean count, doz-profile note) ✓;
+`m1-run2.log` carries A8's attribution header ✓; header verdict (0 errors / 0
+sorry-warnings; `dual_family`/`sign_transposition` = [propext, Quot.sound]) matches the
+note ✓; the axcheck tool's own tally lines read `AxPilot52_M1 OK; 15 axiom-lines,
+sorryAx-lines=0` exactly as claimed ✓; zero actual sorryAx dependencies (all "sorryAx"
+log-hits are the zero-count summary lines themselves) ✓.
+
+## P6d — pilot 20 close-out audit (trigger: A8 final state). **5/5 OK.**
+Same header discipline ✓; verdict (0 errors / 0 sorry-warnings / 5 documented linter
+notes; 10 headline theorems triad) matches ✓; tally `AxPilot20_M1 OK; 36 axiom-lines,
+0 sorryAx` ✓; the 26-vs-27 staging delta explained in-log (the `needs` docstring artifact,
+consistent with ledger §6) ✓; no sorryAx ✓.
+
+## P2 — bridges/function-field.md (A2). **9 OK / 1 MINOR / 0 WRONG.**
+1. tauceti genus-1 trio — OK: `mobiusAutOf_zetaRatFunc` Zeta.lean:112, `zetaFunction`
+   def :153, `coeff_finrank_logOf_zetaFunction` :184 (plus :201/:244 from P5b).
+2. Weil ℓ-adic quartet — OK: `zetaFunction` def `Defs/…/LFunctionRationalSheaf.lean:87`;
+   `zetaFunction_eq_map_zetaSeries` ConnectedComponentsCharpoly.lean:508; trace-formula
+   product + `exists_rationalLFunction_mul_eq_polynomial` LAdicTraceFormulaFinal.lean:173/:51.
+3. Integrality/Betti/degree — OK: CharpolyIntegrality.lean:222,
+   BettiNumber.lean:48, CharpolyDegree.lean:67 — all exact.
+4. Stacks-walled RH input — OK: `isCharpolyPureOfWeight_rationalFrobenius`
+   FieldOfConstantsFrobenius.lean:89, imported from
+   `StacksFrontier.…GeometricComponentsPurityReduction` at :3 (Deligne purity proved in
+   Stacks, not Weil — as claimed).
+5. DZZF→TauCeti census — **MINOR.** Claimed "85 `TauCeti.SU`, 26 `TauCeti.Sym.ofFn`, 26
+   `representativeSubmodule`, 18 `matrixCoeff`, 7 `haarProb` (35 files)". Re-counted (lib
+   dir): `TauCeti.SU` 78, `representativeSubmodule` 43, files touching TauCeti 104. Same
+   direction and order of magnitude (the dependency is even heavier than written), but the
+   specific numbers do not reproduce with the natural command — pattern/scope of the
+   original census unstated. One-edit fix (record the command) routed to A2.
+6. Weil lakefile pins — OK: Stacks `012108f6…` verbatim; mathlib `ff2494ea` per the
+   lakefile (consistent with A1's survey §0 "all six pin ff2494ea", Q1-verified family).
+7. Carried over (Parts 1–3, no drift): WeilRHForm :206/:212–213; DZDF `Main.lean:9` +
+   `HeckeCorollary.lean:12`; LeanEval `weil_conjectures` :185 — all previously exact.
+8. point-count-inequality absence — OK: `pointCount.*≤` over the Weil tree → 0 (point
+   counts appear in identities only; matches P5b's `coeff_pointCountSeries` finding).
+9. Literature neighbors — OK (internal consistency vs the pre-registered source): Suzuki
+   2610.41115 (2026-10-30, method-neighbor, no proportions) and Bui–Florea 1605.07092
+   (family simple-zero lower bounds, input side) appear identically in round-4 §FF and the
+   bridge §4/§6; A5's PART-2 rows carry the same shapes (see VERDICTS rows 71/73).
+10. ZZV2 second-moment precondition — OK: `prop_simple_or_real_lower` at
+    `Challenge/Basic.lean:182` with the A < 2 hypothesis (Q1-verified pin; supersingular
+    obstruction argument qualitatively consistent with tauceti's Supersingular layer,
+    P5b item 6).
+
+## P3 — bridges/area-law.md (A4). **9 OK / 1 MINOR / 0 WRONG.**
+1. §0.2 statement table (8 defs) — OK: CollarBound :323, Amplification :355,
+   TwoFamilyCancellation :388, TwoFamilyDecomposition :410, ConditionalContinuity :436,
+   MarginalTails :469, BufferDiscount :514, InitialBoxEstimate :539 — every pin exact.
+2. Audit layer — OK: `OpenAI/Audit.lean:26–33,37–38` = `#print axioms` for exactly the
+   claimed ten theorems.
+3. Region layer extras — OK: SubState :28, MState :37, entropy :69, eigenvalues_le_one
+   :84, sum_eigenvalues_eq_one :164, mutualInfo :203 (State.lean); vonNeumann :26 /
+   vonNeumann_eq_H :31 (Entropy/VonNeumann.lean — bridge cites the short name);
+   SSA present via Physlib (Region.lean).
+4. Replica layer — OK: `IrrepLabel` consumed at S06_Replicas/Setup.lean:73; SchurWeyl
+   library = **49 files / 10,678 LoC exactly as claimed**.
+5. §0.1 toolchain reality — OK (post-correction): HEAD `c0f6d96` re-pin; lakefile mathlib
+   `ff2494ea`; manifest mathlib stale `db584cd6` ✓; Physlib `a50684a1` ✓; the direct
+   Physlib import is at PartialTrace.lean:**4** (bridge's ":3" — one-line pin fix, routed).
+6. §1 linalg-counterpart pins — OK with one MINOR: `hamiltonian` :171, `IsAdmissible`
+   :179 exact; `kc_eq` zeta23 RankTraceMult.lean:353 exact; tauceti OperatorJensen.lean:64
+   exact; **MINOR:** bridge cites "Pmat m v, RankTraceMult.lean:220" — :220 is `Wmat`,
+   Pmat sits ~:223 (the classic Wmat/Pmat pair; main-run QA Part 1 hit the same 3-line
+   gap from the other side).
+7. Novelty absence — OK: mathlib `von.?neumann|quantum.?entropy` hits are set-theory
+   universes (SetTheory/ZFC/VonNeumann.lean) + `Real.binEntropy`
+   (Analysis/SpecialFunctions/BinaryEntropy.lean exists as the sole entropy object);
+   partial-trace absence carried from P5c.
+8. PEPS side — OK: zero `sorry` in PEPSFilters + PEPSMove; GridStates.lean consumes
+   `UniformAreaLaw` (:166); the six Basic.lean pins carried exact from P5c.
+9. openai preprint interface — OK: `08-companion-interface.tex` exists in the PEPS
+   companion preprint dir (black-box consumption as described); Targets.md C.3 question
+   quoted verbatim at :79.
+10. Literature — OK (consistency): Kuwahara 2610.15199 / AHS 2004.15009 / AGSP 2203.16012
+    identical in round-4 §AL, dossier 72, and the bridge (A5's PART-2 rows concur).
+
+**Disposition:** A2 census numbers + the two :3/:220 pin slips routed (A2/A4); H's Part-3
+Physlib correction above; everything load-bearing stands. Cumulative plan tally after
+Part 4: **P1 10/2, P4 8/2, P5a 7/1, P5b 8/0, P5c 7/1(+1 corrected by H), P2 9/1, P3 9/1,
+P6c 5/5, P6d 5/5 — 0 WRONG across all passes.**

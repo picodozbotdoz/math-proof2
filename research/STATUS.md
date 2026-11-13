@@ -111,9 +111,9 @@ board.** Same ground rules, same Phase 1–4 definitions.
 | Lane | Role | Output file | Status | Since / note |
 |---|---|---|---|---|
 | A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | survey landed 2026-11-13; QA P1 DONE (10 OK / 2 minor, 0 WRONG — Part 2; fixes routed to A1); PNT+ deep-dive addendum `survey/axiommath-pntplus.md` landed (commit pending batch) |
-| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 + dictionary-zone update landed 2026-11-13 (QA pass P2 pending) |
+| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 + dictionary-zone update landed 2026-11-13; QA P2 DONE (9 OK / 1 minor census, 0 WRONG — Part 4; census-command fix routed) |
 | A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | donor map + Liu-1 erratum landed; 42-M4/50-M2 execution specs landed; QA P4 DONE (8 OK / 2 minor pins — Part 1); 42-M4 GO + 50 GATED verdicts relayed; M4a.lean on disk (mid-flight, uncommitted) |
-| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge + 72-prework + substrate map + **dossier 74 (AL-EZ2)** landed 2026-11-13 (QA P3 pending; Physlib-import premise flag from QA P5c routed) |
+| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge + 72-prework + substrate map + **dossier 74 (AL-EZ2)** landed 2026-11-13; QA P3 DONE (9 OK / 1 minor pin, 0 WRONG — Part 4); Physlib note CORRECTED by H (Part 4 erratum: import real at PartialTrace.lean:4, staging cost stands); A5's row-74 u≠1 glue note → small dossier-74 edit expected |
 | A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 + zip tracked; round-4 PART 1+2, VERDICTS Cycle-2 addendum, RELATED-WORK update, **liu1-as-donor audit** (constant mismatch found: 34999/40000 vs README) landed; DLRT §5.2(c) erratum applied by H per A5 P2-3 |
 | A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
 | A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
@@ -175,6 +175,9 @@ observed max-7 concurrent). Counts accompany every future batch report.
   PNT-AP/Chebotarev consumer (overlaps tauceti); T3 upstream reaching v4.36-class pins.
   Until a trigger fires: cite as external-formal-prior-art (Liu-1 convention); do NOT
   clone.
+- **hexagonmath.org archive sweep is ORCID-gated** (A5 flag, 2026-11-13): novelty sweeps
+  there are PASS-conditional via indirect evidence only (e.g. Liu-2's bibliography citing
+  only CT); record this caveat on every claim whose absence-evidence rests on that archive.
 
 ### Cycle-2 commit log (H)
 
@@ -224,4 +227,10 @@ observed max-7 concurrent). Counts accompany every future batch report.
   `A5 liu1-as-donor audit + round-4/RELATED-WORK updates`; `H errata — DLRT qualifier
   (A5 P2-3), Liu-1 constant caution, board notes` (AGENT_INSTRUCTION_1 disposition,
   concurrency-probe documentation; VERDICTS §5.2(c) + CLAIMS-REGISTER row 42 fixed).
-  [this series]
+  (2214b54, b564482, 675e319, 2513c27, 1e82a54)
+- 2026-11-13 — `Cycle 2: H — QA P2/P3 + pilot audits P6c/d (+ P5c Physlib correction)`
+  (this commit): qa plan Part 4 — P2 9/1, P3 9/1, P6c 5/5, P6d 5/5, 0 WRONG; H erratum
+  retracting Part 3's Physlib tilt (import real via `QuantumInfo.ForMathlib.Matrix` at
+  PartialTrace.lean:4; manifest mathlib stale db584cd6 — G5 staging cost stands);
+  hexagonmath ORCID caveat recorded; VERDICTS C2 completeness glanced (rows 70–75 intact,
+  73 [incoming], standing notes present). Cumulative plan tally: 0 WRONG.
