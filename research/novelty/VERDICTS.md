@@ -114,7 +114,8 @@ than 45% of the zeros are distinct** (and interpret their optimization as interp
 the pair-correlation bound and the Cohn–Elkies bound). So: ζ_K *distinct-zero proportions* DO
 exist in the literature — weak (45% vs our 5/6-level) and distinct-only. **Nobody states ζ_K
 (or Hecke) simple/on-line proportions anywhere** (AF cluster: ζ/Dirichlet only; Zhang 2310.07360:
-conditional counts; 1908.04876: unconditional 45% distinct). Verdict: 42's landing theorem =
+conditional counts; 1908.04876: 45% distinct — **GRH-conditional, fixed quadratic K, T→∞**
+[erratum 2026-11-13, H applying A5's P2-3 audit: v1 here said "unconditional"]). Verdict: 42's landing theorem =
 **NEW-CLAIM-SUPPORTED** (quantitative jump 45% → 5/6-level and on-line/simple statements new);
 mandatory dossier amendments: cite 1908.04876 (nearest miss, and the SDP-window-optimization
 precedent), and note the assembly route's constants ride on the ζ-side donor (per
@@ -161,8 +162,42 @@ literal rank concentration) in the unique-gapped 2D class.
 
 | Dossier | Novelty verdict (source) | N-adjust vs lane proposal | Risk tier | Re-scope (one line) |
 |---|---|---|---|---|
-| **70** unconditional ζ_K zero-confinement | LANDED; honesty header says GLUE/ECOSYSTEM — "first unconditional ζ_K zero-confinement strip constants in Lean" holds today ONLY because Liu-2's Lean is unfinished; its two-sided strip widens 1/32→1−B♭ the day it lands (r4 §5.2–5.3) | TBD (A9) — artifact value, not discovery N | **HOT-cluster / WARM-artifact** (QR-D zone HOT; six-paper constant race incl. our own donor + two external Lean actors) | State strip constants parametrically; must-cite: CT (DZDF), Liu-1 + liubaiying101 repo, Liu-2 B♭, [Ope26a/b], XS26, Trudgian–ZA |
-| **71** `[incoming-dossier]` QR-D discharge/donor-swap (hQRH 7/8↔31/32 weakened-binder pilots) | r4 §3 + §5.2: hQRH is TRUE informally (Liu-1 Cor 14.1); formal discharge = external Liu repo (portability unprobed) or weakened 31/32 via DZDF | TBD | **HOT-zone / formalization-first** | Never claim a zero-free improvement; value = binder hygiene + first unconditional Lean instantiations; add liubaiying101 probe to the plan |
-| **72** `[incoming-dossier]` FF zone (function-field simple/distinct proportions) | r4 §1: proportion statements unclaimed (FF-2/5/6); Suzuki 2610.41115 = method-neighbor 3 weeks old; per-curve uniform shape FALSE (supersingular trap [A9 verify]); on-line component free (Weil RH) | TBD | **WARM** | Family-indexed or trace-bounded multiplicity statements only; nearest misses Faifman–Rudnick 0803.3534, Rudnick 0811.3649, Bui–Florea 1605.07092, Katz–Sarnak, DLRT 1908.04876, Suzuki 2610.41115 |
-| **73** `[incoming-dossier]` AL zone (area-law/inertia cross-bridge) | r4 §2: naive "rank concentration from spectral gap" REFUTED (Kuwahara 2610.15199, S₀≥S_α ⟹ rank ≥ e^Ω(vol)); effective-rank (vN) + matrix-inequality cross-bridge shapes unclaimed, un-formalized everywhere (AL-4: 0); "first formal area law" dead (AreaLaw2D is our donor) | TBD | **WARM (with a hard NO-GO on the literal rank statement)** | Effective-rank/AGSP/ρ_A cross-bridge framings, or certified-negative dossier (à la 50); Physlib-on-our-pin feasibility gate |
-| **74** `[incoming-dossier]` reserve (second FF or AL item, or QR-D consequence) | TBD on A2/A4 zoning | TBD | **WARM (default)** | Inherits the zone tier of whatever it instantiates; hexagonmath sweep mandatory if QR-D |
+| **70** unconditional ζ_K zero-confinement (`70-unconditional-zetaK-zero-confinement.md`, FINAL) | DOSSIER-CHECKED (r4 §3, §5.2–5.3): GLUE/ECOSYSTEM per own header; per-class split holds — **ζ_K-strip (all K) is OURS** (only in-corpus formal ζ_K zero-location statement; Liu-2's uniform B♭ is informal, Lean in progress), **ζ/Dirichlet-strip at 7/8-or-better is CONCURRENT** (openai tree proves 7/8 ζ/Dirichlet NOW — `OAI/NumberTheory/DirichletL/Nonvanishing.lean:19/:29`, liu1-as-donor §4; Liu-1 repo formalizes 34999/40000); the strip widens 1/32→1−B♭ the day Liu-2's Lean lands | artifact-grade (no discovery N) | **HOT-cluster / WARM-artifact** | Constants PARAMETRIC in θ (dossier already re-scoped); must-cite: CT (DZDF), Liu-1 + liubaiying101 (34999/40000), Liu-2 B♭, [Ope26a/b], XS26, Trudgian–ZA 2610.16010, Lee 2002.05456, Das–Gaba–Lee–Savalia–Wong 2506.19319 |
+| **71** function-field splane-dictionary (`71-function-field-splane-dictionary.md`, FINAL; RENAMED from simple-zero-proportions) | DOSSIER-CHECKED (r4 §1 + PART-2 P2-1/2/5): (P) s-plane FF zeta + exact-pole dictionary = formal-first, classical-informal (Weil 1948; r4 §6.1); (C)/(W) proportion/density statements unclaimed (FF-2/5/6); hexagonmath FF-clean (only Boyang Hu Langlands trilogy — different layer); falsity-trap citation ANSWERED at mechanism level (maximal curves: all eigenvalues −q, zero of multiplicity 2g; Hermitian family; r4 §6.3 — chapter-number pin pending); Suzuki 2610.41115 = method-neighbor clock | primary (P): formalization-first (dictionary value); FF-EZ2-family: N as proposed (DISCOVERY-grade [HYPOTHESIS], dossier-flagged) | **WARM** (zone FF; month-scale Suzuki clock; Stacks-wall consumption risk already binder-designed) | Keep family-quantified/exclusion-based proportion shapes ONLY; nearest misses Suzuki 2610.41115, Faifman–Rudnick 0803.3534, Rudnick 0811.3649, Bui–Florea 1605.07092, Katz–Sarnak, DLRT 1908.04876 (GRH-conditional, fixed quadratic K — P2-3), Boyang Hu (hexagonmath, different layer) |
+| **72** area-law-inertial-defect (`72-area-law-inertial-defect.md`, FINAL) | DOSSIER-CHECKED (r4 §2 + PART-2 P2-4): structure correctly bakes in the Kuwahara 2610.15199 no-go (literal rank concentration FALSE); P1 gap-to-inertia dictionary = formal-new, stated nowhere (AL-1/3/4 clean); P2 purity-route (α=2, linear-in-boundary-budget) NOT contradicted by literature (P2-4: no α≥1 2D Rényi area law found; residual re-check at pilot); AL-EZ3 milestone (AreaLaw2D ↔ openai `UniformAreaLaw` hypothesis) = GLUE with real consumer; C-neg certified-negative = honest | P1: formal-new (moderate); P2: N as proposed ([HYPOTHESIS], flagged); C-neg: precedent-backed (50/30 lineage) | **WARM (hard NO-GO on literal rank statements — already honored)** | Must-cite: Kuwahara 2610.15199 (both the refutation and the surviving-vN framing), Anshu–Arad–Gosset 2103.02492 + 1905.11337, Abrahamsen et al 2203.16012, OAI265 + PEPS companion, AAH; Physlib-on-pin gate before any pilot |
+| **73** function-field-hecke-tate `[incoming]` (FF-EZ3, pre-registered 26 ln) | r4 §6.2: dictionary KNOWN-INFORMAL (Tate 1950 / Weil BNT ch. VII / Rosen GTM 210) — formal absence is the content; queries re-run on landing (incl. Rosen chapter numbers) | TBD | **WARM (formalization-first)** | Zone FF tier; hexagonmath + arXiv sweeps mandatory on landing |
+| **74** surprisal-moment-hierarchy-ceilings `[incoming]` (AL-EZ2, A4 writing) | zone AL tier pre-fill: naive rank statement NO-GO (Kuwahara); surprisal/moment-hierarchy shapes un-swept — PART-2 queries on landing | TBD | **WARM (default)** | Inherit r4 §2 nearest-miss set; α>1 Rényi status question open (P2-4) — check collision against Kuwahara's program |
+| **75** abelian-assembly-zetaL-proportions `[incoming]` (A3-H1/42-for-abelian, A9 writing) | **P2-3 FLIP RESOLVED: DLRT 1908.04876 is SCOPED (fixed quadratic K, GRH-conditional, T→∞) — NOT uniform ⇒ primary is NOT math-known ⇒ N stays 4**; abelian-extension assembly (DZDF `dedekindAbelianQuotient` + V2 donors) has no uniform-over-K competitor anywhere found | **4 (per flip rule)** | **WARM** (same cluster clock as 20/42; GRH-conditionality of DLRT makes our certificate-conditionals closer in kind — note in dossier) | Must-cite DLRT with the corrected qualifiers (fixed K, GRH, asymptotic); the §5.2(c) erratum (below) propagates here |
+
+**Reconciliation note (2026-11-13):** this table's rows 71–74 were zone-guessed before
+the dossier files existed (previous skeleton: 71=QR-D discharge, 72=FF proportions,
+73=AL, 74=reserve); they are re-mapped to the coordinator's final file↔zone mapping
+(71=FF splane, 72=AL, 73=FF-EZ3, 74=AL-EZ2, 75=abelian assembly). The dropped
+guessed row (QR-D discharge/donor-swap) is NOT a lost item: it lives in row 70's
+per-class split + the standing notes below; the hQRH-discharge play is now upgraded
+by liu1-as-donor §4 (openai's own tree proves the 7/8 ζ statement — in-corpus
+discharge, G7 target 1).
+
+**Standing notes (Cycle-2, transcribed 2026-11-13):**
+
+1. **Dossier 22 / PNT+ upstream close-out (A1's finding, relayed):** upstream
+   `AlexKontorovich/PrimeNumberTheoremAnd` @ `938912bb` (2026-11-12) PROVES StrongPNT
+   (ψ = x + O(x·exp(−c√log x))) triad-clean (`StrongPNT.lean:2900`) ⇒ **22's Tier-2
+   T2b is CLOSED-BY-UPSTREAM — formalization-only to recover on our pin; T2a
+   (quasi-RH-conditional x^{7/8+ε}) survives as 22's only open content; row-22 claim
+   narrows to T2a; STRATEGICALLY-DEAD/stop-at-M4 posture unchanged** (per
+   A1-3 pntplus-glue-as-donor.md §d). Also: fork-vs-upstream Mathlib-subtree drift =
+   39/75 files — any future upstream consumption is a real port, not a rebase.
+2. **ZetaZeros V1 RvM is a DEF, not a theorem** (A1's triplication finding): novelty
+   greps hitting V1's `RiemannVonMangoldt` must NOT read it as a proved result;
+   explicit-constants RvM is contested territory (fork binder-only; upstream Kadiri
+   in progress). Caveat applies to every `decl-index-v2.tsv` hit under
+   `axiommath-zetazeros` (its 276 rows are challenge/scaffold-heavy).
+3. **DLRT erratum (this lane, P2-3):** main-run VERDICTS §5.2(c) recorded DLRT
+   1908.04876 as "unconditional 45% distinct" — the paper's Thm 1.1/Cor 1.3(i) are
+   **GRH-conditional, fixed quadratic K, T→∞ asymptotic**. Propagates to
+   CLAIMS-REGISTER row 42 wording ("improving DLRT-2019's 45% distinct" → add
+   "GRH-conditional") and to rows 42/75 nearest-miss text. H to apply.
+4. **Liu-2 clock (standing context for 70):** B♭ = 0.8748866 uniform over all number
+   fields (2610.26835 v2, 2026-10-29), Lean "in progress" on [Liu26b]+[CTLean];
+   every QR-D artifact claim should be dated against this landing.

@@ -55,7 +55,11 @@ Relative to `/home/doz/zcode-workdir/`:
   to every Dirichlet L **including ζ** (principal character); exact-arithmetic
   certificates. B_new < 7/8, so its zero-free half-plane strictly contains the 7/8
   region — it discharges pilot 50's `hQRH`/`hQRHχ` binders as written (no weakening,
-  unlike DZDF's 31/32). 220 .lean files; textually sorry-free and native_decide-free
+  unlike DZDF's 31/32). **Constant caution (A5 audit, 2026-11-13):** README/paper quote
+  0.874957069799, but the PROVED Lean constant is the exact rational 34999/40000 =
+  0.874975 (`beta_star_le`, `RHZeroFreeExtension.lean:17`) — slightly weaker, still < 7/8;
+  treat the repo as statement-level only until probed (A7/G7). 220 .lean files; textually
+  sorry-free and native_decide-free
   (grep-level only — NOT yet built on our pin; probe owned by A7/G7). Second external
   formal donor of the QR-D cluster, after `axiommath/DedekindZetaZeroFree`. Read-only.
 

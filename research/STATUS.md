@@ -113,12 +113,12 @@ board.** Same ground rules, same Phase 1–4 definitions.
 | A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | survey landed 2026-11-13; QA P1 DONE (10 OK / 2 minor, 0 WRONG — Part 2; fixes routed to A1); PNT+ deep-dive addendum `survey/axiommath-pntplus.md` landed (commit pending batch) |
 | A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 + dictionary-zone update landed 2026-11-13 (QA pass P2 pending) |
 | A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | donor map + Liu-1 erratum landed; 42-M4/50-M2 execution specs landed; QA P4 DONE (8 OK / 2 minor pins — Part 1); 42-M4 GO + 50 GATED verdicts relayed; M4a.lean on disk (mid-flight, uncommitted) |
-| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge v1 + zone update + 72-prework + quantum-info substrate map landed 2026-11-13 (QA P3 pending; Physlib-import premise flag from QA P5c routed) |
-| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 built + zip tracked; round-4 PART 1+2 landed (QR-D precision pass — Liu-1/CT split, binding) + VERDICTS Cycle-2 addendum; dossier-level PART-2 queries vs 70–72 landing next |
+| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge + 72-prework + substrate map + **dossier 74 (AL-EZ2)** landed 2026-11-13 (QA P3 pending; Physlib-import premise flag from QA P5c routed) |
+| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 + zip tracked; round-4 PART 1+2, VERDICTS Cycle-2 addendum, RELATED-WORK update, **liu1-as-donor audit** (constant mismatch found: 34999/40000 vs README) landed; DLRT §5.2(c) erratum applied by H per A5 P2-3 |
 | A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
 | A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
 | A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | close-outs DONE 2026-11-13: 52 M1 VERIFIED-GREEN (`52-note.md`), 20 runs recorded GREEN (`20-note.md`) |
-| A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | 70/71/72 FINAL, 73 pre-registered (Hecke–Tate), 75 in flight; dossier production parallelized with A4 (74 = surprisal-moment-hierarchy-ceilings); QA P5a–c DONE (22 OK / 2 minor, 0 WRONG — Part 3; fixes routed) |
+| A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | 70/71/72/75 FINAL (75 = 70-Part-B split-out), 73 pre-registered, 74 written by A4 (parallelized); REPORT-INPUTS-C2 pack landed (A9-6, ownership via H); QA P5a–c DONE (22 OK / 2 minor, 0 WRONG — Part 3; fixes routed); P5d/e queued (73 unfilled-exempt, 74/75 next) |
 | H | helper | `STATUS.md` + `INDEX.md` + `research/qa/*` + `TEMPLATE.md` maintenance + all repo commits | RUNNING | Same charter as main run; runs Cycle-2 commit log below |
 
 File ownership, carried over verbatim from the main run: every file under `research/` has
@@ -146,7 +146,21 @@ A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict su
 zero-free Re s > 0.8749570 for every Dirichlet L incl. ζ; B_new < 7/8 ⇒ its half-plane
 strictly contains the 7/8 region, so pilot 50's `hQRH` class (ζ/Dirichlet) is formally
 dischargeable at full strength (external donor #2 of the QR-D cluster, after DZDF).
-Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated.
+**Constant caution (A5 audit):** README quotes 0.874957069799 but the PROVED Lean constant
+is 34999/40000 = 0.874975 (`beta_star_le`, RHZeroFreeExtension.lean:17) — both < 7/8, so
+the discharge direction is unaffected; treat as **statement-level only** until A7/G7 probes.
+Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated (with caution).
+
+**Untracked-by-decision:** `AGENT_INSTRUCTION_1.md` (repo root) is a user-placed instruction
+to the orchestrator (concurrency audit, being acted on) — LEAVE in place, UNTRACKED, never
+commit/delete (orchestrator disposition 2026-11-13).
+
+**Concurrency probe (standing, per user instruction):** at each watch poll H also counts
+live agent processes — command: `ps -eo comm --no-headers | grep -cx zcode-cli` (live zcode
+CLI agent sessions; includes the orchestrator's own session — the desktop app's
+Electron/zygote helpers are excluded by the exact-comm match). First measurement:
+**8** at 2026-11-13 22:1x (= 7 lane sessions + orchestrator, consistent with the user's
+observed max-7 concurrent). Counts accompany every future batch report.
 
 **External donor-candidate register** (decision-traceability for sibling growth):
 - Liu-1 (`liubaiying101/Slightly-improved-…`): **REGISTERED** (clone + AGENTS.md, commit
@@ -199,8 +213,15 @@ Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated.
   donor-map Liu-1 erratum + 42-M4/50-M2 specs` (9d3949f); `A5 round-4 part 2 + VERDICTS
   Cycle-2 addendum` (8a109fd); `A1 PNT+-glue donor map (upstream DEFER-WATCHLIST)`
   (124cdf9).
-- 2026-11-13 — `Cycle 2: H — dossier-wave board/INDEX + QA P5a-c` (this commit): STATUS
+- 2026-11-13 — `Cycle 2: H — dossier-wave board/INDEX + QA P5a-c`: STATUS
   donor-candidate register (upstream-PNT+ DEFER-WATCHLIST, triggers T1–T3 verbatim),
   pilot-50 Liu-1 note, A-lane landing notes, A9 wave row; INDEX rows for the wave (70–73
   landed, 74/75 [expected], pntplus ×2, substrate map, pilot specs/prework); QA Part 3
   (P5a–c: 70 7/1, 71 8/0, 72 7/1 — 0 WRONG; Physlib-premise flag routed to A4/A7-G5).
+  (66406e4)
+- 2026-11-13 — wave-2 series: `A4 dossier 74 (AL-EZ2 moment-hierarchy ceilings)`;
+  `A9 dossier 75 (70-Part-B split-out) + REPORT-INPUTS-C2 pack`; `A1 vendored-CFT survey`;
+  `A5 liu1-as-donor audit + round-4/RELATED-WORK updates`; `H errata — DLRT qualifier
+  (A5 P2-3), Liu-1 constant caution, board notes` (AGENT_INSTRUCTION_1 disposition,
+  concurrency-probe documentation; VERDICTS §5.2(c) + CLAIMS-REGISTER row 42 fixed).
+  [this series]
