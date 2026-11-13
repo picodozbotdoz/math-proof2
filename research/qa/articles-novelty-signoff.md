@@ -87,3 +87,33 @@ nearest-neighbor update for collateral article 52. The per-class honesty blocks
 (50-M2 "no first claimed" for ζ/Dirichlet; 42-M4's certificate-free first for ζ_K
 proportions; 71/73 formalization-first labels; 10's conjunction claim) match
 VERDICTS/CLAIMS-REGISTER row-for-row.
+
+## Delta re-check pending (H-staged target list, 2026-11-14 — A5 owns the re-check verdicts)
+
+**Basis:** sign-off landed at commit `fbc02d5` (2026-11-14 02:38:32 +0800); delta =
+working-tree changes vs `HEAD` at staging time (zero article commits since `fbc02d5`;
+A9's edits uncommitted). Re-grep at re-check time — A9 may add more before then
+(e.g. further 42M4 touches).
+
+| File | Δ | Content (H's read; A5 verifies against its fix-relays) |
+|---|---|---|
+| `articles/73-*` | 7 ln | Fix-relay 1 applied: C2 third column → "formal class frontier 0.8733458561 (tracker; from Liu-1's B_new = 0.8749570)" |
+| `articles/50M2-*` | 10 ln | Fix-relay 2 applied: "tracker AUDITED 2026-11-14 — Dirichlet-only at every layer, zero ζ_K statements, the split [survives]" + Dirichlet-class-only qualifier |
+| `articles/52-*` | 12 ln | Collateral note applied: "Nearest-neighbor addendum (2026-11-14, dated — per A5's Cycle-2 novelty sign-off)" — physlib ExchangeSign nearest-miss + dated "None states…" sentence |
+| `articles/42M4-*` | 84 ln | **Larger than the owed one-liner**: M4-note integration (cross-ref `pilots/42/M4-note.md`), primary-route text refresh, m4b full-coverage axcheck folded (68 thms/98 prints), AND the 1,570/1,571 LoC realignment — A5 to verify the final LoC phrasing uses the canonical 1,571 with the run-header figure labeled |
+| `articles/README.md` | 2 ln | 42-M4 row refresh |
+
+All five match the fix-relays plus the already-relayed 42M4 LoC correction; no other
+article files touched. A5's re-check = confirm these hunks (one pass), then this section
+flips to "delta re-check CLEAN (date, A5)".
+
+**Update (H, same day):** the five deltas LANDED in A9's consolidated commit `aff910c`
+(cross-check vs A9's re-touched-file list: identical 5 article files + 3 non-article
+files outside sign-off scope — TRIAGE-C2-ROWS, candidates/42, REPORT-INPUTS-C2 — no
+gap). H QA of the landed hunks: 73 ×2 sites carry 0.8733458561; 50-M2 (b) applied as
+"unconditionally **and uniformly over number fields** (the tracker's 0.8733458561 is
+unconditional for the Dirichlet class…; uniform-over-K informal record remains Liu-2's
+B♭)"; 52's addendum dates via "post-dates this article's 2026-11-09 publication" +
+theorems-stand status. **One bonus target for A5's re-check: `articles/75:114` still
+cites "1,570/68" — pre-correction figure, NOT provenance-labeled (the only non-uniform
+LoC site outside 42M4's two intentional provenance strings); one-line fix owed to A9.**

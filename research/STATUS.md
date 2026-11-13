@@ -412,6 +412,18 @@ standing authorization with a commit.
   resolutions. Board row 42 → formal-report-received. Remaining pilot verdicts:
   10-L2 (A6), 11-M2 (A8), 72-M1 slot 3 (A8), 75 (A4 executing), G7b/G5a/G6a (A7);
   71-P2 A2 report pending (incl. 73-C).
+- 2026-11-14 — batch-10: `Cycle 2: H — 72-C-neg cells filled` (138649f) + `H — A5
+  delta-re-check target list staged` (articles-novelty-signoff tail; basis = fbc02d5
+  02:38:32 +0800 + working-tree-vs-HEAD, re-grep flagged) + `Cycle 2: A9 — consolidated`
+  (aff910c: PROPOSED TRIAGE §decision block 236 ln w/ splice instruction; the three
+  sign-off fix-relays applied — H QA: 73 ×2 sites ✓, 50-M2 number-fields qualifier ✓
+  (phrased "uniformly over number fields"), 52 dated via post-dates-2026-11-09 ✓;
+  decision-block conditionals cover every OPEN slot family — 72-M1 :131, 73-C :183,
+  10-L2 :200, 11-M2 :201, carried-list :222–226 incl. [G7b]; A3 fold 1,571-canonical
+  with two intentional 1,570 provenance strings). **One miss flagged: articles/75:114
+  cites 1,570/68 unlabeled — one-line fix owed to A9** (recorded in the sign-off's
+  delta section as A5's bonus re-check target). Cross-check A9 re-touched list vs H's
+  staged 5: identical, no gap.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
