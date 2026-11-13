@@ -49,16 +49,16 @@ pending files get added on landing.
 |---|---|---|
 | AxPilot72_Cneg | `pilots/72/C-neg.lean` | **FINAL — A4 report OFFICIAL** (run8-final GREEN rc=0/0/0, 369 LoC/11 thms; axcheck 11/11 triad-only; Step A OK 0 tokens; deviations documented in 72-prework execution note) |
 | AxPilot42_M4a | `pilots/42/M4a.lean` | **FINAL** (m4-run2 + m4-axcheck-run1) |
-| AxPilot42_M4b | `pilots/42/M4b.lean` | **FINAL — PRIMARY route (direct ZetaZerosV2 import), m4b2-run2 GREEN**; fallback preserved at `pilots/42/logs/M4b-fallback-GREEN.lean`. **Step-B CAVEAT: M4b imports the BUILT donor — the plain mathlib-only `axcheck_probe` cannot elaborate it; re-confirm via the `run_m4b2.sh` donor-tree pattern (V2 tarball + in-tree consumer elaboration), citing m4b2-run2's axiom report** |
+| AxPilot42_M4b | `pilots/42/M4b.lean` | **FINAL — PRIMARY route (direct ZetaZerosV2 import), m4b2-run2 GREEN**; fallback preserved at `pilots/42/logs/M4b-fallback-GREEN.lean`. **Step-B caveat RESOLVED — donor-tree pattern DRY-RUN PROVEN 2026-11-14** (`feasibility/probe/logs/m4b-donor-axcheck-dryrun.log`: build OK on the exact pin; axcheck copy OK, 78 axiom-lines, 0 sorryAx, all ⊆ triad incl. the built-donor theorems consumed as imports; re-run `feasibility/probe/run_m4b_donor_axcheck.sh` at sweep). Infra note: leanprover-community/elan release URL DEAD (404 on cold build) — live mirror leanprover/elan, used by the probe |
 | AxPilot10_L1 | `pilots/10/L1.lean` | **FINAL** (l1-run4-final) |
 | AxPilot71_P1 | `pilots/71/P1.lean` | **FINAL** (run4) — AxPilot71_P0 EXCLUDED (probe-convention, Step A only) |
 | AxPilot71_P2 | `pilots/71/P2.lean` | **FINAL-GREEN p2-run6** (2026-11-14; 11 thms all triad; target ADDED 2026-11-14) |
 | AxPilot11_P11T3 | `pilots/11/P11T3.lean` | **GREEN ×2 + axcheck-clean** (m2-run1/2; A1's fix-verify run: OK 64 axiom-lines 0 sorryAx) — lane final-vs-scratch confirm owed |
 | AxP11T1 / AxP11T2 | `pilots/11/P11T{1,2}.lean` | FINAL (main-run records; re-verified OK in the 2026-11-14 fix-verify run) |
-| AxPilot10_L2 | `pilots/10/L2.lean` | **PENDING** (A6 mid-flight, unrun) — target in place, stages whatever is on disk at sweep |
-| AxPilot11_RedTm2 | `pilots/11/RedTm2.lean` | **PENDING** (A8 mid-flight; import rewrite to AxPilot11_P11T3 VERIFIED 2026-11-14) |
+| AxPilot10_L2 | `pilots/10/L2.lean` | **PENDING** (A6: first-ever run landed l2-run1 FAIL 12 err, all Part D, fixes applied — iterating; target stages whatever is final at sweep) |
+| AxPilot11_RedTm2 | `pilots/11/RedTm2.lean` | **FINAL-GREEN m2-run8** (2026-11-14; all six pilot-11 files OK; 421 LoC; Step A 0 tokens; import rewrite to AxPilot11_P11T3 VERIFIED) |
 | AxPilot71_P2 | `pilots/71/P2.lean` | **PENDING** (A2, err=1 at p2-run5) — ADD TARGET ON LANDING |
-| AxPilot73_C* | `pilots/73/` C-series | **Q0 CONFIRMED 2026-11-14** (`run1-q0.log`: `P0.lean: OK (probe)` — Tier-C skeleton elaborates, zero gates; **`73/P0.lean` = probe-convention, Step A only, EXCLUDED from Step B like 71/P0; its 7 header-expected stubs move the tree baseline 36→43 — re-baseline §1 at sweep per §6**); C-series Q1–Q3 files PENDING — ADD ON LANDING |
+| AxPilot73_C | `pilots/73/C.lean` | **FINAL-GREEN run6-c-green** (2026-11-14; Q1–Q3 + 71-glue, 7 thms all triad, 0 sorry; 236 LoC; Step A 0 tokens; target ADDED; Q4 NOT attempted per gate) — `73/P0.lean` = probe-convention, Step A only, EXCLUDED (7 stubs in the 43-token baseline) |
 | AxPilot75_* | `pilots/75/` (P-a + C1 per `pilots/75-prework.md`) | **PENDING-EXECUTING** (orchestrator DECISION 2026-11-14: the FINAL Cycle-2 pilot, lane A4; final-or-declared-drop rule) — ADD ON LANDING |
 | AxPilot72_M1 | `pilots/72/M1.lean` | **PENDING** (A8 slot 3) — ADD ON LANDING |
 | (42-upgrade product) | tbd | if separate from `M4b.lean` — ADD ON LANDING |
