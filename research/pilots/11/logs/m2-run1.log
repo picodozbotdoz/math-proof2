@@ -1,0 +1,49 @@
+# m2-run1 — pilot 11 M2 first Modal run (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean 391 LoC (pre-run state; after static
+#   completion of the four pinpoint fixes + hsomeCons/composed_sum_le/hTm repairs).
+# Command: bash research/pilots/11/run_pilot11.sh   (MODAL_USER=doz default,
+#   /home/doz/dozenv/bin/modal, app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-FBkawqCUinmRKrhsyp4TlY
+# Verdict: P11T1/P11T2/P11T3/RedCompA/RedCompB OK; RedTm2 FAIL (4 errors).
+#   P11T3 GREEN ON FIRST COMPILE (eth machine-model tranche, 88 thms).
+#   RedTm2 errors: :189:34 stuck Enc (hPoly.id' beta free in hp); :294:70 stuck
+#   Enc (id' in htail); :264:16 sum_sf rw-residue (headD not closed by auto-rfl);
+#   :366:6 omega (cons goal RHS atom (q::l).length*(Tn+1) distinct from
+#   (l.length+1)*(Tn+1) — List.length_cons missing). sorryAx lines are error
+#   propagation only (0 sorry tokens in file).
+# NOTE: captured output is the salient tail (stdout truncated in capture); the
+#   four errors + summary below are complete.
+[p11] AXIOMS 'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, sorryAx]
+[p11] AXIOMS 'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+RedTm2.lean:189:34: error: typeclass instance problem is stuck
+  Enc ?m.95
+RedTm2.lean:264:16: error: unsolved goals
+case cons
+F : List Bool → ℕ
+q : List Bool
+t : List (List Bool)
+ih : (List.map (fun s => F (s.headD [])) (sf t)).sum = (List.map F t).sum
+⊢ F ((q :: t).headD []) + (List.map F t).sum = F q + (List.map F t).sum
+RedTm2.lean:294:70: error: typeclass instance problem is stuck
+  Enc ?m.175
+RedTm2.lean:366:6: error: omega could not prove the goal:
+  a := ↑Tn
+  b := ↑(t q)
+  c := ↑l.length * ↑(Tn + 1)
+  d := ↑(List.map (fun q => t q + 1) l).sum
+  e := ↑(l.length + 1) * ↑(Tn + 1)
+  f := ↑(q :: l).length * ↑(Tn + 1)
+'CrossMath.Pilot11.M2.Tm2Sol.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_choice' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_charging' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, sorryAx]
+'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (4 errors)

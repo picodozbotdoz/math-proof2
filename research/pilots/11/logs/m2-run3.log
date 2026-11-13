@@ -1,0 +1,23 @@
+# m2-run3 — pilot 11 M2 Modal run 3 (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean ~404 LoC (after run-2 fixes: refine
+#   constructor order ×2, pid1/2/3 identity plumbing haves).
+# Command: bash research/pilots/11/run_pilot11.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-hMHhGFe2Ihf8msSNEkcxzl
+# Verdict: RedTm2 FAIL (3 errors):
+#   :201:15 ite_runs_true — implicit else-machine N uninferrable from arguments
+#     (conclusion-only occurrence); fix (N := M₂), mirror (M := M₁) for ite_runs_false;
+#   :300:55 stuck Enc — pid1: annotation pins only α; id's β is statement-unused,
+#     so β must be a named arg — annotation-only have insufficient.
+RedTm2.lean:201:15: error: don't know how to synthesize implicit argument `N`
+  @ite_runs_true (List Bool) Bool (fun x_1 => decide (x.length < n₀)) M₁ ?m.225 x …
+RedTm2.lean:201:9: error: failed to infer `have` declaration type
+RedTm2.lean:300:55: error: typeclass instance problem is stuck Enc ?m.183
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (3 errors)

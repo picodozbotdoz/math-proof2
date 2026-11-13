@@ -1,0 +1,24 @@
+# m2-run6 — pilot 11 M2 Modal run 6 (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean ~410 LoC (after run-5 fixes:
+#   branch_runs_inl/inr with (M₂ := M₂)/(M₁ := M₁); foldWhile_runs (g := …)
+#   (c₀ := c₀) named).
+# Command: bash research/pilots/11/run_pilot11.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-trHgtPwtC1qFi1tQwwPtBl
+# Verdict: RedTm2 FAIL (2 errors) — tm2_charging + tm2_realized_composed +
+#   composed_sum_le + Tm2Sol.mono now compile AND are triad-clean; only tm2_choice
+#   remains: the (by simp [iteSel, hx]) selector-goal elaborates before r₁ x pins
+#   {a}/{x} → residue "?m = x"; fix = (a := x) (x := x) named.
+# Axcheck (partial, this run): Tm2Sol.mono [propext, Classical.choice, Quot.sound];
+#   tm2_charging [propext, Classical.choice, Quot.sound]; composed_sum_le
+#   [propext, Quot.sound]; tm2_realized_composed [propext, Classical.choice, Quot.sound].
+RedTm2.lean:202:18: error: unsolved goals ⊢ ?m.228 = x  (selector-proof arg order)
+RedTm2.lean:219:18: error: unsolved goals ⊢ ?m.249 = x
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (2 errors)

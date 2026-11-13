@@ -1,0 +1,28 @@
+# m2-axcheck-final — pilot 11 M2 full-coverage axcheck (make_axcheck pattern)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: research/pilots/11/P11T3.lean (1100 LoC) + RedTm2.lean (421 LoC), staged
+#   as AxPilot11_P11T3 / AxPilot11_RedTm2 (verbatim copies + appended
+#   `#print axioms` for every top-level theorem; repo files untouched).
+# Command: bash research/feasibility/probe/run_axcheck.sh AxPilot11_P11T3 AxPilot11_RedTm2
+#   (MODAL_USER=doz, /home/doz/dozenv/bin/modal, app crossmath-probe image pattern,
+#   mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-b91L5XnlQI1Y71nPRVBL9j
+# Verdict: **BOTH OK; 76 axiom-lines total; 0 sorryAx; every line triad-only.**
+#   Distribution (dedup): [propext] ×15, [propext, Classical.choice, Quot.sound] ×22,
+#   [propext, Quot.sound] ×17 — all subsets of the standard triad.
+#   P11T3: 64 axiom-lines (88-theorem transcript, namespace-aware full names).
+#   RedTm2: 12 axiom-lines (5 audited theorems + orbit_sf [propext],
+#   map_headD_sf [no axioms], sum_sf [propext], + repeats of in-file prints).
+[ax] AxPilot11_P11T3.lean: OK; axiom-lines=64, sorryAx-lines=0
+[ax] AxPilot11_RedTm2.lean: OK; axiom-lines=12, sorryAx-lines=0
+'CrossMath.Pilot11.M2.Tm2Sol.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_choice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_charging' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.orbit_sf' depends on axioms: [propext]
+'CrossMath.Pilot11.M2.map_headD_sf' does not depend on any axioms
+'CrossMath.Pilot11.M2.sum_sf' depends on axioms: [propext]
+[ax] SUMMARY
+[ax]   AxPilot11_P11T3.lean: OK | 64 axiom-lines, 0 with sorryAx
+[ax]   AxPilot11_RedTm2.lean: OK | 12 axiom-lines, 0 with sorryAx

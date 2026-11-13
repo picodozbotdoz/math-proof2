@@ -1,0 +1,26 @@
+# m2-run5 — pilot 11 M2 Modal run 5 (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean ~410 LoC (after run-4 fixes: hS via
+#   calc+pow-form pow_le_pow_right; show+split replacing deprecated if_pos rw;
+#   listCases (f := …) named).
+# Command: bash research/pilots/11/run_pilot11.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-f0OBuLqfKf13lqYIrj1jAj
+# Verdict: RedTm2 FAIL (3 errors, 2 shapes):
+#   :216/:234 — hb expects (branch (iteSel p) M₁ M₂).Runs but hr from
+#     ite_runs_true/false concludes (ite p M₁ M₂).Runs; the ite-def unfold does
+#     not fire at application transparency → switch to branch_runs_inl/inr
+#     (the proper "branch-form machine in choice" fix);
+#   :354 — foldWhile_runs implicits g/c₀ unassigned at hxc check (HO pattern
+#     ?g c x (v x) vs concrete lambda) → name (g := …) (c₀ := c₀).
+RedTm2.lean:216:32: error: Application type mismatch: hr … (Stepped.ite … M₁ M₂).Runs …
+  expected (branch (iteSel …) M₁ M₂).Runs … in hb x (T₁ x) ?m hr
+RedTm2.lean:234:32: error: (same, false branch)
+RedTm2.lean:354:62: error: hxc mismatch — ?m.694 (g), ?m.695 (c₀) unresolved
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (4 errors)

@@ -1,0 +1,28 @@
+# m1-run3 — pilot 72-M1 Tier-C Modal run 3
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P72M1T1.lean (after run-2 fixes: classical in re_sum, hand ptrace_eq_sum_conj
+#   collapse, probe window widened) + P72M1T2.lean.
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz,
+#   app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-Bwr0Sysx1W8aPB29OqQksP
+# Verdict: T1 FAIL (9 errors, 3 root classes — ptrace_eq_sum_conj + trace_ptrace +
+#   posSemidef_ptrace now GREEN/triad):
+#   ROOT 1 (4 errors): RCLike.toPartialOrder is instance-gated behind
+#     `open scoped ComplexOrder` (scoped[ComplexOrder] attribute) — my ClassicalInfo
+#     section had dropped the donor's opens → every `M.PosSemidef` binder failed with
+#     "failed to synthesize PartialOrder 𝕜". Fix: restore the donor's opens.
+#   ROOT 2: `RCLike.re_add` no longer exists — `RCLike.re` is now a bundled `K →+ ℝ`
+#     hom; the sum exchange is `map_sum RCLike.re`.
+#   ROOT 3 (3 errors): VonNeumann block — donor's `open Matrix` dropped, so the
+#     explicit `IsHermitian.cfc`, `trace_mul_cycle`, `charpoly_reindex` references in
+#     proofs failed (all exist as Matrix.* in v4.36). Fix: restore `open Matrix`.
+P72M1T1.lean:245:74: error: Unknown constant `RCLike.re_add`
+P72M1T1.lean:249:61: error: failed to synthesize PartialOrder 𝕜  (PosSemidef binder)
+P72M1T1.lean:256:57 / :262:52 / :267:48: same PartialOrder 𝕜 (cascade)
+P72M1T1.lean:279:8: Unknown identifier `IsHermitian.cfc`; :279:25 `trace_mul_cycle`
+P72M1T1.lean:300:35: Unknown identifier `charpoly_reindex`
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] SUMMARY
+[p11]   P72M1T1.lean: FAIL (2 errors)
+[p11]   P72M1T2.lean: FAIL (1 errors)

@@ -1,0 +1,18 @@
+# m1-run2 — pilot 72-M1 Tier-C Modal run 2
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P72M1T1.lean (renamed from 72M1T1) + P72M1T2.lean (import fixed).
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz,
+#   app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-iq7gjLF7NaNvfwlE9mo7qZ
+# Verdict: T1 FAIL (4 errors, 2 visible — probe head/tail truncation hid 2), T2 FAIL
+#   (import of failed module). Visible classes:
+#   :240 re_sum induction — Finset.induction needs DecidableEq κ (case inst);
+#   ptrace_eq_sum_conj — donor's one-line simp no longer closes the entry collapse
+#   (goal ∑ z, M (glue x z) (glue y z) = ∑ c, (Sᴴ*M*S) x y survives);
+#   probe output window widened (head 120/tail 60) for run 3.
+P72M1T1.lean:240:80: error: unsolved goals case inst ⊢ DecidableEq κ
+P72M1T1.lean:249:61: error: unsolved goals (hidden by truncation; same decl block)
+P72M1T2.lean:14:0: error: unknown module prefix 'P72M1T1' (T1 failed to produce olean)
+[p11] SUMMARY
+[p11]   P72M1T1.lean: FAIL (4 errors)
+[p11]   P72M1T2.lean: FAIL (1 errors)

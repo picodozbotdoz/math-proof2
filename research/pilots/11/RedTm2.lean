@@ -31,6 +31,14 @@
   Encoding convention: a problem input is a bit string (`List Bool`); the caller's
   query pattern is a LIST of queries (`qs x : List (List Bool)`); the charging machine
   walks the suffixes of `qs x` and hands each suffix's head to the callee.
+
+  Relaunch fixes (2026-11-14, lane A8, completing the four pinpoint fixes): the
+  `hsomeCons` plumbing rebuilt (the prior annotation was ill-typed: the match-fun's
+  pair domain is `suffix-list × query × rest`; `hstart` now via `comp hsfOpt hqs`
+  instead of a second case-split); `composed_sum_le` re-proved (length-form inner
+  induction + `Nat.mul_le_mul_right` — the k-form statement with `hk` cannot close
+  by direct induction); `hTm` applied to the explicit charging machine (avoids
+  instance synthesis on a metavariable machine).
 -/
 import P11T3
 
@@ -178,7 +186,8 @@ theorem tm2_choice (hTm : EthExistsTm) (hPoly : EthPoly) (hComb : EthIsPoly)
     ∃ c : ℕ, Tm2Sol f fun x =>
       c * ((if x.length < n₀ then T₁ x else T₂ x) + 1) * (x.length + 1) ^ c := by
   have hp : PolyT fun x : List Bool => decide (x.length < n₀) :=
-    hPoly.decide_lt (hPoly.length hPoly.id') (hPoly.const n₀)
+    hPoly.decide_lt (hPoly.length (hPoly.id' (α := List Bool) (β := List Bool)))
+      (hPoly.const n₀)
   haveI hM : IsPolyT (Stepped.branch (Stepped.iteSel (fun x => decide (x.length < n₀)))
       M₁ M₂) :=
     hComb.branch (α := List Bool) (α₁ := List Bool) (α₂ := List Bool) (β := Bool)
@@ -186,39 +195,43 @@ theorem tm2_choice (hTm : EthExistsTm) (hPoly : EthPoly) (hComb : EthIsPoly)
   obtain ⟨N, c, -, hb⟩ :=
     hTm (Stepped.branch (Stepped.iteSel (fun x => decide (x.length < n₀))) M₁ M₂)
       (max d₁ d₂ + 1)
-  refine ⟨N, c, fun x => ?_⟩
+  refine ⟨c, N, fun x => ?_⟩
   have hb2 : 2 ≤ x.length + 2 := by omega
   by_cases hx : x.length < n₀
-  · have hr := ite_runs_true (p := fun _ => decide (x.length < n₀))
-      (by simp [hx]) (r₁ x)
+  · have hr := branch_runs_inl (sel := Stepped.iteSel (fun y => decide (y.length < n₀)))
+      (M₂ := M₂) (a := x) (x := x) (by simp [iteSel, hx]) (r₁ x)
     have hS : (x.length + 2) ^ d₁ + 1 ≤ (x.length + 2) ^ (max d₁ d₂ + 1) := by
       have h1 : (1:ℕ) ≤ (x.length + 2) ^ d₁ := Nat.one_le_pow _ _ (by omega)
-      have h2 : (x.length + 2) ^ d₁ * (x.length + 2)
-          ≤ (x.length + 2) ^ (max d₁ d₂ + 1) :=
-        Nat.pow_le_pow_right (by omega) (by omega)
-      rw [Nat.pow_succ]
-      have h3 : (x.length + 2) ^ d₁ + 1
-          ≤ (x.length + 2) ^ d₁ * (x.length + 2) := by
+      have h3 : (x.length + 2) ^ d₁ + 1 ≤ (x.length + 2) ^ d₁ * (x.length + 2) := by
         calc (x.length + 2) ^ d₁ + 1 ≤ (x.length + 2) ^ d₁ * 2 := by omega
           _ ≤ (x.length + 2) ^ d₁ * (x.length + 2) := Nat.mul_le_mul_left _ hb2
-      omega
-    rw [if_pos hx]
-    exact hb x (T₁ x) _ (f x) hr hS
-  · have hr := ite_runs_false (p := fun _ => decide (x.length < n₀))
-      (by simp [hx]) (r₂ x)
+      calc (x.length + 2) ^ d₁ + 1 ≤ (x.length + 2) ^ (d₁ + 1) :=
+            h3.trans_eq (by rw [Nat.pow_succ])
+        _ ≤ (x.length + 2) ^ (max d₁ d₂ + 1) :=
+            Nat.pow_le_pow_right (by omega) (by omega)
+    show Nonempty (TM2OutputsInTime N.tm (x.map N.inputAlphabet.invFun)
+        (some ([f x].map N.outputAlphabet.invFun))
+        (c * ((if x.length < n₀ then T₁ x else T₂ x) + 1) * (x.length + 1) ^ c))
+    split
+    · exact hb x (T₁ x) _ (f x) hr hS
+    · next h => exact absurd hx h
+  · have hr := branch_runs_inr (sel := Stepped.iteSel (fun y => decide (y.length < n₀)))
+      (M₁ := M₁) (a := x) (y := x) (by simp [iteSel, hx]) (r₂ x)
     have hS : (x.length + 2) ^ d₂ + 1 ≤ (x.length + 2) ^ (max d₁ d₂ + 1) := by
       have h1 : (1:ℕ) ≤ (x.length + 2) ^ d₂ := Nat.one_le_pow _ _ (by omega)
-      have h2 : (x.length + 2) ^ d₂ * (x.length + 2)
-          ≤ (x.length + 2) ^ (max d₁ d₂ + 1) :=
-        Nat.pow_le_pow_right (by omega) (by omega)
-      rw [Nat.pow_succ]
-      have h3 : (x.length + 2) ^ d₂ + 1
-          ≤ (x.length + 2) ^ d₂ * (x.length + 2) := by
+      have h3 : (x.length + 2) ^ d₂ + 1 ≤ (x.length + 2) ^ d₂ * (x.length + 2) := by
         calc (x.length + 2) ^ d₂ + 1 ≤ (x.length + 2) ^ d₂ * 2 := by omega
           _ ≤ (x.length + 2) ^ d₂ * (x.length + 2) := Nat.mul_le_mul_left _ hb2
-      omega
-    rw [if_neg hx]
-    exact hb x (T₂ x) _ (f x) hr hS
+      calc (x.length + 2) ^ d₂ + 1 ≤ (x.length + 2) ^ (d₂ + 1) :=
+            h3.trans_eq (by rw [Nat.pow_succ])
+        _ ≤ (x.length + 2) ^ (max d₁ d₂ + 1) :=
+            Nat.pow_le_pow_right (by omega) (by omega)
+    show Nonempty (TM2OutputsInTime N.tm (x.map N.inputAlphabet.invFun)
+        (some ([f x].map N.outputAlphabet.invFun))
+        (c * ((if x.length < n₀ then T₁ x else T₂ x) + 1) * (x.length + 1) ^ c))
+    split
+    · next h => exact absurd h hx
+    · exact hb x (T₂ x) _ (f x) hr hS
 
 /-! ## §4 Closure 3: call-charging through exists_tm step counts (proved) -/
 
@@ -257,6 +270,7 @@ theorem sum_sf (l : List (List Bool)) (F : List Bool → ℕ) :
     show F ((q :: t).headD []) + ((sf t).map fun s => F (s.headD [])).sum
         = F q + (t.map F).sum
     rw [ih]
+    rfl
 
 /-- **Closure 3 (charging)** — the callee `Md` solves each query in `tquery` steps; the
 caller's query pattern is the list `qs x` with polynomial-time plumbing (`qs`, `g`,
@@ -283,30 +297,39 @@ theorem tm2_charging (hTm : EthExistsTm) (hPoly : EthPoly) (hComb : EthIsPoly)
       (fun x => (sf (qs x)).foldl (fun c s => g c (s.headD []) (v (s.headD []))) (c₀ x))
       (fun x => c * (((qs x).map fun q => tquery q + 1).sum + 1) * (x.length + 1) ^ c) := by
   -- the poly-time plumbing of the walk
-  have htail : PolyT fun s : List (List Bool) => s.tail := hPoly.tail hPoly.id'
+  have htail : PolyT fun s : List (List Bool) => s.tail :=
+    hPoly.tail (hPoly.id' (α := List (List Bool)) (β := List (List Bool)))
+  -- concretely-typed identity plumbing: `id'`'s β binder is statement-unused, so a
+  -- bare `hPoly.id'` leaves `Enc ?β` stuck; β must be supplied explicitly.
+  have pid1 : PolyT (fun x : List (List Bool) => x) :=
+    hPoly.id' (α := List (List Bool)) (β := List Bool)
+  have pid3 : PolyT (fun x : List (List Bool) × List Bool × List (List Bool) => x) :=
+    hPoly.id' (α := List (List Bool) × List Bool × List (List Bool)) (β := List Bool)
+  have pid2 : PolyT (fun x : Bool × (List (List Bool) × Bool) => x) :=
+    hPoly.id' (α := Bool × (List (List Bool) × Bool)) (β := Bool)
   have hsomeCons : PolyT
-      (fun p : List (List Bool) × List (List Bool) × List (List Bool) =>
+      (fun p : List (List Bool) × List Bool × List (List Bool) =>
         some (p.2.1 :: p.2.2)) :=
-    hPoly.some' (hPoly.cons' (hPoly.fst (hPoly.snd hPoly.id'))
-      (hPoly.snd (hPoly.snd hPoly.id')))
-  have hsf : PolyT fun s : List (List Bool) =>
-      match s with | [] => none | e :: r => some (e :: r) :=
-    hPoly.listCases hPoly.id' (hPoly.const none) hsomeCons
-  have hstart : PolyT fun x : List Bool => sfOpt (qs x) :=
-    (hPoly.listCases hqs (hPoly.const none) hsomeCons).congr
-      fun x => by cases qs x <;> rfl
-  have hnext : PolyT sfNext :=
-    (hPoly.comp (f := sfOpt) (g := fun s : List (List Bool) => s.tail) hsf htail).congr
+    hPoly.some' (hPoly.cons' (hPoly.fst (hPoly.snd pid3))
+      (hPoly.snd (hPoly.snd pid3)))
+  have hsfOpt : PolyT sfOpt :=
+    (hPoly.listCases (f := fun _ e r => some (e :: r)) pid1 (hPoly.const none)
+      hsomeCons).congr
       fun s => by cases s <;> rfl
+  have hstart : PolyT fun x : List Bool => sfOpt (qs x) :=
+    hPoly.comp (f := sfOpt) (g := qs) hsfOpt hqs
+  have hnext : PolyT sfNext :=
+    (hPoly.comp (f := sfOpt) (g := fun s : List (List Bool) => s.tail) hsfOpt htail).congr
+      fun s => rfl
   have hbody : PolyT fun s : List (List Bool) => s.headD [] :=
-    hPoly.headD hPoly.id' (hPoly.const [])
-  have hg' : PolyT (fun p : Bool × List (List Bool) × Bool =>
+    hPoly.headD pid1 (hPoly.const [])
+  have hg' : PolyT (fun p : Bool × (List (List Bool) × Bool) =>
       g p.1 (p.2.1.headD []) p.2.2) :=
     hPoly.comp (f := fun q : Bool × (List Bool × Bool) => g q.1 q.2.1 q.2.2)
       (g := fun p : Bool × (List (List Bool) × Bool) => (p.1, (p.2.1.headD [], p.2.2))) hg
-      (hPoly.prodMk (hPoly.fst hPoly.id')
-        (hPoly.prodMk (hPoly.headD (hPoly.fst (hPoly.snd hPoly.id')) (hPoly.const []))
-          (hPoly.snd (hPoly.snd hPoly.id'))))
+      (hPoly.prodMk (hPoly.fst pid2)
+        (hPoly.prodMk (hPoly.headD (hPoly.fst (hPoly.snd pid2)) (hPoly.const []))
+          (hPoly.snd (hPoly.snd pid2))))
   -- the composed machine and its poly-time
   haveI hMb : IsPolyT (Stepped.mapIn (fun s : List (List Bool) => s.headD []) Md) :=
     hComb.mapIn (α := List (List Bool)) (β := List Bool) (γ := Bool) hbody
@@ -315,15 +338,19 @@ theorem tm2_charging (hTm : EthExistsTm) (hPoly : EthPoly) (hComb : EthIsPoly)
       (fun c s b => g c (s.headD []) b) c₀) :=
     hComb.foldWhile (α := List Bool) (β := Bool) (γ := Bool) (τ := List (List Bool))
       hstart hnext hg' hc₀
-  obtain ⟨N, c, -, hb⟩ := hTm _ d
-  refine ⟨N, c, fun x => ?_⟩
+  obtain ⟨N, c, -, hb⟩ :=
+    hTm (Stepped.foldWhile (fun x => sfOpt (qs x)) sfNext
+        (Stepped.mapIn (fun s : List (List Bool) => s.headD []) Md)
+        (fun c s b => g c (s.headD []) b) c₀) d
+  refine ⟨c, N, fun x => ?_⟩
   obtain ⟨Sx, Sc, hxs, hxc, hxd⟩ := hsz x
   have hr : (Stepped.foldWhile (fun x => sfOpt (qs x)) sfNext
       (Stepped.mapIn (fun s : List (List Bool) => s.headD []) Md)
       (fun c s b => g c (s.headD []) b) c₀).Runs x
       ((sf (qs x)).map fun s => tquery (s.headD []) + 1).sum (Sx + (Sc + Sm) + 1)
       ((sf (qs x)).foldl (fun c s => g c (s.headD []) (v (s.headD []))) (c₀ x)) :=
-    Stepped.foldWhile_runs (orbit_sf (qs x)) (fun s => tquery (s.headD []))
+    Stepped.foldWhile_runs (g := fun c s b => g c (s.headD []) b) (c₀ := c₀)
+      (orbit_sf (qs x)) (fun s => tquery (s.headD []))
       (fun s => v (s.headD [])) Sx Sc Sm
       (fun s _ => Stepped.mapIn_runs (hrun (s.headD []))) hxs hxc
   have hmono : c * (((sf (qs x)).map fun s => tquery (s.headD []) + 1).sum + 1)
@@ -342,17 +369,19 @@ slack folded into `extra` (Design B: constants folded into extra at the leaves).
 theorem composed_sum_le (l : List (List Bool)) (t : List Bool → ℕ) (Tn k : ℕ)
     (ht : ∀ q ∈ l, t q ≤ Tn) (hk : l.length ≤ k) :
     (l.map fun q => t q + 1).sum ≤ k * (Tn + 1) := by
-  induction l with
-  | nil => simp
-  | cons q l ih =>
-    have h1 := ht q (by simp)
-    have h2 : ∀ r ∈ l, t r ≤ Tn := fun r hr => ht r (by simp [hr])
-    have hih := ih h2 hk
-    simp only [List.map_cons, List.sum_cons] at hih ⊢
-    have h3 : l.length * (Tn + 1) + (Tn + 1) ≤ k * (Tn + 1) := by
-      have := Nat.mul_le_mul_right (Tn + 1) (by omega : l.length + 1 ≤ k)
-      rwa [Nat.succ_mul] at this
-    omega
+  have hlen : (l.map fun q => t q + 1).sum ≤ l.length * (Tn + 1) := by
+    clear hk
+    induction l with
+    | nil => simp
+    | cons q l ih =>
+      have h1 := ht q (by simp)
+      have h2 : ∀ r ∈ l, t r ≤ Tn := fun r hr => ht r (by simp [hr])
+      have hih := ih h2
+      simp only [List.map_cons, List.sum_cons, List.length_cons] at hih ⊢
+      have h3 : l.length * (Tn + 1) + (Tn + 1) ≤ (l.length + 1) * (Tn + 1) := by
+        rw [Nat.add_mul, Nat.one_mul]
+      omega
+  exact hlen.trans (Nat.mul_le_mul_right (Tn + 1) hk)
 
 /-- **M2 acceptance (Theorem B(ii), pilot grain).** A callee machine solving every
 query within `Tn`, called at most `calls x` times by a polynomial-time caller

@@ -1,0 +1,24 @@
+# m2-run7 — pilot 11 M2 Modal run 7 (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean ~410 LoC (after run-6 fix: (a := x)
+#   (x := x)/(y := x) named on branch_runs_inl/inr).
+# Command: bash research/pilots/11/run_pilot11.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-veXbmBBHXCqqBAP7cs4tDP
+# Verdict: RedTm2 FAIL (2 errors) — selector-goal residue FIXED; new root cause
+#   exposed: my sel lambda (fun _ => decide (x.length < n₀)) is a CONSTANT
+#   function (ignores its arg) while the machine in hM/hb uses the PREDICATE
+#   (fun x => decide (x.length < n₀)); alpha-inequality → hb/hr machine mismatch.
+#   Fix: sel := (fun y => decide (y.length < n₀)) in both branches.
+# Axcheck: Tm2Sol.mono, tm2_charging, tm2_realized_composed triad-clean
+#   [propext, Classical.choice, Quot.sound]; composed_sum_le [propext, Quot.sound].
+RedTm2.lean:216:32: error: Application type mismatch: hr … (branch (iteSel fun x_1 => …)) …
+  vs expected (branch (iteSel fun x => …)) — constant-function vs predicate sel
+RedTm2.lean:234:32: (same, false branch)
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (2 errors)

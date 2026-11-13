@@ -1,0 +1,31 @@
+# m1-run1 — pilot 72-M1 Tier-C first Modal run
+# Date: 2026-11-14, lane A8-relaunch.
+# Files (pre-rename): 72M1T1.lean (vendor, ~670 LoC) + 72M1T2.lean (bridge/L1/L2, ~330 LoC).
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe image reuse, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-hjQVnh0QK8ZTUhRwVozk7W
+# Verdict: T1 FAIL (4 errors), T2 FAIL (1 error — module name).
+#   :237 simp-closure drift on re_trace_eq_sum_eigenvalues (RCLike.re-sum normalization
+#     no longer fires in v4.36) → local re_sum lemma via RCLike.re_add;
+#   :242 cascade (PartialOrder synthesis polluted by sorry'd context);
+#   :677 `noncomputable section` inside namespace OAI never closed;
+#   T2:14 module name `72M1T1` starts with a digit — not an identifier; files renamed
+#     to P72M1T1/P72M1T2.
+#   NOTE: reducedDensity_isHermitian + trace_ptrace already triad-clean in this run —
+#   the WithLp/EuclideanSpace direct-application surface WORKS on v4.36 (key G-drift
+#   risk eliminated); #check anchors for both endpoints printed the expected types.
+72M1T1.lean:237:61: error: unsolved goals (re_trace_eq_sum_eigenvalues simp residue)
+72M1T1.lean:242:57: error: failed to synthesize PartialOrder 𝕜 (cascade)
+72M1T1.lean:677:0: error: Unexpected name `OAI` after `end` (unclosed noncomputable section)
+72M1T2.lean:14:6: error: unexpected token; expected identifier (digit-leading module name)
+OpenAI.AreaLaw : (𝕜 : Type u_1) → [RCLike 𝕜] → ℕ → ℕ → ℝ → ℝ → Prop
+PolynomialPEPS.PinnedEntropy.UniformAreaLaw : Prop
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+[p11] SUMMARY
+[p11]   72M1T1.lean: FAIL (4 errors)
+[p11]   72M1T2.lean: FAIL (1 errors)

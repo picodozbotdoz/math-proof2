@@ -349,3 +349,56 @@ B-only budget would have fit). Machine-time total ≈ 13 × 2.5 min ≈ 35 min M
 estimated: the delta is T2's full donor-proof tranche, 349 LoC, included as the
 faithfulness check — worth it: it validated the port on the first compile).
 M1 milestone: **COMPLETE**; next: M2 (TM2 realization, §4) unchanged.
+
+---
+
+## §8 M2 run log (executed 2026-11-14, lane A8-relaunch, resumed after outage)
+
+**Context.** The 2026-11-13 outage killed the previous A8 agent mid-application of
+"four pinpoint fixes"; no M2 run had landed. Relaunch static audit found (a) and (b)
+and (c) applied, (d) HALF-applied (statement + call site carried `hk`, proof body was
+still the old length-form body: `ih h2 hk` mistypes in the cons case and the final
+`omega` is unprovable from the k-form `ih` — re-proved via `clear hk` + inner
+length-form induction + `Nat.mul_le_mul_right`), plus one genuine elaboration error
+never reached by the dead agent (`hsomeCons`'s type annotation was ill-typed; rebuilt
+with `hsfOpt` + `comp`-routing for `hstart`).
+
+**Files.** `P11T3.lean` (1,100 LoC / 88 thms, eth machine-model tranche — Tree, Run,
+Frag, Stacks, Bound, StepMachineStatements, Prog/Stepped, Prog/Comb, Enc, EncLemmas,
+PolyT; two documented v4.36 deviations) and `RedTm2.lean` (421 LoC / 8 thms: Tm2Sol +
+mono closure; EthExistsTm/EthPoly/EthIsPoly interface binders; tm2_choice;
+suffix-walk + tm2_charging; composed_sum_le + tm2_realized_composed acceptance).
+
+**Iteration (runs 1–8, all logs in `research/pilots/11/logs/m2-run{1..7}.log`,
+`m2-run8-GREEN.log`, full axcheck in `m2-axcheck-final.log`).** Error counts
+4→2→3→6→4→2→2→0 — the churn is an artifact of hard elaboration errors aborting whole
+declarations: each fix let elaboration proceed further and expose the NEXT class
+(none of the intermediate rises were regressions). Root causes fixed, in order of
+first appearance:
+
+| Class | Sites | Fix |
+|---|---|---|
+| stuck `Enc ?β` on `hPoly.id'` (the interface field's β binder is statement-unused) | hp, htail, pid1/2/3 plumbing | explicit `(α := …) (β := …)` named args |
+| `sum_sf` rw-residue (`(q :: t).headD []` not closed by rw's auto-rfl) | sum_sf | explicit trailing `rfl` |
+| omega atom mismatch (`(q :: l).length * (Tn+1)` ≠ `(l.length+1) * (Tn+1)` for omega) | composed_sum_le | `List.length_cons` into the simp set |
+| anonymous-constructor order (`∃ c : ℕ, Tm2Sol …` → `⟨c, N, witness⟩`) | both refines | reorder |
+| `ite_runs_true/false` conclusion-only machine binders uninferrable + `ite`-vs-`branch` defeq not firing at application transparency | tm2_choice | `branch_runs_inl/inr` with `(M₁/M₂ := …) (a := x) (x/y := x)` and the sel in PREDICATE form `fun y => decide (y.length < n₀)` — this is the completed fix (b) |
+| `Nat.pow_le_pow_right` v4.36 signature `(0 < base)` then exponent-bound; expected-type unification stuck on non-syntactic-pow LHS | tm2_choice hS ×2 | calc via `pow_succ` + pow-form statement |
+| deprecated `if_pos` + bound-variable mismatch (ite under un-beta-reduced `T x`) | tm2_choice ×2 | `show` (beta) + `split` |
+| higher-order pattern unification failures (`?f p.1 p.2.1 p.2.2` vs concrete lambdas) | listCases, foldWhile_runs | `(f := …)` / `(g := …) (c₀ := …)` named |
+
+**Final verdict (run 8, m2-run8-GREEN.log): all six files OK — P11T1, P11T2, P11T3,
+RedCompA, RedCompB, RedTm2; 0 errors, 0 sorry-warnings.** P11T3 (the whole eth
+machine-model tranche with donor proofs) compiled GREEN on its FIRST run — the
+corpus-wide "statement-port cost ≈ 0" finding extends to this definitional slice at
+proof level. Full-coverage axcheck (`run_axcheck.sh AxPilot11_P11T3 AxPilot11_RedTm2`):
+**76 axiom-lines, 0 sorryAx, every line a subset of [propext, Classical.choice,
+Quot.sound]** (RedTm2 acceptance theorems: Tm2Sol.mono/tm2_choice/tm2_charging/
+tm2_realized_composed full triad; composed_sum_le [propext, Quot.sound]; walk lemmas
+orbit_sf/sum_sf [propext]; map_headD_sf axiom-free).
+
+**M2 milestone: COMPLETE** (Theorem B(ii) at pilot grain: monotone/choice/charging
+closures proved on Mathlib's own TM2 via the eth interface binders; the composed
+calculus bound `c·(calls·T + calls + 1)·(|x|+1)^c` realized by ONE TM2 machine).
+Machine-time: 8 pilot runs + 1 axcheck run ≈ 9 × 2.5 min ≈ 23 min warm Modal.
+M3 (CH20∘VW13 instantiation) remains per §4, unchanged.

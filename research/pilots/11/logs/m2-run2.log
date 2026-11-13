@@ -1,0 +1,27 @@
+# m2-run2 — pilot 11 M2 Modal run 2 (relaunch)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean 398 LoC (after run-1 fixes: explicit id'
+#   args at hp/htail, sum_sf trailing rfl, List.length_cons in composed_sum_le simp).
+# Command: bash research/pilots/11/run_pilot11.sh   (MODAL_USER=doz,
+#   /home/doz/dozenv/bin/modal, app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-GT1RUvbJunR8sZYRx0LEhb
+# Verdict: RedTm2 FAIL (2 errors, down from 4):
+#   :198:10 refine constructor order in tm2_choice — goal is ∃ c : ℕ, Tm2Sol …,
+#     so ⟨c, N, witness⟩ not ⟨N, c, …⟩ (N : TM2ComputableAux);
+#   :301:51 stuck Enc — bare hPoly.id' inside hsomeCons (snd chain).
+#   composed_sum_le now axioms [propext, Quot.sound] (proof compiles).
+# NOTE: salient lines only (stdout truncated in capture); errors + summary complete.
+RedTm2.lean:191:2: warning: Try this: haveI̵ (style linter; haveI kept deliberately —
+  the local instance registration is consumed by the hTm application)
+RedTm2.lean:198:10: error: Application type mismatch: The argument N has type
+  TM2ComputableAux Bool Bool of sort `Type 1` but is expected to have type ℕ …
+RedTm2.lean:301:51: error: typeclass instance problem is stuck Enc ?m.220
+'CrossMath.Pilot11.M2.Tm2Sol.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, Quot.sound]
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: FAIL (2 errors)

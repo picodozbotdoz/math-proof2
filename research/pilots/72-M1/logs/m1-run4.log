@@ -1,0 +1,17 @@
+# m1-run4 — pilot 72-M1 Tier-C Modal run 4 — **VENDOR GREEN**
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P72M1T1.lean (Tier-C vendor, both endpoint statement layers) GREEN, 0 errors;
+#   P72M1T2.lean FAIL (52 errors, cascade-heavy — 5 root classes, all mine):
+#   1. `iotaL '' A` — Set-image notation on Finset argument; replaced by local
+#      `iotaLimg S := Finset.image iotaL S` everywhere;
+#   2. `hasse`/`□`/`boxProd_adj`/`hasse_adj` unresolvable — T2 had dropped the donor's
+#      `open Matrix SimpleGraph`; restored;
+#   3. `Finset.univ.image iotaL` — iotaL's implicit L uninferrable; gridDom via iotaLimg;
+#   4. `h.1` on `iotaL a = iotaL b` (Eq on Prod has no projections) — congrArg route;
+#   5. `simp [iotaL, h1]` residue on Nat-cast goals — `simp only [iotaL]; omega`.
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-eSGAboVOFkeTn5gkCdwPDq
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: FAIL (52 errors)

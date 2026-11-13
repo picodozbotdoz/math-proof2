@@ -1,0 +1,19 @@
+# m1-run5 — pilot 72-M1 Tier-C Modal run 5
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P72M1T1.lean GREEN / P72M1T2.lean after §1-§2 fixes (iotaLimg, opens,
+#   gridDom explicit L).
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-WQO3ccdivtPSlhDkI0xRIM
+# Verdict: T2 FAIL (24 errors, 8 distinct roots — all mine, donor layer stays GREEN):
+#   :31 iotaL_injective — congrArg-Prod components are ℤ-casts (double ↑); omega route;
+#   :71/:91/:92 ForwardAdjacent components are .val-Nat on the +1 side, Fin-eq on the
+#     other; congrArg Fin.val only on the Fin-eqs;
+#   :108/:112 `interedges` resolved to Rel.interedges (name collision) — qualify as
+#     SimpleGraph.interedges;
+#   :121/:123 injectivity goal is a beta-redex (fun e => orientPair A ↑e) — `show` first;
+#   :227+ toGrid's L q were implicit but called explicitly — make binders explicit;
+#   :228 `Finset.image_subset` unknown in v4.36 — local image_subset_gridDom bridge.
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: FAIL (24 errors)

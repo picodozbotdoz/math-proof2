@@ -1,0 +1,29 @@
+# m2-run8 — pilot 11 M2 Modal run 8 — **GREEN** (relaunch close-out)
+# Date: 2026-11-14, lane A8-relaunch.
+# Files: P11T3.lean 1100 LoC / RedTm2.lean 410 LoC (final; after run-7 fix:
+#   sel predicate form (fun y => decide (y.length < n₀)) in branch_runs_inl/inr).
+# Command: bash research/pilots/11/run_pilot11.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-I6tVsnnax0MOjeSnBE3Ucj
+# Verdict: ALL SIX FILES OK, 0 errors, 0 sorry-warnings. M2 milestone GREEN.
+# Axcheck (in-file #print axioms, all within the standard triad):
+#   Tm2Sol.mono             [propext, Classical.choice, Quot.sound]
+#   tm2_choice              [propext, Classical.choice, Quot.sound]
+#   tm2_charging            [propext, Classical.choice, Quot.sound]
+#   composed_sum_le         [propext, Quot.sound]
+#   tm2_realized_composed   [propext, Classical.choice, Quot.sound]
+# Error history across the iteration: 4 → 2 → 3 → 6 → 4 → 2 → 2 → 0 (see
+#   m2-run1..7 headers; count churn = hard errors aborting declaration
+#   elaboration, masking downstream sites; each fix exposed the next class).
+'CrossMath.Pilot11.M2.Tm2Sol.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_choice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_charging' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   P11T3.lean: OK
+[p11]   RedCompA.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedTm2.lean: OK
