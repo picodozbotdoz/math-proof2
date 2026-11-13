@@ -141,3 +141,15 @@ bosonic analogue with partition-indexed families and z_μ normalization.
 - openai-math `OAI/Analysis/Laughlin/Operators/CAR.lean:15–21`; tauceti
   `TauCeti/Algebra/Lie/GeneralLinear/CAR/`.
 - O. Bratteli, D. W. Robinson, *Operator Algebras and Quantum Statistical Mechanics 2*.
+
+---
+
+## Nearest-neighbor addendum (2026-11-14, dated — per A5's Cycle-2 novelty sign-off)
+
+Post-publication development: **physlib's `ExchangeSign` post-dates this article's
+2026-11-09 publication** and is now a nearest-neighbor declaration for the
+statistics-universal occupation calculus's sign-exchange layer. Status: **theorems
+stand** — no claim here is affected (the calculus's universality statements remain
+unclaimed elsewhere); the novelty record gains one dated nearest neighbor, recorded so
+future sweeps do not mistake priority. Physlib itself remains outside this project's
+consumed corpora (G5a staging pending, AreaLaw2D-adjacent only).

@@ -9,15 +9,20 @@ certificate-conditional record of the main run, cited below but not edited** · 
 `research/pilots/42-M4-blueprint.md` · pilot `research/pilots/42/{M4a,M4b}.lean`, logs
 `research/pilots/42/logs/` (m4-run2, m4-axcheck-run1, m4b-run2)*
 
-**Status: PROVED, FINAL — both routes GREEN (filled 2026-11-14 per A1's §9
-disk-verified landings; A3's formal report owed with the log-hygiene line).** M4a GREEN +
-axcheck-clean; **M4b fallback GREEN (1,560 LoC / 66 thms, m4b-run2) AND the upgrade
-COMPLETE on the PRIMARY route — `m4b2-run2.log`: direct ZetaZerosV2 import GREEN,
-1,570 LoC / 68 thms (run-header figure), the 6 landing theorems + the V2d4/V2d5
-endpoints + the donor proportion theorems (`simple_proportion_d4`/`distinct_proportion_d5`)
-exactly the triad per the consumer-run axiom report; fallback preserved byte-exact
-(`logs/M4b-fallback-GREEN.lean`); the ≤20-line-delta gate met.** Standalone-vs-addendum
-DECIDED 2026-11-14: standalone (header cross-reference above; main-run article 42 frozen).
+**Status: PROVED, FINAL — both routes GREEN; A3's FORMAL REPORT LANDED
+(`research/pilots/42/M4-note.md`, 2026-11-14).** M4a GREEN + axcheck-clean; **M4b
+fallback GREEN (1,560 LoC / 66 thms by run-header count; full-coverage axcheck
+`m4b-axcheck-run1.log`: 68 theorems, every one exactly the triad, 0 sorryAx) AND the
+upgrade COMPLETE on the PRIMARY route — `research/pilots/42/M4b.lean` is the FINAL
+artifact, 1,571 LoC / 68 theorems (LoC corrected in-run by A3: header paragraph +1 after
+the 1,570 measurement): direct ZetaZerosV2 import (`import ZetaZeros`), elaborated inside
+the built V2 tree on our pin; `m4b2-run2.log` OK 0/0; full-coverage axcheck
+`m4b2-axcheck-run1.log` GREEN triad-only (70 instrumented theorems + the 2 donor prints);
+fallback preserved byte-exact (`logs/M4b-fallback-GREEN.lean`, runnable via `run_m4.sh`
+without the V2 tree); upgrade delta net +11 LoC (1,560→1,571; ~30 added / ~26 removed —
+A3's note records +10 against the pre-correction 1,570 measurement), within the
+≤20-line-delta gate.** Standalone-vs-addendum DECIDED 2026-11-14: standalone (header
+cross-reference above; main-run article 42 frozen).
 
 ---
 
@@ -31,7 +36,7 @@ registered AxiomMath's `ZetaZerosV2` — Lamzouri's theorem, built on our exact 
 — and its strictly stronger constants: at least 2/3 of ζ's zeros SIMPLE and on the line
 (C₀ = 0.6725007… > 2/3) and at least 5/6 DISTINCT (C₁ = 0.8362504… > 5/6), unconditional.
 We swap the donor: the M4a layer re-states the assembly at strip-window vocabulary
-(`EpsLowerDistinctStripCum`, the `commonStripCum` defect, the `hCZ′` negligibility
+(`EpsLowerDistinctStripCum`, the `commonStripCum` defect, the `hCZStrip` negligibility
 schema); the M4b layer discharges the ζ-side binders from V2's endpoints and lands the
 three upgraded theorems — `zetaK_two_thirds_landed_of_V2`,
 `zetaK_distinct_five_sixths_strip_landed_of_V2` (+ `_of_negligible`) — dropping the
@@ -80,7 +85,7 @@ Donor endpoints: `ZetaZeros.simple_proportion_lower`
 strip-distinct proportion holds at the min constant with the pairwise `commonStripCum`
 defect — the n = 2 instance of the schema dossier 75 generalizes to abelian towers.
 
-**Theorem M4a-2 (hCZ′ form).** Under the strip-common negligibility binder `hCZ′`
+**Theorem M4a-2 (hCZStrip form).** Under the strip-common negligibility binder `hCZStrip`
 (the strip analogue of article 42's hCZ; not provable today — `pilots/20-hCZ-NOTE.md`'s
 verdict carries over), ≥ 5/6 of ζ_K's window zeros are distinct and in the strip.
 
@@ -124,22 +129,49 @@ theorems (`import ZetaZeros`) — is recorded as APPLIED in the file header
   unused binder, if_neg deprecation). Run 1's 5 sites fixed (mul_nonpos refinements,
   calc relaxations, ℕ↔ℝ casts).
 
-**Landed (filled 2026-11-14 per A1's §9 disk-verified landings; A3's formal report owed
-with the log-hygiene line — detail, not verdicts):**
+**Landed (A3's FORMAL REPORT LANDED — `research/pilots/42/M4-note.md` + corrected run
+headers; figures below are the post-correction authoritative record):**
 
-- **[VERDICT:M4b] FILLED-FINAL:** fallback GREEN — `m4b-run2.log`: OK, 0 errors / 0
-  sorry, 1,560 LoC / 66 thms, all 6 landing theorems triad, 0 sorryAx.
+- **[VERDICT:M4b] FILLED-FINAL:** fallback GREEN — `m4b-run2.log` OK 0/0 (1,560 LoC /
+  66 thms by run-header count); full-coverage axcheck `m4b-axcheck-run1.log`: **68
+  theorems, every one exactly [propext, Classical.choice, Quot.sound], zero
+  sorryAx/native_decide**.
 - **[VERDICT:M4b-upgrade] FILLED-FINAL:** upgrade COMPLETE on the primary route —
-  `m4b2-run2.log` (app `crossmath-pilot-42-m4b2`, V2+PNT+ tarball build with path
-  redirect): build OK, M4b.lean OK, 0 errors / 0 sorry-warnings under the widened
-  error-count regex (the run header records the log-hygiene reconciliation: the
-  error(lean.*) diagnostic format had undercounted in earlier runner summaries);
-  **1,570 LoC / 68 thms**; axioms of the 6 landing theorems + V2d4/V2d5 endpoints +
-  donor `ZetaZeros.simple_proportion_d4`/`distinct_proportion_d5` (on-pin, from the
-  consumer run) exactly [propext, Classical.choice, Quot.sound]. **Final artifact
-  disposition: `pilots/42/M4b.lean` = the direct-import (primary) version; the fallback
-  GREEN state preserved byte-exact at `logs/M4b-fallback-GREEN.lean`** (runnable via
-  `run_m4.sh` without the V2 tree); ≤20-line-delta gate met.
+  `m4b2-run2.log` (app `crossmath-pilot-42-m4b2`, V2+PNT+ tarball build with PNT+ path
+  redirect): build OK, M4b.lean OK, 0 errors / 0 sorry-warnings; **FINAL artifact
+  `pilots/42/M4b.lean` = 1,571 LoC / 68 theorems** (in-run LoC correction recorded by
+  A3). Upgrade delta: **net +11 LoC, ~30 added / ~26 removed** — the V2-vocabulary block
+  20→13 lines as donor abbrevs, **−3 binders (hCert/hK673/hK839 gone), +2 endpoint
+  bridges (`V2d4_endpoint`/`V2d5_endpoint` := the imported donor theorems)**, 3
+  call-sites rewired, +4 axiom prints; every proof except 2 touched lines unchanged.
+- **M4c(i) axiom hygiene: FULLY DISCHARGED.** From the primary run itself: the three
+  M4b landings + the two bridges + the donor endpoints on-pin from the consumer side
+  (`ZetaZeros.simple_proportion_d4`, `ZetaZeros.distinct_proportion_d5`) = exactly the
+  triad; the C₀/C₁-form donors (`simple_proportion_lower`/`distinct_proportion_lower`)
+  plus 9 more donor theorems (13 total) printed triad-clean on-pin by A7's G2 run3
+  (`feasibility/probe/logs-g/run3-g2.log`); full-coverage axcheck of the final artifact
+  `m4b2-axcheck-run1.log` — GREEN, triad-only, 70 instrumented theorems + the 2 donor
+  prints, 0 errors / 0 sorry. The "unconditional ζ-side" wording is justified.
+- **Binder inventory of the landings (exact, per the note):** the 2/3 landing carries
+  exactly `hEχ` + the M2a structural set + `hntopζ`/`hntopχ` (`hζ` discharged inline via
+  `analyticAt_riemannZeta`); the distinct landing adds **`hEχdStrip`**; the negligible
+  form adds **`hCZStrip`** (the strip-common negligibility binder — `20-hCZ-NOTE.md`'s
+  analysis transfers verbatim). The ζ-side content is zero-hypothesis: the endpoint
+  bridges ARE the imported donor theorems. Constants delivered at the donor's margins
+  (0.6725 − 2/3 ≈ 0.0058; 0.83625 − 5/6 ≈ 0.0029, both `norm_num`); Knausgård's
+  0.67354/0.83900 remain the stronger *conditional* constants — the
+  unconditional-vs-stronger trade is the recorded posture.
+- **Provenance chain (A1, `novelty/pntplus-glue-as-donor.md`):** the discharged ζ side
+  transitively consumes the fork's unique glue — `simple_proportion_d4`/
+  `distinct_proportion_d5` ← `…_proportion_lower` ← `pairCorrelationFormula`
+  (`PairCorrelation/FromLandau.lean:52`) ← Landau log-derivative (`Landau/Formula.lean:
+  170`) ← `RiemannZetaHadamard` (`Landau/Formula.lean:9`).
+- **Runner-regex log-hygiene reconciliation (recorded in the run headers):** the
+  `error(lean.*)` diagnostic format undercounted in earlier runner summaries — the
+  fallback's run 1 had 5 error SITES vs SUMMARY 3, and m4b2-run1's SUMMARY read errors=0
+  against 4 real `error(lean.dependsOnNoncomputable)` sites (rc=1 still flagged FAIL
+  correctly); same root cause, regex widened to ": error" after m4b2-run1; run 2 counted
+  under the fixed regex.
 
 ## 6. Relation to prior work
 
@@ -162,7 +194,7 @@ with the log-hygiene line — detail, not verdicts):**
 - The χ-side (zeta23 Theorem E) is still a binder: full unconditional discharge of the
   Dirichlet column needs the v4.33 zeta23 port (statement-cost ≈ 0 corpus-wide; proofs
   are the cost).
-- hCZ′ inherits hCZ's conjecture-grade status (`pilots/20-hCZ-NOTE.md`); only the
+- hCZStrip inherits hCZ's conjecture-grade status (`pilots/20-hCZ-NOTE.md`); only the
   defect-form theorems are unconditional-shaped.
 - The strip window's θ is parametric in the vocabulary but instantiated at the article-42
   constants in the landing statements; the dossier-70/75 clock notes apply if a stronger

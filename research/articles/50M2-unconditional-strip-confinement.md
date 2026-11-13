@@ -149,8 +149,10 @@ final per-class constants line (fills from whichever route(s) land).
   constants) + the conditional shell this article discharges.
 - **Dossier 70 Part A** (Cycle 2): the full statement set + per-class novelty split +
   clock-sweep standing notes (Chang–Wang conditional frontier; Ji; the 13-repo Lean
-  landscape incl. Kontorovich/quasi-rh 11/12 ζ+Dirichlet with NO ζ_K; tracker audit
-  pending) — the cluster context is recorded there and controls every dating claim here.
+  landscape incl. Kontorovich/quasi-rh 11/12 ζ+Dirichlet with NO ζ_K; **tracker
+  AUDITED 2026-11-14 — Dirichlet-only at every layer, zero ζ_K statements, the split
+  survives**, round-4 §9) — the cluster context is recorded there and controls every
+  dating claim here.
 - **Liu arXiv:2610.12234** (+ repo), **Liu arXiv:2610.26835** (B♭ uniform, Lean in
   progress), **Xu–Sang 2610.15291**, **[Ope26a/b]** (7/8, 11/12 preprints + sorry
   challenge), **CT hexagonmath 2610.00200** (= our DZDF donor), **Chang–Wang
@@ -158,7 +160,9 @@ final per-class constants line (fills from whichever route(s) land).
   ℚ(i), no frontier move), **GTimG/QuasiRiemannTracker** (audited 2026-11-14, round-4
   §9: tri-kernel verified, Dirichlet-only, formal frontier 0.8733458561 = Bebel's
   continuum-anchor of 11-13 — the leapfrog fact of the race): the cluster — nothing
-  below B♭ unconditionally; nothing formal for ζ_K.
+  below B♭ unconditionally **and uniformly over number fields** (the tracker's
+  0.8733458561 is unconditional for the Dirichlet class, as above — the uniform-over-K
+  informal record remains Liu-2's B♭); nothing formal for ζ_K.
 - Classical anchors: Hadamard–de la Vallée Poussin (σ ≥ 1 − c/log|t| confines zeros left
   of any fixed 31/32-type line for large |t|; Broughan 2009) — Part A's ζ/Dirichlet
   statements are math-known, strictly weaker than HdV for large |t|; the packaging (a

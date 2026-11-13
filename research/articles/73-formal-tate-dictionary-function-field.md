@@ -33,7 +33,8 @@ analogue of DZDF's `heckeL_ne_zero` at 31/32, sharp); (C1) the 𝔽_q(T) probe c
 hRat is discharged *unconditionally* by elementary periodicity bookkeeping (χ mod m ⇒
 residue-class decomposition), while hPur — the RH for Kummer covers of ℙ¹ — honestly
 remains a binder; and (C2) the three-column window-comparison theorem: FF Hecke 1/2
-(binder) vs ζ_K/Hecke-all-K 31/32 (DZDF, in-corpus) vs ζ/Dirichlet B_new = 0.8749570
+(binder) vs ζ_K/Hecke-all-K 31/32 (DZDF, in-corpus) vs ζ/Dirichlet at the formal class
+frontier 0.8733458561 (tracker; from Liu-1's B_new = 0.8749570)
 (Liu-1, external). Part I is the statement layer; the dictionary itself (Kummer sheaves,
 purity) is the Stacks-gated Part II ceiling.
 
@@ -97,7 +98,9 @@ FF-sequencing memo; dossier 73 §C1), superseding an earlier "P outright" draft.
 
 **(C2) Three-column window comparison.** One theorem: FF Hecke L window 1/2 (binder-
 purity) vs ζ_K/finite-order Hecke L 31/32 (DZDF `heckeL_ne_zero`, in-corpus) vs
-ζ/Dirichlet B_new = 0.8749570 (Liu-1 external repo) — extends article 71's comparison
+ζ/Dirichlet at the current formal class frontier **0.8733458561** (QuasiRiemannTracker,
+tri-kernel-verified, Bebel's continuum-anchor — descending from Liu-1's formalized
+B_new = 0.8749570; per round-4 §5.3's updated table) — extends article 71's comparison
 corollary and dossier 70's §5.3 per-class table to the Hecke row.
 
 **(C3, scope note).** No simple-zero *proportion* statement is claimed or implied — the

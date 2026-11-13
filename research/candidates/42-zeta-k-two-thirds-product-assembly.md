@@ -383,13 +383,24 @@ any future external-tree consumption (Majdoddin's tree is the obvious next donor
   every 'depends on axioms' line the triad — 83 axiom prints, zero non-triad, zero
   sorryAx/native_decide). Vocabulary: `distinctCountCum` (:821),
   `EpsLowerDistinctStripCum` (:833), `commonStripCum`, the `hCZ′` binder schema.
-- **M4b (the ZetaZerosV2 ζ-column discharge): FINAL-GREEN BOTH ROUTES (filled 2026-11-14
-  per A1's §9 disk-verified landings; A3 formal report owed with the log-hygiene line).**
-  Fallback: `m4b-run2.log` GREEN (1,560 LoC / 66 thms, 0/0, 6 landing theorems triad).
-  **Upgrade COMPLETE on the primary route: `m4b2-run2.log` — direct ZetaZerosV2 import
-  GREEN, 1,570 LoC / 68 thms; the 6 landing theorems + V2d4/V2d5 endpoints + donor
-  `simple_proportion_d4`/`distinct_proportion_d5` exactly the triad per the consumer-run
-  axiom report; fallback preserved byte-exact at `logs/M4b-fallback-GREEN.lean`;
-  ≤20-line-delta gate met.** `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
+- **M4b (the ZetaZerosV2 ζ-column discharge): FINAL-GREEN BOTH ROUTES — A3 FORMAL
+  REPORT LANDED (`research/pilots/42/M4-note.md`, 2026-11-14).**
+  Fallback: `m4b-run2.log` GREEN (1,560 LoC / 66 thms by run-header count; full-coverage
+  axcheck `m4b-axcheck-run1.log`: 68 theorems all exactly the triad, 0 sorryAx).
+  **Upgrade COMPLETE on the primary route: FINAL artifact `pilots/42/M4b.lean` =
+  1,571 LoC / 68 thms (in-run LoC correction by A3); `m4b2-run2.log` GREEN 0/0;
+  M4c(i) FULLY DISCHARGED** (the 3 landings + V2d4/V2d5 bridges + donor
+  `simple_proportion_d4`/`distinct_proportion_d5` exactly triad from the consumer run;
+  the C₀/C₁-form donors + 9 more (13 total) triad-clean on-pin per G2 run3;
+  full-coverage axcheck `m4b2-axcheck-run1.log`: 70 theorems + 2 donor prints,
+  triad-only); **fallback preserved byte-exact at `logs/M4b-fallback-GREEN.lean`;
+  upgrade delta net +11 LoC (~30 added / ~26 removed; −3 binders hCert/hK673/hK839
+  gone, +2 endpoint bridges := the imported donor theorems)**; binder inventory of the
+  landings: `hEχ` (+`hEχdStrip` distinct, +`hCZStrip` negligible) + structural set,
+  ζ-side zero-hypothesis; constants at the donor's margins (0.6725−2/3 ≈ 0.0058,
+  0.83625−5/6 ≈ 0.0029, norm_num; Knausgård's stronger conditional constants remain —
+  the recorded posture); provenance chain per `novelty/pntplus-glue-as-donor.md`
+  (…_d4/d5 ← …_proportion_lower ← pairCorrelationFormula ← Landau ←
+  RiemannZetaHadamard). `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
   `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` (standalone by
   orchestrator decision; [VERDICT:M4b] and [VERDICT:M4b-upgrade] both FILLED-FINAL).
