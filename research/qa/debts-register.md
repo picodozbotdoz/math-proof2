@@ -1,0 +1,27 @@
+# Carried-debts register — Cycle 2 close (H, 2026-11-14)
+
+Feeds the STATUS close block's "carried debts" line-items. Classes: **CLOSE** =
+discharge before/at cycle close; **ITER-4** = carried to the next cycle's charter/scan;
+**RECORDED** = documented, no action possible or needed. Every item: owner + discharge
+condition.
+
+| # | Debt | Class | Owner | Discharge condition |
+|---|---|---|---|---|
+| a | `C-neg.lean` advisory warnings (2× `push_cast`/`push_neg`-class deprecations, unusedSectionVars `DecidableEq`, unused `hα` binders) — accepted; kernel standard met (0 errors, 0 sorry, triad-only) | RECORDED | A4 | none (advisory-only; note lives in run8/axcheck logs) |
+| b | `m4b-run1.log` internal count discrepancy (header "errors=5-distinct" vs runner SUMMARY "errors=3") | CLOSE | A3 | one reconciling line in A3's report / M4-note |
+| c | `m4b2-run1.log` anomaly: FAIL rc=1 with errors=0 sorry=0 (runner-level exit) — upgrade-route interpretation | CLOSE | A3 | interpretation in A3's report; if the exit recurs, runner note in run_m4b2.* |
+| d | `pilots/11/logs/m2-run{1,2,3}.log` headers owed + RedTm2 err churn (4→2→3) explanation + final-vs-scratch state of the 392-LoC file (vs 386 skeleton) | CLOSE | A8 | headers prepended + churn reconciled in A8's report commit |
+| e | `logs-g/run{17,18}-*.log` outage-killed, headerless verdict-less | CLOSE | A7 | disposition line (superseded-by run20/21 or declared-dead) in donor-probes doc or log headers |
+| f | HKT theorem-number PARTIAL-PIN residue (book pinned Zbl 1200.11042; chapter/theorem unpinnable from open web; Part-3-level citation rule stands) | ITER-4 | iter-4 novelty lane | physical-copy check or author-query; until then cite Part-3/four-pinned-papers only |
+| g | vdG–vdV exact theorem number open (round-4 §6.3) | ITER-4 | iter-4 novelty lane | pin at theorem granularity when a pilot consumes the falsity-trap citation |
+| h | QuasiRiemannTracker Pages-deployment-lag caveat: deployed catalogue normalizes all 55 records to `framework-verified` (`as_of` 2026-11-13) while in-tree metadata carries status on only 11/56 — admission status computed from admission records; a fresh push may lag the repo state | ITER-4 | iter-4 novelty lane | cite catalogue `as_of` + commit date together (protocol §9.5); no fix needed beyond the convention |
+| i | STATUS pilot-slot numbering normalization (row 72 "slot 2" → slot 3; decision-block three-slot enumeration) — wording staged at `qa/agents-c2-apply-plan.md` tail | CLOSE | orchestrator (H stages) | applied at TRIAGE §decision typeset |
+| j | M4a-note.md is still the M4c addendum DRAFT; M4-note update (M4b fallback + upgrade outcome) owed | CLOSE | A3 | M4-note finalized in A3's closing batch |
+| k | Main-run mid-iteration logs without headers (28 files: 42 m2a_m3_run3–10 + m2b_run1–6, 50 combined-run13/14, 52 m1-run{3,5..14} + dirichlet-m2a-final-ok) — predate the Cycle-2 header discipline; green/final successors all headered | RECORDED | — (frozen history) | none (classification in `qa/closeout-commit-plan.md` Appendix) |
+| l | Λ-gap taken externally: `DrMurphyIsIn/qrh-debruijn-newman` kernel-checks Λ ≤ 9/32 — main-run round-1 §12's "Λ absent everywhere" is false as of 2026-11-13; note recorded in RELATED-WORK only (main-run files frozen) | ITER-4 | iter-4 novelty lane | iter-4 charter/scan must not resurrect Λ-absence claims (A1's ITERATION4-SCAN to carry the line) |
+| m | hexagonmath.org ORCID-gated archive ⇒ PASS-conditional absence evidence only | RECORDED | — | convention already recorded (round-4 P2-1/P2-12; STATUS); cite on every affected claim |
+
+Pending-verdict items are NOT debts (they are close-out preconditions, tracked in the
+closeout-commit-plan preconditions block and A9's slot ledger): 71-P2 axcheck+report,
+42-M4b-upgrade, 10-L2, 11-M2 final, 72-M1 (slot 3), 75 (executing), G7b/G5a/G6a, seed-1
+rg-gate + seeds-6/11 differentiation, TRIAGE-C2-ROWS reconciliation, A1 relabel batch.

@@ -76,8 +76,37 @@ slot. Commit: `Cycle 2: H — STATUS cycle-close block (Cycle 2 CLOSED)`.
 
 ## STEP 8 — stop-point check (H reports to orchestrator)
 
-`git status` clean (except AGENT_INSTRUCTION_1.md untracked); `git log --oneline` close
-sequence verified; probe count recorded. Any residue → append fixes before STEP 9.
+Concrete pre-branch-cut checklist — every item checkable by a single command; ALL must
+pass (or be explicitly deferred-with-owner per the debts register) before H asks the
+orchestrator to trigger STEP 9:
+
+1. **Orchestrator all-final signal given** (the explicit message; no command).
+2. **Sweep Steps B–C logged**:
+   `ls research/pilots/*/logs/axcheck-c2-final.log` (per-pilot copies exist) AND
+   `grep -l "Step B\|Step C\|stepB\|stepC" research/feasibility/probe/logs/*.log` non-empty.
+3. **Ledger §9 FINAL**: `! grep -qE "\[pending" research/feasibility/VERIFICATION-LEDGER.md`
+   (no pending cells left) AND §9 contains a FINAL sign-off line.
+4. **Slot ledger zero OPEN/PENDING**:
+   `! grep -qE "\bOPEN\b|PENDING-RELAY" research/REPORT-INPUTS-C2.md` OR every remaining
+   row explicitly marked deferred-with-owner (grep the deferrals and cross-list them in
+   `qa/debts-register.md`).
+5. **TRIAGE §decision typeset**: `grep -q "Cycle 2" research/TRIAGE.md` AND a §decision
+   block exists (visual/one-grep: `grep -c "decision" research/TRIAGE.md` rises vs
+   pre-close count; DLRT qualifier at :137–138 verified present).
+6. **REPORT §C2 placeholders zero**:
+   `! grep -qE "\[PILOT-VERDICT|\[G7b\]|\[SWEEP\]|\[TRIAGE-DECISION\]|\[VERDICT:" research/REPORT.md`.
+7. **Articles Status lines FINAL**: `grep -l "Status:.*DRAFT" research/articles/*.md`
+   returns EMPTY (main-run articles say FINAL/CLOSED; Cycle-2 drafts flip at STEP 5).
+8. **AGENTS-C2 applied per plan**: `head -3 research/AGENTS-C2-DRAFT.md | grep -q APPLIED`
+   AND the AGENTS.md changes match the 7-edit plan (spot-read E2 merged bullet + :54
+   decimal fix).
+9. **Debts register linked**: `grep -q "debts-register" research/STATUS.md` (close block
+   carries the CLOSE-class items; ITER-4/RECORDED classes referenced).
+10. **Tree clean**: `git status --short` shows ONLY `?? AGENT_INSTRUCTION_1.md`.
+11. **Close sequence verified**: `git log --oneline -12` shows STEPS 2–7 commits in
+    order; close commit hash recorded for the STEP-9 cut line.
+
+Any residue → append fixes and re-run the checklist before requesting the STEP-9 trigger.
 
 ## STEP 9 — dev/iteration4 branch cut (trigger: ORCHESTRATOR ONLY — H verifies and
 confirms immediately before executing)
