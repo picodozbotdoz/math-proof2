@@ -398,12 +398,23 @@ outcome folded into § Novelty above — P2 un-contradicted, residual re-check a
 
 Two independent prongs; fill each from its own orchestrator relay.
 
-### C-neg (certified-negative gate; lane A4; N1 Rényi monotonicity + N2 rank bridge + N3 gate theorems per `research/pilots/72-prework.md` Appendix A; artifacts `research/pilots/72/`, logs `research/pilots/72/logs/`)
+### C-neg (certified-negative gate; lane A4; N1 Rényi monotonicity + N2 rank bridge + N3 gate theorems per `research/pilots/72-prework.md` Appendix A; artifacts `research/pilots/72/`, logs `research/pilots/72/logs/`) — **FILLED from A4's official report (relayed by the orchestrator, 2026-11-14; disk-verified by A9: run8-final + axcheck-run1 headers, theorem sites)**
 
-- Runs (date / log file / rc / errors–sorrys): —
-- LoC: — ; Theorem count: —
-- Axiom audit (triad-only per close-out plan): —
-- Verdict line: —
+- Runs: **GREEN — `run8-final.log` rc=0, errors=0, sorry=0** (descent 20→14→12→6→7
+  pre-outage runs 1–5 → 3→1→0 relaunch runs 6–8; runs 1–5's provenance headers
+  RECONSTRUCTED post-outage — run5's log notes a post-run mid-fix edit, per A4's report);
+  `C-neg.lean` 369 LoC.
+- LoC: **369** ; Theorem count: **11** (5 public incl. `rank_area_law_nogo` at
+  `C-neg.lean:354` + 6 private).
+- Axiom audit: **`axcheck-run1.log` — 11/11 theorems triad-only
+  ([propext, Classical.choice, Quot.sound]), 0 sorryAx, 0 native_decide.**
+- Deviations from Appendix A (documented in `72-prework.md` §"Execution outcome" :495):
+  N1 stated for 0 < α ≤ β < 1 (the rank-relevant range); N3 stated as concrete-family
+  FALSE forms; Kuwahara's construction enters as the external `hKL` binder (EnclOK
+  pattern — informal physics input quoted, never re-proved).
+- Verdict line: **GREEN — the Rényi-monotonicity no-go gate is kernel-verified; the
+  rank/α<1 area-law statement class is permanently fenced** (article:
+  `research/articles/72-renyi-monotonicity-nogo-gate.md`).
 
 ### M1 Tier-C (family-265 interface theorem, pure transcription, zero import gates; slot 3, lane A8, per `research/pilots/72-prework.md` §2/§a)
 
