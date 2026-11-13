@@ -110,11 +110,11 @@ board.** Same ground rules, same Phase 1–4 definitions.
 
 | Lane | Role | Output file | Status | Since / note |
 |---|---|---|---|---|
-| A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | Phase-1 survey of the six AxiomMath repos (DedekindZetaZeroFree, ZetaZerosV2, ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) |
-| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | Phase-2 bridge: Weil conjectures (Deligne RH over 𝔽_q) ↔ zeta/quasi-RH cluster; function-field analog |
-| A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | Remap main-run candidates with AxiomMath as donor (hQRH discharge via Cureton–Thorner for 20/50; ZetaZerosV2 second donor for 42) |
-| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | Phase-2 bridge: AreaLaw2D (openai family 265) ↔ openai-math ↔ linear algebra |
-| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 builder incl. axiommath trees; novelty round 4 over the 70-series |
+| A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | survey landed 2026-11-13 (QA pass P1 pending) |
+| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 landed 2026-11-13 (QA pass P2 pending) |
+| A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | donor map landed 2026-11-13; QA P4 DONE (8 OK / 2 minor pins, 0 WRONG — fixes routed to A3); 42-M4 GO + 50 GATED verdicts relayed |
+| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge v1 landed 2026-11-13 (QA pass P3 pending) |
+| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 built (279 MB tsv + tracked zip; .gitignore approved); round-4 PART 1 landed 2026-11-13 (pre-registered nearest-miss baseline; PART 2 pending 70-series) |
 | A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
 | A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
 | A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | close-outs DONE 2026-11-13: 52 M1 VERIFIED-GREEN (`52-note.md`), 20 runs recorded GREEN (`20-note.md`) |
@@ -135,9 +135,11 @@ orchestrator-owned.
 |---|---|---|---|
 | 10 | 10-z3: L1 counter combinators, then L2 `PolyTVal` | IN FLIGHT (A6) | M1 (= L3) green + axioms-clean 2026-11-10; L1/L2 are the open items |
 | 52 | 52 unified CCR Fock layer | **M1 VERIFIED-GREEN** (A8 close-out 2026-11-13, see `pilots/52-note.md`; main-run FAIL was mid-iteration, superseded same-day by run14-green + axcheck-final) | reproduced Cycle 2: `m1-run15-cycle2-green` + `axcheck-cycle2` (15 axiom-lines, 0 sorryAx); `_unattributed/` emptied (run2 attributed); M2 = weighted refinement + adjointness layer |
-| 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`) |
-| 50 | 50-M3 donor-swap (prospective) | PENDING A3/A7 VERDICTS | Discharge `hQRH` binder from DedekindZetaZeroFree (Cureton–Thorner ζ_K ≠ 0, Re s > 31/32) |
-| 42 | 42-M4 second donor (prospective) | PENDING A3/A7 VERDICTS | ZetaZerosV2 (Lamzouri > 2/3 simple/on-line) as donor for remaining milestones |
+| 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`); A3: no hCZ/Card20 deltas — Hecke object layer may switch openai→DZDF at 31/32 (note only) |
+| 50 | 50-M2-31/32 (donor-swap; A3 verdict in) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md` |
+| 42 | 42-M4 donor swap to V2 | **GO — spec in flight (A3), pilot lane pending** (blueprint landed: `pilots/42-M4-blueprint.md`) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
+
+A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict summary): **20/22/21/40 — NO donor deltas** (hCZ + stop-at-M4 statuses unchanged; 20's Hecke object layer may switch openai→DZDF at 31/32 — note only); new cross-cutting donor `dedekindAbelianQuotient` (general-abelian factorization, 70-series feeder). QA P4 executed: 8 OK / 2 minor pins / 0 WRONG (`qa/cycle2-qa-plan.md` Part 1); two locator fixes routed to A3.
 
 ### Cycle-2 commit log (H)
 
@@ -153,4 +155,15 @@ orchestrator-owned.
   `pilots/52/` (run_m1.sh, run15-green + axcheck-cycle2 logs, 52-note) + `pilots/20/`
   (run_m1.sh, m1-cycle2-green + axcheck-cycle2 logs, 20-note); board updates routed by the
   orchestrator: STATUS pilot rows 52/20, INDEX pilots-logs line, VERIFICATION-LEDGER §8
-  (incl. MODAL_USER=doz substrate note). [this commit]
+  (incl. MODAL_USER=doz substrate note). (6263625; notes follow-up 26bd2bc)
+- 2026-11-13 — per-lane provenance commits: `Cycle 2: A1 axiommath survey (fifth corpus,
+  on-pin)` (0cf230a); `Cycle 2: A2 function-field bridge (Weil <-> quasi-RH cluster)`
+  (6e32734); `Cycle 2: A4 area-law bridge (AreaLaw2D <-> openai family 265 <-> linalg)`
+  (31600ad); `Cycle 2: A3 donor remap — axiommath-as-donor (50/20/42/22/21/40 verdicts +
+  M4 spec)` (bc46876); `Cycle 2: A5 decl-index v2 + novelty round-4 part 1` (75168b2 —
+  incl. the APPROVED root .gitignore entry and the tracked decl-index-v2.tsv.zip).
+- 2026-11-13 — `Cycle 2: H board — A3 verdict rows + QA P4 donor-remap` (this commit):
+  STATUS pilot rows 42-GO/50-GATED per relay + A3 sweep note + lane-landing notes;
+  `qa/cycle2-qa-plan.md` Part 1 (P4 executed: 8 OK / 2 minor / 0 WRONG; V1
+  Challenge-file sorry caveat recorded; A3's §c(2) QA flag CONFIRMED load-bearing).
+  [this commit]

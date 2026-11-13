@@ -91,3 +91,62 @@ this plan's commit. Verdicts route to the orchestrator (and STATUS via the relay
 follow the main-run convention — H applies authorized errata only on H-maintained files,
 researcher files are fixed by their owning lane. A WRONG verdict on a load-bearing claim
 blocks the artifact's TRIAGE/REPORT cell until resolved.
+
+---
+
+# Part 1 (2026-11-13, pass P4) — novelty/axiommath-as-donor.md (A3)
+
+Triggered by A3's landing (orchestrator relay). Quota Q4: 10 claims; every DISCHARGES /
+PARTIAL verdict re-checked against the donor decl AND the consumer binder as stated.
+Roots: `AX = /home/doz/zcode-workdir/axiommath` (DZDF, ZetaZerosV2, ZetaZeros), pilot files
+in-repo. Plan committed at `de5d8dc` (pre-registration satisfied).
+
+**Tally: 8 OK, 2 MINOR (line pins), 0 WRONG.** Both minors are locator slips; every
+verdict-shaping fact (donor statements, consumer binders, constant geometry, the §c(2)
+QA flag) verified exact.
+
+1. DZDF `dedekindZeta_ne_zero` — OK. `DedekindZetaZeroFree/Main.lean:9` `theorem
+   dedekindZeta_ne_zero` ✓; Quantitative original at `…Quantitative/DedekindZetaNonvanishing.lean:13`
+   (A3 wrote :11 — MINOR, see item 9); 31/32 shape via HeckeCorollary's parallel statement.
+2. DZDF `heckeL_ne_zero` + `RayClassCharacter` — OK. `HeckeCorollary.lean:12` theorem, with
+   the exclusion `∀ s, 31/32 < s.re → (s ≠ 1 ∨ ¬ χ.IsPrincipal) → f s ≠ 0` verbatim at :19;
+   `structure RayClassCharacter` at `Arithmetic/RayClasses/Character.lean:12` ✓.
+3. Pilot-50 consumer binders as stated — OK. `pilots/50/M1.lean:45` `hQRH : ∀ s, (7/8:ℝ) <
+   s.re → riemannZeta s ≠ 0` verbatim; `Dirichlet.lean:41` `hQRHχ`, `:44` `hFEχ`;
+   `M1.lean:44` `strip_confinement` — all exact.
+4. Constant geometry (7/8 ⊊ 31/32) — OK. 7/8 = 28/32 < 31/32: openai's region strictly
+   contains DZDF's ⇒ no 7/8-shaped discharge; the PARTIAL verdict's arithmetic is right.
+5. V2 `simple_proportion_lower` C₀ > 2/3 — OK. `ZetaZerosV2/ZetaZeros/Main.lean:47` theorem
+   ✓; numerics recomputed: C₀ = 3/2 − (1/√2)cot(1/√2) = 0.6725007 > 2/3 ✓
+   (and `simple_proportion_d4` :130 ✓).
+6. V2 `distinct_proportion_lower` C₁ > 5/6 — OK. `Main.lean:88` ✓; C₁ =
+   5/4 − (1/(2√2))cot(1/√2) = 0.8362504 > 5/6 ≈ 0.8333 ✓ (`distinct_proportion_d5` :149 ✓).
+7. Pilot-42 M2b binders — MINOR (pins). `hCert : cert` at :1065 and `hK673` at :1066 exact;
+   but the second binder block opens at :1084 with `hCert` — `hK839` sits at **:1085**
+   (A3 wrote :1084), and **`hCZ` is at :729** (the `_of_negligible` binder; docstring :625,
+   theorem :723) — A3's ":1125" is the *second* `hK839` occurrence. All binder names/shapes
+   as stated; two line pins off.
+8. **The §c(2) QA flag (load-bearing) — CONFIRMED.** V2 `distinctZeroCount` =
+   `(nontrivialZeros T).ncard` (`Definitions.lean:56`) with `nontrivialZeros` = zeros in
+   **0 < re < 1, 0 < im ≤ T** (:38) — STRIP-wide, no on-line restriction; pilot 42's
+   `ZeroMult.countDistinctOnCum` (`M2b.lean:789`) = `(lineFiniteCum …).toFinset.card` —
+   **on-line** distinct; zeta23 `Ndist = (zerosIn T₁ T₂).ncard` (`ChallengeDeps.lean:59`)
+   matches the strip reading. On-line ≤ strip-wide ⇒ the pilot's numerator is stronger than
+   any donor proves; A3's re-vocabulary fix (strip-distinct numerator) is required before
+   the M4 5/6 discharge. Exactly as A3 flagged.
+9. Quantitative wrapper pin — MINOR. A3's "`Nonvanishing/Mellin/Quantitative/
+   DedekindZetaNonvanishing.lean:11`" — the theorem is at **:13** (:11 is the `open` line).
+10. Axiom hygiene + `dedekindAbelianQuotient` — OK. `native_decide` → 0 files in
+   `ZetaZerosV2/{ZetaZeros,Solution}/`, `ZetaZeros/{ZetaZeros,Solution}/`,
+   `DedekindZetaZeroFree/{DedekindZetaZeroFree,Solution}/`; active `sorry` → 0 in those
+   trees (scope caveat: V1's *Challenge* file `ZetaZeros/Challenge/Basic.lean:154,164,173`
+   carries 3 challenge-by-design sorries — outside A3's claimed trees, flagged for
+   consumers); `comparator.json permitted_axioms` = {propext, Quot.sound,
+   Classical.choice} in both V2 and DZDF ✓. `dedekindAbelianQuotient` at
+   `LFunctions/Dedekind/EntireAbelianQuotient.lean:13`: abelian-Galois hypothesis
+   (commuting automorphisms), fK/fL differentiable off {1} agreeing with
+   `NumberField.dedekindZeta` on re > 1, entire g — the §f shape exact.
+
+**Disposition:** both minors are one-edit locator fixes in A3's file — routed to A3 via the
+orchestrator (not H's to apply; A3's file). No load-bearing change; the M4-GO and
+50-GATED verdicts stand as written.
