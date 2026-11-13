@@ -1,0 +1,131 @@
+# Provenance: 2026-11-14, lane A2-relaunch. File: research/pilots/71/P2.lean (265 LoC, fix round 1: ofReal_exp direction + mem_map destructure + sum_insert expansion + map_congr congrArg wrap + multiset_sum_map_const helper). Command: bash research/pilots/71/run_pilot.sh research/pilots/71/P2.lean. Verdict: FAIL rc=1 errors=4 sorry=0; W2 GREEN (triad). Modal run: https://modal.com/apps/semraker/main/ap-jzOVL59bbuCzU4ufXTCIJN
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-jzOVL59bbuCzU4ufXTCIJN
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P2.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P2.lean
+[pilot71] P2.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'Pilot71.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.one_sub_card_mul_wOf_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_sum_map_const' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zeta_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zero_re_eq_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.hasse_weil_point_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+P2.lean:148:13: error(lean.unknownIdentifier): Unknown constant `Complex.exp_eq_one_iff.mp`
+P2.lean:137:33: error: unsolved goals
+q : ℕ
+hq : 1 < q
+s : ℂ
+hs : s ≠ 1
+h0 : 1 - ↑q * wOf q s = 0
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+hqc : ↑q = Complex.exp ↑(Real.log ↑q)
+h1 : Complex.exp (↑(Real.log ↑q) + -(s * ↑(Real.log ↑q))) = 1
+⊢ s = 1
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:160:16: error: unsolved goals
+case cons
+c a : ℂ
+s : Multiset ℂ
+ih : (Multiset.map (fun x => c) s).sum = ↑s.card * c
+⊢ c + c * ↑s.card = c * ↑(1 + s.card)
+P2.lean:231:60: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ insert 2 ∅, ?m.340 x
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:160:16: error: unsolved goals
+case cons
+c a : ℂ
+s : Multiset ℂ
+ih : (Multiset.map (fun x => c) s).sum = ↑s.card * c
+⊢ c + c * ↑s.card = c * ↑(1 + s.card)
+P2.lean:231:60: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ insert 2 ∅, ?m.340 x
+in the target expression
+  (-1) ^ 0 * (Multiset.map (fun x => x ^ m) (W.A 0)).sum +
+      ((-1) ^ 1 * (Multiset.map (fun x => x ^ m) (W.A 1)).sum +
+        ∑ x ∈ {2}, (-1) ^ x * (Multiset.map (fun x => x ^ m) (W.A x)).sum) =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+
+F : Type u_1
+inst✝⁷ : Finite F
+inst✝⁶ : Field F
+X : Over (Spec ↧F)
+inst✝⁵ : GeometricallyIrreducible X.hom
+inst✝⁴ : IsProper X.hom
+inst✝³ : SmoothOfRelativeDimension 1 X.hom
+W : WeilData F X 1
+hq : 1 < Nat.card F
+m : ℕ
+hm : 0 < m
+···
+⊢ c + c * ↑s.card = c * ↑(1 + s.card)
+P2.lean:231:60: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ insert 2 ∅, ?m.340 x
+in the target expression
+  (-1) ^ 0 * (Multiset.map (fun x => x ^ m) (W.A 0)).sum +
+      ((-1) ^ 1 * (Multiset.map (fun x => x ^ m) (W.A 1)).sum +
+        ∑ x ∈ {2}, (-1) ^ x * (Multiset.map (fun x => x ^ m) (W.A x)).sum) =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+
+F : Type u_1
+inst✝⁷ : Finite F
+inst✝⁶ : Field F
+X : Over (Spec ↧F)
+inst✝⁵ : GeometricallyIrreducible X.hom
+inst✝⁴ : IsProper X.hom
+inst✝³ : SmoothOfRelativeDimension 1 X.hom
+W : WeilData F X 1
+hq : 1 < Nat.card F
+m : ℕ
+hm : 0 < m
+E : Type u_1
+inst✝² : Field E
+inst✝¹ : Algebra F E
+inst✝ : FiniteDimensional F E
+hfrank : Module.finrank F E = m
+hIic : Finset.Iic 2 = {0, 1, 2}
+···
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+P2.lean:248:8: error: Type mismatch
+  multiset_sum_map_const ?m.502 ?m.503
+has type
+  (Multiset.map (fun x => ?m.503) ?m.502).sum = ↑(Multiset.card ?m.502) * ?m.503
+but is expected to have type
+  (Multiset.map (fun x => √↑(Nat.card F) ^ m) (W.A 1)).sum = ↑(W.A 1).card * √↑(Nat.card F) ^ m
+'Pilot71.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.one_sub_card_mul_wOf_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_sum_map_const' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zeta_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zero_re_eq_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.hasse_weil_point_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot71] SUMMARY
+[pilot71]   P2.lean: FAIL rc=1 errors=4 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-jzOVL59bbuCzU4ufXTCIJN

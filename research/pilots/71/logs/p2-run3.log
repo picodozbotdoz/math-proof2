@@ -1,0 +1,85 @@
+# Provenance: 2026-11-14, lane A2-relaunch. File: research/pilots/71/P2.lean (279 LoC, fix round 2: W1 hypothesis corrected to pole-family exclusion hs1: 1 - q*wOf ≠ 0 — the prework's s ≠ 1 was unsound [complex exp 2πi-periodic; pole family s ∈ 1 + 2πi/log q·ℤ lies INSIDE the window]; Core 2 rewritten as re_eq_one_of_card_mul_wOf [real-exp kernel]; multiset_sum_map_const made α-generic + push_cast; Finset.sum_singleton for {2}). Command: bash research/pilots/71/run_pilot.sh research/pilots/71/P2.lean. Verdict: FAIL rc=1 errors=2 sorry=0 (Real.exp_eq_one_iff explicit-section-var .mp resolution; linarith-vs-product). W2+HW green except Core-2 leak. Modal run: https://modal.com/apps/semraker/main/ap-eh5v40DUvndYNnRsPNQU8o
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-eh5v40DUvndYNnRsPNQU8o
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P2.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P2.lean
+[pilot71] P2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'Pilot71.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.re_eq_one_of_card_mul_wOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_sum_map_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.curve_zeta_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.curve_zero_re_eq_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.hasse_weil_point_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+P2.lean:156:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Real.exp ?x * Real.exp ?y
+in the target expression
+  Real.exp (Real.log ↑q - s.re * Real.log ↑q) = 1
+
+q : ℕ
+hq : 1 < q
+s : ℂ
+h : ↑q * wOf q s = 1
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+hn : ↑q * Real.exp (-(s.re * Real.log ↑q)) = 1
+⊢ Real.exp (Real.log ↑q - s.re * Real.log ↑q) = 1
+P2.lean:158:62: error(lean.unknownIdentifier): Unknown constant `Real.exp_eq_one_iff.mp`
+P2.lean:161:2: error: linarith failed to find a contradiction
+case h1
+q : ℕ
+hq : 1 < q
+s : ℂ
+h : ↑q * wOf q s = 1
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+hn : ↑q * Real.exp (-(s.re * Real.log ↑q)) = 1
+h2 : Real.exp (Real.log ↑q - s.re * Real.log ↑q) = 1
+hLne : Real.log ↑q ≠ 0
+···
+P2.lean:158:62: error(lean.unknownIdentifier): Unknown constant `Real.exp_eq_one_iff.mp`
+P2.lean:161:2: error: linarith failed to find a contradiction
+case h1
+q : ℕ
+hq : 1 < q
+s : ℂ
+h : ↑q * wOf q s = 1
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+hn : ↑q * Real.exp (-(s.re * Real.log ↑q)) = 1
+h2 : Real.exp (Real.log ↑q - s.re * Real.log ↑q) = 1
+hLne : Real.log ↑q ≠ 0
+h3 : Real.log ↑q * (1 - s.re) = 0
+a✝ : s.re < 1
+⊢ False
+failed
+P2.lean:228:26: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:228:56: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+···
+
+[pilot71] SUMMARY
+[pilot71]   P2.lean: FAIL rc=1 errors=2 sorry=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-eh5v40DUvndYNnRsPNQU8o

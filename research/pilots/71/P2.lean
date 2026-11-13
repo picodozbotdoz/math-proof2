@@ -17,6 +17,15 @@ zero location (perfect zero-density), HW the Hasse–Weil point-count transport.
 Self-contained (pilot-01 convention): the P1 dictionary layer is carried
 verbatim. Mathlib `ff2494ea` only; the `WeilData` record is the Tier-C
 transcription of `axiommath/Weil/LeanEval/WeilConjectures.lean:185-194`.
+
+Statement delta (2026-11-14, lane A2-relaunch, runs p2-run1/p2-run2): W1's
+prework-draft hypothesis `hs1 : s ≠ 1` was UNSOUND — complex `exp` is
+`2πi`-periodic (no `Complex.exp_eq_one_iff` exists), so `q·q^{-s} = 1` holds on
+the whole family `s ∈ 1 + (2πi/log q)·ℤ` (inside the window, `Re s = 1`), where
+Lean's field division makes `zetaC = 0`. W1 therefore carries the honest
+pole-family exclusion `1 − q·q^{-s} ≠ 0`, and Core 2 (`re_eq_one_of_card_mul_wOf`)
+locates that family on `Re s = 1`. Same fix pattern as the P0 probe's role
+dictates: elaboration green ≠ truth; recorded for the dossier addendum.
 -/
 
 open CategoryTheory AlgebraicGeometry
@@ -131,52 +140,70 @@ theorem re_eq_half_of_norm_mul {q : ℕ} (hq : 1 < q) {α s : ℂ}
   field_simp at heq
   linarith
 
-/-- **Core 2** (W1's pole exclusion, the DZDF `s ≠ 1` clause): `1 − q·q^{-s} ≠ 0`
-for `s ≠ 1` — via `(q:ℂ) = exp(log q)`, `exp_add`, and `Complex.exp_eq_one_iff`. -/
-theorem one_sub_card_mul_wOf_ne_zero {q : ℕ} (hq : 1 < q) {s : ℂ} (hs : s ≠ 1) :
-    1 - (q : ℂ) * wOf q s ≠ 0 := by
-  intro h0
-  apply hs
+/-- **Core 2.** Every solution of `q · q^{-s} = 1` lies on the line `Re s = 1`:
+the pole family is `s ∈ 1 + (2πi/log q)·ℤ` (period `2πi/log q`), so *within the
+window* `Re s > 1/2` the denominator factor `1 − q·q^{-s}` vanishes exactly on
+that line. Proof by modulus: `‖q · q^{-s}‖ = q · q^{-σ} = 1` forces `σ = 1`
+via the REAL exponential kernel (`Real.exp_eq_one_iff`; complex `exp` is not
+injective — `2πi`-periodic — so no `Complex.exp_eq_one_iff` exists). -/
+theorem re_eq_one_of_card_mul_wOf {q : ℕ} (hq : 1 < q) {s : ℂ}
+    (h : (q : ℂ) * wOf q s = 1) : s.re = 1 := by
   have hqpos : 0 < (q : ℝ) := by exact_mod_cast (by omega : 0 < q)
   have hL : 0 < Real.log (q : ℝ) := Real.log_pos (by exact_mod_cast hq)
-  have hqc : ((q : ℕ) : ℂ) = Complex.exp ((Real.log (q : ℝ) : ℝ) : ℂ) := by
-    rw [Complex.ofReal_exp, ← Real.exp_log hqpos]
-    push_cast
-  have h1 : (q : ℂ) * wOf q s = 1 := (sub_eq_zero.mp h0).symm
-  rw [hqc, wOf, ← Complex.exp_add] at h1
-  have h3 : ((Real.log (q : ℝ) : ℝ) : ℂ) * (1 - s)
-      = ((Real.log (q : ℝ) : ℝ) : ℂ) + -(s * ((Real.log (q : ℝ) : ℝ) : ℂ)) := by
+  have hn : ‖(q : ℂ) * wOf q s‖ = 1 := by rw [h, norm_one]
+  rw [norm_mul, Complex.norm_natCast, norm_wOf] at hn
+  have h2 : Real.exp (Real.log (q : ℝ) + -(s.re * Real.log (q : ℝ))) = 1 := by
+    rw [Real.exp_add, Real.exp_log hqpos]
+    exact_mod_cast hn
+  have h3 : Real.log (q : ℝ) + -(s.re * Real.log (q : ℝ)) = 0 := by
+    refine Real.exp_eq_exp.mp ?_
+    rw [h2, Real.exp_zero]
+  have h4 : Real.log (q : ℝ) * (1 - s.re) = 0 := by linear_combination h3
+  rcases mul_eq_zero.mp h4 with h | h
+  · exact absurd h hL.ne'
+  · linarith
+
+/-- Sum of a constant map: the Multiset twin of `Finset.sum_const` (used by HW). -/
+theorem multiset_sum_map_const {α : Type*} (s : Multiset α) (c : ℝ) :
+    (s.map fun _ => c).sum = s.card * c := by
+  induction s using Multiset.induction_on with
+  | empty => simp
+  | cons a s ih =>
+    rw [Multiset.map_cons, Multiset.sum_cons, Multiset.card_cons, ih]
     push_cast
     ring
-  rw [h3] at h1
-  rcases mul_eq_zero.mp (Complex.exp_eq_one_iff.mp h1) with hL0 | h1s
-  · exact absurd (Complex.ofReal_eq_zero.mp hL0) hL.ne'
-  · exact (sub_eq_zero.mp h1s).symm
 
 /-! ## W1 — the optimal window (FF-EZ1(ii)) -/
 
 /-- **W1.** The function-field Cureton–Thorner statement with constant exactly
-`1/2`: `ζ_C(s) ≠ 0` for `Re s > 1/2` (pole excluded), every curve, every `q`,
-every genus — in the DZDF `Main.lean:9` statement shape. -/
+`1/2`: `ζ_C(s) ≠ 0` for `Re s > 1/2` off the pole family, every curve, every
+`q`, every genus — in the DZDF `Main.lean:9` statement shape. Statement delta
+vs the prework §2.5 draft (its `hs1 : s ≠ 1`): complex `exp` is `2πi`-periodic,
+so `q · q^{-s} = 1` has the full family `s ∈ 1 + (2πi/log q)·ℤ` of solutions
+(`Re s = 1`, inside the window — Core 2), at which the Lean-division `zetaC`
+would be `0`. The honest FF translation of DZDF's single-pole `s ≠ 1` clause is
+the pole-factor exclusion `1 − q·q^{-s} ≠ 0` carried here. -/
 theorem curve_zeta_ne_zero {F : Type*} [Finite F] [Field F] (X : Over (Spec (.of F)))
     [GeometricallyIrreducible X.hom] [IsProper X.hom] [SmoothOfRelativeDimension 1 X.hom]
-    (W : WeilData F X 1) (hq : 1 < Nat.card F) (s : ℂ) (hs : (1 / 2 : ℝ) < s.re) (hs1 : s ≠ 1) :
+    (W : WeilData F X 1) (hq : 1 < Nat.card F) (s : ℂ) (hs : (1 / 2 : ℝ) < s.re)
+    (hs1 : 1 - (Nat.card F : ℂ) * wOf (Nat.card F) s ≠ 0) :
     zetaC (W.A 1) (Nat.card F) s ≠ 0 := by
   intro h0
   rw [zetaC, div_eq_zero_iff] at h0
   rcases h0 with hnum | hden
   · rw [lPoly_eval] at hnum
-    obtain ⟨α, hαm, -⟩ := Multiset.prod_eq_zero_iff.mp hnum
-    obtain ⟨a, haA, haeq⟩ := Multiset.mem_map.mp hαm
+    obtain ⟨a, haA, haeq⟩ := Multiset.mem_map.mp (Multiset.prod_eq_zero_iff.mp hnum)
     have hαn : ‖a‖ = √((Nat.card F : ℝ)) := by
       simpa using (W.purity 1 (by omega) a haA).2
     have haw : a * wOf (Nat.card F) s = 1 := (sub_eq_zero.mp haeq).symm
     exact absurd (re_eq_half_of_norm_mul hq hαn
-      (by rw [norm_mul, haw, norm_one])) (ne_of_gt hs)
+      (by rw [← norm_mul, haw, norm_one])) (ne_of_gt hs)
   · rcases mul_eq_zero.mp hden with hd | hd
     · have hw1 : wOf (Nat.card F) s = 1 := (sub_eq_zero.mp hd).symm
-      exact absurd (norm_wOf_lt_one hq (by linarith)) (by rw [hw1]; simp)
-    · exact one_sub_card_mul_wOf_ne_zero hq hs1 hd
+      have hlt := norm_wOf_lt_one hq (by linarith)
+      rw [hw1, norm_one] at hlt
+      exact lt_irrefl _ hlt
+    · exact hs1 hd
 
 /-! ## W2 — exact zero location = perfect zero-density (FF-EZ5) -/
 
@@ -188,12 +215,11 @@ theorem curve_zero_re_eq_half {F : Type*} [Finite F] [Field F] (X : Over (Spec (
     (W : WeilData F X 1) (hq : 1 < Nat.card F) (s : ℂ)
     (h : (lPoly (W.A 1)).eval (wOf (Nat.card F) s) = 0) : s.re = 1 / 2 := by
   rw [lPoly_eval] at h
-  obtain ⟨α, hαm, -⟩ := Multiset.prod_eq_zero_iff.mp h
-  obtain ⟨a, haA, haeq⟩ := Multiset.mem_map.mp hαm
+  obtain ⟨a, haA, haeq⟩ := Multiset.mem_map.mp (Multiset.prod_eq_zero_iff.mp h)
   have hαn : ‖a‖ = √((Nat.card F : ℝ)) := by
     simpa using (W.purity 1 (by omega) a haA).2
   have haw : a * wOf (Nat.card F) s = 1 := (sub_eq_zero.mp haeq).symm
-  exact re_eq_half_of_norm_mul hq hαn (by rw [norm_mul, haw, norm_one])
+  exact re_eq_half_of_norm_mul hq hαn (by rw [← norm_mul, haw, norm_one])
 
 /-! ## HW — the Hasse–Weil point-count transport (FF-EZ1(iii)) -/
 
@@ -202,7 +228,7 @@ extension `E`/`F` — uniform in the curve, `q`, genus and `m` (trap-free
 magnitude statement; `card (A 1) = 2g` at Tier A). -/
 theorem hasse_weil_point_count {F : Type*} [Finite F] [Field F] (X : Over (Spec (.of F)))
     [GeometricallyIrreducible X.hom] [IsProper X.hom] [SmoothOfRelativeDimension 1 X.hom]
-    (W : WeilData F X 1) (hq : 1 < Nat.card F) (m : ℕ) (hm : 0 < m)
+    (W : WeilData F X 1) (_hq : 1 < Nat.card F) (m : ℕ) (_hm : 0 < m)
     (E : Type _) [Field E] [Algebra F E] [FiniteDimensional F E]
     (hfrank : Module.finrank F E = m) :
     ‖(Nat.card (.mk (Spec.map <| CommRingCat.ofHom <| algebraMap F E) ⟶ X) : ℂ)
@@ -212,8 +238,16 @@ theorem hasse_weil_point_count {F : Type*} [Finite F] [Field F] (X : Over (Spec 
       = 1 + (Nat.card F : ℂ) ^ m - ((W.A 1).map (· ^ m)).sum := by
     rw [W.pointCount E, hfrank]
     have hIic : (Finset.Iic 2 : Finset ℕ) = {0, 1, 2} := by decide
-    rw [hIic, W.zero, a2_eq X W]
-    simp
+    have m02 : (0 : ℕ) ∉ ({1, 2} : Finset ℕ) := by decide
+    have m12 : (1 : ℕ) ∉ ({2} : Finset ℕ) := by decide
+    have e0 : ((W.A 0).map (fun x : ℂ => x ^ m)).sum = 1 := by
+      rw [W.zero]; simp
+    have e2 : ((W.A 2).map (fun x : ℂ => x ^ m)).sum = (Nat.card F : ℂ) ^ m := by
+      rw [a2_eq X W]; simp
+    have p2 : (-1 : ℂ) ^ 2 = 1 := by simp [sq]
+    rw [hIic, Finset.sum_insert m02, Finset.sum_insert m12, Finset.sum_singleton,
+      e0, e2, pow_zero, pow_one, p2]
+    ring
   have hdiff : ((Nat.card (Over.mk (Spec.map <| CommRingCat.ofHom <| algebraMap F E) ⟶ X) : ℂ)
       - ((Nat.card F : ℂ) ^ m + 1)) = -((W.A 1).map (· ^ m)).sum := by
     rw [hpc]
@@ -222,18 +256,19 @@ theorem hasse_weil_point_count {F : Type*} [Finite F] [Field F] (X : Over (Spec 
   calc ‖((W.A 1).map (· ^ m)).sum‖ ≤ ((W.A 1).map fun x => ‖x ^ m‖).sum :=
         multiset_norm_sum_le _ _
     _ = ((W.A 1).map fun _ => (Real.sqrt (Nat.card F : ℝ)) ^ m).sum := by
-        refine Multiset.map_congr rfl ?_
+        refine congrArg Multiset.sum (Multiset.map_congr rfl ?_)
         intro a ha
         have h1 := (W.purity 1 (by omega) a ha).2
         rw [norm_pow, h1]
         simp
-    _ = (W.A 1).card * (Real.sqrt (Nat.card F : ℝ)) ^ m := by
-        simp
+    _ = (W.A 1).card * (Real.sqrt (Nat.card F : ℝ)) ^ m :=
+        multiset_sum_map_const _ _
 
 /-! ## Axiom audit -/
 
 #print axioms re_eq_half_of_norm_mul
-#print axioms one_sub_card_mul_wOf_ne_zero
+#print axioms re_eq_one_of_card_mul_wOf
+#print axioms multiset_sum_map_const
 #print axioms curve_zeta_ne_zero
 #print axioms curve_zero_re_eq_half
 #print axioms hasse_weil_point_count

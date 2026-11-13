@@ -1,0 +1,134 @@
+# Provenance: 2026-11-14, lane A2-relaunch. File: research/pilots/73/C.lean (fix round 1: simp [hf] for the Ne-rewrite; ExpDeriv import). Command: bash research/pilots/73/run_pilot.sh research/pilots/73/C.lean. Verdict: FAIL rc=1 errors=4 sorry=0 — apply_span_singleton_eq_zero_iff GREEN-triad; remaining: DifferentiableAt.div not imported (Deriv/Inv), Differentiable.comp ∘-unification pathology (→ Differentiable.fun_comp), hecke_window _hRat linter rename. Modal run: https://modal.com/apps/semraker/main/ap-DXw40qv94YgoxTDagsDuvS
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-DXw40qv94YgoxTDagsDuvS
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-73-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot73] staging ['C.lean']
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== C.lean
+[pilot73] C.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+C.lean:123:2: error: mod_cast has type
+  ↑(ringChar k) = φ 0
+but is expected to have type
+  ringChar k = 0
+C.lean:177:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (CauSeq ℂ fun x => ‖x‖)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:178:6: error: Application type mismatch: The argument
+  Differentiable.mul ?m.123 (differentiable_const ?m.134)
+has type
+  Differentiable ?m.124 (?m.106 * fun x => ?m.134)
+but is expected to have type
+  Differentiable ℂ fun s => Complex.exp' (-(s * ↑(Real.log ↑q)))
+in the application
+  Differentiable.comp ?m.97 (Differentiable.mul ?m.123 (differentiable_const ?m.134))
+C.lean:181:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₀
+has type
+  Differentiable ℂ fun x => eval x P₀
+but is expected to have type
+  Differentiable ℂ P₀.sum
+in the application
+  Differentiable.comp (Polynomial.differentiable P₀)
+C.lean:181:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:178:6: error: Application type mismatch: The argument
+  Differentiable.mul ?m.123 (differentiable_const ?m.134)
+has type
+  Differentiable ?m.124 (?m.106 * fun x => ?m.134)
+but is expected to have type
+  Differentiable ℂ fun s => Complex.exp' (-(s * ↑(Real.log ↑q)))
+in the application
+  Differentiable.comp ?m.97 (Differentiable.mul ?m.123 (differentiable_const ?m.134))
+C.lean:181:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₀
+has type
+  Differentiable ℂ fun x => eval x P₀
+but is expected to have type
+  Differentiable ℂ P₀.sum
+in the application
+  Differentiable.comp (Polynomial.differentiable P₀)
+C.lean:181:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (ℕ → ℂ → ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:183:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₁
+has type
+  Differentiable ℂ fun x => eval x P₁
+but is expected to have type
+···
+  Differentiable.comp ?m.97 (Differentiable.mul ?m.123 (differentiable_const ?m.134))
+C.lean:181:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₀
+has type
+  Differentiable ℂ fun x => eval x P₀
+but is expected to have type
+  Differentiable ℂ P₀.sum
+in the application
+  Differentiable.comp (Polynomial.differentiable P₀)
+C.lean:181:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (ℕ → ℂ → ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:183:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₁
+has type
+  Differentiable ℂ fun x => eval x P₁
+but is expected to have type
+  Differentiable ℂ P₁.sum
+in the application
+  Differentiable.comp (Polynomial.differentiable P₁)
+C.lean:183:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (ℕ → ℂ → ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:184:8: error(lean.unknownIdentifier): Unknown constant `DifferentiableAt.div`
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:183:24: error: Application type mismatch: The argument
+  Polynomial.differentiable P₁
+has type
+  Differentiable ℂ fun x => eval x P₁
+but is expected to have type
+  Differentiable ℂ P₁.sum
+in the application
+  Differentiable.comp (Polynomial.differentiable P₁)
+C.lean:183:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (ℕ → ℂ → ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C.lean:184:8: error(lean.unknownIdentifier): Unknown constant `DifferentiableAt.div`
+C.lean:196:5: warning: Variable name `hRat` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hRat
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot73] SUMMARY
+[pilot73]   C.lean: FAIL rc=1 errors=4 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-DXw40qv94YgoxTDagsDuvS

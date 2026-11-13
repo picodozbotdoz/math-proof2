@@ -1,0 +1,26 @@
+# Provenance: 2026-11-14, lane A2-relaunch (FINAL-FORM P0 re-probe). File: research/pilots/73/P0.lean (143 LoC, final form: lPoly-vocabulary HeckePurity, _hRat renames, import set synced with C.lean). Command: bash research/pilots/73/run_pilot.sh research/pilots/73/P0.lean. Verdict: OK (probe, sorry allowed) [sorry x7, all statement stubs now PROVEN in C.lean run6-green]; lint-clean (no unused-variable warnings). Modal run: https://modal.com/apps/semraker/main/ap-Q2NbhrszIV7whHfC98xWhX
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Q2NbhrszIV7whHfC98xWhX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-73-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot73] staging ['P0.lean']
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== P0.lean
+[pilot73] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:39:8: warning: declaration uses `sorry`
+P0.lean:44:8: warning: declaration uses `sorry`
+P0.lean:52:8: warning: declaration uses `sorry`
+P0.lean:79:8: warning: declaration uses `sorry`
+P0.lean:84:8: warning: declaration uses `sorry`
+P0.lean:115:8: warning: declaration uses `sorry`
+P0.lean:137:8: warning: declaration uses `sorry`
+
+[pilot73] SUMMARY
+[pilot73]   P0.lean: OK (probe, sorry allowed)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Q2NbhrszIV7whHfC98xWhX

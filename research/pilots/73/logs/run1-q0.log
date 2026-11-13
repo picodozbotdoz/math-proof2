@@ -1,0 +1,32 @@
+# Provenance: 2026-11-14, lane A2-relaunch. File: research/pilots/73/P0.lean (139 LoC, Q0 statement probe, first run). Command: bash research/pilots/73/run_pilot.sh research/pilots/73/P0.lean (Modal app crossmath-pilot-73, MODAL_USER=doz, mathlib ff2494ea, v4.36.0-rc2, oleans 8710). Verdict: OK (probe, sorry allowed) [sorry x7, expected: norm_wOf/re_eq_half/lPoly_eval (71-glue stubs), no_real_homs, apply_span_singleton_eq_zero_iff, hecke_continuation, hecke_window] + 1 expected hRat-unused linter note (consumed via anchor-have in C.lean). Q0 CONFIRMED: the whole 73-C Tier-C skeleton (DZDF RayClassCharacter transplant + PowerSeries Hecke L + purity binder + (P)(i)/(P)(ii) signatures) elaborates on the pin, zero import gates. Modal run: https://modal.com/apps/semraker/main/ap-VN30TueQAevifcE4wXCjxp
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-VN30TueQAevifcE4wXCjxp
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-73-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot73] staging ['P0.lean']
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== P0.lean
+[pilot73] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:37:8: warning: declaration uses `sorry`
+P0.lean:42:8: warning: declaration uses `sorry`
+P0.lean:50:8: warning: declaration uses `sorry`
+P0.lean:77:8: warning: declaration uses `sorry`
+P0.lean:82:8: warning: declaration uses `sorry`
+P0.lean:113:8: warning: declaration uses `sorry`
+P0.lean:131:5: warning: Variable name `hRat` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hRat
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P0.lean:136:8: warning: declaration uses `sorry`
+
+[pilot73] SUMMARY
+[pilot73]   P0.lean: OK (probe, sorry allowed)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-VN30TueQAevifcE4wXCjxp
