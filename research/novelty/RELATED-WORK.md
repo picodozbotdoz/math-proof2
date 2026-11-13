@@ -94,3 +94,52 @@ generations behind, per round-3 §T); the program's realizable novelty is struct
 identity, LP-in-Lean, incomparable-bandwidth axis), cross-L-function (Hecke/ζ_K), and
 cross-model (machine-model conjunctions) — exactly the movable-ground list of round 3, now
 with donor accelerants for 42 and a hard deadline culture for everything AF-adjacent.
+
+## Cycle-2 additions (lane A5, 2026-11-13; full query records in `round-4.md` §1/§2/§3/§5/§6/PART-2)
+
+- **The quasi-RH cluster (six papers, six weeks, two external Lean artifacts)**: OpenAI [Ope26a]
+  *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s)>7/8* (preprint 2026-09-30, ζ included
+  via principal Dirichlet; Lean = the sorry-challenge only) → [Ope26b] 11/12 + Landau–Siegel
+  corollary (10-05) → **Liu-1 arXiv:2610.12234** B_new = 0.8749570 for Hecke-over-ℚ(√−3) + every
+  Dirichlet L incl. ζ, **formalized** (liubaiying101 repo, entry theorems at the exact rational
+  34999/40000, v4.34.1, triad-claimed, replay harness) → **Xu–Sang arXiv:2610.15291** 0.8748867
+  conditional on [Ope26a]'s analytic inputs → **Cureton–Thorner** hexagonmath.org/2610.00200
+  (v1 10-12/v2 10-14) 31/32 for EVERY number field + finite-order Hecke L, **our DZDF donor** →
+  **Liu-2 arXiv:2610.26835** (v2 10-29) B♭ = 0.8748866 UNIFORM over all number fields incl. ζ_K,
+  Lean in progress. Nearest ζ_K-zero neighbor: Trudgian–Zuniga Alterman arXiv:2610.16010
+  (h(K) < 0.58, low-lying zeros). **Note: hexagonmath.org's archive is ORCID-gated** — arXiv-only
+  absence claims are unsound for this venue (r4 method item 14, P2-12); direct sweep needs an ORCID.
+- **Suzuki arXiv:2610.41115** (2026-10-30): spectral theory of function-field zetas — Hilbert
+  spaces from the Weil quadratic form, eigenvalues → zero ordinates. The FF zone's method-neighbor
+  clock for dossiers 71/73 (no proportions, no dictionary, informal).
+- **Kuwahara arXiv:2610.15199** (2026-10-10): Rényi-α<1 area laws FALSE in d ≥ 2 for unique-gapped
+  ground states — by S₀ ≥ S_α, literal rank concentration from a spectral gap is FALSE; the
+  surviving concentration shape (von Neumann effective rank) IS the area law (our own AreaLaw2D
+  donor). Anchors 72's no-go gate and 74's discipline.
+- **AHS arXiv:2004.15009 cluster scan** (r4 P2-9): 23 citers (first page; Kuwahara = citer #1);
+  NO citer proves class-side lower bounds on achievable entanglement windows — 74's T1-floor
+  positioning survives; AHS remains the state-side dual (Õ(√b)).
+- **DLRT arXiv:1908.04876 — scope corrected (r4 P2-3)**: Thm 1.1 fixed abelian K under GRH
+  (o_K(1), T→∞), Cor 1.3(i) fixed quadratic K GRH-conditional asymptotic; nothing uniform over
+  K, no Hecke/non-abelian. Corrects VERDICTS §5.2(c)'s "unconditional"; the gate that keeps
+  dossier 75's primary at N 4.
+- **Upstream PNT+ close-out**: AlexKontorovich/PrimeNumberTheoremAnd @ `938912bb` (2026-11-12)
+  PROVES StrongPNT (ψ = x + O(x·exp(−c√log x)), `StrongPNT.lean:2900`, triad-clean) — 22-T2b
+  closed-by-upstream, formalization-only to recover; fork-vs-upstream Mathlib-subtree drift
+  39/75 files (real port, not rebase) [VERDICTS Cycle-2 standing note 1].
+- **PNT+/tauceti Perron three-way** (duplication audit): analytic-NT Perron now exists
+  independently as tauceti `TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/{Basic,Formula,
+  Ideal}.lean` (truncated kernel + arithmetic formula + ideal variant) and PNT+
+  `PrimeNumberTheoremAnd/PerronFormula.lean` (7 theorems); DZDF re-exposes tauceti's layer via
+  its hard dependency. Dossier 22's Tier-2 route and any RvM-adjacent pilot have two donor
+  choices + a third via DZDF — pick by toolchain match (PNT+ is on our pin's family).
+- **RvM def-not-theorem trap**: ZetaZeros V1's `RiemannVonMangoldt` is a DEF, not a proved
+  theorem — novelty greps (incl. `decl-index-v2.tsv` hits under `axiommath-zetazeros`, 276
+  challenge/scaffold-heavy rows) must not read it as a result; explicit-constants RvM is contested
+  (fork binder-only; upstream Kadiri in progress) [VERDICTS Cycle-2 standing note 2].
+- **Tate-thesis formal neighbors** (r4 P2-13, for 73): arXiv 0 relevant (8+2 entries all
+  math-physics/Langlands); GitHub exactly two Lean repos, both audited — DawidLipin/
+  Project_Tate_Thesis (dissertation, unfinished, number-field adeles) and **WenrongZou/TateThesis**
+  (PhD project, supervisors Nuccio & Brasca, ANR FALSE, Lean 4 + CI; number-field-only, goals
+  framed not proved) — no function-field Tate dictionary anywhere; WenrongZou is the "anywhere"
+  phrasing's clock.
