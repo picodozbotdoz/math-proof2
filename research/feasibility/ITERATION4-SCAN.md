@@ -48,9 +48,12 @@ in 1b has a live gate — they are cold inventory.
 - **Rosen ch.-number spot-check** — due when a 73 pilot nears Q4/FE territory (round-4 tail).
 - **72's α>1 Rényi re-check** — at pilot time (round-4 P2-4 residue; bridges/area-law.md §2).
 - **hexagonmath archive-direct sweep** — ORCID-gated; PASS-conditional stands (P2-12).
-- **QuasiRiemannTracker browser pass** — A5 mid-flight at outage (GTimG, JS-rendered,
-  pushed 2026-11-13 08:28, "every result verified" claim); needs browser-use or clone;
-  rules out/in ζ_K entries for row 70's per-class split.
+- **QuasiRiemannTracker — audited (A5, 2026-11-14 relay):** now a STANDING ~daily clock on
+  the Dirichlet class — formal frontier **0.8733458561 (Bebel)**, leapfrogging the
+  conditional informal 0.87446205 (Chang–Wang). **ζ_K split survives** (tracker is
+  Dirichlet-only) — row 70 tier unchanged. Re-check protocol: a single curl of the STATIC
+  assets `catalogue.json` / `bound-badge.json` at `gtimg.github.io/QuasiRiemannTracker/`
+  (only the HTML shell is JS-rendered); no browser pass needed.
 - **DLRT erratum propagation** — CLAIMS-REGISTER row 42 + rows 42/75 nearest-miss text
   (H to apply; verify done at close-out).
 - **A7 G-series unfinished**: G7b (run19, no verdict), G5a (run20 hit artifact-cache fail;
@@ -171,5 +174,11 @@ in 1b has a live gate — they are cold inventory.
    all rows final-or-declared-drop → Step A (local classifier) → Step B (one warm Modal
    axcheck batch via `run_axcheck.sh`) → Steps C–D ledger + compliance sign-off. The
    Cycle-2 instance: `FINAL-SWEEP-PLAN-C2.md` + `VERIFICATION-LEDGER.md` §9.
+9. **Standing external clocks, cheap re-check protocol** (A5 tracker audit, 2026-11-14):
+   QuasiRiemannTracker (Dirichlet class) — curl the static assets
+   `https://gtimg.github.io/QuasiRiemannTracker/catalogue.json` and `bound-badge.json`
+   (the HTML shell alone is JS-rendered); formal frontier at audit 0.8733458561 (Bebel).
+   Date every QR-D artifact claim against it and the Liu-2 clock (B♭ = 0.8748866 uniform,
+  Lean in progress).
 
 — end scan (A1; assembly only; chartering = orchestrator).
