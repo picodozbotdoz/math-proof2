@@ -211,6 +211,65 @@ the ecosystem). Ranked by mathlib-readiness:
 
 ---
 
+## §F physlib (leanprover-community) cross-reference — first-contact record (2026-11-14)
+
+Prompted by A5's survey `research/novelty/physlib-surface.md` §4(ii): the fresh corpus
+`leanprover-community/physlib` (HEPLean successor, toolchain `v4.35.0`, pushed daily)
+has **no quantum-information surface at all** — no entropy, no density matrices, no
+partial trace; `Mathematics/` is bare of them at directory level (physlib-surface §2);
+`CondensedMatter`/`LatticeQFT` are stubs (§2, §3.3). This section records the contact
+facts for iteration 4; it is not a survey.
+
+**Name disambiguation (binding — physlib-surface §3.4):** three "Physlib"s exist in our
+record. This map's §B.1/§C/§E "Physlib" is the **vendored `Physlib` package inside
+AxiomMath/AreaLaw2D** (`QuantumInfo.*`, pin `v4.33.0`) — a DIFFERENT project from
+`leanprover-community/physlib` (`v4.35.0`, QFT/perturbation-theory focus). Nothing in
+§B/§D changes meaning; every iteration-4 note must say which one it means. Side datum:
+the community physlib being QI-empty means the vendored layer (§B.1) is the only
+Physlib-named QI content in the ecosystem — whether the community library *intends* a
+QI wing is unknown (open question, one line in any charter that touches this).
+
+**What our substrate offers that physlib (community) lacks** — i.e., the ready outward-
+donation surface, per this map plus what has landed since §A–§E were written:
+- The tier-C **QI object layer** this map priced at ≈0.35k LoC (§C rows 1–2, §D): `Reg`/
+  `glue` region skeleton, `ptrace` + facts, `pureState`/RDM/`coefficientMatrix`,
+  von-Neumann-entropy-via-CFC (`trace_cfc` route, §B.2) — all Mathlib-only-rebasable.
+- **Landed, kernel-verified entropy statements with zero quantum imports**: pilot-72
+  P4.5 `research/pilots/72/C-neg.lean` (GREEN, triad-only) proves Rényi anti-monotonicity
+  `renyi_antiMono`, the support/rank bridges `renyi_le_log_card`/`renyi_le_log_rank`
+  (eigenvalues of PSD Hermitian ↔ `Matrix.rank` via mathlib `Spectrum.lean`), and the
+  α<1 area-law no-go gates — spectral entropy as pure finite algebra (the §A6 `H`-gap
+  route that avoids the vendored-Physlib dependency entirely). Pilot-01's inertia layer
+  (`posIndex`, purity = Frobenius energy) is the adjacent proved machinery.
+- The consumers that would give the donation a theorem to carry: openai `Basic.lean`
+  grid preamble + `EntropyMoments.lean` moment calculus (§B.4), AreaLaw2D `MarginalTails`.
+
+**First-contact bridge candidates for iteration 4 (two, tightly scoped):**
+1. **Spectral-entropy layer for physlib's `QuantumMechanics`/`HilbertSpaces` wing.**
+   physlib's QM wing is single-particle/qubit-scale with thin tensor infrastructure
+   (physlib-surface §2); our C-neg layer states and proves entanglement-entropy facts
+   over probability vectors and Hermitian spectra with no physics API. Bridge shape:
+   re-instantiate `renyi`/`renyi_le_log_rank` over physlib's finite-dimensional
+   Hilbert-space tensors (eigenvalues are pin-stable mathlib objects on both sides) —
+   giving physlib its first entropy statements while stress-testing C-neg's tier-C
+   independence claim against a foreign substrate. Pointers: this map §A/§C rows 2–4;
+   `pilots/72/C-neg.lean` + `pilots/72/logs/run8-final.log`; physlib-surface §2, §4(ii),
+   §5.1 (pin probe first — v4.35→v4.36 statement-port ≈ 0 expected).
+2. **The ptrace/RDM interface package aimed outward** — the §C row-2/§D tier-C tranche
+   (`Reg`/`glue`, `ptrace` def + four facts, `pureState`/RDM) restated over physlib's
+   `HilbertSpaces/TensorProducts` instead of AreaLaw2D's region sets: the pilot-72-M1
+   L1 (ptrace-Gram identity, 72-prework §2.3) is the load-bearing new lemma and is
+   donor-agnostic. This is the 71/73 dictionary pattern aimed at a live external corpus
+   — the same shape A5 ranked as physlib-surface §4's sharpest zone (i) for article 52's
+   relation layer, here for the QI object layer (their zone (ii)). Pointers: this map
+   §B.2/§C/§D; `pilots/72-prework.md` §2.3–2.4; physlib-surface §4(ii).
+
+Collision status: none — A5 §3.2/§3.3 record NO physlib content touching 72/74-family
+objects, so both bridges are first-contact by construction (clocks clean at 2026-11-14).
+Gate before any execution: the physlib-surface §5 probe list (pin elaboration first).
+
+---
+
 ## Method note
 
 Same tools/rules as `mathlib-assembly-maps.md`: rg/grep + targeted region reads over the encore
