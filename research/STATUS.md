@@ -454,6 +454,14 @@ standing authorization with a commit.
   75 (A4), + chain [SWEEP]/[TRIAGE-DECISION]. A9's INPUTS promotion checklist confirmed
   committed in 9ac5ad1 (both-tokens DRAFT-header finding; gating = 4 open families +
   2 chain markers).
+- 2026-11-14 — batch-13: `A9 — 10-L2 fills + article-10 FINAL promotion` (8a43767; H QA:
+  both tokens swapped (italic header + Status line), **§3 headline-as-TARGET framing
+  preserved** (honesty: the wd↔cw assembly tranche is Iteration-4 scope, not proved);
+  VERDICT fill matches disk evidence); `A3 — zzv2-λ prework` (a29408a, PROPOSAL/
+  [CHARTER-PENDING], §7 follow-up owed); A3 §(g) confirmed already committed (3cb8d12).
+  STEP-8 G7 gate refined per the census (article FILES' Status/provenance lines,
+  both-token command; README rows excluded; clean = 10/11/22-appends, token-swap-only =
+  71/73/42M4, open = 50M2/75).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 

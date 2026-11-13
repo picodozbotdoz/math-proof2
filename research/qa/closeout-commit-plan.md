@@ -97,6 +97,15 @@ orchestrator to trigger STEP 9:
    `! grep -qE "\[PILOT-VERDICT|\[G7b\]|\[SWEEP\]|\[TRIAGE-DECISION\]|\[VERDICT:" research/REPORT.md`.
 7. **Articles Status lines FINAL**: `grep -l "Status:.*DRAFT" research/articles/*.md`
    returns EMPTY (main-run articles say FINAL/CLOSED; Cycle-2 drafts flip at STEP 5).
+   **Refinement (2026-11-14, per A9's census + both-tokens finding):** the gate targets
+   the article FILES' Status/provenance lines (glob `[0-9]*.md` — README's descriptive
+   rows are NOT gate tokens). BOTH tokens must flip: the bold `**Status:` line AND the
+   italic header provenance line (which reads "DRAFT 2026-11-14" even where Status is
+   already PROVED/FINAL). Gate command:
+   `grep -lE "Status:.*(DRAFT|SKELETON)|· DRAFT 2026|· SKELETON 2026" research/articles/[0-9]*.md`
+   → EMPTY. Census at staging: clean = 10, 11-append, 22-append; token-swap-only =
+   71, 73, 42M4 (promotion edits listed in REPORT-INPUTS-C2 checklist); genuinely
+   open = 50M2, 75 (verdict-gated).
 8. **AGENTS-C2 applied per plan**: `head -3 research/AGENTS-C2-DRAFT.md | grep -q APPLIED`
    AND the AGENTS.md changes match the 7-edit plan (spot-read E2 merged bullet + :54
    decimal fix).
