@@ -21,7 +21,7 @@ novelty counts). A1 may still be mid-selection — these verdicts are independen
 | 6 | **FF-EZ5 family counting** (RvM-style N(T) analog over families; fixed-curve version degenerate) | **DECISIVE — occupied**: Faifman–Rudnick 0803.3534 (= Compositio Math. 146 (2010) 81–101) proves exactly the family zero-counting statistics: hyperelliptic family over FIXED 𝔽_q, g→∞, interval counts N_I with mean 2g·\|I\|, variance ∼ const·log(2g\|I\|), CLT, and shrinking intervals whenever 2g\|I\|→∞; Katz–Sarnak covers the equidistribution half for general families (abstract pulled 2026-11-14) | LOW | **LIKELY-DEAD** (standalone; **check run 2026-11-14 — differentiation analysis below the table**) | The literal "family counting analog" IS Faifman–Rudnick's theorem; the only survivors are (i) uniform every-curve lower bounds — but those are FF-EZ2/row-4's proportion territory AND are refuted in any family containing (near-)maximal members (all 2g angles pile at θ=π, zeroing N_I elsewhere — the §6.3/P2-11 trap mechanism; which families admit maximal hyperelliptic members = the dossier-level check), and (ii) CLT/variance for OTHER families = new-math monodromy work, not glue — FOLD INTO ROW 4; do not charter standalone |
 | 7 | **Kontorovich/quasi-rh 11/12 as binder donor** | n/a (external artifact, README-claimed, no ζ_K — r4 §8.3) | n/a (v4.34.1 external pin = statement-level only, DO-NOT-CONSUME class) | **DONOR/INFRA** | Sharpest ζ/Dirichlet binder constant available statement-level; feeds 50-M2-class pilots, no novelty claim attached |
 | 8 | **de Bruijn–Newman Λ ≤ 9/32 (DrMurphyIsIn)** | n/a (theorem TAKEN by third party, kernel-checked — main-run round-1 §12 gap closed) | n/a | **DONOR/INFRA** (with a DEAD edge) | Donation-surface/context only; any "first formal Λ" claim is dead on arrival — a next-cycle Λ candidate must START from this artifact and add new content |
-| 9 | **Shared LP-duality layer (02-core + 74-T3)** | **TOTAL for the math** (LP weak duality is classical); formal layer UNCLAIMED (r5 §5.2(b): mathlib `Cone/Basic.lean` lists LP duality as an explicit TODO; Yamashita = algorithmic HSD variant only) | LOW (Knausgård `law_lp.py` is Python — the de-risking note stands) | **NEW-LEAN** (infrastructure theorem, two-consumer) | One Lean layer unlocks dossier 02 core + 74-T3 across cycles; carry 74's **u ≠ 1** conditioning (P2-10 rpow note) into the layer's design |
+| 9 | **Shared LP-duality layer (02-core + 74-T3)** | **TOTAL for the math** (classical); **formal layer: AFP-HAS-LP_DUALITY — the theorem CLASS is formalized outside Lean** (check run 2026-11-14, evidence block below: AFP `LP_Duality` = weak AND strong duality, Thiemann 2022, maintained through Isabelle2026; AFP `Linear_Programming` = Parsert–Kaliszyk 2019, algorithmic, soundness via its own weak duality; AFP `Farkas` = Bottesch–Haslbeck–Thiemann 2019; Coq = Allamigeon–Katz 1706.10269, simplex→Farkas→strong duality, 2017; arXiv 2024–26: Parsert 2403.19639 Isabelle, NO Lean preprint); **the LEAN ecosystem remains empty** (mathlib TODO verified on-pin `Analysis/Convex/Cone/Basic.lean:37`, ff2494ea; Yamashita = algorithmic HSD variant only) | LOW (Knausgård `law_lp.py` is Python — the de-risking note stands) | **NEW-LEAN — LEAN-ECOSYSTEM SCOPE ONLY** (infrastructure theorem, two-consumer; NEVER phrase as "first formal LP duality" or "unformalized anywhere") | One Lean layer unlocks dossier 02 core + 74-T3 across cycles; carry 74's **u ≠ 1** conditioning (P2-10 rpow note) into the layer's design; **exact re-wording obligations in the evidence block below** |
 | 10 | **50-M2-R3 Liu-1 statement-binder (34999/40000)** | n/a (pilot route, not a statement) | n/a | **DONOR/INFRA** | Route R3 already G7-CLEAN; NOTE the §9 tracker refinement — the tracker replayed Liu at the EXACT algebraic (1507−2√921)/1653 on its own vendored tree, so the sharper constant exists statement-level but on a DO-NOT-CONSUME pin; R3 as specced (34999/40000) remains the cheapest |
 | 11 | **tauceti within-corpus empty zones** (5 pairs: type-II codes↔theta; orbit zeta↔Lefschetz; CAR/Fock↔QFT; free prob↔RMT eigenvalue flow; Vaught↔Morley–Vaught) | **HIGH per-pair on the DICTIONARIES** (codes↔theta = Nebe–Rains–Sloane-grade textbook; orbit-count↔Lefschetz = classical; free-prob↔Dyson flow = Voiculescu/Biane–Speicher line; Morley–Vaught = classical model theory) — the un-mined value is the in-corpus GLUE, not the correspondence | **RAISED (CAR pair, check run 2026-11-14 — analysis below the table)**: physlib (HEPLean's successor, pushed 2026-11-13T16:16Z) now carries `FieldStatistics/ExchangeSign.lean` = the statistics-universal ε=±1 exchange-sign calculus (both statistics; symmetric, involutive, COCYCLE) + sign-aware `WickContraction/` (`Sign/`, `Involutions.lean`) — 52's "bosonic instance only" collision note is STALE; mathlib (our pin) rg-clean of FieldStatistic/WickContraction | **POSSIBLY-KNOWN** (bundle) — **CAR-half INHERITANCE BROKEN: downgraded from NEW-LEAN edge; the "statistics-universal sign-calculus" framing is LIKELY-DEAD as future novelty (physlib's exchangeSign took the exchange-sign layer; our own article 52 took the occupation-pair layer)**; surviving CAR-pair content = fermionic dual-family theorem (N1b) + CAR weight dictionary (N3) + the tauceti↔physlib bridge itself | Each pair needs its own dossier-level sweep before chartering; charter them as formalization-first dictionary nodes (71/73 pattern), never as new correspondences; the CAR pair must differentiate from BOTH article 52 (ours, proved) and physlib's Wick stack — see also the row-52 staleness note added to VERDICTS §5.1 (2026-11-14) |
 | 12 | **Weil-as-binder for FF window clauses** (G3 CLEAN; consume Weil RH by binder, no Stacks build) | n/a (machinery) | n/a | **DONOR/INFRA** | The enabling pattern for seeds 4/5/6 window transports — ranked with them, not separately |
@@ -146,7 +146,69 @@ What the sign-aware Wick layer actually proves, at file level (all read verbatim
   NO physlib counterpart — the precision-corrected boundary stands as written
   above, now evidence-closed.
 
+**Seed-9 LP-duality AFP check — RUN 2026-11-14, verdict AFP-HAS-LP_DUALITY (claim
+narrows to Lean-ecosystem scope + the two-consumer application):**
+
+Sources read (isabelle-afp.org static pages, verbatim abstracts + arXiv API sweep
+2024–2026 + local mathlib rg):
+
+1. **AFP `LP_Duality` — René Thiemann (published 2022-02-03; latest release
+   2026-10-26 for Isabelle2026 — ACTIVELY MAINTAINED).** Abstract verbatim: "We
+   formalize the **weak and strong duality theorems** of linear programming. For the
+   strong duality theorem we provide three sufficient preconditions… The proofs are
+   based on an existing formalization of Farkas' Lemma." Sessions:
+   Minimum_Maximum, LP_Duality. This is the collapse-risk realized: the full
+   theorem pair exists in Isabelle, maintained through the current Isabelle release.
+2. **AFP `Linear_Programming` — Parsert & Kaliszyk (2019-08-06).** LP-solving
+   algorithm on the simplex formalization ("Linear Inequalities" dependency);
+   soundness "proven… by applying the **weak duality theorem which is also part of
+   this formalization**"; depends on the Farkas entry.
+3. **AFP `Farkas` ("Farkas' Lemma and Motzkin's Transposition Theorem") —
+   Bottesch, Haslbeck, Thiemann (2019-01-17; latest 2026-10-26).** Farkas + Motzkin
+   from the simplex algorithm's unsatisfiability detection.
+4. **Coq (outside AFP, recorded for the global picture): Allamigeon–Katz,
+   arXiv:1706.10269 (2017)** — simplex-based convex-polyhedra formalization
+   deriving Farkas' Lemma, the LP duality theorem, and Minkowski (the CoqPolyhedra
+   line). **arXiv sweep 2024–2026:** exactly one proof-assistant LP-duality hit —
+   Parsert, arXiv:2403.19639 (2024-03-28, Isabelle/HOL; = the AFP line's paper).
+   **No Lean LP-duality preprint exists.**
+5. **Lean side, re-verified on our pin (ff2494ea, 2026-11-14):** mathlib has NO LP
+   duality/Farkas/LP-simplex — `Mathlib/Analysis/Convex/Cone/Basic.lean:37` still
+   carries the explicit item "Define linear programs and prove LP duality as a
+   special case of cone duality" (the r5 §5.2(b) TODO, path-verified; the geometric
+   `Simplex` hits are unrelated); Yamashita 2026-06 remains the only Lean neighbor
+   (algorithmic HSD interior-point, duality in algorithmic form, not a reusable
+   weak-duality lemma).
+
+**Exact re-wording obligations (SEED-DOSSIERS + charter slot-1):**
+
+- **Seed-dossier text:** replace any "LP weak duality is unclaimed/unformalized"
+  with: "LP duality (weak AND strong) is formalized in Isabelle/AFP (`Farkas`,
+   Bottesch–Haslbeck–Thiemann 2019; `Linear_Programming`, Parsert–Kaliszyk 2019;
+   `LP_Duality`, Thiemann 2022 — maintained through Isabelle2026) and in Coq
+   (Allamigeon–Katz 1706.10269, 2017); it is absent from mathlib (explicit TODO,
+   `Analysis/Convex/Cone/Basic.lean:37`, verified on our pin) and from the Lean
+   ecosystem (Yamashita 2026-06 is an algorithmic HSD variant; no Lean preprint
+   2024–26). Ours: the first **mathlib/Lean-native** duality layer and the first
+   **application** of formal LP weak duality to zero-proportion/entropic
+   certificate programs (02's ceiling programs; 74-T3's surprisal LPs)."
+- **Charter slot-1 justification line:** "unclaimed formally" → "unclaimed in the
+  Lean ecosystem — Isabelle (AFP trio, maintained) and Coq (2017) own the theorem
+  class and are mandatory nearest-miss citations; the slot's value is the
+  mathlib-native layer + the two in-repo consumers, not theorem-class priority."
+- **Never-phrase list:** "first formal LP (weak/strong) duality"; "LP duality
+  unformalized"; any "first" unqualified by "Lean/mathlib-native".
+- **Must-cite additions:** AFP `LP_Duality` (Thiemann 2022), AFP
+  `Linear_Programming` (Parsert–Kaliszyk 2019 + arXiv:2403.19639), AFP `Farkas`
+  (Bottesch–Haslbeck–Thiemann 2019), Coq 1706.10269 (Allamigeon–Katz), alongside
+  the existing mathlib-TODO + Yamashita pair from r5 §5.2(b).
+
+Net: verdict tier for seed 9 is UNCHANGED (NEW-LEAN, infrastructure-grade,
+two-consumer) — but every phrasing is now Lean-ecosystem-scoped, and the dossier
+carries a five-entry nearest-miss block instead of the TODO-plus-one of r5.
+
 ## Reading for the charter (counts + gates)
+
 
 
 - **Novelty-bearing seeds: 6** — NEW-LEAN: 1 (3D continuation — gate PASSED), 2
@@ -161,9 +223,11 @@ What the sign-aware Wick layer actually proves, at file level (all read verbatim
   (G4/G5). **Pre-charter gate RUN and PASSED 2026-11-14** (evidence block above) —
   slot-2 proposal is cleared, aimed at the B.2–B.5 partial-target ladder (NOT the
   C.1–C.4-obstructed north star).
-- **Fastest de-risk:** seed 9 (the LP layer) — unclaimed formally, two named
-  consumers, classical math; effort S–M; do it FIRST regardless of which
-  discovery-grade seeds win slots (it is the 74/02 dependency either way).
+- **Fastest de-risk:** seed 9 (the LP layer) — **unclaimed in the LEAN ecosystem
+  only** (AFP/Coq own the theorem class — see the seed-9 evidence block for the
+  mandatory re-wording); two named consumers, classical math; effort S–M; do it
+  FIRST regardless of which discovery-grade seeds win slots (it is the 74/02
+  dependency either way).
 - **Deepest novelty risk:** ~~seeds 6 and 11~~ — RESOLVED 2026-11-14: seed 6 is
   LIKELY-DEAD standalone (Faifman–Rudnick occupation; fold into 4); seed 11's CAR
   occupation-calculus core is LIKELY-DEAD (physlib ExchangeSign), leaving N1b/N3/
