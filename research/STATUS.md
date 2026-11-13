@@ -140,7 +140,7 @@ orchestrator-owned.
 | 50 | 50-M2-R1 (gated continuation; A3) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable by DZDF (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md`; NOTE (2026-11-13): hQRH ζ-class formally dischargeable at FULL strength via external Liu-1 donor (registration `2d5a663`; probe pending A7/G7) |
 | 42 | 42-M4b-upgrade (gated continuation; A3) | **COMPLETE — primary route, FORMAL REPORT RECEIVED (A3 terminal batch 4323178, 2026-11-14: both routes GREEN; final = PRIMARY, 1,571 LoC/68 thms canonical; full-coverage axcheck 98 prints/72 names triad-only; M4-note landed; run1 anomalies discharged — counter regex story, see debts register b/c/j)** | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
 | 11 | 11-M2 (A8-3, authorized) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers — debt d)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3 explained in ledger §9 |
-| 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **71-P2 FINAL-GREEN + 73-C GREEN FINAL — A2 FORMAL REPORT RECEIVED (2026-11-14)**: P2 final 282 LoC (disk; report 279 flagged)/11 thms all triad (p2-run6, W1 pole-family correction); 73-C run6-c-green 236 LoC, Q1–Q3 + 71-glue, 7 thms triad, Q4 untouched per separate gate | Cycle-2 pilot-decision slot 1 (see decision block below) |
+| 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **71-P2 FINAL-GREEN + 73-C GREEN FINAL — A2 FORMAL REPORT RECEIVED (2026-11-14)**: P2 final 279 LoC/11 thms all triad (p2-run6, W1 pole-family correction); 73-C run6-c-green 236 LoC, Q1–Q3 + 71-glue, 7 thms triad, Q4 untouched per separate gate | Cycle-2 pilot-decision slot 1 (see decision block below) |
 | 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN OFFICIAL (A4 report 2026-11-14, commit 80dfd4b)** — run8 OK rc=0 errors=0 sorry=0, axcheck 11/11 declarations (5 public + 6 private) triad-only; run1–5 headers reconstructed+marked; deviations vs Appendix A documented (N1 regime 0<α≤β<1; N3 concrete-family False forms; Kuwahara as `hKL` binder) | Cycle-2 pilot-decision slot 2 (see decision block below) |
 | 75 | 75 abelian-assembly | **EXECUTING NOW (decision 2026-11-14: wave-4 pull-forward — the FINAL Cycle-2 pilot; lane A4; P-a then C1 per `pilots/75-prework.md`)**; A1 adds 75 to sweep TARGETS | Was DEFERRED to wave-4 (decision superseded 2026-11-14); spec complete |
 
@@ -441,6 +441,9 @@ standing authorization with a commit.
   physlib-surface). **OPEN FLAG — P2 LoC: relay/A2-report/A9 say 279; disk = 282
   (wc; no banner, non-blank 253 — no convention reproduces 279; A1's ledger also 282).
   H cells carry 282-on-disk with the flag; A2/orchestrator reconciliation owed.**
+  **RESOLVED 2026-11-14 (orchestrator ruling): 279 IS canonical** (A2's formal report
+  figure; A1's ledger 282 and H's wc were pre-final measurements — attributed to
+  post-count trailing edits). H cells corrected to 279 with this dated note.
   Board: rows 71 (formal-report-received) + 11-M2 (GREEN FINAL, A8 report owed w/
   headers) updated; 50-M2-R1 pre-staged awaiting G7b.
 - 2026-11-14 — batch-12: `Cycle 2: A6 — 10-L2 TERMINAL` (319751f; H QA: 151 = 134+17
@@ -552,7 +555,7 @@ Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C
 
 | Pilot / probe | Verdict | Evidence |
 |---|---|---|
-| 71-P2 (FF landing theorems, A2) | **FINAL-GREEN (A2 formal report received 2026-11-14)** | p2-run6 "P2.lean: OK": final 282 LoC (disk; report cites 279 — flagged) / 11 thms, 22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK (p2-run1–6); W1 pole-family correction |
+| 71-P2 (FF landing theorems, A2) | **FINAL-GREEN (A2 formal report received 2026-11-14)** | p2-run6 "P2.lean: OK": final 279 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK (p2-run1–6); W1 pole-family correction |
 | 73-C (FF Hecke–Tate skeleton, A2) | **GREEN FINAL (covered by A2's report)** | run6-c-green: 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad; descent 2→4→4→2→OK; Q4 untouched per separate gate |
 | 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only) + upgrade **COMPLETE-primary** (m4b2-run2 "M4b.lean: OK" — direct V2 import, 1,571 LoC / 68 thms = PRIMARY, fallback byte-preserved, ≤20-line gate met; disk-verified, A3 formal report owed) | m4b-run2, m4b-axcheck-run1, m4b2-run2; M4-note owed |
 | 10-L2 `PolyTVal` (A6) | **GREEN + axcheck-clean (A6 formal report received 2026-11-14)** | final 2,625 LoC (2,042 M1-verbatim byte-identical + ~580 Part D); axcheck 151 thms (134 M1-region + 17 Part D) all triad, 0 sorryAx; descent 12→3→1→0→final (l2-run1–5) |
