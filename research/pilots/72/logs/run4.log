@@ -1,0 +1,185 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-LtHKfgpmhLQF6QAcym3vJC
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+C-neg.lean:151:48: error: Type mismatch
+  Eq.symm (hnorm i hi)
+has type
+  F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ)) = f i ^ θ * g i ^ (1 - θ)
+but is expected to have type
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ))
+C-neg.lean:166:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:163:8: warning: automatically included section variable(s) unused in theorem `_private.«C-neg».0.CrossMath.CNeg.exists_pos_of_sum_eq_one`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+C-neg.lean:173:13: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:209:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α))
+in the target expression
+  ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+hH : ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+···
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:256:56: error: Application type mismatch: The argument
+  h
+has type
+  x ∈ ?m.249
+but is expected to have type
+  0 < p x
+in the application
+  ⟨Finset.mem_univ x, h⟩
+C-neg.lean:251:28: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow] at hH
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:278:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder 𝕜
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C-neg.lean:282:35: error(lean.unknownIdentifier): Unknown identifier `h`
+C-neg.lean:280:48: error: unsolved goals
+n : Type u_2
+inst✝² : Fintype n
+inst✝¹ : DecidableEq n
+𝕜 : Type u_3
+···
+C-neg.lean:282:35: error(lean.unknownIdentifier): Unknown identifier `h`
+C-neg.lean:280:48: error: unsolved goals
+n : Type u_2
+inst✝² : Fintype n
+inst✝¹ : DecidableEq n
+𝕜 : Type u_3
+inst✝ : RCLike 𝕜
+M : Matrix n n 𝕜
+hM : M.IsHermitian
+hpsd : sorry
+hsum : ∑ i, hM.eigenvalues i = 1
+α : ℝ
+hα : 0 < α
+hα1 : α < 1
+hnn : ∀ (i : n), 0 ≤ hM.eigenvalues i
+⊢ renyi hM.eigenvalues α ≤ log ↑M.rank
+C-neg.lean:282:36: error: unexpected token 'Σ'; expected command
+C-neg.lean:315:62: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:321:65: error: Application type mismatch: The argument
+  hb N
+has type
+  b N ≤ ↑N
+but is expected to have type
+  C * b N ≤ C * ↑N
+···
+⊢ renyi hM.eigenvalues α ≤ log ↑M.rank
+C-neg.lean:282:36: error: unexpected token 'Σ'; expected command
+C-neg.lean:315:62: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:321:65: error: Application type mismatch: The argument
+  hb N
+has type
+  b N ≤ ↑N
+but is expected to have type
+  C * b N ≤ C * ↑N
+in the application
+  le_trans (harea N) (hb N)
+C-neg.lean:332:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:332:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:342:40: warning: Variable name `hα` is not explicitly referenced.
+···
+of type `0 < C ∨ 0 = C`
+C-neg.lean:321:65: error: Application type mismatch: The argument
+  hb N
+has type
+  b N ≤ ↑N
+but is expected to have type
+  C * b N ≤ C * ↑N
+in the application
+  le_trans (harea N) (hb N)
+C-neg.lean:332:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:332:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:342:40: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=6 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-LtHKfgpmhLQF6QAcym3vJC

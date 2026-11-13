@@ -1,0 +1,66 @@
+# provenance: raw modal run, pilot 10 L1.lean staged as Pilot10_L1.lean (crossmath-pilot-32 app; modal as doz, profile semraker) | 2026-11-13 21:59 +08 | lane: pilot-10 executor (A6, Cycle 2) | fixes vs run 1: trailing rfl dropped where rw[foldC_succ] auto-closes; filterMap_cons passed explicitly (not simp in v4.36); findC_range splits on (range n).find? before simp [h]; hf via explicit exact hfit w hw L; cap_eq/capC_eq via simp [cap, h] (if_pos deprecated); omit [Enc ι] for two theorems | verdict: FAIL rc=1 errors=2 (docstring-before-omit parse: 'unexpected token omit; expected lemma') — all other decls GREEN, axioms all within triad, 0 sorryAx
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ubPOSINdF4McpCUz3dJSar
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pilot10_L1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pilot10_L1.lean
+[pilot] Pilot10_L1.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot10_L1.lean:424:23: error: unexpected token 'omit'; expected 'lemma'
+Pilot10_L1.lean:473:84: error: unexpected token 'omit'; expected 'lemma'
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+···
+Pilot10_L1.lean:424:23: error: unexpected token 'omit'; expected 'lemma'
+Pilot10_L1.lean:473:84: error: unexpected token 'omit'; expected 'lemma'
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+···
+
+[pilot] SUMMARY
+[pilot]   Pilot10_L1.lean: FAIL rc=1 errors=2 sorry=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-13T21:59:37+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ubPOSINdF4McpCUz3dJSar

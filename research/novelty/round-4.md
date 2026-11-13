@@ -465,3 +465,52 @@ moment-hierarchy sweeps; 75's abelian-assembly nearest-miss runs).
 `[incoming]` markers remain. Residuals for the record: hexagonmath archive-direct sweep
 (ORCID), HKT book chapter number (P2-11), Rosen ch.-number spot-check when 73's pilot
 near, 72's α>1 Rényi re-check at pilot time.
+
+## §8. Clocks (swept 2026-11-13; window = since 2026-11-06 unless noted)
+
+**MATERIAL (reported to orchestrator as item (0) this sweep):**
+
+1. **QR-D informal frontier moved BELOW B♭ — conditionally.** Chang–Wang,
+   arXiv:2611.00924 (2026-10-31; missed by my earlier sweep via a truncated results
+   head — lesson recorded): "exhaustion-aware product moment" obtains **B_* −
+   1/160000 = 0.87446205769…**, below Liu-2's B♭ = 0.8748866 — but **conditional on
+   "the cited general-field theta, detector, prior-bound and Mellin input theorems in
+   their stated uniform forms"** (XS26-style conditionality). Unconditional record
+   unchanged (Liu-2 B♭). Hits: VERDICTS row 70 + round-4 §5.3 table (conditional
+   column), CLAIMS-REGISTER row 70 clock line.
+2. **QR-D cluster grows: Ji, arXiv:2611.16665 (2026-11-12): "Proof of the Quasi
+   Riemann Hypothesis using Q[i]"** — quartic Gauss sums replace cubic; ζ_{Q(i)}
+   + ζ zero-free Re s > **599/600** (= 0.99833, weaker constant, new base field and
+   new theta-kernel: quartic Kubota). Title over-claims vs the cluster's sense of
+   "QRH"; no frontier move; row-70 must-cite list grows.
+3. **QR-D Lean ecosystem is 13 repos, not 2** (GitHub `"quasi-Riemann" language:Lean`,
+   swept today): beyond liubaiying101 ×2 and the audited Zhang-Liao/CoolRmal 7/8
+   extractions — **AlexKontorovich/quasi-rh** (10-26; README-claimed complete
+   formalization of `riemannZeta_ne_zero_of_re_gt_elevenTwelfths` = 11/12 for ζ +
+   Dirichlet, v4.34.1, reuses OpenAI's analytic core; NO ζ_K content),
+   **GTimG/QuasiRiemannTracker** (created 10-09, 389 commits, **pushed today
+   08:28**; README: "Every result on the website is verified", tracks "bounds on the
+   real parts of zeros of Dirichlet L-functions"; site is JS-rendered — NOT sweepable
+   by WebFetch; browser pass or clone is needed to rule out ζ_K entries),
+   LUOLINGc325/quasi-rh-lean ("main results of the Quasi-Riemann…", 10-28),
+   LW56e2/quasi-riemann-improved, CrossNox extension, akashlevy/qrh (obstructions
+   notes), jacobalansussman/qrh-zero-free-bounds ("a map of 66 dead ends", 11-04),
+   DrMurphyIsIn/qrh-debruijn-newman (**kernel-checked Λ ≤ 9/32 for de Bruijn–Newman**
+   — the main-run round-1 §12 "Λ absent everywhere" gap is now TAKEN by a third
+   party; no Cycle-2 dossier is affected; main-run donation-surface note only),
+   randogelist (unaudited). **No new ζ_K formal artifact found** — row 70's per-class
+   split (ζ_K/all-K strip ours alone) SURVIVES this sweep; the ζ/Dirichlet formal
+   side now has ≥3 artifacts (openai tree 7/8 in-corpus; Liu 34999/40000;
+   Kontorovich 11/12).
+
+**QUIET:** Suzuki/FF (no function-field zeta followups since 2610.41115; newest FF-adjacent
+items are unrelated — Carlitz polylogs 2610.25063, Cohen–Lenstra vanishing heuristics
+2610.16112); Kuwahara/AL (recent quant-ph area-law items are physics applications — free-
+fermion time-direction entropy 2611.13085 etc.; no barrier-theory followup); AF-cluster
+(newest ζ-proportion paper still Knausgård 2610.08965 of 10-06; nothing in-window);
+WenrongZou/TateThesis (4 commits, no new push in window — but repo <2 weeks old; keep
+clock); liubaiying101 main repo (11 commits, unchanged in window).
+
+**Sweep limitations:** QuasiRiemannTracker site JS-rendered (static HTML = title only) —
+needs a browser pass (browser-use skill) or clone; hexagonmath archive still ORCID-gated;
+arXiv API intermittently returns empty bodies (retry before believing a 0).

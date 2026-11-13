@@ -248,40 +248,73 @@ through the dictionary). **Verdict: OK — 0 errors** (only fix: `noncomputable 
 for `Real.sqrt` in `Wmat`). **Consumption: dossier-72 milestone-1 / AL-EZ1 part-2 input
 shapes are elaboration-validated; the encoding gap is confined to the `hequiv`-binder.**
 
-### G5a — AreaLaw2D statement layer with Physlib staged: see run14 (in flight at writing; §G5a to be finalized)
+### G5a — AreaLaw2D statement layer with Physlib staged: BOUNDARY MEASURED; build not completed tonight (service outage)
 
-`ProbeG5a_AreaLaw_Physlib.lean` elaborates inside the AreaLaw2D tree after
-`lake build OpenAI.Statements` — which fetches Physlib from the donor's own pin
-(`leanprover-community/physlib` @ `a50684a1`, resolved by lake in run6) and builds the
-vendored region core against ff2494ea. **Import-boundary map (measured, local BFS +
-run logs):** the statement layer `OpenAI/Statements.lean` imports
-`AreaLawForMathlib.QuantumInfo.Region.{State,TraceDistance}`; `Region/State.lean` imports
-`ClassicalInfo/Entropy` + `Region/PartialTrace`, both of which import Physlib
-(`QuantumInfo.ForMathlib.Matrix` etc.); `Region/TraceDistance.lean` imports three Physlib
-modules directly. 12 vendored files import Physlib (13 import statements). **So the
-headline statements (`HasGlobalGap`, `pureState`, `regionEntropy`, `AreaLaw`) sit ABOVE
-the Physlib boundary in the donor's own tree — but G4 shows the same statements
-re-derive mathlib-only; the proof theorem `AreaLaw.areaLaw` (Transfer.lean:361) sits far
-above (S01–S09 + replicas + scanner).** Physlib additionally pulls `MD4Lean`
-(acmepjz/md4lean @ 31907cc1, run6 log).
+`ProbeG5a_AreaLaw_Physlib.lean` (checks `OpenAI.HasGlobalGap`, `pureState`,
+`Arealaw.SubState.regionEntropy`, `AreaLaw`, `AreaLawCorollary`, `VertexAreaLaw`,
+`IsAdmissible`, `hamiltonian`, `domainEDist`, `edgeBoundary` + axiom prints of the two
+proved subset facts + `HypAreaLaw` binder forms + the `areaLaw_to_corollary` conditional)
+was to be elaborated inside the AreaLaw2D tree after `lake build OpenAI.Statements` —
+which fetches Physlib from the donor's own pin (`leanprover-community/physlib` @
+`a50684a1`, correctly resolved by lake in run6; Physlib additionally pulls MD4Lean,
+acmepjz/md4lean @ 31907cc1) and builds the vendored region core against ff2494ea.
+**The build itself did not complete tonight**: from ≈22:05 the mathlib artifact service
+failed persistently (`mathlib: failed to fetch cache`; Reservoir invalid-JSON once —
+runs 6/8/9/12/17), and a seed-and-build fallback (pre-copy /opt/mathlib olens, patch the
+manifest; runs 14) foundered on lake rebuilding the dep packages (Batteries/Aesop) from
+source without their own olens/traces — a lake materialization subtlety, recorded as an
+infra lesson, not a donor verdict.
+
+**What IS measured (definitive, textual + run evidence):**
+- **Import-boundary map (local BFS + run6 log):** the statement layer
+  `OpenAI/Statements.lean` imports `AreaLawForMathlib.QuantumInfo.Region.{State,
+  TraceDistance}`; `Region/State.lean` → `ClassicalInfo/Entropy` + `Region/PartialTrace`,
+  both importing Physlib (`QuantumInfo.ForMathlib.Matrix` etc.);
+  `Region/TraceDistance.lean` imports three Physlib modules directly. **12 vendored files
+  carry 13 Physlib import statements.** So the headline statements (`HasGlobalGap`,
+  `pureState`, `regionEntropy`, `AreaLaw`) sit ABOVE the Physlib boundary in the donor's
+  own tree — but G4 proves the SAME statements re-derive mathlib-only (the one Physlib
+  statement-layer contribution is the 8-line `posSemidef_vecMulVec_self_star`).
+- The proof theorem `AreaLaw.areaLaw` (Transfer.lean:361) sits far above (S01–S09 +
+  replicas + scanner + Schur–Weyl library mathlib lacks entirely, bridge §0.2).
+- Donor pins: lakefile mathlib = our ff2494ea exactly; the stale manifest (db584cd6) is
+  refreshed by `lake update` when the service is up (run6 got as far as resolving both
+  mathlib and Physlib revs).
+- **Consumption: statement level via the G4 mathlib-only transcription (validated);
+  the Physlib-staged direct-import route is one `run_gprobe.sh g5a` away whenever the
+  artifact service recovers (runner + probe are on disk, turnkey).**
 
 ## §G6 function-field cluster (A2's `research/bridges/function-field.md`)
 
-### G6a — partial StacksFrontier build pricing: see run15 (in flight at writing; §G6a to be finalized)
+### G6a — partial StacksFrontier build pricing: MEASURED (closure 59,173 jobs; hours-scale at best; drift risk unbounded)
 
-Facts established so far: Stacks @ `012108f6` pins **toolchain v4.34.0-rc2** and
-**mathlib `16edf57d`** (raw.githubusercontent reads of its `lean-toolchain`/`lakefile.toml`)
-— building it as Weil's dep forces root pins (v4.36.0-rc2 / ff2494ea), i.e. a v4.34-era
-corpus against v4.36 mathlib, the same class of bump that took ZetaZerosV2 nine fix
-rounds — on ~63k modules. The Weil-side statement closure of the RH entry points is only
-**69 modules with 68 direct StacksFrontier imports** (local BFS from
-`Weil.{LeanEval.WeilConjectures, …Trace.WeilRiemannHypothesisForm, …Trace.DeligneWeilConjecture,
-…Trace.DeligneFunctionalEquation, …FieldValuedPointCount}`); the bounded
-`lake build Weil.LeanEval.WeilConjectures` (run15) reports lake's total job count =
-the StacksFrontier transitive closure, the first errors, and the build rate.
-Baseline note: A2's pilot-71 P0 (statement probe, no Stacks) doubles as the FF
-no-Stacks baseline — cite `research/pilots/71-prework.md` + `research/pilots/71/logs/`
-(not re-run here, per coordinator de-duplication).
+Facts established (runs 11/15/18 + raw GitHub reads + local BFS):
+
+- **Stacks @ `012108f6` pins toolchain v4.34.0-rc2 and mathlib `16edf57d`** (its
+  `lean-toolchain` / `lakefile.toml` read off raw.githubusercontent). Building it as
+  Weil's dependency forces the root pins (v4.36.0-rc2 / ff2494ea) — i.e. a v4.34-era
+  ~60k-module corpus against v4.36 mathlib, the same class of bump that took ZetaZerosV2
+  **nine fix rounds at 1/20th the size**.
+- **The closure is measured, not guessed:** the seed-run (run15) reached lake's job
+  scheduler, which reported **59,173 total jobs** for
+  `lake build Weil.LeanEval.WeilConjectures` — the Weil-side statement closure is only
+  **69 modules with 68 direct StacksFrontier imports** (local BFS), so ≈59k jobs are the
+  StacksFrontier transitive closure + deps. At the measured healthy-build rate on this
+  Modal shape (g1b: 648 modules / ≈10 min ≈ 1.1 modules/s on 16 CPU) a zero-error build
+  would run **≈ 15 hours** — and zero-error is excluded: Stacks publishes no olean cache
+  (bridge §5), so every module compiles from source against drifted mathlib.
+- The clean update+cache route additionally hit the artifact-service outage (runs 11/18);
+  the seed route rebuilt deps from source and saturated (run15) — infra, not donor
+  verdicts.
+- **Pricing verdict (FF-EZ3/FF-EZ4 consumption): buildable-in-principle = yes (lake
+  resolves Stacks @ 012108f6 from Weil's lakefile; toolchain answer = root v4.36.0-rc2
+  overrides Stacks' v4.34.0-rc2 lean-toolchain); estimated cost ≈ 15 h of 16-CPU compute
+  MINUS the v4.34→v4.36 drift fix campaign on a ~59k-module corpus of unknown breakage
+  density (ZetaZerosV2 analogy says nontrivial). Direct import is priced OUT for this
+  cycle; the G3 statement route and pilot-71's no-Stacks baseline are the consumption
+  paths.** Baseline note: A2's pilot-71 P0 (statement probe, no Stacks) doubles as the FF
+  no-Stacks baseline — cite `research/pilots/71-prework.md` + `research/pilots/71/logs/`
+  (not re-run here, per coordinator de-duplication).
 
 ### G6b — EllipticCurve→Scheme instance path (FF-EZ4): BREAK on mathlib; bridge exists in tauceti
 
@@ -305,7 +338,8 @@ no-Stacks baseline — cite `research/pilots/71-prework.md` + `research/pilots/7
   or tauceti's `projModel`/`EllipticCurveGeom` layer (tauceti is the cheap route: same
   toolchain, direct lake dep — the "tauceti → direct dependency" consumption pattern).
   tauceti's own `WeierstrassCurve.zetaFunction` + RH genus-1
-  (`norm_eq_inv_sqrt_card_…`, Frobenius/Zeta.lean:244) + Hasse bound live on the
+  (`norm_eq_inv_sqrt_card_of_one_sub_frobeniusTrace_mul_add_card_mul_sq_eq_zero`,
+  `EllipticCurve/Isogeny/Frobenius/Zeta.lean:244`) + Hasse bound live on the
   equation-form side, so the pilot is: transport along `toEllipticCurveGeom` ↔ LeanEval
   statement (mathlib-only, G3-validated) instantiated at `projModel`.
 

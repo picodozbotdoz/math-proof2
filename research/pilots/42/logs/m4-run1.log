@@ -1,0 +1,54 @@
+# Provenance: bash run_m4.sh research/pilots/42/M4a.lean (doz CLI, app crossmath-pilot-42-m4), 2026-11-13 — M4a run 1 (first elaboration of the strip-distinct re-vocabulary layer).
+# Result: FAIL rc=1 errors=4 sorry=0 — all four mechanical: U+2032 PRIME not a valid Lean 4 identifier char (K839′OfLocal :917, hEχd′ :1129, hCZ′ :1170; docstring primes B-K′/c′ in comments are legal and kept) + one paren imbalance in distinctCountCum_of_factorization's final rw (:996; dropped a close when removing the lineFiniteCum wrapper). Fixed in place; see m4-run2.
+# Modal run: https://modal.com/apps/semraker/main/ap-blUJ8EJllky3Un6MMb9oHp
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-blUJ8EJllky3Un6MMb9oHp
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-42-m4-stage/run_m4.py
+└── ✓ Created Function run.
+[pilot] staging ['M4a.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M4a.lean
+[pilot] M4a.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+```
+M4a.lean:917:8: error: unexpected token '′'; expected ':=', 'where' or '|'
+M4a.lean:996:55: error: unexpected token ']'; expected ')', ',' or ':'
+M4a.lean:1129:9: error: unexpected token '′'; expected ')'
+M4a.lean:1170:9: error: unexpected token '′'; expected ')'
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+M4a.lean:1193:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed`
+M4a.lean:1194:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed_of_negligible`
+···
+M4a.lean:917:8: error: unexpected token '′'; expected ':=', 'where' or '|'
+M4a.lean:996:55: error: unexpected token ']'; expected ')', ',' or ':'
+M4a.lean:1129:9: error: unexpected token '′'; expected ')'
+M4a.lean:1170:9: error: unexpected token '′'; expected ')'
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+M4a.lean:1193:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed`
+M4a.lean:1194:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed_of_negligible`
+···
+M4a.lean:996:55: error: unexpected token ']'; expected ')', ',' or ':'
+M4a.lean:1129:9: error: unexpected token '′'; expected ')'
+M4a.lean:1170:9: error: unexpected token '′'; expected ')'
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+M4a.lean:1193:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed`
+M4a.lean:1194:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed_of_negligible`
+···
+M4a.lean:1129:9: error: unexpected token '′'; expected ')'
+M4a.lean:1170:9: error: unexpected token '′'; expected ')'
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+M4a.lean:1193:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed`
+M4a.lean:1194:14: error(lean.unknownIdentifier): Unknown constant `zetaK_distinct_five_sixths_strip_landed_of_negligible`
+···
+
+[pilot] SUMMARY
+[pilot]   M4a.lean: FAIL rc=1 errors=4 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-blUJ8EJllky3Un6MMb9oHp

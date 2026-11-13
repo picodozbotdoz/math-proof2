@@ -1,0 +1,110 @@
+# Provenance: full-coverage axcheck of M4a (pilots/10/axcheck_full.py — dotted names + @[simp] included; 54 theorems instrumented), elaborated via run_m4.sh (app crossmath-pilot-42-m4, doz CLI), 2026-11-13.
+# Result: GREEN, triad-only. 0 errors / 0 sorry; every 'depends on axioms' line is exactly [propext, Classical.choice, Quot.sound] (83 axiom-print occurrences across the duplicated output sections; zero non-triad axiom names anywhere in the log; none depend on sorryAx/native_decide).
+# Modal run: https://modal.com/apps/semraker/main/ap-e4tdbg21SVC5BhYybAxuxD
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-e4tdbg21SVC5BhYybAxuxD
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-42-m4-stage/run_m4.py
+└── ✓ Created Function run.
+[pilot] staging ['AxPilot42_M4a_full.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== AxPilot42_M4a_full.lean
+[pilot] AxPilot42_M4a_full.lean: OK
+---- axioms ----
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot42.lineWindow_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_mul_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.mem_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.count_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.ZeroMult.countOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_montgomery_taylor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zeroMult_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zeroMult_countOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLower_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.multOf_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.funEq_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.stripWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineWindow_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.sum_inter_distrib_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnOf_add_of_factorization_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.analyticAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_not_eventuallyEq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_analyticOrderAt_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_wired' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countDistinctOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_of_negligible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFiniteCum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.distinctCountCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerDistinctStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.two_thirds_le_673' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.five_sixths_le_839' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countCumOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnCumOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.distinctCountCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerCum_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect_strip_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.hfac_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.epsLowerCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+---- output tail ----
+'CrossMath.Pilot42.analyticAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_not_eventuallyEq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.LFunction_analyticOrderAt_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_wired' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.supp_add_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countDistinctOn_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_five_sixths_of_negligible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.lineFiniteCum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.distinctCountCum_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerDistinctStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.two_thirds_le_673' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.five_sixths_le_839' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countCumOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.countOnCumOf_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.distinctCountCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.EpsLowerCum_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.assemble_eps_defect_strip_cum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.hfac_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.epsLowerCum_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   AxPilot42_M4a_full.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-e4tdbg21SVC5BhYybAxuxD

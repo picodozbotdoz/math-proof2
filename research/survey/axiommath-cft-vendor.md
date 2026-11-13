@@ -199,11 +199,17 @@ abelian-L/K pilot needs from this vendor tree, by route:
   extension" and "products of ray-class Hecke L-functions" that 75's assembly consumes.
 
 **A2's FF-EZ3 Tate-dictionary: ABSENT, verified.** Word-boundary sweep over the vendor tree
-(`\bTate\b|FunctionField|GlobalField\b|functionField`, grep -rE, this session): every `Tate`
-hit is **Lubin–Tate** (local CFT: `HasseArf.lean:68`, `All.lean:51`, LubinTate dir), and
-there are **zero** function-field / global-field / geometric-class-field declarations — the
-vendor is number-field-only by construction (its product formula, ideles, and ray classes
-all live over `[NumberField K]`, e.g. `FiniteAbelianReciprocityData.lean:38–39`). A2's
+(`\bTate\b|FunctionField|GlobalField\b|functionField`, grep -rE, this session): all
+Tate-branded content is **number-field-side** — Lubin–Tate theory (`HasseArf.lean:68`,
+`All.lean:51`, the `LubinTate/` dir; identifiers `TateLevelField`/`TateSeries`/…) and Tate
+**cohomology** (`tateCohomology` in `AlgebraicNumberTheory/Idele/Cohomology/Decomposition.lean`,
+`GlobalClassFieldTheory/ClassFieldAxiom/IdeleClassFormation.lean`) [erratum 2026-11-13, A1
+per H Q5d: v1 said "every `Tate` hit is Lubin–Tate" — overstated, the Tate-cohomology
+objects were missed; load-bearing sweep unchanged] — and the **FunctionField/GlobalField
+sweep returns 0 hits**: zero function-field / global-field / geometric-class-field
+declarations — the vendor is number-field-only by construction (its product formula,
+ideles, and ray classes all live over `[NumberField K]`, e.g.
+`FiniteAbelianReciprocityData.lean:38–39`). A2's
 Tate-dictionary empty-zone finding extends to this tree: no s-plane, no 𝔽_q, no geometric
 reciprocity (consistent with my §FF double-cover in `survey/axiommath-pntplus.md`).
 

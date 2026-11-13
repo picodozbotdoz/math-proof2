@@ -27,3 +27,18 @@ proposals in `research/candidates/` and have no article; dossier 10 (Top-3 #2) i
 pilot (G1 audit CASE A) and its first milestone (M1 = L3, `exists_tm_space`) is proved
 axioms-clean (`pilots/10-blueprint.md`), but the headline refutation still needs L1/L2, so it has
 no article yet.
+
+## Cycle 2 (2026-11-13, opened) — expected articles
+
+[expected] entries for likely Cycle-2 discovery articles; one line each, kind + status.
+Article files are created when the underlying pilot lands a kernel-verified (or certified)
+result; each then gets its own file per the standing instruction.
+
+| # | article | kind | status |
+|---|---|---|---|
+| 71 | The s-Plane Zeta of a Curve: Formal Dictionary, Exact Window, Hasse–Weil Transport | formalization-first (classical math, first formal s-plane FF zeta) + anti-CT comparison corollary | **[expected — pending A2's P2]** (W1/W2/HW landing theorems; P0–P1 substrate already green, 7/7 lemmas kernel-clean) |
+| 72 | The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements | certified-negative (Kuwahara-obstruction formalized as a fence) | **[expected — pending A4]** (C-neg in flight; main-run precedent: articles 30/50's negative-result kind) |
+| 73 | A Formal Tate Dictionary for Function-Field Hecke L-Series, I: Statement Layer | formalization-first (Tier-C binder layer of the first formal Tate-type statements) | **[expected — pending 73-C]** (skeleton executing, A2; "anywhere" claim scoped + WenrongZou clock per A5 P2-13) |
+| 42-M4 | (upgrade of article 42) ζ_K Proportions with an Unconditional ζ-Column | donor-swap upgrade of a proved article | **[expected — pending M4b]** (decide addendum-to-42 vs new article when M4b lands; V2 discharges the ζ-side binders, hCert dropped) |
+| 50-M2 | Unconditional Strip Confinement for ζ and Dirichlet L | binder-discharge corollaries (posture upgrade of pilot 50's shell) | **[expected — pending route decision]** (R1 openai-7/8 in-corpus / R2 DZDF-31/32 (G1) / R3 Liu-1 external (G7); constants parametric in θ) |
+

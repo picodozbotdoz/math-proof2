@@ -51,35 +51,35 @@ noncomputable def renyi (p : ι → ℝ) (α : ℝ) : ℝ := (1 / (1 - α)) * Re
 
 /-- Two-number weighted AM-GM over ℝ: mathlib's Finset-weighted AM-GM
 (`Real.geom_mean_le_arith_mean_weighted`, MeanInequalities.lean:129) at the two-point type
-`Bool`. -/
+`Fin 2` (products via `Fin.prod_univ_two`, sums via `Fin.sum_univ_two`). -/
 private theorem amgm2 {x y θ : ℝ} (hx : 0 ≤ x) (hy : 0 ≤ y) (hθ₁ : 0 ≤ θ) (hθ₂ : θ ≤ 1) :
     x ^ θ * y ^ (1 - θ) ≤ θ * x + (1 - θ) * y := by
-  have hw : ∀ b ∈ (Finset.univ : Finset Bool), 0 ≤ (fun b => if b then θ else 1 - θ) b := by
-    intro b _
-    cases b
-    · show (0 : ℝ) ≤ 1 - θ
-      linarith
+  have hw : ∀ i ∈ (Finset.univ : Finset (Fin 2)),
+      0 ≤ (fun i => if i = 0 then θ else 1 - θ) i := by
+    intro i _
+    fin_cases i
     · show (0 : ℝ) ≤ θ
       exact hθ₁
-  have hsumw : ∑ b ∈ (Finset.univ : Finset Bool), (fun b => if b then θ else 1 - θ) b = 1 := by
-    rw [Finset.sum_univ_bool]
-    show (1 - θ) + θ = 1
+    · show (0 : ℝ) ≤ 1 - θ
+      linarith
+  have hsumw : ∑ i ∈ (Finset.univ : Finset (Fin 2)),
+      (fun i => if i = 0 then θ else 1 - θ) i = 1 := by
+    rw [Fin.sum_univ_two]
+    show θ + (1 - θ) = 1
     ring
-  have hz : ∀ b ∈ (Finset.univ : Finset Bool), 0 ≤ (fun b => if b then x else y) b := by
-    intro b _
-    cases b
-    · show (0 : ℝ) ≤ y
-      exact hy
+  have hz : ∀ i ∈ (Finset.univ : Finset (Fin 2)),
+      0 ≤ (fun i => if i = 0 then x else y) i := by
+    intro i _
+    fin_cases i
     · show (0 : ℝ) ≤ x
       exact hx
-  have h := Real.geom_mean_le_arith_mean_weighted (Finset.univ : Finset Bool)
-    (fun b => if b then θ else 1 - θ) (fun b => if b then x else y) hw hsumw hz
-  rw [Finset.prod_univ_bool, Finset.sum_univ_bool] at h
-  have h' : y ^ (1 - θ) * x ^ θ ≤ (1 - θ) * y + θ * x := h
-  calc x ^ θ * y ^ (1 - θ)
-      = y ^ (1 - θ) * x ^ θ := mul_comm _ _
-    _ ≤ (1 - θ) * y + θ * x := h'
-    _ = θ * x + (1 - θ) * y := by ring
+    · show (0 : ℝ) ≤ y
+      exact hy
+  have h := Real.geom_mean_le_arith_mean_weighted (Finset.univ : Finset (Fin 2))
+    (fun i => if i = 0 then θ else 1 - θ) (fun i => if i = 0 then x else y) hw hsumw hz
+  rw [Fin.prod_univ_two, Fin.sum_univ_two] at h
+  have h' : x ^ θ * y ^ (1 - θ) ≤ θ * x + (1 - θ) * y := h
+  exact h'
 
 /-- `(x / y) ^ a = x ^ a / y ^ a` for `y > 0` (from `Real.mul_rpow`, `Real.inv_rpow`). -/
 private theorem div_rpow_eq {x : ℝ} (hx : 0 ≤ x) {y : ℝ} (hy : 0 < y) (a : ℝ) :
@@ -128,28 +128,27 @@ private theorem sum_rpow_mul_le {κ : Type*} [Fintype κ] [DecidableEq κ]
   have hnorm : ∀ i ∈ s, f i ^ θ * g i ^ (1 - θ)
       = F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ)) := by
     intro i hi
-    rw [div_rpow_eq (hf i hi) hF0 θ, div_rpow_eq (hg i hi) hG0 θ]
-    field_simp [Real.rpow_nonneg (hf i hi) _, Real.rpow_nonneg (hg i hi) _]
+    rw [div_rpow_eq (hf i hi) hF0, div_rpow_eq (hg i hi) hG0]
+    field_simp [Real.rpow_nonneg (hf i hi) _, Real.rpow_nonneg (hg i hi) _,
+      Real.rpow_nonneg hF0.le _, Real.rpow_nonneg hG0.le _]
   have hsumAM : ∀ i ∈ s, (f i / F) ^ θ * (g i / G) ^ (1 - θ)
       ≤ θ * (f i / F) + (1 - θ) * (g i / G) :=
     fun i hi => amgm2 (div_nonneg (hf i hi) hF0.le) (div_nonneg (hg i hi) hG0.le)
       hθ0.le hθ₂
   have hsplit : ∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G))
       = θ * (∑ i ∈ s, f i / F) + (1 - θ) * (∑ i ∈ s, g i / G) := by
-    rw [← Finset.mul_sum, ← Finset.mul_sum, Finset.sum_add_distrib]
+    rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum]
   have h1 : ∑ i ∈ s, f i / F = 1 := by
-    rw [Finset.sum_div]
-    field_simp
-    exact hF0.ne'
+    rw [← Finset.sum_div, ← hFdef]
+    exact div_self hF0.ne'
   have h2 : ∑ i ∈ s, g i / G = 1 := by
-    rw [Finset.sum_div]
-    field_simp
-    exact hG0.ne'
+    rw [← Finset.sum_div, ← hGdef]
+    exact div_self hG0.ne'
   calc ∑ i ∈ s, (f i ^ θ) * (g i ^ (1 - θ))
       = F ^ θ * G ^ (1 - θ) *
           ∑ i ∈ s, ((f i / F) ^ θ * (g i / G) ^ (1 - θ)) := by
         rw [Finset.mul_sum]
-        exact Finset.sum_congr rfl (fun i hi => (hnorm i hi).symm)
+        exact Finset.sum_congr rfl (fun i hi => hnorm i hi)
     _ ≤ F ^ θ * G ^ (1 - θ) *
           (∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G))) :=
         mul_le_mul_of_nonneg_left (Finset.sum_le_sum hsumAM) hpos
@@ -192,15 +191,17 @@ theorem renyi_antiMono {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i, p 
   have hθ1 : (1 - β) / (1 - α) ≤ 1 := by
     rw [div_le_one₀ (by linarith : (0 : ℝ) < 1 - α)]
     linarith
+  have h1a : (1 : ℝ) - α ≠ 0 := by linarith
+  have h1b : (1 : ℝ) - β ≠ 0 := by linarith
   have hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β := by
     field_simp
-    ring
+    linarith
   have hterm : ∀ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * (p i ^ (1 - (1 - β) / (1 - α)))
       = p i ^ β := by
     intro i
     rw [← Real.rpow_mul (hp i), ← Real.rpow_add' (hp i) (by rw [hβexp]; linarith), hβexp]
-  have hH := sum_rpow_mul_le (Finset.univ : Finset ι) (fun i _ => hp i) (fun i _ => hp i)
-    hθ0.le hθ1
+  have hH := sum_rpow_mul_le (Finset.univ : Finset ι)
+    (fun i _ => Real.rpow_nonneg (hp i) _) (fun i _ => hp i) hθ0.le hθ1
   rw [hp1] at hH
   simp only [Real.one_rpow, mul_one] at hH
   have hEq : ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * (p i ^ (1 - (1 - β) / (1 - α)))
@@ -252,12 +253,12 @@ theorem renyi_le_log_card {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i,
     Fintype.card_ofFinset s (by
       intro x
       rw [hsdef, Finset.mem_filter]
-      exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ x, h⟩⟩)
+      exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ x, by simpa using h⟩⟩)
   have hcardpos : 0 < (s.card : ℝ) := by
     have hsne : s.Nonempty := ⟨i₀, by
       rw [hsdef, Finset.mem_filter]
       exact ⟨Finset.mem_univ i₀, hi₀⟩⟩
-    exact_mod_cast hsne.card_pos
+    exact Nat.cast_pos.mpr hsne.card_pos
   calc renyi p α
       = (1 / (1 - α)) * Real.log (∑ i ∈ s, p i ^ α) := by rw [renyi, hsumα]
     _ ≤ (1 / (1 - α)) * Real.log ((s.card : ℝ) ^ (1 - α)) :=
@@ -275,16 +276,16 @@ theorem renyi_le_log_card {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i,
 matrix, `M.rank` is the Schmidt rank across the cut. -/
 theorem renyi_le_log_rank {n : Type*} [Fintype n] [DecidableEq n] {𝕜 : Type*} [RCLike 𝕜]
     {M : Matrix n n 𝕜} (hM : M.IsHermitian) (hpsd : M.PosSemidef)
-    (hΣ : ∑ i, hM.eigenvalues i = 1) {α : ℝ} (hα : 0 < α) (hα1 : α < 1) :
+    (hsum : ∑ i, hM.eigenvalues i = 1) {α : ℝ} (hα : 0 < α) (hα1 : α < 1) :
     renyi hM.eigenvalues α ≤ Real.log M.rank := by
   have hnn : ∀ i, 0 ≤ hM.eigenvalues i := fun i => hpsd.eigenvalues_nonneg i
-  have h1 := renyi_le_log_card hnn hΣ hα hα1
+  have h1 := renyi_le_log_card hnn hsum hα hα1
   obtain ⟨i₀, hi₀⟩ : ∃ i, 0 < hM.eigenvalues i := by
     by_contra h
     push_neg at h
     have h0 : ∀ i, hM.eigenvalues i = 0 := fun i => le_antisymm (h i) (hnn i)
-    rw [Finset.sum_congr rfl (fun i _ => h0 i), Finset.sum_const_zero] at hΣ
-    norm_num at hΣ
+    rw [Finset.sum_congr rfl (fun i _ => h0 i), Finset.sum_const_zero] at hsum
+    norm_num at hsum
   have hcardpos : 0 < (Fintype.card {i // 0 < hM.eigenvalues i} : ℝ) :=
     exact_mod_cast Fintype.card_pos_iff.mpr ⟨⟨i₀, hi₀⟩⟩
   have hcardle : (Fintype.card {i // 0 < hM.eigenvalues i} : ℝ) ≤ (M.rank : ℝ) := by
@@ -304,27 +305,22 @@ private theorem nogo_core {c C : ℝ} (hc : 0 < c) (hC : 0 ≤ C)
     (hvol : ∀ n : ℕ, c * (n : ℝ) ^ 2 ≤ x n) (hmono : ∀ n : ℕ, x n ≤ y n)
     (harea : ∀ n : ℕ, y n ≤ C * b n) (hb : ∀ n : ℕ, b n ≤ (n : ℝ)) : False := by
   by_cases hC0 : C = 0
-  · subst hC0
-    have h1 := hvol 1
+  · have h1 := hvol 1
     have h2 := hmono 1
     have h3 := harea 1
-    rw [zero_mul] at h3
+    rw [hC0, zero_mul] at h3
     norm_num at h1
     linarith
-  · have hCpos : 0 < C := lt_of_le_of_ne hC (Ne.symm hC0)
-    obtain ⟨N, hN⟩ : ∃ N : ℕ, C / c < (N : ℝ) := by
-      refine ⟨(⌊C / c⌋₊ + 1 : ℕ), ?_⟩
-      have h1 : (C / c : ℝ) ≤ ⌊C / c⌋₊ := Nat.floor_le (div_nonneg hC.le hc.le)
-      have h2 : (⌊C / c⌋₊ : ℝ) < ((⌊C / c⌋₊ + 1 : ℕ) : ℝ) :=
-        by exact_mod_cast (Nat.lt_succ_self ⌊C / c⌋₊)
-      linarith
+  · obtain ⟨N, hN⟩ := exists_nat_gt (C / c)
     have hNpos : 0 < (N : ℝ) := lt_of_le_of_lt (div_nonneg hC.le hc.le) hN
     have hCx : C < c * (N : ℝ) := by
       have hlt := (div_lt_iff₀ hc).mp hN
       rw [mul_comm] at hlt
       exact hlt
+    have hyN : y N ≤ C * (N : ℝ) :=
+      le_trans (harea N) (mul_le_mul_of_nonneg_left (hb N) hC.le)
     have hchain : c * (N : ℝ) ^ 2 ≤ C * (N : ℝ) :=
-      le_trans (le_trans (hvol N) (hmono N)) (le_trans (harea N) (hb N))
+      le_trans (le_trans (hvol N) (hmono N)) hyN
     have hle : c * (N : ℝ) ≤ C := by
       refine le_of_mul_le_mul_left ?_ hNpos
       calc (N : ℝ) * (c * N) = c * N ^ 2 := by ring

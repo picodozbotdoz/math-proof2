@@ -187,7 +187,7 @@ def probe(files: dict, order: list):
         out = r.stdout + r.stderr
         errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
         warnings = [l for l in out.splitlines()
-                    if ": warning:" in l and "declaration uses 'sorry'" in l]
+                    if ": warning:" in l and "declaration uses" in l]
         verdict = "OK" if r.returncode == 0 else f"FAIL rc={r.returncode}"
         results[rel] = verdict if not errors else f"FAIL ({len(errors)} errors)"
         print(f"[probe] {rel}: {verdict}; errors={len(errors)}, sorry-warnings={len(warnings)}",

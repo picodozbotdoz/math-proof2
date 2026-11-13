@@ -1,0 +1,118 @@
+# provenance: raw modal run, pilot 10 L1.lean (GREEN, linter-clean) staged as Pilot10_L1.lean + full axcheck copy AxPilot10_L1_full.lean (generator research/pilots/10/axcheck_full.py, 27 non-private theorems) | crossmath-pilot-32 app; modal as doz, profile semraker | 2026-11-13 22:05 +08 | lane: pilot-10 executor (A6, Cycle 2) | command: /home/doz/dozenv/bin/modal run run_pilot.py --dir /tmp/crossmath-pilot-stage | verdict: BOTH OK errors=0 sorry=0 warnings=0; full audit: 27/27 theorems, every axiom set ⊆ {propext, Classical.choice, Quot.sound}, 0 sorryAx | file sha256:
+0871b429b28ecc3c1f1aa0d2c44f9f9d84caccb009131ddbcf293d7359b3b9ce  research/pilots/10/L1.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-xVoyzkdpAlxyw0u4bQ4fC7
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['AxPilot10_L1_full.lean', 'Pilot10_L1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== AxPilot10_L1_full.lean
+[pilot] AxPilot10_L1_full.lean: OK
+---- axioms ----
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.rng_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumF_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodL_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.cap_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_cap_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.length_pad' depends on axioms: [propext]
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.rngC_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumFC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.capC_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_capC_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.expandC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+---- output tail ----
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.rng_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumF_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodL_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.cap_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_cap_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.length_pad' depends on axioms: [propext]
+'PaddedDescent.F.foldC_zero' does not depend on any axioms
+'PaddedDescent.F.foldC_succ' does not depend on any axioms
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.rngC_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumFC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.capC_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_capC_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.expandC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+
+=== Pilot10_L1.lean
+[pilot] Pilot10_L1.lean: OK
+---- axioms ----
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+---- output tail ----
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+
+[pilot] SUMMARY
+[pilot]   AxPilot10_L1_full.lean: OK
+[pilot]   Pilot10_L1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-xVoyzkdpAlxyw0u4bQ4fC7

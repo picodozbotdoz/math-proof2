@@ -216,3 +216,38 @@ verification status is only re-established by the final axcheck batch (plan §3)
   toolchain v4.36.0-rc2, 8,710 cached oleans (per-pilot runners
   `pilots/{20,52}/run_m1.sh`, doz default with xyz fallback).
 
+
+## 9 Cycle-2 final-sweep skeleton (lane A1, 2026-11-13 — orchestrator-authorized addendum; H informed; fill-in at sweep execution per `probe/FINAL-SWEEP-PLAN-C2.md`)
+
+Verdict columns are **[pending final sweep]** until Steps A–B of
+`probe/FINAL-SWEEP-PLAN-C2.md` run on the orchestrator's trigger; the "current state" notes
+cite on-disk logs as of 2026-11-13.
+
+| pilot | final files | LoC/thms (on-disk) | axcheck verdict (log cite) | sorry tokens | sign-off |
+|---|---|---|---|---|---|
+| 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | [pending]; current: **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | [pending final sweep] |
+| 42-M4 | `M4b.lean` | 1557 / 66 | [pending]; no run log yet | 0 | [pending final sweep] |
+| 71 (FF-EZ1) | `P0.lean` | 112 / 4 | **probe-convention — Step A only** (header `P0.lean:10–20`; run verdict `pilots/71/logs/run4.log`: "P0.lean: OK (probe, sorry allowed)") | 4 placeholders (certified in plan §1) | [pending final sweep] |
+| 71 | `P1.lean` | 131 / 7 | [pending]; current: **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK") | 0 | [pending final sweep] |
+| 71 | `P2.lean` | 285 / ~13 [update] | [pending]; **landed 22:42** — header "proof artifact: no `sorry`" (1 token = prose); no run log yet (A2/A6) | 0 real | [pending final sweep] |
+| 72 (area-law) | `C-neg.lean` | 357+ / 5+ [recount] | [pending]; current: **FAIL in-flight, A4 ACTIVE** — `run4.log` (rc=1, 6 err) → `run5.log` 22:43 (rc=1, 7 err: implicit-arg synthesis :203/:204, unsolved goal :186, instance failure :278 — `sorryAx` in axioms report is downstream of the failed elaboration, 0 sorry tokens) | 0 | [pending final sweep] |
+| 72 | `M1.lean` | — (not landed, A8) | [pending landing] | — | [pending final sweep] |
+| 73 (FF C-series) | C-series | — (no dir yet) | [pending landing] | — | [pending final sweep] |
+| 10-L1 | `L1.lean` | 529 / 25 | **FINAL GREEN** — `pilots/10/logs/l1-run4-final.log` ("Pilot10_L1.lean: OK" + axcheck "AxPilot10_L1_full.lean: OK", triad, e.g. `PaddedDescent.F.descendC_uncut`: [propext]) | 0 | OK (pending sweep confirm) |
+| 10-L2 | `L2.lean` | 2595 / 126 | [pending]; file fresh 22:40, no l2 run logs yet (A6) | 0 | [pending final sweep] |
+| 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 386 / 8 | [pending]; lane to confirm final-vs-scratch | 0 | [pending final sweep] |
+| 52 / 20 | `M1`s | — | **already clean** (2026-11-09 resume final sweep, §6–§7; 30/30 staged OK, 0 sorryAx) — re-run for drift only | 0 | clean (cross-ref) |
+
+Conventions (Cycle-2): (i) probe-convention stubs = the 36 header-justified tokens
+enumerated in `probe/FINAL-SWEEP-PLAN-C2.md` §1 (9 main-run + 23 G-series + 4 in
+`pilots/71/P0.lean`) — never cited as results; (ii) donor-consumption audit — external
+donors (DZDF, Weil, Liu-1, upstream PNT+) enter proof artifacts only as hypothesis
+binders, verbatim marked probe copies, or already-built on-pin libraries (ZetaZerosV2 =
+built per G2; DZDF statement-level only per G1a/G1b); (iii) substrate note — Cycle-2 runs
+use the doz Modal CLI directly (`MODAL_USER=doz`; `sudo -n -u xyz` blocked in this
+environment; `pilots/71/run_pilot.sh:11`).
+
+> Compliance [pending final sweep]: signed off only after FINAL-SWEEP-PLAN-C2 Steps A–C —
+> all kept Cycle-2 artifacts elaborating on mathlib `ff2494ea` (v4.36.0-rc2), standard
+> axioms only, 0 unexplained sorry tokens, logs persisted with provenance headers
+> (`logs/axcheck-final-c2.log` per pilot).

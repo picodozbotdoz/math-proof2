@@ -137,10 +137,51 @@ same result. So the entry added to `make_axcheck.py` runs cleanly in the close-o
 | `LocatedCfg`, `locatedInit`, `LocatedCfg.monitor`, `locatedStep`, `visitedStacks`, `located_high_le`, `visitedStacks_le` | openai's located monitor for stacks (high-water marks), SpaceWithin S ⇒ visited ≤ \|K\|·S |
 | **`exists_tm_space_monitor`** | the headline in openai's per-prefix monitor form |
 
+## §L1 run log (milestone M2, Cycle 2)
+
+**Statement proved** (`research/pilots/10/L1.lean`, namespace `PaddedDescent.F`): the counter
+combinators — `foldC`/`collectC`/`findC` (the list-free ℕ-recursion: fold/filterMap-collect/find?
+over 0, …, n−1, the value of the binary countdown) and `rngC`/`sumFC`/`prodC`/`capC` (nb for
+`pad.length`, cut at `min · nb` inside) — **agree with eth's `rng`/`sumF`/`prodL`/`cap` at every
+pad** (`nb = pad.length`, cut-offs active or not: `rngC_agree`, `sumFC_agree`, `prodC_agree`,
+`capC_agree`, `findC_agree`, the bridge being `foldC_agree`: the countdown fold is the fold of the
+materialized range); **inactivity gives the uncut semantics** (`rngC_eq`, `sumFC_eq`, `prodC_eq`,
+`capC_eq`, `len_capC_le` — eth's five Fuel.lean lemmas transported); and the **composite
+agreement** in the two Prog.lean idioms: the cut-sum leaf (`termFD`/`termFCD`, `termFCD_agree`,
+`termFCD_eq`) and the generic counted descent — `expand`/`descend` (eth Prog.lean:144,148 shapes,
+generic in ι/Lv) vs `expandC`/`descendC`, with `expandC_agree`, `descendC_agree` (structural
+induction mirroring the def), `descendC_agree_pad` (the prework's `f (pad k, …) = fC (2^k, …)`
+statement) and `descendC_uncut` (inactivity transport: pattern counts and work-list words ≤ nb —
+the FitsG state-budget analog — ⇒ the counter descent is the uncut breadth-first expansion).
+Donor layer transcribed into the same file (runner elaborates files independently): Tree
+(Sym/V/code subset), Enc core (Enc/wd/len), Fuel.lean (all but Meas), pad/length_pad.
+
+**Invocation** (Modal as the doz user this cycle — `sudo -n -u xyz` is unavailable in the A6
+session: NoNewPrivs=1; AGENTS.md's documented alternative CLI `/home/doz/dozenv/bin/modal`,
+profile `semraker`; same ephemeral staging pattern, same app image):
+
+```bash
+python3 research/pilots/10/axcheck_full.py research/pilots/10/L1.lean /tmp/crossmath-p10-src/AxPilot10_L1_full.lean
+cp research/pilots/10/L1.lean /tmp/crossmath-p10-src/Pilot10_L1.lean   # stage, then
+/home/doz/dozenv/bin/modal run run_pilot.py --dir /tmp/crossmath-pilot-stage
+```
+
+| # | Log | Verdict | Errors | Fixes applied |
+|---|---|---|---|---|
+| 1 | `pilots/10/logs/l1-run1.log` | FAIL | 9 | — (all elaboration friction; math clean) |
+| 2 | `pilots/10/logs/l1-run2.log` | FAIL | 2 | trailing `rfl` dropped where `rw [foldC_succ]` auto-closes (×3); `List.filterMap_cons` passed explicitly (exists in v4.36 but not simp — cf. Mathlib's own `simp [filterMap_cons]`, Data/List/Basic.lean:919); `findC_range` splits on `(range n).find?` before `simp [h]`; `hf` via explicit `exact hfit w hw L` (rwa's `assumption` cannot apply a ∀-hypothesis); `cap_eq`/`capC_eq` via `simp [cap, h]` (`if_pos` deprecated); `omit [Enc ι]` for two Enc-free theorems |
+| 3 | `pilots/10/logs/l1-run3-green.log` | OK | 0 (2 linter warnings) | `omit` moved **before** the docstring (docstring-then-omit is a parse error: "unexpected token 'omit'; expected 'lemma'") |
+| 4 (final) | `pilots/10/logs/l1-run4-final.log` | **OK** | 0 / 0 warnings | unused simp args dropped; same run elaborates the full axcheck copy |
+
+**Final verdict: GREEN.** 529 lines: 27 non-private theorems + 4 private helpers, 16 defs.
+`AxPilot10_L1_full.lean` (L1 + `#print axioms` on all 27): OK, every axiom set a subset of
+{propext, Classical.choice, Quot.sound} (7 the full three), **0 sorryAx**. Added to
+`feasibility/probe/make_axcheck.py` TARGETS as `AxPilot10_L1`. Headline axioms (in-file, every
+run since 3): agreement theorems `[propext]`/`[propext, Quot.sound]`; `termFCD_eq` the full triad.
+
 ## §Next milestones
 
-- **M2 = L1** (counter combinators `rngC/sumFC/capC` + agreement with eth's `rng/sumF/cap` when
-  the cut-offs are inactive, prework §5). Independent of M1; mathematical, not machine-level.
+- ~~**M2 = L1**~~ (counter combinators; **done**, §L1 run log above).
 - **M3 = L2** (PolyTVal certificates over the counter combinators) — the hard layer. M1's
   `Frag.Runs.toB` already says that *any* fragment uses at most start + growth·steps cells; what
   L2 must add is that the counter-based fragments run on *poly-size words* (value-bounded loops),

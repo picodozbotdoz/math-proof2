@@ -190,6 +190,16 @@ the distinct landing additionally `hEχd′`; the `_of_negligible` form addition
 No `cert`-type binder survives; no native_decide can enter through any remaining binder
 (zeta23 ThmE statements and tauceti ports are mathlib-statement-shaped; audit at M4c).
 
+χ-column footnote (A1, 2026-11-13): zeta23's `GammaFacts` is PROVED in-tree (port-cost
+only, not a binder); ThmE's `GammaFactsChi κ q` has NO AxiomMath-fork substitute
+(irreducible) — irrelevant to M4's ζ-side, the binding constraint if the χ-column is
+ever formalized rather than ported. Provenance note (A1,
+`novelty/pntplus-glue-as-donor.md`): the M4b ζ-side discharge transitively consumes the
+fork's unique glue — `simple/distinct_proportion_lower` ← `pairCorrelationFormula`
+(`PairCorrelation/FromLandau.lean:52`) ← Landau log-derivative (`Landau/Formula.lean:170`)
+← `RiemannZetaHadamard` (`Landau/Formula.lean:9`); `RiemannZetaConvexity` at
+`Analytic/ZetaBounds.lean:12`. Recorded in the M4c addendum draft (`M4a-note.md`).
+
 ## (e) Milestone split and GREEN gates
 
 - **M4a — re-vocabulary, still Knausgård binders.** File `research/pilots/42/M4a.lean`

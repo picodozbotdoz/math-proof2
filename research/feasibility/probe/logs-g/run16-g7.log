@@ -80,3 +80,173 @@ info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e
 info: importGraph: cloning https://github.com/leanprover-community/import-graph
 info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
 info: p
+[modal-client] 2026-11-13T22:45:08+0800 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 174, in send_request
+    protocol = await self._channel.__connect__()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 136, in __connect__
+    return await super().__connect__()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 744, in __connect__
+    async with self._connect_lock:
+               ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/locks.py", line 14, in __aenter__
+    await self.acquire()
+  File "/usr/lib/python3.13/asyncio/locks.py", line 110, in acquire
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_grpc_client.py", line 164, in direct
+    return await self.client._call_unary(self.wrapped_method, req, timeout=timeout, metadata=metadata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 533, in _call_unary
+    return await self._call_safely(coro, grpclib_method.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 489, in _call_safely
+    return await request_task
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 912, in __call__
+    await stream.send_message(message, end=True)
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 242, in send_message
+    await self.send_request()
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 173, in send_request
+    with self._wrapper:
+         ^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/utils.py", line 70, in __exit__
+    raise self._error
+TimeoutError: Deadline exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 590, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client._stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConnectionError: Deadline exceeded
+[modal-client] 2026-11-13T22:46:05+0800 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_grpc_client.py", line 164, in direct
+    return await self.client._call_unary(self.wrapped_method, req, timeout=timeout, metadata=metadata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 533, in _call_unary
+    return await self._call_safely(coro, grpclib_method.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 489, in _call_safely
+    return await request_task
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 912, in __call__
+    await stream.send_message(message, end=True)
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 242, in send_message
+    await self.send_request()
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 174, in send_request
+    protocol = await self._channel.__connect__()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 136, in __connect__
+    return await super().__connect__()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 748, in __connect__
+    self._protocol = await self._create_connection()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 146, in _create_connection
+    protocol = await self._open_connection()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 168, in _open_connection
+    return await super()._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 725, in _create_connection
+    _, protocol = await self._loop.create_connection(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1117, in create_connection
+    infos = await self._ensure_resolved(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        (host, port), family=family,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        type=socket.SOCK_STREAM, proto=proto, flags=flags, loop=self)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1500, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proto=proto, flags=flags)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 590, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client._stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConnectionError: [Errno -3] Temporary failure in name resolution
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ [Errno -5] No address associated with hostname                               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<get_app_logs_loop() done, defined at /home/doz/dozenv/lib/python3.13/site-packages/modal/_output/pty.py:91> exception=OSError("Multiple exceptions: [Errno 113] Connect call failed ('54.82.163.184', 443), [Errno 113] Connect call failed ('52.0.45.136', 443), [Errno 113] Connect call failed ('52.0.2.201', 443), [Errno 113] Connect call failed ('52.200.203.71', 443), [Errno 113] Connect call failed ('3.90.79.180', 443)")>
+Traceback (most recent call last):
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_output/pty.py", line 223, in get_app_logs_loop
+    app_done = await _get_logs()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_output/pty.py", line 180, in _get_logs
+    async for log_batch in client._stub.AppGetLogs.unary_stream(request):
+    ...<35 lines>...
+            await stop_pty_shell()
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_grpc_client.py", line 196, in unary_stream
+    async for response in self.client._call_stream(self.wrapped_method, request, metadata=metadata):
+        yield response
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 546, in _call_stream
+    await self._call_safely(stream.send_message(request, end=True), f"{grpclib_method.name}.send_message")
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/client.py", line 489, in _call_safely
+    return await request_task
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 242, in send_message
+    await self.send_request()
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 174, in send_request
+    protocol = await self._channel.__connect__()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 136, in __connect__
+    return await super().__connect__()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 748, in __connect__
+    self._protocol = await self._create_connection()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 146, in _create_connection
+    protocol = await self._open_connection()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/modal/_utils/grpc_utils.py", line 168, in _open_connection
+    return await super()._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/doz/dozenv/lib/python3.13/site-packages/grpclib/client.py", line 725, in _create_connection
+    _, protocol = await self._loop.create_connection(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1174, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+        ', '.join(str(exc) for exc in exceptions)))
+OSError: Multiple exceptions: [Errno 113] Connect call failed ('54.82.163.184', 443), [Errno 113] Connect call failed ('52.0.45.136', 443), [Errno 113] Connect call failed ('52.0.2.201', 443), [Errno 113] Connect call failed ('52.200.203.71', 443), [Errno 113] Connect call failed ('3.90.79.180', 443)

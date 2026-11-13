@@ -1,0 +1,38 @@
+# Provenance: bash run_m4.sh research/pilots/42/M4a.lean (doz CLI, app crossmath-pilot-42-m4), 2026-11-13 — M4a run 2 (after identifier/paren fixes).
+# Result: GREEN. M4a.lean: OK — 0 errors, 0 sorry-warnings; axioms of all three landing theorems = [propext, Classical.choice, Quot.sound]. One benign deprecation warning (push_neg, carried M2b/M1 heritage line 648 — untouched, frozen-layer code).
+# Modal run: https://modal.com/apps/semraker/main/ap-Q9X0EeYIKsgqZOrrxnr6vH
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Q9X0EeYIKsgqZOrrxnr6vH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-42-m4-stage/run_m4.py
+└── ✓ Created Function run.
+[pilot] staging ['M4a.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M4a.lean
+[pilot] M4a.lean: OK
+---- axioms ----
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+---- output tail ----
+M4a.lean:648:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   M4a.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Q9X0EeYIKsgqZOrrxnr6vH

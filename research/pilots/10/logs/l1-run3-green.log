@@ -1,0 +1,59 @@
+# provenance: raw modal run, pilot 10 L1.lean run 3 (first GREEN, 2 unused-simp-arg linter warnings) | crossmath-pilot-32 app; modal as doz, profile semraker | 2026-11-13 22:00 +08 | lane: pilot-10 executor (A6, Cycle 2) | fixes vs run 2: omit [Enc ι] moved before the docstring (docstring-before-omit is a parse error) | verdict: OK errors=0 sorry=0 (2 linter warnings, fixed for run 4)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-7StvdCDiWCs61UcVx8KGXl
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pilot10_L1.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pilot10_L1.lean
+[pilot] Pilot10_L1.lean: OK
+---- axioms ----
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+---- output tail ----
+Pilot10_L1.lean:247:23: warning: This simp argument is unused:
+  List.filterMap_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot10_L1.lean:248:25: warning: This simp argument is unused:
+  List.filterMap_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+
+[pilot] SUMMARY
+[pilot]   Pilot10_L1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-7StvdCDiWCs61UcVx8KGXl

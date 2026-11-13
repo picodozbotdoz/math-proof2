@@ -1,0 +1,213 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vI9Cbbgu8LVSiQphAXduHX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:203:13: error: don't know how to synthesize implicit argument `f`
+  @sum_rpow_mul_le ι inst✝¹ inst✝ Finset.univ (fun i => p i ^ ?m.384 i) p (fun i x => rpow_nonneg (hp i) (?m.384 i))
+    (fun i x => hp i) ((1 - β) / (1 - α)) (LT.lt.le hθ0) hθ1
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+⊢ ι → ℝ
+C-neg.lean:204:40: error: don't know how to synthesize placeholder for argument `y`
+···
+⊢ ι → ℝ
+C-neg.lean:204:40: error: don't know how to synthesize placeholder for argument `y`
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+i : ι
+x✝ : i ∈ Finset.univ
+⊢ ℝ
+C-neg.lean:203:7: error: failed to infer `have` declaration type
+···
+⊢ ℝ
+C-neg.lean:203:7: error: failed to infer `have` declaration type
+C-neg.lean:186:29: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:256:59: error: Type mismatch: After simplification, term
+  h
+ has type
+···
+C-neg.lean:203:7: error: failed to infer `have` declaration type
+C-neg.lean:186:29: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:256:59: error: Type mismatch: After simplification, term
+  h
+ has type
+  x ∈ ?m.249
+···
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:256:59: error: Type mismatch: After simplification, term
+  h
+ has type
+  x ∈ ?m.249
+but is expected to have type
+  0 < p x
+C-neg.lean:256:22: error: Type mismatch
+  h.right
+has type
+  0 < p x
+but is expected to have type
+  x ∈ ?m.249
+C-neg.lean:251:28: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow] at hH
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:278:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder 𝕜
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C-neg.lean:285:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+···
+  0 < p x
+C-neg.lean:256:22: error: Type mismatch
+  h.right
+has type
+  0 < p x
+but is expected to have type
+  x ∈ ?m.249
+C-neg.lean:251:28: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow] at hH
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:278:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder 𝕜
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C-neg.lean:285:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:290:4: error(lean.unknownIdentifier): Unknown identifier `exact_mod_cast`
+···
+C-neg.lean:290:4: error(lean.unknownIdentifier): Unknown identifier `exact_mod_cast`
+C-neg.lean:295:56: error: Application type mismatch: The argument
+  h
+has type
+  (fun a => ⟨↑a, ⋯⟩) a = (fun a => ⟨↑a, ⋯⟩) b
+but is expected to have type
+  a = b
+in the application
+  congrArg Subtype.val h
+C-neg.lean:315:62: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:321:62: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:334:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:334:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=7 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vI9Cbbgu8LVSiQphAXduHX

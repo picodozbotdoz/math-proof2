@@ -97,6 +97,42 @@ in §4.
 - **N/S/E (proposed):** primary 3–4 / 3–4 / 2–3 (M, with an S decider probe); AL-EZ3
   milestone 2 / 3 / 1–2. **[A5 LANDED:** "P1: formal-new (moderate); P2: N as proposed ([HYPOTHESIS], flagged); C-neg: precedent-backed (50/30 lineage)"; tier WARM ("hard NO-GO on literal rank statements — already honored"); P2-4: "no α≥1 2D Rényi area law found; residual re-check at pilot". VERDICTS C2 row 72. **A7 G5 open.]**
 
+### 73 — function-field-hecke-tate (`candidates/73-…md`, FINAL 273 ln — filled from the
+pre-registered skeleton on 2026-11-13, task A9-7)
+
+- **Headline:** the FF Hecke-L statement class in the DZDF `heckeCorollary` shape with
+  **every Weil-side input a binder** (`hTate`/`hRat`/`hPur`, the hQRH precedent): (i)
+  rationality/continuation of L(s,χ) via `hRat` + 71's t ↔ s transfer; (ii) the RH-form
+  with **window exactly 1/2** (the anti-CT contrast at the Hecke level); (iii) the Tier-A
+  dictionary clause; (C1) the 𝔽_q(T) probe — post A2's honesty correction: `hRat`
+  dischargeable (elementary periodicity), `hPur` STAYS A BINDER (it is the RH for Kummer
+  covers of ℙ¹ — Weil, deep) ⇒ (C1) lands (i) unconditional + (ii) conditional;
+  (C2) the three-corpus window-comparison (1/2 vs 31/32 vs B_new); (C3) proportion
+  extensions fenced off (trap-reasoned: multiplicity proportions die,
+  existence/rationality/nonvanishing survive).
+- **Category:** **CONDITIONAL-CORE, Stacks-blocked, formalization-first — the
+  highest-ceiling item of the 70–75 series, with the least claimable today.**
+- **Bridge:** Weil (L(X,ℱ) + purity — the only source, behind StacksFrontier) × DZDF
+  (the `RayClassCharacter` structure + `heckeCorollary` shape to transplant/mirror) ×
+  mathlib (function-field substrate + 71's t ↔ s dictionary) × tauceti (the only
+  ℓ-adic-adjacent arithmetic — genus-1 layer); the vendored CFT offers nothing
+  (number-field-only, every `Tate` = Lubin–Tate — A1-4 §(d), LANDED): the binder
+  posture is the only route.
+- **Pilot status:** **73-C skeleton DECIDED + EXECUTING (A2)** (binders + class def +
+  (i)/(ii) statements, ≈ 0.4–0.6k LoC per A2's FF-sequencing memo, zero import gates);
+  the (C1) `hRat` discharge is the sequenced M-item (0.3–0.6k LoC; `hPur` binder per the
+  A2 correction, dossier revised); Tier A blocked (L(X,ℱ)/purity behind un-cloned
+  StacksFrontier ~63k modules; Kummer sheaves not even in Weil).
+- **Must-cites:** round-4 §6.2 EXECUTED verdict — KNOWN-INFORMAL-ONLY (Tate 1950 thesis;
+  Weil *Basic Number Theory* ch. VII; Rosen GTM 210 ch. 8–9 incl. the grössencharakter
+  case; no post-2000 arXiv claim of the dictionary as new); Suzuki 2610.41115
+  (method-neighbor, ζ_C-only, month-clock); Boyang Hu (hexagonmath, different layer);
+  Rosen chapter-number pin owed (A5's dossier-level re-run).
+- **N/S/E (proposed):** 3 / 4 / 2–3 for the Tier-C pilot (rank ≈ 4.8); 5 for Tier A
+  (blocked — a priced ceiling, not a slot). **[A5 row still `[incoming]` (written
+  pre-fill): "queries re-run on landing (incl. Rosen chapter numbers)" — the
+  dossier-level re-run is owed; zone tier WARM (formalization-first). A7 G6a open.]**
+
 ### 75 — abelian-assembly-zetaL-proportions (`candidates/75-…md`, 320 ln; 70-Part-B split-out)
 
 - **Headline:** DZDF's `dedekindAbelianQuotient`/`abelianFactorization` (ζ_L = (∏ nonprincipal
@@ -111,10 +147,10 @@ in §4.
 - **Bridge:** DZDF (factorization + component zero-free) × zeta23 (Dirichlet ThmE constants)
   / V2 (ζ-column, unconditional on-pin) × pilot-42/20 PROVED machinery × mathlib; no side
   alone can state it.
-- **Pilot status:** none yet; proposed entry (P-a)+(C1)@2/3, sequenced after G1 (or
-  binder-postured immediately — the factorization datum is one hypothesis); M4b (the V2
-  ζ-side discharge) proceeds independently per A3 recommendation 1 (blueprint
-  `pilots/42-M4-blueprint.md`, STATUS:140 GO).
+- **Pilot status:** **DEFERRED — wave-4** (orchestrator's empirical-record relay);
+  proposed entry (P-a)+(C1)@2/3 when slotted, binder-postured (the factorization datum
+  is one hypothesis); M4b (the V2 ζ-side discharge) proceeds independently as a gated
+  continuation (A3; blueprint `pilots/42-M4-blueprint.md`, STATUS:140 GO).
 - **Must-cites:** **DLRT 1908.04876 — the gating scope question** (uniform-over-K ⟹
   math-known, N caps 2–3; Dirichlet/quadratic-scoped ⟹ N 4; relayed to A5 as a gating
   PART-2 item); Liu-2 2610.26835 (family overlap, wrong quantity); dossier-20's R8 set
@@ -124,12 +160,10 @@ in §4.
 
 ## §2 Adjacent 70-series rows (recorded for completeness; not A9-owned)
 
-- **73 — function-field-hecke-tate** [expected/skeleton]: pre-registered by A9 (26 ln),
-  zone FF-EZ3 — Tate dictionary (first formal Tate-thesis-type statement) + quasi-RH-with-
-  1/2 for function-field Hecke L; **Stacks-blocked at the root** (L(X,ℱ) + purity behind
-  un-cloned StacksFrontier; Kummer sheaves not even in Weil); highest ceiling, lowest
-  probability; cheap statement-only probe named (𝔽_q(T) + Dirichlet of 𝔽_q[T]).
-  **[incoming A5 row; A7 partial-Stacks pricing.]**
+- **73** — formerly this section's [expected] stub; **filled to FINAL by A9 on
+  2026-11-13 (task A9-7) and promoted to a full §1 block above**; the pre-registered
+  skeleton's zone facts (Stacks-blocked root; the 𝔽_q(T) probe; highest ceiling) all
+  carried into the full dossier unchanged.
 - **74 — surprisal-moment-hierarchy-ceilings** [LANDED, lane A4, 247 ln]: owns AL-EZ2
   outright (T1 two-sided window theorem, T2 class-inclusion ladder, T3 LP core contingent
   on dossier-02's unclaimed layer, T4 method-barrier corollary; consumer = AreaLaw2D's 3D
@@ -165,8 +199,11 @@ in §4.
    inspection (`survey/axiommath-pntplus.md`; contrast the axiommath clone's copy, where
    the StrongPNT endpoint is commented out — survey §2b). Decision on disk: **DEFERRED —
    do NOT clone** until (i) A1–A3's recommendation and (ii) a triage-named consumer exist
-   (STATUS register :154–157). Dossier-22 context unchanged: stop-at-M4 stands; the
-   all-AxiomMath 31/32 Tier-2 variant recorded, not slotted (A3 §(d)).
+   (STATUS register :154–157). Update at pack refresh (A5 standing note 1, VERDICTS C2):
+   "**22's Tier-2 T2b is CLOSED-BY-UPSTREAM — formalization-only to recover on our pin;
+   T2a (quasi-RH-conditional x^{7/8+ε}) survives as 22's only open content**"; fork-vs-
+   upstream Mathlib-subtree drift = 39/75 files ("a real port, not a rebase").
+   Dossier-22 stop-at-M4 posture unchanged (A1-3 pntplus-glue-as-donor.md §d).
 5. **Kuwahara no-go alarm:** Kuwahara 2610.15199 (2026-10-10) disproves Rényi-α<1 area
    laws in d ≥ 2 for unique-ground-state + uniform-gap systems ⇒ by S₀ ≥ S_α, literal
    rank concentration from a gap is FALSE; A5 round-4 §2 issued the standing alarm BEFORE
@@ -182,7 +219,8 @@ in §4.
 |---|---|---|
 | Surveys (Cycle 2) | `survey/axiommath.md` 581 ln; `survey/axiommath-pntplus.md` 299 ln | `wc -l` |
 | Bridge maps (Cycle 2) | `bridges/function-field.md` 492 ln (A2); `bridges/area-law.md` 480 ln (A4, post-erratum) | `wc -l` |
-| Novelty (Cycle 2) | `round-4.md` 404 ln (PART 1 + §5 precision pass + §6 FF stubs); `axiommath-as-donor.md` 353 ln (A3); `VERDICTS.md` Cycle-2 addendum skeleton (rows offset vs files — A5 owns reconciliation in PART-2) | `wc -l`; VERDICTS :145 ff |
+| Novelty (Cycle 2) | `round-4.md` 404 ln (PART 1 + §5 precision pass + §6 FF stubs); `axiommath-as-donor.md` 353 ln (A3); `VERDICTS.md` Cycle-2 addendum — **PART-2 LANDED at refresh** (rows 70–75 DOSSIER-CHECKED/incoming + standing notes 1–4; row↔file offset reconciled in-table) | `wc -l`; VERDICTS :145 ff |
+| DLRT erratum (A5 standing note 3) | main-run §5.2(c) "unconditional 45% distinct" corrected: Thm 1.1/Cor 1.3(i) are GRH-conditional, fixed quadratic K, T→∞ — propagates to CLAIMS-REGISTER row 42 + rows 42/75 nearest-miss text (H to apply; applied to dossier 75's text at this refresh) | VERDICTS C2 note 3 |
 | Dossiers 70-series | 70: 469 / 71: 276 / 72: 388 / 73: 26 (skeleton) / 74: 247 (A4) / 75: 320 ln — 1,726 total | `wc -l` |
 | Pilot specs/prework | `pilots/71-prework.md` 380 (A2, GO); `pilots/72-prework.md` 493 (A4, conditional GO); `pilots/50-M2-31-32-spec.md`; `pilots/42-M4-blueprint.md` (GO) | `wc -l`; STATUS |
 | A7 probes on disk | `feasibility/probe/ProbeG1_DZDF.lean`, `ProbeG2_ZetaZerosV2.lean`, `ProbeG3_Weil.lean` (landed; verdicts pending at freeze) | `git status` 2026-11-13 |
