@@ -88,7 +88,7 @@ Temperley-Lieb hits are knot theory). mathlib's sole entropy objects are `Real.b
 
 **The replica layer [VERIFIED].** §6's `k`-copy machinery runs on Wedderburn labels
 `IrrepLabel (Equiv.Perm (Fin k))` of `ℂ[S_k]` (`AreaLaw/S06_Replicas/Setup.lean:73`), backed by a
-Schur–Weyl library `AreaLawForMathlib/RepresentationTheory/SchurWeyl/` (30 files, ≈10.7k LoC:
+Schur–Weyl library `AreaLawForMathlib/RepresentationTheory/SchurWeyl/` (49 files, 10,678 LoC:
 Alternant, Branching, BranchingPieri, CommutantDimension, HighestWeight, WeylDimension, …) whose
 content mathlib lacks entirely [VERIFIED: RefactoringResult.md §3 "none found in Mathlib (no
 Schur–Weyl, Specht module, Weyl character or hook formula)"].
@@ -280,6 +280,13 @@ results, first proof step, novelty status.
 
 ### AL-EZ1. Gap-to-inertia budget lemma + certificate bound on entanglement-spectrum functionals — [HYPOTHESIS]
 
+> **Erratum 2026-11-13 (round-4 §AL constraint, folded into the pilot spec).** The cap-first
+> phrasing below is superseded for executable purposes: Kuwahara arXiv:2610.15199 refutes
+> Rényi-α<1 area laws (hence rank concentration) in d ≥ 2, so pilot-grade statements are
+> restricted to **purity (α=2) / effective-rank framings**; the poly-PEPS representation form is
+> the companion preprint's territory and is not claimed. Authoritative executable form:
+> `research/pilots/72-prework.md` §3 (purity-energy certificate), dossier 72 (A9).
+
 **Statement (part 1, dictionary — provable now).** For `𝕜 = RCLike`, `H` Hermitian, `Ω` normalized,
 `E₀ Δ : ℝ`, `Δ > 0`: `HasGlobalGap H Ω E₀ Δ ↔ ∀ θ ∈ (−Δ, 0], #{i | (E₀ − H).eigenvalues i > θ} ≤ 1 ∧
 (the unique eigenvalue above θ, when counted, has eigenvector Ω)` — in `RHLinalg` words,
@@ -445,7 +452,7 @@ AreaLaw2D (read this lane): `README.md`; `lakefile.toml`; `lean-toolchain`; `lak
 (:24–93); `AreaLawForMathlib/QuantumInfo/Region/{State,PartialTrace,Physlib}.lean`,
 `QuantumInfo/Entropy/{VonNeumann,Subadditivity}.lean`, `Region/TraceDistance.lean` (decls + key
 lines); `QuantumInfo/ClassicalInfo/Entropy.lean` (decls); `RepresentationTheory/` listing
-(SchurWeyl 30 files ≈10.7k LoC); `RefactoringResult.md` (§§1–3: Mathlib/Physlib-gap table);
+(SchurWeyl 49 files, 10,678 LoC); `RefactoringResult.md` (§§1–3: Mathlib/Physlib-gap table);
 `docs/3D/Targets.md` (all); `digest/00-overview.md` (§§1–2). openai-math:
 `preprints/A-two-dimensional-area-law-from-a-global-spectral-gap-September-24-2026/build/sections/{00-introduction,00-history}.tex`;
 `preprints/Polynomial-PEPS-approximation-…/build/sections/{00-introduction,08-companion-interface}.tex`;
