@@ -142,7 +142,7 @@ orchestrator-owned.
 | 11 | 11-M2 (A8-3, authorized) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers — debt d)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3 explained in ledger §9 |
 | 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **71-P2 FINAL-GREEN + 73-C GREEN FINAL — A2 FORMAL REPORT RECEIVED (2026-11-14)**: P2 final 279 LoC/11 thms all triad (p2-run6, W1 pole-family correction); 73-C run6-c-green 236 LoC, Q1–Q3 + 71-glue, 7 thms triad, Q4 untouched per separate gate | Cycle-2 pilot-decision slot 1 (see decision block below) |
 | 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN OFFICIAL (A4 report 2026-11-14, commit 80dfd4b)** — run8 OK rc=0 errors=0 sorry=0, axcheck 11/11 declarations (5 public + 6 private) triad-only; run1–5 headers reconstructed+marked; deviations vs Appendix A documented (N1 regime 0<α≤β<1; N3 concrete-family False forms; Kuwahara as `hKL` binder) | Cycle-2 pilot-decision slot 2 (see decision block below) |
-| 75 | 75 abelian-assembly | **EXECUTING NOW (decision 2026-11-14: wave-4 pull-forward — the FINAL Cycle-2 pilot; lane A4; P-a then C1 per `pilots/75-prework.md`)**; A1 adds 75 to sweep TARGETS | Was DEFERRED to wave-4 (decision superseded 2026-11-14); spec complete |
+| 75 | 75 abelian-assembly | **LANDED — FINAL-FOR-ENTRY (A4, 2026-11-14, commit bd4d7ab): P-a + C1 GREEN** — Pa.lean 1,557 LoC, run6-final rc=0/0/0, in-file axcheck 17/17 triad by name, hntop-dissolution note, descent 26→7→1→2→2→0; **P-b carried to Iteration-4**; A1 adds to sweep TARGETS | Was DEFERRED wave-4 → pulled forward 2026-11-14 (final Cycle-2 pilot) |
 
 **Cycle-2 pilot decision (orchestrator, 2026-11-13; TRIAGE Cycle-2 §decision typesets when
 A9's staging `TRIAGE-C2-ROWS.md` lands):** slots = **71-P2 + 73-C skeleton (A2, executing)**
@@ -473,6 +473,18 @@ standing authorization with a commit.
   m1-run1 FAIL 4+1 errors, iterating — log not yet on disk); **11-M2 finishing on
   disk**: m2-run4/5/6 + `m2-axcheck-final.log` landed untracked — formal report
   imminent. P2 LoC flag RESOLVED earlier this batch-series (773e3a7, 279 canonical).
+- 2026-11-14 — batch-15: `A4 — pilot 75 LANDED` (bd4d7ab; H QA: run6-final header
+  "GREEN — OK rc=0/0/0 (P-a + C1 LANDED)", descent 26→7→1→2→2→0, in-file axcheck
+  17/17 triad BY NAME (34 depends-lines = 17 file prints + 17 staged copy), the single
+  sorryAx grep hit IS the header's own "0" verdict, hntop-dissolution note :373–376
+  (hntopχ DISCHARGED / hntopζ residue); row 75 → FINAL-FOR-ENTRY, P-b → Iteration-4;
+  candidates/74 §Pilot-outcome verified already swept in git — skipped) + `A6 —
+  next-tranche-spec` (255e7fa; D1–D6 present ending at `exists_tm_padded_space`,
+  two-route D2 decision point :95, Carried-instances gap flagged; PROPOSAL/
+  [CHARTER-PENDING]; blueprint pointer). **Cycle-2 pilot scoreboard: ALL Cycle-2
+  slots landed** — 71-P2, 73-C, 42-M4b(+upgrade), 10-L2, 11-M2 (formal report
+  imminent), 72-C-neg, 75; open: 72-M1 (A8 slot 3, m1-run1 FAIL 4+1 iterating) +
+  G7b/G5a/G6a (A7).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
