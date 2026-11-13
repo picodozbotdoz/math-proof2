@@ -689,6 +689,32 @@ this point.
   staged. **A8 standing by for Iteration 4.**
 - Concurrency probe at this batch close: **7**.
 
+**Batch 22 (2026-11-14 ~04:1x — orchestrator relay; A9 final fills):**
+- **A9 final-fill batch** (2125382): **article 11 COMPLETE** — verdict block upgraded to
+  A8-formal-received, Status line gains "+ M2 COMPLETE", and the main-run article's
+  now-false "machine realizations are not done" sentence corrected in place (TM2 done;
+  word-RAM half + M3 remain open). **Article 72 verdict-final at tranche scope** —
+  [VERDICT:72-M1] FILLED partial-GREEN FINAL-for-tranche (three marker sites +
+  provenance token, the 75 pattern; the split-status fallback NOT needed). Plus README
+  rows 11/72, dossier-72 M1 Tier-C dash rows, TRIAGE row-2 conditional RESOLVED +
+  matrix row 72 + carried-list refresh (72-M1's L3/interface added; the 10-L2/11-M2
+  conditionals resolved GREEN) + empirical cost ledger, and REPORT-INPUTS ledger rows
+  FILLED-FINAL + promotion-checklist updates. H QA glance PASS on all three checks:
+  (i) the run5 churn correction applied consistently everywhere (corrected series
+  4→2→3→6→3→2→2→0 with run5 = 3 displayed sites vs counter 4; run8's header
+  acknowledged as carrying 4 at run5 as-written, run-time persisted — both numbers
+  preserved, sources labeled); (ii) "5 latent bugs" attributed to A8's post-
+  interruption static audit (the report's account), not to any log counter; (iii) fill
+  census verified — remaining gates = **[G7b] only** (with its gated
+  [VERDICT:50-M2-R1]) + the chain markers [SWEEP]/[TRIAGE-DECISION]; nothing else
+  gates a Status line. One pre-existing oddity noted (not A9's): the article-10
+  promotion row's "orchestrator decision 2026-11-15" date (README, committed batch-16
+  era; A9's TRIAGE text matches it) — one-word date check at next touch.
+- **Close-out posture:** every pilot verdict slot and every article verdict slot is
+  now FILLED except the G7b family; the sweep trigger waits on A7's G7b verdict +
+  A1's TARGETS re-check (72-M1 landing note: AxPilot72_M1_T1/T2 to be added).
+- Concurrency probe at this batch close: **7**.
+
 ## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
 fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
 
