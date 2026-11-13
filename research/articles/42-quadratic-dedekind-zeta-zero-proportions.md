@@ -26,7 +26,9 @@ and on the line. The ζ-side input is consumed from K. Knausgård's clean Lean l
 0.67354 and 0.83900) through a certificate binder; the L(χ_D)-side input is zeta23's
 Theorem E. These are the first formal zero-density statements for a number-field zeta
 function, and form (ii) improves the literature's 45%-distinct statement for Dedekind zetas
-(de Laat–Rolen–Tripp–Wagner 2019) to the 5/6 class modulo an explicit defect.
+(de Laat–Rolen–Tripp–Wagner 2019 — **[erratum 2026-11-14: their result is GRH-conditional,
+fixed quadratic K, T→∞ asymptotic; the comparison is hypothesis-shape-to-hypothesis-shape,
+not unconditional-vs-conditional]**) to the 5/6 class modulo an explicit defect.
 
 ## 1. Introduction
 
@@ -147,7 +149,11 @@ and checksums are cited as external audit artifacts only (the same posture as ze
 - **Knausgård** (arXiv:2609.33043, arXiv:2610.08965, `kristianmk/839`): improved ζ
   constants; the constant race is lost to him, and we claim none.
 - **de Laat–Rolen–Tripp–Wagner** (arXiv:1908.04876): > 45% distinct zeros for Dedekind zetas
-  (SDP method). Theorem 4 places quadratic ζ_K in the 5/6 class modulo C_D; Theorem 3 is the
+  (SDP method) **[erratum 2026-11-14, H QA Part 7 / A5 standing note 3: GRH-conditional,
+  fixed quadratic K, T→∞ asymptotic — the main-run VERDICTS §5.2(c) "unconditional" reading
+  was wrong; our Theorems 3–5 are therefore not strictly-stronger-unconditional vs DLRT but
+  a different hypothesis shape (certificate + ThmE binders vs GRH), per dossier 75's
+  resolved scope]**. Theorem 4 places quadratic ζ_K in the 5/6 class modulo C_D; Theorem 3 is the
   first with-multiplicity on-line proportion for ζ_K.
 - **Majdoddin** (arXiv:2610.17420, `Majdoddin/formal-math`): a second, independent
   build-out on the anthropics tree; the certificate-binder consumption template used here

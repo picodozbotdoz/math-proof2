@@ -5,13 +5,12 @@
 `research/pilots/72-prework.md` (Appendix A) + `research/pilots/72/` (C-neg.lean, runs
 1–5) · bridge `research/bridges/area-law.md`*
 
-**Status: DRAFT — certified-negative gate in flight.** The C-neg Lean layer (N1 Rényi
-monotonicity, N2 rank bridge, N3 gate theorem) is under iteration; its verdict slot is
-[VERDICT:72-C-neg] in §5. The companion interface theorem M1 (family-265, Tier C) carries
-[VERDICT:72-M1]. The mathematical content of the gate is elementary (a monotonicity lemma
-plus a contrapositive); the point is that it is *worth formalizing*: it permanently fences
-a zone that a 2026 preprint just dynamited, and the negative-result article kind has
-precedent in this project (articles 30, 50).
+**Status: C-neg PROVED, GREEN + axcheck-clean (filled from A4's official report,
+2026-11-14 — §5). The companion interface theorem M1 (family-265, Tier C) carries
+[VERDICT:72-M1] (A8 slot 3, OPEN).** The mathematical content of the gate is elementary (a
+monotonicity lemma plus a contrapositive); the point is that it is *worth formalizing*:
+it permanently fences a zone that a 2026 preprint just dynamited, and the
+negative-result article kind has precedent in this project (articles 30, 50).
 
 ---
 
@@ -95,12 +94,21 @@ errors**) and G5c (`reducedDensity = Pmat` W Wᴴ ↔ atom-sum + trace bookkeepi
 G4 (AreaLaw2D full Challenge statement layer re-derives mathlib-only, Physlib not needed
 at statement level: OK). These de-risk both prongs below.
 
-**Pending (slots — not citable until filled):**
+**Landed (filled from A4's official report, relayed 2026-11-14; disk-verified by A9):**
 
-- C-neg.lean GREEN + axcheck (triad-only): [VERDICT:72-C-neg]. In-flight state at draft
-  time: run5 = FAIL rc=1, errors=7, sorry=0 (honest descent 20→14→12→6→7 across runs
-  1–5, lane A4 relaunch; logs `research/pilots/72/logs/run1.log`–`run5.log`).
-- Final LoC / theorem count: [VERDICT:72-C-neg]. Log provenance headers owed at close-out.
+- **C-neg: GREEN.** `run8-final.log`: rc=0, errors=0, sorry=0 — the honest descent
+  20→14→12→6→7 (pre-outage runs 1–5) → 3→1→0 (relaunch runs 6–8). Final file
+  `research/pilots/72/C-neg.lean`: **369 LoC / 11 theorems** (5 public, incl.
+  `rank_area_law_nogo` at :354, + 6 private). Runs 1–5's provenance headers were
+  reconstructed post-outage; run5's log notes a post-run mid-fix edit (A4's report).
+- **Axiom audit:** `axcheck-run1.log` — **11/11 theorems triad-only**
+  ([propext, Classical.choice, Quot.sound]), 0 sorryAx, 0 native_decide.
+- **Deviations from the Appendix-A mini-spec, all documented in `72-prework.md` §"Execution
+  outcome" (:495):** N1 stated for 0 < α ≤ β < 1 (the rank-relevant range); N3 stated as
+  concrete-family FALSE forms; Kuwahara's construction enters as the external `hKL`
+  binder (EnclOK pattern — informal physics input quoted, never re-proved).
+
+**Pending (slot):** [VERDICT:72-M1] — the §6 companion (A8, slot 3).
 
 ## 6. Companion: the family-265 interface theorem (M1, AL-EZ3)
 

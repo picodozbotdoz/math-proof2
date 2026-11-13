@@ -150,8 +150,15 @@ Tier C binder → Tier B imported statements → Tier A proofs, only the first i
 - Formal absence total: mathlib/tauceti/DZDF/ZZV2/PNT+ sweeps (dossier 71 §Novelty) — no
   s-plane FF zeta anywhere; nearest formal neighbors in the Tate direction are
   number-field-only (dossier 73's WenrongZou/DawidLipin audit).
-- Falsity-trap citations: vdG–vdV Zbl 0729.11066; Cossidente–HKT Zbl 0958.11048;
-  H–K Zbl 1043.51007; GHKT Zbl 1218.11064 (round-4 P2-11; HKT chapter-number pin [TBD]).
+- Falsity-trap citations (round-4 P2-11, zbMATH-pinned at paper granularity): van der
+  Geer–van der Vlugt, *Artin-Schreier curves and codes* (Zbl 0729.11066, 1991);
+  Cossidente–Hirschfeld–Korchmáros–Torres, *On plane maximal curves* (Zbl 0958.11048,
+  2000); Hirschfeld–Korchmáros, *Caps on Hermitian varieties and maximal curves*
+  (Zbl 1043.51007, 2003); Giulietti–Hirschfeld–Korchmáros–Torres, *Curves covered by the
+  Hermitian curve* (Zbl 1218.11064, 2006). Book-level: HKT, *Algebraic Curves over a
+  Finite Field* (PUP 2008, Zbl 1200.11042) — **cite at Part-3 level only ("Part 3
+  (chs. XIV–XVIII, pp. 393–626)"); bare chapter numbers are NOT citable** (A5's P2-11
+  PARTIAL-PIN resolution, 2026-11-14: Zieve-vs-Google-Books numbering ambiguity).
 
 ## 7. Limitations and open problems
 

@@ -129,9 +129,13 @@ pre-registered skeleton on 2026-11-13, task A9-7)
   (method-neighbor, ζ_C-only, month-clock); Boyang Hu (hexagonmath, different layer);
   Rosen chapter-number pin owed (A5's dossier-level re-run).
 - **N/S/E (proposed):** 3 / 4 / 2–3 for the Tier-C pilot (rank ≈ 4.8); 5 for Tier A
-  (blocked — a priced ceiling, not a slot). **[A5 row still `[incoming]` (written
-  pre-fill): "queries re-run on landing (incl. Rosen chapter numbers)" — the
-  dossier-level re-run is owed; zone tier WARM (formalization-first). A7 G6a open.]**
+  (blocked — a priced ceiling, not a slot). **[A5 row LANDED 2026-11-13 (row 73, r4 §6.2
+  + P2-13 — the pre-fill `[incoming]` marker here was STALE, corrected 2026-11-14):**
+  N-adjust "formalization-first (dictionary value; Stacks-blocked Tier-C is
+  binder-designed, provable on our pin)"; tier **WARM**; gating claim RESOLVED —
+  SUPPORTED in the function-field/rationality-dictionary scope with the WenrongZou
+  nearest-neighbor softening (full text in the dossier-73 block of this pack and
+  VERDICTS C2 row 73). A7 G6a open.]**
 
 ### 75 — abelian-assembly-zetaL-proportions (`candidates/75-…md`, 320 ln; 70-Part-B split-out)
 
@@ -229,3 +233,107 @@ pre-registered skeleton on 2026-11-13, task A9-7)
 | Cycle-2 close-outs (A8) | 52 M1 VERIFIED-GREEN; 20 CLOSED (hCZ unchanged) | STATUS :137–138 |
 
 — end of pack (A9; pure inputs; orchestrator conclusions intentionally absent).
+
+---
+
+## Slot ledger (fill checklist) — appended by A9 2026-11-14 (grep-driven, exhaustive; the single checklist the close-out fill consumes)
+
+Convention: a slot's state is OPEN (waiting on its trigger), PENDING-RELAY (the event has
+happened on disk / is final per the ledger but the official lane report has not reached
+A9), or FILLED-FINAL. **No slot may be filled except on the orchestrator's relay of the
+named lane's official report; no slot may be double-filled** (each verdict has exactly
+one owner per surface: A9 owns articles/candidates/README rows below; H owns the
+REPORT.md §C2 + STATUS.md pre-staged cells per REPORT.md:244's fill-in convention).
+
+### A. Pilot-verdict markers
+
+| marker | location(s) (file:line, every instance) | fill trigger | state (2026-11-14) | close-out fill owner |
+|---|---|---|---|---|
+| **[VERDICT:71-P2]** / [PILOT-VERDICT:71-P2] | articles/71:11,130,133 · candidates/71:305,311 · README:41 · REPORT.md:275,361 · STATUS.md:421,435 | A2 official report (P2 GREEN incl. axcheck; disk p2-run1..6, run6 OK unrelayed) | PENDING-RELAY | A9 (art/dossier/README); H (REPORT/STATUS) |
+| **[VERDICT:73-C]** / [PILOT-VERDICT:73-C] | articles/73:9,116–120 (Q0/Q1/Q2/Q3/LoC-audit rows) · README:43 · REPORT.md:299,361 · STATUS.md:421,436 | A2 official report (73-C after 71-P2; STOP before Q4) | OPEN (not started) | A9; H |
+| **[VERDICT:72-C-neg]** / [PILOT-VERDICT:72-C-neg] | articles/72:10,100,103 · candidates/72:401–406 (dash rows) · README:42 · REPORT.md:287,362 · STATUS.md:421,441 | A4 official report (imminent; disk run8-final + axcheck-run1 exist, unrelayed) | **FILLED-FINAL 2026-11-14** (A4 report relayed: GREEN run8-final rc=0 0/0; 369 LoC/11 thms; axcheck 11/11 triad; deviations per 72-prework :495) — A9 surfaces filled; H's REPORT/STATUS cells remain H's | A9 done; H |
+| **[VERDICT:72-M1]** / [PILOT-VERDICT:72-M1] | articles/72:11,117 · candidates/72:408–413 (dash rows) · README:42 · REPORT.md — (none; folded into 72 row) · STATUS.md:440 | A8 official report (slot 3, after 11-M2) | OPEN | A9; H |
+| **[VERDICT:M4b]** / [PILOT-VERDICT:42-M4b] | articles/42M4:13,124 · candidates/42:391 · README:44 · REPORT.md:360 · STATUS.md:421 | A3 official report (m4b-run2 GREEN 2026-11-14 on disk; axcheck + note pending) | PENDING-RELAY | A9; H |
+| **[VERDICT:M4b-upgrade]** | articles/42M4:13,125 · candidates/42:391 · README:44 | A3 official report on the direct-V2-import continuation (G2-cleared; recorded APPLIED in M4b.lean:40–44 — needs A3's formal confirmation + axcheck) | OPEN (route applied on disk; relay decides FINAL vs revert-to-fallback) | A9 |
+| **[VERDICT:50-M2-R1]** | articles/50M2:10,134,143 · README:45 · REPORT.md — (via G7b line :363) · STATUS.md — (via G7b :442) | 50-M2 pilot execution post-G7b (route decision R1 vs R3 is the orchestrator's, per ITERATION4-SCAN §1a) | OPEN (gated on G7b) | A9; H |
+| **[VERDICT:10-L2]** / [PILOT-VERDICT:10-L2] | articles/10:13,114,116,136 · candidates/10:346 (pointer) · README:46 · REPORT.md:358 · STATUS.md:421,438 | A6 official report (L2 Part-D fixes → run GREEN + axcheck) | OPEN (on-disk unrun at wrap) | A9; H |
+| **[VERDICT:11-M2]** / [PILOT-VERDICT:11-M2] | articles/11:144 · README:47 · REPORT.md:359 · STATUS.md:421,439 | A8 official report (RedTm2 last file; P11T1/T2/T3 sub-rows already FILLED-FINAL-pending-relay inside articles/11 addendum) | PENDING-RELAY (1 file left) | A9; H |
+
+### B. Gate markers
+
+| marker | location(s) | fill trigger | state | owner |
+|---|---|---|---|---|
+| **[G7b]** | articles/50M2:9,132,142 · README:35,45 · REPORT.md:244,263,337,363 · STATUS.md:421,442 · feasibility/ITERATION4-CHARTER-DRAFT.md:6(def),:29,:71 | A7 official report (donor-pin axiom audit of the OAI 7/8 theorems; run19 relaunched 02:03 per ITERATION4-SCAN §1a) | OPEN (in flight) | A7 produces; A9+H fill surfaces; charter sites consumed by the orchestrator at Iteration-4 typeset |
+
+### C. Close-out-chain markers
+
+| marker | location(s) | fill trigger | state | owner |
+|---|---|---|---|---|
+| **[SWEEP]** | REPORT.md:244,389 · STATUS.md:421,445 · **feasibility/ITERATION4-CHARTER-DRAFT.md:7(def),:100 (REAL close-out-adjacent slot — gates when the §Iteration 4 addendum may be typeset: "Cycle-2 close-out chain must complete before iteration-4 chartering is typeset")** | A1 signals all FINAL-SWEEP-PLAN-C2 §0 TARGETS final-or-declared-drop → A1 executes Steps A–C → ledger §9 fills → close-out chain (TRIAGE typeset → REPORT → AGENTS-C2-DRAFT applied → STATUS block) → only then Iteration-4 chartering | OPEN | A1 executes; H commits; orchestrator typesets the Iteration-4 addendum after the chain |
+| **[TRIAGE-DECISION]** (close-out fill) | REPORT.md:244,396 · STATUS.md:422 | orchestrator typesets TRIAGE §Cycle-2 decision after pilot outcomes land | OPEN | orchestrator; H pastes |
+| **Next-cycle marker families (Iteration-4 pre-staging — NOT Cycle-2 close-out fills; inventoried so no one chases them at close-out):** | | | | |
+| [A5-SEED-TRIAGE] (charter) | ITERATION4-CHARTER-DRAFT.md:5(def),:40,:68,:69 | A5's `novelty/iter4-seed-triage.md` (in flight) | OPEN (next-cycle) | A5 produces; orchestrator consumes at charter |
+| [A5-triage-pending] (seed) | ITERATION4-SEED-DOSSIERS.md:8,:49,:104,:155 | same (A5 seed triage) | OPEN (next-cycle) | A5 |
+| [NOVELTY-CHECK-NEEDED] | ITERATION4-SEED-DOSSIERS.md:5,:203 · ITERATION4-CHARTER-DRAFT.md:39 | dossier-hardening obligations in the Iteration-4 pipeline ("obligations, not decorations" per the charter's own phase-3 row) | OPEN (next-cycle) | next-cycle dossier lanes |
+| [TRIAGE-DECISION] (annotation family) | ITERATION4-SCAN.md:5,18–23,40,90 · ITERATION4-SEED-DOSSIERS.md:97,:147,:197 · ITERATION4-CHARTER-DRAFT.md:5(def),:40,:64,:76,:79 | next-cycle slotting/ordering decisions after Cycle-2 outcomes settle | OPEN (next-cycle) | orchestrator (Iteration-4 chartering) |
+| Non-slot status tags (never fill) | SEED-DOSSIERS:71 [OAI265], :146 [HYPOTHESIS]; CHARTER-DRAFT:10 [PROPOSAL] | tags, not slots | n/a | — |
+
+### D. Dash-slot templates WITHOUT bracket markers (grep-invisible — do not lose them)
+
+| location | slots | trigger / state | owner |
+|---|---|---|---|
+| candidates/72:397–413 | C-neg prong rows (runs/LoC/thms/axcheck/verdict) + M1 Tier-C rows (same) | C-neg rows **FILLED-FINAL 2026-11-14** (A4 report); M1 Tier-C rows OPEN (A8 slot 3) | A9 |
+| candidates/73:291–304 | Q0/Q1/Q2(i)/Q3(ii) run rows + LoC/thms/axcheck/verdict | same trigger as [VERDICT:73-C]; OPEN | A9 |
+| candidates/75:342–357 | entry (P-a)+(C1)@2/3 · (P-b) after M4a verification · (C2)/(C3) rows + LoC/thms/axcheck/verdict | wave-4 slot decision (orchestrator; ITERATION4-SCAN §1a flags 75-vs-42-upgrade sequencing); OPEN | A9 |
+| candidates/71:291–312 residual rows | P2 row (bracketed) + LoC / thm count / full-sweep axcheck / verdict-line rows still "—" | same trigger as [VERDICT:71-P2]; PENDING-RELAY | A9 |
+| candidates/10:281+ L1 block tail | L2 paragraph (pointer only — no fill rows; article 10 carries the slot) | same as [VERDICT:10-L2] | A9 |
+
+### E. Missing-surface rows (checklist, not markers)
+
+1. **Dossier 74 pilot-outcome template: DOES NOT EXIST yet** (A4 owns; A4's 2026-11-14
+   edit to candidates/74 applied the u≠1 glue note only; grep 0 for "Pilot outcome").
+   **UPDATE 2026-11-14 (A4's report relayed): A4 is appending the minimal §Pilot-outcome
+   block itself — A9 stays out of 74; flip this row to RESOLVED-BY-OWNER when the block
+   lands on disk (re-grep "Pilot outcome" candidates/74).**
+2. ~~"feasibility/SEED-DOSSIERS.md and feasibility/CHARTER-DRAFT.md: NOT FOUND"~~ —
+   **RETRACTED 2026-11-14 (orchestrator-verified wrong; both files exist**: the actual
+   names are `feasibility/ITERATION4-SEED-DOSSIERS.md` (committed `6a672a4`; 14,013 B at
+   re-grep — grew past the orchestrator's 12,865 B figure, live edits) and
+   `feasibility/ITERATION4-CHARTER-DRAFT.md` (committed `482f459`, 8,382 B), alongside
+   ITERATION4-SCAN.md `2dc7963`). **Grep-method post-mortem (one line, so it does not
+   recur):** the miss came from (a) `find … -name "SEED-DOSSIERS*" -o -name
+   "CHARTER-DRAFT*"` — prefix-blind, does not match the `ITERATION4-`-prefixed names —
+   and (b) the repo-wide marker grep being both pattern-narrow (omitted the
+   [NOVELTY-CHECK-NEEDED] / [A5-SEED-TRIAGE] / [A5-triage-pending] families) and piped
+   through `| head` (truncation); the fix, used for this correction pass, is per-file
+   `grep -n -o "\[[A-Z0-9][A-Z0-9a-z:-]*\]"` untruncated + semantic classification of
+   every family. All instances are folded into §B/§C above.
+
+### F. Markers found OUTSIDE the orchestrator-named surface (listed to prevent double-fill)
+
+- **research/STATUS.md:421–445** (H's board): the full [PILOT-VERDICT:…] family + [G7b]
+  + [SWEEP] + [TRIAGE-DECISION], pre-staged by H. **H owns these cells** (REPORT.md:244
+  convention); A9's fills never touch STATUS.md.
+- **research/feasibility/ITERATION4-{SCAN,SEED-DOSSIERS,CHARTER-DRAFT}.md** (A1's
+  next-cycle pre-staging): marker families inventoried in §C's next-cycle block;
+  A1/orchestrator territory, never A9 fills (corrected in 2026-11-14's re-grep pass —
+  see §E.2's retraction).
+- No OTHER marker instances repo-wide beyond §A–§C + the two families above (re-grep
+  sweep 2026-11-14, untruncated, .git excluded).
+
+### G. Already-FILLED states (no action; prevents re-fill)
+
+- candidates/71 P0/P1 rows + articles/71 §5 evidence lines: FILLED-FINAL 2026-11-14
+  (ledger-final per orchestrator instruction).
+- candidates/42 M4a addendum row: FILLED-FINAL (m4-run2 + m4-axcheck-run1). M4b row in
+  the same block: PENDING-RELAY (marked in place).
+- candidates/10 L1 block + articles/10 §4: FILLED-FINAL (l1-run4-final).
+- articles/11 addendum P11T1/T2/T3 rows: FILLED (marked PENDING A8 OFFICIAL RELAY —
+  promote to FINAL on A8's report; RedTm2/[VERDICT:11-M2] still open).
+- articles/README:35 "[VERDICT:…]" is the legend line, not a slot.
+- REPORT-INPUTS-C2.md:132's "[A5 row still `[incoming]`]" for dossier 74 is **STALE**
+  (VERDICTS C2 row 74 landed 2026-11-13) — correction candidate for A9 at next
+  REPORT-INPUTS pass; flagged here so the close-out does not propagate it.
+
+— end of slot ledger (A9; grep sweep 2026-11-14 ~02:4x; live pilot logs move fast —
+re-grep before executing fills).

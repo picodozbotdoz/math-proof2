@@ -20,8 +20,12 @@ statement below (binding):
    level by round-4 §6.3 (revision 2026-11-13): maximal curves — the Hermitian curve
    y^q + y = x^{q+1} over 𝔽_{q²}, genus q(q−1)/2, is maximal for every prime power q,
    all 2g Frobenius eigenvalues equal −q, Z_C(t) = (1+qt)^{2g}/((1−t)(1−qt)), simple-zero
-   proportion exactly 0; Hirschfeld–Korchmaros–Torres chapter-level citation with the
-   chapter/theorem number pin still owed; more genera via van der Geer–van der Vlugt
+   proportion exactly 0; Hirschfeld–Korchmaros–Torres citation **[pin resolved 2026-11-14
+   by A5 P2-11: PARTIAL-PIN — cite the book at Part-3 level ("HKT 2008, Part 3 (chs.
+   XIV–XVIII, pp. 393–626)", *Algebraic Curves over a Finite Field*, PUP 2008, Zbl
+   1200.11042) or the four zbMATH-pinned papers (vdG–vdV Zbl 0729.11066; Cossidente–HKT
+   Zbl 0958.11048; H–K Zbl 1043.51007; GHKT Zbl 1218.11064) — NEVER a bare chapter
+   number: Zieve-vs-GBooks numbering ambiguity)**; more genera via van der Geer–van der Vlugt
    Artin–Schreier families).** Every
    proportion-shaped statement here is family-quantified or exclusion-based.
 2. **The method-neighbor clock:** Suzuki arXiv:2610.41115 (2026-10-30) brings
@@ -163,7 +167,9 @@ Corpus side (rg; bridge §4 [VERIFIED] sweeps + round-4 §1):
   preempt even the number-side uniform statements). **[A5 PART-2 LANDED 2026-11-13, row
   71: "primary (P): formalization-first (dictionary value); FF-EZ2-family: N as proposed
   (DISCOVERY-grade [HYPOTHESIS], dossier-flagged)"; tier WARM; trap citation "ANSWERED at
-  mechanism level … r4 §6.3 — chapter-number pin pending"; hexagonmath FF-clean (only
+  mechanism level … r4 §6.3 — chapter-number pin pending" **[pin since RESOLVED
+  2026-11-14, A5 P2-11 PARTIAL-PIN: Part-3-level book citation or the four pinned
+  papers; bare chapter numbers non-citable — see the honesty header above]**; hexagonmath FF-clean (only
   Boyang Hu's Langlands trilogy — different layer).]**
 - Nearest misses (summary): Suzuki 2610.41115 (method); Rudnick 0811.3649 ((W)'s data,
   different question); Bui–Florea 1605.07092 ((S)'s flank); tauceti genus-1 layer

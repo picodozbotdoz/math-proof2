@@ -352,7 +352,11 @@ the **assembly architecture** — the first formal zero-density statements for a
 number-field zeta and the first charter-compliant consumption of an external Lean tree
 via certificate binders.
 
-**Must-cites**: DLRT 2019 (arXiv:1908.04876) — 45% distinct for Dedekind zetas, the
+**Must-cites**: DLRT 2019 (arXiv:1908.04876) — 45% distinct for Dedekind zetas **[erratum
+2026-11-14, H QA Part 7 / A5 standing note 3: GRH-conditional, fixed quadratic K, T→∞
+asymptotic — NOT unconditional; the comparison is hypothesis-shape-to-hypothesis-shape
+(their GRH binder vs our certificate/ThmE binders), per dossier 75's resolved DLRT
+scope]**, the
 direct literature comparison our 5/6+defect form improves; Majdoddin
 (arXiv:2610.17420 + `Majdoddin/formal-math`) — the second independent anthropics-tree
 build-out, concurrent-ecosystem context for the donor-consumption pattern; Knausgård
