@@ -141,7 +141,7 @@ orchestrator-owned.
 | 42 | 42-M4b-upgrade (gated continuation; A3) | **GO — executing** (M4a ~180 LoC green on disk; blueprint + M4a.lean mid-flight commit pending A3's report) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
 | 11 | 11-M2 (A8-3, authorized) | RUNNING | pilot-11 revival: `pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` on disk, mid-flight (committed with A8's report) |
 | 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **SLOTTED — executing** (71-P0/P1 243 LoC green per empirical record) | Cycle-2 pilot-decision slot 1 (see decision block below) |
-| 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2** | Cycle-2 pilot-decision slot 2 (see decision block below) |
+| 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN on disk 2026-11-14** (run8-final "OK" + axcheck-run1 triad-clean 0 sorryAx — A4 formal report pending: run1–7 provenance headers + u≠1 dossier edit) | Cycle-2 pilot-decision slot 2 (see decision block below) |
 | 75 | 75 abelian-assembly | **DEFERRED to wave 4** | Cycle-2 pilot-decision (see below) |
 
 **Cycle-2 pilot decision (orchestrator, 2026-11-13; TRIAGE Cycle-2 §decision typesets when
@@ -332,6 +332,16 @@ standing authorization with a commit.
   orchestrator-owned; candidates/42:355 + articles/42:28,:149 A9-owned); REPORT-INPUTS-C2
   §4 DLRT row refreshed (row-42 application recorded); STATUS cycle-close TEMPLATE
   pre-staged at tail (NOT a verdict).
+- 2026-11-14 — batch-3 series: `Cycle 2: A9 — six article drafts + 11/22 appends + README
+  Cycle-2 + dossier-70 note-4 fold` (dabd87a; QA pass: Status lines 6/6, citations 5/5 —
+  2610.15199/WenrongZou/0.6725+0.83625/2610.41115/31/32+34999-40000 — appends additive,
+  README 8 rows; note-4 [pending] resolved); `Cycle 2: A1 — ITERATION4-CHARTER-DRAFT
+  (PROPOSAL-marked) + ledger §9` (482f459). **Disk milestones pending lane reports:**
+  **72-C-neg FINAL-GREEN** (run8-final + A4's own axcheck, triad-clean — pilot row
+  updated above; A4 owes run1–7 headers + u≠1 edit); **71-P2 GREEN** (`p2-run6.log`
+  "P2.lean: OK", descent 6→4→2→1→1→0 — axcheck + A2 report pending); 11-M2 m2-run3:
+  P11T3 OK again, RedTm2 FAIL (3 err — A8 iterating); DLRT-residual relays: TRIAGE:137–138
+  (orchestrator) + candidates/42:355 + articles/42:28,:149 (A9) — Part 7, qa plan.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
