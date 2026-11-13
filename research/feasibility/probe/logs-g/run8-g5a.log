@@ -1,0 +1,26 @@
+# Provenance: modal run gprobe.py --mode g5a attempt 2, 2026-11-13 ~22:06. Reservoir lookup failed (invalid JSON).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-wQ9yK9N5iZ7ntiTZzaJTaf
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+└── ✓ Created Function g6a.
+
+=== AreaLaw2D update: rc=1
+{'update': 'FAIL rc=1'}
+[g5a] resolved mathlib fatal: cannot change to '.lake/packages/mathlib': No such file or directory
+[g5a] resolved Physlib a50684a1919e84dc1c761028ff4f77cd59e2de6b
+info: Physlib: materializing new dependency
+info: Physlib: fetching revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b' from https://github.com/leanprover-community/physlib
+info: Physlib: checking out revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b'
+error: leanprover-community/mathlib: Reservoir lookup failed; server returned invalid JSON: offset 58: expected end of input
+error: leanprover-community/mathlib: could not materialize package: this may be a transient error or a bug in Lake or Reservoir
+
+=== SUMMARY
+update: FAIL rc=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-wQ9yK9N5iZ7ntiTZzaJTaf

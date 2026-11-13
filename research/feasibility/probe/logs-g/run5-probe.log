@@ -1,0 +1,85 @@
+# Provenance: modal run gprobe.py --mode probe (G4 fix2), 2026-11-13 ~21:58. G4 OK.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-jSc7KaFSsDhBlCqSIyTi3I
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+└── ✓ Created Function g5a.
+[gprobe] staging ['ProbeG1_DZDF.lean', 'ProbeG3_Weil.lean', 'ProbeG4_AreaLaw.lean', 'ProbeG5b_PEPS_Bridge.lean', 'ProbeG5c_PEPS_Dictionary.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG1_DZDF.lean
+[probe] ProbeG1_DZDF.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG1_DZDF.lean:43:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:47:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:58:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:64:8: warning: declaration uses `sorry`
+
+
+=== ProbeG3_Weil.lean
+[probe] ProbeG3_Weil.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+@IsProper : {X Y : Scheme} → (X ⟶ Y) → Prop
+@GeometricallyIrreducible : {X Y : Scheme} → (X ⟶ Y) → Prop
+SmoothOfRelativeDimension : ℕ → {X Y : Scheme} → (X ⟶ Y) → Prop
+@Over : {T : Type u_2} → [Category.{u_1, u_2} T] → T → Type (max u_2 u_1)
+Spec : CommRingCat → Scheme
+ProbeG3_Weil.lean:37:8: warning: declaration uses `sorry`
+
+
+=== ProbeG4_AreaLaw.lean
+[probe] ProbeG4_AreaLaw.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG4_AreaLaw.lean:51:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:92:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:97:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:279:8: warning: declaration uses `sorry`
+
+
+=== ProbeG5b_PEPS_Bridge.lean
+[probe] ProbeG5b_PEPS_Bridge.lean: FAIL rc=1; errors=2, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5b_PEPS_Bridge.lean:115:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:173:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:201:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:218:35: error: Type mismatch
+  glue ?m.27 ?m.29 ⟨v, ⋯⟩
+has type
+  ?m.23 ↑⟨v, ⋯⟩
+but is expected to have type
+  Fin q
+ProbeG5b_PEPS_Bridge.lean:244:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:270:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:276:0: error: Unexpected name `ProbeG5b` after `end`: The current section is unnamed
+
+Hint: Delete the name `ProbeG5b` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵P̵r̵o̵b̵e̵G̵5̵b̵
+
+
+=== ProbeG5c_PEPS_Dictionary.lean
+{'ProbeG1_DZDF.lean': 'OK', 'ProbeG3_Weil.lean': 'OK', 'ProbeG4_AreaLaw.lean': 'OK', 'ProbeG5b_PEPS_Bridge.lean': 'FAIL (2 errors)', 'ProbeG5c_PEPS_Dictionary.lean': 'FAIL (1 errors)'}
+[probe] ProbeG5c_PEPS_Dictionary.lean: FAIL rc=1; errors=1, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5c_PEPS_Dictionary.lean:69:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:78:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:86:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:97:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:108:0: error: Unexpected name `ProbeG5c` after `end`: The current section is unnamed
+
+Hint: Delete the name `ProbeG5c` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵P̵r̵o̵b̵e̵G̵5̵c̵
+
+
+[probe] SUMMARY
+[probe]   ProbeG1_DZDF.lean: OK
+[probe]   ProbeG3_Weil.lean: OK
+[probe]   ProbeG4_AreaLaw.lean: OK
+[probe]   ProbeG5b_PEPS_Bridge.lean: FAIL (2 errors)
+[probe]   ProbeG5c_PEPS_Dictionary.lean: FAIL (1 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-jSc7KaFSsDhBlCqSIyTi3I

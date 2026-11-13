@@ -1,0 +1,853 @@
+# Provenance: modal run gprobe.py --mode g1b (DZDF + local tauceti d92acc5c, build_timeout 2700s), 2026-11-13 ~21:52-22:11. FAIL: 62 unique errors/11 vendored-CFT modules; 648/29261 jobs.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dQQDgPgdJBeTNGjQZfTr3s
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+└── ✓ Created Function g5a.
+
+=== DZDF update: rc=0
+[g1b] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Decompressing 9095 already-cached file(s) (1 already decompressed)
+No files to download
+Decompressed 9095 already-cached file(s)
+Completed successfully in 59012 ms!
+info: mathlib: materializing new dependency
+info: mathlib: fetching revision 'ff2494ea5e438f8a8452db803068acd711fa0059' from https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision 'ff2494ea5e438f8a8452db803068acd711fa0059'
+info: toolchain not updated; already up-to-date
+info: plausible: materializing new dependency
+info: plausible: fetching revision '129d1ba9a16bc0660f46c79e9fb041ef5d5d80de' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '129d1ba9a16bc0660f46c79e9fb041ef5d5d80de'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision 'c61286b7b63cbfd563b28e11e81d0a18233a044a' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c61286b7b63cbfd563b28e11e81d0a18233a044a'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision 'e5d5639bedc7feecfbcb98e30b3bf26463d9f722' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e5d5639bedc7feecfbcb98e30b3bf26463d9f722'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision '16259c0d07d61ee37d999d05b5cf96338b8daa11' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '16259c0d07d61ee37d999d05b5cf96338b8daa11'
+info: aesop: materializing new dependency
+info: aesop: fetching revision '7d11bfa88558f8d3d90afdf6bd877ed70001498d' from https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '7d11bfa88558f8d3d90afdf6bd877ed70001498d'
+info: Qq: materializing new dependency
+info: Qq: fetching revision 'b0256621cb88178e9ad932a53633077b3029e621' from https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'b0256621cb88178e9ad932a53633077b3029e621'
+info: batteries: materializing new dependency
+info: batteries: fetching revision '4af7237d146261353907b06a01b6f3fc06cfa067' from https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '4af7237d146261353907b06a01b6f3fc06cfa067'
+info: Cli: materializing new dependency
+info: Cli: fetching revision 'c09cb1e4f1e6e1c231a1175a12b681b075054a1b' from https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'c09cb1e4f1e6e1c231a1175a12b681b075054a1b'
+info: mathlib: running post-update hooks
+
+=== DZDF cache: rc=0
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 9096 file(s)
+
+=== DZDF build: rc=1
+{'build': 'FAIL rc=1 errors=216'}
+[g1b] build FAIL rc=1 errors=216
+[g1b] progress: 648 modules reported done of 29261 scheduled so far
+⚠ [18220/18746] Built DedekindZetaZeroFree.Geometry.TranslatedLatticeGap (4.9s)
+warning: DedekindZetaZeroFree/Geometry/TranslatedLatticeGap.lean:14:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✖ [18224/18814] Building GaloisCohomology.Cyclic.TateComparison (4.9s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/GaloisCohomology/Cyclic/TateComparison.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/Cyclic/TateComparison.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/Cyclic/TateComparison.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/Cyclic/TateComparison.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/Cyclic/TateComparison.setup.json --json
+error: Lean4/GaloisCohomology/Cyclic/TateComparison.lean:40:30: Invalid field `toModuleCatHom`: The environment does not contain `CategoryTheory.End.toModuleCatHom`, so it is not possible to project the field `toModuleCatHom` from an expression
+  A.norm
+of type `End A`
+error: Lean4/GaloisCohomology/Cyclic/TateComparison.lean:67:15: Invalid field `toModuleCatHom`: The environment does not contain `CategoryTheory.End.toModuleCatHom`, so it is not possible to project the field `toModuleCatHom` from an expression
+  A.norm
+of type `End A`
+error: Lean4/GaloisCohomology/Cyclic/TateComparison.lean:103:37: Invalid field `toModuleCatHom`: The environment does not contain `CategoryTheory.End.toModuleCatHom`, so it is not possible to project the field `toModuleCatHom` from an expression
+  A.norm
+of type `End A`
+✖ [18310/19002] Building ValuedFieldTheory.Valuation.DiscreteValuationField.Basic (7.6s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.setup.json --json
+error: Lean4/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.lean:41:2: Unknown constant `CharP.subring`
+✖ [18348/19040] Building ClassFieldTheory.AbstractClassFieldTheory.Reciprocity.Construction.TransferNaturality (3.2s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.setup.json --json
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:203:4: `Abelianization.map` has been deprecated: Use `Group.Abelianization.map` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.map` to `Group.Abelianization.map x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.map
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:205:36: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:205:31: failed to synthesize instance of type class
+  MulOne (Abelianization ↥H)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:205:11: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:207:34: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:207:29: failed to synthesize instance of type class
+  MulOne (Abelianization ↥J)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:207:9: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:220:4: `Abelianization.map_of` has been deprecated: Use `Group.Abelianization.map_of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.map_of` to `Group.Abelianization.map_of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.map_of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:224:17: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:220:4: This simp argument is unused:
+  Abelianization.map_of
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Subgroup.leftTransversals.diff, map_prod, leftTransversalMapOfSurjective_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:239:5: `Abelianization.map` has been deprecated: Use `Group.Abelianization.map` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.map` to `Group.Abelianization.map x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.map
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:240:9: `Abelianization.lift` has been deprecated: Use `Group.Abelianization.lift` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift` to `Group.Abelianization.lift x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:242:38: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:242:33: failed to synthesize instance of type class
+  MulOne (Abelianization ↥H)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:242:13: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:243:7: `Abelianization.lift` has been deprecated: Use `Group.Abelianization.lift` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift` to `Group.Abelianization.lift x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:245:38: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:245:33: failed to synthesize instance of type class
+  MulOne (Abelianization ↥J)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:245:13: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:246:9: `Abelianization.map` has been deprecated: Use `Group.Abelianization.map` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.map` to `Group.Abelianization.map x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.map
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:251:8: `Abelianization.hom_ext` has been deprecated: Use `Group.Abelianization.hom_ext` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.hom_ext` to `Group.Abelianization.hom_ext x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.hom_ext
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:254:35: `Abelianization.lift_apply_of` has been deprecated: Use `Group.Abelianization.lift_apply_of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift_apply_of` to `Group.Abelianization.lift_apply_of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift_apply_of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:255:4: `Abelianization.map_of` has been deprecated: Use `Group.Abelianization.map_of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.map_of` to `Group.Abelianization.map_of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.map_of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:258:30: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:258:25: failed to synthesize instance of type class
+  MulOne (Abelianization ↥H)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:258:5: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:246:34: unsolved goals
+P : Type u_1
+Q : Type u_2
+inst✝² : Group P
+inst✝¹ : Group Q
+f : P →* Q
+hf : Surjective ⇑f
+H : Subgroup P
+hker : f.ker ≤ H
+inst✝ : H.FiniteIndex
+this : (Subgroup.map f H).FiniteIndex :=
+  Eq.mpr (id (congrArg (fun _a ↦ _a) (propext Subgroup.finiteIndex_iff)))
+    (Eq.mpr (id (congrArg (fun _a ↦ _a ≠ 0) (Subgroup.index_map_eq H hf hker))) Subgroup.FiniteIndex.index_ne_zero)
+p : P
+T : H.LeftTransversal := default
+⊢ (Abelianization.map (f.subgroupMap H)) ((Abelianization.lift sorry.transfer) (Group.Abelianization.of p)) =
+    (Abelianization.lift sorry.transfer) ((Abelianization.map f) (Group.Abelianization.of p))
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:254:35: This simp argument is unused:
+  Abelianization.lift_apply_of
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [MonoidHom.comp_apply, Abelianization.map_of]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:255:4: This simp argument is unused:
+  Abelianization.map_of
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [MonoidHom.comp_apply, Abelianization.lift_apply_of]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:272:9: `Abelianization.lift` has been deprecated: Use `Group.Abelianization.lift` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift` to `Group.Abelianization.lift x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:274:38: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:274:33: failed to synthesize instance of type class
+  MulOne (Abelianization ↥H)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:274:13: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:275:6: `Abelianization.lift` has been deprecated: Use `Group.Abelianization.lift` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift` to `Group.Abelianization.lift x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:277:36: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:277:31: failed to synthesize instance of type class
+  MulOne (Abelianization ↥J)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:277:11: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Construction/TransferNaturality.lean:283:10: `abelianizationCongr_refl` has been deprecated: Use `Group.abelianizationCongr_refl` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲abelianizationCongr_refl
+⚠ [18384/19118] Built ValuedFieldTheory.Valuation.Henselian.Factorization.AdicLimits (3.9s)
+warning: Lean4/ValuedFieldTheory/Valuation/Henselian/Factorization/AdicLimits.lean:158:10: This simp argument is unused:
+  Polynomial.coeff_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hseq, hP]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [18386/19120] Building ClassFieldTheory.AlgebraicNumberTheory.Idele.PrincipalCore (3.8s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.setup.json --json
+error: Lean4/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.lean:50:0: Not a definitional equality: the left-hand side
+  ↑((infiniteComponent w) ((principalIdele K) x))
+is not definitionally equal to the right-hand side
+  InfinitePlace.Completion.ofCompletion ↑(WithAbs.toAbs ↑w ↑x)
+error: Lean4/ClassFieldTheory/AlgebraicNumberTheory/Idele/PrincipalCore.lean:57:2: Type mismatch
+  rfl
+has type
+  ?m.18 = ?m.18
+but is expected to have type
+  ↑((infiniteComponent w) ((principalIdele K) x)) = InfinitePlace.Completion.ofCompletion ↑(WithAbs.toAbs ↑w ↑x)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  AbsoluteValue.Completion.instAlgebra ↦ 12
+  AbsoluteValue.Completion.coe ↦ 8
+⚠ [18389/19120] Built ClassFieldTheory.AbstractClassFieldTheory.Degree.Indices (2.8s)
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:33:5: missing doc string for public def kernelToSaturation
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:48:19: missing doc string for public def kernelCosetToSaturationCoset
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:182:5: missing doc string for public def subgroupMapRestriction
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:203:19: missing doc string for public def relativeCosetComapMap
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:231:19: missing doc string for public def relativeCosetComapEquiv
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AbstractClassFieldTheory/Degree/Indices.lean:239:19: missing doc string for public def imageCosetEquivSaturation
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+✖ [18468/19130] Building ValuedFieldTheory.LocalField.Analytic.LogExpSeries.FormalCoreBase.PowerSeriesComposition (3.9s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.setup.json --json
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.lean:93:13: failed to synthesize instance of type class
+  Module.IsTorsionFree ℕ A
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/FormalCoreBase/PowerSeriesComposition.lean:128:2: failed to synthesize
+  HasUniqueDiv A
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+✖ [18488/19192] Building ValuedFieldTheory.Valuation.AbsoluteValue.Completion (7.3s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.setup.json --json
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:55:31: Type mismatch
+  x
+has type
+  K
+but is expected to have type
+  vK.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:56:10: Type mismatch
+  x
+has type
+  K
+but is expected to have type
+  vK.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:65:6: Type mismatch
+  UniformSpace.Completion.uniformSpace (WithAbs vK)
+has type
+  UniformSpace (UniformSpace.Completion (WithAbs vK))
+but is expected to have type
+  UniformSpace vK.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:92:10: Type mismatch
+  x
+has type
+  K
+but is expected to have type
+  vK.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:103:2: Type mismatch
+  UniformSpace.Completion.coeRingHom.comp (WithAbs.equiv vK).symm.toRingHom
+has type
+  K →+* UniformSpace.Completion (WithAbs vK)
+but is expected to have type
+  K →+* vK.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:106:0: Not a definitional equality: the left-hand side
+  vK.toCompletion x
+is not definitionally equal to the right-hand side
+  ↑((WithAbs.equiv vK).symm x)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:111:2: Type mismatch
+  rfl
+has type
+  ?m.23 = ?m.23
+but is expected to have type
+  vK.toCompletion x = ↑((WithAbs.equiv vK).symm x)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Completion.coe ↦ 9
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:113:0: Not a definitional equality: the left-hand side
+  vK.toCompletion x
+is not definitionally equal to the right-hand side
+  (algebraMap K vK.Completion) x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:118:2: Type mismatch
+  rfl
+has type
+  ?m.15 = ?m.15
+but is expected to have type
+  vK.toCompletion x = (algebraMap K vK.Completion) x
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Completion.instAlgebra ↦ 28
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:124:2: 'change' tactic failed, pattern
+  DenseRange (UniformSpace.Completion.coe' ∘ WithAbs.toAbs vK)
+is not definitionally equal to target
+  DenseRange ⇑vK.toCompletion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:135:2: Type mismatch
+  UniformSpace.Completion.coeRingHom.comp (algebraMap (WithAbs vK) (WithAbs wL))
+has type
+  WithAbs vK →+* UniformSpace.Completion (WithAbs wL)
+but is expected to have type
+  WithAbs vK →+* wL.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:143:2: 'change' tactic failed, pattern
+  ‖↑((algebraMap (WithAbs vK) (WithAbs wL)) x)‖ = ‖x‖
+is not definitionally equal to target
+  ‖(vK.baseToExtensionCompletion wL) x‖ = ‖x‖
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:164:2: Type mismatch
+  UniformSpace.Completion.extensionHom (vK.baseToExtensionCompletion wL) ⋯
+has type
+  UniformSpace.Completion (WithAbs vK) →+* wL.Completion
+but is expected to have type
+  vK.Completion →+* wL.Completion
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:174:2: Type mismatch
+  UniformSpace.Completion.extensionHom_coe (vK.baseToExtensionCompletion wL)
+    (Isometry.continuous (baseToExtensionCompletion_isometry vK wL hw)) x
+has type
+  (UniformSpace.Completion.extensionHom (vK.baseToExtensionCompletion wL) ⋯) ↑x = (vK.baseToExtensionCompletion wL) x
+but is expected to have type
+  (vK.completionMap wL hw) ↑x = (vK.baseToExtensionCompletion wL) x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:187:2: 'change' tactic failed, pattern
+  (vK.completionMap wL hw) ↑((WithAbs.equiv vK).symm x) = ↑((WithAbs.equiv wL).symm ((algebraMap K L) x))
+is not definitionally equal to target
+  (vK.completionMap wL hw) ((algebraMap K vK.Completion) x) = wL.toCompletion ((algebraMap K L) x)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:200:2: Type mismatch
+  Isometry.completion_extension (baseToExtensionCompletion_isometry vK wL hw)
+has type
+  Isometry (UniformSpace.Completion.extension ⇑(vK.baseToExtensionCompletion wL))
+but is expected to have type
+  Isometry ⇑(vK.completionMap wL hw)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:252:2: Type mismatch
+  IsScalarTower.of_algebraMap_eq fun x ↦ Eq.symm (completionMap_coe vK wL hw x)
+has type
+  @IsScalarTower K vK.Completion wL.Completion (Completion.instAlgebra vK).toSMul this.toSMul hK.toSMul
+but is expected to have type
+  @IsScalarTower K vK.Completion wL.Completion (Completion.instSMulOfAlgebraWithAbsReal vK K)
+    (vK.completionAlgebra wL hw).toSMul wL.extensionCompletionAlgebra.toSMul
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Completion.instSMulOfAlgebraWithAbsReal ↦ 4
+  Completion.instAlgebra ↦ 3
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:278:2: 'change' tactic failed, pattern
+  vK.completionAbsoluteValue ↑((WithAbs.equiv vK).symm ↑n) ≤ 1
+is not definitionally equal to target
+  vK.completionAbsoluteValue (vK.toCompletion ↑n) ≤ 1
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:305:8: 'change' tactic failed, pattern
+  ‖y - vK.toCompletion x‖ < ‖y‖
+is not definitionally equal to target
+  vC (y - (algebraMap K vK.Completion) x) < vC y
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:360:2: Type mismatch
+  UniformSpace.Completion.extensionHom (vK.toCompleteTargetRingHom vD i) ⋯
+has type
+  UniformSpace.Completion (WithAbs vK) →+* WithAbs vD
+but is expected to have type
+  vK.Completion →+* WithAbs vD
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:372:2: Type mismatch
+  UniformSpace.Completion.extensionHom_coe (vK.toCompleteTargetRingHom vD i)
+    (Isometry.continuous (toCompleteTargetRingHom_isometry vK vD i hi)) x
+has type
+  (UniformSpace.Completion.extensionHom (vK.toCompleteTargetRingHom vD i) ⋯) ↑x = (vK.toCompleteTargetRingHom vD i) x
+but is expected to have type
+  (vK.completionMapToCompleteTarget vD i hi) ↑x = (vK.toCompleteTargetRingHom vD i) x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:387:2: 'change' tactic failed, pattern
+  (vK.completionMapToCompleteTarget vD i hi) ↑((WithAbs.equiv vK).symm x) = ?m.72
+is not definitionally equal to target
+  (vK.completionMapToCompleteTarget vD i hi) ((algebraMap K vK.Completion) x) = (WithAbs.equiv vD).symm (i x)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:398:2: Type mismatch
+  Isometry.completion_extension (toCompleteTargetRingHom_isometry vK vD i hi)
+has type
+  Isometry (UniformSpace.Completion.extension ⇑(vK.toCompleteTargetRingHom vD i))
+but is expected to have type
+  Isometry ⇑(vK.completionMapToCompleteTarget vD i hi)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:413:64: Application type mismatch: The argument
+  x
+has type
+  vK.Completion
+but is expected to have type
+  UniformSpace.Completion (WithAbs vK)
+in the application
+  UniformSpace.Completion.induction_on x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:415:6: Application type mismatch: The argument
+  Isometry.continuous (completionMapToCompleteTarget_isometry vK vD i hi)
+has type
+  Continuous ⇑(vK.completionMapToCompleteTarget vD i hi)
+but is expected to have type
+  Continuous fun a ↦ (vK.completionMapToCompleteTarget vD i hi) x
+in the application
+  isClosed_eq (Isometry.continuous (completionMapToCompleteTarget_isometry vK vD i hi))
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:419:6: 'change' tactic failed, pattern
+  ↑a = ↑((WithAbs.equiv vK).symm ((WithAbs.equiv vK) a))
+is not definitionally equal to target
+  ↑a = (algebraMap K vK.Completion) ((WithAbs.equiv vK) a)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:424:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑a
+in the target expression
+  (vK.completionMapToCompleteTarget vD i hi) x = g x
+
+case refine_2
+K : Type u
+D : Type w
+inst✝² : Field K
+inst✝¹ : Field D
+vK : AbsoluteValue K ℝ
+vD : AbsoluteValue D ℝ
+inst✝ : CompleteSpace (WithAbs vD)
+i : K →+* D
+hi : ∀ (x : K), vD (i x) = vK x
+g : vK.Completion →+* WithAbs vD
+hg : Continuous ⇑g
+hcoe :
+  ∀ (x : K),
+    (vK.completionMapToCompleteTarget vD i hi) ((algebraMap K vK.Completion) x) = g ((algebraMap K vK.Completion) x)
+x : vK.Completion
+a : WithAbs vK
+ha : ↑a = (algebraMap K vK.Completion) ((WithAbs.equiv vK) a)
+⊢ (vK.completionMapToCompleteTarget vD i hi) x = g x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:463:64: Application type mismatch: The argument
+  x
+has type
+  vK.Completion
+but is expected to have type
+  UniformSpace.Completion (WithAbs vK)
+in the application
+  UniformSpace.Completion.induction_on x
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:466:8: Application type mismatch: The argument
+  Isometry.continuous (completionMap_isometry vK wL hw)
+has type
+  Continuous ⇑(vK.completionMap wL hw)
+but is expected to have type
+  Continuous fun a ↦ (vK.completionMap wL hw) x
+in the application
+  Continuous.comp (Isometry.continuous (completionMapToCompleteTarget_isometry wL vD i hi))
+    (Isometry.continuous (completionMap_isometry vK wL hw))
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:470:6: 'change' tactic failed, pattern
+  ↑a = ↑((WithAbs.equiv vK).symm ((WithAbs.equiv vK) a))
+is not definitionally equal to target
+  ↑a = (algebraMap K vK.Completion) ((WithAbs.equiv vK) a)
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Completion.lean:475:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑a
+in the target expression
+  ((wL.completionMapToCompleteTarget vD i hi).comp (vK.completionMap wL hw)) x = g x
+
+case refine_2
+K : Type u
+L : Type v
+D : Type w
+inst✝⁴ : Field K
+inst✝³ : Field L
+inst✝² : Field D
+inst✝¹ : Algebra K L
+vK : AbsoluteValue K ℝ
+wL : AbsoluteValue L ℝ
+hw : vK.Extends wL
+vD : AbsoluteValue D ℝ
+inst✝ : CompleteSpace (WithAbs vD)
+i : L →+* D
+hi : ∀ (x : L), vD (i x) = wL x
+g : vK.Completion →+* WithAbs vD
+hg : Continuous ⇑g
+hcoe : ∀ (x : K), (WithAbs.equiv vD).symm (i ((algebraMap K L) x)) = g ((algebraMap K vK.Completion) x)
+x : vK.Completion
+a : WithAbs vK
+ha : ↑a = (algebraMap K vK.Completion) ((WithAbs.equiv vK) a)
+⊢ ((wL.completionMapToCompleteTarget vD i hi).comp (vK.completionMap wL hw)) x = g x
+⚠ [18529/19196] Built ValuedFieldTheory.Valuation.Henselian.Factorization.ErrorPowers (3.6s)
+warning: Lean4/ValuedFieldTheory/Valuation/Henselian/Factorization/ErrorPowers.lean:142:8: This simp argument is unused:
+  Polynomial.coeff_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [18532/19202] Built DedekindZetaZeroFree.Arithmetic.LocalFields.CompletionIdealPowerPullback (6.4s)
+warning: DedekindZetaZeroFree/Arithmetic/LocalFields/CompletionIdealPowerPullback.lean:86:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+✖ [18548/19366] Building GaloisCohomology.GroupTheory.Finite (2.5s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/GaloisCohomology/GroupTheory/Finite.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/GroupTheory/Finite.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/GroupTheory/Finite.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/GroupTheory/Finite.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/GroupTheory/Finite.setup.json --json
+error: Lean4/GaloisCohomology/GroupTheory/Finite.lean:89:6: Application type mismatch: The argument
+  p
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  Nat.Prime ?m.131
+of sort `Prop` in the application
+  @Sylow.exists_subgroup_card_pow_prime_le ?m.129 ?m.130 ?m.131 p
+✖ [18719/19440] Building ValuedFieldTheory.Valuation.AbsoluteValue.Ostrowski (10s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.setup.json --json
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.lean:250:64: unsolved goals
+K : Type u_1
+inst✝¹ : Field K
+inst✝ : CharZero K
+v : AbsoluteValue K ℝ
+s : ℝ
+hs : 0 < s
+hnorm : ∀ (q : ℚ), v.ostrowski_restrictRatAbsoluteValue q = Rat.AbsoluteValue.real q ^ s
+n : ℕ
+⊢ ⟨fun n ↦ 0, ⋯⟩ n = 0
+error: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Ostrowski.lean:262:64: unsolved goals
+K : Type u_1
+inst✝¹ : Field K
+inst✝ : CharZero K
+v : AbsoluteValue K ℝ
+s : ℝ
+hs : 0 < s
+hnorm : ∀ (q : ℚ), v.ostrowski_restrictRatAbsoluteValue q = Rat.AbsoluteValue.real q ^ s
+n : ℕ
+⊢ ⟨fun n ↦ 1, ⋯⟩ n = 1
+⚠ [18784/19678] Built DedekindZetaZeroFree.Arithmetic.Units.FundamentalDomainIntegration (7.8s)
+warning: DedekindZetaZeroFree/Arithmetic/Units/FundamentalDomainIntegration.lean:69:21: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/FundamentalDomainIntegration.lean:86:23: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/FundamentalDomainIntegration.lean:88:25: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/FundamentalDomainIntegration.lean:89:27: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/FundamentalDomainIntegration.lean:97:30: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+✖ [18820/19840] Building ValuedFieldTheory.LocalField.Analytic.Arithmetic (9.4s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/LocalField/Analytic/Arithmetic.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/ValuedFieldTheory/LocalField/Analytic/Arithmetic.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/LocalField/Analytic/Arithmetic.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/ValuedFieldTheory/LocalField/Analytic/Arithmetic.setup.json --json
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:58:45: `pow_padicValNat_dvd` has been deprecated: Use `pow_multiplicity_dvd` instead
+
+Hint: Replace the deprecated name:
+  p̵o̵w̵_̵p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵d̵v̵d̵p̲o̲w̲_̲m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲d̲v̲d̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:58:45: Application type mismatch: The argument
+  pow_padicValNat_dvd
+has type
+  ∀ (a b : ?m.15), a ^ multiplicity a b ∣ b
+but is expected to have type
+  p ^ padicValNat p n ∣ n
+in the application
+  Nat.le_of_dvd (Nat.pos_iff_ne_zero.mpr hn) pow_padicValNat_dvd
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:66:22: `padicValNat_le_nat_log` has been deprecated: Use `multiplicity_le_nat_log` instead
+
+Hint: Replace the deprecated name:
+  p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵l̵e̵_̵n̵a̵t̵_̵l̵o̵g̵m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲l̲e̲_̲n̲a̲t̲_̲l̲o̲g̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:65:2: Type mismatch
+  LE.le.trans (Nat.cast_le.mpr (padicValNat_le_nat_log n)) (Real.natLog_le_logb n p)
+has type
+  ↑(multiplicity p n) ≤ Real.logb ↑p ↑n
+but is expected to have type
+  ↑(padicValNat p n) ≤ Real.logb ↑p ↑n
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 4
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:202:8: `padicValNat_factorial_le` has been deprecated: Use `multiplicity_factorial_le` instead
+
+Hint: Replace the deprecated name:
+  p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵f̵a̵c̵t̵o̵r̵i̵a̵l̵_̵l̵e̵m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲f̲a̲c̲t̲o̲r̲i̲a̲l̲_̲l̲e̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:202:8: Type mismatch
+  padicValNat_factorial_le p n
+has type
+  multiplicity p n.factorial ≤ n
+but is expected to have type
+  padicValNat p n.factorial ≤ n
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:216:5: `sub_one_mul_padicValNat_factorial` has been deprecated: Use `Nat.Prime.sub_one_mul_multiplicity_factorial` instead
+
+Hint: Replace the deprecated name:
+  s̵u̵b̵_̵o̵n̵e̵_̵m̵u̵l̵_̵p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵f̵a̵c̵t̵o̵r̵i̵a̵l̵N̲a̲t̲.̲P̲r̲i̲m̲e̲.̲s̲u̲b̲_̲o̲n̲e̲_̲m̲u̲l̲_̲m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲f̲a̲c̲t̲o̲r̲i̲a̲l̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:216:48: Application type mismatch: The argument
+  n
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  Nat.Prime p
+of sort `Prop` in the application
+  sub_one_mul_padicValNat_factorial n
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:385:7: `padicValNat_factorial_lt_of_ne_zero` has been deprecated: Use `multiplicity_factorial_lt_of_ne_zero` instead
+
+Hint: Replace the deprecated name:
+  p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵f̵a̵c̵t̵o̵r̵i̵a̵l̵_̵l̵t̵_̵o̵f̵_̵n̵e̵_̵z̵e̵r̵o̵m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲f̲a̲c̲t̲o̲r̲i̲a̲l̲_̲l̲t̲_̲o̲f̲_̲n̲e̲_̲z̲e̲r̲o̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:385:6: Application type mismatch: The argument
+  padicValNat_factorial_lt_of_ne_zero p hn0
+has type
+  multiplicity p n.factorial < n
+but is expected to have type
+  padicValNat p n.factorial < n
+in the application
+  Nat.succ_le_of_lt (padicValNat_factorial_lt_of_ne_zero p hn0)
+warning: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:477:48: `pow_padicValNat_dvd` has been deprecated: Use `pow_multiplicity_dvd` instead
+
+Hint: Replace the deprecated name:
+  p̵o̵w̵_̵p̵a̵d̵i̵c̵V̵a̵l̵N̵a̵t̵_̵d̵v̵d̵p̲o̲w̲_̲m̲u̲l̲t̲i̲p̲l̲i̲c̲i̲t̲y̲_̲d̲v̲d̲
+error: Lean4/ValuedFieldTheory/LocalField/Analytic/Arithmetic.lean:477:48: Application type mismatch: The argument
+  pow_padicValNat_dvd
+has type
+  ∀ (a b : ?m.109), a ^ multiplicity a b ∣ b
+but is expected to have type
+  p ^ a ∣ n
+in the application
+  Nat.le_of_dvd (lt_trans Nat.zero_lt_one hn) pow_padicValNat_dvd
+⚠ [18906/20114] Built DedekindZetaZeroFree.LFunctions.Dedekind.DirichletSeriesConvergence (7.3s)
+warning: DedekindZetaZeroFree/LFunctions/Dedekind/DirichletSeriesConvergence.lean:48:17: `Ideal.finite_setOfPred_absNorm_eq` has been deprecated: Use `Ring.HasFiniteQuotients.finite_absNorm_eq` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.finite_setOfPred_absNorm_eq` to `Ring.HasFiniteQuotients.finite_absNorm_eq x`).
+
+Hint: Replace the deprecated name:
+  I̵d̵e̵a̵l̵.̵f̵i̵n̵i̵t̵e̵_̵s̵e̵t̵O̵f̵P̵r̵e̵d̵_̵a̵b̵s̵N̵o̵r̵m̵_̵e̵q̵R̲i̲n̲g̲.̲H̲a̲s̲F̲i̲n̲i̲t̲e̲Q̲u̲o̲t̲i̲e̲n̲t̲s̲.̲f̲i̲n̲i̲t̲e̲_̲a̲b̲s̲N̲o̲r̲m̲_̲e̲q̲
+✖ [18918/20198] Building GaloisCohomology.ProfiniteIntegers.CyclotomicTorsionQuotient (2.9s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.setup.json --json
+error: Lean4/GaloisCohomology/ProfiniteIntegers/CyclotomicTorsionQuotient.lean:36:17: Type mismatch
+  zHatMulNat_injective (Nat.pos_of_ne_zero hn)
+has type
+  Function.Injective ⇑(zHatMulNat x✝)
+but is expected to have type
+  ∀ ⦃a b : ZHat⦄, AddCommute a b → x✝ • a = x✝ • b → a = b
+⚠ [18922/20216] Built ValuedFieldTheory.Valuation.AbsoluteValue.Theory.Core (7.7s)
+warning: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Theory/Core.lean:480:4: `isLocalHom_of_le_jacobson_bot` has been deprecated: Use `isLocalHom_of_le_jacobson` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u} [inst : CommRing R] {I : Ideal R}, I ≤ Ring.jacobson R → IsLocalHom (Ideal.Quotient.mk I)
+instead of
+  ∀ {R : Type u_1} [inst : CommRing R], ∀ I ≤ ⊥.jacobson, IsLocalHom (Ideal.Quotient.mk I)
+warning: Lean4/ValuedFieldTheory/Valuation/AbsoluteValue/Theory/Core.lean:571:2: `isLocalHom_of_le_jacobson_bot` has been deprecated: Use `isLocalHom_of_le_jacobson` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u} [inst : CommRing R] {I : Ideal R}, I ≤ Ring.jacobson R → IsLocalHom (Ideal.Quotient.mk I)
+instead of
+  ∀ {R : Type u_1} [inst : CommRing R], ∀ I ≤ ⊥.jacobson, IsLocalHom (Ideal.Quotient.mk I)
+⚠ [18955/20328] Built DedekindZetaZeroFree.Arithmetic.RayClasses.Representatives.IntegralIdealClasses (6.3s)
+warning: DedekindZetaZeroFree/Arithmetic/RayClasses/Representatives/IntegralIdealClasses.lean:17:23: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [18958/20332] Built DedekindZetaZeroFree.Arithmetic.Units.TorsionFreeDecomposition (7.6s)
+warning: DedekindZetaZeroFree/Arithmetic/Units/TorsionFreeDecomposition.lean:39:18: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/TorsionFreeDecomposition.lean:40:19: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+warning: DedekindZetaZeroFree/Arithmetic/Units/TorsionFreeDecomposition.lean:52:5: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+
+Hint: Replace the deprecated name:
+  m̵i̵x̵e̵d̵E̵m̵b̵e̵d̵d̵i̵n̵g̵.̵f̵u̵n̵d̵a̵m̵e̵n̵t̵a̵l̵C̵o̵n̵e̵.̵e̵q̵u̵i̵v̵F̵i̵n̵R̵a̵n̵k̵U̲n̲i̲t̲s̲.̲e̲q̲u̲i̲v̲F̲i̲n̲R̲a̲n̲k̲
+warning: DedekindZetaZeroFree/Arithmetic/Units/TorsionFreeDecomposition.lean:54:27: `NumberField.mixedEmbedding.fundamentalCone.equivFinRank` has been deprecated: Use `NumberField.Units.equivFinRank` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.equivFinRank` to `Units.equivFinRank x`).
+⚠ [18959/20332] Built DedekindZetaZeroFree.Theta.Unfolding.UnitSlabRadialAngularIntegration (7.6s)
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:108:37: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:110:10: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:117:18: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:145:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:156:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:156:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:156:23: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:156:35: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: DedekindZetaZeroFree/Theta/Unfolding/UnitSlabRadialAngularIntegration.lean:170:50: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+⚠ [18977/20332] Built ClassFieldTheory.AlgebraicNumberTheory.SUnit.Rank (9.9s)
+warning: Lean4/ClassFieldTheory/AlgebraicNumberTheory/SUnit/Rank.lean:167:6: `FractionalIdeal.spanSingleton_mul_spanSingleton` has been deprecated: use `map_mul`
+warning: Lean4/ClassFieldTheory/AlgebraicNumberTheory/SUnit/Rank.lean:247:8: `FractionalIdeal.spanSingleton_mul_spanSingleton` has been deprecated: use `map_mul`
+warning: Lean4/ClassFieldTheory/AlgebraicNumberTheory/SUnit/Rank.lean:462:19: missing doc string for public def classNumberBasisVector
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+warning: Lean4/ClassFieldTheory/AlgebraicNumberTheory/SUnit/Rank.lean:502:19: missing doc string for public def divisorRangeVector
+
+Note: This linter can be disabled with `set_option linter.missingDocs false`
+✖ [18993/20338] Building GaloisCohomology.GroupTheory.Augmentation (3.8s)
+trace: .> LEAN_PATH=/work/DedekindZetaZeroFree/.lake/packages/Cli/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/batteries/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/Qq/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/aesop/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/importGraph/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/plausible/.lake/build/lib/lean:/work/tauceti/.lake/build/lib/lean:/work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/packages/mathlib/.lake/build/lib/lean:/work/DedekindZetaZeroFree/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -j1 /work/DedekindZetaZeroFree/vendor/class-field-theory/Lean4/GaloisCohomology/GroupTheory/Augmentation.lean -o /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/GroupTheory/Augmentation.olean -i /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/lib/lean/GaloisCohomology/GroupTheory/Augmentation.ilean -c /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/GroupTheory/Augmentation.c --setup /work/DedekindZetaZeroFree/vendor/class-field-theory/.lake/build/ir/GaloisCohomology/GroupTheory/Augmentation.setup.json --json
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:257:4: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:257:4: failed to synthesize instance of type class
+  MulOne (Abelianization G)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:258:2: `Abelianization.lift` has been deprecated: Use `Group.Abelianization.lift` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.lift` to `Group.Abelianization.lift x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.lift
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:261:8: declaration uses `sorry`
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:269:4: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:271:4: `Abelianization.of` has been deprecated: Use `Group.Abelianization.of` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.of` to `Group.Abelianization.of x`).
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization.of
+error: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:270:2: failed to synthesize instance of type class
+  CommMonoid (Abelianization G)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:283:6: Failed to rewrite using equation theorems for `deltaPreimage`
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:283:6: declaration uses `sorry`
+warning: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:308:10: `Abelianization` has been deprecated: Use `Group.Abelianization` instead
+
+Hint: Replace the deprecated name:
+  G̲r̲o̲u̲p̲.̲Abelianization
+error: Lean4/GaloisCohomology/GroupTheory/Augmentation.lean:308:25: Unknown identifier `G`
+error: Lean4/Galo
+
+=== SUMMARY
+build: FAIL rc=1 errors=216
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dQQDgPgdJBeTNGjQZfTr3s

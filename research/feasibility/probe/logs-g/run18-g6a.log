@@ -1,0 +1,144 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-QXG1piUmbKerGySmeIOkId
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+└── ✓ Created Function g7.
+
+=== Weil update (attempt 1): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: d9598f07b1bc
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: ba67e212be11
+    mathlib: c61286b7b63c
+  importGraph:
+    project: d8823026ac7e
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: a8acbfd87375
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 18889deb9e83
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 507746ab8f4b
+    mathlib: b0256621cb88
+  batteries:
+    project: 7e23602c91bc
+    mathlib: 4af7237d1462
+  Cli:
+    project: ab3a82db9fea
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: Stacks: materializing new dependency
+info: Stacks: fetching revision '012108f61d7f92a6ffc35ec3f263b6da5d438125' from https://github.com/AxiomMath/Stacks
+info: Stacks: checking out revision '012108f61d7f92a6ffc35ec3f263b6da5d438125'
+info: leanprover-community/mathlib: materializing new dependency
+info: leanprover-community/mathlib: fetching revision 'ff2494ea5e438f8a8452db803068acd711fa0059' from https://github.com/leanprover-community/mathlib4
+info: leanprover-community/mathlib: checking out revision 'ff2494ea5e438f8a8452db803068acd711fa0059'
+info: toolchain not updated; already up-to-date
+info: plausible: materializing new dependency
+info: plausible: fetching revision 'd9598f07b1bc701f1e3aae163d2681c1fd978793' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'd9598f07b1bc701f1e3aae163d2681c1fd978793'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision 'ba67e212be1197b84c1f1f6299488a10a3002713' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'ba67e212be1197b84c1f1f6299488a10a3002713'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision 'd8823026ac7ef130c253089d95685f9877b95323' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'd8823026ac7ef130c253089d95685f9877b95323'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision 'a8acbfd87375ff4abe14ce09db5b7664d383bc7f' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision 'a8acbfd87375ff4abe14ce09db5b7664d383bc7f'
+info: ae
+
+=== Weil update (attempt 2): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: d9598f07b1bc
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: ba67e212be11
+    mathlib: c61286b7b63c
+  importGraph:
+    project: d8823026ac7e
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: a8acbfd87375
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 18889deb9e83
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 507746ab8f4b
+    mathlib: b0256621cb88
+  batteries:
+    project: 7e23602c91bc
+    mathlib: 4af7237d1462
+  Cli:
+    project: ab3a82db9fea
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+
+=== Weil update (attempt 3): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: d9598f07b1bc
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: ba67e212be11
+    mathlib: c61286b7b63c
+  importGraph:
+    project: d8823026ac7e
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: a8acbfd87375
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 18889deb9e83
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 507746ab8f4b
+    mathlib: b0256621cb88
+  batteries:
+    project: 7e23602c91bc
+    mathlib: 4af7237d1462
+  Cli:
+    project: ab3a82db9fea
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache

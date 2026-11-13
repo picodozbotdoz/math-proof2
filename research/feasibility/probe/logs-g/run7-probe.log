@@ -1,0 +1,78 @@
+# Provenance: modal run gprobe.py --mode probe (G5c fix), 2026-11-13 ~22:00. G5c OK, G5b 1 error.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-3CL5y7XsEagcLl0OxFP0rg
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+└── ✓ Created Function g6a.
+[gprobe] staging ['ProbeG1_DZDF.lean', 'ProbeG3_Weil.lean', 'ProbeG4_AreaLaw.lean', 'ProbeG5b_PEPS_Bridge.lean', 'ProbeG5c_PEPS_Dictionary.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG1_DZDF.lean
+[probe] ProbeG1_DZDF.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG1_DZDF.lean:43:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:47:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:58:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:64:8: warning: declaration uses `sorry`
+
+
+=== ProbeG3_Weil.lean
+[probe] ProbeG3_Weil.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+@IsProper : {X Y : Scheme} → (X ⟶ Y) → Prop
+@GeometricallyIrreducible : {X Y : Scheme} → (X ⟶ Y) → Prop
+SmoothOfRelativeDimension : ℕ → {X Y : Scheme} → (X ⟶ Y) → Prop
+@Over : {T : Type u_2} → [Category.{u_1, u_2} T] → T → Type (max u_2 u_1)
+Spec : CommRingCat → Scheme
+ProbeG3_Weil.lean:37:8: warning: declaration uses `sorry`
+
+
+=== ProbeG4_AreaLaw.lean
+[probe] ProbeG4_AreaLaw.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG4_AreaLaw.lean:51:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:92:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:97:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:279:8: warning: declaration uses `sorry`
+
+
+=== ProbeG5b_PEPS_Bridge.lean
+[probe] ProbeG5b_PEPS_Bridge.lean: FAIL rc=1; errors=1, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5b_PEPS_Bridge.lean:115:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:173:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:201:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:219:10: error: Type mismatch
+  glue ?m.27 ?m.29 ⟨v, ⋯⟩
+has type
+  ?m.23 ↑⟨v, ⋯⟩
+but is expected to have type
+  Fin q
+ProbeG5b_PEPS_Bridge.lean:246:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:272:8: warning: declaration uses `sorry`
+
+
+=== ProbeG5c_PEPS_Dictionary.lean
+{'ProbeG1_DZDF.lean': 'OK', 'ProbeG3_Weil.lean': 'OK', 'ProbeG4_AreaLaw.lean': 'OK', 'ProbeG5b_PEPS_Bridge.lean': 'FAIL (1 errors)', 'ProbeG5c_PEPS_Dictionary.lean': 'OK'}
+[probe] ProbeG5c_PEPS_Dictionary.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5c_PEPS_Dictionary.lean:69:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:78:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:86:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:97:8: warning: declaration uses `sorry`
+
+
+[probe] SUMMARY
+[probe]   ProbeG1_DZDF.lean: OK
+[probe]   ProbeG3_Weil.lean: OK
+[probe]   ProbeG4_AreaLaw.lean: OK
+[probe]   ProbeG5b_PEPS_Bridge.lean: FAIL (1 errors)
+[probe]   ProbeG5c_PEPS_Dictionary.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-3CL5y7XsEagcLl0OxFP0rg

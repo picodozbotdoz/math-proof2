@@ -1,0 +1,54 @@
+# Provenance: modal run gprobe.py --mode probe (G1a+G3+G4 first pass), 2026-11-13 ~21:47. G1a OK, G3 OK, G4 2 probe-side errors.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-BjtCOLha5xf9PJjGQlQih4
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+└── ✓ Created Function g1b.
+[gprobe] staging ['ProbeG1_DZDF.lean', 'ProbeG3_Weil.lean', 'ProbeG4_AreaLaw.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG1_DZDF.lean
+[probe] ProbeG1_DZDF.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG1_DZDF.lean:43:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:47:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:58:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:64:8: warning: declaration uses `sorry`
+
+
+=== ProbeG3_Weil.lean
+[probe] ProbeG3_Weil.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+@IsProper : {X Y : Scheme} → (X ⟶ Y) → Prop
+@GeometricallyIrreducible : {X Y : Scheme} → (X ⟶ Y) → Prop
+SmoothOfRelativeDimension : ℕ → {X Y : Scheme} → (X ⟶ Y) → Prop
+@Over : {T : Type u_2} → [Category.{u_1, u_2} T] → T → Type (max u_2 u_1)
+Spec : CommRingCat → Scheme
+ProbeG3_Weil.lean:37:8: warning: declaration uses `sorry`
+
+
+=== ProbeG4_AreaLaw.lean
+{'ProbeG1_DZDF.lean': 'OK', 'ProbeG3_Weil.lean': 'OK', 'ProbeG4_AreaLaw.lean': 'FAIL (1 errors)'}
+[probe] ProbeG4_AreaLaw.lean: FAIL rc=1; errors=1, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG4_AreaLaw.lean:46:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder 𝕜
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ProbeG4_AreaLaw.lean:86:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:91:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:268:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:280:23: error: elaboration function for `Mathlib.Tactic.subscriptTerm` has not been implemented
+  ᵥ
+
+
+[probe] SUMMARY
+[probe]   ProbeG1_DZDF.lean: OK
+[probe]   ProbeG3_Weil.lean: OK
+[probe]   ProbeG4_AreaLaw.lean: FAIL (1 errors)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-BjtCOLha5xf9PJjGQlQih4

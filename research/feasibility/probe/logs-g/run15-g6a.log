@@ -1,0 +1,937 @@
+# Provenance: modal run gprobe.py --mode g6a (seed-and-build v1), 2026-11-13 ~22:26. Build FAIL same dep-rebuild cause, BUT lake scheduled 59173 jobs = the Weil+Stacks closure size (the G6a pricing input).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-JMSLyUe94ZSFbH8yHKeJsn
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+└── ✓ Created Function g7.
+[seed] mathlib pre-seeded at ff2494ea5e43 (olens included)
+[g6a] resolved Stacks fatal: cannot change to '.lake/packages/Stacks': No such file or directory
+
+=== Weil build: rc=1
+[g6a] build FAIL rc=1 errors=143641
+[g6a] progress: 259/59173 lake jobs; failed modules: ['Aesop.Util.Basic', 'Batteries.Data.BitVec.Lemmas', 'Batteries.Data.String.Lemmas', 'Batteries.Data.UInt', 'Batteries.Lean.Meta.DiscrTree']
+✖ [7/87] Running ImportGraph.Imports.Pretty
+error: no such file or directory (error code: 2)
+  file: /work/Weil/.lake/packages/importGraph/ImportGraph/Imports/Pretty.lean
+✖ [11/87] Running Mathlib.Tactic.Linter.Header
+error: Mathlib/Tactic/Linter/Header.lean: bad import 'ImportGraph.Imports.Pretty'
+✖ [13/87] Running Mathlib.Lean.Linter
+error: Mathlib/Lean/Linter.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [15/87] Running Mathlib.Tactic.AdaptationNote
+error: Mathlib/Tactic/AdaptationNote.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [17/87] Running Mathlib.Tactic.Lemma
+error: Mathlib/Tactic/Lemma.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [19/87] Running Mathlib.Lean.Environment
+error: Mathlib/Lean/Environment.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [21/87] Running Mathlib.Lean.Elab.InfoTree
+error: Mathlib/Lean/Elab/InfoTree.lean: bad import 'Mathlib.Lean.Environment'
+error: Mathlib/Lean/Elab/InfoTree.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [23/87] Running Mathlib.Tactic.Linter.OverlappingInstances
+error: Mathlib/Tactic/Linter/OverlappingInstances.lean: bad import 'Mathlib.Lean.Elab.InfoTree'
+✖ [25/87] Running Mathlib.Lean.Expr.Basic
+error: Mathlib/Lean/Expr/Basic.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [27/87] Running Mathlib.Tactic.Linter.UnusedInstancesInType
+error: Mathlib/Tactic/Linter/UnusedInstancesInType.lean: bad import 'Mathlib.Lean.Expr.Basic'
+error: Mathlib/Tactic/Linter/UnusedInstancesInType.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [29/87] Running Mathlib.Tactic.Linter.DeclType
+error: Mathlib/Tactic/Linter/DeclType.lean: bad import 'Mathlib.Tactic.Linter.OverlappingInstances'
+error: Mathlib/Tactic/Linter/DeclType.lean: bad import 'Mathlib.Tactic.Linter.UnusedInstancesInType'
+✖ [31/87] Running Mathlib.Tactic.Linter.DeprecatedSyntaxLinter
+error: Mathlib/Tactic/Linter/DeprecatedSyntaxLinter.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [33/87] Running Mathlib.Tactic.Linter.DocPrime
+error: Mathlib/Tactic/Linter/DocPrime.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [35/87] Running Mathlib.Tactic.Linter.DocString
+error: Mathlib/Tactic/Linter/DocString.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [37/87] Running Mathlib.Tactic.Linter.EmptyLine
+error: Mathlib/Tactic/Linter/EmptyLine.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [39/87] Running Mathlib.Tactic.Linter.FlexibleLinter
+error: Mathlib/Tactic/Linter/FlexibleLinter.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [41/87] Running Mathlib.Tactic.Linter.HashCommandLinter
+error: Mathlib/Tactic/Linter/HashCommandLinter.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [43/87] Running Mathlib.Tactic.Linter.HaveILetI
+error: Mathlib/Tactic/Linter/HaveILetI.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [45/87] Running Mathlib.Tactic.Linter.InternalConstructor
+error: Mathlib/Tactic/Linter/InternalConstructor.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [47/133] Running Mathlib.Tactic.DeclarationNames
+error: Mathlib/Tactic/DeclarationNames.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [49/133] Running Mathlib.Tactic.Linter.Lint
+error: Mathlib/Tactic/Linter/Lint.lean: bad import 'Mathlib.Tactic.DeclarationNames'
+✖ [51/133] Running Mathlib.Tactic.Linter.Multigoal
+error: Mathlib/Tactic/Linter/Multigoal.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [53/133] Running Mathlib.Tactic.Linter.PrivateModule
+error: Mathlib/Tactic/Linter/PrivateModule.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [55/133] Running Mathlib.Tactic.Linter.Style
+error: Mathlib/Tactic/Linter/Style.lean: bad import 'Mathlib.Tactic.Linter.Header'
+error: Mathlib/Tactic/Linter/Style.lean: bad import 'Mathlib.Tactic.DeclarationNames'
+✖ [57/133] Running Mathlib.Tactic.Linter.SyntaxBased
+error: Mathlib/Tactic/Linter/SyntaxBased.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [59/133] Running Mathlib.Tactic.Linter.TacticDocumentation
+error: Mathlib/Tactic/Linter/TacticDocumentation.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [61/133] Running Mathlib.Tactic.Linter.UnusedTactic
+error: Mathlib/Tactic/Linter/UnusedTactic.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [63/133] Running Mathlib.Tactic.Linter.Whitespace
+error: Mathlib/Tactic/Linter/Whitespace.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [65/133] Running Mathlib.Tactic.MinImports
+error: Mathlib/Tactic/MinImports.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [67/133] Running Mathlib.Lean.Elab.Tactic.Meta
+error: Mathlib/Lean/Elab/Tactic/Meta.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [69/133] Running Mathlib.Lean.ContextInfo
+error: Mathlib/Lean/ContextInfo.lean: bad import 'Mathlib.Lean.Elab.Tactic.Meta'
+error: Mathlib/Lean/ContextInfo.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [71/133] Running Mathlib.Tactic.TacticAnalysis
+error: Mathlib/Tactic/TacticAnalysis.lean: bad import 'Mathlib.Lean.Elab.Tactic.Meta'
+error: Mathlib/Tactic/TacticAnalysis.lean: bad import 'Mathlib.Lean.ContextInfo'
+✖ [73/133] Running Mathlib.Tactic.ExtractGoal
+error: Mathlib/Tactic/ExtractGoal.lean: bad import 'Mathlib.Tactic.MinImports'
+✖ [75/133] Running Mathlib.Util.ParseCommand
+error: Mathlib/Util/ParseCommand.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [77/133] Running Mathlib.Tactic.TacticAnalysis.Declarations
+error: Mathlib/Tactic/TacticAnalysis/Declarations.lean: bad import 'Mathlib.Lean.Elab.InfoTree'
+error: Mathlib/Tactic/TacticAnalysis/Declarations.lean: bad import 'Mathlib.Tactic.TacticAnalysis'
+error: Mathlib/Tactic/TacticAnalysis/Declarations.lean: bad import 'Mathlib.Tactic.ExtractGoal'
+error: Mathlib/Tactic/TacticAnalysis/Declarations.lean: bad import 'Mathlib.Util.ParseCommand'
+✖ [79/133] Running Mathlib.Tactic.TypeStar
+error: Mathlib/Tactic/TypeStar.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [83/179] Running Mathlib.Util.CodeActions.BinderPlicity
+error: Mathlib/Util/CodeActions/BinderPlicity.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [85/179] Running Mathlib.Util.CodeActions
+error: Mathlib/Util/CodeActions.lean: bad import 'Mathlib.Util.CodeActions.BinderPlicity'
+✖ [87/179] Running Mathlib.Util.VersoRoles
+error: Mathlib/Util/VersoRoles.lean: bad import 'Mathlib.Tactic.Linter.Style'
+error: Mathlib/Util/VersoRoles.lean: bad import 'Mathlib.Tactic.Linter.Header'
+✖ [89/179] Running Mathlib.Init
+error: Mathlib/Init.lean: bad import 'Mathlib.Lean.Linter'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.AdaptationNote'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Lemma'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.DeclType'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.DeprecatedSyntaxLinter'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.DocPrime'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.DocString'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.EmptyLine'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.FlexibleLinter'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.HashCommandLinter'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.HaveILetI'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.Header'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.InternalConstructor'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.Lint'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.Multigoal'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.PrivateModule'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.Style'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.SyntaxBased'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.TacticDocumentation'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.UnusedTactic'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.Linter.Whitespace'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.MinImports'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.TacticAnalysis.Declarations'
+error: Mathlib/Init.lean: bad import 'Mathlib.Tactic.TypeStar'
+error: Mathlib/Init.lean: bad import 'Mathlib.Util.CodeActions'
+{'build': 'FAIL rc=1 errors=143641'}
+error: Mathlib/Init.lean: bad import 'Mathlib.Util.VersoRoles'
+✖ [91/179] Running Mathlib.Lean.Meta.Simp
+error: Mathlib/Lean/Meta/Simp.lean: bad import 'Mathlib.Init'
+✖ [93/179] Running Mathlib.Lean.Name
+error: Mathlib/Lean/Name.lean: bad import 'Mathlib.Init'
+✖ [95/179] Running Mathlib.Tactic.Eqns
+error: Mathlib/Tactic/Eqns.lean: bad import 'Mathlib.Init'
+✖ [97/179] Running Mathlib.Tactic.Translate.Attributes
+error: Mathlib/Tactic/Translate/Attributes.lean: bad import 'Mathlib.Init'
+✖ [99/179] Running Mathlib.Data.String.Defs
+error: Mathlib/Data/String/Defs.lean: bad import 'Mathlib.Init'
+✖ [101/179] Running Mathlib.Tactic.Translate.GuessName
+error: Mathlib/Tactic/Translate/GuessName.lean: bad import 'Mathlib.Data.String.Defs'
+error: Mathlib/Tactic/Translate/GuessName.lean: bad import 'Mathlib.Init'
+✖ [103/179] Running Mathlib.Tactic.Translate.Reorder
+error: Mathlib/Tactic/Translate/Reorder.lean: bad import 'Mathlib.Init'
+✖ [105/179] Running Mathlib.Tactic.Translate.UnfoldBoundary
+error: Mathlib/Tactic/Translate/UnfoldBoundary.lean: bad import 'Mathlib.Init'
+✖ [107/179] Running Mathlib.Tactic.Translate.Expr
+error: Mathlib/Tactic/Translate/Expr.lean: bad import 'Mathlib.Tactic.Translate.GuessName'
+error: Mathlib/Tactic/Translate/Expr.lean: bad import 'Mathlib.Tactic.Translate.Reorder'
+error: Mathlib/Tactic/Translate/Expr.lean: bad import 'Mathlib.Tactic.Translate.UnfoldBoundary'
+✖ [109/179] Running Mathlib.Tactic.Translate.Core
+error: Mathlib/Tactic/Translate/Core.lean: bad import 'Mathlib.Lean.Meta.Simp'
+error: Mathlib/Tactic/Translate/Core.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/Translate/Core.lean: bad import 'Mathlib.Tactic.Eqns'
+error: Mathlib/Tactic/Translate/Core.lean: bad import 'Mathlib.Tactic.Translate.Attributes'
+error: Mathlib/Tactic/Translate/Core.lean: bad import 'Mathlib.Tactic.Translate.Expr'
+✖ [111/179] Running Mathlib.Tactic.Translate.ToAdditive
+error: Mathlib/Tactic/Translate/ToAdditive.lean: bad import 'Mathlib.Tactic.Translate.Core'
+✖ [113/179] Running Mathlib.Tactic.ToAdditive
+error: Mathlib/Tactic/ToAdditive.lean: bad import 'Mathlib.Tactic.Translate.ToAdditive'
+✖ [115/179] Running Mathlib.Algebra.Regular.Defs
+error: Mathlib/Algebra/Regular/Defs.lean: bad import 'Mathlib.Tactic.ToAdditive'
+✖ [117/179] Running Mathlib.Lean.Meta
+error: Mathlib/Lean/Meta.lean: bad import 'Mathlib.Init'
+✖ [119/179] Running Mathlib.Tactic.MkIffOfInductiveProp
+error: Mathlib/Tactic/MkIffOfInductiveProp.lean: bad import 'Mathlib.Lean.Meta'
+error: Mathlib/Tactic/MkIffOfInductiveProp.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/MkIffOfInductiveProp.lean: bad import 'Mathlib.Init'
+✖ [121/217] Running Mathlib.Tactic.Simps.NotationClass
+error: Mathlib/Tactic/Simps/NotationClass.lean: bad import 'Mathlib.Init'
+✖ [123/217] Running Mathlib.Util.AddRelatedDecl
+error: Mathlib/Util/AddRelatedDecl.lean: bad import 'Mathlib.Init'
+✖ [125/217] Running Mathlib.Tactic.Simps.Basic
+error: Mathlib/Tactic/Simps/Basic.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/Simps/Basic.lean: bad import 'Mathlib.Tactic.Simps.NotationClass'
+error: Mathlib/Tactic/Simps/Basic.lean: bad import 'Mathlib.Tactic.Translate.Attributes'
+error: Mathlib/Tactic/Simps/Basic.lean: bad import 'Mathlib.Util.AddRelatedDecl'
+✖ [127/217] Running Mathlib.Tactic.Simps
+error: Mathlib/Tactic/Simps.lean: bad import 'Mathlib.Tactic.Simps.Basic'
+✖ [129/217] Running Mathlib.Algebra.Group.Semigroup
+error: Mathlib/Algebra/Group/Semigroup.lean: bad import 'Mathlib.Algebra.Regular.Defs'
+error: Mathlib/Algebra/Group/Semigroup.lean: bad import 'Mathlib.Tactic.MkIffOfInductiveProp'
+error: Mathlib/Algebra/Group/Semigroup.lean: bad import 'Mathlib.Tactic.Simps'
+✖ [131/217] Running Mathlib.Data.Nat.BinaryRec
+error: Mathlib/Data/Nat/BinaryRec.lean: bad import 'Mathlib.Init'
+✖ [133/217] Running Mathlib.Data.Nat.Notation
+error: Mathlib/Data/Nat/Notation.lean: bad import 'Mathlib.Init'
+✖ [135/217] Running Mathlib.Tactic.Push.Attr
+error: Mathlib/Tactic/Push/Attr.lean: bad import 'Mathlib.Init'
+✖ [137/217] Running Mathlib.Algebra.Group.Monoid
+error: Mathlib/Algebra/Group/Monoid.lean: bad import 'Mathlib.Algebra.Group.Semigroup'
+error: Mathlib/Algebra/Group/Monoid.lean: bad import 'Mathlib.Data.Nat.BinaryRec'
+error: Mathlib/Algebra/Group/Monoid.lean: bad import 'Mathlib.Data.Nat.Notation'
+error: Mathlib/Algebra/Group/Monoid.lean: bad import 'Mathlib.Tactic.Push.Attr'
+✖ [139/217] Running Mathlib.Data.Int.Notation
+error: Mathlib/Data/Int/Notation.lean: bad import 'Mathlib.Init'
+✖ [141/263] Running Mathlib.Tactic.CrossRefAttribute
+error: Mathlib/Tactic/CrossRefAttribute.lean: bad import 'Mathlib.Init'
+✖ [143/263] Running Mathlib.Tactic.OfNat
+error: Mathlib/Tactic/OfNat.lean: bad import 'Mathlib.Init'
+✖ [145/263] Running Mathlib.Algebra.Group.DivInvMonoid
+error: Mathlib/Algebra/Group/DivInvMonoid.lean: bad import 'Mathlib.Algebra.Group.Monoid'
+error: Mathlib/Algebra/Group/DivInvMonoid.lean: bad import 'Mathlib.Data.Int.Notation'
+error: Mathlib/Algebra/Group/DivInvMonoid.lean: bad import 'Mathlib.Tactic.CrossRefAttribute'
+error: Mathlib/Algebra/Group/DivInvMonoid.lean: bad import 'Mathlib.Tactic.OfNat'
+✖ [147/263] Running Mathlib.Algebra.Group.Defs
+error: Mathlib/Algebra/Group/Defs.lean: bad import 'Mathlib.Algebra.Group.DivInvMonoid'
+✖ [149/263] Running Mathlib.Algebra.Group.PUnit
+error: Mathlib/Algebra/Group/PUnit.lean: bad import 'Mathlib.Algebra.Group.Defs'
+✖ [151/263] Running Mathlib.Algebra.Notation.Defs
+error: Mathlib/Algebra/Notation/Defs.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Algebra/Notation/Defs.lean: bad import 'Mathlib.Tactic.ToAdditive'
+✖ [153/263] Running Mathlib.Tactic.Attr.Register
+error: Mathlib/Tactic/Attr/Register.lean: bad import 'Mathlib.Init'
+✖ [155/263] Running Mathlib.Logic.Function.Defs
+error: Mathlib/Logic/Function/Defs.lean: bad import 'Mathlib.Init'
+error: Mathlib/Logic/Function/Defs.lean: bad import 'Mathlib.Tactic.Attr.Register'
+✖ [157/263] Running Mathlib.Algebra.Notation.Pi.Defs
+error: Mathlib/Algebra/Notation/Pi/Defs.lean: bad import 'Mathlib.Algebra.Notation.Defs'
+error: Mathlib/Algebra/Notation/Pi/Defs.lean: bad import 'Mathlib.Logic.Function.Defs'
+error: Mathlib/Algebra/Notation/Pi/Defs.lean: bad import 'Mathlib.Tactic.Push.Attr'
+✖ [159/263] Running Mathlib.Basic.IsEmpty.Defs
+error: Mathlib/Basic/IsEmpty/Defs.lean: bad import 'Mathlib.Init'
+✖ [161/263] Running Mathlib.Basic.ExistsUnique
+error: Mathlib/Basic/ExistsUnique.lean: bad import 'Mathlib.Init'
+✖ [163/263] Running Mathlib.Basic.Logic.Basic
+error: Mathlib/Basic/Logic/Basic.lean: bad import 'Mathlib.Lean.Meta.Simp'
+error: Mathlib/Basic/Logic/Basic.lean: bad import 'Mathlib.Tactic.Attr.Register'
+✖ [165/263] Running Mathlib.Basic.Nonempty
+error: Mathlib/Basic/Nonempty.lean: bad import 'Mathlib.Init'
+✖ [167/263] Running Mathlib.Basic.Nontrivial.Defs
+error: Mathlib/Basic/Nontrivial/Defs.lean: bad import 'Mathlib.Tactic.Push.Attr'
+✖ [169/263] Running Mathlib.Lean.PrettyPrinter.Delaborator
+error: Mathlib/Lean/PrettyPrinter/Delaborator.lean: bad import 'Mathlib.Init'
+✖ [199/313] Running Mathlib.Tactic.Translate.TagUnfoldBoundary
+error: Mathlib/Tactic/Translate/TagUnfoldBoundary.lean: bad import 'Mathlib.Tactic.Translate.Core'
+✖ [201/313] Running Mathlib.Tactic.Translate.ToDual
+error: Mathlib/Tactic/Translate/ToDual.lean: bad import 'Mathlib.Tactic.Translate.TagUnfoldBoundary'
+✖ [203/313] Running Mathlib.Tactic.ToDual
+error: Mathlib/Tactic/ToDual.lean: bad import 'Mathlib.Tactic.Translate.ToDual'
+✖ [205/313] Running Mathlib.Order.Notation
+error: Mathlib/Order/Notation.lean: bad import 'Mathlib.Lean.PrettyPrinter.Delaborator'
+error: Mathlib/Order/Notation.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Order/Notation.lean: bad import 'Mathlib.Tactic.ToDual'
+✖ [207/313] Running Mathlib.Tactic.SetNotationForOrder
+error: Mathlib/Tactic/SetNotationForOrder.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/SetNotationForOrder.lean: bad import 'Mathlib.Lean.PrettyPrinter.Delaborator'
+error: Mathlib/Tactic/SetNotationForOrder.lean: bad import 'Mathlib.Order.Notation'
+error: Mathlib/Tactic/SetNotationForOrder.lean: bad import 'Mathlib.Tactic.Translate.GuessName'
+error: Mathlib/Tactic/SetNotationForOrder.lean: bad import 'Mathlib.Util.AddRelatedDecl'
+✖ [209/313] Running Mathlib.Data.Set.Defs
+error: Mathlib/Data/Set/Defs.lean: bad import 'Mathlib.Tactic.SetNotationForOrder'
+error: Mathlib/Data/Set/Defs.lean: bad import 'Mathlib.Tactic.ToDual'
+✖ [211/313] Running Mathlib.Tactic.ExtendDoc
+error: Mathlib/Tactic/ExtendDoc.lean: bad import 'Mathlib.Init'
+✖ [213/313] Running Mathlib.Order.Defs.Unbundled
+error: Mathlib/Order/Defs/Unbundled.lean: bad import 'Mathlib.Data.Set.Defs'
+error: Mathlib/Order/Defs/Unbundled.lean: bad import 'Mathlib.Tactic.ExtendDoc'
+✖ [215/313] Running Mathlib.Logic.Function.Basic
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Basic.ExistsUnique'
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Basic.Logic.Basic'
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Basic.Nonempty'
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Basic.Nontrivial.Defs'
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Logic.Function.Defs'
+error: Mathlib/Logic/Function/Basic.lean: bad import 'Mathlib.Order.Defs.Unbundled'
+✖ [217/313] Running Mathlib.Tactic.Inhabit
+error: Mathlib/Tactic/Inhabit.lean: bad import 'Mathlib.Init'
+✖ [219/313] Running Mathlib.Basic.Unique
+error: Mathlib/Basic/Unique.lean: bad import 'Mathlib.Basic.IsEmpty.Defs'
+error: Mathlib/Basic/Unique.lean: bad import 'Mathlib.Logic.Function.Basic'
+error: Mathlib/Basic/Unique.lean: bad import 'Mathlib.Tactic.Inhabit'
+✖ [221/321] Running Mathlib.Tactic.Core
+error: Mathlib/Tactic/Core.lean: bad import 'Mathlib.Init'
+✖ [223/321] Running Mathlib.Tactic.SplitIfs
+error: Mathlib/Tactic/SplitIfs.lean: bad import 'Mathlib.Tactic.Core'
+✖ [225/321] Running Mathlib.Basic.FunLike.Basic
+error: Mathlib/Basic/FunLike/Basic.lean: bad import 'Mathlib.Basic.Unique'
+error: Mathlib/Basic/FunLike/Basic.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Basic/FunLike/Basic.lean: bad import 'Mathlib.Tactic.SplitIfs'
+✖ [233/343] Running Mathlib.Logic.Function.Conjugate
+error: Mathlib/Logic/Function/Conjugate.lean: bad import 'Mathlib.Logic.Function.Basic'
+✖ [235/343] Running Mathlib.Logic.Function.Iterate
+error: Mathlib/Logic/Function/Iterate.lean: bad import 'Mathlib.Data.Nat.Notation'
+error: Mathlib/Logic/Function/Iterate.lean: bad import 'Mathlib.Logic.Function.Conjugate'
+✖ [237/343] Running Mathlib.Algebra.Group.Hom.Defs
+error: Mathlib/Algebra/Group/Hom/Defs.lean: bad import 'Mathlib.Algebra.Group.Defs'
+error: Mathlib/Algebra/Group/Hom/Defs.lean: bad import 'Mathlib.Algebra.Notation.Pi.Defs'
+error: Mathlib/Algebra/Group/Hom/Defs.lean: bad import 'Mathlib.Basic.FunLike.Basic'
+error: Mathlib/Algebra/Group/Hom/Defs.lean: bad import 'Mathlib.Logic.Function.Iterate'
+✖ [239/343] Running Mathlib.Basic.FunLike.Embedding
+error: Mathlib/Basic/FunLike/Embedding.lean: bad import 'Mathlib.Basic.FunLike.Basic'
+✖ [241/343] Running Mathlib.Basic.FunLike.Equiv
+error: Mathlib/Basic/FunLike/Equiv.lean: bad import 'Mathlib.Basic.FunLike.Embedding'
+✖ [243/343] Running Mathlib.Logic.Relator
+error: Mathlib/Logic/Relator.lean: bad import 'Mathlib.Logic.Function.Defs'
+✖ [245/343] Running Mathlib.Order.Defs.Prop
+error: Mathlib/Order/Defs/Prop.lean: bad import 'Mathlib.Tactic.ToDual'
+✖ [247/343] Running Mathlib.Tactic.SimpRw
+error: Mathlib/Tactic/SimpRw.lean: bad import 'Mathlib.Init'
+✖ [249/343] Running Mathlib.Tactic.Use
+error: Mathlib/Tactic/Use.lean: bad import 'Mathlib.Init'
+✖ [251/343] Running Mathlib.Logic.Relation
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Logic.Relator'
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Order.Defs.Prop'
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Order.Defs.Unbundled'
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Tactic.MkIffOfInductiveProp'
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Tactic.SimpRw'
+error: Mathlib/Logic/Relation.lean: bad import 'Mathlib.Tactic.Use'
+✖ [253/343] Running Mathlib.Lean.Elab.Term
+error: Mathlib/Lean/Elab/Term.lean: bad import 'Mathlib.Init'
+✖ [257/359] Running Mathlib.Util.WithWeakNamespace
+error: Mathlib/Util/WithWeakNamespace.lean: bad import 'Mathlib.Init'
+✖ [259/359] Running Mathlib.Tactic.ScopedNS
+error: Mathlib/Tactic/ScopedNS.lean: bad import 'Mathlib.Util.WithWeakNamespace'
+✖ [261/359] Running Mathlib.Util.Notation3
+error: Mathlib/Util/Notation3.lean: bad import 'Mathlib.Lean.PrettyPrinter.Delaborator'
+error: Mathlib/Util/Notation3.lean: bad import 'Mathlib.Lean.Elab.Term'
+error: Mathlib/Util/Notation3.lean: bad import 'Mathlib.Tactic.ScopedNS'
+✖ [263/359] Running Mathlib.Data.Quot
+error: Mathlib/Data/Quot.lean: bad import 'Mathlib.Basic.Unique'
+error: Mathlib/Data/Quot.lean: bad import 'Mathlib.Logic.Relation'
+error: Mathlib/Data/Quot.lean: bad import 'Mathlib.Util.Notation3'
+✖ [265/359] Running Mathlib.Data.Subtype
+error: Mathlib/Data/Subtype.lean: bad import 'Mathlib.Logic.Function.Basic'
+error: Mathlib/Data/Subtype.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Data/Subtype.lean: bad import 'Mathlib.Tactic.AdaptationNote'
+✖ [267/359] Running Mathlib.Logic.Equiv.Defs
+error: Mathlib/Logic/Equiv/Defs.lean: bad import 'Mathlib.Basic.FunLike.Equiv'
+error: Mathlib/Logic/Equiv/Defs.lean: bad import 'Mathlib.Data.Quot'
+error: Mathlib/Logic/Equiv/Defs.lean: bad import 'Mathlib.Data.Subtype'
+✖ [269/359] Running Mathlib.Algebra.Group.Equiv.Defs
+error: Mathlib/Algebra/Group/Equiv/Defs.lean: bad import 'Mathlib.Algebra.Group.Hom.Defs'
+error: Mathlib/Algebra/Group/Equiv/Defs.lean: bad import 'Mathlib.Logic.Equiv.Defs'
+⚠ [347/539] Built Batteries.Logic (1.0s)
+warning: Batteries/Logic.lean:88:2: The updated constant has a different type:
+  ∀ {β : Sort v} {α : Sort u} {a : α} {motive : (b : α) → a = b → Sort v} {b : α} {refl : motive a ⋯} {h : a = b}
+    {c : β}, h ▸ refl ≍ c ↔ refl ≍ c
+instead of
+  ∀ {α : Sort u_1} {a : α} {motive : (a' : α) → a = a' → Sort u_2} {x : motive a ⋯} {a' : α} {e : a = a'} {β : Sort u_2}
+    {y : β}, e ▸ x ≍ y ↔ x ≍ y
+
+This suggests that addressing the deprecation might be more involved than simply replacing the old name with the new name. This is often expected, but sometimes it indicates that the deprecation is in favor of the wrong declaration, or that there is a mistake in one of the statements.
+
+If the type difference is intentional, use `+typeChanged` to silence this warning.
+
+Hint: Add `+typeChanged`:
+  [apply] +typeChanged
+warning: Batteries/Logic.lean:95:2: The updated constant has a different type:
+  ∀ {β : Sort v} {α : Sort u} {a : α} {motive : (b : α) → a = b → Sort v} {b : α} {refl : motive a ⋯} {h : a = b}
+    {c : β}, c ≍ h ▸ refl ↔ c ≍ refl
+instead of
+  ∀ {α : Sort u_1} {a : α} {motive : (a' : α) → a = a' → Sort u_2} {x : motive a ⋯} {a' : α} {e : a = a'} {β : Sort u_2}
+    {y : β}, y ≍ e ▸ x ↔ y ≍ x
+
+This suggests that addressing the deprecation might be more involved than simply replacing the old name with the new name. This is often expected, but sometimes it indicates that the deprecation is in favor of the wrong declaration, or that there is a mistake in one of the statements.
+
+If the type difference is intentional, use `+typeChanged` to silence this warning.
+
+Hint: Add `+typeChanged`:
+  [apply] +typeChanged
+✖ [379/699] Running Mathlib.Tactic.DepRewrite
+error: Mathlib/Tactic/DepRewrite.lean: bad import 'Mathlib.Init'
+✖ [381/699] Running Mathlib.Data.Int.Init
+error: Mathlib/Data/Int/Init.lean: bad import 'Mathlib.Data.Int.Notation'
+error: Mathlib/Data/Int/Init.lean: bad import 'Mathlib.Data.Nat.Notation'
+error: Mathlib/Data/Int/Init.lean: bad import 'Mathlib.Tactic.DepRewrite'
+✖ [383/699] Running Mathlib.Algebra.Group.Basic
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Algebra.Group.Defs'
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Algebra.Notation.Defs'
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Data.Int.Init'
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Logic.Function.Iterate'
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Tactic.SimpRw'
+error: Mathlib/Algebra/Group/Basic.lean: bad import 'Mathlib.Tactic.SplitIfs'
+✖ [385/699] Running Mathlib.Algebra.Group.Hom.Basic
+error: Mathlib/Algebra/Group/Hom/Basic.lean: bad import 'Mathlib.Algebra.Group.Basic'
+error: Mathlib/Algebra/Group/Hom/Basic.lean: bad import 'Mathlib.Algebra.Group.Hom.Defs'
+✖ [387/699] Running Mathlib.Algebra.Group.Semiconj.Defs
+error: Mathlib/Algebra/Group/Semiconj/Defs.lean: bad import 'Mathlib.Algebra.Group.Defs'
+error: Mathlib/Algebra/Group/Semiconj/Defs.lean: bad import 'Mathlib.Order.Defs.Unbundled'
+✖ [389/699] Running Mathlib.Algebra.Group.Commute.Defs
+error: Mathlib/Algebra/Group/Commute/Defs.lean: bad import 'Mathlib.Algebra.Group.Semiconj.Defs'
+✖ [391/699] Running Mathlib.Algebra.Group.Semiconj.Basic
+error: Mathlib/Algebra/Group/Semiconj/Basic.lean: bad import 'Mathlib.Algebra.Group.Basic'
+error: Mathlib/Algebra/Group/Semiconj/Basic.lean: bad import 'Mathlib.Algebra.Group.Semiconj.Defs'
+✖ [393/699] Running Mathlib.Algebra.Group.Commute.Basic
+error: Mathlib/Algebra/Group/Commute/Basic.lean: bad import 'Mathlib.Algebra.Group.Commute.Defs'
+error: Mathlib/Algebra/Group/Commute/Basic.lean: bad import 'Mathlib.Algebra.Group.Semiconj.Basic'
+✖ [395/699] Running Mathlib.Algebra.Group.SelfInv
+error: Mathlib/Algebra/Group/SelfInv.lean: bad import 'Mathlib.Algebra.Group.Basic'
+✖ [397/699] Running Mathlib.Algebra.Group.Torsion
+error: Mathlib/Algebra/Group/Torsion.lean: bad import 'Mathlib.Algebra.Group.Commute.Basic'
+error: Mathlib/Algebra/Group/Torsion.lean: bad import 'Mathlib.Algebra.Group.SelfInv'
+✖ [399/699] Running Mathlib.Algebra.Notation.Pi.Basic
+error: Mathlib/Algebra/Notation/Pi/Basic.lean: bad import 'Mathlib.Algebra.Notation.Pi.Defs'
+error: Mathlib/Algebra/Notation/Pi/Basic.lean: bad import 'Mathlib.Logic.Function.Basic'
+✖ [401/699] Running Mathlib.Algebra.Group.TypeTags.Basic
+error: Mathlib/Algebra/Group/TypeTags/Basic.lean: bad import 'Mathlib.Algebra.Group.Torsion'
+error: Mathlib/Algebra/Group/TypeTags/Basic.lean: bad import 'Mathlib.Algebra.Notation.Pi.Basic'
+error: Mathlib/Algebra/Group/TypeTags/Basic.lean: bad import 'Mathlib.Logic.Equiv.Defs'
+✖ [403/699] Running Mathlib.Algebra.Group.TypeTags.Hom
+error: Mathlib/Algebra/Group/TypeTags/Hom.lean: bad import 'Mathlib.Algebra.Group.Equiv.Defs'
+error: Mathlib/Algebra/Group/TypeTags/Hom.lean: bad import 'Mathlib.Algebra.Group.Hom.Basic'
+error: Mathlib/Algebra/Group/TypeTags/Hom.lean: bad import 'Mathlib.Algebra.Group.TypeTags.Basic'
+✖ [405/699] Running Mathlib.Tactic.Spread
+error: Mathlib/Tactic/Spread.lean: bad import 'Mathlib.Init'
+✖ [407/699] Running Mathlib.Algebra.Group.InjSurj
+error: Mathlib/Algebra/Group/InjSurj.lean: bad import 'Mathlib.Algebra.Group.Defs'
+error: Mathlib/Algebra/Group/InjSurj.lean: bad import 'Mathlib.Logic.Function.Basic'
+error: Mathlib/Algebra/Group/InjSurj.lean: bad import 'Mathlib.Tactic.Spread'
+✖ [409/699] Running Mathlib.Algebra.Group.ULift
+error: Mathlib/Algebra/Group/ULift.lean: bad import 'Mathlib.Algebra.Group.Equiv.Defs'
+error: Mathlib/Algebra/Group/ULift.lean: bad import 'Mathlib.Algebra.Group.InjSurj'
+✖ [411/699] Running Mathlib.CategoryTheory.Category.Init
+error: Mathlib/CategoryTheory/Category/Init.lean: bad import 'Mathlib.Init'
+✖ [413/699] Running Mathlib.Tactic.PPWithUniv
+error: Mathlib/Tactic/PPWithUniv.lean: bad import 'Mathlib.Init'
+✖ [415/699] Running Mathlib.Logic.Small.Defs
+error: Mathlib/Logic/Small/Defs.lean: bad import 'Mathlib.Logic.Equiv.Defs'
+error: Mathlib/Logic/Small/Defs.lean: bad import 'Mathlib.Tactic.PPWithUniv'
+✖ [417/699] Running Mathlib.Basic.Opposite
+error: Mathlib/Basic/Opposite.lean: bad import 'Mathlib.Logic.Small.Defs'
+✖ [419/699] Running Mathlib.Combinatorics.Quiver.Basic
+error: Mathlib/Combinatorics/Quiver/Basic.lean: bad import 'Mathlib.Basic.Opposite'
+✖ [421/699] Running Mathlib.Tactic.Attr.Core
+error: Mathlib/Tactic/Attr/Core.lean: bad import 'Mathlib.Tactic.Attr.Register'
+✖ [441/699] Building Batteries.Lean.Meta.DiscrTree (611ms)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/batteries/Batteries/Lean/Meta/DiscrTree.lean -o /work/Weil/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Lean/Meta/DiscrTree.olean -i /work/Weil/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Lean/Meta/DiscrTree.ilean -c /work/Weil/.lake/packages/batteries/.lake/build/ir/Batteries/Lean/Meta/DiscrTree.c --setup /work/Weil/.lake/packages/batteries/.lake/build/ir/Batteries/Lean/Meta/DiscrTree.setup.json --json
+error: Batteries/Lean/Meta/DiscrTree.lean:42:2: Missing cases:
+(chain Key.star _), _
+(chain Key.other _), _
+(chain (Key.lit (Literal.natVal _)) _), _
+(chain (Key.lit (Literal.strVal (String.ofByteArray (ByteArray.mk (Array.mk _)) (ByteArray.IsValidUTF8.intro _ _)))) _), _
+(chain (Key.fvar (FVarId.mk _) _) _), _
+(further cases omitted, increase `set_option match.maxCounterExamples 5` to see more)
+✖ [457/799] Running Mathlib.Tactic.ApplyCongr
+error: Mathlib/Tactic/ApplyCongr.lean: bad import 'Mathlib.Init'
+✖ [459/799] Running Mathlib.Lean.Meta.Basic
+error: Mathlib/Lean/Meta/Basic.lean: bad import 'Mathlib.Init'
+✖ [461/799] Running Mathlib.Tactic.ApplyAt
+error: Mathlib/Tactic/ApplyAt.lean: bad import 'Mathlib.Lean.Meta.Basic'
+error: Mathlib/Tactic/ApplyAt.lean: bad import 'Mathlib.Init'
+✖ [463/799] Running Mathlib.Tactic.ApplyWith
+error: Mathlib/Tactic/ApplyWith.lean: bad import 'Mathlib.Init'
+✖ [465/799] Running Mathlib.Tactic.Basic
+error: Mathlib/Tactic/Basic.lean: bad import 'Mathlib.Tactic.ExtendDoc'
+error: Mathlib/Tactic/Basic.lean: bad import 'Mathlib.Tactic.PPWithUniv'
+✖ [467/799] Running Mathlib.Tactic.Conv
+error: Mathlib/Tactic/Conv.lean: bad import 'Mathlib.Init'
+✖ [469/799] Running Mathlib.Util.AtLocation
+error: Mathlib/Util/AtLocation.lean: bad import 'Mathlib.Init'
+✖ [471/799] Running Mathlib.Tactic.Push
+error: Mathlib/Tactic/Push.lean: bad import 'Mathlib.Basic.Logic.Basic'
+error: Mathlib/Tactic/Push.lean: bad import 'Mathlib.Tactic.Conv'
+error: Mathlib/Tactic/Push.lean: bad import 'Mathlib.Tactic.Push.Attr'
+error: Mathlib/Tactic/Push.lean: bad import 'Mathlib.Util.AtLocation'
+✖ [473/799] Running Mathlib.Tactic.ByCases
+error: Mathlib/Tactic/ByCases.lean: bad import 'Mathlib.Tactic.Push'
+✖ [475/799] Running Mathlib.Tactic.ByContra
+error: Mathlib/Tactic/ByContra.lean: bad import 'Mathlib.Tactic.Push'
+✖ [477/799] Running Mathlib.Tactic.CasesM
+error: Mathlib/Tactic/CasesM.lean: bad import 'Mathlib.Init'
+✖ [479/799] Running Mathlib.Tactic.Check
+error: Mathlib/Tactic/Check.lean: bad import 'Mathlib.Init'
+✖ [481/799] Running Mathlib.Tactic.Choose
+error: Mathlib/Tactic/Choose.lean: bad import 'Mathlib.Logic.Function.Basic'
+✖ [483/799] Running Mathlib.Tactic.ClearExclamation
+error: Mathlib/Tactic/ClearExclamation.lean: bad import 'Mathlib.Init'
+✖ [485/799] Running Mathlib.Tactic.ClearExcept
+error: Mathlib/Tactic/ClearExcept.lean: bad import 'Mathlib.Init'
+✖ [487/799] Running Mathlib.Tactic.Clear_
+error: Mathlib/Tactic/Clear_.lean: bad import 'Mathlib.Init'
+✖ [489/799] Running Mathlib.Lean.GoalsLocation
+error: Mathlib/Lean/GoalsLocation.lean: bad import 'Mathlib.Init'
+✖ [491/799] Running Mathlib.Lean.Meta.KAbstractPositions
+error: Mathlib/Lean/Meta/KAbstractPositions.lean: bad import 'Mathlib.Init'
+✖ [493/799] Running Mathlib.Lean.FoldEnvironment
+error: Mathlib/Lean/FoldEnvironment.lean: bad import 'Mathlib.Init'
+✖ [495/799] Running Mathlib.Lean.Meta.RefinedDiscrTree.Basic
+error: Mathlib/Lean/Meta/RefinedDiscrTree/Basic.lean: bad import 'Mathlib.Init'
+✖ [497/799] Running Mathlib.Lean.Meta.RefinedDiscrTree.Initialize
+error: Mathlib/Lean/Meta/RefinedDiscrTree/Initialize.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Basic'
+✖ [499/799] Running Mathlib.Lean.Meta.RefinedDiscrTree.Encode
+error: Mathlib/Lean/Meta/RefinedDiscrTree/Encode.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Basic'
+✖ [501/799] Running Mathlib.Lean.Meta.RefinedDiscrTree.Lookup
+error: Mathlib/Lean/Meta/RefinedDiscrTree/Lookup.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Encode'
+✖ [503/799] Running Mathlib.Lean.Meta.RefinedDiscrTree
+error: Mathlib/Lean/Meta/RefinedDiscrTree.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Initialize'
+error: Mathlib/Lean/Meta/RefinedDiscrTree.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Lookup'
+✖ [529/823] Running Mathlib.Tactic.GCongr.ForwardAttr
+error: Mathlib/Tactic/GCongr/ForwardAttr.lean: bad import 'Mathlib.Init'
+✖ [531/827] Running Mathlib.Tactic.GCongr.Core
+error: Mathlib/Tactic/GCongr/Core.lean: bad import 'Mathlib.Tactic.GCongr.ForwardAttr'
+error: Mathlib/Tactic/GCongr/Core.lean: bad import 'Mathlib.Tactic.Core'
+✖ [533/843] Building Aesop.Util.Basic (1.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/aesop/Aesop/Util/Basic.lean -o /work/Weil/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Util/Basic.olean -i /work/Weil/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Util/Basic.ilean -c /work/Weil/.lake/packages/aesop/.lake/build/ir/Aesop/Util/Basic.c --setup /work/Weil/.lake/packages/aesop/.lake/build/ir/Aesop/Util/Basic.setup.json --json
+error: Aesop/Util/Basic.lean:76:2: Missing cases:
+(Trie.chain Key.star _)
+(Trie.chain Key.other _)
+(Trie.chain (Key.lit (Literal.natVal _)) _)
+(Trie.chain (Key.lit (Literal.strVal (String.ofByteArray (ByteArray.mk (Array.mk _)) (ByteArray.IsValidUTF8.intro _ _)))) _)
+(Trie.chain (Key.fvar (FVarId.mk _) _) _)
+(further cases omitted, increase `set_option match.maxCounterExamples 5` to see more)
+error: Aesop/Util/Basic.lean:81:2: Missing cases:
+(Trie.chain Key.star _)
+(Trie.chain Key.other _)
+(Trie.chain (Key.lit (Literal.natVal _)) _)
+(Trie.chain (Key.lit (Literal.strVal (String.ofByteArray (ByteArray.mk (Array.mk _)) (ByteArray.IsValidUTF8.intro _ _)))) _)
+(Trie.chain (Key.fvar (FVarId.mk _) _) _)
+(further cases omitted, increase `set_option match.maxCounterExamples 5` to see more)
+✖ [601/843] Running Mathlib.Tactic.Hint
+error: Mathlib/Tactic/Hint.lean: bad import 'Mathlib.Tactic.Basic'
+✖ [603/843] Running Mathlib.Tactic.GCongr
+error: Mathlib/Tactic/GCongr.lean: bad import 'Mathlib.Tactic.GCongr.Core'
+error: Mathlib/Tactic/GCongr.lean: bad import 'Mathlib.Tactic.Hint'
+✖ [605/889] Running Mathlib.Tactic.GRewrite.Core
+error: Mathlib/Tactic/GRewrite/Core.lean: bad import 'Mathlib.Tactic.GCongr.Core'
+✖ [607/889] Running Mathlib.Tactic.GRewrite.Elab
+error: Mathlib/Tactic/GRewrite/Elab.lean: bad import 'Mathlib.Tactic.GRewrite.Core'
+✖ [609/889] Running Mathlib.Tactic.GRewrite
+error: Mathlib/Tactic/GRewrite.lean: bad import 'Mathlib.Tactic.GCongr'
+error: Mathlib/Tactic/GRewrite.lean: bad import 'Mathlib.Tactic.GRewrite.Elab'
+✖ [611/889] Running Mathlib.Tactic.NthRewrite
+error: Mathlib/Tactic/NthRewrite.lean: bad import 'Mathlib.Init'
+✖ [613/889] Running Mathlib.Tactic.ClickSuggestions.Util
+error: Mathlib/Tactic/ClickSuggestions/Util.lean: bad import 'Mathlib.Data.String.Defs'
+error: Mathlib/Tactic/ClickSuggestions/Util.lean: bad import 'Mathlib.Tactic.DepRewrite'
+error: Mathlib/Tactic/ClickSuggestions/Util.lean: bad import 'Mathlib.Tactic.GRewrite'
+error: Mathlib/Tactic/ClickSuggestions/Util.lean: bad import 'Mathlib.Tactic.NthRewrite'
+error: Mathlib/Tactic/ClickSuggestions/Util.lean: bad import 'Mathlib.Tactic.SimpRw'
+✖ [615/889] Running Mathlib.Tactic.ClickSuggestions.SectionState
+error: Mathlib/Tactic/ClickSuggestions/SectionState.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+✖ [617/889] Running Mathlib.Tactic.ClickSuggestions.Apply
+error: Mathlib/Tactic/ClickSuggestions/Apply.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+error: Mathlib/Tactic/ClickSuggestions/Apply.lean: bad import 'Mathlib.Tactic.ClickSuggestions.SectionState'
+✖ [619/889] Running Mathlib.Tactic.ClickSuggestions.ApplyAt
+error: Mathlib/Tactic/ClickSuggestions/ApplyAt.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+error: Mathlib/Tactic/ClickSuggestions/ApplyAt.lean: bad import 'Mathlib.Tactic.ApplyAt'
+error: Mathlib/Tactic/ClickSuggestions/ApplyAt.lean: bad import 'Mathlib.Tactic.ClickSuggestions.SectionState'
+✖ [621/889] Running Mathlib.Tactic.ClickSuggestions.GRewrite
+error: Mathlib/Tactic/ClickSuggestions/GRewrite.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+error: Mathlib/Tactic/ClickSuggestions/GRewrite.lean: bad import 'Mathlib.Tactic.ClickSuggestions.SectionState'
+✖ [623/889] Running Mathlib.Control.Combinators
+error: Mathlib/Control/Combinators.lean: bad import 'Mathlib.Init'
+✖ [625/889] Running Mathlib.Control.Basic
+error: Mathlib/Control/Basic.lean: bad import 'Mathlib.Control.Combinators'
+error: Mathlib/Control/Basic.lean: bad import 'Mathlib.Tactic.Attr.Core'
+error: Mathlib/Control/Basic.lean: bad import 'Mathlib.Tactic.CasesM'
+error: Mathlib/Control/Basic.lean: bad import 'Mathlib.Tactic.Attr.Register'
+✖ [627/889] Running Mathlib.Tactic.ClickSuggestions.Rewrite
+error: Mathlib/Tactic/ClickSuggestions/Rewrite.lean: bad import 'Mathlib.Control.Basic'
+error: Mathlib/Tactic/ClickSuggestions/Rewrite.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+error: Mathlib/Tactic/ClickSuggestions/Rewrite.lean: bad import 'Mathlib.Tactic.ClickSuggestions.SectionState'
+✖ [629/889] Running Mathlib.Tactic.ClickSuggestions.FindPremises
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Lean.FoldEnvironment'
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree'
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Apply'
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Tactic.ClickSuggestions.ApplyAt'
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Tactic.ClickSuggestions.GRewrite'
+error: Mathlib/Tactic/ClickSuggestions/FindPremises.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Rewrite'
+✖ [631/889] Running Mathlib.Tactic.ClickSuggestions.TryPremises
+error: Mathlib/Tactic/ClickSuggestions/TryPremises.lean: bad import 'Mathlib.Tactic.ClickSuggestions.FindPremises'
+✖ [633/889] Running Mathlib.Tactic.ClickSuggestions.Unfold
+error: Mathlib/Tactic/ClickSuggestions/Unfold.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Util'
+✖ [635/889] Running Mathlib.Tactic.ClickSuggestions
+error: Mathlib/Tactic/ClickSuggestions.lean: bad import 'Mathlib.Lean.GoalsLocation'
+error: Mathlib/Tactic/ClickSuggestions.lean: bad import 'Mathlib.Lean.Meta.KAbstractPositions'
+error: Mathlib/Tactic/ClickSuggestions.lean: bad import 'Mathlib.Tactic.ClickSuggestions.TryPremises'
+error: Mathlib/Tactic/ClickSuggestions.lean: bad import 'Mathlib.Tactic.ClickSuggestions.Unfold'
+✖ [637/889] Running Mathlib.Tactic.Coe
+error: Mathlib/Tactic/Coe.lean: bad import 'Mathlib.Init'
+✖ [639/889] Running Mathlib.Lean.Meta.CongrTheorems
+error: Mathlib/Lean/Meta/CongrTheorems.lean: bad import 'Mathlib.Basic.IsEmpty.Defs'
+✖ [641/889] Running Mathlib.Tactic.Relation.Rfl
+error: Mathlib/Tactic/Relation/Rfl.lean: bad import 'Mathlib.Init'
+✖ [643/889] Running Mathlib.Tactic.CongrExclamation
+error: Mathlib/Tactic/CongrExclamation.lean: bad import 'Mathlib.Basic.Logic.Basic'
+error: Mathlib/Tactic/CongrExclamation.lean: bad import 'Mathlib.Lean.Meta.CongrTheorems'
+error: Mathlib/Tactic/CongrExclamation.lean: bad import 'Mathlib.Tactic.Relation.Rfl'
+✖ [647/943] Running Mathlib.Tactic.TermCongr
+error: Mathlib/Tactic/TermCongr.lean: bad import 'Mathlib.Lean.Meta.CongrTheorems'
+✖ [649/943] Running Mathlib.Tactic.CongrM
+error: Mathlib/Tactic/CongrM.lean: bad import 'Mathlib.Tactic.Relation.Rfl'
+error: Mathlib/Tactic/CongrM.lean: bad import 'Mathlib.Tactic.TermCongr'
+✖ [651/943] Running Mathlib.Tactic.Constructor
+error: Mathlib/Tactic/Constructor.lean: bad import 'Mathlib.Init'
+✖ [653/943] Running Mathlib.Tactic.Contrapose
+error: Mathlib/Tactic/Contrapose.lean: bad import 'Mathlib.Tactic.Push'
+✖ [655/943] Running Mathlib.Tactic.Convert
+error: Mathlib/Tactic/Convert.lean: bad import 'Mathlib.Data.Nat.Notation'
+error: Mathlib/Tactic/Convert.lean: bad import 'Mathlib.Tactic.CongrExclamation'
+✖ [657/943] Running Mathlib.Lean.MessageData.Trace
+error: Mathlib/Lean/MessageData/Trace.lean: bad import 'Mathlib.Init'
+✖ [659/943] Running Mathlib.Tactic.DefEqAbuse
+error: Mathlib/Tactic/DefEqAbuse.lean: bad import 'Mathlib.Lean.MessageData.Trace'
+error: Mathlib/Tactic/DefEqAbuse.lean: bad import 'Mathlib.Init'
+✖ [661/943] Running Mathlib.Tactic.DefEqTransformations
+error: Mathlib/Tactic/DefEqTransformations.lean: bad import 'Mathlib.Init'
+✖ [663/943] Running Mathlib.Tactic.DeprecateTo
+error: Mathlib/Tactic/DeprecateTo.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/DeprecateTo.lean: bad import 'Mathlib.Init'
+✖ [665/943] Running Mathlib.Tactic.DSimpPercent
+error: Mathlib/Tactic/DSimpPercent.lean: bad import 'Mathlib.Init'
+✖ [667/943] Running Mathlib.Tactic.ErwQuestion
+error: Mathlib/Tactic/ErwQuestion.lean: bad import 'Mathlib.Init'
+✖ [669/943] Running Mathlib.Tactic.ExistsI
+error: Mathlib/Tactic/ExistsI.lean: bad import 'Mathlib.Init'
+✖ [671/943] Running Mathlib.Tactic.FailIfNoProgress
+error: Mathlib/Tactic/FailIfNoProgress.lean: bad import 'Mathlib.Init'
+✖ [673/943] Running Mathlib.Tactic.Find
+error: Mathlib/Tactic/Find.lean: bad import 'Mathlib.Init'
+✖ [675/943] Running Mathlib.Tactic.FunProp.Decl
+error: Mathlib/Tactic/FunProp/Decl.lean: bad import 'Mathlib.Init'
+✖ [677/943] Running Mathlib.Tactic.FunProp.Mor
+error: Mathlib/Tactic/FunProp/Mor.lean: bad import 'Mathlib.Init'
+✖ [679/943] Running Mathlib.Tactic.FunProp.ToBatteries
+error: Mathlib/Tactic/FunProp/ToBatteries.lean: bad import 'Mathlib.Init'
+✖ [681/943] Running Mathlib.Tactic.FunProp.FunctionData
+error: Mathlib/Tactic/FunProp/FunctionData.lean: bad import 'Mathlib.Tactic.FunProp.Mor'
+error: Mathlib/Tactic/FunProp/FunctionData.lean: bad import 'Mathlib.Tactic.FunProp.ToBatteries'
+✖ [683/943] Running Mathlib.Tactic.FunProp.Types
+error: Mathlib/Tactic/FunProp/Types.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Basic'
+error: Mathlib/Tactic/FunProp/Types.lean: bad import 'Mathlib.Tactic.FunProp.FunctionData'
+✖ [685/943] Running Mathlib.Tactic.FunProp.Theorems
+error: Mathlib/Tactic/FunProp/Theorems.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Initialize'
+error: Mathlib/Tactic/FunProp/Theorems.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree.Lookup'
+error: Mathlib/Tactic/FunProp/Theorems.lean: bad import 'Mathlib.Tactic.FunProp.Decl'
+error: Mathlib/Tactic/FunProp/Theorems.lean: bad import 'Mathlib.Tactic.FunProp.FunctionData'
+error: Mathlib/Tactic/FunProp/Theorems.lean: bad import 'Mathlib.Tactic.FunProp.Types'
+✖ [687/943] Running Mathlib.Tactic.FunProp.Attr
+error: Mathlib/Tactic/FunProp/Attr.lean: bad import 'Mathlib.Tactic.FunProp.Decl'
+error: Mathlib/Tactic/FunProp/Attr.lean: bad import 'Mathlib.Tactic.FunProp.Theorems'
+✖ [689/943] Running Mathlib.Tactic.FunProp.Core
+error: Mathlib/Tactic/FunProp/Core.lean: bad import 'Mathlib.Lean.Expr.Basic'
+error: Mathlib/Tactic/FunProp/Core.lean: bad import 'Mathlib.Tactic.FunProp.Theorems'
+error: Mathlib/Tactic/FunProp/Core.lean: bad import 'Mathlib.Tactic.FunProp.ToBatteries'
+error: Mathlib/Tactic/FunProp/Core.lean: bad import 'Mathlib.Tactic.FunProp.Types'
+✖ [691/943] Running Mathlib.Tactic.InferParam
+error: Mathlib/Tactic/InferParam.lean: bad import 'Mathlib.Init'
+✖ [693/943] Running Mathlib.Tactic.FunProp.Elab
+error: Mathlib/Tactic/FunProp/Elab.lean: bad import 'Mathlib.Tactic.FunProp.Core'
+error: Mathlib/Tactic/FunProp/Elab.lean: bad import 'Mathlib.Tactic.InferParam'
+✖ [695/943] Running Mathlib.Tactic.FunProp
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Decl'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.FunctionData'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Mor'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Theorems'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.ToBatteries'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Types'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Attr'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Core'
+error: Mathlib/Tactic/FunProp.lean: bad import 'Mathlib.Tactic.FunProp.Elab'
+✖ [697/943] Running Mathlib.Tactic.GrindAttrs
+error: Mathlib/Tactic/GrindAttrs.lean: bad import 'Mathlib.Init'
+✖ [699/1130] Running Mathlib.Tactic.GuardGoalNums
+error: Mathlib/Tactic/GuardGoalNums.lean: bad import 'Mathlib.Init'
+✖ [701/1130] Running Mathlib.Tactic.GuardHypNums
+error: Mathlib/Tactic/GuardHypNums.lean: bad import 'Mathlib.Init'
+✖ [703/1130] Running Mathlib.Tactic.HigherOrder
+error: Mathlib/Tactic/HigherOrder.lean: bad import 'Mathlib.Init'
+✖ [705/1130] Running Mathlib.Util.TermReduce
+error: Mathlib/Util/TermReduce.lean: bad import 'Mathlib.Init'
+✖ [707/1130] Running Mathlib.Tactic.IrreducibleDef
+error: Mathlib/Tactic/IrreducibleDef.lean: bad import 'Mathlib.Util.TermReduce'
+error: Mathlib/Tactic/IrreducibleDef.lean: bad import 'Mathlib.Tactic.Eqns'
+✖ [709/1130] Running Mathlib.Tactic.Lift
+error: Mathlib/Tactic/Lift.lean: bad import 'Mathlib.Tactic.TypeStar'
+✖ [711/1130] Running Mathlib.Tactic.Linter.HaveLetLinter
+error: Mathlib/Tactic/Linter/HaveLetLinter.lean: bad import 'Mathlib.Init'
+✖ [713/1130] Running Mathlib.Tactic.Linter.MinImports
+error: Mathlib/Tactic/Linter/MinImports.lean: bad import 'Mathlib.Tactic.MinImports'
+✖ [715/1130] Running Mathlib.Tactic.Linter.PPRoundtrip
+error: Mathlib/Tactic/Linter/PPRoundtrip.lean: bad import 'Mathlib.Init'
+✖ [717/1130] Running ImportGraph.Widget.GoToModule
+error: no such file or directory (error code: 2)
+  file: /work/Weil/.lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean
+✖ [719/1130] Running Mathlib.Tactic.Linter.UpstreamableDecl
+error: Mathlib/Tactic/Linter/UpstreamableDecl.lean: bad import 'ImportGraph.Widget.GoToModule'
+error: Mathlib/Tactic/Linter/UpstreamableDecl.lean: bad import 'Mathlib.Init'
+✖ [721/1130] Running Mathlib.Tactic.Linter
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.HaveLetLinter'
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.MinImports'
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.PPRoundtrip'
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.PrivateModule'
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.UnusedInstancesInType'
+error: Mathlib/Tactic/Linter.lean: bad import 'Mathlib.Tactic.Linter.UpstreamableDecl'
+✖ [723/1130] Running Mathlib.Tactic.Observe
+error: Mathlib/Tactic/Observe.lean: bad import 'Mathlib.Init'
+✖ [725/1130] Running Mathlib.Tactic.RSuffices
+error: Mathlib/Tactic/RSuffices.lean: bad import 'Mathlib.Init'
+✖ [727/1130] Running Mathlib.Tactic.Recover
+error: Mathlib/Tactic/Recover.lean: bad import 'Mathlib.Init'
+✖ [729/1130] Running Mathlib.Tactic.Rename
+error: Mathlib/Tactic/Rename.lean: bad import 'Mathlib.Init'
+✖ [731/1130] Running Mathlib.Util.Tactic
+error: Mathlib/Util/Tactic.lean: bad import 'Mathlib.Init'
+✖ [733/1130] Running Mathlib.Tactic.RenameBVar
+error: Mathlib/Tactic/RenameBVar.lean: bad import 'Mathlib.Lean.Expr.Basic'
+error: Mathlib/Tactic/RenameBVar.lean: bad import 'Mathlib.Util.Tactic'
+✖ [735/1130] Running Mathlib.Tactic.Says
+error: Mathlib/Tactic/Says.lean: bad import 'Mathlib.Lean.Elab.InfoTree'
+error: Mathlib/Tactic/Says.lean: bad import 'Mathlib.Tactic.Basic'
+✖ [737/1130] Running Mathlib.Tactic.Set
+error: Mathlib/Tactic/Set.lean: bad import 'Mathlib.Init'
+✖ [739/1130] Running Mathlib.Lean.Elab.Tactic.Basic
+error: Mathlib/Lean/Elab/Tactic/Basic.lean: bad import 'Mathlib.Lean.Meta'
+✖ [741/1130] Running Mathlib.Tactic.Setm
+error: Mathlib/Tactic/Setm.lean: bad import 'Mathlib.Lean.Elab.Tactic.Basic'
+error: Mathlib/Tactic/Setm.lean: bad import 'Mathlib.Init'
+✖ [743/1130] Running Mathlib.Tactic.SimpIntro
+error: Mathlib/Tactic/SimpIntro.lean: bad import 'Mathlib.Init'
+✖ [745/1130] Running Mathlib.Tactic.Simproc.ExistsAndEq
+error: Mathlib/Tactic/Simproc/ExistsAndEq.lean: bad import 'Mathlib.Init'
+✖ [747/1130] Running Mathlib.Tactic.Subsingleton
+error: Mathlib/Tactic/Subsingleton.lean: bad import 'Mathlib.Basic.Logic.Basic'
+✖ [749/1130] Running Mathlib.Tactic.Substs
+error: Mathlib/Tactic/Substs.lean: bad import 'Mathlib.Init'
+✖ [751/1130] Running Mathlib.Tactic.SuccessIfFailWithMsg
+error: Mathlib/Tactic/SuccessIfFailWithMsg.lean: bad import 'Mathlib.Init'
+✖ [753/1130] Running Mathlib.Tactic.SudoSetOption
+error: Mathlib/Tactic/SudoSetOption.lean: bad import 'Mathlib.Init'
+✖ [755/1130] Running Mathlib.Tactic.SwapVar
+error: Mathlib/Tactic/SwapVar.lean: bad import 'Mathlib.Init'
+✖ [757/1130] Running Mathlib.Tactic.Tauto
+error: Mathlib/Tactic/Tauto.lean: bad import 'Mathlib.Lean.Meta'
+error: Mathlib/Tactic/Tauto.lean: bad import 'Mathlib.Basic.Logic.Basic'
+error: Mathlib/Tactic/Tauto.lean: bad import 'Mathlib.Tactic.CasesM'
+error: Mathlib/Tactic/Tauto.lean: bad import 'Mathlib.Tactic.Core'
+✖ [759/1130] Running Mathlib.Tactic.ToFun
+error: Mathlib/Tactic/ToFun.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/ToFun.lean: bad import 'Mathlib.Tactic.Push'
+error: Mathlib/Tactic/ToFun.lean: bad import 'Mathlib.Tactic.Translate.Attributes'
+error: Mathlib/Tactic/ToFun.lean: bad import 'Mathlib.Util.AddRelatedDecl'
+✖ [761/1130] Running Mathlib.Tactic.ToExpr
+error: Mathlib/Tactic/ToExpr.lean: bad import 'Mathlib.Init'
+✖ [763/1130] Running Mathlib.Tactic.ToLevel
+error: Mathlib/Tactic/ToLevel.lean: bad import 'Mathlib.Tactic.PPWithUniv'
+✖ [765/1130] Running Mathlib.Tactic.Trace
+error: Mathlib/Tactic/Trace.lean: bad import 'Mathlib.Init'
+✖ [767/1130] Running Mathlib.Tactic.UnsetOption
+error: Mathlib/Tactic/UnsetOption.lean: bad import 'Mathlib.Init'
+✖ [769/1130] Running Mathlib.Tactic.Variable
+error: Mathlib/Tactic/Variable.lean: bad import 'Mathlib.Init'
+✖ [771/1130] Running Mathlib.Tactic.Widget.SelectInsertParamsClass
+error: Mathlib/Tactic/Widget/SelectInsertParamsClass.lean: bad import 'Mathlib.Init'
+✖ [773/1130] Running Mathlib.Tactic.Widget.SelectPanelUtils
+error: Mathlib/Tactic/Widget/SelectPanelUtils.lean: bad import 'Mathlib.Tactic.Widget.SelectInsertParamsClass'
+✖ [775/1130] Running Mathlib.Tactic.Widget.Calc
+error: Mathlib/Tactic/Widget/Calc.lean: bad import 'Mathlib.Data.String.Defs'
+error: Mathlib/Tactic/Widget/Calc.lean: bad import 'Mathlib.Tactic.Widget.SelectPanelUtils'
+✖ [777/1130] Running Mathlib.Tactic.Widget.CongrM
+error: Mathlib/Tactic/Widget/CongrM.lean: bad import 'Mathlib.Tactic.Widget.SelectPanelUtils'
+✖ [779/1130] Running Mathlib.Tactic.Widget.Conv
+error: Mathlib/Tactic/Widget/Conv.lean: bad import 'Mathlib.Lean.Name'
+error: Mathlib/Tactic/Widget/Conv.lean: bad import 'Mathlib.Tactic.Widget.SelectPanelUtils'
+✖ [781/1130] Running Mathlib.Tactic.Widget.LibraryRewrite
+error: Mathlib/Tactic/Widget/LibraryRewrite.lean: bad import 'Mathlib.Lean.GoalsLocation'
+error: Mathlib/Tactic/Widget/LibraryRewrite.lean: bad import 'Mathlib.Lean.Meta.KAbstractPositions'
+error: Mathlib/Tactic/Widget/LibraryRewrite.lean: bad import 'Mathlib.Lean.Meta.RefinedDiscrTree'
+error: Mathlib/Tactic/Widget/LibraryRewrite.lean: bad import 'Mathlib.Tactic.Widget.SelectPanelUtils'
+error: Mathlib/Tactic/Widget/LibraryRewrite.lean: bad import 'Mathlib.Tactic.NthRewrite'
+✖ [783/1130] Running Mathlib.Tactic.WLOG
+error: Mathlib/Tactic/WLOG.lean: bad import 'Mathlib.Tactic.Core'
+error: Mathlib/Tactic/WLOG.lean: bad import 'Mathlib.Tactic.Push'
+✖ [785/1130] Running Mathlib.Util.CountHeartbeats
+error: Mathlib/Util/CountHeartbeats.lean: bad import 'Mathlib.Init'
+✖ [787/1130] Running Mathlib.Util.PrintSorries
+error: Mathlib/Util/PrintSorries.lean: bad import 'Mathlib.Lean.Name'
+✖ [789/1130] Running Mathlib.Util.TransImports
+error: Mathlib/Util/TransImports.lean: bad import 'Mathlib.Init'
+✖ [791/1130] Running Mathlib.Util.WhatsNew
+error: Mathlib/Util/WhatsNew.lean: bad import 'Mathlib.Init'
+✖ [793/1130] Running Mathlib.Tactic.Common
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Linter.Lint'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ApplyCongr'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ApplyAt'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ApplyWith'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Basic'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ByCases'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ByContra'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.CasesM'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Check'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Choose'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ClearExclamation'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ClearExcept'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Clear_'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ClickSuggestions'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Coe'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.CongrExclamation'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.CongrM'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Constructor'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Contrapose'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Conv'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Convert'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.DefEqAbuse'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.DefEqTransformations'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.DeprecateTo'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.DepRewrite'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.DSimpPercent'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ErwQuestion'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Eqns'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ExistsI'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ExtractGoal'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.FailIfNoProgress'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Find'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.FunProp'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.GCongr'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.GRewrite'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.GrindAttrs'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.GuardGoalNums'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.GuardHypNums'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.HigherOrder'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Hint'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.InferParam'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Inhabit'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.IrreducibleDef'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Lift'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Linter'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.MkIffOfInductiveProp'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.NthRewrite'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Observe'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.OfNat'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Push'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.RSuffices'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Recover'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Relation.Rfl'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Rename'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.RenameBVar'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Says'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ScopedNS'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Set'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Setm'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SimpIntro'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SimpRw'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Simproc.ExistsAndEq'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SplitIfs'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Spread'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Subsingleton'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Substs'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SuccessIfFailWithMsg'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SudoSetOption'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.SwapVar'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Tauto'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ToFun'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.TermCongr'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ToExpr'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.ToLevel'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Trace'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.UnsetOption'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Use'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Variable'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Widget.Calc'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Widget.CongrM'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Widget.Conv'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.Widget.LibraryRewrite'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Tactic.WLOG'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Util.CountHeartbeats'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Util.PrintSorries'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Util.TransImports'
+error: Mathlib/Tactic/Common.lean: bad import 'Mathlib.Util.WhatsNew'
+✖ [795/1130] Running Mathlib.Tactic.TryThis
+error: Mathlib/Tactic/TryThis.lean: bad import 'Mathlib.Init'
+✖ [797/1130] Running Mathlib.CategoryTheory.Category.Basic
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.CategoryTheory.Category.Init'
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.Combinatorics.Quiver.Basic'
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.Tactic.Attr.Core'
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.Tactic.Common'
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.Tactic.CrossRefAttribute'
+error: Mathlib/CategoryTheory/Category/Basic.lean: bad import 'Mathlib.Tactic.TryThis'
+✖ [799/1130] Running Mathlib.Combinatorics.Quiver.Prefunctor
+error: Mathlib/Combinatorics/Quiver/Prefunctor.lean: bad import 'Mathlib.Combinatorics.Quiver.Basic'
+✖ [801/1130] Running Mathlib.Tactic.CategoryTheory.CategoryStar
+error: Mathlib/Tactic/CategoryTheory/CategoryStar.lean: bad import 'Mathlib.Init'
+✖ [803/1130] Running Mathlib.CategoryTheory.Functor.Basic
+error: Mathlib/CategoryTheory/Functor/Basic.lean: bad import 'Mathlib.Tactic.ToDual'
+error: Mathlib/CategoryTheory/Functor/Basic.lean: bad import 'Mathlib.CategoryTheory.Category.Basic'
+error: Mathlib/CategoryTheory/Functor/Basic.lean: bad import 'Mathlib.Combinatorics.Quiver.Prefunctor'
+error: Mathlib/CategoryTheory/Functor/Basic.lean: bad import 'Mathlib.Tactic.CategoryTheory.CategoryStar'
+✖ [805/1130] Running Mathlib.Tactic.CategoryTheory.Map
+error: Mathlib/Tactic/CategoryTheory/Map.lean: bad import 'Mathlib.CategoryTheory.Functor.Basic'
+✖ [807/1130] Running Mathlib.Tactic.CategoryTheory.Reassoc
+error: Mathlib/Tactic/CategoryTheory/Reassoc.lean: bad import 'Mathlib.CategoryTheory.Functor.Basic'
+✖ [809/1130] Running Mathlib.CategoryTheory.Iso
+error: Mathlib/CategoryTheory/Iso.lean: bad import 'Mathlib.Tactic.CategoryTheory.Map'
+error: Mathlib/CategoryTheory/Iso.lean: bad import 'Mathlib.Tactic.CategoryTheory.Reassoc'
+✖ [811/1130] Running Mathlib.CategoryTheory.NatTrans
+error: Mathlib/CategoryTheory/NatTrans.lean: bad import 'Mathlib.Tactic.CategoryTheory.Map'
+error: Mathlib/CategoryTheory/NatTrans.lean: bad import 'Mathlib.Tactic.CategoryTheory.Reassoc'
+✖ [813/1130] Running Mathlib.CategoryTheory.Functor.Category
+error: Mathlib/CategoryTheory/Functor/Category.lean: bad import 'Mathlib.CategoryTheory.Iso'
+error: Mathlib/CategoryTheory/Functor/Category.lean: bad import 'Mathlib.CategoryTheory.NatTrans'
+✖ [815/1130] Running Mathlib.CategoryTheory.NatIso
+error: Mathlib/CategoryTheory/NatIso.lean: bad import 'Mathlib.CategoryTheory.Functor.Category'
+✖ [817/1130] Running Mathlib.CategoryTheory.Functor.FullyFaithful
+error: Mathlib/CategoryTheory/Functor/FullyFaithful.lean: bad import 'Mathlib.CategoryTheory.NatIso'
+✖ [819/1130] Running Mathlib.CategoryTheory.InducedCategory
+error: Mathlib/CategoryTheory/InducedCategory.lean: bad import 'Mathlib.CategoryTheory.Functor.FullyFaithful'
+✖ [821/1130] Running Mathlib.Data.Ordering.Basic
+error: Mathlib/Data/Ordering/Basic.lean: bad import 'Mathlib.Init'
+✖ [823/1130] Running Mathlib.Order.Defs.PartialOrder
+error: Mathlib/Order/Defs/PartialOrder.lean: bad import 'Mathlib.Tactic.ToDual'
+✖ [825/1130] Running Mathlib.Order.Defs.LinearOrder
+error: Mathlib/Order/Defs/LinearOrder.lean: bad import 'Mathlib.Data.Ordering.Basic'
+error: Mathlib/Order/Defs/LinearOrder.lean: bad import 'Mathlib.Order.Defs.PartialOrder'
+error: Mathlib/Order/Defs/LinearOrder.lean: bad import 'Mathlib.Tactic.Push.Attr'
+error: Mathlib/Order/Defs/LinearOrder.lean: bad import 'Mathlib.Tactic.Simps'
+error: Mathlib/Order/Defs/LinearOrder.lean: bad import 'Mathlib.Tactic.SplitIfs'
+✖ [827/1130] Running Mathlib.Tactic.FastInstance
+error: Mathlib/Tactic/FastInstance.lean: bad import 'Mathlib.Init'
+✖ [829/1130] Running Mathlib.Order.Basic
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Data.Subtype'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Order.Defs.LinearOrder'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Order.Defs.Prop'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Order.Notation'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.Convert'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.FastInstance'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.GCongr'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.Inhabit'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.SimpRw'
+error: Mathlib/Order/Basic.lean: bad import 'Mathlib.Tactic.Spread'
+✖ [831/1130] Running Mathlib.CategoryTheory.ObjectProperty.Basic
+error: Mathlib/CategoryTheory/ObjectProperty/Basic.lean: bad import 'Mathlib.CategoryTheory.Iso'
+error: Mathlib/CategoryTheory/ObjectProperty/Basic.lean: bad import 'Mathlib.Order.Basic'
+✖ [833/1130] Running Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
+error: Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean: bad import
+
+=== SUMMARY
+build: FAIL rc=1 errors=143641
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-13T22:34:57+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-JMSLyUe94ZSFbH8yHKeJsn

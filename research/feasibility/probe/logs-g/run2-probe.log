@@ -1,0 +1,113 @@
+# Provenance: modal run gprobe.py --mode probe (G4 fix1 + G5b/G5c first pass), 2026-11-13 ~21:56. G4 1 error left; G5b/G5c noncomputable+misc errors.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-qz0whAy8aD9OEA3DivEg2I
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+└── ✓ Created Function g5a.
+[gprobe] staging ['ProbeG1_DZDF.lean', 'ProbeG3_Weil.lean', 'ProbeG4_AreaLaw.lean', 'ProbeG5b_PEPS_Bridge.lean', 'ProbeG5c_PEPS_Dictionary.lean']
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG1_DZDF.lean
+[probe] ProbeG1_DZDF.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG1_DZDF.lean:43:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:47:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:58:8: warning: declaration uses `sorry`
+ProbeG1_DZDF.lean:64:8: warning: declaration uses `sorry`
+
+
+=== ProbeG3_Weil.lean
+[probe] ProbeG3_Weil.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+@IsProper : {X Y : Scheme} → (X ⟶ Y) → Prop
+@GeometricallyIrreducible : {X Y : Scheme} → (X ⟶ Y) → Prop
+SmoothOfRelativeDimension : ℕ → {X Y : Scheme} → (X ⟶ Y) → Prop
+@Over : {T : Type u_2} → [Category.{u_1, u_2} T] → T → Type (max u_2 u_1)
+Spec : CommRingCat → Scheme
+ProbeG3_Weil.lean:37:8: warning: declaration uses `sorry`
+
+
+=== ProbeG4_AreaLaw.lean
+[probe] ProbeG4_AreaLaw.lean: FAIL rc=1; errors=1, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG4_AreaLaw.lean:51:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:92:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:97:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:274:8: warning: declaration uses `sorry`
+ProbeG4_AreaLaw.lean:286:23: error: elaboration function for `Mathlib.Tactic.subscriptTerm` has not been implemented
+  ᵥ
+
+
+=== ProbeG5b_PEPS_Bridge.lean
+[probe] ProbeG5b_PEPS_Bridge.lean: FAIL rc=1; errors=2, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5b_PEPS_Bridge.lean:32:9: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Fintype.ofFinite', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:39:9: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Fintype.ofFinite', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:64:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'edgeFintype', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:68:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'toEuclideanCLM', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:71:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'ContinuousLinearMap.hasOpNorm', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:79:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Complex.exp', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:111:23: error: Application type mismatch: The argument
+  isHermitian_mul_conjTranspose_self ?m.13
+has type
+  @IsHermitian ?m.7 ?m.8
+    (@InvolutiveStar.toStar ?m.7
+      (@StarAddMonoid.toInvolutiveStar ?m.7
+        (@AddCommMonoid.toAddMonoid ?m.7
+          (@NonUnitalNonAssocSemiring.toAddCommMonoid ?m.7 NonUnitalSemiring.toNonUnitalNonAssocSemiring))
+        StarRing.toStarAddMonoid))
+    (?m.13 * ?m.13ᴴ)
+but is expected to have type
+  @IsHermitian (?m.21 i) ?m.4
+    (@InvolutiveStar.toStar (?m.21 i)
+      (@StarAddMonoid.toInvolutiveStar (?m.21 i)
+        (@AddCommMonoid.toAddMonoid (?m.21 i)
+          (@NonUnitalNonAssocSemiring.toAddCommMonoid (?m.21 i)
+            CommRing.toNonUnitalCommRing.toNonUnitalNonAssocCommRing.toNonUnitalNonAssocSemiring))
+        StarRing.toStarAddMonoid))
+    (?m.24 i)
+in the application
+  ⋯.eigenvalues
+ProbeG5b_PEPS_Bridge.lean:113:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'edgeFintype', which is 'noncomputable'
+ProbeG5b_PEPS_Bridge.lean:164:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:192:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:210:10: error: Type mismatch
+  glue ?m.29 ?m.31
+has type
+  Reg ?m.25 ?m.27
+but is expected to have type
+  Configuration L q
+ProbeG5b_PEPS_Bridge.lean:218:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel (hasse ℤ □ hasse ℤ).Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ProbeG5b_PEPS_Bridge.lean:229:8: warning: declaration uses `sorry`
+ProbeG5b_PEPS_Bridge.lean:255:8: warning: declaration uses `sorry`
+
+
+=== ProbeG5c_PEPS_Dictionary.lean
+{'ProbeG1_DZDF.lean': 'OK', 'ProbeG3_Weil.lean': 'OK', 'ProbeG4_AreaLaw.lean': 'FAIL (1 errors)', 'ProbeG5b_PEPS_Bridge.lean': 'FAIL (2 errors)', 'ProbeG5c_PEPS_Dictionary.lean': 'FAIL rc=1'}
+[probe] ProbeG5c_PEPS_Dictionary.lean: FAIL rc=1; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+ProbeG5c_PEPS_Dictionary.lean:51:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.sqrt', which is 'noncomputable'
+ProbeG5c_PEPS_Dictionary.lean:54:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Wmat', which is 'noncomputable'
+ProbeG5c_PEPS_Dictionary.lean:67:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:76:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:84:8: warning: declaration uses `sorry`
+ProbeG5c_PEPS_Dictionary.lean:95:8: warning: declaration uses `sorry`
+
+
+[probe] SUMMARY
+[probe]   ProbeG1_DZDF.lean: OK
+[probe]   ProbeG3_Weil.lean: OK
+[probe]   ProbeG4_AreaLaw.lean: FAIL (1 errors)
+[probe]   ProbeG5b_PEPS_Bridge.lean: FAIL (2 errors)
+[probe]   ProbeG5c_PEPS_Dictionary.lean: FAIL rc=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-13T21:59:26+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-qz0whAy8aD9OEA3DivEg2I
