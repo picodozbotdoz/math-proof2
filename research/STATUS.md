@@ -342,6 +342,18 @@ standing authorization with a commit.
   "P2.lean: OK", descent 6→4→2→1→1→0 — axcheck + A2 report pending); 11-M2 m2-run3:
   P11T3 OK again, RedTm2 FAIL (3 err — A8 iterating); DLRT-residual relays: TRIAGE:137–138
   (orchestrator) + candidates/42:355 + articles/42:28,:149 (A9) — Part 7, qa plan.
+- 2026-11-14 — batch-4 series: `Cycle 2: H — REPORT §C2 non-verdict pre-fill` (0d6a396:
+  donor-discharge rows incl. Liu-1 constant story + upstream-T2b + tracker
+  DO-NOT-CONSUME; QR-D race paragraph with the full tracker audit (Bebel 0.8733458561
+  leapfrog, tri-kernel, ζ_K split survives); C2.5 machinery/compliance prose; C2.7
+  tracker static-asset re-check protocol — all verdict slots verified intact);
+  `Cycle 2: A9 — 42M4 standalone decision + dossier fills` (75837e6: articles 42M4
+  STANDALONE-by-decision header, main-run article 42 = frozen history; 11 addendum
+  rewrite to ledger-final, T3 pending A8; dossier fills 71/42/10). Watch: A3 upgrade
+  m4b2-run1 "build OK / M4b.lean FAIL rc=1 errors=0 sorry=0" (runner-level exit, A3 to
+  interpret); A1 running incremental sweep Step A (`probe/logs/stepA-incremental-c2.log`,
+  provenance header present); A4 prepending C-neg log headers; A5 VERDICTS/round-4 edits
+  in flight (seed triage).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
