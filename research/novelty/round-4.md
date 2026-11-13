@@ -263,6 +263,142 @@ instantiations, NOT novelty claims.** PART-2 must sweep hexagonmath.org
 5. zai-search MCP quota exhausted (again) — this round ran on arXiv API +
    WebFetch; PART-2 should budget the same.
 
-## PART 2 — [NOT-YET-LANDED: dossier-level DOSSIER-CHECKED runs for the 70-series
+## §5. QR-D precision pass (2026-11-13, same lane; abstract+intro close-reads)
+
+Requested by the coordinator; supersedes PART-1 row **QR-3** in one respect: that row
+was written from the *truncated* arXiv abstract of 2610.26835, which cut off before
+the final sentence — the full abstract and an HTML close-read show Liu-2's headline
+theorem is **uniform over every number field**, not abelian-class-only. PART-1 rows
+are otherwise intact; the corrected reading is recorded here.
+
+### §5.1 Per-paper (a)–(d) table
+
+| Paper | (a) L-function class | (b) Exponent + quantifiers | (c) Method class | (d) Formalization |
+|---|---|---|---|---|
+| **Liu 2610.12234** v1 2026-10-08, v2 10-12 | Finite-order Hecke L over ℚ(√−3) (primitive, all conductors); Cor. 14.1 transfers to **every Dirichlet L incl. ζ** (principal character) | β* ≤ **B_new = (18ξ_new+7)/(18ξ_new+9) = 0.874957019420098946…**, ξ_new = unique root in (0.38858, 0.38859) of 1188ξ³−2160ξ²+171ξ+190 (explicit trig closed form). Poles excluded from the zero set; boundary itself not claimed. Optimality **within the explicitly specified exponent-comparison system only** ("does not exclude improvements from stronger analytic estimates") | Smoothed cubic-theta (metaplectic) average with selected-prime modifications, two-sided: Cauchy–Schwarz mean-square + theta FE + quadratic/cubic sieves vs Poisson summation whose Mellin principal term is 1/L_F(s,η); continuation criterion (Prop 3.1). Contribution = parameter reoptimization: b, ℓ free, moment κ down to 13/18, fixed point κ_new = 2B_new−1 | **YES, public**: "formalized by Lean [Liu26]" = github.com/liubaiying101/Slightly-improved-zero-free-half-planes-for-the-quasi-Riemann-hypothesis (Lean 4 + exact-arithmetic certificates + verification instructions; covers the Hecke family over F and its Dirichlet and ζ consequences) |
+| **Liu 2610.26835** v1 2026-10-19, **v2 2026-10-29** | **Every number field K, every finite-order Hecke character χ of K incl. the principal character** ⇒ ζ_K itself ("In particular ζ_K(s)≠0 for Re s > B♭, s≠1"). Intermediate: cyclotomic ⊇ μ₁₂, then every (K,η) with metabelian normal closure, then all K | **B♭ = 0.874886647039964…** = root near 0.8749 of 133488B⁴−376596B³+384534B²−167541B+26231; "the numerical boundary and the scalar admissibility inequalities are independent of K and η" — a **uniform Quasi-Riemann Hypothesis over number fields**; pole at s=1 permitted; exact infimum of the refined comparison system, "unattained by finite chains" | Kazhdan–Patterson **exceptional theta** over F ⊇ μ₁₂ (local Whittaker factors, radial FE, constructions of [Ope26b]); inverse + unweighted product moments (13/18 ≤ κ ≤ 1); pointwise comparison recovers B_new; then Xu–Sang averaged-numerator extension + **limiting contradiction** (κ = 2β*(F)−1) → quartic root B♭; **class-field descent following Cureton–Thorner** over K(ζ₁₂); light SymPy symbolic checks + exact rational 4-stage chain B♯ = 874886647041/10¹², B♯−B♭ < 1.04×10⁻¹² | **IN PROGRESS** (acknowledgments): "The Lean formalization is in progress," based on Lean files [Liu26b] and [CTLean] |
+| **Trudgian–Zuniga Alterman 2610.16010** v1 2026-10-12, v2 2026-11-08 | ζ_K, **all number fields** (no signature restriction) — but this is a LOW-LYING-ZERO paper, not a zero-free half-plane: h(K) := min \|Im ρ\| over nontrivial zeros | Thm 1.1: **h(K) < 0.58** for all sufficiently large n_K (threshold not effective; needs r₁Δ_ℝ+r₂Δ_ℂ to dominate Δ_O = −598.23… > −599); 0.825 with Hoffstein's original parameters; first published improvement over Hoffstein 1979 (0.87+o(1)); Odlyzko's announced 0.54 unreached. Thm 1.2: N_K(0.58) ≥ c·n_K zeros counted with multiplicity, **effective** c ≈ (10/96)(3.395×10⁻¹⁶) once n_K large | Hoffstein's method generalized: comparison kernel from **three identities** — Landau–Stark log-derivative (Lem 3.1), Hadamard product ratio ξ_K(σ₁)/ξ_K(σ₀) (Lem 3.2), differentiated Landau–Stark (Lem 3.3) — combined as (σ₁−σ₀)𝓕₁+𝓕₂+½(σ₁−σ₀)²𝓕₃ so the 1/γ² terms cancel, kernel Ω ≈ −J₄/γ⁴; **Stechkin's trick**; rigorous interval arithmetic (SageMath 10.9, box subdivision; code in arXiv ancillary files) | **NONE** — no Lean/prover mention anywhere; verification is Sage interval arithmetic |
+| **Cureton–Thorner hexagonmath 2610.00200** v1 2026-10-12, v2 10-14 | Thm 1.1: **ζ_K, any number field K** (s ≠ 1 pole); Cor 1.2: finite-order Hecke L over any K — trivial character included, zero-free "wherever it is holomorphic" (holomorphicity phrasing plays the pole-exclusion role) | **Re s > 31/32**, uniform over all number fields; effectivity NOT stated (no Landau–Siegel discussion on the page; Stark 1974 effective Brauer–Siegel and Sokolovskiĭ's zero theorem sit in the background references) | Strategy of the OpenAI quasi-RH / Artin-primitive-root line (the Oct-4 primitive-roots preprint gave Re s > 1−10⁻⁶ for finite-order Hecke L over cyclotomic fields containing e^{2πi/12}); hardest part = formalizing **Kazhdan–Patterson metaplectic forms** to accommodate all K; class-field descent | **YES — our donor**: "proved and formalized in Lean using AxiomProver" = the `DedekindZetaZeroFree` repo (sorry-free, standard axioms; Challenge `main`/`heckeCorollary` kernel-verified on our pin per survey §5). NOTE: CT v2 (10-14) predates and does not mention Liu |
+
+**Cluster satellites pinned during the pass** (needed for the constant table): [Ope26a]
+= openai preprint *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s)>7/8*
+(2026-09-30, in `openai-math/preprints/…September-30-2026/`, not on arXiv): finite-order
+Hecke L over ℚ(√−3) + **all Dirichlet L incl. ζ** ("principal pole at s=1 allowed");
+its Lean counterpart is the **sorry-challenge** `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re`
+(ζ-only statement) — the hQRH binder's verbatim source. [Ope26b] = the October-5
+companion (paper2.pdf): **Re s > 11/12** for the same classes via a shorter proof, with
+the explicit corollary "this rules out the existence of Landau–Siegel zeros". [XS26] =
+Xu–Sang **2610.15291** (v1 10-11, v2 10-15): **conditional on Ope26a's analytic
+inputs**, improves 7/8 → 8748867/10⁷ = 0.8748867 for the same families (relaxed direct
+estimate + amplified first moment of the reflected numerator from the existing fourth
+moment; no formalization mentioned). Liu-2 also records a "Newton certificate"
+B_N = 0.87488664962 with barrier B_lim inside its comparison system.
+
+### §5.2 DECISION ANSWER — the 7/8 crossing (one line)
+
+**YES, crossed twice — and NOT ζ-only: Liu 2610.12234 gives Re s > 0.8749570 for every
+Dirichlet L incl. ζ (Lean-formalized, public repo), and Liu 2610.26835 v2 gives
+Re s > B♭ = 0.8748866 uniformly for every finite-order Hecke L and every ζ_K over every
+number field (informal, v2 four days old, Lean in progress); nothing as of 2026-11-13
+goes below B♭ (arXiv sweep of the zero-free/Hecke line since 10-29 returns only
+irrelevant hits).** Consequently pilot 50's `hQRH` binder
+(`∀ s, (7/8:ℝ) < s.re → riemannZeta s ≠ 0`) is TRUE in the informal literature (Liu-1
+Cor 14.1 already implies it for ζ); the only *formal* discharge paths today are
+(a) Liu-1's external Lean repo (a Knausgård-style external donor — statement
+portability unprobed) or (b) the weakened 31/32 binder via in-corpus DZDF; openai's own
+7/8 challenge remains sorry.
+
+### §5.3 Strongest available exponent per class (dossier 70's weakened-binder constant table)
+
+| Class | Best informal exponent | Source | Best FORMAL exponent | Source |
+|---|---|---|---|---|
+| ζ (over ℚ) | B_new = 0.8749570 (≡ XS26's 0.8748867 conditional on Ope26a inputs; B♭ uniform below) | Liu-1 / XS26 / Liu-2 | 7/8 = 0.875 ζ-statement, **sorry** (openai challenge); **0.8749570 incl. ζ-corollary formalized in the external Liu repo** | OAI challenge / liubaiying101 repo |
+| Dirichlet L (all) | B_new (transfer Cor 14.1); B♭ uniform | Liu-1, Liu-2 | as ζ (external Liu repo covers "Dirichlet and zeta consequences") | — |
+| ζ_K, all number fields K | **B♭ = 0.8748866**, s ≠ 1, uniform | Liu-2 v2 | **31/32 = 0.96875**, s ≠ 1, every K | CT via DZDF (in-corpus, sorry-free) |
+| Finite-order Hecke L, all K | B♭ (pole at 1 permitted) | Liu-2 v2 | 31/32 "wherever holomorphic" | CT via DZDF |
+| Finite-order Hecke L over ℚ(√−3) specifically | B_new / XS26 0.8748867 (cond.) / B♭ | Liu-1, XS26, Liu-2 | B_new | external Liu repo |
+| GL(n) automorphic L (context) | σ ≥ 1 − c(F,n,ε)·(𝔠(|t|+3))^{−ε}, **ineffective**, per-L not a uniform strip | Thorner 2608.12257 | none | — |
+| ζ_K low-lying zeros (different quantity: h(K), not a strip) | h(K) < 0.58 (n_K → ∞, threshold ineffective); N_K(0.58) ≥ c·n_K, c effective ≈ (10/96)(3.395×10⁻¹⁶) | Trudgian–ZA | none | — |
+
+**Consequences for the zone verdict (refines §3, no tier change):** the constant race
+now has SIX papers in six weeks (Ope26a → Ope26b → Liu-1 → XS26 → CT → Liu-2), two
+external Lean artifacts (liubaiying101 complete; Liu-2 in progress on top of
+[CTLean]), and the informal frontier is already BELOW 7/8 uniformly — so (i) HOT
+confirmed for any constant-shaped claim, now with a second formal actor beyond our
+donor; (ii) dossier 70's "first unconditional ζ_K zero-confinement strip constants in
+Lean" survives as stated only because Liu-2's Lean is unfinished — its two-sided strip
+1/32 ≤ Re s ≤ 31/32 would become 1−B♭-sided (≈ [0.1251, 0.8749]) the day Liu-2's
+formalization lands; dossier 70 should record B♭ and the liubaiying101 repo as
+first-tier nearest misses and state its constants parametrically; (iii) the hQRH
+discharge play gains a NEW external-donor option (Liu-1's repo) that did not exist in
+the main run's option space — worth a feasibility probe alongside the 31/32 swap.
+
+## §6. FF-part-2-stub (queued by orchestrator for A2's bridge; parked 2026-11-13, executed below)
+
+- (a) ζ_C(q^{-s}) meromorphic continuation as an informal object — trivial classically via rationality? pin the textbook statement/number. **[EXECUTED §6.1]**
+- (b) function-field Hecke L rational/entire informal status (FF-EZ3's Tate dictionary). **[EXECUTED §6.2]**
+- (c) FF-EZ2-family Lamzouri-constants-for-FF-family statement — re-verify at dossier level when A9's 71 lands. **[RE-QUEUED — PART 2]**
+- (d) every/infinite-genus supersingular-Jacobian multiplicity-~g citation for the falsity-trap design rule (Hall? Katz? trace to a theorem number). **[EXECUTED §6.3]**
+
+### §6.1 (a) ζ_C(q^{-s}) as an informal object — KNOWN-INFORMAL, textbook-standard (rationality)
+
+Z_C(t) := exp(Σ_{r≥1} N_r t^r/r) is a RATIONAL function of t ∈ Q(t) for every smooth
+projective curve over 𝔽_q — **F. K. Schmidt 1931** (pre-Weil; the curve case of
+rationality, 28 years before Dwork's general proof). Consequently ζ_C(s) := Z_C(q^{-s})
+is a meromorphic function on ALL of ℂ (t = q^{-s} is entire; composition of rational
+with entire is meromorphic), with poles exactly at the t-poles t = 1, t = q^{-1}
+transported by s ↦ q^{-s}, i.e. s = 1 + 2πik/ln q and s = 2πik/ln q, k ∈ ℤ. Textbook
+statements (verified via Rosen GTM 210 front-matter/TOC + standard surveys): **M.
+Rosen, *Number Theory in Function Fields*, GTM 210 (Springer 2002), ch. 5 "The zeta
+function of a function field" — rationality, functional equation, degree
+(Thm 5.1/5.3 level [chapter verified; theorem numbers from the ch.-5 spine])**; same
+statement in **Stichtenoth, *Algebraic Function Fields and Codes* (1993/2009),
+Thm 5.1.1 [number carried from the standard edition — verify against the printing
+before citing in a dossier]**. Verdict: **KNOWN-INFORMAL-ONLY and elementary-to-classical** —
+A2's finding (no `zetaFunction`-of-curve meromorphic-continuation API in mathlib) is a
+formalization absence, NOT an informal-literature gap; any FF dossier must label it
+formalization-first. (In-corpus, Weil's `zetaSeries` rationality for smooth proper
+varieties covers far more; the per-curve t-substitution dictionary is the glue.)
+
+### §6.2 (b) function-field Hecke L rational/entire — KNOWN-INFORMAL (Tate/Weil method)
+
+The FF-EZ3 Tate dictionary (Hecke/grössencharakter L-functions over global function
+fields are rational — in fact entire for nontrivial characters, with functional
+equation) is classical, via the Riemann–Roch/Poisson-summation method: **Tate's 1950
+thesis** (function-field case included); **Weil, *Basic Number Theory*, ch. VII
+(Tate's method over A/𝔽_q)**; exposition in **Rosen GTM 210 ch. 8–9 (L-functions
+over 𝔽_q[T]; Dirichlet-and-beyond, including the grössencharakter/Hecke case)**.
+Verdict: **KNOWN-INFORMAL-ONLY**; the formal absence (mathlib has no function-field
+Hecke L at all) is again formalization-first material. Search run: arXiv
+`abs:"Hecke L" AND abs:"function field" AND abs:rational` → no post-2000 claim of the
+dictionary as new (textbook-only territory); nearest formal: nothing (mathlib/TauCeti/
+openai sweeps of round-1 + v2 index agree — no `HeckeL` over function fields).
+
+### §6.3 (d) the multiplicity-~g falsity-trap example — pinned: MAXIMAL CURVES over 𝔽_{q²}
+
+The clean citation is not "Hall" or "Katz" but the **maximal-curve** literature, and
+the mechanism is elementary (three lines from Hasse–Weil): if C/𝔽_{q²} attains the
+Hasse–Weil bound, #C(𝔽_{q²}) = q² + 1 + 2gq, then Σαᵢ = −2gq with |αᵢ| = q forces
+**all 2g Frobenius eigenvalues equal to −q**, so
+Z_C(t) = (1 + qt)^{2g}/((1−t)(1−qt)): **ALL nontrivial zeros of ζ_C coincide — one
+zero of multiplicity 2g, simple-zero proportion exactly 0**. Existence in infinitely
+many genera: the **Hermitian curve** y^q + y = x^{q+1} over 𝔽_{q²}, genus
+g = q(q−1)/2, is maximal for every prime power q (classical; e.g. **Hirschfeld–
+Korchmaros–Torres, *Algebraic Curves over a Finite Field* (Princeton 2008),
+maximal-curve chapter** [chapter-level citation; theorem number to verify against the
+printing]; survey alternative: Garcia–Özbudak–et al. maximal-curves surveys in
+*Finite Fields Appl.*). Additional genera (Artin–Schreier families with Jacobian
+isogenous to E^g, E supersingular): **van der Geer–van der Vlugt, "Artin–Schreier
+curves and codes" (manuscripta math. / J. reine angew. Math. line, 2002-era)**.
+**Design rule for A9 (final form): a uniform per-curve simple-zero proportion
+statement for ζ_C is FALSE — the Hermitian family drives it to 0 along infinitely
+many genera; FF statements must be family-averaged (Katz–Sarnak monodromy) or
+trace-formula-bounded.** [In-corpus note: the eigenvalue half of the trap is
+formally available — Weil's `satisfiesWeilEstimate` gives |αᵢ| = q^{1/2} per
+eigenvalue; the equality-forcing step is AM–GM, glueable in Lean.] Citations to
+verify to theorem-number precision before dossier text: HKT ch./Thm for Hermitian
+maximality + genus; vdG–vdV exact paper/theorem.
+
+
 when A9 lands them; N-adjusts; consolidation into the Cycle-2 TRIAGE addendum;
 re-queue any queries the dossiers pre-register that PART 1 did not anticipate.]

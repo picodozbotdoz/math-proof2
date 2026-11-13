@@ -139,3 +139,30 @@ generations behind, per round-3 §T); the program's realizable novelty is struct
 identity, LP-in-Lean, incomparable-bandwidth axis), cross-L-function (Hecke/ζ_K), and
 cross-model (machine-model conjunctions) — exactly the movable-ground list of round 3, now
 with donor accelerants for 42 and a hard deadline culture for everything AF-adjacent.
+
+---
+
+## Cycle 2 addendum (SKELETON — 2026-11-13, lane A5; rows 71–74 are zone-level
+pre-fills, `[incoming-dossier]` = lane A9 owns the row when the dossier lands)
+
+Zone-level tiers from `round-4.md` PART 1 (§1–§4) + §5 QR-D precision pass. Key
+cluster facts baked into the tiers: the quasi-RH constant race now has six papers in
+six weeks — Ope26a 7/8 (openai preprint 2026-09-30, ζ included, Lean = sorry
+challenge) → Ope26b 11/12 + Landau–Siegel corollary (10-05) → Liu-1 B_new =
+0.8749570 incl. ζ (2610.12234, 10-08, **formalized**: github.com/liubaiying101/
+Slightly-improved-…) → Xu–Sang 0.8748867 conditional on Ope26a inputs (2610.15291,
+10-11) → Cureton–Thorner 31/32 for EVERY number field (hexagonmath 2610.00200,
+10-12/14, **formalized = our DZDF donor**) → Liu-2 B♭ = 0.8748866 UNIFORM over all
+number fields incl. ζ_K (2610.26835, 10-19, v2 10-29, Lean in progress on
+[Liu26b]+[CTLean]). The informal frontier is already below 7/8 uniformly; Trudgian–
+Zuniga Alterman 2610.16010 (low-lying zeros of ζ_K, h(K) < 0.58) shows the ζ_K-zero
+side publishing monthly. Kuwahara 2610.15199 REFUTES Rényi-α<1 area laws (hence
+literal rank concentration) in the unique-gapped 2D class.
+
+| Dossier | Novelty verdict (source) | N-adjust vs lane proposal | Risk tier | Re-scope (one line) |
+|---|---|---|---|---|
+| **70** unconditional ζ_K zero-confinement | LANDED; honesty header says GLUE/ECOSYSTEM — "first unconditional ζ_K zero-confinement strip constants in Lean" holds today ONLY because Liu-2's Lean is unfinished; its two-sided strip widens 1/32→1−B♭ the day it lands (r4 §5.2–5.3) | TBD (A9) — artifact value, not discovery N | **HOT-cluster / WARM-artifact** (QR-D zone HOT; six-paper constant race incl. our own donor + two external Lean actors) | State strip constants parametrically; must-cite: CT (DZDF), Liu-1 + liubaiying101 repo, Liu-2 B♭, [Ope26a/b], XS26, Trudgian–ZA |
+| **71** `[incoming-dossier]` QR-D discharge/donor-swap (hQRH 7/8↔31/32 weakened-binder pilots) | r4 §3 + §5.2: hQRH is TRUE informally (Liu-1 Cor 14.1); formal discharge = external Liu repo (portability unprobed) or weakened 31/32 via DZDF | TBD | **HOT-zone / formalization-first** | Never claim a zero-free improvement; value = binder hygiene + first unconditional Lean instantiations; add liubaiying101 probe to the plan |
+| **72** `[incoming-dossier]` FF zone (function-field simple/distinct proportions) | r4 §1: proportion statements unclaimed (FF-2/5/6); Suzuki 2610.41115 = method-neighbor 3 weeks old; per-curve uniform shape FALSE (supersingular trap [A9 verify]); on-line component free (Weil RH) | TBD | **WARM** | Family-indexed or trace-bounded multiplicity statements only; nearest misses Faifman–Rudnick 0803.3534, Rudnick 0811.3649, Bui–Florea 1605.07092, Katz–Sarnak, DLRT 1908.04876, Suzuki 2610.41115 |
+| **73** `[incoming-dossier]` AL zone (area-law/inertia cross-bridge) | r4 §2: naive "rank concentration from spectral gap" REFUTED (Kuwahara 2610.15199, S₀≥S_α ⟹ rank ≥ e^Ω(vol)); effective-rank (vN) + matrix-inequality cross-bridge shapes unclaimed, un-formalized everywhere (AL-4: 0); "first formal area law" dead (AreaLaw2D is our donor) | TBD | **WARM (with a hard NO-GO on the literal rank statement)** | Effective-rank/AGSP/ρ_A cross-bridge framings, or certified-negative dossier (à la 50); Physlib-on-our-pin feasibility gate |
+| **74** `[incoming-dossier]` reserve (second FF or AL item, or QR-D consequence) | TBD on A2/A4 zoning | TBD | **WARM (default)** | Inherits the zone tier of whatever it instantiates; hexagonmath sweep mandatory if QR-D |
