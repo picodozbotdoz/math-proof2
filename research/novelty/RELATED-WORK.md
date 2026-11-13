@@ -42,7 +42,10 @@ is a ζ-constant or a frozen exponent is arriving late [r3 §T(e), VERDICTS §5.
   open — Tier-1 "first PNT in mathlib" is alive-but-doomed; Tier-2 (effective 7/8 error term)
   is the content [r1 item 2, r2 §9(ii), donor §2(d)].
 - **PNTAnd** (AlexKontorovich): MediumPNT/StrongPNT deep in its 339-file tree; hosts IEANTN
-  port-out [donor §2(d)].
+  port-out [donor §2(d)]. **Cycle-2 close-out (2026-11-13): upstream @ `938912bb` PROVES
+  StrongPNT (ψ = x + O(x·exp(−c√log x)), `StrongPNT.lean:2900`, triad-clean) — dossier 22's
+  Tier-2 T2b is CLOSED-BY-UPSTREAM (formalization-only to recover); only T2a
+  (quasi-RH-conditional x^{7/8+ε}) remains open content [VERDICTS Cycle-2 standing note 1].
 - **PhysLean / Tooby-Smith** (arXiv:2505.07939): Wick, static and normal-ordered, in Lean 4 —
   the bosonic instance of dossier 52's layer is taken; the universal/fermionic side is not
   [VERDICTS §5.1].
@@ -59,7 +62,9 @@ is a ζ-constant or a frozen exponent is arriving late [r3 §T(e), VERDICTS §5.
 Mapped to dossier IDs (all verified in-round): **de Laat–Rolen–Tripp–Wagner, arXiv:1908.04876
 (2019)** — ζ_K quadratic distinct-zero proportions > 45% via pair correlation + SDP window
 optimization; the must-cite nearest miss for 20/42 (and informal precedent for 02's
-optimization-over-windows) [VERDICTS §5.2(c)]. **Pan 1985** (doi 10.1016/0898-1221(85)90095-1)
+optimization-over-windows) [VERDICTS §5.2(c)]. **Cycle-2 precision (r4 P2-3): the 45% is
+GRH-conditional, FIXED quadratic K, T→∞ asymptotic (Thm 1.1/Cor 1.3(i)) — not uniform over
+fields; corrects VERDICTS §5.2(c)'s "unconditional" wording.** **Pan 1985** (doi 10.1016/0898-1221(85)90095-1)
 — bit-complexity of matrix multiplication; kills 51 as mathematics [r2 §7]. **Šleževičienė
 2003** (Zbl 1132.11340) — Selberg-class Speiser correspondence; contests 40-T2 [r3 §1].
 **Benkart–Pérez-Izquierdo 1998** (arXiv:math/9801141) — quantum split octonions with a

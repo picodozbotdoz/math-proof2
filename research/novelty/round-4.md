@@ -399,6 +399,43 @@ eigenvalue; the equality-forcing step is AM–GM, glueable in Lean.] Citations t
 verify to theorem-number precision before dossier text: HKT ch./Thm for Hermitian
 maximality + genus; vdG–vdV exact paper/theorem.
 
+## §7. Liu-1 external-donor audit (pointer)
 
-when A9 lands them; N-adjusts; consolidation into the Cycle-2 TRIAGE addendum;
-re-queue any queries the dossiers pre-register that PART 1 did not anticipate.]
+Housed as **`research/novelty/liu1-as-donor.md`** (this round's §Liu1-audit, chosen
+location — repo-shaped, pattern `knausgaard-as-donor.md`). Headline: public entry
+theorems `hecke_nonzero`/`dirichlet_nonzero`/`zeta_nonzero`/`beta_star_le` all at the
+**exact rational 34999/40000 = 0.874975** (weaker than both the paper's
+B_new = 0.8749570 and the README's 0.874957069799; all < 7/8), unconditional,
+triad-axioms-claimed, built on the pinned openai/math tree at **v4.34.1**;
+0 sorry/native_decide/axiom at grep level in all fetched files; certificates are
+proved in Lean (V2Optimization exact rationals) and verify.py is a replay harness
+(hash pinning + `--trust=0` kernel replay + axioms whitelist + 22 EXPECTED names).
+**Ecosystem fact surfaced: openai-math's own tree already PROVES the 7/8 ζ statement**
+(`OAI/NumberTheory/DirichletL/Nonvanishing.lean:29 riemannZeta_ne_zero_of_seven_eighths_
+lt_re`, DirichletL subtree 77 files / 0 sorry) — the ComparatorChallenges sorry-file is
+only the challenge restatement. Recommendation: **DO-NOT-CONSUME as dependency;
+statement-level only**; the cheapest hQRH discharge is the in-corpus openai tree, not
+Liu's repo. G7 targets in the donor file §6.
+
+## PART 2 — dossier-level runs (kickoff, 2026-11-13 same lane)
+
+Scope per coordinator mapping: FINAL = 70 (QR-D), 71 (FF, renamed
+splane-dictionary), 72 (AL, Kuwahara-corrected); [incoming] = 73 (FF-EZ3
+hecke-tate, pre-registered 26 ln), 74 (AL-EZ2 surprisal, A4), 75 (abelian assembly,
+A3-H1/42-for-abelian). Verdict table = `VERDICTS.md` Cycle-2 addendum (reconciled to
+these files; the zone-guessed skeleton rows were re-mapped — reconciliation note
+there). Query record for this part:
+
+| # | Query | Source | Verdict |
+|---|---|---|---|
+| P2-1 | hexagonmath.org listing sweep (method item 14, for 71) | WebFetch | NO function-field-zeta / zero-multiplicity / Weil content; FF zone clean at the CT venue. Only FF-adjacent items = **Boyang Hu's trilogy "Automorphic realization of Langlands parameters for split groups over global function fields I–III"** (hexagonmath, listed 2026-11-12) — Langlands-parameters/shtukas layer, NOT zeta formalization → confirms 71's "different layer" label (71:132). CT itself not on the front listing anymore (deeper archive; its /2610.00200 pages still resolve) |
+| P2-2 | `au:"Boyang Hu" AND abs:"function field"` | arXiv API | 0 entries (trilogy is hexagonmath-hosted) — recorded so 71's citation points at hexagonmath, not arXiv |
+| P2-3 | DLRT 1908.04876 close-read (gating item for 75) | WebFetch fulltext | **SCOPED, not uniform**: Thm 1.1 pair correlation for a FIXED abelian K under **GRH**, o_K(1) as T→∞ (nothing uniform over discriminants); Cor 1.3(i) the >45%-distinct bound is **fixed quadratic K + GRH-conditional**, asymptotic in T; no non-abelian K, no Hecke L anywhere; SDP = minimization of Z_n(f) over the Cohn–Elkies/Montgomery class, rigorized by interval arithmetic (c₂ = 2.3226 + CGG N_{K,s} ≥ N_K/27 → 45.85%). **Flip answer for 75: SCOPED ⇒ primary NOT math-known ⇒ N stays 4.** ERRATUM vs main-run VERDICTS §5.2(c): DLRT was recorded there as "unconditional 45% distinct" — it is **GRH-conditional** (flag for H + CLAIMS-REGISTER row 42 wording) |
+| P2-4 | `abs:"Rényi entropy" AND abs:"area law"` (+ au:Kuwahara entanglement) | arXiv API | No α ≥ 1 Rényi area law for 2D gapped general systems in the hits — only Kuwahara's own refutation (2610.15199, α<1 false) + nonstabilizerness/tensor-network context (2609.31459 etc.). 72's P2 purity-route (α=2, linear-in-boundary-budget shape) NOT contradicted; the full α>1 status question remains the PART-2 residual to re-check at pilot time |
+| P2-5 | 71's `[A9 verify]` every-genus citation (FF falsity trap) | §6.3 above | ANSWERED at the mechanism level: maximal curves over 𝔽_{q²} force ALL 2g Frobenius eigenvalues to −q (elementary from Hasse–Weil equality), giving Z_C(t) = (1+qt)^{2g}/((1−t)(1−qt)) — a single zero of multiplicity 2g, simple-proportion exactly 0; Hermitian family y^q+y = x^{q+1} realizes it in infinitely many genera; van der Geer–van der Vlugt Artin–Schreier families extend the genus coverage. Chapter/theorem-number citation (HKT 2008 maximal-curves chapter; vdG–vdV exact paper) still to pin against a printing before dossier-final text — carries to A9's revision pass |
+
+**PART-2 verdicts**: 70/71/72 filled in `VERDICTS.md` (DOSSIER-CHECKED); 73/74/75
+marked [incoming] (75's N-question already answered by P2-3: N 4). Remaining PART-2
+work when 73/74/75 land: their pre-registered queries (73's Tate-dictionary
+literature re-verification incl. Rosen ch. numbers — §6.2 stub flags; 74's surprisal/
+moment-hierarchy sweeps; 75's abelian-assembly nearest-miss runs).
