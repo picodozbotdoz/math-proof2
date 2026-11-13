@@ -1,0 +1,101 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZerosV2 (target: ZetaZeros lib), 2026-11-13 (V2 port round 5, dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-yTbkjpzFEnxoyPjSzmxsha
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZerosV2 update: rc=0
+[axbump] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache: rc=0
+{'build ZetaZerosV2': 'FAIL rc=1 step=build errors=11 failed_modules=3'}
+
+=== ZetaZerosV2 build: rc=1
+failed modules: ['PrimeNumberTheoremAnd.ResidueCalcOnRectangles', 'PrimeNumberTheoremAnd.Wiener', 'ZetaZeros.ZeroCount.LocalCount']
+⚠ [7813/8087] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (4.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [8056/8262] Built PrimeNumberTheoremAnd.MellinCalculus (7.0s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✖ [8080/8262] Building PrimeNumberTheoremAnd.ResidueCalcOnRectangles (7.2s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/ResidueCalcOnRectangles.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/ResidueCalcOnRectangles.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/ResidueCalcOnRectangles.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/ResidueCalcOnRectangles.setup.json --json
+error: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:400:2: failed to synthesize
+  CommSemiring E
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:553:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:556:6: `push Not` made no progress on the goal
+✖ [8142/8262] Building PrimeNumberTheoremAnd.Wiener (14s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/Wiener.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Wiener.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Wiener.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Wiener.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Wiener.setup.json --json
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+error: PrimeNumberTheoremAnd/Wiener.lean:3022:32: Invalid simp theorem `IsBigO`: Expected a definition with an exposed body
+error: PrimeNumberTheoremAnd/Wiener.lean:3022:52: Invalid simp theorem `IsBigOWith`: Expected a definition with an exposed body
+error: PrimeNumberTheoremAnd/Wiener.lean:3023:11: Invalid `⟨...⟩` notation: The expected type `(fun σ' ↦ ‖S σ'‖) =O[𝓝[>] 1] 1` is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: PrimeNumberTheoremAnd/Wiener.lean:3024:4: No goals to be solved
+error: PrimeNumberTheoremAnd/Wiener.lean:3710:49: Invalid alternative name `h`: Expected `ind`
+error: PrimeNumberTheoremAnd/Wiener.lean:3710:2: Alternative `ind` has not been provided
+⚠ [8150/8262] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.7s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [8156/8262] Building ZetaZeros.ZeroCount.LocalCount (6.0s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/ZetaZerosV2/ZetaZeros/ZeroCount/LocalCount.lean -o /work/ZetaZerosV2/.lake/build/lib/lean/ZetaZeros/ZeroCount/LocalCount.olean -i /work/ZetaZerosV2/.lake/build/lib/lean/ZetaZeros/ZeroCount/LocalCount.ilean -c /work/ZetaZerosV2/.lake/build/ir/ZetaZeros/ZeroCount/LocalCount.c --setup /work/ZetaZerosV2/.lake/build/ir/ZetaZeros/ZeroCount/LocalCount.setup.json --json
+error: ZetaZeros/ZeroCount/LocalCount.lean:365:48: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  h
+has type `?m.529.1 ρ` which does not have the necessary form.
+error: ZetaZeros/ZeroCount/LocalCount.lean:365:53: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  h
+has type `?m.529.1 ρ` which does not have the necessary form.
+error: ZetaZeros/ZeroCount/LocalCount.lean:365:60: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  h
+has type `?m.529.1 ρ` which does not have the necessary form.
+⚠ [8206/8262] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.9s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+Some required targets logged failures:
+- PrimeNumberTheoremAnd.ResidueCalcOnRectangles
+- PrimeNumberTheoremAnd.Wiener
+- ZetaZeros.ZeroCount.LocalCount
+error: build failed
+
+=== SUMMARY
+build ZetaZerosV2: FAIL rc=1 step=build errors=11 failed_modules=3
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-yTbkjpzFEnxoyPjSzmxsha

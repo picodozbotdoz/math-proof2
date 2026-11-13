@@ -1,0 +1,100 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZerosV2 (target: ZetaZeros lib), 2026-11-13 (V2 port round 4, dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ji3MO5siEuVMGZVPf7HUdF
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZerosV2 update: rc=0
+[axbump] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache: rc=0
+
+=== ZetaZerosV2 build: rc=1
+{'build ZetaZerosV2': 'FAIL rc=1 step=build errors=10 failed_modules=4'}
+failed modules: ['PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics', 'PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaPartialSum', 'PrimeNumberTheoremAnd.MellinCalculus', 'PrimeNumberTheoremAnd.Tactic.AdditiveCombination']
+✖ [7511/7733] Building PrimeNumberTheoremAnd.Tactic.AdditiveCombination (4.2s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Tactic/AdditiveCombination.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Tactic/AdditiveCombination.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Tactic/AdditiveCombination.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Tactic/AdditiveCombination.setup.json --json
+error: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:57:76: Unknown identifier `Expanded`
+
+Note: It is not possible to treat `Expanded` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:59:15: Unknown identifier `expandLinearCombo`
+warning: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:98:4: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:98:29: Variable name `tk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _tk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:99:5: Variable name `norm?` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _norm?
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:99:36: Variable name `exp?` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _exp?
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:100:5: Variable name `twoGoals` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _twoGoals
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:184:3: unknown parser declaration/category/alias `normStx`
+error: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean:186:15: unknown tactic
+⚠ [7760/8065] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (5.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+✖ [8032/8264] Building PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaPartialSum (3.7s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.setup.json --json
+error: PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaPartialSum.lean:188:7: Unknown constant `Complex.summable_one_div_nat_cpow`
+✖ [8098/8264] Building PrimeNumberTheoremAnd.MellinCalculus (7.4s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/MellinCalculus.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/MellinCalculus.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/MellinCalculus.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/MellinCalculus.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/MellinCalculus.setup.json --json
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+error: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:6: `simp` made no progress
+✖ [8130/8264] Building PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics (20s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.setup.json --json
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.lean:25:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.lean:30:8: (kernel) unknown constant 'Asymptotics.isLittleO_const_id_cocompact'
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.lean:35:8: (kernel) unknown constant 'Asymptotics.isLittleO_const_id_cocompact'
+⚠ [8184/8264] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (3.1s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8210/8264] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (4.7s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+Some required targets logged failures:
+- PrimeNumberTheoremAnd.Tactic.AdditiveCombination
+- PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaPartialSum
+- PrimeNumberTheoremAnd.MellinCalculus
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics
+error: build failed
+
+=== SUMMARY
+build ZetaZerosV2: FAIL rc=1 step=build errors=10 failed_modules=4
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ji3MO5siEuVMGZVPf7HUdF

@@ -42,7 +42,7 @@ REPOS = ["ZetaZeros", "ZetaZerosV2", "PrimeNumberTheoremAnd", "DedekindZetaZeroF
 CHALLENGES = ["ZetaZeros/Challenge/Basic.lean", "ZetaZerosV2/Challenge/Basic.lean",
               "DedekindZetaZeroFree/Challenge/DedekindZetaChallenge.lean"]
 BUILDS = [("ZetaZeros", ["ZetaZeros"]),
-          ("ZetaZerosV2", ["ZetaZeros", "PrimeNumberTheoremAnd"])]
+          ("ZetaZerosV2", ["ZetaZeros"])]
 
 
 @app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)

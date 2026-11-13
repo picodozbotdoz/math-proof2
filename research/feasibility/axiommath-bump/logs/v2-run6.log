@@ -1,0 +1,132 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZerosV2 (target: ZetaZeros lib), 2026-11-13 (V2 port round 6, dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-xfdXEiV907SscY0lNoHyGk
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZerosV2 update: rc=0
+[axbump] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache: rc=0
+{'build ZetaZerosV2': 'FAIL rc=1 step=build errors=6 failed_modules=2'}
+
+=== ZetaZerosV2 build: rc=1
+failed modules: ['PrimeNumberTheoremAnd.PerronFormula', 'PrimeNumberTheoremAnd.ZetaBounds']
+⚠ [7713/7991] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (4.2s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [8058/8262] Built PrimeNumberTheoremAnd.MellinCalculus (7.4s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8084/8262] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (7.1s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [8128/8262] Built PrimeNumberTheoremAnd.Wiener (15s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+⚠ [8130/8262] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8138/8262] Built ZetaZeros.ZeroCount.LocalCount (6.7s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+✖ [8144/8262] Building PrimeNumberTheoremAnd.PerronFormula (5.0s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/PerronFormula.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/PerronFormula.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/PerronFormula.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/PerronFormula.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/PerronFormula.setup.json --json
+error: PrimeNumberTheoremAnd/PerronFormula.lean:969:67: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  hs
+has type `?m.332.1 s` which does not have the necessary form.
+✖ [8150/8262] Building PrimeNumberTheoremAnd.ZetaBounds (14s)
+trace: .> LEAN_PATH=/work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/PrimeNumberTheoremAnd/PrimeNumberTheoremAnd/ZetaBounds.lean -o /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/ZetaBounds.olean -i /work/PrimeNumberTheoremAnd/.lake/build/lib/lean/PrimeNumberTheoremAnd/ZetaBounds.ilean -c /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/ZetaBounds.c --setup /work/PrimeNumberTheoremAnd/.lake/build/ir/PrimeNumberTheoremAnd/ZetaBounds.setup.json --json
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:786:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+error: PrimeNumberTheoremAnd/ZetaBounds.lean:939:13: Unknown identifier `summable_one_div_nat_cpow.mpr`
+error: PrimeNumberTheoremAnd/ZetaBounds.lean:937:49: unsolved goals
+N : ℕ
+s : ℂ
+s_re_gt : 1 < s.re
+f : ℕ → ℂ := fun n ↦ 1 / ↑n ^ s
+⊢ Tendsto (fun k ↦ ∑ n ∈ Finset.Ioc N k, 1 / ↑n ^ s) atTop (𝓝 (∑' (n : ℕ), 1 / (↑n + ↑N + 1) ^ s))
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1076:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+error: PrimeNumberTheoremAnd/ZetaBounds.lean:1099:22: typeclass instance problem is stuck
+  T1Space ?m.16
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and second type arguments to `T1Space` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+error: PrimeNumberTheoremAnd/ZetaBounds.lean:1424:4: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `?m.207` is a value of type
+  ?m.206
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2278:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2490:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2536:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2592:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2634:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2646:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3496:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3551:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [8194/8262] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (4.0s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8198/8262] Built ZetaZeros.PairCorrelation.Truncation (8.2s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Some required targets logged failures:
+- PrimeNumberTheoremAnd.PerronFormula
+- PrimeNumberTheoremAnd.ZetaBounds
+error: build failed
+
+=== SUMMARY
+build ZetaZerosV2: FAIL rc=1 step=build errors=6 failed_modules=2
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-xfdXEiV907SscY0lNoHyGk
