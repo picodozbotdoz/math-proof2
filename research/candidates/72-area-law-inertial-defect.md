@@ -416,9 +416,30 @@ Two independent prongs; fill each from its own orchestrator relay.
   rank/α<1 area-law statement class is permanently fenced** (article:
   `research/articles/72-renyi-monotonicity-nogo-gate.md`).
 
-### M1 Tier-C (family-265 interface theorem, pure transcription, zero import gates; slot 3, lane A8, per `research/pilots/72-prework.md` §2/§a)
+### M1 Tier-C (family-265 interface theorem, pure transcription, zero import gates; slot 3, lane A8, per `research/pilots/72-prework.md` §2/§a) — **FILLED from A8's official report (relayed by the orchestrator, 2026-11-14; disk-verified by A9: m1-run8-GREEN + m1-axcheck-final headers, T1/T2 file heads, wc -l)**
 
-- Runs (date / log file / rc / errors–sorrys): —
-- LoC: — ; Theorem count: —
-- Axiom audit: —
-- Verdict line: —
+- Runs: **partial-M1 GREEN — `m1-run8-GREEN.log` (2026-11-14): P72M1T1.lean OK +
+  P72M1T2.lean OK, errors=0, sorry-warnings=0**; descent post-resume **24→10→1→0**
+  (run 5 pre-resume 24 → runs 6–8, within the ≤ 5 fix-round cap; 5 latent bugs found
+  by the post-interruption static audit — the outage killed the turn between applying
+  the run-5 fix classes and running, file mtime 03:15 > run-5 log 03:08).
+- LoC: **P72M1T1 702 (vendor layer, GREEN since run 4) + P72M1T2 360** ; Theorem
+  count: **25 top-level in T2 (axcheck count; T1 stage carries 47 #print axioms)**.
+- Axiom audit: **`m1-axcheck-final.log` — BOTH OK, 52 + 28 axiom-lines, 0 sorryAx,
+  every line a subset of [propext, Classical.choice, Quot.sound]** (local builder
+  `make_axcheck72m1.py` — regex extended past A1's to catch attribute-prefixed
+  theorems; stage copies, repo files untouched).
+- Landed scope (kernel-clean): **L1** ptrace-Gram (`ptrace_pureState_eq_reducedDensity`,
+  full triad) **+ entropy match** (`regionEntropy_eq_vonNeumannEntropy`, full triad);
+  **L2** boundary comparability (`boundaryCard_le_edgeBoundary`, full triad) **at
+  constant 1 — stronger than the prework's ≤ 4 safety form**; the vendor layer. L1
+  carries the toGrid-explicit `hΩ` hypothesis.
+- Carried to Iteration 4 **by design** (overrun guard; continuation spec verbatim in
+  the `m1-run8-GREEN.log` header; A8 formalizing next): **L3** (L3a Hermitian
+  symmetrization, L3b state conventions, L3c `FullSystemGap` → `HasGlobalGap`) **and
+  the interface theorem itself** (`interface_areaLaw_uniformAreaLaw`).
+- Verdict line: **partial-M1 GREEN, FINAL for the Cycle-2 tranche** (decision =
+  final-for-tranche, the dossier-75 pattern): the interface theorem's L1/L2/vendor
+  substrate is kernel-verified on our pin; L3 + the discharge theorem are Iteration-4
+  scope with the spec on file (article:
+  `research/articles/72-renyi-monotonicity-nogo-gate.md` §5–§6).

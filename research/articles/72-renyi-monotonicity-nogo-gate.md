@@ -1,13 +1,18 @@
 # The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements
 
-*cross-math-fronttier research article 72 (Cycle 2) · DRAFT 2026-11-14 · dossier
-`research/candidates/72-area-law-inertial-defect.md` · prework/pilot
+*cross-math-fronttier research article 72 (Cycle 2) · DRAFT (C-neg LANDED, A4 report
+2026-11-14; M1 tranche LANDED, A8 report 2026-11-14 — L3 + interface theorem carried to
+Iteration 4) · dossier `research/candidates/72-area-law-inertial-defect.md` · prework/pilot
 `research/pilots/72-prework.md` (Appendix A) + `research/pilots/72/` (C-neg.lean, runs
-1–5) · bridge `research/bridges/area-law.md`*
+1–5) + `research/pilots/72-M1/` (P72M1T1/T2) · bridge `research/bridges/area-law.md`*
 
 **Status: C-neg PROVED, GREEN + axcheck-clean (filled from A4's official report,
-2026-11-14 — §5). The companion interface theorem M1 (family-265, Tier C) carries
-[VERDICT:72-M1] (A8 slot 3, OPEN).** The mathematical content of the gate is elementary (a
+2026-11-14 — §5); M1 (family-265 interface companion, Tier C) partial-GREEN —
+[VERDICT:72-M1] FILLED from A8's formal report (2026-11-14 — §6): the assigned Cycle-2
+tranche is COMPLETE, GREEN, FINAL for the tranche** (vendor layer + L1 ptrace-Gram +
+entropy match + L2 at constant 1, all kernel-clean; **L3 and the interface theorem
+itself carry to Iteration 4 by design**, spec in the m1-run8-GREEN.log header). The
+mathematical content of the gate is elementary (a
 monotonicity lemma plus a contrapositive); the point is that it is *worth formalizing*:
 it permanently fences a zone that a 2026 preprint just dynamited, and the
 negative-result article kind has precedent in this project (articles 30, 50).
@@ -108,7 +113,32 @@ at statement level: OK). These de-risk both prongs below.
   concrete-family FALSE forms; Kuwahara's construction enters as the external `hKL`
   binder (EnclOK pattern — informal physics input quoted, never re-proved).
 
-**Pending (slot):** [VERDICT:72-M1] — the §6 companion (A8, slot 3).
+**[VERDICT:72-M1] FILLED-FINAL — partial-M1 GREEN, FINAL for the Cycle-2 tranche
+(filled from A8's official report, relayed 2026-11-14; figures disk-verified by A9
+against `research/pilots/72-M1/logs/`):**
+
+- **GREEN:** `m1-run8-GREEN.log` — P72M1T1.lean OK + P72M1T2.lean OK, errors=0,
+  sorry-warnings=0. **P72M1T1 702 LoC vendor layer** (the AreaLaw2D/OAI statement layer
+  on our pin; GREEN since run 4) **+ P72M1T2 360 LoC / 25 top-level theorems** (axcheck
+  count). Error descent post-resume **24→10→1→0** (run 5 pre-resume 24 → runs 6–8),
+  within the ≤ 5 fix-round cap; 5 latent bugs found by the post-interruption static
+  audit (the interruption had killed the turn between applying the run-5 fix classes
+  and running — file mtime 03:15 > run-5 log 03:08).
+- **Axiom audit:** `m1-axcheck-final.log` — BOTH OK, **52 + 28 axiom-lines, 0 sorryAx,
+  every line a subset of the triad** (stage copies via `make_axcheck72m1.py`, A1's
+  `axcheck_probe.py` runner; repo files untouched).
+- **Landed (kernel-clean):** **L1** — the ptrace-Gram identity
+  `ptrace_pureState_eq_reducedDensity` (full triad) **+ the entropy match**
+  `regionEntropy_eq_vonNeumannEntropy` (full triad); **L2** — boundary comparability
+  `boundaryCard_le_edgeBoundary` (full triad) **at constant 1, stronger than the
+  prework's ≤ 4 safety form**; the vendor layer. L1 landed with the toGrid-explicit
+  `hΩ` hypothesis.
+- **NOT landed — carried to Iteration 4 by design** (overrun guard; continuation spec
+  verbatim in the `m1-run8-GREEN.log` header; A8 formalizing it next): **L3** — the
+  Hamiltonian/ground-state/gap transfer (L3a Hermitian symmetrization, L3b state
+  conventions, L3c `FullSystemGap` → `HasGlobalGap`) **and the interface theorem
+  itself** (`interface_areaLaw_uniformAreaLaw`, the `hAreaLaw` Tier-C binder + L1/L2/L3
+  + the max-C-1 witness).
 
 ## 6. Companion: the family-265 interface theorem (M1, AL-EZ3)
 
@@ -122,7 +152,11 @@ implies `PolynomialPEPS.PinnedEntropy.UniformAreaLaw` (`Basic.lean:135`) — mak
 openai-math's `MainStatement` (:97) unconditional modulo its remaining hypotheses.
 Corollary-grade mathematics, statement-transcribed at Tier C (zero import gates); the
 G5b/G5c/G4 elaboration verdicts above are its de-risking evidence.
-Verdicts: [VERDICT:72-M1] (Tier-C landing; slot-3, lane A8). The reader should treat M1
+Verdicts: **[VERDICT:72-M1] FILLED — partial-M1 GREEN, FINAL for the tranche** (§5's
+evidence block): of the chain above, (i) ptrace-Gram + the entropy match and (ii)-form
+boundary comparability (L2, constant 1) plus the vendor layer LANDED kernel-clean;
+(iii) the gap-form match and (iv) the discharge theorem are the carried L3 + interface
+item (Iteration 4, spec in the m1-run8-GREEN.log header). The reader should treat M1
 as GLUE-with-real-consumer (dossier 72 §Significance), not as a discovery claim.
 
 ## 7. Relation to prior work

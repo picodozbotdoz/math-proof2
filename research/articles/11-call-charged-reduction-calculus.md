@@ -5,8 +5,11 @@
 `research/pilots/11/` · blueprint `research/pilots/11-blueprint.md`*
 
 **Status: Milestone 1 PROVED, kernel-verified** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
-all declarations `[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`).
-The machine realizations (word-RAM and TM2, the dossier's Theorem B) are **not** done.
+all declarations `[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`)
+**+ M2 COMPLETE (2026-11-14; A8 formal report received)** — Theorem B(ii), the TM2
+realization, kernel-verified (`m2-run8-GREEN.log` all six files OK; `m2-axcheck-final.log`
+76 axiom-lines, 0 sorryAx, triad-only). Of Theorem B only the word-RAM (Light-language)
+half and the M3 instantiation remain open.
 
 ---
 
@@ -126,7 +129,7 @@ layer exists (bridge map Z1; novelty R8: N4).
 
 ---
 
-## Cycle-2 addendum (2026-11-14): M2 — the TM2 realization, in flight
+## Cycle-2 addendum (2026-11-14): M2 — the TM2 realization, COMPLETE (m2-run8-GREEN)
 
 The open milestone named in §7 (the machine realization via eth's `PolyT` fragment
 calculus, dossier 11's Theorem B(ii); blueprint `research/pilots/11-blueprint.md` §M2,
@@ -137,15 +140,32 @@ P11T1.lean and P11T2.lean GREEN, FINAL; P11T3.lean GREEN in both m2 runs
 outage-killed pinpoint fixes — explicit type params on stuck instance applications,
 branch-form machine in choice, induction-style `sum_sf`, missing `hk` in
 `composed_sum_le` — plus run-1's id'/rfl/length_cons repairs; ≈1.1k LoC / 88 thms),
-marked PENDING A8 OFFICIAL RELAY at the time; the formal-report fill below completes
-the record.**
+marked PENDING A8 OFFICIAL RELAY at the time — **promoted to FINAL 2026-11-14: A8's
+formal report received**; the verdict block below is that report's record.**
 
-**[VERDICT:11-M2] FILLED-FINAL — GREEN (per A1 §9 disk-verified landing, 2026-11-14;
-A8's formal report owed with the m2-run1–3 header reconstructions): `m2-run8-GREEN.log`
-— ALL SIX FILES OK** (P11T1, P11T2, P11T3, RedCompA, RedCompB, **RedTm2** — final
-421 LoC, freshly classified 0 sorry-tokens; the churn 4→2→3→6→2→OK across m2-runs is
-mid-fix iteration, documented by A8). **Theorem B(ii) — the machine realization of the
-call-charged calculus — is proved**: every calculus derivation is realized by a single
-TM2 machine. A full-coverage axcheck (`m2-axcheck-final.log`) is on disk; the close-out
-sweep confirms at FINAL-SWEEP-PLAN-C2. This addendum's claim is now complete; the M1
-record of §5 stands unchanged.
+**[VERDICT:11-M2] FILLED-FINAL — GREEN — A8 FORMAL REPORT RECEIVED (2026-11-14;
+supersedes the A1 §9 provisional fill; every figure disk-verified against the logs).
+`m2-run8-GREEN.log` — ALL SIX FILES OK, 0 errors, 0 sorry-warnings** (P11T1, P11T2,
+P11T3, RedCompA, RedCompB, **RedTm2** — final 421 LoC, 0 sorry-tokens; P11T3 1,100 LoC /
+88 thms, the whole eth machine-model tranche with donor proofs, GREEN on its FIRST run).
+**Theorem B(ii) — the machine realization of the call-charged calculus — is proved**
+(blueprint §8: the composed bound `c·(calls·T + calls + 1)·(|x|+1)^c` realized by ONE
+TM2 machine via the eth interface binders). Full-coverage axcheck `m2-axcheck-final.log`
+(`run_axcheck.sh AxPilot11_P11T3 AxPilot11_RedTm2`): **76 axiom-lines (P11T3 64 +
+RedTm2 12), 0 sorryAx, every line triad-only** — dedup `[propext, Classical.choice,
+Quot.sound]` ×22, `[propext, Quot.sound]` ×17, `[propext]` ×15; the acceptance
+theorems `Tm2Sol.mono`/`tm2_choice`/`tm2_charging`/`tm2_realized_composed` full triad,
+`composed_sum_le` `[propext, Quot.sound]`, and `map_headD_sf` **axiom-free**. The four
+outage-killed pinpoint fixes landed in their final form per 11-blueprint §8's table:
+named `(α := …) (β := …)` binders (the stuck `Enc ?β` class), `sum_sf`'s explicit
+trailing `rfl`, `List.length_cons` into `composed_sum_le`'s simp set, and the
+half-applied `hk` fix **re-proved** via `clear hk` + inner length-form induction +
+`Nat.mul_le_mul_right` (plus the never-reached `hsomeCons` rebuild: `hsfOpt` +
+`comp`-routing for `hstart`). **Error series (corrected per A8's formal report):
+4→2→3→6→3→2→2→0** — run 5 shows 3 displayed sites (`:216`/`:234`/`:354`) against the
+counter's 4; the run-8 log header carries 4 at run 5 **as-written, run-time persisted,
+NOT reconstructed** (all m2-run1–7 headers were in place within ~2 min of their runs,
+before the interruption). The churn itself = hard elaboration errors aborting whole
+declarations and exposing the next error class — **no regressions**. This addendum's
+claim is complete; the M1 record of §5 stands unchanged; M3 (CH20∘VW13 instantiation)
+remains per blueprint §4. The close-out sweep confirms at FINAL-SWEEP-PLAN-C2.
