@@ -669,6 +669,26 @@ this point.
   drop; 72-M1's landing note says A1 adds AxPilot72_M1 at sweep.
 - Concurrency probe at this batch close: **7**.
 
+**Batch 21 (2026-11-14 ~04:0x — orchestrator relay; A8 L3-spec):**
+- **A8 `pilots/72-M1/L3-spec.md`** (b3a2368, 199 ln — relay's "185" approximate;
+  [CHARTER-PENDING]/iteration-4 input): the carried-to-iteration-4 continuation
+  elaborated — substrate inventory of the kernel-clean T1/T2 layers, L3a–d tranches
+  with LoC budgets and the interface acceptance target, guards (0.7k LoC / ≤8 runs /
+  error-CLASS descent criterion), stop-condition fallback (weaker eig-transfer shape
+  if the full matrix identity stalls — record which landed). H QA glance PASS: the
+  four proved interface lemmas in §1 match T2's diff exactly (`boundaryCard_le_
+  edgeBoundary` :164, `ptrace_pureState_eq_reducedDensity` :303, `hermEigen_eq_of_
+  matrix_eq` :320, `regionEntropy_eq_vonNeumannEntropy` :330 — all in the m1-axcheck
+  triad set); all SIX mathlib anchor cites verified verbatim on the pinned checkout
+  (PosDef.lean:62 `PosSemidef` / :311 `posSemidef_iff_dotProduct_mulVec`;
+  CStarAlgebra/Matrix.lean:101 `toEuclideanCLM` / :126 `toEuclideanCLM_toLp`;
+  PiL2.lean:165 `norm_sq_eq` / :235 `inner_eq_star_dotProduct`); L3d framed as the
+  one genuinely-new proof (not in prework) with its fallback explicit.
+- **A8 Cycle-2 record COMPLETE** — 11-M2 GREEN (formal report in) + 72-M1
+  FINAL-for-tranche (partial-M1 GREEN, L3+interface carried with spec) + L3-spec
+  staged. **A8 standing by for Iteration 4.**
+- Concurrency probe at this batch close: **7**.
+
 ## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
 fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
 
