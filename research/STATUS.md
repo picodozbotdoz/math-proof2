@@ -364,6 +364,21 @@ standing authorization with a commit.
   Cycle-2 pilot, lane A4 (P-a then C1 per 75-prework; A1 adds it to sweep TARGETS); row
   updated above. Close-out debts now: A8 m2-run{1,2,3} headers (orchestrator flagged to
   A8 directly), A7 run17/18 disposition (flagged to A7 directly).
+- 2026-11-14 — batch-6 series: `Cycle 2: A5 — HKT close-out (§10 PARTIAL-PIN, Zbl
+  1200.11042, Part-3-level rule) + §9.5 tracker clock protocol` (33426bf; H QA: Part-3
+  form = page-numbered part mapping from publisher/zbMATH metadata, Zbl consistent
+  §10↔row-71, no bare chapter citations introduced, catalogue/bound-badge curl URLs
+  present; `novelty/iter4-seed-triage.md` HELD — A5 adding seed-1 rg-gate verdict +
+  seeds-6/11 differentiation); `Cycle 2: A9 — slot ledger + DLRT errata + 72 fills`
+  (c540682; H QA: article-72 fills match run8/axcheck evidence incl. the three Appendix-A
+  deviations with :495 locator; DLRT qualifiers at all three flagged sites match
+  dossier-75 standing note 3 (candidates/42:355, articles/42:28/:149, bracket-erratum
+  style); slot ledger grep-driven exhaustive with OPEN/PENDING-RELAY/FILLED-FINAL
+  discipline and [SWEEP] classed over the charter's REAL slot
+  (ITERATION4-CHARTER-DRAFT:7/:100); `TRIAGE-C2-ROWS.md` HELD — A9 mid-reconciliation).
+  Sweep-precondition update: seed triage + slot ledger both LANDED (seed-1 gate +
+  seeds-6/11 differentiation in flight); A1 relabel + A9 reconciliation batches
+  pending.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
