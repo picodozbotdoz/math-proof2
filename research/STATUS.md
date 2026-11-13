@@ -110,15 +110,15 @@ board.** Same ground rules, same Phase 1–4 definitions.
 
 | Lane | Role | Output file | Status | Since / note |
 |---|---|---|---|---|
-| A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | survey landed 2026-11-13 (QA pass P1 pending) |
-| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 landed 2026-11-13 (QA pass P2 pending) |
-| A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | donor map landed 2026-11-13; QA P4 DONE (8 OK / 2 minor pins, 0 WRONG — fixes routed to A3); 42-M4 GO + 50 GATED verdicts relayed |
-| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge v1 landed 2026-11-13 (QA pass P3 pending) |
-| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 built (279 MB tsv + tracked zip; .gitignore approved); round-4 PART 1 landed 2026-11-13 (pre-registered nearest-miss baseline; PART 2 pending 70-series) |
+| A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | survey landed 2026-11-13; QA P1 DONE (10 OK / 2 minor, 0 WRONG — Part 2; fixes routed to A1); PNT+ deep-dive addendum `survey/axiommath-pntplus.md` landed (commit pending batch) |
+| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | bridge v1 + dictionary-zone update landed 2026-11-13 (QA pass P2 pending) |
+| A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | donor map + Liu-1 erratum landed; 42-M4/50-M2 execution specs landed; QA P4 DONE (8 OK / 2 minor pins — Part 1); 42-M4 GO + 50 GATED verdicts relayed; M4a.lean on disk (mid-flight, uncommitted) |
+| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | bridge v1 + zone update + 72-prework + quantum-info substrate map landed 2026-11-13 (QA P3 pending; Physlib-import premise flag from QA P5c routed) |
+| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 built + zip tracked; round-4 PART 1+2 landed (QR-D precision pass — Liu-1/CT split, binding) + VERDICTS Cycle-2 addendum; dossier-level PART-2 queries vs 70–72 landing next |
 | A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
 | A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
 | A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | close-outs DONE 2026-11-13: 52 M1 VERIFIED-GREEN (`52-note.md`), 20 runs recorded GREEN (`20-note.md`) |
-| A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | New 70-series dossiers from A1–A4 outputs; `candidates/TEMPLATE.md` applies |
+| A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | 70/71/72 FINAL, 73 pre-registered (Hecke–Tate), 75 in flight; dossier production parallelized with A4 (74 = surprisal-moment-hierarchy-ceilings); QA P5a–c DONE (22 OK / 2 minor, 0 WRONG — Part 3; fixes routed) |
 | H | helper | `STATUS.md` + `INDEX.md` + `research/qa/*` + `TEMPLATE.md` maintenance + all repo commits | RUNNING | Same charter as main run; runs Cycle-2 commit log below |
 
 File ownership, carried over verbatim from the main run: every file under `research/` has
@@ -136,7 +136,7 @@ orchestrator-owned.
 | 10 | 10-z3: L1 counter combinators, then L2 `PolyTVal` | IN FLIGHT (A6) | M1 (= L3) green + axioms-clean 2026-11-10; L1/L2 are the open items |
 | 52 | 52 unified CCR Fock layer | **M1 VERIFIED-GREEN** (A8 close-out 2026-11-13, see `pilots/52-note.md`; main-run FAIL was mid-iteration, superseded same-day by run14-green + axcheck-final) | reproduced Cycle 2: `m1-run15-cycle2-green` + `axcheck-cycle2` (15 axiom-lines, 0 sorryAx); `_unattributed/` emptied (run2 attributed); M2 = weighted refinement + adjointness layer |
 | 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`); A3: no hCZ/Card20 deltas — Hecke object layer may switch openai→DZDF at 31/32 (note only) |
-| 50 | 50-M2-31/32 (donor-swap; A3 verdict in) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md` |
+| 50 | 50-M2-31/32 (donor-swap; A3 verdict in) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable by DZDF (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md`; NOTE (2026-11-13): hQRH ζ-class formally dischargeable at FULL strength via external Liu-1 donor (registration `2d5a663`; probe pending A7/G7) |
 | 42 | 42-M4 donor swap to V2 | **GO — spec in flight (A3), pilot lane pending** (blueprint landed: `pilots/42-M4-blueprint.md`) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
 
 A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict summary): **20/22/21/40 — NO donor deltas** (hCZ + stop-at-M4 statuses unchanged; 20's Hecke object layer may switch openai→DZDF at 31/32 — note only); new cross-cutting donor `dedekindAbelianQuotient` (general-abelian factorization, 70-series feeder). QA P4 executed: 8 OK / 2 minor pins / 0 WRONG (`qa/cycle2-qa-plan.md` Part 1); two locator fixes routed to A3.
@@ -147,6 +147,20 @@ zero-free Re s > 0.8749570 for every Dirichlet L incl. ζ; B_new < 7/8 ⇒ its h
 strictly contains the 7/8 region, so pilot 50's `hQRH` class (ζ/Dirichlet) is formally
 dischargeable at full strength (external donor #2 of the QR-D cluster, after DZDF).
 Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated.
+
+**External donor-candidate register** (decision-traceability for sibling growth):
+- Liu-1 (`liubaiying101/Slightly-improved-…`): **REGISTERED** (clone + AGENTS.md, commit
+  `2d5a663`); consumer = pilot 50 `hQRH` class; probe = A7/G7 (pending).
+- upstream PNT+ (`AlexKontorovich/PrimeNumberTheoremAnd` @ `938912bb`, 2026-11-12):
+  **DEFER-WATCHLIST** per A1-3's recommendation (`novelty/pntplus-glue-as-donor.md` §c) —
+  facts: v4.35.0 / mathlib `56a00585` (a generation behind our pin); sorry-free asymptotic
+  core incl. StrongPNT (triad via `#guard_msgs`); 272 sorry-lines confined to
+  IEANTN/IwaniecKowalskiCh1; 39/75 Mathlib-subtree files drifted fork-vs-upstream; tree
+  mid-flight (IEANTN → teorth/IEANTN). **Registration triggers (verbatim):** T1 a T2a
+  pilot wanting the upstream Borel–Carathéodory chain (StrongPNT.lean:76–1536); T2 a
+  PNT-AP/Chebotarev consumer (overlaps tauceti); T3 upstream reaching v4.36-class pins.
+  Until a trigger fires: cite as external-formal-prior-art (Liu-1 convention); do NOT
+  clone.
 
 ### Cycle-2 commit log (H)
 
@@ -174,7 +188,19 @@ Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated.
   `qa/cycle2-qa-plan.md` Part 1 (P4 executed: 8 OK / 2 minor / 0 WRONG; V1
   Challenge-file sorry caveat recorded; A3's §c(2) QA flag CONFIRMED load-bearing).
   (0079dc3)
-- 2026-11-13 — `Cycle 2: register Liu-1 zero-free repo as sibling donor (read-only)`
-  (this commit): shallow clone at `/home/doz/zcode-workdir/liu-zerofree/` (rev `7d10420`,
+- 2026-11-13 — `Cycle 2: register Liu-1 zero-free repo as sibling donor (read-only)`:
+  shallow clone at `/home/doz/zcode-workdir/liu-zerofree/` (rev `7d10420`,
   v4.34.1); AGENTS.md sibling bullet; STATUS donors note. No probe/build (A7 owns G7).
-  Pilot-50 row update (Liu-1 discharge note) queued for the next STATUS touch.
+  (2d5a663)
+- 2026-11-13 — dossier-wave + lane-update series: `A1 PNT+ deep-dive addendum` (f647e69);
+  `dossiers 70/71/72 final + 73 pre-registered; TRIAGE/REPORT Cycle-2 addenda` (539a1c2 —
+  the held TRIAGE/REPORT addenda released here per relay); `A2 function-field bridge
+  update` (d056c80); `A4 area-law update + 72 prework + substrate map` (6b0791c); `A3
+  donor-map Liu-1 erratum + 42-M4/50-M2 specs` (9d3949f); `A5 round-4 part 2 + VERDICTS
+  Cycle-2 addendum` (8a109fd); `A1 PNT+-glue donor map (upstream DEFER-WATCHLIST)`
+  (124cdf9).
+- 2026-11-13 — `Cycle 2: H — dossier-wave board/INDEX + QA P5a-c` (this commit): STATUS
+  donor-candidate register (upstream-PNT+ DEFER-WATCHLIST, triggers T1–T3 verbatim),
+  pilot-50 Liu-1 note, A-lane landing notes, A9 wave row; INDEX rows for the wave (70–73
+  landed, 74/75 [expected], pntplus ×2, substrate map, pilot specs/prework); QA Part 3
+  (P5a–c: 70 7/1, 71 8/0, 72 7/1 — 0 WRONG; Physlib-premise flag routed to A4/A7-G5).

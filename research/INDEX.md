@@ -110,18 +110,30 @@ Nothing remains [expected] from the main run: every file owned by a lane is on d
 
 ## Cycle 2 (opened 2026-11-13) — AxiomMath corpus as fifth source
 
-Entries below are **[expected]** unless marked landed (charter addendum: `RESEARCH.md`
-§ Cycle 2; live board: `STATUS.md` § Cycle 2). H updates statuses as files land.
+Statuses as of 2026-11-13 night (charter addendum: `RESEARCH.md` § Cycle 2; live board:
+`STATUS.md` § Cycle 2). QA passes P1/P4/P5a–c executed — `qa/cycle2-qa-plan.md` Parts 1–3.
 
-- `research/survey/axiommath.md` | P1 | [expected] (A1) | Phase-1 survey of the six AxiomMath repos: territory, terminal points, external deps, bridging hooks.
-- `research/bridges/function-field.md` | P2 | [expected] (A2) | Function-field bridge: Weil conjectures (RH over 𝔽_q) ↔ zeta/quasi-RH cluster.
-- `research/bridges/area-law.md` | P2 | [expected] (A4) | Area-law bridge: AreaLaw2D ↔ openai-math family 265 ↔ linear algebra.
-- `research/novelty/axiommath-as-donor.md` | P2/P3 support | [expected] (A3) | Donor remap: AxiomMath theorems as donors for main-run candidates (hQRH discharge via Cureton–Thorner; ZetaZerosV2 for 42).
-- `research/novelty/round-4.md` | P2/P3 support | [expected] (A5) | Novelty round 4 over the 70-series dossiers.
-- `research/qa/make-decl-index-v2.sh` | tooling | [expected] (A5) | decl-index builder v2: adds the axiommath trees to the cross-corpus declaration index (v1: `qa/make-decl-index.sh`).
-- `research/feasibility/axiommath-donor-probes.md` | support | [expected] (A7) | Donor-consumption probe results against the axiommath builds on our pin.
-- `research/feasibility/probe/logs-g/` | evidence | [expected] (A7) | Modal run logs for the Cycle-2 donor probes (logs-g series; persisted per the log-rescue lesson).
-- `research/candidates/70-*.md` | P3 | [expected] (A9) | First Cycle-2 dossier (70-series; slug TBD by A9; TEMPLATE.md applies).
-- `research/candidates/71-*.md`, `research/candidates/72-*.md` | P3 | [expected] (A9) | Dossier skeletons 71/72 (slugs TBD by A9).
-- `research/pilots/10/L1*.lean`, `L2*.lean` (+ logs) | pilot | [expected] (A6) | Pilot-10 continuation: L1 counter combinators, then L2 `PolyTVal` (dir `pilots/10/` already indexed above).
-- `research/pilots/52/`, `research/pilots/20/` (close-out evidence) | pilot | [expected] (A8) | 52 fix-or-close; then 20 M1 close-out (run recording + seam note).
+- `research/survey/axiommath.md` | P1 | landed 2026-11-13 (A1; QA P1: 10 OK / 2 minor) | Phase-1 survey of the six AxiomMath repos: territory, terminal points, external deps, hooks H1–H7 (incl. the H1 correction: DZDF does not discharge 7/8 binders).
+- `research/survey/axiommath-pntplus.md` | P1 addendum | landed 2026-11-13 (A1-2) | PNT+ deep dive + §RvM triplication; upstream-PNT+ inspection (rev `938912bb`).
+- `research/novelty/pntplus-glue-as-donor.md` | P2/P3 support | landed 2026-11-13 (A1-3) | PNT+ glue donor map; upstream registration verdict DEFER-WATCHLIST (triggers T1–T3 in STATUS).
+- `research/bridges/function-field.md` | P2 | v1 + dictionary-zone update landed 2026-11-13 (A2; QA P2 pending) | Weil ↔ quasi-RH cluster; zones FF-EZ1–FF-EZ5; Stacks-wall binder posture.
+- `research/bridges/area-law.md` | P2 | v1 + zone update landed 2026-11-13 (A4; QA P3 pending; Physlib-import premise flag from QA P5c) | AreaLaw2D ↔ openai family 265 ↔ linalg; zones AL-EZ1–AL-EZ4.
+- `research/feasibility/quantum-info-substrate.md` | support | landed 2026-11-13 (A4) | Quantum-info substrate gap map over mathlib `ff2494ea` (Phase-3 feasibility input for 72/74).
+- `research/novelty/axiommath-as-donor.md` | P2/P3 support | landed + Liu-1 erratum 2026-11-13 (A3; QA P4: 8 OK / 2 minor pins) | Donor remap: 50 PARTIAL(31/32), 20 object-layer switch, 42 ζ-side DISCHARGES + M4 spec (strip-distinct QA fix), 22/21/40 no deltas; `dedekindAbelianQuotient` feeder.
+- `research/novelty/round-4.md` | P2/P3 support | PART 1+2 landed 2026-11-13 (A5) | Cycle-2 novelty protocol + pre-registered nearest-miss baselines (zones FF/AL/QR-D) + the §5 QR-D precision pass (Liu-1/CT split — binding on dossiers 70/50).
+- `research/novelty/VERDICTS.md` | P4 input | Cycle-2 addendum landed 2026-11-13 (A5) | Rows 71–74 zone-level pre-fills, `[incoming-dossier]` cells for A9.
+- `research/qa/make-decl-index-v2.sh` + `decl-index-v2.tsv` (gitignored; `.zip` tracked) | tooling | DONE 2026-11-13 (A5) | decl-index v2: 13 corpus labels incl. the six axiommath trees + vendor-CFT; vendoring caveats documented.
+- `research/candidates/70-unconditional-zetaK-zero-confinement.md` | P3 | FINAL 2026-11-13 (A9; QA P5a: 7 OK / 1 minor) | Part A posture upgrade (M2-31/32, GATED on G1) + Part B abelian-assembly discovery content; per-class novelty split vs Liu-1/Liu-2.
+- `research/candidates/71-function-field-splane-dictionary.md` | P3 | FINAL 2026-11-13 (A9; QA P5b: 8 OK) | Renamed from 71-simple-zero-proportions on A2's bridge landing; FF-EZ1 dictionary + FF-EZ5 window-comparison corollary; falsity-trap respected.
+- `research/candidates/72-area-law-inertial-defect.md` | P3 | FINAL 2026-11-13 (A9; QA P5c: 7 OK / 1 minor — Physlib premise flag) | Gap-to-inertia dictionary (P1), certificate route (P2, HYPOTHESIS), Kuwahara no-go gate (C-neg), AL-EZ3 interface as M1.
+- `research/candidates/73-function-field-hecke-tate.md` | P3 | pre-registered skeleton 2026-11-13 (A9; FF-EZ3) | Highest-ceiling Stacks-blocked zone; no QA due until filled.
+- `research/candidates/74-surprisal-moment-hierarchy-ceilings.md` | P3 | [expected] (A4, AL-EZ2) | Moment-hierarchy ceilings for surprisal decoupling (secondary of 72 promoted).
+- `research/candidates/75-abelian-assembly-zetaL-proportions.md` | P3 | [expected] (A9, in flight) | Part B of dossier 70 promoted to its own dossier.
+- `research/feasibility/axiommath-donor-probes.md` | support | [expected] (A7) | Donor-consumption probe results (G1 DZDF build, G3 Weil, G5 Physlib premise re-check, G7 Liu-1).
+- `research/feasibility/probe/{ProbeG1–G5c, gprobe.py, run_gprobe.sh}` + `probe/logs-g/` | evidence | on disk 2026-11-13, UNCOMMITTED (A7 mid-flight; deliverable .md pending) | Cycle-2 donor probes; commit with A7's verdict file.
+- `research/pilots/42-M4-blueprint.md` + `pilots/42/M4a.lean` | pilot | blueprint landed 2026-11-13 (A3); M4a.lean on disk uncommitted (mid-flight) | The V2 donor-swap pilot (GO).
+- `research/pilots/50-M2-31-32-spec.md` | pilot | landed 2026-11-13 (A3) | The unconditional [1/32, 31/32] strip spec (GATED on A7/G1; Liu-1 third route).
+- `research/pilots/72-prework.md` | pilot | landed 2026-11-13 (A4) | EZ3-first pilot-72 prework (import tiers, binding constraints).
+- `research/pilots/10/L1.lean` + logs | pilot | on disk, UNCOMMITTED (A6 mid-flight) | L1 counter combinators in iteration.
+- `research/pilots/52/`, `research/pilots/20/` close-outs | pilot | CLOSED 2026-11-13 (A8; commits 6263625/26bd2bc) | 52 M1 VERIFIED-GREEN; 20 runs recorded GREEN; ledger §8.
+- Sibling donor: `liu-zerofree/` registered 2026-11-13 (AGENTS.md; commit 2d5a663) — read-only reference, probe pending A7/G7.

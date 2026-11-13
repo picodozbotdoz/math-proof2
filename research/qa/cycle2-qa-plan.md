@@ -150,3 +150,161 @@ QA flag) verified exact.
 **Disposition:** both minors are one-edit locator fixes in A3's file — routed to A3 via the
 orchestrator (not H's to apply; A3's file). No load-bearing change; the M4-GO and
 50-GATED verdicts stand as written.
+
+---
+
+# Part 2 (2026-11-13, pass P1) — survey/axiommath.md (A1)
+
+Triggered by A1's landing. Quota Q1: 12 claims, ≥2 per repo (all six), ≥4 axiom-hygiene
+claims verified directly against the donor repos. Roots: `AX = /home/doz/zcode-workdir/axiommath`.
+
+**Tally: 10 OK, 2 MINOR, 0 WRONG.** Every hygiene claim (the donor-consumption gate)
+verified against the repos directly; the two minors are a token count and a docstring-vs-def
+pin.
+
+1. DZZF Challenge statements — OK. `main` at `Challenge/DedekindZetaChallenge.lean:30`
+   (verbatim ∃f/differentiable-off-{1}/zero-free shape), `heckeCorollary` at `:34` with the
+   `(s ≠ 1 ∨ ¬χ.IsPrincipal)` exclusion; both `sorry` placeholders exactly at `:32,:41`.
+2. DZZF proof-chain pins — OK. `cyclotomic12_context` (`TwelfthCyclotomicExtension.lean:10`)
+   → `mu12_continuation_ne_zero` (`TwelfthRootNonvanishing.lean:13`) →
+   `dedekindZeta_zeroFree_of_abelian_extension` (`AbelianZeroTransfer.lean:20`), all exact.
+3. DZZF hygiene — OK. Word-boundary `sorry` over the repo excl. `vendor/`: **2 tokens, both
+   the Challenge placeholders**; `formalization.yaml:110` `axioms: ["propext", "Quot.sound",
+   "Classical.choice"]` (inside the cited :92–110 block, with the per-result :115/:120
+   echoes).
+4. V2 counting vocabulary — OK. Survey's Challenge-layer pins exact (`Challenge/Basic.lean`
+   :44 nontrivialZeros, :53 zeroCount ∑ᶠ, :62 distinctZeroCount ncard, :66 onLineCount,
+   :76 simpleOrOnLineCount) AND the library copies at `ZetaZeros/Definitions.lean:47,56,70`
+   agree — the dual-home characterization holds.
+5. V2 theorem pins + constants — OK. `thm_simple`/`thm_distinct`/`thm_average`/
+   `thm_simple_or_critical` at `Challenge/Basic.lean:209,217,229,238`; constants block
+   :197–203 with C₀/C₁ strings verbatim; **C₂ recomputed = 0.8876200082 exactly as claimed**.
+6. V2 hygiene + RvM — OK. `sorry` in exactly one file, `Challenge/Basic.lean`, **12 tokens**
+   (the 12 comparator placeholders); `theorem riemannVonMangoldt` at
+   `ZeroCount/RiemannVonMangoldt.lean:465`.
+7. V1 binder edition — OK. `def RiemannVonMangoldt : Prop` (`Defs.lean:133`),
+   `def PairCorrelation : Prop` (`:143`); `simple_proportion_lower (hRvM :
+   RiemannVonMangoldt) …` (`Main.lean:33`); Challenge carries exactly **6 sorries**.
+8. PNT+ PNT-ladder pins — OK. `theorem MediumPNT : ∃ c > 0, …` at `MediumPNT.lean:3714`;
+   StrongPNT present only as commented-out decl + `-- sorry` at `StrongPNT.lean:1883–1885`
+   (removed, not proved — as the survey's §2b says); `WeakPNT` at `Wiener.lean:2352`.
+9. PNT+ hygiene — MINOR (count; classification CONFIRMED). Load-bearing claim "ALL sorry
+   tokens in comments/docstrings" verified: the 9 word-boundary hits are
+   `StrongPNT.lean:1885` + `PerronFormula.lean:376` (both `--`-commented) + 7 docstring
+   prose lines (FKS2 ×4, Kadiri ×3); plus 3 `sorry_using` comment hits in
+   GeneralMeromorphic.lean = 12 visible vs the claimed 14 — count slip only, no bare
+   `sorry` proof step exists. `axiom qc` at `Tactic/AdditiveCombination.lean:176` is inside
+   the docstring example block, as claimed.
+10. Weil headline pins — OK. `satisfiesWeilEstimate` (`DeligneWeilConjecture.lean:367`),
+    `exists_mul_zetaSeries_eq` (`ZetaRationality.lean:170`), LeanEval
+    `weil_conjectures` (`Weil/LeanEval/WeilConjectures.lean:185`).
+11. Weil hygiene — OK. `sorry`/`native_decide` over the repo: **0 hits**; README :118–125
+    carries the `#print axioms` recipe + standard-triad statement.
+12. AreaLaw2D statement pins + hygiene — MINOR (one pin; hygiene OK). `HasGlobalGap` :185,
+    `AreaLaw` :202, `AreaLawCorollary` :228, `cylinderAreaLaw3D`/`cylinderAreaLawOfPlanar3D`
+    at `Cylinder3D.lean:574,526` all exact; but `def VertexAreaLaw` sits at **:214** (:212 is
+    its docstring). Hygiene exact: 3 real `sorry` tokens at `Challenge/Basic.lean:77,82,259`
+    + 2 prose hits in `OpenAI/Statements.lean` — matching "5 (3 comparator + prose)".
+
+**Disposition:** the two minors (9: token count 12-vs-14; 12: VertexAreaLaw :212→:214) are
+one-edit fixes in A1's file — routed to A1 via the orchestrator. Donor-consumption gate
+unaffected: the six repos' hygiene claims all stand as surveyed.
+
+---
+
+# Part 3 (2026-11-13, passes P5a–P5c) — dossiers 70 / 71 / 72 (A9)
+
+Triggered by the dossier-wave landing (commit `539a1c2`). Quota Q5: 8 claims each, ≥3
+novelty-side grep re-runs, ≥2 statement-precision checks vs donor/pilot sources. Dossier 73
+is a pre-registered skeleton — no QA due until filled. Roots: axiommath clones, mathlib
+checkout, zeta23, openai OAI, in-repo pilots.
+
+**Tallies: 70: 7 OK / 1 MINOR / 0 WRONG · 71: 8 OK / 0 MINOR / 0 WRONG · 72: 7 OK / 1
+MINOR / 0 WRONG.**
+
+## P5a — 70-unconditional-zetaK-zero-confinement
+
+1. `abelianFactorization` (`AbelianRayCharacterFactorization.lean:62`) — OK, theorem line
+   exact (Part B's donor identity).
+2. `heckeFunctionalEquation` (`FunctionalEquation.lean:12`; principal `FunctionalEquation/
+   Principal.lean:14` with the `IsTotallyComplex F` hypothesis; nonprincipal
+   `Nonprincipal.lean:15`) — OK, all three exact.
+3. `trivialRayCharacter` (`Characters/TrivialCharacter.lean:14` def, `:27` apply) — OK.
+4. mathlib F1 pins — OK. `zeta_eq_tsum_one_div_nat_cpow` RiemannZeta.lean:207,
+   `riemannZeta_one_sub` :178, `le_analyticOrderAt_add` Analysis/Analytic/Order.lean:228,
+   `IsCompact.inter_riemannZetaZeros_finite` LSeries/ZetaZeros.lean:68,
+   `IsTotallyComplex` NumberField/InfinitePlace/TotallyRealComplex.lean:210 — the last two
+   cited by short path but file-unique, lines exact.
+5. mathlib novelty greps — OK. `'31 / 32'` → 0 files; `'1 / 32'` → exactly the 2 claimed
+   hits in `Tactic/Inclusion/Extension/IntervalDyadicReal/Exp.lean` (:20,:82);
+   `dedekindZeta_residue_ne_zero` at DedekindZeta.lean:72 = the sole dedekindZeta-zero
+   hit. zeta23 `'dedekind'` → 0; tauceti `'31 / 32'` → 0 (the strip-convexity
+   disambiguation at `NumberTheory/LFunctions/Zeros/Completion/FiniteOrder.lean:17` exact).
+6. axiommath novelty greps — OK on the five non-DZDF repos (`'31 / 32'` → 0 everywhere).
+7. DZDF `1 / 32` claim — **MINOR**. Dossier: "`1 / 32`/confinement occur **nowhere**" in
+   DZDF. Actual: the token `1 / 32` occurs **4×** (excluding `31 / 32` substring matches) —
+   `ZeroDetection/Smoothing/SmoothedZeroPrefixes.lean:73,:130` and
+   `Moments/Principal/Contour/Comparison.lean:19` (+1) — all internal proof constants
+   (a smoothing weight, a savings inequality), **none a confinement statement**. Substance
+   holds; the token-level "nowhere" is false as written. One-edit rewording, routed to A9.
+8. pilot-50 anchors — OK. `IsNontrivialZeroP50` M1.lean:33, `strip_confinement` :44,
+   `_mem` :75 / `_set` :85, `hFEχ` block Dirichlet.lean:44–46 — all exact.
+
+## P5b — 71-function-field-splane-dictionary
+
+1. Weil zeta-fraction form — OK. `exists_zetaSeries_mul_prod_even_eq_prod_odd` at
+   `WeilRiemannHypothesisForm.lean:206`; Deligne clause at :212–213 verbatim
+   (`‖z‖ = (Fintype.card k : ℝ) ^ ((j : ℝ) / 2)`).
+2. Weil defs — OK. `pointCountOfDegree` Definitions.lean:66, `zetaSeries` :87;
+   `coeff_pointCountSeries`/`logDerivative_zetaSeries` at **Defs/**…`/Trace/ZetaSeries.lean`
+   :97/:144 — exact lines, cited by short path (the Defs/ mirror tree; the Trace/ file is
+   68 lines and lacks both) — note, not an error.
+3. Base change — OK. `rationalFrobeniusCharpolyReverse_eq_comp_of_comp_specAlgebraMap_eq`
+   at `FieldOfConstantsFrobenius.lean:163` verbatim.
+4. Stacks wall — OK. `Weil/Definitions.lean` and `DeligneWeilConjecture.lean` import
+   `StacksFrontier.*` exactly as claimed (the binder-posture premise).
+5. mathlib FF-zeta absence — OK. `zetaFunction|zetaSeries` → 0 files;
+   `AlgebraicGeometry/EllipticCurve/LFunction.lean:43–84` = localPolynomial→LSeries (the
+   BSD Euler-factor object; short-path note).
+6. tauceti genus-1 layer — OK. `HasseBound.lean:44` (`frobeniusTrace_sq_le_four_mul_card`),
+   `Isogeny/Frobenius/Zeta.lean:201` (zeta factorization) and `:244` (eigenvalue norm),
+   `Supersingular.lean` present (the falsity-trap anchor).
+7. ZZV2 multiset layer — OK. `IsConjInvariant` Challenge/Basic.lean:114; inequalities
+   :146/:155/:169/:182; constants C₀/C₁/C₂ re-verified in Part 2.
+8. LeanEval bundle — OK. `weil_conjectures` at `WeilConjectures.lean:185` (Part 2 item 10);
+   the point-count clause at [E:F] = m present in the bundle.
+
+## P5c — 72-area-law-inertial-defect
+
+1. AreaLaw2D statement pins — OK. `pureState` :191, `condExpect` :240,
+   `PositiveReplacement` :259 (Statements.lean).
+2. Region layer — OK. `ptrace` PartialTrace.lean:25; `entropy_eq_H` State.lean:75,
+   `entropy_le_log_card` :160, `regionEntropy` :198 — all exact.
+3. Proof layer — OK. `areaLaw` Transfer.lean:361, `positiveReplacement` :136,
+   `marginalTails` :228 — all exact.
+4. openai PEPS pins — OK (all six): `FullSystemGap` :74, `MainStatement` :97,
+   `reducedDensity` :119 (Gram form), `vonNeumannEntropy` :127, `boundaryCard` :130,
+   `UniformAreaLaw` :135 (`OAI/MathematicalPhysics/PEPSFilters/Basic.lean`).
+5. pilot-01 PROVED anchors — OK. `posIndex_conj_le` port/09:846, `master_identity` :1983,
+   `rank_trace_mult_k_of_master` :2019; `kc`/`kc_of_le` port/08:1640/:1654.
+6. Novelty greps — OK. posIndex/rank-trace/inertia over AreaLaw2D → 0 files;
+   `partial.?trace|HasGlobalGap|spectral gap` over Mathlib → 0 files.
+7. zeta23 donor anchors — OK. `posIndexAbove` at LinAlg/PosIndex.lean:50 (the cited :50),
+   `posIndex_conj_le` Inertia.lean:51, `rank_trace_mult_k` **ZeroSide**/RankTraceMult.lean:369,
+   `cauchySchwarz_count` LinAlg/Weyl.lean:89 — all line-exact (dossier writes the RHLinalg
+   namespace as a path prefix; files live in LinAlg/ + ZeroSide/ — note).
+8. **Physlib dependency claims — MINOR (substantive tilt).** Three sub-claims checked:
+   (a) "the region layer imports [Physlib] directly (`PartialTrace.lean:3`)" — FALSE as
+   written: :3 imports mathlib `Kronecker`; Physlib appears in that file only in
+   docstrings (:9,:13), and `import Physlib*` occurs **nowhere** in AreaLaw2D's own tree
+   (0 files, vendor/.lake excluded); (b) lakefile pins Physlib `a50684a1…` — TRUE
+   (`lakefile.toml:37–39`); (c) "manifest is stale (`db584cd6`)" — FALSE: the manifest's
+   Physlib rev is also `a50684a1…`. Consequence worth routing to A4/A7/G5: with zero
+   in-tree Physlib imports, the "consumption cost = staging Physlib on Modal" premise may
+   be void — G5 might reduce to a no-op check. The dossier's fallback (re-derive the
+   region core, ≈300 LoC) remains valid either way.
+
+**Disposition:** 70 item 7 and 72 item 8 → one-edit fixes routed to A9 (and A4's bridge
+§0.1/§5 for the Physlib locator, plus an A7/G5 premise flag); 71 clean. No load-bearing
+statement affected: 70's confinement-novelty substance holds; 72's pilot plan is if
+anything CHEAPER than written (Physlib likely unstaged).
