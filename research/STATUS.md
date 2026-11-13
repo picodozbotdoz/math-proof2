@@ -156,10 +156,15 @@ A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict su
 zero-free Re s > 0.8749570 for every Dirichlet L incl. ζ; B_new < 7/8 ⇒ its half-plane
 strictly contains the 7/8 region, so pilot 50's `hQRH` class (ζ/Dirichlet) is formally
 dischargeable at full strength (external donor #2 of the QR-D cluster, after DZDF).
-**Constant caution (A5 audit):** README quotes 0.874957069799 but the PROVED Lean constant
-is 34999/40000 = 0.874975 (`beta_star_le`, RHZeroFreeExtension.lean:17) — both < 7/8, so
-the discharge direction is unaffected; treat as **statement-level only** until A7/G7 probes.
-Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated (with caution).
+**Constant story (resolved 2026-11-13 by A1's full-tree sweep, `novelty/liu1-hygiene-sweep.md`;
+supersedes the earlier A5 "README↔Lean mismatch" caution):** README's 0.874957069799 = Lean's
+`B_new = (1507 − 2√921)/1653` exactly (the ~5e-10 delta was the paper's decimal); the public
+entry deliberately uses weakened rational `B_r = 34999/40000` with `boundary_order :
+B_new < B_r < 7/8` PROVED and consumed by the headlines. Full-tree hygiene: 0 sorry /
+0 axiom / 22-22 expected names. **Replay prerequisite (H note):** no `vendor/` tree ships —
+`verify.py` needs manual population of 2,925 `vendor/OAI` modules @ openai/math `adc7f124`
+(closure_manifest pins; no fetch script). Still **statement-level only** until probed on our
+pin (A7/G7). AGENTS.md sibling bullet updated to the resolved phrasing.
 
 **Untracked-by-decision:** `AGENT_INSTRUCTION_1.md` (repo root) is a user-placed instruction
 to the orchestrator (concurrency audit, being acted on) — LEAVE in place, UNTRACKED, never
@@ -197,6 +202,13 @@ QA fixes-in-place (trivial-and-uncontested class, erratum lines). A2's census-co
 - **hexagonmath.org archive sweep is ORCID-gated** (A5 flag, 2026-11-13): novelty sweeps
   there are PASS-conditional via indirect evidence only (e.g. Liu-2's bibliography citing
   only CT); record this caveat on every claim whose absence-evidence rests on that archive.
+
+**QA routing note (orchestrator, 2026-11-13):** pass **Q7** (A7's
+`feasibility/axiommath-donor-probes.md` — G-verdicts incl. G1b-FAIL 62 errors/11 modules
+already cited by A1) is owned by **A5**; H does not duplicate it. H's remaining plan
+passes: Q5f (dossier 75) + P6a/b/e/f on lane-report triggers. `research/AGENTS-C2-DRAFT.md`
+(A1, 89 ln) is on disk and **held UNAPPLIED until cycle close** — then applied under the
+standing authorization with a commit.
 
 ### Cycle-2 commit log (H)
 
@@ -253,6 +265,18 @@ QA fixes-in-place (trivial-and-uncontested class, erratum lines). A2's census-co
   PartialTrace.lean:4; manifest mathlib stale db584cd6 — G5 staging cost stands);
   hexagonmath ORCID caveat recorded; VERDICTS C2 completeness glanced (rows 70–75 intact,
   73 [incoming], standing notes present). Cumulative plan tally: 0 WRONG. (4075e84)
+- 2026-11-13 — wave-3 series: `A7 donor-probe verdicts + ProbeG series + logs-g` (24e8d93);
+  `A9 dossier QA fixes + 73 filled + 75 revision + TRIAGE-C2 staging` (1bc1151); `A2 FF
+  sequencing memo + 71/73 prework + pilot-71 P0/P1` (28fe244); `A4 area-law/72-prework
+  fixes + pilot-72 C-neg start` (f329a8c); `A5 DLRT propagation + VERDICTS/CLAIMS-REGISTER
+  row updates` (c046e8e); `A1 survey fixes-in-place + spotchecks + liu1 hygiene sweep`
+  (abd8db3).
+- 2026-11-13 — `Cycle 2: H — QA Q5d/e + INDEX reconciliation + Liu-1 resolution` (this
+  commit): qa plan Part 5 (P5d 7/1, P5e 7/1, 0 WRONG; 73's hPur-correction and :12-locator
+  both CONFIRMED present; 74's u≠1 line queued to A4); INDEX reconciled (survey QA flips,
+  8 new rows); Liu-1 caution UPGRADED to the resolved triple phrasing (A1 sweep; AGENTS.md
+  + register) + vendor replay-prerequisite note; Q7 routed to A5; AGENTS-C2-DRAFT held
+  unapplied until cycle close.
 - 2026-11-13 — `Cycle 2: H — pilot-decision board, REPORT DLRT erratum, watch attributions`
   (this commit): Cycle-2 pilot decision recorded in the pipeline (slots 71-P2+73-C / 72-M1
   Tier-C; 75 deferred wave-4; 42-M4b + 50-M2-R1 gated continuations); REPORT §1 DLRT

@@ -409,3 +409,78 @@ consistent with ledger §6) ✓; no sorryAx ✓.
 Physlib correction above; everything load-bearing stands. Cumulative plan tally after
 Part 4: **P1 10/2, P4 8/2, P5a 7/1, P5b 8/0, P5c 7/1(+1 corrected by H), P2 9/1, P3 9/1,
 P6c 5/5, P6d 5/5 — 0 WRONG across all passes.**
+
+---
+
+# Part 5 (2026-11-13, passes P5d + P5e) — dossiers 73 / 74
+
+Reads after two stability polls of A9's write wave (no edits between polls). Quota Q5 each.
+
+## P5d — 73-function-field-hecke-tate (A9 fill, task A9-7). **7 OK / 1 MINOR / 0 WRONG.**
+
+Relay-specific checks first: **A2's hPur-honesty correction IS present** — the (C1)
+section carries the dated marker "(P)(i) UNCONDITIONALLY + (P)(ii) CONDITIONAL on `hPur` —
+not '(P) outright' as first drafted", matching the FF-sequencing memo (on disk,
+orchestrator-authorized header ✓); **the RayClassCharacter :12 locator fix IS present**
+("`Arithmetic/RayClasses/Character.lean:12` — locator fixed per A2's prework §b; the
+Challenge-file copy sits at `DedekindZetaChallenge.lean:14`").
+
+1. `RayClassCharacter` transplant source — OK: library def `Character.lean:12` (Q4) and
+   the Challenge copy verified at `DedekindZetaChallenge.lean:14` (`structure
+   RayClassCharacter … [NumberField F]` — the number-field typeclass the transplant
+   removes, as described).
+2. Weil rationality/eigenvalue binders — OK (carried, P2/P5b): 
+   `exists_rationalLFunction_mul_eq_polynomial` `LAdicTraceFormulaFinal.lean:51`;
+   `LFunctionRationalSheaf.lean:87` docstring; Stacks-wall imports `Definitions.lean:4–6,30` +
+   `DeligneWeilConjecture.lean:3–7`.
+3. **CFT-vendor "number-field-only" sweep — MINOR (characterization; conclusion holds).**
+   The load-bearing claim verified: `FunctionField|GlobalField\b` over the vendored
+   class-field-theory tree → **0 hits** — nothing function-field borrowable or competing.
+   But the dossier's (and A1-4's survey §(d)) phrasing "every `Tate` hit is Lubin–Tate" is
+   too strong: 637 `\bTate\b` hits include **Tate-cohomology / Tate-quotient** occurrences
+   (Herbrand-quotation context in `GaloisCohomology/Cyclic/Herbrand/…`) — a different
+   number-field Tate object, still not function-field Tate-thesis content. One-edit
+   rewording routed (A1-4 + A9).
+4. mathlib `FunctionField.lean` substrate — OK: field/ring definitions only
+   (`functionField_iff`, `ringOfIntegers`, `not_isField`, …), zero Hecke/ray-class content.
+5. tauceti Hecke layer number-field-only — OK: `NumberTheory/LFunctions/Hecke/` =
+   {Basic, Orthogonality, Primitive}.lean; zero function-field files under `LFunctions/`.
+6. hPur correction scoping — OK (item above): the correction matches A2's memo and is
+   consistently reflected in F3(d)/F4/proof-step 5 ("`hPur` stays a binder … it is the RH
+   for Kummer covers of ℙ¹").
+7. The falsity-trap scoping — OK: the dossier's reasoning (trap kills multiplicity
+   proportions; rationality/entirety/nonvanishing are per-curve deterministic statements;
+   Weil RH per-curve uniform and true) is internally consistent with round-4 §6.3's
+   Hermitian-curve pin and with 71's design rule.
+8. Tier-C import-freedom claim — OK: binder posture means mathlib + binders only
+   (consistent with bridge §5 and P2's Stacks-wall verification).
+
+## P5e — 74-surprisal-moment-hierarchy-ceilings (A4). **7 OK / 1 MINOR / 0 WRONG.**
+
+1. openai `EntropyMoments.lean` donor decls — OK, all seven pins exact: 
+   `dyadic_linear_bound` :24, `quadratic_bound` :68, `moment` :93, `entropy` :94,
+   `logMoment` :95, `moment_derivative` :120, `logMoment_derivative` :128.
+2. `MarginalTails` verbatim clause — OK: the 𝓑 definition (`1 + ∑ log²(e·card Reg)`) and
+   the MGF clause (`|u| ≤ (32√((1+c₀/g₀)𝓑))⁻¹ → log(∑ p_j e^{−u log p_j}) ≤ u·ρ.entropy +
+   512·e·(c₀/g₀)·𝓑·u²`) read verbatim at `Statements.lean:480–485`; surprisal convention
+   at :466. The dossier's hMGF binder transcription (ϑ := c₀/g₀) is faithful.
+3. `MState.sum_eigenvalues_eq_one` State.lean:164 — OK (P3-carried).
+4. zeta23 PairCeiling methodology source — OK: `ceiling_law256` at
+   `CeilingLaw256.lean:38` (and the `_decimal` variant at :53 — the main-run QA's pin; no
+   conflict), `ceiling_stability` `Stability.lean:305` ✓.
+5. mathlib absence — OK: `ceiling.?law|moment.?hierarchy` → 0 files.
+6. openai absence — **MINOR (count):** claimed 1 file
+   (`ContinuumCoulomb/…/AmplificationProgram.lean`, different sense); actual **2** (also
+   `NavierStokes/…/PlaneCoefficientTimeJets.lean` — jet hierarchy, equally unrelated).
+   Substance (no ceiling/hierarchy class theory anywhere in OAI physics trees) holds.
+7. AreaLaw2D absence — OK: `ceiling|bandwidth|moment.?class` over the AreaLaw + OpenAI
+   trees → 0 relevant.
+8. **The u≠1 conditioning line (A5's row-74 glue note): NOT YET CARRIED — queued.** The
+   dossier's m_u/H_α family is stated without the u ≠ 1 conditioning the
+   claims-register row now carries (grep: no u≠1/α≠-conditioning line; the only `u =`
+   occurrence is the Chernoff split point). Per the orchestrator's relay this is A4's
+   expected small edit (next A4 batch) — recheck at that landing; no score impact today.
+
+**Disposition:** P5d item 3 (Tate wording, A1-4 + A9) and P5e item 6 (count, A4) routed;
+P5e item 8 queued to A4's u≠1 edit. Q5f (dossier 75) queued to the next batch per the
+relay's time clause. Plan tally after Part 5: still **0 WRONG**.

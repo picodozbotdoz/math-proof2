@@ -15,8 +15,8 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 ## Phase 1 — surveys (research/survey/)
 
 - `research/survey/anthropics.md` | P1 | DONE (maintainer: H) | Survey of anthropics_formal-math (3sum-apsp, eth, zeta23): territory, sorry inventory, external deps, bridging hooks. QA fixes applied 2026-11-09.
-- `research/survey/tauceti.md` | P1 | landed 2026-11-09 (R1; DONE pending confirmation) | Survey of tauceti: AI-authored mathlib-downstream library of record scale (universal covers, reductive groups, Floer homology, …); git `d92acc5c0`. Not yet QA'd.
-- `research/survey/openai-math.md` | P1 | landed 2026-11-09 (R2; DONE pending confirmation) | Survey of openai-math: largest corpus (721 manuscripts, ~29.7M Lean lines); family-granularity map + deep dives on bridging targets. Not yet QA'd.
+- `research/survey/tauceti.md` | P1 | landed 2026-11-09 (R1); **QA'd 2026-11-13 (A1-5 fixes-in-place, `qa/tauceti-spotcheck.md`)** | Survey of tauceti: AI-authored mathlib-downstream library of record scale (universal covers, reductive groups, Floer homology, …); git `d92acc5c0`.
+- `research/survey/openai-math.md` | P1 | landed 2026-11-09 (R2); **QA'd 2026-11-13 (A1-5 fixes-in-place, `qa/openai-math-spotcheck.md`)** | Survey of openai-math: largest corpus (721 manuscripts, ~29.7M Lean lines); family-granularity map + deep dives on bridging targets.
 - `research/survey/mathlib-frontier.md` | P1 | DONE 2026-11-09 (R3) | Survey of mathlib checkout `ff2494ea`: zeta/L, computability, matrix inequalities, tensors — exists/missing/glue per zone. QA'd by H (9/12 OK, 3 minor).
 
 ## Phase 2 — bridge maps (research/bridges/)
@@ -137,3 +137,11 @@ Statuses as of 2026-11-13 night (charter addendum: `RESEARCH.md` § Cycle 2; liv
 - `research/pilots/10/L1.lean` + logs | pilot | on disk, UNCOMMITTED (A6 mid-flight) | L1 counter combinators in iteration.
 - `research/pilots/52/`, `research/pilots/20/` close-outs | pilot | CLOSED 2026-11-13 (A8; commits 6263625/26bd2bc) | 52 M1 VERIFIED-GREEN; 20 runs recorded GREEN; ledger §8.
 - Sibling donor: `liu-zerofree/` registered 2026-11-13 (AGENTS.md; commit 2d5a663) — read-only reference, probe pending A7/G7.
+- `research/pilots/FF-sequencing-memo.md` | pilot | landed 2026-11-13 (A2) | Function-field pilot sequencing memo (71-P2 → 73-C ordering basis for the slot decision).
+- `research/pilots/73-prework.md` | pilot | landed 2026-11-13 (A2) | Pilot-73 prework (Hecke–Tate, FF-EZ3 statement-only route).
+- `research/TRIAGE-C2-ROWS.md` | P4 staging | landed 2026-11-13 (A9, orchestrator-authorized) | Cycle-2 triage row staging; typesets into TRIAGE § Cycle-2 addendum at decision time.
+- `research/novelty/liu1-hygiene-sweep.md` | support | landed 2026-11-13 (A1) | Full-tree audit of the registered Liu-1 clone: constant story resolved (README = B_new exactly; entry uses weakened B_r with proved boundary_order), 0 sorry/0 axiom/22-22 names, vendor replay prerequisite.
+- `research/AGENTS-C2-DRAFT.md` | charter support | landed 2026-11-13 (A1); **held UNAPPLIED until cycle close** | Draft Cycle-2 conventions addendum for AGENTS.md (3 cited blocks; apply under standing authorization at close).
+- `research/qa/tauceti-spotcheck.md` | QA | landed 2026-11-13 (A1-5) | Spot-check driving the tauceti.md fixes-in-place (trivial-and-uncontested class).
+- `research/qa/openai-math-spotcheck.md` | QA | landed 2026-11-13 (A1-5) | Spot-check driving the openai-math.md fixes-in-place.
+- A5 erratum propagation (2026-11-13): `novelty/CLAIMS-REGISTER.md` row 42 + `novelty/RELATED-WORK.md` carry the DLRT GRH-conditional/fixed-quadratic-K qualifiers (VERDICTS §5.2(c) + REPORT §1 fixed by H; round-4 PART-2 rows updated).
