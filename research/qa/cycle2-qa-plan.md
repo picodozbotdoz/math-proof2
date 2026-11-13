@@ -535,3 +535,15 @@ log-rescue convention at close-out. Full P6 re-triggers on green + axcheck.
 
 **Plan tally after Part 6: P1 10/2 · P2 9/1 · P3 9/1 · P4 8/2 · P5a–f 45/4 · P6c/d 10/10
 OK · P6-72 partial — 0 WRONG across every pass.**
+
+**Part 7 — DLRT-erratum propagation sweep (H, 2026-11-14; executes A1 scan §1c open flag
+"DLRT erratum propagation (H)").** Corpus-wide grep for residual "unconditional 45%
+distinct"-class readings of DLRT 1908.04876. VERIFIED CORRECT: REPORT.md §1 (inline
+erratum) + §C2.1 (75 block, scoped phrasing), REPORT-INPUTS-C2.md §4 row (refreshed:
+CLAIMS-REGISTER row 42 applied at `c046e8e`), VERDICTS standing note 3 + row text,
+CLAIMS-REGISTER row 42 (qualifiers in place), TRIAGE-C2-ROWS (n3), dossier 75, round-4
+P2-3, A9's draft `articles/42M4-*` (corrected qualifiers at :135/:158). **3 residuals
+FLAGGED for relay (not edited by H):** `TRIAGE.md:137–138` (orchestrator-owned;
+"DLRT-2019 prior: only >45% distinct via SDP" lacks the GRH-conditional/fixed-K
+qualifiers), `candidates/42:355` (A9; must-cite line unqualified),
+`articles/42:28,:149` (A9; both DLRT mentions unqualified).

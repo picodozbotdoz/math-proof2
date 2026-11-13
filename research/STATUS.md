@@ -321,6 +321,17 @@ standing authorization with a commit.
   "Λ absent everywhere" gap TAKEN by a third party**, recorded donation-surface-note
   only). H QA on the batch: 5/5 OK, 0 WRONG (all relayed citation values verified in-file;
   A9's dossier-70 note-4 fold already on disk, values consistent — no lag).
+- 2026-11-14 — `Cycle 2: A1 — ITERATION4-SEED-DOSSIERS + scan updates + ledger §9
+  descent rows` (6a672a4, second drain): top-3 seeds AL-3D / LP-duality / ZZV2-λ
+  ([NOVELTY-CHECK-NEEDED] + [A5-triage-pending] marks respected); scan §1c tracker
+  standing-clock rewrite (static-asset curl protocol — no browser pass needed) + §3
+  note 9; ledger §9: P2 descent 6→4→2→1, C-neg 7→3→1 (run7), 11-M2 P11T3 GREEN (four
+  fixes green) / RedTm2 4→2. `Cycle 2: H — DLRT sweep + close TEMPLATE + INPUTS-C2
+  refresh` (this commit): Part-7 DLRT-erratum propagation sweep (qa/cycle2-qa-plan.md) —
+  all H/A5 surfaces correct, **3 residuals flagged for relay** (TRIAGE.md:137–138
+  orchestrator-owned; candidates/42:355 + articles/42:28,:149 A9-owned); REPORT-INPUTS-C2
+  §4 DLRT row refreshed (row-42 application recorded); STATUS cycle-close TEMPLATE
+  pre-staged at tail (NOT a verdict).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
@@ -401,3 +412,39 @@ Concurrency probe at this batch close: **8**.
   [TRIAGE-DECISION]); `qa/triage-decision-staging.md` (orchestrator input brief);
   provenance-header QA of the 5 new lane logs (A2/A3 complete; A7 headers present,
   verdicts pending — no violations); INDEX refreshed.
+
+## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
+fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
+
+Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C2.md`.
+
+**Final pilot outcomes:**
+
+| Pilot / probe | Verdict | Evidence |
+|---|---|---|
+| 71-P2 (FF landing theorems, A2) | [PILOT-VERDICT:71-P2] | [logs p2-run*; axcheck] |
+| 73-C skeleton (FF Hecke–Tate, A2) | [PILOT-VERDICT:73-C] | [logs; STOP-before-Q4 respected] |
+| 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only); upgrade [VERDICT] | [upgrade logs / M4-note] |
+| 10-L2 `PolyTVal` (A6) | [PILOT-VERDICT:10-L2] | [logs; full axcheck per axcheck_full.py] |
+| 11-M2 (A8) | [PILOT-VERDICT:11-M2] | [m2-run* logs; axcheck] |
+| 72-M1 Tier-C (A8, slot 3) | [PILOT-VERDICT:72-M1] | [logs] |
+| 72-C-neg Kuwahara gate (A4) | [PILOT-VERDICT:72-C-neg] | [run6/7+ logs; provenance headers prepended] |
+| G7b donor-pin axiom audit (A7) | [G7b] | [run19/20; gates 50-M2-R1 + Liu-1 posture] |
+| G5a Physlib staging / G6a Stacks pricing (A7) | [G5a] / [G6a] | [run20-retry / run21] |
+
+**Sweep:** [SWEEP] — FINAL-SWEEP-PLAN-C2 Steps A–C executed [date]; ledger §9 rows all
+FINAL-or-declared-drop; [N/N] staged files OK, 0 sorryAx, triad-only; machinery log
+`probe/logs/axcheck-c2-machinery-check.log`.
+
+**TRIAGE § Cycle-2 §decision:** typeset [date] from `TRIAGE-C2-ROWS.md` +
+`qa/triage-decision-staging.md`; top picks [ … ]; mirrored into REPORT.md §C2.6.
+
+**Articles:** [list of Cycle-2 articles landed, one per landing] — `articles/README.md`
+Cycle-2 section updated [date].
+
+**AGENTS-C2 addendum:** APPLIED [date, commit] per `qa/agents-c2-apply-plan.md`
+(7-edit pass; conflicts resolved as staged; draft header marked APPLIED).
+
+**Iteration-4 handoff:** groundwork `feasibility/ITERATION4-SCAN.md` +
+`ITERATION4-SEED-DOSSIERS.md` (+ [SEED-TRIAGE/CHARTER files]); charter
+[ITERATION4-CHARTER-DRAFT.md status]; branch dev/claude at [commit].
