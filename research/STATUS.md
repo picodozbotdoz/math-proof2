@@ -492,6 +492,12 @@ standing authorization with a commit.
   :17), complementing the :373–376 χ-discharged/ζ-residue note; TRIAGE sync "75 → 6.4
   DELIVERED-entry"). **Article-75 status: DRAFT (entry milestone LANDED, A4 formal
   report in)** — token-swap pending the sweep; P-b + N2 carried per the split verdict.
+- 2026-11-14 — batch-17: `A4 — Pb-design` (a1b665e; H QA glance: the offDiag call
+  EXPLICIT ("THE CALL (decided): doubled `offDiag` sum", :45), E1–E6 engine spec w/
+  budgets + friction points, guarded fallback in E3/§3, on-pin mathlib cites
+  (`BigOperators/Group/Finset/Basic.lean:1008`); [CHARTER-PENDING]/iteration-4 input).
+  **A4 Cycle-2 scope COMPLETE** (C-neg FINAL-GREEN + u≠1 edit + 75 FINAL-FOR-ENTRY +
+  headers + Pb-design staged for Iteration-4).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
