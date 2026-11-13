@@ -298,6 +298,14 @@ standing authorization with a commit.
   staging brief + board/INDEX` (this commit): REPORT.md Cycle-2 addendum pre-staged with
   fill-in placeholders; qa/triage-decision-staging.md (one-screen orchestrator input);
   QA pass on batch-2 landings 7/7 OK (cumulative 0 WRONG).
+- 2026-11-14 — `Cycle 2: A1 — ITERATION4-SCAN (next-cycle groundwork inputs) + ledger
+  71-P2 run2 row` (2dc7963, drain relay; ownership confirmed: `articles/*` = A9,
+  `feasibility/ITERATION4-SCAN.md` = A1 — commits held until each drain). `Cycle 2: H —
+  AGENTS-C2 apply-plan dry-run` (this commit): `qa/agents-c2-apply-plan.md` — the 7-edit
+  one-pass application sequence for the held draft (3 structural conflicts resolved:
+  liu-zerofree duplicate, xyz-CLI stale clause, pre-relaunch app list; AGENTS.md:54 B_new
+  decimal typo flagged for drive-by fix; STATUS slot-2/3 normalization wording staged at
+  its tail). Nothing applied.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
