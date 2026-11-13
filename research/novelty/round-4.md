@@ -401,8 +401,10 @@ many genera; FF statements must be family-averaged (Katz–Sarnak monodromy) or
 trace-formula-bounded.** [In-corpus note: the eigenvalue half of the trap is
 formally available — Weil's `satisfiesWeilEstimate` gives |αᵢ| = q^{1/2} per
 eigenvalue; the equality-forcing step is AM–GM, glueable in Lean.] Citations to
-verify to theorem-number precision before dossier text: HKT ch./Thm for Hermitian
-maximality + genus; vdG–vdV exact paper/theorem.
+verify to theorem-number precision before dossier text: ~~HKT ch./Thm for Hermitian
+maximality + genus~~ (**RESOLVED-PARTIAL 2026-11-14: cite HKT at Part-3 level or the
+four pinned papers — P2-11/§10; bare chapter number NOT citable**); vdG–vdV exact
+paper/theorem (**paper pinned Zbl 0729.11066; theorem number still open**).
 
 ## §7. Liu-1 external-donor audit (pointer)
 
@@ -454,7 +456,7 @@ moment-hierarchy sweeps; 75's abelian-assembly nearest-miss runs).
 | P2-8 | `abs:"certified bound" AND abs:"spectral"` (74's #3) | arXiv API | Noise + **2605.20509 "The Causal Bootstrap: Bounding Smeared Spectral Functions from Non-Perturbative Euclidean Data"** — method-adjacent (certified/optimization bounds on smeared spectral data, QFT domain); add as T3's method-neighbor nearest miss |
 | P2-9 | citations of AHS arXiv:2004.15009 proving LOWER bounds on achievable windows (74's #4) | Semantic Scholar | 23 citers (first page; **citer #1 is Kuwahara 2610.15199** — the cluster is connected). Keyword scan: only complexity-lower-bound papers (2020 circuit lower bounds for code-Hamiltonian low-energy states; 2022 quantum-proof complexity) — **NO citer proves class-side lower bounds on achievable entanglement windows**. 74's T1-floor / "class-side dual of AHS" positioning SURVIVES |
 | P2-10 | 74's load-bearing `EntropyMoments.lean:93` moment-object identification (coordinator-requested verification) | local read, openai-math `OAI/MathematicalPhysics/PEPSSubvolume/EntropyMoments.lean:85–132` + AreaLaw2D `OpenAI/Statements.lean:460–490` | **VERIFIED with one glue note.** :93 `def moment (p : ι → ℝ) (u : ℝ) : ℝ := ∑ i, (p i)^(1-u)` (namespace `PolynomialPEPS.Subvolume.MGFScalar`), :94 `entropy`, :95 `logMoment`, :128 `logMoment_derivative : HasDerivAt (logMoment p) (entropy p) 0` — all verbatim as 74 cites. AreaLaw2D `MarginalTails`' first clause bounds exactly `Real.log (∑_{0 < p j}, p j * Real.exp (-u * Real.log (p j)))` = `logMoment p u` (p j · e^{−u log p j} = (p j)^{1−u} on `0 < p j`) — the "two halves of family 265 each formalize one face of m_u" claim is CORRECT. Glue note: at **u = 1** the `Real.rpow` convention contributes 1 per zero eigenvalue (`Real.zero_rpow`: 0^b = 0 for b ≠ 0 but 0^0 = 1), so `moment p 1 = card ι` vs the filtered sum `#{j | 0 < p j}` — irrelevant inside MarginalTails' window \|u\| ≤ (32√((1+ϑ)𝓑))⁻¹, but 74's T3 LP layer should state u ≠ 1 explicitly |
-| P2-11 | 71 falsity-trap chapter/theorem pin (item 2; trail: §6.3 + bridge §168's standing design rule) | zbMATH API + WebFetch | Mechanism elementary (Hasse–Weil equality over 𝔽_{q²} + \|αᵢ\| = q ⟹ ALL αᵢ = −q ⟹ Z_C(t) = (1+qt)^{2g}/((1−t)(1−qt)), zero of multiplicity 2g). **Paper-granular pins, zbMATH-verified**: van der Geer–van der Vlugt, *Artin-Schreier curves and codes* (**Zbl 0729.11066, 1991** — Jac ≅ E^g constructions, supersingular; corrects my §6.3 "2002-era" guess); Cossidente–Hirschfeld–Korchmaros–Torres, *On plane maximal curves* (Zbl 0958.11048, 2000); Hirschfeld–Korchmaros, *Caps on Hermitian varieties and maximal curves* (Zbl 1043.51007, 2003); Giulietti–Hirschfeld–Korchmaros–Torres, *Curves covered by the Hermitian curve* (Zbl 1218.11064, 2006). Book-level: HKT, *Algebraic Curves over a Finite Field* (PUP 2008) — **chapter number UNVERIFIED** (PUP page and Google Books both 404 from this sandbox); cite at book level with [chapter vs printing TBD] or use the four papers above. In-corpus half unchanged: Weil `satisfiesWeilEstimate` supplies \|αᵢ\| = q^{1/2} (bridge:73) — the trap's Lean glue is equality-case + AM–GM |
+| P2-11 | 71 falsity-trap chapter/theorem pin (item 2; trail: §6.3 + bridge §168's standing design rule) | zbMATH API + WebFetch | Mechanism elementary (Hasse–Weil equality over 𝔽_{q²} + \|αᵢ\| = q ⟹ ALL αᵢ = −q ⟹ Z_C(t) = (1+qt)^{2g}/((1−t)(1−qt)), zero of multiplicity 2g). **Paper-granular pins, zbMATH-verified**: van der Geer–van der Vlugt, *Artin-Schreier curves and codes* (**Zbl 0729.11066, 1991** — Jac ≅ E^g constructions, supersingular; corrects my §6.3 "2002-era" guess); Cossidente–Hirschfeld–Korchmaros–Torres, *On plane maximal curves* (Zbl 0958.11048, 2000); Hirschfeld–Korchmaros, *Caps on Hermitian varieties and maximal curves* (Zbl 1043.51007, 2003); Giulietti–Hirschfeld–Korchmaros–Torres, *Curves covered by the Hermitian curve* (Zbl 1218.11064, 2006). Book-level: HKT, *Algebraic Curves over a Finite Field* (PUP 2008) — **[TBD resolved 2026-11-14, PARTIAL-PIN + title-level UNPINNABLE-BY-OPEN-WEB; evidence trail in §10]**: book = **Zbl 1200.11042** (xx+696 pp., ISBN 978-0-691-09679-7; review M. Zieve); zbMATH-verified structure: chs. 1–7 background, **chs. 8–10 = Stöhr–Voloch theory of curves with many rational points** ("in great detail"), chs. 11–12 = automorphism groups (first valid proof of Henn's classification); Google Books (print TOC, numerals+pages): ch. X pp. 203–274 ends Part 1, **PART 2 "Curves over a finite field" from p. 275 (chs. XI–XIII), PART 3 "Further developments" from p. 393 (chs. XIV–XVIII, pp. 393–626)** — maximal-curve content ("state-of-the-art introduction to maximal curves"; common terms "Fq2-maximal curve", "Hermitian curve") sits in Part 3, i.e. AFTER chs. 8–10, by both sources. Exact chapter number+title for maximal curves NOT verifiable from open web this session (JSTOR/Google Scholar/LOC/Schweitzer/DNB/SearchWorks all bot-challenged/429/404; PUP pages carry no TOC). **Recommended dossier citation: the four zbMATH-pinned papers above at paper granularity, or the book at Part-3 level ("HKT 2008, Part 3 (chs. XIV–XVIII, pp. 393–626)") — do NOT cite a bare chapter number.** In-corpus half unchanged: Weil `satisfiesWeilEstimate` supplies \|αᵢ\| = q^{1/2} (bridge:73) — the trap's Lean glue is equality-case + AM–GM |
 | P2-12 | 75's mandatory hexagonmath.org sweep, archive depth | WebFetch | Front listing swept clean (P2-1); **the archive page is ORCID-authenticated** ("Sign in … ORCID") — a method limitation to record: direct archive sweep requires an ORCID (flag to H). Indirect negative evidence: Liu-2's bibliography cites only CT from hexagonmath (a ζ_L-proportion paper central enough to cite would surface there); P2-1's front page has none. Verdict: 75's hexagonmath gate = PASS-conditional (front page + indirect channels clean; archive-direct check outstanding) |
 
 **Updated PART-2 verdicts**: 74 and 75 now DOSSIER-CHECKED (rows filled in `VERDICTS.md`);
@@ -468,8 +470,9 @@ moment-hierarchy sweeps; 75's abelian-assembly nearest-miss runs).
 
 **Final PART-2 state**: 70–75 ALL DOSSIER-CHECKED (rows in `VERDICTS.md`); no
 `[incoming]` markers remain. Residuals for the record: hexagonmath archive-direct sweep
-(ORCID), HKT book chapter number (P2-11), Rosen ch.-number spot-check when 73's pilot
-near, 72's α>1 Rényi re-check at pilot time.
+(ORCID), ~~HKT book chapter number (P2-11)~~ (**closed 2026-11-14 as PARTIAL-PIN,
+title-level unpinnable from open web — see P2-11 update + §10**), Rosen ch.-number
+spot-check when 73's pilot near, 72's α>1 Rényi re-check at pilot time.
 
 ## §8. Clocks (swept 2026-11-13; window = since 2026-11-06 unless noted)
 
@@ -646,3 +649,97 @@ at **13/15 ≈ 0.8667** ("Limit of OpenAI's method") between "Classical result" 
    quasi-rh-hillclimb` (PR #69/#70 trail). A new genre neighbor for the
    Knausgård-clock culture: month-scale depreciation is now measurable DAILY on the
    Dirichlet class.
+
+### §9.5 Tracker clock protocol (standing re-check recipe — NO browser needed)
+
+The §9 audit needed a browser only for the HTML shell; the tracker's DATA is served as
+static JSON assets. Any future lane can refresh the clock with two curls:
+
+```
+curl -sL https://gtimg.github.io/QuasiRiemannTracker/catalogue.json   # full entry set
+curl -sL https://gtimg.github.io/QuasiRiemannTracker/bound-badge.json # headline only
+```
+
+Fields to read (schema validated by `core/catalogue.mjs:78-130`, semantics §9.1):
+- `catalogue.json`: `as_of` (build date ≈ last push); `records[]` with per-entry
+  `id`, `status` (expect `framework-verified`; `verification-pending` would be a
+  first — flag it), `theta` {numerator, denominator} (smaller = stronger),
+  `exact_bound` (algebraic form when present), `timeline_at` (announcement date),
+  `title`, `authors`, `builds_on`; `historical_records[]` (demotions);
+  `events[]` (withdraw/supersede — expect []).
+- `bound-badge.json`: `message` = "θ ≤ <best verified bound>" — the one-line refresh.
+- Re-check questions, in priority order: (1) best verified `theta` vs the §9.3
+  baseline below and vs the 13/15 ≈ 0.8667 method-limit milestone; (2) any entry
+  whose `title`/`method`/`description` mentions Dedekind zeta / number fields /
+  Hecke beyond "Eisenstein" (would falsify the row-70 per-class split — §9.2);
+  (3) any new status class (conditional entries would be an ecosystem change);
+  (4) whether `liu-20261008` remains the only exact-algebraic entry.
+- Cheap one-liner for the frontier:
+  `python3 -c "import json;d=json.load(open('catalogue.json'));r=[x for x in d['records'] if x['status']=='framework-verified'];print(d['as_of'],min((int(x['theta']['numerator'])/int(x['theta']['denominator']),x['id']) for x in r))"`
+
+**Baseline 2026-11-14 (this audit):** `as_of` 2026-11-13; 55 records, all
+`framework-verified`; best verified bound **θ ≤ 0.8733458561067185** (id
+`continuum-anchor`, timeline 2026-11-13, "Continuum marked-anchor Dirichlet
+nonvanishing at the closest supported rational", Joseph Bebel); second-best
+`marked-anchor-induction` 0.8733468 (2026-11-12); `liu-20261008` = the only
+`exact_bound` entry ("(1507 − 2√921) / 1653"); badge message "θ ≤ 0.873345856106…";
+`events` [] ; no ζ_K/Hecke-beyond-Eisenstein content (§9.2). Repo facts for dating:
+pushed_at via `https://api.github.com/repos/GTimG/QuasiRiemannTracker` (also
+WebFetch-able). Caveat: the deployed catalogue lags `main` by the Pages deployment
+step; if `as_of` looks stale, check pushed_at before concluding "no movement".
+
+## §10. HKT chapter-pin close-out (2026-11-14; bounded 30-min pass — PARTIAL-PIN)
+
+Resolves the `[TBD]` from P2-11 (row 71's falsity-trap citation: "HKT ch./Thm for
+Hermitian maximality + genus"). Verdict up front: **PARTIALLY PINNED — book ID +
+part/chapter structure verified via zbMATH + Google Books; the maximal-curves
+chapter's number+title NOT verifiable from the open web this session. Recommended
+citation: the four zbMATH-pinned papers (P2-11) at paper granularity, or HKT at
+Part-3 level; never a bare chapter number.**
+
+Evidence trail (all fetched 2026-11-14):
+
+1. **zbMATH API** (`api.zbmath.org`, an:1200.11042): Hirschfeld, Korchmáros,
+   Torres, *Algebraic Curves over a Finite Field*, Princeton Series in Applied
+   Mathematics, PUP 2008, xx+696 pp., ISBN 978-0-691-09679-7; review **M. Zieve**
+   (zbmath.org/5265453). Review (full text pulled; quote-capped by the fetcher):
+   chs. 1–7 = background for the Stöhr–Voloch theory; **chs. 8–10 treat curves with
+   many rational points "in great detail"** via Stöhr–Voloch projective embeddings
+   (canonical embedding recovers "the classical Weil bound"); **chs. 11–12** =
+   curves with large automorphism groups, incl. "the first valid proof of the
+   classification announced by Henn" (> 8g³ automorphisms, g ≥ 2). The review does
+   NOT mention maximal or Hermitian curves by name — hence the zbMATH-fallback
+   cannot complete the pin alone.
+2. **Google Books, print edition** (`books?vid=ISBN9780691096797`, via the .com.my
+   redirect): partial Contents strip — chapter numerals with start pages only (no
+   titles): VIII p. 161, IX p. 199, **X p. 203**, XI p. 275, XII p. 277, XIII
+   p. 332, XIV p. 393, XV p. 395, XVI p. 458, XVII p. 546, XVIII p. 590, then
+   p. 627/650/655/689 (appendices + bibliography + index — the 22 front entries
+   are 18 chapters + back matter). Common-terms panel: "Fq2-maximal curve",
+   "Hermitian curve", "Frobenius non-classical", "Fermat curve".
+3. **Google Books, ebook edition** (`books?vid=ISBN9781400847419`): Contents shows
+   **PART 2 "CURVES OVER A FINITE FIELD" p. 275** (= ch. XI) and **PART 3 "FURTHER
+   DEVELOPMENTS" p. 393** (= ch. XIV); publisher description: "a state-of-the-art
+   introduction to maximal curves over finite fields". Part 1 therefore = chs.
+   I–X (pp. 3–274, ending with the Zieve-verified chs. 8–10 many-points block),
+   Part 2 = chs. XI–XIII (275–392), **Part 3 = chs. XIV–XVIII (393–626) — where the
+   maximal-curves material must live** (after Stöhr–Voloch and the automorphism
+   chapters, by both sources; the long chapters XV pp. 395–457 and XVI pp. 458–545
+   are the plausible hosts, but which carries the title "maximal curves" is
+   exactly what no open source exposes). Note the internal-numbering ambiguity:
+   Zieve's "chapters 11 and 12" vs the GBooks XI (2 pp., likely a Part-2
+   prologue)/XII mapping — one more reason a bare-number citation is unsafe.
+4. **Blocked/empty sources this session** (evidence of due diligence): PUP catalog
+   pages (both editions resolve but carry NO TOC); LOC catalog (HTTP 403); DNB
+   portal (title query misses the record; no TOC); Stanford SearchWorks
+   (ECONNRESET via both sandbox and browser); Google Scholar (bot-blocked);
+   DuckDuckGo HTML (CAPTCHA); Bing (two queries — retailers only; site: filter
+   dropped); JSTOR search (client challenge in both routes); Schweitzer ebook page
+   (HTTP 429, Retry-After 7200); dokumen.pub (404 both slug variants);
+   Google Books API (429); zai-search MCP (429, quota — standing since round-4 §0).
+
+**Status of the [TBD] markers (all in this file + VERDICTS row 71, updated
+2026-11-14):** P2-11 book-level cell → PARTIAL-PIN text; §6.3 tail → RESOLVED-PARTIAL
+(vdG–vdV theorem number still open, paper pinned); PART-2 residuals line → closed;
+VERDICTS row 71 → "[TBD vs printing]" replaced. Dossier 71's own text is A9's file —
+relay owed (same channel as the §9 outcome relay).
