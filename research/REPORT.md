@@ -232,45 +232,159 @@ labelled as such everywhere.
 - QA: `qa/{anthropics,mathlib-frontier,bridges,dossiers}-spotcheck.md`,
   `qa/{make-decl-index.sh,decl-index.tsv}`.
 
-## Cycle 2 addendum (opened 2026-11-13 — SKELETON; H typesets, orchestrator concludes)
+## Cycle 2 addendum (opened 2026-11-13; pre-staged 2026-11-14 for close-out fill-in — H)
 
 Cycle 2 (charter addendum `RESEARCH.md` § Cycle 2, commit `313c506`) re-runs the Phase 1–4
 pipeline over the AxiomMath corpus — six sorry-free repos (`axiommath/`: DedekindZetaZeroFree,
 ZetaZerosV2, ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) that as of 2026-11-13 build on
 our exact pin (mathlib `ff2494ea`, v4.36.0-rc2 — `feasibility/axiommath-bump/`) and are
 therefore **consumable Lean donors**, not just references — while closing the main run's open
-pilot items (10-L1/L2, 52 fix-or-close, 20 close-out). This section is a skeleton: stubs land
-content as A-lane verdicts arrive. Main-run §2 method and §9 compliance standard (kernel-only,
-no sorry/native_decide/external CAS) carry over verbatim.
+pilot items (10-L1/L2, 52 fix-or-close, 20 close-out) and executing the new donor-swap pilots.
+Inputs staged from `REPORT-INPUTS-C2.md` (A9, 231 ln). **Fill-in convention:** bracketed
+placeholders `[PILOT-VERDICT:*] / [G7b] / [SWEEP] / [TRIAGE-DECISION]` are the only cells H
+still fills at close-out, per the chain in `RESUME-BRIEF-C2.md` § Gate state. Main-run §2
+method and §9 compliance standard (kernel-only, no sorry/native_decide/external CAS) carry
+over verbatim.
 
 ### C2.1 Cycle-2 discoveries (70-series)
 
-One block per dossier as they land (A9): statement, novelty verdict (A5 round-4), pilot outcome.
+One block per dossier; headline + category + novelty tier landed (A5 round-4 / VERDICTS C2
+rows), pilot outcome slot per pilot pipeline.
 
-- [expected] 70-unconditional-zetaK-zero-confinement — block on landing.
-- [expected] 71-function-field-simple-zero-proportions — block on landing.
-- [expected] 72-area-law-inertial-defect — block on landing.
-- [reserved] 73/74 — pending zone verdicts (TRIAGE § Cycle-2 addendum).
+- **(70) Unconditional ζ_K zero confinement (Part A; Part B split to 75).** DZDF's
+  Cureton–Thorner theorem on our pin discharges the *weakened* 31/32 binders, upgrading pilot
+  50's conditional confinement core to unconditional parametric strips [1−θ, θ] (31/32 =
+  DZDF instantiation) for ζ (K = ℚ, three glue lemmas), Dirichlet L (only `hFEχ` left), and
+  ζ_K/Hecke for totally complex K (DZDF's own Hecke FE + Λ↔f transfer). Category:
+  ECOSYSTEM/GLUE posture upgrade; per-class split — no first-claim for ζ/Dirichlet at
+  7/8-or-better (Liu-1 external repo + openai tree own that class), **ζ_K/Hecke first-claim
+  holds** on the Liu-2 clock. A5: "artifact-grade (no discovery N)", HOT-cluster /
+  WARM-artifact. Pilot: 50-M2 spec landed (`pilots/50-M2-31-32-spec.md`); route R1 (openai
+  in-corpus 7/8) gated on **[G7b]**, route R2 (DZDF 31/32) statement-level only per G1b FAIL,
+  route R3 (Liu-1 full-strength binder) statement-level until G7. Clock-sweep must-cites
+  folded by A9 (Chang–Wang 2611.00924 conditional frontier; Ji 2611.16665 ζ_{Q(i)}; 13-repo
+  QR-D Lean landscape, no ζ_K formal artifact anywhere).
+- **(71) Function-field s-plane dictionary.** The first formal s-plane zeta of a curve —
+  ζ_C(s) := Z_C(q^{−s}) meromorphic (poles exactly {0,…,d}), every nontrivial zero exactly on
+  Re s = 1/2 (function-field quasi-RH, DZDF statement shape), uniform Hasse–Weil point-count
+  transport, and the anti-CT window-comparison corollary (step-function density at 1/2 vs the
+  number side's 31/32) — the dictionary every other FF zone consumes. Primary GLUE/
+  formalization-first (Weil 1948 math-known); FF-EZ2-family secondary DISCOVERY-grade
+  [HYPOTHESIS], flagged not-pilot. A5: primary "formalization-first (dictionary value)",
+  WARM (Suzuki 2610.41115 month-clock). Pilot (slot 1, A2): P0 OK + P1 GREEN (7/7
+  kernel-clean, triad; 243 LoC total) → outcome **[PILOT-VERDICT:71-P2]** (P2 landing
+  theorems: W1 s≠1 pole exclusion → W2 → HW; first P2 run at relaunch: FAIL rc=1 errors=6
+  sorry=0, iterating).
+- **(72) Area-law inertial defect.** Post-Kuwahara restructure: the gap-to-inertia dictionary
+  (HasGlobalGap ⇔ `posIndexAbove θ (E₀−H) ≤ 1`, provable now; isometric-B erratum applied),
+  a purity (α = 2) certificate route [HYPOTHESIS] via pilot-01's PROVED master identity, a
+  formalizable Kuwahara no-go gate (Rényi monotonicity ⟹ rank ≥ e^{S_α}), and the AL-EZ3
+  interface theorem discharging openai-math's unproved PEPS `UniformAreaLaw` from
+  AreaLaw2D's `AreaLaw.areaLaw` as M1. P1 + C-neg formal-new glue; P2 the zone's only
+  surviving discovery claim. A5: P1 "formal-new (moderate)", C-neg "precedent-backed (50/30
+  lineage)", WARM; hard NO-GO honored on literal rank statements. Pilots: C-neg gate —
+  honest FAIL-in-flight at the outage (run5: rc=1 errors=7 sorry=0) → outcome
+  **[PILOT-VERDICT:72-C-neg]**; then M1 Tier-C (slot 3, A8, after 11-M2; zero import
+  gates — G5a only upgrades provenance, staging in flight run20).
+- **(73) Function-field Hecke–Tate (CONDITIONAL-CORE, Stacks-blocked).** The FF Hecke-L
+  statement class in the DZDF `heckeCorollary` shape with every Weil-side input a binder
+  (`hTate`/`hRat`/`hPur`): (i) rationality/continuation, (ii) RH-form with window exactly
+  1/2 (anti-CT at the Hecke level), (C1) the 𝔽_q(T) probe — `hRat` dischargeable
+  (elementary periodicity), `hPur` STAYS A BINDER (RH for Kummer covers — deep), so (C1)
+  lands (i) unconditional + (ii) conditional; (C2) three-corpus window comparison
+  (1/2 vs 31/32 vs B_new); (C3) proportion extensions fenced off (trap-reasoned). Highest
+  ceiling of the 70-series, least claimable today; Tier A blocked (StacksFrontier ~63k
+  modules un-cloned; priced ceiling, not a slot). A5 row: zone WARM, dossier-level query
+  re-run owed (Rosen chapter pin). Pilot (slot 1b, A2): 73-C skeleton Q0→Q3, STOP before Q4
+  → outcome **[PILOT-VERDICT:73-C]**.
+- **(74) Surprisal moment-hierarchy ceilings (A4).** Owns AL-EZ2 outright: T1 two-sided
+  window theorem, T2 class-inclusion ladder, T3 LP core contingent on dossier-02's unclaimed
+  layer, T4 method-barrier corollary; consumer = AreaLaw2D's 3D bottleneck C.3. Boundary note
+  vs 72: no statement overlap, no inheritance of the 72 §P1 erratum. No Cycle-2 pilot
+  (u≠1 dossier edit queued to A4). Block data: `candidates/74-*.md`.
+- **(75) Abelian-assembly ζ_L proportions (70-Part-B split-out).** DZDF's
+  `dedekindAbelianQuotient`/`abelianFactorization` (ζ_L = (∏ nonprincipal Hecke L)·ζ_K, every
+  abelian L/K) turns pilot 42's proved two-factor assembly into n+1-factor landing theorems
+  for ζ_L — the first zero-proportion (and real-abelian strip) statements for any ζ_L —
+  with the component-proportion binder schema as the named open core and the
+  partially-unconditional K = ℚ accounting (ζ-side discharged by V2 per 42-M4; Dirichlet side
+  zeta23-conditional). A5 (P2-3 flip resolved): DLRT 1908.04876 is SCOPED (fixed quadratic K,
+  GRH-conditional) ⇒ primary NOT math-known ⇒ N stays 4; WARM. Pilot: DEFERRED wave-4 (spec
+  complete, `pilots/75-prework.md`); entry (P-a)+(C1)@2/3 when slotted.
 
 ### C2.2 Donor-discharge outcomes
 
-[INCOMING A3/A7] — verdicts on discharging main-run binders from AxiomMath donors: `hQRH` →
-Cureton–Thorner (DedekindZetaZeroFree: ζ_K ≠ 0 for Re s > 31/32) for 50-M3/20; ZetaZerosV2
-(Lamzouri > 2/3 simple/on-line) as second donor for 42-M4. Sources:
-`novelty/axiommath-as-donor.md`, `feasibility/axiommath-donor-probes.md`.
+- **G1a/G1b (DZDF)** — statements elaborate verbatim on our pin; full build FAILS (62
+  errors / 11 vendor-CFT modules, v4.35 blocker) ⇒ 50-M2-R2 stays statement-level
+  (`hDZ` binder), 20's Hecke object layer switch openai→DZDF = note only.
+- **G2 (ZetaZerosV2)** — build OK on our pin (8,262 jobs, 13 triad axiom-lines, 0 sorryAx)
+  ⇒ 42-M4b-upgrade gate CLEARED (direct V2 import); evidence `qa/donor-probes-spotcheck.md`
+  (Q7: 12 OK / 0 WRONG).
+- **G3 (Weil binder-route)** OK — statements as hypothesis binders, zero import gates.
+- **G5 (Physlib premise)** — import real via `QuantumInfo.ForMathlib.Matrix`
+  (PartialTrace.lean:4); staging cost stands; G5a re-run in flight (run20).
+- **G6 (tauceti locator / Stacks pricing)** OK / G6a re-run in flight (run21).
+- **G7 (Liu-1)** — pins exact (`7d10420`); **[G7b]** = donor-pin axiom audit (run16
+  outage-killed; re-run run19 in flight) — the kernel-facing hygiene gate for 50-M2-R1
+  and Liu-1's promotion from statement-level.
+- Sources: `feasibility/axiommath-donor-probes.md`, `novelty/axiommath-as-donor.md`,
+  `novelty/liu1-hygiene-sweep.md`.
 
 ### C2.3 Cycle-2 pilot outcomes
 
-- [pending] 10-L1/L2 (A6) — counter combinators, then `PolyTVal`; M1 = L3 green 2026-11-10.
-- [closed 2026-11-13, A8] 52 — M1 VERIFIED-GREEN: R2's same-day run-14 fix + Cycle-2
-  reproduction (292 LoC / 12 thms; axcheck 15 axiom-lines, 0 sorryAx; ledger §8;
-  `pilots/52-note.md`). M2 (weighted refinement + adjointness layer) unstarted.
-- [closed 2026-11-13, A8] 20 — [runs-unrecorded] gap closed: reproduction GREEN (582 LoC /
-  26 thms; axcheck 36 axiom-lines, 0 sorryAx; `pilots/20-note.md`).
-- [pending] 50-M3 donor-swap — PENDING A3/A7 verdicts.
-- [pending] 42-M4 second donor — PENDING A3/A7 verdicts.
+| Pilot | Item | Outcome |
+|---|---|---|
+| 52 | unified CCR Fock close-out | **CLOSED-GREEN** (A8, 2026-11-13): verified-green reproduction, axcheck 15 axiom-lines 0 sorryAx; ledger §8 |
+| 20 | hecke-zetaK close-out | **CLOSED-GREEN** (A8, 2026-11-13): runs recorded, axcheck 36 axiom-lines 0 sorryAx; hCZ seam unchanged |
+| 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
+| 10-L2 | `PolyTVal` | **[PILOT-VERDICT:10-L2]** (2,595 LoC / 126 thms on disk; Part-D defect fixes + first run pending at relaunch) |
+| 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 on disk; four pinpoint fixes mid-application at outage; no run yet) |
+| 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); M4b fallback layer **[PILOT-VERDICT:42-M4b]** (1,560 LoC / 66 thms; run1 FAIL err=3 sorry=0 → 12-line Fix-C → **run2 GREEN 2026-11-14** + `m4b-axcheck-run1` triad-only 0 sorryAx); next: M4-note + the CLEARED direct-V2-import upgrade (≤20-line delta) |
+| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **[PILOT-VERDICT:71-P2]** + **[PILOT-VERDICT:73-C]** |
+| 72-C-neg | Kuwahara no-go gate (A4) | **[PILOT-VERDICT:72-C-neg]** (run5 FAIL-in-flight: rc=1 errors=7 sorry=0, descent 20→7; N1–N3 fix path per Appendix A) |
+| 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 
-### C2.4 Corpus-integration notes
+### C2.4 External race report (QR-D cluster + FF/AL clocks)
 
-[expected A5] — decl-index v2 (`qa/make-decl-index-v2.sh` → `decl-index-v2.tsv`/`.zip`):
-per-corpus declaration counts including the six axiommath trees; v1 caveats carry over.
+- **QR-D cluster, six papers in six weeks + two external Lean artifacts** (round-4 §3 + §5.1–
+  5.3): Ope26a 7/8 (ζ included, Lean = sorry challenge) → Ope26b 11/12 + Landau–Siegel
+  corollary → Liu-1 B_new = 0.8749570 incl. ζ + every Dirichlet L (**formalized**, public
+  repo, registered sibling) → Xu–Sang 0.8748867 conditional → CT 31/32 every number field
+  (**formalized** = our DZDF donor) → Liu-2 B♭ = 0.8748866 uniform over all K incl. ζ_K
+  (informal, Lean in progress). Informal frontier below 7/8 uniformly ⇒ pilot 50's `hQRH`
+  TRUE informally (Liu-1 Cor 14.1). Ecosystem sweep: 13 QR-D Lean repos incl.
+  Kontorovich/quasi-rh (11/12 ζ+Dirichlet, NO ζ_K) — the ζ_K-strip per-class split SURVIVES.
+- **Clocks:** Suzuki 2610.41115 (FF ζ_C method-neighbor, month-scale); Knausgård clock
+  (main-run §6) still dominant on the number side; upstream PNT+ `AlexKontorovich/
+  PrimeNumberTheoremAnd` @ 938912bb now PROVES StrongPNT triad-clean ⇒ **22's Tier-2 T2b
+  CLOSED-BY-UPSTREAM** (T2a quasi-RH-conditional survives as 22's only open content;
+  DEFER-WATCHLIST with triggers T1–T3, not cloned). Kuwahara 2610.15199 no-go alarm —
+  issued as a standing alarm BEFORE dossier drafting; 72 restructured pre-write.
+- **Archive caveat:** hexagonmath.org sweeps are ORCID-gated ⇒ PASS-conditional evidence
+  only; recorded on every affected absence claim. GTimG/QuasiRiemannTracker audit pending
+  (A5, browser session).
+
+### C2.5 Verification and compliance (Cycle 2)
+
+Kernel-only standard unchanged; Cycle-2 final sweep per `feasibility/probe/
+FINAL-SWEEP-PLAN-C2.md` (trigger = A1 standby signal; Steps A–C; 36 sorry-tokens in tree at
+plan time, all justified) → **[SWEEP]** (outcome + ledger `VERIFICATION-LEDGER.md` §9 fill:
+per-pilot files/LoC/theorems, axiom/sorryAx tallies). Probe conventions and the
+hypothesis-binder pattern carry over; outage note: log tails written post-outage are suspect
+until re-verified (G7b run16 = the cautionary case).
+
+### C2.6 Triage decision (orchestrator)
+
+**[TRIAGE-DECISION]** — typeset by the orchestrator at close-out from
+`TRIAGE-C2-ROWS.md` (decision-ready staging, A9) + `qa/triage-decision-staging.md` (H input
+brief), mirroring the main-run §Top-3 format. Draft inputs: lane proposals in the rows file;
+A5 VERDICTS N-adjusts landed; A7 effort grades [incoming] — empirical costs where missing
+(M4a ~180 LoC delta green; 71-P0+P1 243 LoC green; substrate map S-cost).
+
+### C2.7 Corpus-integration notes
+
+decl-index v2 LANDED (`qa/make-decl-index-v2.sh` → `decl-index-v2.tsv` gitignored / `.zip`
+tracked): 13 corpus labels incl. the six axiommath trees + vendor-CFT, **2,940,110 rows**;
+v1 caveats carry over (ASCII names, vendored trees ⇒ direct-rg fallback; preprints never
+indexed). New QA surfaces: `qa/{tauceti,openai-math}-spotcheck.md` (legacy-survey fixes in
+place), `qa/donor-probes-spotcheck.md` (Q7), cycle2-qa-plan Parts 1–5 cumulative 0 WRONG.

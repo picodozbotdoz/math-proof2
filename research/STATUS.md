@@ -289,7 +289,15 @@ standing authorization with a commit.
   LoC; RedTm2 392 vs 386 LoC); one wrap-claim correction — INDEX was NOT current through
   the wrap (6 missing rows + 4 stale UNCOMMITTED flags, fixed); A2 already live
   (71/p2-run1.log: FAIL rc=1 errors=6 sorry=0, provenance header present, file left for
-  A2's batch commit); concurrency probe 8 at this batch close. (f860280)
+  A2's batch commit); concurrency probe 8 at this batch close. (f860280, fixup 9bdc1bd)
+- 2026-11-14 — batch-2 series (per orchestrator relay): `Cycle 2: A9 dossier-70 clock-sweep
+  notes + 75 splice fix + Pilot-outcome templates` (7d4189d); `Cycle 2: A1 ledger §9 filled
+  + sweep machinery pre-verified + run_axcheck substrate fix` (5aada35); `Cycle 2:
+  mid-flight snapshot — A3 M4b fallback GREEN / A2 p2-run1 / A7 logs-g run19–21`
+  (942828c, ca4fd22 precedent); `Cycle 2: H — REPORT §C2 pre-stage + triage-decision
+  staging brief + board/INDEX` (this commit): REPORT.md Cycle-2 addendum pre-staged with
+  fill-in placeholders; qa/triage-decision-staging.md (one-screen orchestrator input);
+  QA pass on batch-2 landings 7/7 OK (cumulative 0 WRONG).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
@@ -341,3 +349,32 @@ reconciled this batch (INDEX Cycle-2 section + commit log below).
 first-ever run, unmodified from the outage snapshot (247 LoC), **FAIL rc=1 errors=6
 sorry=0** (4 theorem axiom-lines show sorryAx — A2 owns the iteration toward GREEN).
 Concurrency probe at this batch close: **8**.
+
+**Batch 2 (2026-11-14 ~02:0x — orchestrator relay; H provenance commits + QA pass):**
+- **A9 landed** (7d4189d): dossier-70 clock-sweep standing notes (Chang–Wang 2611.00924
+  conditional 0.8744620; Ji 2611.16665; 13-repo QR-D landscape, no ζ_K formal artifact) +
+  5 sharpening edits; dossier-75 §Novelty splice fix (:174–177); §Pilot-outcome templates
+  on 71/72/73/75. QA spotcheck: citations match round-4 §8 values; splice coherent — OK.
+- **A1 landed** (5aada35): ledger §9 FULLY FILLED (relaunch cross-check vs snapshot
+  `ca4fd22`, rows for every TARGET + conditional additions 42-M4b-upgrade/50-M2);
+  FINAL-SWEEP-PLAN-C2 machinery notes; `run_axcheck.sh` substrate fix (MODAL_USER=doz
+  default + subset forwarding); sweep machinery pre-verified end-to-end
+  (`AxPilot10_L1` OK, 36 axiom-lines, 0 sorryAx —
+  `probe/logs/axcheck-c2-machinery-check.log`). QA spotcheck: consistent with disk — OK.
+- **A3 mid-flight** (snapshot 942828c): **M4b fallback GREEN** — run1 FAIL rc=1 err=3
+  sorry=0 → 12-line Fix-C (`mul_nonpos_of_nonpos_of_nonneg`, `le_of_lt` strictness,
+  `exact_mod_cast` coercion) → run2 "M4b.lean: OK" + `m4b-axcheck-run1` GREEN triad-only
+  0 sorryAx (92 axiom-prints / 68 thms); CLEARED direct-V2-import upgrade next. QA
+  spotcheck: diff exactly the 3 error classes; axcheck header verbatim — OK.
+- **A2**: P2 run2 FAIL rc=1 err=4 sorry=0 (descent 6→4; P2.lean edits in tree, un-relayed).
+- **A7**: run19-g7 (G7b re-run) streaming; run20-g5a hit the Modal artifact-cache (retry in
+  flight per relay); run21-g6a streaming — verdicts pending; logs committed in 942828c.
+- Un-relayed tree activity at press time (left for next batch): `novelty/round-4.md` (A5,
+  likely the tracker audit), `pilots/11/RedTm2.lean` (A8 pinpoint fixes),
+  `pilots/71/P2.lean` + `p2-run2.log` (A2), `articles/71-splane-zeta-curve-dictionary.md`
+  (early article draft — ownership to confirm at relay), `pilots/42/run_m4b2.sh` (A3).
+- H this batch: REPORT.md §C2 pre-staged (C2.1–C2.7, fill-in placeholders
+  [PILOT-VERDICT:71-P2/10-L2/11-M2/72-C-neg/42-M4b/73-C], [G7b], [SWEEP],
+  [TRIAGE-DECISION]); `qa/triage-decision-staging.md` (orchestrator input brief);
+  provenance-header QA of the 5 new lane logs (A2/A3 complete; A7 headers present,
+  verdicts pending — no violations); INDEX refreshed.
