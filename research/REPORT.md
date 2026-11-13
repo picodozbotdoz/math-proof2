@@ -230,3 +230,46 @@ labelled as such everywhere.
 - **Articles (one per discovery): `articles/README.md` + 10 articles `articles/NN-*.md`.**
 - QA: `qa/{anthropics,mathlib-frontier,bridges,dossiers}-spotcheck.md`,
   `qa/{make-decl-index.sh,decl-index.tsv}`.
+
+## Cycle 2 addendum (opened 2026-11-13 — SKELETON; H typesets, orchestrator concludes)
+
+Cycle 2 (charter addendum `RESEARCH.md` § Cycle 2, commit `313c506`) re-runs the Phase 1–4
+pipeline over the AxiomMath corpus — six sorry-free repos (`axiommath/`: DedekindZetaZeroFree,
+ZetaZerosV2, ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) that as of 2026-11-13 build on
+our exact pin (mathlib `ff2494ea`, v4.36.0-rc2 — `feasibility/axiommath-bump/`) and are
+therefore **consumable Lean donors**, not just references — while closing the main run's open
+pilot items (10-L1/L2, 52 fix-or-close, 20 close-out). This section is a skeleton: stubs land
+content as A-lane verdicts arrive. Main-run §2 method and §9 compliance standard (kernel-only,
+no sorry/native_decide/external CAS) carry over verbatim.
+
+### C2.1 Cycle-2 discoveries (70-series)
+
+One block per dossier as they land (A9): statement, novelty verdict (A5 round-4), pilot outcome.
+
+- [expected] 70-unconditional-zetaK-zero-confinement — block on landing.
+- [expected] 71-function-field-simple-zero-proportions — block on landing.
+- [expected] 72-area-law-inertial-defect — block on landing.
+- [reserved] 73/74 — pending zone verdicts (TRIAGE § Cycle-2 addendum).
+
+### C2.2 Donor-discharge outcomes
+
+[INCOMING A3/A7] — verdicts on discharging main-run binders from AxiomMath donors: `hQRH` →
+Cureton–Thorner (DedekindZetaZeroFree: ζ_K ≠ 0 for Re s > 31/32) for 50-M3/20; ZetaZerosV2
+(Lamzouri > 2/3 simple/on-line) as second donor for 42-M4. Sources:
+`novelty/axiommath-as-donor.md`, `feasibility/axiommath-donor-probes.md`.
+
+### C2.3 Cycle-2 pilot outcomes
+
+- [pending] 10-L1/L2 (A6) — counter combinators, then `PolyTVal`; M1 = L3 green 2026-11-10.
+- [closed 2026-11-13, A8] 52 — M1 VERIFIED-GREEN: R2's same-day run-14 fix + Cycle-2
+  reproduction (292 LoC / 12 thms; axcheck 15 axiom-lines, 0 sorryAx; ledger §8;
+  `pilots/52-note.md`). M2 (weighted refinement + adjointness layer) unstarted.
+- [closed 2026-11-13, A8] 20 — [runs-unrecorded] gap closed: reproduction GREEN (582 LoC /
+  26 thms; axcheck 36 axiom-lines, 0 sorryAx; `pilots/20-note.md`).
+- [pending] 50-M3 donor-swap — PENDING A3/A7 verdicts.
+- [pending] 42-M4 second donor — PENDING A3/A7 verdicts.
+
+### C2.4 Corpus-integration notes
+
+[expected A5] — decl-index v2 (`qa/make-decl-index-v2.sh` → `decl-index-v2.tsv`/`.zip`):
+per-corpus declaration counts including the six axiommath trees; v1 caveats carry over.

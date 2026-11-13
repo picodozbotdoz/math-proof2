@@ -16,6 +16,11 @@ of the dossier).
 
 ## Scale definitions (concrete)
 
+*Cycle-2 scope note (H, 2026-11-13): for the 70-series, corpus scope = the four main-run
+corpora **plus** the six AxiomMath repos (`axiommath/`: DedekindZetaZeroFree, ZetaZerosV2,
+ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) as an additional corpus; the definitions
+below carry over verbatim with that extended scope.*
+
 ### Novelty (1–5)
 - **5** — Statement absent from all four corpora AND no literature trace found
   (documented searches in the dossier + R8 sign-off). The combination, not just
@@ -70,7 +75,7 @@ effort as proposed by the owning lane (non-binding); "score" is the lane's own a
 | 10 | z3-uniform-poly-space | R4: N5 S4 E3 → ≈6.7 | DISCOVERY | **5 → 5** (conjunction claimed by NOBODY; suquark/openai/eth cells disjoint) | **M confirmed** (eth time-shape elaborates verbatim; all F1 names probe-verified) | prework running (`10-prework.md`) | COLD | **5×4÷3 = 6.67** | Use r3 §7's rephrased claim wording; exclude the two taken cells explicitly |
 | 11 | z1-reduction-theory | R4: N4 S5 E3 → ≈6.7 | DISCOVERY | **4 → 4** (nearest miss AFP Cook_Levin Composing.thy, different shape) | **M confirmed; milestone-1 abstract layer S** (measured-zero port cost) | **M1 COMPLETE** (acceptance GREEN, Design B; donor-verbatim faithfulness check; axioms = standard triad, no sorryAx; ≈35 min Modal) — **M2 next, not open** | COLD | **4×5÷3 = 6.67** | none |
 | 12 | z4-parametric-savings | R4: N4 S3 E2 → ≈6.0 | DISCOVERY | **4 → 4** (ε(ω_b) function NEW; AVW freezes all constants) | **S–M confirmed and cheapened** (`ProbeC2_OAI_Model` elaborates the exact cited API) | not started (feeder = 51) | COLD | **4×3÷2 = 6.0** | Flag monotonicity-via-termPrime check at pilot |
-| 20 | hecke-zetaK-density | R5: N4 S5 E5 → 4.0 | DISCOVERY | **(4) → 4.5** (NEW-SUPPORTED; 14 AF-citers, none Hecke/ζ_K) — constants stale on arrival | **M–L** (R9 F4; engine M, Hecke assembly L; OAI Hecke subtree closure-heavy → binder) | M1 staged (`pilots/20/M1.lean`; [runs-unrecorded] per ledger) | **WARM** (IEANTN; AF-cluster may pivot) | **4.5×5÷4 = 5.63** | RE-SCOPE: value = "first Hecke/ζ_K statements", NOT record constants. EXTERNALITY (donor mapping): his patch = existence proof for window-instantiation via hypothesis-collections; his `Window/admWindow_vProf` = glue template |
+| 20 | hecke-zetaK-density | R5: N4 S5 E5 → 4.0 | DISCOVERY | **(4) → 4.5** (NEW-SUPPORTED; 14 AF-citers, none Hecke/ζ_K) — constants stale on arrival | **M–L** (R9 F4; engine M, Hecke assembly L; OAI Hecke subtree closure-heavy → binder) | M1 GREEN, runs recorded Cycle 2 (`pilots/20/logs/m1-cycle2-green.log`; ledger §8) | **WARM** (IEANTN; AF-cluster may pivot) | **4.5×5÷4 = 5.63** | RE-SCOPE: value = "first Hecke/ζ_K statements", NOT record constants. EXTERNALITY (donor mapping): his patch = existence proof for window-instantiation via hypothesis-collections; his `Window/admWindow_vProf` = glue template |
 | 21 | quartic-window-zeta | R5 updated: A2-path N4 S3 E3 → 4.0 | CONDITIONAL-CORE | **4 → 1.5** (outcome B realized by Knausgård formally, 0.67354; CCLM17 RH-conditional different class) | **M ((C)+(A1)) / M–L ((A2) on top)** (R9 F4) | **milestone-C DONE, certified**: cStar(1) − cFun_quartic ≥ 3.87e-4 (B closed; A2 kernel) | **HOT** | **1.5×3÷3 = 1.5** (A2-top: 1.125) | RE-SCOPE FINAL: absorbed into 02 as case study; his §7.6 also proves the A2-form (all-windows ceiling 0.68185) — only the sup over zeta23's own (c₀,r) class remains ours |
 | 22 | quasi-rh-pnt-effective | R5: N1 S4 E2 → 2.0 (pilot) | ECOSYSTEM | **2 → 2** (AFP PNT+Eberl–Paulson exist; Tier-2 is the content) | **S for the Tier-1 remainder** (R9 F4) | M1 GREEN (68 LoC, kernel-clean); runs 1–6 logged; M2–M4 in flight | **WARM→HOT** (3 mathlib PRs open; PNTAnd + IEANTN converging) | **2×4÷1 = 8.0** — see donor note; treat as pilot-category, not a rank contender | STRATEGICALLY DEAD per donor mapping (`knausgaard-as-donor.md` §2d): Tier-1 formally alive, dead man walking — **stop at M4, no pilot slot**; real content = Tier 2 |
 | 30 | hall-parseval-boson | R7: no numeric proposal — "pilot #1" | DISCOVERY | **4 → 4** (NEW-SUPPORTED; classical anchors Jing/Macdonald verified; no formalization; B–P–I no overlap) | **M** (Theorem A+A′; Theorem B L-if-attempted; tauceti zero-friction, mathlib side probe-verified run 10) | falsification milestone not yet landed (no dir) | COLD | **4×4[S-proposed-H]÷3 = 5.33** | S-proposed-H = 4: "first formal theorem connecting a complexity-theoretic construction … with the representation theory of symmetric groups", "tauceti's entire Frobenius-characteristic stack as downstream API" (dossier §Significance) |
@@ -81,7 +86,7 @@ effort as proposed by the owning lane (non-binding); "score" is the lane's own a
 | 42 | zeta-k-two-thirds | R1: N2 S3 E1 → ≈6.0 | ECOSYSTEM | **2 → 4** (R8 round-5(c) upgrade, post-donor-swap framing: certificate-conditional landing theorem; base VERDICTS table's 2 lags) | **S−** (donor: Hypζ via clean `*_of_local`; ThmE from zeta23-in-his-tree) | **M1 PROVED + axioms-clean (15/15)**; **M2a+M3 landed** (602+444 LoC, 48 thms — factorization discharge + C_D defect layer) | **WARM** | **4×3÷1 = 12.0** | CAVEATS: cert-as-explicit-binder; never his native_decide headlines; cumulative phrasing | CAVEATS: certificate-as-explicit-binder (EnclOK pattern); his headlines carry native_decide — bind only to the clean `*_of_local` layer; cumulative-window phrasing; constants 2 generations stale |
 | 50 | quasi-rh-truncated | R2: N2 S2–3 E1–2 | ECOSYSTEM | (headline refuted by own audit, externally corroborated; S3 KNOWN via Broughan 2009) | **S (S1+S2)** (R9 F4) | **M1 PROVED** (94 LoC, GREEN, axioms = standard three); M2a running | COLD | **N2 × S2–3 ÷ 1 = 4.0–6.0** (glue-grade) | Donor mapping: NO discharge (no zero-free content in his tree — hQRH stays openai-side); what survives is S1/S2 glue |
 | 51 | omega-to-wordram | R2: N1 S3 E3 — "feasibility feeder" | ECOSYSTEM | **KNOWN-INFORMAL-ONLY (Pan 1985)** — "not a dossier" per VERDICTS; consistent with lane's own N1 rescope ✓ | **M** (R9 F4; `DivisionFreeProgram` interface decouples OAI closure) | not started (after 12 scored) | COLD | **1[N-proposed-H]×3÷3 = 1.0** | N-proposed-H = 1 per VERDICTS KNOWN-INFORMAL-ONLY + lane's own label (final judgment: orchestrator) | RE-SCOPE: formalization-only or fold into Z2/12-F3b |
-| 52 | unified-ccr-fock | R2: N2–3 S3 E3 | CONDITIONAL-CORE | **3.5 final** (R8 round-5: N1-universal + N3 dictionary hold up; N2 stays hypothesis) | **M** (R9 F4; N1+N3; OAI paths corrected — `Analysis/Naimark/CAR.lean`, `Laughlin/Fock/*`) | M1 in iteration (axcheck: FAIL 13–15 err, 9 sorryAx — mid-flight) | COLD | **3.5×3÷3 = 3.5** | replaces the former "pending lane R8" note |
+| 52 | unified-ccr-fock | R2: N2–3 S3 E3 | CONDITIONAL-CORE | **3.5 final** (R8 round-5: N1-universal + N3 dictionary hold up; N2 stays hypothesis) | **M** (R9 F4; N1+N3; OAI paths corrected — `Analysis/Naimark/CAR.lean`, `Laughlin/Fock/*`) | M1 VERIFIED-GREEN (R2 run14 2026-11-09; Cycle-2 reproduction 15 axiom-lines, 0 sorryAx — ledger §8, `pilots/52-note.md`) | COLD | **3.5×3÷3 = 3.5** | replaces the former "pending lane R8" note |
 | 60 | border-rank-connector | R3: N1–2 S2 E1 → ≈0.5–1 | ECOSYSTEM | **1–2 → 1–2 confirmed** (Laderman/Schönhage ✓; border-rank-≤21 attribution UNCONFIRMED) | **S confirmed** (machinery chain measured self-contained) | not started (pipeline warm-up) | COLD | **1.5×2÷1 = 3.0** | Verify/drop the ≤21 attribution before writing |
 
 ### Data sources (which file feeds which column)
@@ -180,6 +185,7 @@ flag), **21** (absorbed), **51** (killed).
 | 2026-11-09 night 2 | Final 20/30/52 F4s transcribed; effort column cross-checked vs FEASIBILITY-SUMMARY (no drift); S-proposed-H for 30/31/32 + N-proposed-H for 51; COMPLETE 19-row DRAFT ranking (52 TBD) | H | per orchestrator Task 10 |
 | 2026-11-09 night 3 | Deferred-fix register applied (12 sites / 8 dossiers; 41 verified clean); 52 note added (final N pending lane R8); pilot statuses refreshed from rescued logs (42-M1/50-M1/11-T2 now axioms-recorded clean) | H | per orchestrator Task 11 |
 | 2026-11-09 final | **TOP-3 DECIDED (orchestrator): 42, 10, 01**; alternates 41/11/30; excluded 22/21/51. Inputs consumed: H's complete DRAFT ranking, R8 VERDICTS rounds 1–5 (42 N→4 r5(c); 52 N=3.5 final), FEASIBILITY-SUMMARY, VERIFICATION-LEDGER + rescued run logs (01 b+c GREEN; 42-M2a/M3 602+444 LoC/48 thms), donor mapping. Rows 01/42/52 updated; ranking finalized | orchestrator, typeset by H | charter Phase 4 |
+| 2026-11-13 | Cycle-2 addendum opened: rubric carried over verbatim (scope note added under Scale definitions); 5-row [expected] mechanical matrix pre-built (70/71/72 + reserved 73/74); pilot-decision checklist staged for the orchestrator | H | per orchestrator Task H-3; verdicts remain the orchestrator's |
 
 ## Post-close outcomes (append, 2026-11-09 resume session — no re-ranking)
 
@@ -190,3 +196,55 @@ flag), **21** (absorbed), **51** (killed).
   (`pilots/32/M1.lean`); crossing point as a parameter; lane proposal ≈ 6 (N3·S2÷E1).
 - Final sweep: 30/30 staged files OK, 0 sorryAx (`feasibility/VERIFICATION-LEDGER.md` §1, §6–§7).
 - Articles, one per discovery: `research/articles/` (10 articles + README).
+
+## Cycle 2 addendum (opened 2026-11-13)
+
+Status: SKELETON (typeset by H 2026-11-13 per orchestrator Task H-3; verdicts and the pilot
+decision are the orchestrator's, same division as the main run). The main-run sections
+above are FINAL and frozen (2026-11-09); this addendum is the live Phase-4 surface for
+Cycle 2 (`RESEARCH.md` § Cycle 2 is the charter).
+
+Rubric: the main-run **ranking rule and scale definitions carry over verbatim** —
+novelty/significance 1–5, effort 1–5 inverse, ties broken by novelty, then effort, then
+bridge essentiality; effort anchors S→1, M→3, L→5 with recorded ±1 shifts. No
+Cycle-2-specific rescaling: A5/A7 adjustments move within the same anchors. Corpus scope:
+see the one-line note under Scale definitions (six AxiomMath repos added to the four
+main-run corpora).
+
+### Cycle-2 mechanical matrix (pre-built by H, 2026-11-13 — all rows [expected])
+
+Same column contract as the main-run matrix: Lane proposal + Category are quoted verbatim
+from each dossier's own "Lane proposal" line and honesty/classification header once landed
+(A9); H adds no judgment. Draft score = H's arithmetic N×S÷E on adjusted inputs; DRAFT,
+not a decision.
+
+| # | Candidate | Lane proposal (quoted N/S/E → score) | Category (dossier's own label) | Novelty adj (A5 round-4) | Effort adj (A7 donor-probes) | Pilot status (2026-11-13) | Depreciation tier (A5) | Draft final score (DRAFT — H arithmetic) | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 70 | unconditional-zetaK-zero-confinement | [expected — dossier not landed (A9)] | [expected] | [INCOMING A5] | [INCOMING A7] | not started | [INCOMING A5] | — | hQRH-discharge lineage (DedekindZetaZeroFree Cureton–Thorner as donor); awaits A3 remap + A9 dossier |
+| 71 | function-field-simple-zero-proportions | [expected — dossier not landed (A9)] | [expected] | [INCOMING A5] | [INCOMING A7] | not started | [INCOMING A5] | — | Weil (RH over 𝔽_q) × zero-proportions lineage; awaits A2 zone verdict + A9 dossier |
+| 72 | area-law-inertial-defect | [expected — dossier not landed (A9)] | [expected] | [INCOMING A5] | [INCOMING A7] | not started | [INCOMING A5] | — | AreaLaw2D × linear-algebra cluster lineage; awaits A4 zone verdict + A9 dossier |
+| 73 | [PENDING ZONE VERDICTS] | — | — | — | — | — | — | — | reserved; populate only if A2/A4 bridges name a further zone worth a dossier |
+| 74 | [PENDING ZONE VERDICTS] | — | — | — | — | — | — | — | reserved; as 73 |
+
+Data sources (Cycle 2): lane proposal + category ← `candidates/7N-*.md` (A9); novelty adj +
+depreciation tier ← `novelty/round-4.md` (A5); effort adj ←
+`feasibility/axiommath-donor-probes.md` (A7, cross-checked vs probe/logs-g); pilot status ←
+STATUS.md § Cycle-2 pilots pipeline + on-disk `research/pilots/*`; donor-remap deltas ←
+`novelty/axiommath-as-donor.md` (A3).
+
+### Cycle-2 pilot decision (orchestrator's — do not decide until these clear)
+
+Checklist of incoming inputs:
+
+- [ ] A3 donor verdicts — `novelty/axiommath-as-donor.md`: hQRH-discharge viability
+      (Cureton–Thorner ζ_K ≠ 0, Re s > 31/32) for 50-M3 / 20; ZetaZerosV2 second-donor
+      viability for 42-M4.
+- [ ] A7 probe verdicts — `feasibility/axiommath-donor-probes.md` + `probe/logs-g/`:
+      donor-consumption effort grades against the axiommath builds on our pin.
+- [ ] A5 round-4 verdicts — `novelty/round-4.md`: novelty adjusts + depreciation tiers for
+      the 70-series (cells above).
+- [ ] A9 dossiers landed — `candidates/70-*.md` (full) + `71-*`/`72-*` skeletons → lane
+      proposal/category cells fill mechanically.
+- [ ] Pilot statuses current — STATUS § Cycle-2 pilots pipeline: 10-L1/L2 (A6), 52
+      fix-or-close + 20 close-out (A8); prospective 50-M3/42-M4 stay PENDING A3/A7 until
+      the first two boxes clear.
