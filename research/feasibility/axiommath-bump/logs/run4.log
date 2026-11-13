@@ -1,0 +1,64 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZeros, 2026-11-13 (fix round 3 of ZetaZeros on dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Re9j9NLh0XLvj2Cxz18yzD
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZeros update: rc=0
+
+=== ZetaZeros cache: rc=0
+{'build ZetaZeros': 'FAIL rc=1 step=build errors=2 failed_modules=1'}
+
+=== ZetaZeros build: rc=1
+error: ZetaZeros/Zeta/Kernel.lean:595:4: No goals to be solved
+error: build failed
+failed modules: ['ZetaZeros.Zeta.Kernel']
+ros.Hilbert.Defs (3.1s)
+✔ [7414/7472] Built ZetaZeros.Zeta.Asymptotics (3.3s)
+✔ [7416/7472] Built ZetaZeros.Zeta.Defs (3.1s)
+✔ [7418/7472] Built ZetaZeros.Hilbert.InnerReal (3.1s)
+✔ [7420/7472] Built ZetaZeros.Hilbert.FIdentity (3.3s)
+✔ [7422/7472] Built ZetaZeros.Hilbert.Symmetry (3.3s)
+✔ [7424/7472] Built ZetaZeros.Hilbert.Integrals (3.3s)
+✔ [7426/7472] Built ZetaZeros.Zeta.Proportion (3.9s)
+✔ [7428/7472] Built ZetaZeros.Zeta.Finite (3.6s)
+✔ [7430/7472] Built ZetaZeros.Zeta.Cutoff (3.6s)
+✔ [7432/7472] Built ZetaZeros.Zeta.OrderConj (3.8s)
+✔ [7434/7472] Built ZetaZeros.Zeta.Basic (4.3s)
+✔ [7436/7472] Built ZetaZeros.Hilbert.L2 (3.1s)
+✔ [7438/7472] Built ZetaZeros.Zeta.Mass (2.9s)
+✔ [7440/7472] Built ZetaZeros.Hilbert.Subspaces (2.7s)
+✔ [7442/7472] Built ZetaZeros.MontgomeryTaylor.AffineKernel (6.0s)
+✔ [7444/7472] Built ZetaZeros.MontgomeryTaylor.TestFunction (3.5s)
+✔ [7446/7472] Built ZetaZeros.Hilbert.Basis (2.9s)
+✔ [7448/7472] Built ZetaZeros.Hilbert.SymmetryL2 (2.8s)
+✔ [7450/7472] Built ZetaZeros.MontgomeryTaylor.Integrability (2.6s)
+✔ [7452/7472] Built ZetaZeros.Hilbert.InnerRealL2 (2.5s)
+✔ [7454/7472] Built ZetaZeros.Hilbert.Dimensions (2.9s)
+✔ [7456/7472] Built ZetaZeros.MontgomeryTaylor.Evaluation (5.1s)
+✔ [7458/7472] Built ZetaZeros.MontgomeryTaylor.Reduction (4.1s)
+✔ [7460/7472] Built ZetaZeros.MontgomeryTaylor.Basic (2.5s)
+⚠ [7462/7472] Built ZetaZeros.Hilbert.AlphaExpansion (8.1s)
+warning: ZetaZeros/Hilbert/AlphaExpansion.lean:1833:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion.lean:1834:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+✖ [7464/7472] Building ZetaZeros.Zeta.Kernel (3.0s)
+trace: .> LEAN_PATH=/work/ZetaZeros/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/plausible/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZeros/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/ZetaZeros/ZetaZeros/Zeta/Kernel.lean -o /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Zeta/Kernel.olean -i /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Zeta/Kernel.ilean -c /work/ZetaZeros/.lake/build/ir/ZetaZeros/Zeta/Kernel.c --setup /work/ZetaZeros/.lake/build/ir/ZetaZeros/Zeta/Kernel.setup.json --json
+error: ZetaZeros/Zeta/Kernel.lean:595:4: No goals to be solved
+Some required targets logged failures:
+- ZetaZeros.Zeta.Kernel
+error: build failed
+
+
+=== SUMMARY
+build ZetaZeros: FAIL rc=1 step=build errors=2 failed_modules=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Re9j9NLh0XLvj2Cxz18yzD

@@ -1,0 +1,65 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZeros, 2026-11-13 (fix round 4 of ZetaZeros on dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-fOP6OAHL3ddYFrrlBJYVeJ
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZeros update: rc=0
+
+=== ZetaZeros cache: rc=0
+{'build ZetaZeros': 'OK'}
+
+=== ZetaZeros build: rc=0
+
+failed modules: []
+✔ [7406/7472] Built ZetaZeros.Meta.Attr (6.5s)
+✔ [7408/7472] Built ZetaZeros.Defs (2.6s)
+✔ [7410/7472] Built ZetaZeros.Numeric.MontgomeryTaylor (3.4s)
+✔ [7412/7472] Built ZetaZeros.Hilbert.Defs (3.0s)
+✔ [7414/7472] Built ZetaZeros.Zeta.Asymptotics (3.4s)
+✔ [7416/7472] Built ZetaZeros.Zeta.Defs (3.1s)
+✔ [7418/7472] Built ZetaZeros.Hilbert.InnerReal (3.1s)
+✔ [7420/7472] Built ZetaZeros.Hilbert.FIdentity (3.3s)
+✔ [7422/7472] Built ZetaZeros.Hilbert.Symmetry (3.3s)
+✔ [7424/7472] Built ZetaZeros.Hilbert.Integrals (3.3s)
+✔ [7426/7472] Built ZetaZeros.Zeta.Proportion (3.9s)
+✔ [7428/7472] Built ZetaZeros.Zeta.Finite (3.8s)
+✔ [7430/7472] Built ZetaZeros.Zeta.Cutoff (3.9s)
+✔ [7432/7472] Built ZetaZeros.Zeta.OrderConj (4.1s)
+✔ [7434/7472] Built ZetaZeros.Zeta.Basic (4.5s)
+✔ [7436/7472] Built ZetaZeros.Hilbert.L2 (2.0s)
+✔ [7438/7472] Built ZetaZeros.Zeta.Mass (2.8s)
+✔ [7440/7472] Built ZetaZeros.Hilbert.Subspaces (2.6s)
+✔ [7442/7472] Built ZetaZeros.MontgomeryTaylor.AffineKernel (6.1s)
+✔ [7444/7472] Built ZetaZeros.MontgomeryTaylor.TestFunction (3.4s)
+✔ [7446/7472] Built ZetaZeros.Hilbert.SymmetryL2 (2.8s)
+✔ [7448/7472] Built ZetaZeros.Hilbert.Basis (2.9s)
+✔ [7450/7472] Built ZetaZeros.MontgomeryTaylor.Integrability (2.4s)
+✔ [7452/7472] Built ZetaZeros.Hilbert.InnerRealL2 (2.6s)
+✔ [7454/7472] Built ZetaZeros.Hilbert.Dimensions (2.0s)
+✔ [7456/7472] Built ZetaZeros.MontgomeryTaylor.Evaluation (5.0s)
+✔ [7458/7472] Built ZetaZeros.MontgomeryTaylor.Reduction (4.4s)
+✔ [7460/7472] Built ZetaZeros.MontgomeryTaylor.Basic (2.8s)
+⚠ [7462/7472] Built ZetaZeros.Hilbert.AlphaExpansion (8.8s)
+warning: ZetaZeros/Hilbert/AlphaExpansion.lean:1833:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion.lean:1834:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+✔ [7464/7472] Built ZetaZeros.Zeta.Kernel (3.8s)
+✔ [7466/7472] Built ZetaZeros.Zeta.Transfer (2.9s)
+✔ [7468/7472] Built ZetaZeros.Main (3.0s)
+✔ [7470/7472] Built ZetaZeros (2.7s)
+Build completed successfully (7472 jobs).
+
+
+=== SUMMARY
+build ZetaZeros: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-fOP6OAHL3ddYFrrlBJYVeJ

@@ -1,0 +1,54 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZeros, 2026-11-13 (fix round 2 of ZetaZeros on dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-cuRnxAyzeRK2gELyNxPdXh
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZeros update: rc=0
+
+=== ZetaZeros cache: rc=0
+{'build ZetaZeros': 'FAIL rc=1 step=build errors=7 failed_modules=2'}
+
+=== ZetaZeros build: rc=1
+error: ZetaZeros/MontgomeryTaylor/Reduction.lean:178:29: Unknown constant `MeasureTheory.Measure.prod_prod_le`
+error: ZetaZeros/MontgomeryTaylor/Reduction.lean:280:31: Unknown constant `MeasureTheory.Measure.prod_prod_le`
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1833:84: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1834:84: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1838:4: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:2408:4: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+error: build failed
+failed modules: ['ZetaZeros.Hilbert.AlphaExpansion', 'ZetaZeros.MontgomeryTaylor.Reduction']
+/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/ZetaZeros/ZetaZeros/MontgomeryTaylor/Reduction.lean -o /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/MontgomeryTaylor/Reduction.olean -i /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/MontgomeryTaylor/Reduction.ilean -c /work/ZetaZeros/.lake/build/ir/ZetaZeros/MontgomeryTaylor/Reduction.c --setup /work/ZetaZeros/.lake/build/ir/ZetaZeros/MontgomeryTaylor/Reduction.setup.json --json
+error: ZetaZeros/MontgomeryTaylor/Reduction.lean:178:29: Unknown constant `MeasureTheory.Measure.prod_prod_le`
+error: ZetaZeros/MontgomeryTaylor/Reduction.lean:280:31: Unknown constant `MeasureTheory.Measure.prod_prod_le`
+✖ [7462/7472] Building ZetaZeros.Hilbert.AlphaExpansion (7.7s)
+trace: .> LEAN_PATH=/work/ZetaZeros/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/plausible/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZeros/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/ZetaZeros/ZetaZeros/Hilbert/AlphaExpansion.lean -o /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Hilbert/AlphaExpansion.olean -i /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Hilbert/AlphaExpansion.ilean -c /work/ZetaZeros/.lake/build/ir/ZetaZeros/Hilbert/AlphaExpansion.c --setup /work/ZetaZeros/.lake/build/ir/ZetaZeros/Hilbert/AlphaExpansion.setup.json --json
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1833:84: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hf
+has type `WithTop.LT (eLpNorm f 2 mu) ⊤` which is not a one-constructor inductive type.
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1834:84: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hg
+has type `WithTop.LT (eLpNorm g 2 nu) ⊤` which is not a one-constructor inductive type.
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:1838:4: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hf
+has type `WithTop.LT (eLpNorm f 2 mu) ⊤` which is not a one-constructor inductive type.
+error: ZetaZeros/Hilbert/AlphaExpansion.lean:2408:4: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hf
+has type
+  WithTop.LT (eLpNorm f 2 (volume.restrict (Set.Ioo (-lam) lam))) ⊤
+which is not a one-constructor inductive type.
+Some required targets logged failures:
+- ZetaZeros.MontgomeryTaylor.Reduction
+- ZetaZeros.Hilbert.AlphaExpansion
+error: build failed
+
+
+=== SUMMARY
+build ZetaZeros: FAIL rc=1 step=build errors=7 failed_modules=2
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-cuRnxAyzeRK2gELyNxPdXh

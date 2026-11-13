@@ -106,4 +106,4 @@ Nothing remains [expected]: every file owned by a lane is on disk (project close
 - `research/pilots/32/logs/` | evidence | DONE | run1, run2, run3-green, axcheck-final.
 - `research/pilots/*/logs/axcheck-final.log` | evidence | DONE | Final-sweep axcheck transcript (29/29 OK, 0 sorryAx), one copy per pilot (01, 11, 20, 22, 30, 32, 42, 50, 52).
 - `research/feasibility/probe/make_axcheck.py` | tooling | updated | Final target list; section- and comment-aware theorem extraction; optional stage-name filter.
-- `research/feasibility/axiommath-bump/` | feasibility | run1 2026-11-13 | AxiomMath clones bumped to v4.36.0-rc2/ff2494ea: Challenge statements 3/3 OK; ZetaZeros build 2 failing modules; ZetaZerosV2 blocked at lake update (cache fetch).
+- `research/feasibility/axiommath-bump/` | feasibility | run1 2026-11-13 | AxiomMath clones bumped to v4.36.0-rc2/ff2494ea: Challenge statements 3/3 OK; ZetaZeros build OK after 4 fix rounds (run5, 7472 jobs, 0 sorry; ZetaZeros dev/claude port commit); ZetaZerosV2 blocked at lake update (cache fetch).

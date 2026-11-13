@@ -1,0 +1,52 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZeros, 2026-11-13 (fix round 1 of ZetaZeros on dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-u5cuM9Ut7MaOLBBKprCGQn
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZeros update: rc=0
+
+=== ZetaZeros cache: rc=0
+{'build ZetaZeros': 'FAIL rc=1 step=build errors=2 failed_modules=1'}
+
+=== ZetaZeros build: rc=1
+error: ZetaZeros/Zeta/Basic.lean:115:38: Unknown constant `ContDiffAt.sqrt`
+error: build failed
+failed modules: ['ZetaZeros.Zeta.Basic']
+✔ [7406/7472] Built ZetaZeros.Meta.Attr (4.5s)
+✔ [7408/7472] Built ZetaZeros.Defs (1.0s)
+✔ [7410/7472] Built ZetaZeros.Numeric.MontgomeryTaylor (2.5s)
+✔ [7412/7472] Built ZetaZeros.Hilbert.Defs (2.3s)
+✔ [7414/7472] Built ZetaZeros.Zeta.Asymptotics (2.5s)
+✔ [7416/7472] Built ZetaZeros.Zeta.Defs (2.2s)
+✔ [7418/7472] Built ZetaZeros.Hilbert.Symmetry (2.2s)
+✔ [7420/7472] Built ZetaZeros.Hilbert.FIdentity (2.4s)
+✔ [7422/7472] Built ZetaZeros.Hilbert.Integrals (2.4s)
+✔ [7424/7472] Built ZetaZeros.Hilbert.InnerReal (2.4s)
+✔ [7426/7472] Built ZetaZeros.Zeta.Proportion (2.7s)
+✔ [7428/7472] Built ZetaZeros.Zeta.Finite (2.7s)
+✔ [7430/7472] Built ZetaZeros.Zeta.Cutoff (2.8s)
+✔ [7432/7472] Built ZetaZeros.Zeta.OrderConj (2.0s)
+✖ [7434/7472] Building ZetaZeros.Zeta.Basic (3.2s)
+trace: .> LEAN_PATH=/work/ZetaZeros/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/plausible/.lake/build/lib/lean:/work/ZetaZeros/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZeros/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/ZetaZeros/ZetaZeros/Zeta/Basic.lean -o /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Zeta/Basic.olean -i /work/ZetaZeros/.lake/build/lib/lean/ZetaZeros/Zeta/Basic.ilean -c /work/ZetaZeros/.lake/build/ir/ZetaZeros/Zeta/Basic.c --setup /work/ZetaZeros/.lake/build/ir/ZetaZeros/Zeta/Basic.setup.json --json
+error: ZetaZeros/Zeta/Basic.lean:115:38: Unknown constant `ContDiffAt.sqrt`
+✔ [7450/7472] Built ZetaZeros.Hilbert.L2 (2.3s)
+✔ [7452/7472] Built ZetaZeros.Hilbert.Subspaces (2.3s)
+✔ [7454/7472] Built ZetaZeros.Hilbert.SymmetryL2 (2.4s)
+✔ [7456/7472] Built ZetaZeros.Hilbert.Basis (2.6s)
+✔ [7458/7472] Built ZetaZeros.Hilbert.InnerRealL2 (2.3s)
+✔ [7460/7472] Built ZetaZeros.Hilbert.Dimensions (2.4s)
+Some required targets logged failures:
+- ZetaZeros.Zeta.Basic
+error: build failed
+
+
+=== SUMMARY
+build ZetaZeros: FAIL rc=1 step=build errors=2 failed_modules=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-u5cuM9Ut7MaOLBBKprCGQn

@@ -46,7 +46,7 @@ BUILDS = [("ZetaZeros", ["ZetaZeros"]),
 
 
 @app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
-def run(tarball: bytes):
+def run(tarball: bytes, only: str = ""):
     import io, re, subprocess, tarfile, pathlib
 
     work = pathlib.Path("/work")
@@ -66,7 +66,7 @@ def run(tarball: bytes):
 
     summary = {}
     # (a) statement check against the cached mathlib
-    for rel in CHALLENGES:
+    for rel in ([] if only else CHALLENGES):
         dst = pathlib.Path("/opt/mathlib") / ("AxChallenge_" + rel.split("/")[0] + ".lean")
         dst.write_text((work / rel).read_text())
         rc, out = sh(f"lake env lean {dst.name}", "/opt/mathlib", 1800)
@@ -79,7 +79,7 @@ def run(tarball: bytes):
     lf = work / "ZetaZerosV2/lakefile.toml"
     lf.write_text(re.sub(r'(name\s*=\s*"PrimeNumberTheoremAnd"\s*\n)git\s*=\s*"[^"]*"\s*\nrev\s*=\s*"[^"]*"',
                          r'\1path = "../PrimeNumberTheoremAnd"', lf.read_text()))
-    for repo, targets in BUILDS:
+    for repo, targets in [b for b in BUILDS if not only or b[0] in only.split(",")]:
         d = work / repo
         for step, cmd, t in [("update", "lake update", 1800),
                              ("cache", "lake exe cache get", 1800),
@@ -102,11 +102,11 @@ def run(tarball: bytes):
 
 
 @app.local_entrypoint()
-def main(root: str):
+def main(root: str, only: str = ""):
     import io, tarfile, pathlib
     buf = io.BytesIO()
     with tarfile.open(fileobj=buf, mode="w:gz") as tf:
         for r in REPOS:
             tf.add(str(pathlib.Path(root) / r), arcname=r,
                    filter=lambda ti: None if "/.git" in ti.name or "/.lake" in ti.name else ti)
-    print(run.remote(buf.getvalue()))
+    print(run.remote(buf.getvalue(), only))
