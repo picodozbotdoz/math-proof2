@@ -383,13 +383,13 @@ any future external-tree consumption (Majdoddin's tree is the obvious next donor
   every 'depends on axioms' line the triad — 83 axiom prints, zero non-triad, zero
   sorryAx/native_decide). Vocabulary: `distinctCountCum` (:821),
   `EpsLowerDistinctStripCum` (:833), `commonStripCum`, the `hCZ′` binder schema.
-- **M4b (the ZetaZerosV2 ζ-column discharge): run2 GREEN on disk 2026-11-14,
-  marked PENDING A3 OFFICIAL RELAY.** `M4b.lean` (1,560 LoC / 66 thms; log
-  `logs/m4b-run2.log`, lane A3-relaunch: OK, 0 errors / 0 sorry-warnings; all 6 landing
-  theorems — 3 M4a-carried + 3 `_of_V2` (`zetaK_two_thirds_landed_of_V2`,
-  `zetaK_distinct_five_sixths_strip_landed_of_V2`(+`_of_negligible`)) — exactly the
-  triad, zero sorryAx). Route: G2-cleared direct V2 import recorded APPLIED in the file
-  header (:40–44, `import ZetaZeros`), fallback binders hV2d4/hV2d5 retained as
-  documented fallback. `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
+- **M4b (the ZetaZerosV2 ζ-column discharge): FINAL-GREEN BOTH ROUTES (filled 2026-11-14
+  per A1's §9 disk-verified landings; A3 formal report owed with the log-hygiene line).**
+  Fallback: `m4b-run2.log` GREEN (1,560 LoC / 66 thms, 0/0, 6 landing theorems triad).
+  **Upgrade COMPLETE on the primary route: `m4b2-run2.log` — direct ZetaZerosV2 import
+  GREEN, 1,570 LoC / 68 thms; the 6 landing theorems + V2d4/V2d5 endpoints + donor
+  `simple_proportion_d4`/`distinct_proportion_d5` exactly the triad per the consumer-run
+  axiom report; fallback preserved byte-exact at `logs/M4b-fallback-GREEN.lean`;
+  ≤20-line-delta gate met.** `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
   `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` (standalone by
-  orchestrator decision; slots [VERDICT:M4b] / [VERDICT:M4b-upgrade] await the relay).
+  orchestrator decision; [VERDICT:M4b] and [VERDICT:M4b-upgrade] both FILLED-FINAL).

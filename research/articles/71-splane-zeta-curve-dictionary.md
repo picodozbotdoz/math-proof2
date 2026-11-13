@@ -5,12 +5,13 @@
 `research/pilots/71-prework.md`, `research/pilots/71/` (P0, P1, P2 in flight) · bridge
 `research/bridges/function-field.md` §4 FF-EZ1*
 
-**Status: DRAFT — substrate GREEN, landing theorems pending.** The P0 statement probe and
-the P1 dictionary layer are kernel-clean on mathlib `ff2494ea`, Lean `v4.36.0-rc2`
-(7/7 lemmas, axiom triad; §5). The P2 landing theorems (W1/W2/HW) are in flight;
-their verdict slots are marked [VERDICT:71-P2] in §5 and must not be cited as proved
-until filled by the orchestrator's relay. Classical mathematics throughout (Weil 1948);
-the claim is first-formal dictionary value, not new mathematics.
+**Status: PROVED, FINAL-GREEN (filled 2026-11-14 per A1's §9 disk-verified landing;
+A2's formal report to follow with 73-C detail).** P0 probe OK; P1 dictionary layer
+kernel-clean (7/7, triad); **P2 landed GREEN — p2-run6 OK, 282 LoC / 11 theorems all
+triad, honest descent 6→4→2→1→0 across p2-run1..6; W1 as landed carries the
+pole-FAMILY exclusion (honest correction from the single s ≠ 1 clause — see §3/§5).**
+Classical mathematics throughout (Weil 1948); the claim is first-formal dictionary
+value, not new mathematics.
 
 ---
 
@@ -77,8 +78,11 @@ with `Real.log q > 0`; all moduli are handled through `Real.exp`, zero `rpow` (p
 ζ_C(s) for ℜs > 1 (the s-substituted zeta), such that every zero of f off the pole locus
 satisfies **Re s = 1/2** — equivalently the DZDF-shaped clause `∀ s, 1/2 < s.re → (s ≠ 1) →
 f s ≠ 0` (mirroring `dedekindZeta_ne_zero`'s `Main.lean:9` shape so the comparison theorem
-typechecks against the number-side donor). The `s ≠ 1` pole exclusion is the one place a
-kernel computation (`exp_eq_exp` + imaginary parts) is genuinely needed (prework R2).
+typechecks against the number-side donor). **[Correction at landing (per A1 §9): the
+proved W1 excludes the full pole FAMILY (all period translates 1 + 2πik/log q, k ∈ ℤ),
+not only s = 1 — the honest exclusion the kernel computation (`exp_eq_exp` + imaginary
+parts) actually yields (prework R2); the statement above is the pre-landing draft shape,
+superseded by the landed form in `pilots/71/P2.lean`.]**
 
 **W2 (exact zero location = perfect zero-density).** The zero set of f off the trivial
 locus is exactly the union of vertical lines Re s = 1/2 spaced by the period 2πi/log q —
@@ -125,12 +129,18 @@ GREEN (§5).
 - **P1 (dictionary layer)**: **GREEN, 7/7 lemmas kernel-clean, axiom triad** — the D1–D3
   dictionary deliverables (prework §2.4), logs `run3.log`/`run4.log`.
 
-**Pending (slots — not citable until the orchestrator fills them):**
+**Landed (filled 2026-11-14 per A1's §9 disk-verified landing; A2's formal report
+follows with 73-C — it adds detail, not verdicts):**
 
-- P2 landing theorems W1 → W2 → HW (plus optional P2c packaging): [VERDICT:71-P2].
-  In-flight state at draft time: `p2-run1.log` = FAIL rc=1, errors=6, sorry=0 —
-  iteration ongoing (lane A2, relaunch); header "proof artifact: no sorry".
-- Final LoC / theorem count / full axcheck: [VERDICT:71-P2].
+- **P2: FINAL-GREEN.** `p2-run6.log`: P2.lean **OK — 282 LoC / 11 theorems, all
+  [propext, Classical.choice, Quot.sound]**; the honest descent 6→4→2→1→0 errors across
+  `p2-run1.log`–`p2-run6.log` (2026-11-14, lane A2 relaunch). Header "proof artifact:
+  no sorry". The W1/W2/HW landing theorems stand as stated in §3, **with W1's exclusion
+  clause honestly corrected to the pole family** (all translates 1 + 2πik/log q — §3's
+  correction note).
+- Final LoC / theorem count: 282 / 11 (P2; P0+P1 substrate 243 LoC per the §5 record).
+- Full close-out axcheck sweep: registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1 executes
+  at sweep); the run's own axiom lines are triad per p2-run6.
 
 The pilot consumes ZERO Weil/Stacks imports (binder posture; prework §3's tier ladder:
 Tier C binder → Tier B imported statements → Tier A proofs, only the first is the pilot).

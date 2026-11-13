@@ -9,10 +9,15 @@ certificate-conditional record of the main run, cited below but not edited** · 
 `research/pilots/42-M4-blueprint.md` · pilot `research/pilots/42/{M4a,M4b}.lean`, logs
 `research/pilots/42/logs/` (m4-run2, m4-axcheck-run1, m4b-run2)*
 
-**Status: DRAFT — M4a GREEN + axcheck-clean (landed evidence); M4b run2 GREEN on disk
-2026-11-14; official verdict slots [VERDICT:M4b] and [VERDICT:M4b-upgrade] open for the
-orchestrator's relay.** Standalone-vs-addendum DECIDED 2026-11-14: standalone (header
-cross-reference above; main-run article 42 frozen).
+**Status: PROVED, FINAL — both routes GREEN (filled 2026-11-14 per A1's §9
+disk-verified landings; A3's formal report owed with the log-hygiene line).** M4a GREEN +
+axcheck-clean; **M4b fallback GREEN (1,560 LoC / 66 thms, m4b-run2) AND the upgrade
+COMPLETE on the PRIMARY route — `m4b2-run2.log`: direct ZetaZerosV2 import GREEN,
+1,570 LoC / 68 thms (run-header figure), the 6 landing theorems + the V2d4/V2d5
+endpoints + the donor proportion theorems (`simple_proportion_d4`/`distinct_proportion_d5`)
+exactly the triad per the consumer-run axiom report; fallback preserved byte-exact
+(`logs/M4b-fallback-GREEN.lean`); the ≤20-line-delta gate met.** Standalone-vs-addendum
+DECIDED 2026-11-14: standalone (header cross-reference above; main-run article 42 frozen).
 
 ---
 
@@ -119,10 +124,22 @@ theorems (`import ZetaZeros`) — is recorded as APPLIED in the file header
   unused binder, if_neg deprecation). Run 1's 5 sites fixed (mul_nonpos refinements,
   calc relaxations, ℕ↔ℝ casts).
 
-**Pending (slots):**
+**Landed (filled 2026-11-14 per A1's §9 disk-verified landings; A3's formal report owed
+with the log-hygiene line — detail, not verdicts):**
 
-- Official M4b verdict + close-out axcheck sweep: [VERDICT:M4b].
-- Direct-import upgrade status as the recorded primary route (vs fallback): [VERDICT:M4b-upgrade].
+- **[VERDICT:M4b] FILLED-FINAL:** fallback GREEN — `m4b-run2.log`: OK, 0 errors / 0
+  sorry, 1,560 LoC / 66 thms, all 6 landing theorems triad, 0 sorryAx.
+- **[VERDICT:M4b-upgrade] FILLED-FINAL:** upgrade COMPLETE on the primary route —
+  `m4b2-run2.log` (app `crossmath-pilot-42-m4b2`, V2+PNT+ tarball build with path
+  redirect): build OK, M4b.lean OK, 0 errors / 0 sorry-warnings under the widened
+  error-count regex (the run header records the log-hygiene reconciliation: the
+  error(lean.*) diagnostic format had undercounted in earlier runner summaries);
+  **1,570 LoC / 68 thms**; axioms of the 6 landing theorems + V2d4/V2d5 endpoints +
+  donor `ZetaZeros.simple_proportion_d4`/`distinct_proportion_d5` (on-pin, from the
+  consumer run) exactly [propext, Classical.choice, Quot.sound]. **Final artifact
+  disposition: `pilots/42/M4b.lean` = the direct-import (primary) version; the fallback
+  GREEN state preserved byte-exact at `logs/M4b-fallback-GREEN.lean`** (runnable via
+  `run_m4.sh` without the V2 tree); ≤20-line-delta gate met.
 
 ## 6. Relation to prior work
 

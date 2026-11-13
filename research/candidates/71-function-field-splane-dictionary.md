@@ -308,10 +308,15 @@ the ledger (filled below, not relay-dependent); P2 is in flight.
   - P1 (kernel-clean stage): **GREEN** — the D1–D3 dictionary deliverables (prework
     §2.4): **7/7 lemmas kernel-clean, axiom triad**; logs `run2.log`–`run4.log`
     (2026-11-13).
-  - P2 (proof artifact; W1 window incl. s≠1 pole exclusion → W2 → HW): **[VERDICT:71-P2]**
-    (in flight — iterates logged p2-run1…run6, 2026-11-14; verdict via orchestrator relay).
-- LoC (final files): — (P2 pending)
-- Theorem count (final files): — (P2 pending)
-- Axiom audit (`#print axioms` sweep; triad check): P1 layer triad-clean per run4;
-  full-file sweep at close-out.
-- Verdict line: P0/P1 landed; P2 [VERDICT:71-P2].
+  - P2 (proof artifact; W1 → W2 → HW): **FINAL-GREEN (filled 2026-11-14 per A1's §9
+    disk-verified landing; A2 formal report follows with 73-C): `p2-run6.log` OK —
+    282 LoC / 11 theorems, all triad; descent 6→4→2→1→0 across p2-run1..6; W1 as landed
+    excludes the full POLE FAMILY (period translates 1 + 2πik/log q) — honest correction
+    from the drafted single s≠1 clause.**
+- LoC (final files): **282** (P2; P0+P1 substrate 243).
+- Theorem count (final files): **11** (P2).
+- Axiom audit (`#print axioms` sweep; triad check): **run-own axiom lines all triad
+  (p2-run6); full close-out sweep registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1).**
+- Verdict line: **P0 OK / P1 GREEN / P2 FINAL-GREEN — the s-plane dictionary, exact-1/2
+  window, and Hasse–Weil transport are kernel-verified on our pin (article
+  `research/articles/71-splane-zeta-curve-dictionary.md`, promoted past DRAFT).**
