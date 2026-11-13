@@ -465,6 +465,14 @@ standing authorization with a commit.
   STEP-8 G7 gate refined per the census (article FILES' Status/provenance lines,
   both-token command; README rows excluded; clean = 10/11/22-appends, token-swap-only =
   71/73/42M4, open = 50M2/75).
+- 2026-11-14 — batch-14: `A1 — ITERATION4-CHARTER-SPLICE` (e48cb14; RESEARCH.md-register
+  draft, 81 ln, 11 bracketed slots for the orchestrator's typeset); `A2 — lp-layer
+  AFP-verdict fix + al-3d-prework NEW` (6129621; H QA: AFP-HAS-LP_DUALITY phrasing rule
+  applied w/ seed-9 RESOLVED marker; B.2 = SlabAreaLaw3D named w/ not-a-target fence,
+  PlanarAreaLawVar ×12, padding-route refuted at :182). **A8 moved to slot 3** (72-M1:
+  m1-run1 FAIL 4+1 errors, iterating — log not yet on disk); **11-M2 finishing on
+  disk**: m2-run4/5/6 + `m2-axcheck-final.log` landed untracked — formal report
+  imminent. P2 LoC flag RESOLVED earlier this batch-series (773e3a7, 279 canonical).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
