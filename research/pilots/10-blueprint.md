@@ -182,9 +182,11 @@ run since 3): agreement theorems `[propext]`/`[propext, Quot.sound]`; `termFCD_e
 ## §Next milestones
 
 - ~~**M2 = L1**~~ (counter combinators; **done**, §L1 run log above).
-- **M3 = L2** — see §L2 run log below.
-- Assembly then = counter-`padM'` + L2 + `exists_tm_space` in place of `exists_tm` inside
-  `exists_tm_padded`; the time half is unchanged because `exists_tm_space` is about eth's machine.
+- ~~**M3 = L2**~~ (**done**, §L2 run log above).
+- **M4 = the assembly tranche** — spec: `research/pilots/10/next-tranche-spec.md`
+  (PROPOSAL, [CHARTER-PENDING], 2026-11-14): the wd↔cw relabeling walk + counter-`padM'` +
+  `exists_tm_padded_space` (D1–D6; eth-Lib plumbing, no new math; grade M, ≈1.0–1.6k new LoC).
+  Charter at iteration 4 decides scope/split (D4 landable without D5/D6).
 
 ## §L2 run log (milestone M3, Cycle 2, lane A6-relaunch 2026-11-14)
 
