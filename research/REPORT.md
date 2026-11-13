@@ -272,11 +272,12 @@ rows), pilot outcome slot per pilot pipeline.
   formalization-first (Weil 1948 math-known); FF-EZ2-family secondary DISCOVERY-grade
   [HYPOTHESIS], flagged not-pilot. A5: primary "formalization-first (dictionary value)",
   WARM (Suzuki 2610.41115 month-clock). Pilot (slot 1, A2): P0 OK + P1 GREEN (7/7
-  kernel-clean, triad; 243 LoC total) → outcome **FINAL-GREEN (disk-verified 2026-11-14;
-  A2 formal report pending with 73-C)** — p2-run6 "P2.lean: OK": 282 LoC / 11 theorems,
+  kernel-clean, triad; 243 LoC total) → outcome **FINAL-GREEN (A2 formal report
+  received 2026-11-14)** — p2-run6 "P2.lean: OK": final 282 LoC on disk (A2 report cites 279 — 3-line delta, flagged) / 11 theorems,
   22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK across p2-run1–6; W1 honestly
-  corrected to the pole-family exclusion (prework's s≠1 reading refined); 73-C: Q0 probe
-  CONFIRMED (run1-q0), Tier-C skeleton executing.
+  corrected to the pole-family exclusion (prework's s≠1 reading refined). 73-C:
+  **GREEN FINAL** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 theorems all triad,
+  descent 2→4→4→2→OK; Q4 untouched per the separate gate.
 - **(72) Area-law inertial defect.** Post-Kuwahara restructure: the gap-to-inertia dictionary
   (HasGlobalGap ⇔ `posIndexAbove θ (E₀−H) ≤ 1`, provable now; isometric-B erratum applied),
   a purity (α = 2) certificate route [HYPOTHESIS] via pilot-01's PROVED master identity, a
@@ -363,9 +364,9 @@ rows), pilot outcome slot per pilot pipeline.
 | 20 | hecke-zetaK close-out | **CLOSED-GREEN** (A8, 2026-11-13): runs recorded, axcheck 36 axiom-lines 0 sorryAx; hCZ seam unchanged |
 | 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
 | 10-L2 | `PolyTVal` | **[PILOT-VERDICT:10-L2]** (2,595 LoC / 126 thms on disk; Part-D defect fixes + first run pending at relaunch; L1 landed GREEN first — 529 LoC / 25 thms, l1-run4-final) |
-| 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 392 LoC; four pinpoint fixes applied — m2-run1: P11T3.lean OK with T1/T2/RedCompA/B re-verified; RedTm2 iterating, err 4→2→3 across m2-runs — A8 reconciles at report) |
+| 11-M2 | reduction-theory tier 2 (A8-3) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers)** — m2-run8 all six files OK incl. RedTm2 (final 421 LoC); err churn 4→2→3 explained in the ledger; debt (d) headers at report |
 | 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (disk-verified 2026-11-14; A3 formal report owed)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); M4-note finalization owed |
-| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (disk-verified 2026-11-14; A2 formal report pending)** — p2-run6 "P2.lean: OK", 282 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **[PILOT-VERDICT:73-C]** (Q0 probe CONFIRMED run1-q0; Tier-C skeleton executing) |
+| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (A2 formal report received 2026-11-14)** — p2-run6 "P2.lean: OK", final **282 LoC on disk** (report cites 279 — flagged) / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **73-C GREEN FINAL (covered by A2's report)** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad, descent 2→4→4→2→OK, Q4 untouched per separate gate |
 | 72-C-neg | Kuwahara no-go gate (A4) | **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)** — run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 runs 1–8 (1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 
