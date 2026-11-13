@@ -117,7 +117,7 @@ board.** Same ground rules, same Phase 1–4 definitions.
 | A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 builder incl. axiommath trees; novelty round 4 over the 70-series |
 | A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
 | A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
-| A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | 52 fix-or-close first, then 20 close-out (M1 run unrecorded) |
+| A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | close-outs DONE 2026-11-13: 52 M1 VERIFIED-GREEN (`52-note.md`), 20 runs recorded GREEN (`20-note.md`) |
 | A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | New 70-series dossiers from A1–A4 outputs; `candidates/TEMPLATE.md` applies |
 | H | helper | `STATUS.md` + `INDEX.md` + `research/qa/*` + `TEMPLATE.md` maintenance + all repo commits | RUNNING | Same charter as main run; runs Cycle-2 commit log below |
 
@@ -134,8 +134,8 @@ orchestrator-owned.
 | Pilot | Item | Stage | Note |
 |---|---|---|---|
 | 10 | 10-z3: L1 counter combinators, then L2 `PolyTVal` | IN FLIGHT (A6) | M1 (= L3) green + axioms-clean 2026-11-10; L1/L2 are the open items |
-| 52 | 52 unified CCR Fock layer | MID-FLIGHT (A8) | M1 FAIL mid-iteration (axcheck run1; run2 in `pilots/_unattributed/`); fix-or-close decision due |
-| 20 | 20-hecke-zetaK close-out | M1 GREEN, RUN UNRECORDED → close-out (A8) | Rescue/record M1 run evidence + hCZ seam (`20-hCZ-NOTE.md`); after 52 |
+| 52 | 52 unified CCR Fock layer | **M1 VERIFIED-GREEN** (A8 close-out 2026-11-13, see `pilots/52-note.md`; main-run FAIL was mid-iteration, superseded same-day by run14-green + axcheck-final) | reproduced Cycle 2: `m1-run15-cycle2-green` + `axcheck-cycle2` (15 axiom-lines, 0 sorryAx); `_unattributed/` emptied (run2 attributed); M2 = weighted refinement + adjointness layer |
+| 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`) |
 | 50 | 50-M3 donor-swap (prospective) | PENDING A3/A7 VERDICTS | Discharge `hQRH` binder from DedekindZetaZeroFree (Cureton–Thorner ζ_K ≠ 0, Re s > 31/32) |
 | 42 | 42-M4 second donor (prospective) | PENDING A3/A7 VERDICTS | ZetaZerosV2 (Lamzouri > 2/3 simple/on-line) as donor for remaining milestones |
 
@@ -148,4 +148,9 @@ orchestrator-owned.
   orchestrator sign-off)`: candidates/51 (5 sites) + candidates/52 (4 sites) applied with
   inline errata; 21/22 verified already-applied (no diff needed); `qa/cycle2-qa-plan.md`
   committed — pre-registration complete, QA passes P1–P6 unblocked; deferred-fix register
-  closed. [this commit]
+  closed. (de5d8dc)
+- 2026-11-13 — `Cycle 2: A8 close-outs — pilot 52 verified-green, pilot 20 runs recorded`:
+  `pilots/52/` (run_m1.sh, run15-green + axcheck-cycle2 logs, 52-note) + `pilots/20/`
+  (run_m1.sh, m1-cycle2-green + axcheck-cycle2 logs, 20-note); board updates routed by the
+  orchestrator: STATUS pilot rows 52/20, INDEX pilots-logs line, VERIFICATION-LEDGER §8
+  (incl. MODAL_USER=doz substrate note). [this commit]

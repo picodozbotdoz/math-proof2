@@ -191,3 +191,28 @@ verification status is only re-established by the final axcheck batch (plan §3)
 > explicit hypothesis binders, or ported-and-re-proved layers with clean axiom records
 > (`logs/axcheck-final.log`).
 
+## 8 Cycle-2 addendum — pilot 20/52 close-outs (lane A8, 2026-11-13)
+
+- **Pilot 20: [runs-unrecorded] → [verified Cycle 2].** The 2026-11-09 M1 elaboration
+  runs (blueprint §6, 9 cycles) were never persisted to `pilots/20/logs/`; A8's
+  reproduction on the unchanged `M1.lean` (582 LoC / 26 top-level theorems) is GREEN:
+  `errors=0, sorry-warnings=0` (5 benign linter notes, the blueprint-documented ones).
+  Full-coverage axcheck re-run `pilots/20/logs/axcheck-cycle2.log`: AxPilot20_M1 OK,
+  **36 axiom-lines, 0 sorryAx**, all ⊆ {propext, Classical.choice, Quot.sound}.
+  Elaboration log `pilots/20/logs/m1-cycle2-green.log`; note `pilots/20-note.md`.
+- **Pilot 52: Cycle-2 re-verification recorded.** M1 was already fixed by lane R2 on
+  2026-11-09 (run 14 whole-file green; the recorded `axcheck-run1` FAIL was a
+  mid-iteration snapshot whose 9 sorryAx were error-recovery artifacts of failed
+  elaborations, per §4's own reading). Reproduced fresh:
+  `pilots/52/logs/m1-run15-cycle2-green.log` (`M1.lean` OK, 0 errors / 0
+  sorry-warnings; 292 LoC / 12 theorems, byte-identical to run 14's verified file) and
+  `pilots/52/logs/axcheck-cycle2.log`: AxPilot52_M1 OK, **15 axiom-lines, 0 sorryAx**
+  (9 × [propext, Quot.sound], 3 × full triad). Note `pilots/52-note.md`;
+  `_unattributed/pilot52_run2.log` attributed to `pilots/52/logs/m1-run2.log`
+  (`_unattributed/` now empty).
+- **Substrate note (both Cycle-2 runs):** this shell blocks `sudo -n -u xyz`, so A8's
+  runners use the doz modal profile (`MODAL_USER=doz`, `/home/doz/dozenv/bin/modal`)
+  instead of xyz's; substrate otherwise identical — same image, mathlib `ff2494ea`,
+  toolchain v4.36.0-rc2, 8,710 cached oleans (per-pilot runners
+  `pilots/{20,52}/run_m1.sh`, doz default with xyz fallback).
+

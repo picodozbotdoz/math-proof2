@@ -1,3 +1,8 @@
+# provenance: /tmp/pilot52_run2.log | mtime 2026-11-09 19:43 | producing lane: R2 (covers pilots 50+52 — dual-owner, kept here) | rescued by R9 2026-11-09
+# attribution 2026-11-13 (lane A8): placed as pilots/52/logs/m1-run2.log — this is pilot 52's
+# iteration run 2 (13 errors, mid-flight; resolved by runs 3–14, see 52-note.md). The same
+# batch also carried Pilot50_Dirichlet.lean (4 errors at 19:43, later fixed by lane R2; the
+# final green Dirichlet run is this dir's dirichlet-m2a-final-ok.log). _unattributed/ now empty.
 ✓ Initialized. View run at 
 https://modal.com/apps/donniexyz888/main/ap-2sb6XLo3SBMLbkAPF6Q7gC
 ✓ Created objects.

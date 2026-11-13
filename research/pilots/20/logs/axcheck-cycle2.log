@@ -1,0 +1,111 @@
+# provenance: /tmp/axcheck-a8-cycle2.log | run 2026-11-13 | producing lane: A8 (Cycle 2 close-out) | command: python3 research/feasibility/probe/make_axcheck.py <stage> AxPilot52_M1 AxPilot20_M1 + modal run axcheck_probe.py (app crossmath-probe, ephemeral, doz profile/workspace semraker — sudo -n -u xyz blocked in this env; image/rev/oleans identical to 2026-11-09 runs) | substrate: mathlib ff2494ea5e438f8a8452db803068acd711fa0059, v4.36.0-rc2 | target file: research/pilots/20/M1.lean (mtime 2026-11-09 19:53, unchanged) | verdict: AxPilot20_M1 OK; 36 axiom-lines, 0 sorryAx; all in {propext, Classical.choice, Quot.sound}; note: comment-aware extractor stages 26 top-level theorems (the 27th name in axcheck-final.log's staging header, CrossMath.Pilot20.needs, was the pre-fix docstring-prose artifact per ledger §6)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vt5XXLHpYumYbjBMyVYipT
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-a8-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 2 file(s): ['AxPilot20_M1.lean', 'AxPilot52_M1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxPilot20_M1.lean
+[ax] AxPilot20_M1.lean: OK; axiom-lines=36, sorryAx-lines=0
+AxPilot20_M1.lean:440:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:445:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:450:5: warning: Variable name `hCard` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hCard
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxPilot20_M1.lean:556:26: warning: This simp argument is unused:
+  ZeroMult.countIn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZeroMult.countOn, zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot20_M1.lean:569:34: warning: This simp argument is unused:
+  supp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroZero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_to_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…28 more) tail:
+'CrossMath.Pilot20.family_to_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.count_add_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.instantiate_family_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_two_thirds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.zetaK_engine_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.sharedMass_eq_zero_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.merged_mult_of_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.family_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot20.two_thirds_of_components' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot52_M1.lean
+[ax] AxPilot52_M1.lean: OK; axiom-lines=15, sorryAx-lines=0
+AxPilot52_M1.lean:224:28: warning: This simp argument is unused:
+  mul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot52_M1.lean:269:48: warning: This simp argument is unused:
+  neg_one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot52_M1.lean:281:51: warning: This simp argument is unused:
+  neg_one_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eVec, LinearMap.proj, h, sub_eq_add_neg, zero_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.fermionicPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.cW_append' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.cW_swap_pair' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.slide_ne' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.slide_self' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.annih_outside' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.dual_family' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_dual_family_vac' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_sign_transposition' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_annih_outside' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.fermionic_create_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot52.OccupationPair.bosonic_unweighted' depends on axioms: [propext, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxPilot20_M1.lean: OK | 36 axiom-lines, 0 with sorryAx
+[ax]   AxPilot52_M1.lean: OK | 15 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vt5XXLHpYumYbjBMyVYipT

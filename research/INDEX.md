@@ -70,7 +70,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/pilots/50-blueprint.md` + `pilots/50/M1.lean` | pilot | M1 + M2a (Dirichlet) GREEN, axioms clean | Dossier 50 pilot (S1a zero-confinement first).
 - `research/pilots/21-milestoneC.md` | pilot | spec landed, not executing (R5) | In-Lean proof path for dossier 21's milestone (C) (trig series route).
 - `research/pilots/32/M1.lean` | pilot | GREEN (run3; see `pilots/32-blueprint.md`) | Dossier 32 frontier pilot.
-- `research/pilots/*/logs/` | evidence | R9 log-rescue LANDED | Per-pilot Modal run logs incl. `axcheck-run1` (axiom/sorryAx audit: 42-M1 OK 15/0, 50-M1 OK 4/0, 11-T2 OK 19/0; 52-M1 FAIL mid-iteration); `pilots/_unattributed/` holds one unplaced run (pilot52_run2).
+- `research/pilots/*/logs/` | evidence | R9 log-rescue LANDED; Cycle-2 refresh 2026-11-13 (A8) | Per-pilot Modal run logs incl. `axcheck-run1` (axiom/sorryAx audit: 42-M1 OK 15/0, 50-M1 OK 4/0, 11-T2 OK 19/0). 52-M1's recorded FAIL was a mid-iteration snapshot: R2's same-day fix landed run14-green + axcheck-final (15 axiom-lines, 0 sorryAx), reproduced Cycle 2 (`m1-run15-cycle2-green` + `axcheck-cycle2` — see `pilots/52-note.md`). `pilot52_run2` attributed to `pilots/52/logs/m1-run2.log`; `pilots/_unattributed/` now EMPTY. Pilot 20's [runs-unrecorded] gap closed: `pilots/20/logs/m1-cycle2-green.log` + `axcheck-cycle2.log` (`pilots/20-note.md`); ledger §8 addendum.
 
 ## QA (research/qa/)
 
