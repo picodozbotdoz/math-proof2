@@ -36,11 +36,12 @@ numeric endpoint lemmas, the two ζ-side discharges from the `hV2d4`/`hV2d5` bin
 the M4b LANDED theorems (`zetaK_two_thirds_landed_of_V2`,
 `zetaK_distinct_five_sixths_strip_landed_of_V2` + `_of_negligible`). The M4a landings
 above remain as the certificate-conditional record; the M4b landings replace
-`hCert`/`hK673`/`hK839` by the two V2 numeric-endpoint binders (Knausgård certificate
-machinery fully dropped on the ζ side). Direct-import upgrade pending A7 G2: a ≤ 20-line
-delta (see the M4b section header).
+`hCert`/`hK673`/`hK839` by the V2 numeric endpoints (Knausgård certificate machinery
+fully dropped on the ζ side). Direct-import upgrade APPLIED (G2-green, 2026-11-14): the
+two endpoint binders are discharged by the imported donor theorems.
 -/
 import Mathlib
+import ZetaZeros
 
 namespace CrossMath.Pilot42
 
@@ -1410,7 +1411,7 @@ theorem epsLowerCum_zeta_of_V2d4
       rw [countCum_eq_zeroCount hntopζ hfinζ T]
       by_cases hε' : 2 / 3 ≤ ε
       · have hle : (2 / 3 - ε) * (V2.zeroCount T : ℝ) ≤ 0 :=
-          mul_nonpos (by linarith) (Nat.cast_nonneg _)
+          mul_nonpos_of_nonpos_of_nonneg (by linarith) (Nat.cast_nonneg _)
         have hnn : (0 : ℝ) ≤ (0.6725 : ℝ) * (V2.zeroCount T : ℝ) :=
           mul_nonneg (by norm_num) (Nat.cast_nonneg _)
         linarith
@@ -1418,9 +1419,9 @@ theorem epsLowerCum_zeta_of_V2d4
           (le_trans (by linarith) two_thirds_le_d4) (Nat.cast_nonneg _)
     calc (2 / 3 - ε) * ((⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countCum T : ℝ)
         ≤ (0.6725 : ℝ) * (V2.zeroCount T : ℝ) := h1
-      _ < (V2.simpleOnLineCount T : ℝ) := hmul
-      _ ≤ (⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countOnCum T :=
-          simpleOnLineCount_le_countOnCum hfinζ T
+      _ ≤ (V2.simpleOnLineCount T : ℝ) := le_of_lt hmul
+      _ ≤ ((⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countOnCum T : ℝ) :=
+          by exact_mod_cast simpleOnLineCount_le_countOnCum hfinζ T
 
 /-- **ζ-side 5/6 strip-distinct discharge from the V2 numeric-endpoint binder** (same
 shape as the 2/3 discharge; the numerator identification is an equality here). -/
@@ -1444,7 +1445,7 @@ theorem epsLowerDistinctStripCum_zeta_of_V2d5
       rw [countCum_eq_zeroCount hntopζ hfinζ T]
       by_cases hε' : 5 / 6 ≤ ε
       · have hle : (5 / 6 - ε) * (V2.zeroCount T : ℝ) ≤ 0 :=
-          mul_nonpos (by linarith) (Nat.cast_nonneg _)
+          mul_nonpos_of_nonpos_of_nonneg (by linarith) (Nat.cast_nonneg _)
         have hnn : (0 : ℝ) ≤ (0.83625 : ℝ) * (V2.zeroCount T : ℝ) :=
           mul_nonneg (by norm_num) (Nat.cast_nonneg _)
         linarith
@@ -1453,7 +1454,7 @@ theorem epsLowerDistinctStripCum_zeta_of_V2d5
     rw [distinctCountCum_eq_distinctZeroCount hntopζ hfinζ T]
     calc (5 / 6 - ε) * ((⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countCum T : ℝ)
         ≤ (0.83625 : ℝ) * (V2.zeroCount T : ℝ) := h1
-      _ < (V2.distinctZeroCount T : ℝ) := hmul
+      _ ≤ (V2.distinctZeroCount T : ℝ) := le_of_lt hmul
 
 /-! ### M4b LANDED theorems (fallback binders; G2-green upgrade = drop `hV2d4`/`hV2d5`) -/
 

@@ -1,0 +1,104 @@
+# Provenance: MODAL_USER=doz bash research/pilots/42/run_m4.sh research/pilots/42/M4b.lean (doz CLI, app crossmath-pilot-42-m4), 2026-11-14 — lane A3-relaunch, M4b run 1 (first-ever elaboration of the M4b fallback layer; file 1,560 LoC / 66 thms; state-verified: frozen M4a prefix byte-identical, line-1330 .symm direction consistent).
+# Result: FAIL rc=1 errors=5-distinct sorry=0 — all inside the two V2-binder discharges: mul_nonpos unknown identifier (L1413, L1447; pin mathlib has mul_nonpos_of_nonpos_of_nonneg instead), calc composes to < not ≤ (L1419, L1454; strict middle step), ℕ↔ℝ coercion on the countOnCum step (L1423). The entire M4b glue layer (multOf_riemannZeta_ne_zero_iff, supp_inter_strip_eq_nontrivialZeros, countCum_eq_zeroCount incl. the 1330 fix, distinctCountCum_eq_distinctZeroCount, simpleOnLineCount_le_countOnCum) + all three M4b LANDED statements elaborate clean; M4a landings triad. sorryAx in the 3 _of_V2 landings = error-elaboration artifact, not real sorry.
+# Modal run: https://modal.com/apps/semraker/main/ap-U3KoVBfuNnc6ZJcZk6NHve
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-U3KoVBfuNnc6ZJcZk6NHve
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-42-m4-stage/run_m4.py
+└── ✓ Created Function run.
+[pilot] staging ['M4b.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M4b.lean
+[pilot] M4b.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible' depends on axioms: [propext,
+---- error contexts ----
+M4b.lean:1413:10: error(lean.unknownIdentifier): Unknown identifier `mul_nonpos`
+M4b.lean:1423:10: error: Type mismatch
+  simpleOnLineCount_le_countOnCum hfinζ T
+has type
+  V2.simpleOnLineCount T ≤ { mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T
+but is expected to have type
+  ↑(V2.simpleOnLineCount T) ≤ ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+M4b.lean:1419:4: error: 'calc' expression has type
+  (2 / 3 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) <
+    ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+but is expected to have type
+  (2 / 3 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) ≤
+    ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+M4b.lean:1447:10: error(lean.unknownIdentifier): Unknown identifier `mul_nonpos`
+M4b.lean:1454:4: error: 'calc' expression has type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) < ↑(V2.distinctZeroCount T)
+but is expected to have type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) ≤ ↑(V2.distinctZeroCount T)
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+ sorryAx,
+···
+  ↑(V2.simpleOnLineCount T) ≤ ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+M4b.lean:1419:4: error: 'calc' expression has type
+  (2 / 3 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) <
+    ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+but is expected to have type
+  (2 / 3 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) ≤
+    ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countOnCum T)
+M4b.lean:1447:10: error(lean.unknownIdentifier): Unknown identifier `mul_nonpos`
+M4b.lean:1454:4: error: 'calc' expression has type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) < ↑(V2.distinctZeroCount T)
+but is expected to have type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) ≤ ↑(V2.distinctZeroCount T)
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+···
+M4b.lean:1447:10: error(lean.unknownIdentifier): Unknown identifier `mul_nonpos`
+M4b.lean:1454:4: error: 'calc' expression has type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) < ↑(V2.distinctZeroCount T)
+but is expected to have type
+  (5 / 6 - ε) * ↑({ mult := multOf riemannZeta, windowFinite := hfinζ }.countCum T) ≤ ↑(V2.distinctZeroCount T)
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   M4b.lean: FAIL rc=1 errors=3 sorry=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-14T02:02:26+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-U3KoVBfuNnc6ZJcZk6NHve

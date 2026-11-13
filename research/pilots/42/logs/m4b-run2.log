@@ -1,0 +1,58 @@
+# Provenance: MODAL_USER=doz bash research/pilots/42/run_m4.sh research/pilots/42/M4b.lean (doz CLI, app crossmath-pilot-42-m4), 2026-11-14 — lane A3-relaunch, M4b run 2 (after the 5-site fix of run 1: mul_nonpos → mul_nonpos_of_nonpos_of_nonneg ×2, calc middle step < → ≤ via le_of_lt ×2, ℕ↔ℝ cast via exact_mod_cast ×1; file 1,560 LoC / 66 thms).
+# Result: GREEN. M4b.lean: OK — 0 errors / 0 sorry-warnings; all 6 landing theorems (3 M4a-carried + 3 M4b-fallback _of_V2) = [propext, Classical.choice, Quot.sound] exactly; zero sorryAx. Warnings benign: push_neg deprecation (frozen M1 heritage, :658), unused binder h0 (:1257), if_neg deprecation (:1316).
+# Modal run: https://modal.com/apps/semraker/main/ap-ukomzaWpGtO7MYFikcwzAa
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ukomzaWpGtO7MYFikcwzAa
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-42-m4-stage/run_m4.py
+└── ✓ Created Function run.
+[pilot] staging ['M4b.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M4b.lean
+[pilot] M4b.lean: OK
+---- axioms ----
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible' depends on axioms: [propext,
+---- output tail ----
+M4b.lean:658:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+M4b.lean:1257:34: warning: Variable name `h0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M4b.lean:1316:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot42.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot42.zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   M4b.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ukomzaWpGtO7MYFikcwzAa

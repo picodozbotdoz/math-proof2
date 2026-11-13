@@ -1,0 +1,182 @@
+# Provenance: 2026-11-14, lane A2-relaunch (Cycle 2 resume). File: research/pilots/71/P2.lean (247 LoC, unmodified from outage snapshot). Command: bash research/pilots/71/run_pilot.sh research/pilots/71/P2.lean (Modal app crossmath-pilot-71, MODAL_USER=doz, mathlib ff2494ea, v4.36.0-rc2). Verdict: FAIL rc=1 errors=6 sorry=0 (first-ever run of P2). Modal run: https://modal.com/apps/semraker/main/ap-TjBtl4K6krscl29ku21YXB
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-TjBtl4K6krscl29ku21YXB
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P2.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P2.lean
+[pilot71] P2.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'Pilot71.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.one_sub_card_mul_wOf_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zeta_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zero_re_eq_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.hasse_weil_point_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+P2.lean:143:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Real.exp ?x)
+in the target expression
+  ↑q = Complex.exp ↑(Real.log ↑q)
+
+q : ℕ
+hq : 1 < q
+s : ℂ
+hs : s ≠ 1
+h0 : 1 - ↑q * wOf q s = 0
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+⊢ ↑q = Complex.exp ↑(Real.log ↑q)
+P2.lean:151:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Real.log ↑q) * (1 - s)
+in the target expression
+  Complex.exp (↑(Real.log ↑q) + -(s * ↑(Real.log ↑q))) = 1
+
+q : ℕ
+hq : 1 < q
+s : ℂ
+hs : s ≠ 1
+h0 : 1 - ↑q * wOf q s = 0
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+···
+⊢ ↑q = Complex.exp ↑(Real.log ↑q)
+P2.lean:151:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Real.log ↑q) * (1 - s)
+in the target expression
+  Complex.exp (↑(Real.log ↑q) + -(s * ↑(Real.log ↑q))) = 1
+
+q : ℕ
+hq : 1 < q
+s : ℂ
+hs : s ≠ 1
+h0 : 1 - ↑q * wOf q s = 0
+hqpos : 0 < ↑q
+hL : 0 < Real.log ↑q
+hqc : ↑q = Complex.exp ↑(Real.log ↑q)
+h1 : Complex.exp (↑(Real.log ↑q) + -(s * ↑(Real.log ↑q))) = 1
+h3 : ↑(Real.log ↑q) * (1 - s) = ↑(Real.log ↑q) + -(s * ↑(Real.log ↑q))
+⊢ s = 1
+P2.lean:169:11: error: Tactic `rcases` failed: `x✝ : Quot.lift (fun l => 0 ∈ l) ⋯
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:191:9: error: Tactic `rcases` failed: `x✝ : Quot.lift (fun l => 0 ∈ l) ⋯
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:215:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  W.A 0
+in the target expression
+  ∑ i ∈ {0, 1, 2}, (-1) ^ i * (Multiset.map (fun x => x ^ m) (W.A i)).sum =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+···
+⊢ s = 1
+P2.lean:169:11: error: Tactic `rcases` failed: `x✝ : Quot.lift (fun l => 0 ∈ l) ⋯
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:191:9: error: Tactic `rcases` failed: `x✝ : Quot.lift (fun l => 0 ∈ l) ⋯
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:215:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  W.A 0
+in the target expression
+  ∑ i ∈ {0, 1, 2}, (-1) ^ i * (Multiset.map (fun x => x ^ m) (W.A i)).sum =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+
+F : Type u_1
+inst✝⁷ : Finite F
+inst✝⁶ : Field F
+X : Over (Spec ↧F)
+inst✝⁵ : GeometricallyIrreducible X.hom
+inst✝⁴ : IsProper X.hom
+inst✝³ : SmoothOfRelativeDimension 1 X.hom
+W : WeilData F X 1
+hq : 1 < Nat.card F
+m : ℕ
+hm : 0 < m
+E : Type u_1
+inst✝² : Field E
+inst✝¹ : Algebra F E
+inst✝ : FiniteDimensional F E
+···
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:191:9: error: Tactic `rcases` failed: `x✝ : Quot.lift (fun l => 0 ∈ l) ⋯
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:215:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  W.A 0
+in the target expression
+  ∑ i ∈ {0, 1, 2}, (-1) ^ i * (Multiset.map (fun x => x ^ m) (W.A i)).sum =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+
+F : Type u_1
+inst✝⁷ : Finite F
+inst✝⁶ : Field F
+X : Over (Spec ↧F)
+inst✝⁵ : GeometricallyIrreducible X.hom
+inst✝⁴ : IsProper X.hom
+inst✝³ : SmoothOfRelativeDimension 1 X.hom
+W : WeilData F X 1
+hq : 1 < Nat.card F
+m : ℕ
+hm : 0 < m
+E : Type u_1
+inst✝² : Field E
+inst✝¹ : Algebra F E
+inst✝ : FiniteDimensional F E
+hfrank : Module.finrank F E = m
+hIic : Finset.Iic 2 = {0, 1, 2}
+···
+  (Multiset.map (fun α => 1 - α * wOf (Nat.card F) s) (W.A 1))` is not an inductive datatype
+P2.lean:215:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  W.A 0
+in the target expression
+  ∑ i ∈ {0, 1, 2}, (-1) ^ i * (Multiset.map (fun x => x ^ m) (W.A i)).sum =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+
+F : Type u_1
+inst✝⁷ : Finite F
+inst✝⁶ : Field F
+X : Over (Spec ↧F)
+inst✝⁵ : GeometricallyIrreducible X.hom
+inst✝⁴ : IsProper X.hom
+inst✝³ : SmoothOfRelativeDimension 1 X.hom
+W : WeilData F X 1
+hq : 1 < Nat.card F
+m : ℕ
+hm : 0 < m
+E : Type u_1
+inst✝² : Field E
+inst✝¹ : Algebra F E
+inst✝ : FiniteDimensional F E
+hfrank : Module.finrank F E = m
+hIic : Finset.Iic 2 = {0, 1, 2}
+⊢ ∑ i ∈ {0, 1, 2}, (-1) ^ i * (Multiset.map (fun x => x ^ m) (W.A i)).sum =
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+···
+    1 + ↑(Nat.card F) ^ m - (Multiset.map (fun x => x ^ m) (W.A 1)).sum
+P2.lean:225:8: error: Type mismatch
+  Multiset.map_congr rfl ?m.369
+has type
+  Multiset.map ?m.363 ?m.368 = Multiset.map ?m.364 ?m.368
+but is expected to have type
+  (Multiset.map (fun x => ‖x ^ m‖) (W.A 1)).sum = (Multiset.map (fun x => √↑(Nat.card F) ^ m) (W.A 1)).sum
+'Pilot71.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.one_sub_card_mul_wOf_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zeta_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.curve_zero_re_eq_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.hasse_weil_point_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot71] SUMMARY
+[pilot71]   P2.lean: FAIL rc=1 errors=6 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-TjBtl4K6krscl29ku21YXB
