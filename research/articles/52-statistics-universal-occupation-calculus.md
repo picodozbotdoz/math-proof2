@@ -151,5 +151,10 @@ Post-publication development: **physlib's `ExchangeSign` post-dates this article
 statistics-universal occupation calculus's sign-exchange layer. Status: **theorems
 stand** — no claim here is affected (the calculus's universality statements remain
 unclaimed elsewhere); the novelty record gains one dated nearest neighbor, recorded so
-future sweeps do not mistake priority. Physlib itself remains outside this project's
-consumed corpora (G5a staging pending, AreaLaw2D-adjacent only).
+future sweeps do not mistake priority. Precision (A5 delta re-check 2026-11-14, per `novelty/physlib-surface.md` §3.4's
+name-collision trap): `ExchangeSign` lives in **leanprover-community/physlib** (the
+HEPLean successor) — for which NO G5a staging exists or is planned; **G5a concerns a
+DIFFERENT Physlib**, the package vendored inside AxiomMath/AreaLaw2D. Per §3.1:
+physlib TAKES the exchange-sign layer (any new statistics-universal ε-sign framing
+without differentiation is dead) but does NOT touch the occupation-pair layer —
+article 52's axioms remain ours-and-unclaimed-by-others.

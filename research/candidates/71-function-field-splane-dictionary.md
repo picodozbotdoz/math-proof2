@@ -308,15 +308,22 @@ the ledger (filled below, not relay-dependent); P2 is in flight.
   - P1 (kernel-clean stage): **GREEN** — the D1–D3 dictionary deliverables (prework
     §2.4): **7/7 lemmas kernel-clean, axiom triad**; logs `run2.log`–`run4.log`
     (2026-11-13).
-  - P2 (proof artifact; W1 → W2 → HW): **FINAL-GREEN (filled 2026-11-14 per A1's §9
-    disk-verified landing; A2 formal report follows with 73-C): `p2-run6.log` OK —
-    282 LoC / 11 theorems, all triad; descent 6→4→2→1→0 across p2-run1..6; W1 as landed
-    excludes the full POLE FAMILY (period translates 1 + 2πik/log q) — honest correction
-    from the drafted single s≠1 clause.**
-- LoC (final files): **282** (P2; P0+P1 substrate 243).
+  - P2 (proof artifact; W1 → W2 → HW): **FINAL-GREEN — A2 FORMAL REPORT LANDED
+    (2026-11-14): `p2-run6.log` OK — 279 LoC / 11 theorems, all triad; descent
+    6→4→2→1→0 across p2-run1..6 (LoC corrected 282→279 by the formal report).**
+  - **W1 STATEMENT DELTA (formal report, mathematically significant): prework §2.5's
+    draft `hs1 : s ≠ 1` was UNSOUND — complex exp is 2πi-periodic, so q·q^{−s} = 1 on
+    the whole family s ∈ 1 + (2πi/log q)·ℤ (Re s = 1, inside the window), where Lean
+    field division makes ζ_C = 0. P2 carries the honest pole-family exclusion
+    `hs1 : 1 − (Nat.card F : ℂ) * wOf (Nat.card F) s ≠ 0` (DZDF's "pole excluded"
+    clause translated to the FF side) + NEW Core-2 `re_eq_one_of_card_mul_wOf` proving
+    that family lies on Re s = 1; helper `multiset_sum_map_const` added (the Multiset
+    twin of Finset.sum_const — a genuine mathlib gap, donation candidate).**
+- LoC (final files): **279** (P2; P0+P1 substrate 243).
 - Theorem count (final files): **11** (P2).
 - Axiom audit (`#print axioms` sweep; triad check): **run-own axiom lines all triad
   (p2-run6); full close-out sweep registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1).**
-- Verdict line: **P0 OK / P1 GREEN / P2 FINAL-GREEN — the s-plane dictionary, exact-1/2
-  window, and Hasse–Weil transport are kernel-verified on our pin (article
+- Verdict line: **P0 OK / P1 GREEN / P2 FINAL-GREEN (A2 formal report LANDED) — the
+  s-plane dictionary, exact-1/2 window (W1 at the honest pole-family exclusion), and
+  Hasse–Weil transport are kernel-verified on our pin (article
   `research/articles/71-splane-zeta-curve-dictionary.md`, promoted past DRAFT).**

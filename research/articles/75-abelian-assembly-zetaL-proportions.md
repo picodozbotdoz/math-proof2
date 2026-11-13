@@ -111,7 +111,8 @@ window-finiteness as structural hypotheses (discreteness route the fallback); N2
 Supporting landed evidence (citable now): the GREEN 42-stack incl. M4a (1,194 LoC/54
 thms, ≈180 LoC assembly delta — the n = 2 instance of N1) and **M4b BOTH ROUTES
 FINAL-GREEN (per A1 §9, 2026-11-14): fallback 1,560/66 + the upgrade COMPLETE on the
-primary route (m4b2-run2 direct-V2-import GREEN, 1,570/68, landing + donor-proportion
+primary route (m4b2-run2 direct-V2-import GREEN, 1,571/68 — canonical per A3's in-run
+LoC correction — landing + donor-proportion
 theorems exactly triad, fallback byte-exact preserved) — the V2-glue route N2 consumes,
 now proven at pilot scale**; G2 (V2 builds on-pin, 13/13 triad); A1-4
 (binder route needs zero vendor imports); G1b FAIL (import route stays closed — the

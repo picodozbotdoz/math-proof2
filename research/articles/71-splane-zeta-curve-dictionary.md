@@ -5,11 +5,10 @@
 `research/pilots/71-prework.md`, `research/pilots/71/` (P0, P1, P2 in flight) · bridge
 `research/bridges/function-field.md` §4 FF-EZ1*
 
-**Status: PROVED, FINAL-GREEN (filled 2026-11-14 per A1's §9 disk-verified landing;
-A2's formal report to follow with 73-C detail).** P0 probe OK; P1 dictionary layer
-kernel-clean (7/7, triad); **P2 landed GREEN — p2-run6 OK, 282 LoC / 11 theorems all
-triad, honest descent 6→4→2→1→0 across p2-run1..6; W1 as landed carries the
-pole-FAMILY exclusion (honest correction from the single s ≠ 1 clause — see §3/§5).**
+**Status: PROVED, FINAL-GREEN — A2's FORMAL REPORT LANDED (2026-11-14).** P0 probe OK;
+P1 dictionary layer kernel-clean (7/7, triad); **P2 landed GREEN — p2-run6 OK, 279 LoC /
+11 theorems all triad, honest descent 6→4→2→1→0 across p2-run1..6; W1 as landed carries
+the honest pole-family exclusion with its own Core-2 theorem (§3's formal delta note).**
 Classical mathematics throughout (Weil 1948); the claim is first-formal dictionary
 value, not new mathematics.
 
@@ -78,11 +77,16 @@ with `Real.log q > 0`; all moduli are handled through `Real.exp`, zero `rpow` (p
 ζ_C(s) for ℜs > 1 (the s-substituted zeta), such that every zero of f off the pole locus
 satisfies **Re s = 1/2** — equivalently the DZDF-shaped clause `∀ s, 1/2 < s.re → (s ≠ 1) →
 f s ≠ 0` (mirroring `dedekindZeta_ne_zero`'s `Main.lean:9` shape so the comparison theorem
-typechecks against the number-side donor). **[Correction at landing (per A1 §9): the
-proved W1 excludes the full pole FAMILY (all period translates 1 + 2πik/log q, k ∈ ℤ),
-not only s = 1 — the honest exclusion the kernel computation (`exp_eq_exp` + imaginary
-parts) actually yields (prework R2); the statement above is the pre-landing draft shape,
-superseded by the landed form in `pilots/71/P2.lean`.]**
+typechecks against the number-side donor). **[Statement delta at landing — A2's formal report (2026-11-14), mathematically
+significant: prework §2.5's draft hypothesis `hs1 : s ≠ 1` was UNSOUND — complex exp is
+2πi-periodic, so q·q^{−s} = 1 holds on the whole family s ∈ 1 + (2πi/log q)·ℤ (Re s = 1,
+inside the window), where Lean field division makes ζ_C = 0. The proved W1 instead
+carries the honest pole-family exclusion `hs1 : 1 − (Nat.card F : ℂ) * wOf (Nat.card F) s
+≠ 0` — DZDF's "pole excluded" clause translated to the function-field side — plus a NEW
+Core-2 theorem `re_eq_one_of_card_mul_wOf` proving that excluded family lies on Re s = 1;
+helper `multiset_sum_map_const` added (the Multiset twin of `Finset.sum_const` — a
+genuine mathlib gap, donation candidate). The draft shape above is superseded by the
+landed form in `pilots/71/P2.lean`.]**
 
 **W2 (exact zero location = perfect zero-density).** The zero set of f off the trivial
 locus is exactly the union of vertical lines Re s = 1/2 spaced by the period 2πi/log q —
@@ -129,16 +133,16 @@ GREEN (§5).
 - **P1 (dictionary layer)**: **GREEN, 7/7 lemmas kernel-clean, axiom triad** — the D1–D3
   dictionary deliverables (prework §2.4), logs `run3.log`/`run4.log`.
 
-**Landed (filled 2026-11-14 per A1's §9 disk-verified landing; A2's formal report
-follows with 73-C — it adds detail, not verdicts):**
+**Landed — A2's FORMAL REPORT LANDED (2026-11-14):
 
-- **P2: FINAL-GREEN.** `p2-run6.log`: P2.lean **OK — 282 LoC / 11 theorems, all
-  [propext, Classical.choice, Quot.sound]**; the honest descent 6→4→2→1→0 errors across
-  `p2-run1.log`–`p2-run6.log` (2026-11-14, lane A2 relaunch). Header "proof artifact:
-  no sorry". The W1/W2/HW landing theorems stand as stated in §3, **with W1's exclusion
-  clause honestly corrected to the pole family** (all translates 1 + 2πik/log q — §3's
-  correction note).
-- Final LoC / theorem count: 282 / 11 (P2; P0+P1 substrate 243 LoC per the §5 record).
+- **P2: FINAL-GREEN.** `p2-run6.log`: P2.lean **OK — 279 LoC / 11 theorems, all
+  [propext, Classical.choice, Quot.sound]** (LoC corrected by A2's formal report);
+  the honest descent 6→4→2→1→0 errors across `p2-run1.log`–`p2-run6.log`. Header
+  "proof artifact: no sorry". The W1/W2/HW landing theorems stand as stated in §3,
+  **with W1's exclusion clause the honest pole-family form + Core-2 theorem** (§3's
+  formal delta note: `hs1 : 1 − (Nat.card F : ℂ) * wOf (Nat.card F) s ≠ 0` and
+  `re_eq_one_of_card_mul_wOf`; `multiset_sum_map_const` the mathlib-gap helper).
+- Final LoC / theorem count: 279 / 11 (P2; P0+P1 substrate 243 LoC per the §5 record).
 - Full close-out axcheck sweep: registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1 executes
   at sweep); the run's own axiom lines are triad per p2-run6.
 

@@ -5,13 +5,14 @@
 73-prework.md` (pilot 73-C queued after 71-P2, lane A2) · bridge `research/bridges/
 function-field.md` §4 FF-EZ3*
 
-**Status: DRAFT — statement-layer pilot queued, not started.** All verdict slots
-([VERDICT:73-C] stages Q0–Q3 below) are empty by construction: no run has landed at draft
-time. The article's body states the mathematical content (classical, 75 years old), the
-statement class (formally new everywhere, audited), and the binder architecture, so that
-the pilot's landing is a fill-in. "First formal Tate-thesis-type statement" is claimed
-**in the function-field/rationality-dictionary scope only**, per A5's P2-13 audit, with
-the WenrongZou nearest-neighbor clock attached.
+**Status: PROVED at Tier C, FINAL-GREEN — A2's FORMAL REPORT LANDED (2026-11-14).**
+Q0 first-try GREEN (143 LoC probe; `run1-q0` + `run7-p0-final` re-confirmation);
+Q1–Q3 GREEN (`run6-c-green`: C.lean OK — 236 LoC, 7/7 theorems triad, honest descent
+2→4→4→2→OK across runs 1–6); **Q4 UNTOUCHED per the separate-gate decision — the
+STOP-before-Q4 discipline held; the `hRat` discharge carries to Iteration 4** (A2 owns
+the recommendation). "First formal Tate-thesis-type statement" is claimed **in the
+function-field/rationality-dictionary scope only**, per A5's P2-13 audit, with the
+WenrongZou nearest-neighbor clock attached.
 
 ---
 
@@ -34,8 +35,8 @@ hRat is discharged *unconditionally* by elementary periodicity bookkeeping (χ m
 residue-class decomposition), while hPur — the RH for Kummer covers of ℙ¹ — honestly
 remains a binder; and (C2) the three-column window-comparison theorem: FF Hecke 1/2
 (binder) vs ζ_K/Hecke-all-K 31/32 (DZDF, in-corpus) vs ζ/Dirichlet at the formal class
-frontier 0.8733458561 (tracker; from Liu-1's B_new = 0.8749570)
-(Liu-1, external). Part I is the statement layer; the dictionary itself (Kummer sheaves,
+frontier 0.8733458561 (tracker; from Liu-1's B_new = 0.8749570).
+Part I is the statement layer; the dictionary itself (Kummer sheaves,
 purity) is the Stacks-gated Part II ceiling.
 
 ## 1. Introduction
@@ -114,19 +115,29 @@ before Q4 (the Kummer-sheaf dictionary — Stacks-gated Tier A, Part II). The pr
 provable item is Q1's periodicity layer for C1; everything else is template-following on
 71's landed transfer pattern. Zero import gates at Tier C (mathlib + binders only).
 
-## 5. Formal verification (all slots empty)
+## 5. Formal verification (LANDED — A2's FORMAL REPORT LANDED, 2026-11-14)
 
-- Q0 (statement probe): [VERDICT:73-C]
-- Q1 (class + series + 71-glue): [VERDICT:73-C]
-- Q2 ((P)(i)): [VERDICT:73-C]
-- Q3 ((P)(ii)): [VERDICT:73-C]
-- Final LoC / theorem count / axcheck: [VERDICT:73-C]
+- Q0 (statement probe): **GREEN first-try** (143 LoC probe; `run1-q0.log` +
+  `run7-p0-final.log` re-confirmation).
+- Q1 (class + series + 71-glue), Q2 ((P)(i)), Q3 ((P)(ii)): **GREEN —
+  `run6-c-green.log`: C.lean OK, 236 LoC, 7/7 theorems exactly
+  [propext, Classical.choice, Quot.sound]**; honest descent 2→4→4→2→0 errors across
+  runs 1–6 (fix1–fix4 logs on disk). Formal-report details: **Q2's continuation runs
+  via `DifferentiableAt.div` off the P₀(q^{−z}) = 0 locus; series-agreement is honestly
+  deferred to the eval layer** (not claimed at the germ level); **`hPur` is a binder
+  everywhere** per the sequencing memo's honesty correction.
+- Final LoC / theorem count: **236 / 7** (C.lean; probe 143 separate).
+- **Q4 UNTOUCHED — the separate-gate decision held: no `hRat` discharge attempted; the
+  pilot stopped at Q3 exactly as specified** (`research/pilots/73-prework.md`; the STOP
+  was a hard gate, not a shortcut — **Q4 carries to Iteration 4**, A2 owning the
+  recommendation).
+- Full close-out axcheck: registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1 at sweep); the
+  run's own axiom lines are triad per run6-c-green.
 
-Pilot dir/logs to be created at execution (`research/pilots/73/`); not present at draft
-time. Elaboration de-risking: A7's G3 verdict (the LeanEval `weil_conjectures` statement
-elaborates verbatim mathlib-only, 0 errors) and the A1-4 CFT-vendor survey (nothing
-borrowable, nothing competing — the vendor is number-field-only) both stand as landed
-evidence for the binder posture.
+Elaboration de-risking that preceded the runs: A7's G3 verdict (the LeanEval
+`weil_conjectures` statement elaborates verbatim mathlib-only, 0 errors) and the A1-4
+CFT-vendor survey (nothing borrowable, nothing competing — the vendor is
+number-field-only).
 
 ## 6. Relation to prior work
 

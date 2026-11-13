@@ -288,16 +288,26 @@ Significance **4** (the FF L-function substrate layer; the sharp-window contrast
 Honest category: **CONDITIONAL-CORE, Stacks-blocked, formalization-first — the
 highest-ceiling item of the 70–75 series, with the least claimable today.**
 
-## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+## Pilot outcome (appended by A9 2026-11-14; FILLED 2026-11-14 from A2's formal report)
 
 Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
 (pilot 73-C = slot 1 continuation, lane A2, after 71-P2; Q0 probe → Q1 class+series+
 71-glue → Q2 (i) → Q3 (ii); **hard STOP before Q4 — separate gate**; spec
 `research/pilots/73-prework.md`; pilot dir/logs to be created at execution).
 
-- Runs (stage / date / log file / rc / errors–sorrys): Q0: — ; Q1: — ; Q2 (i): — ;
-  Q3 (ii): —
-- LoC (final files): —
-- Theorem count (final files): —
-- Axiom audit (`#print axioms` sweep; triad check): —
-- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —
+- Runs (stage / date / log file / rc / errors–sorrys): **Q0 GREEN first-try**
+  (`run1-q0.log` + `run7-p0-final.log` re-confirmation; 143 LoC probe); **Q1–Q3 GREEN**
+  (`run6-c-green.log`: C.lean OK, 236 LoC, descent 2→4→4→2→OK across runs 1–6; fix1–fix4
+  logs on disk) — **A2 FORMAL REPORT LANDED (2026-11-14)**: Q2 continuation via
+  `DifferentiableAt.div` off the P₀(q^{−z})=0 locus, series-agreement honestly deferred
+  to the eval layer, `hPur` a binder everywhere per the memo's honesty correction.
+- LoC (final files): **236** (C.lean; probe 143 separate).
+- Theorem count (final files): **7**.
+- Axiom audit (`#print axioms` sweep; triad check): **run-own axiom lines 7/7 exactly
+  the triad (run6-c-green); full close-out sweep registered in FINAL-SWEEP-PLAN-C2
+  TARGETS (A1).**
+- **Q4 UNTOUCHED per the separate-gate decision — STOP-before-Q4 discipline held; the
+  `hRat` discharge carries to Iteration 4 (A2 owns the recommendation).**
+- Verdict line: **GREEN-with-binders — the Tier-C statement layer of the first formal
+  Tate-type dictionary is kernel-verified on our pin (article 73 promoted past DRAFT;
+  Q4 the priced next gate).**

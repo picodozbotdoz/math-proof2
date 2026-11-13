@@ -137,11 +137,15 @@ P11T1.lean and P11T2.lean GREEN, FINAL; P11T3.lean GREEN in both m2 runs
 outage-killed pinpoint fixes — explicit type params on stuck instance applications,
 branch-form machine in choice, induction-style `sum_sf`, missing `hk` in
 `composed_sum_le` — plus run-1's id'/rfl/length_cons repairs; ≈1.1k LoC / 88 thms),
-marked PENDING A8 OFFICIAL RELAY.** The remaining realization file RedTm2.lean
-(≈0.4k LoC / 8 thms, incl. `RedB.theorem19_of_red`) is in the last iteration — m2-run2:
-2 errors; a later run3 is on disk (3 errors) — verdict via relay.
+marked PENDING A8 OFFICIAL RELAY at the time; the formal-report fill below completes
+the record.**
 
-**Verdict slot: [VERDICT:11-M2]** (final RedTm2 run / LoC / thm count / axcheck triad /
-GREEN-FAIL line — fills from the orchestrator relay; until then the M1 record of §5
-plus the P11T1/T2/T3 greens above stand as this article's proved content and nothing on
-this page claims B(ii) complete).
+**[VERDICT:11-M2] FILLED-FINAL — GREEN (per A1 §9 disk-verified landing, 2026-11-14;
+A8's formal report owed with the m2-run1–3 header reconstructions): `m2-run8-GREEN.log`
+— ALL SIX FILES OK** (P11T1, P11T2, P11T3, RedCompA, RedCompB, **RedTm2** — final
+421 LoC, freshly classified 0 sorry-tokens; the churn 4→2→3→6→2→OK across m2-runs is
+mid-fix iteration, documented by A8). **Theorem B(ii) — the machine realization of the
+call-charged calculus — is proved**: every calculus derivation is realized by a single
+TM2 machine. A full-coverage axcheck (`m2-axcheck-final.log`) is on disk; the close-out
+sweep confirms at FINAL-SWEEP-PLAN-C2. This addendum's claim is now complete; the M1
+record of §5 stands unchanged.
