@@ -351,3 +351,97 @@ generalization inherits pilot 20's RvM-type obstruction for the new factor.
    DZDF's two after (3)) — extends `feasibility/probe/make_axcheck.py` staging; closes the
    last axiom-hygiene gap (donor comparator configs are good evidence, on-pin prints are
    proof).
+
+## (g) Donation directions — Cycle-2 consumption ledger + the outward openings
+
+Lane A3, 2026-11-14 (post-M4b; iteration-4 charter feeder, per the orchestrator's
+donation-direction task). Companion updates since §0 was written: pilot 42's M4b
+(`research/pilots/42/M4-note.md` + `logs/m4b2-run*.log`), A7's donor probes
+(`research/feasibility/axiommath-donor-probes.md`), A1's glue/upstream maps
+(`novelty/pntplus-glue-as-donor.md`, `survey/axiommath-pntplus.md`).
+
+### Inbound: what Cycle-2 consumed from each donor (the empirical ledger)
+
+- **ZetaZerosV2 — DIRECT IMPORT, full-tree consumption PROVEN.** Pilot 42 M4b-primary:
+  `import ZetaZeros` elaborated INSIDE the staged V2 workspace (tarball + PNT+
+  path-redirect + `lake build ZetaZeros` + consumer `lake env lean`; app
+  `crossmath-pilot-42-m4b2`), GREEN 0/0, all landing theorems + the consumed donor
+  endpoints `simple_proportion_d4`/`distinct_proportion_d5` triad-clean **on-pin from
+  the consumer side**, full-coverage axcheck triad-only (70 thms;
+  `logs/m4b2-axcheck-run1.log`). This is the substrate precedent: *a full external
+  donor tree (not just statements) is consumable on our pin* — the recipe (stage,
+  redirect, build, elaborate, consumer-side `#print axioms` of donor names) is itself
+  reusable infrastructure and now carries a GREEN reference run. Residual frictions
+  found and solved there, for the record: `noncomputable` markers on donor-def
+  abbrevs; two-layer simp/show unfolds to reach donor def bodies.
+- **DZDF — statement-level only (consumption = binder route).** G1b: the full build
+  FAILS on our pin (62 errors / 11 vendored-CFT modules), so every §(a) verdict stays
+  statement-level; the Challenge shape elaborates clean (run1) and the binder route
+  needs ZERO vendor imports (A1's CFT-vendor fact). Upgraded posture: DZDF
+  consumption = the `hDZ` single-binder fallback of `pilots/50-M2-31-32-spec.md` §3
+  (executable on plain mathlib today), discharge deferred to any future on-pin build.
+- **PrimeNumberTheoremAnd — transitively + upstream-closed.** (i) Transitively: only
+  V2's dependency path was ever ported (v2-run9), and the M4b ζ-side now consumes it
+  unknowingly — `proportion_{lower,d4,d5}` ← `pairCorrelationFormula` ← Landau
+  log-derivative ← `RiemannZetaHadamard` (A1's glue map). (ii) Upstream: A1 found the
+  public `AlexKontorovich/PrimeNumberTheoremAnd` @ `938912bb` PROVES StrongPNT
+  triad-clean — dossier 22's T2b closed-by-upstream with zero consumption on our side.
+  Both directions are donations inbound; neither required the fork itself on our pin.
+- **Weil / AreaLaw2D — statement/probe level only** (G3/G4/G5a elaboration verdicts);
+  no Cycle-2 proof consumption. Unchanged from §0.
+
+**Ledger read for the charter:** Cycle-2 proved *two working inbound modes* —
+direct-import (V2; GREEN reference run exists) and statement-binder (DZDF/oai
+challenge shapes; zero-inf) — plus one *non-mode*: upstream-closure (PNT+), where the
+right move was to not consume at all.
+
+### Outbound: what our corpus can now donate (the symmetric picture)
+
+- **The dictionary pattern (pilots 71/73), aimed at a live corpus.** The bridge
+  finding (`bridges/function-field.md:41`): the number-field and function-field worlds
+  *share no definition* — the donation is the dictionary itself, formalized as the new
+  theorem (pilot 71: P1 GREEN 7/7 kernel-clean triad; 73 = the Hecke/Tate continuation).
+  A5's physlib-surface find (`novelty/VERDICTS.md:83–99` staleness note +
+  `novelty/iter4-seed-triage.md` seed-11, file-level evidence 2026-11-14) sharpens the
+  SAME pattern outward at a live target: physlib (leanprover-community, HEPLean's
+  successor, pushed 2026-11-13) has `CrAnFieldOp` — the statistics-tagged sigma type
+  `Σ (s : 𝓕.FieldOp), 𝓕.fieldOpToCrAnType s` — with the `exchangeSign` cocycle and
+  Wick-contraction signs, but **no algebra structure imposed** (zero (anti)commutator
+  theorems; `CreateAnnihilate.lean` is a tag type + normal-order relation). Article
+  52's occupation-pair axioms (`c_ic_j = ε c_jc_i`, `a_ic_i = 1 + ε c_ia_i`, vacuum,
+  dual-family — `candidates/52-unified-ccr-fock-layer.md`) have NO physlib
+  counterpart. The outward donation: instantiate the occupation-pair layer ON
+  physlib's `CrAnFieldOp` tagged ops — we supply the algebra their objects lack, they
+  supply the live corpus + operator taxonomy; the exchangeSign cocycle is their half
+  of the dictionary. This is the 71/73 dictionary pattern pointed at a corpus that is
+  actively growing (not a frozen sibling), i.e. the first donation with a real
+  downstream consumer.
+- **Binder-hygiene discipline.** The Cycle-2 kit, donable as method: donor statements
+  as explicit `Prop` binders (EnclOK / `hQRH` / `hV2d4` / `hDZ` precedents) with the
+  conditional-landing shape; discharge-as-binder-drop (the M4b ≤ 20-line upgrade
+  pattern, GREEN-proven — one run, two binders dropped); triad-only `#print axioms`
+  as the acceptance gate on
+  BOTH consumer theorems and consumed donor names; donor-pin axiom audits (the G2/G7b
+  pattern — axioms are pin-independent, so audit at the donor's own pin to avoid
+  port drift); consumer-side axiom prints inside every donor-workspace run;
+  error-format-hardened verdict regexes and provenance-headed logs (the M4
+  reconciliation lesson: `error(<code>)` diagnostics escape naive `": error:"`
+  matching).
+- **The W1 pole-family correction methodology.** Pilot 71's W1 (optimal window, FF
+  Cureton–Thorner at exactly 1/2) required the explicit `hs1 : s ≠ 1` pole exclusion —
+  the one load-bearing refinement of the transcribed window statement
+  (`pilots/71-prework.md`, W1 notes). The methodology, now visible across pilots:
+  when transplanting a classical window/location/counting statement, make the pole
+  family an EXPLICIT named hypothesis with its own discharge lemma instead of baking
+  it into window definitions — pilot 42's `stripWindow_ne_one`/`lineWindow_ne_one`
+  ("`1` is in no strip window" is what lets the factorization counting go through),
+  pilot 50's `hρne1` (from `0 < ρ.re`), the oai donor's own `hpole : ¬(χ = 1 ∧ s = 1)`
+  honored as a first-class binder in `Dirichlet.lean` and the R1 staging. Donate as:
+  a naming convention (`*_ne_one` / `hpole*`), an audit checklist item for statement
+  transcriptions, and the two GREEN reference implementations (71-W1 when it lands,
+  42-M1 on pin).
+
+**Charter take:** inbound modes are settled infrastructure (pick by donor build
+status); the highest-value NEXT move is outbound — the 52↔physlib occupation-pair
+instantiation is the sharpest opening (live corpus, evidence-closed gap, pattern
+pre-proven), with the dictionary/binder/pole kit as the transferable method layer.
