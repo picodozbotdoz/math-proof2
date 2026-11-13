@@ -100,7 +100,8 @@ carry the novelty". That note is **STALE as of 2026-11-13**:
 - `WickContraction/` (18 files) carries a dedicated `Sign/` subdirectory +
   `Involutions.lean` — sign-aware, fermionic-inclusive contraction machinery
   (consistent with Tooby-Smith's normal-ordered Wick paper having covered both
-  statistics; file-level read of `Sign/` not done — the only residual softness).
+  statistics; **file-level read of `Sign/` now DONE 2026-11-14 — see the closure
+  block below**).
 - Scope checks: mathlib on OUR pin (ff2494ea) has NO FieldStatistic/exchangeSign/
   WickContraction (rg clean) — the collision is external, not in-corpus; tauceti's
   CAR side is REAL and rich (`Algebra/Lie/GeneralLinear/Fock.lean`: `glCliffordHom`,
@@ -117,6 +118,33 @@ NEW CAR-pair charter must differentiate from BOTH (our 52 + physlib's Wick stack
 Still clean per this scan: 52-N1b (fermionic dual-family), 52-N3 (CAR weight
 dictionary), and the tauceti↔physlib bridge statement itself (cross-corpus glue,
 71/73-pattern). VERDICTS §5.1 now carries a dated staleness note (row 52's clock).
+
+**Seed-11 CAR check — Sign/ file-level read CLOSED 2026-11-14 (the owed item):**
+
+What the sign-aware Wick layer actually proves, at file level (all read verbatim
+2026-11-14; full map in `novelty/physlib-surface.md`):
+
+- `WickContraction/Sign/Basic.lean` (Tooby-Smith, 2025): `signFinset c i1 i2` (the
+  filtered in-between index set) and **`sign (φs : List 𝓕.FieldOp) (φsΛ :
+  WickContraction φs.length) : ℂ := ∏ (a : φsΛ.1), 𝓢(statistic of the pair's second
+  field, statistic of the filtered in-between set)`** — the exchange-sign product
+  counting fermion-fermion exchanges needed to bring contracted pairs together
+  (docstring examples: {0,2},{1,3} on four fermions ⟹ −1). Only two lemmas in
+  Basic (`sign_empty`, `sign_congr`); the inductive algebra lives in `Sign/
+  {InsertNone (11.8 KB), InsertSome (38.9 KB), Join (21.5 KB)}` — sign behavior
+  under contraction insertion/join, the engine behind the both-statistics Wick
+  theorems of Tooby-Smith 2505.07939.
+- **The occupation-pair boundary is CONFIRMED at file level, both sides:**
+  `CreateAnnihilate.lean` = a two-element tag type + a total/transitive
+  `normalOrder` relation — NO exchange relations; `FieldSpecification/
+  CrAnFieldOp.lean` = the sigma type `Σ (s : 𝓕.FieldOp), 𝓕.fieldOpToCrAnType s`
+  with statistics/forgetful maps (`crAnStatistics`, `crAnFieldOpToFieldOp`) —
+  "no algebra structure is imposed", zero (anti)commutator theorems. The ONLY
+  ε = ±1 algebra in physlib is the `exchangeSign` cocycle on the statistics TYPE
+  plus its contraction-sign lift. Article 52's occupation-pair axioms
+  (c_ic_j = ε c_jc_i; a_ic_i = 1 + ε c_ia_i; vacuum; dual-family) therefore have
+  NO physlib counterpart — the precision-corrected boundary stands as written
+  above, now evidence-closed.
 
 ## Reading for the charter (counts + gates)
 
@@ -146,7 +174,9 @@ dictionary), and the tauceti↔physlib bridge statement itself (cross-corpus glu
   (FF + Tate neighborhoods, seeds 4/5/6); Kuwahara program (seed 1's Rényi-α
   discipline); **physlib = leanprover-community/physlib (seed 11's CAR pair —
   FIRED once already on 2026-11-13: ExchangeSign took the universal-calculus core;
-  re-check `FieldStatistics/` + `WickContraction/Sign/` before any CAR charter)**.
+  the Sign/ read is now CLOSED — re-check `FieldStatistics/` +
+  `WickContraction/Sign/` + `WickAlgebra/` before any CAR charter; the standing
+  surface map is `novelty/physlib-surface.md`)**.
 - **Pre-check honesty:** verdicts marked NEW-LEAN here are STARTING positions with
   the round-1..4 evidence base behind them, not finished novelty verdicts; every
   charter must run its dossier-level battery (round-4 PART-2 pattern) before any
