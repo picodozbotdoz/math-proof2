@@ -30,14 +30,17 @@ pre-dossier level — the fresh run STARTS at dossier hardening (full Phase-3 fo
 the **Lean ecosystem only** (Isabelle AFP `LP_Duality`/`Linear_Programming`/`Farkas` +
 Coq 1706.10269 own the theorem class and are mandatory nearest-miss citations; mathlib
 `Analysis/Convex/Cone/Basic.lean:37` TODO verified on our pin; never "first formal /
-unformalized" phrasings); (2) an AL-3D B-rung (statement port + `PositiveReplacement3D`
-or a named higher rung — the north star `AreaLaw3D` is "not a target"; every slot NAMES
-its B-rung; every AreaLaw3D-adjacent claim cites the obstruction C.1–C.4 it resolves);
+unformalized" phrasings); (2) an AL-3D B-rung — **B.2 (`SlabAreaLaw3D`) staged
+(`pilots/al-3d-prework.md`); B.3 (`PositiveReplacement3D`) alternative — decided at
+launch** (AL-P0 statement stage serves either rung; the north star `AreaLaw3D` is "not a
+target"; every slot NAMES its B-rung; every AreaLaw3D-adjacent claim cites the
+obstruction C.1–C.4 it resolves);
 (3) the ZZV2 λ-family (formalization-first: Lamzouri owns the informal math, must-cited
 in full; the artifact is the Lean λ-layer). Carried: 50-M2-R1 pre-staged awaiting
 **[G7b]** (R3 Liu-1 binder fallback CLEAN); 73-Q4 `hRat` (A2 recommendation owed);
-22-T2a (small, upstream PNT+ binder); the main-run cold inventory (41/12/31/60/40/30)
-competes throughout. Watch: FF-EZ2 survivor (FF-EZ5 folded in — Faifman–Rudnick), FF-EZ4,
+**75 continuation (P-b 5/6 strip-distinct arm + N2/N3 remainder; entry (P-a)+C1 GREEN
+in C2; design input: `pilots/75/Pb-design.md`, A4)**; 22-T2a (small, upstream PNT+
+binder); the main-run cold inventory (41/12/31/60/40/30) competes throughout. Watch: FF-EZ2 survivor (FF-EZ5 folded in — Faifman–Rudnick), FF-EZ4,
 AL-EZ1 P2-probe, the physlib occupation-pair bridge (seed 13; differentiate from article
 52 AND physlib `WickContraction/Sign/`; the three-"Physlib"s name-collision trap).
 QuasiRiemannTracker is a CLOCK, not a donor (A5 §9.5 protocol; DO-NOT-CONSUME).

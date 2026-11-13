@@ -46,6 +46,8 @@ TARGETS = [
     ("AxPilot42_M4b",     PILOTS / "42/M4b.lean"),     # under upgrade edit; re-staged at sweep run
     ("AxPilot71_P1",      PILOTS / "71/P1.lean"),      # 71/P0 EXCLUDED (probe-convention)
     ("AxPilot71_P2",      PILOTS / "71/P2.lean"),      # FINAL-GREEN p2-run6 (landed 2026-11-14)
+    ("AxPilot73_C",       PILOTS / "73/C.lean"),       # FINAL-GREEN run6-c-green (landed 2026-11-14); 73/P0 EXCLUDED (probe-convention)
+    ("AxPilot75_Pa",      PILOTS / "75/Pa.lean"),      # FINAL-FOR-ENTRY (A4 formal 2026-11-14; P-b/N2/N3 DEFERRED to iteration 4); Mathlib-only
     ("AxPilot72_Cneg",    PILOTS / "72/C-neg.lean"),   # FINAL-GREEN run8 + axcheck-run1
     # on landing, add at sweep execution: AxPilot71_P2, AxPilot73_C*, AxPilot72_M1,
     #   AxPilot75_* (FINAL Cycle-2 pilot, lane A4, executing per orchestrator decision

@@ -8,8 +8,10 @@ proposed shared layer, and the consumer-mapping table. Companion artifacts:
 
 ## §0 Cluster snapshot
 
-Two dossier cores, two cycles apart, share ONE unclaimed layer: a finite-dimensional
-**linear-program weak-duality theorem in Lean**. Dossier 02 (bandwidth-k ceiling laws,
+Two dossier cores, two cycles apart, share ONE layer unclaimed in the **Lean
+ecosystem**: a finite-dimensional **linear-program weak-duality theorem native to
+mathlib** (the theorem class itself is owned outside Lean — Isabelle AFP trio + Coq;
+see §2). Dossier 02 (bandwidth-k ceiling laws,
 re-scoped core item 1) and dossier 74 (surprisal moment-hierarchy ceilings, T3) each
 define a *certificate class* (linear functional of the certificate, linear validity
 inequalities against a data set) and a *ceiling constant* B = sup of value over valid
@@ -49,12 +51,22 @@ dictionary axis, formalized, `kristianmk/839`); openai family-265 interface (§3
 - **Nearest formal neighbor**: Yamashita 2026-06 (Lean 4 HSD interior-point for LP; R8
   `novelty/RELATED-WORK.md`) — an ALGORITHM, not a duality theorem; not reusable for our
   statement (02 §Re-scope, verbatim).
+- **AFP/Coq verdict (A5 check RUN 2026-11-14, `novelty/iter4-seed-triage.md` §seed-9
+  evidence block): AFP-HAS-LP_DUALITY — the theorem CLASS is formalized outside Lean.**
+  LP duality (weak AND strong) is formalized in Isabelle/AFP (`Farkas`,
+  Bottesch–Haslbeck–Thiemann 2019; `Linear_Programming`, Parsert–Kaliszyk 2019
+  (= arXiv:2403.19639); `LP_Duality`, Thiemann 2022 — maintained through Isabelle2026)
+  and in Coq (Allamigeon–Katz 1706.10269, 2017); it is absent from mathlib (explicit
+  TODO, `Analysis/Convex/Cone/Basic.lean:37`, verified on our pin) and from the Lean
+  ecosystem (Yamashita 2026-06 is an algorithmic HSD variant; no Lean preprint 2024–26).
+  Ours: the first **mathlib/Lean-native** duality layer and the first **application** of
+  formal LP weak duality to zero-proportion/entropic certificate programs (02's ceiling
+  programs; 74-T3's surprisal LPs). — the five must-cites are mandatory nearest-miss
+  citations in every artifact citing this layer.
 - **Informal precedent**: Knausgård `law_lp.py` — Python LP solver reconstructing AF's
   period-256 law; cite as motivation, never competition (02 §Re-scope).
-- **[NOVELTY-CHECK-NEEDED — the live risk per A5 row 9]**: AFP (Isabelle) LP entries —
-  an archive sweep for any formal LP weak/strong duality is REQUIRED before the layer is
-  claimed NEW-LEAN at dossier level; also mathlib PRs in flight (the TODO above invites
-  exactly this contribution — date against the mathlib-Cone clock).
+- Residual [NOVELTY-CHECK-NEEDED]: mathlib PRs in flight only (the TODO invites exactly
+  this contribution — date against the mathlib-Cone clock).
 
 ## §3 The proposed shared layer (S-class)
 
@@ -98,8 +110,10 @@ of its S core, per dossier 74 §Feasibility).
 | — (NOT the layer) | 02 Theorems A/B/C | stability law / near-CUE propagation / ceiling law — the zeta23-verbatim analysis | — |
 
 **Reading.** The layer is the rate-limiter for exactly two clauses (both `≤`-direction);
-everything else in both dossiers is independent of it. This matches A5's "fastest
-de-risk — do it FIRST regardless of which discovery-grade seeds win slots".
+everything else in both dossiers is independent of it. This matches A5's current bullet:
+"do it FIRST regardless of which discovery-grade seeds win slots (it is the 74/02
+dependency either way)" — with AFP/Coq owning the theorem class, the slot's value is the
+mathlib-native layer + the two in-repo consumers, not theorem-class priority.
 
 ## §5 openai family-265 interface shape (the 74-side donor surface)
 
@@ -116,9 +130,12 @@ de-risk — do it FIRST regardless of which discovery-grade seeds win slots".
 
 ## §6 Risks / decay
 
-1. **AFP prior art** [NOVELTY-CHECK-NEEDED, the live risk] — an Isabelle LP-duality entry
-   would devalue "first formal" phrasings but NOT the Lean/mathlib artifact (our claims
-   are corpus-scoped); the dossier-level battery must sweep AFP before any N-score.
+1. **AFP prior art — RESOLVED (A5, 2026-11-14: AFP-HAS-LP_DUALITY)**: the theorem class
+   is owned outside Lean (AFP `LP_Duality`/`Linear_Programming`/`Farkas` + Coq
+   1706.10269 — all five are mandatory nearest-miss citations). NEVER phrase the layer
+   as "first formal LP duality", "unformalized", or any unqualified "first"; every claim
+   is **Lean/mathlib-native scope only** (tier unchanged: NEW-LEAN,
+   infrastructure-grade, two-consumer).
 2. **mathlib-Cone clock**: the TODO invites a mathlib contribution; if mathlib lands LP
    duality first, the layer drops to transcription (formalization-grade) — charter fast.
 3. The layer alone is math-trivial — never a headline; bundle a consumer (02 item 1 or

@@ -13,8 +13,10 @@ selections NEW-LEAN (grade notes per seed); no escalation was triggered.
 selected seeds **NEW-LEAN — no escalation triggered** (no POSSIBLY-KNOWN/LIKELY-DEAD on a
 selection). One-line adjusts: seed 1 = "cleanest NEW-LEAN of the set" (conditional/glue
 grade; pre-charter check = rg the OAI family-265 companion preprints for 3D corollaries);
-seed 9 = NEW-LEAN infrastructure theorem ("fastest de-risk, do it FIRST regardless of
-slots"; fresh evidence: mathlib `Cone/Basic.lean` lists LP duality as an explicit TODO);
+seed 9 = NEW-LEAN **Lean-ecosystem scope only** (AFP check RUN 2026-11-14:
+**AFP-HAS-LP_DUALITY** — Isabelle `Farkas`/`Linear_Programming`/`LP_Duality` + Coq
+1706.10269 own the theorem class, all mandatory nearest-miss citations; "do it FIRST
+regardless of slots"; mathlib `Cone/Basic.lean:37` TODO verified on-pin);
 seed 2 = NEW-LEAN **formalization-first** (Lamzouri's proportions ARE λ-parametric
 informally — the math is known-informal, the Lean λ-layer is the artifact; must-cite
 Lamzouri as the entire informal content; label like dossier 73's "math is 25 years old").
@@ -29,7 +31,9 @@ Selected:
 2. **Shared LP-duality layer (02-core + 74-T3)** — nominal ≈5.25 but **effectively
    doubled**: one layer discharges the cores of two dossiers across two cycles, both
    sides novelty-clean after round-4 (02 HOT re-scope; 74 P2-6..P2-10 CLEAN).
-   [A5: NEW-LEAN; do-it-FIRST recommendation; mathlib TODO evidence]
+   [A5: NEW-LEAN **Lean-ecosystem scope only** — AFP trio + Coq own the theorem class
+   (mandatory nearest-miss citations); do-it-FIRST; slot value = mathlib-native layer +
+   two in-repo consumers]
 3. **ZZV2 λ-family parameterization** — ≈6.25 nominal, glue-capped, but zero-gate
    (V2 = BUILT donor per G2) and stack-reusable by 42-M4/75-assembly; picked over FF-EZ4
    (same nominal score) because FF-EZ4's value decays if 71-P2 lands the FF dictionary,
@@ -55,15 +59,20 @@ corollary — in-corpus, one rg away; third-party formal activity on AreaLaw2D's
 
 **Statement sketch.** Three-stage pilot: (a) port the 3D statement layer (32 `def … : Prop`
 in `OpenAI/Statements3D.lean`) to mathlib-only on our pin — G4 precedent says the 2D layer
-re-derives mathlib-only, Physlib not needed at statement level; (b) prove
-`PositiveReplacement3D` (B.3, "the most routine of the targets and the foundation of B.4"
-— Targets.md :65) and `Amplification3D` (B.4, :77), consuming the 2D layer as binders;
+re-derives mathlib-only, Physlib not needed at statement level; (b) prove the named
+B-rung — **B.2 (`SlabAreaLaw3D`) staged by A2's `pilots/al-3d-prework.md`; B.3
+(`PositiveReplacement3D`, "the most routine of the targets and the foundation of B.4" —
+Targets.md :65) the alternative — decided at launch; AL-P0 serves either rung
+identically** — and `Amplification3D` (B.4, :77), consuming the 2D layer as binders;
 (c) state-and-prove the conditional assembly `AreaLawAssembly3D` + hypothesis
 `TwoFamilyDecomposition3D` (B.5, :89) — the interface-freezing theorem whose hypotheses
 are honestly not-known-consistent (β > 1, C.3/C.4). NEVER target `AreaLaw3D` itself
 (Targets.md §A: "not a target", four named blockers C.1–C.4). Cylinder B.1 is already
 proved in-donor (`OpenAI.cylinderAreaLaw3D`, `OpenAI.cylinderAreaLawOfPlanar3D` in
 `OpenAI/Cylinder3D.lean`) — do not re-prove; cite as competitor-owned.
+**[A5 charter-shaping caveat, folded 2026-11-14: the charterable surface is the B.2–B.5
+ladder — any pilot slot must NAME its B-rung, and any AreaLaw3D-adjacent claim must
+explicitly cite which obstruction (C.1–C.4) it resolves.]**
 
 **Why-new pre-check (five corpora).** Statements exist in-corpus as UNPROVED challenge
 defs — our claim shape is the proofs (formal-new) + any new conditional assembly, not new
@@ -111,11 +120,19 @@ asymmetric-form layer signature (both consumers have sign-free primal variables)
 consumer-mapping table (the layer discharges exactly the two `≤`-direction clauses), and
 the AFP risk flag.]**
 
-**[A5-triage-pending → FOLDED: NEW-LEAN (infrastructure theorem, two-consumer; A5's
-"fastest de-risk — do it FIRST regardless of which discovery-grade seeds win slots").
-Fresh supporting evidence: mathlib `Cone/Basic.lean` lists LP duality as an explicit TODO
-(A5 r5 §5.2(b)); Yamashita = algorithmic HSD variant only. Residual NOVELTY-CHECK-NEEDED:
-AFP (Isabelle LP examples) and mathlib PRs in flight remain the live risks]**
+**[A5-triage-pending → FOLDED, then AFP check RESOLVED 2026-11-14: NEW-LEAN —
+**Lean-ecosystem scope only** (infrastructure theorem, two-consumer). A5 verdict
+AFP-HAS-LP_DUALITY: "LP duality (weak AND strong) is formalized in Isabelle/AFP
+(`Farkas`, Bottesch–Haslbeck–Thiemann 2019; `Linear_Programming`, Parsert–Kaliszyk 2019
++ arXiv:2403.19639; `LP_Duality`, Thiemann 2022 — maintained through Isabelle2026) and
+in Coq (Allamigeon–Katz 1706.10269, 2017); it is absent from mathlib (explicit TODO,
+`Analysis/Convex/Cone/Basic.lean:37`, verified on our pin) and from the Lean ecosystem
+(Yamashita 2026-06 is an algorithmic HSD variant; no Lean preprint 2024–26). Ours: the
+first **mathlib/Lean-native** duality layer and the first **application** of formal LP
+weak duality to zero-proportion/entropic certificate programs (02's ceiling programs;
+74-T3's surprisal LPs)." Never-phrase list: "first formal LP duality", "unformalized",
+any "first" unqualified by Lean/mathlib-native. Residual check: mathlib PRs in flight
+only]**
 
 **Statement sketch.** Layer: `lp_weak_duality` — for `A : Matrix`, vectors `b c`, any
 primal-feasible `x` (`0 ≤ x`, `A * x ≤ b`) and dual-feasible `y` (`0 ≤ y`, `Aᵀ * y ≥ c`),
@@ -135,9 +152,12 @@ files are algebraic-topology/affine). openai-math: moment/entropy objects exist
 (`EntropyMoments.lean:93–95`) with NO ceiling/duality theory (P2-6..P2-8: moments only
 quantify). AreaLaw2D: `MarginalTails` bounds the MGF (`OpenAI/Statements.lean:460–490`)
 but no LP layer. anthropics / tauceti: nothing (surveys). Knausgård: `law_lp.py` =
-Python, unformalized (TRIAGE row 02 note). Round-4 P2-9: no AHS citer proves class-side
-lower bounds. The LAYER is likely NEW-LEAN; its mathematical depth is trivia — the
-novelty lives in the consumers' dictionaries.
+Python, never a formalization (TRIAGE row 02 note). Round-4 P2-9: no AHS citer proves
+class-side lower bounds. **Outside Lean the theorem class is OWNED — Isabelle (AFP trio,
+maintained through Isabelle2026) and Coq (2017); the claim is mathlib/Lean-native layer
++ first application to certificate programs, nothing broader** (five must-cites per the
+header). The layer's mathematical depth is trivia — the novelty lives in the consumers'
+dictionaries.
 
 **Donor map (exact).** openai-math `OAI/MathematicalPhysics/PEPSSubvolume/EntropyMoments.lean`:
 `moment` :93, `entropy` :94, `logMoment` :95, `logMoment_derivative` :128 (namespace

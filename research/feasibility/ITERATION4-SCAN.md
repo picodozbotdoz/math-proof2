@@ -29,7 +29,7 @@ when its pilot verdict lands. Sources mined: `TRIAGE-C2-ROWS.md` (A9 staging),
 | # | Candidate (final score) | Status / next step |
 |---|---|---|
 | 41 | q-deformed-eight-square (7.0) | R8-cleared, pilotable; re-scope keeps (H) sign-rule/parallelogram-defect as differentiator (B–P–I 1998 contests object level) |
-| 02 | bandwidth-k LP core (4.67) | RE-SCOPE locked: LP weak duality **in Lean** + pair-mass B₂ axis; never claim "first barrier theory" (Knausgård §7.6) — **shares the unclaimed LP-duality layer with 74-T3** (synergy seed §2.9) |
+| 02 | bandwidth-k LP core (4.67) | RE-SCOPE locked: LP weak duality **in Lean** + pair-mass B₂ axis; never claim "first barrier theory" (Knausgård §7.6) — **shares the LP-duality layer (unclaimed in the LEAN ECOSYSTEM only — Isabelle/Coq own the theorem class, A5 seed-9 verdict) with 74-T3** (synergy seed §2.9) |
 | 12 | parametric-savings (6.0) | feeder = 51; monotonicity-via-termPrime check flagged at pilot |
 | 31 | budgeted-split (4.0) | shares step-3 glue with 32 — 32-M1 now GREEN (ledger §1), amortization improved |
 | 60 | border-rank-connector (3.0) | verify/drop the ≤21 attribution BEFORE writing |
@@ -96,9 +96,14 @@ in 1b has a live gate — they are cold inventory.
    with a proved instance path on our toolchain. Donors: `tauceti` (same pin, direct dep),
    `axiommath/Weil`.
 6. **FF-EZ5 family counting** — RvM-style N(T) is degenerate for a fixed curve (N_ν = b_ν
-   exact, `CharpolyDegree.lean:67`); the analog lives over families (`bridges/function-field.md`
-   §3 table row 3). Rationale: pairs with FF-EZ2's family version; literature-occupied risk
-   to re-check first.
+   exact, `CharpolyDegree.lean:67`); the analog lives
+   over families (`bridges/function-field.md` §3 table row 3). **[A5 triage verdict:
+   LIKELY-DEAD standalone — Faifman–Rudnick 0803.3534 IS family zero-counting statistics
+   (CLT/variance of counts in angle intervals, genus→∞, fixed q); Rudnick 0811.3649
+   adjacent. DO NOT CHARTER standalone; FOLD into seed 4 (FF-EZ2 territory) — survivors
+   only as DIFFERENT quantities: multiplicity-aware counts, uniform-in-family lower
+   bounds, s-plane-strip counts; round-level differentiation sweep mandatory before any
+   charter.]**
 7. **Kontorovich/quasi-rh 11/12 as binder donor** — README-claimed
    `riemannZeta_ne_zero_of_re_gt_elevenTwelfths` for ζ + Dirichlet (v4.34.1, reuses OAI's
    analytic core, NO ζ_K) — round-4 §8.3. Rationale: sharpest ζ/Dirichlet constant available
@@ -107,11 +112,15 @@ in 1b has a live gate — they are cold inventory.
    §12's "Λ absent everywhere" gap via third party. Rationale: donation-surface note only
    (no C2 dossier affected); any next-cycle Λ idea starts from this artifact.
 9. **The shared LP-duality layer (02-core + 74-T3)** — dossier 74's T3 "rides the same
-   unclaimed LP-duality layer as 02" (`TRIAGE-C2-ROWS.md` row 74; round-4 P2-6..P2-10 clean)
-   and T3 must state **u ≠ 1** (the `Real.rpow` zero-eigenvalue glue note, P2-10). Rationale:
-   ONE LP-weak-duality-in-Lean layer unlocks two dossiers across cycles (main-run 02 core,
-   C2 74 T3). Donors: openai-math `EntropyMoments.lean:93` (`moment p u = ∑ (p i)^(1-u)`),
-   AreaLaw2D `OpenAI/Statements.lean:460–490` MarginalTails.
+   unclaimed LP-duality layer as 02" (`TRIAGE-C2-ROWS.md` row 74 wording; round-4
+   P2-6..P2-10 clean — **scope-corrected 2026-11-14, A5 seed-9 verdict
+   AFP-HAS-LP_DUALITY: unclaimed in the LEAN ECOSYSTEM only; Isabelle AFP trio +
+   Coq 1706.10269 own the theorem class, mandatory nearest-miss citations**) and T3
+   must state **u ≠ 1** (the `Real.rpow` zero-eigenvalue glue note, P2-10). Rationale:
+   ONE mathlib/Lean-native duality layer unlocks two dossiers across cycles (main-run
+   02 core, C2 74 T3). Donors: openai-math `EntropyMoments.lean:93`
+   (`moment p u = ∑ (p i)^(1-u)`), AreaLaw2D `OpenAI/Statements.lean:460–490`
+   MarginalTails.
 10. **50-M2-R3 Liu-1 statement-binder (already CLEAN)** — consume the PROVED rational
     34999/40000 (NOT the README decimal — G7 discrepancy note); Liu-2 clock (B♭ uniform,
     Lean in progress) is the future external donor for the same binder shape.
@@ -121,12 +130,38 @@ in 1b has a live gate — they are cold inventory.
     type-II codes ↔ theta series/modular forms; orbit zeta ↔ Lefschetz; CAR/Fock ↔ QFT;
     free probability ↔ random-matrix eigenvalue flow; Vaught counting ↔ Morley–Vaught.
     Rationale: un-mined bridge pairs inside the corpus we can build against directly
-    (same toolchain, direct dep).
+    (same toolchain, direct dep). **[A5 triage: POSSIBLY-KNOWN bundle — the DICTIONARIES
+    are classical (Nebe–Rains–Sloane; Lefschetz; Voiculescu/Biane–Speicher; Morley–Vaught)
+    AND the CAR/occupation-universal "statistics-universal sign-calculus" framing is DEAD
+    (physlib `ExchangeSign` — Tooby-Smith — carries the sign cocycle + sign-aware Wick
+    stack, pushed 2026-11-13; `novelty/physlib-surface.md`). Surviving content = the
+    occupation-pair layer + dual-family + a tauceti↔physlib bridge (see seed 13); any
+    charter must differentiate from BOTH article 52 and physlib's `WickContraction/Sign/`
+    stack; per-pair round-level battery mandatory.]**
+12. **Weil-as-binder for FF window clauses** — G3 CLEAN: the LeanEval `weil_conjectures`
 12. **Weil-as-binder for FF window clauses** — G3 CLEAN: the LeanEval `weil_conjectures`
     statement elaborates verbatim mathlib-only, all three geometric classes are mathlib's
     on our pin; Tier A (Stacks) stays priced-and-blocked (G6a). Rationale: FF-EZ1-style
     window transports can consume Weil RH by binder NOW, no Stacks build.
     Donors: `axiommath/Weil` statements; mathlib `Geometry.lean` classes per G3.
+13. **Occupation-pair semantics for `CrAnFieldOp` (physlib bridge — A5's
+    `novelty/physlib-surface.md`, added 2026-11-14)** — instantiate article 52's
+    occupation-calculus axioms on physlib's tagged creation/annihilation operators: the
+    71/73 dictionary pattern aimed OUTWARD at a live corpus (relation-layer donation FROM
+    us). Rationale: physlib has ONE mature wing (perturbative QFT: `ExchangeSign` cocycle
+    + sign-aware Wick stack) and **no CAR/CCR relation layer anywhere** — A5 rates this
+    the sharpest physlib opening; must differentiate from BOTH article 52 and physlib's
+    `WickContraction/Sign/` stack; re-check `FieldStatistics/` + `WickContraction/Sign/`
+    + `WickAlgebra/` before chartering (the surface FIRED once already: ExchangeSign took
+    the universal-calculus core on 2026-11-13). Donors: article 52 (`articles/52-*`,
+    pilot 52 M1 GREEN dual-family), physlib `CrAnFieldOp` (leanprover-community/physlib,
+    v4.35.0 — one minor behind our pin: DZDF-class consumption gap, statement-binder
+    class). **NAME-COLLISION TRAP (charter corpus note):** THREE distinct "Physlib"s —
+    (i) leanprover-community/physlib (HEPLean's successor, this seed's target);
+    (ii) AreaLaw2D's VENDORED dependency package `leanprover-community/physlib` @
+    `a50684a1` (G5a's measured import boundary — same upstream name, different role);
+    (iii) the "PhysLean" precedent name in the literature. Never conflate them in a
+    citation.
 
 ## §3 Substrate / toolchain notes for the next cycle
 

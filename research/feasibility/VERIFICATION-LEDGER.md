@@ -229,6 +229,12 @@ drop-declared rows yet. Sweep machinery pre-verified post-outage the same day:
 (`feasibility/probe/logs/axcheck-c2-machinery-check.log`; runner now defaults to
 `MODAL_USER=doz` per the relaunch protocol — see plan §0 machinery note).
 
+**Interruption note (2026-11-14 ~03:15):** A1's execution window was killed mid-flight
+(disk silence); the uncommitted §9/§0a edits survived on disk (H committing). The
+post-interruption reconciliation (same day, ~03:2x) re-verified every §9/§0a row against
+disk: 11-M2 confirmed exactly as written (`m2-run8-GREEN` + `m2-axcheck-final`); the
+stale rows were 72-M1 and the G-series paragraph — both updated below.
+
 | pilot | final files | LoC/thms (on-disk 11-14) | status (relaunch) | axcheck verdict (log cite) | sorry tokens | sign-off | last-verified |
 |---|---|---|---|---|---|---|---|
 | 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | **FINAL-GREEN** (upgrade pilot, if it touches M4a, re-baselines this row) | **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | [pending final sweep] | 2026-11-14 |
@@ -237,24 +243,33 @@ drop-declared rows yet. Sweep machinery pre-verified post-outage the same day:
 | 71 | `P1.lean` | 131 / 7 | **FINAL-GREEN** (triad axioms visible in run4 tail) | **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK", 7 triad axiom lines) | 0 | [pending final sweep] | 2026-11-14 |
 | 71 | `P2.lean` | 282 / 11 | **FINAL-GREEN (A2, p2-run6)** — descent 6→4→2→1→OK; 11 theorems ALL triad, 0 sorry/0 errors, lint-clean; W1 honestly corrected (pole-family exclusion; prework's s≠1 unsound); Mathlib-only imports | OK (p2-run6 axiom prints; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (p2-run6) |
 | 72 (area-law) | `C-neg.lean` | 369 / 11 | **FINAL (A4 report OFFICIAL, relayed 2026-11-14)** — run8-final GREEN rc=0/0/0 (descent 7→3→1→OK); A4 axcheck `axcheck-run1.log`: **11/11 theorems triad-only, 0 sorryAx** (headline `CrossMath.CNeg.rank_area_law_nogo` + private helpers); deviations documented in `pilots/72-prework.md` execution note; all logs carry provenance headers (runs 1–5 reconstructed, 6–8 + axcheck native) | OK (official; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (official relay) |
-| 72 | `M1.lean` | — (not landed) | **PENDING-LANDING (A8, slot 3 after 11-M2)** | [pending landing] | — | [pending final sweep] | 2026-11-14 (absent confirmed) |
+| 72-M1 (Tier-C) | `P72M1T1.lean`, `P72M1T2.lean` (`pilots/72-M1/`) | 702 / 46; 320 / 25 (03:15 edit, unrun) | **EXECUTING (2026-11-14, post-interruption)** — **T1 GREEN since m1-run4** (OK again at m1-run5); T2 mid-fix at **24 errors** (m1-run5; T2 error churn 1→1→1→52→24 across m1-run1..5 — the T1 fixes exposed T2's layer). A8 bounded per orchestrator: ≤5 further runs or **declared-drop — both valid final states** for this row | [pending] — T1 axcheck on landing (Step B or A8 in-file); T2 only if landed | — (T1 proof artifact, expect 0; verify at landing) | [pending final sweep] | 2026-11-14 (m1-run5 + disk, reconciliation) |
 | 73 (FF C-series) | `P0.lean` (Q0 probe) + `C.lean` (Q1–Q3) | 143 / probe; 236 / 7 | **FINAL-GREEN (A2, run6-c-green)** — C.lean: Q1 transplant + Q2 `hecke_continuation` + Q3 `hecke_window` + 71-glue, 7 theorems ALL triad, 0 sorry/0 errors (descent 2→4→4→2→OK across runs 2–6; ∘-form Differentiable.comp haves dodge the HO-unification pathology); **Q4 (hRat discharge) NOT attempted — orchestrator gate holds** | C.lean OK (run6 axiom prints; sweep Step B re-confirms); P0 = probe-convention Step A only (7 stubs, in the 43-token baseline) | 7 (P0 probe-convention, enumerated); C.lean 0 | OK (pending sweep confirm) | 2026-11-14 (run6-c-green) |
-| 75 (ζ_L proportions) | P-a + C1 files per `pilots/75-prework.md` | — (no dir) | **EXECUTING NOW (orchestrator DECISION 2026-11-14: the FINAL Cycle-2 pilot, lane A4; P-a then C1; final-or-declared-drop rule applies)** | [pending landing] | — | [pending final sweep] | 2026-11-14 (decision relayed) |
+| 75 (ζ_L proportions) | `Pa.lean` | 1557 / 66 (= 1,194 pilot-42-M4a carried verbatim + 363 new) | **FINAL-FOR-ENTRY (A4 formal report + orchestrator DECISION 2026-11-14)** — P-a + C1@2/3 GREEN: run6-final rc=0 (descent 26→0 over 6 runs); in-file axcheck 17/17 triad incl. heritage landings; Mathlib-only imports (plain axcheck class). **DECLARED DEFERRAL: P-b/N2/N3 → iteration 4** (assigned C2 scope complete per F0 sequencing; P-b design being formalized by A4 as an iteration-4 input) | OK (A4 in-file axcheck 17/17; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (A4 formal) |
 | 10-L1 | `L1.lean` | 529 / 25 | **FINAL-GREEN** | `pilots/10/logs/l1-run4-final.log` ("Pilot10_L1.lean: OK" + axcheck "AxPilot10_L1_full.lean: OK", triad, e.g. `PaddedDescent.F.descendC_uncut`: [propext]) | 0 | OK (pending sweep confirm) | 2026-11-14 |
-| 10-L2 | `L2.lean` | 2595+ / 126+ [recount at landing] | **IN-FLIGHT (A6)** — **first-ever run landed** (l2-run1, 2026-11-14): BOTH FAIL rc=1 **errors=12 sorry=0**, all 12 in Part D (omega atoms, missing DecidableEq derive, `List.nil_map`, trans_eq unification…; enumerated in the log's provenance header with the staged file's sha256); fixes applied same session, iterating | [pending]; l2-run1 FAIL in-flight | 0 | [pending final sweep] | 2026-11-14 (l2-run1) |
-| 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 421 / 8 | **FINAL-GREEN (A8, m2-run8)** — ALL SIX files OK (T1/T2/T3/RedCompA/B + **RedTm2 OK**; RedTm2 churn 4→2→3→6→2→OK across m2-run1..8); P11T3 axcheck-clean independently (A1 fix-verify run); A8 close-out report pending | OK (m2-run8 elaboration; P11T3 axcheck `axcheck-c2-p11t3fix-verify.log`; full axcheck at sweep Step B) | 0 | OK (pending sweep confirm) | 2026-11-14 (m2-run8) |
+| 10-L2 | `L2.lean` | 2625 / 151 | **FINAL-GREEN (A6 formal report, 2026-11-14)** — `l2-run5-final-green.log`: BOTH OK (`Pilot10_L2.lean` + full-axcheck copy `AxPilot10_L2_full.lean`), **151/151 theorems ⊆ triad, 0 sorryAx**; descent 12→3→1→0 across l2-run1..5; sha256-stamped provenance header; A6 also fixed `axcheck_full.py` (namespace/section-aware — `end Steps` no longer pops a namespace) | OK (l2-run5-final-green; sweep Step B re-confirms via the fixed full generator) | 0 | OK (pending sweep confirm) | 2026-11-14 (A6 formal) |
+| 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 421 / 8 | **FINAL-GREEN (A8, m2-run8)** — ALL SIX files OK (T1/T2/T3/RedCompA/B + **RedTm2 OK**; RedTm2 churn 4→2→3→6→2→OK across m2-run1..8); P11T3 axcheck-clean independently (A1 fix-verify run); A8 close-out report pending | **OK — full axcheck landed** (`pilots/11/logs/m2-axcheck-final.log`: both staged copies OK, 64 + 12 = **76 axiom-lines, 0 sorryAx**, all ⊆ triad; P11T3 also `axcheck-c2-p11t3fix-verify.log` 64/0; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (m2-run8 + m2-axcheck-final, reconciliation-confirmed) |
 | 52 / 20 | `M1`s | 292 / 12, 582 / 26 | **CLEAN (cross-ref)** — no drop, drift-check only | already clean (2026-11-09 resume final sweep §6–§7, 30/30 staged OK, 0 sorryAx; Cycle-2 re-verification §8: `20/logs/axcheck-cycle2.log` 36 lines 0 sorryAx, `52/logs/axcheck-cycle2.log` 15 lines 0 sorryAx) | 0 | clean (cross-ref §8) | 2026-11-14 |
 
 Conditional TARGETS additions on landing (not yet rows): **42-M4b-upgrade** (A3, G2-cleared
 gated continuation — direct V2 import; may modify or extend `M4b.lean`, re-baseline that row),
 **50-M2** (gated: R1 openai in-corpus 7/8 on G7b — no G7b verdict yet; R2 DZDF statement-level
 only per G1b). Probe/gate items outside TARGETS: G7b (donor-pin axiom audit, died in outage),
-G5a/G6a staging runs (A7). Relaunch state 2026-11-14 ~02:0x: G7b re-run launched
-(`logs-g/run19-g7.log`, provenance header, 02:03 — no verdict lines yet); G5a re-run
-(`run20-g5a.log`) FAILED at `mathlib: failed to fetch cache` — the known transient
-artifact-cache outage mode, retry per protocol (my machinery check and A2/A3 pilot runs on
-the same account succeeded, so Modal is broadly alive); G6a re-run (`run21-g6a.log`) last
-seen mid dependency-fetch.
+G5a/G6a staging runs (A7).
+
+G-series state (A1 post-interruption reconciliation, 2026-11-14 ~03:2x — supersedes the
+~02:0x paragraph): **G6a TERMINAL** — run21 build FAIL rc=1, **errors=7,493** (Stacks
+partial-build pricing captured at job 12010/19336; confirmed negative, DONE-FAIL). **G7b**
+— run19 FAIL rc=1 (errors=9, failed_modules=3: donor built unpatched — the lean4341 patch
+tier only fires on `lake update`, which the cache path skipped); run22 (attempt 2) applied
+**all 12 patches cleanly** then died mid-build in the interruption (wrapper killed, remote
+container torn down); **attempt 3 launching** (A7 resumed — patch mechanism proven, no
+probe-side changes needed). **G5a** — run20 died verdict-less ~35 min in (wrapper
+externally killed — NOT a cache failure; the seed fallback had already engaged; header
+note in-file); run23 (nohup-decoupled final retry) hit `mathlib: failed to fetch cache`
+again → **BLOCKED-INFRA disposition expected** (A7). G7b/G5a dispositions are
+sweep-relevant but NOT sweep-gating TARGETS rows (50-M2 has no row; G-probes sit outside
+TARGETS by §0a).
 
 Conventions (Cycle-2): (i) probe-convention stubs = the 36 header-justified tokens
 enumerated in `probe/FINAL-SWEEP-PLAN-C2.md` §1 (9 main-run + 23 G-series + 4 in

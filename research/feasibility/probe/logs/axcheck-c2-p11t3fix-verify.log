@@ -1,0 +1,181 @@
+# PROVENANCE: /tmp/crossmath-axcheck-p11t3fix.log (ephemeral transcript, 2026-11-14);
+# producing lane A1; rescued in-repo 2026-11-14.
+# PURPOSE: verify the Cycle-2 generalization of make_axcheck.py's sibling-import
+# rewrite (old regex covered only ^import (P11T[12])$; now a dict built from ALL
+# TARGETS rewrites every target stem -> stage name, covering 11/RedTm2's
+# 'import P11T3' -> 'import AxPilot11_P11T3'). Local unit-check before the run:
+# staged AxPilot11_RedTm2.lean contains 'import AxPilot11_P11T3'; AxP11T2.lean keeps
+# 'import AxP11T1'; extraction counts 0/18/88/8 theorems.
+# MODAL RUN (runner: run_axcheck.sh AxP11T1 AxP11T2 AxPilot11_P11T3 AxPilot11_RedTm2,
+# doz CLI, app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2):
+#   AxP11T1.lean: OK (defs layer, 0 theorems)
+#   AxP11T2.lean: OK; 19 axiom-lines, 0 sorryAx (matches R9 record)
+#   AxPilot11_P11T3.lean: OK; 64 axiom-lines, 0 sorryAx (GREEN + clean axioms on the
+#     axcheck substrate; 88 theorems extracted, 24 of them 'no axioms' lines — counter
+#     filter, benign)
+#   AxPilot11_RedTm2.lean: FAIL rc=1 (6 errors) — ALL tactic-level (omega :209,
+#     rewrite :216; file mid-flight under A8's edits, was 2 err at m2-run2);
+#     ZERO import/unknown-module errors => the P11T3 import rewrite VERIFIED;
+#     6 sorryAx lines are error-recovery artifacts of the failed elaboration
+#     (0 sorry tokens in file, stepA-incremental-c2.log).
+# VERDICT: fix VERIFIED; pipeline end-to-end healthy.
+#
+AxP11T1: 0 theorems -> 
+AxP11T2: 18 theorems -> Real.one_le_log_of_three_le, Real.one_le_log_natCast_of_three_le, Real.logb_two_seven_lt, Real.natCast_le_rpow_inv_iff …
+AxPilot11_P11T3: 88 theorems -> Groundwork.TM.mirror_mirror, Groundwork.TM.code_mir, Groundwork.TM.Run.one, Groundwork.TM.Run.trans …
+AxPilot11_RedTm2: 8 theorems -> CrossMath.Pilot11.M2.Tm2Sol.mono, CrossMath.Pilot11.M2.tm2_choice, CrossMath.Pilot11.M2.orbit_sf, CrossMath.Pilot11.M2.map_headD_sf …
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Rv1iE2m3EoqW9NFZeVuhad
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 4 file(s): ['AxP11T1.lean', 'AxP11T2.lean', 'AxPilot11_P11T3.lean', 'AxPilot11_RedTm2.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxP11T1.lean
+[ax] AxP11T1.lean: OK; axiom-lines=0, sorryAx-lines=0
+
+=== AxP11T2.lean
+[ax] AxP11T2.lean: OK; axiom-lines=19, sorryAx-lines=0
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.one_le_log_natCast_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.logb_two_seven_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.natCast_le_rpow_inv_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.le_root_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sixteen_le_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.pow_eighteen_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.ceil_le_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.Choice.one_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.exists_total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.choice_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.total_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.sq_div_sqrt_le_sq_div_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.time_le_of_calls' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.call_cost_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot11_P11T3.lean
+[ax] AxPilot11_P11T3.lean: OK; axiom-lines=64, sorryAx-lines=0
+'Groundwork.TM.mirror_mirror' depends on axioms: [propext]
+'Groundwork.TM.code_mir' depends on axioms: [propext]
+'Groundwork.TM.Run.one' does not depend on any axioms
+'Groundwork.TM.Run.trans' depends on axioms: [propext]
+'Groundwork.TM.Run.iterate' does not depend on any axioms
+'Groundwork.TM.stepAux_place' does not depend on any axioms
+'Groundwork.TM.run_place' depends on axioms: [propext]
+'Groundwork.TM.Frag.seq_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_head' depends on axioms: [propext]
+'Groundwork.TM.Frag.ofStmt_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.of_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PB.bound_le' depends on axioms: [propext]
+'Groundwork.PB.bound_comp' depends on axioms: [propext]
+'Groundwork.PB.const' depends on axioms: [propext]
+'Groundwork.PB.id'' depends on axioms: [propext]
+'Groundwork.PB.add' depends on axioms: [propext]
+'Groundwork.PB.mul' depends on axioms: [propext]
+'Groundwork.PB.pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.comp' depends on axioms: [propext]
+'Groundwork.PB.mono_bound' depends on axioms: [propext]
+'Groundwork.Stepped.Reaches.mono' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.Runs.mono' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.next_iterate_of_out' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.Reaches.iterate' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.Runs.out_run' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.runs_of_run' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.Runs.unique' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.ofFun_runs' depends on axioms: [propext, Quot.sound]
+'Groundwork.Stepped.mapIn_reaches' does not depend on any axioms
+'Groundwork.Stepped.mapIn_runs' does not depend on any axioms
+'Groundwork.Stepped.mapOut_reaches' does not depend on any axioms
+'Groundwork.Stepped.mapOut_runs' does not depend on any axioms
+'Groundwork.Stepped.bind_reaches_inr' does not depend on any axioms
+'Groundwork.Stepped.bind_runs' depends on axioms: [propext, Quot.sound]
+(…48 more) tail:
+'Groundwork.len_drop_le' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_bool' does not depend on any axioms
+'Groundwork.len_unit' does not depend on any axioms
+'Groundwork.len_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_units' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_nat' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_int' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_nat_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.of_wd' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot11_RedTm2.lean
+[ax] AxPilot11_RedTm2.lean: FAIL rc=1 (6 errors); axiom-lines=12, sorryAx-lines=6
+AxPilot11_RedTm2.lean:193:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxPilot11_RedTm2.lean:209:33: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 1
+  b ≥ 0
+  a ≥ 0
+  a - b ≤ -1
+where
+ a := ↑x.length
+ b := ↑n₀
+ d := ↑((x.length + 2) ^ d₁)
+AxPilot11_RedTm2.lean:216:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot11_RedTm2.lean:216:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if x.length < n₀ then ?m.359 else ?m.360
+in the target expression
+  Nonempty
+    (TM2OutputsInTime N.tm (List.map N.inputAlphabet.invFun x) (some (List.map N.outputAlphabet.invFun [f x]))
+      ((fun x => c * ((if x.length < n₀ then T₁ x else T₂ x) + 1) * (x.length + 1) ^ c) x))
+
+case pos
+hTm : EthExistsTm
+hPoly : EthPoly
+hComb : EthIsPoly
+M₁ M₂ : Stepped (List Bool) Bool
+inst✝¹ : IsPolyT M₁
+inst✝ : IsPolyT M₂
+f : List Bool → Bool
+T₁ T₂ : List Bool → ℕ
+d₁ d₂ n₀ : ℕ
+r₁ : ∀ (x : List Bool), M₁.Runs x (T₁ x) ((x.length + 2) ^ d₁) (f x)
+(…135 more) tail:
+'CrossMath.Pilot11.M2.tm2_choice' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_charging' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.Tm2Sol.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_choice' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.orbit_sf' depends on axioms: [propext]
+'CrossMath.Pilot11.M2.map_headD_sf' does not depend on any axioms
+'CrossMath.Pilot11.M2.sum_sf' depends on axioms: [propext]
+'CrossMath.Pilot11.M2.tm2_charging' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot11.M2.composed_sum_le' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot11.M2.tm2_realized_composed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxP11T1.lean: OK | no axiom-lines
+[ax]   AxP11T2.lean: OK | 19 axiom-lines, 0 with sorryAx
+[ax]   AxPilot11_P11T3.lean: OK | 64 axiom-lines, 0 with sorryAx
+[ax]   AxPilot11_RedTm2.lean: FAIL rc=1 (6 errors) | 12 axiom-lines, 6 with sorryAx
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-14T02:24:41+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Rv1iE2m3EoqW9NFZeVuhad

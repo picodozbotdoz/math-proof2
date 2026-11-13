@@ -1,11 +1,13 @@
 # ITERATION4-CHARTER-DRAFT — skeleton for the §Iteration 4 addendum to research/RESEARCH.md
 
-Lane A1, 2026-11-14. **Draft only — the orchestrator typesets and decides; everything
-marked PROPOSAL is mine and may be overridden.** Slot markers used below:
-**[TRIAGE-DECISION]** = deferred to pilot outcomes / triage; **[A5-SEED-TRIAGE]** =
-deferred to `novelty/iter4-seed-triage.md` (in flight); **[G7b]** = gated on the G7b
-donor-pin axiom audit (run19, in flight); **[SWEEP]** = gated on the Cycle-2 close-out
-chain (sweep trigger → TRIAGE typeset → REPORT → AGENTS-C2-DRAFT applied → STATUS block).
+Lane A1, 2026-11-14; **consistency pass 2026-11-14 (post-triage, post-landings)**.
+**Draft only — the orchestrator typesets and decides; everything
+marked PROPOSAL is mine and may be overridden.** Live slot markers after the
+consistency pass: **[TRIAGE-DECISION]** (orchestrator's), **[G7b]** (donor-pin axiom
+audit, run19 in flight), **[SWEEP]** (Cycle-2 close-out chain). ~~[A5-SEED-TRIAGE]~~ =
+RESOLVED 2026-11-14: `novelty/iter4-seed-triage.md` landed and its verdicts are folded
+in (top-3 NEW-LEAN with the AFP re-scope on seed 9; seed 6 LIKELY-DEAD folded into
+seed 4; seed 11's CAR-half dead, reframed; physlib surface opened seed 13).
 
 ## (a) Objective [PROPOSAL]
 
@@ -14,31 +16,49 @@ anthropics, axiommath) plus the Cycle-2-surfaced donors and gaps. The iteration-
 inventory (`feasibility/ITERATION4-SCAN.md` + `feasibility/ITERATION4-SEED-DOSSIERS.md`):
 
 - **AL-3D targets** — AreaLaw2D's frozen 3D statement layer with the donor's own
-  provability verdicts (B.2–B.5 bounded, C.1–C.4 fenced open problems).
-- **LP-duality absence** — no LP weak duality anywhere in mathlib (tree-verified) nor in
-  the other four corpora; one layer unlocks 02-core + 74-T3 across cycles.
+  provability verdicts (B.2–B.5 bounded, C.1–C.4 fenced open problems; the north star
+  `AreaLaw3D` is "not a target" per the donor — the charterable surface is the B-rung
+  ladder, and every slot must NAME its B-rung).
+- **LP-duality layer** — Lean-ecosystem-scoped (AFP-HAS-LP_DUALITY per A5: Isabelle AFP
+  trio + Coq own the theorem class; mathlib `Cone/Basic.lean:37` TODO verified on-pin);
+  one mathlib-native layer unlocks 02-core + 74-T3 across cycles — bridge doc
+  `feasibility/lp-duality-bridge.md`.
 - **ZZV2 λ-gap** — λ-abstract props exist unparameterized beside λ=1-frozen constants;
-  the family layer is unclaimed and stack-reusable (42-M4/75).
-- **FF continuation** — behind the in-flight 71-P2/73-C landings: FF-EZ2 survivor,
-  FF-EZ4 (G6b tauceti bridge), FF-EZ5 families; 73-Q4 `hRat` gate.
+  the family layer is unclaimed and stack-reusable (42-M4/75); formalization-first
+  (Lamzouri owns the informal math).
+- **FF continuation** — 71-P2/73-C both landed GREEN (2026-11-14); the follow-ons are
+  FF-EZ2 survivor (with seed-6's folded survivors: multiplicity-aware counts,
+  uniform-in-family bounds, s-plane-strip counts), FF-EZ4 (G6b tauceti bridge), and the
+  73-Q4 `hRat` gate (carried, A2's recommendation owed).
+- **physlib surface (NEW corpus note, A5's `novelty/physlib-surface.md`)** —
+  leanprover-community/physlib (HEPLean's successor; v4.35.0, one minor behind our pin =
+  DZDF-class statement-binder consumption gap): ONE mature wing (perturbative QFT,
+  `ExchangeSign` cocycle + sign-aware Wick stack), NO CAR/CCR relation layer — sharpest
+  opening = the occupation-pair bridge (seed 13). **Name-collision trap: THREE distinct
+  "Physlib"s** — the physlib repo; AreaLaw2D's vendored dependency package of the same
+  name (G5a's `a50684a1` boundary); the "PhysLean" precedent name. Never conflate.
 - **Tracker DO-NOT-CONSUME posture** [PROPOSAL, from A5's audit]: QuasiRiemannTracker is
   a CLOCK, not a donor — re-check per A5's §9.5 clock protocol (the static-assets curl
   recipe, cross-referenced as SCAN §3.9), date every QR-D artifact claim against it and
   the Liu-2 clock, but never consume tracker entries as results or cite them as donation
   sources; the Dirichlet-class formal frontier is other people's moving artifact
   (0.8733458561, Bebel, at audit).
-- **Carried-over gates** — 50-M2 (R1 gated [G7b]; R3 Liu-1 binder CLEAN), 73-Q4,
-  75 wave-4, 42-M4b-upgrade, 22-T2a (small, well-scoped).
+- **Carried-over state (post-2026-11-14 landings)** — 42-M4b-upgrade COMPLETE (primary
+  route GREEN, donor-tree axcheck dry-run verified); 71-P2, 73-C, 11-M2, 10-L2, 72-C-neg
+  all FINAL-GREEN; **75 pulled INTO Cycle 2 and EXECUTING** (lane A4, the final C2
+  pilot); 50-M2-R1 pre-staged awaiting **[G7b]** (R3 Liu-1 binder CLEAN as fallback);
+  73-Q4 carried with A2's recommendation owed; 22-T2a (small, well-scoped); the
+  10-completion thread is next-tranche assembly only (L1+L2+M1 all landed).
 - **Main-run cold inventory** — 41/12/31/60/40/30-remainder (SCAN §1b) compete for slots.
 
 ## (b) Phase mapping — what is pre-done (fresh run starts at hardening + triage)
 
 | Phase | Pre-done by | Residual work |
 |---|---|---|
-| 1 (survey) | Main-run surveys (4 corpora, QA'd) + Cycle-2 axiommath surveys (`survey/axiommath*.md`, spotchecked) + terminal-points/donor-gap sections | none mandatory; refresh ONLY where a donor moved (clocks: Liu-2, tracker, WenrongZou, upstream PNT+) |
-| 2 (bridges) | `bridges/function-field.md`, `bridges/area-law.md` (Cycle 2) + main-run bridge maps; SCAN §2 = the cross-corpus seed list (12 seeds, donor-cited) | optional mini-bridge for the LP layer (linear-algebra update); tauceti within-corpus zones need their own round if chartered |
-| 3 (dossiers) | 3 pre-dossiers (`ITERATION4-SEED-DOSSIERS.md`) with statement sketches, why-new pre-checks, exact donor maps, feasibility classes, risks | **dossier hardening**: full Phase-3 form (precise statements, COMPLETE novelty verification — the [NOVELTY-CHECK-NEEDED] marks are obligations, not decorations — proof-strategy sketches) |
-| 4 (triage) | score inputs pre-assembled (scan's N×S÷E arithmetic, sensitivity lines) | rank + slot after A5's seed triage lands **[A5-SEED-TRIAGE]** and Cycle-2 pilot outcomes settle **[TRIAGE-DECISION]** |
+| 1 (survey) | Main-run surveys (4 corpora, QA'd) + Cycle-2 axiommath surveys (`survey/axiommath*.md`, spotchecked) + terminal-points/donor-gap sections + **A5's physlib surface map (`novelty/physlib-surface.md`)** | none mandatory; refresh ONLY where a donor moved (clocks: Liu-2, tracker, WenrongZou, upstream PNT+, physlib `FieldStatistics/`+`WickContraction/Sign/`+`WickAlgebra/`) |
+| 2 (bridges) | `bridges/function-field.md`, `bridges/area-law.md` (Cycle 2) + main-run bridge maps; SCAN §2 = the cross-corpus seed list (13 seeds, donor-cited, triage-annotated) | DONE for LP: `feasibility/lp-duality-bridge.md` (mini-bridge written 2026-11-14); tauceti within-corpus zones / physlib occupation-pair need their own rounds if chartered |
+| 3 (dossiers) | 3 pre-dossiers (`ITERATION4-SEED-DOSSIERS.md`) with statement sketches, why-new pre-checks, exact donor maps, feasibility classes, risks — all triage-folded | **dossier hardening**: full Phase-3 form (precise statements, COMPLETE novelty verification — the [NOVELTY-CHECK-NEEDED] marks are obligations, not decorations — proof-strategy sketches) |
+| 4 (triage) | score inputs pre-assembled (scan's N×S÷E arithmetic, sensitivity lines) + **A5's seed triage LANDED** (`novelty/iter4-seed-triage.md`: 6 NEW-LEAN / 2 POSSIBLY-KNOWN / 4 DONOR-INFRA; AFP verdict folded) | rank + slot once Cycle-2 pilot outcomes settle **[TRIAGE-DECISION]** — the seed-novelty input is no longer pending |
 
 ## (c) Lane topology [PROPOSAL — 10 lanes, mirroring C2's working shape]
 
@@ -62,19 +82,21 @@ decision-needing event; concurrency probe `ps -eo comm --no-headers | grep -cx
 zcode-cli` at each batch close); one writer per file; logs persisted with provenance
 headers (log-rescue lesson); post-outage log tails suspect until re-verified.
 
-## (d) Proposed pilot slots with gates [PROPOSAL — all [TRIAGE-DECISION]]
+## (d) Proposed pilot slots with gates [PROPOSAL — live gates: [TRIAGE-DECISION] only; [A5-SEED-TRIAGE] resolved 2026-11-14]
 
 | Slot | Content | Gate / sensitivity |
 |---|---|---|
-| 1 | LP-duality layer + first consumer (02-core shape; 74-T3 optional second) | **[A5-SEED-TRIAGE: NEW-LEAN, "do it FIRST"]** — bridge doc written: `feasibility/lp-duality-bridge.md` (statement forms, mathlib-TODO absence evidence incl. `Cone/Basic.lean:31–37`, layer signature, consumer-mapping table, AFP risk flagged); escalate, don't swap, if POSSIBLY-KNOWN/LIKELY-DEAD; rises if 72-M1 lands (C.3 consumer warm) |
-| 2 | AL-3D stage (a) statement port + (b) `PositiveReplacement3D` | **[A5-SEED-TRIAGE: NEW-LEAN, "cleanest of the set"] + pre-charter gate PASS (A5, 2026-11-14: OAI265 tex 0 hits for 3D/cylinder; PEPS companion "cylinder" = Hilbert-patch terminology only; corpus-wide preprint sweep negative; no 3D ComparatorChallenge — `novelty/iter4-seed-triage.md` §seed-1 gate)** + decays if the donor/third party lands B.2–B.5 first (challenge-repo clock) |
-| 3 | ZZV2 λ-family route (a) (continuity/glue) | strengthens automatically if 42-M4b-upgrade lands (same V2 stack); multiplies with 75 wave-4; **A5-fold relabel: FORMALIZATION-FIRST — Lamzouri's proportions are λ-parametric informally (the λ-dependence IS the paper's content), so the informal math is known and must-cited in full; the novelty claim is the Lean λ-layer artifact only, never new-math (label like dossier 73's "math is 25 years old")** |
-| carried | 50-M2-R1 | **[G7b]** (run19 in flight); R3 fallback binder-CLEAN now |
-| carried | 73-Q4 `hRat` discharge | separate gate after 73-C lands (A2 owns the recommendation) |
-| carried | 75 wave-4 | spec landed; slot when the assembly stack is warm (42-upgrade/λ-family) |
-| carried | 42-M4b-upgrade | G2-cleared; may already be executing (A3, `run_m4b2.sh` on disk) — confirm at charter time |
+| 1 | LP-duality layer + first consumer (02-core shape; 74-T3 optional second) | **NEW-LEAN, Lean-ecosystem scope only** ("do it FIRST"): unclaimed in the **Lean ecosystem** — Isabelle (AFP trio `LP_Duality`/`Linear_Programming`/`Farkas`, maintained through Isabelle2026) and Coq (Allamigeon–Katz 1706.10269, 2017) own the theorem class and are **mandatory nearest-miss citations**; the slot's value is the **mathlib-native layer + the two in-repo consumers**, not theorem-class priority (never-phrase list applies). Bridge doc: `feasibility/lp-duality-bridge.md`; rises if 72-M1 lands (C.3 consumer warm); residual clock = mathlib PRs in flight |
+| 2 | AL-3D B-rung — **B.2 (`SlabAreaLaw3D`) staged (prework `pilots/al-3d-prework.md`, A2); B.3 (`PositiveReplacement3D`) alternative — decided at launch** | **NEW-LEAN, "cleanest of the set"; pre-charter gate PASSED** (A5: OAI265 tex 0 hits for 3D/cylinder; PEPS "cylinder" = Hilbert-patch only; no 3D ComparatorChallenge). **Caveat (A5, charter-shaping): the charterable surface is the B.2–B.5 ladder — the slot must NAME its B-rung (AL-P0 statement stage serves either rung identically); the north star `AreaLaw3D` is "not a target" (obstructions C.1–C.4), and any AreaLaw3D-adjacent claim must cite which obstruction it resolves.** Decays if the donor/third party lands B-rungs first (challenge-repo clock) |
+| 3 | ZZV2 λ-family route (a) (continuity/glue) | **FORMALIZATION-FIRST** — Lamzouri's proportions are λ-parametric informally (the λ-dependence IS the paper's content), so the informal math is known and must-cited in full; the novelty claim is the Lean λ-layer artifact only, never new-math (label like dossier 73's "math is 25 years old"). Strengthened: 42-M4b-upgrade COMPLETE (same V2 stack); multiplies with 75's assembly |
+| carried | 50-M2-R1 | pre-staged, awaiting **[G7b]** (run19 in flight); R3 Liu-1 binder fallback CLEAN now |
+| carried | 73-Q4 `hRat` discharge | 73-C LANDED GREEN; Q4 carried as a separate gate — A2's recommendation owed |
+| ~~pulled into C2~~ | 75 | **NOT an iteration-4 slot** — pulled INTO Cycle 2, EXECUTING as the final C2 pilot (lane A4, P-a then C1, final-or-declared-drop) |
+| ~~done~~ | 42-M4b-upgrade | COMPLETE — primary route GREEN (m4b2-run2) + donor-tree axcheck dry-run verified (`feasibility/probe/logs/m4b-donor-axcheck-dryrun.log`) |
+| carried | **75 continuation** (P-b 5/6 strip-distinct arm + N2/N3 remainder; entry (P-a)+C1 GREEN in C2; design input: `pilots/75/Pb-design.md`, A4) | design already priced — fold at **[TRIAGE-DECISION]**, don't rediscover |
 | carried | 22-T2a | small task-slot, upstream PNT+ statement as binder |
-| watch | FF-EZ2 survivor / FF-EZ4 / FF-EZ5 / tauceti zones / AL-EZ1 P2-probe | rank only after the [TRIAGE-DECISION] inputs settle |
+| carried | 10-completion thread | L1+L2+M1 all FINAL — remaining value is next-tranche assembly only, not a slot of its own |
+| watch | FF-EZ2 survivor (incl. seed-6 folded survivors: multiplicity-aware counts, uniform-in-family bounds, s-plane-strip counts) / FF-EZ4 / AL-EZ1 P2-probe / physlib occupation-pair bridge (seed 13 — differentiate from article 52 AND physlib `WickContraction/Sign/`; re-check `FieldStatistics/`+`WickAlgebra/`) | rank at **[TRIAGE-DECISION]**; FF-EZ5 standalone DEAD (Faifman–Rudnick, folded into FF-EZ2); seed-11 CAR-half DEAD (physlib ExchangeSign) — per-pair batteries before any tauceti-zone charter |
 
 Slot-count and ordering are the orchestrator's; the sensitivity lines above come from
 SEED-DOSSIERS §[TRIAGE-DECISION] verbatim.
