@@ -22,10 +22,11 @@ inventory (`feasibility/ITERATION4-SCAN.md` + `feasibility/ITERATION4-SEED-DOSSI
 - **FF continuation** — behind the in-flight 71-P2/73-C landings: FF-EZ2 survivor,
   FF-EZ4 (G6b tauceti bridge), FF-EZ5 families; 73-Q4 `hRat` gate.
 - **Tracker DO-NOT-CONSUME posture** [PROPOSAL, from A5's audit]: QuasiRiemannTracker is
-  a CLOCK, not a donor — re-check via the static-assets curl protocol (SCAN §3.9), date
-  every QR-D artifact claim against it and the Liu-2 clock, but never consume tracker
-  entries as results or cite them as donation sources; the Dirichlet-class formal
-  frontier is other people's moving artifact (0.8733458561, Bebel, at audit).
+  a CLOCK, not a donor — re-check per A5's §9.5 clock protocol (the static-assets curl
+  recipe, cross-referenced as SCAN §3.9), date every QR-D artifact claim against it and
+  the Liu-2 clock, but never consume tracker entries as results or cite them as donation
+  sources; the Dirichlet-class formal frontier is other people's moving artifact
+  (0.8733458561, Bebel, at audit).
 - **Carried-over gates** — 50-M2 (R1 gated [G7b]; R3 Liu-1 binder CLEAN), 73-Q4,
   75 wave-4, 42-M4b-upgrade, 22-T2a (small, well-scoped).
 - **Main-run cold inventory** — 41/12/31/60/40/30-remainder (SCAN §1b) compete for slots.
@@ -65,9 +66,9 @@ headers (log-rescue lesson); post-outage log tails suspect until re-verified.
 
 | Slot | Content | Gate / sensitivity |
 |---|---|---|
-| 1 | LP-duality layer + first consumer (02-core shape; 74-T3 optional second) | **[A5-SEED-TRIAGE]** — escalate, don't swap, if POSSIBLY-KNOWN/LIKELY-DEAD; rises if 72-M1 lands (C.3 consumer warm) |
-| 2 | AL-3D stage (a) statement port + (b) `PositiveReplacement3D` | **[A5-SEED-TRIAGE]** + decays if the donor/third party lands B.2–B.5 first (challenge-repo clock) |
-| 3 | ZZV2 λ-family route (a) (continuity/glue) | strengthens automatically if 42-M4b-upgrade lands (same V2 stack); multiplies with 75 wave-4 |
+| 1 | LP-duality layer + first consumer (02-core shape; 74-T3 optional second) | **[A5-SEED-TRIAGE: NEW-LEAN, "do it FIRST"]** — bridge doc written: `feasibility/lp-duality-bridge.md` (statement forms, mathlib-TODO absence evidence incl. `Cone/Basic.lean:31–37`, layer signature, consumer-mapping table, AFP risk flagged); escalate, don't swap, if POSSIBLY-KNOWN/LIKELY-DEAD; rises if 72-M1 lands (C.3 consumer warm) |
+| 2 | AL-3D stage (a) statement port + (b) `PositiveReplacement3D` | **[A5-SEED-TRIAGE: NEW-LEAN, "cleanest of the set"] + pre-charter gate PASS (A5, 2026-11-14: OAI265 tex 0 hits for 3D/cylinder; PEPS companion "cylinder" = Hilbert-patch terminology only; corpus-wide preprint sweep negative; no 3D ComparatorChallenge — `novelty/iter4-seed-triage.md` §seed-1 gate)** + decays if the donor/third party lands B.2–B.5 first (challenge-repo clock) |
+| 3 | ZZV2 λ-family route (a) (continuity/glue) | strengthens automatically if 42-M4b-upgrade lands (same V2 stack); multiplies with 75 wave-4; **A5-fold relabel: FORMALIZATION-FIRST — Lamzouri's proportions are λ-parametric informally (the λ-dependence IS the paper's content), so the informal math is known and must-cited in full; the novelty claim is the Lean λ-layer artifact only, never new-math (label like dossier 73's "math is 25 years old")** |
 | carried | 50-M2-R1 | **[G7b]** (run19 in flight); R3 fallback binder-CLEAN now |
 | carried | 73-Q4 `hRat` discharge | separate gate after 73-C lands (A2 owns the recommendation) |
 | carried | 75 wave-4 | spec landed; slot when the assembly stack is warm (42-upgrade/λ-family) |

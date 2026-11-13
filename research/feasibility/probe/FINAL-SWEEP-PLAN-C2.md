@@ -38,13 +38,50 @@ subset; no args = all TARGETS); (ii) `L1.lean` carries its own 13 in-file `#prin
 and the tool's `axiom-lines=36` excludes "does not depend on any axioms" lines — benign,
 expected at the sweep too.
 
-## 1 Baseline sorry-token certificate (2026-11-13, pre-final — re-run at execution)
+### 0a FROZEN Step-B/C TARGETS (orchestrator-ordered freeze, 2026-11-14 — per-file stage status)
 
-Re-confirmed post-outage (A1, 2026-11-14): classifier re-run over all 65 in-scope `.lean`
-files → exactly the 36 tokens below (9 main-run + 23 G-series + 4 in `pilots/71/P0.lean`
-at :65/:90/:97/:110, inside the file's NOT-A-PROOF convention), **0 unexplained**, and
-zero tokens in every C2 pilot proof file on disk (incl. mid-flight `M4b`, `L2`, `P11T3`,
-`RedTm2`, `P2`, `C-neg`).
+Step A runs INCREMENTALLY as artifacts land (verdict log:
+`feasibility/probe/logs/stepA-incremental-c2.log`); at the all-final signal only Steps B–C
+execute. `make_axcheck.py` TARGETS already carries every LANDED file below (C2 block);
+pending files get added on landing.
+
+| stage name | source | stage status (2026-11-14) |
+|---|---|---|
+| AxPilot72_Cneg | `pilots/72/C-neg.lean` | **FINAL — A4 report OFFICIAL** (run8-final GREEN rc=0/0/0, 369 LoC/11 thms; axcheck 11/11 triad-only; Step A OK 0 tokens; deviations documented in 72-prework execution note) |
+| AxPilot42_M4a | `pilots/42/M4a.lean` | **FINAL** (m4-run2 + m4-axcheck-run1) |
+| AxPilot42_M4b | `pilots/42/M4b.lean` | **FINAL — PRIMARY route (direct ZetaZerosV2 import), m4b2-run2 GREEN**; fallback preserved at `pilots/42/logs/M4b-fallback-GREEN.lean`. **Step-B CAVEAT: M4b imports the BUILT donor — the plain mathlib-only `axcheck_probe` cannot elaborate it; re-confirm via the `run_m4b2.sh` donor-tree pattern (V2 tarball + in-tree consumer elaboration), citing m4b2-run2's axiom report** |
+| AxPilot10_L1 | `pilots/10/L1.lean` | **FINAL** (l1-run4-final) |
+| AxPilot71_P1 | `pilots/71/P1.lean` | **FINAL** (run4) — AxPilot71_P0 EXCLUDED (probe-convention, Step A only) |
+| AxPilot71_P2 | `pilots/71/P2.lean` | **FINAL-GREEN p2-run6** (2026-11-14; 11 thms all triad; target ADDED 2026-11-14) |
+| AxPilot11_P11T3 | `pilots/11/P11T3.lean` | **GREEN ×2 + axcheck-clean** (m2-run1/2; A1's fix-verify run: OK 64 axiom-lines 0 sorryAx) — lane final-vs-scratch confirm owed |
+| AxP11T1 / AxP11T2 | `pilots/11/P11T{1,2}.lean` | FINAL (main-run records; re-verified OK in the 2026-11-14 fix-verify run) |
+| AxPilot10_L2 | `pilots/10/L2.lean` | **PENDING** (A6 mid-flight, unrun) — target in place, stages whatever is on disk at sweep |
+| AxPilot11_RedTm2 | `pilots/11/RedTm2.lean` | **PENDING** (A8 mid-flight; import rewrite to AxPilot11_P11T3 VERIFIED 2026-11-14) |
+| AxPilot71_P2 | `pilots/71/P2.lean` | **PENDING** (A2, err=1 at p2-run5) — ADD TARGET ON LANDING |
+| AxPilot73_C* | `pilots/73/` C-series | **Q0 CONFIRMED 2026-11-14** (`run1-q0.log`: `P0.lean: OK (probe)` — Tier-C skeleton elaborates, zero gates; **`73/P0.lean` = probe-convention, Step A only, EXCLUDED from Step B like 71/P0; its 7 header-expected stubs move the tree baseline 36→43 — re-baseline §1 at sweep per §6**); C-series Q1–Q3 files PENDING — ADD ON LANDING |
+| AxPilot75_* | `pilots/75/` (P-a + C1 per `pilots/75-prework.md`) | **PENDING-EXECUTING** (orchestrator DECISION 2026-11-14: the FINAL Cycle-2 pilot, lane A4; final-or-declared-drop rule) — ADD ON LANDING |
+| AxPilot72_M1 | `pilots/72/M1.lean` | **PENDING** (A8 slot 3) — ADD ON LANDING |
+| (42-upgrade product) | tbd | if separate from `M4b.lean` — ADD ON LANDING |
+| AxPilot20_M1 / AxPilot52_M1 | `pilots/{20,52}/M1.lean` | FINAL cross-refs (drift-check only, §8) |
+
+**Executed fix (2026-11-14):** the sibling-import rewrite in `make_axcheck.py` is now a
+generalized dict built from ALL TARGETS (every stem → stage name), replacing the
+`P11T[12]`-only regex — `11/RedTm2`'s `import P11T3` → `import AxPilot11_P11T3` resolves.
+VERIFIED: local unit-check (staged copies show both rewrites) + one Modal closure run
+(`logs/axcheck-c2-p11t3fix-verify.log`: T1 OK, T2 OK 19 axiom-lines, P11T3 OK 64/0,
+RedTm2 tactic-errors-only — zero import errors).
+
+## 1 Baseline sorry-token certificate (2026-11-13; **RE-BASELINED 2026-11-14** per orchestrator order — 36 → 43)
+
+Re-baseline run (A1, 2026-11-14, logged in `logs/stepA-incremental-c2.log`): classifier
+over all 68 in-scope `.lean` files → **exactly 43 tokens, 0 unexplained** = 9 main-run
+(B1 ×3, B2 ×1, C1 ×1, D ×4) + 23 G-series (G1 ×4, G2 ×1, G3 ×1, G4 ×4, G5a ×1, G5b ×6,
+G5c ×4, G7 ×2) + **4 in `pilots/71/P0.lean`** (:65/:90/:97/:110) + **7 in
+`pilots/73/P0.lean`** (:38/:43/:51/:77/:85/:119/:141 — header-expected Q0 stubs:
+norm_wOf/re_eq_half/lPoly_eval 71-glue, no_real_homs, apply_span_singleton_eq_zero_iff,
+hecke_continuation, hecke_window). Zero tokens in every pilot PROOF file on disk
+(incl. the finals M4a/M4b-primary, L1, P1, P2, P11T3, C-neg and mid-flight L2, RedTm2).
+Earlier 65-file/36-token certificate superseded.
 
 Classifier = the main-run script **upgraded** for two Cycle-2 realities: (i) lines inside a
 file's leading `/- … -/` docstring block are prose (the R9 script missed
@@ -58,7 +95,7 @@ docstring-interior lines like `ProbeG1_DZDF.lean:12` and `pilots/71/P0.lean:15`)
 | PENDING (lane still active) | `71/P2`, `73/*`, `72/M1` | — |
 | VIOLATION-UNEXPLAINED | none | 0 |
 
-## 2 Step A — sorry-token re-run (expected: exactly the 36 tokens of §1 — enumerated in the pre-baseline run, tested)
+## 2 Step A — sorry-token re-run (expected: exactly the **43** tokens of §1 — re-baselined 2026-11-14, enumerated and tested; incremental per-file verdicts already logged in `logs/stepA-incremental-c2.log`)
 
 ```bash
 cd /home/doz/zcode-workdir/cross-math-fronttier/research && python3 -I - << 'EOF'
@@ -119,11 +156,10 @@ imports only** (V2 = built; DZDF/Liu-1/Weil = statement-level — G1b/G3 verdict
 
 Import audit (A1, 2026-11-14, for the TARGETS additions above): `10/L2`, `42/M4a`,
 `42/M4b`, `71/P1`, `71/P2`, `72/C-neg`, `11/P11T3` import only Mathlib — stage verbatim.
-`11/RedTm2` imports `P11T3`; `make_axcheck.py`'s staged-import rewrite currently covers
-only `^import (P11T[12])$` → `AxP11T{1,2}`, so at execution EITHER extend that regex to
-`P11T3` mapped to its actual stage name from the list above (`AxPilot11_P11T3`) OR name
-the stage `AxP11T3` to reuse the existing shape — sorted elaboration order respects the
-dependency either way (`AxPilot11_P11T3` < `AxPilot11_RedTm2`; `AxP11T3` < `AxPilot11_*`).
+`11/RedTm2` imports `P11T3` — **handled**: the generalized dict rewrite in
+`make_axcheck.py` (EXECUTED and VERIFIED 2026-11-14, see §0a) maps it to
+`AxPilot11_P11T3`; sorted elaboration order respects the dependency
+(`AxPilot11_P11T3` < `AxPilot11_RedTm2`).
 
 ## 4 Step C — VERIFICATION-LEDGER §Cycle-2 (per-pilot OK/FAIL sign-off format)
 
@@ -150,6 +186,8 @@ session's entries plus this run's drift-check.
 > already-built on-pin libraries (`logs/axcheck-final-c2.log`).
 
 If Steps A–C surface anything else, stop and route to the lane instead of signing.
+§1 was re-baselined 2026-11-14 (43 tokens, orchestrator-ordered early execution — the
+last sweep-time Step-A unknown removed); §6's conditional re-baseline clause is satisfied.
 
 ## 6 Execution trigger
 

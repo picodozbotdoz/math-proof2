@@ -3,24 +3,38 @@
 Phase-3-lite assembly from `feasibility/ITERATION4-SCAN.md` §2, deepened with donor-file
 reads this session. **Pre-dossiers, not dossier-final**: every seed carries
 **[NOVELTY-CHECK-NEEDED]** marks where the next cycle's novelty lane must do real work —
-novelty is NOT pre-verified here. A5 is running a parallel quick triage over the scan's
-§2 seeds (`novelty/iter4-seed-triage.md`, NEW-LEAN/POSSIBLY-KNOWN/LIKELY-DEAD) — not on
-disk at drafting; every selection below is marked **[A5-triage-pending]**.
+novelty is NOT pre-verified here. A5's quick triage over the scan's §2 seeds
+(`novelty/iter4-seed-triage.md`) **LANDED 2026-11-14 and is folded in below**: all three
+selections NEW-LEAN (grade notes per seed); no escalation was triggered.
 
 ## 0 Selection (rule: novelty × significance ÷ effort, from the scan's own data)
+
+**A5 triage FOLDED (2026-11-14, `novelty/iter4-seed-triage.md` landed):** all three
+selected seeds **NEW-LEAN — no escalation triggered** (no POSSIBLY-KNOWN/LIKELY-DEAD on a
+selection). One-line adjusts: seed 1 = "cleanest NEW-LEAN of the set" (conditional/glue
+grade; pre-charter check = rg the OAI family-265 companion preprints for 3D corollaries);
+seed 9 = NEW-LEAN infrastructure theorem ("fastest de-risk, do it FIRST regardless of
+slots"; fresh evidence: mathlib `Cone/Basic.lean` lists LP duality as an explicit TODO);
+seed 2 = NEW-LEAN **formalization-first** (Lamzouri's proportions ARE λ-parametric
+informally — the math is known-informal, the Lean λ-layer is the artifact; must-cite
+Lamzouri as the entire informal content; label like dossier 73's "math is 25 years old").
+Triage's POSSIBLY-KNOWN verdicts (seed 6 FF-EZ5 Faifman–Rudnick; seed 11 tauceti pairs)
+are on NON-selected seeds — noted in §0's watch list.
 
 Selected:
 1. **AL-3D partial-target layer** — ≈3.25 N × 3.75 S ÷ 1.75 E ≈ **7.0**: the only seed
    where the donor has ALREADY fixed the statements AND attached an engineering-grade
    provability analysis (`docs/3D/Targets.md` verdicts); G4/G5 prove the 2D layer
-   elaborates mathlib-only.
+   elaborates mathlib-only. [A5: NEW-LEAN, cleanest of the set]
 2. **Shared LP-duality layer (02-core + 74-T3)** — nominal ≈5.25 but **effectively
    doubled**: one layer discharges the cores of two dossiers across two cycles, both
    sides novelty-clean after round-4 (02 HOT re-scope; 74 P2-6..P2-10 CLEAN).
+   [A5: NEW-LEAN; do-it-FIRST recommendation; mathlib TODO evidence]
 3. **ZZV2 λ-family parameterization** — ≈6.25 nominal, glue-capped, but zero-gate
    (V2 = BUILT donor per G2) and stack-reusable by 42-M4/75-assembly; picked over FF-EZ4
    (same nominal score) because FF-EZ4's value decays if 71-P2 lands the FF dictionary,
-   while this seed is independent of every in-flight pilot.
+   while this seed is independent of every in-flight pilot. [A5: NEW-LEAN
+   formalization-first — known-informal math; grade note folded into the dossier below]
 
 Not selected, one line each: **FF-EZ4 genus-1** — pure glue, consumed by 71-P2's landing;
 **FF-EZ2 survivor** — month-clock + family version literature-occupied; **22-T2a** — small
@@ -32,8 +46,12 @@ within-corpus zones** — need their own bridge round before dossier-grade assem
 
 ## Seed 1 — AL-3D: the AreaLaw2D partial-target layer (B.2–B.5) on our pin
 
-**[A5-triage-pending] [NOVELTY-CHECK-NEEDED: informal-proved status of B.2–B.5 anywhere;
-third-party formal activity on AreaLaw2D's 3D layer]**
+**[A5-triage-pending → FOLDED: NEW-LEAN (conditional/glue grade), "cleanest of the set" —
+fresh arXiv spot-check found no 3D-from-global-gap theorem (best hits 2D-only / assume-the-
+law 1411.6614 / special states 1901.01260; AAG 2103.02492 = frustration-free 2D only ⇒
+keep every statement binder-conditional). Residual NOVELTY-CHECK-NEEDED: rg the OAI
+family-265 companion preprints (`openai-math/preprints/…September-24-2026/`) for any 3D
+corollary — in-corpus, one rg away; third-party formal activity on AreaLaw2D's 3D layer]**
 
 **Statement sketch.** Three-stage pilot: (a) port the 3D statement layer (32 `def … : Prop`
 in `OpenAI/Statements3D.lean`) to mathlib-only on our pin — G4 precedent says the 2D layer
@@ -87,9 +105,17 @@ green (AL stack warm); falls behind FF if 71-P2/73-C land first.
 
 ## Seed 2 — The shared LP-duality layer (02-core + 74-T3)
 
-**[A5-triage-pending] [NOVELTY-CHECK-NEEDED: any formal LP weak/strong duality anywhere —
-AFP is the live risk (Isabelle LP examples); mathlib PRs in flight; Knausgård-followup
-formalizations]**
+**[Phase-2 mini-bridge WRITTEN 2026-11-14: `feasibility/lp-duality-bridge.md` — exact
+consumer statement forms, the verified `Cone/Basic.lean:31–37` TODO absence evidence, the
+asymmetric-form layer signature (both consumers have sign-free primal variables), the
+consumer-mapping table (the layer discharges exactly the two `≤`-direction clauses), and
+the AFP risk flag.]**
+
+**[A5-triage-pending → FOLDED: NEW-LEAN (infrastructure theorem, two-consumer; A5's
+"fastest de-risk — do it FIRST regardless of which discovery-grade seeds win slots").
+Fresh supporting evidence: mathlib `Cone/Basic.lean` lists LP duality as an explicit TODO
+(A5 r5 §5.2(b)); Yamashita = algorithmic HSD variant only. Residual NOVELTY-CHECK-NEEDED:
+AFP (Isabelle LP examples) and mathlib PRs in flight remain the live risks]**
 
 **Statement sketch.** Layer: `lp_weak_duality` — for `A : Matrix`, vectors `b c`, any
 primal-feasible `x` (`0 ≤ x`, `A * x ≤ b`) and dual-feasible `y` (`0 ≤ y`, `Aᵀ * y ≥ c`),
@@ -138,9 +164,11 @@ marks the layer POSSIBLY-KNOWN/LIKELY-DEAD.
 
 ## Seed 3 — ZZV2 λ-family parameterization (proportion constants beyond λ = 1)
 
-**[A5-triage-pending] [NOVELTY-CHECK-NEEDED: whether Lamzouri's paper itself states
-λ-dependent constants — if the informal theorem parametrizes, this drops to
-formalization-grade]**
+**[A5-triage-pending → FOLDED: NEW-LEAN formalization-first — Lamzouri's proportions ARE
+λ-parametric informally (the λ-dependence is the paper's content), so the math is
+KNOWN-INFORMAL and the Lean λ-layer is the artifact; must-cite Lamzouri as the entire
+informal content; residual NOVELTY-CHECK: confirm the paper's exact λ-window and constant
+shapes at dossier time]**
 
 **Statement sketch.** Two routes to the same object: `thm_simple_lam : ∀ lam ∈ <proved
 window>, ∃ T₀, ∀ T ≥ T₀, C₀(lam) − ε < (simpleOnLineCount T : ℝ) / (zeroCount T : ℝ)`.
@@ -177,11 +205,13 @@ build, no numerics. Route (b) L: enclosure machinery we have only ever CONSUMED
 pilot 42-M4a (1,194 LoC / 52 thms GREEN) is the assembly-on-V2 benchmark.
 
 **Risks / decay.** (i) Glue-capped novelty — never a headline; value = reusability of
-the layer by the 42-M4/75 assembly stack. (ii) If Lamzouri's paper already prints
-λ-dependent constants, route (a) drops to transcription (formalization-grade). (iii)
-Route (b) duplicates certificate infrastructure better donated than built.
-**[TRIAGE-DECISION]** strengthens automatically if 42-M4b-upgrade lands (same V2 stack);
-multiplies with 75 wave-4 (assembly reuse); independent of all other in-flight pilots.
+the layer by the 42-M4/75 assembly stack. (ii) A5-fold confirmed: Lamzouri's paper IS
+λ-parametric informally, so route (a) is transcription-grade formalization-first BY
+DESIGN — the claim shape is the Lean λ-layer artifact, never the math; must-cite Lamzouri
+for the entire informal content. (iii) Route (b) duplicates certificate infrastructure
+better donated than built. **[TRIAGE-DECISION]** strengthens automatically if
+42-M4b-upgrade lands (same V2 stack); multiplies with 75 wave-4 (assembly reuse);
+independent of all other in-flight pilots.
 
 ---
 
