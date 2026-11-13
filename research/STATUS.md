@@ -584,6 +584,58 @@ Concurrency probe at this batch close: **8**.
   provenance-header QA of the 5 new lane logs (A2/A3 complete; A7 headers present,
   verdicts pending — no violations); INDEX refreshed.
 
+## Cycle 2 resume-2 (post-interruption, 2026-11-14)
+
+An execution-window interruption killed all agent turns ~03:15 2026-11-14 (last disk
+activity 03:15: P72M1T2.lean + run23-g5a.log). H resumed, disk-checked with the
+orchestrator, and swept ALL uncommitted interruption-window work into per-lane
+provenance commits. **State at the sweep (disk-verified by H, logs read in full):**
+
+- **11-M2 is GREEN — reading corrected.** An earlier alphabetical-ls read suggested the
+  GREEN logs might be stale; they are NOT: `m2-run8-GREEN.log` (02:33) +
+  `m2-axcheck-final.log` (02:35) landed AFTER m2-run1..7 (02:15–02:32), both verdicts
+  explicit (ALL SIX files OK; BOTH axcheck OK, 76 axiom-lines = 64 P11T3 + 12 RedTm2,
+  0 sorryAx, triad-only). A1's ledger §9 row FINAL (committed 7c0007e); A9's
+  dossier-72 C-neg fill was pre-interruption residue (committed 93e05f5). RedTm2 final
+  = 421 LoC. **A8's formal report still owed.** Debt (d) narrowed: m2-run1–3 headers
+  NOW PRESENT (written in the 02:15–02:33 window; run8's header carries the churn
+  reconciliation); churn by runner counter = 4→2→3→6→4→2→2→0 (debt-b-style count-basis
+  nuance: run5's header says "3 errors" = displayed SITES vs runner counter 4).
+- **72-M1 (A8 slot 3) mid-flight snapshot committed** (2d15913): P72M1T1.lean GREEN at
+  m1-run4 (vendor layer, 702 LoC, no-sorry header); P72M1T2.lean 320 LoC at 24 errors
+  on m1-run5 (descent 52→24 across runs 4–5, 8 distinct root classes, all A8-side per
+  its header) — mid-fix when killed; A8 re-spawned to iterate.
+- **G7b still has NO verdict.** run19 (attempt 1) = FAIL rc=1, 9 errors in 3
+  RellichKondrachov modules — root cause identified: the donor lakefile's post_update
+  patch tier (12 lean4341 patches) only fires on `lake update`, which the g7 flow
+  skips; gprobe.py flow fix landed (reproduces the hook: apply-check/apply/reverse per
+  dep). run22 (attempt 2) applied ALL 12/12 patches then died mid-build in the
+  interruption; run23-g5a (nohup retry) hit the Modal artifact-cache outage again.
+  run21 = G6a VERDICT (Weil/Stacks partial build FAIL 7,493 errs @ 11,477/59,222 jobs
+  — priced-and-blocked stands); run17/18 got SUPERSEDED-by dispositions (debt e
+  discharged). A7 re-spawned — already live again (run24-g7/run25-g5a +
+  axiommath-donor-probes.md edits on disk, deliberately left uncommitted mid-flight).
+- **A1/A5/A3 residue committed**: A1 ledger §9 refresh + sweep TARGETS adds (73_C,
+  75_Pa) + Step-B/C backtick caveat + iteration-4 consistency pass (AFP re-scope,
+  seed-6/11 folds) + lp-duality-bridge AFP verdict + p11t3fix machinery log (7c0007e);
+  A5 seed-9 AFP evidence block (AFP-HAS-LP_DUALITY, Lean-ecosystem scope only,
+  five must-cites + never-phrase list) + delta re-check EXECUTED 6/6 PASS (75:114
+  1,570→1,571 minor FAIL relayed to A9) (279dddc); A3 R1-prework §7 staged outcome
+  blocks, both STAGED-NOT-A-VERDICT (2f5d7b7).
+- **H QA notes (one-line fixes, owners named, none blocking):** (i) ledger §9 11-M2 row
+  churn string "4→2→3→6→2→OK" omits run5's 4 — A1 next touch; (ii)
+  `ITERATION4-SCAN.md:141` carries a stray duplicated item-12 first line (splice
+  artifact) — A1 next touch; (iii) ITERATION4-CHARTER-DRAFT still says 75 "EXECUTING"
+  vs landed FINAL-FOR-ENTRY (batch-15) — A1 next touch; (iv) FINAL-SWEEP-PLAN-C2 has
+  a pre-existing duplicate AxPilot71_P2 row (FINAL-GREEN + stale PENDING at :62) —
+  delete the stale row at sweep execution (A1).
+
+**Lanes re-spawned:** A8 (72-M1 T2 iterate to GREEN), A7 (G7b attempt 3 + G5a/G6a
+dispositions), A3 (continue), H (this sweep + board). Commit log: sweep series
+2d15913 / 749e8b3 / 7c0007e / 279dddc / 2f5d7b7 / 93e05f5 (all 2026-11-14 03:25).
+Standing cadence resumes; tree carries only live re-spawned-lane artifacts beyond
+this point.
+
 ## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
 fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
 
