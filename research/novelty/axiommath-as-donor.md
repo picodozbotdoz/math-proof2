@@ -116,6 +116,16 @@ right edge 31/32 is DZDF's own theorem restated; the left edge for general K has
 FE and stays a binder (only totally complex K could use DZDF's principal-case
 `heckeFunctionalEquation`, and only after glue) — recommend K = ℚ as the M2 target.
 
+**Erratum (2026-11-13, A5 QR-D precision pass): split the formal-novelty claim by class.**
+For the ζ/Dirichlet strip, A5 registered a concurrent *external* formal donor — Liu-1's
+public Lean repo proves zero-free Re s > 0.8749570 for every Dirichlet L including ζ,
+formally containing the hQRH/hQRH-class regions — so for ζ/Dirichlet the "first formal
+zero-confinement" is *concurrent external work: cite, don't claim* (probe queued as A7/G7).
+The claim survives unchanged where Liu-1 has nothing: the **ζ_K and general-Hecke strip**
+(every number field, ray-class characters) remains ours-in-corpus via DZDF on our pin; see
+`pilots/50-M2-31-32-spec.md` §3 third route for the pilot consequence (three routes now;
+parametric θ-binder unchanged).
+
 **Gate:** everything in this section is conditional on the DZDF on-pin build (§0). The
 K = ℚ consumption chain touches only `Main.lean` + `IdealNormSeries.lean`-style glue — if
 the full build stalls, a fallback is elaborating `Main.lean`'s *statement* + the Challenge
