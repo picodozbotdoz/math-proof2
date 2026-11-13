@@ -1,6 +1,7 @@
 # STATUS — coordination board
 
-Last updated: 2026-11-09, resume session (project close); pilot-10 row 2026-11-10 (pilot-10 lane, per the coordinating session's task); Cycle-2 board 2026-11-13 (H, per orchestrator). This file is the single source of truth for
+Last updated: 2026-11-09, resume session (project close); pilot-10 row 2026-11-10 (pilot-10 lane, per the coordinating session's task); Cycle-2 board 2026-11-13 (H, per orchestrator);
+Cycle-2 relaunch block 2026-11-14 (H, per orchestrator). This file is the single source of truth for
 lane status. The orchestrator messages status changes to H, who updates this board.
 
 ## FINAL STATE (2026-11-09 resume session) — project CLOSED
@@ -282,6 +283,13 @@ standing authorization with a commit.
   Tier-C; 75 deferred wave-4; 42-M4b + 50-M2-R1 gated continuations); REPORT §1 DLRT
   qualifier erratum applied (A5 P2-3); probe readings 8→13 + orchestrator attribution
   recorded; watch attributions block (A8-3 / A9 staging / A1-5 fixes-in-place).
+- 2026-11-14 — `Cycle 2: H — relaunch board + disk-state verification + INDEX
+  reconciliation` (this commit): relaunch block above (10 lanes + assignments per
+  RESUME-BRIEF-C2); six wrap claims disk-verified CONFIRMED (minors: M4b 1,560 vs ~1,557
+  LoC; RedTm2 392 vs 386 LoC); one wrap-claim correction — INDEX was NOT current through
+  the wrap (6 missing rows + 4 stale UNCOMMITTED flags, fixed); A2 already live
+  (71/p2-run1.log: FAIL rc=1 errors=6 sorry=0, provenance header present, file left for
+  A2's batch commit); concurrency probe 8 at this batch close. (9010890)
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
@@ -296,3 +304,40 @@ dossier-checked; claims register + related-work landed); QA cumulative 0 WRONG.
 All uncommitted lane artifacts are preserved in the snapshot commit. Relaunch:
 read RESUME-BRIEF-C2.md, re-task lanes per its NEXT items, keep the queue-loaded
 protocol + concurrency probe.
+
+## Cycle 2 relaunch (2026-11-14)
+
+All 10 lanes relaunched per `RESUME-BRIEF-C2.md` (orchestrator relaying; queue-loaded
+re-task protocol + concurrency probe carried over). One-line assignments (from the
+brief's NEXT items):
+
+| Lane | Relaunch assignment |
+|---|---|
+| A1 | standby: sweep-trigger watch (re-read `FINAL-SWEEP-PLAN-C2.md` §0; fill ledger §9 rows as pilots finalize; signal orchestrator when all TARGETS final-or-declared-drop, then execute sweep Steps A–C) |
+| A2 | P2.lean → GREEN (W1→W2→HW per 71-prework §c) + axcheck + logs; then 73-C skeleton Q0→Q3 (STOP before Q4); verdict relay for the dossier-71 addendum (A9 owns it) |
+| A3 | reconcile M4b.lean half-applied Fix C → run on Modal → GREEN + axcheck; M4-note update; then the CLEARED M4b-upgrade primary route (direct V2 import, ≤20-line delta); 50-M2 stays gated on G7b |
+| A4 | fix 72-C-neg remaining ~7 errors → GREEN (N1 Rényi monotonicity + N2 rank bridge + N3 gate per Appendix A); prepend provenance headers to logs run1–5; axcheck triad-only; then the u≠1 dossier-74 edit if unapplied |
+| A5 | finish the GTimG/QuasiRiemannTracker audit (browser-use; was mid-navigation to the protocol tab; kernel-vs-certificate + any ζ_K/Hecke entries) → round-4 §tracker-audit + row-70 standing-note update if material |
+| A6 | finish L2.lean Part-D defect fixes (rw directions, omega atoms, goal-side rewrites) → run on Modal → GREEN + full axcheck (`axcheck_full.py`) + logs with provenance headers; report → A9 writes the dossier-10 outcome note |
+| A7 | reconcile gprobe.py minors (tauceti Zeta.lean path, sorry-warnings labeling); re-run run16 = G7b (Modal artifact-cache retry risk) — the 50-M2-R1 gate; finish run17 (G5a) / run18 (G6a) if pending |
+| A8 | apply/verify the four pinpoint fixes in P11T3/RedTm2 → run (`run_pilot11.sh`) → GREEN + axcheck + logs; then 72-M1 Tier-C per 72-prework §2 (pilot slot 3) |
+| A9 | fold the clock-sweep must-cites into dossier 70 (Chang–Wang, Ji, 13-repo landscape, tracker [pending A5 audit]); fix the dossier-75 §Novelty garbled sentence; then pilot-completion watch (§Pilot-outcome addenda; A4 owns 74) |
+| H | standing cadence: per-lane provenance commits of landed artifacts, QA re-triggers, STATUS/INDEX board updates, concurrency probe at each batch close |
+
+**Disk-state verification (H, 2026-11-14, at relaunch):** all six wrap claims CONFIRMED
+on disk — (a) `pilots/71/P2.lean` header "proof artifact: no `sorry`" (line 11), logs
+run1–4 only (all 22:26, before P2.lean's 22:42 mtime); (b) `pilots/42/M4b.lean` 1,560 LoC
+(brief ~1,557; byte-identical in snapshot `ca4fd22`), no m4b run log; (c)
+`pilots/10/L2.lean` 2,595 LoC exact, no l2 run logs; (d) `pilots/72/logs/run5.log` tail
+`FAIL rc=1 errors=7 sorry=0` verbatim; (e) `pilots/11/` P11T3.lean 1,100 LoC + RedTm2.lean
+on disk (392 LoC vs brief's 386 — consistent with the four pinpoint fixes
+mid-application), logs untouched since 2026-11-09; (f) `pilots/75-prework.md` complete
+("— end spec"). One wrap-claim correction: "INDEX current through the wrap" was NOT fully
+accurate — six landed files were missing and four rows carried stale UNCOMMITTED flags;
+reconciled this batch (INDEX Cycle-2 section + commit log below).
+
+**First relaunch events (H batch 1):** A2 already live —
+`pilots/71/logs/p2-run1.log` landed 02:00 2026-11-14 WITH provenance header: P2
+first-ever run, unmodified from the outage snapshot (247 LoC), **FAIL rc=1 errors=6
+sorry=0** (4 theorem axiom-lines show sorryAx — A2 owns the iteration toward GREEN).
+Concurrency probe at this batch close: **8**.

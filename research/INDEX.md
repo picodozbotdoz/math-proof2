@@ -50,7 +50,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/feasibility/mathlib-verification.md` | P3/P4 support | round-1 DONE 2026-11-09 (R9; maintenance: H) | Independent verification of 10 mathlib-gap claims vs checkout `ff2494ea`, 9 surprises, and the §3 Phase-3 feasibility template with worked example C-1. H re-checked 4 items (3 OK, 1 minor; fixed with errata).
 - `research/feasibility/port-probe.md` | support | DONE 2026-11-09 (R9) | Rounds 2–5 empirical port-probe: donor statements vs mathlib v4.36.0-rc2 — what breaks, measured.
 - `research/feasibility/FEASIBILITY-SUMMARY.md` | P4 input | DONE 2026-11-09 19:38 (R9 round 6) | Canonical 19-row effort table (F4 grades + scores + probe-cited evidence); headline: statement-port ≈ 0 corpus-wide, effort lives in proofs/new math.
-- `research/feasibility/VERIFICATION-LEDGER.md` | P4 input | DONE 2026-11-09 19:38 (R9 round 7) | Canonical Lean-artifact ledger: per-pilot files/LoC/theorems, proved-milestone vs FAIL vs [runs-unrecorded] statuses, probe conventions, compliance statement. FEASIBILITY-SUMMARY no longer pending.
+- `research/feasibility/VERIFICATION-LEDGER.md` | P4 input | DONE 2026-11-09 19:38 (R9 round 7) | Canonical Lean-artifact ledger: per-pilot files/LoC/theorems, proved-milestone vs FAIL vs [runs-unrecorded] statuses, probe conventions, compliance statement. FEASIBILITY-SUMMARY no longer pending. Cycle-2 addenda: §8 (52/20 close-outs, MODAL_USER=doz substrate note) + §9 fill-in skeleton (A1 standby fills as pilots finalize).
 - `research/feasibility/probe/` | support | DONE 2026-11-09 (R9) | Lean/Modal port probes: `lean_probe.py`, `run_probe.sh`, `Probe0_Smoke.lean`, `ProbeA.lean`, `ProbeB1_RHLinalg.lean`, `ProbeB2_EthTime.lean`, `ProbeB3_3sumEnd.lean`.
 - `research/feasibility/mathlib-assembly-maps.md` | support | landed 2026-11-09 (R3 continuation) | Phase-3 feasibility inputs: per-bridge-direction assembly maps over checkout `ff2494ea` (incl. map C port order, map D polytime-composition layer cited by dossiers).
 
@@ -110,11 +110,15 @@ Nothing remains [expected] from the main run: every file owned by a lane is on d
 
 ## Cycle 2 (opened 2026-11-13) — AxiomMath corpus as fifth source
 
-Statuses as of 2026-11-13 night (charter addendum: `RESEARCH.md` § Cycle 2; live board:
-`STATUS.md` § Cycle 2). QA passes P1/P4/P5a–c executed — `qa/cycle2-qa-plan.md` Parts 1–3.
+Statuses as of the 2026-11-14 relaunch (charter addendum: `RESEARCH.md` § Cycle 2; live
+board: `STATUS.md` § Cycle 2 + relaunch block; handoff: `RESUME-BRIEF-C2.md`). QA plan
+passes Parts 1–5 executed (cumulative 0 WRONG — `qa/cycle2-qa-plan.md`). Mid-flight
+artifacts of the outage are committed in snapshot `ca4fd22` (pre-relaunch, unverified
+state per the resume brief).
 
 - `research/survey/axiommath.md` | P1 | landed 2026-11-13 (A1; QA P1: 10 OK / 2 minor) | Phase-1 survey of the six AxiomMath repos: territory, terminal points, external deps, hooks H1–H7 (incl. the H1 correction: DZDF does not discharge 7/8 binders).
 - `research/survey/axiommath-pntplus.md` | P1 addendum | landed 2026-11-13 (A1-2) | PNT+ deep dive + §RvM triplication; upstream-PNT+ inspection (rev `938912bb`).
+- `research/survey/axiommath-cft-vendor.md` | P1 addendum | landed 2026-11-13 (A1) | Vendored-CFT audit: DZDF's vendor tree is number-field-only; the binder-route needs ZERO imports.
 - `research/novelty/pntplus-glue-as-donor.md` | P2/P3 support | landed 2026-11-13 (A1-3) | PNT+ glue donor map; upstream registration verdict DEFER-WATCHLIST (triggers T1–T3 in STATUS).
 - `research/bridges/function-field.md` | P2 | v1 + dictionary-zone update landed 2026-11-13 (A2; QA P2 pending) | Weil ↔ quasi-RH cluster; zones FF-EZ1–FF-EZ5; Stacks-wall binder posture.
 - `research/bridges/area-law.md` | P2 | v1 + zone update landed 2026-11-13 (A4; QA P3 pending; Physlib-import premise flag from QA P5c) | AreaLaw2D ↔ openai family 265 ↔ linalg; zones AL-EZ1–AL-EZ4.
@@ -129,19 +133,26 @@ Statuses as of 2026-11-13 night (charter addendum: `RESEARCH.md` § Cycle 2; liv
 - `research/candidates/73-function-field-hecke-tate.md` | P3 | pre-registered skeleton 2026-11-13 (A9; FF-EZ3) | Highest-ceiling Stacks-blocked zone; no QA due until filled.
 - `research/candidates/74-surprisal-moment-hierarchy-ceilings.md` | P3 | [expected] (A4, AL-EZ2) | Moment-hierarchy ceilings for surprisal decoupling (secondary of 72 promoted).
 - `research/candidates/75-abelian-assembly-zetaL-proportions.md` | P3 | [expected] (A9, in flight) | Part B of dossier 70 promoted to its own dossier.
-- `research/feasibility/axiommath-donor-probes.md` | support | [expected] (A7) | Donor-consumption probe results (G1 DZDF build, G3 Weil, G5 Physlib premise re-check, G7 Liu-1).
-- `research/feasibility/probe/{ProbeG1–G5c, gprobe.py, run_gprobe.sh}` + `probe/logs-g/` | evidence | on disk 2026-11-13, UNCOMMITTED (A7 mid-flight; deliverable .md pending) | Cycle-2 donor probes; commit with A7's verdict file.
-- `research/pilots/42-M4-blueprint.md` + `pilots/42/M4a.lean` | pilot | blueprint landed 2026-11-13 (A3); M4a.lean on disk uncommitted (mid-flight) | The V2 donor-swap pilot (GO).
+- `research/feasibility/axiommath-donor-probes.md` | support | landed 2026-11-13 (A7; commit 24e8d93) | G-verdicts: G1a OK (DZDF statements elaborate) / **G1b FAIL** (DZDF full build 62 errors → 50-M2-R2 statement-level only), G2 OK (V2 build 8,262 jobs, triad-clean → M4b-upgrade gate cleared), G3 binder-route OK, G4/G6 OK, G7 Liu-1 pins exact. **G7b (run16) killed by the outage — no verdict; re-run = A7 relaunch item (50-M2-R1 gate).**
+- `research/feasibility/probe/{ProbeG1–G5c, gprobe.py, run_gprobe.sh}` + `probe/logs-g/` | evidence | committed 24e8d93 (logs run16–18 added in snapshot ca4fd22) | Cycle-2 donor probes; run16 = G7b has NO verdict (outage-killed); run17 (G5a) / run18 (G6a) tails written post-outage — suspect until re-verified.
+- `research/feasibility/probe/FINAL-SWEEP-PLAN-C2.md` | support | landed 2026-11-13 (A1; tested — 36 sorry-tokens all justified, 0 unexplained) | Cycle-2 final-sweep plan (TARGETS + Steps A–C); trigger = A1 standby signal.
+- `research/pilots/42-M4-blueprint.md` + `pilots/42/` | pilot | M4a GREEN + axcheck-clean 2026-11-13 (1,194 LoC/52 thms, logs m4-run2 + m4-axcheck-run1); `M4a-note.md` = M4c addendum draft; **M4b.lean (1,560 LoC/66 thms, fallback hV2d4/d5-binder route) committed UNRUN** in snapshot ca4fd22 — A3 relaunch: reconcile half-applied Fix C → run → GREEN, then the CLEARED direct-V2-import upgrade | The V2 donor-swap pilot (GO).
 - `research/pilots/50-M2-31-32-spec.md` | pilot | landed 2026-11-13 (A3) | The unconditional [1/32, 31/32] strip spec (GATED on A7/G1; Liu-1 third route).
 - `research/pilots/72-prework.md` | pilot | landed 2026-11-13 (A4) | EZ3-first pilot-72 prework (import tiers, binding constraints).
-- `research/pilots/10/L1.lean` + logs | pilot | on disk, UNCOMMITTED (A6 mid-flight) | L1 counter combinators in iteration.
+- `research/pilots/10/L1.lean` + logs | pilot | committed (snapshot ca4fd22): **L1 GREEN + axcheck-clean** (529 LoC/25 thms, logs l1-run1..4-final) | L1 counter combinators done; **L2.lean (2,595 LoC/126 thms) committed UNRUN** — A6 relaunch: Part-D defect fixes → run → GREEN + full axcheck.
+- `research/pilots/71-prework.md` + `pilots/71/` | pilot | prework landed 2026-11-13 (A2); P0 OK (probe, 4 justified stubs) + **P1 GREEN** (7/7 kernel-clean, triad; logs run1–4); P2.lean (247 LoC, header "proof artifact: no sorry") **first-ever run at relaunch: p2-run1 (2026-11-14) FAIL rc=1 errors=6 sorry=0** — A2 iterating to GREEN | Slot-1 FF pilot (W1 s≠1 pole exclusion → W2 → HW); then 73-C skeleton.
+- `research/pilots/72/C-neg.lean` + `pilots/72/logs/` | pilot | honest **FAIL-in-flight** (descent 20→14→12→6→7 across run1–5; run5: rc=1 errors=7 sorry=0; provenance headers owed at close-out) | Kuwahara no-go gate pilot (A4 relaunch: fix to GREEN per N1–N3, then axcheck triad-only).
+- `research/pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` | pilot | committed (snapshot ca4fd22): 1,100 + 392 LoC, **run verdict NOT landed** — four pinpoint fixes were mid-application at the outage (A8 relaunch) | 11-M2 revival (authorized A8-3; ahead of 72-M1 Tier-C).
+- `research/pilots/75-prework.md` | pilot | landed complete 2026-11-13 (A9; "— end spec"; final report never arrived, treated as done) | Wave-4 abelian-assembly pilot spec.
 - `research/pilots/52/`, `research/pilots/20/` close-outs | pilot | CLOSED 2026-11-13 (A8; commits 6263625/26bd2bc) | 52 M1 VERIFIED-GREEN; 20 runs recorded GREEN; ledger §8.
 - Sibling donor: `liu-zerofree/` registered 2026-11-13 (AGENTS.md; commit 2d5a663) — read-only reference, probe pending A7/G7.
 - `research/pilots/FF-sequencing-memo.md` | pilot | landed 2026-11-13 (A2) | Function-field pilot sequencing memo (71-P2 → 73-C ordering basis for the slot decision).
 - `research/pilots/73-prework.md` | pilot | landed 2026-11-13 (A2) | Pilot-73 prework (Hecke–Tate, FF-EZ3 statement-only route).
 - `research/TRIAGE-C2-ROWS.md` | P4 staging | landed 2026-11-13 (A9, orchestrator-authorized) | Cycle-2 triage row staging; typesets into TRIAGE § Cycle-2 addendum at decision time.
+- `research/REPORT-INPUTS-C2.md` | final input | landed 2026-11-13 (A9, 231 ln) | §C2-conclusion data pack for REPORT.md § Cycle 2 (fills at close-out per the chain in RESUME-BRIEF-C2 § Gate state).
 - `research/novelty/liu1-hygiene-sweep.md` | support | landed 2026-11-13 (A1) | Full-tree audit of the registered Liu-1 clone: constant story resolved (README = B_new exactly; entry uses weakened B_r with proved boundary_order), 0 sorry/0 axiom/22-22 names, vendor replay prerequisite.
 - `research/AGENTS-C2-DRAFT.md` | charter support | landed 2026-11-13 (A1); **held UNAPPLIED until cycle close** | Draft Cycle-2 conventions addendum for AGENTS.md (3 cited blocks; apply under standing authorization at close).
 - `research/qa/tauceti-spotcheck.md` | QA | landed 2026-11-13 (A1-5) | Spot-check driving the tauceti.md fixes-in-place (trivial-and-uncontested class).
 - `research/qa/openai-math-spotcheck.md` | QA | landed 2026-11-13 (A1-5) | Spot-check driving the openai-math.md fixes-in-place.
+- `research/qa/donor-probes-spotcheck.md` | QA | landed 2026-11-13 (A5, pass Q7) | G-verdict spotcheck: 12 OK / 0 WRONG; G2 fully evidence-backed (13 triad lines, 0 sorryAx); G7b OPEN pending run16 re-run.
 - A5 erratum propagation (2026-11-13): `novelty/CLAIMS-REGISTER.md` row 42 + `novelty/RELATED-WORK.md` carry the DLRT GRH-conditional/fixed-quadratic-K qualifiers (VERDICTS §5.2(c) + REPORT §1 fixed by H; round-4 PART-2 rows updated).
