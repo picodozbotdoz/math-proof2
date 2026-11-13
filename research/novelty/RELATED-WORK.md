@@ -109,6 +109,28 @@ with donor accelerants for 42 and a hard deadline culture for everything AF-adja
   Lean in progress. Nearest ζ_K-zero neighbor: Trudgian–Zuniga Alterman arXiv:2610.16010
   (h(K) < 0.58, low-lying zeros). **Note: hexagonmath.org's archive is ORCID-gated** — arXiv-only
   absence claims are unsound for this venue (r4 method item 14, P2-12); direct sweep needs an ORCID.
+- **Quasi-RH cluster, post-outage clock additions (r4 §8.1–8.3 + §9, folded 2026-11-14)**:
+  **Chang–Wang arXiv:2611.00924** (10-31) — conditional-only frontier 0.87446205 = B_*−1/160000
+  (on cited uniform theta/detector/prior-bound/Mellin inputs, XS26-style); unconditional record
+  unchanged (Liu-2 B♭). **Ji arXiv:2611.16665** (11-12) — ζ_ℚ(i)+ζ at 599/600 via quartic
+  (Kubota) theta-kernel; weaker constant, new base field, no frontier move. **QR-D Lean ecosystem
+  = 13 repos** (GitHub sweep 11-13): Kontorovich/quasi-rh (11/12 ζ+Dirichlet, README-claimed,
+  v4.34.1, no ζ_K), LUOLINGc325, LW56e2, CrossNox ext., akashlevy/qrh,
+  jacobalansussman/qrh-zero-free-bounds, **DrMurphyIsIn/qrh-debruijn-newman** (kernel-checked
+  Λ ≤ 9/32 — main-run round-1 §12's "Λ absent everywhere" gap TAKEN by a third party; main-run
+  donation-surface note only), randogelist. **GTimG/QuasiRiemannTracker** (site
+  gtimg.github.io/QuasiRiemannTracker; audited r4 §9): self-verifying leaderboard for the
+  Dirichlet class — 55 entries, all framework-verified by tri-kernel proof replay (Lean +
+  NanoDa 0.4.26 + con-ron, Comparator statement/definition/axiom checks, triad axioms,
+  adversarial controls, hash-bound receipts); best verified bound **0.8733458561**
+  (continuum-anchor, 2026-11-13, J. Bebel) — the FORMAL Dirichlet frontier has been below
+  Chang–Wang's CONDITIONAL 0.87446205 since 10-26 (sil-density-split 0.873995); Liu-1 tracked
+  at the exact algebraic bound (1507−2√921)/1653; NO ζ_K/Hecke-beyond-Eisenstein entries
+  (row-70 per-class split survives); NO conditional-results class (Chang–Wang/Liu-2/CT absent);
+  milestone "13/15 Limit of OpenAI's method" projects the race floor ≈ 0.8667; external
+  4.34.1-family pins = statement-level only for us (DO-NOT-CONSUME). 19 contributors,
+  agent-trajectory-native (ATIF; `agent_traces`); Collet's formalization at
+  rohanarun/quasi-rh-hillclimb.
 - **Suzuki arXiv:2610.41115** (2026-10-30): spectral theory of function-field zetas — Hilbert
   spaces from the Weil quadratic form, eigenvalues → zero ordinates. The FF zone's method-neighbor
   clock for dossiers 71/73 (no proportions, no dictionary, informal).

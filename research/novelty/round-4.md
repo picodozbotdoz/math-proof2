@@ -312,8 +312,8 @@ portability unprobed) or (b) the weakened 31/32 binder via in-corpus DZDF; opena
 
 | Class | Best informal exponent | Source | Best FORMAL exponent | Source |
 |---|---|---|---|---|
-| ζ (over ℚ) | B_new = 0.8749570 (≡ XS26's 0.8748867 conditional on Ope26a inputs; B♭ uniform below) | Liu-1 / XS26 / Liu-2 | 7/8 = 0.875 ζ-statement, **sorry** (openai challenge); **0.8749570 incl. ζ-corollary formalized in the external Liu repo** | OAI challenge / liubaiying101 repo |
-| Dirichlet L (all) | B_new (transfer Cor 14.1); B♭ uniform | Liu-1, Liu-2 | as ζ (external Liu repo covers "Dirichlet and zeta consequences") | — |
+| ζ (over ℚ) | B_new = 0.8749570 (≡ XS26's 0.8748867 conditional on Ope26a inputs; B♭ uniform below); **conditional-only frontier below that: Chang–Wang 2611.00924 (10-31) B_*−1/160000 = 0.87446205, conditional on cited uniform inputs (§8.1)** | Liu-1 / XS26 / Liu-2 / Chang–Wang (cond.) | 7/8 = 0.875 ζ-statement, **sorry** (openai challenge); **0.8749570 incl. ζ-corollary formalized in the external Liu repo**; **tracker 0.8733458 (11-13, tri-kernel-verified incl. principal character — §9.3)** | OAI challenge / liubaiying101 repo / QuasiRiemannTracker |
+| Dirichlet L (all) | B_new (transfer Cor 14.1); B♭ uniform; Chang–Wang 0.87446205 **conditional** | Liu-1, Liu-2, Chang–Wang (cond.) | as ζ (external Liu repo covers "Dirichlet and zeta consequences"); **tracker 0.8733458 — formal Dirichlet frontier, below the conditional informal one since 10-26 (§9.3)** | — / QuasiRiemannTracker |
 | ζ_K, all number fields K | **B♭ = 0.8748866**, s ≠ 1, uniform | Liu-2 v2 | **31/32 = 0.96875**, s ≠ 1, every K | CT via DZDF (in-corpus, sorry-free) |
 | Finite-order Hecke L, all K | B♭ (pole at 1 permitted) | Liu-2 v2 | 31/32 "wherever holomorphic" | CT via DZDF |
 | Finite-order Hecke L over ℚ(√−3) specifically | B_new / XS26 0.8748867 (cond.) / B♭ | Liu-1, XS26, Liu-2 | B_new | external Liu repo |
@@ -332,6 +332,11 @@ formalization lands; dossier 70 should record B♭ and the liubaiying101 repo as
 first-tier nearest misses and state its constants parametrically; (iii) the hQRH
 discharge play gains a NEW external-donor option (Liu-1's repo) that did not exist in
 the main run's option space — worth a feasibility probe alongside the 31/32 swap.
+**(2026-11-14 addendum, §8.1 + §9): the informal-conditional frontier is now Chang–Wang
+0.87446205, and the FORMAL Dirichlet frontier is the QuasiRiemannTracker chain at
+0.8733458 — the tracker-verified class (all Dirichlet incl. principal ζ; no ζ_K) both
+leapfrogs the conditional informal claim and leaves the constants race with a live
+leaderboard; ζ_K row untouched by both.**
 
 ## §6. FF-part-2-stub (queued by orchestrator for A2's bridge; parked 2026-11-13, executed below)
 
@@ -514,3 +519,130 @@ clock); liubaiying101 main repo (11 commits, unchanged in window).
 **Sweep limitations:** QuasiRiemannTracker site JS-rendered (static HTML = title only) —
 needs a browser pass (browser-use skill) or clone; hexagonmath archive still ORCID-gated;
 arXiv API intermittently returns empty bodies (retry before believing a 0).
+
+**Post-outage note (2026-11-14):** the §8.1 propagation listed under "Hits" died in the
+network outage — none of the three downstream updates landed at the time (VERDICTS row-70
+clock line, §5.3 table conditional column below, CLAIMS-REGISTER row-70 clock line). All
+three are executed today in the same pass as §9, reconciled against A9's dossier-70
+"Standing notes — clock sweep" (candidates/70-*.md:334 ff., which leads the record).
+
+## §9. GTimG/QuasiRiemannTracker audit (executed 2026-11-14; clone + browser pass)
+
+Executes §8 item 3's outstanding browser-or-clone task. **URL correction first:** the live
+site is **https://gtimg.github.io/QuasiRiemannTracker/** (GitHub repo `homepage` field;
+also the README badge target) — the relaunch briefing's "quasiriemann.org" is WRONG, and
+my own §8 note correctly recorded the repo but no URL; the audit therefore pinned the URL
+from the repo metadata before browsing. Repo facts (GitHub API): created
+2026-10-09T12:36:10Z, pushed **2026-11-13T08:28:53Z** (= §8's "pushed today 08:28"),
+description "Quasi-Riemann bounds, Lean formalizations, and independent proof
+verification." Method: `--depth 1` clone (626 MB incl. vendored proof trees, staged at
+/tmp, read-only) + deployed `catalogue.json` fetch + browser-use pass on the JS site
+(main, protocol tabs).
+
+### §9.1 (a) Verification mode — kernel-grade, TRI-kernel, per entry
+
+Protocol page (`?tab=protocol`, browser-passed 2026-11-14), verbatim: "Every result on
+the website has passed **Comparator's statement, definition and axiom checks, followed by
+proof replay in Lean, NanoDa and con-ron**." Permitted axioms: **propext,
+Classical.choice, Quot.sound** — the same triad as our axcheck standard. The pipeline
+uses Palomar's open-source proof checker (`PalomarRegistry/PalomarSubmission` @
+`d4e41c1d`). Canonical statement (protocol page): ∀ q ∈ ℕ>0, χ ∈ (ℤ/qℤ)^×, s ∈ ℂ with
+(χ,s) ≠ (1,1): Re(s) > θ ⟹ L(χ,s) ≠ 0 — displayed as a Lean `quasi_riemann_bound`
+template with an **intentional `sorry`** ("a statement template, never the accepted
+proof"; upstream = openai/math `ComparatorChallenges/DirichletSevenEighths.lean` @
+`fd4aeeb2`). Receipt sample (verifier/standard/receipts/`pr71-17d05f9a-20261024/README.md`,
+the slayer-recost 0.87477290596 entry): fresh compile of **all 7,391 modules**, no
+candidate cache; adversarial controls (mismatched statement, ill-typed proof, hidden
+assumptions, `sorryAx`) explicitly rejected; baseline replay rerun; source Lean
+**4.34.1**, Comparator runtime 4.35.0-rc2, **NanoDa 0.4.26** = `github.com/ammkrn/
+nanoda_lib` @ `998e0a84` (an independent Lean-export checker) + **con-ron** as third
+kernel; ETH-run outside-sandbox evidence over authenticated SSH; hash-bound receipt
+(`result.json` + contract/controls/dependency-pins). Status taxonomy
+(`core/catalogue.mjs:57-66`): `accepted`/`framework-verified`/`verified` = "Verified in
+our framework" vs `verification-pending` vs `historical-baseline` (θ = 1, no local
+verification claim). In-tree `metadata.json` carries a `status` field on only 11/56
+entries (the 2026-10-06..10-13 cohort); the **deployed catalogue normalizes all 55
+records to `framework-verified`** (`as_of` 2026-11-13; one early entry demoted to
+`historical_records`), i.e. admission status is computed from admission records, not
+submission metadata — mid-PR "pending" states exist (Lewko's metadata: "Official
+Comparator/Lean/NanoDa/con-ron admission remains pending", later admitted). **Verdict:
+kernel-verified** (Lean kernel replay + two independent kernels over exported proofs,
+triad-axiom-restricted), with the receipt/certificate layer as provenance ON TOP — not
+certificate/symbolic-only. Caveat for consumption: verification runs on THEIR
+infrastructure against per-entry vendored trees on Lean-4.34.1-family pins.
+
+### §9.2 (b) ζ_K / Hecke entries — NO; the per-class split SURVIVES
+
+Scope is Dirichlet-only at every layer: README ("bounds on the real parts of zeros of
+Dirichlet L-functions"), protocol canonical statement (all moduli, pole excluded; ζ only
+as the principal character), site headline ("All nontrivial zeros of Dirichlet
+L-functions lie in the strip Re(s) ∈ [1−θ, θ]"). Whole-repo greps (clone): **zero**
+`DedekindZeta`/`zeta_K`/`ζ_K` statements outside the vendored openai-baseline OAI tree —
+and there the only hit is `fullIdealZeta_eq_dedekindZeta`
+(`OAI/NumberTheory/DirichletL/QuadraticSieve/DyadicColumns.lean:245`), an
+**Euler-product-region identity (Re s > 1) for the FIXED field
+`ActualEisensteinCubic.K`** — sieve machinery of the openai proof, not a zero-free
+theorem, not uniform over K. "Number field" appears exactly once in submissions prose:
+"Finite-order Hecke L-functions over the **Eisenstein number field** are nonzero to the
+right of seven eighths" (`Hecke/Nonvanishing.lean:7` docstring). Entry texts confirm the
+class never widens: baseline/liu/argonaut verification notes cover "the all-Dirichlet,
+zeta and finite-order Eisenstein Hecke statements" (= the openai companion statement
+set, Comparator-verified alongside); later entries refine the Dirichlet statement only.
+**Conclusion: the tracker does NOT contradict §8 item 3 — no ζ_K formal artifact exists
+anywhere in it; row 70's per-class split (ζ_K/all-K strip ours alone) SURVIVES the
+audit.** (Precision footnote: finite-order Hecke over ℚ(√−3) IS in the verified
+statement set of the baseline entries — exactly the class row §5.3 already tracks; no
+Hecke-over-general-K anywhere.)
+
+### §9.3 (c) Conditional results — not tracked at all; formal Dirichlet frontier now BELOW Chang–Wang's conditional frontier
+
+No Chang–Wang / 2611.00924 / 0.87446205 anywhere in the repo (grep, all file types); no
+Liu-2 B♭ entry (informal, Lean in progress); no CT 31/32 (weaker constant, ζ_K class
+outside scope). The tracker has **no "conditional" status class** — its taxonomy is
+verified-here vs pending vs historical — and HOSTING.md's rule ("Imported results use
+the same presentation and verification status as other submissions") means a result
+appears only after passing the full §9.1 pipeline: XS26-style conditional-on-inputs
+claims are structurally unlistable. **Liu B_new IS tracked at the exact algebraic
+bound**: entry `liu-20261008`, theta = 874957069799168740018340006959/10³² with
+`exact_bound "(1507 − 2√921) / 1653"`, "ranked by a rational upper bound less than 10⁻³⁰
+above it, proved in Lean" — which REFINES liu1-as-donor §1 (the public repo's own entry
+theorems sit at 34999/40000; the tracker independently replayed the exact algebraic
+bound on its own vendored tree). The verified frontier (deployed catalogue + badge
+"best verified bound θ ≤ 0.873345856106…"): 7/8 openai-baseline (10-06) → Liu exact
+B_new 0.8749570 (10-08) → cycle25-quartic 0.8748866 (10-10) → sil-density-split
+0.8739950 (**10-26 — the day the verified frontier crossed below Chang–Wang's
+conditional 0.87446205**) → arvi-selected-leaf 0.8734120 (10-30) →
+marked-anchor-induction 0.8733468 (11-12) → **continuum-anchor 0.8733458561 (11-13,
+Joseph Bebel)** — ≈ 0.0012 below Chang–Wang-conditional and ≈ 0.0016 below B_new. I.e.
+for the Dirichlet class the FORMAL side has leapfrogged both the conditional informal
+frontier and every informal uniform claim. Site milestones project the method's limit
+at **13/15 ≈ 0.8667** ("Limit of OpenAI's method") between "Classical result" (1),
+"three-quarter barrier" (3/4) and GRH (1/2).
+
+### §9.4 Consequences (novelty impact — row 70 / dossier 50 / 20-cluster)
+
+1. **Per-class split unchanged on the ζ_K side** (§9.2) — dossier 70's headline class
+   survives; A9's standing-note 3/β assumption confirmed.
+2. **MATERIAL for the ζ/Dirichlet class column:** the best formal Dirichlet/ζ strip
+   constant is now the tracker's **0.8733458 (2026-11-13)**, moving at ~1 entry/day —
+   "7/8-or-better is concurrent" phrasing is stale; §5.3's ζ/Dirichlet "Best FORMAL"
+   cells updated below. The in-corpus openai 7/8 tree remains the only CONSUME-able
+   artifact on our pin; Liu 34999/40000, Kontorovich 11/12, and the tracker chain are
+   all external (the tracker: Lean 4.34.1-family, per-entry vendored trees, their
+   infrastructure — DO-NOT-CONSUME, liu1-as-donor precedent; statement-level only).
+   Constants-stale-on-arrival for 70/50: confirmed, and now with a live leaderboard
+   attached.
+3. **Dossier 70's parametric-θ design absorbs the movement** (re-instantiation, zero new
+   proofs — A9 standing note 1's Chang–Wang logic extends verbatim to every tracker
+   step).
+4. **Ecosystem note (RELATED-WORK):** the QR-D cluster now includes a self-verifying
+   leaderboard — 19 contributors (OpenAI, Baiying Liu, Mark Lewko, Joseph Bebel,
+   Zhongpai Gao, Akash Levy, Hailey Collet + pseudonymous/AI-agent handles Sil,
+   ArviFoxy, Slayer, timbalud, DaysSky, xenoproof, nielstron, LW56e2 (Leo Wei),
+   SovereignSteak, Rohan Arun, Kari Roegnvaldsson, Argonaut Math, Tim Gehrunger ·
+   ProofCouncil, Jacob Sussman), agent-trajectory-native submission format
+   (SUBMITTING.md references ATIF; metadata `agent_traces`), 29-submission/171-edge
+   dependency graph; Collet's formalization lives at `github.com/rohanarun/
+   quasi-rh-hillclimb` (PR #69/#70 trail). A new genre neighbor for the
+   Knausgård-clock culture: month-scale depreciation is now measurable DAILY on the
+   Dirichlet class.
