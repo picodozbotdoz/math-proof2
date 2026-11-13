@@ -80,6 +80,25 @@ weight dictionary. Classical nearest kin: supersymmetric-oscillator folklore.
 recommendation 3.5** (bosonic instance anticipated by PhysLean; the universal statement and the
 fermionic side carry the novelty).
 
+**[STALENESS NOTE, A5 2026-11-14 — the bracketed collision assessment above is superseded
+in part:** PhysLean now lives at `leanprover-community/physlib` (HEPLean's successor home;
+pushed 2026-11-13T16:16Z) and carries `Physlib/QFT/PerturbationTheory/FieldStatistics/
+ExchangeSign.lean` (Tooby-Smith): `exchangeSign : FieldStatistic →* FieldStatistic →* ℂ`,
+ε = ±1 for BOTH statistics, with symmetry, involutivity and a **cocycle law** — i.e. the
+statistics-universal **exchange-sign layer** is now formalized (physlib), and
+`WickContraction/` has a dedicated `Sign/` layer (fermionic-inclusive contractions;
+file-level read of `Sign/` still owed). **Precision: physlib's object is a sign cocycle
+on the statistics TYPE at operator exchange — NOT an occupation-pair axiomatization (no
+creation/annihilation relations, no vacuum, no dual-family); article/dossier 52's N1
+occupation-pair layer and N1b dual-family theorem remain unclaimed-by-others.** What is
+taken: any NEW "statistics-universal ε-sign calculus" framing without differentiation
+from physlib's exchangeSign/Wick stack. The verdict's surviving surface = N1
+(occupation-pair, differentiation required) + N1b + N3 (CAR weight dictionary) + any
+tauceti-CAR↔physlib bridge (tauceti's `carLieModule` layer confirmed present in-corpus;
+mathlib on our pin rg-clean of FieldStatistic/WickContraction). Row-52 N 3.5 stands with
+the physlib nearest-neighbor citation added. Provenance:
+`novelty/iter4-seed-triage.md` seed-11 check, run 2026-11-14.]
+
 ### 5.2 Re-scoped-statement clears
 
 **(a) 32 (parametric savings frontier Γ(ε))** — searches: AVW follow-up arXiv:2610.17420 full
