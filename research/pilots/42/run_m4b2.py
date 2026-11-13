@@ -123,7 +123,8 @@ def run(tarball: bytes, files: dict, order: list):
         except Exception as exc:  # timeout path already returns via _sh
             summary[rel] = f"EXC {exc}"
             continue
-        errors = [l for l in out2.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out2.splitlines()
+                  if ": error" in l or l.startswith("error")]
         sorry = [l for l in out2.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out2.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]
@@ -135,7 +136,7 @@ def run(tarball: bytes, files: dict, order: list):
             print("---- axioms ----", flush=True)
             print("\n".join(axioms), flush=True)
         lines = out2.splitlines()
-        err_lines = [i for i, l in enumerate(lines) if ": error:" in l]
+        err_lines = [i for i, l in enumerate(lines) if ": error" in l]
         if err_lines:
             print("---- error contexts ----", flush=True)
             shown = 0

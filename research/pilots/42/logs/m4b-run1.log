@@ -102,3 +102,5 @@ Stopping app - local entrypoint completed.
 [modal-client] 2026-11-14T02:02:26+0800 Timed out waiting for final app logs.
 ✓ App completed. View run at 
 https://modal.com/apps/semraker/main/ap-U3KoVBfuNnc6ZJcZk6NHve
+# [hygiene addendum 2026-11-14, A3] SUMMARY errors=3 vs "5 distinct" header: 5 error SITES at M4b.lean 1413/1419/1423/1447/1454; the counter matched 3 — the two error(lean.unknownIdentifier) lines fall outside the ":
+error:" pattern (regex widened in run_m4b2.py; see m4b2-run2.log header for the full reconciliation).

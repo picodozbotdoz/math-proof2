@@ -1,5 +1,8 @@
 # M4a landing note — dossier 42, milestone 4a (strip-distinct re-vocabulary), GREEN
 
+> **[2026-11-14, A3]** Superseded as the live M4 record by `M4-note.md` (M4b fallback +
+> primary GREEN + the M4c addendum); this file stays as the M4a record verbatim.
+
 Lane A3, 2026-11-13. **DRAFT M4c addendum text for `research/candidates/
 42-zeta-k-two-thirds-product-assembly.md` §Pilot outcome** (append-only; to be committed by
 the orchestrator — not folded into the dossier by this lane). Companion:

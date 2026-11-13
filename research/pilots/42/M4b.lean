@@ -30,15 +30,16 @@ M4a changes vs M2b (all inside the cumulative distinct family; everything else v
     / `zetaK_five_sixths_*`) is carried verbatim as heritage — superseded for the distinct
     family by this strip layer (recorded in the M4c addendum, not edited).
 
-M4b addendum (fallback route, same file): appended below the M4a layer — the V2 counting
-vocabulary re-declared verbatim, the pilot↔V2 glue (set/count identifications), the
-numeric endpoint lemmas, the two ζ-side discharges from the `hV2d4`/`hV2d5` binders, and
-the M4b LANDED theorems (`zetaK_two_thirds_landed_of_V2`,
-`zetaK_distinct_five_sixths_strip_landed_of_V2` + `_of_negligible`). The M4a landings
-above remain as the certificate-conditional record; the M4b landings replace
-`hCert`/`hK673`/`hK839` by the V2 numeric endpoints (Knausgård certificate machinery
-fully dropped on the ζ side). Direct-import upgrade APPLIED (G2-green, 2026-11-14): the
-two endpoint binders are discharged by the imported donor theorems.
+M4b addendum (same file): appended below the M4a layer — the donor counting vocabulary
+(exposed under the `V2` prefix), the pilot↔V2 glue (set/count identifications), the
+numeric endpoint lemmas, the two ζ-side discharges, and the M4b LANDED theorems
+(`zetaK_two_thirds_landed_of_V2`, `zetaK_distinct_five_sixths_strip_landed_of_V2` +
+`_of_negligible`). The M4a landings above remain as the certificate-conditional record;
+the M4b landings replace `hCert`/`hK673`/`hK839` by the V2 numeric endpoints (Knausgård
+certificate machinery fully dropped on the ζ side). Direct-import upgrade APPLIED
+(G2-green, 2026-11-14): the ζ side is discharged by the imported donor theorems
+(`ZetaZeros.simple_proportion_d4`/`distinct_proportion_d5`); the verbatim-body fallback
+file (mathlib-only, GREEN + full axcheck) is preserved at `logs/M4b-fallback-GREEN.lean`.
 -/
 import Mathlib
 import ZetaZeros
@@ -1200,22 +1201,23 @@ theorem zetaK_distinct_five_sixths_strip_landed_of_negligible {fK fζ fχ : ℂ 
   have hN : (0 : ℝ) ≤ ((⟨multOf fK, hfinK⟩ : ZeroMult).countCum T : ℝ) := Nat.cast_nonneg _
   nlinarith
 
--- ===== M4b layer (FALLBACK route: V2-endpoint binders; direct-import upgrade pending A7 G2) =====
+-- ===== M4b layer (PRIMARY route: direct ZetaZerosV2 import; G2-green, applied 2026-11-14) =====
 
-/-! ## M4b: the ZetaZerosV2 donor swap — FALLBACK ROUTE
+/-! ## M4b: the ZetaZerosV2 donor swap — PRIMARY ROUTE (direct import)
 
-The ζ-side proportion inputs come from ZetaZerosV2's numeric endpoints as EXPLICIT
-BINDERS (`hV2d4` / `hV2d5`), stated in V2's own counting vocabulary (re-declared below
-with bodies verbatim from `axiommath/ZetaZerosV2/ZetaZeros/Definitions.lean:38–71`;
-those statements elaborate standalone on our pin —
-`feasibility/axiommath-bump/logs/run1.log`; the full V2 lib + its redirected
-PrimeNumberTheoremAnd dependency path build on our pin — `v2-run9.log`). Donor
-statements: `ZetaZeros.simple_proportion_d4` (`ZetaZerosV2/ZetaZeros/Main.lean:130`,
-`0.6725`) and `ZetaZeros.distinct_proportion_d5` (`Main.lean:149`, `0.83625`);
-comparator-permitted axioms only, no sorry, no native_decide
-(`novelty/axiommath-as-donor.md` §0). The G2-green upgrade replaces the two binders by
-the imported theorems — a ≤ 20-line delta (drop the binder applications, add
-`import ZetaZeros`); the glue lemmas below are kept verbatim under that upgrade.
+The ζ-side proportion inputs are ZetaZerosV2's numeric endpoints, CONSUMED DIRECTLY via
+`import ZetaZeros` (root module; the full V2 lib + its redirected PrimeNumberTheoremAnd
+dependency path build on our pin — `feasibility/axiommath-bump/logs/v2-run9.log` and G2
+run3; donor hygiene triad on-pin, `feasibility/probe/logs-g/run3-g2.log`). The donor's
+counting vocabulary is re-exposed below under the `V2` prefix by abbrevs, so the glue
+lemmas and discharges read identically to the fallback transcription (the verbatim-body
+fallback file, GREEN + full-coverage triad axcheck mathlib-only, is preserved at
+`logs/M4b-fallback-GREEN.lean`). Donor statements: `ZetaZeros.simple_proportion_d4`
+(`ZetaZerosV2/ZetaZeros/Main.lean:130`, `0.6725`) and `ZetaZeros.distinct_proportion_d5`
+(`Main.lean:149`, `0.83625`); comparator-permitted axioms only, no sorry, no
+native_decide (`novelty/axiommath-as-donor.md` §0). The two former binders
+(`hV2d4`/`hV2d5`) are DISCHARGED by the imported theorems (`V2d4_endpoint`/
+`V2d5_endpoint` below).
 Constants: 2/3 = 0.6667 < 0.6725 (margin 0.0058) and 5/6 = 0.8333 < 0.83625
 (margin 0.0029) — `norm_num`-clean.
 
@@ -1224,26 +1226,19 @@ Provenance of the discharged statements (A1, `novelty/pntplus-glue-as-donor.md`)
 (`PairCorrelation/FromLandau.lean:52`) ← Landau log-derivative (`Landau/Formula.lean:170`)
 ← `RiemannZetaHadamard` (`Landau/Formula.lean:9`). -/
 
-namespace V2
+/-- PRIMARY ROUTE (direct import, G2-green): the donor's counting vocabulary
+(`ZetaZerosV2/ZetaZeros/Definitions.lean:38–56`) re-exposed under the `V2` prefix, so
+the glue and discharge layer below reads identically to the fallback transcription
+(preserved at `logs/M4b-fallback-GREEN.lean`). -/
+abbrev V2.nontrivialZeros : ℝ → Set ℂ := ZetaZeros.nontrivialZeros
 
-/-- Verbatim from `ZetaZerosV2/ZetaZeros/Definitions.lean:38`. -/
-def nontrivialZeros (T : ℝ) : Set ℂ :=
-  {ρ | riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ 0 < ρ.im ∧ ρ.im ≤ T}
+noncomputable abbrev V2.zeroMultiplicity : ℂ → ℕ := ZetaZeros.zeroMultiplicity
 
-/-- Verbatim from `Definitions.lean:43` (= pilot `multOf riemannZeta`, definitionally). -/
-noncomputable def zeroMultiplicity (ρ : ℂ) : ℕ := analyticOrderNatAt riemannZeta ρ
+noncomputable abbrev V2.zeroCount : ℝ → ℕ := ZetaZeros.zeroCount
 
-/-- Verbatim from `Definitions.lean:47` (`N T`; with multiplicity, `∑ᶠ` over the set). -/
-noncomputable def zeroCount (T : ℝ) : ℕ := ∑ᶠ ρ ∈ nontrivialZeros T, zeroMultiplicity ρ
+noncomputable abbrev V2.simpleOnLineCount : ℝ → ℕ := ZetaZeros.simpleOnLineCount
 
-/-- Verbatim from `Definitions.lean:51` (`N₀ˢ T`; set cardinality). -/
-noncomputable def simpleOnLineCount (T : ℝ) : ℕ :=
-  {ρ ∈ nontrivialZeros T | ρ.re = 1 / 2 ∧ zeroMultiplicity ρ = 1}.ncard
-
-/-- Verbatim from `Definitions.lean:56` (`N_d T`; STRIP-distinct set cardinality). -/
-noncomputable def distinctZeroCount (T : ℝ) : ℕ := (nontrivialZeros T).ncard
-
-end V2
+noncomputable abbrev V2.distinctZeroCount : ℝ → ℕ := ZetaZeros.distinctZeroCount
 
 /-! ### M4b glue: pilot vocabulary ↔ V2 vocabulary
 
@@ -1287,7 +1282,7 @@ theorem supp_inter_strip_eq_nontrivialZeros
     supp (multOf riemannZeta) ∩ stripWindow 0 T = V2.nontrivialZeros T := by
   ext ρ
   simp only [Set.mem_inter_iff, mem_supp_iff, stripWindow, Set.mem_ofPred_eq,
-    V2.nontrivialZeros]
+    V2.nontrivialZeros, ZetaZeros.nontrivialZeros]
   constructor
   · rintro ⟨hne, hre, hre1, him, himT⟩
     exact ⟨(multOf_riemannZeta_ne_zero_iff hntopζ (re_lt_one_ne_one hre hre1)).mp hne,
@@ -1364,7 +1359,8 @@ theorem simpleOnLineCount_le_countOnCum
     exact one_ne_zero
   have hS : ({ρ ∈ V2.nontrivialZeros T | ρ.re = 1 / 2 ∧ V2.zeroMultiplicity ρ = 1} :
       Set ℂ).Finite := Set.Finite.subset hA₀ hsub
-  unfold V2.simpleOnLineCount
+  show ({ρ ∈ V2.nontrivialZeros T | ρ.re = 1 / 2 ∧ V2.zeroMultiplicity ρ = 1} :
+      Set ℂ).ncard ≤ (⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countOnCum T
   rw [Set.ncard_eq_toFinset_card
       {ρ ∈ V2.nontrivialZeros T | ρ.re = 1 / 2 ∧ V2.zeroMultiplicity ρ = 1} hS,
     Finset.card_eq_sum_ones]
@@ -1388,9 +1384,23 @@ theorem two_thirds_le_d4 : (2 / 3 : ℝ) ≤ 0.6725 := by norm_num
 (margin 0.00292…). -/
 theorem five_sixths_le_d5 : (5 / 6 : ℝ) ≤ 0.83625 := by norm_num
 
-/-- **ζ-side 2/3 discharge from the V2 numeric-endpoint binder.** The denominator
-positivity is forced by the binder itself (`0.6725 < num/den` with `den = 0` impossible
-since division by zero is `0` in ℝ). -/
+/-- **The imported donor endpoint** (was the fallback's `hV2d4` binder): Lamzouri Thm 1.1
+(i) numeric form, `ZetaZeros.simple_proportion_d4` (`ZetaZerosV2/ZetaZeros/Main.lean:130`)
+— triad-clean on our pin (G2 run3 + the `#print axioms` at file end). -/
+theorem V2d4_endpoint : ∃ T₀ : ℝ, ∀ T ≥ T₀,
+    (0.6725 : ℝ) < (V2.simpleOnLineCount T : ℝ) / (V2.zeroCount T : ℝ) :=
+  ZetaZeros.simple_proportion_d4
+
+/-- **The imported donor endpoint** (was the fallback's `hV2d5` binder): Lamzouri Thm 1.1
+(ii) numeric form, `ZetaZeros.distinct_proportion_d5` (`Main.lean:149`). -/
+theorem V2d5_endpoint : ∃ T₀ : ℝ, ∀ T ≥ T₀,
+    (0.83625 : ℝ) < (V2.distinctZeroCount T : ℝ) / (V2.zeroCount T : ℝ) :=
+  ZetaZeros.distinct_proportion_d5
+
+/-- **ζ-side 2/3 discharge from the V2 numeric endpoint** (hypothesis form; at the
+landing theorems it is fed the imported `V2d4_endpoint`). The denominator positivity is
+forced by the endpoint itself (`0.6725 < num/den` with `den = 0` impossible since
+division by zero is `0` in ℝ). -/
 theorem epsLowerCum_zeta_of_V2d4
     (hntopζ : ∀ ρ : ℂ, analyticOrderAt riemannZeta ρ ≠ ⊤)
     (hfinζ : WindowFinite (multOf riemannZeta))
@@ -1423,8 +1433,9 @@ theorem epsLowerCum_zeta_of_V2d4
       _ ≤ ((⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countOnCum T : ℝ) :=
           by exact_mod_cast simpleOnLineCount_le_countOnCum hfinζ T
 
-/-- **ζ-side 5/6 strip-distinct discharge from the V2 numeric-endpoint binder** (same
-shape as the 2/3 discharge; the numerator identification is an equality here). -/
+/-- **ζ-side 5/6 strip-distinct discharge from the V2 numeric endpoint** (hypothesis
+form; at the landing theorems it is fed the imported `V2d5_endpoint`; same shape as the
+2/3 discharge — the numerator identification is an equality here). -/
 theorem epsLowerDistinctStripCum_zeta_of_V2d5
     (hntopζ : ∀ ρ : ℂ, analyticOrderAt riemannZeta ρ ≠ ⊤)
     (hfinζ : WindowFinite (multOf riemannZeta))
@@ -1456,20 +1467,18 @@ theorem epsLowerDistinctStripCum_zeta_of_V2d5
         ≤ (0.83625 : ℝ) * (V2.zeroCount T : ℝ) := h1
       _ ≤ (V2.distinctZeroCount T : ℝ) := le_of_lt hmul
 
-/-! ### M4b LANDED theorems (fallback binders; G2-green upgrade = drop `hV2d4`/`hV2d5`) -/
+/-! ### M4b LANDED theorems (primary: ζ side discharged from the imported donor) -/
 
-/-- **LANDED, M4b-fallback (2/3, ζ-side V2-binder)**: the M4a/M2b 2/3 landing with the
-Knausgård certificate machinery REPLACED on the ζ side by V2's numeric endpoint. The
-ζ-side hypotheses are now: `hV2d4` (V2 `simple_proportion_d4` shape) and the ζ-analyticity
-facts DISCHARGED inline (`analyticAt_riemannZeta`; `hζ` of the M2b shape is gone — it was
-a binder only while `fζ` was abstract). Remaining binders: `hV2d4`, `hEχ`, the M2a
-structural set at `fζ := riemannZeta`, `hntopζ`, `hntopχ`. No `cert`, no `native_decide`
-path anywhere. -/
+/-- **LANDED, M4b-primary (2/3, ζ-side discharged from the imported donor)**: the M4a/M2b
+2/3 landing with the Knausgård certificate machinery REPLACED on the ζ side by V2's
+numeric endpoint, imported (`V2d4_endpoint` = `ZetaZeros.simple_proportion_d4`); the
+ζ-analyticity facts are DISCHARGED inline (`analyticAt_riemannZeta`; `hζ` of the M2b
+shape is gone — it was a binder only while `fζ` was abstract). Remaining binders:
+`hEχ`, the M2a structural set at `fζ := riemannZeta`, `hntopζ`, `hntopχ`. No `cert`, no
+`native_decide` path anywhere. -/
 theorem zetaK_two_thirds_landed_of_V2 {fK fχ : ℂ → ℂ}
     (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf riemannZeta))
     (hfinχ : WindowFinite (multOf fχ))
-    (hV2d4 : ∃ T₀ : ℝ, ∀ T ≥ T₀,
-      (0.6725 : ℝ) < (V2.simpleOnLineCount T : ℝ) / (V2.zeroCount T : ℝ))
     (hEχ : EpsLowerCum ⟨multOf fχ, hfinχ⟩ (2 / 3))
     (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
     (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
@@ -1480,15 +1489,14 @@ theorem zetaK_two_thirds_landed_of_V2 {fK fχ : ℂ → ℂ}
     (hfac : FactorizationOnHalfPlane fK riemannZeta fχ) :
     EpsLowerCum ⟨multOf fK, hfinK⟩ (2 / 3) :=
   epsLowerCum_of_factorization (fun _s hs => analyticAt_riemannZeta hs) hχ hK hK1 hP1 hntopζ hntopχ hfac
-    hfinK hfinζ hfinχ (epsLowerCum_zeta_of_V2d4 hntopζ hfinζ hV2d4) hEχ
+    hfinK hfinζ hfinχ (epsLowerCum_zeta_of_V2d4 hntopζ hfinζ V2d4_endpoint) hEχ
 
-/-- **LANDED, M4b-fallback (distinct 5/6 + strip defect)**: the M4a strip-distinct
-landing with `hCert`/`hK839` replaced by `hV2d5` (V2 `distinct_proportion_d5` shape). -/
+/-- **LANDED, M4b-primary (distinct 5/6 + strip defect)**: the M4a strip-distinct
+landing with `hCert`/`hK839` replaced by the imported `ZetaZeros.distinct_proportion_d5`
+(via `V2d5_endpoint`). -/
 theorem zetaK_distinct_five_sixths_strip_landed_of_V2 {fK fχ : ℂ → ℂ}
     (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf riemannZeta))
     (hfinχ : WindowFinite (multOf fχ))
-    (hV2d5 : ∃ T₀ : ℝ, ∀ T ≥ T₀,
-      (0.83625 : ℝ) < (V2.distinctZeroCount T : ℝ) / (V2.zeroCount T : ℝ))
     (hEχdStrip : EpsLowerDistinctStripCum ⟨multOf fχ, hfinχ⟩ (5 / 6))
     (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
     (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
@@ -1502,7 +1510,7 @@ theorem zetaK_distinct_five_sixths_strip_landed_of_V2 {fK fχ : ℂ → ℂ}
         ≤ ((⟨multOf fK, hfinK⟩ : ZeroMult).distinctCountCum T : ℝ)
           + (commonStripCum ⟨multOf riemannZeta, hfinζ⟩ ⟨multOf fχ, hfinχ⟩ T : ℝ) := by
   have hζ' : EpsLowerDistinctStripCum ⟨multOf riemannZeta, hfinζ⟩ (5 / 6) :=
-    epsLowerDistinctStripCum_zeta_of_V2d5 hntopζ hfinζ hV2d5
+    epsLowerDistinctStripCum_zeta_of_V2d5 hntopζ hfinζ V2d5_endpoint
   have hmult := hfac_of_factorization hK (fun _s hs => analyticAt_riemannZeta hs) hχ hK1 hP1 hntopζ hntopχ hfac
   have hcum : ∀ T, (⟨multOf fK, hfinK⟩ : ZeroMult).countCum T
       = (ZeroMult.add ⟨multOf riemannZeta, hfinζ⟩ ⟨multOf fχ, hfinχ⟩).countCum T := by
@@ -1522,13 +1530,11 @@ theorem zetaK_distinct_five_sixths_strip_landed_of_V2 {fK fχ : ℂ → ℂ}
   rw [hcum T, hdist T]
   exact hT₀ T hT
 
-/-- **LANDED, M4b-fallback, hCZStrip-seamed stronger form**: the full 5/6 strip-distinct
+/-- **LANDED, M4b-primary, hCZStrip-seamed stronger form**: the full 5/6 strip-distinct
 proportion given additionally the common-strip-zeros negligibility binder. -/
 theorem zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible {fK fχ : ℂ → ℂ}
     (hfinK : WindowFinite (multOf fK)) (hfinζ : WindowFinite (multOf riemannZeta))
     (hfinχ : WindowFinite (multOf fχ))
-    (hV2d5 : ∃ T₀ : ℝ, ∀ T ≥ T₀,
-      (0.83625 : ℝ) < (V2.distinctZeroCount T : ℝ) / (V2.zeroCount T : ℝ))
     (hEχdStrip : EpsLowerDistinctStripCum ⟨multOf fχ, hfinχ⟩ (5 / 6))
     (hχ : ∀ s ≠ 1, AnalyticAt ℂ fχ s)
     (hK : ∀ s ≠ 1, AnalyticAt ℂ fK s)
@@ -1543,7 +1549,7 @@ theorem zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible {fK fχ : �
     EpsLowerDistinctStripCum ⟨multOf fK, hfinK⟩ (5 / 6) := by
   intro δ hδ
   obtain ⟨T₁, hT₁⟩ := zetaK_distinct_five_sixths_strip_landed_of_V2 hfinK hfinζ hfinχ
-    hV2d5 hEχdStrip hχ hK hK1 hP1 hntopζ hntopχ hfac (δ / 2) (by linarith)
+    hEχdStrip hχ hK hK1 hP1 hntopζ hntopχ hfac (δ / 2) (by linarith)
   obtain ⟨T₂, hT₂⟩ := hCZStrip (δ / 2) (by linarith)
   refine ⟨max T₁ T₂, fun T hT => ?_⟩
   have e1 := hT₁ T (le_trans (le_max_left T₁ T₂) hT)
@@ -1559,3 +1565,7 @@ theorem zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible {fK fχ : �
 #print axioms zetaK_two_thirds_landed_of_V2
 #print axioms zetaK_distinct_five_sixths_strip_landed_of_V2
 #print axioms zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible
+#print axioms V2d4_endpoint
+#print axioms V2d5_endpoint
+#print axioms ZetaZeros.simple_proportion_d4
+#print axioms ZetaZeros.distinct_proportion_d5
