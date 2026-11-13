@@ -282,3 +282,17 @@ standing authorization with a commit.
   Tier-C; 75 deferred wave-4; 42-M4b + 50-M2-R1 gated continuations); REPORT §1 DLRT
   qualifier erratum applied (A5 P2-3); probe readings 8→13 + orchestrator attribution
   recorded; watch attributions block (A8-3 / A9 staging / A1-5 fixes-in-place).
+
+## Session wrap 2026-11-14 — network outage, all lanes paused
+
+The Cycle-2 orchestrator session terminated on an API network outage (~2026-11-13
+late); all 10 lanes (A1–A9, H) died mid-flight. **Complete handoff:
+`research/RESUME-BRIEF-C2.md`** — per-lane state, exact next steps, gate state,
+protocol. Headline disk-state (verified at wrap): pilot 10-L1 GREEN + axcheck-clean;
+42-M4a GREEN recorded, M4b on disk unrun; 71-P0/P1 GREEN, P2.lean written-unrun;
+72-C-neg FAIL-in-flight (7 errs, 0 sorry); 11-M2 fixes mid-application; G7b run16
+killed by the outage (no verdict); novelty lane fully complete (rows 70–75 all
+dossier-checked; claims register + related-work landed); QA cumulative 0 WRONG.
+All uncommitted lane artifacts are preserved in the snapshot commit. Relaunch:
+read RESUME-BRIEF-C2.md, re-task lanes per its NEXT items, keep the queue-loaded
+protocol + concurrency probe.
