@@ -342,6 +342,18 @@ every axiom set ⊆ {propext, Classical.choice, Quot.sound}, 0 sorryAx** (genera
 layer transcribed in-file (Tree/Enc/Fuel/pad). This is the pad half's engine (per the
 M1 record above: L1 + L2 yield the counter-`padM` with poly-size states).
 
-**L2 (descent bookkeeping) remains open:** on disk at 2,595 LoC / 126 thms (unrun at the
-resume wrap; verdict pending — slot [VERDICT:10-L2] in
-`research/articles/10-uniform-poly-space-eth-refutation.md`).
+**L2 (M3 tranche) — GREEN + axcheck-clean, A6 FORMAL REPORT LANDED (2026-11-14).**
+`l2-run5-final-green.log`: **BOTH OK** — Pilot10_L2.lean (0 errors / 0 sorry / 0
+warnings) and AxPilot10_L2_full.lean in the same run; honest descent 12→3→1→0 across
+runs 1–5. Final `L2.lean`: **2,625 LoC (2,042 M1-verbatim + ~580 new Part D) / 151
+non-private theorems** (134 M1-region + 17 Part D), sha256 `845ce129…`. **Axcheck: all
+resolved 151 ⊆ triad {propext, Classical.choice, Quot.sound}, 0 sorryAx, 0 non-triad.**
+Part D detail: 15 full triad, 2× [propext, Quot.sound], 1× [propext], 1 axiom-free;
+the 31 log-truncated `#print axioms` lines are all **M1-region axiom-free reporters,
+covered by M1's own audit (m1-run3-confirm-axcheck) over the byte-identical region** —
+the coverage argument, recorded per A6. Landed content (A6's text): **the countdown
+loop + PolyTVal + polyTVal_id + countdown_cut** (cdFrag_runs / cdLoop_runsB headlines
+all triad). **The assembly (wd↔cw walk, counter-padM′) REMAINS — declared no-wall
+next-tranche**: the headline conjunction is not yet complete; L2 is the M3 tranche, not
+the last step (article 10's Status reflects this honestly — no promotion past DRAFT
+until the assembly tranche lands or the orchestrator declares the carry).

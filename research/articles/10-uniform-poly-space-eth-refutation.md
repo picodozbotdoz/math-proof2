@@ -1,17 +1,22 @@
 # One Machine, All k: Uniform ETH Refutation with Polynomial Space
 
-*cross-math-fronttier research article 10 (drafted Cycle 2) · DRAFT 2026-11-14 · dossier
+*cross-math-fronttier research article 10 (drafted Cycle 2) · FINAL (three layers GREEN,
+M1/L1/L2; assembly tranche carried to Iteration 4 — orchestrator decision 2026-11-15) · dossier
 `research/candidates/10-z3-uniform-poly-space-eth-refutation.md` (Top-3 #2, main run) ·
 blueprint `research/pilots/10-blueprint.md` (M1 = L3 landed main-run; §L1 = milestone M2,
 Cycle 2) · pilot `research/pilots/10/` (M1.lean, L1.lean GREEN; L2.lean on disk) · logs
 `research/pilots/10/logs/`*
 
-**Status: DRAFT — two layers GREEN, headline pending.** Proved and axiom-audited so far:
-the space-annotated assembly theorem `exists_tm_space(_at_time/_monitor)` (main-run M1 =
-layer L3) and the counter-combinator agreement layer (Cycle-2 L1: 27/27 theorems
-triad-clean, full axcheck). The remaining descent layer L2 is written but unlanded at
-draft time: [VERDICT:10-L2]. The headline conjunction below is the target; the two
-landed layers are cited as landed, the rest carries slots.
+**Status: FINAL — three layers GREEN (M1/L1/L2); assembly tranche carried to
+Iteration 4 (orchestrator decision, 2026-11-15).** Proved and axiom-audited:
+`exists_tm_space(_at_time/_monitor)` (main-run M1 = L3), the counter-combinator layer
+(L1: 27/27 triad), and **L2 (M3 tranche): GREEN + axcheck-clean — the countdown loop +
+PolyTVal + polyTVal_id + countdown_cut landed** (A6 formal report; l2-run5-final-green:
+BOTH OK 0/0/0; 2,625 LoC / 151 theorems, all resolved prints ⊆ triad, 0 sorryAx;
+descent 12→3→1→0 over 5 runs). **The headline conjunction of §3 remains a TARGET, not a
+proved theorem** — the wd↔cw assembly tranche is Iteration-4 scope (A6's framing: eth-Lib
+relabeling walk, no new math claimed); §5's remaining-tranche paragraph records this
+verbatim.
 
 ---
 
@@ -107,13 +112,24 @@ This layer is the space argument's engine: replacing pad materialization by coun
 recursion is exactly what converts eth's 2^{o(n)}-space descent into a polynomial-stack
 one, and the agreement lemmas are what make the time side carry over verbatim.
 
-## 5. Pending
+## 5. Verification record
 
-- **Layer L2 (descent bookkeeping, on disk: 2,595 LoC / 126 theorems per the ledger
-  row; defect review for Part D — rw directions, omega atoms, goal-side rewrites — was
-  in flight when the outage hit; unrun at wrap):** [VERDICT:10-L2].
-- Headline conjunction + monitor corollary, final LoC/thm count, close-out axcheck:
-  [VERDICT:10-L2].
+- **[VERDICT:10-L2] FILLED-FINAL — A6 FORMAL REPORT LANDED (2026-11-14): L2 (the M3
+  tranche) GREEN + axcheck-clean.** `l2-run5-final-green.log`: BOTH OK (0 errors /
+  0 sorry / 0 warnings; the same run elaborates the full axcheck copy); descent
+  12→3→1→0 across 5 runs. `L2.lean` = 2,625 LoC (2,042 M1-verbatim + ~580 new Part D) /
+  151 non-private theorems (134 M1-region + 17 Part D), sha256 `845ce129…`. **Axcheck:
+  every resolved `#print axioms` of the 151 ⊆ {propext, Classical.choice, Quot.sound},
+  0 sorryAx, 0 non-triad.** Part D: 15 full triad, 2× [propext, Quot.sound], 1×
+  [propext], 1 axiom-free; **the 31 Modal-log-truncated print lines are all M1-region
+  axiom-free reporters, covered by M1's own audit (m1-run3-confirm-axcheck) over the
+  byte-identical region** — the coverage argument per A6. Landed: cdFrag_runs /
+  cdLoop_runsB / PolyTVal / polyTVal_id / countdown_cut, all triad.
+- **Remaining (the declared no-wall next tranche, not a slot): the assembly — the
+  wd↔cw walk and the counter-padM′ construction** that feeds the landed L3 assembly
+  theorem. On landing: headline conjunction + monitor corollary complete; article
+  promotes. Until then the two-plus-one landed layers stand as this article's proved
+  content and the headline is explicitly OPEN.
 
 ## 6. Relation to prior work
 

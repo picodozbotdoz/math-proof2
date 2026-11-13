@@ -194,8 +194,10 @@ the charter-draft's slot-1 candidate. **[CONDITIONAL: row activates on Iteration
 chartering, not on a Cycle-2 slot.]** Recomputed rank ≈ 5.25 conditional ⟨orchestrator⟩.
 
 **Main-run completions folded into this cycle's record:** 10-L1 GREEN + full axcheck
-(529/25; the counter-calculus engine for the ETH headline), 11-M2 executing (P11T1/T2/T3
-GREEN; RedTm2 in final iteration), 52 VERIFIED-GREEN close-out, 20 runs recorded.
+(529/25) **and 10-L2/M3 GREEN + axcheck-clean (A6 formal LANDED: 2,625 LoC/151 thms,
+all ⊆ triad; countdown loop + PolyTVal + polyTVal_id + countdown_cut — the assembly
+wd↔cw walk + counter-padM′ remains, declared no-wall next-tranche, so the ETH headline
+stays open)**, 11-M2 GREEN (B(ii) proved), 52 VERIFIED-GREEN close-out, 20 runs recorded.
 **[CONDITIONAL [VERDICT:10-L2]: on GREEN the uniform+poly-space conjunction — the main
 run's Top-3 #2 — completes and article 10 promotes; **[CONDITIONAL [VERDICT:11-M2]**:
 on RedTm2 GREEN the calculus's machine-realization theorem B(ii) completes and article
@@ -203,7 +205,7 @@ on RedTm2 GREEN the calculus's machine-realization theorem B(ii) completes and a
 
 **Empirical cost ledger (typeset verbatim from this file's block above):** C-neg 369/11
 (S confirmed) · M4a 1,194/54 (≈180 delta) · M4b 1,560/66 fallback + axcheck 68/68 + 1,571/68 primary FINAL artifact (A3 formal report LANDED; M4c(i) discharged) (M) ·
-P0+P1 243 · 71-P2 279/11 (6-run descent) · 73-C 236+143/7 · RedTm2 421/0-sorry (m2-run8 all-six) · 10-L1 529/25 + full axcheck · P11T3 ≈1.1k/88 ·
+P0+P1 243 · 71-P2 279/11 (6-run descent) · 73-C 236+143/7 · RedTm2 421/0-sorry (m2-run8 all-six) · 10-L1 529/25 + full axcheck · 10-L2 2,625/151 all-⊆-triad (A6 formal; M3 tranche) · P11T3 ≈1.1k/88 ·
 RedTm2 ≈0.4k/8 (in flight). **Finding: every landed pilot finished inside its graded
 band; no overrun materialized** — A7's [incoming] grades substitute cleanly.
 
