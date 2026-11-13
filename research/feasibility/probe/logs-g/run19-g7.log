@@ -84,3 +84,95 @@ info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e
 info: importGraph: cloning https://github.com/leanprover-community/import-graph
 info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
 info: p
+{'build': 'FAIL rc=1 errors=9 failed_modules=3'}
+
+=== OAI build: FAIL rc=1 errors=9 failed_modules=3; 248/7075 jobs; failed: ['RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.H1', 'RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.L2Compactness.Kernels', 'RellichKondrachov.MeasureTheory.Function.LpSpace.Restrict']
+✖ [4131/7060] Building RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.L2Compactness.Kernels (80s)
+trace: .> LEAN_PATH=/work/lean/.lake/packages/MD4Lean/.lake/build/lib/lean:/work/lean/.lake/packages/BibtexQuery/.lake/build/lib/lean:/work/lean/.lake/packages/UnicodeBasic/.lake/build/lib/lean:/work/lean/.lake/packages/Cli/.lake/build/lib/lean:/work/lean/.lake/packages/leansqlite/.lake/build/lib/lean:/work/lean/.lake/packages/batteries/.lake/build/lib/lean:/work/lean/.lake/packages/Qq/.lake/build/lib/lean:/work/lean/.lake/packages/aesop/.lake/build/lib/lean:/work/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/lean/.lake/packages/importGraph/.lake/build/lib/lean:/work/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/lean/.lake/packages/plausible/.lake/build/lib/lean:/work/lean/.lake/packages/fixed-point-theorems/.lake/build/lib/lean:/work/lean/.lake/packages/Zeta3Irrational/.lake/build/lib/lean:/work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean:/work/lean/.lake/packages/carleson/.lake/build/lib/lean:/work/lean/.lake/packages/StrongPNT/.lake/build/lib/lean:/work/lean/.lake/packages/AbsorptionCutoff/.lake/build/lib/lean:/work/lean/.lake/packages/AINTLIB/.lake/build/lib/lean:/work/lean/.lake/packages/ClassFieldTheory/.lake/build/lib/lean:/work/lean/.lake/packages/schoenflies-lean/.lake/build/lib/lean:/work/lean/.lake/packages/SphereEversion/.lake/build/lib/lean:/work/lean/.lake/packages/TauCeti/.lake/build/lib/lean:/work/lean/.lake/packages/gromov/.lake/build/lib/lean:/work/lean/.lake/packages/iut/.lake/build/lib/lean:/work/lean/.lake/packages/tate-curves-theta/.lake/build/lib/lean:/work/lean/.lake/packages/genl/.lake/build/lib/lean:/work/lean/.lake/packages/heights/.lake/build/lib/lean:/work/lean/.lake/packages/pi1/.lake/build/lib/lean:/work/lean/.lake/packages/orbicurve-cores/.lake/build/lib/lean:/work/lean/.lake/packages/oka/.lake/build/lib/lean:/work/lean/.lake/packages/tempered-fundamental-groups/.lake/build/lib/lean:/work/lean/.lake/packages/elliptic-curves/.lake/build/lib/lean:/work/lean/.lake/packages/formal-schemes/.lake/build/lib/lean:/work/lean/.lake/packages/belyi/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/lean/.lake/packages/leancert/.lake/build/lib/lean:/work/lean/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeCert/.lake/build/lib/lean:/work/lean/.lake/packages/doc-gen4/.lake/build/lib/lean:/work/lean/.lake/packages/checkdecls/.lake/build/lib/lean:/work/lean/.lake/packages/mathlib/.lake/build/lib/lean:/work/lean/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /work/lean/.lake/packages/rellich-kondrachov/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.lean -o /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.olean -i /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.ilean -c /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.c --setup /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.setup.json --json
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.lean:80:4: Type mismatch: After simplification, term
+  Continuous.mul continuous_const hf_cont
+ has type
+  @Continuous E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ((fun x => I⁻¹) * f)
+but is expected to have type
+  @Continuous E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace fun x => I⁻¹ * f x
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/L2Compactness/Kernels.lean:82:4: Type mismatch: After simplification, term
+  HasCompactSupport.smul_left hf_cs
+ has type
+  @HasCompactSupport E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instZero ((fun _x => I⁻¹) * f)
+but is expected to have type
+  @HasCompactSupport E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instZero fun x => I⁻¹ * f x
+✖ [4135/7075] Building RellichKondrachov.MeasureTheory.Function.LpSpace.Restrict (80s)
+trace: .> LEAN_PATH=/work/lean/.lake/packages/MD4Lean/.lake/build/lib/lean:/work/lean/.lake/packages/BibtexQuery/.lake/build/lib/lean:/work/lean/.lake/packages/UnicodeBasic/.lake/build/lib/lean:/work/lean/.lake/packages/Cli/.lake/build/lib/lean:/work/lean/.lake/packages/leansqlite/.lake/build/lib/lean:/work/lean/.lake/packages/batteries/.lake/build/lib/lean:/work/lean/.lake/packages/Qq/.lake/build/lib/lean:/work/lean/.lake/packages/aesop/.lake/build/lib/lean:/work/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/lean/.lake/packages/importGraph/.lake/build/lib/lean:/work/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/lean/.lake/packages/plausible/.lake/build/lib/lean:/work/lean/.lake/packages/fixed-point-theorems/.lake/build/lib/lean:/work/lean/.lake/packages/Zeta3Irrational/.lake/build/lib/lean:/work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean:/work/lean/.lake/packages/carleson/.lake/build/lib/lean:/work/lean/.lake/packages/StrongPNT/.lake/build/lib/lean:/work/lean/.lake/packages/AbsorptionCutoff/.lake/build/lib/lean:/work/lean/.lake/packages/AINTLIB/.lake/build/lib/lean:/work/lean/.lake/packages/ClassFieldTheory/.lake/build/lib/lean:/work/lean/.lake/packages/schoenflies-lean/.lake/build/lib/lean:/work/lean/.lake/packages/SphereEversion/.lake/build/lib/lean:/work/lean/.lake/packages/TauCeti/.lake/build/lib/lean:/work/lean/.lake/packages/gromov/.lake/build/lib/lean:/work/lean/.lake/packages/iut/.lake/build/lib/lean:/work/lean/.lake/packages/tate-curves-theta/.lake/build/lib/lean:/work/lean/.lake/packages/genl/.lake/build/lib/lean:/work/lean/.lake/packages/heights/.lake/build/lib/lean:/work/lean/.lake/packages/pi1/.lake/build/lib/lean:/work/lean/.lake/packages/orbicurve-cores/.lake/build/lib/lean:/work/lean/.lake/packages/oka/.lake/build/lib/lean:/work/lean/.lake/packages/tempered-fundamental-groups/.lake/build/lib/lean:/work/lean/.lake/packages/elliptic-curves/.lake/build/lib/lean:/work/lean/.lake/packages/formal-schemes/.lake/build/lib/lean:/work/lean/.lake/packages/belyi/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/lean/.lake/packages/leancert/.lake/build/lib/lean:/work/lean/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeCert/.lake/build/lib/lean:/work/lean/.lake/packages/doc-gen4/.lake/build/lib/lean:/work/lean/.lake/packages/checkdecls/.lake/build/lib/lean:/work/lean/.lake/packages/mathlib/.lake/build/lib/lean:/work/lean/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /work/lean/.lake/packages/rellich-kondrachov/RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.lean -o /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.olean -i /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.ilean -c /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.c --setup /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.setup.json --json
+error: RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.lean:66:6: Type mismatch: After simplification, term
+  coeFn_add f g
+ has type
+  @Filter.EventuallyEq α E (ae (μ.restrict s)) (↑(↑f + ↑g)) (↑↑f + ↑↑g)
+but is expected to have type
+  @Filter.EventuallyEq α E (ae (μ.restrict s)) (fun x => ↑(↑f + ↑g) x) fun x => ↑↑f x + ↑↑g x
+error: RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.lean:120:6: Type mismatch: After simplification, term
+  coeFn_smul c f
+ has type
+  @Filter.EventuallyEq α E (ae (μ.restrict s)) (↑↑(c • f)) (c • ↑↑f)
+but is expected to have type
+  @Filter.EventuallyEq α E (ae (μ.restrict s)) (fun x => ↑↑(c • f) x) fun x => c • ↑↑f x
+warning: RellichKondrachov/MeasureTheory/Function/LpSpace/Restrict.lean:195:25: declaration uses `sorry`
+✖ [4146/7075] Building RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.H1 (81s)
+trace: .> LEAN_PATH=/work/lean/.lake/packages/MD4Lean/.lake/build/lib/lean:/work/lean/.lake/packages/BibtexQuery/.lake/build/lib/lean:/work/lean/.lake/packages/UnicodeBasic/.lake/build/lib/lean:/work/lean/.lake/packages/Cli/.lake/build/lib/lean:/work/lean/.lake/packages/leansqlite/.lake/build/lib/lean:/work/lean/.lake/packages/batteries/.lake/build/lib/lean:/work/lean/.lake/packages/Qq/.lake/build/lib/lean:/work/lean/.lake/packages/aesop/.lake/build/lib/lean:/work/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/lean/.lake/packages/importGraph/.lake/build/lib/lean:/work/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/lean/.lake/packages/plausible/.lake/build/lib/lean:/work/lean/.lake/packages/fixed-point-theorems/.lake/build/lib/lean:/work/lean/.lake/packages/Zeta3Irrational/.lake/build/lib/lean:/work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean:/work/lean/.lake/packages/carleson/.lake/build/lib/lean:/work/lean/.lake/packages/StrongPNT/.lake/build/lib/lean:/work/lean/.lake/packages/AbsorptionCutoff/.lake/build/lib/lean:/work/lean/.lake/packages/AINTLIB/.lake/build/lib/lean:/work/lean/.lake/packages/ClassFieldTheory/.lake/build/lib/lean:/work/lean/.lake/packages/schoenflies-lean/.lake/build/lib/lean:/work/lean/.lake/packages/SphereEversion/.lake/build/lib/lean:/work/lean/.lake/packages/TauCeti/.lake/build/lib/lean:/work/lean/.lake/packages/gromov/.lake/build/lib/lean:/work/lean/.lake/packages/iut/.lake/build/lib/lean:/work/lean/.lake/packages/tate-curves-theta/.lake/build/lib/lean:/work/lean/.lake/packages/genl/.lake/build/lib/lean:/work/lean/.lake/packages/heights/.lake/build/lib/lean:/work/lean/.lake/packages/pi1/.lake/build/lib/lean:/work/lean/.lake/packages/orbicurve-cores/.lake/build/lib/lean:/work/lean/.lake/packages/oka/.lake/build/lib/lean:/work/lean/.lake/packages/tempered-fundamental-groups/.lake/build/lib/lean:/work/lean/.lake/packages/elliptic-curves/.lake/build/lib/lean:/work/lean/.lake/packages/formal-schemes/.lake/build/lib/lean:/work/lean/.lake/packages/belyi/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/lean/.lake/packages/leancert/.lake/build/lib/lean:/work/lean/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/lean/.lake/packages/PrimeCert/.lake/build/lib/lean:/work/lean/.lake/packages/doc-gen4/.lake/build/lib/lean:/work/lean/.lake/packages/checkdecls/.lake/build/lib/lean:/work/lean/.lake/packages/mathlib/.lake/build/lib/lean:/work/lean/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /work/lean/.lake/packages/rellich-kondrachov/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.lean -o /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.olean -i /work/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.ilean -c /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.c --setup /work/lean/.lake/packages/rellich-kondrachov/.lake/build/ir/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.setup.json --json
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.lean:81:4: Type mismatch: After simplification, term
+  HasCompactSupport.smul_left hf.right
+ has type
+  @HasCompactSupport E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instZero ((fun x => c) * f)
+but is expected to have type
+  @HasCompactSupport E ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instZero (c • f)
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.lean:91:2: Type mismatch: After simplification, term
+  this
+ has type
+  @Continuous E E PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace fun x => (InnerProductSpace.toDual ℝ E).symm (fderiv ℝ f x)
+but is expected to have type
+  @Continuous E E PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (grad f)
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.lean:98:2: Type mismatch: After simplification, term
+  HasCompactSupport.comp_left hf'
+    (of_eq_true (Eq.trans (congrFun' (congrArg Eq (map_zero (InnerProductSpace.toDual ℝ E).symm)) 0) (eq_self 0)))
+ has type
+  @HasCompactSupport E E PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    SubtractionMonoid.toSubNegZeroMonoid.toNegZeroClass.toZero (⇑(InnerProductSpace.toDual ℝ E).symm ∘ fderiv ℝ f)
+but is expected to have type
+  @HasCompactSupport E E PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    SubtractionMonoid.toSubNegZeroMonoid.toNegZeroClass.toZero (grad f)
+error: RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/H1.lean:105:4: Type mismatch: After simplification, term
+  tsupport_comp_subset
+    (of_eq_true (Eq.trans (congrFun' (congrArg Eq (map_zero (InnerProductSpace.toDual ℝ E).symm)) 0) (eq_self 0)))
+    (fderiv ℝ f)
+ has type
+  @LE.le (Set E) Set.instLE (tsupport (⇑(InnerProductSpace.toDual ℝ E).symm ∘ fderiv ℝ f)) (tsupport (fderiv ℝ f))
+but is expected to have type
+  @LE.le (Set E) Set.instLE (tsupport (grad f)) (tsupport (fderiv ℝ f))
+⚠ [4230/7075] Built PrimeNumberTheoremAnd.Wiener (28s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:325:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/Wiener.lean:344:8: declaration uses `sorry`
+Some required targets logged failures:
+- RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.L2Compactness.Kernels
+- RellichKondrachov.MeasureTheory.Function.LpSpace.Restrict
+- RellichKondrachov.Analysis.FunctionalSpaces.Sobolev.Euclidean.H1
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+error: build failed
+
+=== SUMMARY
+build: FAIL rc=1 errors=9 failed_modules=3
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ygXYFQoSD5JRYzTAnJUTdW

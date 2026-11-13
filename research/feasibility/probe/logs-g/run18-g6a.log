@@ -1,3 +1,10 @@
+# Provenance (reconstructed 2026-11-14, lane A7 relaunch — H header-audit disposition):
+# modal run gprobe.py --mode g6a (partial StacksFrontier build pricing = G6a),
+# launched 2026-11-13 ~22:36 by lane A7 (pre-relaunch); header was never written before the
+# network outage killed the Modal client mid-run (heartbeat failure ~22:46 +0800,
+# modal.exception.ConnectionError — run died at lake update attempt 1, verdict-less).
+# SUPERSEDED by run21-g6a.log (same mode, relaunched 2026-11-14, completed with verdict).
+# Log preserved unaltered below as outage evidence.
 ✓ Initialized. View run at 
 https://modal.com/apps/semraker/main/ap-QXG1piUmbKerGySmeIOkId
 ✓ Created objects.

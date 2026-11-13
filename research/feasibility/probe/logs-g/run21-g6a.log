@@ -184,3 +184,719 @@ info: mathlib: running post-update hooks
 error: mathlib: failed to fetch cache
 [Weil] update still failing after 4 attempts — seeding
 [seed] mathlib pre-seeded at ff2494ea5e43 + dep olens redistributed
+
+=== Weil build: rc=1
+{'build': 'FAIL rc=1 errors=7493'}
+[g6a] build FAIL rc=1 errors=7493
+[g6a] progress: 11477/59222 lake jobs; failed modules: ['StacksCore.Algebra.Algebra.Subalgebra.Basic', 'StacksCore.Algebra.Algebra.Subalgebra.Lattice', 'StacksCore.Algebra.Homology.HomologicalTricomplex.Associator', 'StacksCore.Algebra.Homology.HomotopyCategory.Shift', 'StacksCore.Algebra.Homology.HomotopyCategory.ShiftSequence', 'StacksCore.Algebra.Homology.ShortComplex.Products', 'StacksCore.Algebra.Homology.ShortComplex.SnakeLemma', 'StacksCore.Algebra.Homology.SpectralSequence.EdgeStep', 'StacksCore.CategoryTheory.Basic', 'StacksCore.CategoryTheory.Endomorphism', 'StacksCore.CategoryTheory.GrothendieckGroup.Basic', 'StacksCore.CategoryTheory.Idempotents.Countable', 'StacksCore.CategoryTheory.Inertia', 'StacksCore.CategoryTheory.Localization.CalculusOfFraction.Abelian', 'StacksCore.CategoryTheory.Subobject.MonoOver', 'StacksCore.Examples.Stacks09I8', 'StacksCore.Examples.Stacks09IA', 'StacksCore.FieldTheory.Minpoly.Basic', 'StacksCore.FieldTheory.PurelyInseparable.Basic', 'StacksCore.GroupTheory.SpecificGroups.Cyclic.Basic', 'StacksCore.LinearAlgebra.Matrix.CommSemiring', 'StacksCore.LinearAlgebra.Matrix.Minor', 'StacksCore.LinearAlgebra.TensorProduct.Tower', 'StacksCore.RingTheory.FiniteStability', 'StacksCore.RingTheory.Morita.SimpleRing', 'StacksCore.RingTheory.PiTensorProduct', 'StacksCore.RingTheory.SimpleRing.TensorProduct', 'StacksFrontier.Algebra.Category.Grp.AdditiveFunctorFiniteGroups', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.ChangeOfRingsAdjunction', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.InternalHomVariance', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.LowerShriekSliceEquivalence', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.PullbackModel', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.PullbackUnivLE', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.SliceExtensionExact', 'StacksFrontier.Algebra.Category.ModuleCat.Presheaf.Tensor', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.DifferentialsPresheafFunctorial', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.DirectImage', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.EndActionLift', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.FiniteTypeColimit', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.FiniteTypeExtension', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.GlobalSectionSmul', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.RestrictScalarsEpiFullyFaithful', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.SectionwiseTensorAlgebra', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.SheafHomLeftExact', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.SheafificationHomology', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.ToposPullbackHomAlgebra', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.ToposPushforwardModules.HasSheafComposeForget', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.ULiftUnit', 'StacksFrontier.Algebra.Category.ModuleCat.Sheaf.WeaklyContractibleProducts', 'StacksFrontier.Algebra.Category.Ring.Epi.Cardinality']
+⚠ [5919/19048] Built StacksFrontier.CategoryTheory.Adjunction.Mates (3.6s)
+warning: StacksFrontier/CategoryTheory/Adjunction/Mates.lean:271:60: `CategoryTheory.TwoSquare.natTrans` has been deprecated: No replacement
+warning: StacksFrontier/CategoryTheory/Adjunction/Mates.lean:273:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/Adjunction/Mates.lean:277:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/Adjunction/Mates.lean:285:68: `CategoryTheory.TwoSquare.natTrans` has been deprecated: No replacement
+warning: StacksFrontier/CategoryTheory/Adjunction/Mates.lean:324:9: `CategoryTheory.TwoSquare.ext` has been deprecated: Use NatTrans.ext
+✖ [6805/19096] Building StacksCore.CategoryTheory.Basic (5.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/CategoryTheory/Basic.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Basic.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Basic.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Basic.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Basic.setup.json --json
+error: StacksCore/CategoryTheory/Basic.lean:35:35: Application type mismatch: The argument
+  h
+has type
+  (functor f.toMonoidHom).map a₁✝ = (functor f.toMonoidHom).map a₂✝
+but is expected to have type
+  f a₁✝ = f a₂✝
+in the application
+  MulEquiv.injective f h
+error: StacksCore/CategoryTheory/Basic.lean:34:11: Type mismatch
+  MulEquiv.surjective f
+has type
+  Function.Surjective ⇑f
+but is expected to have type
+  Function.Surjective (functor f.toMonoidHom).map
+the following variables have been introduced by the implicit lambda feature
+  X✝ : SingleObj M
+  Y✝ : SingleObj M
+you can disable implicit lambdas using `@` or writing a lambda expression with `{}` or `[]` binder annotations.
+✖ [6824/19096] Building StacksCore.GroupTheory.SpecificGroups.Cyclic.Basic (2.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.setup.json --json
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:14:18: Unknown identifier `zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:14:44: Unknown identifier `zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:20:44: unsolved goals
+G : Type u_1
+inst✝ : Group G
+g : G
+m n : ℕ
+h : g ^ m ∈ sorry
+⊢ g ^ n ∈ sorry ()
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:25:12: Unknown identifier `zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:25:38: Unknown identifier `orderOf`
+
+Note: It is not possible to treat `orderOf` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:26:8: Unknown identifier `pow_gcd_mem_zpowers_pow_iff`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:25:77: unsolved goals
+G : Type u_1
+inst✝ : Group G
+g : G
+m n : ℕ
+⊢ g ^ m ∈ sorry ↔ n.gcd sorry = m.gcd n
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:37:22: Unknown identifier `orderOf`
+
+Note: It is not possible to treat `orderOf` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:37:51: Unknown identifier `zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:38:6: Unknown identifier `pow_mem_zpowers_pow_iff`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:37:78: unsolved goals
+G : Type u_1
+inst✝ : Group G
+g : G
+n : ℕ
+hn : n ∣ sorry
+m : ℕ
+⊢ g ^ m ∈ sorry ↔ n ∣ m
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:45:53: Unknown identifier `orderOf`
+
+Note: It is not possible to treat `orderOf` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:47:9: Unknown identifier `orderOf_eq_card_of_forall_mem_zpowers`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:48:2: No goals to be solved
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:55:31: Unknown identifier `Subgroup.zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:55:71: Unknown identifier `orderOf`
+
+Note: It is not possible to treat `orderOf` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:56:5: Unknown identifier `zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:69:31: Unknown identifier `Subgroup.zpowers`
+
+Note: A public declaration `zpowers` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:69:58: Unknown identifier `Subgroup`
+
+Note: A public declaration `Subgroup` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:82:23: Unknown identifier `orderOf`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:70:36: unsolved goals
+case inr
+G : Type u_1
+inst✝¹ : Group G
+inst✝ : IsCyclic G
+gen : G
+hgen : ∀ (x : ?m.11), x ∈ sorry
+S : sorry
+hS : sorry ≠ 0
+⊢ sorry = S
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:92:13: Unknown identifier `Subgroup`
+
+Note: A public declaration `Subgroup` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:92:13: Unknown identifier `Subgroup`
+
+Note: A public declaration `Subgroup` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:93:24: Unknown constant `IsCyclic.exists_generator`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:93:2: Tactic `generalize` failed: result is not type correct
+  ∀ (x : Sort u_2), S₁ = S₂
+
+G : Type u_1
+inst✝¹ : Group G
+inst✝ : IsCyclic G
+S₁ : sorry
+S₂ : sorry
+hS : sorry = sorry
+⊢ S₁ = S₂
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:97:62: Unknown identifier `Finite`
+
+Note: A public declaration `Finite` exists but is imported privately; consider adding `public import Mathlib.Basic.Finite.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:105:69: Unknown identifier `Subgroup`
+
+Note: A public declaration `Subgroup` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:105:69: Unknown identifier `Subgroup`
+
+Note: A public declaration `Subgroup` exists but is imported privately; consider adding `public import Mathlib.Algebra.Group.Subgroup.Defs`.
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:107:24: Unknown constant `IsCyclic.exists_generator`
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:107:9: Tactic `rcases` failed: `x✝ : ?m.6 S₁ S₂` is not an inductive datatype
+error: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:114:47: Unknown identifier `Finite`
+
+Note: A public declaration `Finite` exists but is imported privately; consider adding `public import Mathlib.Basic.Finite.Defs`.
+warning: StacksCore/GroupTheory/SpecificGroups/Cyclic/Basic.lean:1:0: The current module only contains private declarations.
+
+Consider adding `public section` at the beginning of the module, or selectively marking declarations as `public`. Mark a `def` with `@[expose]` if downstream code needs it to be definitionally equal to its body (e.g. for `unfold`). Alternatively, add `@[expose] public section` to mark every definition as exposed.
+
+Note: This linter can be disabled with `set_option linter.privateModule false`
+⚠ [7117/19116] Built StacksCore.Algebra.Algebra.Equiv (4.7s)
+warning: StacksCore/Algebra/Algebra/Equiv.lean:26:71: `Module.End.coe_pow` has been deprecated: Use `FunLike.coe_pow_eq_iterate` instead
+
+Note: The updated constant has a different type:
+  ∀ {F' : Type u_3} {α : Type u_4} [inst : FunLike F' α α] [inst_1 : NPow F'] [IsNPowApplyEqIterate F'] (f : F')
+    (n : ℕ), ⇑(f ^ n) = (⇑f)^[n]
+instead of
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : Module R M]
+    (f : Module.End R M) (n : ℕ), ⇑(f ^ n) = (⇑f)^[n]
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coe_pow` to `FunLike.coe_pow_eq_iterate x`).
+✖ [7873/19184] Building StacksCore.Algebra.Algebra.Subalgebra.Basic (4.5s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/Algebra/Algebra/Subalgebra/Basic.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/Algebra/Algebra/Subalgebra/Basic.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/Algebra/Algebra/Subalgebra/Basic.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/Algebra/Algebra/Subalgebra/Basic.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/Algebra/Algebra/Subalgebra/Basic.setup.json --json
+error: StacksCore/Algebra/Algebra/Subalgebra/Basic.lean:32:4: `Subalgebra.centerCongr` has already been declared
+⚠ [7984/19192] Built StacksFrontier.Topology.Dimension.Catenary (4.0s)
+warning: StacksFrontier/Topology/Dimension/Catenary.lean:214:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/Topology/Dimension/Catenary.lean:222:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/Topology/Dimension/Catenary.lean:320:70: `ENat.coe_le_coe` has been deprecated: Use `ENat.natCast_le_natCast` instead
+
+Hint: Replace the deprecated name:
+  E̵N̵a̵t̵.̵c̵o̵e̵_̵l̵e̵_̵c̵o̵e̵E̲N̲a̲t̲.̲n̲a̲t̲C̲a̲s̲t̲_̲l̲e̲_̲n̲a̲t̲C̲a̲s̲t̲
+warning: StacksFrontier/Topology/Dimension/Catenary.lean:323:70: `ENat.coe_inj` has been deprecated: Use `ENat.natCast_inj` instead
+
+Hint: Replace the deprecated name:
+  E̵N̵a̵t̵.̵c̵o̵e̵_̵i̵n̵j̵E̲N̲a̲t̲.̲n̲a̲t̲C̲a̲s̲t̲_̲i̲n̲j̲
+✖ [8308/19212] Building StacksCore.Algebra.Algebra.Subalgebra.Lattice (2.7s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/Algebra/Algebra/Subalgebra/Lattice.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/Algebra/Algebra/Subalgebra/Lattice.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/Algebra/Algebra/Subalgebra/Lattice.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/Algebra/Algebra/Subalgebra/Lattice.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/Algebra/Algebra/Subalgebra/Lattice.setup.json --json
+error: StacksCore/Algebra/Algebra/Subalgebra/Lattice.lean:32:6: Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+case inl.inl
+k : Type u_1
+A : Type u_2
+inst✝³ : CommSemiring k
+inst✝² : Semiring A
+inst✝¹ : Algebra k A
+L : Subalgebra k A
+inst✝ : IsMulCommutative ↥L
+y : A
+ha : y ∈ centralizer k ↑L
+⊢ y ≠ y → Commute y y
+error: StacksCore/Algebra/Algebra/Subalgebra/Lattice.lean:33:6: Type mismatch
+  Eq.symm ((mem_centralizer_iff k).mp ha y hy)
+has type
+  x * y = y * x
+but is expected to have type
+  x ≠ y → Commute x y
+error: StacksCore/Algebra/Algebra/Subalgebra/Lattice.lean:34:6: Type mismatch
+  (mem_centralizer_iff k).mp ha x hx
+has type
+  x * y = y * x
+but is expected to have type
+  x ≠ y → Commute x y
+error: StacksCore/Algebra/Algebra/Subalgebra/Lattice.lean:35:6: Type mismatch
+  congrArg Subtype.val (mul_comm' ⟨x, hx⟩ ⟨y, hy⟩)
+has type
+  ↑(⟨x, hx⟩ * ⟨y, hy⟩) = ↑(⟨y, hy⟩ * ⟨x, hx⟩)
+but is expected to have type
+  x ≠ y → Commute x y
+✖ [8403/19216] Building StacksCore.LinearAlgebra.TensorProduct.Tower (6.5s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/LinearAlgebra/TensorProduct/Tower.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/TensorProduct/Tower.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/TensorProduct/Tower.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/TensorProduct/Tower.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/TensorProduct/Tower.setup.json --json
+error: StacksCore/LinearAlgebra/TensorProduct/Tower.lean:105:4: Invalid alternative name `zero`: There are no unhandled alternatives
+warning: StacksCore/LinearAlgebra/TensorProduct/Tower.lean:120:38: `TensorProduct.induction_on` has been deprecated: Use `TensorProduct.inductionOn` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} [inst : CommSemiring R] {M : Type u_5} {N : Type u_6} [inst_1 : AddCommMonoid M]
+    [inst_2 : AddCommMonoid N] [inst_3 : Module R M] [inst_4 : Module R N] {motive : M ⊗[R] N → Prop} (z : M ⊗[R] N),
+    (∀ (x : M) (y : N), motive (x ⊗ₜ[R] y)) → (∀ (x y : M ⊗[R] N), motive x → motive y → motive (x + y)) → motive z
+instead of
+  ∀ {R : Type u_1} [inst : CommSemiring R] {M : Type u_5} {N : Type u_6} [inst_1 : AddCommMonoid M]
+    [inst_2 : AddCommMonoid N] [inst_3 : Module R M] [inst_4 : Module R N] {motive : M ⊗[R] N → Prop} (z : M ⊗[R] N),
+    motive 0 →
+      (∀ (x : M) (y : N), motive (x ⊗ₜ[R] y)) → (∀ (x y : M ⊗[R] N), motive x → motive y → motive (x + y)) → motive z
+error: StacksCore/LinearAlgebra/TensorProduct/Tower.lean:120:38: Type mismatch
+  TensorProduct.induction_on x ?m.137 (fun x x_1 ↦ ?m.142) ?m.144
+has type
+  ?m.136 x
+but is expected to have type
+  (tensorHomUncurry (tensorHomCurryL.toFun x✝)) x = x✝ x
+⚠ [8415/19216] Built StacksCore.RingTheory.Ideal.Operations (4.8s)
+warning: StacksCore/RingTheory/Ideal/Operations.lean:92:28: `SetLike.not_le_iff_exists` has been deprecated: Use `IsConcreteLE.not_le_iff_exists` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.not_le_iff_exists` to `IsConcreteLE.not_le_iff_exists x`).
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵L̵i̵k̵e̵.̵n̵o̵t̵_̵l̵e̵_̵i̵f̵f̵_̵e̵x̵i̵s̵t̵s̵I̲s̲C̲o̲n̲c̲r̲e̲t̲e̲L̲E̲.̲n̲o̲t̲_̲l̲e̲_̲i̲f̲f̲_̲e̲x̲i̲s̲t̲s̲
+warning: StacksCore/RingTheory/Ideal/Operations.lean:114:27: `SetLike.not_le_iff_exists` has been deprecated: Use `IsConcreteLE.not_le_iff_exists` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.not_le_iff_exists` to `IsConcreteLE.not_le_iff_exists x`).
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵L̵i̵k̵e̵.̵n̵o̵t̵_̵l̵e̵_̵i̵f̵f̵_̵e̵x̵i̵s̵t̵s̵I̲s̲C̲o̲n̲c̲r̲e̲t̲e̲L̲E̲.̲n̲o̲t̲_̲l̲e̲_̲i̲f̲f̲_̲e̲x̲i̲s̲t̲s̲
+warning: StacksCore/RingTheory/Ideal/Operations.lean:121:28: `SetLike.le_def` has been deprecated: Use `IsConcreteLE.le_iff` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.le_def` to `IsConcreteLE.le_iff x`).
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵L̵i̵k̵e̵.̵l̵e̵_̵d̵e̵f̵I̲s̲C̲o̲n̲c̲r̲e̲t̲e̲L̲E̲.̲l̲e̲_̲i̲f̲f̲
+⚠ [8460/19216] Built StacksFrontier.CategoryTheory.Shift.AdjunctionMateCommShift (2.2s)
+warning: StacksFrontier/CategoryTheory/Shift/AdjunctionMateCommShift.lean:71:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+✖ [8540/19220] Building StacksCore.RingTheory.PiTensorProduct (4.1s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/RingTheory/PiTensorProduct.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/RingTheory/PiTensorProduct.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/RingTheory/PiTensorProduct.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/RingTheory/PiTensorProduct.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/RingTheory/PiTensorProduct.setup.json --json
+error: StacksCore/RingTheory/PiTensorProduct.lean:49:70: tactic execution is stuck, goal contains metavariables
+  ∀ (x y : (i : ι) → A i),
+    ((MultilinearMap.mkPiAlgebra R ι S).compLinearMap fun x ↦ ?m.57) (x * y) =
+      ((MultilinearMap.mkPiAlgebra R ι S).compLinearMap fun x ↦ ?m.57) x *
+        ((MultilinearMap.mkPiAlgebra R ι S).compLinearMap fun x ↦ ?m.57) y
+error: StacksCore/RingTheory/PiTensorProduct.lean:55:49: unsolved goals
+R : Type u_1
+ι : Type u_2
+A : ι → Type u_3
+inst✝⁵ : CommSemiring R
+inst✝⁴ : (i : ι) → Semiring (A i)
+inst✝³ : (i : ι) → Algebra R (A i)
+S : Type u_4
+inst✝² : CommSemiring S
+inst✝¹ : Algebra R S
+inst✝ : Fintype ι
+f : (i : ι) → A i →ₐ[R] S
+x : (i : ι) → A i
+⊢ (sorry f) ((tprod R) x) = ∏ i, (f i) (x i)
+warning: StacksCore/RingTheory/PiTensorProduct.lean:55:58: declaration uses `sorry`
+warning: StacksCore/RingTheory/PiTensorProduct.lean:57:16: `productMap_of` does not use the following hypothesis in its type:
+  • [Fintype ι] (#10)
+
+Consider replacing this hypothesis with the corresponding instance of `Finite` and using `Fintype.ofFinite` in the proof, or removing it entirely.
+
+Note: This linter can be disabled with `set_option linter.unusedFintypeInType false`
+warning: StacksCore/RingTheory/PiTensorProduct.lean:61:16: `productMap_comp_of` does not use the following hypothesis in its type:
+  • [Fintype ι] (#10)
+
+Consider replacing this hypothesis with the corresponding instance of `Finite` and using `Fintype.ofFinite` in the proof, or removing it entirely.
+
+Note: This linter can be disabled with `set_option linter.unusedFintypeInType false`
+warning: StacksCore/RingTheory/PiTensorProduct.lean:64:8: `range_productMap` does not use the following hypothesis in its type:
+  • [Fintype ι] (#10)
+
+Consider replacing this hypothesis with the corresponding instance of `Finite` and using `Fintype.ofFinite` in the proof, or removing it entirely.
+
+Note: This linter can be disabled with `set_option linter.unusedFintypeInType false`
+⚠ [8602/19220] Built StacksFrontier.CategoryTheory.EssentiallyConstant.IndObject (4.8s)
+warning: StacksFrontier/CategoryTheory/EssentiallyConstant/IndObject.lean:260:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/EssentiallyConstant/IndObject.lean:268:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+⚠ [8727/19226] Built StacksFrontier.CategoryTheory.Trace.Preliminaries.GroupTrace (4.0s)
+warning: StacksFrontier/CategoryTheory/Trace/Preliminaries/GroupTrace.lean:90:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/Trace/Preliminaries/GroupTrace.lean:92:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/Trace/Preliminaries/GroupTrace.lean:95:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+⚠ [8981/19234] Built StacksFrontier.CategoryTheory.FilteredDerived.Perfectness.ProjectiveTrace (10s)
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:73:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:97:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:146:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:323:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:331:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:374:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:396:6: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/FilteredDerived/Perfectness/ProjectiveTrace.lean:399:6: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+⚠ [8994/19234] Built StacksFrontier.CategoryTheory.MittagLefflerSections (3.5s)
+warning: StacksFrontier/CategoryTheory/MittagLefflerSections.lean:72:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/MittagLefflerSections.lean:224:8: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/MittagLefflerSections.lean:228:6: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+⚠ [9165/19246] Built StacksCore.FieldTheory.IntermediateField.Adjoin.Defs (5.3s)
+warning: StacksCore/FieldTheory/IntermediateField/Adjoin/Defs.lean:19:37: `AlgHomClass.toAlgHom` has been deprecated: Use `AlgHom.ofClass` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.toAlgHom` to `AlgHom.ofClass x`).
+
+Hint: Replace the deprecated name:
+  A̵l̵g̵H̵o̵m̵C̵l̵a̵s̵s̵.̵t̵o̵A̵l̵g̵H̵o̵m̵A̲l̲g̲H̲o̲m̲.̲o̲f̲C̲l̲a̲s̲s̲
+⚠ [9306/19248] Built StacksCore.RingTheory.Jacobson.Ideal (3.7s)
+warning: StacksCore/RingTheory/Jacobson/Ideal.lean:38:40: `Ideal.mem_jacobson_bot` has been deprecated: Use `Ring.mem_jacobson_iff` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u} [inst : CommRing R] {x : R}, x ∈ Ring.jacobson R ↔ ∀ (y : R), IsUnit (x * y + 1)
+instead of
+  ∀ {R : Type u} [inst : CommRing R] {x : R}, x ∈ ⊥.jacobson ↔ ∀ (y : R), IsUnit (x * y + 1)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mem_jacobson_bot` to `Ring.mem_jacobson_iff x`).
+warning: StacksCore/RingTheory/Jacobson/Ideal.lean:39:28: `Ideal.mem_jacobson_bot` has been deprecated: Use `Ring.mem_jacobson_iff` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u} [inst : CommRing R] {x : R}, x ∈ Ring.jacobson R ↔ ∀ (y : R), IsUnit (x * y + 1)
+instead of
+  ∀ {R : Type u} [inst : CommRing R] {x : R}, x ∈ ⊥.jacobson ↔ ∀ (y : R), IsUnit (x * y + 1)
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mem_jacobson_bot` to `Ring.mem_jacobson_iff x`).
+warning: StacksCore/RingTheory/Jacobson/Ideal.lean:54:37: `Ideal.isUnit_of_sub_one_mem_jacobson_bot` has been deprecated: Use `Ideal.isUnit_of_sub_one_mem_jacobson` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u} [inst : CommRing R] (r : R), r - 1 ∈ Ring.jacobson R → IsUnit r
+instead of
+  ∀ {R : Type u} [inst : CommRing R] (r : R), r - 1 ∈ ⊥.jacobson → IsUnit r
+⚠ [9416/19250] Built StacksCore.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Basic (2.0s)
+warning: StacksCore/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean:10:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+✖ [9715/19264] Building StacksFrontier.RingTheory.TensorProduct.IsBaseChangeSpan (2.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.setup.json --json
+error: StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.lean:26:68: Invalid `⟨...⟩` notation: The expected type `?m.147.1 ?m.148` is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: StacksFrontier/RingTheory/TensorProduct/IsBaseChangeSpan.lean:26:23: Type mismatch
+  zero_mem ?m.138
+has type
+  0 ∈ ?m.138
+but is expected to have type
+  ∀ (s : S) (n_1 : N),
+    ((∀ (s : ?m.111 n x✝) (x : ?m.112 n x✝ s),
+          ?m.118 n x✝ s x ∈ ?m.117 n x✝ s x → s • ?m.118 n x✝ s x ∈ ?m.117 n x✝ s x) →
+        (∀ (x : ?m.119 n x✝) (x_1 : ?m.120 n x✝ x),
+            ?m.127 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1 →
+              ?m.128 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1 → ?m.127 n x✝ x x_1 + ?m.128 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1) →
+          n_1 ∈ Submodule.span S (Set.range ⇑f)) →
+      (∀ (s : ?m.111 n x✝) (x : ?m.112 n x✝ s),
+          ?m.118 n x✝ s x ∈ ?m.117 n x✝ s x → s • ?m.118 n x✝ s x ∈ ?m.117 n x✝ s x) →
+        (∀ (x : ?m.119 n x✝) (x_1 : ?m.120 n x✝ x),
+            ?m.127 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1 →
+              ?m.128 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1 → ?m.127 n x✝ x x_1 + ?m.128 n x✝ x x_1 ∈ ?m.126 n x✝ x x_1) →
+          s • n_1 ∈ Submodule.span S (Set.range ⇑f)
+⚠ [9827/19272] Built StacksCore.Counterexamples.LocalHom (4.0s)
+warning: StacksCore/Counterexamples/LocalHom.lean:35:26: `SetLike.exists_of_lt` has been deprecated: Use `IsConcreteLE.exists_of_lt` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.exists_of_lt` to `IsConcreteLE.exists_of_lt x`).
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵L̵i̵k̵e̵.̵e̵x̵i̵s̵t̵s̵_̵o̵f̵_̵l̵t̵I̲s̲C̲o̲n̲c̲r̲e̲t̲e̲L̲E̲.̲e̲x̲i̲s̲t̲s̲_̲o̲f̲_̲l̲t̲
+✖ [9832/19272] Building StacksFrontier.Topology.Spectral.ConstructibleTopology (3.7s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksFrontier/Topology/Spectral/ConstructibleTopology.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/Topology/Spectral/ConstructibleTopology.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/Topology/Spectral/ConstructibleTopology.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/Topology/Spectral/ConstructibleTopology.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/Topology/Spectral/ConstructibleTopology.setup.json --json
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:124:5: Unknown constant `WithTopology.continuous_ofTopology`
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:124:44: Unknown constant `WithTopology.continuous_toTopology`
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:207:72: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:214:77: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:222:50: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:228:53: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:248:57: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:263:37: Unknown constant `WithTopology.continuous_toTopology`
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:266:7: Unknown constant `WithTopology.continuous_ofTopology`
+error: StacksFrontier/Topology/Spectral/ConstructibleTopology.lean:274:81: Unknown identifier `SpectralSpace`
+
+Note: It is not possible to treat `SpectralSpace` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+✖ [10000/19278] Building StacksCore.CategoryTheory.Subobject.MonoOver (3.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/CategoryTheory/Subobject/MonoOver.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Subobject/MonoOver.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Subobject/MonoOver.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Subobject/MonoOver.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Subobject/MonoOver.setup.json --json
+error: StacksCore/CategoryTheory/Subobject/MonoOver.lean:31:9: `CategoryTheory.MonoOver.full_exists` has already been declared
+error: StacksCore/CategoryTheory/Subobject/MonoOver.lean:38:6: `CategoryTheory.MonoOver.factorThruImage_comp_existsPullbackAdj_counit_app_hom_left` has already been declared
+error: StacksCore/CategoryTheory/Subobject/MonoOver.lean:52:18: `CategoryTheory.MonoOver.existsComp` has already been declared
+✖ [10315/19290] Building StacksFrontier.CategoryTheory.Localization.LeftDerivedByResolutions (3.2s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.setup.json --json
+error: StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean:116:4: Unknown constant `CategoryTheory.TwoSquare.hasPointwiseRightKanExtensionAt_iff`
+error: StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean:107:65: unsolved goals
+C₁ : Type u₁
+C₂ : Type u₂
+H : Type u₃
+inst✝³ : Category.{v₁, u₁} C₁
+inst✝² : Category.{v₂, u₂} C₂
+inst✝¹ : Category.{v₃, u₃} H
+W₁ : MorphismProperty C₁
+W₂ : MorphismProperty C₂
+Φ : LocalizerMorphism W₁ W₂
+inst✝ : Φ.IsLeftDerivabilityStructure
+F : C₂ ⥤ H
+X : C₁
+hw : TwoSquare.GuitartExact (CatCommSq.iso Φ.functor W₁.Q W₂.Q (Φ.localizedFunctor W₁.Q W₂.Q)).inv
+this :
+  (TwoSquare.structuredArrowDownwards (CatCommSq.iso Φ.functor W₁.Q W₂.Q (Φ.localizedFunctor W₁.Q W₂.Q)).inv
+      (W₁.Q.obj X)).Initial
+e : W₂.Q.obj (Φ.functor.obj X) ≅ (Φ.localizedFunctor W₁.Q W₂.Q).obj (W₁.Q.obj X) :=
+  (CatCommSq.iso Φ.functor W₁.Q W₂.Q (Φ.localizedFunctor W₁.Q W₂.Q)).app X
+⊢ W₁.Q.HasPointwiseRightKanExtensionAt (Φ.functor ⋙ F) (W₁.Q.obj X) ↔
+    W₂.Q.HasPointwiseRightKanExtensionAt F (W₂.Q.obj (Φ.functor.obj X))
+error: StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean:143:36: Invalid field `compTwoSquare`: The environment does not contain `CategoryTheory.Comma.compTwoSquare`, so it is not possible to project the field `compTwoSquare` from an expression
+  RightExtension.mk LF α
+of type
+  Comma ((whiskeringLeft C₂ D H).obj L) (fromPUnit F)
+error: StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean:141:39: unsolved goals
+C₁ : Type u₁
+C₂ : Type u₂
+H : Type u₃
+inst✝⁶ : Category.{v₁, u₁} C₁
+inst✝⁵ : Category.{v₂, u₂} C₂
+inst✝⁴ : Category.{v₃, u₃} H
+W₁ : MorphismProperty C₁
+W₂ : MorphismProperty C₂
+Φ : LocalizerMorphism W₁ W₂
+inst✝³ : Φ.IsLeftDerivabilityStructure
+F : C₂ ⥤ H
+h : Φ.Derives F
+D : Type u_1
+inst✝² : Category.{u_2, u_1} D
+L : C₂ ⥤ D
+inst✝¹ : L.IsLocalization W₂
+LF : D ⥤ H
+α : L ⋙ LF ⟶ F
+inst✝ : LF.IsLeftDerivedFunctor α W₂
+X : C₁
+this : F.HasPointwiseLeftDerivedFunctor W₂
+⊢ IsIso (α.app (Φ.functor.obj X))
+warning: StacksFrontier/CategoryTheory/Localization/LeftDerivedByResolutions.lean:382:6: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+⚠ [10335/19290] Built StacksCore.LinearAlgebra.Dimension.Finite (2.6s)
+warning: StacksCore/LinearAlgebra/Dimension/Finite.lean:16:10: `nontrivial_of_invariantBasisNumber` has been deprecated: use infer_instance instead
+✖ [10541/19296] Building StacksCore.LinearAlgebra.Matrix.CommSemiring (4.8s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/LinearAlgebra/Matrix/CommSemiring.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/Matrix/CommSemiring.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/Matrix/CommSemiring.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/Matrix/CommSemiring.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/Matrix/CommSemiring.setup.json --json
+error: StacksCore/LinearAlgebra/Matrix/CommSemiring.lean:242:58: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?f * ?g) ?x
+in the target expression
+  adjp s (M.updateRow j (Pi.single i 1)) i j =
+    (M.updateRow j (Pi.single i 1) * adjp s (M.updateRow j (Pi.single i 1))) j j
+
+R : Type u_1
+inst✝² : CommSemiring R
+n : Type u_3
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+M : Matrix n n R
+s : ℤˣ
+i j : n
+⊢ adjp s (M.updateRow j (Pi.single i 1)) i j =
+    (M.updateRow j (Pi.single i 1) * adjp s (M.updateRow j (Pi.single i 1))) j j
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    adjp s (M.updateRow j (Pi.single i 1)) i
+⚠ [10584/19296] Built StacksCore.Algebra.Module.SpanRank (4.2s)
+warning: StacksCore/Algebra/Module/SpanRank.lean:34:10: `nontrivial_of_invariantBasisNumber` has been deprecated: use infer_instance instead
+⚠ [10656/19300] Built StacksFrontier.CategoryTheory.Filtered.AlmostDirected (4.5s)
+warning: StacksFrontier/CategoryTheory/Filtered/AlmostDirected.lean:220:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/CategoryTheory/Filtered/AlmostDirected.lean:288:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+✖ [10738/19302] Building StacksCore.LinearAlgebra.Matrix.Minor (3.4s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/LinearAlgebra/Matrix/Minor.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/Matrix/Minor.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/LinearAlgebra/Matrix/Minor.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/Matrix/Minor.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/LinearAlgebra/Matrix/Minor.setup.json --json
+error: StacksCore/LinearAlgebra/Matrix/Minor.lean:64:73: unsolved goals
+R : Type u_1
+inst✝³ : CommRing R
+m : Type u_2
+n : Type u_3
+inst✝² : Fintype m
+inst✝¹ : DecidableEq m
+inst✝ : Fintype n
+B : Matrix m n R
+A : Matrix n m R
+j k : m
+⊢ (B * A) j k = ∑ x, B j x * A x k
+warning: StacksCore/LinearAlgebra/Matrix/Minor.lean:65:19: This simp argument is unused:
+  mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: StacksCore/LinearAlgebra/Matrix/Minor.lean:81:76: unsolved goals
+R : Type u_1
+inst✝³ : CommRing R
+m : Type u_2
+n : Type u_3
+inst✝² : Fintype m
+inst✝¹ : DecidableEq m
+inst✝ : Fintype n
+A : Matrix n m R
+f : R
+hf : f ∈ A.minorIdeal
+r : m → n
+j k : m
+⊢ (submatrix 1 r id * A) j k = A (r j) k
+warning: StacksCore/LinearAlgebra/Matrix/Minor.lean:82:21: This simp argument is unused:
+  mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StacksCore/LinearAlgebra/Matrix/Minor.lean:82:32: This simp argument is unused:
+  one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [10865/19304] Building StacksFrontier.AlgebraicGeometry.Topologies.BigSites.LeftKanExtensionExactness (2.6s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.setup.json --json
+error: StacksFrontier/AlgebraicGeometry/Topologies/BigSites/LeftKanExtensionExactness.lean:60:8: failed to synthesize instance of type class
+  PreservesLimitsOfShape I
+    ((Functor.whiskeringLeft (CostructuredArrow F.op Y) Aᵒᵖ (Type w)).obj (CostructuredArrow.proj F.op Y) ⋙ colim)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+⚠ [10901/19304] Built StacksCore.RingTheory.MatrixAlgebra (3.7s)
+warning: StacksCore/RingTheory/MatrixAlgebra.lean:31:8: `AlgEquiv.coe_ringEquiv` has been deprecated: Use `AlgEquiv.coe_toRingEquiv` instead
+
+Hint: Replace the deprecated name:
+  AlgEquiv.coe_r̵t̲o̲R̲ingEquiv
+✖ [11116/19304] Building StacksCore.CategoryTheory.Idempotents.Countable (3.2s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/CategoryTheory/Idempotents/Countable.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Idempotents/Countable.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Idempotents/Countable.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Idempotents/Countable.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Idempotents/Countable.setup.json --json
+error: StacksCore/CategoryTheory/Idempotents/Countable.lean:66:2: Function expected at
+  Pi.lift_π
+but this term has type
+  Pi.lift (Pi.π ?m.66) = 𝟙 (∏ᶜ ?m.66)
+
+Note: Expected a function because this term is being applied to the argument
+  _
+error: StacksCore/CategoryTheory/Idempotents/Countable.lean:81:6: Function expected at
+  Pi.lift_π
+but this term has type
+  Pi.lift (Pi.π ?m.173) = 𝟙 (∏ᶜ ?m.173)
+
+Note: Expected a function because this term is being applied to the argument
+  _
+error: StacksCore/CategoryTheory/Idempotents/Countable.lean:81:30: Function expected at
+  Pi.lift_π
+but this term has type
+  Pi.lift (Pi.π ?m.239) = 𝟙 (∏ᶜ ?m.239)
+
+Note: Expected a function because this term is being applied to the argument
+  _
+⚠ [11470/19320] Built StacksCore.RingTheory.Support (4.6s)
+warning: StacksCore/RingTheory/Support.lean:147:23: `Submodule.le_of_le_smul_of_le_jacobson_bot` has been deprecated: Use `Submodule.le_of_le_smul_of_le_jacobson` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_3} {M : Type u_4} [inst : CommRing R] [inst_1 : AddCommGroup M] [inst_2 : Module R M] {I : Ideal R}
+    {N N' : Submodule R M}, N'.FG → I ≤ Ring.jacobson R → N' ≤ N ⊔ I • N' → N' ≤ N
+instead of
+  ∀ {R : Type u_3} {M : Type u_4} [inst : CommRing R] [inst_1 : AddCommGroup M] [inst_2 : Module R M] {I : Ideal R}
+    {N N' : Submodule R M}, N'.FG → I ≤ ⊥.jacobson → N' ≤ N ⊔ I • N' → N' ≤ N
+✖ [11515/19324] Building StacksCore.RingTheory.SimpleRing.TensorProduct (6.1s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/RingTheory/SimpleRing/TensorProduct.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/RingTheory/SimpleRing/TensorProduct.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/RingTheory/SimpleRing/TensorProduct.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/RingTheory/SimpleRing/TensorProduct.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/RingTheory/SimpleRing/TensorProduct.setup.json --json
+error: StacksCore/RingTheory/SimpleRing/TensorProduct.lean:124:21: Unknown constant `TensorProduct.eq_repr_basis_right`
+error: StacksCore/RingTheory/SimpleRing/TensorProduct.lean:124:9: Tactic `rcases` failed: `x✝ : ?m.79` is not an inductive datatype
+⚠ [11533/19324] Built StacksCore.Algebra.Homology.HomologicalBicomplex (3.4s)
+warning: StacksCore/Algebra/Homology/HomologicalBicomplex.lean:56:31: 'HomologicalComplex₂.DoubleComplex' already carries this reference; skipping duplicate.
+✖ [11643/19326] Building StacksCore.CategoryTheory.Endomorphism (2.7s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksCore/CategoryTheory/Endomorphism.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Endomorphism.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksCore/CategoryTheory/Endomorphism.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Endomorphism.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksCore/CategoryTheory/Endomorphism.setup.json --json
+error: StacksCore/CategoryTheory/Endomorphism.lean:30:18: Type mismatch
+  map_add F
+has type
+  F.map (?m.49 + ?m.50) = F.map ?m.49 + F.map ?m.50
+but is expected to have type
+  (hF.mulEquivEnd X).toFun (x✝¹ + x✝) = (hF.mulEquivEnd X).toFun x✝¹ + (hF.mulEquivEnd X).toFun x✝
+warning: StacksCore/CategoryTheory/Endomorphism.lean:38:73: `CategoryTheory.End.one_def` has been deprecated: Use `CategoryTheory.End.one_asHom` instead
+
+Hint: Replace the deprecated name:
+  End.one_d̵e̵f̵a̲s̲H̲o̲m̲
+error: StacksCore/CategoryTheory/Endomorphism.lean:39:45: Unknown identifier `ringEquivEnd_apply`
+error: StacksCore/CategoryTheory/Endomorphism.lean:40:4: Type mismatch
+  Eq.trans (map_smul F r (𝟙 X)) (_root_.id (congrArg (HSMul.hSMul r) (F.map_id X)))
+has type
+  F.map (r • 𝟙 X) = r • 𝟙 (F.obj X)
+but is expected to have type
+  (hF.ringEquivEnd X) (r • 1) = r • 1
+error: StacksCore/CategoryTheory/Endomorphism.lean:34:18: unknown free variable `_fvar.1304`
+warning: StacksCore/CategoryTheory/Endomorphism.lean:38:73: This simp argument is unused:
+  End.one_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingEquiv.toEquiv_eq_coe, Algebra.algebraMap_eq_smul_one, Equiv.toFun_as_coe, EquivLike.coe_coe,
+    ringEquivEnd_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [11725/19330] Built StacksFrontier.AlgebraicGeometry.Topologies.ChangeOfSites.CoverPreserving (3.1s)
+warning: StacksFrontier/AlgebraicGeometry/Topologies/ChangeOfSites/CoverPreserving.lean:43:4: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/AlgebraicGeometry/Topologies/ChangeOfSites/CoverPreserving.lean:74:6: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+warning: StacksFrontier/AlgebraicGeometry/Topologies/ChangeOfSites/CoverPreserving.lean:97:4: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [11786/19332] Built StacksCore.RingTheory.LocalRing.RingHom.Basic (3.3s)
+warning: StacksCore/RingTheory/LocalRing/RingHom/Basic.lean:50:9: `Submodule.le_of_le_smul_of_le_jacobson_bot` has been deprecated: Use `Submodule.le_of_le_smul_of_le_jacobson` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_3} {M : Type u_4} [inst : CommRing R] [inst_1 : AddCommGroup M] [inst_2 : Module R M] {I : Ideal R}
+    {N N' : Submodule R M}, N'.FG → I ≤ Ring.jacobson R → N' ≤ N ⊔ I • N' → N' ≤ N
+instead of
+  ∀ {R : Type u_3} {M : Type u_4} [inst : CommRing R] [inst_1 : AddCommGroup M] [inst_2 : Module R M] {I : Ideal R}
+    {N N' : Submodule R M}, N'.FG → I ≤ ⊥.jacobson → N' ≤ N ⊔ I • N' → N' ≤ N
+⚠ [11842/19334] Built StacksFrontier.Algebra.Homology.MapTotalComplex (5.9s)
+warning: StacksFrontier/Algebra/Homology/MapTotalComplex.lean:261:2: The `show` tactic should only be used to indicate intermediate goal states for readability.
+However, this tactic invocation changed the goal. Please use `change` instead for these purposes.
+
+Note: This linter can be disabled with `set_option linter.style.show false`
+✖ [12005/19334] Building StacksFrontier.CategoryTheory.Sites.Continuous (3.3s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /work/Weil/.lake/packages/Stacks/StacksFrontier/CategoryTheory/Sites/Continuous.lean -o /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/CategoryTheory/Sites/Continuous.olean -i /work/Weil/.lake/packages/Stacks/.lake/build/lib/lean/StacksFrontier/CategoryTheory/Sites/Continuous.ilean -c /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/CategoryTheory/Sites/Continuous.c --setup /work/Weil/.lake/packages/Stacks/.lake/build/ir/StacksFrontier/CategoryTheory/Sites/Continuous.setup.json --json
+error: StacksFrontier/CategoryTheory/Sites/Continuous.lean:164:80: failed to synthesize instance of type class
+  PreservesLimitsOfShape I (sheafToPresheaf J (Type w) ⋙ u.op.lan ⋙ presheafToSheaf K (Type w))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+✖ [12010/19336] Building StacksFrontier.CategoryTheory.Sites.CoverLifting (3.5s)
+trace: .> LEAN_PATH=/work/Weil/.lake/packages/Cli/.lake/build/lib/lean:/work/Weil/.lake/packages/batteries/.lake/build/lib/lean:/work/Weil/.lake/packages/Qq/.lake/build/lib/lean:/work/Weil/.lake/packages/aesop/.lake/build/lib/lean:/work/Weil/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/Weil/.lake/packages/importGraph/.lake/build/lib/lean:/work/Weil/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/Weil/.lake/packages/plausible/.lake/build/lib/lean:/work/Weil/.lake/packages/mathlib/.lake/build/lib/lean:/work/Weil/.lake/packages/Stacks/.lake/build/lib/lean:/work/Weil/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean /w
+
+=== SUMMARY
+build: FAIL rc=1 errors=7493
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-VtA49I9mv62fFwP0UB0Obc

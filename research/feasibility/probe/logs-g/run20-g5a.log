@@ -1,3 +1,7 @@
+# NOTE (2026-11-14, lane A7 relaunch): this run died verdict-less ~35 min into the seeded
+# build — the local wrapper (harness background task) was killed externally, which tore down
+# the Modal client and the remote container. NOT a Modal artifact-cache failure (the seed
+# fallback had already engaged). SUPERSEDED by run23-g5a.log (nohup-decoupled relaunch).
 # Provenance: modal run gprobe.py --mode g5a (AreaLaw2D statement layer + Physlib staged from donor pin = G5a; re-run of dead run17 which died in the 2026-11-13 network outage at lake update), 2026-11-14, lane A7 relaunch, command: TAUCETI_STAGE=/tmp/a7r20 ./run_gprobe.sh g5a
 ✓ Initialized. View run at 
 https://modal.com/apps/semraker/main/ap-FK4dxqD8DSgBWFkq2ypBbc
@@ -9,6 +13,191 @@ https://modal.com/apps/semraker/main/ap-FK4dxqD8DSgBWFkq2ypBbc
 ├── ✓ Created Function g5a.
 ├── ✓ Created Function g6a.
 └── ✓ Created Function g7.
+
+=== AreaLaw2D update (attempt 1): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: Physlib: materializing new dependency
+info: Physlib: fetching revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b' from https://github.com/leanprover-community/physlib
+info: Physlib: checking out revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b'
+info: leanprover-community/mathlib: materializing new dependency
+info: leanprover-community/mathlib: fetching revision 'ff2494ea5e438f8a8452db803068acd711fa0059' from https://github.com/leanprover-community/mathlib4
+info: leanprover-community/mathlib: checking out revision 'ff2494ea5e438f8a8452db803068acd711fa0059'
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+info: doc-gen4: materializing new dependency
+info: doc-gen4: fetching revision 'aceca4eeb5a79092eabefaa75fcb72b701d02205' from https://github.com/leanprover/doc-gen4
+info: doc-gen4: checking out revision 'aceca4eeb5a79092eabefaa75fcb72b701d02205'
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: plausible: materializing new dependency
+info: plausible: fetching revision 'b7eb3304aeae834b12dda98993a37f6a41f6f0bb' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'b7eb3304aeae834b12dda98993a37f6a41f6f0bb'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision '5f4d51b81cbd3f6b32b156bfad9056621a040404' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '5f4d51b81cbd3f6b32b156bfad9056621a040404'
+info: importGraph: materializing new depende
+
+=== AreaLaw2D update (attempt 2): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+
+=== AreaLaw2D update (attempt 3): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+
+=== AreaLaw2D update (attempt 4): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+[AreaLaw2D] update still failing after 4 attempts — seeding
+[seed] mathlib pre-seeded at ff2494ea5e43 + dep olens redistributed
+Container terminated due to preemption. Your Function will be restarted with the same input. For more details, see https://modal.com/docs/guide/preemption
 
 === AreaLaw2D update (attempt 1): rc=1
 Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.

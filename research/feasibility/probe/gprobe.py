@@ -387,14 +387,25 @@ def g6a(tarball: bytes, build_timeout: int = 2400):
     return summary
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+@app.function(image=image, cpu=16.0, memory=65536, timeout=4 * 60 * 60)
 def g7(tarball: bytes, probes: dict):
     """G7 primary: axiom audit of openai-math's own 7/8 quasi-RH theorems
     (OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re,
     OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re) at the DONOR's own pin
     (v4.34.1 / mathlib d13f23b7) — axioms are pin-independent, and building at the donor
     pin avoids the v4.34→v4.36 drift entirely. Tarball = pruned Nonvanishing closure
-    (2924 files) + lakefile + manifest + lean-toolchain."""
+    (2924 files) + lakefile + manifest + lean-toolchain + patches/.
+
+    Flow fix (run22, 2026-11-14): the donor lakefile's SECOND patch tier (post_update —
+    12 deps incl. rellich-kondrachov, whose absence broke run19's build with 9
+    type-mismatch errors in 3 RellichKondrachov modules) only fires on `lake update`,
+    which this flow skips on purpose (no Reservoir exposure; run19 showed cache.mathlib.org
+    works while Reservoir was down for g5a/g6a). We reproduce the hook's exact behavior:
+    for each of the 12 deps, git-apply-check preflight → apply → reverse-verify, using the
+    donor's own patches/<label>-lean4341.patch (lakefile.lean:306-355 post_update pkg do).
+    Attempt 3 (run24, 2026-11-14): build cap raised 7200→9000 s and function cap
+    3 h→4 h — run22 proved the patch tier but was killed mid-build by the lane's
+    execution-window interruption; the caps now cover a full 7,075-job compile."""
     import io, pathlib, re, tarfile
 
     work = pathlib.Path("/work")
@@ -410,7 +421,33 @@ def g7(tarball: bytes, probes: dict):
     if rc != 0:
         summary["cache"] = f"FAIL rc={rc}"
     else:
-        rc, out = _sh("lake build OAI.NumberTheory.DirichletL.Nonvanishing", d, 2 * 3600)
+        post_update_deps = ["fixed-point-theorems", "PrimeNumberTheoremAnd",
+                            "Zeta3Irrational", "rellich-kondrachov", "carleson",
+                            "StrongPNT", "AbsorptionCutoff", "AINTLIB", "ClassFieldTheory",
+                            "schoenflies-lean", "SphereEversion", "gromov"]
+        applied = []
+        for label in post_update_deps:
+            dep = d / ".lake" / "packages" / label
+            patch = d / "patches" / f"{label}-lean4341.patch"
+            if not dep.is_dir() or not patch.exists():
+                print(f"[g7] patch {label}: SKIP (dep dir or patch file missing)", flush=True)
+                continue
+            rc_r, _ = _sh(f"git -C {dep} apply --check --reverse {patch}", d, 60)
+            if rc_r == 0:
+                print(f"[g7] patch {label}: already applied", flush=True)
+                continue
+            rc_c, out_c = _sh(f"git -C {dep} apply --check {patch}", d, 60)
+            if rc_c != 0:
+                print(f"[g7] patch {label}: CONFLICT\n{out_c[:800]}", flush=True)
+                continue
+            rc_a, out_a = _sh(f"git -C {dep} apply {patch}", d, 60)
+            ok = rc_a == 0
+            print(f"[g7] patch {label}: {'applied' if ok else 'FAIL ' + out_a[:800]}",
+                  flush=True)
+            if ok:
+                applied.append(label)
+        summary["patches"] = f"{len(applied)}/12 applied: {','.join(applied)}"
+        rc, out = _sh("lake build OAI.NumberTheory.DirichletL.Nonvanishing", d, 9000)
         e = _errs(out)
         done = re.findall(r"(✔|✖) \[(\d+)/(\d+)\]", out)
         n_ok = sum(1 for m in done if m[0] == "✔")
