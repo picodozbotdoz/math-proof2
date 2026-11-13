@@ -272,9 +272,11 @@ rows), pilot outcome slot per pilot pipeline.
   formalization-first (Weil 1948 math-known); FF-EZ2-family secondary DISCOVERY-grade
   [HYPOTHESIS], flagged not-pilot. A5: primary "formalization-first (dictionary value)",
   WARM (Suzuki 2610.41115 month-clock). Pilot (slot 1, A2): P0 OK + P1 GREEN (7/7
-  kernel-clean, triad; 243 LoC total) → outcome **[PILOT-VERDICT:71-P2]** (P2 landing
-  theorems: W1 s≠1 pole exclusion → W2 → HW; first P2 run at relaunch: FAIL rc=1 errors=6
-  sorry=0, iterating).
+  kernel-clean, triad; 243 LoC total) → outcome **FINAL-GREEN (disk-verified 2026-11-14;
+  A2 formal report pending with 73-C)** — p2-run6 "P2.lean: OK": 282 LoC / 11 theorems,
+  22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK across p2-run1–6; W1 honestly
+  corrected to the pole-family exclusion (prework's s≠1 reading refined); 73-C: Q0 probe
+  CONFIRMED (run1-q0), Tier-C skeleton executing.
 - **(72) Area-law inertial defect.** Post-Kuwahara restructure: the gap-to-inertia dictionary
   (HasGlobalGap ⇔ `posIndexAbove θ (E₀−H) ≤ 1`, provable now; isometric-B erratum applied),
   a purity (α = 2) certificate route [HYPOTHESIS] via pilot-01's PROVED master identity, a
@@ -357,8 +359,8 @@ rows), pilot outcome slot per pilot pipeline.
 | 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
 | 10-L2 | `PolyTVal` | **[PILOT-VERDICT:10-L2]** (2,595 LoC / 126 thms on disk; Part-D defect fixes + first run pending at relaunch; L1 landed GREEN first — 529 LoC / 25 thms, l1-run4-final) |
 | 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 392 LoC; four pinpoint fixes applied — m2-run1: P11T3.lean OK with T1/T2/RedCompA/B re-verified; RedTm2 iterating, err 4→2→3 across m2-runs — A8 reconciles at report) |
-| 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); M4b fallback layer **[PILOT-VERDICT:42-M4b]** (1,560 LoC / 66 thms; run1 FAIL err=3 sorry=0 → 12-line Fix-C → **run2 GREEN 2026-11-14** + `m4b-axcheck-run1` triad-only 0 sorryAx); next: M4-note + the CLEARED direct-V2-import upgrade (≤20-line delta) |
-| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; P2 error descent 6→4→2→1→1 across p2-run1–5 → **p2-run6 "P2.lean: OK" (GREEN on disk 2026-11-14)** — axcheck + A2 report pending; **[PILOT-VERDICT:71-P2]** + **[PILOT-VERDICT:73-C]** (73-C skeleton not yet started — sequenced after P2) |
+| 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (disk-verified 2026-11-14; A3 formal report owed)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); M4-note finalization owed |
+| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (disk-verified 2026-11-14; A2 formal report pending)** — p2-run6 "P2.lean: OK", 282 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **[PILOT-VERDICT:73-C]** (Q0 probe CONFIRMED run1-q0; Tier-C skeleton executing) |
 | 72-C-neg | Kuwahara no-go gate (A4) | **[PILOT-VERDICT:72-C-neg]** — **GREEN on disk 2026-11-14**: descent 20→14→12→6→7→3→1→OK across run1–8, `run8-final.log` "C-neg.lean: OK" + A4's own `axcheck-run1.log` (triad-only, 0 sorryAx, rc=0); A4 formal report pending (run1–7 provenance headers + u≠1 dossier edit) |
 | 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 

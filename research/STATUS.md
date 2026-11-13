@@ -477,9 +477,9 @@ Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C
 
 | Pilot / probe | Verdict | Evidence |
 |---|---|---|
-| 71-P2 (FF landing theorems, A2) | [PILOT-VERDICT:71-P2] | [logs p2-run*; axcheck] |
+| 71-P2 (FF landing theorems, A2) | **FINAL-GREEN (disk-verified 2026-11-14; A2 formal report pending w/ 73-C)** | p2-run6 "P2.lean: OK": 282 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK (p2-run1–6); W1 pole-family correction |
 | 73-C skeleton (FF Hecke–Tate, A2) | [PILOT-VERDICT:73-C] | [logs; STOP-before-Q4 respected] |
-| 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only); upgrade [VERDICT] | [upgrade logs / M4-note] |
+| 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only) + upgrade **COMPLETE-primary** (m4b2-run2 "M4b.lean: OK" — direct V2 import, 1,571 LoC / 68 thms = PRIMARY, fallback byte-preserved, ≤20-line gate met; disk-verified, A3 formal report owed) | m4b-run2, m4b-axcheck-run1, m4b2-run2; M4-note owed |
 | 10-L2 `PolyTVal` (A6) | [PILOT-VERDICT:10-L2] | [logs; full axcheck per axcheck_full.py] |
 | 11-M2 (A8) | [PILOT-VERDICT:11-M2] | [m2-run* logs; axcheck] |
 | 72-M1 Tier-C (A8, slot 3) | [PILOT-VERDICT:72-M1] | [logs] |
