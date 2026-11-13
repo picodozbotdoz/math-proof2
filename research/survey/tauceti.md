@@ -40,7 +40,12 @@ The deepest distinctive development, organized around Mathlib's `LSeries` and Lo
   half-plane forms.
 - **Prime ideal theorem**: `primeIdealTheorem`
   (`NumberTheory/ArithmeticDirichletSeries/Prime/PrimeIdealTheorem.lean:39`) — PNT for the prime
-  ideals of any number field; mathlib has PNT only over ℚ. Consumed by **Mertens' three theorems
+  ideals of any number field. [erratum 2026-11-13, A1/QA: v1 said "mathlib has PNT only over ℚ" —
+  false at the surveyed pin: mathlib @ `ff2494ea` has **no PNT asymptotic at all**
+  (`PrimeCounting.lean:98,102` = divergence only; the "PrimeNumberTheorem" hits are attribution
+  headers, `Chebyshev.lean:56`, `LSeries/WienerIkehara.lean:2,52` — the PNT+-derived Tauberian
+  tool landed, the conclusion did not). Strengthens the donor claim: tauceti generalizes a
+  statement mathlib does not yet have in any form.] Consumed by **Mertens' three theorems
   for a number field** (`NumberTheory/LFunctions/Mertens.lean`: first theorem
   `∑_{N𝔭≤x} log N𝔭/N𝔭 = log x + O(1)`, second with constant `B_K`, Mertens product
   `∏(1−N𝔭⁻¹)⁻¹ ~ e^γ κ_K log x` with `κ_K = dedekindZeta_residue K`).
@@ -55,12 +60,17 @@ The deepest distinctive development, organized around Mathlib's `LSeries` and Lo
   `AnalyticLFunctionData.entireCompletion` (pole-clearing via Mathlib's `toMeromorphicNFOn`,
   exact `meromorphicOrderAt` preserved, `Basic.lean`); `zetaEntireCompletion = s(s−1)·ξ₀(s) + 1`
   ("twice Riemann's ξ", nonzero at 0 and 1, reflection-symmetric,
-  `Zeros/Completion/RiemannZeta.lean:27`); for primitive nonprincipal χ, entire completions equal
+  `Zeros/Completion/RiemannZeta.lean:33` [erratum 2026-11-13, A1/QA: v1 said :27, an `open`
+  line — the same correction the tauceti-contributions bridge issued 2026-11-09, not
+  previously propagated here]); for primitive nonprincipal χ, entire completions equal
   canonical completions with `analyticOrderAt` multiplicities matching
   `χ.completedLFunction` (`Zeros/Completion/Dirichlet.lean`).
 - **Quadratic factorization**: `ζ_K(s) = ζ(s)·L(s,χ_D)` for quadratic K
   (`TauCeti.NumberField.dedekindZeta_eq_riemannZeta_mul_LFunction`,
-  `NumberTheory/LFunctions/DedekindZeta/Quadratic.lean`), residue formula
+  `NumberTheory/NumberField/Quadratic/DedekindZeta.lean:215` — [erratum 2026-11-13, A1/QA: v1
+  attributed it to `NumberTheory/LFunctions/DedekindZeta/Quadratic.lean`, which only
+  references/uses it; also `1 < s.re` half-plane hypothesis, the transfer caveat dossier 42
+  records]), residue formula
   `dedekindZeta_residue_eq_LFunction_one`
   (`NumberTheory/NumberField/Quadratic/DedekindZeta.lean:225`); **four-factor L-function
   products** with computed Laurent coefficients/residues at s=1 including the double-pole case
@@ -176,7 +186,9 @@ The deepest distinctive development, organized around Mathlib's `LSeries` and Lo
   geometry of the disc, Montel/normal families, Hurwitz, Rouché, reflection principle,
   removability; **the argument principle in winding-number form**
   (`TauCeti.Contour.argumentPrinciple_nullHomologous` + geometric reading
-  `argumentPrinciple_windingNumber`, `Analysis/Complex/Conformal/ArgumentPrinciple.lean:89`) atop
+  `argumentPrinciple_windingNumber`, `Analysis/Complex/Conformal/ArgumentPrinciple.lean:89`; the
+  `_nullHomologous` form is declared at `Analysis/Contour/Argument/Cycle.lean:110`
+  [erratum 2026-11-13, A1/QA: v1's single locator covered only the winding form]) atop
   a 40-file contour-integration suite (`Analysis/Contour/`: homology Cauchy, residues, winding,
   sector cancellation, per-window splitting).
 - **Matrix analysis / quantum information**: Sylvester's law of inertia for Hermitian matrices
@@ -215,7 +227,9 @@ between `0` and `0'`; a general **priority-method framework** underneath (`Compu
 injury monitoring, preservation, initialization, records) plus Sacks splitting, single-oracle/
 staged constructions, Turing degrees/jump (`TuringDegree.lean`), Friedberg enumerations,
 inseparability, automatic sequences (DFAO), `FriedbergMuchnik` example files under `Examples/`.
-Mathlib has bare Turing machines; **nothing of priority-argument recursion theory exists in
+Mathlib has bare Turing machines plus `Computability/TuringDegree.lean` reducibility basics
+[erratum 2026-11-13, A1/QA: v1 said "bare Turing machines" — the pin also carries the 111-line
+TuringDegree basics file]; **nothing of priority-argument recursion theory exists in
 mathlib** — this is the single most distinctive donor area w.r.t. mathlib.
 
 ### 1.7 Logic, models, sets, order
@@ -249,7 +263,9 @@ well-founded trees. Logic: basic equivalence/function/relation infrastructure.
 
 ### (a) `sorry` inventory
 
-`rg -n "sorry"` over `TauCeti/` finds **zero proof `sorry`s**. All eight files with matches contain
+`rg -n "sorry"` over `TauCeti/` finds **zero proof `sorry`s**. [erratum 2026-11-13, A1/QA: the
+word-boundary sweep finds **seven** files with docstring-only matches, not eight as v1 said —
+count slip, substance unchanged.] All files with matches contain
 the word only inside docstrings — and instructively, three document *other* projects' gaps:
 `RingTheory/Huber/RingOfDefinition.lean:110` ("AINTLIB's proof is a `sorry`, whose note blames
 missing…"), `RingTheory/Huber/ClosedSubmodule.lean:81` (a lemma "whose body in that development
@@ -400,7 +416,8 @@ locators for the other corpora are from `research/survey/anthropics.md` (same wo
 ### To zeta23 (anthropics) — the densest bidirectional zone
 
 - **Overlapping, independently built machinery** (Phase-2 unification targets):
-  TauCeti `zetaEntireCompletion` (`Zeros/Completion/RiemannZeta.lean:27`, = 2ξ on Mathlib's
+  TauCeti `zetaEntireCompletion` (`Zeros/Completion/RiemannZeta.lean:33` [erratum 2026-11-13,
+  A1/QA: was :27], = 2ξ on Mathlib's
   `completedRiemannZeta₀`) vs zeta23's ξ/ξ′ stack (`ChallengeDeps/XiPrime.lean:16`); TauCeti's
   `analyticOrderAt` multiplicity comparisons for primitive Dirichlet completions
   (`Zeros/Completion/Dirichlet.lean`) vs zeta23's `zeroMult` counting machinery; TauCeti's

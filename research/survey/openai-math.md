@@ -168,7 +168,11 @@ links to its manuscripts). Lean names are exact declarations, mostly from
   `OAI/Probability/SLE/`, **imports TauCeti**), 238 Thorp shuffle, 234/237/227 spin glasses.
 - Math physics: **269 Laughlin gap + disorder stability** (formalized; see §4); 261 Anderson
   localization/delocalization; 262 sharp 1D Lieb–Thirring (`OAI.SharpLiebThirring.
-  sharp_lieb_thirring`); 265 2D gapped area law; 266 exactly 3 MUBs in dimension 6 (restored
+  sharp_lieb_thirring`); 265 2D gapped area law [erratum 2026-11-13, A1/QA: though undocumented (no docs/265.md,
+  no formalization.yaml entry — why the survey greps missed it), OAI's own tree carries a
+  family-265-class development: `OAI/MathematicalPhysics/PEPSFilters/` (namespace
+  `PolynomialPEPS.PinnedEntropy`: square-grid PEPS states, Hamiltonians, nested positive
+  filters) + `PEPSMove/` — cf. dossier 72 and bridges/area-law.md]; 266 exactly 3 MUBs in dimension 6 (restored
   C++ + Python checker, `history.md:27`); 268 Haldane gap; 279 exact quantum factoring.
 - Operator algebras: **287 all free group factors isomorphic** (L(𝔽₂) ≅ L(𝔽₃); reasoning trace
   released); 285 Baum–Connes/Kadison–Kaplansky counterexamples; 288 Kadison similarity; 294
@@ -268,10 +272,14 @@ external (Comparator + landrun; nanoda for 2/418 configs).
   `Analysis.Complex.Basic` ×267, `Analysis.SpecialFunctions.Pow.Real` ×225,
   `Algebra.BigOperators…`, `MeasureTheory.Integral.*`, `Analysis.Normed.Module.
   FiniteDimension` ×174.
-- **PrimeNumberTheoremAnd** (Kontorovich et al.): imported by 244 OAI files (quasi-RH/Catalan/
+- **PrimeNumberTheoremAnd** (Kontorovich et al.): imported by 242 OAI files [erratum
+  2026-11-13, A1/QA: v1 said 244] (quasi-RH/Catalan/
   TwoPointCorrelations/Jacobsthal) — the same upstream project anthropics zeta23 ported as
   `FromPNTPlus/`; **StrongPNT** (math-inc): 12 files (TwoPointCorrelations, Jacobsthal);
-  **ClassFieldTheory**: 4 files (DukePrimeDegree); **TauCeti**: 5 files (see §4);
+  **ClassFieldTheory**: 2 direct importers + 1 namespace-opener, all in
+  `OAI/NumberTheory/DukePrimeDegree/Arithmetic/` (`ClassFieldBridge.lean:3–4` imports
+  `ClassFieldTheory.…MathlibFrobeniusHilbertComparison` — the same n-yamaguchi library DZDF
+  vendors, a second independent consumer; erratum 2026-11-13, A1/QA: v1 said "4 files"); **TauCeti**: 5 files (see §4);
   **schoenflies-lean**: 9 files (CircleDomains, SLE); **oka**: 6; **heights**: 99 (AG/PadicHodge);
   **genl**: 22; SphereEversion/PrimeCert/AbsorptionCutoff: 1 each. Declared but with **zero
   imports from `OAI/`**: Zeta3Irrational, AINTLIB, carleson, rellich-kondrachov, gromov, belyi,
