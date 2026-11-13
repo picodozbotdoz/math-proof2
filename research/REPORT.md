@@ -42,7 +42,8 @@ after an extractor-side fix) with 0 `sorryAx`; every axiom set is
   modulo an explicit common-zero defect; **proved conditional on explicit binders** (donor
   theorems from zeta23 and Knausgård's clean layer with his externally checked certificate,
   tauceti ported statements). With the defect, this moves the literature's 45%-distinct
-  (de Laat–Rolen–Tripp–Wagner 2019) into the 5/6 class.
+  (de Laat–Rolen–Tripp–Wagner 2019 — GRH-conditional, fixed quadratic K
+  [erratum 2026-11-13, A5 P2-3 audit, applied by H]) into the 5/6 class.
 - **(20) The common-zero seam** — with-multiplicity proportions merge through any
   factorization for free, while every distinct/simple statement degrades exactly by common
   zeros (a simple common zero is a double zero of the product); conditional core proved.

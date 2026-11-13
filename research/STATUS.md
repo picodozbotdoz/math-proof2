@@ -136,8 +136,18 @@ orchestrator-owned.
 | 10 | 10-z3: L1 counter combinators, then L2 `PolyTVal` | IN FLIGHT (A6) | M1 (= L3) green + axioms-clean 2026-11-10; L1/L2 are the open items |
 | 52 | 52 unified CCR Fock layer | **M1 VERIFIED-GREEN** (A8 close-out 2026-11-13, see `pilots/52-note.md`; main-run FAIL was mid-iteration, superseded same-day by run14-green + axcheck-final) | reproduced Cycle 2: `m1-run15-cycle2-green` + `axcheck-cycle2` (15 axiom-lines, 0 sorryAx); `_unattributed/` emptied (run2 attributed); M2 = weighted refinement + adjointness layer |
 | 20 | 20-hecke-zetaK close-out | **CLOSED (A8)**: M1 run recorded GREEN, `pilots/20/logs/m1-cycle2-green.log`, note `20-note.md` | axcheck-cycle2 OK 36 axiom-lines 0 sorryAx; ledger §8 addendum; hCZ seam unchanged (`20-hCZ-NOTE.md`); A3: no hCZ/Card20 deltas — Hecke object layer may switch openai→DZDF at 31/32 (note only) |
-| 50 | 50-M2-31/32 (donor-swap; A3 verdict in) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable by DZDF (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md`; NOTE (2026-11-13): hQRH ζ-class formally dischargeable at FULL strength via external Liu-1 donor (registration `2d5a663`; probe pending A7/G7) |
-| 42 | 42-M4 donor swap to V2 | **GO — spec in flight (A3), pilot lane pending** (blueprint landed: `pilots/42-M4-blueprint.md`) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
+| 50 | 50-M2-R1 (gated continuation; A3) | **GATED on A7/G1** (DZDF full build — vendor-CFT v4.35 blocker; fallback = statement-binder `hDZ` route) | hQRH@7/8 NOT dischargeable by DZDF (7/8 ⊋ 31/32); weakened 31/32 binders discharge at K = ℚ → unconditional [1/32, 31/32] strip, OAI-port-free; spec landed `pilots/50-M2-31-32-spec.md`; NOTE (2026-11-13): hQRH ζ-class formally dischargeable at FULL strength via external Liu-1 donor (registration `2d5a663`; probe pending A7/G7) |
+| 42 | 42-M4b-upgrade (gated continuation; A3) | **GO — executing** (M4a ~180 LoC green on disk; blueprint + M4a.lean mid-flight commit pending A3's report) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
+| 11 | 11-M2 (A8-3, authorized) | RUNNING | pilot-11 revival: `pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` on disk, mid-flight (committed with A8's report) |
+| 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **SLOTTED — executing** (71-P0/P1 243 LoC green per empirical record) | Cycle-2 pilot-decision slot 1 (see decision block below) |
+| 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2** | Cycle-2 pilot-decision slot 2 (see decision block below) |
+| 75 | 75 abelian-assembly | **DEFERRED to wave 4** | Cycle-2 pilot-decision (see below) |
+
+**Cycle-2 pilot decision (orchestrator, 2026-11-13; TRIAGE Cycle-2 §decision typesets when
+A9's staging `TRIAGE-C2-ROWS.md` lands):** slots = **71-P2 + 73-C skeleton (A2, executing)**
+and **72-M1 Tier-C (A8, after 11-M2)**; **75 deferred to wave 4**; **42-M4b-upgrade and
+50-M2-R1 = gated continuations (A3)**. Decision basis = the empirical record (M4a ~180 LoC
+green; 71-P0/P1 243 LoC green; zone-owner memos); A7 grades [incoming].
 
 A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict summary): **20/22/21/40 — NO donor deltas** (hCZ + stop-at-M4 statuses unchanged; 20's Hecke object layer may switch openai→DZDF at 31/32 — note only); new cross-cutting donor `dedekindAbelianQuotient` (general-abelian factorization, 70-series feeder). QA P4 executed: 8 OK / 2 minor pins / 0 WRONG (`qa/cycle2-qa-plan.md` Part 1); two locator fixes routed to A3.
 
@@ -160,7 +170,16 @@ live agent processes — command: `ps -eo comm --no-headers | grep -cx zcode-cli
 CLI agent sessions; includes the orchestrator's own session — the desktop app's
 Electron/zygote helpers are excluded by the exact-comm match). First measurement:
 **8** at 2026-11-13 22:1x (= 7 lane sessions + orchestrator, consistent with the user's
-observed max-7 concurrent). Counts accompany every future batch report.
+observed max-7 concurrent); second **13** at batch close (orchestrator attribution:
+>10 = transient subagent CLIs overlapping; steady-state ≈ lanes+1). Raw counts accompany
+every future batch report.
+
+**Watch attributions (orchestrator, 2026-11-13 — no ownership violations):** `pilots/11/`
+activity = lane A8's authorized A8-3 assignment (pilot 11-M2, running);
+`research/TRIAGE-C2-ROWS.md` = lane A9's orchestrator-authorized staging file; the
+`survey/openai-math.md` + `survey/tauceti.md` modifications = lane A1-5's authorized
+QA fixes-in-place (trivial-and-uncontested class, erratum lines). A2's census-command fix
+(QA P2 minor) routed via the orchestrator into A2's next queue.
 
 **External donor-candidate register** (decision-traceability for sibling growth):
 - Liu-1 (`liubaiying101/Slightly-improved-…`): **REGISTERED** (clone + AGENTS.md, commit
@@ -233,4 +252,9 @@ observed max-7 concurrent). Counts accompany every future batch report.
   retracting Part 3's Physlib tilt (import real via `QuantumInfo.ForMathlib.Matrix` at
   PartialTrace.lean:4; manifest mathlib stale db584cd6 — G5 staging cost stands);
   hexagonmath ORCID caveat recorded; VERDICTS C2 completeness glanced (rows 70–75 intact,
-  73 [incoming], standing notes present). Cumulative plan tally: 0 WRONG.
+  73 [incoming], standing notes present). Cumulative plan tally: 0 WRONG. (4075e84)
+- 2026-11-13 — `Cycle 2: H — pilot-decision board, REPORT DLRT erratum, watch attributions`
+  (this commit): Cycle-2 pilot decision recorded in the pipeline (slots 71-P2+73-C / 72-M1
+  Tier-C; 75 deferred wave-4; 42-M4b + 50-M2-R1 gated continuations); REPORT §1 DLRT
+  qualifier erratum applied (A5 P2-3); probe readings 8→13 + orchestrator attribution
+  recorded; watch attributions block (A8-3 / A9 staging / A1-5 fixes-in-place).
