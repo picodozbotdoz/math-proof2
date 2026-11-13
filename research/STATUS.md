@@ -289,7 +289,7 @@ standing authorization with a commit.
   LoC; RedTm2 392 vs 386 LoC); one wrap-claim correction — INDEX was NOT current through
   the wrap (6 missing rows + 4 stale UNCOMMITTED flags, fixed); A2 already live
   (71/p2-run1.log: FAIL rc=1 errors=6 sorry=0, provenance header present, file left for
-  A2's batch commit); concurrency probe 8 at this batch close. (9010890)
+  A2's batch commit); concurrency probe 8 at this batch close. (f860280)
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
