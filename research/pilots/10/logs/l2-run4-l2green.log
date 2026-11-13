@@ -1,0 +1,194 @@
+# provenance: raw modal run, pilot 10 L2.lean (Modal iteration 4: loop_growth_le rebuilt term-mode without 'unfold Frag.growth' — refine Finset.sup_le + (pushes_place).symm.le.trans (Finset.le_sup .. (Finset.mem_univ _)), following M1's GREEN Frag.step_growth pattern) | crossmath-pilot-32 app; modal as doz, profile semraker | 2026-11-14 +08 | lane: pilot-10 executor (A6-relaunch, Cycle 2) | command: cd /tmp/crossmath-pilot-stage && /home/doz/dozenv/bin/modal run run_pilot.py --dir /tmp/crossmath-pilot-stage | verdict: Pilot10_L2.lean OK (0 errors 0 sorry — L2 GREEN); AxPilot10_L2_full.lean FAIL rc=1 errors=0 sorry=0 — axcheck GENERATOR defect: axcheck_full.py popped the Groundwork.Counted namespace at 'end Steps' (bare end treated as namespace end), giving unknown-constant #print axioms for theorems after the Steps section; all printed axiom sets ⊆ {propext, Classical.choice, Quot.sound}
+845ce1291871fee81fbfac3bbf5a3c551a01d924a470ffb25962c9a706c6ca07  /home/doz/zcode-workdir/cross-math-fronttier/research/pilots/10/L2.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-4KNr02e5SkZGuhxmedmhKO
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['AxPilot10_L2_full.lean', 'Pilot10_L2.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== AxPilot10_L2_full.lean
+[pilot] AxPilot10_L2_full.lean: FAIL rc=1 errors=0 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Run.trans' depends on axioms: [propext]
+'Groundwork.TM.run_place' depends on axioms: [propext]
+'Groundwork.TM.Frag.seq_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_head' depends on axioms: [propext]
+'Groundwork.TM.Frag.ofStmt_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.of_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mirror_mirror' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.length_mirror' depends on axioms: [propext]
+'Groundwork.TM.code_mir' depends on axioms: [propext]
+'Groundwork.TM.upd_main' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_a' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_b' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.stepAux_renK' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_renK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.upd4_src' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t1' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t2' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_cnt' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_inside' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.mvB_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mvB_ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.other_ne' depends on axioms: [propext]
+'Groundwork.TM.mv_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv_runs'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv2_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.drp_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.pushW_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dropF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromA_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromB_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dupF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.update_withIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.stepAux_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.Frag.io_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.len_cons' depends on axioms: [propext]
+'Groundwork.len_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.bound_le' depends on axioms: [propext]
+'Groundwork.PB.bound_comp' depends on axioms: [propext]
+'Groundwork.PB.const' depends on axioms: [propext]
+'Groundwork.PB.id'' depends on axioms: [propext]
+'Groundwork.PB.add' depends on axioms: [propext]
+'Groundwork.PB.mul' depends on axioms: [propext]
+'Groundwork.PB.pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.comp' depends on axioms: [propext]
+'Groundwork.PB.mono_bound' depends on axioms: [propext]
+'Groundwork.PolyT.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.length_le_stkLen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.sum_stk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_stepAux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.step_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.RunIn.trans' depends on axioms: [propext]
+'Groundwork.TM.RunIn.of_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.RunsB.runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.RunsB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Runs.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.runIn_place' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_headB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.seq_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exitB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iterB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.within_io' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.upd_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.skip_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.pourQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pourQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pour_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.build_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.prologue_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.chkQ_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.chkQ_some' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.look_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.initList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.haltList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.outputs_of_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_withIO_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_head' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.spaceWithinTM_of_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.spaceWithinTM_iff_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.located_high_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.visitedStacks_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cw_zero' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_len_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_pow_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_odd_dec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.stkLen_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.Host.stkLen_withIO_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_head' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.spaceWithinTM_of_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Trace.iterate' does not depend on any axioms
+'Groundwork.Trace.of_iterate' does not depend on any axioms
+'Groundwork.spaceWithinTM_iff_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.located_high_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.visitedStacks_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.beq_bit_bit' does not depend on any axioms
+'Groundwork.Counted.cw_zero' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_len_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_pow_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_odd_dec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.stkLen_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+AxPilot10_L2_full.lean:2771:14: error(lean.unknownIdentifier): Unknown constant `cdFrag_runs`
+AxPilot10_L2_full.lean:2772:14: error(lean.unknownIdentifier): Unknown constant `pushes_place`
+AxPilot10_L2_full.lean:2773:14: error(lean.unknownIdentifier): Unknown constant `loop_growth_le`
+AxPilot10_L2_full.lean:2774:14: error(lean.unknownIdentifier): Unknown constant `cdLoop_runsB`
+AxPilot10_L2_full.lean:2775:14: error(lean.unknownIdentifier): Unknown constant `skipF_runs`
+AxPilot10_L2_full.lean:2776:14: error(lean.unknownIdentifier): Unknown constant `skipF_runsB`
+AxPilot10_L2_full.lean:2777:14: error(lean.unknownIdentifier): Unknown constant `polyTVal_id`
+AxPilot10_L2_full.lean:2778:14: error(lean.unknownIdentifier): Unknown constant `countdown_cut`
+
+=== Pilot10_L2.lean
+[pilot] Pilot10_L2.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   AxPilot10_L2_full.lean: FAIL rc=1 errors=0 sorry=0
+[pilot]   Pilot10_L2.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-4KNr02e5SkZGuhxmedmhKO
+EXIT=0

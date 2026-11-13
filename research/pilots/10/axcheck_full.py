@@ -13,19 +13,25 @@ import sys
 from pathlib import Path
 
 src = Path(sys.argv[1]).read_text()
-ns, names = [], []
+# Track namespaces AND sections: a bare `end` closes whichever opened last, so
+# `section X … end X` no longer pops an enclosing namespace (L2's Steps section).
+stack, names = [], []
 for line in src.splitlines():
     s = line.strip()
     m = re.match(r"^namespace\s+([A-Za-z0-9_.]+)", s)
     if m:
-        ns.append(m.group(1))
+        stack.append(("ns", m.group(1)))
+        continue
+    if re.match(r"^section\b", s):
+        stack.append(("sec", None))
         continue
     if re.match(r"^end\b", s):
-        if ns:
-            ns.pop()
+        if stack:
+            stack.pop()
         continue
     m = re.match(r"^(?:@\[[^\]]*\]\s+)?theorem\s+([A-Za-z0-9_?!'.₀-₉]+)", s)
     if m:
+        ns = [n for kind, n in stack if kind == "ns"]
         names.append(".".join(ns + [m.group(1)]))
 hdr = (f"/- full axcheck copy of {sys.argv[1]}: #print axioms on all {len(names)} "
        f"non-private theorems -/\n")

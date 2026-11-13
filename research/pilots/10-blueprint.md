@@ -182,9 +182,59 @@ run since 3): agreement theorems `[propext]`/`[propext, Quot.sound]`; `termFCD_e
 ## §Next milestones
 
 - ~~**M2 = L1**~~ (counter combinators; **done**, §L1 run log above).
-- **M3 = L2** (PolyTVal certificates over the counter combinators) — the hard layer. M1's
-  `Frag.Runs.toB` already says that *any* fragment uses at most start + growth·steps cells; what
-  L2 must add is that the counter-based fragments run on *poly-size words* (value-bounded loops),
-  so that `exists_tm_space`'s hypothesis `S ≤ (|x|+2)^d` holds for the counter-`padM`.
+- **M3 = L2** — see §L2 run log below.
 - Assembly then = counter-`padM'` + L2 + `exists_tm_space` in place of `exists_tm` inside
   `exists_tm_padded`; the time half is unchanged because `exists_tm_space` is about eth's machine.
+
+## §L2 run log (milestone M3, Cycle 2, lane A6-relaunch 2026-11-14)
+
+**Scope actually landed in L2.lean** (Part D, namespace `Groundwork.Counted`): the space-certified
+countdown loop — `cw` (flat ⌈log₂⌉ counter word), `cdM`/`cdFrag` (decrement walk: `cw n ++ A →
+cw (n−1) ++ A`, stack b restored, ≤ 3·|bits n| + 3 steps, `cdFrag_runs`), `cdLoop` +
+**`cdLoop_runsB`** (the per-iteration clock: n rounds in ≤ n·(3·|bits n| + 5 + tb) + 1 steps —
+polynomial in the VALUE n — with every configuration ≤ start + growth·(3·|bits n| + 3 + tb) —
+the WORD of the counter only), `PolyTVal` (the value-time/word-space discipline of prework §5)
++ **`polyTVal_id`** (first certificate: identity through the clock, 16·(len x + nb + 1)^16 time vs
+(4g+16)·(len x + nb.size + 1)^(4g+16) space), `countdown_cut` (round count = L1's `min q nb` cut).
+The relabeling walk (wd ↔ cw) and Stepped-level counter-`padM'` + `exists_tm_padded_space` are
+declared next-tranche in the file header (eth-Lib plumbing, no new mathematics claimed).
+
+**History**: the pre-outage agent wrote L2.lean (2,595 LoC) but died reviewing its own Part D
+draft (rw directions / omega atoms / goal-side rewrites) BEFORE any Modal run. This relaunch
+finished that review over the whole file: Parts A–C verified byte-identical to the GREEN M1
+(diff vs M1.lean: one header prose line), then 17 defects fixed in Part D (list in
+`logs/l2-run1.log` header): reversed/absent rw patterns (`rw [cw]` of a def, `rw [hval] at hr`
+with no occurrence, `List.replicate_succ _ _` on implicit-arg lemma, append_nil's single-instance
+rewrite), step-count defeq mismatches (`1 + (1 + j)` vs `2 + j` — Run.trans witnesses),
+omega-invisible nonlinear bridges (`n*(3L+5+tb)` vs `(n+1)*(3L'+5+tb)` monomials — fixed with
+explicit `Nat.mul_le_mul_left` facts + `Nat.succ_mul` on the goal; `[]`.length atoms; beta-redex
+atoms — `dsimp only`), a metavariable ceiling (`hseq.mono (by omega)` — fixed with a type
+ascription), a wrong-side `.1` on `size_eq_zero`, `iterate_succ_apply` vs `apply'` (twice, in
+opposite directions), and one arithmetic slip in `bound16` (`+ 4` → `+ 5`).
+
+| # | Log | Verdict | Errors | Notes |
+|---|---|---|---|---|
+| 1 | `pilots/10/logs/l2-run1.log` | FAIL | 12 | first L2 run ever; residual API-shape defects at the exact pin: `Nat.lt_two_pow_self` implicit; `Nat.bit0_bits n hn` both-explicit; `Cdl` missing `deriving DecidableEq` (broke the `Fintype` instance → sorryAx cascade) |
+| 2 | `pilots/10/logs/l2-run2.log` | FAIL | 3 | 12→3: unwind_run show-eq (`append_assoc` rw non-match → simp), loop_growth_le (rw under sup binder → defeq-typed `have` + trans), polyTVal_id h2 (`mul_le_mul_left` vs `+1`-outside shape → mul-fact + omega) |
+| 3 | `pilots/10/logs/l2-run3.log` | FAIL | 1 | 3→1: loop_growth_le only — `unfold Frag.growth` made the `Finset.univ` type (`Unit ⊕ Bd.Λ`) and the synthesized instance mismatch at implicit transparency |
+| 4 | `pilots/10/logs/l2-run4-l2green.log` | **L2 OK** | 0 / 0 / 0 warnings | loop_growth_le rebuilt term-mode (refine `Finset.sup_le` + `pushes_place.symm.le.trans (Finset.le_sup _ (Finset.mem_univ _))`, M1's `Frag.step_growth` pattern); axcheck copy FAILed on a GENERATOR defect — `axcheck_full.py` popped the `Groundwork.Counted` namespace at `end Steps` |
+| 5 (final) | `pilots/10/logs/l2-run5-final-green.log` | **BOTH OK** | 0 / 0 / 0 | L2.lean byte-identical to run 4; `axcheck_full.py` fixed (section-aware stack) |
+
+**Final verdict: GREEN.** `Pilot10_L2.lean: OK`, 0 errors, 0 `sorry` warnings, 0 other warnings.
+2,625 lines (2,042 M1-verbatim + ~580 new Part D, net). 151 non-private theorems
+(134 M1-region + 17 Part D `Groundwork.Counted.*`). `rg "sorry|native_decide|admit"` → header-prose
+lines only. **Axiom audit (run 5, same run as the GREEN verdict):** `AxPilot10_L2_full.lean`
+(L2 + `#print axioms` on all 151, generator now namespace- AND section-aware): OK, all 151
+resolved; every reported set ⊆ {propext, Classical.choice, Quot.sound} (Part D: 15 full triad,
+`cw_zero`/`cw_length` [propext, Quot.sound], `pushes_place` [propext], `beq_bit_bit` none);
+**0 sorryAx, 0 axioms outside the standard three**. (Modal truncated 31 of the print lines from
+the captured log — all M1-region axiom-free reporters, covered by M1's own audit over the
+byte-identical region, `m1-run3-confirm-axcheck.log`.) Headline Part D axioms: `cdFrag_runs`,
+`cdLoop_runsB`, `PolyTVal`, `polyTVal_id`, `countdown_cut` — all
+[propext, Classical.choice, Quot.sound]. The `AxPilot10_L2` entry in
+`feasibility/probe/make_axcheck.py` TARGETS (added mid-flight) is now final for the close-out
+sweep. Milestone M3's remaining scope (wd↔cw relabeling walk, counter-`padM'`,
+`exists_tm_padded_space`) is declared next-tranche in the L2 header — eth-Lib plumbing, not new
+mathematics; no wall encountered (the value-time/word-space separation is exactly what
+`exists_tm_space`'s hypothesis consumes).
+

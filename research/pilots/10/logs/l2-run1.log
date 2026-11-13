@@ -1,0 +1,803 @@
+# provenance: raw modal run, pilot 10 L2.lean (post defect-review fixes, iteration 1 of Modal runs; L2 never run before this relaunch — previous agent died pre-run) staged as Pilot10_L2.lean + full axcheck copy AxPilot10_L2_full.lean (generator research/pilots/10/axcheck_full.py, 151 non-private theorems) | crossmath-pilot-32 app; modal as doz (MODAL_USER=doz), profile semraker | 2026-11-14 +08 | lane: pilot-10 executor (A6-relaunch, Cycle 2) | command: cd /tmp/crossmath-pilot-stage && /home/doz/dozenv/bin/modal run run_pilot.py --dir /tmp/crossmath-pilot-stage | verdict: BOTH FAIL rc=1 errors=12 sorry=0 (all 12 in Part D: Nat.lt_two_pow_self implicit; Nat.bit0_bits (n) (hn) both-explicit; Cdl missing 'deriving DecidableEq' breaking Fintype instance; unwind_run list-shape; even-case hstep b-stack shape + unused ←hrep; List.nil_map nonexistent; loop_growth_le trans_eq unification; iter_len_le apply/apply'; Function.id unknown -> id; zero-case omega atom fbody^[0] X; seq_runs single-append_nil; polyTVal_id bullet-3 rfl + beta-redex omega) | fixes applied same session
+a0df28d81ff133ba69f879be20929049609bb9b7041cfe88181eb7a4d349a263  /home/doz/zcode-workdir/cross-math-fronttier/research/pilots/10/L2.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-tOGt0gTDXcMjmqX9VTyFNf
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['AxPilot10_L2_full.lean', 'Pilot10_L2.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== AxPilot10_L2_full.lean
+[pilot] AxPilot10_L2_full.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.TM.Run.trans' depends on axioms: [propext]
+'Groundwork.TM.run_place' depends on axioms: [propext]
+'Groundwork.TM.Frag.seq_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_head' depends on axioms: [propext]
+'Groundwork.TM.Frag.ofStmt_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.of_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mirror_mirror' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.length_mirror' depends on axioms: [propext]
+'Groundwork.TM.code_mir' depends on axioms: [propext]
+'Groundwork.TM.upd_main' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_a' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_b' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.stepAux_renK' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_renK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.upd4_src' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t1' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t2' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_cnt' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_inside' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.mvB_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mvB_ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.other_ne' depends on axioms: [propext]
+'Groundwork.TM.mv_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv_runs'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv2_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.drp_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.pushW_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dropF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromA_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromB_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dupF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.update_withIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.stepAux_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.Frag.io_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.len_cons' depends on axioms: [propext]
+'Groundwork.len_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.bound_le' depends on axioms: [propext]
+'Groundwork.PB.bound_comp' depends on axioms: [propext]
+'Groundwork.PB.const' depends on axioms: [propext]
+'Groundwork.PB.id'' depends on axioms: [propext]
+'Groundwork.PB.add' depends on axioms: [propext]
+'Groundwork.PB.mul' depends on axioms: [propext]
+'Groundwork.PB.pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.comp' depends on axioms: [propext]
+'Groundwork.PB.mono_bound' depends on axioms: [propext]
+'Groundwork.PolyT.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.length_le_stkLen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.sum_stk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_stepAux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.step_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.RunIn.trans' depends on axioms: [propext]
+'Groundwork.TM.RunIn.of_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.RunsB.runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.RunsB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Runs.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.runIn_place' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_headB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.seq_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exitB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iterB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.within_io' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.upd_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.skip_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.pourQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pourQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pour_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.build_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.prologue_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.chkQ_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.chkQ_some' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.look_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.initList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.haltList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.outputs_of_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_withIO_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_head' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.spaceWithinTM_of_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.spaceWithinTM_iff_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.located_high_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.visitedStacks_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cw_zero' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_len_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_pow_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_odd_dec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.stkLen_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+AxPilot10_L2_full.lean:2129:23: error: Function expected at
+  Nat.lt_two_pow_self
+but this term has type
+  ?m.11 < 2 ^ ?m.11
+
+Note: Expected a function because this term is being applied to the argument
+  n
+AxPilot10_L2_full.lean:2147:25: error: Application type mismatch: The argument
+  ?m.120
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.120
+AxPilot10_L2_full.lean:2167:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.6 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot10_L2_full.lean:2167:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.2 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot10_L2_full.lean:2167:28: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.start` could not be determined
+
+···
+  n
+AxPilot10_L2_full.lean:2147:25: error: Application type mismatch: The argument
+  ?m.120
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.120
+AxPilot10_L2_full.lean:2167:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.6 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot10_L2_full.lean:2167:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.2 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AxPilot10_L2_full.lean:2167:28: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.start` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `ByteSlice.start`
+  [apply] `DFA.start`
+  [apply] `NFA.start`
+  [apply] `Subarray.start`
+  [apply] `εNFA.start`
+  [apply] `PNat.XgcdType.start`
+···
+  [apply] `Cdl.walk`
+AxPilot10_L2_full.lean:2167:62: error: unsolved goals
+case start
+⊢ Cdl.start ∈ sorry ()
+
+case walk
+⊢ Cdl.walk ∈ sorry ()
+
+case unwind
+⊢ Cdl.unwind ∈ sorry ()
+AxPilot10_L2_full.lean:2264:19: error: Application type mismatch: The argument
+  h2
+has type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate j (Sym.bit true) ++ Sym.bit true :: A) B N }
+but is expected to have type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate (j + 1) (Sym.bit true) ++ A) B N }
+in the application
+  Run.trans h1 h2
+AxPilot10_L2_full.lean:2281:30: error: Application type mismatch: The argument
+  ?m.182
+···
+⊢ Cdl.unwind ∈ sorry ()
+AxPilot10_L2_full.lean:2264:19: error: Application type mismatch: The argument
+  h2
+has type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate j (Sym.bit true) ++ Sym.bit true :: A) B N }
+but is expected to have type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate (j + 1) (Sym.bit true) ++ A) B N }
+in the application
+  Run.trans h1 h2
+AxPilot10_L2_full.lean:2281:30: error: Application type mismatch: The argument
+  ?m.182
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.182
+AxPilot10_L2_full.lean:2287:69: error: unsolved goals
+n : ℕ
+ih :
+···
+  Run.trans h1 h2
+AxPilot10_L2_full.lean:2281:30: error: Application type mismatch: The argument
+  ?m.182
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.182
+AxPilot10_L2_full.lean:2287:69: error: unsolved goals
+n : ℕ
+ih :
+  ∀ m < n,
+    ∀ (M A B N : List TM.Sym),
+      0 < m →
+        ∀ (j : ℕ),
+          ∃ m_1 ≤ 3 * m.bits.length + 2 * j + 2,
+            Run (TM2.step cdM)
+              { l := some Cdl.walk, var := none,
+                stk := st M (List.map Sym.bit m.bits ++ Sym.R :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+              m_1 { l := none, var := none, stk := st M (cw (2 ^ j * m - 1) ++ A) B N }
+M A B N : List TM.Sym
+hn : 0 < n
+j : ℕ
+hev : n % 2 = 0
+k : ℕ
+···
+  Nat.bit0_bits ?m.182
+AxPilot10_L2_full.lean:2287:69: error: unsolved goals
+n : ℕ
+ih :
+  ∀ m < n,
+    ∀ (M A B N : List TM.Sym),
+      0 < m →
+        ∀ (j : ℕ),
+          ∃ m_1 ≤ 3 * m.bits.length + 2 * j + 2,
+            Run (TM2.step cdM)
+              { l := some Cdl.walk, var := none,
+                stk := st M (List.map Sym.bit m.bits ++ Sym.R :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+              m_1 { l := none, var := none, stk := st M (cw (2 ^ j * m - 1) ++ A) B N }
+M A B N : List TM.Sym
+hn : 0 < n
+j : ℕ
+hev : n % 2 = 0
+k : ℕ
+hk : n = 2 * k
+hk1 : 0 < k
+hbits : n.bits = false :: k.bits
+hrep : List.replicate (j + 1) (Sym.bit true) = Sym.bit true :: List.replicate j (Sym.bit true)
+⊢ st M (List.map Sym.bit k.bits ++ Sym.R :: A) (Sym.bit true :: (List.replicate j (Sym.bit true) ++ Sym.L :: B)) N =
+    st M (List.map Sym.bit k.bits ++ Sym.R :: A) (List.replicate (j + 1) (Sym.bit true) ++ Sym.L :: B) N
+AxPilot10_L2_full.lean:2348:71: error(lean.unknownIdentifier): Unknown constant `List.nil_map`
+AxPilot10_L2_full.lean:2289:42: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxPilot10_L2_full.lean:2385:6: error: Application type mismatch: The argument
+  Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l))
+has type
+  pushes (Bd.m l) = pushes (place Sum.inr (some (Sum.inl ())) (Bd.m l))
+but is expected to have type
+  (Finset.univ.sup fun l => pushes ((Frag.loop q Bd).m l)) = ?m.55
+in the application
+  LE.le.trans_eq
+    (Finset.le_sup
+      (have this := ?m.51;
+      this))
+    (Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)))
+AxPilot10_L2_full.lean:2395:4: error: Type mismatch
+  LE.le.trans (hl (fbody^[i] X)) (ih X)
+has type
+  (fbody (fbody^[i] X)).length ≤ X.length
+but is expected to have type
+  (fbody^[i] (fbody X)).length ≤ X.length
+AxPilot10_L2_full.lean:2397:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+AxPilot10_L2_full.lean:2423:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+···
+    (Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)))
+AxPilot10_L2_full.lean:2395:4: error: Type mismatch
+  LE.le.trans (hl (fbody^[i] X)) (ih X)
+has type
+  (fbody (fbody^[i] X)).length ≤ X.length
+but is expected to have type
+  (fbody^[i] (fbody X)).length ≤ X.length
+AxPilot10_L2_full.lean:2397:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+AxPilot10_L2_full.lean:2423:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+where
+ a := ↑(stkLen (st (fbody^[0] X) [Sym.L, Sym.R] B0 N0))
+ b := ↑(stkLen (st X [Sym.L, Sym.R] B0 N0))
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+AxPilot10_L2_full.lean:2447:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+···
+AxPilot10_L2_full.lean:2397:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+AxPilot10_L2_full.lean:2423:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+where
+ a := ↑(stkLen (st (fbody^[0] X) [Sym.L, Sym.R] B0 N0))
+ b := ↑(stkLen (st X [Sym.L, Sym.R] B0 N0))
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+AxPilot10_L2_full.lean:2447:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+AxPilot10_L2_full.lean:2590:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+AxPilot10_L2_full.lean:2597:4: error: omega could not prove the goal:
+···
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+AxPilot10_L2_full.lean:2447:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+AxPilot10_L2_full.lean:2590:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+AxPilot10_L2_full.lean:2597:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+···
+  Frag.seq_runs hrcd hrb
+AxPilot10_L2_full.lean:2590:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+AxPilot10_L2_full.lean:2597:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+  a ≥ 0
+where
+ a := ↑(Frag.growth (cdLoop skipF))
+ b := ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ c := ↑(len x)
+ d := ↑nb.size
+ e := ↑(4 * Frag.growth (cdLoop skipF) + 16) * ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ f := ↑(len ((fun x x_1 => x) x nb))
+···
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+AxPilot10_L2_full.lean:2597:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+  a ≥ 0
+where
+ a := ↑(Frag.growth (cdLoop skipF))
+ b := ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ c := ↑(len x)
+ d := ↑nb.size
+ e := ↑(4 * Frag.growth (cdLoop skipF) + 16) * ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ f := ↑(len ((fun x x_1 => x) x nb))
+ g := ↑((fun s => (4 * Frag.growth (cdLoop skipF) + 16) * (s + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+    (len x + nb.size))
+AxPilot10_L2_full.lean:2602:8: warning: declaration uses `sorry`
+AxPilot10_L2_full.lean:2610:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+···
+
+=== Pilot10_L2.lean
+[pilot] Pilot10_L2.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Pilot10_L2.lean:2128:23: error: Function expected at
+  Nat.lt_two_pow_self
+but this term has type
+  ?m.11 < 2 ^ ?m.11
+
+Note: Expected a function because this term is being applied to the argument
+  n
+Pilot10_L2.lean:2146:25: error: Application type mismatch: The argument
+  ?m.120
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.120
+Pilot10_L2.lean:2166:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.6 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot10_L2.lean:2166:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.2 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot10_L2.lean:2166:28: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.start` could not be determined
+
+···
+  n
+Pilot10_L2.lean:2146:25: error: Application type mismatch: The argument
+  ?m.120
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.120
+Pilot10_L2.lean:2166:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.6 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot10_L2.lean:2166:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Insert ?m.2 (Finset Cdl)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pilot10_L2.lean:2166:28: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.start` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `ByteSlice.start`
+  [apply] `DFA.start`
+  [apply] `NFA.start`
+  [apply] `Subarray.start`
+  [apply] `εNFA.start`
+  [apply] `PNat.XgcdType.start`
+···
+  [apply] `Cdl.walk`
+Pilot10_L2.lean:2166:62: error: unsolved goals
+case start
+⊢ Cdl.start ∈ sorry ()
+
+case walk
+⊢ Cdl.walk ∈ sorry ()
+
+case unwind
+⊢ Cdl.unwind ∈ sorry ()
+Pilot10_L2.lean:2263:19: error: Application type mismatch: The argument
+  h2
+has type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate j (Sym.bit true) ++ Sym.bit true :: A) B N }
+but is expected to have type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate (j + 1) (Sym.bit true) ++ A) B N }
+in the application
+  Run.trans h1 h2
+Pilot10_L2.lean:2280:30: error: Application type mismatch: The argument
+  ?m.182
+···
+⊢ Cdl.unwind ∈ sorry ()
+Pilot10_L2.lean:2263:19: error: Application type mismatch: The argument
+  h2
+has type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate j (Sym.bit true) ++ Sym.bit true :: A) B N }
+but is expected to have type
+  Run (TM2.step cdM)
+    { l := some Cdl.unwind, var := none,
+      stk := st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+    (1 + j) { l := none, var := none, stk := st M (Sym.L :: List.replicate (j + 1) (Sym.bit true) ++ A) B N }
+in the application
+  Run.trans h1 h2
+Pilot10_L2.lean:2280:30: error: Application type mismatch: The argument
+  ?m.182
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.182
+Pilot10_L2.lean:2286:69: error: unsolved goals
+n : ℕ
+ih :
+···
+  Run.trans h1 h2
+Pilot10_L2.lean:2280:30: error: Application type mismatch: The argument
+  ?m.182
+has type
+  k ≠ 0
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Nat.bit0_bits ?m.182
+Pilot10_L2.lean:2286:69: error: unsolved goals
+n : ℕ
+ih :
+  ∀ m < n,
+    ∀ (M A B N : List TM.Sym),
+      0 < m →
+        ∀ (j : ℕ),
+          ∃ m_1 ≤ 3 * m.bits.length + 2 * j + 2,
+            Run (TM2.step cdM)
+              { l := some Cdl.walk, var := none,
+                stk := st M (List.map Sym.bit m.bits ++ Sym.R :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+              m_1 { l := none, var := none, stk := st M (cw (2 ^ j * m - 1) ++ A) B N }
+M A B N : List TM.Sym
+hn : 0 < n
+j : ℕ
+hev : n % 2 = 0
+k : ℕ
+···
+  Nat.bit0_bits ?m.182
+Pilot10_L2.lean:2286:69: error: unsolved goals
+n : ℕ
+ih :
+  ∀ m < n,
+    ∀ (M A B N : List TM.Sym),
+      0 < m →
+        ∀ (j : ℕ),
+          ∃ m_1 ≤ 3 * m.bits.length + 2 * j + 2,
+            Run (TM2.step cdM)
+              { l := some Cdl.walk, var := none,
+                stk := st M (List.map Sym.bit m.bits ++ Sym.R :: A) (List.replicate j (Sym.bit true) ++ Sym.L :: B) N }
+              m_1 { l := none, var := none, stk := st M (cw (2 ^ j * m - 1) ++ A) B N }
+M A B N : List TM.Sym
+hn : 0 < n
+j : ℕ
+hev : n % 2 = 0
+k : ℕ
+hk : n = 2 * k
+hk1 : 0 < k
+hbits : n.bits = false :: k.bits
+hrep : List.replicate (j + 1) (Sym.bit true) = Sym.bit true :: List.replicate j (Sym.bit true)
+⊢ st M (List.map Sym.bit k.bits ++ Sym.R :: A) (Sym.bit true :: (List.replicate j (Sym.bit true) ++ Sym.L :: B)) N =
+    st M (List.map Sym.bit k.bits ++ Sym.R :: A) (List.replicate (j + 1) (Sym.bit true) ++ Sym.L :: B) N
+Pilot10_L2.lean:2347:71: error(lean.unknownIdentifier): Unknown constant `List.nil_map`
+Pilot10_L2.lean:2288:42: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pilot10_L2.lean:2384:6: error: Application type mismatch: The argument
+  Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l))
+has type
+  pushes (Bd.m l) = pushes (place Sum.inr (some (Sum.inl ())) (Bd.m l))
+but is expected to have type
+  (Finset.univ.sup fun l => pushes ((Frag.loop q Bd).m l)) = ?m.55
+in the application
+  LE.le.trans_eq
+    (Finset.le_sup
+      (have this := ?m.51;
+      this))
+    (Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)))
+Pilot10_L2.lean:2394:4: error: Type mismatch
+  LE.le.trans (hl (fbody^[i] X)) (ih X)
+has type
+  (fbody (fbody^[i] X)).length ≤ X.length
+but is expected to have type
+  (fbody^[i] (fbody X)).length ≤ X.length
+Pilot10_L2.lean:2396:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+Pilot10_L2.lean:2422:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+···
+    (Eq.symm (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)))
+Pilot10_L2.lean:2394:4: error: Type mismatch
+  LE.le.trans (hl (fbody^[i] X)) (ih X)
+has type
+  (fbody (fbody^[i] X)).length ≤ X.length
+but is expected to have type
+  (fbody^[i] (fbody X)).length ≤ X.length
+Pilot10_L2.lean:2396:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+Pilot10_L2.lean:2422:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+where
+ a := ↑(stkLen (st (fbody^[0] X) [Sym.L, Sym.R] B0 N0))
+ b := ↑(stkLen (st X [Sym.L, Sym.R] B0 N0))
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+Pilot10_L2.lean:2446:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+···
+Pilot10_L2.lean:2396:53: error(lean.unknownIdentifier): Unknown identifier `Function.id`
+Pilot10_L2.lean:2422:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 1
+where
+ a := ↑(stkLen (st (fbody^[0] X) [Sym.L, Sym.R] B0 N0))
+ b := ↑(stkLen (st X [Sym.L, Sym.R] B0 N0))
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+Pilot10_L2.lean:2446:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+Pilot10_L2.lean:2589:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+Pilot10_L2.lean:2596:4: error: omega could not prove the goal:
+···
+ c := ↑(Frag.seq cdFrag body).growth * ↑(3 * (Nat.bits 0).length + 3 + tb)
+Pilot10_L2.lean:2446:37: error: Application type mismatch: The argument
+  hrb
+has type
+  Frag.Runs body none (st X (cw n) B0 N0) mb (st (fbody X) (cw n) B0 N0)
+but is expected to have type
+  Frag.Runs ?m.438 none (st X (cw n ++ []) B0 N0) ?m.444 ?m.454
+in the application
+  Frag.seq_runs hrcd hrb
+Pilot10_L2.lean:2589:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+Pilot10_L2.lean:2596:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+···
+  Frag.seq_runs hrcd hrb
+Pilot10_L2.lean:2589:70: error: Type mismatch
+  rfl
+has type
+  ?m.393 = ?m.393
+but is expected to have type
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+Pilot10_L2.lean:2596:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+  a ≥ 0
+where
+ a := ↑(Frag.growth (cdLoop skipF))
+ b := ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ c := ↑(len x)
+ d := ↑nb.size
+ e := ↑(4 * Frag.growth (cdLoop skipF) + 16) * ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ f := ↑(len ((fun x x_1 => x) x nb))
+···
+  len x + nb.size + 1 = (len x + nb.size + 1) ^ 1
+Pilot10_L2.lean:2596:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≤ -1
+  b ≥ 0
+  b - c - d ≥ 1
+  a ≥ 0
+where
+ a := ↑(Frag.growth (cdLoop skipF))
+ b := ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ c := ↑(len x)
+ d := ↑nb.size
+ e := ↑(4 * Frag.growth (cdLoop skipF) + 16) * ↑((len x + nb.size + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+ f := ↑(len ((fun x x_1 => x) x nb))
+ g := ↑((fun s => (4 * Frag.growth (cdLoop skipF) + 16) * (s + 1) ^ (4 * Frag.growth (cdLoop skipF) + 16))
+    (len x + nb.size))
+Pilot10_L2.lean:2601:8: warning: declaration uses `sorry`
+Pilot10_L2.lean:2609:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+···
+
+[pilot] SUMMARY
+[pilot]   AxPilot10_L2_full.lean: FAIL rc=1 errors=12 sorry=0
+[pilot]   Pilot10_L2.lean: FAIL rc=1 errors=12 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-tOGt0gTDXcMjmqX9VTyFNf
+EXIT=0

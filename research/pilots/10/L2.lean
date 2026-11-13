@@ -2125,7 +2125,7 @@ theorem cw_length_mono {m n : ℕ} (h : m ≤ n) : (cw m).length ≤ (cw n).leng
 
 theorem bits_len_le (n : ℕ) : (Nat.bits n).length ≤ n := by
   rw [Nat.size_eq_bits_len]
-  exact Nat.size_le.2 (Nat.lt_two_pow_self n)
+  exact Nat.size_le.2 Nat.lt_two_pow_self
 
 theorem bits_pow_sub_one (j : ℕ) : Nat.bits (2 ^ j - 1) = List.replicate j true := by
   induction j with
@@ -2135,24 +2135,26 @@ theorem bits_pow_sub_one (j : ℕ) : Nat.bits (2 ^ j - 1) = List.replicate j tru
     have e : 2 ^ (j + 1) - 1 = 2 * (2 ^ j - 1) + 1 := by
       have h2 : 2 ^ (j + 1) = 2 * 2 ^ j := by rw [Nat.pow_succ]; ring
       omega
-    rw [e, Nat.bit1_bits, ih]
+    rw [e, Nat.bit1_bits, ih, List.replicate_succ]
 
 /-- The bits of one odd decrement step: with j flipped bits below, k ≥ 1 above. -/
 theorem bits_odd_dec (j k : ℕ) (hk : 0 < k) :
     Nat.bits (2 ^ (j + 1) * k + (2 ^ j - 1)) = List.replicate j true ++ false :: Nat.bits k := by
   induction j with
   | zero =>
-    have h1 : 0 < 2 ^ 1 := by positivity
-    have e : 2 ^ 1 * k + (2 ^ 0 - 1) = 2 * k := by omega
-    rw [e, Nat.bit0_bits (by omega : k ≠ 0)]
+    have e : 2 ^ (0 + 1) * k + (2 ^ 0 - 1) = 2 * k := by omega
+    rw [e, Nat.bit0_bits k (by omega : k ≠ 0)]
     simp
   | succ j ih =>
     have h1 : 0 < 2 ^ j := by positivity
-    have h2 : 2 ^ (j + 2) = 2 * 2 ^ (j + 1) := by rw [Nat.pow_succ]; ring
+    have h2 : 2 ^ (j + 2) = 2 * 2 ^ (j + 1) := by
+      have hj2 : j + 2 = (j + 1) + 1 := by omega
+      rw [hj2, Nat.pow_succ]; ring
     have e : 2 ^ (j + 2) * k + (2 ^ (j + 1) - 1) = 2 * (2 ^ (j + 1) * k + (2 ^ j - 1)) + 1 := by
       have h3 : 2 ^ (j + 1) = 2 * 2 ^ j := by rw [Nat.pow_succ]; ring
+      have h4 : 2 ^ (j + 2) * k = 2 * (2 ^ (j + 1) * k) := by rw [h2]; ring
       omega
-    rw [e, Nat.bit1_bits, ih, List.replicate_succ]
+    rw [e, Nat.bit1_bits, ih, List.replicate_succ, List.cons_append]
 
 theorem stkLen_st (M A B N : List Sym) :
     stkLen (st M A B N) = M.length + A.length + B.length + N.length := by
@@ -2160,6 +2162,7 @@ theorem stkLen_st (M A B N : List Sym) :
 
 /-- The labels of the decrement walk. -/
 inductive Cdl | start | walk | unwind
+  deriving DecidableEq
 
 instance : Fintype Cdl := ⟨{.start, .walk, .unwind}, fun x => by cases x <;> simp⟩
 
@@ -2257,6 +2260,13 @@ private theorem unwind_run : ∀ (j : ℕ) (M A B N : List Sym),
         ⟨some .unwind, none, st M (Sym.bit true :: A) (List.replicate j (Sym.bit true) ++ .L :: B) N⟩ :=
       Run.one (cd_unwind_bit true M A _ _)
     have h2 := unwind_run j M (Sym.bit true :: A) B N
+    rw [show 1 + (j + 1) = 1 + (1 + j) from by omega,
+      show List.replicate (j + 1) (Sym.bit true) ++ Sym.L :: B
+          = Sym.bit true :: (List.replicate j (Sym.bit true) ++ Sym.L :: B) from by
+        rw [List.replicate_succ, List.cons_append],
+      show Sym.L :: List.replicate (j + 1) (Sym.bit true) ++ A
+          = Sym.L :: (List.replicate j (Sym.bit true) ++ (Sym.bit true :: A)) from by
+        simp [List.replicate_succ']]
     exact h1.trans h2
 
 /-- The walk: from the remaining bits of n (the bracket and j flipped bits already consumed)
@@ -2274,18 +2284,16 @@ private theorem walk_run : ∀ (n : ℕ) (M A B N : List Sym), 0 < n → ∀ (j 
     · obtain ⟨k, hk⟩ : ∃ k, n = 2 * k := ⟨n / 2, by omega⟩
       have hk1 : 0 < k := by omega
       have hbits : Nat.bits n = false :: Nat.bits k := by
-        rw [hk, Nat.bit0_bits (by omega : k ≠ 0)]
-      have hrep : List.replicate (j + 1) (Sym.bit true) = Sym.bit true :: List.replicate j (Sym.bit true) :=
-        List.replicate_succ _ _
+        rw [hk, Nat.bit0_bits k (by omega : k ≠ 0)]
       have hstep : TM2.step cdM ⟨some .walk, none,
           st M ((Nat.bits n).map Sym.bit ++ .R :: A) (List.replicate j (Sym.bit true) ++ .L :: B) N⟩
           = some ⟨some .walk, none, st M ((Nat.bits k).map Sym.bit ++ .R :: A)
-            (List.replicate (j + 1) (Sym.bit true) ++ .L :: B) N⟩ := by
+            (Sym.bit true :: (List.replicate j (Sym.bit true) ++ .L :: B)) N⟩ := by
         rw [hbits]
-        simp [cdM, TM2.step, TM2.stepAux, ← hrep]
+        simp [cdM, TM2.step, TM2.stepAux]
       obtain ⟨m, hm, hr⟩ := ih k (by omega) M A B N hk1 (j + 1)
       have hval : 2 ^ j * n = 2 ^ (j + 1) * k := by rw [hk, Nat.pow_succ]; ring
-      rw [hval] at hr ⊢
+      rw [hval]
       refine ⟨1 + m, ?_, (Run.one hstep).trans hr⟩
       have hlen : (Nat.bits n).length = (Nat.bits k).length + 1 := by rw [hbits]; simp
       omega
@@ -2294,18 +2302,19 @@ private theorem walk_run : ∀ (n : ℕ) (M A B N : List Sym), 0 < n → ∀ (j 
       by_cases hk0 : k = 0
       · subst hk0
         have hn1 : n = 1 := by omega
-        have hp : 0 < 2 ^ j := by positivity
+        subst hn1
         have hstep : TM2.step cdM ⟨some .walk, none,
-            st M ((Nat.bits n).map Sym.bit ++ .R :: A) (List.replicate j (Sym.bit true) ++ .L :: B) N⟩
+            st M ((Nat.bits 1).map Sym.bit ++ .R :: A) (List.replicate j (Sym.bit true) ++ .L :: B) N⟩
             = some ⟨some .unwind, none,
               st M (Sym.R :: A) (List.replicate j (Sym.bit true) ++ .L :: B) N⟩ := by
-          rw [hn1]
           simp [cdM, TM2.step, TM2.stepAux]
         have hrun := unwind_run j M (Sym.R :: A) B N
-        rw [hn1, show 2 ^ j * 1 - 1 = 2 ^ j - 1 from by omega, cw, bits_pow_sub_one]
+        rw [show 2 ^ j * 1 - 1 = 2 ^ j - 1 from by omega,
+          show cw (2 ^ j - 1) = .L :: (Nat.bits (2 ^ j - 1)).map Sym.bit ++ [.R] from rfl,
+          bits_pow_sub_one]
         simp only [List.map_replicate, List.singleton_append, List.append_assoc]
-        refine ⟨2 + j, ?_, (Run.one hstep).trans hrun⟩
-        have hlen : (Nat.bits n).length = 1 := by rw [hn1]; simp
+        refine ⟨1 + (1 + j), ?_, (Run.one hstep).trans hrun⟩
+        have hlen : (Nat.bits 1).length = 1 := by simp
         omega
       · obtain ⟨c, rest, hck⟩ : ∃ c rest, Nat.bits k = c :: rest := by
           cases hbk : Nat.bits k with
@@ -2314,7 +2323,7 @@ private theorem walk_run : ∀ (n : ℕ) (M A B N : List Sym), 0 < n → ∀ (j 
             have hs : (Nat.bits k).length = Nat.size k := Nat.size_eq_bits_len _
             rw [hbk] at hs
             simp only [List.length_nil] at hs
-            have := Nat.size_eq_zero.1 hs
+            have := Nat.size_eq_zero.1 hs.symm
             omega
           | cons c rest => exact ⟨c, rest, rfl⟩
         have hstep : TM2.step cdM ⟨some .walk, none,
@@ -2334,9 +2343,15 @@ private theorem walk_run : ∀ (n : ℕ) (M A B N : List Sym), 0 < n → ∀ (j 
         have hval : 2 ^ j * n - 1 = 2 ^ (j + 1) * k + (2 ^ j - 1) := by
           have h1 : 0 < 2 ^ j := by positivity
           have h2 : 2 ^ (j + 1) = 2 * 2 ^ j := by rw [Nat.pow_succ]; ring
+          have h4 : 2 ^ j * n = 2 ^ (j + 1) * k + 2 ^ j := by rw [hk, h2]; ring
           omega
-        rw [hval] at hrun ⊢
-        refine ⟨2 + (1 + j), ?_, ((Run.one hstep).trans (Run.one hstep2)).trans hrun⟩
+        rw [hval,
+          show cw (2 ^ (j + 1) * k + (2 ^ j - 1)) =
+              .L :: (Nat.bits (2 ^ (j + 1) * k + (2 ^ j - 1))).map Sym.bit ++ [.R] from rfl,
+          bits_odd_dec j k (by omega)]
+        simp only [List.map_append, List.map_cons, List.map_replicate,
+          List.cons_append, List.nil_append, List.append_assoc]
+        refine ⟨1 + 1 + (1 + j), ?_, ((Run.one hstep).trans (Run.one hstep2)).trans hrun⟩
         have hlen : 1 ≤ (Nat.bits n).length := by rw [hbits]; simp
         omega
 
@@ -2367,11 +2382,10 @@ theorem pushes_place {K : Type} {Γ : K → Type} {Λ Λ' σ : Type} (ι : Λ �
 
 theorem loop_growth_le {q : TM2.Stmt (fun _ : Stk => Sym) Unit (Option Sym)} {Bd : Fr} :
     Bd.growth ≤ (Frag.loop q Bd).growth := by
-  unfold Frag.growth
   refine Finset.sup_le fun l _ => ?_
-  exact (Finset.le_sup (f := fun l => pushes ((Frag.loop q Bd).m l))
-    (show Sum.inr l ∈ Finset.univ by simp)).trans_eq
-      (pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)).symm
+  exact ((pushes_place Sum.inr (some (Sum.inl ())) (Bd.m l)).symm.le).trans
+    (Finset.le_sup (f := fun l' => pushes ((Frag.loop q Bd).m l'))
+      (Finset.mem_univ (Sum.inr l)))
 
 private theorem iter_len_le (fbody : List Sym → List Sym) (hl : ∀ M, (fbody M).length ≤ M.length) :
     ∀ (i : ℕ) (X : List Sym), ((fbody^[i]) X).length ≤ X.length := by
@@ -2380,13 +2394,13 @@ private theorem iter_len_le (fbody : List Sym → List Sym) (hl : ∀ M, (fbody 
   | zero => intro X; simp
   | succ i ih =>
     intro X
-    rw [Function.iterate_succ_apply]
+    rw [Function.iterate_succ_apply']
     exact (hl _).trans (ih X)
 
-private theorem id_iterate (i : ℕ) (X : List Sym) : (Function.id^[i]) X = X := by
+private theorem id_iterate (i : ℕ) (X : List Sym) : (id^[i]) X = X := by
   induction i with
   | zero => rfl
-  | succ i ih => rw [Function.iterate_succ_apply]; exact ih
+  | succ i ih => rw [Function.iterate_succ_apply']; exact ih
 
 /-- **The per-iteration clock.** From any word X on the main stack, the flat counter cw n on
 stack a and B0, N0 on the others: n rounds of the body (one per countdown step; the body may
@@ -2407,9 +2421,8 @@ theorem cdLoop_runsB (body : Fr) (fbody : List Sym → List Sym) {tb : ℕ}
   induction n with
   | zero =>
     intro X B0 N0
-    have hb0 : (Nat.bits 0).length = 0 := by simp
     refine ⟨1, by omega, ?_⟩
-    rw [cw_zero]
+    rw [cw_zero, Function.iterate_zero_apply]
     exact Frag.loop_runs_exitB (headQ_zero X [] B0 N0) (by omega) (by omega)
   | succ n ih =>
     intro X B0 N0
@@ -2420,18 +2433,18 @@ theorem cdLoop_runsB (body : Fr) (fbody : List Sym → List Sym) {tb : ℕ}
         have hs : (Nat.bits (n + 1)).length = Nat.size (n + 1) := Nat.size_eq_bits_len _
         rw [hb1] at hs
         simp only [List.length_nil] at hs
-        have := Nat.size_eq_zero.1 hs
+        have := Nat.size_eq_zero.1 hs.symm
         omega
       | cons b rest => exact ⟨b, rest, rfl⟩
     have hnpos : 0 < n + 1 := by omega
     have hcw : cw (n + 1) = .L :: Sym.bit b :: (rest.map Sym.bit ++ [.R]) := by
-      rw [cw, hbrest]; simp
+      simp [cw, hbrest]
     have hh : TM2.stepAux headQ none (st X (cw (n + 1)) B0 N0)
         = ⟨some (), none, st X (cw (n + 1)) B0 N0⟩ := by
       rw [hcw]
       exact headQ_step b X (rest.map Sym.bit ++ [.R]) B0 N0
     obtain ⟨mc, hmc, hrcd⟩ := cdFrag_runs (n + 1) X [] B0 N0 hnpos
-    rw [List.append_nil, Nat.add_sub_cancel] at hrcd
+    rw [List.append_nil, List.append_nil, Nat.add_sub_cancel] at hrcd
     obtain ⟨mb, hmb, hrbB⟩ := hb X (cw n) B0 N0
     have hrb := hrbB.runs
     have hseq := (Frag.seq_runs hrcd hrb).toB
@@ -2439,19 +2452,29 @@ theorem cdLoop_runsB (body : Fr) (fbody : List Sym → List Sym) {tb : ℕ}
       rw [Nat.size_eq_bits_len, Nat.size_eq_bits_len]
       exact Nat.size_le_size (by omega)
     have hsz : Nat.size n ≤ Nat.size (n + 1) := Nat.size_le_size (by omega)
-    have hseqB := hseq.mono (by omega)
+    have hgm2 : (cdFrag.seq body).growth * (mc + mb)
+        ≤ (cdFrag.seq body).growth * (3 * (Nat.bits (n + 1)).length + 3 + tb) :=
+      Nat.mul_le_mul_left _ (by omega)
+    have hseqB : (cdFrag.seq body).RunsB none (st X (cw (n + 1)) B0 N0) (mc + mb)
+        (st (fbody X) (cw n) B0 N0)
+        (stkLen (st X (cw (n + 1)) B0 N0)
+          + (cdFrag.seq body).growth * (3 * (Nat.bits (n + 1)).length + 3 + tb)) :=
+      hseq.mono (by omega)
     obtain ⟨mi, hmi, hri⟩ := ih (fbody X) B0 N0
-    rw [Function.iterate_succ_apply']
+    rw [Function.iterate_succ_apply]
     have hceil : stkLen (st (fbody X) (cw n) B0 N0)
           + (cdFrag.seq body).growth * (3 * (Nat.bits n).length + 3 + tb)
         ≤ stkLen (st X (cw (n + 1)) B0 N0)
           + (cdFrag.seq body).growth * (3 * (Nat.bits (n + 1)).length + 3 + tb) := by
+      have hgm : (cdFrag.seq body).growth * (3 * (Nat.bits n).length + 3 + tb)
+          ≤ (cdFrag.seq body).growth * (3 * (Nat.bits (n + 1)).length + 3 + tb) :=
+        Nat.mul_le_mul_left _ (by omega)
       rw [stkLen_st, stkLen_st, cw_length, cw_length]
       have hX := hl X
-      have hcl := cw_length_mono (by omega : n ≤ n + 1)
       omega
     have hri' := hri.mono hceil
     refine ⟨1 + (mc + mb) + mi, ?_, Frag.loop_runs_iterB hh (by omega) hseqB hri'⟩
+    rw [Nat.succ_mul]
     have hmul : n * (3 * (Nat.bits n).length + 5 + tb)
         ≤ n * (3 * (Nat.bits (n + 1)).length + 5 + tb) := Nat.mul_le_mul_left _ (by omega)
     omega
@@ -2479,8 +2502,8 @@ private theorem bound16 (l nb : ℕ) : nb * (3 * nb + 6) + 1 ≤ 16 * (l + nb + 
           Nat.mul_le_mul_right _ (by omega)
     _ ≤ 16 * (l + nb + 1) ^ 16 := Nat.mul_le_mul_left _ hp
   have h3 : nb * (3 * nb + 6) + 1 ≤ 5 * (nb + 1) ^ 2 := by
-    have e : 5 * (nb + 1) ^ 2 = nb * (3 * nb + 6) + (2 * nb * nb + 4 * nb + 4) := by ring
-    have h4 : 0 ≤ 2 * nb * nb + 4 * nb + 4 := Nat.zero_le _
+    have e : 5 * (nb + 1) ^ 2 = nb * (3 * nb + 6) + (2 * nb * nb + 4 * nb + 5) := by ring
+    have h4 : 0 ≤ 2 * nb * nb + 4 * nb + 5 := Nat.zero_le _
     omega
   omega
 
@@ -2538,14 +2561,17 @@ theorem polyTVal_id {α : Type} [Enc α] : PolyTVal (fun (x : α) (_ : ℕ) => x
   · intro x nb
     obtain ⟨m, hm, hrun⟩ := cdLoop_runsB skipF id (fun M : List Sym => le_rfl)
       (fun M A B N => ⟨1, le_rfl, skipF_runsB M A B N⟩) nb (wd x) [] []
-    rw [show 3 * (Nat.bits nb).length + 5 + 1 = 3 * (Nat.bits nb).length + 6 from by omega,
-      show 3 * (Nat.bits nb).length + 3 + 1 = 3 * (Nat.bits nb).length + 4 from by omega,
+    rw [show 3 * (Nat.bits nb).length + 5 + 1 = 3 * (Nat.bits nb).length + 6 from by omega] at hm
+    rw [show 3 * (Nat.bits nb).length + 3 + 1 = 3 * (Nat.bits nb).length + 4 from by omega,
       id_iterate] at hrun
     refine ⟨m, ?_, hrun.mono ?_⟩
     · have hbl : (Nat.bits nb).length ≤ nb := bits_len_le nb
       have h1 : m ≤ nb * (3 * (Nat.bits nb).length + 6) + 1 := by omega
-      have h2 : nb * (3 * (Nat.bits nb).length + 6) + 1 ≤ nb * (3 * nb + 6) + 1 :=
-        Nat.mul_le_mul_left _ (by omega)
+      have h2 : nb * (3 * (Nat.bits nb).length + 6) + 1 ≤ nb * (3 * nb + 6) + 1 := by
+        have hin : 3 * (Nat.bits nb).length + 6 ≤ 3 * nb + 6 := by omega
+        have hmul : nb * (3 * (Nat.bits nb).length + 6) ≤ nb * (3 * nb + 6) :=
+          Nat.mul_le_mul_left _ hin
+        omega
       exact (h1.trans h2).trans (bound16 (len x) nb)
     · have hg : (cdFrag.seq skipF).growth ≤ (cdLoop skipF).growth := loop_growth_le
       have hce : stkLen (st (wd x) (cw nb) [] [])
@@ -2554,6 +2580,7 @@ theorem polyTVal_id {α : Type} [Enc α] : PolyTVal (fun (x : α) (_ : ℕ) => x
             ^ (4 * (cdLoop skipF).growth + 16) := by
         rw [stkLen_st, cw_length, Nat.size_eq_bits_len]
         rw [show (wd x).length = len x from rfl]
+        have hn0 : ([] : List Sym).length = 0 := rfl
         have e2 := boundW (cdLoop skipF).growth (len x) (Nat.size nb)
         omega
       have hce' : stkLen (st (wd x) (cw nb) [] [])
@@ -2563,16 +2590,17 @@ theorem polyTVal_id {α : Type} [Enc α] : PolyTVal (fun (x : α) (_ : ℕ) => x
         Nat.add_le_add_left (Nat.mul_le_mul_right _ hg) _
       exact hce'.trans hce
   · intro x nb
+    dsimp only
     have h1 : 0 < 4 * (cdLoop skipF).growth + 16 := by omega
     have h2 : len x + Nat.size nb + 1
         ≤ (len x + Nat.size nb + 1) ^ (4 * (cdLoop skipF).growth + 16) := by
-      calc len x + Nat.size nb + 1 = (len x + Nat.size nb + 1) ^ 1 := rfl
+      calc len x + Nat.size nb + 1 = (len x + Nat.size nb + 1) ^ 1 := (Nat.pow_one _).symm
       _ ≤ (len x + Nat.size nb + 1) ^ (4 * (cdLoop skipF).growth + 16) :=
           Nat.pow_le_pow_right (by omega) (by omega)
     have h3 : len x + Nat.size nb + 1
         ≤ (4 * (cdLoop skipF).growth + 16) * (len x + Nat.size nb + 1)
             ^ (4 * (cdLoop skipF).growth + 16) :=
-      h2.trans (Nat.le_mul_of_pos_right _ (Nat.pow_pos (by omega)))
+      h2.trans (Nat.le_mul_of_pos_left _ h1)
     omega
 
 /-- The countdown's round count is L1's cut: started from `cw (min q nb)` the loop runs exactly
@@ -2583,6 +2611,8 @@ theorem countdown_cut (q nb : ℕ) (X : List Sym) :
       (cdLoop skipF).Runs none (st X (cw (min q nb)) [] []) m (st X (cw 0) [] []) := by
   obtain ⟨m, hm, hrun⟩ := cdLoop_runsB skipF id (fun M : List Sym => le_rfl)
     (fun M A B N => ⟨1, le_rfl, skipF_runsB M A B N⟩) (min q nb) X [] []
+  rw [show 3 * (Nat.bits (min q nb)).length + 5 + 1 = 3 * (Nat.bits (min q nb)).length + 6
+      from by omega] at hm
   rw [id_iterate] at hrun
   exact ⟨m, by omega, hrun.runs⟩
 
