@@ -636,6 +636,39 @@ dispositions), A3 (continue), H (this sweep + board). Commit log: sweep series
 Standing cadence resumes; tree carries only live re-spawned-lane artifacts beyond
 this point.
 
+**Batch 20 (2026-11-14 ~03:5x — orchestrator relay; A8 TERMINAL + H cell fills):**
+- **A8 72-M1 TERMINAL, FINAL-FOR-TRANCHE** (08df45f): **partial-M1 GREEN** — vendor
+  `P72M1T1.lean` (702 LoC) + L1+L2 in `P72M1T2.lean` (360 LoC / 25 thms) kernel-clean;
+  m1-run8 both OK (post-resume descent 24→10→1→0 across runs 6–8; run-6's static audit
+  found the run-5 fixes already on disk — the interruption killed the turn between
+  edit and run); `m1-axcheck-final` BOTH OK, 52+28 axiom-lines, 0 sorryAx, triad-only;
+  **L3 + interface theorem CARRIED to Iteration-4 (decision recorded; continuation
+  spec = the m1-run8 header; L2 landed at constant 1 — stronger than the ≤4 safety
+  form)**. Plus 11 formalities: m2-run1/2/3 "run-time persisted" provenance marks +
+  blueprint §8 corrected churn table. H QA re-triggers all pass: (i) 28 = 25 distinct
+  theorems + 3 in-file milestone repeats (verified line-by-line: boundaryCard_le,
+  ptrace_pureState, regionEntropy each printed twice — footer + appended stage print);
+  (ii) the five latent-bug fixes verified in the T2 diff (double Subtype.ext ×2 sites,
+  Equiv.ofBijective configEquiv rewrite, complImageEquiv/regComplEquiv reorientation,
+  pureState_M rfl lemma, Fintype.card_congr' bridge); (iii) corrected churn
+  4→2→3→6→3→2→2→0 site-basis coherent (run5 machine counter 4 — sole divergence, both
+  numbers preserved in the log); (iv) make_axcheck72m1.py = clean local variant (A1's
+  frozen TARGETS untouched; attribute-regex extension namespace-aware). One QA note:
+  T1's persisted axcheck log elides the middle ("…30 more" marker) — machine count 52
+  authoritative (m2-run2 "salient lines" precedent).
+- **H cells filled:** REPORT §C2.3 — 11-M2 row upgraded to **A8 FORMAL REPORT
+  RECEIVED** (churn corrected, run-time-persisted, axcheck figures); 72-M1 row added
+  (partial-M1 FINAL-FOR-TRANCHE); C2.1 (72) outcome clause updated. STATUS close
+  template rows for both filled. **Debts register (d) CLOSED** (08df45f).
+- **Cycle-2 pilot scoreboard: EVERY pilot slot terminal** — 71-P2, 73-C, 42-M4b
+  (+upgrade), 10-L2, 11-M2, 72-C-neg, 72-M1 (partial, for-tranche), 75
+  FINAL-FOR-ENTRY. Open items now ONLY: **G7b (A7, verdict-less — gates 50-M2-R1 +
+  Liu-1 posture) + G5a (artifact-cache-blocked)**, then the close-out chain
+  ([SWEEP] → [TRIAGE-DECISION] → REPORT/articles → AGENTS-C2 apply → cycle-close
+  block). A1's sweep trigger = all FINAL-SWEEP-PLAN-C2 §0 TARGETS final-or-declared-
+  drop; 72-M1's landing note says A1 adds AxPilot72_M1 at sweep.
+- Concurrency probe at this batch close: **7**.
+
 ## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
 fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
 
@@ -649,8 +682,8 @@ Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C
 | 73-C (FF Hecke–Tate skeleton, A2) | **GREEN FINAL (covered by A2's report)** | run6-c-green: 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad; descent 2→4→4→2→OK; Q4 untouched per separate gate |
 | 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only) + upgrade **COMPLETE-primary** (m4b2-run2 "M4b.lean: OK" — direct V2 import, 1,571 LoC / 68 thms = PRIMARY, fallback byte-preserved, ≤20-line gate met; disk-verified, A3 formal report owed) | m4b-run2, m4b-axcheck-run1, m4b2-run2; M4-note owed |
 | 10-L2 `PolyTVal` (A6) | **GREEN + axcheck-clean (A6 formal report received 2026-11-14)** | final 2,625 LoC (2,042 M1-verbatim byte-identical + ~580 Part D); axcheck 151 thms (134 M1-region + 17 Part D) all triad, 0 sorryAx; descent 12→3→1→0→final (l2-run1–5) |
-| 11-M2 (A8) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers — debt d)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3 explained in ledger §9 |
-| 72-M1 Tier-C (A8, slot 3) | [PILOT-VERDICT:72-M1] | [logs] |
+| 11-M2 (A8) | **GREEN FINAL — A8 FORMAL REPORT RECEIVED 2026-11-14 (debt d closed)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3→6→3→2→2→0 site-basis (run5 counter 4 — only divergence); all logs run-time persisted; axcheck 76 lines 0 sorryAx triad-only; blueprint §8 = formal record |
+| 72-M1 Tier-C (A8, slot 3) | **PARTIAL-M1 GREEN — FINAL-FOR-TRANCHE (A8 formal report received 2026-11-14; L3 + interface carried to Iter-4, decision recorded)** | m1-run8 both OK (T1 702 LoC vendor + T2 360 LoC / 25 thms); descent …→24→10→1→0 runs 6–8 post-resume; axcheck 52+28 lines (28 = 25 + 3 milestone repeats), 0 sorryAx, triad-only; continuation spec in m1-run8 header |
 | 72-C-neg Kuwahara gate (A4) | **FINAL-GREEN OFFICIAL (A4 report received 2026-11-14)** | run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 (runs 1–8; 1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | G7b donor-pin axiom audit (A7) | [G7b] | [run19/20; gates 50-M2-R1 + Liu-1 posture] |
 | G5a Physlib staging / G6a Stacks pricing (A7) | [G5a] / [G6a] | [run20-retry / run21] |

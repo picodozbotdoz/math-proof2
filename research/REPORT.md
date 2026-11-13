@@ -292,8 +292,11 @@ rows), pilot outcome slot per pilot pipeline.
   `axcheck-run1.log` 11/11 exactly `[propext, Classical.choice, Quot.sound]`, 0 sorryAx;
   deviations vs 72-prework Appendix A documented (N1 stated for 0 < α ≤ β < 1; N3 as
   concrete-family False forms ≡ the ¬∃C spec; Kuwahara enters only as the external
-  `hKL` binder, EnclOK pattern); then M1 Tier-C (slot 3, A8, after 11-M2; zero import
-  gates — G5a only upgrades provenance, staging in flight run20).
+  `hKL` binder, EnclOK pattern); then M1 Tier-C (slot 3, A8, after 11-M2) → outcome
+  **PARTIAL-M1 GREEN, FINAL-FOR-TRANCHE (A8 formal report received 2026-11-14)**:
+  vendor layer + L1+L2 kernel-clean (m1-run8 both OK; axcheck 52+28 axiom-lines,
+  0 sorryAx, triad-only); L3 + the interface theorem carried to Iteration-4
+  (decision recorded; continuation spec in the m1-run8 header).
 - **(73) Function-field Hecke–Tate (CONDITIONAL-CORE, Stacks-blocked).** The FF Hecke-L
   statement class in the DZDF `heckeCorollary` shape with every Weil-side input a binder
   (`hTate`/`hRat`/`hPur`): (i) rationality/continuation, (ii) RH-form with window exactly
@@ -366,10 +369,11 @@ rows), pilot outcome slot per pilot pipeline.
 | 20 | hecke-zetaK close-out | **CLOSED-GREEN** (A8, 2026-11-13): runs recorded, axcheck 36 axiom-lines 0 sorryAx; hCZ seam unchanged |
 | 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
 | 10-L2 | `PolyTVal` | **GREEN + axcheck-clean — A6 formal report received 2026-11-14**: final 2,625 LoC (2,042 M1-verbatim, byte-identical but one prose line, + ~580 new Part D); full axcheck **151 thms = 134 M1-region + 17 Part D**, all triad, 0 sorryAx; descent 12→3→1→0→final across l2-run1–5 (17-defect list in run1 header) — **the main-run Top-3 #2 conjunction completes** |
-| 11-M2 | reduction-theory tier 2 (A8-3) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers)** — m2-run8 all six files OK incl. RedTm2 (final 421 LoC); err churn 4→2→3 explained in the ledger; debt (d) headers at report |
+| 11-M2 | reduction-theory tier 2 (A8-3) | **GREEN FINAL — A8 FORMAL REPORT RECEIVED 2026-11-14** — m2-run8 all six files OK incl. RedTm2 (final 421 LoC / 8 thms); churn 4→2→3→6→3→2→2→0 (site-basis; run5's machine counter reads 4 — only divergent run); all m2 logs run-time persisted (provenance marks, none reconstructed); axcheck `m2-axcheck-final` BOTH OK — 76 axiom-lines (64 P11T3 + 12 RedTm2), 0 sorryAx, triad-only; blueprint §8 = the formal record (root-cause table, P11T3 first-run GREEN) |
 | 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (disk-verified 2026-11-14; A3 formal report owed)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); M4-note finalization owed |
 | 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (A2 formal report received 2026-11-14)** — p2-run6 "P2.lean: OK", final **279 LoC** / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **73-C GREEN FINAL (covered by A2's report)** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad, descent 2→4→4→2→OK, Q4 untouched per separate gate |
 | 72-C-neg | Kuwahara no-go gate (A4) | **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)** — run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 runs 1–8 (1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
+| 72-M1 | family-265 interface, Tier-C transcription (A8, slot 3) | **PARTIAL-M1 GREEN — FINAL-FOR-TRANCHE, A8 FORMAL REPORT RECEIVED 2026-11-14**: vendor `P72M1T1.lean` (702 LoC, both endpoint statement layers) + L1+L2 in `P72M1T2.lean` (360 LoC / 25 thms) kernel-clean — m1-run8 both OK, descent 4+1→…→24→10→1→0 (runs 1–8; the resumed run-6 static audit found the run-5 fixes already on disk — the interruption killed the turn between edit and run); axcheck `m1-axcheck-final` BOTH OK — 52 + 28 axiom-lines (28 = 25 theorems + 3 in-file milestone repeats), 0 sorryAx, triad-only; **L3 (symmetrization/state-conventions/gap-quadratic-form) + the interface theorem CARRIED to Iteration-4 — decision recorded** (overrun guard; continuation spec in the m1-run8 header; L2 landed at constant 1, stronger than the ≤4 safety form) |
 | 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 
 ### C2.4 External race report (QR-D cluster + FF/AL clocks)
