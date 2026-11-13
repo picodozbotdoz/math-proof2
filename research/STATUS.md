@@ -424,6 +424,25 @@ standing authorization with a commit.
   cites 1,570/68 unlabeled — one-line fix owed to A9** (recorded in the sign-off's
   delta section as A5's bonus re-check target). Cross-check A9 re-touched list vs H's
   staged 5: identical, no gap.
+- 2026-11-14 — batch-11 series (7 commits): `A5 physlib surface` (616dfc6; H QA vs
+  GitHub: toolchain v4.35.0 VERBATIM, `Physlib/QFT/PerturbationTheory/CreateAnnihilate.lean`
+  fetched and verified — two-element type + normalOrder exactly as described, ZERO
+  exchange/occupation-pair statements; wing-relative citation note relayed; physlib
+  registered as iteration-4 corpus input); `A1 sweep re-baseline + donor axcheck`
+  (bc463db; 43 = 9+23+4+7 arithmetic verified; donor-tree dry-run: build OK 8,262 jobs,
+  78 axiom-lines triad 0 sorryAx); `H cells 73-C/11-M2 + P2 corrections` (8a7c348);
+  `A2 FORMAL` (56fba53; H QA: 11/11 inline #print-axioms vs 11 theorems, W1 pole-family
+  + Core 2 in-file, hPur binder honesty note, headers present); `A3 R1 pre-staging`
+  (c50eba3; header convention ✓, zero CODE sorries — the one grep hit is the header's own
+  compliance prose, Nonvanishing:19/:29 donor cites ✓, 178 LoC ✓, NOT RUN, gated G7b);
+  `A9 fills` (9ac5ad1; W1 delta text matches P2.lean's actual hs1 form; open-marker
+  families = 10-L2/11-M2/72-M1/50-M2-R1(+75/G7b/SWEEP/TRIAGE)); `A3 donor-map §(g)`
+  (3cb8d12; all four inbound cites + CrAnFieldOp characterization verified vs
+  physlib-surface). **OPEN FLAG — P2 LoC: relay/A2-report/A9 say 279; disk = 282
+  (wc; no banner, non-blank 253 — no convention reproduces 279; A1's ledger also 282).
+  H cells carry 282-on-disk with the flag; A2/orchestrator reconciliation owed.**
+  Board: rows 71 (formal-report-received) + 11-M2 (GREEN FINAL, A8 report owed w/
+  headers) updated; 50-M2-R1 pre-staged awaiting G7b.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
