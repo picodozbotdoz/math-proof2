@@ -1,0 +1,230 @@
+# PROVENANCE — run2 (lane A4, pilot 75, 2026-11-14)
+# file: research/pilots/75/Pa.lean (1,550 LoC (section rewritten: cons-arities fixed, toNat-bridge, inline subsets))
+# command: research/pilots/75/run_pilot.sh Pa.lean
+#   (stages /tmp/crossmath-75-stage; MODAL_USER=doz; app crossmath-pilot-75;
+#    mathlib ff2494ea5e43 @ v4.36.0-rc2; 8710 ooleans)
+# verdict: FAIL rc=1 errors=7 sorry=0 (all 7 inside sum_inter_distrib_fin_mem hc0/e4/e5 + assemble's sup'-bound; multiplicity glue layer — multOf_finprod, analyticOrderAt_finprod_ne_top, multOf_of_abelFac, all 3 privates — already triad-clean)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Q2VoVEW4RDVOLKOGvAdsZd
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pa.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pa.lean
+[pilot] Pa.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+ Quot.sound]
+Pa.lean:1231:37: error: Application type mismatch: The argument
+  hne
+has type
+  ¬c ρ = 0
+but is expected to have type
+  a ρ ≠ 0
+in the application
+  mem_supp_iff.mpr hne
+Pa.lean:1249:43: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+but is expected to have type
+  ?m.404 ∈ ?m.405 i
+in the application
+  Exists.intro i hx
+Pa.lean:1252:75: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1256:6: error: Type mismatch
+···
+  mem_supp_iff.mpr hne
+Pa.lean:1249:43: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+but is expected to have type
+  ?m.404 ∈ ?m.405 i
+in the application
+  Exists.intro i hx
+Pa.lean:1252:75: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1256:6: error: Type mismatch
+  Or.inl hx
+has type
+  x ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ∨ ?m.471
+but is expected to have type
+  x ∈ supp a ∩ S
+Pa.lean:1259:71: error: Application type mismatch: The argument
+  hρ
+has type
+···
+  Exists.intro i hx
+Pa.lean:1252:75: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1256:6: error: Type mismatch
+  Or.inl hx
+has type
+  x ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ∨ ?m.471
+but is expected to have type
+  x ∈ supp a ∩ S
+Pa.lean:1259:71: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1425:8: error: Application type mismatch: The argument
+  le_sup'_of_le ?m.70 ?m.76
+has type
+···
+  hmemU ρ hρ
+Pa.lean:1256:6: error: Type mismatch
+  Or.inl hx
+has type
+  x ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ∨ ?m.471
+but is expected to have type
+  x ∈ supp a ∩ S
+Pa.lean:1259:71: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1425:8: error: Application type mismatch: The argument
+  le_sup'_of_le ?m.70 ?m.76
+has type
+  ?m.71 ≤ ?m.70 ?m.72 → ?m.71 ≤ sup' ?m.66 ⋯ ?m.70
+but is expected to have type
+  T₀ i ≤ ?m.61
+in the application
+  le_trans (le_sup'_of_le ?m.70 ?m.76)
+Pa.lean:1425:50: error: Application type mismatch: The argument
+  le_refl ?m.75
+has type
+···
+  x ∈ supp a ∩ S
+Pa.lean:1259:71: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ hUfin.toFinset
+in the application
+  hmemU ρ hρ
+Pa.lean:1425:8: error: Application type mismatch: The argument
+  le_sup'_of_le ?m.70 ?m.76
+has type
+  ?m.71 ≤ ?m.70 ?m.72 → ?m.71 ≤ sup' ?m.66 ⋯ ?m.70
+but is expected to have type
+  T₀ i ≤ ?m.61
+in the application
+  le_trans (le_sup'_of_le ?m.70 ?m.76)
+Pa.lean:1425:50: error: Application type mismatch: The argument
+  le_refl ?m.75
+has type
+  ?m.75 ≤ ?m.75
+but is expected to have type
+  ?m.72 ∈ ?m.66
+in the application
+  le_sup'_of_le ?m.70 (le_refl ?m.75)
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  hmemU ρ hρ
+Pa.lean:1425:8: error: Application type mismatch: The argument
+  le_sup'_of_le ?m.70 ?m.76
+has type
+  ?m.71 ≤ ?m.70 ?m.72 → ?m.71 ≤ sup' ?m.66 ⋯ ?m.70
+but is expected to have type
+  T₀ i ≤ ?m.61
+in the application
+  le_trans (le_sup'_of_le ?m.70 ?m.76)
+Pa.lean:1425:50: error: Application type mismatch: The argument
+  le_refl ?m.75
+has type
+  ?m.75 ≤ ?m.75
+but is expected to have type
+  ?m.72 ∈ ?m.66
+in the application
+  le_sup'_of_le ?m.70 (le_refl ?m.75)
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  le_trans (le_sup'_of_le ?m.70 ?m.76)
+Pa.lean:1425:50: error: Application type mismatch: The argument
+  le_refl ?m.75
+has type
+  ?m.75 ≤ ?m.75
+but is expected to have type
+  ?m.72 ∈ ?m.66
+in the application
+  le_sup'_of_le ?m.70 (le_refl ?m.75)
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   Pa.lean: FAIL rc=1 errors=7 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Q2VoVEW4RDVOLKOGvAdsZd

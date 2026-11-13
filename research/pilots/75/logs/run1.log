@@ -1,0 +1,744 @@
+# PROVENANCE — run1 (lane A4, pilot 75, 2026-11-14)
+# file: research/pilots/75/Pa.lean (1,552 LoC first full draft — M4a carry (1,194) + P-a/C1 section)
+# command: research/pilots/75/run_pilot.sh Pa.lean
+#   (stages /tmp/crossmath-75-stage; MODAL_USER=doz; app crossmath-pilot-75;
+#    mathlib ff2494ea5e43 @ v4.36.0-rc2; 8710 ooleans)
+# verdict: FAIL rc=1 errors=26 sorry=0 (first run of the n-fold assembly; M4a carry already GREEN-triad; error classes: mem_cons_self/mem_cons_of_mem arity, subset-direction in e4/e5, sup'-witness elaboration, multOf_finprod unfold-vs-analyticOrderAt, rw-motive in empty-case)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-tlJfhXNi9ZExt72KXoWknO
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['Pa.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pa.lean
+[pilot] Pa.lean: FAIL rc=1 errors=26 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+ Quot.sound]
+Pa.lean:1229:19: error: Application type mismatch: The argument
+  mem_supp_iff.mpr hne
+has type
+  ρ ∈ supp c
+but is expected to have type
+  ρ ∈ supp a ∩ S
+in the application
+  hall.left (mem_supp_iff.mpr hne)
+Pa.lean:1235:28: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hUfin.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1240:46: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hUfin.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1248:8: error: Application type mismatch: The argument
+···
+  hall.left (mem_supp_iff.mpr hne)
+Pa.lean:1235:28: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hUfin.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1240:46: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hUfin.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1248:8: error: Application type mismatch: The argument
+  subset_iUnion (fun j => supp (m j) ∩ S) i
+has type
+  supp (m i) ∩ S ⊆ ⋃ i, supp (m i) ∩ S
+but is expected to have type
+  supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ⊆ supp (m i) ∩ S
+in the application
+  Finite.toFinset_subset_toFinset.mpr (subset_iUnion (fun j => supp (m j) ∩ S) i)
+Pa.lean:1251:83: error: Application type mismatch: The argument
+···
+  hUS hρ
+Pa.lean:1240:46: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hUfin.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1248:8: error: Application type mismatch: The argument
+  subset_iUnion (fun j => supp (m j) ∩ S) i
+has type
+  supp (m i) ∩ S ⊆ ⋃ i, supp (m i) ∩ S
+but is expected to have type
+  supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ⊆ supp (m i) ∩ S
+in the application
+  Finite.toFinset_subset_toFinset.mpr (subset_iUnion (fun j => supp (m j) ∩ S) i)
+Pa.lean:1251:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1253:64: error: Function expected at
+···
+  hUS hρ
+Pa.lean:1248:8: error: Application type mismatch: The argument
+  subset_iUnion (fun j => supp (m j) ∩ S) i
+has type
+  supp (m i) ∩ S ⊆ ⋃ i, supp (m i) ∩ S
+but is expected to have type
+  supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S ⊆ supp (m i) ∩ S
+in the application
+  Finite.toFinset_subset_toFinset.mpr (subset_iUnion (fun j => supp (m j) ∩ S) i)
+Pa.lean:1251:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1253:64: error: Function expected at
+  Set.subset_union_left ?m.439
+but this term has type
+  ?m.438 ∈ ?m.436 ∪ ?m.437
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Pa.lean:1256:83: error: Application type mismatch: The argument
+  hρ
+···
+  Finite.toFinset_subset_toFinset.mpr (subset_iUnion (fun j => supp (m j) ∩ S) i)
+Pa.lean:1251:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ ⋯.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1253:64: error: Function expected at
+  Set.subset_union_left ?m.439
+but this term has type
+  ?m.438 ∈ ?m.436 ∪ ?m.437
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Pa.lean:1256:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1288:2: error: No goals to be solved
+Pa.lean:1304:2: error: No goals to be solved
+···
+  hUS hρ
+Pa.lean:1253:64: error: Function expected at
+  Set.subset_union_left ?m.439
+but this term has type
+  ?m.438 ∈ ?m.436 ∪ ?m.437
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Pa.lean:1256:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1288:2: error: No goals to be solved
+Pa.lean:1304:2: error: No goals to be solved
+Pa.lean:1322:16: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.110
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1323:27: error: Function expected at
+···
+  _
+Pa.lean:1256:83: error: Application type mismatch: The argument
+  hρ
+has type
+  ρ ∈ hfina.toFinset
+but is expected to have type
+  ρ ∈ supp a ∩ S ∪ ⋃ i, supp (m i) ∩ S
+in the application
+  hUS hρ
+Pa.lean:1288:2: error: No goals to be solved
+Pa.lean:1304:2: error: No goals to be solved
+Pa.lean:1322:16: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.110
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1323:27: error: Function expected at
+  mem_cons_of_mem ?m.130
+but this term has type
+  ?m.126 ∈ cons ?m.127 ?m.128 ?m.129
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+···
+  hUS hρ
+Pa.lean:1288:2: error: No goals to be solved
+Pa.lean:1304:2: error: No goals to be solved
+Pa.lean:1322:16: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.110
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1323:27: error: Function expected at
+  mem_cons_of_mem ?m.130
+but this term has type
+  ?m.126 ∈ cons ?m.127 ?m.128 ?m.129
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.126 ∈ ?m.128
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+···
+Pa.lean:1288:2: error: No goals to be solved
+Pa.lean:1304:2: error: No goals to be solved
+Pa.lean:1322:16: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.110
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1323:27: error: Function expected at
+  mem_cons_of_mem ?m.130
+but this term has type
+  ?m.126 ∈ cons ?m.127 ?m.128 ?m.129
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.126 ∈ ?m.128
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+  mem_cons_self a t
+···
+Pa.lean:1304:2: error: No goals to be solved
+Pa.lean:1322:16: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.110
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1323:27: error: Function expected at
+  mem_cons_of_mem ?m.130
+but this term has type
+  ?m.126 ∈ cons ?m.127 ?m.128 ?m.129
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.126 ∈ ?m.128
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+  mem_cons_self a t
+but this term has type
+···
+  ha
+Pa.lean:1323:27: error: Function expected at
+  mem_cons_of_mem ?m.130
+but this term has type
+  ?m.126 ∈ cons ?m.127 ?m.128 ?m.129
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.126 ∈ ?m.128
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.138
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1342:52: error: Function expected at
+  mem_cons_of_mem ?m.150
+but this term has type
+···
+  hi
+Pa.lean:1323:50: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.126 ∈ ?m.128
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.138
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1342:52: error: Function expected at
+  mem_cons_of_mem ?m.150
+but this term has type
+  ?m.146 ∈ cons ?m.147 ?m.148 ?m.149
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1342:75: error: Application type mismatch: The argument
+  ha
+has type
+···
+  mem_cons_of_mem ha
+Pa.lean:1341:32: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.138
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1342:52: error: Function expected at
+  mem_cons_of_mem ?m.150
+but this term has type
+  ?m.146 ∈ cons ?m.147 ?m.148 ?m.149
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1342:75: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.146 ∈ ?m.148
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1353:31: error: Function expected at
+  mem_cons_self a t
+but this term has type
+···
+  ha
+Pa.lean:1342:52: error: Function expected at
+  mem_cons_of_mem ?m.150
+but this term has type
+  ?m.146 ∈ cons ?m.147 ?m.148 ?m.149
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1342:75: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.146 ∈ ?m.148
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1353:31: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.55
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1354:43: error: Function expected at
+  mem_cons_of_mem ?m.66
+but this term has type
+···
+  hi
+Pa.lean:1342:75: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.146 ∈ ?m.148
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1353:31: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.55
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1354:43: error: Function expected at
+  mem_cons_of_mem ?m.66
+but this term has type
+  ?m.62 ∈ cons ?m.63 ?m.64 ?m.65
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1354:66: error: Application type mismatch: The argument
+  ha
+has type
+···
+  mem_cons_of_mem ha
+Pa.lean:1353:31: error: Function expected at
+  mem_cons_self a t
+but this term has type
+  a ∈ cons a t ?m.55
+
+Note: Expected a function because this term is being applied to the argument
+  ha
+Pa.lean:1354:43: error: Function expected at
+  mem_cons_of_mem ?m.66
+but this term has type
+  ?m.62 ∈ cons ?m.63 ?m.64 ?m.65
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1354:66: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.62 ∈ ?m.64
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1372:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  analyticOrderAt (fun x => ∏ i, g i x) ρ
+in the target expression
+···
+  ha
+Pa.lean:1354:43: error: Function expected at
+  mem_cons_of_mem ?m.66
+but this term has type
+  ?m.62 ∈ cons ?m.63 ?m.64 ?m.65
+
+Note: Expected a function because this term is being applied to the argument
+  hi
+Pa.lean:1354:66: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.62 ∈ ?m.64
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1372:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  analyticOrderAt (fun x => ∏ i, g i x) ρ
+in the target expression
+  analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+
+κ : Type u_2
+inst✝ : Fintype κ
+g : κ → ℂ → ℂ
+ρ : ℂ
+han : ∀ (i : κ), AnalyticAt ℂ (g i) ρ
+···
+  hi
+Pa.lean:1354:66: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.62 ∈ ?m.64
+in the application
+  mem_cons_of_mem ha
+Pa.lean:1372:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  analyticOrderAt (fun x => ∏ i, g i x) ρ
+in the target expression
+  analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+
+κ : Type u_2
+inst✝ : Fintype κ
+g : κ → ℂ → ℂ
+ρ : ℂ
+han : ∀ (i : κ), AnalyticAt ℂ (g i) ρ
+hntop : ∀ (i : κ), analyticOrderAt (g i) ρ ≠ ⊤
+hord : analyticOrderAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderAt (g i) ρ
+h2 : (∑ i, analyticOrderAt (g i) ρ).toNat = ∑ i, (analyticOrderAt (g i) ρ).toNat ∧ ∑ i, analyticOrderAt (g i) ρ ≠ ⊤
+⊢ analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+Pa.lean:1419:53: error: Function expected at
+  Finset.univ_nonempty.2
+but this term has type
+···
+  mem_cons_of_mem ha
+Pa.lean:1372:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  analyticOrderAt (fun x => ∏ i, g i x) ρ
+in the target expression
+  analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+
+κ : Type u_2
+inst✝ : Fintype κ
+g : κ → ℂ → ℂ
+ρ : ℂ
+han : ∀ (i : κ), AnalyticAt ℂ (g i) ρ
+hntop : ∀ (i : κ), analyticOrderAt (g i) ρ ≠ ⊤
+hord : analyticOrderAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderAt (g i) ρ
+h2 : (∑ i, analyticOrderAt (g i) ρ).toNat = ∑ i, (analyticOrderAt (g i) ρ).toNat ∧ ∑ i, analyticOrderAt (g i) ρ ≠ ⊤
+⊢ analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+Pa.lean:1419:53: error: Function expected at
+  Finset.univ_nonempty.2
+but this term has type
+  ⋯.1 ∈ Finset.univ
+
+Note: Expected a function because this term is being applied to the argument
+  hne
+Pa.lean:1426:28: error: Application type mismatch: The argument
+  e1
+has type
+  ∀ (i : ι), (c - ε) * ↑((z i).countCum T) ≤ ↑((z i).countOnCum T)
+···
+⊢ analyticOrderNatAt (fun x => ∏ i, g i x) ρ = ∑ i, analyticOrderNatAt (g i) ρ
+Pa.lean:1419:53: error: Function expected at
+  Finset.univ_nonempty.2
+but this term has type
+  ⋯.1 ∈ Finset.univ
+
+Note: Expected a function because this term is being applied to the argument
+  hne
+Pa.lean:1426:28: error: Application type mismatch: The argument
+  e1
+has type
+  ∀ (i : ι), (c - ε) * ↑((z i).countCum T) ≤ ↑((z i).countOnCum T)
+but is expected to have type
+  ∀ i ∈ Finset.univ, (c - ε) * ↑((z i).countCum T) ≤ ↑((z i).countOnCum T)
+in the application
+  sum_le_sum e1
+Pa.lean:1434:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, _a ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 (ZeroMult.addFin z) T
+has type
+  (supp (ZeroMult.addFin z).mult ∩ stripWindow 0 T).Finite
+but is expected to have type
+  (supp _a ∩ stripWindow 0 T).Finite
+in the application
+  ⋯.toFinset
+···
+  hne
+Pa.lean:1426:28: error: Application type mismatch: The argument
+  e1
+has type
+  ∀ (i : ι), (c - ε) * ↑((z i).countCum T) ≤ ↑((z i).countOnCum T)
+but is expected to have type
+  ∀ i ∈ Finset.univ, (c - ε) * ↑((z i).countCum T) ≤ ↑((z i).countOnCum T)
+in the application
+  sum_le_sum e1
+Pa.lean:1434:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, _a ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 (ZeroMult.addFin z) T
+has type
+  (supp (ZeroMult.addFin z).mult ∩ stripWindow 0 T).Finite
+but is expected to have type
+  (supp _a ∩ stripWindow 0 T).Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+ι : Type u_1
+inst✝ : Fintype ι
+···
+  sum_le_sum e1
+Pa.lean:1434:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, _a ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 (ZeroMult.addFin z) T
+has type
+  (supp (ZeroMult.addFin z).mult ∩ stripWindow 0 T).Finite
+but is expected to have type
+  (supp _a ∩ stripWindow 0 T).Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+c : ℝ
+hz : ∀ (i : ι), EpsLowerCum (z i) c
+ε : ℝ
+hε : ε > 0
+hne : ¬Nonempty ι
+T : ℝ
+hm : (ZeroMult.addFin z).mult = fun x => 0
+···
+⊢ ∑ ρ ∈ ⋯.toFinset, (ZeroMult.addFin z).mult ρ = 0
+Pa.lean:1493:10: error: Type mismatch
+  countCum_add ?m.110 ?m.111
+has type
+  ∀ (T : ℝ), (ZeroMult.add ?m.110 ?m.111).countCum T = ZeroMult.countCum ?m.110 T + ZeroMult.countCum ?m.111 T
+but is expected to have type
+  ({ mult := multOf fK, windowFinite := hfinK }.add
+          (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ })).countCum
+      T =
+    { mult := multOf fK, windowFinite := hfinK }.countCum T +
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }).countCum T
+Pa.lean:1495:70: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+fK fL : ℂ → ℂ
+F : ι → ℂ → ℂ
+c₀ cStar : ℝ
+c : ι → ℝ
+hK : ∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ
+hF : ∀ (i : ι) (ρ : ℂ), AnalyticAt ℂ (F i) ρ
+hntopK : ∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤
+hntopF : ∀ (i : ι) (ρ : ℂ), analyticOrderAt (F i) ρ ≠ ⊤
+hAbFac : ∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, F i s) * fK s
+hfinK : WindowFinite (multOf fK)
+hfinL : WindowFinite (multOf fL)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+···
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }).countCum T
+Pa.lean:1495:70: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+fK fL : ℂ → ℂ
+F : ι → ℂ → ℂ
+c₀ cStar : ℝ
+c : ι → ℝ
+hK : ∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ
+hF : ∀ (i : ι) (ρ : ℂ), AnalyticAt ℂ (F i) ρ
+hntopK : ∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤
+hntopF : ∀ (i : ι) (ρ : ℂ), analyticOrderAt (F i) ρ ≠ ⊤
+hAbFac : ∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, F i s) * fK s
+hfinK : WindowFinite (multOf fK)
+hfinL : WindowFinite (multOf fL)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+hcK : cStar ≤ c₀
+hcF : ∀ (i : ι), cStar ≤ c i
+hAK : EpsLowerCum { mult := multOf fK, windowFinite := hfinK } c₀
+hAF : ∀ (i : ι), EpsLowerCum { mult := multOf (F i), windowFinite := ⋯ } (c i)
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fL ρ = multOf fK ρ + ∑ i, multOf (F i) ρ
+hAsF : EpsLowerCum (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }) cStar
+hAs :
+  EpsLowerCum
+    ({ mult := multOf fK, windowFinite := hfinK }.add
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }))
+···
+    countCumOf hfinK T + ∑ i, { mult := multOf (F i), windowFinite := ⋯ }.countCum T
+Pa.lean:1506:10: error: Type mismatch
+  countOnCum_add ?m.199 ?m.200
+has type
+  ∀ (T : ℝ), (ZeroMult.add ?m.199 ?m.200).countOnCum T = ZeroMult.countOnCum ?m.199 T + ZeroMult.countOnCum ?m.200 T
+but is expected to have type
+  ({ mult := multOf fK, windowFinite := hfinK }.add
+          (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ })).countOnCum
+      T =
+    { mult := multOf fK, windowFinite := hfinK }.countOnCum T +
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }).countOnCum T
+Pa.lean:1508:72: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+fK fL : ℂ → ℂ
+F : ι → ℂ → ℂ
+c₀ cStar : ℝ
+c : ι → ℝ
+hK : ∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ
+hF : ∀ (i : ι) (ρ : ℂ), AnalyticAt ℂ (F i) ρ
+hntopK : ∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤
+hntopF : ∀ (i : ι) (ρ : ℂ), analyticOrderAt (F i) ρ ≠ ⊤
+hAbFac : ∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, F i s) * fK s
+hfinK : WindowFinite (multOf fK)
+hfinL : WindowFinite (multOf fL)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+···
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }).countOnCum T
+Pa.lean:1508:72: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+fK fL : ℂ → ℂ
+F : ι → ℂ → ℂ
+c₀ cStar : ℝ
+c : ι → ℝ
+hK : ∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ
+hF : ∀ (i : ι) (ρ : ℂ), AnalyticAt ℂ (F i) ρ
+hntopK : ∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤
+hntopF : ∀ (i : ι) (ρ : ℂ), analyticOrderAt (F i) ρ ≠ ⊤
+hAbFac : ∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, F i s) * fK s
+hfinK : WindowFinite (multOf fK)
+hfinL : WindowFinite (multOf fL)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+hcK : cStar ≤ c₀
+hcF : ∀ (i : ι), cStar ≤ c i
+hAK : EpsLowerCum { mult := multOf fK, windowFinite := hfinK } c₀
+hAF : ∀ (i : ι), EpsLowerCum { mult := multOf (F i), windowFinite := ⋯ } (c i)
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fL ρ = multOf fK ρ + ∑ i, multOf (F i) ρ
+hAsF : EpsLowerCum (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }) cStar
+hAs :
+  EpsLowerCum
+    ({ mult := multOf fK, windowFinite := hfinK }.add
+      (ZeroMult.addFin fun i => { mult := multOf (F i), windowFinite := ⋯ }))
+···
+
+[pilot] SUMMARY
+[pilot]   Pa.lean: FAIL rc=1 errors=26 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-tlJfhXNi9ZExt72KXoWknO
