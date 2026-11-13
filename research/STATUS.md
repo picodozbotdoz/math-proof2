@@ -485,6 +485,13 @@ standing authorization with a commit.
   slots landed** — 71-P2, 73-C, 42-M4b(+upgrade), 10-L2, 11-M2 (formal report
   imminent), 72-C-neg, 75; open: 72-M1 (A8 slot 3, m1-run1 FAIL 4+1 iterating) +
   G7b/G5a/G6a (A7).
+- 2026-11-14 — batch-16: `A9 — 75 fills` (ce93af0; H QA: evidence figures match run6-final
+  + disk (descent 26→7→1→2→2→0; 1,557 = 1,194 M4a-carry + ≈363 new, 66 thms, 17/17
+  audited declarations); **hntop strengthening verified in-file** — `hntop-partial-products`
+  DERIVED AWAY via the ℕ∞ `analyticOrderAt` route (59 machinery hits, lemmas at Pa.lean
+  :17), complementing the :373–376 χ-discharged/ζ-residue note; TRIAGE sync "75 → 6.4
+  DELIVERED-entry"). **Article-75 status: DRAFT (entry milestone LANDED, A4 formal
+  report in)** — token-swap pending the sweep; P-b + N2 carried per the split verdict.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
