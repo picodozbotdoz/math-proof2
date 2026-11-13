@@ -26,7 +26,25 @@ consumption for 50-M2-R2 stays statement-level-only.
 | 11 (M2) | `P11T3.lean`, `RedTm2.lean` | on disk, **not yet in TARGETS** | confirm final-vs-scratch with the lane before including |
 | 52 / 20 | `M1`s | **already clean** | final-swept in the 2026-11-09 resume session (30/30 staged files OK, 0 sorryAx — `feasibility/VERIFICATION-LEDGER.md` §1, §6–§7); include in the re-run for drift-check only |
 
+**Machinery pre-verified post-outage (lane A1, 2026-11-14):** `run_axcheck.sh AxPilot10_L1`
+(one already-final artifact) ran clean end-to-end on the doz Modal account —
+`AxPilot10_L1.lean: OK | 36 axiom-lines, 0 with sorryAx`, all axiom sets ⊆ triad; log
+`feasibility/probe/logs/axcheck-c2-machinery-check.log` (provenance header in-file).
+Two machinery notes banked: (i) `run_axcheck.sh` now defaults to `MODAL_USER=doz`
+(`/home/doz/dozenv/bin/modal`; `sudo -u xyz` blocked here — RESUME-BRIEF-C2 §Protocol 3)
+and forwards subset stage-names to `make_axcheck.py` (`run_axcheck.sh <name>…` re-checks a
+subset; no args = all TARGETS); (ii) `L1.lean` carries its own 13 in-file `#print axioms`
+(`:517–529`), so its staged copy shows 38 print invocations with 13 idempotent duplicates
+and the tool's `axiom-lines=36` excludes "does not depend on any axioms" lines — benign,
+expected at the sweep too.
+
 ## 1 Baseline sorry-token certificate (2026-11-13, pre-final — re-run at execution)
+
+Re-confirmed post-outage (A1, 2026-11-14): classifier re-run over all 65 in-scope `.lean`
+files → exactly the 36 tokens below (9 main-run + 23 G-series + 4 in `pilots/71/P0.lean`
+at :65/:90/:97/:110, inside the file's NOT-A-PROOF convention), **0 unexplained**, and
+zero tokens in every C2 pilot proof file on disk (incl. mid-flight `M4b`, `L2`, `P11T3`,
+`RedTm2`, `P2`, `C-neg`).
 
 Classifier = the main-run script **upgraded** for two Cycle-2 realities: (i) lines inside a
 file's leading `/- … -/` docstring block are prose (the R9 script missed
@@ -98,6 +116,14 @@ acceptable). `sorryAx-lines>0` in a PROOF artifact ⇒ the pilot is not done des
 report — route to lane. For donor-swap pilots (42-M4*, 71-P1/P2, 72-*), additionally
 confirm the run log shows the donor statements consumed as **binders or built-donor
 imports only** (V2 = built; DZDF/Liu-1/Weil = statement-level — G1b/G3 verdicts).
+
+Import audit (A1, 2026-11-14, for the TARGETS additions above): `10/L2`, `42/M4a`,
+`42/M4b`, `71/P1`, `71/P2`, `72/C-neg`, `11/P11T3` import only Mathlib — stage verbatim.
+`11/RedTm2` imports `P11T3`; `make_axcheck.py`'s staged-import rewrite currently covers
+only `^import (P11T[12])$` → `AxP11T{1,2}`, so at execution EITHER extend that regex to
+`P11T3` mapped to its actual stage name from the list above (`AxPilot11_P11T3`) OR name
+the stage `AxP11T3` to reuse the existing shape — sorted elaboration order respects the
+dependency either way (`AxPilot11_P11T3` < `AxPilot11_RedTm2`; `AxP11T3` < `AxPilot11_*`).
 
 ## 4 Step C — VERIFICATION-LEDGER §Cycle-2 (per-pilot OK/FAIL sign-off format)
 

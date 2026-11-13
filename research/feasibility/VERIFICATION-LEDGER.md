@@ -217,26 +217,43 @@ verification status is only re-established by the final axcheck batch (plan §3)
   `pilots/{20,52}/run_m1.sh`, doz default with xyz fallback).
 
 
-## 9 Cycle-2 final-sweep skeleton (lane A1, 2026-11-13 — orchestrator-authorized addendum; H informed; fill-in at sweep execution per `probe/FINAL-SWEEP-PLAN-C2.md`)
+## 9 Cycle-2 final-sweep skeleton (lane A1, 2026-11-13; relaunch cross-check 2026-11-14 — orchestrator-authorized addendum; H informed; fill-in at sweep execution per `probe/FINAL-SWEEP-PLAN-C2.md`)
 
 Verdict columns are **[pending final sweep]** until Steps A–B of
-`probe/FINAL-SWEEP-PLAN-C2.md` run on the orchestrator's trigger; the "current state" notes
-cite on-disk logs as of 2026-11-13.
+`probe/FINAL-SWEEP-PLAN-C2.md` run on the orchestrator's trigger. The 2026-11-14 relaunch
+cross-check (post-outage) re-read every file and log tail cited below against the snapshot
+commit `ca4fd22` (working tree clean at check time); `status` reflects the relaunch lane
+assignments per `RESUME-BRIEF-C2.md`, `last-verified` = date of that re-read. No
+drop-declared rows yet. Sweep machinery pre-verified post-outage the same day:
+`run_axcheck.sh AxPilot10_L1` → OK, 36 axiom-lines, 0 sorryAx
+(`feasibility/probe/logs/axcheck-c2-machinery-check.log`; runner now defaults to
+`MODAL_USER=doz` per the relaunch protocol — see plan §0 machinery note).
 
-| pilot | final files | LoC/thms (on-disk) | axcheck verdict (log cite) | sorry tokens | sign-off |
-|---|---|---|---|---|---|
-| 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | [pending]; current: **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | [pending final sweep] |
-| 42-M4 | `M4b.lean` | 1557 / 66 | [pending]; no run log yet | 0 | [pending final sweep] |
-| 71 (FF-EZ1) | `P0.lean` | 112 / 4 | **probe-convention — Step A only** (header `P0.lean:10–20`; run verdict `pilots/71/logs/run4.log`: "P0.lean: OK (probe, sorry allowed)") | 4 placeholders (certified in plan §1) | [pending final sweep] |
-| 71 | `P1.lean` | 131 / 7 | [pending]; current: **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK") | 0 | [pending final sweep] |
-| 71 | `P2.lean` | 285 / ~13 [update] | [pending]; **landed 22:42** — header "proof artifact: no `sorry`" (1 token = prose); no run log yet (A2/A6) | 0 real | [pending final sweep] |
-| 72 (area-law) | `C-neg.lean` | 357+ / 5+ [recount] | [pending]; current: **FAIL in-flight, A4 ACTIVE** — `run4.log` (rc=1, 6 err) → `run5.log` 22:43 (rc=1, 7 err: implicit-arg synthesis :203/:204, unsolved goal :186, instance failure :278 — `sorryAx` in axioms report is downstream of the failed elaboration, 0 sorry tokens) | 0 | [pending final sweep] |
-| 72 | `M1.lean` | — (not landed, A8) | [pending landing] | — | [pending final sweep] |
-| 73 (FF C-series) | C-series | — (no dir yet) | [pending landing] | — | [pending final sweep] |
-| 10-L1 | `L1.lean` | 529 / 25 | **FINAL GREEN** — `pilots/10/logs/l1-run4-final.log` ("Pilot10_L1.lean: OK" + axcheck "AxPilot10_L1_full.lean: OK", triad, e.g. `PaddedDescent.F.descendC_uncut`: [propext]) | 0 | OK (pending sweep confirm) |
-| 10-L2 | `L2.lean` | 2595 / 126 | [pending]; file fresh 22:40, no l2 run logs yet (A6) | 0 | [pending final sweep] |
-| 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 386 / 8 | [pending]; lane to confirm final-vs-scratch | 0 | [pending final sweep] |
-| 52 / 20 | `M1`s | — | **already clean** (2026-11-09 resume final sweep, §6–§7; 30/30 staged OK, 0 sorryAx) — re-run for drift only | 0 | clean (cross-ref) |
+| pilot | final files | LoC/thms (on-disk 11-14) | status (relaunch) | axcheck verdict (log cite) | sorry tokens | sign-off | last-verified |
+|---|---|---|---|---|---|---|---|
+| 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | **FINAL-GREEN** (upgrade pilot, if it touches M4a, re-baselines this row) | **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | [pending final sweep] | 2026-11-14 |
+| 42-M4 | `M4b.lean` | 1560 / 66 | **IN-FLIGHT (A3)** — run2 **GREEN** 2026-11-14 02:06 (`m4b-run1.log` FAIL rc=1 err=3 sorry=0 → `m4b-run2.log` "M4b.lean: OK"; file reconciled by A3, 12-line delta vs snapshot); M4b-upgrade continuation (G2-cleared) may re-baseline this row | elaboration run2 OK; axcheck [pending final sweep] | 0 | [pending final sweep] | 2026-11-14 (m4b-run2) |
+| 71 (FF-EZ1) | `P0.lean` | 112 / 4 | **FINAL** (probe-convention — Step A only, never Step B) | header `P0.lean:10–20`; run verdict `pilots/71/logs/run4.log`: "P0.lean: OK (probe, sorry allowed)" | 4 placeholders (certified in plan §1) | [pending final sweep] | 2026-11-14 |
+| 71 | `P1.lean` | 131 / 7 | **FINAL-GREEN** (triad axioms visible in run4 tail) | **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK", 7 triad axiom lines) | 0 | [pending final sweep] | 2026-11-14 |
+| 71 | `P2.lean` | 247 / 10 | **IN-FLIGHT (A2)** — run1 2026-11-14 02:00 FAIL rc=1 err=6 sorry=0 (`p2-run1.log`), iterating per A2's queue | [pending]; `p2-run1.log` FAIL in-flight | 0 real | [pending final sweep] | 2026-11-14 (p2-run1) |
+| 72 (area-law) | `C-neg.lean` | 359 / 5 | **IN-FLIGHT (A4)** — honest FAIL-in-flight | `run4.log` (rc=1, 6 err) → `run5.log` 2026-11-13 22:43 (rc=1, 7 err; `sorryAx` in any axioms report is downstream of failed elaboration, 0 sorry tokens); logs run1–5 owe provenance headers at close-out | 0 | [pending final sweep] | 2026-11-14 |
+| 72 | `M1.lean` | — (not landed) | **PENDING-LANDING (A8, slot 3 after 11-M2)** | [pending landing] | — | [pending final sweep] | 2026-11-14 (absent confirmed) |
+| 73 (FF C-series) | C-series | — (no dir; `73-prework.md` only) | **PENDING-LANDING (A2, after P2)** | [pending landing] | — | [pending final sweep] | 2026-11-14 (absence confirmed: no `pilots/73/`) |
+| 10-L1 | `L1.lean` | 529 / 25 | **FINAL-GREEN** | `pilots/10/logs/l1-run4-final.log` ("Pilot10_L1.lean: OK" + axcheck "AxPilot10_L1_full.lean: OK", triad, e.g. `PaddedDescent.F.descendC_uncut`: [propext]) | 0 | OK (pending sweep confirm) | 2026-11-14 |
+| 10-L2 | `L2.lean` | 2595 / 126 | **IN-FLIGHT (A6)** — file fresh 2026-11-13 22:40, Part-D defect fixes owed before first run | [pending]; no l2 run logs yet | 0 | [pending final sweep] | 2026-11-14 (disk only, unrun) |
+| 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 392 / 8 | **IN-FLIGHT (A8)** — four pinpoint fixes owed; RedTm2 on-disk 392 vs skeleton 386 (mid-fix delta); lane to confirm final-vs-scratch before TARGETS inclusion | [pending]; no cycle-2 run verdict landed | 0 | [pending final sweep] | 2026-11-14 (disk only, unrun) |
+| 52 / 20 | `M1`s | 292 / 12, 582 / 26 | **CLEAN (cross-ref)** — no drop, drift-check only | already clean (2026-11-09 resume final sweep §6–§7, 30/30 staged OK, 0 sorryAx; Cycle-2 re-verification §8: `20/logs/axcheck-cycle2.log` 36 lines 0 sorryAx, `52/logs/axcheck-cycle2.log` 15 lines 0 sorryAx) | 0 | clean (cross-ref §8) | 2026-11-14 |
+
+Conditional TARGETS additions on landing (not yet rows): **42-M4b-upgrade** (A3, G2-cleared
+gated continuation — direct V2 import; may modify or extend `M4b.lean`, re-baseline that row),
+**50-M2** (gated: R1 openai in-corpus 7/8 on G7b — no G7b verdict yet; R2 DZDF statement-level
+only per G1b). Probe/gate items outside TARGETS: G7b (donor-pin axiom audit, died in outage),
+G5a/G6a staging runs (A7). Relaunch state 2026-11-14 ~02:0x: G7b re-run launched
+(`logs-g/run19-g7.log`, provenance header, 02:03 — no verdict lines yet); G5a re-run
+(`run20-g5a.log`) FAILED at `mathlib: failed to fetch cache` — the known transient
+artifact-cache outage mode, retry per protocol (my machinery check and A2/A3 pilot runs on
+the same account succeeded, so Modal is broadly alive); G6a re-run (`run21-g6a.log`) last
+seen mid dependency-fetch.
 
 Conventions (Cycle-2): (i) probe-convention stubs = the 36 header-justified tokens
 enumerated in `probe/FINAL-SWEEP-PLAN-C2.md` §1 (9 main-run + 23 G-series + 4 in

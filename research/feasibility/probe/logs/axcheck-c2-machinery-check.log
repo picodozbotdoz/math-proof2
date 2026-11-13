@@ -1,0 +1,72 @@
+# PROVENANCE: /tmp/crossmath-axcheck-c2-machinery.log (ephemeral transcript, mtime 2026-11-14);
+# producing lane A1; rescued in-repo 2026-11-14.
+# PURPOSE: post-outage (2026-11-13 network outage) end-to-end pre-verification of the
+# Cycle-2 final-sweep machinery (FINAL-SWEEP-PLAN-C2.md §3): run_axcheck.sh subset run
+# on ONE already-final artifact, AxPilot10_L1 (= pilots/10/L1.lean, final-green per
+# pilots/10/logs/l1-run4-final.log). Runner: research/feasibility/probe/run_axcheck.sh
+# AxPilot10_L1 (Cycle-2 substrate update this run: MODAL_USER=doz default,
+# /home/doz/dozenv/bin/modal; sudo -u xyz blocked in this env; subset args now
+# forwarded to make_axcheck.py). Modal app crossmath-probe (workspace semraker),
+# mathlib ff2494ea, toolchain v4.36.0-rc2. VERDICT: AxPilot10_L1.lean OK,
+# 36 axiom-lines, 0 sorryAx, all axiom sets subsets of {propext, Classical.choice,
+# Quot.sound} — machinery VERIFIED post-outage; no artifact-cache outage hit.
+# NOTE: 38 #print invocations in the staged file = extractor's 25 (full coverage of the
+# 25 theorems) + 13 in-file #print axioms at L1.lean:517-529 (the lane's own audit
+# tail); the 13 doubled names are idempotent re-prints with identical output — benign.
+#
+AxPilot10_L1: 25 theorems -> PaddedDescent.F.rng_eq, PaddedDescent.F.sumF_eq, PaddedDescent.F.prodL_eq, PaddedDescent.F.cap_eq …
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-et3idP0XV11oFYAMRRhzFZ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 1 file(s): ['AxPilot10_L1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxPilot10_L1.lean
+[ax] AxPilot10_L1.lean: OK; axiom-lines=36, sorryAx-lines=0
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.rng_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumF_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodL_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.cap_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_cap_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.length_pad' depends on axioms: [propext]
+'PaddedDescent.F.foldC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.collectC_agree' depends on axioms: [propext]
+'PaddedDescent.F.rngC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.sumFC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.prodC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.capC_agree' does not depend on any axioms
+'PaddedDescent.F.findC_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.rngC_eq' depends on axioms: [propext]
+'PaddedDescent.F.sumFC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.prodC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.capC_eq' depends on axioms: [propext]
+'PaddedDescent.F.len_capC_le' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_agree' depends on axioms: [propext, Quot.sound]
+'PaddedDescent.F.termFCD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaddedDescent.F.expandC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree' depends on axioms: [propext]
+'PaddedDescent.F.descendC_agree_pad' depends on axioms: [propext]
+'PaddedDescent.F.expandC_uncut' depends on axioms: [propext]
+'PaddedDescent.F.descendC_uncut' depends on axioms: [propext]
+
+[ax] SUMMARY
+[ax]   AxPilot10_L1.lean: OK | 36 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-et3idP0XV11oFYAMRRhzFZ
