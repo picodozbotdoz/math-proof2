@@ -141,6 +141,13 @@ orchestrator-owned.
 
 A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict summary): **20/22/21/40 — NO donor deltas** (hCZ + stop-at-M4 statuses unchanged; 20's Hecke object layer may switch openai→DZDF at 31/32 — note only); new cross-cutting donor `dedekindAbelianQuotient` (general-abelian factorization, 70-series feeder). QA P4 executed: 8 OK / 2 minor pins / 0 WRONG (`qa/cycle2-qa-plan.md` Part 1); two locator fixes routed to A3.
 
+**Donor registrations (Cycle 2):** `liu-zerofree/` registered 2026-11-13 (orchestrator; rev
+`7d10420`, v4.34.1, shallow clone, world-readable) — Liu arXiv:2610.12234 companion,
+zero-free Re s > 0.8749570 for every Dirichlet L incl. ζ; B_new < 7/8 ⇒ its half-plane
+strictly contains the 7/8 region, so pilot 50's `hQRH` class (ζ/Dirichlet) is formally
+dischargeable at full strength (external donor #2 of the QR-D cluster, after DZDF).
+Not built on our pin — probe pending A7/G7. AGENTS.md sibling list updated.
+
 ### Cycle-2 commit log (H)
 
 - 2026-11-13 — opening checkpoint `Cycle 2 open: charter addendum, lane board, index`:
@@ -166,4 +173,8 @@ A3 donor-verdict sweep (2026-11-13, `novelty/axiommath-as-donor.md` §Verdict su
   STATUS pilot rows 42-GO/50-GATED per relay + A3 sweep note + lane-landing notes;
   `qa/cycle2-qa-plan.md` Part 1 (P4 executed: 8 OK / 2 minor / 0 WRONG; V1
   Challenge-file sorry caveat recorded; A3's §c(2) QA flag CONFIRMED load-bearing).
-  [this commit]
+  (0079dc3)
+- 2026-11-13 — `Cycle 2: register Liu-1 zero-free repo as sibling donor (read-only)`
+  (this commit): shallow clone at `/home/doz/zcode-workdir/liu-zerofree/` (rev `7d10420`,
+  v4.34.1); AGENTS.md sibling bullet; STATUS donors note. No probe/build (A7 owns G7).
+  Pilot-50 row update (Liu-1 discharge note) queued for the next STATUS touch.

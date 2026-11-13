@@ -47,6 +47,17 @@ Relative to `/home/doz/zcode-workdir/`:
     consult it on GitHub for reference only.
   - `AreaLaw2D/` (`7768136b`, v4.33.0) — formalizes openai-math family 265
     (2D area law from a global spectral gap); bridges openai-math ↔ linear algebra.
+- `liu-zerofree/` — shallow clone (`--depth 1`, rev `7d10420`, toolchain `v4.34.1`,
+  registered 2026-11-13) of
+  github.com/liubaiying101/Slightly-improved-zero-free-half-planes-for-the-quasi-Riemann-hypothesis
+  — companion to Liu arXiv:2610.12234 (round-4 §5): zero-free Re s >
+  B_new = 0.874957019… for finite-order Hecke L over ℚ(√−3), with Cor. 14.1 transfer
+  to every Dirichlet L **including ζ** (principal character); exact-arithmetic
+  certificates. B_new < 7/8, so its zero-free half-plane strictly contains the 7/8
+  region — it discharges pilot 50's `hQRH`/`hQRHχ` binders as written (no weakening,
+  unlike DZDF's 31/32). 220 .lean files; textually sorry-free and native_decide-free
+  (grep-level only — NOT yet built on our pin; probe owned by A7/G7). Second external
+  formal donor of the QR-D cluster, after `axiommath/DedekindZetaZeroFree`. Read-only.
 
 Never edit or commit inside the sibling repos; work only in this workspace.
 Toolchain family across the ecosystem: Lean `v4.36.0-rc1`/`-rc2` — match it
