@@ -1,3 +1,4 @@
 external-doc/
 __pycache__
 research/qa/decl-index.tsv
+.run/

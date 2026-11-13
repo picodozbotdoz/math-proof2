@@ -31,6 +31,22 @@ Relative to `/home/doz/zcode-workdir/`:
   `zeta23/`.
 - `axiom-lean-engine/` — AXLE: Python client/CLI (`axle`) for the AXLE Lean
   verification API; uv-based (see its `pyproject.toml` / `Makefile`).
+- `axiommath/` — AxiomMath Lean formalizations (added 2026-11-13; shallow clones,
+  `--depth 1`, of `github.com/AxiomMath/<name>`; all sorry-free, standard axioms):
+  - `DedekindZetaZeroFree/` (`09afbb4c`, v4.35.0-rc3, deps mathlib + TauCeti) —
+    Cureton–Thorner quasi-RH: ζ_K ≠ 0 for Re s > 31/32, every number field K;
+    same for finite-order Hecke L-functions. Donor for dossiers 20/22/40/42/50.
+  - `ZetaZerosV2/` (`1d7edeb4`, v4.34.0-rc2, deps mathlib + PNT+ `c19697c7`) and
+    `ZetaZeros/` (`4bcaf70e`, v4.34.0-rc2) — Lamzouri: > 2/3 of ζ zeros simple and
+    on the line, > 83.6% distinct. Novelty check / donor for 01/21/42.
+  - `PrimeNumberTheoremAnd/` (`d71f7b41`, v4.35.0-rc2) — Axiom's PNT+ fork (HEAD;
+    ZetaZerosV2 pins the older `c19697c7`). Overlaps tauceti Perron (dossier 22).
+  - `Weil/` (`27cdb204`, v4.34.0-rc2, deps mathlib + AxiomMath/Stacks `012108f6`)
+    — all four Weil conjectures incl. RH over 𝔽_q (Deligne). Function-field
+    analog for the quasi-RH cluster. Stacks itself is NOT cloned (~63k modules);
+    consult it on GitHub for reference only.
+  - `AreaLaw2D/` (`7768136b`, v4.33.0) — formalizes openai-math family 265
+    (2D area law from a global spectral gap); bridges openai-math ↔ linear algebra.
 
 Never edit or commit inside the sibling repos; work only in this workspace.
 Toolchain family across the ecosystem: Lean `v4.36.0-rc1`/`-rc2` — match it
