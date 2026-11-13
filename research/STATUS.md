@@ -76,7 +76,7 @@ novelty (R8) and feasibility (R9) sign-off before entering triage.
 | 10 | 10-z3 | **M1 (= L3) PROVED axioms-clean 2026-11-10** (TOP-3 #2; G1 = CASE A → GO): `exists_tm_space` — eth's host in eth's time AND poly(\|x\|) stack space ∀t, + openai monitor form; unconditional, 0 binders, 135/135 thms ⊆ std axioms | `10-prework.md`, `10-blueprint.md`, `pilots/10/` (M1.lean, logs run1–4); next: L1 counter combinators, L2 PolyTVal |
 | 21 | 21-quartic-window | **milestone-C DONE, certified** (cStar(1)−cFun_quartic ≥ 3.87e-4: B closed, A2 kernel) | `21-milestoneC.md` |
 
-## Deferred-fix register (H-owned list) — CLOSED 2026-11-09 night (Task 11): all fixes applied (12 sites / 8 dossiers: 10,11,12,30,32,40,42,50; 41 verified already-clean); only 51/52's Part-4 minors remain documented-not-applied (R2 scope). Historic list:
+## Deferred-fix register (H-owned list) — CLOSED. Main run closed 2026-11-09 night (Task 11: 12 sites / 8 dossiers: 10,11,12,30,32,40,42,50; 41 verified already-clean). **Final closure 2026-11-13 (Cycle-2 orchestrator sign-off):** dossier 21/22's Part-2 minors verified ALREADY APPLIED on disk (2026-11-09 inline errata, 4 sites — re-verified true-as-written 2026-11-13: XiPrime quartic count 23 recursive ✓, cFun token in 74 zeta23 files with no ∀v-optimality theorem ✓, `zeta_growth_right_at` :119 ✓, ψ restated to the `Hypotheses.lean:80` comment mention ✓); dossier 51/52's Part-4 minors APPLIED 2026-11-13 by H — 51: 5 sites (Claim.lean pins :12→:18, :28→:32, :39→:40, :63→:49 ×2 + Gate|Program word-boundary restatement); 52: 4 sites (`annihilate_create_inner` named, `annihilate_normSq` name, Heisenberg 35→33, `Algebra/Lie/UniversalEnveloping/PBW/Weighted/Heisenberg.lean` path) — each re-verified true-as-written before editing. Register fully closed. Historic list:
 
 Locator fixes verified by QA but NOT yet applied (R9 was appending F4 sections to these files;
 apply next task): dossiers 10, 11, 12, 40, 42, 50 — exact edits in
@@ -143,4 +143,9 @@ orchestrator-owned.
 
 - 2026-11-13 — opening checkpoint `Cycle 2 open: charter addendum, lane board, index`:
   `RESEARCH.md` (orchestrator's Cycle-2 addendum) + this STATUS section + INDEX [expected]
-  entries. [this commit]
+  entries. (313c506)
+- 2026-11-13 — `Cycle 2: main-run errata closure (dossiers 21/22/51/52 Part-2/4 minors,
+  orchestrator sign-off)`: candidates/51 (5 sites) + candidates/52 (4 sites) applied with
+  inline errata; 21/22 verified already-applied (no diff needed); `qa/cycle2-qa-plan.md`
+  committed — pre-registration complete, QA passes P1–P6 unblocked; deferred-fix register
+  closed. [this commit]

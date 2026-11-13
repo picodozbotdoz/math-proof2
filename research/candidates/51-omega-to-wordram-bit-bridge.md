@@ -45,7 +45,8 @@ all-fields theorem `omega_lt_source_constant (F) [Field F] : omega F < 237105488
 (`MatrixFields/Conclusions/AllFieldsBound.lean:17`). 3sum-apsp's reduction: `Claim.Theorem_17
 (M : DetTimeModel) (MM : ℕ → ℝ) (D g : ℕ → ℕ)` (`ThreeSumApsp/TimeClaims/Sec3/Definitions.lean:
 192–199`) — **MM is already a parameter** ("the number of ring operations of the matrix
-multiplication", `Programs/Sec3/Theorem17/Claim.lean:12`), realized today only at
+multiplication", `Programs/Sec3/Theorem17/Claim.lean:18` [erratum 2026-11-13, H/QA: v1
+pinned :12; the docstring quote sits at :18]), realized today only at
 `strassen n := n^{logb 2 7}` (`ThreeSumApsp/Sec3/Parameters.lean:73`) via `strassenList p` —
 Strassen over the ring ℤ[x]/(x^p−1), `7^K` ring multiplications
 (`Spec/Sec3/Theorem17/Strassen.lean:81` + header), entry growth `strassenBound p j α β =
@@ -75,7 +76,8 @@ there exist C and a `DetTimeModel`-realized cost function
   (exponent arithmetic: log₂7 ≈ 2.8074 + 3/(2·18) = 1/12; τ = 2.3718 + 1/12).
 
 **(T3) Numeric corollary (honest scope).** In `bound17 MM D g C T n κ`
-(`Programs/Sec3/Theorem17/Claim.lean:28`) the MM-term is one of three additive overheads; with
+(`Programs/Sec3/Theorem17/Claim.lean:32` [erratum 2026-11-13, H/QA: v1 pinned :28;
+`noncomputable def bound17` sits at :32]) the MM-term is one of three additive overheads; with
 the frozen parameter choices the lead terms are `4ng·T` and `termScans ≈ κn³log n/g ≈
 n^{2.998}`; therefore **the substitution T2 alone does not move the frozen ε_T = 0.0017**
 (`EndStatement.lean:82`) — [VERIFIED by the exponent arithmetic above; independently
@@ -94,7 +96,13 @@ candidate 12's ε(ω_b) question (re-optimizing D, g), which T1/T2 feed but do n
     could land there instead, but `Claim.Theorem_17` lives in 3sum-apsp) and
     `Computability/QuantumFactoring/VerifiedTableOrder.lean:97` (a comment *contrasting*
     circuit cost with word-RAM primitives). No arithmetic→RAM compiler anywhere:
-    `rg 'Gate|Program' OAI/Computability` → 0; `docs/107.md`: "The result concerns arithmetic
+    `\bGate\b` in `OAI/Computability` lands only in Boolean/quantum/circuit machine trees
+    (QuantumFactoring, PerfectCompleteness/Machines, BinPacking/CookLevin, FourierCircuit,
+    WeisfeilerLeman/WLIdentification — 55 files; the five also defining `eval`/`cost`
+    vocabulary are circuit-eval flavors) — none is 3sum-apsp's arithmetic-program
+    `Gate`/`eval`/`cost` model [erratum 2026-11-13, H/QA: v1 quoted `rg 'Gate|Program'
+    OAI/Computability` → 0, a pattern slip — bare `Program` matches 872 files of ordinary
+    identifiers; word-boundary re-run above]; `docs/107.md`: "The result concerns arithmetic
     complexity, rather than bit complexity"; the companion preprint likewise ("ω … measures
     the asymptotic arithmetic cost", `preprints/Staggered-extraction-…-September-24-2026.pdf`,
     Introduction).
@@ -153,8 +161,10 @@ candidate 12's ε(ω_b) question (re-optimizing D, g), which T1/T2 feed but do n
    τ > 2.371054886006746 [VERIFIED statement, `AllFieldsBound.lean:17`; the witness is an
    existence statement, so T2 is stated ∀τ > 2.3717…, avoiding program extraction]. T1 + the
    witness give `mmOpenAI`; the charging discipline `ObeysBound17`
-   (`Programs/Sec3/Theorem17/Claim.lean:39`) then yields `Claim.Theorem_17 lightModel mmOpenAI
-   D g` via `claim17_of_host` (`Claim.lean:63`) — the same host plumbing as
+   (`Programs/Sec3/Theorem17/Claim.lean:40` [erratum 2026-11-13, H/QA: v1 pinned :39; the
+   `def ObeysBound17` line sits at :40]) then yields `Claim.Theorem_17 lightModel mmOpenAI
+   D g` via `claim17_of_host` (`Claim.lean:49` [erratum 2026-11-13, H/QA: v1 pinned :63;
+   the theorem sits at :49]) — the same host plumbing as
    `claim_theorem_17₅/₂₆` (`ClaimAtParameters.lean`), with the Strassen block swapped.
 4. (Numeric comparison) `n^{2.3718+1/12} < n^{log₂7+1/12}`: `Real.logb` arithmetic;
    `logb_two_seven_lt` already in 3sum-apsp gives the strict inequality. Routine.
@@ -180,7 +190,8 @@ from a ported `AdmissibleExponent`.
 - F2 donor lemmas: openai `Gate`/`Program.eval`/`cost` (`Model.lean:14–60`),
   `MatrixAlgorithm.Correct`, `omega_lt_source_constant` (`AllFieldsBound.lean:17`);
   3sum-apsp `Instr`/`exec` (`EndStatement.lean:16–46`), light language + `claim17_of_host`
-  (`Programs/Sec3/Theorem17/Claim.lean:63`), `strassenList`/`strassenBound`
+  (`Programs/Sec3/Theorem17/Claim.lean:49` [erratum 2026-11-13, H/QA: v1 pinned :63]),
+  `strassenList`/`strassenBound`
   (`Spec/Sec3/Theorem17/Strassen.lean:81`, `Hashing/StrassenFacts.lean:148`) as the compiled-
   algorithm template, `strassen` (`Sec3/Parameters.lean:73`) as the replaced cost.
 - F3 missing glue: (a) the gate-to-RAM compiler + entry-growth invariant (step 2; the whole

@@ -57,14 +57,17 @@ lower bounds on the complexity-side operators Q_s via openai's kernel-distance m
   `Orbital Q := Fin (Q+1) → ℂ` (`OAI/Analysis/Laughlin/Operators/CAR.lean:10–11`);
   `create i := ExteriorAlgebra.ι ℂ (mode i) * ·` (:15–19), `annihilate i :=
   CliffordAlgebra.contractLeft (LinearMap.proj i)` (:20–21); **proved CAR relations**
-  `annihilate_anticommute`, `create_anticommute` (:23,:33); adjointness `occupationInner Q x
-  (create i y) = occupationInner Q (annihilate i x) y` (`Fock/NormalSquare.lean:10`); the
+  `annihilate_anticommute`, `create_anticommute` (:23,:33); adjointness
+  `annihilate_create_inner` — statement `occupationInner Q x (create i y) =
+  occupationInner Q (annihilate i x) y` (`Fock/NormalSquare.lean:10` [erratum 2026-11-13,
+  H/QA: v1 rendered the equation without the decl name]); the
   fermionic Wick decomposition `sourcePairCreate_inner : ⟨S_p y, S_q z⟩ = δ_{pq}⟨y,z⟩ +
   ∑_{ij} complexThreeGram(p,i)(q,j)·⟨a_i y, a_j z⟩ + ⟨S_q† y, S_p† z⟩` (:22, with
   `S = sourcePairCreateEnd`, coefficients `pairCoefficient/√2` from
   `Model.lean:17–27`); normal-ordered square `sourceFockHamiltonian_normal_square` (:43);
-  contraction bounds `annihilate_normSq_le`, `two_annihilate_normSq_le`
-  (`Fock/ContractionBound.lean:27,49`); kernel-distance/spectral machinery
+  contraction bounds `annihilate_normSq`, `two_annihilate_normSq_le`
+  (`Fock/ContractionBound.lean:27,49` [erratum 2026-11-13, H/QA: v1 wrote
+  `annihilate_normSq_le`; the :27 decl is `annihilate_normSq`]); kernel-distance/spectral machinery
   (`Fock/SpectralDistance.lean`) culminating in `OAI.Laughlin.mainTarget_proved`
   (`Main.lean:19`) from `MainTarget : ∃ N₀ ≥ 2, ∀ N ≥ N₀, ∀ ψ antisymmetric,
   (1/100)·distanceToLaughlinSq ψ ≤ energy ψ` (`Model.lean:56–59`; paper constant γ* =
@@ -131,11 +134,13 @@ also run):
   result]; `rg -i 'canonical.?commutation|canonical.?anticommutation|\bCCR\b' Mathlib/` → 0.
   No Fock/occupation layer: `rg 'occupation' Mathlib/` → 0 relevant. The universal layer
   would be a first mathlib donation.
-- tauceti: `rg -i -c 'heisenberg' TauCeti/` → 35 files — but: discrete/Lie Heisenberg
+- tauceti: `rg -i -c 'heisenberg' TauCeti/` → 33 files [erratum 2026-11-13, H/QA: v1 said
+  35; recount gives 33] — but: discrete/Lie Heisenberg
   (`GroupTheory/SpecificGroups/Heisenberg.lean`, `Algebra/Lie/Heisenberg/Orbit.lean`,
   `RingTheory/DividedPowers/Heisenberg.lean`, the 7-dimensional weighted PBW quotient
-  `UniversalEnveloping/PBW/Weighted/Heisenberg.lean` — central bracket survives char 2/3
-  [V, file header]) and the **fermionic CAR stack** `Algebra/Lie/GeneralLinear/CAR/` (8
+  `Algebra/Lie/UniversalEnveloping/PBW/Weighted/Heisenberg.lean` — central bracket survives
+  char 2/3 [V, file header; erratum 2026-11-13, H/QA: v1 omitted the `Algebra/Lie/`
+  prefix — path verified on disk]) and the **fermionic CAR stack** `Algebra/Lie/GeneralLinear/CAR/` (8
   files + `Fock.lean`). Nearest misses for N1: tauceti's CAR is fermionic-only and
   Lie-theoretic (weights, Casimir, `CliffordAlgebra.equivExterior`); it has no bosonic
   occupation calculus and no normal-ordering/contraction identity; nothing states a
