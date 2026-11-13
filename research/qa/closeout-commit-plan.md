@@ -108,6 +108,34 @@ orchestrator to trigger STEP 9:
 
 Any residue → append fixes and re-run the checklist before requesting the STEP-9 trigger.
 
+### STEP-8 baseline dry-run (H, 2026-11-14) — every gate RUNS and reports correctly
+
+| Gate | Result today | Expected today | Check fix applied |
+|---|---|---|---|
+| 1 all-final signal | — (manual) | — | — |
+| 2a axcheck-c2-final copies | 0 files | FAIL ✓ | runs clean |
+| 2b Step B/C logs | **1 FALSE match** (`stepA-incremental-c2.log` contains "Step B" in prose) | ambiguous | **FIX**: A1 names the logs `stepB-c2.log` / `stepC-c2.log` at execution; check becomes `ls research/feasibility/probe/logs/step[BC]-c2.log \| wc -l` = 2 |
+| 3 ledger §9 no-`[pending` | 10 hits | FAIL ✓ | unambiguous as-is |
+| 4 slot ledger OPEN/PENDING | raw grep 21 hits **including the convention prose** — ambiguous | ambiguous | **FIX**: row-anchored `grep -E '^\|.*\b(OPEN\|PENDING-RELAY)\b'` (convention paragraph doesn't start with `\|`); = 19 today, correct FAIL |
+| 5 TRIAGE §decision | "Cycle 2" heading grep weak — the §Cycle-2 addendum section ALREADY exists (pre-built mechanical matrix, :200–235) | ambiguous | **FIX**: `! grep -q "do not decide until" research/TRIAGE.md` — the staging banner at :235 must be replaced by the decision at typeset |
+| 6 REPORT §C2 placeholders | 14 matches | FAIL ✓ | **NOTE added to STEP 4**: also rewrite the §C2 preamble convention sentence (it names the bracket slots in prose) or the zero-check can never pass |
+| 7 articles Status DRAFT | 6 files **including README** (preamble prose "marked Status: DRAFT") | ambiguous | **FIX**: glob `research/articles/[0-9]*.md` (README excluded, flips via its row statuses); today = 5 files; article 72 correctly ABSENT (already FINAL-filled) — validates the check |
+| 8 AGENTS-C2 APPLIED | 0 | FAIL ✓ | — |
+| 9 debts-register linked | 0 | FAIL ✓ | links at STEP 7 |
+| 10 tree clean (ex-AGENT_INSTRUCTION_1) | 39 paths | FAIL ✓ | — |
+| 11 close sequence | n/a today | — | verified at close |
+
+### Git integrity pre-pass (H, 2026-11-14)
+
+Branches: `dev/claude` (working branch) + `master` — plus `claude/nervous-vaughan-88fb3b`,
+a **harness-owned** worktree branch (`.claude/worktrees/nervous-vaughan-88fb3b` @
+`f05614b`, generated session name) — NOT created or touched by the lanes/H; leave it.
+`/home/doz/zcode-workdir/worktrees/agent-0{1..4}` = sibling-lane infrastructure
+worktrees, never written by us (all lane/H work happens in the main checkout). Stash
+empty. 73 commits total, no mid-commit or WIP states; every LANDED lane batch has its
+per-lane provenance commit (A1/A4/A5/A9 directly; A2/A3/A8 mid-flight evidence preserved
+via the ca4fd22-precedent snapshot 942828c, terminal batches pending by design).
+
 ## STEP 9 — dev/iteration4 branch cut (trigger: ORCHESTRATOR ONLY — H verifies and
 confirms immediately before executing)
 
