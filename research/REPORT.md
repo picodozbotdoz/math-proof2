@@ -304,7 +304,9 @@ rows), pilot outcome slot per pilot pipeline.
   ceiling of the 70-series, least claimable today; Tier A blocked (StacksFrontier ~63k
   modules un-cloned; priced ceiling, not a slot). A5 row: zone WARM, dossier-level query
   re-run owed (Rosen chapter pin). Pilot (slot 1b, A2): 73-C skeleton Q0→Q3, STOP before Q4
-  → outcome **[PILOT-VERDICT:73-C]**.
+  → outcome **GREEN FINAL (covered by A2's formal report 2026-11-14)**: run6-c-green,
+  236 LoC, Q1–Q3 + 71-glue, 7 theorems all triad; descent 2→4→4→2→OK; Q4 untouched per
+  the separate gate (Iteration-4 item).
 - **(74) Surprisal moment-hierarchy ceilings (A4).** Owns AL-EZ2 outright: T1 two-sided
   window theorem, T2 class-inclusion ladder, T3 LP core contingent on dossier-02's unclaimed
   layer, T4 method-barrier corollary; consumer = AreaLaw2D's 3D bottleneck C.3. Boundary note
