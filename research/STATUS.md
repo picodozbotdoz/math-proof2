@@ -443,6 +443,17 @@ standing authorization with a commit.
   H cells carry 282-on-disk with the flag; A2/orchestrator reconciliation owed.**
   Board: rows 71 (formal-report-received) + 11-M2 (GREEN FINAL, A8 report owed w/
   headers) updated; 50-M2-R1 pre-staged awaiting G7b.
+- 2026-11-14 — batch-12: `Cycle 2: A6 — 10-L2 TERMINAL` (319751f; H QA: 151 = 134+17
+  coverage argument verified — Parts A–C byte-identical to GREEN M1 (one prose-line
+  diff) so the M1-region re-audit argument holds; 17-defect list confirmed in run1
+  header (blueprint quotes its categories, matching the resume brief's Part-D classes);
+  descent 12→3→1→0→final, sorry=0 throughout; final 2,625 LoC). H cells filled: REPORT
+  §C2 10-L2 row + STATUS close-template row → **GREEN + axcheck-clean, A6 formal
+  report received — the main-run Top-3 #2 conjunction completes**. Remaining verdict
+  markers: 72-M1 (A8 slot 3), 11-M2 formal-report (A8 headers), 50-M2-R1/[G7b] (A7),
+  75 (A4), + chain [SWEEP]/[TRIAGE-DECISION]. A9's INPUTS promotion checklist confirmed
+  committed in 9ac5ad1 (both-tokens DRAFT-header finding; gating = 4 open families +
+  2 chain markers).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
@@ -536,7 +547,7 @@ Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C
 | 71-P2 (FF landing theorems, A2) | **FINAL-GREEN (A2 formal report received 2026-11-14)** | p2-run6 "P2.lean: OK": final 282 LoC (disk; report cites 279 — flagged) / 11 thms, 22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK (p2-run1–6); W1 pole-family correction |
 | 73-C (FF Hecke–Tate skeleton, A2) | **GREEN FINAL (covered by A2's report)** | run6-c-green: 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad; descent 2→4→4→2→OK; Q4 untouched per separate gate |
 | 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only) + upgrade **COMPLETE-primary** (m4b2-run2 "M4b.lean: OK" — direct V2 import, 1,571 LoC / 68 thms = PRIMARY, fallback byte-preserved, ≤20-line gate met; disk-verified, A3 formal report owed) | m4b-run2, m4b-axcheck-run1, m4b2-run2; M4-note owed |
-| 10-L2 `PolyTVal` (A6) | [PILOT-VERDICT:10-L2] | [logs; full axcheck per axcheck_full.py] |
+| 10-L2 `PolyTVal` (A6) | **GREEN + axcheck-clean (A6 formal report received 2026-11-14)** | final 2,625 LoC (2,042 M1-verbatim byte-identical + ~580 Part D); axcheck 151 thms (134 M1-region + 17 Part D) all triad, 0 sorryAx; descent 12→3→1→0→final (l2-run1–5) |
 | 11-M2 (A8) | **GREEN FINAL (disk-verified 2026-11-14; A8 formal report owed w/ headers — debt d)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3 explained in ledger §9 |
 | 72-M1 Tier-C (A8, slot 3) | [PILOT-VERDICT:72-M1] | [logs] |
 | 72-C-neg Kuwahara gate (A4) | **FINAL-GREEN OFFICIAL (A4 report received 2026-11-14)** | run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 (runs 1–8; 1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
