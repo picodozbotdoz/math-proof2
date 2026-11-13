@@ -285,8 +285,13 @@ rows), pilot outcome slot per pilot pipeline.
   AreaLaw2D's `AreaLaw.areaLaw` as M1. P1 + C-neg formal-new glue; P2 the zone's only
   surviving discovery claim. A5: P1 "formal-new (moderate)", C-neg "precedent-backed (50/30
   lineage)", WARM; hard NO-GO honored on literal rank statements. Pilots: C-neg gate —
-  honest FAIL-in-flight at the outage (run5: rc=1 errors=7 sorry=0) → outcome
-  **[PILOT-VERDICT:72-C-neg]**; then M1 Tier-C (slot 3, A8, after 11-M2; zero import
+  **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)**: `run8-final.log`
+  rc=0/0/0; descent 20→14→12→6→7→3→1→0 across runs 1–8 (runs 1–5 headers
+  reconstructed post-outage, marked); 369 LoC / 11 theorems (5 public + 6 private);
+  `axcheck-run1.log` 11/11 exactly `[propext, Classical.choice, Quot.sound]`, 0 sorryAx;
+  deviations vs 72-prework Appendix A documented (N1 stated for 0 < α ≤ β < 1; N3 as
+  concrete-family False forms ≡ the ¬∃C spec; Kuwahara enters only as the external
+  `hKL` binder, EnclOK pattern); then M1 Tier-C (slot 3, A8, after 11-M2; zero import
   gates — G5a only upgrades provenance, staging in flight run20).
 - **(73) Function-field Hecke–Tate (CONDITIONAL-CORE, Stacks-blocked).** The FF Hecke-L
   statement class in the DZDF `heckeCorollary` shape with every Weil-side input a binder
@@ -361,7 +366,7 @@ rows), pilot outcome slot per pilot pipeline.
 | 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 392 LoC; four pinpoint fixes applied — m2-run1: P11T3.lean OK with T1/T2/RedCompA/B re-verified; RedTm2 iterating, err 4→2→3 across m2-runs — A8 reconciles at report) |
 | 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (disk-verified 2026-11-14; A3 formal report owed)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); M4-note finalization owed |
 | 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (disk-verified 2026-11-14; A2 formal report pending)** — p2-run6 "P2.lean: OK", 282 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **[PILOT-VERDICT:73-C]** (Q0 probe CONFIRMED run1-q0; Tier-C skeleton executing) |
-| 72-C-neg | Kuwahara no-go gate (A4) | **[PILOT-VERDICT:72-C-neg]** — **GREEN on disk 2026-11-14**: descent 20→14→12→6→7→3→1→OK across run1–8, `run8-final.log` "C-neg.lean: OK" + A4's own `axcheck-run1.log` (triad-only, 0 sorryAx, rc=0); A4 formal report pending (run1–7 provenance headers + u≠1 dossier edit) |
+| 72-C-neg | Kuwahara no-go gate (A4) | **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)** — run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 runs 1–8 (1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 
 ### C2.4 External race report (QR-D cluster + FF/AL clocks)

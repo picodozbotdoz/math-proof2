@@ -508,7 +508,7 @@ Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C
 | 10-L2 `PolyTVal` (A6) | [PILOT-VERDICT:10-L2] | [logs; full axcheck per axcheck_full.py] |
 | 11-M2 (A8) | [PILOT-VERDICT:11-M2] | [m2-run* logs; axcheck] |
 | 72-M1 Tier-C (A8, slot 3) | [PILOT-VERDICT:72-M1] | [logs] |
-| 72-C-neg Kuwahara gate (A4) | [PILOT-VERDICT:72-C-neg] | [run6/7+ logs; provenance headers prepended] |
+| 72-C-neg Kuwahara gate (A4) | **FINAL-GREEN OFFICIAL (A4 report received 2026-11-14)** | run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 (runs 1–8; 1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | G7b donor-pin axiom audit (A7) | [G7b] | [run19/20; gates 50-M2-R1 + Liu-1 posture] |
 | G5a Physlib staging / G6a Stacks pricing (A7) | [G5a] / [G6a] | [run20-retry / run21] |
 
