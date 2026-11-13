@@ -8,7 +8,7 @@ of `research/bridges/analytic-nt.md`). Structure mirrors that file (§0 snapshot
 §2 lifts, §3 quantitative transport, §4 NAMED empty zones, §5 feasibility on our pin).
 
 Corpus roots (read-only, all read this session unless marked): `axiommath/Weil/` (HEAD `c1c8983`,
-"Wil" below), `axiommath/DedekindZetaZeroFree/` ("DZZF"), `axiommath/ZetaZerosV2/` ("ZZV2"),
+"Weil" below), `axiommath/DedekindZetaZeroFree/` ("DZZF"), `axiommath/ZetaZerosV2/` ("ZZV2"),
 `tauceti/` (rev `d92acc5c`), `encore-mathlib/repo/mathlib4/` ("mathlib", rev `ff2494ea`).
 Tags: **[VERIFIED]** = statement read at the cited locator; **[HYPOTHESIS]** = inference needing
 confirmation; **[LITERATURE]** = checked against the paper record (arXiv/publisher) this session.
@@ -78,7 +78,7 @@ Dependency structure (who sits on whom) [VERIFIED]:
 | Power-sum ↔ zero dictionary | zeta23 prime-side Gram/trace machine (Λ-moments, `PrimeSide.thm_traces`) | `coeff_logDerivative_multiset_prod_one_sub_C_mul_X` (`LeanEval/WeilConjectures.lean:85`) — the literal identity −Σ_m (Σ_α αᵐ) tᵐ = t·(∏(1−αT))′/(∏(1−αT)) [V] |
 | Functional equation | s ↦ 1−s via `WeakFEPair`/`completedRiemannZeta_one_sub` (mathlib) | T ↦ 1/(qⁿT): `prod_aeval_inv_rationalFrobeniusCharpolyReverse_zpow_eq` (`DeligneFunctionalEquation.lean:341`); genus 1 `mobiusAutOf_zetaRatFunc` Z(1/(qT)) = Z(T) (tauceti `Frobenius/Zeta.lean:112`) [V] |
 | Base change / twisting | none formalized | constant-field extension: P_ν(S/k)(T) = P_ν(S/k′)(T^{[k′:k]}) (`rationalFrobeniusCharpolyReverse_eq_comp_of_comp_specAlgebraMap_eq`, `FieldOfConstantsFrobenius.lean:163`) — i.e. eigenvalues raise to the r-th power under base change [V] |
-| Multiset/zero bookkeeping | ZZV2 `IsConjInvariant Z m` (finite conjugation-invariant multiset + multiplicity, `Challenge/Basic.lean:114`), `simplePart/simpleRealPart/distinct` (`:123–139`) | LeanEval `A : ℕ → Multiset ℂ` with Galois invariance `(∀ φ : ℂ ≃+* ℂ, (A i).map φ = A i)` and integrality (`WeilConjectures.lean:185` statement, clauses at :192–:196) — **the same shape, never matched** [V] |
+| Multiset/zero bookkeeping | ZZV2 `IsConjInvariant Z m` (finite conjugation-invariant multiset + multiplicity, `Challenge/Basic.lean:114`), `simplePart/simpleRealPart/distinct` (`:123–139`) | LeanEval `A : ℕ → Multiset ℂ` with Galois invariance `(∀ φ : ℂ ≃+* ℂ, (A i).map φ = A i)` and integrality (`WeilConjectures.lean:185` statement, clauses :188–194) — **the same shape, never matched** [V] |
 | Hecke L-function | DZZF `RayClassCharacter K m` (def `Challenge/DedekindZetaChallenge.lean:14`, in-repo, on mathlib ideal theory) + `heckeL_ne_zero` | L(X, ℱ) for ℓ-adic sheaves, rationality only (`LAdicTraceFormulaFinal.lean:51`) [V] |
 | Trivia-grade shared object | mathlib `Analysis/SpecialFunctions/Gamma/Deligne.lean` (Γ_ℝ/Γ_ℂ, named for Deligne) — needed only on the number side; the FF zeta is rational, no Γ-factors anywhere in Weil [V] | |
 
@@ -378,6 +378,19 @@ the cheapest possible "window comparison theorem" of tasking point (b).
 
 **Feasibility.** Same as FF-EZ1(ii); the pairing needs DZZF's statement elaborable — confirmed
 (`axiommath-bump` logs: "challenge DedekindZetaZeroFree/Challenge/DedekindZetaChallenge.lean: OK").
+
+**Zone ranking by discovery potential (novelty × significance ÷ effort), this lane's call:**
+1. **FF-EZ3** (Hecke-over-function-fields Tate dictionary + quasi-RH-with-1/2) — highest ceiling,
+   first formal Tate-type statement anywhere; hardest feasibility (Stacks-blocked; Kummer sheaves
+   not even in Weil). 2. **FF-EZ2-family** (Lamzouri constants C₀/C₁/C₂ for a function-field
+   family via ZZV2's exact Hilbert inequalities) — statement class unclaimed (A5 WARM), clock
+   ticking (Suzuki 2610.41115 entering the method space), but needs ensemble explicit-formula
+   infrastructure that exists nowhere formally. 3. **FF-EZ1** (s-plane ζ_C, optimal window,
+   Hasse–Weil point-count transport) — mostly formal-first/classical, but it is the *dictionary*
+   every other zone consumes; best value-to-effort. 4. **FF-EZ5** (perfect zero-density contrast
+   vs CT) — corollary-grade off FF-EZ1, cheap, sharp. 5. **FF-EZ4** (genus-1 tauceti↔Weil
+   identification) — pure glue, canonical pilot. 6. **FF-EZ2-cheap** (base-change density-1
+   simplicity) — elementary, formal-first, warm-up.
 
 ---
 
