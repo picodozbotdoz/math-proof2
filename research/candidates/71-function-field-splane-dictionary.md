@@ -16,8 +16,13 @@ statement below (binding):
 1. **The falsity trap:** per-curve *uniform* proportion statements are FALSE —
    supersingular-type Jacobians have Frobenius eigenvalues equal up to sign, forcing zero
    multiplicities comparable to g (genus-1 instance [VERIFIED] in tauceti's
-   `…/Frobenius/Supersingular.lean`; the every-genus quantitative citation is the
-   Moret-Bailly / Ibukiyama–Katsura line, round-4:116–123 `[A9 verify]` — open). Every
+   `…/Frobenius/Supersingular.lean`; **the every-genus citation is PINNED at mechanism
+   level by round-4 §6.3 (revision 2026-11-13): maximal curves — the Hermitian curve
+   y^q + y = x^{q+1} over 𝔽_{q²}, genus q(q−1)/2, is maximal for every prime power q,
+   all 2g Frobenius eigenvalues equal −q, Z_C(t) = (1+qt)^{2g}/((1−t)(1−qt)), simple-zero
+   proportion exactly 0; Hirschfeld–Korchmaros–Torres chapter-level citation with the
+   chapter/theorem number pin still owed; more genera via van der Geer–van der Vlugt
+   Artin–Schreier families).** Every
    proportion-shaped statement here is family-quantified or exclusion-based.
 2. **The method-neighbor clock:** Suzuki arXiv:2610.41115 (2026-10-30) brings
    Hilbert-space methods to FF zetas (informal, no proportions). Our play is
@@ -153,8 +158,13 @@ Corpus side (rg; bridge §4 [VERIFIED] sweeps + round-4 §1):
   multiplicities — (W)'s nearest miss), **Bui–Florea 1605.07092** ((S)'s nearest miss:
   family simple-zero lower bounds over H_{2g+1}, non-Lamzouri constants, informal),
   **Katz–Sarnak 1999** (monodromy USp(2g); family limits, no per-curve statement),
-  **DLRT 1908.04876** (number-side distinct-proportion analogue). **[A5 PART-2
-  confirmation pending]**, including the hexagonmath.org sweep (method item 14).
+  **DLRT 1908.04876** (number-side distinct-proportion analogue — **corrected qualifiers
+  per A5 standing note 3: GRH-conditional, fixed quadratic K, T→∞**, so it does not
+  preempt even the number-side uniform statements). **[A5 PART-2 LANDED 2026-11-13, row
+  71: "primary (P): formalization-first (dictionary value); FF-EZ2-family: N as proposed
+  (DISCOVERY-grade [HYPOTHESIS], dossier-flagged)"; tier WARM; trap citation "ANSWERED at
+  mechanism level … r4 §6.3 — chapter-number pin pending"; hexagonmath FF-clean (only
+  Boyang Hu's Langlands trilogy — different layer).]**
 - Nearest misses (summary): Suzuki 2610.41115 (method); Rudnick 0811.3649 ((W)'s data,
   different question); Bui–Florea 1605.07092 ((S)'s flank); tauceti genus-1 layer
   (`Frobenius/Zeta.lean`, `HasseBound.lean:44` — the g = 1 instance of (iii), different
@@ -274,3 +284,6 @@ the flagged objective, not the pilot entry; revisit if A7 ever prices the ensemb
 Honest categories: **(P)/(C)/(W) = GLUE/formalization-first (dictionary + packaging);
 (S) = DISCOVERY-grade [HYPOTHESIS], CONDITIONAL-CORE on an ensemble input no corpus has;
 FF-EZ3 (dossier 73) = highest-ceiling, Stacks-blocked, pre-registered separately.**
+**[A5 PART-2 LANDED (row 71): primary formalization-first; family N as proposed; tier
+WARM — no N-adjust beyond the lane's own proposal; re-scope honored ("family-quantified/
+exclusion-based proportion shapes ONLY").]**

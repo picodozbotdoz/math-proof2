@@ -213,10 +213,14 @@ Corpus side (rg; A4's bridge §3(b) [VERIFIED] sweeps + this lane's corroboratin
     `preprints/Polynomial-PEPS-approximation-…`) — nearest miss for the representation
     conclusion of any surviving statement; AL-EZ3's discharge theorem is precisely the
     formalization of the interface that preprint assumes.
-  - **[A5 PART-2 pending]** — round-4 §2 is a PRE-CHECK; PART-2 runs dossier-level queries
-    when this dossier lands. Pre-registered queries: `entanglement spectrum` + `inertia` /
-    `positive index`; `purity` + `area law` + `gap`; `moment problem` + `entanglement
-    spectrum`; `barrier` + `mutual information` + `gapped`.
+  - **[A5 PART-2 LANDED 2026-11-13, row 72 (r4 §2 + P2-4):]** structure CONFIRMED — the
+    Kuwahara no-go correctly baked in; P1 "formal-new, stated nowhere (AL-1/3/4 clean)";
+    **P2's purity-route (α=2, linear-in-boundary-budget) NOT contradicted by the
+    literature (P2-4: no α≥1 2D Rényi area law found — the [HYPOTHESIS] survives the
+    dossier-level sweep; residual re-check owed at pilot time)**; AL-EZ3 = "GLUE with
+    real consumer"; C-neg = "precedent-backed (50/30 lineage)". Tier WARM ("hard NO-GO
+    on literal rank statements — already honored"). Pre-registered queries executed in
+    P2-4 (`purity`/`Rényi α≥1` + area-law + gap family).
 - Nearest misses (summary): AHS 2004.15009 (spread, different functional, same hypothesis
   class); Kuwahara 2610.15199 (the false-side boundary — rank/α<1 dead, our statements sit
   at α ≥ 2 with a different shape); AGSP 2203.16012 (1D, projector technique, no
@@ -386,3 +390,6 @@ Physlib exposure), then the P2 decider probe. Honest categories: **P1/C-neg = fo
 glue with discovery-adjacent value; P2 = DISCOVERY-grade [HYPOTHESIS] (the zone's only
 surviving discovery claim, post-Kuwahara); AL-EZ3 = GLUE-with-real-consumer; AL-EZ2 =
 methodology transport [HYPOTHESIS at the LP layer]; AL-EZ4 = future work, jointly owned.**
+**[A5 PART-2 LANDED (row 72): "P1: formal-new (moderate); P2: N as proposed
+([HYPOTHESIS], flagged); C-neg: precedent-backed (50/30 lineage)"; tier WARM; P2-4
+outcome folded into § Novelty above — P2 un-contradicted, residual re-check at pilot.]**

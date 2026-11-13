@@ -25,11 +25,14 @@ statement no corpus has"). Built on the PROVED pilot-42 stack (`research/pilots/
 - **Category: DISCOVERY-grade claim on the statement class, CONDITIONAL-CORE today** —
   the landing theorems carry component binders no donor supplies; the ℚ-route is
   unconditional in exactly one of its two component classes (the A3 "partially
-  unconditional" pattern). One literature check gates the grade: whether DLRT
+  unconditional" pattern). One literature check gated the grade: whether DLRT
   arXiv:1908.04876's SDP distinct-zero proportions cover ζ_K *uniformly over K* (which
   would make the primary math-known, formalization-first) or only the Dirichlet/
-  quadratic scope dossier 42 recorded — **[A5 PART-2 pending; the dossier-level query is
-  pre-registered below]**. The location-side corollary C3 inherits dossier 70's
+  quadratic scope dossier 42 recorded — **RESOLVED 2026-11-13 by A5's PART-2 P2-3 flip:
+  "DLRT 1908.04876 is SCOPED (Thm 1.1 fixed abelian K under GRH (o_K(1), T→∞); Cor 1.3(i) fixed quadratic K, GRH-conditional) — NOT uniform ⇒
+  primary is NOT math-known ⇒ N stays 4" (VERDICTS C2 row 75; standing note 3's erratum
+  corrects the main-run §5.2(c) reading). The primary is a new statement family.** The
+  location-side corollary C3 inherits dossier 70's
   per-class split and parametric constants (Liu-2 clock).
 - Also honest: at K = ℚ the *right* half of any ζ_L confinement is just DZDF@L (CT
   applies to every number field — the factorization is not needed there); the
@@ -167,13 +170,17 @@ the axiommath labels):
   component-binder schema, the ℚ-route accounting, C3's real-abelian strip.
 - **Literature (dossier-level; A5 PART-2 runs when this lands — queries pre-registered):**
   - **DLRT arXiv:1908.04876** — the gating nearest miss: SDP distinct-zero proportions,
-    recorded by dossier 42/round-4 FF-5 as "ζ_K distinct via SDP". **Open scope question
-    (pre-registered for A5):** if DLRT covers ζ_K *uniformly over all K*, then (P-b) is
-    math-known (formalization-first + assembly-route, novelty caps at 2–3); if DLRT is
-    Dirichlet/quadratic-scoped (as dossier 42's use suggests), (P) is a new statement
-    family — novelty 4. Either way (P-a)'s with-multiplicity shape and the 2/3/5/6
-    constants are the zeta23-lineage packaging, weaker than DLRT's best constants if
-    those apply.
+    recorded by dossier 42/round-4 FF-5 as "ζ_K distinct via SDP". **Scope question
+    RESOLVED by A5's PART-2 P2-3 (2026-11-13): DLRT's Thm 1.1 is fixed ABELIAN K under
+    GRH (o_K(1), T→∞) and Cor 1.3(i) fixed quadratic K, GRH-conditional asymptotic — nothing
+    uniform over K, no Hecke/non-abelian ⇒ (P) is a
+    VERDICTS §5.2(c) reading "unconditional 45% distinct" was wrong; cite DLRT with the
+    corrected qualifiers.) Consequence for kind, per A5's row-75 re-scope: DLRT's
+    GRH-conditionality makes our certificate-conditionals **closer in kind** to the
+    nearest miss than an unconditional-vs-conditional gap would suggest — the honest
+    comparison is hypothesis-shape-to-hypothesis-shape (their GRH binder vs our
+    component-proportion binders), and ours are strictly weaker hypotheses at a weaker
+    constant family.
   - **Liu-2 arXiv:2610.26835** (B♭ uniform over every K, informal, Lean in progress):
     family overlap (every abelian field) but *half-plane nonvanishing*, never
     proportions or strips — the C3 clock, not a (P) competitor.
@@ -183,9 +190,11 @@ the axiommath labels):
     ζ_K-zero side's monthly cadence, different quantity (must-cite per the QR-D row).
   - **Kuwahara-style traps: none here** — (P) is a proportion-assembly, not a
     concentration-from-gap claim; the only inherited no-go is hCZ (below).
-  - **[A5 PART-2 pending]** — this dossier is precisely the "70-series ζ_L/Hecke
-    proportion" query round-4 PART-2 queued; hexagonmath.org sweep mandatory (method
-    item 14).
+  - **[A5 PART-2 LANDED 2026-11-13, row 75 (P2-3 + the queued ζ_L/Hecke-proportion
+    queries):]** the flip quoted above resolves the gating question; hexagonmath swept
+    (FF/QR-D clusters clean — only Boyang Hu, different layer); "abelian-extension
+    assembly (DZDF `dedekindAbelianQuotient` + V2 donors) has no uniform-over-K
+    competitor anywhere found".
 - Nearest misses (summary): DLRT 1908.04876 (the gating one); Liu-2 2610.26835 (family,
   wrong quantity); dossier 20's engine route (the sibling path to Hecke proportions,
   L-effort); dossier 42/pilot 42 (the machinery and the quadratic instance);
@@ -286,7 +295,9 @@ log-rescue convention).
 - F4 Effort: **M** (≈ 500–2k LoC over the existing pilot-42 stack: iteration +
   dictionary + landing packaging; no new analysis).
 - F5 Risks: (i) the G1 gate on DZDF (binder fallback keeps (P) landable — the
-  factorization datum is one hypothesis); (ii) **the DLRT scope question** gates the
+  factorization datum is one hypothesis); (ii) **the DLRT scope question — RESOLVED by
+  A5's P2-3 (not uniform; N stays 4); residual risk only in the chapter-level precision
+  of the corrected citation**; gates the
   novelty grade (pre-registered for A5 PART-2); (iii) zeta23 Dirichlet port needed for
   any future *full* discharge of (C2) — until then the ℚ-route is honestly
   partially-unconditional only; (iv) M4a unverified (log pending) — (P-b) waits on it;
@@ -315,12 +326,12 @@ main run's "engine reusability" thesis, one tower up.
 - Effort (S/M/L → 1–5): —
 - Rank (novelty × significance ÷ effort): —
 
-**Lane proposal (A9, non-binding):** Novelty **4 if DLRT is Dirichlet/quadratic-scoped,
-2–3 if uniform over K** (the pre-registered A5 PART-2 query decides; either way
+**Lane proposal (A9, non-binding, post-PART-2 revision):** Novelty **4** (DLRT scope
+RESOLVED by A5's P2-3 flip — "NOT uniform ⇒ primary is NOT math-known ⇒ N stays 4";
 formal-new + first ζ_L statements + the binder schema), Significance **4** (first
 non-quadratic ζ_K/ζ_L proportion route; reusable-assembly demonstration; real-abelian
 confinement bonus), Effort **2–3 (M over the GREEN stack; no new analysis)** — rank ≈
-4–8 conditional on the DLRT check. Sequencing: pilot (P-a)+(C1) at 2/3 after G1 (or
+5.3–6.7 at N4 (4×4÷3 to 4×4÷2). [A5 LANDED: N-adjust "4 (per flip rule)"; tier WARM.] Sequencing: pilot (P-a)+(C1) at 2/3 after G1 (or
 binder-postured immediately); M4b (the V2 ζ-side discharge) per A3's recommendation
 independently of this dossier. Honest category: **DISCOVERY-grade claim on the statement
 class (gated by the DLRT scope check), CONDITIONAL-CORE today — the component-proportion

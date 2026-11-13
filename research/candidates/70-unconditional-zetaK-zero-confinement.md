@@ -30,7 +30,9 @@ read in source this lane; [HYPOTHESIS] = proposed/reasoned, flagged.
   transferring to every Dirichlet L incl. ζ) is **already Lean-formalized in a public
   external repo** (github.com/liubaiying101/Slightly-improved-zero-free-half-planes-for-
   the-quasi-Riemann-hypothesis): pilot 50's `hQRH` is TRUE informally, and Part A's ζ/
-  Dirichlet statements are concurrent external formal work's weaker in-corpus siblings;
+  Dirichlet statements are concurrent formal work's weaker in-corpus siblings (the
+  openai tree itself proves 7/8 ζ/Dirichlet NOW — `Nonvanishing.lean:19/:29`, A5 row 70;
+  the port cost, not existence, was always the blocker);
   (β) for the ζ_K / Hecke-all-K class, "first unconditional ζ_K zero-confinement strip in
   Lean" **survives today only because Liu-2's Lean is unfinished** (B♭ = 0.8748866 uniform
   over every K, informal, v2 four days old, Lean in progress) — the strip widens to
@@ -81,7 +83,7 @@ f s = NumberField.dedekindZeta K s`, (c) `∀ s, 31/32 < s.re → s ≠ 1 → f 
 `heckeCorollary` (`Challenge/…:34`, `heckeL_ne_zero` `HeckeCorollary.lean:12` ←
 `HeckeCorollary.principalRayCharacter_ne_zero` `Nonvanishing/Hecke/PrincipalCharacter.lean:14` /
 `nonprincipalRayCharacter_ne_zero` `NonprincipalCharacter.lean:15`): for `m : Ideal (𝓞 K) ≠ ⊥`,
-`χ : RayClassCharacter K m` (structure `Arithmetic/RayClasses/Character.lean:14`; IsPrincipal
+`χ : RayClassCharacter K m` (structure `Arithmetic/RayClasses/Character.lean:12` — library copy; the Challenge copy sits at `DedekindZetaChallenge.lean:14`; locator fixed per A2's prework §b; IsPrincipal
 :26; IsPrimitive :24), an `f` differentiable off {1} (entire if `¬χ.IsPrincipal`) with the
 ideal-Dirichlet `HasSum` for ℜs > 1 and `∀ s, 31/32 < s.re → (s ≠ 1 ∨ ¬χ.IsPrincipal) → f s ≠ 0`.
 DZDF's FE: `Hecke.heckeFunctionalEquation` (`LFunctions/Hecke/FunctionalEquation.lean:12`;
@@ -260,6 +262,12 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
     of [Liu26b]+[CTLean]) — the informal frontier is already below 7/8 *uniformly*, so
     pilot 50's `hQRH` is TRUE informally and the only formal discharge paths today are the
     external Liu repo (unprobed) or the weakened 31/32 binder in-corpus (this dossier).
+    **[Revision 2026-11-13, per A5's PART-2 row 70 + `pilots/50-M2-31-32-spec.md` (which
+    supersedes round-4 §5.2's two-path framing): THREE routes — R1 (preferred): openai
+    in-corpus at FULL 7/8 (the tree proves it NOW, `OAI/NumberTheory/DirichletL/
+    Nonvanishing.lean:19/:29` — the blocker was always the 2,924-file port, never
+    existence; A5/liu1-as-donor §4); R2: DZDF in-corpus at 31/32 (this dossier, gated
+    G1); R3: Liu-1 external at 34999/40000 ≈ 0.874975, statement-binder only (gated G7).]**
   - QR-2: **the CT paper is hexagonmath.org-only** (`hexagonmath.org/2610.00200`, v1
     2026-10-12 / v2 2026-10-14; NOT on arXiv — `au:Cureton` finds nothing mathematical).
     Method item 14: **arXiv sweeps are unsound for this cluster**; CT is treated here as a
@@ -334,7 +342,7 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
    `strip_confinement` (`M1.lean:48–71`) with the constant substituted — left half from
    `riemannZeta_one_sub` verbatim.
 2. (S) C1: the Dirichlet↔`RayClassCharacter ℚ (q)` dictionary (fields checked axiom-by-axiom
-   against `Character.lean:14–20`; total positivity kills the sign); `hQRHχ₃₂` :=
+   against `Character.lean:12–18`; total positivity kills the sign); `hQRHχ₃₂` :=
    `heckeL_ne_zero` at K = ℚ; `strip_confinement_dirichlet` (`Dirichlet.lean:40`) re-based,
    `hFEχ` untouched.
 3. (The honest glue of C2) Λ ↔ f identification: with Λ from the principal FE at
@@ -456,10 +464,12 @@ genuinely open content.
 
 **Lane proposal (A9, non-binding):** Part A: Novelty **2** (A3's class: formal-new,
 math-known, HdV/Broughan nearest-miss; **per-class split per A5 §5.3**: the ζ/Dirichlet
-statements carry NO first-claim — Liu-1's external repo owns that class — and the ζ_K/
-Hecke-all-K first-claim holds on the Liu-2 clock; caps at 1 if CT's paper prints the strip),
+statements carry NO first-claim — the openai tree (7/8, proved) and Liu-1's external repo
+(34999/40000) own that class — and the ζ_K/Hecke-all-K first-claim holds on the Liu-2
+clock; caps at 1 if CT's paper prints the strip),
 Significance **3**, Effort **1–2 (S)** — rank ≈ 3–4; pilot as A3 milestone 2 (M2-31/32),
-gated on G1, with the liubaiying101 portability probe as the optional companion.
+spec'd with routes R1 (openai 7/8) / R2 (DZDF 31/32, G1) / R3 (Liu-1 external, G7),
+with the liubaiying101 portability probe as the optional companion.
 Part B: Novelty **3–4** (no corpus, and no literature trace in round-4's §1/§3 sweeps, states
 ζ_L proportions; DLRT 1908.04876 and Liu 2610.26835 are the flanks — pending A5 PART-2),
 Significance **4**, Effort **2–3 (M)** — rank ≈ 4–8; recommend promotion to its own dossier
@@ -467,3 +477,6 @@ once A5 weighs in. Honest categories: **Part A = ECOSYSTEM/GLUE-grade posture up
 conditional core it upgrades was pilot 50's, already done); **Part B = DISCOVERY-grade
 content, CONDITIONAL-CORE today** (conditional on the factor-proportion inputs +
 window-finiteness; the ℚ-route discharge is named).
+**[A5 PART-2 LANDED 2026-11-13 (row 70): N-adjust "artifact-grade (no discovery N)";
+tier HOT-cluster / WARM-artifact; per-class split CONFIRMED — "ζ_K-strip (all K) is OURS";
+Part B's queries resolved in row 75 (see dossier 75's revision).]**
