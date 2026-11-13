@@ -1,18 +1,24 @@
 # Abelian Assembly: Zero Proportions for ζ_L Across the Whole Abelian Tower
 
-*cross-math-fronttier research article 75 (Cycle 2) · SKELETON 2026-11-14 · dossier
+*cross-math-fronttier research article 75 (Cycle 2) · DRAFT (entry milestone LANDED —
+A4 FORMAL REPORT LANDED, 2026-11-14; P-b carried to Iteration 4) · dossier
 `research/candidates/75-abelian-assembly-zetaL-proportions.md` (70-Part-B split-out) ·
 spec `research/pilots/75-prework.md` (complete) · donor map `research/novelty/
 axiommath-as-donor.md` §(f) · machinery `research/pilots/42/` (M1–M2b, M4a GREEN; M4b
 run2 GREEN on disk, pending A3 relay) · upgraded sibling article
 `42M4-zetaK-proportions-unconditional-zeta-column.md`*
 
-**Status: SKELETON — not a draft.** Pilot 75 (wave-4, lane A4) is EXECUTING; the
-GREEN/drop decision and this article's promotion SKELETON → DRAFT are **HELD for A4's
-official P-a/C1 milestone report** per the orchestrator. Evidence sections carry the
-registered slot family [VERDICT:75-N0/N1/N2/N3] (slot ledger §A, registered 2026-11-14);
-nothing below them is citable. The mathematical statement sections are written from the
-FINAL dossier and the complete prework so promotion is a fill-in.
+**Status: DRAFT — entry milestone LANDED (A4 FORMAL REPORT LANDED, 2026-11-14).** The
+assigned Cycle-2 scope — **Pilot entry (P-a)+(C1) at 2/3, binder-postured over the GREEN
+pilot-42 stack — is COMPLETE, GREEN, FINAL for Cycle 2**: `run6-final` rc=0 errors=0
+sorry=0, descent 26→7→1→2→2→0; Pa.lean ≈363 new LoC on the 1,194-LoC M4a carry (1,557
+LoC / 66 theorems, under the 0.6k overrun guard); **in-file audit 17/17 declarations
+(3 heritage M4a landings + 11 new public + 3 private) exactly the triad, zero sorryAx**.
+**P-b (the 5/6 strip-distinct arm) and the N2 ℚ-route CARRY to Iteration 4** (P-b design
+on file, +0.2–0.3k LoC; A4's design note incoming). Headline as it stands: **the first
+zero-proportion statement one degree up pilot-42's tower — ζ_L at 2/3 (with
+multiplicity), conditional on the component-proportion binders, every abelian
+extension.** The §5 fills carry the split verdict; nothing below is slot-gated anymore.
 
 ---
 
@@ -99,14 +105,31 @@ window-finiteness as structural hypotheses (discreteness route the fallback); N2
 (d2) + the M4b glue; N3 = full-coverage axcheck (pilot-10 `axcheck_full.py`, the M4a
 54-theorem precedent; plus on-pin V2-endpoint axiom prints if the import route was taken).
 
-## 5. Pilot evidence (SLOTS — all empty; fills only from A4's official report)
+## 5. Pilot evidence (FILLED from A4's FORMAL REPORT, 2026-11-14)
 
-- **N0 (statement probe + synthetic 3-factor engine check, <0.2k LoC): [VERDICT:75-N0]**
-- **N1 (assembly engine, ≈0.4–0.7k LoC; N1-a + N1-b): [VERDICT:75-N1]**
-- **N2 (ℚ instantiation + `zetaL_two_thirds_landed_ℚ`, ≈0.4–0.8k LoC): [VERDICT:75-N2]**
-- **N3 (full axcheck + logs with provenance headers): [VERDICT:75-N3]**
-- Final LoC / theorem count / verdict line (GREEN-with-binders / FAIL-in-flight / DROP):
-  **[VERDICT:75-final]** — promotes this skeleton to DRAFT or records the drop.
+- **N0: FOLDED** — the probe checks (statement shapes + synthetic 3-factor engine
+  validation) were folded into `Pa.lean`'s abstract statements rather than run as a
+  separate stage (A4's execution choice; recorded here so the ledger's N0 row closes).
+- **N1: LANDED GREEN — `zetaL_assembly_landed`** (the N1-a with-multiplicity assembly
+  + the C1 instantiation at 2/3): run6-final OK, descent 26→7→1→2→2→0, ≈363 new LoC on
+  the M4a carry. **N1-b (P-b, the 5/6 strip-distinct arm): CARRIED-TO-ITERATION-4**
+  (design on file, priced +0.2–0.3k LoC).
+- **N2 (ℚ instantiation + `zetaL_two_thirds_landed_ℚ`): CARRIED-TO-ITERATION-4** (the
+  shared (d1)/(d2) ℚ-glue and the M4b-route discharge are Iteration-4 milestones per
+  the orchestrator's scope decision).
+- **N3: LANDED — axcheck GREEN** (in-file audit 17/17 exactly triad incl. the 3
+  heritage M4a landings; zero sorryAx; full close-out sweep registered in
+  FINAL-SWEEP-PLAN-C2 TARGETS).
+- **Final: LANDED GREEN 2026-11-14** — "Pilot entry (P-a)+(C1) at 2/3, binder-postured
+  over the GREEN pilot-42 stack: GREEN (run6-final, rc=0, 0 errors/0 sorry, descent
+  26→7→1→2→2→0)." This fills the [VERDICT:75-final] slot; the skeleton promoted to
+  DRAFT.
+- **Strengthening (A4's report, fold into the binder story of §2/§3):** the landed
+  binder inventory matches prework §(b) EXACTLY **except `hntop-partial-products` —
+  derived away via the ℕ∞ `analyticOrderAt` route**: additivity is applied at the
+  `analyticOrderAt` level, where `analyticOrderAt_mul` is unconditional, so per-factor
+  ≠ ⊤ suffices and the partial-product non-⊤ binder disappears. (One fewer hypothesis
+  than designed.)
 
 Supporting landed evidence (citable now): the GREEN 42-stack incl. M4a (1,194 LoC/54
 thms, ≈180 LoC assembly delta — the n = 2 instance of N1) and **M4b BOTH ROUTES

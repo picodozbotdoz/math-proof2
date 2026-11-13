@@ -339,17 +339,30 @@ class (gated by the DLRT scope check), CONDITIONAL-CORE today — the component-
 binders are the named open core nobody has; the assembly machinery is pilot 42's and is
 not claimed.**
 
-## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+## Pilot outcome (appended by A9 2026-11-14; FILLED 2026-11-14 from A4's formal report — entry milestone)
 
 Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
 (pilot 75 = wave-4; spec COMPLETE at `research/pilots/75-prework.md` — treat the prework
 as done per RESUME-BRIEF-C2 §A9; pilot dir/logs to be created at execution).
 
-- Runs (milestone / date / log file / rc / errors–sorrys):
-  - Pilot entry (P-a)+(C1) at 2/3 (binder-postured, over the GREEN pilot-42 stack): —
-  - (P-b) strip-distinct forms (after 42-M4a verification): —
-  - (C2)/(C3) discharge/accounting milestones: —
-- LoC (final files): —
-- Theorem count (final files): —
-- Axiom audit (`#print axioms` sweep; triad check): —
-- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —
+- Runs (milestone / date / log file / rc / errors–sorrys): **Pilot entry (P-a)+(C1) at
+  2/3 (binder-postured, over the GREEN pilot-42 stack): LANDED GREEN 2026-11-14,
+  `run6-final` (rc=0, errors=0, sorry=0; descent 26→7→1→2→2→0 across runs 1–6)** —
+  A4 FORMAL REPORT LANDED. **(P-b) strip-distinct forms: CARRIED-TO-ITERATION-4**
+  (design on file, priced +0.2–0.3k LoC; A4's design note incoming). **(C2)/(C3)
+  discharge/accounting milestones: CARRIED-TO-ITERATION-4** (the N2 ℚ-route).
+- LoC (final files): **Pa.lean 1,557 total (≈363 new on the 1,194-LoC M4a carry — under
+  the 0.6k overrun guard)**.
+- Theorem count (final files): **66 (17 audited: 3 heritage M4a landings + 11 new
+  public + 3 private)**.
+- Axiom audit (`#print axioms` sweep; triad check): **in-file audit 17/17 exactly
+  [propext, Classical.choice, Quot.sound], zero sorryAx (run6-final); full close-out
+  sweep registered in FINAL-SWEEP-PLAN-C2 TARGETS.**
+- **Strengthening (A4's report): the binder inventory matches prework §(b) EXCEPT
+  `hntop-partial-products` — DERIVED AWAY via the ℕ∞ `analyticOrderAt` route**
+  (additivity applied at the `analyticOrderAt` level, where `analyticOrderAt_mul` is
+  unconditional; per-factor ≠ ⊤ suffices — one fewer hypothesis than designed).
+- Verdict line: **GREEN-with-binders, FINAL for Cycle 2 — the first ζ_L zero-proportion
+  statement (2/3 with multiplicity, every abelian extension, component binders as the
+  named open core) is kernel-verified; P-b + the ℚ-route carry to Iteration 4 (article
+  75 promoted SKELETON → DRAFT).**
