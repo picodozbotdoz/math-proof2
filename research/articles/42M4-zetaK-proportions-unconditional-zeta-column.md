@@ -1,16 +1,18 @@
 # ζ_K Zero Proportions with an Unconditional ζ-Column: the ZetaZerosV2 Donor Swap
 
-*cross-math-fronttier research article 42-M4 (Cycle 2) · DRAFT 2026-11-14 · upgrade of
-article 42 (`42-quadratic-dedekind-zeta-zero-proportions.md`, main run) · dossier
+*cross-math-fronttier research article 42-M4 (Cycle 2) · DRAFT 2026-11-14 · **STANDALONE
+by orchestrator decision 2026-11-14 (one-article-per-discovery rule): this is the
+Cycle-2 donor-swap discovery's own article; the main-run article 42
+(`42-quadratic-dedekind-zeta-zero-proportions.md`) is FROZEN HISTORY — the
+certificate-conditional record of the main run, cited below but not edited** · dossier
 `research/candidates/42-zeta-k-two-thirds-product-assembly.md` · blueprint
 `research/pilots/42-M4-blueprint.md` · pilot `research/pilots/42/{M4a,M4b}.lean`, logs
 `research/pilots/42/logs/` (m4-run2, m4-axcheck-run1, m4b-run2)*
 
 **Status: DRAFT — M4a GREEN + axcheck-clean (landed evidence); M4b run2 GREEN on disk
 2026-11-14; official verdict slots [VERDICT:M4b] and [VERDICT:M4b-upgrade] open for the
-orchestrator's relay.** Merge decision (addendum to article 42 vs standalone) is also
-open — this file is drafted standalone so the fill-in is surgical; if the orchestrator
-chooses the addendum, its §§3–5 move under article 42's heading unchanged.
+orchestrator's relay.** Standalone-vs-addendum DECIDED 2026-11-14: standalone (header
+cross-reference above; main-run article 42 frozen).
 
 ---
 

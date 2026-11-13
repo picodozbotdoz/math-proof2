@@ -288,17 +288,24 @@ FF-EZ3 (dossier 73) = highest-ceiling, Stacks-blocked, pre-registered separately
 WARM — no N-adjust beyond the lane's own proposal; re-scope honored ("family-quantified/
 exclusion-based proportion shapes ONLY").]**
 
-## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; rows P0/P1 FILLED 2026-11-14 from ledger-final verdicts per the orchestrator's instruction; P2 stays slotted)
 
-Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
-(pilot 71 = slot 1, lane A2; stages per `research/pilots/71-prework.md` §c; artifacts
-under `research/pilots/71/`, logs under `research/pilots/71/logs/`).
+Fill rule: slots below stay empty until relayed by the orchestrator (pilot 71 = slot 1,
+lane A2; stages per `research/pilots/71-prework.md` §c; artifacts under
+`research/pilots/71/`, logs under `research/pilots/71/logs/`). Rows P0/P1 are FINAL per
+the ledger (filled below, not relay-dependent); P2 is in flight.
 
 - Runs (stage / date / log file / rc / errors–sorrys):
-  - P0 (statement probe): —
-  - P1 (kernel-clean stage): —
-  - P2 (proof artifact; W1 window incl. s≠1 pole exclusion → W2 → HW): —
-- LoC (final files): —
-- Theorem count (final files): —
-- Axiom audit (`#print axioms` sweep; triad check): —
-- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —
+  - P0 (statement probe): **OK** — statement layer elaborates on the pin; 4 justified
+    stubs under the probe-convention header ("not a proof artifact"); logs `run1.log`
+    (2026-11-13, lane A2).
+  - P1 (kernel-clean stage): **GREEN** — the D1–D3 dictionary deliverables (prework
+    §2.4): **7/7 lemmas kernel-clean, axiom triad**; logs `run2.log`–`run4.log`
+    (2026-11-13).
+  - P2 (proof artifact; W1 window incl. s≠1 pole exclusion → W2 → HW): **[VERDICT:71-P2]**
+    (in flight — iterates logged p2-run1…run6, 2026-11-14; verdict via orchestrator relay).
+- LoC (final files): — (P2 pending)
+- Theorem count (final files): — (P2 pending)
+- Axiom audit (`#print axioms` sweep; triad check): P1 layer triad-clean per run4;
+  full-file sweep at close-out.
+- Verdict line: P0/P1 landed; P2 [VERDICT:71-P2].

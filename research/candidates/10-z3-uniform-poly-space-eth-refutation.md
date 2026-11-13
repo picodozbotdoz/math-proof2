@@ -324,3 +324,24 @@ first per the G1 audit's CASE A sequencing (`research/pilots/10-prework.md` §9)
 - **Novelty status of the headline theorem:** unchanged (the conjunction is still open; M1 is
   infrastructure). The space-annotated host is itself absent from every corpus: eth has no space
   predicate (0 hits, novelty check above), and openai's monitor is for TM0 tapes and per-k machines.
+
+### L1 — Cycle-2 milestone M2 (filled by A9 2026-11-14 from the ledger-final verdict, per the
+orchestrator's instruction; lane A6, 2026-11-13)
+
+**Verdict: GREEN + full axcheck, FINAL** (`research/pilots/10/logs/l1-run1..4.log`; run3
+first GREEN, run4-final linter-clean, provenance headers in-file). File `L1.lean`
+(**529 LoC / 25 theorems**, namespace `PaddedDescent.F`) — the counter-combinator layer:
+`foldC`/`collectC`/`findC` + `rngC`/`sumFC`/`prodC`/`capC` agreeing with eth's
+materialized `rng`/`sumF`/`prodL`/`cap` at every pad (`*_agree` bridge family via
+`foldC_agree`); the five Fuel.lean transports (`rngC_eq` … `len_capC_le`); the composite
+agreements `termFCD_agree`/`expandC_agree`/`descendC_agree(_pad)(_uncut)` — the prework's
+`f (pad k, …) = fC (2^k, …)` statement and the inactivity transport (the FitsG
+state-budget analog). **Full axcheck: `AxPilot10_L1_full.lean` OK — 27/27 theorems,
+every axiom set ⊆ {propext, Classical.choice, Quot.sound}, 0 sorryAx** (generator
+`axcheck_full.py`; registered in `make_axcheck.py` TARGETS as `AxPilot10_L1`). Donor
+layer transcribed in-file (Tree/Enc/Fuel/pad). This is the pad half's engine (per the
+M1 record above: L1 + L2 yield the counter-`padM` with poly-size states).
+
+**L2 (descent bookkeeping) remains open:** on disk at 2,595 LoC / 126 thms (unrun at the
+resume wrap; verdict pending — slot [VERDICT:10-L2] in
+`research/articles/10-uniform-poly-space-eth-refutation.md`).

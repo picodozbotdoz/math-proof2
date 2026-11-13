@@ -368,3 +368,24 @@ comparison) × significance 3 (first number-field zero-density + the donor-consu
 template) ÷ effort 1 → rank ≈ 6 as the cluster's pipeline pilot — now with the pilot
 complete and axioms-clean. Recommend: M2b's certificate-binder pattern be reused for
 any future external-tree consumption (Majdoddin's tree is the obvious next donor).
+
+## Pilot outcome — Cycle-2 M4 addendum (appended by A9 2026-11-14, per the orchestrator's ledger-final instruction; main-run record above frozen)
+
+- **M4a (strip-distinct successor layer): GREEN + axcheck-clean, FINAL.**
+  `M4a.lean` (1,194 LoC / 54 thms) — logs `logs/m4-run2.log` (OK, 0 errors / 0
+  sorry-warnings; the three M4a landing theorems
+  `zetaK_distinct_five_sixths_strip_landed(_of_negligible)` etc. exactly
+  [propext, Classical.choice, Quot.sound]) and `logs/m4-axcheck-run1.log` (full sweep:
+  every 'depends on axioms' line the triad — 83 axiom prints, zero non-triad, zero
+  sorryAx/native_decide). Vocabulary: `distinctCountCum` (:821),
+  `EpsLowerDistinctStripCum` (:833), `commonStripCum`, the `hCZ′` binder schema.
+- **M4b (the ZetaZerosV2 ζ-column discharge): run2 GREEN on disk 2026-11-14,
+  marked PENDING A3 OFFICIAL RELAY.** `M4b.lean` (1,560 LoC / 66 thms; log
+  `logs/m4b-run2.log`, lane A3-relaunch: OK, 0 errors / 0 sorry-warnings; all 6 landing
+  theorems — 3 M4a-carried + 3 `_of_V2` (`zetaK_two_thirds_landed_of_V2`,
+  `zetaK_distinct_five_sixths_strip_landed_of_V2`(+`_of_negligible`)) — exactly the
+  triad, zero sorryAx). Route: G2-cleared direct V2 import recorded APPLIED in the file
+  header (:40–44, `import ZetaZeros`), fallback binders hV2d4/hV2d5 retained as
+  documented fallback. `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
+  `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` (standalone by
+  orchestrator decision; slots [VERDICT:M4b] / [VERDICT:M4b-upgrade] await the relay).

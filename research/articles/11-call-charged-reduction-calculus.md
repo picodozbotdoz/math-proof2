@@ -131,14 +131,17 @@ layer exists (bridge map Z1; novelty R8: N4).
 The open milestone named in §7 (the machine realization via eth's `PolyT` fragment
 calculus, dossier 11's Theorem B(ii); blueprint `research/pilots/11-blueprint.md` §M2,
 ~1.5–2.5k LoC, effort M) is Cycle-2 slot 2, lane A8, executing after the pilot-52/20
-close-outs. Pilot state at this draft: P11T1.lean and P11T2.lean **GREEN**; the
-realization layer in iteration — run5 (`research/pilots/11/logs/pilot11-run5.log`)
-records RedCompA FAIL (7 errors) / RedCompB FAIL (3 errors) after a descent across runs
-2–5; on-disk P11T3.lean (≈1.1k LoC / 88 thms) + RedTm2.lean (≈0.4k LoC / 8 thms, incl.
-`RedB.theorem19_of_red`) predate the four pinpoint fixes (explicit type params on stuck
-instance applications, branch-form machine in choice, induction-style `sum_sf`, missing
-`hk` in `composed_sum_le`) that were mid-application at the outage.
+close-outs. **Ledger-final state (filled 2026-11-14 per the orchestrator's instruction):
+P11T1.lean and P11T2.lean GREEN, FINAL; P11T3.lean GREEN in both m2 runs
+(`research/pilots/11/logs/m2-run1.log` / `m2-run2.log`, 2026-11-14, after the four
+outage-killed pinpoint fixes — explicit type params on stuck instance applications,
+branch-form machine in choice, induction-style `sum_sf`, missing `hk` in
+`composed_sum_le` — plus run-1's id'/rfl/length_cons repairs; ≈1.1k LoC / 88 thms),
+marked PENDING A8 OFFICIAL RELAY.** The remaining realization file RedTm2.lean
+(≈0.4k LoC / 8 thms, incl. `RedB.theorem19_of_red`) is in the last iteration — m2-run2:
+2 errors; a later run3 is on disk (3 errors) — verdict via relay.
 
-**Verdict slot: [VERDICT:11-M2]** (runs / final LoC / thm count / axcheck triad /
+**Verdict slot: [VERDICT:11-M2]** (final RedTm2 run / LoC / thm count / axcheck triad /
 GREEN-FAIL line — fills from the orchestrator relay; until then the M1 record of §5
-stands as this article's proved content and nothing on this page claims B(ii)).
+plus the P11T1/T2/T3 greens above stand as this article's proved content and nothing on
+this page claims B(ii) complete).
