@@ -1,3 +1,11 @@
+# PROVENANCE — run2 (RECONSTRUCTED HEADER, added 2026-11-14 by lane A4-relaunch;
+# original run 2026-11-13 ~22:32 pre-outage, header omitted then).
+# file: research/pilots/72/C-neg.lean (post-run1 fixes)
+# command (reconstructed from log body): research/pilots/72/run_pilot.sh C-neg.lean
+#   (MODAL_USER=doz; app crossmath-pilot-72; mathlib ff2494ea5e43 @ v4.36.0-rc2;
+#    8710 ooleans; modal app ap-8uBBqnB3VCfPvXdZ9syJq0)
+# verdict: FAIL rc=1 errors=14 sorry=0 (descent 20 -> 14)
+# raw log follows:
 ✓ Initialized. View run at 
 https://modal.com/apps/semraker/main/ap-8uBBqnB3VCfPvXdZ9syJq0
 ✓ Created objects.

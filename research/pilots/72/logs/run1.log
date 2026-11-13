@@ -1,3 +1,14 @@
+# PROVENANCE — run1 (RECONSTRUCTED HEADER, added 2026-11-14 by lane A4-relaunch;
+# original run 2026-11-13 ~22:27 by lane A4 pre-outage, header omitted then —
+# log-rescue lesson applied retroactively).
+# file: research/pilots/72/C-neg.lean (first full elaboration of the P4.5 draft)
+# command (reconstructed from log body: staging line, runner, app, substrate): 
+#   research/pilots/72/run_pilot.sh C-neg.lean
+#   (MODAL_USER=doz; app crossmath-pilot-72; mathlib ff2494ea5e43 @ v4.36.0-rc2;
+#    8710 ooleans; modal app ap-fRG14TC48OPCU0ZbIWYDzr)
+# verdict: FAIL rc=1 errors=20 sorry=0 (first run of the Kuwahara no-go gate,
+#   N1+N2+N3 spine per 72-prework Appendix A)
+# raw log follows:
 ✓ Initialized. View run at 
 https://modal.com/apps/semraker/main/ap-fRG14TC48OPCU0ZbIWYDzr
 ✓ Created objects.

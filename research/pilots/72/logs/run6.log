@@ -1,0 +1,108 @@
+# PROVENANCE — run6 (lane A4-relaunch, 2026-11-14)
+# file: research/pilots/72/C-neg.lean (367 LoC at run time)
+# command: research/pilots/72/run_pilot.sh C-neg.lean
+#   (stages /tmp/crossmath-72-stage; MODAL_USER=doz; modal run run_pilot.py --dir stage;
+#    app crossmath-pilot-72; mathlib ff2494ea5e43 @ v4.36.0-rc2; 8710 oleans)
+# verdict: FAIL rc=1 errors=3 sorry=0
+#   errors: 219:4 "No goals" (hkey: field_simp closed, stray ring);
+#           261:4 type mismatch (Finset.sum_const fired, smul_eq_mul did not:
+#             s.card • 1 not normalized to ↑s.card);
+#           302:50 congrArg Subtype.val h application mismatch (recurring).
+#   progress: run5's 7 errors -> 3 (N3a/N3b already triad-clean, no sorryAx).
+# session context: resumed after outage; A4 cycle-2 relaunch, fixes applied to
+#   run5 state per RESUME-BRIEF-C2.md §A4 (exponent metavariable, ComplexOrder
+#   scope for Matrix.PosSemidef, hC.le sites, cast lemmas, card_of_subtype).
+# raw log follows (modal app ap-ydHDCUh1kobTpuKvw5N9ct):
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ydHDCUh1kobTpuKvw5N9ct
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:219:4: error: No goals to be solved
+C-neg.lean:261:4: error: Type mismatch
+  h
+has type
+  ∑ x ∈ s, p x ^ α ≤ (s.card • 1) ^ (1 - α)
+but is expected to have type
+  ∑ i ∈ s, p i ^ α ≤ ↑s.card ^ (1 - α)
+C-neg.lean:260:66: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow, mul_one, one_mul, Finset.sum_const] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:291:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:302:50: error: Application type mismatch: The argument
+  h
+has type
+  (fun a => ⟨↑a, ⋯⟩) a = (fun a => ⟨↑a, ⋯⟩) b
+···
+C-neg.lean:219:4: error: No goals to be solved
+C-neg.lean:261:4: error: Type mismatch
+  h
+has type
+  ∑ x ∈ s, p x ^ α ≤ (s.card • 1) ^ (1 - α)
+but is expected to have type
+  ∑ i ∈ s, p i ^ α ≤ ↑s.card ^ (1 - α)
+C-neg.lean:260:66: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow, mul_one, one_mul, Finset.sum_const] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:291:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:302:50: error: Application type mismatch: The argument
+  h
+has type
+  (fun a => ⟨↑a, ⋯⟩) a = (fun a => ⟨↑a, ⋯⟩) b
+but is expected to have type
+···
+```
+C-neg.lean:302:50: error: Application type mismatch: The argument
+  h
+has type
+  (fun a => ⟨↑a, ⋯⟩) a = (fun a => ⟨↑a, ⋯⟩) b
+but is expected to have type
+  a = b
+in the application
+  congrArg Subtype.val h
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=3 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ydHDCUh1kobTpuKvw5N9ct

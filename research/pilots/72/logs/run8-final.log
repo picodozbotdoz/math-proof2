@@ -1,0 +1,73 @@
+# PROVENANCE — run8 FINAL, GREEN (lane A4-relaunch, 2026-11-14)
+# file: research/pilots/72/C-neg.lean (369 LoC — corrected 2026-11-14; first written as 367)
+# command: research/pilots/72/run_pilot.sh C-neg.lean
+#   (stages /tmp/crossmath-72-stage; MODAL_USER=doz CLI /home/doz/dozenv/bin/modal;
+#    modal run run_pilot.py --dir stage; app crossmath-pilot-72;
+#    mathlib ff2494ea5e43 @ leanprover/lean4:v4.36.0-rc2; 8710 oleans)
+# verdict: ** GREEN — OK rc=0 errors=0 sorry=0 **
+# axcheck (in-file #print axioms, 5 public theorems): all
+#   [propext, Classical.choice, Quot.sound] — triad-only, no sorryAx.
+#   renyi_antiMono / renyi_le_log_card / renyi_le_log_rank /
+#   renyi_area_law_nogo / rank_area_law_nogo.
+# Descent record: run1 errors=20 -> run2 14 -> run3 12 -> run4 6 -> run5 7
+#   (mid-fix state) -> [outage] -> run6 3 -> run7 1 -> run8 0 (GREEN).
+# LoC delta this session: 360 -> 369 (+9; error-fix only, no scope growth —
+#   overrun guard not triggered).
+# Remaining warnings (advisory, non-blocking): 2x push_neg deprecation
+#   (lines ~170, ~290), unusedSectionVars [DecidableEq] on private
+#   exists_pos_of_sum_eq_one, unused hα binder in sum_rpow_pos.
+# raw log follows (modal app ap-mQZG2TwYA9CnkR5Vdmh08Z):
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-mQZG2TwYA9CnkR5Vdmh08Z
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: OK
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:167:8: warning: automatically included section variable(s) unused in theorem `_private.«C-neg».0.CrossMath.CNeg.exists_pos_of_sum_eq_one`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+C-neg.lean:177:13: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:290:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-mQZG2TwYA9CnkR5Vdmh08Z

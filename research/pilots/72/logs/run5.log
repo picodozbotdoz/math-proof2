@@ -1,3 +1,17 @@
+# PROVENANCE — run5 (RECONSTRUCTED HEADER, added 2026-11-14 by lane A4-relaunch;
+# original run 2026-11-13 ~22:43 pre-outage — LAST run before the network outage
+# killed lane A4 mid-fix ("the 186 context"); the on-disk file was further edited
+# after this run (nogo_core binder hC : 0 < C ∨ 0 = C -> 0 ≤ C), so this log's
+# error sites no longer match the file 1:1).
+# file: research/pilots/72/C-neg.lean (mid-fix state at death)
+# command (reconstructed from log body): research/pilots/72/run_pilot.sh C-neg.lean
+#   (MODAL_USER=doz; app crossmath-pilot-72; mathlib ff2494ea5e43 @ v4.36.0-rc2;
+#    8710 ooleans; modal app ap-vI9Cbbgu8LVSiQphAXduHX)
+# verdict: FAIL rc=1 errors=7 sorry=0 (run4's 6 -> 7: mid-fix state; error sites:
+#   186/203/204 renyi_antiMono exponent metavariable; 256 hcard card_ofFinset;
+#   278 PosSemidef/PartialOrder-synthesis; 290 exact_mod_cast as term;
+#   295 congrArg beta; 315/321 hC.le projections. All fixed in runs 6-8.)
+# raw log follows:
 ✓ Initialized. View run at 
 https://modal.com/apps/semraker/main/ap-vI9Cbbgu8LVSiQphAXduHX
 ✓ Created objects.

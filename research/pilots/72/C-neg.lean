@@ -38,6 +38,10 @@ import Mathlib.Analysis.Matrix.PosDef
 namespace CrossMath.CNeg
 
 open Real
+-- `Matrix.PosSemidef` (N2b) lives in `LinearAlgebra/Matrix/PosDef.lean` over `[Ring R]
+-- [PartialOrder R] [StarRing R]`; for `[RCLike 𝕜]` the `PartialOrder` instance is scoped
+-- (`RCLike.toPartialOrder`, `scoped[ComplexOrder]`) — cf. `Analysis/Matrix/PosDef.lean:26`.
+open scoped ComplexOrder
 
 /-! ## The Rényi functional of a spectrum -/
 
@@ -201,7 +205,7 @@ theorem renyi_antiMono {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i, p 
     intro i
     rw [← Real.rpow_mul (hp i), ← Real.rpow_add' (hp i) (by rw [hβexp]; linarith), hβexp]
   have hH := sum_rpow_mul_le (Finset.univ : Finset ι)
-    (fun i _ => Real.rpow_nonneg (hp i) _) (fun i _ => hp i) hθ0.le hθ1
+    (fun i _ => Real.rpow_nonneg (hp i) α) (fun i _ => hp i) hθ0.le hθ1
   rw [hp1] at hH
   simp only [Real.one_rpow, mul_one] at hH
   have hEq : ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * (p i ^ (1 - (1 - β) / (1 - α)))
@@ -212,7 +216,6 @@ theorem renyi_antiMono {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i, p 
   have hkey : (1 / (1 - β)) * (((1 - β) / (1 - α)) * Real.log (∑ i, p i ^ α))
       = (1 / (1 - α)) * Real.log (∑ i, p i ^ α) := by
     field_simp
-    ring
   calc renyi p β
       = (1 / (1 - β)) * Real.log (∑ i, p i ^ β) := rfl
     _ ≤ (1 / (1 - β)) * (((1 - β) / (1 - α)) * Real.log (∑ i, p i ^ α)) :=
@@ -228,9 +231,12 @@ theorem renyi_antiMono {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i, p 
 theorem renyi_le_log_card {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i, p i = 1)
     {α : ℝ} (hα : 0 < α) (hα1 : α < 1) :
     renyi p α ≤ Real.log (Fintype.card {i // 0 < p i}) := by
-  have hA0 := sum_rpow_pos hp hp1 hα
+  have h1a : (1 : ℝ) - α ≠ 0 := by linarith
   obtain ⟨i₀, hi₀⟩ := exists_pos_of_sum_eq_one hp hp1
   set s : Finset ι := Finset.univ.filter (fun i => 0 < p i) with hsdef
+  have hsne : s.Nonempty := ⟨i₀, by
+    rw [hsdef, Finset.mem_filter]
+    exact ⟨Finset.mem_univ i₀, hi₀⟩⟩
   have hzp : ∀ i, i ∉ s → p i = 0 := by
     intro i hi
     have hi' : p i ≤ 0 := by
@@ -240,36 +246,35 @@ theorem renyi_le_log_card {p : ι → ℝ} (hp : ∀ i, 0 ≤ p i) (hp1 : ∑ i,
   have hsumα : ∑ i ∈ s, p i ^ α = ∑ i, p i ^ α :=
     Finset.sum_subset (Finset.filter_subset _ Finset.univ)
       (fun i _ hi => by rw [hzp i hi, Real.zero_rpow (ne_of_gt hα)])
-  have hsub : ∑ i ∈ s, p i = ∑ i, p i :=
-    Finset.sum_subset (Finset.filter_subset _ Finset.univ)
-      (fun i _ hi => by rw [hzp i hi])
-  have hsum1 : ∑ i ∈ s, p i = 1 := by rw [hsub, hp1]
-  have hH := sum_rpow_mul_le s (fun i _ => hp i) (fun _ _ => (zero_le_one : (0 : ℝ) ≤ 1))
-    hα.le hα1.le
-  simp only [Real.one_rpow, mul_one] at hH
-  rw [hsum1] at hH
-  simp only [Real.one_rpow, mul_one] at hH
+  have hsum1 : ∑ i ∈ s, p i = 1 := by
+    have hsub : ∑ i ∈ s, p i = ∑ i, p i :=
+      Finset.sum_subset (Finset.filter_subset _ Finset.univ)
+        (fun i _ hi => by rw [hzp i hi])
+    rw [hsub, hp1]
+  -- workhorse at `g ≡ 1` : `∑_{i∈s} p i ^ α ≤ (∑_{i∈s} p i)^α * card s ^ (1-α)`
+  have hH : ∑ i ∈ s, p i ^ α ≤ (s.card : ℝ) ^ (1 - α) := by
+    have hcsum : ∑ i ∈ s, (1 : ℝ) = (s.card : ℝ) := by simp
+    have h := sum_rpow_mul_le s (fun i _ => hp i) (fun _ _ => (zero_le_one : (0 : ℝ) ≤ 1))
+      hα.le hα1.le
+    rw [hsum1, hcsum] at h
+    simpa only [Real.one_rpow, mul_one, one_mul] using h
+  have hA0s : 0 < ∑ i ∈ s, p i ^ α := by rw [hsumα]; exact sum_rpow_pos hp hp1 hα
   have hcard : Fintype.card {i // 0 < p i} = s.card :=
-    Fintype.card_ofFinset s (by
-      intro x
-      rw [hsdef, Finset.mem_filter]
-      exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ x, by simpa using h⟩⟩)
-  have hcardpos : 0 < (s.card : ℝ) := by
-    have hsne : s.Nonempty := ⟨i₀, by
-      rw [hsdef, Finset.mem_filter]
-      exact ⟨Finset.mem_univ i₀, hi₀⟩⟩
-    exact Nat.cast_pos.mpr hsne.card_pos
+    Fintype.card_of_subtype s (fun x => by simp [hsdef])
+  have hcardpos : 0 < (s.card : ℝ) := Nat.cast_pos.mpr hsne.card_pos
+  have hopen : renyi p α = (1 / (1 - α)) * Real.log (∑ i ∈ s, p i ^ α) := by
+    show (1 / (1 - α)) * Real.log (∑ i, p i ^ α) = _
+    rw [hsumα]
   calc renyi p α
-      = (1 / (1 - α)) * Real.log (∑ i ∈ s, p i ^ α) := by rw [renyi, hsumα]
+      = (1 / (1 - α)) * Real.log (∑ i ∈ s, p i ^ α) := hopen
     _ ≤ (1 / (1 - α)) * Real.log ((s.card : ℝ) ^ (1 - α)) :=
-        mul_le_mul_of_nonneg_left (Real.log_le_log (by rw [← hsumα]; exact hA0) hH)
+        mul_le_mul_of_nonneg_left (Real.log_le_log hA0s hH)
           (div_nonneg zero_le_one (le_of_lt (by linarith : (0 : ℝ) < 1 - α)))
     _ = (1 / (1 - α)) * ((1 - α) * Real.log (s.card : ℝ)) := by
         rw [Real.log_rpow hcardpos]
-    _ = Real.log (Fintype.card {i // 0 < p i}) := by
-        rw [hcard]
-        field_simp
-        ring
+    _ = Real.log (s.card : ℝ) := by
+        rw [← mul_assoc, div_mul_cancel₀ _ h1a, one_mul]
+    _ = Real.log (Fintype.card {i // 0 < p i}) := by rw [hcard]
 
 /-- **N2b** — the rank bridge: for PSD Hermitian `M` with spectral normalization
 `∑ (hM.eigenvalues) = 1`, `H_α(eigenvalues M) ≤ log M.rank`.  For `M` a reduced density
@@ -287,13 +292,18 @@ theorem renyi_le_log_rank {n : Type*} [Fintype n] [DecidableEq n] {𝕜 : Type*}
     rw [Finset.sum_congr rfl (fun i _ => h0 i), Finset.sum_const_zero] at hsum
     norm_num at hsum
   have hcardpos : 0 < (Fintype.card {i // 0 < hM.eigenvalues i} : ℝ) :=
-    exact_mod_cast Fintype.card_pos_iff.mpr ⟨⟨i₀, hi₀⟩⟩
+    Nat.cast_pos.mpr (Fintype.card_pos_iff.mpr ⟨⟨i₀, hi₀⟩⟩)
   have hcardle : (Fintype.card {i // 0 < hM.eigenvalues i} : ℝ) ≤ (M.rank : ℝ) := by
     have hle : Fintype.card {i // 0 < hM.eigenvalues i} ≤ M.rank := by
       rw [hM.rank_eq_card_non_zero_eigs]
-      exact Fintype.card_le_of_injective (fun a => ⟨a.1, ne_of_gt a.2⟩)
-        (fun a b h => Subtype.ext (congrArg Subtype.val h))
-    exact_mod_cast hle
+      refine Fintype.card_le_of_injective (fun a => ⟨a.1, ne_of_gt a.2⟩) ?_
+      intro a b h
+      have h2 : (⟨a.1, ne_of_gt a.2⟩ : {i // hM.eigenvalues i ≠ 0})
+          = ⟨b.1, ne_of_gt b.2⟩ := h
+      -- `Subtype.mk.injEq` + proof irrelevance reduce h2 to `↑a = ↑b`
+      simp only [Subtype.mk.injEq] at h2
+      exact Subtype.ext h2
+    exact Nat.cast_le.mpr hle
   exact le_trans h1 (Real.log_le_log hcardpos hcardle)
 
 /-! ## N3: the Kuwahara no-go gates -/
@@ -312,13 +322,13 @@ private theorem nogo_core {c C : ℝ} (hc : 0 < c) (hC : 0 ≤ C)
     norm_num at h1
     linarith
   · obtain ⟨N, hN⟩ := exists_nat_gt (C / c)
-    have hNpos : 0 < (N : ℝ) := lt_of_le_of_lt (div_nonneg hC.le hc.le) hN
+    have hNpos : 0 < (N : ℝ) := lt_of_le_of_lt (div_nonneg hC hc.le) hN
     have hCx : C < c * (N : ℝ) := by
       have hlt := (div_lt_iff₀ hc).mp hN
       rw [mul_comm] at hlt
       exact hlt
     have hyN : y N ≤ C * (N : ℝ) :=
-      le_trans (harea N) (mul_le_mul_of_nonneg_left (hb N) hC.le)
+      le_trans (harea N) (mul_le_mul_of_nonneg_left (hb N) hC)
     have hchain : c * (N : ℝ) ^ 2 ≤ C * (N : ℝ) :=
       le_trans (le_trans (hvol N) (hmono N)) hyN
     have hle : c * (N : ℝ) ≤ C := by
@@ -331,7 +341,7 @@ private theorem nogo_core {c C : ℝ} (hc : 0 < c) (hC : 0 ≤ C)
 /-- **N3a** — the Kuwahara gate, direct form: a volume-law Rényi-α family (external
 hypothesis `hKL`, arXiv:2610.15199) refutes every boundary-linear Rényi-α area law
 (`hArea`) at boundary scale `bndOf ≤ perimeter` (`hBnd`). -/
-theorem renyi_area_law_nogo {α c C : ℝ} (hα : 0 < α) (hα1 : α < 1) (hc : 0 < c) (hC : 0 ≤ C)
+theorem renyi_area_law_nogo {α c C : ℝ} (_hα : 0 < α) (_hα1 : α < 1) (hc : 0 < c) (hC : 0 ≤ C)
     (renyiOf bndOf : ℕ → ℝ)
     (hKL : ∀ n : ℕ, c * (n : ℝ) ^ 2 ≤ renyiOf n)
     (hBnd : ∀ n : ℕ, bndOf n ≤ (n : ℝ))
@@ -341,7 +351,7 @@ theorem renyi_area_law_nogo {α c C : ℝ} (hα : 0 < α) (hα1 : α < 1) (hc : 
 /-- **N3b** — the Kuwahara gate, Schmidt-rank form (round-4 decisive datum): with `hMono`
 discharged per instance by `renyi_le_log_rank` (N2b), a volume-law Rényi-α family refutes
 every boundary-linear **log-Schmidt-rank** area law. -/
-theorem rank_area_law_nogo {α c C : ℝ} (hα : 0 < α) (hα1 : α < 1) (hc : 0 < c) (hC : 0 ≤ C)
+theorem rank_area_law_nogo {α c C : ℝ} (_hα : 0 < α) (_hα1 : α < 1) (hc : 0 < c) (hC : 0 ≤ C)
     (rankLogOf renyiOf bndOf : ℕ → ℝ)
     (hKL : ∀ n : ℕ, c * (n : ℝ) ^ 2 ≤ renyiOf n)
     (hMono : ∀ n : ℕ, renyiOf n ≤ rankLogOf n)

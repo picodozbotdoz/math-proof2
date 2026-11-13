@@ -1,0 +1,46 @@
+# PROVENANCE — run7 (lane A4-relaunch, 2026-11-14)
+# file: research/pilots/72/C-neg.lean (368 LoC at run time — corrected 2026-11-14; header first written as 367)
+# command: research/pilots/72/run_pilot.sh C-neg.lean
+#   (app crossmath-pilot-72, mathlib ff2494ea5e43 @ v4.36.0-rc2, 8710 oleans)
+# verdict: FAIL rc=1 errors=1 sorry=0
+#   error: 304:24 invalid projection h2.1 — simp only [Subtype.mk.injEq] at h2
+#     reduced h2 past the conjunction (proof irrelevance) straight to `↑a = ↑b`,
+#     so `.1` had no fields. Fix for run8: `exact Subtype.ext h2` directly.
+#   progress: 3 -> 1 errors; N1 renyi_antiMono + N2a renyi_le_log_card now
+#     TRIAD-CLEAN ([propext, Classical.choice, Quot.sound], no sorryAx);
+#     N3a/N3b triad-clean since run6.
+# raw log follows (modal app ap-r436tSRnPdwmigBSemabSU):
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-r436tSRnPdwmigBSemabSU
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+```
+C-neg.lean:304:24: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h2
+has type `↑a = ↑b` which has no fields.
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=1 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-r436tSRnPdwmigBSemabSU

@@ -1,0 +1,71 @@
+# PROVENANCE — full axcheck run1 (lane A4-relaunch, 2026-11-14)
+# object: stage copy /tmp/axcheck-72-C-neg.lean = research/pilots/72/C-neg.lean
+#   (GREEN state, run8) + appended `#print axioms` for the 6 PRIVATE theorems
+#   (amgm2, div_rpow_eq, sum_rpow_mul_le, exists_pos_of_sum_eq_one,
+#   sum_rpow_pos, nogo_core). Repo file UNTOUCHED (make_axcheck.py pattern).
+# command: research/pilots/72/run_pilot.sh /tmp/axcheck-72-C-neg.lean
+#   (app crossmath-pilot-72, mathlib ff2494ea5e43 @ v4.36.0-rc2, 8710 oleans)
+# verdict: ** OK rc=0 errors=0 sorry=0 — FULL TRIAD-ONLY **
+#   11/11 declarations (5 public + 6 private) depend on exactly
+#   [propext, Classical.choice, Quot.sound]; zero sorryAx, zero extra axioms.
+# raw log follows (modal app ap-Ze5H6cQQPKbLVFRVPstA9p):
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Ze5H6cQQPKbLVFRVPstA9p
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['axcheck-72-C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== axcheck-72-C-neg.lean
+[pilot] axcheck-72-C-neg.lean: OK
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.amgm2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.div_rpow_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.sum_rpow_mul_le' depends on axioms: [propext,
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.exists_pos_of_sum_eq_one' depends on axioms: [propext,
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.sum_rpow_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.nogo_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+axcheck-72-C-neg.lean:177:13: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+axcheck-72-C-neg.lean:290:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.amgm2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.div_rpow_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.sum_rpow_mul_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.exists_pos_of_sum_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.sum_rpow_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.«axcheck-72-C-neg».0.CrossMath.CNeg.nogo_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   axcheck-72-C-neg.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Ze5H6cQQPKbLVFRVPstA9p

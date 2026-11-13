@@ -52,6 +52,14 @@ m_u(p) := ∑ {i | 0 < p i}, p i * Real.exp (-u * Real.log (p i)) = ∑ i, (p i)
           clause bounds exactly `Real.log (∑ … p j * exp (-u * log (p j)))`, Statements.lean:483]
 ```
 
+*Caveat (A5 VERDICTS row-74 glue note, applied 2026-11-14):* the second equality — the
+identification with the unfiltered openai `moment p u = ∑ i, (p i)^(1-u)` — holds **for
+`u ≠ 1` only**: at `u = 1` the `Real.rpow` convention `0 ^ 0 = 1` counts zero-probability
+atoms, so `moment p 1 = Fintype.card ι` while the filtered (left-hand) sum is the support
+card. Every use below quantifies `u` over small symmetric windows around `0` (T1b: `|u| ≤
+1/(2σ)`; hMGF: `|u| ≤ (32·√((1+ϑ)𝓑))⁻¹`), which exclude `u = 1` whenever `σ < 1/2`, resp.
+`𝓑 ≥ 1`; T3 below carries the side condition explicitly.
+
 The k-*moment datum* of `p` is `d^(k)(p) := (E[K], E[K²], …, E[K^k])`; `𝒟_k := {d^(k)(p) : p a
 spectrum}` is the admissible set. For `F` in the **Kuwahara-safe family** —
 `F ∈ {W_ε : ε ∈ (0,1)} ∪ {H_α : α ≥ 1}` where `W_ε(p) := inf {w ≥ 0 | ∑{i | w < |K i - S p|} p i
@@ -66,8 +74,9 @@ functional) — a *k-moment certificate* is a pair `(c₀, a : Fin k → ℝ)`, 
 and the **k-th ceiling** is `B_k(F) := sup {c₀ | ∃ a, (c₀, a) F-valid}` (a finite number: validity
 at two spectra with distinct data bounds `c₀`; cf. dossier-02 `B_k` definition, candidates/02
 §Precise statement). Explicitly EXCLUDED from the family: `α < 1` Rényi and rank/support
-functionals (Kuwahara arXiv:2610.15199 no-go; round-4 §2 decisive datum — see pilot-72 prework
-appendix for the formal no-go).
+functionals (Kuwahara arXiv:2610.15199 no-go; round-4 §2 decisive datum — the formal no-go
+gate is now LANDED: pilot-72 `C-neg.lean` GREEN + triad-only axcheck, 2026-11-14; see
+pilot-72 prework Appendix A execution outcome).
 
 **Theorem T1 (moment–window floor AND subgaussian ceiling — unconditional) [HYPOTHESIS].**
 For every spectrum `p` and `ε ∈ (0,1)`:
@@ -88,7 +97,12 @@ coordinate) preserves validity and value. (Dossier-02 Theorem D pattern verbatim
 
 **Theorem T3 (LP representation, grid-quantized) [HYPOTHESIS — the M-core, contingent].**
 For the grid classes `𝒢_N := {spectra supported on {e^{-j/N} : j = 0..N²}}` and grid-quantized
-functionals, `B_k(F)` on `𝒢_N` is the value of the finite linear program
+functionals **whose moment parameters satisfy `u ≠ 1`** (equivalently `α ≠ 0` in `m_u = ∑
+p^α`; automatic for the `α ≥ 1` Rényi arm of the family — the side condition guards the one
+degenerate point: at `u = 1` the `Real.rpow` convention makes `moment p 1 = card ι` ≠ the
+filtered support sum, so the grid-column values `F(q)` computed through the `moment`
+identification would be wrong — A5 VERDICTS row-74 glue note), `B_k(F)` on `𝒢_N` is the value
+of the finite linear program
 `max c₀ s.t. c₀ + ⟨a, d⟩ ≤ F(q) ∀ q ∈ 𝒢_N (vertices)`, and LP weak duality gives the dual
 ceiling `B_k(F) = min {∑_λ F(q_λ) : convex combinations λ with barycenter-equality of moments}`
 — computable, `decide`-checkable at small `N` (the zeta23 `LawN256_check` pattern; dossier-02
@@ -245,3 +259,17 @@ classical; the AHS class-side dual is the new claim), Significance 3 (named in-c
 C.3; method-barrier tool; not headline physics), Effort 2 (S core; T3's M rides on the shared
 02 LP layer) → proposed rank ≈ 5.25 conditional on T1+T2+T4 as the scored core, T3 as upside.
 If triage prefers scoring the full programme: Effort 3 → rank ≈ 3.5.
+
+## Pilot outcome (lane A4, 2026-11-14)
+
+No 74-dedicated pilot was run (74 was never a triage slot). The dossier's executable fence —
+the Kuwahara α<1 no-go gating the family restriction (§Precise statement, "Explicitly
+EXCLUDED") — landed kernel-clean as pilot-72 milestone P4.5, `research/pilots/72/C-neg.lean`
+(369 LoC, 11 theorems): **run8 GREEN** rc=0 errors=0 sorry=0
+(`research/pilots/72/logs/run8-final.log`); full axcheck **11/11 triad-only** incl. private
+lemmas (`research/pilots/72/logs/axcheck-run1.log`). Scope note: C-neg is dossier-72's §C-neg
+artefact (A9's addendum owns its full outcome record); for 74 it certifies that the
+purity/effective-rank family boundary is now a checkable Lean theorem, not editorial. A5's
+row-74 u≠1 glue note applied to §Precise statement (m_u caveat + T3 side condition) this
+session. T1–T4 of this dossier remain [HYPOTHESIS] — unexecuted, per the conditional-core
+honesty header.

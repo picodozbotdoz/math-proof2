@@ -491,3 +491,22 @@ M2 and dossier 74 are purity/effective-rank-only (the fence is executable, not e
 gate, zero physics). Coordinate: A9 owns the dossier-level C-neg narrative (72 §C-neg, step 8);
 this appendix owns the statement-level spec and effort grade; dossier 74's family restriction
 cites both.
+
+**Execution outcome (lane A4, 2026-11-14 — RELAUNCH).** LANDED GREEN as pilot-72 milestone
+P4.5: `research/pilots/72/C-neg.lean` (369 LoC, 11 theorems: workhorse `amgm2`/`div_rpow_eq`/
+`sum_rpow_mul_le` [Hölder over a Finset] + N1 `renyi_antiMono` [0<α≤β<1] + N2a
+`renyi_le_log_card` + N2b `renyi_le_log_rank` [PSD Hermitian, `rank_eq_card_non_zero_eigs`
+bridge] + N3a `renyi_area_law_nogo` + N3b `rank_area_law_nogo` + scalar core `nogo_core`).
+Run record: runs 1–5 pre-outage (errors 20→14→12→6→7, sorry=0 throughout), runs 6–8
+post-relaunch (3→1→0). Final: run8 **OK rc=0 errors=0 sorry=0**; full axcheck
+(`logs/axcheck-run1.log`, stage copy, repo file untouched): all 11 declarations (5 public +
+6 private) depend on exactly `[propext, Classical.choice, Quot.sound]` — triad-only,
+kernel-clean. Effort landed well inside the S grade above (≈0.37k LoC total file [360 pre-outage draft + 9 error-fix delta] vs 0.3–0.5k
+estimate; no scope growth past the overrun guard). Deviation from spec: N1 is stated for
+0 < α ≤ β < 1 (both exponents strictly below 1 — the regime the Kuwahara gate consumes)
+rather than the appendix's α ≤ β with β ≠ 1; N3 gates are stated as concrete-family False
+forms (equivalent to the appendix's ¬∃C form by instantiating the area hypothesis at the
+witnessed C). Kuwahara's construction enters only as the external hypothesis `hKL`
+(arXiv:2610.15199), per the EnclOK / dossier-50 pattern. Logs: `research/pilots/72/logs/`
+runs 1–8 + axcheck, all with provenance headers (runs 1–5 headers reconstructed 2026-11-14,
+marked as such).
