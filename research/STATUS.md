@@ -141,8 +141,8 @@ orchestrator-owned.
 | 42 | 42-M4b-upgrade (gated continuation; A3) | **GO — executing** (M4a ~180 LoC green on disk; blueprint + M4a.lean mid-flight commit pending A3's report) | V2 `simple_proportion_lower` C₀ = 0.6725 > 2/3 + `distinct_proportion_lower` C₁ = 0.83625 > 5/6 discharge ζ-side binders unconditionally, hCert dropped; QA-confirmed precondition: strip-distinct re-vocabulary fix (donor map §c(2), QA Part 1 item 8) |
 | 11 | 11-M2 (A8-3, authorized) | RUNNING | pilot-11 revival: `pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` on disk, mid-flight (committed with A8's report) |
 | 71 | 71-P2 + 73-C skeleton (slot; A2, executing) | **SLOTTED — executing** (71-P0/P1 243 LoC green per empirical record) | Cycle-2 pilot-decision slot 1 (see decision block below) |
-| 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN on disk 2026-11-14** (run8-final "OK" + axcheck-run1 triad-clean 0 sorryAx — A4 formal report pending: run1–7 provenance headers + u≠1 dossier edit) | Cycle-2 pilot-decision slot 2 (see decision block below) |
-| 75 | 75 abelian-assembly | **DEFERRED to wave 4** | Cycle-2 pilot-decision (see below) |
+| 72 | 72-M1 Tier-C (slot; A8, after 11-M2) | **SLOTTED — queued behind 11-M2**; **C-neg: FINAL-GREEN OFFICIAL (A4 report 2026-11-14, commit 80dfd4b)** — run8 OK rc=0 errors=0 sorry=0, axcheck 11/11 declarations (5 public + 6 private) triad-only; run1–5 headers reconstructed+marked; deviations vs Appendix A documented (N1 regime 0<α≤β<1; N3 concrete-family False forms; Kuwahara as `hKL` binder) | Cycle-2 pilot-decision slot 2 (see decision block below) |
+| 75 | 75 abelian-assembly | **EXECUTING NOW (decision 2026-11-14: wave-4 pull-forward — the FINAL Cycle-2 pilot; lane A4; P-a then C1 per `pilots/75-prework.md`)**; A1 adds 75 to sweep TARGETS | Was DEFERRED to wave-4 (decision superseded 2026-11-14); spec complete |
 
 **Cycle-2 pilot decision (orchestrator, 2026-11-13; TRIAGE Cycle-2 §decision typesets when
 A9's staging `TRIAGE-C2-ROWS.md` lands):** slots = **71-P2 + 73-C skeleton (A2, executing)**
@@ -354,6 +354,16 @@ standing authorization with a commit.
   interpret); A1 running incremental sweep Step A (`probe/logs/stepA-incremental-c2.log`,
   provenance header present); A4 prepending C-neg log headers; A5 VERDICTS/round-4 edits
   in flight (seed triage).
+- 2026-11-14 — batch-5: `Cycle 2: A4 — 72-C-neg FINAL-GREEN official` (80dfd4b; H QA
+  pass: LoC 369 ✓, axcheck 11-decl list exact vs file (5 public + 6 private,
+  full-coverage pattern) ✓, deviations vs Appendix A documented in the execution-outcome
+  note (N1 exponent regime; N3 False-form equivalence; Kuwahara `hKL` binder per EnclOK)
+  ✓, run1–5 headers RECONSTRUCTED and marked as such ✓, dossier-74 u≠1 caveat applied
+  with correct `0^0=1` reasoning + no-go fence pointer ✓). **Pilot-75 DECISION
+  (orchestrator, 2026-11-14):** wave-4 pull-forward — 75 executes NOW as the final
+  Cycle-2 pilot, lane A4 (P-a then C1 per 75-prework; A1 adds it to sweep TARGETS); row
+  updated above. Close-out debts now: A8 m2-run{1,2,3} headers (orchestrator flagged to
+  A8 directly), A7 run17/18 disposition (flagged to A7 directly).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
