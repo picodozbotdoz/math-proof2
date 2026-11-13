@@ -498,6 +498,11 @@ standing authorization with a commit.
   (`BigOperators/Group/Finset/Basic.lean:1008`); [CHARTER-PENDING]/iteration-4 input).
   **A4 Cycle-2 scope COMPLETE** (C-neg FINAL-GREEN + u≠1 edit + 75 FINAL-FOR-ENTRY +
   headers + Pb-design staged for Iteration-4).
+- 2026-11-14 — batch-18: `A4 — substrate §F physlib cross-reference` (686931e; H QA
+  glance: community-vs-vendored disambiguation coherent vs physlib-surface §2–3
+  (physlib vendors the openai preamble; we vendor nothing); C-neg cite = the GREEN
+  artifact; 72-M1 cites are spec/pricing-level (:156, :234) — no forward file cite).
+  A4 standing by for Iteration 4.
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
