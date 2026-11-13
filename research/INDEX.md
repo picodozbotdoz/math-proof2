@@ -81,7 +81,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/qa/make-decl-index.sh` | tooling | DONE 2026-11-09 (H) | Re-runnable rg-based builder of the cross-corpus declaration index; usage header documents novelty-check recipes and caveats (ASCII names, prefixed/noncomputable headers excluded — use direct rg fallback).
 - `research/qa/decl-index.tsv` (gitignored, 273 MB; tracked only as `decl-index.tsv.zip` — unzip or re-run the builder) | tooling output | built 2026-11-09, 8.7s wall | 2,888,273 decl rows: openai-math 2,439,960, tauceti 242,275, mathlib 184,207, eth 10,148, 3sum-apsp 6,795, zeta23 4,888. **Caveat for novelty checks:** the OAI tree includes mathlib-like vendored content (2.4M decls), so a TSV miss is NOT evidence of absence in openai-math — always also run targeted `rg` in `openai-math/lean/OAI/`, `openai-math/lean/ComparatorChallenges/`, and `openai-math/preprints/` (manuscripts are not indexed at all).
 
-Nothing remains [expected]: every file owned by a lane is on disk (project closed 2026-11-09).
+Nothing remains [expected] from the main run: every file owned by a lane is on disk (project closed 2026-11-09). Cycle-2 [expected] entries follow at the end of this file.
 
 ## Articles (research/articles/) — one per discovery (project close, 2026-11-09)
 
@@ -107,3 +107,21 @@ Nothing remains [expected]: every file owned by a lane is on disk (project close
 - `research/pilots/*/logs/axcheck-final.log` | evidence | DONE | Final-sweep axcheck transcript (29/29 OK, 0 sorryAx), one copy per pilot (01, 11, 20, 22, 30, 32, 42, 50, 52).
 - `research/feasibility/probe/make_axcheck.py` | tooling | updated | Final target list; section- and comment-aware theorem extraction; optional stage-name filter.
 - `research/feasibility/axiommath-bump/` | feasibility | run1 2026-11-13 | AxiomMath clones bumped to v4.36.0-rc2/ff2494ea: Challenge statements 3/3 OK; ZetaZeros build OK after 4 fix rounds (run5, 7472 jobs, 0 sorry; ZetaZeros dev/claude port commit); ZetaZerosV2 build OK after 9 rounds (v2-run9, 8262 jobs, 0 sorry; with the PNT+ modules on its path ported — full PNT+ lib not built).
+
+## Cycle 2 (opened 2026-11-13) — AxiomMath corpus as fifth source
+
+Entries below are **[expected]** unless marked landed (charter addendum: `RESEARCH.md`
+§ Cycle 2; live board: `STATUS.md` § Cycle 2). H updates statuses as files land.
+
+- `research/survey/axiommath.md` | P1 | [expected] (A1) | Phase-1 survey of the six AxiomMath repos: territory, terminal points, external deps, bridging hooks.
+- `research/bridges/function-field.md` | P2 | [expected] (A2) | Function-field bridge: Weil conjectures (RH over 𝔽_q) ↔ zeta/quasi-RH cluster.
+- `research/bridges/area-law.md` | P2 | [expected] (A4) | Area-law bridge: AreaLaw2D ↔ openai-math family 265 ↔ linear algebra.
+- `research/novelty/axiommath-as-donor.md` | P2/P3 support | [expected] (A3) | Donor remap: AxiomMath theorems as donors for main-run candidates (hQRH discharge via Cureton–Thorner; ZetaZerosV2 for 42).
+- `research/novelty/round-4.md` | P2/P3 support | [expected] (A5) | Novelty round 4 over the 70-series dossiers.
+- `research/qa/make-decl-index-v2.sh` | tooling | [expected] (A5) | decl-index builder v2: adds the axiommath trees to the cross-corpus declaration index (v1: `qa/make-decl-index.sh`).
+- `research/feasibility/axiommath-donor-probes.md` | support | [expected] (A7) | Donor-consumption probe results against the axiommath builds on our pin.
+- `research/feasibility/probe/logs-g/` | evidence | [expected] (A7) | Modal run logs for the Cycle-2 donor probes (logs-g series; persisted per the log-rescue lesson).
+- `research/candidates/70-*.md` | P3 | [expected] (A9) | First Cycle-2 dossier (70-series; slug TBD by A9; TEMPLATE.md applies).
+- `research/candidates/71-*.md`, `research/candidates/72-*.md` | P3 | [expected] (A9) | Dossier skeletons 71/72 (slugs TBD by A9).
+- `research/pilots/10/L1*.lean`, `L2*.lean` (+ logs) | pilot | [expected] (A6) | Pilot-10 continuation: L1 counter combinators, then L2 `PolyTVal` (dir `pilots/10/` already indexed above).
+- `research/pilots/52/`, `research/pilots/20/` (close-out evidence) | pilot | [expected] (A8) | 52 fix-or-close; then 20 M1 close-out (run recording + seam note).

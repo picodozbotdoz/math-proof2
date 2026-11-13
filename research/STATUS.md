@@ -1,6 +1,6 @@
 # STATUS — coordination board
 
-Last updated: 2026-11-09, resume session (project close); pilot-10 row 2026-11-10 (pilot-10 lane, per the coordinating session's task). This file is the single source of truth for
+Last updated: 2026-11-09, resume session (project close); pilot-10 row 2026-11-10 (pilot-10 lane, per the coordinating session's task); Cycle-2 board 2026-11-13 (H, per orchestrator). This file is the single source of truth for
 lane status. The orchestrator messages status changes to H, who updates this board.
 
 ## FINAL STATE (2026-11-09 resume session) — project CLOSED
@@ -97,3 +97,50 @@ dossier 22 (zeta_growth_right name, ψ-mention wording).
 - New files: a lane creates files only inside its own output area; anything else needs
   orchestrator sign-off (recorded here).
 - `RESEARCH.md` is owned by the orchestrator.
+
+## Cycle 2 (2026-11-13)
+
+Opened by the orchestrator (charter addendum: `RESEARCH.md` § Cycle 2). Scope: re-run
+Phases 1–4 over the AxiomMath corpus (`axiommath/` siblings — consumable donors on our pin
+mathlib `ff2494ea` / v4.36.0-rc2 per `feasibility/axiommath-bump/`), plus the open main-run
+pilot items. The main-run sections above are frozen as history; **this section is the live
+board.** Same ground rules, same Phase 1–4 definitions.
+
+### Cycle-2 lane board
+
+| Lane | Role | Output file | Status | Since / note |
+|---|---|---|---|---|
+| A1 | axiommath-surveyor | `research/survey/axiommath.md` | RUNNING | Phase-1 survey of the six AxiomMath repos (DedekindZetaZeroFree, ZetaZerosV2, ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) |
+| A2 | function-field-bridge | `research/bridges/function-field.md` | RUNNING | Phase-2 bridge: Weil conjectures (Deligne RH over 𝔽_q) ↔ zeta/quasi-RH cluster; function-field analog |
+| A3 | donor-remap | `research/novelty/axiommath-as-donor.md` | RUNNING | Remap main-run candidates with AxiomMath as donor (hQRH discharge via Cureton–Thorner for 20/50; ZetaZerosV2 second donor for 42) |
+| A4 | area-law-bridge | `research/bridges/area-law.md` | RUNNING | Phase-2 bridge: AreaLaw2D (openai family 265) ↔ openai-math ↔ linear algebra |
+| A5 | novelty | `research/qa/make-decl-index-v2.sh` + `research/novelty/round-4.md` | RUNNING | decl-index v2 builder incl. axiommath trees; novelty round 4 over the 70-series |
+| A6 | pilot-10 | `research/pilots/10/` | RUNNING | L1 counter combinators first, then L2 `PolyTVal` (M1 = L3 green, axioms-clean, 2026-11-10) |
+| A7 | feasibility | `research/feasibility/axiommath-donor-probes.md` + `research/feasibility/probe/logs-g/` | RUNNING | Donor-consumption probes against the axiommath builds on our pin (feeds A3 verdicts) |
+| A8 | pilot-52/20 | `research/pilots/52/`, `research/pilots/20/` | RUNNING | 52 fix-or-close first, then 20 close-out (M1 run unrecorded) |
+| A9 | dossier-writer | `research/candidates/70-*.md` + skeletons `71-*`/`72-*` | RUNNING | New 70-series dossiers from A1–A4 outputs; `candidates/TEMPLATE.md` applies |
+| H | helper | `STATUS.md` + `INDEX.md` + `research/qa/*` + `TEMPLATE.md` maintenance + all repo commits | RUNNING | Same charter as main run; runs Cycle-2 commit log below |
+
+File ownership, carried over verbatim from the main run: every file under `research/` has
+exactly ONE writer lane (the owner listed above); reads are free — any lane may read any
+file at any time; researchers never edit `STATUS.md`/`INDEX.md` — status changes are routed
+through the orchestrator. **Cycle-2 relay:** A-lanes report status to the orchestrator, who
+relays to H. New files: a lane creates files only inside its own output area; anything else
+needs orchestrator sign-off (recorded here). `RESEARCH.md` and `TRIAGE.md` remain
+orchestrator-owned.
+
+### Cycle-2 pilots pipeline
+
+| Pilot | Item | Stage | Note |
+|---|---|---|---|
+| 10 | 10-z3: L1 counter combinators, then L2 `PolyTVal` | IN FLIGHT (A6) | M1 (= L3) green + axioms-clean 2026-11-10; L1/L2 are the open items |
+| 52 | 52 unified CCR Fock layer | MID-FLIGHT (A8) | M1 FAIL mid-iteration (axcheck run1; run2 in `pilots/_unattributed/`); fix-or-close decision due |
+| 20 | 20-hecke-zetaK close-out | M1 GREEN, RUN UNRECORDED → close-out (A8) | Rescue/record M1 run evidence + hCZ seam (`20-hCZ-NOTE.md`); after 52 |
+| 50 | 50-M3 donor-swap (prospective) | PENDING A3/A7 VERDICTS | Discharge `hQRH` binder from DedekindZetaZeroFree (Cureton–Thorner ζ_K ≠ 0, Re s > 31/32) |
+| 42 | 42-M4 second donor (prospective) | PENDING A3/A7 VERDICTS | ZetaZerosV2 (Lamzouri > 2/3 simple/on-line) as donor for remaining milestones |
+
+### Cycle-2 commit log (H)
+
+- 2026-11-13 — opening checkpoint `Cycle 2 open: charter addendum, lane board, index`:
+  `RESEARCH.md` (orchestrator's Cycle-2 addendum) + this STATUS section + INDEX [expected]
+  entries. [this commit]
