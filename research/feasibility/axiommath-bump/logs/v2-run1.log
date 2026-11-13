@@ -1,0 +1,122 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZerosV2, 2026-11-13 (V2 port round 1, dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-VKDRflNENkzm9qXUN1BKSf
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZerosV2 update: rc=1
+[axbump] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: e50948299c4d
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 95e037bfdc31
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 10930f8138f0
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4c70ac059693
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 75d936c7af16
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 786b7acdca7e
+    mathlib: b0256621cb88
+  batteries:
+    project: ed9b316aabe3
+    mathlib: 4af7237d1462
+  Cli:
+    project: 2842b9871b04
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: leanprover-community/mathlib: materializing new dependency
+info: leanprover-community/mathlib: fetching revision 'ff2494ea5e438f8a8452db803068acd711fa0059' from https://github.com/leanprover-community/mathlib4
+info: leanprover-community/mathlib: checking out revision 'ff2494ea5e438f8a8452db803068acd711fa0059'
+info: toolchain not updated; already up-to-date
+info: checkdecls: materializing new dependency
+info: checkdecls: fetching revision '3d425859e73fcfbef85b9638c2a91708ef4a22d4' from https://github.com/PatrickMassot/checkdecls.git
+info: checkdecls: checking out revision '3d425859e73fcfbef85b9638c2a91708ef4a22d4'
+info: LeanArchitect: materializing new dependency
+info: LeanArchitect: fetching revision 'd9013cc08bd2b5483e837368dfa4cc7ead92a5c2' from https://github.com/hanwenzhu/LeanArchitect.git
+info: LeanArchitect: checking out revision 'd9013cc08bd2b5483e837368dfa4cc7ead92a5c2'
+warning: /work/ZetaZerosV2/.lake/packages/LeanArchitect/lakefile.lean:32:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: plausible: materializing new dependency
+info: plausible: fetching revision 'e50948299c4dc4a4c21b1c34b6a6a4fddc19f912' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'e50948299c4dc4a4c21b1c34b6a6a4fddc19f912'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision '95e037bfdc31d3916ac615446847fb01960e2719' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '95e037bfdc31d3916ac615446847fb01960e2719'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision '10930f8138f0462dbd744a91fc03a16fae0e046f' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '10930f8138f0462dbd744a91fc03a16fae0e046f'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision '4c70ac059693669e5756e32a7a94b57ee1e99dc5' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '4c70ac059693669e5756e32a7a94b57ee1e99dc5'
+info: aesop: materializing new dependency
+info: aesop: fetching revision '75d936c7af167cc93fac0d31237682fc2204591d' from https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '75d936c7af167cc93fac0d31237682fc2204591d'
+info: Qq: materializing new dependency
+info: Qq: fetching revision '786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334' from https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334'
+info: batteries: materializing new dependency
+info: batteries: fetching revision 'ed9b316aabe389fec1ef43c3326ab48c7e59be42' from https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'ed9b316aabe389fec1ef43c3326ab48c7e59be42'
+info: Cli: materializing new dependency
+info: Cli: 
+{'build ZetaZerosV2': 'FAIL rc=1 step=cache errors=0 failed_modules=0'}
+
+=== ZetaZerosV2 cache: rc=1
+
+failed modules: []
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: e50948299c4d
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 95e037bfdc31
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 10930f8138f0
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4c70ac059693
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 75d936c7af16
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 786b7acdca7e
+    mathlib: b0256621cb88
+  batteries:
+    project: ed9b316aabe3
+    mathlib: 4af7237d1462
+  Cli:
+    project: 2842b9871b04
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+
+
+=== SUMMARY
+build ZetaZerosV2: FAIL rc=1 step=cache errors=0 failed_modules=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-VKDRflNENkzm9qXUN1BKSf

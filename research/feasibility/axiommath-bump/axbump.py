@@ -86,14 +86,22 @@ def run(tarball: bytes, only: str = ""):
                              ("build", "lake build " + " ".join(targets), 2 * 3600)]:
             rc, out = sh(cmd, d, t)
             print(f"\n=== {repo} {step}: rc={rc}", flush=True)
+            if step == "update":
+                # the post-update cache hook may fail; report the resolved mathlib and go on
+                _, rev = sh("git -C .lake/packages/mathlib rev-parse HEAD", d, 60)
+                print(f"[axbump] resolved mathlib {rev.strip()}", flush=True)
+                if rc != 0:
+                    print("\n".join(l for l in out.splitlines() if "✔" not in l)[:4000], flush=True)
+                continue
             if step == "build" or rc != 0:
                 e = errs(out)
                 failed = sorted({m for m in re.findall(r"✖ \[\d+/\d+\] Building (\S+)", out)})
                 summary[f"build {repo}"] = ("OK" if rc == 0 and not e else
                                             f"FAIL rc={rc} step={step} errors={len(e)} failed_modules={len(failed)}")
-                print("\n".join(e[:40]), flush=True)
-                print("failed modules:", failed[:60], flush=True)
-                print(out[-3000:], flush=True)
+                print("failed modules:", failed[:200], flush=True)
+                # every error with its context (drop progress lines)
+                print("\n".join(l for l in out.splitlines()
+                                if not l.startswith(("✔", "⣿", "info:")))[:200000], flush=True)
                 break
     print("\n=== SUMMARY", flush=True)
     for k, v in summary.items():

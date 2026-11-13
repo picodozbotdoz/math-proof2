@@ -1,0 +1,138 @@
+# Provenance: /home/doz/dozenv/bin/modal run axbump.py --root /home/doz/zcode-workdir/axiommath --only ZetaZerosV2, 2026-11-13 (V2 port round 2, dev/claude).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-y1wXJVA2rkCjvlInFp2F1n
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/axiommath-
+│   bump/axbump.py
+└── ✓ Created Function run.
+
+=== ZetaZerosV2 update: rc=0
+[axbump] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache: rc=0
+{'build ZetaZerosV2': 'FAIL rc=1 step=build errors=183 failed_modules=11'}
+
+=== ZetaZerosV2 build: rc=1
+error: no such file or directory (error code: 2)
+error: PrimeNumberTheoremAnd/Tactic/AdditiveCombination.lean: bad import 'Mathlib.Tactic.LinearCombinationPrime'
+error: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean: bad import 'PrimeNumberTheoremAnd.Tactic.AdditiveCombination'
+error: PrimeNumberTheoremAnd/IEANTN/KadiriEq12Foundations.lean: bad import 'PrimeNumberTheoremAnd.ResidueCalcOnRectangles'
+error: ZetaZeros/Analytic/Basic.lean: bad import 'PrimeNumberTheoremAnd.IEANTN.KadiriEq12Foundations'
+error: ZetaZeros/Analytic/Basic.lean: bad import 'PrimeNumberTheoremAnd.ResidueCalcOnRectangles'
+error: PrimeNumberTheoremAnd/ZetaBounds.lean: bad import 'PrimeNumberTheoremAnd.ResidueCalcOnRectangles'
+error: ZetaZeros/Analytic/RealSegment.lean: bad import 'PrimeNumberTheoremAnd.ZetaBounds'
+error: ZetaZeros/Analytic/Xi.lean: bad import 'ZetaZeros.Analytic.Basic'
+error: ZetaZeros/Analytic/Xi.lean: bad import 'ZetaZeros.Analytic.RealSegment'
+error: ZetaZeros/Landau/Perron.lean: bad import 'ZetaZeros.Analytic.Xi'
+error: no such file or directory (error code: 2)
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/ValueDistribution/LogCounting/Growth.lean: bad import 'Mathlib.Analysis.SpecialFunctions.Integrability.LogMeromorphic'
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/HadamardFactorization/Summability.lean: bad import 'PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Growth'
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/HadamardFactorization/Growth.lean: bad import 'PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Summability'
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/HadamardFactorization/Order.lean: bad import 'PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Growth'
+error: PrimeNumberTheoremAnd/Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean:19:61: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+error: PrimeNumberTheoremAnd/Mathlib/NumberTheory/LSeries/RiemannZetaHadamard.lean: bad import 'PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Order'
+error: ZetaZeros/Landau/Formula.lean: bad import 'PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaHadamard'
+error: ZetaZeros/Landau/Formula.lean: bad import 'ZetaZeros.Landau.Perron'
+error: ZetaZeros/Landau/Formula.lean: bad import 'ZetaZeros.Analytic.Xi'
+error: PrimeNumberTheoremAnd/EulerMaclaurin.lean:20:2: `fun_prop` was unable to prove `AEStronglyMeasurable (fun x ↦ x - ↑⌊x⌋₊ - 1 / 2) volume`
+error: ZetaZeros/Analytic/LogDerivEstimates.lean: bad import 'ZetaZeros.Landau.Formula'
+error: ZetaZeros/Analytic/LogDerivEstimates.lean: bad import 'ZetaZeros.Landau.Perron'
+error: ZetaZeros/PairCorrelation/MontgomeryExplicit.lean: bad import 'ZetaZeros.Landau.Perron'
+error: ZetaZeros/Landau/Symmetrisation.lean: bad import 'ZetaZeros.PairCorrelation.MontgomeryExplicit'
+error: ZetaZeros/Landau/HeightWindowJump.lean: bad import 'ZetaZeros.Landau.Symmetrisation'
+error: PrimeNumberTheoremAnd/RectangleArgumentPrinciple.lean: bad import 'PrimeNumberTheoremAnd.ResidueCalcOnRectangles'
+error: ZetaZeros/Landau/ContourFold.lean: bad import 'PrimeNumberTheoremAnd.RectangleArgumentPrinciple'
+error: ZetaZeros/Landau/ContourFold.lean: bad import 'ZetaZeros.Analytic.Xi'
+error: ZetaZeros/Landau/Kernel.lean: bad import 'ZetaZeros.Landau.ContourFold'
+error: ZetaZeros/Landau/Kernel.lean: bad import 'ZetaZeros.Landau.Symmetrisation'
+error: ZetaZeros/Landau/Kernel.lean: bad import 'ZetaZeros.Analytic.LogDerivEstimates'
+error: ZetaZeros/Landau/HorizontalEdges.lean: bad import 'ZetaZeros.Landau.Kernel'
+error: ZetaZeros/Landau/LeftEdge.lean: bad import 'ZetaZeros.Landau.Kernel'
+error: ZetaZeros/Landau/RightEdge.lean: bad import 'ZetaZeros.Landau.Kernel'
+error: ZetaZeros/Landau/Contour.lean: bad import 'ZetaZeros.Landau.HeightWindowJump'
+error: ZetaZeros/Landau/Contour.lean: bad import 'ZetaZeros.Landau.HorizontalEdges'
+error: ZetaZeros/Landau/Contour.lean: bad import 'ZetaZeros.Landau.Kernel'
+error: ZetaZeros/Landau/Contour.lean: bad import 'ZetaZeros.Landau.LeftEdge'
+failed modules: ['PrimeNumberTheoremAnd.Defs', 'PrimeNumberTheoremAnd.EulerMaclaurin', 'PrimeNumberTheoremAnd.IEANTN.PVIdentity', 'PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics', 'PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanBound', 'PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Deriv', 'PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZeta', 'PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.Basic', 'PrimeNumberTheoremAnd.MellinCalculus', 'ZetaZeros.Hilbert.L2', 'ZetaZeros.Zeta.Basic']
+eNumberTheoremAnd.IEANTN.KadiriEq12Foundations
+- ZetaZeros.Analytic.Basic
+- PrimeNumberTheoremAnd.ZetaBounds
+- ZetaZeros.Analytic.RealSegment
+- ZetaZeros.Analytic.Xi
+- ZetaZeros.Landau.Perron
+- Mathlib.Analysis.SpecialFunctions.Integrability.LogMeromorphic
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Growth
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Summability
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Growth
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Order
+- PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+- PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaHadamard
+- ZetaZeros.Landau.Formula
+- PrimeNumberTheoremAnd.EulerMaclaurin
+- ZetaZeros.Analytic.LogDerivEstimates
+- ZetaZeros.PairCorrelation.MontgomeryExplicit
+- ZetaZeros.Landau.Symmetrisation
+- ZetaZeros.Landau.HeightWindowJump
+- PrimeNumberTheoremAnd.RectangleArgumentPrinciple
+- ZetaZeros.Landau.ContourFold
+- ZetaZeros.Landau.Kernel
+- ZetaZeros.Landau.HorizontalEdges
+- ZetaZeros.Landau.LeftEdge
+- ZetaZeros.Landau.RightEdge
+- ZetaZeros.Landau.Contour
+- PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZeta
+- PrimeNumberTheoremAnd.PerronFormula
+- ZetaZeros.Landau.TruncatedPerron
+- PrimeNumberTheoremAnd.MediumPNT
+- ZetaZeros.PairCorrelation.VonMangoldtSums
+- ZetaZeros.PairCorrelation.OffDiagonal
+- ZetaZeros.PairCorrelation.MeanSquare
+- ZetaZeros.PairCorrelation.FromLandau
+- ZetaZeros.Zeta.Kernel
+- ZetaZeros.Zeta.Transfer
+- ZetaZeros.ZeroCount.RiemannVonMangoldt
+- ZetaZeros.Main
+- ZetaZeros.Zeta.TransferBounds
+- ZetaZeros.Proportions
+- ZetaZeros.NumericProportions
+- ZetaZeros.PairCorrelation.EndpointBand
+- ZetaZeros.ZeroCount.Window
+- ZetaZeros
+- PrimeNumberTheoremAnd.Backlund.ZeroCountCrude
+- PrimeNumberTheoremAnd.StrongPNT
+- PrimeNumberTheoremAnd.BorelCaratheodory
+- PrimeNumberTheoremAnd.GeneralMeromorphic
+- PrimeNumberTheoremAnd.IEANTN.Mertens
+- PrimeNumberTheoremAnd.IEANTN.ZetaAppendix
+- PrimeNumberTheoremAnd.IEANTN.ZetaSummary
+- PrimeNumberTheoremAnd.IEANTN.PrimaryDefinitions
+- PrimeNumberTheoremAnd.IEANTN.CH2.CH2_part1
+- PrimeNumberTheoremAnd.IEANTN.CH2.CH2
+- PrimeNumberTheoremAnd.IEANTN.KadiriZeroCounting
+- PrimeNumberTheoremAnd.IEANTN.KadiriEq12Helpers
+- PrimeNumberTheoremAnd.IEANTN.KadiriEq13
+- PrimeNumberTheoremAnd.IEANTN.KadiriSupport
+- PrimeNumberTheoremAnd.IEANTN.KadiriEq11Reduction
+- PrimeNumberTheoremAnd.IEANTN.KadiriEq14
+- PrimeNumberTheoremAnd.IEANTN.Kadiri
+- PrimeNumberTheoremAnd.IEANTN.MobiusLemma
+- PrimeNumberTheoremAnd.Unused.ZetaBoundsUnused
+- PrimeNumberTheoremAnd
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics
+- PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanBound
+- PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.Basic
+- ZetaZeros.Zeta.Basic
+- PrimeNumberTheoremAnd.Defs
+- PrimeNumberTheoremAnd.MellinCalculus
+- ZetaZeros.Hilbert.L2
+- PrimeNumberTheoremAnd.IEANTN.PVIdentity
+error: build failed
+
+
+=== SUMMARY
+build ZetaZerosV2: FAIL rc=1 step=build errors=183 failed_modules=11
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-y1wXJVA2rkCjvlInFp2F1n
