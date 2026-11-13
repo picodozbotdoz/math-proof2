@@ -140,3 +140,74 @@ in-corpus today; best available = 7/8 single-binder (M1, GREEN) or 31/32
 statement-binder (R2 fallback shape)*). The R1 infra staged here stays reusable if the
 OAI tree is ever hygiene-fixed or ported (the runner is route-agnostic donor-pin
 scaffolding).
+
+## 7. Outcome blocks (staged for splice; both STAGED-NOT-A-VERDICT)
+
+Pre-written §Pilot-outcome variants for `research/candidates/
+50-quasi-rh-truncated-window-constants.md`, for A9 to splice once the G7b verdict +
+(if PASS) the R1 execution land. Evidence slots in ⟨…⟩ are fill-ins; every other
+sentence is final text pending the branch selection. **Neither block is a verdict
+until the orchestrator selects one.**
+
+### (a) G7b PASS → R1 executed (per §5) — STAGED-NOT-A-VERDICT
+
+> **Pilot outcome — route R1 (openai in-corpus 7/8): LANDED.** The M1/M2a
+> quasi-RH binders are discharged from the openai donor's own proved theorems
+> (`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re`,
+> `OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re`,
+> `OAI/NumberTheory/DirichletL/Nonvanishing.lean:29/:19`), consumed by direct import
+> inside the donor's pruned Nonvanishing closure built at the donor pin (v4.34.1 /
+> mathlib d13f23b7; the G7/g7 substrate pattern). Donor hygiene certified by G7b
+> ⟨run/log ref⟩ — both headlines + both delegation roots
+> (`SevenEighths.ProbeFinalAssemblyUnconditional.{zeta,dirichlet}_nonzero`) =
+> [propext, Classical.choice, Quot.sound] exactly — and re-confirmed consumer-side in
+> the R1 runs.
+>
+> **Binders dropped:** `hQRH` (ζ 7/8) and `hQRHχ` (Dirichlet 7/8) — the Knausgård-free,
+> certificate-free, native_decide-free consumption is total; **`hFEχ` remains** (the
+> missing product-form Dirichlet FE reflection χ → χ⁻¹; mathlib gap, unchanged by R1).
+>
+> **Landed theorems** (`research/pilots/50/R1.lean`, ⟨LoC⟩; probe-first per
+> `pilots/50/R1-prework.md` §5): `strip_confinement_seven_eighths` — UNCONDITIONAL:
+> every nontrivial zero ρ of the Riemann zeta function satisfies 1/8 ≤ Re ρ ≤ 7/8, no
+> hypotheses; `strip_confinement_mem_seven_eighths`; `strip_confinement_set_seven_eighths`
+> (the riemannZetaZeros / zeta23-window vocabulary forms); and
+> `strip_confinement_dirichlet_seven_eighths_of_FE` — the primitive-Dirichlet strip at
+> FULL 7/8, conditional only on `hFEχ`.
+>
+> **Evidence:** probe run ⟨logs/r1-run<N>.log, app ap-…⟩; R1 GREEN run ⟨log, app⟩ —
+> 0 errors / 0 sorry-warnings; `#print axioms` on all four landings + both donor
+> theorems = triad; full-coverage axcheck ⟨log⟩ — ⟨N⟩ theorems, every one exactly
+> [propext, Classical.choice, Quot.sound], zero sorryAx/native_decide.
+>
+> **Constant posture:** the unconditional strip now exists at the FULL
+> conditional-strength constant pair [1/8, 7/8] — the strongest in-corpus form; R2's
+> 31/32 (DZDF) and R3's Liu-1 34999/40000 are superseded for ζ/Dirichlet (R2 remains
+> the only route with ζ_K / ray-class coverage, statement-level). The G7b-vetted
+> donor-pin consumption pattern (statement port ≈ 0 + axiom audit) is now
+> twice-proven infrastructure (M4b2-recipe lineage).
+
+### (b) G7b FAIL → route-dead — STAGED-NOT-A-VERDICT
+
+> **Pilot outcome — route R1 (openai in-corpus 7/8): ROUTE-DEAD (donor hygiene).**
+> The G7b donor-pin axiom audit ⟨run/log ref⟩ found ⟨finding: sorryAx in
+> `SevenEighths.ProbeFinalAssemblyUnconditional` / a native_decide-class axiom / a
+> fourth axiom name⟩ in the delegation closure of the openai 7/8 quasi-RH theorems.
+> Consequence: the donor headlines are not kernel-clean consumables on any pin, the
+> "unconditional [1/8, 7/8]" wording is unavailable, and R1's consumption reverts to
+> the M1 binder posture. Nothing already landed is weakened: M1/M2a's GREEN
+> conditional theorems (binders `hQRH`/`hQRHχ` transcribed from the challenge forms)
+> stand exactly as recorded.
+>
+> **TRIAGE fold (row 50-M2):** no unconditional strip constant is landable in-corpus
+> today; the best available postures are (i) 7/8 single-binder — M1 GREEN, unchanged;
+> (ii) 31/32 statement-binder — the R2 `hDZ` fallback shape (`pilots/
+> 50-M2-31-32-spec.md` §3), executable on plain mathlib, gated on no build.
+>
+> **Carried to iteration-4:** (i) the R1 infrastructure (`pilots/50/run_r1.*`, the
+> pruned-closure runner, the staged R1.lean/R1probe.lean drafts) is route-agnostic
+> donor-pin scaffolding — reusable verbatim if the OAI tree is hygiene-fixed or its
+> closure ported to our pin; (ii) the hygiene gate itself (donor-pin axiom audit
+> BEFORE any unconditional-claim consumption) is promoted from convention to hard
+> prerequisite for every future external-donor route — the M4b2/ZetaZerosV2 precedent
+> shows what PASS looks like, G7b-FAIL shows the gate doing its job.
