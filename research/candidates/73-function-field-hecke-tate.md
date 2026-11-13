@@ -287,3 +287,17 @@ Significance **4** (the FF L-function substrate layer; the sharp-window contrast
 (rank ≈ 3 × 4 ÷ 2.5 ≈ 4.8 at Tier C); Tier A stays a priced ceiling, not a slot.
 Honest category: **CONDITIONAL-CORE, Stacks-blocked, formalization-first — the
 highest-ceiling item of the 70–75 series, with the least claimable today.**
+
+## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+
+Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
+(pilot 73-C = slot 1 continuation, lane A2, after 71-P2; Q0 probe → Q1 class+series+
+71-glue → Q2 (i) → Q3 (ii); **hard STOP before Q4 — separate gate**; spec
+`research/pilots/73-prework.md`; pilot dir/logs to be created at execution).
+
+- Runs (stage / date / log file / rc / errors–sorrys): Q0: — ; Q1: — ; Q2 (i): — ;
+  Q3 (ii): —
+- LoC (final files): —
+- Theorem count (final files): —
+- Axiom audit (`#print axioms` sweep; triad check): —
+- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —

@@ -287,3 +287,18 @@ FF-EZ3 (dossier 73) = highest-ceiling, Stacks-blocked, pre-registered separately
 **[A5 PART-2 LANDED (row 71): primary formalization-first; family N as proposed; tier
 WARM — no N-adjust beyond the lane's own proposal; re-scope honored ("family-quantified/
 exclusion-based proportion shapes ONLY").]**
+
+## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+
+Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
+(pilot 71 = slot 1, lane A2; stages per `research/pilots/71-prework.md` §c; artifacts
+under `research/pilots/71/`, logs under `research/pilots/71/logs/`).
+
+- Runs (stage / date / log file / rc / errors–sorrys):
+  - P0 (statement probe): —
+  - P1 (kernel-clean stage): —
+  - P2 (proof artifact; W1 window incl. s≠1 pole exclusion → W2 → HW): —
+- LoC (final files): —
+- Theorem count (final files): —
+- Axiom audit (`#print axioms` sweep; triad check): —
+- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —

@@ -5,7 +5,11 @@ relay + lane A1's survey (`research/survey/axiommath.md` §4 H1 "Correction to t
 premise"), (ii) lane A5's round-4 pre-check (`research/novelty/round-4.md` §3, zone QR-D)
 and its **§5 precision pass** (per-class 7/8-crossing resolution — folded into the novelty
 section below), (iii) lane A3's donor remap (`research/novelty/axiommath-as-donor.md`
-§(a)/(f) — the precise part-(a) formulation below is A3's). Grows from dossiers 50
+§(a)/(f) — the precise part-(a) formulation below is A3's), (iv) lane A5's **clock sweep
+(round-4 §8, swept 2026-11-13; folded 2026-11-14 post-outage relaunch)** — Chang–Wang +
+Ji cluster addenda, the 13-repo QR-D Lean ecosystem landscape, and the pending
+QuasiRiemannTracker audit, recorded as the standing-notes block at the end of § Novelty
+below (they sharpen, none overturns). Grows from dossiers 50
 (`research/candidates/50-quasi-rh-truncated-window-constants.md`) and 20
 (`research/candidates/20-hecke-zetaK-zero-density.md`) and their pilots. Tags: [VERIFIED] =
 read in source this lane; [HYPOTHESIS] = proposed/reasoned, flagged.
@@ -231,19 +235,27 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
     - *ζ + every Dirichlet L (classes P and C1):* **no "first" claim.** The informal frontier
       is already below 7/8 (Liu-1 B_new = 0.8749570, arXiv:2610.12234, Cor 14.1 transferring
       to every Dirichlet L incl. ζ; Xu–Sang 0.8748867 conditional on Ope26a inputs,
-      arXiv:2610.15291; Liu-2 B♭ uniform), **and Liu-1's result is Lean-formalized in a
-      public external repo** (github.com/liubaiying101/Slightly-improved-zero-free-half-
+      arXiv:2610.15291; Liu-2 B♭ uniform; and conditionally to 0.8744620 via Chang–Wang
+      2611.00924, round-4 §8.1 — standing note 1), **and Liu-1's result is Lean-formalized
+      in a public external repo** (github.com/liubaiying101/Slightly-improved-zero-free-half-
       planes-for-the-quasi-Riemann-hypothesis — Lean 4 + exact-arithmetic certificates,
       covering the Hecke family over ℚ(√−3) "and its Dirichlet and zeta consequences",
-      round-4 §5.1 row 1). Part A's ζ/Dirichlet statements are therefore the weaker,
+      round-4 §5.1 row 1) — with the ζ/Dirichlet *formal* side now counting **≥3 artifacts**
+      (openai tree 7/8 in-corpus; Liu-1 external 34999/40000; Kontorovich/quasi-rh 11/12
+      external, README-claimed — round-4 §8.3, standing note 3). Part A's ζ/Dirichlet
+      statements are therefore the weaker,
       in-corpus, on-pin siblings of concurrent external formal work — value = posture
       upgrade + donor hygiene, and the external repo is a NEW discharge option for pilot 50's
       literal 7/8 binder (Knausgård-style external donor; statement portability unprobed —
       worth a probe alongside the 31/32 swap).
     - *ζ_K and finite-order Hecke L, all K (classes C2–C4):* "first unconditional ζ_K
-      zero-confinement strip in Lean" **holds today** — the best *formal* exponent for these
-      classes is the in-corpus 31/32 (DZDF); Liu-2 v2's B♭ = 0.8748866 (uniform, every K) is
-      informal with Lean in progress — but it is **on a clock**: the strip widens to
+      zero-confinement strip in Lean" **holds today** — confirmed by the 2026-11-13 GitHub
+      sweep of the QR-D Lean ecosystem (13 repos, round-4 §8.3): **no ζ_K formal artifact
+      anywhere** (tracker audit pending — standing note 4); the best *formal* exponent for
+      these classes is the in-corpus 31/32 (DZDF); Liu-2 v2's B♭ = 0.8748866 (uniform,
+      every K) is informal with Lean in progress, and Chang–Wang's conditional sub-B♭
+      (§8.1) moves the *informal conditional* column only — but it is **on a clock**: the
+      strip widens to
       [1−B♭, B♭] ≈ [0.1251, 0.8749] the day Liu-2's formalization lands (round-4 §5.3
       consequence (ii)). Hence the parametric θ-statement above.
 - **Part B (abelian proportions), formal absence:** zeta23 proportions are ζ + Dirichlet only
@@ -256,10 +268,16 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
     (2610.12234) gives Re s > 0.8749570 for every Dirichlet L incl. ζ (Lean-formalized,
     public repo); Liu-2 v2 (2610.26835) gives Re s > B♭ = 0.8748866 uniformly for every
     finite-order Hecke L and every ζ_K over every number field (informal, Lean in progress);
-    nothing as of 2026-11-13 goes below B♭. Cluster picture: **six papers in six weeks**
-    (Ope26a 7/8 → Ope26b 11/12 + Landau–Siegel corollary → Liu-1 → Xu–Sang → CT 31/32 →
-    Liu-2), two external Lean artifacts (liubaiying101 complete; Liu-2 in progress on top
-    of [Liu26b]+[CTLean]) — the informal frontier is already below 7/8 *uniformly*, so
+    nothing as of 2026-11-13 goes below B♭ **unconditionally** — Chang–Wang (2611.00924,
+    2026-10-31; round-4 §8.1) reach B_* − 1/160000 = 0.8744620… < B♭ **conditionally only**
+    (XS26-style conditionality on cited uniform input theorems; standing note 1 below).
+    Cluster picture: **six papers in six weeks** (Ope26a 7/8 → Ope26b 11/12 + Landau–Siegel
+    corollary → Liu-1 → Xu–Sang → CT 31/32 → Liu-2; clock-sweep addenda 2026-11-13:
+    Chang–Wang conditional sub-B♭, Ji 2611.16665 quartic 599/600 — §8.1–8.2), **external
+    Lean artifacts now ≥3** (liubaiying101 complete; Liu-2 in progress on top of
+    [Liu26b]+[CTLean]; AlexKontorovich/quasi-rh README-claimed 11/12 ζ+Dirichlet with NO
+    ζ_K content — §8.3, standing note 3) — the informal frontier is already below 7/8
+    *uniformly*, so
     pilot 50's `hQRH` is TRUE informally and the only formal discharge paths today are the
     external Liu repo (unprobed) or the weakened 31/32 binder in-corpus (this dossier).
     **[Revision 2026-11-13, per A5's PART-2 row 70 + `pilots/50-M2-31-32-spec.md` (which
@@ -292,9 +310,12 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
     the classical anchors. A UNIFORM 1−δ strip for all K is stronger than anything classical
     (it kills exceptional/Siegel-type zeros for ζ_K) — which is exactly why Part A's honesty
     rests on the *donor's* kernel verification, not on informal literature status.
-  - **Cluster depreciation clock (round-4 §3):** five-plus papers in six weeks (openai 7/8 +
-    11/12 preprints → CT 31/32 every K → Liu abelian half-planes → Trudgian–ZA low-lying
-    zeros), two with formal components, one our own donor. **Any novelty claim of the form
+  - **Cluster depreciation clock (round-4 §3; addenda §8, 2026-11-13):** five-plus papers
+    in six weeks (openai 7/8 + 11/12 preprints → CT 31/32 every K → Liu abelian half-planes
+    → Trudgian–ZA low-lying zeros; sweep addenda: Chang–Wang 2611.00924 conditional below
+    B♭, Ji 2611.16665 quartic 599/600 — §8.1–8.2), three-plus formal components in the
+    ecosystem (openai in-corpus challenge, liubaiying101, Kontorovich/quasi-rh — §8.3),
+    one our own donor. **Any novelty claim of the form
     "first quasi-RH for ζ_K" or "improved zero-free half-plane" is DEAD** — taken by the
     cluster. What remains ours, per round-4: (i) weakened-binder discharge exercises
     (verification/ecosystem value — Part A); (ii) consequence statements nobody has formalized
@@ -309,6 +330,51 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
   Liu 2610.26835 (abelian Hecke half-planes — overlaps Part B's *family* but proves
   nonvanishing, not proportions or strips); DZDF `abelianFactorization` (identity, no consumer);
   dossier 20's engine route (the sibling path to non-Dirichlet proportions, L-effort).
+
+### Standing notes — clock sweep 2026-11-13 (round-4 §8; folded by A9 2026-11-14)
+
+Folded from A5's §8 clock sweep (the orchestrator's relay was sent pre-outage and executed
+post-relaunch). Every item below **sharpens, none overturns**, a claim of this dossier.
+Exact citations:
+
+1. **Chang–Wang, arXiv:2611.00924** (2026-10-31; missed by A5's earlier sweep via a
+   truncated results head — lesson recorded in round-4): "exhaustion-aware product moment"
+   obtains **B_* − 1/160000 = 0.87446205769…, below Liu-2's B♭ = 0.8748866** — the
+   informal frontier moves below B♭ **conditionally only** (conditional "on the cited
+   general-field theta, detector, prior-bound and Mellin input theorems in their stated
+   uniform forms" — XS26-style conditionality). **Unconditional record unchanged
+   (Liu-2 B♭)** ⇒ the §5.2 line above carries the conditional/unconditional split, and
+   the θ-parametric re-scope absorbs even a validated Chang–Wang (re-instantiation,
+   zero new proofs).
+2. **Ji, arXiv:2611.16665** (2026-11-12, "Proof of the Quasi Riemann Hypothesis using
+   Q[i]"): quartic Gauss sums replace cubic (new theta-kernel: quartic Kubota; new base
+   field ℚ(i)); ζ_{ℚ(i)} + ζ zero-free Re s > **599/600** = 0.99833 — a **weaker**
+   constant than both B♭ and 31/32 (and field-specific, not uniform); title over-claims
+   vs the cluster's sense of "QRH"; **no frontier move**; must-cite list grows (cluster
+   now: Ope26a → Ope26b → Liu-1 → Xu–Sang → CT → Liu-2 → Chang–Wang (cond.) → Ji).
+3. **QR-D Lean ecosystem = 13 repos, not 2** (GitHub `"quasi-Riemann" language:Lean`,
+   swept 2026-11-13): beyond liubaiying101 ×2 and the audited Zhang-Liao/CoolRmal 7/8
+   extractions — **AlexKontorovich/quasi-rh** (10-26; README-claimed complete
+   formalization of `riemannZeta_ne_zero_of_re_gt_elevenTwelfths` = 11/12 for ζ +
+   Dirichlet, v4.34.1, reuses OpenAI's analytic core; **NO ζ_K content**);
+   GTimG/QuasiRiemannTracker (note 4); LUOLINGc325/quasi-rh-lean ("main results of the
+   Quasi-Riemann…", 10-28); LW56e2/quasi-riemann-improved; a CrossNoX extension;
+   akashlevy/qrh (obstructions notes); jacobalansussman/qrh-zero-free-bounds ("a map of
+   66 dead ends", 11-04); **DrMurphyIsIn/qrh-debruijn-newman** (kernel-checked Λ ≤ 9/32
+   for de Bruijn–Newman — the main-run round-1 §12 "Λ absent everywhere" gap is TAKEN by
+   a third party; no Cycle-2 dossier affected; main-run donation-surface note only);
+   randogelist (unaudited). **No new ζ_K formal artifact found ⇒ this dossier's
+   per-class split (ζ_K/all-K strip ours alone, class β above) SURVIVES the sweep**; the
+   ζ/Dirichlet formal side now has ≥3 artifacts (openai tree 7/8 in-corpus; Liu-1
+   34999/40000; Kontorovich 11/12) — class (α)'s "no first claimed" posture unchanged,
+   now with a third confirmation.
+4. **GTimG/QuasiRiemannTracker** (created 10-09, 389 commits, pushed 2026-11-13 08:28;
+   README: "Every result on the website is verified"; tracks "bounds on the real parts
+   of zeros of Dirichlet L-functions"): the site is JS-rendered — NOT sweepable by
+   WebFetch; **[pending A5 tracker audit]** (browser pass or clone, in flight at
+   relaunch) to determine kernel-vs-certificate verification and any ζ_K/Hecke entries.
+   The per-class split in note 3 assumes no ζ_K entry — revisit standing note 3/β above
+   when A5's audit lands (orchestrator to relay).
 
 ## Bridge analysis
 
@@ -480,3 +546,9 @@ window-finiteness; the ℚ-route discharge is named).
 **[A5 PART-2 LANDED 2026-11-13 (row 70): N-adjust "artifact-grade (no discovery N)";
 tier HOT-cluster / WARM-artifact; per-class split CONFIRMED — "ζ_K-strip (all K) is OURS";
 Part B's queries resolved in row 75 (see dossier 75's revision).]**
+**[Clock-sweep must-cites FOLDED 2026-11-14 (round-4 §8 → standing notes in § Novelty):
+Chang–Wang 2611.00924 — conditional-only frontier 0.87446205 < B♭, unconditional record
+(Liu-2 B♭) unchanged; Ji 2611.16665 — 599/600 ζ_{ℚ(i)}+ζ, weaker constant, no frontier
+move; 13-repo QR-D Lean landscape incl. Kontorovich/quasi-rh (README-claimed 11/12
+ζ+Dirichlet, NO ζ_K) — the ζ_K-strip per-class split SURVIVES; GTimG/QuasiRiemannTracker
+[pending A5 tracker audit].]**

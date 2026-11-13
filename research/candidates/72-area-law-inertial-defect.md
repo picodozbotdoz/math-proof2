@@ -393,3 +393,21 @@ methodology transport [HYPOTHESIS at the LP layer]; AL-EZ4 = future work, jointl
 **[A5 PART-2 LANDED (row 72): "P1: formal-new (moderate); P2: N as proposed
 ([HYPOTHESIS], flagged); C-neg: precedent-backed (50/30 lineage)"; tier WARM; P2-4
 outcome folded into § Novelty above — P2 un-contradicted, residual re-check at pilot.]**
+
+## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+
+Two independent prongs; fill each from its own orchestrator relay.
+
+### C-neg (certified-negative gate; lane A4; N1 Rényi monotonicity + N2 rank bridge + N3 gate theorems per `research/pilots/72-prework.md` Appendix A; artifacts `research/pilots/72/`, logs `research/pilots/72/logs/`)
+
+- Runs (date / log file / rc / errors–sorrys): —
+- LoC: — ; Theorem count: —
+- Axiom audit (triad-only per close-out plan): —
+- Verdict line: —
+
+### M1 Tier-C (family-265 interface theorem, pure transcription, zero import gates; slot 3, lane A8, per `research/pilots/72-prework.md` §2/§a)
+
+- Runs (date / log file / rc / errors–sorrys): —
+- LoC: — ; Theorem count: —
+- Axiom audit: —
+- Verdict line: —

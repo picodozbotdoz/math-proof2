@@ -173,8 +173,9 @@ the axiommath labels):
     recorded by dossier 42/round-4 FF-5 as "ζ_K distinct via SDP". **Scope question
     RESOLVED by A5's PART-2 P2-3 (2026-11-13): DLRT's Thm 1.1 is fixed ABELIAN K under
     GRH (o_K(1), T→∞) and Cor 1.3(i) fixed quadratic K, GRH-conditional asymptotic — nothing
-    uniform over K, no Hecke/non-abelian ⇒ (P) is a
-    VERDICTS §5.2(c) reading "unconditional 45% distinct" was wrong; cite DLRT with the
+    uniform over K, no Hecke/non-abelian ⇒ (P) is a NEW statement family, NOT math-known ⇒
+    N stays 4** (VERDICTS C2 row 75; standing note 3's erratum corrects the main-run
+    §5.2(c) reading — "unconditional 45% distinct" was wrong; cite DLRT with the
     corrected qualifiers.) Consequence for kind, per A5's row-75 re-scope: DLRT's
     GRH-conditionality makes our certificate-conditionals **closer in kind** to the
     nearest miss than an unconditional-vs-conditional gap would suggest — the honest
@@ -337,3 +338,18 @@ independently of this dossier. Honest category: **DISCOVERY-grade claim on the s
 class (gated by the DLRT scope check), CONDITIONAL-CORE today — the component-proportion
 binders are the named open core nobody has; the assembly machinery is pilot 42's and is
 not claimed.**
+
+## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; NOT a verdict)
+
+Fill rule: every slot below stays empty until the outcome is relayed by the orchestrator
+(pilot 75 = wave-4; spec COMPLETE at `research/pilots/75-prework.md` — treat the prework
+as done per RESUME-BRIEF-C2 §A9; pilot dir/logs to be created at execution).
+
+- Runs (milestone / date / log file / rc / errors–sorrys):
+  - Pilot entry (P-a)+(C1) at 2/3 (binder-postured, over the GREEN pilot-42 stack): —
+  - (P-b) strip-distinct forms (after 42-M4a verification): —
+  - (C2)/(C3) discharge/accounting milestones: —
+- LoC (final files): —
+- Theorem count (final files): —
+- Axiom audit (`#print axioms` sweep; triad check): —
+- Verdict line (GREEN / GREEN-with-binders / FAIL-in-flight / DROP, one sentence): —
