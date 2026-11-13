@@ -1,0 +1,28 @@
+# Provenance: /home/doz/dozenv/bin/modal run run_pilot.py --dir /tmp/crossmath-71-stage (target: P0.lean P1.lean, mathlib ff2494ea, toolchain v4.36.0-rc2, 8710 oleans), 2026-11-13, lane A2 (pilot 71 P0-P1, run 1 of 4: module docstring placed before imports — 'invalid import command'; fixed by moving imports first).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-JencUI24gtoDQiUlomLdM9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P0.lean', 'P1.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P0.lean
+[pilot71] P0.lean: FAIL rc=1 errors=1
+---- error contexts ----
+P0.lean:14:0: error: invalid 'import' command, it must be used in the beginning of the file
+···
+
+=== P1.lean
+[pilot71] P1.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+P1.lean:13:0: error: invalid 'import' command, it must be used in the beginning of the file
+···
+
+[pilot71] SUMMARY
+[pilot71]   P0.lean: FAIL rc=1 errors=1
+[pilot71]   P1.lean: FAIL rc=1 errors=1 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-JencUI24gtoDQiUlomLdM9

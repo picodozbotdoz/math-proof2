@@ -1,0 +1,51 @@
+# Provenance: same command, 2026-11-13, lane A2 (run 4 of 4, FINAL: P0 OK probe, P1 OK — lint-clean except the deliberate haveI [instance needed for rw TC search; linter suggestion 'have' would break it]); P0 log doubles as the G6 no-Stacks baseline for A7 (mathlib-only elaboration of the LeanEval statement layer).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-G28Ga0MwQWEiA35cgmLdkq
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P0.lean', 'P1.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P0.lean
+[pilot71] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:55:8: warning: declaration uses `sorry`
+P0.lean:86:8: warning: declaration uses `sorry`
+P0.lean:93:8: warning: declaration uses `sorry`
+P0.lean:102:8: warning: declaration uses `sorry`
+
+=== P1.lean
+[pilot71] P1.lean: OK
+---- axioms ----
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+P1.lean:61:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot71] SUMMARY
+[pilot71]   P0.lean: OK (probe, sorry allowed)
+[pilot71]   P1.lean: OK
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-G28Ga0MwQWEiA35cgmLdkq

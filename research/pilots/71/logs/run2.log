@@ -1,0 +1,136 @@
+# Provenance: same command, 2026-11-13, lane A2 (run 2 of 4: Multiset.induction_on case names are empty/cons not zero/cons; lPoly needs noncomputable (AddMonoidAlgebra.commRing); zetaC/lPoly stub args W.A → W.A 1).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-8NcqtbkHcSEMUwdKBA0RIh
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-71-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot71] staging ['P0.lean', 'P1.lean']
+[pilot71] mathlib rev ff2494ea5e43
+[pilot71] oleans present: 8710
+
+=== P0.lean
+[pilot71] P0.lean: FAIL rc=1 errors=2
+---- error contexts ----
+P0.lean:73:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.commRing', which is 'noncomputable'
+P0.lean:89:10: error: Application type mismatch: The argument
+  W.A
+has type
+  ℕ → Multiset ℂ
+but is expected to have type
+  Multiset ℂ
+in the application
+  zetaC W.A
+P0.lean:96:16: error: Application type mismatch: The argument
+  W.A
+has type
+  ℕ → Multiset ℂ
+but is expected to have type
+  Multiset ℂ
+in the application
+  lPoly W.A
+P0.lean:102:8: warning: declaration uses `sorry`
+···
+  zetaC W.A
+P0.lean:96:16: error: Application type mismatch: The argument
+  W.A
+has type
+  ℕ → Multiset ℂ
+but is expected to have type
+  Multiset ℂ
+in the application
+  lPoly W.A
+P0.lean:102:8: warning: declaration uses `sorry`
+···
+
+=== P1.lean
+[pilot71] P1.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+P1.lean:92:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:91:2: error: Alternative `empty` has not been provided
+P1.lean:104:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:103:2: error: Alternative `empty` has not been provided
+P1.lean:118:22: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_one, pow_one, Multiset.map_singleton, div_one] at h2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+P1.lean:92:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:91:2: error: Alternative `empty` has not been provided
+P1.lean:104:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:103:2: error: Alternative `empty` has not been provided
+P1.lean:118:22: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_one, pow_one, Multiset.map_singleton, div_one] at h2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+P1.lean:91:2: error: Alternative `empty` has not been provided
+P1.lean:104:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:103:2: error: Alternative `empty` has not been provided
+P1.lean:118:22: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_one, pow_one, Multiset.map_singleton, div_one] at h2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+P1.lean:104:2: error: Invalid alternative name `zero`: Expected `empty`
+P1.lean:103:2: error: Alternative `empty` has not been provided
+P1.lean:118:22: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_one, pow_one, Multiset.map_singleton, div_one] at h2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot71] SUMMARY
+[pilot71]   P0.lean: FAIL rc=1 errors=2
+[pilot71]   P1.lean: FAIL rc=1 errors=4 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-8NcqtbkHcSEMUwdKBA0RIh
