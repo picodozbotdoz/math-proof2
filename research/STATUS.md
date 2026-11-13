@@ -306,6 +306,21 @@ standing authorization with a commit.
   liu-zerofree duplicate, xyz-CLI stale clause, pre-relaunch app list; AGENTS.md:54 B_new
   decimal typo flagged for drive-by fix; STATUS slot-2/3 normalization wording staged at
   its tail). Nothing applied.
+- 2026-11-14 — `Cycle 2: A5 — QuasiRiemannTracker audit (r4 §9) + §5.3/§8.1 post-outage
+  repairs + row-70 propagation` (3056d0d, drain relay): tracker audited via clone +
+  browser (site **gtimg.github.io/QuasiRiemannTracker** — the briefing's
+  "quasiriemann.org" was WRONG); verdict kernel-grade (tri-kernel replay: Lean + NanoDa
+  0.4.26 + con-ron, triad axioms, adversarial controls, hash-bound receipts);
+  **Dirichlet-only at every layer ⇒ row-70 per-class ζ_K split SURVIVES**; no
+  conditional-results class (Chang–Wang/Liu-2/CT absent); formal Dirichlet frontier
+  **0.8733458561** (Bebel continuum-anchor 11-13) below the conditional informal one
+  since 10-26; Liu B_new tracked at the exact surd; DO-NOT-CONSUME (their
+  infrastructure, per-entry vendored 4.34.1 trees). VERDICTS row 70 + standing note 5,
+  CLAIMS-REGISTER row 70 + standing-clocks line, RELATED-WORK cluster bullet (incl.
+  **DrMurphyIsIn/qrh-debruijn-newman: kernel-checked Λ ≤ 9/32 — main-run round-1 §12's
+  "Λ absent everywhere" gap TAKEN by a third party**, recorded donation-surface-note
+  only). H QA on the batch: 5/5 OK, 0 WRONG (all relayed citation values verified in-file;
+  A9's dossier-70 note-4 fold already on disk, values consistent — no lag).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
