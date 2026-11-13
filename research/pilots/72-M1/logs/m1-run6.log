@@ -1,0 +1,40 @@
+# m1-run6 — pilot 72-M1 Tier-C Modal run 6 (post-resume fix round 1)
+# Date: 2026-11-14, lane A8-resumed (execution-window relaunch).
+# Files: P72M1T2.lean after the resumed static audit — the run-5 header's six fix
+#   classes were ALREADY applied on disk (file mtime 03:15 > run-5 log 03:08; the
+#   interruption killed the turn between applying fixes and running); this run adds:
+#   double Subtype.ext nesting in orientPair_injective (Edge L is a subtype),
+#   complImageEquiv surjectivity .2 → .1 (preimage from gridDom membership),
+#   configEquiv rewritten via Equiv.ofBijective + gridVertex_of (the old
+#   `right_inv f := rfl` was unprovable: Exists.choose is Classical.choice-based and
+#   opaque to defeq), regComplEquiv reoriented over (complImageEquiv A).symm so
+#   .symm-application reduces definitionally, L1's pureState/MState.mk' simp unfolds
+#   replaced by a rfl lemma pureState_M and the `congr 1; simp` tail dropped, and the
+#   entropy match's opaque `have h` inlined.
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-R47fDGmxHa2U7eiKm4HB1f
+# Verdict: T1 OK; T2 FAIL (10 errors, down from 24) — **L1 GREEN + triad-clean**
+#   ('ptrace_pureState_eq_reducedDensity' [propext, Classical.choice, Quot.sound]).
+#   Three root classes, all mine:
+#   1. (8 errors :136–:153) `h.1`/`h.2` on Eq of pairs — "Invalid projection" in
+#      v4.36 (Eq is not projectable); fix: congrArg Prod.fst/snd.
+#   2. (:156) boundaryCard_eq STATEMENT needs Fintype {e // crosses A e} — not
+#      synthesizable outside a proof (classical is proof-only); fix: fold the
+#      comparison into boundaryCard_le's own classical scope.
+#   3. (:316) hermEigen `rw [hMN] at hM` desyncs the goal (old fvar inaccessible);
+#      fix: subst hMN. (:166 = sorry-cascade of 2.)
+#   Also: dif_pos/dif_neg deprecated warnings → dite_eq_left/dite_eq_right next run.
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: FAIL (10 errors)
+--- salient error lines ---
+P72M1T2.lean:136:38 / :136:60: Invalid projection (h.1 / h.2 on Eq of iotaL-pairs)
+P72M1T2.lean:139:53 / :140:53 / :146:53 / :147:53 / :153:38 / :153:60: same class
+P72M1T2.lean:156:22: error: failed to synthesize Fintype { e // crosses A e }
+P72M1T2.lean:166:47: error: unsolved goals ⊢ sorry.card = Finset.univ.card (cascade)
+P72M1T2.lean:316:2: error: Type mismatch … hM✝.eigenvalues (rw-at desync)
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [.. sorryAx ..]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [.. sorryAx ..]

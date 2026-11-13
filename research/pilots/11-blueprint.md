@@ -370,11 +370,12 @@ mono closure; EthExistsTm/EthPoly/EthIsPoly interface binders; tm2_choice;
 suffix-walk + tm2_charging; composed_sum_le + tm2_realized_composed acceptance).
 
 **Iteration (runs 1–8, all logs in `research/pilots/11/logs/m2-run{1..7}.log`,
-`m2-run8-GREEN.log`, full axcheck in `m2-axcheck-final.log`).** Error counts
-4→2→3→6→4→2→2→0 — the churn is an artifact of hard elaboration errors aborting whole
-declarations: each fix let elaboration proceed further and expose the NEXT class
-(none of the intermediate rises were regressions). Root causes fixed, in order of
-first appearance:
+`m2-run8-GREEN.log`, full axcheck in `m2-axcheck-final.log`; every log run-time
+persisted with a provenance header within ~2 min of its run — none reconstructed).**
+Error counts 4→2→3→6→3→2→2→0 — the churn is an artifact of hard elaboration errors
+aborting whole declarations: each fix let elaboration proceed further and expose the
+NEXT class (none of the intermediate rises were regressions). Root causes fixed, in
+order of first appearance:
 
 | Class | Sites | Fix |
 |---|---|---|

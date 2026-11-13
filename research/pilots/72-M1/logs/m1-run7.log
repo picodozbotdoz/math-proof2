@@ -1,0 +1,26 @@
+# m1-run7 — pilot 72-M1 Tier-C Modal run 7 (fix round 2)
+# Date: 2026-11-14, lane A8-resumed.
+# Files: P72M1T2.lean after run-6 fixes: congrArg Prod.fst/snd for Eq components in
+#   orientPair_injective, boundaryCard_eq folded into boundaryCard_le's classical
+#   scope, hermEigen via subst hMN, dite_eq_left/right for the deprecated dif_pos/neg.
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-lailAz5p1u8gHZ5U3uRoD0
+# Verdict: T1 OK; T2 FAIL (1 error, down from 10) — hermEigen + entropy match now
+#   triad-clean too ('regionEntropy_eq_vonNeumannEntropy' [propext,
+#   Classical.choice, Quot.sound]). Last error:
+#   :167:88 unsolved goals ⊢ boundaryCard A = Fintype.card {e // crosses A e}
+#   — the donor-elapsed Fintype instance (T1's boundaryCard body) and the local one
+#   come from different elaboration paths; rw's automatic rfl cannot bridge them.
+#   Fix next run: Fintype.card_congr' over the definitional type equality (crosses
+#   wrapper), which is instance-agnostic by construction.
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: FAIL (1 errors)
+--- salient ---
+P72M1T2.lean:167:88: error: unsolved goals ⊢ boundaryCard A = Fintype.card { e // crosses A e }
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [.. sorryAx ..]

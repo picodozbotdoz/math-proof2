@@ -1,0 +1,116 @@
+# m1-axcheck-final — pilot 72-M1 full-coverage axiom audit (stage copies, repo files untouched)
+# Date: 2026-11-14, lane A8-resumed.
+# Builder: research/pilots/72-M1/make_axcheck72m1.py (local variant of A1's
+#   make_axcheck.py — A1's frozen TARGETS untouched; regex extended to catch
+#   attribute-prefixed theorems, `\@[simp`/`\@[ext` — the known make_axcheck gap).
+# Stage: AxPilot72_M1_T1 (verbatim P72M1T1 + 47 #print axioms) /
+#   AxPilot72_M1_T2 (P72M1T2 + 25 #print axioms, import rewritten to the stage name).
+# Runner: research/feasibility/probe/axcheck_probe.py (A1's, read-only reuse),
+#   MODAL_USER=doz, app crossmath-probe, mathlib ff2494ea, v4.36.0-rc2.
+# Modal run URL: https://modal.com/apps/semraker/main/ap-dKM7FD3YzWF1G4sV32oiYI
+# Verdict: BOTH OK — 52 + 28 axiom-lines, 0 sorryAx, every line a subset of
+#   [propext, Classical.choice, Quot.sound] (62 lines unique-counted across the two
+#   compiles; e.g. ForwardAdjacent.asymm [propext, Quot.sound]). Full triad-only.
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dKM7FD3YzWF1G4sV32oiYI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck72m1-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 2 file(s): ['AxPilot72_M1_T1.lean', 'AxPilot72_M1_T2.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxPilot72_M1_T1.lean
+[ax] AxPilot72_M1_T1.lean: OK; axiom-lines=52, sorryAx-lines=0
+AxPilot72_M1_T1.lean:71:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot72_M1_T1.lean:80:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxPilot72_M1_T1.lean:129:44: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxPilot72_M1_T1.lean:133:44: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+OpenAI.AreaLaw : (𝕜 : Type u_1) → [RCLike 𝕜] → ℕ → ℕ → ℝ → ℝ → Prop
+OAI.PolynomialPEPS.PinnedEntropy.UniformAreaLaw : Prop
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_sdiff_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_left_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_right_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.splitEquiv_apply_fst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.splitEquiv_apply_snd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_splitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.unionEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.unionEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+(…30 more) tail:
+'Arealaw.ptrace_eq_sum_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.MState.ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.SubState.restrict_M' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.SubState.restrict_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.SubState.entropy_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.MState.restrict_M' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.MState.restrict_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.MState.toSubState_restrict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.SubState.regionEntropy_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== AxPilot72_M1_T2.lean
+[ax] AxPilot72_M1_T2.lean: OK; axiom-lines=28, sorryAx-lines=0
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.iotaL_injective' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot72.M1.iotaL_mem_gridDom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.v_mem_of_mem_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.iotaL_mem_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.iotaL_not_mem_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.image_subset_gridDom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.adj_squareLattice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.adj_of_forwardAdjacent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ForwardAdjacent.asymm' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot72.M1.orientPair_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.orientPair_of_not_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.orientPair_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.orientPair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.vertexImageEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regEquivImage_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.iotaL_gridVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.gridVertex_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regComplEquiv_symm_apply'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.configEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.configEquiv_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.pureState_M' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.hermEigen_eq_of_matrix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxPilot72_M1_T1.lean: OK | 52 axiom-lines, 0 with sorryAx
+[ax]   AxPilot72_M1_T2.lean: OK | 28 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dKM7FD3YzWF1G4sV32oiYI

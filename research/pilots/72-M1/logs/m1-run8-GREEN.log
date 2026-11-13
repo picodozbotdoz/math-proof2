@@ -1,0 +1,36 @@
+# m1-run8 — pilot 72-M1 Tier-C Modal run 8 — **T2 GREEN**
+# Date: 2026-11-14, lane A8-resumed.
+# Files: P72M1T2.lean after run-7 fix (Fintype.card_congr' bridging the donor-body
+#   instance vs the local subtype instance over the definitional `crosses`-wrapper
+#   type equality; if_true/if_false → ite_true/ite_false deprecation swaps).
+# Command: bash research/pilots/72-M1/run_pilot72m1.sh  (MODAL_USER=doz, app
+#   crossmath-probe, mathlib ff2494ea, v4.36.0-rc2)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-ECGBqHgttZY0SqoZyPPLt6
+# Verdict: **P72M1T1.lean OK; P72M1T2.lean OK — errors=0, sorry-warnings=0.**
+#   Milestone content triad-clean at first GREEN:
+#     boundaryCard_le_edgeBoundary        [propext, Classical.choice, Quot.sound]
+#     ptrace_pureState_eq_reducedDensity  [propext, Classical.choice, Quot.sound]
+#     regionEntropy_eq_vonNeumannEntropy  [propext, Classical.choice, Quot.sound]
+# Error descent post-resume: 24 (run 5, pre-resume) → 10 (run 6) → 1 (run 7) → 0.
+# Modal budget: 3 fix-round runs post-resume (6/7/8) + 1 axcheck run ≤ the ≤5 cap.
+# LoC: P72M1T1.lean 702 (vendor, GREEN since run 4) / P72M1T2.lean 360, 25 top-level
+#   theorems (axcheck count); the only `sorry` token is the header's no-sorry clause.
+#
+# Continuation spec (L3 + interface theorem — NOT in this tranche, per the file header
+# and the overrun guard; for the next iteration):
+#   * L3a Hermitian symmetrization: hv'/he' := (h + hᴴ)/2 over Operator L q, with
+#     Hamiltonian-preservation and SupportedOn/opNorm transfer (~30–50 LoC, prework §2.3).
+#   * L3b state conventions: UniqueGround.‖Ω‖=1 → star (toGrid Ω) ⬝ᵥ toGrid Ω = 1 (the
+#     hΩ binder L1 already carries; WithLp/EuclideanSpace ↔ pi-dotProduct congruence).
+#   * L3c FullSystemGap (quadratic form) → HasGlobalGap (Loewner), PSD transfer via
+#     Matrix.PosSemidef quadratic-form characterization (prework §2.3 L3c).
+#   * interface_areaLaw_uniformAreaLaw: hAreaLaw binder (Tier C) + L1/L2/L3 + the
+#     max C 1 witness (prework §2.2). Note L2 landed with constant 1 (STRONGER than
+#     the ≤ 4 safety form) and L1 landed with the toGrid-explicit hΩ hypothesis.
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: OK
+--- footer axioms (as printed by the run) ---
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]

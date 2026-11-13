@@ -1,3 +1,6 @@
+# Provenance status: run-time persisted (written within ~2 min of the run from the
+#   live transcript + Modal URL; NOT reconstructed — header was in place before the
+#   2026-11-14 ~03:15 execution-window interruption).
 # m2-run3 — pilot 11 M2 Modal run 3 (relaunch)
 # Date: 2026-11-14, lane A8-relaunch.
 # Files: P11T3.lean 1100 LoC / RedTm2.lean ~404 LoC (after run-2 fixes: refine
