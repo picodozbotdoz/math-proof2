@@ -387,6 +387,22 @@ standing authorization with a commit.
   m4b2-run2 "M4b.lean: OK" ✓, p2-run6 22 triad-lines/0 sorryAx ✓, seed-1 PASS wiring
   consistent with the held iter4-seed-triage :29 ✓). Board: rows 71 + 42 flipped to
   FINAL-GREEN / COMPLETE-primary (disk-verified; A2/A3 official reports pending).
+- 2026-11-14 — batch-8 series: `Cycle 2: H — own-cell fills (71-P2, 42-M4b)` (16ae48a:
+  REPORT §C2 slots + STATUS template rows, disk-verified markers, formal reports
+  pending); `Cycle 2: A9 — TRIAGE-C2-ROWS final reconciliation + promotions` (cd59c09:
+  articles 71 PROVED-FINAL-GREEN + 42M4 PROVED-FINAL both-routes + 75 SKELETON +
+  README/INPUTS/ledger FILLED-FINAL rows; H QA: promotions consistent, P2 fill values
+  match logs, **M4b LoC reconciliation: run-header 1,570 vs disk/ledger 1,571 — A9 cites
+  the run-header figure with source label; H cells keep the disk figure 1,571;
+  one-line alignment recommended at A9's next touch**; ledger OPEN rows anchored-count
+  14 (+3 PENDING-RELAY, 11 FILLED-FINAL) — the relayed "33 OPEN" NOT reproduced by row-
+  or occurrence-grep, counting basis requested); `Cycle 2: A5 — seed triage + novelty
+  sign-off` (fbc02d5: Faifman–Rudnick Compositio 146 (2010) 81–101 verified; ExchangeSign
+  = neighboring-layer precision note with post-dating argument; the 2 PASS-with-notes
+  (73 C2-column refresh, 50-M2 tracker-audited + Dirichlet-class-only) match the
+  fix-relays; **articles novelty gate: 10 PASS / 2 PASS-with-notes / 0 FAIL** — close-out
+  novelty gate is GREEN). triage-decision-staging.md SUPERSEDED on content by A9's rows
+  (kept as historical input; G5 banner check + fill-order remain operative).
 
 ## Session wrap 2026-11-14 — network outage, all lanes paused
 
