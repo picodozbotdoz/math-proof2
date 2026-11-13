@@ -170,7 +170,8 @@ direction being `Ω`** (at `θ > 0` the count is trivially 0; the informative wi
 `RHLinalg` terms: `posIndexAbove θ (E₀ − H) ≤ 1` for every `θ ∈ (−Δ, 0]` — the exact shape
 `weyl_posIndexAbove_le` (Weyl.lean:50) perturbs. Nobody in any corpus writes the gap as an index
 budget; once written, dossier 03a (`posIndex_conj_le`, Inertia.lean:51, PROVED in pilot 01's port)
-immediately gives: **every compression `Bᴴ(E₀−H)B` inherits the budget 1** — the certificate-layer
+immediately gives: **every isometric compression `Bᴴ(E₀−H)B` (`BᴴB = 1`) inherits the budget 1**
+— the certificate-layer
 counterpart of the paper's design choice "the gap hypothesis concerns the full Hamiltonian; no gap
 assumption on restrictions" (Statements.lean docstring; paper §1.1). The paper gets restrictions to
 obey *nothing*; the linalg machinery gets restrictions to obey *budget monotonicity*. The two
@@ -291,8 +292,15 @@ results, first proof step, novelty status.
 `E₀ Δ : ℝ`, `Δ > 0`: `HasGlobalGap H Ω E₀ Δ ↔ ∀ θ ∈ (−Δ, 0], #{i | (E₀ − H).eigenvalues i > θ} ≤ 1 ∧
 (the unique eigenvalue above θ, when counted, has eigenvector Ω)` — in `RHLinalg` words,
 `posIndexAbove θ (E₀ − H) ≤ 1` on the window `θ ∈ (−Δ, 0]`. Consequently (part 1b, via dossier
-03a applied to `G − θ·1`): for EVERY `B` and every `θ ∈ (−Δ, 0]`,
+03a applied to `G − θ·1`): for every **isometric** `B` (`Bᴴ * B = 1`) and every `θ ∈ (−Δ, 0]`,
 `posIndexAbove θ (Bᴴ(E₀−H)B) ≤ 1`.
+**Erratum 2026-11-13 (A9 QA, dossier 72 §P1).** v1 of this zone (and of the L1 lift above)
+claimed part 1b for *every* `B` — **false** for non-isometric `B`: `B := (Ω, Ω/2)` gives
+`Bᴴ(E₀−H)B = 0` (the 2×2 zero matrix, since `(E₀−H)Ω = 0`), whose two eigenvalues both exceed
+`θ ∈ (−Δ, 0)`. The threshold shift `Bᴴ(G − θ·1)B = BᴴGB − θ·BᴴB` only removes `θ·1` when
+`BᴴB = 1`; the general-`B` form would need a generalized (`BᴴB`-relative) index (dossier 72
+F3(g) flags it). The isometric form is the one the certificate applications consume (and the one
+dossier 03's Theorem M uses). Corrected statements: dossier 72 §P1, pilot-72 prework §3.1.
 **Statement (part 2, the lift — load-bearing hypothesis).** Under the hypotheses of Theorem 1.1
 (admissible `H`, gapped unique ground vector `Ω`), for every region `A ⊆ Λ` there is an explicitly
 constructible Hermitian `Q_A` on `Reg (Qudits q) A` — candidate: `E_A(Σ_{X crossing A} k_X)`

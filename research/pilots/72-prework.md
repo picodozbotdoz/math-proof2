@@ -230,12 +230,18 @@ Using pilot-01's ported definitions verbatim (`research/pilots/01/port/09_Master
 ```lean
 theorem posIndexAbove_of_hasGlobalGap {n : Type*} [Fintype n] [DecidableEq n]
     {H : Matrix n n 𝕜} (hH : H.IsHermitian) {Ω : n → 𝕜} (hΩ : star Ω ⬝ᵥ Ω = 1) {E₀ Δ : ℝ}
-    (hΔ : 0 < Δ) (hGap : OpenAI.HasGlobalGap H Ω E₀ Δ) {θ : ℝ} (hθ : -Δ < θ) :
+    (hΔ : 0 < Δ) (hGap : OpenAI.HasGlobalGap H Ω E₀ Δ) {θ : ℝ} (hθ : -Δ < θ) (hθ' : θ ≤ 0) :
     posIndexAbove hH θ ≤ 1
 
-theorem posIndexAbove_conj_of_hasGlobalGap … (B : Matrix n d 𝕜) … :
+theorem posIndexAbove_conj_of_hasGlobalGap … {B : Matrix n d 𝕜} (hB : Bᴴ * B = 1) … :
     posIndexAbove (isHermitian_conjTranspose_mul_mul B hH') θ ≤ 1   -- via posIndex_conj_le (G − θ·1)
 ```
+
+**Erratum 2026-11-13 (A9 QA, dossier 72 §P1).** v1 of this spec stated the compression form for
+*every* `B` — false for non-isometric `B` (counterexample `B := (Ω, Ω/2)`: `Bᴴ(E₀−H)B = 0`, two
+eigenvalues both above `θ ∈ (−Δ, 0)`); the shift `Bᴴ(G−θ·1)B = BᴴGB − θ·BᴴB` removes `θ·1` only
+when `BᴴB = 1`. Corrected to the isometric form above (the one dossier 03's Theorem M consumes);
+general-`B` needs a `BᴴB`-relative generalized index — out of scope (dossier 72 F3(g)).
 
 Proof route: `HasGlobalGap` gives `(E₀ − H) ⪯ 0` with kernel `𝕜Ω` and `⪯ −Δ` on `Ω^⊥`
 (Statements.lean:185–187; eigenvector bookkeeping via mathlib `Spectrum.lean:143,202`); apply
@@ -434,3 +440,54 @@ pilots/32/run_pilot.sh`, `research/feasibility/axiommath-bump/{axbump.py,logs/ru
 `research/novelty/round-4.md` §2 (all), `research/bridges/area-law.md` (own, this cycle).
 Literature via round-4 §2: Kuwahara 2610.15199, Anshu–Arad–Gosset 2103.02492 + 1905.11337,
 Abrahamsen et al 2203.16012, AHS 2004.15009, OAI265 + PEPS companion.
+
+---
+
+## Appendix A (2026-11-13, lane A4 — OPTIONAL-FOR-TRIAGE): the Kuwahara no-go gate, certified-negative mini-spec
+
+Elaborates dossier 72 §C-neg (lane A9, step 8 of its pilot plan) to statement level; included
+here because it rides on this prework's tier-C vendors. **Not a triage dependency** — a cheap
+fence that can be slotted as milestone P4.5 (after M2b) if pilot budget allows.
+
+**What the formal α<1 no-go looks like over the pilot's substrate** (tier-C: spectra as
+probability vectors `p : ι → ℝ`, `∀ i, 0 ≤ p i`, `∑ i, p i = 1` — substrate map §C rows 1–3;
+no Physlib, no gap hypotheses, pure finite spectral algebra):
+
+```lean
+-- N1 (Rényi monotonicity; the only real proof). For 0 < α ≤ β (α, β ≠ 1; H_1 = S by limit):
+theorem renyi_antiMono {ι} [Fintype ι] (p : ι → ℝ) (hp : ∀ i, 0 ≤ p i) (hΣ : ∑ i, p i = 1)
+    {α β : ℝ} (hα : 0 < α) (hαβ : α ≤ β) (hβ : β ≠ 1) :
+    (1/(1-β)) * Real.log (∑ i, (p i)^β) ≤ (1/(1-α)) * Real.log (∑ i, (p i)^α)
+-- route: power-mean/log-sum Jensen over Finset (mathlib Real.log concavity; ≈150–250 LoC).
+
+-- N2 (rank bridge). H_0(p) = log #support; for RDM spectra, #support = rank ρ_A:
+theorem hZero_eq_log_rank … : (1/(1-0))⁻¹-scaled form =
+    Real.log (Fintype.card {i // 0 < p i}) ∧   -- de-l'Hôpital/limit at α → 0 (≈30 LoC)
+    card-link via Matrix.IsHermitian.rank_eq_card_non_zero_eigs (Spectrum.lean:202)
+
+-- N3 (the gate, hypothesis-binder; Kuwahara construction imported as external hypothesis).
+theorem renyi_area_law_nogo {α : ℝ} (hα : 0 < α) (hα' : α < 1)
+    (hVol : ∀ n, ∃ (inst n) , H_α (ρ_{A_n}) ≥ c * vol(n) ∧ |∂A_n| ≤ C' * n) :
+    ¬ (∃ C, ∀ inst, H_α (ρ_A) ≤ C * (edgeBoundary Λ A).card)          -- direct arithmetic
+theorem rank_area_law_nogo (… hVol …) :
+    ¬ (∃ C, ∀ inst, Real.log (rank ρ_A) ≤ C * (edgeBoundary Λ A).card)
+    -- = round-4 decisive-datum form: N1 (S_0 ≥ S_α) + N2 (S_0 = log rank) push the volume-law
+    --    refutation up to Schmidt rank; refutes "rank concentration from a 2D gap" in Lean.
+```
+
+**Effort: S** (≈ 0.3–0.5k LoC total: N1 ≈ 150–250, N2 ≈ 30 + the Spectrum link, N3 ≈ 50 of
+arithmetic; no gates, no donors beyond the tier-C skeleton + mathlib `Real.log` concavity).
+**L** — and NOT proposed — only if one tried to formalize any part of Kuwahara's construction
+itself; it stays an external hypothesis (EnclOK pattern), exactly as dossier 50 kept the
+quasi-RH binder external.
+
+**Value framing (main-run precedents 50/30).** Dossier 50's killed headline and pilot 30's
+refutation both showed negative results are triage-grade artifacts; this is the Cycle-2
+analogue (A9's own framing, 72 §C-neg): (i) it turns round-4 §AL's decisive datum — currently
+prose + a literature citation — into a *checkable Lean theorem* that every future 70-series
+area-law proposal can be tested against in one line; (ii) it certifies in-product WHY pilot-72
+M2 and dossier 74 are purity/effective-rank-only (the fence is executable, not editorial);
+(iii) it is the cheapest publishable-shape negative object in the quantum zone (monotonicity +
+gate, zero physics). Coordinate: A9 owns the dossier-level C-neg narrative (72 §C-neg, step 8);
+this appendix owns the statement-level spec and effort grade; dossier 74's family restriction
+cites both.

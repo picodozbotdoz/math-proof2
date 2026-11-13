@@ -1,0 +1,347 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-BLF7WrOTurSNg9CuonVQPv
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+C-neg.lean:77:6: error(lean.unknownIdentifier): Unknown constant `Finset.prod_univ_bool`
+C-neg.lean:56:49: error: unsolved goals
+x y θ : ℝ
+hx : 0 ≤ x
+hy : 0 ≤ y
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hw : ∀ b ∈ Finset.univ, 0 ≤ (fun b => if b = true then θ else 1 - θ) b
+hsumw : ∑ b, (fun b => if b = true then θ else 1 - θ) b = 1
+hz : ∀ b ∈ Finset.univ, 0 ≤ (fun b => if b = true then x else y) b
+h :
+  (∏ i, (if i = true then x else y) ^ if i = true then θ else 1 - θ) ≤
+    ∑ i, (if i = true then θ else 1 - θ) * if i = true then x else y
+⊢ x ^ θ * y ^ (1 - θ) ≤ θ * x + (1 - θ) * y
+C-neg.lean:131:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (g i / G) ^ θ
+in the target expression
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * (f i ^ θ / F ^ θ * (g i / G) ^ (1 - θ))
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+···
+⊢ x ^ θ * y ^ (1 - θ) ≤ θ * x + (1 - θ) * y
+C-neg.lean:131:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (g i / G) ^ θ
+in the target expression
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * (f i ^ θ / F ^ θ * (g i / G) ^ (1 - θ))
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+hFdef : F = ∑ i ∈ s, f i
+G : ℝ := ∑ i ∈ s, g i
+hG : ¬G = 0
+hG0 : 0 < G
+hGdef : G = ∑ i ∈ s, g i
+hpos : 0 ≤ F ^ θ * G ^ (1 - θ)
+···
+⊢ f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * (f i ^ θ / F ^ θ * (g i / G) ^ (1 - θ))
+C-neg.lean:139:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  ∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G)) = θ * ∑ i ∈ s, f i / F + (1 - θ) * ∑ i ∈ s, g i / G
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+hFdef : F = ∑ i ∈ s, f i
+G : ℝ := ∑ i ∈ s, g i
+hG : ¬G = 0
+hG0 : 0 < G
+hGdef : G = ∑ i ∈ s, g i
+hpos : 0 ≤ F ^ θ * G ^ (1 - θ)
+···
+⊢ ∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G)) = θ * ∑ i ∈ s, f i / F + (1 - θ) * ∑ i ∈ s, g i / G
+C-neg.lean:141:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) / ?a
+in the target expression
+  ∑ i ∈ s, f i / F = 1
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+hFdef : F = ∑ i ∈ s, f i
+G : ℝ := ∑ i ∈ s, g i
+hG : ¬G = 0
+hG0 : 0 < G
+hGdef : G = ∑ i ∈ s, g i
+hpos : 0 ≤ F ^ θ * G ^ (1 - θ)
+···
+⊢ ∑ i ∈ s, f i / F = 1
+C-neg.lean:145:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) / ?a
+in the target expression
+  ∑ i ∈ s, g i / G = 1
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+hFdef : F = ∑ i ∈ s, f i
+G : ℝ := ∑ i ∈ s, g i
+hG : ¬G = 0
+hG0 : 0 < G
+hGdef : G = ∑ i ∈ s, g i
+hpos : 0 ≤ F ^ θ * G ^ (1 - θ)
+···
+⊢ ∑ i ∈ s, g i / G = 1
+C-neg.lean:152:48: error: Type mismatch
+  Eq.symm (hnorm i hi)
+has type
+  F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ)) = f i ^ θ * g i ^ (1 - θ)
+but is expected to have type
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ))
+C-neg.lean:167:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+C-neg.lean:164:8: warning: automatically included section variable(s) unused in theorem `_private.«C-neg».0.CrossMath.CNeg.exists_pos_of_sum_eq_one`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+C-neg.lean:174:13: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+C-neg.lean:195:72: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+⊢ 1 - α * β * (1 - α)⁻¹ + α * (1 - α)⁻¹ + β * (1 - α)⁻¹ - (1 - α)⁻¹ = β
+C-neg.lean:208:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α))
+in the target expression
+  ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+···
+⊢ 1 - α * β * (1 - α)⁻¹ + α * (1 - α)⁻¹ + β * (1 - α)⁻¹ - (1 - α)⁻¹ = β
+C-neg.lean:208:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α))
+in the target expression
+  ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+hH : ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+hEq : ∑ i, (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = ∑ i, p i ^ β
+⊢ renyi p β ≤ renyi p α
+···
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:255:56: error: Application type mismatch: The argument
+  h
+has type
+  x ∈ ?m.249
+but is expected to have type
+  0 < p x
+in the application
+  ⟨Finset.mem_univ x, h⟩
+C-neg.lean:250:28: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.one_rpow] at hH
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:278:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:317:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:317:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:315:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C-neg.lean:278:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:317:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:317:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:315:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:338:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:338:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+···
+of type `0 < C ∨ 0 = C`
+C-neg.lean:317:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:315:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:338:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:338:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:348:40: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:315:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:338:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:338:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:348:40: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:348:53: warning: Variable name `hα1` is not explicitly referenced.
+
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=12 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-BLF7WrOTurSNg9CuonVQPv

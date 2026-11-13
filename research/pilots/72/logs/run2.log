@@ -1,0 +1,401 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-8uBBqnB3VCfPvXdZ9syJq0
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-72-stage/run_pilot.py
+└── ✓ Created Function run.
+[pilot] staging ['C-neg.lean']
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== C-neg.lean
+[pilot] C-neg.lean: FAIL rc=1 errors=14 sorry=0
+---- axioms ----
+'CrossMath.CNeg.renyi_antiMono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_le_log_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.renyi_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.CNeg.rank_area_law_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+C-neg.lean:61:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if ?m.337 = ?m.337 then ?m.339 else ?m.340
+in the target expression
+  0 ≤ if (fun i => i) ⟨0, ⋯⟩ = 0 then θ else 1 - θ
+
+case «0»
+x y θ : ℝ
+hx : 0 ≤ x
+hy : 0 ≤ y
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+a✝ : (fun i => i) ⟨0, ⋯⟩ ∈ Finset.univ
+⊢ 0 ≤ if (fun i => i) ⟨0, ⋯⟩ = 0 then θ else 1 - θ
+C-neg.lean:62:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:62:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if 1 = 0 then ?m.352 else ?m.353
+in the target expression
+  0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then θ else 1 - θ
+
+case «1»
+x y θ : ℝ
+hx : 0 ≤ x
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:62:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if 1 = 0 then ?m.352 else ?m.353
+in the target expression
+  0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then θ else 1 - θ
+
+case «1»
+x y θ : ℝ
+hx : 0 ≤ x
+hy : 0 ≤ y
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+a✝ : (fun i => i) ⟨1, ⋯⟩ ∈ Finset.univ
+⊢ 0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then θ else 1 - θ
+C-neg.lean:64:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+C-neg.lean:64:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:69:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+C-neg.lean:69:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if ?m.684 = ?m.684 then ?m.686 else ?m.687
+in the target expression
+  0 ≤ if (fun i => i) ⟨0, ⋯⟩ = 0 then x else y
+
+case «0»
+x y θ : ℝ
+hx : 0 ≤ x
+hy : 0 ≤ y
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hw : ∀ i ∈ Finset.univ, 0 ≤ if i = 0 then θ else 1 - θ
+hsumw : (∑ i, if i = 0 then θ else 1 - θ) = 1
+a✝ : (fun i => i) ⟨0, ⋯⟩ ∈ Finset.univ
+⊢ 0 ≤ if (fun i => i) ⟨0, ⋯⟩ = 0 then x else y
+C-neg.lean:70:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:70:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if 1 = 0 then ?m.699 else ?m.700
+in the target expression
+  0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then x else y
+
+case «1»
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:70:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if 1 = 0 then ?m.699 else ?m.700
+in the target expression
+  0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then x else y
+
+case «1»
+x y θ : ℝ
+hx : 0 ≤ x
+hy : 0 ≤ y
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hw : ∀ i ∈ Finset.univ, 0 ≤ if i = 0 then θ else 1 - θ
+hsumw : (∑ i, if i = 0 then θ else 1 - θ) = 1
+a✝ : (fun i => i) ⟨1, ⋯⟩ ∈ Finset.univ
+⊢ 0 ≤ if (fun i => i) ⟨1, ⋯⟩ = 0 then x else y
+C-neg.lean:73:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+C-neg.lean:73:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+C-neg.lean:74:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+···
+C-neg.lean:120:4: error(lean.unknownIdentifier): Unknown constant `Real.mul_nonneg`
+C-neg.lean:134:48: error: Type mismatch
+  Eq.symm (hnorm i hi)
+has type
+  F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ)) = f i ^ θ * g i ^ (1 - θ)
+but is expected to have type
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ))
+C-neg.lean:139:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.1033, ?m.1035 x + ∑ x ∈ ?m.1033, ?m.1036 x
+in the target expression
+  F ^ θ * G ^ (1 - θ) * ∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G)) = F ^ θ * G ^ (1 - θ) * 1
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+···
+  f i ^ θ * g i ^ (1 - θ) = F ^ θ * G ^ (1 - θ) * ((f i / F) ^ θ * (g i / G) ^ (1 - θ))
+C-neg.lean:139:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.1033, ?m.1035 x + ∑ x ∈ ?m.1033, ?m.1036 x
+in the target expression
+  F ^ θ * G ^ (1 - θ) * ∑ i ∈ s, (θ * (f i / F) + (1 - θ) * (g i / G)) = F ^ θ * G ^ (1 - θ) * 1
+
+κ : Type u_2
+inst✝¹ : Fintype κ
+inst✝ : DecidableEq κ
+s : Finset κ
+f g : κ → ℝ
+hf : ∀ i ∈ s, 0 ≤ f i
+hg : ∀ i ∈ s, 0 ≤ g i
+θ : ℝ
+hθ₁ : 0 ≤ θ
+hθ₂ : θ ≤ 1
+hθ0 : 0 < θ
+F : ℝ := ∑ i ∈ s, f i
+hF : ¬F = 0
+hF0 : 0 < F
+hFdef : F = ∑ i ∈ s, f i
+G : ℝ := ∑ i ∈ s, g i
+hG : ¬G = 0
+hG0 : 0 < G
+hGdef : G = ∑ i ∈ s, g i
+hpos : 0 ≤ F ^ θ * G ^ (1 - θ)
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:193:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?m.374, (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α))
+in the target expression
+  ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : ∀ (i : ι), 0 ≤ p i
+hp1 : ∑ i, p i = 1
+α β : ℝ
+hα : 0 < α
+hαβ : α ≤ β
+hβ1 : β < 1
+hβ0 : 0 < β
+h1a : 1 - α ≠ 0
+h1b : 1 - β ≠ 0
+hA0 : 0 < ∑ i, p i ^ α
+hB0 : 0 < ∑ i, p i ^ β
+hθ0 : 0 < (1 - β) / (1 - α)
+hθ1 : (1 - β) / (1 - α) ≤ 1
+hβexp : α * ((1 - β) / (1 - α)) + (1 - (1 - β) / (1 - α)) = β
+hterm : ∀ (i : ι), (p i ^ α) ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) = p i ^ β
+hH : ∑ i, p i ^ ((1 - β) / (1 - α)) * p i ^ (1 - (1 - β) / (1 - α)) ≤ 1
+···
+⊢ renyi p β ≤ renyi p α
+C-neg.lean:224:22: error: Application type mismatch: The argument
+  Finset.filter_subset ?m.136
+has type
+  ∀ (s : Finset ?m.132), Finset.filter ?m.136 s ⊆ s
+but is expected to have type
+  s ⊆ Finset.univ
+in the application
+  Finset.sum_subset (Finset.filter_subset ?m.136)
+C-neg.lean:224:44: error: Application type mismatch: The argument
+  Finset.univ
+has type
+  Finset ?m.133
+but is expected to have type
+  ?m.132 → Prop
+in the application
+  @Finset.filter_subset ?m.132 Finset.univ
+C-neg.lean:228:39: error: unexpected token ':'; expected command
+C-neg.lean:261:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:294:4: error: `simp` made no progress
+C-neg.lean:298:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+···
+  Finset.sum_subset (Finset.filter_subset ?m.136)
+C-neg.lean:224:44: error: Application type mismatch: The argument
+  Finset.univ
+has type
+  Finset ?m.133
+but is expected to have type
+  ?m.132 → Prop
+in the application
+  @Finset.filter_subset ?m.132 Finset.univ
+C-neg.lean:228:39: error: unexpected token ':'; expected command
+C-neg.lean:261:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:294:4: error: `simp` made no progress
+C-neg.lean:298:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+···
+  @Finset.filter_subset ?m.132 Finset.univ
+C-neg.lean:228:39: error: unexpected token ':'; expected command
+C-neg.lean:261:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:294:4: error: `simp` made no progress
+C-neg.lean:298:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:322:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+···
+C-neg.lean:228:39: error: unexpected token ':'; expected command
+C-neg.lean:261:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:294:4: error: `simp` made no progress
+C-neg.lean:298:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:322:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+···
+C-neg.lean:261:6: error: unexpected token 'Σ'; expected ')'
+C-neg.lean:294:4: error: `simp` made no progress
+C-neg.lean:298:70: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hC
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:322:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+···
+of type `0 < C ∨ 0 = C`
+C-neg.lean:298:42: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:322:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:332:40: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:296:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+C-neg.lean:322:41: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:322:54: warning: Variable name `hα1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:332:40: warning: Variable name `hα` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hα
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C-neg.lean:332:53: warning: Variable name `hα1` is not explicitly referenced.
+
+···
+
+[pilot] SUMMARY
+[pilot]   C-neg.lean: FAIL rc=1 errors=14 sorry=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-8uBBqnB3VCfPvXdZ9syJq0
