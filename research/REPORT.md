@@ -315,20 +315,38 @@ rows), pilot outcome slot per pilot pipeline.
 ### C2.2 Donor-discharge outcomes
 
 - **G1a/G1b (DZDF)** — statements elaborate verbatim on our pin; full build FAILS (62
-  errors / 11 vendor-CFT modules, v4.35 blocker) ⇒ 50-M2-R2 stays statement-level
-  (`hDZ` binder), 20's Hecke object layer switch openai→DZDF = note only.
+  errors / 11 vendor-CFT modules, v4.35 blocker) ⇒ 50-M2-R2 stays **statement-level**
+  (`hDZ` binder, elaboration-validated by bump run 1), 20's Hecke object layer switch
+  openai→DZDF = note only. Vendored CFT is number-field-only
+  (`survey/axiommath-cft-vendor.md`); the binder-route needs ZERO imports.
 - **G2 (ZetaZerosV2)** — build OK on our pin (8,262 jobs, 13 triad axiom-lines, 0 sorryAx)
-  ⇒ 42-M4b-upgrade gate CLEARED (direct V2 import); evidence `qa/donor-probes-spotcheck.md`
-  (Q7: 12 OK / 0 WRONG).
+  ⇒ 42-M4b-upgrade gate CLEARED (**direct V2 import**, ≤20-line delta; fallback
+  hV2d4/d5-binder route already GREEN — see C2.3); evidence
+  `qa/donor-probes-spotcheck.md` (Q7: 12 OK / 0 WRONG).
 - **G3 (Weil binder-route)** OK — statements as hypothesis binders, zero import gates.
 - **G5 (Physlib premise)** — import real via `QuantumInfo.ForMathlib.Matrix`
   (PartialTrace.lean:4); staging cost stands; G5a re-run in flight (run20).
 - **G6 (tauceti locator / Stacks pricing)** OK / G6a re-run in flight (run21).
-- **G7 (Liu-1)** — pins exact (`7d10420`); **[G7b]** = donor-pin axiom audit (run16
-  outage-killed; re-run run19 in flight) — the kernel-facing hygiene gate for 50-M2-R1
-  and Liu-1's promotion from statement-level.
+- **G7 (Liu-1, route R3)** — pins exact (`7d10420`); **constant story resolved**
+  (`novelty/liu1-hygiene-sweep.md`): README's 0.874957069799 IS Lean's
+  `B_new = (1507−2√921)/1653` exactly; the public entry deliberately uses the weakened
+  rational `B_r = 34999/40000` with `boundary_order : B_new < B_r < 7/8` proved and
+  consumed by the headlines; full-tree hygiene 0 sorry / 0 axiom / 22-22 names; no
+  `vendor/` tree ships (2,925-module replay prerequisite). The QuasiRiemannTracker
+  independently replays the exact algebraic bound on its own vendored tree (r4 §9.3) —
+  refining liu1-as-donor §1. **[G7b]** = donor-pin axiom audit (run16 outage-killed;
+  re-run run19 in flight) — the kernel-facing hygiene gate for 50-M2-R1 and Liu-1's
+  promotion from statement-level.
+- **Upstream PNT+ (not a donor this cycle)** — `AlexKontorovich/PrimeNumberTheoremAnd`
+  @ `938912bb` now PROVES StrongPNT triad-clean ⇒ **22's Tier-2 T2b CLOSED-BY-UPSTREAM**
+  (T2a quasi-RH-conditional x^{7/8+ε} survives as 22's only open content; knowledge-level
+  closure note appended to article 22). DEFER-WATCHLIST with triggers T1–T3; not cloned.
+- **QuasiRiemannTracker (external, DO-NOT-CONSUME)** — self-verifying leaderboard,
+  tri-kernel proof replay per entry; their infrastructure + per-entry vendored 4.34.1
+  trees ⇒ citation-level only (Liu-1 precedent). See C2.4.
 - Sources: `feasibility/axiommath-donor-probes.md`, `novelty/axiommath-as-donor.md`,
-  `novelty/liu1-hygiene-sweep.md`.
+  `novelty/liu1-hygiene-sweep.md`, `novelty/round-4.md` §9, `survey/axiommath-pntplus.md`,
+  `novelty/pntplus-glue-as-donor.md`.
 
 ### C2.3 Cycle-2 pilot outcomes
 
@@ -337,11 +355,11 @@ rows), pilot outcome slot per pilot pipeline.
 | 52 | unified CCR Fock close-out | **CLOSED-GREEN** (A8, 2026-11-13): verified-green reproduction, axcheck 15 axiom-lines 0 sorryAx; ledger §8 |
 | 20 | hecke-zetaK close-out | **CLOSED-GREEN** (A8, 2026-11-13): runs recorded, axcheck 36 axiom-lines 0 sorryAx; hCZ seam unchanged |
 | 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
-| 10-L2 | `PolyTVal` | **[PILOT-VERDICT:10-L2]** (2,595 LoC / 126 thms on disk; Part-D defect fixes + first run pending at relaunch) |
-| 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 on disk; four pinpoint fixes mid-application at outage; no run yet) |
+| 10-L2 | `PolyTVal` | **[PILOT-VERDICT:10-L2]** (2,595 LoC / 126 thms on disk; Part-D defect fixes + first run pending at relaunch; L1 landed GREEN first — 529 LoC / 25 thms, l1-run4-final) |
+| 11-M2 | reduction-theory tier 2 (A8-3) | **[PILOT-VERDICT:11-M2]** (P11T3 1,100 LoC / 88 thms + RedTm2 392 LoC; four pinpoint fixes applied — m2-run1: P11T3.lean OK with T1/T2/RedCompA/B re-verified; RedTm2 iterating, err 4→2→3 across m2-runs — A8 reconciles at report) |
 | 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); M4b fallback layer **[PILOT-VERDICT:42-M4b]** (1,560 LoC / 66 thms; run1 FAIL err=3 sorry=0 → 12-line Fix-C → **run2 GREEN 2026-11-14** + `m4b-axcheck-run1` triad-only 0 sorryAx); next: M4-note + the CLEARED direct-V2-import upgrade (≤20-line delta) |
-| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **[PILOT-VERDICT:71-P2]** + **[PILOT-VERDICT:73-C]** |
-| 72-C-neg | Kuwahara no-go gate (A4) | **[PILOT-VERDICT:72-C-neg]** (run5 FAIL-in-flight: rc=1 errors=7 sorry=0, descent 20→7; N1–N3 fix path per Appendix A) |
+| 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; P2 error descent 6→4→2→1→1 across p2-run1–5 → **p2-run6 "P2.lean: OK" (GREEN on disk 2026-11-14)** — axcheck + A2 report pending; **[PILOT-VERDICT:71-P2]** + **[PILOT-VERDICT:73-C]** (73-C skeleton not yet started — sequenced after P2) |
+| 72-C-neg | Kuwahara no-go gate (A4) | **[PILOT-VERDICT:72-C-neg]** — **GREEN on disk 2026-11-14**: descent 20→14→12→6→7→3→1→OK across run1–8, `run8-final.log` "C-neg.lean: OK" + A4's own `axcheck-run1.log` (triad-only, 0 sorryAx, rc=0); A4 formal report pending (run1–7 provenance headers + u≠1 dossier edit) |
 | 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
 
 ### C2.4 External race report (QR-D cluster + FF/AL clocks)
@@ -354,24 +372,55 @@ rows), pilot outcome slot per pilot pipeline.
   (informal, Lean in progress). Informal frontier below 7/8 uniformly ⇒ pilot 50's `hQRH`
   TRUE informally (Liu-1 Cor 14.1). Ecosystem sweep: 13 QR-D Lean repos incl.
   Kontorovich/quasi-rh (11/12 ζ+Dirichlet, NO ζ_K) — the ζ_K-strip per-class split SURVIVES.
+- **QuasiRiemannTracker audit (r4 §9, clone + browser pass, 2026-11-14):** site
+  `gtimg.github.io/QuasiRiemannTracker` (the earlier "quasiriemann.org" reading was wrong);
+  55 entries, all framework-verified by **tri-kernel proof replay** (Lean kernel + NanoDa
+  0.4.26 + con-ron, Comparator statement/definition/axiom checks, triad axioms only,
+  adversarial controls, hash-bound receipts, fresh 7,391-module compiles) — kernel-grade,
+  not certificate-only; verification runs on THEIR infrastructure over per-entry vendored
+  Lean-4.34.1-family trees ⇒ **DO-NOT-CONSUME, citation-level only**. Scope is
+  **Dirichlet-only at every layer** (ζ as principal character; the sole DedekindZeta hit
+  is a Re s > 1 Euler-product identity inside vendored openai sieve machinery) ⇒ **the
+  ζ_K per-class split survives the audit**. No conditional-results class exists
+  (Chang–Wang, Liu-2, CT all structurally unlistable). Liu-1's B_new is tracked at the
+  **exact algebraic bound** (1507−2√921)/1653 — refining the public entry's 34999/40000.
+  **The formal Dirichlet frontier has leapfrogged the conditional informal one**: best
+  verified bound **0.8733458561 (Bebel, continuum-anchor, 2026-11-13)**, below
+  Chang–Wang's conditional 0.87446205 since 10-26 (sil-density-split 0.873995) — i.e.
+  "7/8-or-better is concurrent" is stale for the ζ/Dirichlet class; the in-corpus openai
+  7/8 tree remains the only CONSUME-able artifact on our pin. A ~daily-moving leaderboard
+  (19 contributors; agent-trajectory-native submissions) — depreciation now measurable
+  per day. Consequence for 70/50: constants-stale-on-arrival confirmed (parametric-θ
+  design absorbs it), novelty class unchanged.
 - **Clocks:** Suzuki 2610.41115 (FF ζ_C method-neighbor, month-scale); Knausgård clock
   (main-run §6) still dominant on the number side; upstream PNT+ `AlexKontorovich/
   PrimeNumberTheoremAnd` @ 938912bb now PROVES StrongPNT triad-clean ⇒ **22's Tier-2 T2b
   CLOSED-BY-UPSTREAM** (T2a quasi-RH-conditional survives as 22's only open content;
   DEFER-WATCHLIST with triggers T1–T3, not cloned). Kuwahara 2610.15199 no-go alarm —
   issued as a standing alarm BEFORE dossier drafting; 72 restructured pre-write.
+  **De Bruijn–Newman gap taken:** `DrMurphyIsIn/qrh-debruijn-newman` kernel-checks
+  Λ ≤ 9/32 — main-run round-1 §12's "Λ absent everywhere" gap is now taken by a third
+  party (recorded as a donation-surface note only).
 - **Archive caveat:** hexagonmath.org sweeps are ORCID-gated ⇒ PASS-conditional evidence
-  only; recorded on every affected absence claim. GTimG/QuasiRiemannTracker audit pending
-  (A5, browser session).
+  only; recorded on every affected absence claim (r4 P2-1/P2-12).
 
 ### C2.5 Verification and compliance (Cycle 2)
 
-Kernel-only standard unchanged; Cycle-2 final sweep per `feasibility/probe/
-FINAL-SWEEP-PLAN-C2.md` (trigger = A1 standby signal; Steps A–C; 36 sorry-tokens in tree at
-plan time, all justified) → **[SWEEP]** (outcome + ledger `VERIFICATION-LEDGER.md` §9 fill:
-per-pilot files/LoC/theorems, axiom/sorryAx tallies). Probe conventions and the
-hypothesis-binder pattern carry over; outage note: log tails written post-outage are suspect
-until re-verified (G7b run16 = the cautionary case).
+Kernel-only standard unchanged (no sorry / no native_decide / no external CAS; hypothesis
+binder pattern for all donor consumption). **Ledger §9 is filled and live** (A1 relaunch
+cross-check vs snapshot `ca4fd22`; per-pilot files/LoC/thms, axcheck verdicts with log
+cites, sorry-token counts, sign-off cells). **Sweep machinery pre-verified post-outage**
+(A1, 2026-11-14): `run_axcheck.sh AxPilot10_L1` ran clean end-to-end on the doz account —
+36 axiom-lines, 0 sorryAx, all ⊆ triad (`probe/logs/axcheck-c2-machinery-check.log`);
+`run_axcheck.sh` now defaults to `MODAL_USER=doz` (xyz blocked in this environment) and
+forwards subset stage-names. Two GREEN-on-disk landings already carry their axcheck
+evidence (42-M4b: 92 axiom-prints / 68 thms triad-only; 72-C-neg: rc=0, 0 sorryAx,
+triad-only). Cycle-2 final sweep per `feasibility/probe/FINAL-SWEEP-PLAN-C2.md` (trigger =
+A1 standby signal when all TARGETS final-or-declared-drop; Steps A–C; 36 sorry-tokens in
+tree at plan time, all justified) → **[SWEEP]** (outcome appended here + ledger §9
+sign-off). Outage note: log tails written post-outage were treated as suspect until
+re-verified — G7b run16 (verdict-less) was the cautionary case; every relaunched run
+since carries a provenance header (H header-discipline QA, batch 1–3: no violations).
 
 ### C2.6 Triage decision (orchestrator)
 
@@ -386,5 +435,12 @@ A5 VERDICTS N-adjusts landed; A7 effort grades [incoming] — empirical costs wh
 decl-index v2 LANDED (`qa/make-decl-index-v2.sh` → `decl-index-v2.tsv` gitignored / `.zip`
 tracked): 13 corpus labels incl. the six axiommath trees + vendor-CFT, **2,940,110 rows**;
 v1 caveats carry over (ASCII names, vendored trees ⇒ direct-rg fallback; preprints never
-indexed). New QA surfaces: `qa/{tauceti,openai-math}-spotcheck.md` (legacy-survey fixes in
-place), `qa/donor-probes-spotcheck.md` (Q7), cycle2-qa-plan Parts 1–5 cumulative 0 WRONG.
+indexed; AxiomMath repos re-export mathlib/TauCeti content — a TSV hit is never evidence
+of provability). **External-surface re-check protocol** (A1 scan §3 note 9): the
+QuasiRiemannTracker is a standing ~daily clock on the Dirichlet class — a single curl of
+its STATIC assets (`catalogue.json` / `bound-badge.json` at gtimg.github.io/
+QuasiRiemannTracker/; only the HTML shell is JS-rendered) suffices; no browser pass
+needed. New QA surfaces: `qa/{tauceti,openai-math}-spotcheck.md` (legacy-survey fixes in
+place), `qa/donor-probes-spotcheck.md` (Q7), `qa/cycle2-qa-plan.md` Parts 1–7 cumulative
+0 WRONG (Part 7 = DLRT-erratum propagation sweep; 3 residuals relayed for qualifier
+fixes).
