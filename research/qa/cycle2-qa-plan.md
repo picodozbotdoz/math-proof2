@@ -484,3 +484,54 @@ Challenge-file copy sits at `DedekindZetaChallenge.lean:14`").
 **Disposition:** P5d item 3 (Tate wording, A1-4 + A9) and P5e item 6 (count, A4) routed;
 P5e item 8 queued to A4's u≠1 edit. Q5f (dossier 75) queued to the next batch per the
 relay's time clause. Plan tally after Part 5: still **0 WRONG**.
+
+---
+
+# Part 6 (2026-11-13, passes Q5f + P6-72-partial) — dossier 75 + pilot-72 status
+
+## Q5f — 75-abelian-assembly-zetaL-proportions (A9). **7 OK / 1 MINOR / 0 WRONG.**
+
+Relay priority checks first, both PASS: **(i) DLRT-scoping qualifiers post-revision —
+present and consistent in all four sites** (honesty header's RESOLVED block quoting A5's
+P2-3 verbatim; §Novelty's scope-resolution; F5(ii); the lane proposal) — Thm 1.1 fixed
+abelian K under GRH (o_K(1), T→∞), Cor 1.3(i) fixed quadratic K GRH-conditional, NOT
+uniform. **(ii) The [A5: 4 per flip rule] cell vs the dossier's N:** VERDICTS row 75 says
+"**4 (per flip rule)** | WARM"; the dossier's lane proposal says "Novelty **4** … [A5
+LANDED: N-adjust '4 (per flip rule)'; tier WARM.]" — exact match, no drift.
+
+1. DLRT qualifier consistency — OK (above).
+2. A5-cell vs dossier N — OK (above).
+3. Pilot-42 M2b pins — OK, all eight exact: `countCum` :779, `countOnCum` :784,
+   `EpsLowerCum` :800, `EpsLowerDistinctCum` :804, `epsLowerCum_of_factorization` :1024,
+   `zetaK_two_thirds_landed` :1062, distinct :1081, `_of_negligible` :1121.
+4. M4a strip-layer pins — OK: `distinctCountCum` body at M4a.lean:821 (windowFinite
+   toFinset.card), `EpsLowerDistinctStripCum` :833 (∀ε∃T₀ shape),
+   `zetaK_distinct_five_sixths_strip_landed` at :1124 (dossier cites "M4a" unpinned) —
+   consistent with the "on disk, run log pending" honesty marker.
+5. `abelianFactorization` nonprinciplicity clause — OK: `(∀ i, m i ≠ ⊥ ∧ ¬ (χ i).
+   IsPrincipal) ∧` verbatim in the conclusion (the entire-CT-vacuous-pole argument's
+   premise as described).
+6. `rayCharacterEntire` in-proof construction — OK: `choose F … using
+   AbelianQuotient.rayCharacterEntire …` + `let g := fun s => ∏ i, F i s` at
+   EntireAbelianQuotient.lean:26–28 exactly.
+7. Novelty greps — OK: `abelian` over zeta23 → 0 content files; `EpsLower|countCum`
+   over axiommath → 0 files (assembly vocabulary repo-only, as claimed).
+8. §Novelty prose splice — **MINOR.** The scope-resolution sentence (lines ~176–177) is
+   garbled mid-splice: "…no Hecke/non-abelian ⇒ (P) is a" jumps directly into the erratum
+   parenthetical ("VERDICTS §5.2(c) reading … was wrong; cite DLRT with the corrected
+   qualifiers.)" — a revision-splice artifact; the complete sentence survives in the
+   honesty header. One-edit fix routed to A9.
+
+## P6-72 — pilot-72 C-neg artifacts: **PRE-EXECUTION (mid-flight); partial checks.**
+
+P6 audits FINAL states; pilot-72 is in an open fix-loop (runs 1–4: **20 → 14 → 12 → 6
+errors, sorry=0 throughout**, no green run, no axcheck, no close-out note). Partial
+findings: artifact hygiene OK (C-neg.lean: proper header citing spec/dossier/round-4;
+11 theorem/lemma lines; zero `sorry` tokens — the sole grep hit is the header's "no
+sorry" declaration); trajectory consistent; logs contain partial `#print axioms` outputs
+(expected of partially-elaborated files). **Gap routed to A4:** the four logs are bare
+Modal transcripts with NO provenance headers — prepend the `# provenance:` line per the
+log-rescue convention at close-out. Full P6 re-triggers on green + axcheck.
+
+**Plan tally after Part 6: P1 10/2 · P2 9/1 · P3 9/1 · P4 8/2 · P5a–f 45/4 · P6c/d 10/10
+OK · P6-72 partial — 0 WRONG across every pass.**
