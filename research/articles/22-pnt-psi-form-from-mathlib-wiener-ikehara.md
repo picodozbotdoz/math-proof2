@@ -93,3 +93,28 @@ stopped at M4 for that reason.
 - mathlib `Mathlib/NumberTheory/LSeries/{WienerIkehara,Dirichlet,Nonvanishing,RiemannZeta}.lean`,
   `Mathlib/NumberTheory/Chebyshev.lean`.
 - S. Ikehara, J. Math. Phys. 10 (1931); N. Wiener, Ann. of Math. 33 (1932).
+
+---
+
+## Cycle-2 closure note (2026-11-14, knowledge-level): dossier 22 T2b CLOSED BY UPSTREAM
+
+Dossier 22's Tier-2 extension target T2b — the classical-strength effective PNT
+|ψ(x) − x| ≤ C·x·exp(−c·√(log x)) from openai's classical zero-free region, whose
+hardest step (the Borel–Carathéodory log-derivative bootstrap "no corpus has in Lean")
+made it the dossier's named M-effort frontier — is now **proved by a third party**.
+A1's Cycle-2 survey find (`research/survey/axiommath-pntplus.md` §1): the upstream
+`AlexKontorovich/PrimeNumberTheoremAnd` repo @ `938912bb` proves, at upstream
+`StrongPNT.lean:2900–2905`,
+
+    theorem StrongPNT : ∃ c > 0, (ψ - id) =O[atTop] fun x ↦ x * Real.exp (-c * (Real.log x) ^ ((1:ℝ)/2))
+
+from `GenStrengthPNT LogDerivZetaBoundedAndHolo12` (the n₁ = 1 instance of a
+Borel–Carathéodory / Blaschke / Jensen chain: `ZerosBound :874`, `JBlaschkeDerivBound
+:951`, `FinalBound :1029`, `GlobalBound :1400`, `LogDerivZetaFinalBound :1536`), with
+the axiom check posted inline (`:2906–2908`): exactly `[propext, choice, Quot.sound]`.
+The AxiomMath fork of that repo — the corpus this project surveyed — **amputated**
+StrongPNT (commented placeholder at fork `StrongPNT.lean:1883–1885`), which is why the
+main-run survey recorded the statement as an open terminal point. Neither the theorem
+nor the claim is ours: this note records the closure (T2b = closed-by-upstream, cite
+upstream not us), updates the survey's terminal-point record, and retires the T2b pilot
+option. No new article is warranted — the statement was never our result.

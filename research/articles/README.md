@@ -28,17 +28,31 @@ pilot (G1 audit CASE A) and its first milestone (M1 = L3, `exists_tm_space`) is 
 axioms-clean (`pilots/10-blueprint.md`), but the headline refutation still needs L1/L2, so it has
 no article yet.
 
-## Cycle 2 (2026-11-13, opened) — expected articles
+## Cycle 2 (2026-11-13, opened; drafts 2026-11-14) — articles in progress
 
-[expected] entries for likely Cycle-2 discovery articles; one line each, kind + status.
-Article files are created when the underlying pilot lands a kernel-verified (or certified)
-result; each then gets its own file per the standing instruction.
+Per the orchestrator's Cycle-2 queue, article DRAFTS are written now (not gated on pilot
+verdicts): each carries the decided substance (survey/bridge/novelty findings + landed
+GREEN evidence) with **explicit verdict slots** ([VERDICT:…], [G7b]) confined to the
+pilot-outcome/evidence sections, so fill-in is surgical when the orchestrator relays
+landings. Drafts are marked Status: DRAFT until their slots fill.
 
-| # | article | kind | status |
+| # | article (file) | kind | status + verdict slots |
 |---|---|---|---|
-| 71 | The s-Plane Zeta of a Curve: Formal Dictionary, Exact Window, Hasse–Weil Transport | formalization-first (classical math, first formal s-plane FF zeta) + anti-CT comparison corollary | **[expected — pending A2's P2]** (W1/W2/HW landing theorems; P0–P1 substrate already green, 7/7 lemmas kernel-clean) |
-| 72 | The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements | certified-negative (Kuwahara-obstruction formalized as a fence) | **[expected — pending A4]** (C-neg in flight; main-run precedent: articles 30/50's negative-result kind) |
-| 73 | A Formal Tate Dictionary for Function-Field Hecke L-Series, I: Statement Layer | formalization-first (Tier-C binder layer of the first formal Tate-type statements) | **[expected — pending 73-C]** (skeleton executing, A2; "anywhere" claim scoped + WenrongZou clock per A5 P2-13) |
-| 42-M4 | (upgrade of article 42) ζ_K Proportions with an Unconditional ζ-Column | donor-swap upgrade of a proved article | **[expected — pending M4b]** (decide addendum-to-42 vs new article when M4b lands; V2 discharges the ζ-side binders, hCert dropped) |
-| 50-M2 | Unconditional Strip Confinement for ζ and Dirichlet L | binder-discharge corollaries (posture upgrade of pilot 50's shell) | **[expected — pending route decision]** (R1 openai-7/8 in-corpus / R2 DZDF-31/32 (G1) / R3 Liu-1 external (G7); constants parametric in θ) |
+| 71 | [The s-Plane Zeta of a Curve](71-splane-zeta-curve-dictionary.md) | formalization-first (first formal s-plane FF zeta; exact-1/2 window; Hasse–Weil transport; anti-CT comparison) | **DRAFT — substrate GREEN** (P0 probe OK; P1 dictionary 7/7 kernel-clean triad); landing theorems W1/W2/HW pending: **[VERDICT:71-P2]** (p2-run1 on disk: FAIL rc=1, 6 errors, 0 sorry — iterating) |
+| 72 | [The Rényi Monotonicity No-Go Gate](72-renyi-monotonicity-nogo-gate.md) | certified-negative (the Kuwahara obstruction as a permanent formal fence) + M1 family-265 interface companion | **DRAFT** — G5b/G5c/G4 elaboration verdicts landed as de-risking evidence; gate in flight (run5: honest FAIL, 7 errors, 0 sorry): **[VERDICT:72-C-neg]**; interface theorem Tier-C: **[VERDICT:72-M1]** |
+| 73 | [A Formal Tate Dictionary for FF Hecke L-Series, I](73-formal-tate-dictionary-function-field.md) | formalization-first (first formal Tate-type statements, function-field scope; C1 𝔽_q(T) probe with hRat discharged; three-column window table) | **DRAFT — pilot queued (after 71-P2), zero runs**: **[VERDICT:73-C]** (Q0–Q3; hard STOP before Q4) |
+| 42-M4 | [ζ_K Proportions with an Unconditional ζ-Column](42M4-zetaK-proportions-unconditional-zeta-column.md) | donor-swap upgrade of article 42 (V2 endpoints replace the Knausgård certificate binders on the ζ side) | **DRAFT — M4a GREEN + axcheck-clean** (m4-run2, m4-axcheck-run1: 83 axiom prints, all triad); M4b run2 GREEN on disk 2026-11-14 (m4b-run2: 0/0, 6 landing thms triad) — official verdicts: **[VERDICT:M4b]**, **[VERDICT:M4b-upgrade]** (direct-V2-import, G2-cleared, recorded APPLIED in M4b.lean header); addendum-vs-standalone merge decision open |
+| 50-M2 | [Unconditional Strip Confinement for ζ and Dirichlet L](50M2-unconditional-strip-confinement.md) | binder-discharge corollaries (posture upgrade of pilot 50's proved shell; parametric θ) | **DRAFT — routes settled on paper**: R2 statement-level (G1b FAIL), R3 constant story resolved (liu1-hygiene sweep) + tracker-replayed exact B_new (round-4 §9); R1 gated: **[G7b]**; landing: **[VERDICT:50-M2-R1]** |
+| 10 | [One Machine, All k: Uniform ETH Refutation with Polynomial Space](10-uniform-poly-space-eth-refutation.md) | new theorem (complexity; the uniform × poly-space × min-route conjunction) | **DRAFT — two layers GREEN** (M1/L3 assembly triad, main run; Cycle-2 L1 counter layer 27/27 triad, full axcheck, l1-run4-final); descent layer L2 on disk unrun: **[VERDICT:10-L2]** |
+| 11 | [A Call-Charged Reduction Calculus](11-call-charged-reduction-calculus.md) §Cycle-2 addendum | M2 TM2 realization (Theorem B(ii)) appended to the proved main-run article | **addendum DRAFT — in flight** (P11T1/T2 GREEN; realization layer iterating, run5): **[VERDICT:11-M2]** |
+| 22 | [The PNT in ψ-Form](22-pnt-psi-form-from-mathlib-wiener-ikehara.md) §Cycle-2 closure note | knowledge-level closure (no new article warranted) | **CLOSED-BY-UPSTREAM note appended**: upstream PrimeNumberTheoremAnd @ 938912bb proves StrongPNT triad-clean (dossier 22 T2b retired; cite upstream) |
+
+Knowledge-level records folded into the drafts (not separate articles): the Liu-1
+constant-story resolution and the G1b/G2 donor-probe verdicts (article 50-M2 §4; dossier
+70 standing notes); the QR-D race state incl. the tri-kernel-verified
+QuasiRiemannTracker audit and the formal Dirichlet frontier 0.8733458561 (Bebel) —
+dossier 70 standing notes 3–4 + article 50-M2 §§1/4/6. Dossier 74's pilot-outcome
+template/article stay with lane A4 (owner); coordinator relay if unowned at its report.
+Main-run continuation evidence recorded in place: pilot 52 VERIFIED-GREEN close-out and
+pilot 20 runs-recorded (article 52/dossier 20 unchanged); pilot 10-L1 inside article 10.
 

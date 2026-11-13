@@ -7,8 +7,9 @@ and its **§5 precision pass** (per-class 7/8-crossing resolution — folded int
 section below), (iii) lane A3's donor remap (`research/novelty/axiommath-as-donor.md`
 §(a)/(f) — the precise part-(a) formulation below is A3's), (iv) lane A5's **clock sweep
 (round-4 §8, swept 2026-11-13; folded 2026-11-14 post-outage relaunch)** — Chang–Wang +
-Ji cluster addenda, the 13-repo QR-D Lean ecosystem landscape, and the pending
-QuasiRiemannTracker audit, recorded as the standing-notes block at the end of § Novelty
+Ji cluster addenda, the 13-repo QR-D Lean ecosystem landscape, and the
+QuasiRiemannTracker audit (resolved 2026-11-14, round-4 §9 — standing note 4), recorded
+as the standing-notes block at the end of § Novelty
 below (they sharpen, none overturns). Grows from dossiers 50
 (`research/candidates/50-quasi-rh-truncated-window-constants.md`) and 20
 (`research/candidates/20-hecke-zetaK-zero-density.md`) and their pilots. Tags: [VERIFIED] =
@@ -242,7 +243,11 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
       covering the Hecke family over ℚ(√−3) "and its Dirichlet and zeta consequences",
       round-4 §5.1 row 1) — with the ζ/Dirichlet *formal* side now counting **≥3 artifacts**
       (openai tree 7/8 in-corpus; Liu-1 external 34999/40000; Kontorovich/quasi-rh 11/12
-      external, README-claimed — round-4 §8.3, standing note 3). Part A's ζ/Dirichlet
+      external, README-claimed — round-4 §8.3, standing note 3) **and a tri-kernel-verified
+      formal Dirichlet frontier at 0.8733458561** (Bebel, continuum-anchor, 11-13 —
+      round-4 §9, standing note 4): for this class the formal side is now below even the
+      CONDITIONAL informal frontier (Chang–Wang 0.8744620), so no formal-gap claim of any
+      kind survives for Part A here. Part A's ζ/Dirichlet
       statements are therefore the weaker,
       in-corpus, on-pin siblings of concurrent external formal work — value = posture
       upgrade + donor hygiene, and the external repo is a NEW discharge option for pilot 50's
@@ -250,8 +255,9 @@ v2-index caveats for the axiommath labels are round-4 §0 items 1–3):
       worth a probe alongside the 31/32 swap).
     - *ζ_K and finite-order Hecke L, all K (classes C2–C4):* "first unconditional ζ_K
       zero-confinement strip in Lean" **holds today** — confirmed by the 2026-11-13 GitHub
-      sweep of the QR-D Lean ecosystem (13 repos, round-4 §8.3): **no ζ_K formal artifact
-      anywhere** (tracker audit pending — standing note 4); the best *formal* exponent for
+      sweep of the QR-D Lean ecosystem (13 repos, round-4 §8.3) **and the 2026-11-14
+      tracker audit (round-4 §9): no ζ_K formal artifact anywhere — the tracker is
+      Dirichlet-only at every layer** (standing note 4); the best *formal* exponent for
       these classes is the in-corpus 31/32 (DZDF); Liu-2 v2's B♭ = 0.8748866 (uniform,
       every K) is informal with Lean in progress, and Chang–Wang's conditional sub-B♭
       (§8.1) moves the *informal conditional* column only — but it is **on a clock**: the
@@ -368,13 +374,36 @@ Exact citations:
    ζ/Dirichlet formal side now has ≥3 artifacts (openai tree 7/8 in-corpus; Liu-1
    34999/40000; Kontorovich 11/12) — class (α)'s "no first claimed" posture unchanged,
    now with a third confirmation.
-4. **GTimG/QuasiRiemannTracker** (created 10-09, 389 commits, pushed 2026-11-13 08:28;
-   README: "Every result on the website is verified"; tracks "bounds on the real parts
-   of zeros of Dirichlet L-functions"): the site is JS-rendered — NOT sweepable by
-   WebFetch; **[pending A5 tracker audit]** (browser pass or clone, in flight at
-   relaunch) to determine kernel-vs-certificate verification and any ζ_K/Hecke entries.
-   The per-class split in note 3 assumes no ζ_K entry — revisit standing note 3/β above
-   when A5's audit lands (orchestrator to relay).
+4. **GTimG/QuasiRiemannTracker — audit LANDED 2026-11-14** (round-4 §9; clone + browser
+   pass; live site https://gtimg.github.io/QuasiRiemannTracker/; repo created 10-09,
+   pushed 2026-11-13 08:28). Resolution of this note's [pending] marker, three findings:
+   (a) **the per-class ζ_K split SURVIVES** — the tracker is Dirichlet-only at every
+   layer (protocol canonical statement: all moduli, pole excluded, ζ only as principal
+   character); whole-repo greps find **zero** `DedekindZeta`/`zeta_K` statements outside
+   the vendored openai-baseline tree, and there the only hit is
+   `fullIdealZeta_eq_dedekindZeta` (`OAI/NumberTheory/DirichletL/QuadraticSieve/
+   DyadicColumns.lean:245`) — an Euler-product identity (Re s > 1) for the FIXED field
+   `ActualEisensteinCubic.K`, sieve machinery, not a zero-free theorem, not uniform over
+   K. (Precision footnote: finite-order Hecke over ℚ(√−3) IS in the verified statement
+   set of the baseline entries — exactly the class §5.3 already tracks; no
+   Hecke-over-general-K anywhere.) Standing note 3/β above therefore needs NO change.
+   (b) **The tracker is tri-kernel verified** — protocol: "statement, definition and
+   axiom checks, followed by proof replay in Lean, NanoDa and con-ron"; permitted axioms
+   exactly our triad [propext, Classical.choice, Quot.sound]; receipts show fresh
+   7,391-module compiles, adversarial controls (mismatched statement, sorryAx etc.)
+   rejected, hash-bound (Lean 4.34.1-family pins, their infrastructure) — kernel-grade
+   verification with the certificate layer as provenance ON TOP, cite-worthy as such.
+   (c) **NEW must-cite fact (the race sharpened):** the formal DIRICHLET frontier is now
+   **0.8733458561 (continuum-anchor, Joseph Bebel, 11-13)** — the verified sequence
+   7/8 (10-06) → Liu exact B_new (10-08) → 0.8748866 (10-10) → 0.8739950 (10-26,
+   sil-density-split — the day the FORMAL frontier crossed below Chang–Wang's
+   CONDITIONAL 0.87446205) → … → 0.8733458561: for the ζ/Dirichlet class the formal
+   side has leapfrogged both the conditional informal frontier and every informal
+   uniform claim; Liu's B_new is tracked at the exact algebraic (1507−2√921)/1653
+   ("proved in Lean" on the tracker's own vendored tree — refining liu1-as-donor §1,
+   whose public entry theorems sit at 34999/40000). No conditional class exists on the
+   tracker (XS26-style conditional-on-inputs claims are structurally unlistable);
+   no Liu-2 B♭ or CT 31/32 entries (informal / weaker + ζ_K-scoped).
 
 ## Bridge analysis
 
@@ -551,4 +580,8 @@ Chang–Wang 2611.00924 — conditional-only frontier 0.87446205 < B♭, uncondi
 (Liu-2 B♭) unchanged; Ji 2611.16665 — 599/600 ζ_{ℚ(i)}+ζ, weaker constant, no frontier
 move; 13-repo QR-D Lean landscape incl. Kontorovich/quasi-rh (README-claimed 11/12
 ζ+Dirichlet, NO ζ_K) — the ζ_K-strip per-class split SURVIVES; GTimG/QuasiRiemannTracker
-[pending A5 tracker audit].]**
+AUDITED 2026-11-14 (round-4 §9): Dirichlet-only at every layer (zero ζ_K statements),
+tri-kernel verified (Lean+NanoDa+con-ron, triad axioms) — and NEW must-cite: the formal
+Dirichlet frontier is now 0.8733458561 (Bebel, continuum-anchor, 11-13), BELOW
+Chang–Wang's conditional 0.87446205 and every informal uniform claim for that class;
+Liu B_new tracked at the exact algebraic (1507−2√921)/1653.]**
