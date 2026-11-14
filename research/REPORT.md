@@ -240,9 +240,8 @@ ZetaZerosV2, ZetaZeros, PrimeNumberTheoremAnd, Weil, AreaLaw2D) that as of 2026-
 our exact pin (mathlib `ff2494ea`, v4.36.0-rc2 — `feasibility/axiommath-bump/`) and are
 therefore **consumable Lean donors**, not just references — while closing the main run's open
 pilot items (10-L1/L2, 52 fix-or-close, 20 close-out) and executing the new donor-swap pilots.
-Inputs staged from `REPORT-INPUTS-C2.md` (A9, 231 ln). **Fill-in convention:** bracketed
-placeholders `[PILOT-VERDICT:*] / [G7b] / [SWEEP] / [TRIAGE-DECISION]` are the only cells H
-still fills at close-out, per the chain in `RESUME-BRIEF-C2.md` § Gate state. Main-run §2
+Inputs staged from `REPORT-INPUTS-C2.md` (A9). All close-out cells are filled (2026-11-14).
+Main-run §2
 method and §9 compliance standard (kernel-only, no sorry/native_decide/external CAS) carry
 over verbatim.
 
@@ -260,7 +259,8 @@ rows), pilot outcome slot per pilot pipeline.
   7/8-or-better (Liu-1 external repo + openai tree own that class), **ζ_K/Hecke first-claim
   holds** on the Liu-2 clock. A5: "artifact-grade (no discovery N)", HOT-cluster /
   WARM-artifact. Pilot: 50-M2 spec landed (`pilots/50-M2-31-32-spec.md`); route R1 (openai
-  in-corpus 7/8) gated on **[G7b]**, route R2 (DZDF 31/32) statement-level only per G1b FAIL,
+  in-corpus 7/8) **LANDED** — G7b PASS + R1 GREEN (article 50-M2: 1/8 ≤ Re ρ ≤ 7/8 for every
+  nontrivial ζ zero, unconditional in Lean), route R2 (DZDF 31/32) statement-level only per G1b FAIL,
   route R3 (Liu-1 full-strength binder) statement-level until G7. Clock-sweep must-cites
   folded by A9 (Chang–Wang 2611.00924 conditional frontier; Ji 2611.16665 ζ_{Q(i)}; 13-repo
   QR-D Lean landscape, no ζ_K formal artifact anywhere).
@@ -344,9 +344,10 @@ rows), pilot outcome slot per pilot pipeline.
   consumed by the headlines; full-tree hygiene 0 sorry / 0 axiom / 22-22 names; no
   `vendor/` tree ships (2,925-module replay prerequisite). The QuasiRiemannTracker
   independently replays the exact algebraic bound on its own vendored tree (r4 §9.3) —
-  refining liu1-as-donor §1. **[G7b]** = donor-pin axiom audit (run16 outage-killed;
-  re-run run19 in flight) — the kernel-facing hygiene gate for 50-M2-R1 and Liu-1's
-  promotion from statement-level.
+  refining liu1-as-donor §1. **G7b = PASS (2026-11-14)** — donor-pin axiom audit: both openai 7/8 headlines and both
+  delegation roots `OAI.SevenEighths.ProbeFinalAssemblyUnconditional.*` = exactly the triad
+  (`probe/logs-g/run32-g7-elab.log`; closure built as 28 cached Modal image layers,
+  `probe/g7_layers.py`). It is the kernel-facing hygiene gate for 50-M2-R1, now passed.
 - **Upstream PNT+ (not a donor this cycle)** — `AlexKontorovich/PrimeNumberTheoremAnd`
   @ `938912bb` now PROVES StrongPNT triad-clean ⇒ **22's Tier-2 T2b CLOSED-BY-UPSTREAM**
   (T2a quasi-RH-conditional x^{7/8+ε} survives as 22's only open content; knowledge-level
@@ -371,7 +372,7 @@ rows), pilot outcome slot per pilot pipeline.
 | 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (A2 formal report received 2026-11-14)** — p2-run6 "P2.lean: OK", final **279 LoC** / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **73-C GREEN FINAL (covered by A2's report)** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad, descent 2→4→4→2→OK, Q4 untouched per separate gate |
 | 72-C-neg | Kuwahara no-go gate (A4) | **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)** — run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 runs 1–8 (1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | 72-M1 | family-265 interface, Tier-C transcription (A8, slot 3) | **PARTIAL-M1 GREEN — FINAL-FOR-TRANCHE, A8 FORMAL REPORT RECEIVED 2026-11-14**: vendor `P72M1T1.lean` (702 LoC, both endpoint statement layers) + L1+L2 in `P72M1T2.lean` (360 LoC / 25 thms) kernel-clean — m1-run8 both OK, descent 4+1→…→24→10→1→0 (runs 1–8; the resumed run-6 static audit found the run-5 fixes already on disk — the interruption killed the turn between edit and run); axcheck `m1-axcheck-final` BOTH OK — 52 + 28 axiom-lines (28 = 25 theorems + 3 in-file milestone repeats), 0 sorryAx, triad-only; **L3 (symmetrization/state-conventions/gap-quadratic-form) + the interface theorem CARRIED to Iteration-4 — decision recorded** (overrun guard; continuation spec in the m1-run8 header; L2 landed at constant 1, stronger than the ≤4 safety form) |
-| 50-M2 | 31/32 strip (A3, gated) | R1 gated on **[G7b]**; R2 statement-level (G1b); R3 Liu-1 binder statement-level until G7/G7b |
+| 50-M2 | strip confinement, route R1 | **GREEN FINAL (2026-11-14)** — G7b PASS; `pilots/50/R1.lean` (178 LoC) OK 0/0, all four landings triad-only: ζ strip [1/8, 7/8] UNCONDITIONAL (`strip_confinement_seven_eighths` + mem/set forms), Dirichlet at 7/8 with only `hFEχ`; R2 (31/32 ζ_K) and R3 (Liu-1) remain statement-level, not executed |
 
 ### C2.4 External race report (QR-D cluster + FF/AL clocks)
 

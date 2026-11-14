@@ -1,5 +1,7 @@
 # AGENTS-C2-DRAFT — ready-to-apply Cycle-2 addendum for AGENTS.md
 
+**APPLIED 2026-11-14 (Cycle-2 close) per `qa/agents-c2-apply-plan.md` — E1, E3–E7 in commit bf025a1, E2 after the G7b PASS verdict; file kept for provenance.**
+
 Lane A1, 2026-11-13 (queue item 2). **Draft only — H applies at cycle close under the
 orchestrator's authorization; AGENTS.md itself is not edited by this lane.** Placement
 notes in brackets; body text written in AGENTS.md's terse style; every fact cited to an

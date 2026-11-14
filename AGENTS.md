@@ -66,11 +66,15 @@ Relative to `/home/doz/zcode-workdir/`:
   the headline theorems consuming it (:103). Full-tree hygiene: 0 sorry, 0 axiom
   declarations, 22/22 expected names. **Replay prerequisite:** no `vendor/` tree ships —
   `verify.py` needs manual population of 2,925 `vendor/OAI` modules @ openai/math
-  `adc7f124` if ever run (closure_manifest pins them; no in-repo fetch script). Treat as
-  statement-level only until probed on our pin (A7/G7). 220 .lean files; textually
-  sorry-free and native_decide-free
-  (grep-level only — NOT yet built on our pin; probe owned by A7/G7). Second external
-  formal donor of the QR-D cluster, after `axiommath/DedekindZetaZeroFree`. Read-only.
+  `adc7f124` if ever run (closure_manifest pins them; no in-repo fetch script).
+  **DO-NOT-CONSUME as a build dependency — statement-level citation only**
+  (`novelty/liu1-as-donor.md` §5, confirmed at full-tree scale). 220 .lean files, textually
+  sorry-free and native_decide-free (grep level; Liu-1's own theorems were never built or
+  axiom-audited). Related verdict: G7b (2026-11-14) PASSED the openai-math 7/8 tree that
+  Liu-1 vendors, audited at openai's own pin (`feasibility/axiommath-donor-probes.md` §G7b).
+  That route (pilot 50 R1) is what landed; it supersedes Liu-1 as the in-corpus 7/8
+  consumable. Second external formal donor of the QR-D cluster, after
+  `axiommath/DedekindZetaZeroFree`. Read-only.
 - `PrimeNumberTheoremAnd` upstream (AlexKontorovich, NOT cloned) — **DEFER-watchlist**,
   not registered: HEAD `938912bb` (2026-11-12) proves StrongPNT
   (ψ = x + O(x·exp(−c√log x)), triad via in-file `#guard_msgs #print axioms`) on

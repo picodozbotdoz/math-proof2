@@ -1,192 +1,174 @@
-# Unconditional Strip Confinement for ζ and Dirichlet L: Discharging the hQRH Binder
+# Unconditional Strip Confinement for ζ in Lean: Discharging the Quasi-RH Hypothesis of Article 50
 
-*cross-math-fronttier research article 50-M2 (Cycle 2) · DRAFT 2026-11-14 · grows
-article 50 (main run, Part II: binder-conditional strip confinement) and dossier 70
-(`70-unconditional-zetaK-zero-confinement.md`, Part A) · spec `research/pilots/
-50-M2-31-32-spec.md` · pilot 50's proved shell `research/pilots/50/{M1,Dirichlet}.lean`*
+*cross-math-fronttier research article 50-M2 (Cycle 2) · FINAL · grows article 50
+(main run, Part II: hypothesis-conditional strip confinement) and dossier 70 Part A ·
+Lean `research/pilots/50/R1.lean` (+ the main-run shells `pilots/50/{M1,Dirichlet}.lean`) ·
+route plan `research/pilots/50/R1-prework.md`, `research/pilots/50-M2-31-32-spec.md` ·
+donor audit `research/feasibility/axiommath-donor-probes.md` §G7b*
 
-**Status: DRAFT — route decision pending.** The pilot has not launched at draft time; the
-preferred route R1 is gated on the G7b axiom audit at the donor pin ([G7b]), and the
-landing verdict slot is [VERDICT:50-M2-R1]. Everything decided — the parametric theorem
-statements, the three-route discharge map, the G1b build verdict, and the Liu-1
-constant-story audit — is written out below; only the executed-run paragraphs carry
-slots.
+**Status: PROVED, FINAL.** `strip_confinement_seven_eighths` holds with no hypotheses:
+every nontrivial zero of the Riemann zeta function satisfies 1/8 ≤ Re ρ ≤ 7/8. It is
+kernel-verified with axioms exactly `[propext, Classical.choice, Quot.sound]`. The input
+is openai-math's in-corpus proof that ζ(s) ≠ 0 for Re s > 7/8. Before consuming it, we
+audited it at the donor's own pin (G7b): its whole proof tree uses only the same three
+axioms. The Dirichlet analogue holds at the full 7/8 constant with one remaining
+hypothesis, the functional-equation reflection that mathlib lacks.
 
 ---
 
 ## Abstract
 
-Pilot 50 (main run) proved, kernel-verified, that a zero-free half-plane input "ζ ≠ 0 for
-Re s > θ (s ≠ 1)" yields two-sided strip confinement of every nontrivial zero to
-[1−θ, θ] — with the half-plane input left as the `hQRH` binder at θ = 7/8. The binder is
-TRUE informally (Liu arXiv:2610.12234 Cor 14.1 transfers zero-freeness at 0.8749570 to
-every Dirichlet L including ζ), but no formal discharge existed on our pin. Cycle 2 maps
-and prices every discharge route. **R1 (preferred):** openai-math's own in-corpus tree
-PROVES the ζ/Dirichlet 7/8 statements now (`OAI/NumberTheory/DirichletL/
-Nonvanishing.lean:19/:29`) — the blocker was always the 2,924-file port, never
-existence; an in-corpus statement binder or targeted extraction discharges pilot 50's
-literal 7/8 shell with zero constant degradation. **R2:** AxiomMath DZDF's
-Cureton–Thorner theorem gives 31/32 for every number field — strictly weaker than 7/8,
-so it discharges the *weakened* binders (strip [1/32, 31/32]), unconditionally; probe G1b
-showed the direct DZDF build FAILS on our pin (62 errors / 11 vendored-CFT modules),
-fixing R2 as statement-level. **R3:** Liu-1's external Lean repo formalizes
-B_new = 0.8749570 with exact-arithmetic certificates; our hygiene sweep resolved its
-constant story (below) and R3 runs as a statement-binder at the proved rational
-B_r = 34999/40000. Whichever route lands, the pilot's theorems re-instantiate at the
-route's constant with zero new proofs — the parametric θ-statement is the design that
-makes the cluster clock harmless.
+Article 50 (main run) proved in Lean that a zero-free half-plane "ζ(s) ≠ 0 for
+Re s > θ" forces every nontrivial zero into the strip [1 − θ, θ]. It also proved the
+primitive Dirichlet analogue. The half-plane input, `hQRH` at θ = 7/8, was left as a
+hypothesis. In October 2026 several groups proved such half-planes (7/8, 11/12, 0.87496,
+31/32 for all number fields). Some were formalized, but none on our toolchain pin. We
+discharge the hypothesis from openai-math's own Lean theorems
+`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` and
+`OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re`. These are consumed by
+direct import inside openai's 2,924-file proof closure, built at its own pin. We first
+certified the donor's hygiene by `#print axioms` on both headlines and their delegation
+roots. The result is the first unconditional formal statement of this kind for ζ in our
+corpora, at the full constant pair [1/8, 7/8].
 
 ## 1. Introduction
 
-The main run left a clean conditional artifact: pilot 50's `strip_confinement`
-(`M1.lean:44/:75/:85`) and `strip_confinement_dirichlet` (`Dirichlet.lean:40`), proved
-with the zero-free input as an explicit Prop binder. Cycle 2's donor registration turned
-the binder into a three-route decision problem, and the surrounding 2026 quasi-RH cluster
-(six-plus papers in six weeks; dossier 70's clock-sweep standing notes: Liu-1, Liu-2
-B♭ = 0.8748866 uniform, Chang–Wang 2611.00924 conditionally at 0.8744620, Ji 2611.16665
-quartic 599/600, a 13-repo Lean ecosystem — and the GTimG/QuasiRiemannTracker, audited
-2026-11-14: **tri-kernel verified** (Lean + NanoDa + con-ron replay, triad axioms, per
-round-4 §9), Dirichlet-only, with the **formal Dirichlet frontier now at 0.8733458561**
-(Bebel, continuum-anchor, 11-13) — below even Chang–Wang's conditional 0.87446205) made
-dating every claim mandatory. This
-article records the discharge map and its two settled verdicts (G1b, the Liu-1 constant
-audit), states the theorems at their honest per-class strength, and leaves the R1 landing
-slot open.
+**Mathematics.** If ζ has no zeros with Re s > θ (θ ≥ 1/2), then the functional
+equation ζ(1 − s) = 2(2π)^{−s} Γ(s) cos(πs/2) ζ(s) reflects this to "no nontrivial zeros
+with Re s < 1 − θ". Together these confine every nontrivial zero to [1 − θ, θ].
+Classically this is weaker than the de la Vallée Poussin region σ ≥ 1 − c/log|t| for
+large |t|. The value here is a uniform, fixed-constant, formally verified statement with
+no hypotheses.
 
-**Honesty (per-class, per dossier 70's A5-confirmed split).** For ζ/Dirichlet at
-7/8-or-better, **no "first" is claimed**: the openai tree proves 7/8 in-corpus, Liu-1's
-repo formalizes 34999/40000 (with the tracker independently replaying the exact
-algebraic B_new = (1507−2√921)/1653 on its own vendored tree), Kontorovich/quasi-rh
-README-claims 11/12, and the tracker's verified catalogue carries the class frontier at
-0.8733458561 — this article's
-value there is the posture upgrade (conditional shell → unconditional landing) and the
-discharge engineering, not discovery. For ζ_K and Hecke-all-K, the two-sided strip at
-31/32 is the first formal ζ_K zero-location statement anywhere (the 13-repo sweep AND
-the 2026-11-14 tracker audit found no ζ_K artifact — the tracker is Dirichlet-only at
-every layer, its sole ζ_K-adjacent declaration being an Euler-product identity for one
-fixed cubic field, `DyadicColumns.lean:245`) — an
-ECOSYSTEM/GLUE-grade first, on the Liu-2 clock (the strip widens to [1−B♭, B♭] the day
-his Lean lands; absorbed by the parametric statement).
+**Why it needed work.** The half-plane input exists in Lean in three places:
+- openai-math (7/8, ζ and all Dirichlet L);
+- Liu's repository (0.874975 = 34999/40000, external);
+- AxiomMath DedekindZetaZeroFree (31/32, all number fields).
+
+None of these is consumable on our mathlib pin as a dependency. The openai tree is
+Lean v4.34.1 with a 2,924-file closure (≈486k lines). Our earlier attempts to build it
+(G7b runs 19–28) failed for infrastructure reasons: unapplied compatibility patches,
+session deaths, timeouts, and an over-provisioned run. It finally succeeded as a chain of
+28 cached Modal image layers (`feasibility/probe/g7_layers.py`, 2 CPU per layer), after
+which the consumer files elaborate on the cached top layer.
+
+**Honesty.**
+- No new analytic mathematics: the 7/8 half-plane is openai's theorem, and the
+  reflection is classical.
+- The contribution is the formal unconditional strip theorem, the audited consumption
+  route, and a substrate pattern (donor-pin build plus axiom audit) that we can reuse.
+- For ζ and Dirichlet L at 7/8 or better we claim **no first**. The best formal
+  Dirichlet-class zero-free bound tracked in the QuasiRiemannTracker is 0.8733458561
+  (2026-11-13). Our result is a downstream *consequence* (strip confinement) at a weaker
+  constant.
 
 ## 2. Setting
 
-Pilot 50's proved shell, verbatim vocabulary: `IsNontrivialZeroP50` (`M1.lean:33`),
-`strip_confinement` (:44) and set/window forms (:75, :85) — all parameterized in the
-binder's constant θ; the Dirichlet shell (`Dirichlet.lean:40–46`) with the reflection
-input `hFEχ` (mathlib lacks the product-form Dirichlet FE — pilot 50 M2a's one-decl
-finding, `DirichletCharacter.LFunction_one_sub`; it stays a binder in every route).
-Route donors: R1 `OAI/NumberTheory/DirichletL/Nonvanishing.lean:19/:29`
-(`DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re` and the ζ instance);
-R2 DZDF `dedekindZeta_ne_zero` (`DedekindZetaZeroFree/Main.lean:9`) + `heckeL_ne_zero`
-(`HeckeCorollary.lean:12`); R3 the external repo's `CombinedPaperVerification` headlines
-at `B_r = 34999/40000` (`CombinedPaperVerification.lean:16`).
+`R1.lean` (178 lines) is elaborated inside the donor workspace (v4.34.1, mathlib
+`d13f23b7`). It carries pilot 50's main-run cores, ported down from v4.36 (`push Not` was
+replaced by `not_le.mp`; nothing else changed).
+- `IsNontrivialZeroP50 ρ` :⟺ ζ(ρ) = 0 ∧ 0 < Re ρ < 1. This is zeta23's
+  `IsNontrivialZero` shape.
+- `strip_confinement (hQRH : ∀ s, 7/8 < Re s → ζ s ≠ 0)`: the conditional core
+  (article 50 Part II).
+- `Dirichlet.strip_confinement_dirichlet (hQRHχ) (hFEχ)`: the Dirichlet core.
+  `hFEχ` says a zero ρ of L(·, χ) for primitive χ with 0 < Re ρ < 1 gives a zero 1 − ρ of
+  L(·, χ⁻¹). This is the product-form reflection, which mathlib does not have.
 
-## 3. Main results (the landing targets, parametric in θ)
+## 3. Main results
 
-**(P) ζ, unconditional.** Every nontrivial zero ρ of `riemannZeta` satisfies
-1−θ ≤ Re ρ ≤ θ — with θ = 7/8 under R1, θ = 34999/40000 under R3. Right half: the
-route's zero-free statement. Left half: `riemannZeta_one_sub` (`RiemannZeta.lean:178`) —
-proved, never a binder.
+**Theorem 1 (`strip_confinement_seven_eighths`, unconditional).** For every ρ with
+ζ(ρ) = 0 and 0 < Re ρ < 1, we have 1/8 ≤ Re ρ ≤ 7/8.
 
-**(C1) Dirichlet L, one binder left.** For every Dirichlet character χ mod q: same strip
-for L(·, χ)'s non-pole zeros, conditional only on `hFEχ`.
+**Theorem 2 (`strip_confinement_mem_seven_eighths`, `strip_confinement_set_seven_eighths`).**
+The same in mathlib's vocabulary: for z ∈ `riemannZetaZeros` with 0 < Re z < 1,
+1/8 ≤ Re z ≤ 7/8. As sets:
+`riemannZetaZeros ∩ {0 < Re < 1} ⊆ {1/8 ≤ Re ≤ 7/8}`.
 
-**(C2/C3) ζ_K and Hecke L at 31/32 (R2's own family).** Totally complex K: two-sided
-strip for every CT continuation of ζ_K via DZDF's Hecke functional equation at the
-trivial character (zero binders); primitive finite-order χ: same via the nonprincipal FE
-and the conjugate character. **(C4)** every K: one-sided floor Re ρ ≤ 31/32 (CT alone).
+**Theorem 3 (`Dirichlet.strip_confinement_dirichlet_seven_eighths_of_FE`).** Assume
+`hFEχ`. Then for every q, every primitive χ mod q, and every zero ρ of L(·, χ) with
+0 < Re ρ < 1: 1/8 ≤ Re ρ ≤ 7/8.
 
-**Glue (the K = ℚ dictionary, shared with dossier 70/75).** (i) ℤ-ideal collapse:
-`NumberField.dedekindZeta ℚ s = LSeries (fun _ => 1) s` (fiber-by-norm count = 1);
-(ii) `zeta_eq_tsum_one_div_nat_cpow` (`RiemannZeta.lean:207`); (iii) identity-theorem
-transfer off the half-plane (`AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, the
-DZDF-internal route, z₀ = 2). For C1, the Dirichlet ↔ `RayClassCharacter ℚ (q)`
-dictionary (narrow ray class group of ℚ mod q ≅ (ℤ/q)ˆ; total positivity kills the
-sign).
+**Discharges.** `hQRH_seven_eighths := fun s hs => OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re hs`.
+`Dirichlet.hQRHχ_seven_eighths` is the corresponding application of the Dirichlet donor
+theorem, with explicit-instance bookkeeping. The main-run hypotheses were transcribed
+from these very statements, so the discharge is definitional: no glue lemmas are needed.
 
-## 4. The three routes — decided state
+## 4. Proofs
 
-**R2 (settled: statement-level).** Probe G1b (`research/feasibility/
-axiommath-donor-probes.md` §G1b): direct DZDF build on our pin **FAIL** — lake scheduled
-the full 29,261-job closure and broke at the vendored class-field-theory tree (62 unique
-errors / 11 modules). DZDF is a statement-level donor; the Challenge statements elaborate
-clean (`axiommath-bump/logs/run1.log`). R2's binders quote the CT statements (already
-elaboration-validated); no import.
+**Theorem 1.** Let ρ be a nontrivial zero.
+- Since 0 < Re ρ, ρ ≠ 1 and ρ ≠ −n for every n ∈ ℕ. So mathlib's `riemannZeta_one_sub`
+  applies: ζ(1 − ρ) = 2(2π)^{−ρ} Γ(ρ) cos(πρ/2) ζ(ρ) = 0.
+- If Re ρ < 1/8, then Re(1 − ρ) = 1 − Re ρ > 7/8. The donor theorem then gives
+  ζ(1 − ρ) ≠ 0, a contradiction.
+- If Re ρ > 7/8, the donor theorem gives ζ(ρ) ≠ 0 directly, a contradiction.
 
-**R3 (settled: constant story resolved, statement-binder only).** The liubaiying101
-repo's README constant 0.874957069799 IS Lean's `B_new = (1507 − 2√921)/1653` exactly
-(`CombinedPaperVerification.lean:19` — the ~5e-10 delta was the paper's decimal); the
-public entry deliberately uses the weakened exact rational `B_r = 34999/40000` (:16),
-with `boundary_order : B_new < B_r ∧ B_r < 7/8` PROVED (:44) and the headline theorems
-consuming B_r (:103). Full-tree hygiene (A1's sweep, `research/novelty/
-liu1-hygiene-sweep.md`): 0 sorry, 0 axiom declarations, 22/22 expected names, triad-clean
-by construction. Replay caveat: no `vendor/` ships — `verify.py` needs manual population
-of 2,925 `vendor/OAI` modules at openai/math `adc7f124` (closure manifest pins them).
-Refinement (tracker audit, round-4 §9): the QuasiRiemannTracker independently replayed
-the EXACT algebraic bound (1507−2√921)/1653 on its own vendored tree ("proved in Lean",
-entry `liu-20261008`) — third-party kernel-grade confirmation one tier above the public
-entry's B_r. R3 therefore runs as a statement-binder quoting the B_r headlines — no
-portability probe needed for the landing, one optional for the literal-7/8 question.
-
-**R1 (preferred; gated).** The openai tree proves the 7/8 ζ/Dirichlet statements NOW
-(`Nonvanishing.lean:19/:29`; A5's audit + `novelty/liu1-as-donor.md` §4). Gate: **[G7b]**
-— the donor-pin axiom audit of those two theorems (run16, died in the outage, re-queued;
-this is the gate for R1's kernel-facing hygiene claim). Landing: [VERDICT:50-M2-R1].
+**Theorem 3.** The same argument, with `hFEχ` in place of the ζ functional equation
+(reflecting to χ⁻¹). The pole exclusion ¬(χ⁻¹ = 1 ∧ 1 − ρ = 1) follows from Re ρ > 0.
+∎
 
 ## 5. Formal verification
 
-**Landed (evidence):** pilot 50's M1/Dirichlet shells GREEN + triad (main run,
-`axcheck-final.log`); DZDF Challenge statements elaborate on-pin (bump run 1); G1b
-verdict (above); Liu-1 hygiene sweep (above); G7 pins the external repo's exact pins.
-
-**Pending (slots):** [G7b] (donor-pin axiom audit of the OAI 7/8 theorems);
-[VERDICT:50-M2-R1] (route R1 executed: runs, LoC, thm count, axcheck, GREEN/FAIL);
-final per-class constants line (fills from whichever route(s) land).
+- **Donor audit (G7b), PASS.** `feasibility/probe/logs-g/run32-g7-elab.log`:
+  `ProbeG7b_OAI_SevenEighths.lean` is OK. Both headlines and both delegation roots
+  `OAI.SevenEighths.ProbeFinalAssemblyUnconditional.{dirichlet,zeta}_nonzero` depend on
+  exactly `[propext, Classical.choice, Quot.sound]`. There is no `sorryAx` and no
+  `native_decide`-class axiom anywhere in the 2,924-file delegation closure, since
+  `#print axioms` is transitive.
+- **R1 GREEN.** In the same run, `R1probe.lean` and `R1.lean` are OK with 0 errors and
+  0 sorry-warnings. All four landing theorems print exactly the triad (14/14 axiom prints
+  in the run are triad).
+- **Substrate.** `feasibility/probe/g7_layers.py`: base, the donor tree, prep (`lake exe
+  cache get` plus the donor's 12 lean4341 compatibility patches), chunk 0, 25
+  topologically ordered ~20k-line chunks, and the target. Each layer is cached by Modal,
+  so re-elaboration needs no rebuild. Resources: 2 CPU; layers at 8 GB, user-approved
+  after telemetry showed 5.3–6.5 GB of memory-mapped Mathlib `.olean` pages.
+- **Main-run cores** on our pin: `pilots/50/{M1,Dirichlet}.lean` are GREEN
+  (`AxPilot50_M1`, `AxPilot50_Dirichlet` in the Cycle-2 final sweep). R1 is a donor-pin
+  file, not an on-pin sweep target.
 
 ## 6. Relation to prior work
 
-- **Article 50** (main run): Part I (zero-free regions cannot move certificate
-  constants) + the conditional shell this article discharges.
-- **Dossier 70 Part A** (Cycle 2): the full statement set + per-class novelty split +
-  clock-sweep standing notes (Chang–Wang conditional frontier; Ji; the 13-repo Lean
-  landscape incl. Kontorovich/quasi-rh 11/12 ζ+Dirichlet with NO ζ_K; **tracker
-  AUDITED 2026-11-14 — Dirichlet-only at every layer, zero ζ_K statements, the split
-  survives**, round-4 §9) — the cluster context is recorded there and controls every
-  dating claim here.
-- **Liu arXiv:2610.12234** (+ repo), **Liu arXiv:2610.26835** (B♭ uniform, Lean in
-  progress), **Xu–Sang 2610.15291**, **[Ope26a/b]** (7/8, 11/12 preprints + sorry
-  challenge), **CT hexagonmath 2610.00200** (= our DZDF donor), **Chang–Wang
-  arXiv:2611.00924** (conditional-only sub-B♭), **Ji arXiv:2611.16665** (599/600,
-  ℚ(i), no frontier move), **GTimG/QuasiRiemannTracker** (audited 2026-11-14, round-4
-  §9: tri-kernel verified, Dirichlet-only, formal frontier 0.8733458561 = Bebel's
-  continuum-anchor of 11-13 — the leapfrog fact of the race): the cluster — nothing
-  below B♭ unconditionally **and uniformly over number fields** (the tracker's
-  0.8733458561 is unconditional for the Dirichlet class, as above — the uniform-over-K
-  informal record remains Liu-2's B♭); nothing formal for ζ_K.
-- Classical anchors: Hadamard–de la Vallée Poussin (σ ≥ 1 − c/log|t| confines zeros left
-  of any fixed 31/32-type line for large |t|; Broughan 2009) — Part A's ζ/Dirichlet
-  statements are math-known, strictly weaker than HdV for large |t|; the packaging (a
-  fixed uniform strip, all zeros, formal, binder-free) is the deliverable.
+- **Article 50** (main run): Part I shows zero-free regions cannot improve the
+  window-certificate constants. Part II is the conditional shell discharged here.
+- **openai-math** `OAI/NumberTheory/DirichletL/Nonvanishing.lean:19,29`: the donor
+  theorems (preprint lineage [Ope26a]). This article adds an axiom audit and a
+  downstream formal consequence, not the half-plane itself.
+- **Liu, arXiv:2610.12234** and its Lean repository: zero-free for Re s > B_new =
+  (1507 − 2√921)/1653 ≈ 0.874957 (public entry 34999/40000). This is a stronger constant
+  but an external toolchain (route R3, statement-level). **Cureton–Thorner /
+  DedekindZetaZeroFree**: 31/32 for every number field (route R2). It does not build on
+  our pin (G1b: 62 errors in its vendored class-field-theory tree).
+- **Race context** (dossier 70 standing notes): Liu arXiv:2610.26835 (B♭ = 0.8748866
+  uniform, informal); Chang–Wang arXiv:2611.00924 (conditional); Ji arXiv:2611.16665;
+  QuasiRiemannTracker (formal Dirichlet frontier 0.8733458561 as of 2026-11-13,
+  Dirichlet-only).
+- **Classical:** Hadamard–de la Vallée Poussin; the reflection via the functional
+  equation is textbook (e.g. Titchmarsh ch. II).
 
 ## 7. Limitations and open problems
 
-- `hFEχ` survives every route (the one-decl donation `LFunction_one_sub` would kill it —
-  flagged, not built).
-- The two-sided ζ_K strip stays totally-complex-only (DZDF's FE restriction; real places
-  need Γℝ factors — open seam, donation-grade).
-- The clock: Liu-2's Lean landing parametrically supersedes the 31/32 instantiation;
-  a validated Chang–Wang would move the informal-only frontier (both absorbed by the
-  θ-statement; the dossier-70 standing notes carry the revisit triggers).
+1. **`hFEχ` remains for Dirichlet L.** A mathlib lemma `DirichletCharacter.LFunction_one_sub`
+   (product-form reflection for primitive χ) would make Theorem 3 unconditional. It is a
+   one-declaration donation candidate.
+2. **Not done:** the ζ_K / Hecke strip at 31/32 (route R2) and the parametric-θ
+   refactor. Both are specified in `pilots/50-M2-31-32-spec.md`. No formal ζ_K
+   zero-location statement exists anywhere in the corpora we audited, so that strip
+   would be a genuine first. It needs DedekindZetaZeroFree's statements as hypotheses on
+   our pin.
+3. **Toolchain:** R1 lives on the donor pin (v4.34.1). Porting it to our v4.36 pin means
+   porting the openai closure. The statements port at cost ≈ 0; the proofs are the cost.
+4. **Constants** are stale on arrival by design. The formal frontier for the Dirichlet
+   class is already below 7/8. The strip theorem re-instantiates at any better donor
+   constant with the same proof.
 
 ## References
 
-- `research/candidates/70-unconditional-zetaK-zero-confinement.md` (Part A + standing
-  notes); `research/pilots/50-M2-31-32-spec.md`; `research/pilots/50/` (M1, Dirichlet);
-  article 50. axiommath `DedekindZetaZeroFree` (`Main.lean:9`, `HeckeCorollary.lean:12`,
-  `Challenge/DedekindZetaChallenge.lean:30–34`). openai-math
-  `OAI/NumberTheory/DirichletL/Nonvanishing.lean:19/:29`.
-  github.com/liubaiying101/Slightly-improved-zero-free-half-planes-for-the-quasi-Riemann-hypothesis
-  (`CombinedPaperVerification.lean:16,19,44,103`; `research/novelty/liu1-hygiene-sweep.md`).
-  `research/feasibility/axiommath-donor-probes.md` §G1b/§G7. Liu arXiv:2610.12234,
-  arXiv:2610.26835; Xu–Sang arXiv:2610.15291; Chang–Wang arXiv:2611.00924; Ji
-  arXiv:2611.16665; CT hexagonmath 2610.00200; Broughan 2009.
+openai-math `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean:19,29`;
+`research/pilots/50/{R1,R1probe,M1,Dirichlet}.lean`; `research/pilots/50/R1-prework.md`;
+`research/pilots/50-M2-31-32-spec.md`; `research/feasibility/probe/{g7_layers.py,
+ProbeG7b_OAI_SevenEighths.lean}`, logs `logs-g/run31-g7-layers.log`,
+`logs-g/run32-g7-elab.log`; `research/feasibility/axiommath-donor-probes.md` §G1b/§G7/§G7b;
+`research/novelty/liu1-hygiene-sweep.md`; dossier 70 (standing notes). Liu
+arXiv:2610.12234, arXiv:2610.26835; Chang–Wang arXiv:2611.00924; Ji arXiv:2611.16665;
+E. C. Titchmarsh, *The Theory of the Riemann Zeta-Function*, ch. II.

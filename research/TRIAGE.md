@@ -206,7 +206,7 @@ its PROPOSED §decision block, spliced below). The main-run sections above are F
 frozen (2026-11-09); this addendum's matrix is filled from the landed dossiers and A5/A7
 verdicts; the §Cycle-2 pilot decision below supersedes the 2026-11-13 staging checklist.
 Every Cycle-2 pilot slot is terminal (GREEN + axcheck); the one gated item is 50-M2-R1
-(row 70), resolved by the G7b donor-pin axiom audit as recorded in item 5.
+(row 70) — LANDED on G7b PASS (item 5).
 
 Rubric: the main-run **ranking rule and scale definitions carry over verbatim** —
 novelty/significance 1–5, effort 1–5 inverse, ties broken by novelty, then effort, then
@@ -224,7 +224,7 @@ not a decision.
 
 | # | Candidate | Lane proposal (quoted N/S/E → score) | Category (dossier's own label) | Novelty adj (A5 round-4, LANDED) | Effort adj (A7 landed + empirical) | Pilot status (2026-11-14) | Depreciation tier (A5) | Draft final score (DRAFT — H arithmetic on landed inputs, A9-precomputed) | Notes |
 |---|---|---|---|---|---|---|---|---|---|
-| 70 | unconditional-zetaK-zero-confinement | "Part A: Novelty **2** …, Significance **3**, Effort **1–2 (S)** — rank ≈ 3–4 …" | "**Part A = ECOSYSTEM/GLUE-grade posture upgrade** …" (Part B split to 75) | artifact-grade (no discovery N); per-class split: ζ_K-strip OURS / ζ-Dirichlet 7/8 CONCURRENT | R2 statement-level (G1b FAIL: 62 err/11 CFT modules); R3 binder-CLEAN (G7); R1 gated (G7b run19); substrate S-cost | 50-M2 spec'd, gated on [G7b] → [VERDICT:50-M2-R1] | HOT-cluster / WARM-artifact | **4.0** (2×3÷1.5; E empirical-pending pilot) | tracker-audited split survives (n6); Bebel 0.8733458561 bounds the ζ/Dirichlet class's claim space |
+| 70 | unconditional-zetaK-zero-confinement | "Part A: Novelty **2** …, Significance **3**, Effort **1–2 (S)** — rank ≈ 3–4 …" | "**Part A = ECOSYSTEM/GLUE-grade posture upgrade** …" (Part B split to 75) | artifact-grade (no discovery N); per-class split: ζ_K-strip OURS / ζ-Dirichlet 7/8 CONCURRENT | R2 statement-level (G1b FAIL: 62 err/11 CFT modules); R3 binder-CLEAN (G7); R1 gated (G7b run19); substrate S-cost | **50-M2 R1 LANDED** (G7b PASS; ζ strip [1/8, 7/8] unconditional, `pilots/50/R1.lean`) | HOT-cluster / WARM-artifact | **4.0** (2×3÷1.5; E empirical-pending pilot) | tracker-audited split survives (n6); Bebel 0.8733458561 bounds the ζ/Dirichlet class's claim space |
 | 71 | function-field-splane-dictionary (**RENAMED** from function-field-simple-zero-proportions — slug discipline kept) | "Primary (P)+(C): Novelty **2–3** …, Significance **3–4** …, Effort **1–2 (S–M)** — rank ≈ 3–5 …" | "**(P)/(C)/(W) = GLUE/formalization-first …; (S) = DISCOVERY-grade [HYPOTHESIS] …**" | primary formalization-first (dictionary value); FF-EZ2-family N as proposed ([HYPOTHESIS]) | G3 OK, G6b OK; G6a pending (Tier-A provenance only); empirical: P0+P1 243 LoC + P2 279 LoC/11 thms (S–M confirmed) | **DELIVERED — P2 FINAL-GREEN, A2 formal LANDED** (p2-run6; 279 LoC; descent 6→4→2→1→0; W1 pole-family exclusion + Core-2 delta) | WARM (Suzuki month-clock) | **5.8** (2.5×3.5÷1.5, delivered) | HKT cited at Part-3 level only (P2-11 PARTIAL-PIN); article 71 promoted past DRAFT |
 | 72 | area-law-inertial-defect | "Primary AL-EZ1: Novelty **3–4** …, Significance **3–4** …, Effort **2–3 (M, with an S decider probe)**. AL-EZ3 … Effort 1–2 (S–M) …" | "**P1/C-neg = formal-new glue …; P2 = DISCOVERY-grade [HYPOTHESIS] …; AL-EZ3 = GLUE-with-real-consumer …**" | P1 formal-new (moderate); P2 N as proposed ([HYPOTHESIS]); C-neg precedent-backed (50/30 lineage) | G4 OK (statement layer mathlib-only), G5b/G5c OK; G5a pending (Tier-B only); empirical: **C-neg 369 LoC/11 thms/8 runs (S confirmed)**; M1 tranche 702+360 LoC/25 thms, zero gates as priced | **C-neg DELIVERED FINAL-GREEN** (run8-final 0/0; axcheck 11/11 triad); **M1 tranche DELIVERED partial-GREEN — [VERDICT:72-M1] FILLED (A8 formal)**: L1 ptrace-Gram + entropy match + L2 at constant 1 + vendor layer kernel-clean (m1-run8-GREEN; axcheck 52+28 triad-only); L3 + interface → Iteration 4 by design | WARM ("hard NO-GO on literal rank statements — already honored") | **4.9** C-neg-delivered (3.5×3.5÷2.5); M1 GLUE value LANDED at tranche scope | u≠1-analog deviations documented (72-prework :495); article 72 both halves at Cycle-2 scope (C-neg + M1-tranche) |
 | 73 | function-field-hecke-tate (**LANDED** — was "[PENDING ZONE VERDICTS] reserved") | "Novelty **3** …, Significance **4** …, Effort **2–3 for the Tier-C pilot** … / **5 for Tier A** … (rank ≈ 4.8 at Tier C) …" | "**CONDITIONAL-CORE, Stacks-blocked, formalization-first — the highest-ceiling item of the 70–75 series …**" | formalization-first (dictionary value; Tier-C binder-designed, provable on our pin); "first formal Tate-type" SUPPORTED in FF scope + WenrongZou softening | G3 OK; G6a pending (Tier-A ceiling only); G2 OK adjacent; empirical: Q0 143 + Q1–Q3 236 LoC/7 thms (delivered) | **DELIVERED — 73-C FINAL-GREEN, A2 formal LANDED** (Q0 143 first-try; Q1–Q3 236/7 triad); Q4 UNTOUCHED → Iteration 4 | WARM | **4.8** Tier-C (3×4÷2.5, delivered at 236+143 LoC) | highest ceiling / least claimable; n5 WenrongZou clock |
@@ -319,11 +319,9 @@ class carries no first-claim (openai in-corpus; Liu-1 external at the exact alge
 B_new; Kontorovich 11/12; **and the tracker's formal Dirichlet frontier 0.8733458561 —
 below even the conditional informal frontier**); the ζ_K/all-K strip is OURS alone today
 (no ζ_K formal artifact anywhere; on the Liu-2 B♭ clock). Routes: R2 statement-level
-(G1b FAIL), R3 binder-CLEAN (G7), R1 preferred. **[CONDITIONAL [G7b] → [VERDICT:50-M2-R1]:
-on G7b-PASS + R1 GREEN the Part-A theorems land unconditionally at 7/8 on our pin —
-posture upgrade complete; on G7b-FAIL, R3 (Liu-1 binder at 34999/40000) lands the same
-theorems with external-donor provenance; either way the parametric θ-statement absorbs
-the cluster clock.]** Recomputed rank ≈ 3–4 (artifact-grade; A5 "no discovery N").
+(G1b FAIL), R3 binder-CLEAN (G7), R1 preferred. **[RESOLVED 2026-11-14: G7b PASS + R1 GREEN — the Part-A ζ theorem lands UNCONDITIONALLY at [1/8, 7/8]
+on the donor pin (article 50-M2); Dirichlet at 7/8 with `hFEχ` only; the parametric θ-design
+absorbs the cluster clock.]** Recomputed rank ≈ 3–4 (artifact-grade; A5 "no discovery N").
 - Pilot plan sketch: route decision → glue (d1/d2 shared with 75) → landing theorems.
 - First Lean milestone: pilot-50 shells GREEN since main run (the discharge is the delta).
 
@@ -374,7 +372,7 @@ so. (n8) Liu's B_new is independently tracked at the exact algebraic (1507−2�
 ("proved in Lean" on the tracker's vendored tree) — cite at R3 above the public entry's
 34999/40000.
 
-**Carried to Iteration 4 (gates attached):** 50-M2-R1 [G7b] (fallback R3 binder-CLEAN);
+**Carried to Iteration 4 (gates attached):** 50-M2 R2 (31/32 ζ_K strip, statement-level) — R1 LANDED;
 73-Q4 hRat discharge (separate gate, A2 recommendation); 75 wave-4 completion (the N2
 ℚ-route + P-b arms of the FILLED 75 verdict); 42-M4b-upgrade residuals (A3 log-hygiene
 formal report); 22-T2a (small, upstream-statement binder); 72-M1's carried L3 +
