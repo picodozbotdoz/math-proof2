@@ -46,9 +46,13 @@ case "$MODE" in
       --root /home/doz/zcode-workdir/axiommath --build-timeout "$SECS"
     ;;
   g7)
-    "$MODAL_BIN" run "$STAGE/gprobe.py" --dir "$STAGE" --mode g7
+    "$MODAL_BIN" run --detach "$STAGE/gprobe.py" --dir "$STAGE" --mode g7
+    ;;
+  g7elab)
+    # re-elaborate files inside the persisted built donor tree: ./run_gprobe.sh g7elab a.lean,b.lean
+    "$MODAL_BIN" run --detach "$STAGE/gprobe.py" --dir "$STAGE" --mode g7elab --members "$2"
     ;;
   *)
-    echo "usage: $0 probe|g2|g5a|g1b|g6a|g7 [build-seconds]" >&2; exit 2
+    echo "usage: $0 probe|g2|g5a|g1b|g6a|g7|g7elab [build-seconds|files]" >&2; exit 2
     ;;
 esac

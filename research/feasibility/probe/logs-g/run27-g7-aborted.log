@@ -1,0 +1,15 @@
+# ABORTED by orchestrator ~6 min in (before any build progress) to relaunch as run28 with volume persistence + R1 riding the same build.
+# Provenance: modal run --detach gprobe.py --mode g7 (OAI donor-pin axiom audit = G7b, attempt 5). Changes vs run26: cpu 64 / 128 GB, build cap 82000 s, function cap 24 h, streamed progress, --detach (app survives client death). 2026-11-14, orchestrator resume session, command: TAUCETI_STAGE=<scratchpad> ./run_gprobe.sh g7
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-FAk95PGXCwq3M7liX5wWwL
+✓ Created objects.
+├── ✓ Uploaded 
+│   /tmp/claude-1000/-home-doz-zcode-workdir-cross-math-fronttier/0c05f22f-8c59-
+│   44ab-86be-924ae3d3ad47/scratchpad/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g7.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g2.
+└── ✓ Created Function g1b.

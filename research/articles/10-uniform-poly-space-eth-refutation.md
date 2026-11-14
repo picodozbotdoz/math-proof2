@@ -1,14 +1,14 @@
 # One Machine, All k: Uniform ETH Refutation with Polynomial Space
 
 *cross-math-fronttier research article 10 (drafted Cycle 2) · FINAL (three layers GREEN,
-M1/L1/L2; assembly tranche carried to Iteration 4 — orchestrator decision 2026-11-15) · dossier
+M1/L1/L2; assembly tranche carried to Iteration 4 — orchestrator decision 2026-11-14) · dossier
 `research/candidates/10-z3-uniform-poly-space-eth-refutation.md` (Top-3 #2, main run) ·
 blueprint `research/pilots/10-blueprint.md` (M1 = L3 landed main-run; §L1 = milestone M2,
 Cycle 2) · pilot `research/pilots/10/` (M1.lean, L1.lean GREEN; L2.lean on disk) · logs
 `research/pilots/10/logs/`*
 
 **Status: FINAL — three layers GREEN (M1/L1/L2); assembly tranche carried to
-Iteration 4 (orchestrator decision, 2026-11-15).** Proved and axiom-audited:
+Iteration 4 (orchestrator decision, 2026-11-14).** Proved and axiom-audited:
 `exists_tm_space(_at_time/_monitor)` (main-run M1 = L3), the counter-combinator layer
 (L1: 27/27 triad), and **L2 (M3 tranche): GREEN + axcheck-clean — the countdown loop +
 PolyTVal + polyTVal_id + countdown_cut landed** (A6 formal report; l2-run5-final-green:

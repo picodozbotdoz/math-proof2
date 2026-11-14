@@ -343,7 +343,7 @@ re-grep before executing fills).
 
 ---
 
-## Article promotion checklist (appended by A9, 2026-11-15 pre-close — H's G7 "Status-DRAFT grep empty" gate, made mechanical)
+## Article promotion checklist (appended by A9, 2026-11-14 pre-close — H's G7 "Status-DRAFT grep empty" gate, made mechanical)
 
 Grep-gate note: H's gate hits BOTH tokens per file — the bold `**Status:` line AND the
 italic header provenance line, which still reads "DRAFT 2026-11-14" (or "SKELETON
@@ -358,7 +358,7 @@ re-touch check (files listed in the 2026-11-14 reports).
 | 73 tate | PROVED at Tier C, FINAL-GREEN — A2 formal LANDED; Q4 → Iteration 4 | (1) [SWEEP]; (2) A5 delta (re-touched: C2 column, orphan fix) | Status → "PROVED at Tier C, FINAL"; provenance token as 71 |
 | 42M4 zeta-column | PROVED, FINAL — both routes; A3 formal LANDED | (1) [SWEEP] (full-coverage m4b2-axcheck-run1 already GREEN — sweep confirms); (2) A5 delta (re-touched: 1,571, binder names, M4c) | Status stays; provenance "DRAFT 2026-11-14" → "FINAL (A3 formal + sweep-confirmed)" |
 | 50M2 strip | DRAFT — route decision pending | (1) **[G7b]** (A7 run19) → route decision; (2) pilot [VERDICT:50-M2-R1] execution + axcheck (or orchestrator's carried-to-Iter-4 call); (3) A5 delta | on landing: Status → "PROVED, FINAL (route R…, θ = …)"; if carried: → "FINAL (statement-level; execution carried to Iteration-4)"; provenance token either way |
-| 10 uniform-ETH | **FINAL — three layers GREEN (M1/L1/L2); assembly tranche carried to Iteration 4** (orchestrator decision 2026-11-15 — APPLIED incl. provenance token swap; §5's remaining-tranche paragraph kept verbatim) | remaining to sweep-clean: [SWEEP] + A5 delta (re-touched) — nothing else (promotion DONE; headline honestly a target, not a claim) | none (promotion applied; sweep confirms) |
+| 10 uniform-ETH | **FINAL — three layers GREEN (M1/L1/L2); assembly tranche carried to Iteration 4** (orchestrator decision 2026-11-14 — APPLIED incl. provenance token swap; §5's remaining-tranche paragraph kept verbatim) | remaining to sweep-clean: [SWEEP] + A5 delta (re-touched) — nothing else (promotion DONE; headline honestly a target, not a claim) | none (promotion applied; sweep confirms) |
 | 11 append (main-run article, Status line is the M1 original) | addendum: [VERDICT:11-M2] FILLED-FINAL GREEN — **A8 FORMAL REPORT RECEIVED (2026-11-14**; m2-run1–7 headers run-time persisted, NOT reconstructed; corrected series 4→2→3→6→3→2→2→0) | remaining: (1) [SWEEP] covers pilots/11 files; (2) A5 delta (re-touched) | BOTH promotion edits APPLIED 2026-11-14: section head "…, COMPLETE (m2-run8-GREEN)"; Status line "+ M2 COMPLETE (2026-11-14; A8 formal report received)" — and the now-false "machine realizations are not done" sentence corrected in place (TM2 done; word-RAM half + M3 remain open) |
 | 22 append (closure note) | knowledge-level closure note — complete as written | none (no slots; covered by A5's 6/6 delta-pass) | none needed (optionally date-stamp "CLOSED" in the note head) |
 | 75 assembly | DRAFT — entry milestone LANDED (A4 formal) | promotion SKELETON→DRAFT APPLIED (2026-11-14); remaining to FINAL: [SWEEP] + A5 delta (re-touched) — the N2/P-b carries are Iteration-4 scope, not blockers | Status → "PROVED (entry milestone), FINAL for Cycle 2" at sweep; provenance token "DRAFT (entry milestone LANDED…)" → "FINAL (Cycle-2 scope; N2/P-b carried)" |

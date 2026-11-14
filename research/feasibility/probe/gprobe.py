@@ -387,7 +387,83 @@ def g6a(tarball: bytes, build_timeout: int = 2400):
     return summary
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=4 * 60 * 60)
+def _sh_stream(cmd, cwd, timeout, every=100):
+    """Like _sh, but streams output: prints every non-progress line plus every `every`-th
+    progress line live, so a detached run's `modal app logs` shows where the build is
+    (attempt 5, run27: the run26 build ran silently until its 9000 s cap)."""
+    import subprocess, time
+    p = subprocess.Popen(cmd, cwd=cwd, shell=True, stdout=subprocess.PIPE,
+                         stderr=subprocess.STDOUT, text=True, bufsize=1)
+    t0, lines, k = time.time(), [], 0
+    for line in p.stdout:
+        lines.append(line.rstrip("\n"))
+        if line.startswith(("✔", "⣿")):
+            k += 1
+            if k % every == 0:
+                print(f"[{int(time.time() - t0)}s] {line.rstrip()}", flush=True)
+        else:
+            print(line.rstrip(), flush=True)
+        if time.time() - t0 > timeout:
+            p.kill()
+            return "TIMEOUT", "\n".join(lines)
+    p.wait()
+    return p.returncode, "\n".join(lines)
+
+
+g7vol = modal.Volume.from_name("crossmath-g7-tree", create_if_missing=True)
+G7_SNAP = "/vol/oai-lean.tar"
+
+
+def _g7_restore(work, tarball):
+    """Restore the persisted donor tree (resume), else unpack the fresh closure tarball."""
+    import io, os, tarfile
+    if os.path.exists(G7_SNAP):
+        rc, _ = _sh(f"tar xf {G7_SNAP} -C {work}", "/", 3600)
+        print(f"[g7] restored persisted tree from volume: rc={rc}", flush=True)
+    tarfile.open(fileobj=io.BytesIO(tarball)).extractall(work / "lean")
+
+
+def _g7_save(work):
+    rc, _ = _sh(f"tar cf {G7_SNAP}.tmp -C {work} lean && mv {G7_SNAP}.tmp {G7_SNAP}",
+                "/", 3600)
+    g7vol.commit()
+    print(f"[g7] persisted tree to volume: rc={rc}", flush=True)
+
+
+def _g7_elab(d, probes, summary):
+    for name, content in probes.items():
+        p = d / name
+        p.write_text(content)
+        rc2, out2 = _sh(f"lake env lean {name}", d, 2400)
+        e2 = [l for l in out2.splitlines() if ": error" in l]
+        sw = [l for l in out2.splitlines() if "declaration uses" in l and "sorry" in l]
+        summary[f"probe {name}"] = ("OK" if rc2 == 0 and not e2 else
+                                    f"FAIL rc={rc2} errors={len(e2)}") + \
+            f" sorry-warnings={len(sw)}"
+        print(f"\n=== probe {name}: {summary[f'probe {name}']}", flush=True)
+        print(out2[:40000], flush=True)
+
+
+@app.function(image=image, cpu=8.0, memory=65536, timeout=4 * 60 * 60,
+              volumes={"/vol": g7vol})
+def g7elab(probes: dict):
+    """Re-elaborate consumer files inside the persisted, already-built donor tree
+    (no rebuild beyond lake's no-op check): the R1 fix-iteration path."""
+    import pathlib
+    work = pathlib.Path("/work"); work.mkdir()
+    _elan_ensure("leanprover/lean4:v4.34.1")
+    _sh(f"tar xf {G7_SNAP} -C {work}", "/", 3600)
+    d = work / "lean"
+    summary = {}
+    _g7_elab(d, probes, summary)
+    print("\n=== SUMMARY", flush=True)
+    for k, v in summary.items():
+        print(f"{k}: {v}", flush=True)
+    return summary
+
+
+@app.function(image=image, cpu=64.0, memory=131072, timeout=24 * 60 * 60,
+              volumes={"/vol": g7vol})
 def g7(tarball: bytes, probes: dict):
     """G7 primary: axiom audit of openai-math's own 7/8 quasi-RH theorems
     (OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re,
@@ -405,12 +481,15 @@ def g7(tarball: bytes, probes: dict):
     donor's own patches/<label>-lean4341.patch (lakefile.lean:306-355 post_update pkg do).
     Attempt 3 (run24, 2026-11-14): build cap raised 7200→9000 s and function cap
     3 h→4 h — run22 proved the patch tier but was killed mid-build by the lane's
-    execution-window interruption; the caps now cover a full 7,075-job compile."""
+    execution-window interruption; the caps now cover a full 7,075-job compile.
+    Attempt 5 (run27): run26 TIMEOUT at 2520/7061 jobs under the 9000 s cap — now
+    cpu 16→64, memory 64→128 GB, build cap 82000 s, function cap 24 h (Modal max),
+    streamed progress, and the client launches with `modal run --detach`."""
     import io, pathlib, re, tarfile
 
     work = pathlib.Path("/work")
     work.mkdir()
-    tarfile.open(fileobj=io.BytesIO(tarball)).extractall(work / "lean")
+    _g7_restore(work, tarball)
 
     _elan_ensure("leanprover/lean4:v4.34.1")
     d = work / "lean"
@@ -447,7 +526,8 @@ def g7(tarball: bytes, probes: dict):
             if ok:
                 applied.append(label)
         summary["patches"] = f"{len(applied)}/12 applied: {','.join(applied)}"
-        rc, out = _sh("lake build OAI.NumberTheory.DirichletL.Nonvanishing", d, 9000)
+        rc, out = _sh_stream("lake build OAI.NumberTheory.DirichletL.Nonvanishing", d, 76000)
+        _g7_save(work)
         e = _errs(out)
         done = re.findall(r"(✔|✖) \[(\d+)/(\d+)\]", out)
         n_ok = sum(1 for m in done if m[0] == "✔")
@@ -459,15 +539,7 @@ def g7(tarball: bytes, probes: dict):
               f"failed: {failed[:40]}", flush=True)
         print(_condense(out), flush=True)
         if rc == 0:
-            for name, content in probes.items():
-                p = d / name
-                p.write_text(content)
-                rc2, out2 = _sh(f"lake env lean {name}", d, 1500)
-                e2 = _errs(out2)
-                summary[f"probe {name}"] = ("OK" if rc2 == 0 and not e2 else
-                                            f"FAIL rc={rc2} errors={len(e2)}")
-                print(f"\n=== probe {name}: {summary[f'probe {name}']}", flush=True)
-                print(out2[:20000], flush=True)
+            _g7_elab(d, probes, summary)
     print("\n=== SUMMARY", flush=True)
     for k, v in summary.items():
         print(f"{k}: {v}", flush=True)
@@ -543,7 +615,20 @@ def main(dir: str = "./probes", mode: str = "probe", root: str = "",
               f"tarball {buf.tell() // 1024 // 1024} MB")
         probes = {"ProbeG7b_OAI_SevenEighths.lean":
                   (stage / "ProbeG7b_OAI_SevenEighths.lean").read_text()}
+        # run27: the staged pilot-50 R1 consumer files ride the same build (R1-prework
+        # §5 steps 1–2; their verdict is only selected if G7b PASSes).
+        p50 = pathlib.Path("/home/doz/zcode-workdir/cross-math-fronttier/research/pilots/50")
+        for f in ["R1probe.lean", "R1.lean"]:
+            if (p50 / f).exists():
+                probes[f] = (p50 / f).read_text()
         print(g7.remote(buf.getvalue(), probes))
+    elif mode == "g7elab":
+        probes = {}
+        for f in members.split(","):
+            f = f.strip()
+            if f:
+                probes[pathlib.Path(f).name] = pathlib.Path(f).read_text()
+        print(g7elab.remote(probes))
     elif mode == "g6a":
         buf = io.BytesIO()
         with tarfile.open(fileobj=buf, mode="w:gz") as tf:
