@@ -1,8 +1,10 @@
 /-
-R1 draft — dossier 50 (quasi-rh-truncated-window-constants), route R1: the openai
-in-corpus 7/8 discharge. **PROBE-CONVENTION HEADER: DRAFT, WRITTEN 2026-11-14, NOT RUN —
-NOT A PROOF ARTIFACT until its first GREEN elaboration** (staged per R1-prework.md; the
-execution is gated on A7's G7b donor-pin axiom audit).
+R1 — dossier 50 (quasi-rh-truncated-window-constants), route R1: the openai in-corpus 7/8
+discharge. **PROOF ARTIFACT — GREEN 2026-11-14** (`research/feasibility/probe/logs-g/
+run32-g7-elab.log`: R1.lean OK, 0 errors, 0 sorry; all four landings + both donor theorems
+`#print axioms` = [propext, Classical.choice, Quot.sound]). Elaborated inside the donor's
+pruned Nonvanishing closure built at the donor pin (v4.34.1 / mathlib d13f23b7) as cached
+Modal image layers (`feasibility/probe/g7_layers.py`); G7b donor audit PASS in the same run.
 
 Posture: pilot 50's M1/M2a binders (`hQRH`, `hQRHχ`) were transcribed from the openai
 challenge forms; R1 DISCHARGES both from the donor's own proved theorems, imported

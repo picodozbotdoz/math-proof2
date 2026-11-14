@@ -146,7 +146,8 @@ def _layered_image():
 image = _layered_image() if modal.is_local() else modal.Image.debian_slim()
 
 
-@app.function(image=image, **SPEC, timeout=60 * 60)
+# memory 8 GB: USER-APPROVED 2026-11-14 for the single re-elaboration run (run31 peak 7.1 GB).
+@app.function(image=image, cpu=SPEC["cpu"], memory=8192, timeout=60 * 60)
 @telemetered
 def elaborate(files: dict):
     import subprocess
