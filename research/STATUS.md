@@ -715,38 +715,66 @@ this point.
   A1's TARGETS re-check (72-M1 landing note: AxPilot72_M1_T1/T2 to be added).
 - Concurrency probe at this batch close: **7**.
 
-## Cycle 2 CLOSE — TEMPLATE (pre-staged 2026-11-14, H; **NOT a verdict — orchestrator
-fills at close; fill-in-fast slots in [brackets]; delete this banner when filling**)
+## Cycle 2 CLOSED — 2026-11-14
 
-Closed: [DATE]; cycle charter `RESEARCH.md` § Cycle 2; relaunch `RESUME-BRIEF-C2.md`.
+Cycle charter: `RESEARCH.md` § Cycle 2. Relaunches: `RESUME-BRIEF-C2.md` and
+`RESUME-BRIEF-C2-ENDGAME.md` (the endgame was completed in the 2026-11-14 resume session).
 
 **Final pilot outcomes:**
 
 | Pilot / probe | Verdict | Evidence |
 |---|---|---|
-| 71-P2 (FF landing theorems, A2) | **FINAL-GREEN (A2 formal report received 2026-11-14)** | p2-run6 "P2.lean: OK": final 279 LoC / 11 thms, 22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK (p2-run1–6); W1 pole-family correction |
-| 73-C (FF Hecke–Tate skeleton, A2) | **GREEN FINAL (covered by A2's report)** | run6-c-green: 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad; descent 2→4→4→2→OK; Q4 untouched per separate gate |
-| 42-M4b + upgrade (V2 donor swap, A3) | fallback GREEN (m4b-run2 + m4b-axcheck-run1, triad-only) + upgrade **COMPLETE-primary** (m4b2-run2 "M4b.lean: OK" — direct V2 import, 1,571 LoC / 68 thms = PRIMARY, fallback byte-preserved, ≤20-line gate met; disk-verified, A3 formal report owed) | m4b-run2, m4b-axcheck-run1, m4b2-run2; M4-note owed |
-| 10-L2 `PolyTVal` (A6) | **GREEN + axcheck-clean (A6 formal report received 2026-11-14)** | final 2,625 LoC (2,042 M1-verbatim byte-identical + ~580 Part D); axcheck 151 thms (134 M1-region + 17 Part D) all triad, 0 sorryAx; descent 12→3→1→0→final (l2-run1–5) |
-| 11-M2 (A8) | **GREEN FINAL — A8 FORMAL REPORT RECEIVED 2026-11-14 (debt d closed)** | m2-run8 all six files OK incl. RedTm2 (final 421 LoC); churn 4→2→3→6→3→2→2→0 site-basis (run5 counter 4 — only divergence); all logs run-time persisted; axcheck 76 lines 0 sorryAx triad-only; blueprint §8 = formal record |
-| 72-M1 Tier-C (A8, slot 3) | **PARTIAL-M1 GREEN — FINAL-FOR-TRANCHE (A8 formal report received 2026-11-14; L3 + interface carried to Iter-4, decision recorded)** | m1-run8 both OK (T1 702 LoC vendor + T2 360 LoC / 25 thms); descent …→24→10→1→0 runs 6–8 post-resume; axcheck 52+28 lines (28 = 25 + 3 milestone repeats), 0 sorryAx, triad-only; continuation spec in m1-run8 header |
-| 72-C-neg Kuwahara gate (A4) | **FINAL-GREEN OFFICIAL (A4 report received 2026-11-14)** | run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 (runs 1–8; 1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
-| G7b donor-pin axiom audit (A7) | [G7b] | [run19/20; gates 50-M2-R1 + Liu-1 posture] |
-| G5a Physlib staging / G6a Stacks pricing (A7) | [G5a] / [G6a] | [run20-retry / run21] |
+| 71-P2 (FF s-plane landing theorems) | **GREEN FINAL** | p2-run6: 279 LoC / 11 thms, all triad; W1 pole-family correction |
+| 73-C (FF Hecke statement layer, Tier C) | **GREEN FINAL**; Q4 carried | run6-c-green: 236 LoC / 7 thms, all triad |
+| 42-M4 (ZetaZerosV2 donor swap) | **GREEN FINAL**, both routes | M4b.lean 1,571 / 68 (direct V2 import), donor-tree axcheck triad |
+| 75 (abelian ζ_L assembly, entry) | **GREEN FINAL for Cycle 2**; P-b + N2 carried | run6-final: Pa.lean 1,557 / 66, 17/17 triad |
+| 72-C-neg (Rényi no-go gate) | **GREEN FINAL** | run8-final: 369 / 11, 11/11 triad |
+| 72-M1 (family-265 interface, links 1–3) | **GREEN for tranche**; L3 + interface carried | m1-run8: 702 + 360 / 25, triad |
+| 10-L2 (value-time/word-space countdown) | **GREEN FINAL**; headline OPEN (assembly tranche carried) | l2-run5: 2,625 / 151, all ⊆ triad |
+| 11-M2 (Theorem B(ii), TM2 realization) | **GREEN FINAL** | m2-run8: six files OK; 76 axiom lines, 0 sorryAx |
+| G7b (openai 7/8 donor-pin axiom audit) | **PASS** | `probe/logs-g/run32-g7-elab.log` — headlines + delegation roots triad |
+| 50-M2 R1 (unconditional ζ strip) | **GREEN FINAL** | `pilots/50/R1.lean` 178 LoC OK; ζ strip [1/8, 7/8] with no hypotheses |
+| G5a (Physlib staging) / G6a (Stacks pricing) | BLOCKED-INFRA → Iteration 4 / CONFIRMED NEGATIVE | `feasibility/axiommath-donor-probes.md` |
 
-**Sweep:** [SWEEP] — FINAL-SWEEP-PLAN-C2 Steps A–C executed [date]; ledger §9 rows all
-FINAL-or-declared-drop; [N/N] staged files OK, 0 sorryAx, triad-only; machinery log
-`probe/logs/axcheck-c2-machinery-check.log`.
+**Sweep:** FINAL-SWEEP-PLAN-C2 Steps A–D executed 2026-11-14:
+- Step A: 43/43 baseline probe stubs, 0 unexplained.
+- Step B: 44/44 stages OK (M4b on its donor tree), 0 sorryAx, triad-only.
 
-**TRIAGE § Cycle-2 §decision:** typeset [date] from `TRIAGE-C2-ROWS.md` +
-`qa/triage-decision-staging.md`; top picks [ … ]; mirrored into REPORT.md §C2.6.
+Ledger: `feasibility/VERIFICATION-LEDGER.md` §9.F. Per-pilot logs:
+`pilots/*/logs/axcheck-c2-final.log`.
 
-**Articles:** [list of Cycle-2 articles landed, one per landing] — `articles/README.md`
-Cycle-2 section updated [date].
+**TRIAGE:** `TRIAGE.md` § Cycle-2 pilot decision DECIDED 2026-11-14 (matrix filled, DLRT
+:137 qualifier fixed). It is mirrored in REPORT.md §C2.6.
 
-**AGENTS-C2 addendum:** APPLIED [date, commit] per `qa/agents-c2-apply-plan.md`
-(7-edit pass; conflicts resolved as staged; draft header marked APPLIED).
+**Articles (one per discovery):** 75, 42-M4, 71, 73, 72, 50-M2, 10 (layers), 11 (B(ii)
+addendum), 22 (closure note). All are rewritten as finished articles stating the landed
+theorems verbatim. Index: `articles/README.md` § Cycle 2.
 
-**Iteration-4 handoff:** groundwork `feasibility/ITERATION4-SCAN.md` +
-`ITERATION4-SEED-DOSSIERS.md` (+ [SEED-TRIAGE/CHARTER files]); charter
-[ITERATION4-CHARTER-DRAFT.md status]; branch dev/claude at [commit].
+**AGENTS-C2 addendum:** APPLIED 2026-11-14 per `qa/agents-c2-apply-plan.md`: E1, E3–E7
+(bf025a1) and E2 (after the G7b verdict); `AGENTS-C2-DRAFT.md` is marked APPLIED. New
+mandatory section **§ Modal usage guidelines** (user directive 2026-11-14), covering:
+- 2 CPU / 4 GB default;
+- telemetry on every run;
+- overrun ⇒ investigate, more only with explicit per-run approval;
+- long builds as cached image layers.
+
+**Debts:** `qa/debts-register.md` — (b)(c)(d)(e) CLOSED; (f)(g)(h)(i)–(m) carried or recorded.
+
+**Modal incident record (2026-11-14):** run28 reserved 64 CPU / 128 GB. It was cancelled
+by the user as a budget breach. The remediation:
+- every runner down-specced to `SPEC` (2 CPU / 4 GB) with `@telemetered` and
+  `LEAN_NUM_THREADS=2`;
+- G7b rebuilt as 28 cached image layers (`feasibility/probe/g7_layers.py`);
+- 8 GB memory used only with explicit user approval (chunk layers + one re-elaboration).
+
+**Iteration-4 handoff:** `feasibility/ITERATION4-SCAN.md`, `ITERATION4-SEED-DOSSIERS.md`,
+`ITERATION4-CHARTER-SPLICE.md`. Carried items:
+- 73-Q4;
+- 75 P-b / N2;
+- 72-M1 L3 + interface;
+- the 10 assembly tranche (D1–D6);
+- 50-M2 R2 (31/32 ζ_K strip);
+- G5a Physlib pair;
+- 74.
+
+Branch `dev/iteration4` is cut from the Cycle-2 close commit on `dev/claude` (never pushed).
