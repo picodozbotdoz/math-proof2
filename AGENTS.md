@@ -142,7 +142,19 @@ when a `lean-toolchain` is added here.
    CPU/memory/timeout requested, the telemetry evidence, and why it cannot be avoided.
    Launch only after an explicit yes for *that* run. Approval does not carry over to
    other runs.
-5. Never reserve resources "to be safe". Run28 (G7b, 2026-11-14) reserved 64 CPU /
+5. **Measured facts (G7b investigation, 2026-11-14):**
+   - Modal containers report `nproc` far above the requested CPU (nproc=18 at cpu=2).
+     Lake and lean size their thread pools from it, so always set `LEAN_NUM_THREADS` to
+     the CPU spec. The shared runners do this (`CAP` secret); `g7_layers.py` does it in
+     its commands.
+   - The sandbox exposes no cgroup memory files and no `RssAnon`. The telemetry `mem`
+     figure is MemTotal−MemAvailable, which includes the memory-mapped Mathlib `.olean`
+     pages (≈5–6 GB for Mathlib-importing modules). That is inherent to elaborating
+     Mathlib-importing modules.
+   - Long builds go into **cached image layers** (`Image.run_function` chunks, as in
+     `feasibility/probe/g7_layers.py`), never one ephemeral container. Finished layers
+     persist and are reused at no rebuild cost. A stop or preemption loses one chunk.
+6. Never reserve resources "to be safe". Run28 (G7b, 2026-11-14) reserved 64 CPU /
    128 GB while using about 19 workers and little RAM. It was cancelled by the user as a
    budget breach. Do not repeat it.
 
