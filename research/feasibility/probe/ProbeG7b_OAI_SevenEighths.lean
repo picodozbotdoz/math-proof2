@@ -23,5 +23,5 @@ import OAI.NumberTheory.DirichletL.Nonvanishing
 
 /-! ## The delegation root (the assembly layer the proofs sit on). -/
 
-#print axioms SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero
-#print axioms SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero
+#print axioms OAI.SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero
+#print axioms OAI.SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero

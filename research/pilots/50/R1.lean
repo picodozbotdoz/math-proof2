@@ -170,7 +170,7 @@ end Dirichlet
 #print axioms strip_confinement_seven_eighths
 #print axioms strip_confinement_mem_seven_eighths
 #print axioms strip_confinement_set_seven_eighths
-#print axioms strip_confinement_dirichlet_seven_eighths_of_FE
+#print axioms Dirichlet.strip_confinement_dirichlet_seven_eighths_of_FE
 -- donor hygiene re-confirmed from the consumer side (complements A7's G7b):
 #print axioms OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
 #print axioms OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re

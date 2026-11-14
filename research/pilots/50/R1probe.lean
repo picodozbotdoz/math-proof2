@@ -20,8 +20,8 @@ import Mathlib
 
 #print axioms OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
 #print axioms OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re
-#print axioms SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero
-#print axioms SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero
+#print axioms OAI.SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero
+#print axioms OAI.SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero
 
 #check @OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
 #check @OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re
@@ -48,7 +48,7 @@ example (z : ℂ) (hz : z ∈ riemannZetaZeros) : riemannZeta z = 0 :=
 -- Dirichlet vocabulary at the donor pin
 #check @DirichletCharacter.LFunction
 #check @DirichletCharacter.IsPrimitive
-example (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) : DirichletCharacter ℂ q := χ⁻¹
+noncomputable example (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q) : DirichletCharacter ℂ q := χ⁻¹
 
 /-! ## (3) The two R1 discharges, standalone -/
 

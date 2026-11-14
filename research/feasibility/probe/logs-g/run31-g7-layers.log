@@ -1,0 +1,1226 @@
+# Provenance: modal run --detach g7_layers.py (G7b attempt 6c): resume of run30; chunk layers 1..N + target at 2 cpu / 8 GB — USER-APPROVED 2026-11-14 for this build only; base/tree/prep/chunk0 from cache. Telemetry OVER flags are computed against the 4 GB default spec (module unchanged to keep layers cached), so mem samples ≤ 8192 MB are within the approval. 2026-11-14.
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-VaumjXFz57jTDJhPJV50uB
+Building image im-w2JmxPiT8INpxEM1zSgI8L
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 1: 28 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.92 mem=2783MB anon=0MB peak=-1MB procs=3
+[tele] t=240s cpu=2.00 mem=6059MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (4097 jobs).
+[tele] SUMMARY build_chunk: wall=338s max_cpu=2.00 max_mem=6059MB max_anon=0MB samples=2 OVER=1
+Saving image...
+Image saved, took 4.82s
+Finished image build for im-w2JmxPiT8INpxEM1zSgI8L
+Building image im-t8iM82XeUmOdiqXwauJfMC
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 2: 29 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.99 mem=5798MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.46 mem=2197MB anon=0MB peak=-1MB procs=3 OVER cpu
+Build completed successfully (4126 jobs).
+[tele] SUMMARY build_chunk: wall=306s max_cpu=2.46 max_mem=5798MB max_anon=0MB samples=2 OVER=2
+Saving image...
+Image saved, took 3.74s
+Finished image build for im-t8iM82XeUmOdiqXwauJfMC
+Building image im-Q1xU2ydqpisHsB3xh8yH0A
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 3: 30 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.96 mem=5153MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.31 mem=6060MB anon=0MB peak=-1MB procs=3 OVER cpu|mem
+Build completed successfully (4156 jobs).
+[tele] SUMMARY build_chunk: wall=340s max_cpu=2.31 max_mem=6060MB max_anon=0MB samples=2 OVER=2
+Saving image...
+Image saved, took 5.11s
+Finished image build for im-Q1xU2ydqpisHsB3xh8yH0A
+Building image im-huFTFCDAVb994wZhgM0vgR
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 4: 30 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.43 mem=6108MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=240s cpu=1.68 mem=6529MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=360s cpu=1.97 mem=2451MB anon=0MB peak=-1MB procs=4
+Build completed successfully (4186 jobs).
+[tele] SUMMARY build_chunk: wall=414s max_cpu=1.97 max_mem=6529MB max_anon=0MB samples=3 OVER=2
+Saving image...
+Image saved, took 4.54s
+Finished image build for im-huFTFCDAVb994wZhgM0vgR
+Building image im-mHsLx8x6B6uJ64aSofZz4G
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 5: 30 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.63 mem=6157MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=240s cpu=2.17 mem=2114MB anon=0MB peak=-1MB procs=2 OVER cpu
+[tele] t=360s cpu=1.96 mem=2135MB anon=0MB peak=-1MB procs=3
+Build completed successfully (4216 jobs).
+[tele] SUMMARY build_chunk: wall=409s max_cpu=2.17 max_mem=6157MB max_anon=0MB samples=3 OVER=2
+Saving image...
+Image saved, took 4.58s
+Finished image build for im-mHsLx8x6B6uJ64aSofZz4G
+Building image im-HrvBmBAbhyg5Y2vKQiox0i
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 6: 32 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.61 mem=2130MB anon=0MB peak=-1MB procs=3
+[tele] t=240s cpu=2.30 mem=6637MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=360s cpu=1.96 mem=2117MB anon=0MB peak=-1MB procs=2
+Build completed successfully (4264 jobs).
+[tele] SUMMARY build_chunk: wall=405s max_cpu=2.30 max_mem=6637MB max_anon=0MB samples=3 OVER=1
+Saving image...
+Image saved, took 3.97s
+Finished image build for im-HrvBmBAbhyg5Y2vKQiox0i
+Building image im-K5gr3ZlrM7mxsgAfYi4yHV
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 7: 31 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=2.10 mem=6285MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=240s cpu=2.23 mem=6650MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=360s cpu=2.85 mem=6518MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+Build completed successfully (4295 jobs).
+[tele] SUMMARY build_chunk: wall=415s max_cpu=2.85 max_mem=6650MB max_anon=0MB samples=3 OVER=3
+Saving image...
+Image saved, took 4.06s
+Finished image build for im-K5gr3ZlrM7mxsgAfYi4yHV
+Building image im-DbzSm0DPM5ijdOBiN74UMb
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 8: 31 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=2.07 mem=5805MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.33 mem=6315MB anon=0MB peak=-1MB procs=3 OVER cpu|mem
+[tele] t=360s cpu=1.44 mem=6279MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (4326 jobs).
+[tele] SUMMARY build_chunk: wall=378s max_cpu=2.33 max_mem=6315MB max_anon=0MB samples=3 OVER=3
+Saving image...
+Image saved, took 10.49s
+Finished image build for im-DbzSm0DPM5ijdOBiN74UMb
+Building image im-aXhQCQj8U8vl5LBROuzMgs
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 9: 32 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.72 mem=6264MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=240s cpu=1.43 mem=6355MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=360s cpu=1.66 mem=6306MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (4358 jobs).
+[tele] SUMMARY build_chunk: wall=443s max_cpu=1.72 max_mem=6355MB max_anon=0MB samples=3 OVER=3
+Saving image...
+Image saved, took 4.84s
+Finished image build for im-aXhQCQj8U8vl5LBROuzMgs
+Building image im-yVriEBbNHpfbEDN9Vph0Mn
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 10: 96 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=2.16 mem=5845MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=240s cpu=1.43 mem=6349MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=360s cpu=1.06 mem=6095MB anon=0MB peak=-1MB procs=3 OVER mem
+[415s] ✔ [4419/4465] Built OAI.NumberTheory.DirichletL.Hecke.IdealOperations (4.8s)
+[tele] t=480s cpu=1.96 mem=3235MB anon=0MB peak=-1MB procs=4
+Build completed successfully (4465 jobs).
+[tele] SUMMARY build_chunk: wall=582s max_cpu=2.16 max_mem=6349MB max_anon=0MB samples=4 OVER=3
+Saving image...
+Image saved, took 12.38s
+Finished image build for im-yVriEBbNHpfbEDN9Vph0Mn
+Building image im-f61DVzPAsmpSUs39TlBagm
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 11: 146 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.96 mem=6153MB anon=0MB peak=-1MB procs=4 OVER mem
+[237s] ✔ [4514/4546] Built OAI.NumberTheory.DirichletL.Moments.FirstColumns (6.1s)
+[tele] t=240s cpu=2.21 mem=6147MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=360s cpu=2.17 mem=6422MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[425s] ✔ [4573/4580] Built OAI.NumberTheory.DirichletL.Detector.PhysicalAnalytic (6.6s)
+[tele] t=480s cpu=2.14 mem=4119MB anon=0MB peak=-1MB procs=3 OVER cpu|mem
+[tele] t=600s cpu=1.46 mem=5543MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (4620 jobs).
+[tele] SUMMARY build_chunk: wall=623s max_cpu=2.21 max_mem=6422MB max_anon=0MB samples=5 OVER=5
+Saving image...
+Image saved, took 3.94s
+Finished image build for im-f61DVzPAsmpSUs39TlBagm
+Building image im-yRe7z5a8U59NqxuubWrtaM
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 12: 165 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=2.05 mem=6138MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.04 mem=6241MB anon=0MB peak=-1MB procs=3 OVER mem
+[246s] ✔ [4664/4668] Built OAI.NumberTheory.DirichletL.Moments.AmplificationActiveFactor (6.4s)
+[tele] t=360s cpu=2.16 mem=6427MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[441s] ✔ [4724/4731] Built OAI.NumberTheory.DirichletL.Moments.SecondRetainedAggregate (5.8s)
+Building image im-yRe7z5a8U59NqxuubWrtaM
+
+=> Step 0: running function 'build_chunk'
+[tele] t=480s cpu=2.08 mem=6200MB anon=0MB peak=-1MB procs=4 OVER mem
+Saving image...
+Image saved, took 2.42s
+Finished image build for im-yRe7z5a8U59NqxuubWrtaM
+[tele] t=600s cpu=2.12 mem=6188MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[625s] ✔ [4774/4780] Built OAI.NumberTheory.DirichletL.Moments.RadialCenteredEnergy (7.5s)
+Build completed successfully (4816 jobs).
+[tele] SUMMARY build_chunk: wall=681s max_cpu=2.16 max_mem=6427MB max_anon=0MB samples=5 OVER=5
+Saving image...
+Image saved, took 5.92s
+Finished image build for im-yRe7z5a8U59NqxuubWrtaM
+Building image im-JrGGMkZc8kDrIZFXgjhfQm
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 13: 169 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=2.11 mem=6324MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[220s] ✔ [4701/4731] Built OAI.NumberTheory.DirichletL.Moments.RayNonprincipal (4.9s)
+[tele] t=240s cpu=2.10 mem=6306MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=360s cpu=2.14 mem=6409MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[387s] ✔ [4843/4883] Built OAI.NumberTheory.DirichletL.Moments.PrimeSlotShift (5.6s)
+[tele] t=480s cpu=2.22 mem=3108MB anon=0MB peak=-1MB procs=3 OVER cpu
+[536s] ✔ [4966/4985] Built OAI.NumberTheory.DirichletL.Moments.AllocatedDetectorCapped (5.3s)
+[tele] t=600s cpu=1.77 mem=2137MB anon=0MB peak=-1MB procs=3
+Build completed successfully (4985 jobs).
+[tele] SUMMARY build_chunk: wall=639s max_cpu=2.22 max_mem=6409MB max_anon=0MB samples=5 OVER=4
+Saving image...
+Image saved, took 9.90s
+Finished image build for im-JrGGMkZc8kDrIZFXgjhfQm
+Building image im-3vEj3z4jOpSCxbufYPlmHS
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 14: 184 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.95 mem=4126MB anon=0MB peak=-1MB procs=4 OVER mem
+[237s] ✔ [5027/5036] Built OAI.NumberTheory.DirichletL.Moments.FirstMixedNormalizationActual (5.6s)
+[tele] t=240s cpu=2.20 mem=6681MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=360s cpu=2.17 mem=2148MB anon=0MB peak=-1MB procs=3 OVER cpu
+[417s] ✔ [5079/5086] Built OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalControl (6.5s)
+[tele] t=480s cpu=2.04 mem=6150MB anon=0MB peak=-1MB procs=3 OVER mem
+[572s] ✔ [5129/5138] Built OAI.NumberTheory.DirichletL.Moments.DetectorDictionarySlots (6.7s)
+[tele] t=600s cpu=2.16 mem=2149MB anon=0MB peak=-1MB procs=4 OVER cpu
+Build completed successfully (5164 jobs).
+[tele] SUMMARY build_chunk: wall=691s max_cpu=2.20 max_mem=6681MB max_anon=0MB samples=5 OVER=5
+Saving image...
+Image saved, took 10.67s
+Finished image build for im-3vEj3z4jOpSCxbufYPlmHS
+Building image im-l4CPJsyLfa8H0S2fu8vRr8
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 15: 227 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.93 mem=6111MB anon=0MB peak=-1MB procs=4 OVER mem
+[176s] ✔ [4698/4713] Built OAI.NumberTheory.DirichletL.Detector.PhysicalRadial (5.1s)
+[tele] t=240s cpu=2.20 mem=6266MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[319s] ✔ [4749/4769] Built OAI.NumberTheory.DirichletL.Detector.HighRowsTail (6.7s)
+[tele] t=360s cpu=2.12 mem=6743MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] SUMMARY build_chunk: wall=383s max_cpu=2.20 max_mem=6743MB max_anon=0MB samples=3 OVER=3
+Saving image...
+
+Task ta-01M7CCHGA9TB7SMFPZKW99D87R building image im-l4CPJsyLfa8H0S2fu8vRr8 was preempted. Rescheduling...
+
+
+Task ta-01M7CCHGA9TB7SMFPZKW99D87R building image im-l4CPJsyLfa8H0S2fu8vRr8 was preempted. Rescheduling...
+
+Building image im-l4CPJsyLfa8H0S2fu8vRr8
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 15: 227 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.85 mem=6236MB anon=0MB peak=-1MB procs=4 OVER mem
+[230s] ✔ [4699/4722] Built OAI.NumberTheory.DirichletL.Detector.InitialScales (6.5s)
+[tele] t=240s cpu=2.27 mem=3197MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=2.01 mem=2219MB anon=0MB peak=-1MB procs=4
+[391s] ✔ [4749/4760] Built OAI.NumberTheory.DirichletL.Detector.HighRowsActual (5.9s)
+[tele] t=480s cpu=2.20 mem=6715MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[574s] ✔ [4803/4834] Built OAI.NumberTheory.DirichletL.PrimeRows.Selected (5.4s)
+[tele] t=600s cpu=2.09 mem=6190MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=720s cpu=2.08 mem=6283MB anon=0MB peak=-1MB procs=4 OVER mem
+[728s] ✔ [4853/4873] Built OAI.NumberTheory.DirichletL.PrimeRows.BufferedBin (5.9s)
+Build completed successfully (4881 jobs).
+[tele] SUMMARY build_chunk: wall=839s max_cpu=2.27 max_mem=6715MB max_anon=0MB samples=6 OVER=5
+Saving image...
+Image saved, took 3.19s
+Finished image build for im-l4CPJsyLfa8H0S2fu8vRr8
+Building image im-HnX0O2TIThn9KPyJuinweM
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 16: 194 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.93 mem=6330MB anon=0MB peak=-1MB procs=4 OVER mem
+[216s] ✔ [5107/5117] Built OAI.NumberTheory.DirichletL.Hecke.DetectorRowCountOptimization (12s)
+[tele] t=240s cpu=2.22 mem=6494MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[355s] ✔ [5168/5201] Built OAI.NumberTheory.DirichletL.Descent.Fibers (3.5s)
+[tele] t=360s cpu=2.09 mem=6630MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=480s cpu=2.07 mem=2169MB anon=0MB peak=-1MB procs=4
+[505s] ✔ [5218/5240] Built OAI.NumberTheory.DirichletL.Descent.Grid (5.4s)
+[tele] t=600s cpu=2.09 mem=6613MB anon=0MB peak=-1MB procs=4 OVER mem
+Build completed successfully (5263 jobs).
+[tele] SUMMARY build_chunk: wall=636s max_cpu=2.22 max_mem=6630MB max_anon=0MB samples=5 OVER=4
+Saving image...
+Image saved, took 6.98s
+Finished image build for im-HnX0O2TIThn9KPyJuinweM
+Building image im-VomxF8DrhFFAqcQ7hWIh34
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 17: 222 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.75 mem=6173MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=1.82 mem=3380MB anon=0MB peak=-1MB procs=3
+[319s] ✔ [4805/4977] Built OAI.NumberTheory.DirichletL.Inversion.ReflectedNormalization (6.7s)
+[tele] t=360s cpu=1.41 mem=3068MB anon=0MB peak=-1MB procs=3
+[tele] t=480s cpu=1.93 mem=6392MB anon=0MB peak=-1MB procs=4 OVER mem
+[506s] ✔ [4855/4977] Built OAI.NumberTheory.DirichletL.Reflection.UpperThreshold (6.2s)
+[tele] t=600s cpu=1.60 mem=6659MB anon=0MB peak=-1MB procs=4 OVER mem
+[693s] ✔ [4905/4977] Built OAI.NumberTheory.DirichletL.Reflection.LowBranchSum (6.3s)
+[tele] t=720s cpu=1.93 mem=6419MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=840s cpu=2.09 mem=2212MB anon=0MB peak=-1MB procs=4
+[887s] ✔ [4955/4977] Built OAI.NumberTheory.DirichletL.Reflection.OriginalActiveReflection (5.9s)
+[tele] t=960s cpu=1.73 mem=6517MB anon=0MB peak=-1MB procs=4 OVER mem
+Build completed successfully (4977 jobs).
+[tele] SUMMARY build_chunk: wall=999s max_cpu=2.09 max_mem=6659MB max_anon=0MB samples=8 OVER=5
+Saving image...
+Image saved, took 3.54s
+Finished image build for im-VomxF8DrhFFAqcQ7hWIh34
+Building image im-zVwBiO206YyUz84l76fuwo
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 18: 188 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.79 mem=6218MB anon=0MB peak=-1MB procs=4 OVER mem
+[237s] ✔ [5032/5045] Built OAI.NumberTheory.DirichletL.Detector.GramWindowMobius (5.7s)
+[tele] t=240s cpu=2.38 mem=6401MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[tele] t=360s cpu=2.18 mem=6604MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[404s] ✔ [5291/5314] Built OAI.NumberTheory.DirichletL.Detector.LowSourceScales (5.4s)
+[tele] t=480s cpu=2.21 mem=4808MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[568s] ✔ [5693/5708] Built OAI.NumberTheory.DirichletL.Detector.CentralMixedMargins (7.9s)
+[tele] t=600s cpu=2.04 mem=5286MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=720s cpu=1.61 mem=2156MB anon=0MB peak=-1MB procs=3
+Build completed successfully (5996 jobs).
+[tele] SUMMARY build_chunk: wall=736s max_cpu=2.38 max_mem=6604MB max_anon=0MB samples=6 OVER=5
+Saving image...
+Image saved, took 8.83s
+Finished image build for im-zVwBiO206YyUz84l76fuwo
+Building image im-qt9Se6M09P2MeVrcUlL7ls
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 19: 160 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.98 mem=6641MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.10 mem=6736MB anon=0MB peak=-1MB procs=4 OVER mem
+[242s] ✔ [6050/6067] Built OAI.NumberTheory.DirichletL.Energy.AllocatedBound (6.7s)
+[tele] t=360s cpu=2.02 mem=6583MB anon=0MB peak=-1MB procs=4 OVER mem
+[430s] ✔ [6100/6108] Built OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalUniform (7.8s)
+[tele] t=480s cpu=2.07 mem=6933MB anon=0MB peak=-1MB procs=3 OVER mem
+[tele] t=600s cpu=2.04 mem=2898MB anon=0MB peak=-1MB procs=3
+[629s] ✔ [6150/6155] Built OAI.NumberTheory.DirichletL.Moments.FirstMixedExceptionalLow (6.6s)
+Build completed successfully (6161 jobs).
+[tele] SUMMARY build_chunk: wall=667s max_cpu=2.10 max_mem=6933MB max_anon=0MB samples=5 OVER=4
+Saving image...
+Image saved, took 3.18s
+Finished image build for im-qt9Se6M09P2MeVrcUlL7ls
+Building image im-D3OUc0xHeQv784yWZRHfXc
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 20: 142 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.87 mem=6726MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.25 mem=6491MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[269s] ✔ [6210/6218] Built OAI.NumberTheory.DirichletL.Energy.PhysicalEntry (5.9s)
+[tele] t=360s cpu=2.15 mem=6719MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+[458s] ✔ [6260/6266] Built OAI.NumberTheory.DirichletL.Energy.ReferenceLowEmpty (5.1s)
+[tele] t=480s cpu=2.13 mem=6355MB anon=0MB peak=-1MB procs=3 OVER cpu|mem
+[tele] t=600s cpu=2.12 mem=7560MB anon=0MB peak=-1MB procs=4 OVER cpu|mem
+Build completed successfully (6303 jobs).
+[tele] SUMMARY build_chunk: wall=625s max_cpu=2.25 max_mem=7560MB max_anon=0MB samples=5 OVER=5
+Saving image...
+Image saved, took 5.77s
+Finished image build for im-D3OUc0xHeQv784yWZRHfXc
+Building image im-xA0Dud60VflEWZ2t39aevm
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 21: 167 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.67 mem=5706MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.01 mem=7411MB anon=0MB peak=-1MB procs=4 OVER mem
+[248s] ✔ [6352/6357] Built OAI.NumberTheory.DirichletL.Energy.CertifiedExistence (5.6s)
+[tele] t=360s cpu=2.07 mem=6587MB anon=0MB peak=-1MB procs=4 OVER mem
+[427s] ✔ [6402/6435] Built OAI.NumberTheory.DirichletL.PrimeRows.CubeFixedPrimes (10s)
+[tele] t=480s cpu=2.03 mem=6594MB anon=0MB peak=-1MB procs=4 OVER mem
+[595s] ✔ [6452/6464] Built OAI.NumberTheory.DirichletL.Descent.ActualSecondProfile (6.4s)
+[tele] t=600s cpu=2.10 mem=6885MB anon=0MB peak=-1MB procs=4 OVER mem
+Build completed successfully (6470 jobs).
+[tele] SUMMARY build_chunk: wall=667s max_cpu=2.10 max_mem=7411MB max_anon=0MB samples=5 OVER=5
+Saving image...
+Image saved, took 3.33s
+Finished image build for im-xA0Dud60VflEWZ2t39aevm
+Building image im-ZpdcyMJugG05DoFlKWoNLq
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 22: 166 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.98 mem=2957MB anon=0MB peak=-1MB procs=3
+[198s] ✔ [4655/4708] Built OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerAssignedPair (5.5s)
+[tele] t=240s cpu=2.02 mem=6373MB anon=0MB peak=-1MB procs=4 OVER mem
+[332s] ✔ [4705/4727] Built OAI.NumberTheory.DirichletL.Descent.ReopenedSource (4.0s)
+[tele] t=360s cpu=2.02 mem=6658MB anon=0MB peak=-1MB procs=4 OVER mem
+[470s] ✔ [4755/4768] Built OAI.NumberTheory.DirichletL.Descent.SecondFreshTruncation (5.5s)
+[tele] t=480s cpu=1.97 mem=6361MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (4772 jobs).
+[tele] SUMMARY build_chunk: wall=532s max_cpu=2.02 max_mem=6658MB max_anon=0MB samples=4 OVER=3
+Saving image...
+Image saved, took 4.31s
+Finished image build for im-ZpdcyMJugG05DoFlKWoNLq
+Building image im-Ku1U9o63DSPcuB4d6LZyLX
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 23: 190 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.93 mem=6253MB anon=0MB peak=-1MB procs=3 OVER mem
+[187s] ✔ [4664/4669] Built OAI.NumberTheory.DirichletL.Descent.SecondTailCost (8.8s)
+[tele] t=240s cpu=1.98 mem=6401MB anon=0MB peak=-1MB procs=4 OVER mem
+[337s] ✔ [4714/4730] Built OAI.NumberTheory.DirichletL.Descent.GlobalPriorityFullBranches (5.0s)
+[tele] t=360s cpu=2.02 mem=6436MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=480s cpu=1.99 mem=3677MB anon=0MB peak=-1MB procs=3
+[490s] ✔ [4891/4948] Built OAI.NumberTheory.DirichletL.Inversion.InitialCanonicalEnergy (5.5s)
+[tele] t=600s cpu=1.72 mem=6279MB anon=0MB peak=-1MB procs=3 OVER mem
+Build completed successfully (5159 jobs).
+[tele] SUMMARY build_chunk: wall=692s max_cpu=2.02 max_mem=6436MB max_anon=0MB samples=5 OVER=4
+Saving image...
+Image saved, took 6.26s
+Finished image build for im-Ku1U9o63DSPcuB4d6LZyLX
+Building image im-KYxLJKywxY9ce2Sm3hkWjs
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 24: 213 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.57 mem=6734MB anon=0MB peak=-1MB procs=4 OVER mem
+[tele] t=240s cpu=2.00 mem=6340MB anon=0MB peak=-1MB procs=4 OVER mem
+[266s] ✔ [5207/5225] Built OAI.NumberTheory.DirichletL.Descent.CanonicalPunctureMaskEnergy (6.2s)
+[tele] t=360s cpu=2.00 mem=2751MB anon=0MB peak=-1MB procs=4
+[455s] ✔ [5300/5311] Built OAI.NumberTheory.DirichletL.Inversion.InitialDyadicAssemblyBounds (6.8s)
+[tele] t=480s cpu=2.01 mem=2149MB anon=0MB peak=-1MB procs=3
+[tele] t=600s cpu=2.04 mem=2178MB anon=0MB peak=-1MB procs=4
+[627s] ✔ [5620/5635] Built OAI.NumberTheory.DirichletL.Inversion.InitialCommonProfile (7.4s)
+[tele] t=720s cpu=2.05 mem=6888MB anon=0MB peak=-1MB procs=4 OVER mem
+[812s] ✔ [6047/6052] Built OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceDeleted (8.3s)
+[tele] t=840s cpu=2.00 mem=4115MB anon=0MB peak=-1MB procs=4 OVER mem
+Build completed successfully (6260 jobs).
+[tele] SUMMARY build_chunk: wall=866s max_cpu=2.05 max_mem=6888MB max_anon=0MB samples=7 OVER=4
+Saving image...
+Image saved, took 4.56s
+Finished image build for im-KYxLJKywxY9ce2Sm3hkWjs
+Building image im-i80Kkul76ZWgmUYj77aEn7
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 25: 22 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[tele] t=120s cpu=1.79 mem=3056MB anon=0MB peak=-1MB procs=3
+Build completed successfully (7061 jobs).
+[tele] SUMMARY build_chunk: wall=160s max_cpu=1.79 max_mem=3056MB max_anon=0MB samples=1 OVER=0
+Saving image...
+Image saved, took 5.42s
+Finished image build for im-i80Kkul76ZWgmUYj77aEn7
+Building image im-qHG8UbjsbtmeR2PUQAxqh7
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 999: 1 targets
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+Build completed successfully (7061 jobs).
+[tele] SUMMARY build_chunk: wall=63s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Saving image...
+Image saved, took 2.69s
+Finished image build for im-qHG8UbjsbtmeR2PUQAxqh7
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe/g7_l
+│   ayers.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Uploaded 
+│   /tmp/claude-1000/-home-doz-zcode-workdir-cross-math-fronttier/0c05f22f-8c59-
+│   44ab-86be-924ae3d3ad47/scratchpad/g7tree
+├── ✓ Created Function prep.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+├── ✓ Created Function build_chunk.
+└── ✓ Created Function elaborate.
+[tele] start elaborate: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+
+=== ProbeG7b_OAI_SevenEighths.lean: FAIL rc=1 errors=2 sorry-warnings=0
+@OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re : ∀ {q : ℕ} [inst : NeZero q]
+  (χ : DirichletCharacter ℂ q) {s : ℂ}, 7 / 8 < s.re → ¬(χ = 1 ∧ s = 1) → DirichletCharacter.LFunction χ s ≠ 0
+@OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re : ∀ {s : ℂ}, 7 / 8 < s.re → riemannZeta s ≠ 0
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProbeG7b_OAI_SevenEighths.lean:26:14: error(lean.unknownIdentifier): Unknown constant `SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero`
+ProbeG7b_OAI_SevenEighths.lean:27:14: error(lean.unknownIdentifier): Unknown constant `SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero`
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+
+[tele] t=120s cpu=1.56 mem=7132MB anon=0MB peak=-1MB procs=3 OVER mem
+
+=== R1probe.lean: FAIL rc=1 errors=3 sorry-warnings=0
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+R1probe.lean:23:14: error(lean.unknownIdentifier): Unknown constant `SevenEighths.ProbeFinalAssemblyUnconditional.zeta_nonzero`
+R1probe.lean:24:14: error(lean.unknownIdentifier): Unknown constant `SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero`
+@OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re : ∀ {s : ℂ}, 7 / 8 < s.re → riemannZeta s ≠ 0
+@OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re : ∀ {q : ℕ} [inst : NeZero q]
+  (χ : DirichletCharacter ℂ q) {s : ℂ}, 7 / 8 < s.re → ¬(χ = 1 ∧ s = 1) → DirichletCharacter.LFunction χ s ≠ 0
+@riemannZeta_one_sub : ∀ {s : ℂ},
+  (∀ (n : ℕ), s ≠ -↑n) →
+    s ≠ 1 →
+      riemannZeta (1 - s) = 2 * (2 * ↑Real.pi) ^ (-s) * Complex.Gamma s * Complex.cos (↑Real.pi * s / 2) * riemannZeta s
+@mem_riemannZetaZeros : ∀ {z : ℂ}, z ∈ riemannZetaZeros ↔ riemannZeta z = 0
+@DirichletCharacter.LFunction : {N : ℕ} → [NeZero N] → DirichletCharacter ℂ N → ℂ → ℂ
+@DirichletCharacter.IsPrimitive : {R : Type u_1} →
+  [inst : CommMonoidWithZero R] → {n : ℕ} → DirichletCharacter R n → Prop
+R1probe.lean:51:0: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MulChar.hasInv', which is 'noncomputable'
+R1probe.lean:56:6: warning: Variable name `s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+
+
+=== R1.lean: FAIL rc=1 errors=1 sorry-warnings=0
+'CrossMath.Pilot50.strip_confinement_seven_eighths' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_mem_seven_eighths' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot50.strip_confinement_set_seven_eighths' depends on axioms: [propext, Classical.choice, Quot.sound]
+R1.lean:173:14: error(lean.unknownIdentifier): Unknown constant `strip_confinement_dirichlet_seven_eighths_of_FE`
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+
+{'ProbeG7b_OAI_SevenEighths.lean': 'FAIL rc=1 errors=2 sorry-warnings=0', 'R1probe.lean': 'FAIL rc=1 errors=3 sorry-warnings=0', 'R1.lean': 'FAIL rc=1 errors=1 sorry-warnings=0'}
+
+=== SUMMARY
+ProbeG7b_OAI_SevenEighths.lean: FAIL rc=1 errors=2 sorry-warnings=0
+R1probe.lean: FAIL rc=1 errors=3 sorry-warnings=0
+R1.lean: FAIL rc=1 errors=1 sorry-warnings=0
+[tele] SUMMARY elaborate: wall=187s max_cpu=1.56 max_mem=7132MB max_anon=0MB samples=1 OVER=1
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-VaumjXFz57jTDJhPJV50uB
