@@ -303,5 +303,7 @@ environment; `pilots/71/run_pilot.sh:11`).
 > `pilots/71/P0.lean` + 7 in `pilots/73/P0.lean`), never cited as results; external donors
 > (DZDF, Weil, Liu-1, upstream PNT+) enter only as statements — binders, verbatim probe
 > copies, or already-built on-pin libraries (ZetaZerosV2, `logs/axcheck-c2-final.log`).
-> The openai-math 7/8 donor (pilot 50 route R1) is audited separately at the DONOR pin
-> (G7b, `feasibility/axiommath-donor-probes.md`) — it is not an on-pin TARGETS row.
+> The openai-math 7/8 donor (pilot 50 route R1) is audited separately at the DONOR pin:
+> **G7b PASS** (`probe/logs-g/run32-g7-elab.log` — both headlines + both delegation roots
+> triad-only) and **pilot 50 R1 GREEN** in the same run (`pilots/50/R1.lean`, 178 lines; all
+> four landings triad-only, 0 sorry). Not an on-pin TARGETS row (donor-pin substrate).

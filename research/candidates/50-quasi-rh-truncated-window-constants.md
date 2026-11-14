@@ -325,3 +325,43 @@ it matters.
   S2 composite, to be built on R1's pilot-42 `ZeroMult`/`EpsLower` layer). Scores for triage
   unchanged in kind: the pilot confirms effort ≈ S for the conditional layer and relocates
   all remaining risk to the hQRH port, exactly as the dossier's F2/F5 predicted.
+
+## Pilot outcome — Cycle 2, route R1 (2026-11-14, G7b PASS)
+
+> **Pilot outcome — route R1 (openai in-corpus 7/8): LANDED.** The M1/M2a
+> quasi-RH binders are discharged from the openai donor's own proved theorems
+> (`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re`,
+> `OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re`,
+> `OAI/NumberTheory/DirichletL/Nonvanishing.lean:29/:19`), consumed by direct import
+> inside the donor's pruned Nonvanishing closure built at the donor pin (v4.34.1 /
+> mathlib d13f23b7; the G7/g7 substrate pattern). Donor hygiene certified by G7b
+> (`feasibility/probe/logs-g/run32-g7-elab.log`) — both headlines + both delegation roots
+> (`SevenEighths.ProbeFinalAssemblyUnconditional.{zeta,dirichlet}_nonzero`) =
+> [propext, Classical.choice, Quot.sound] exactly — and re-confirmed consumer-side in
+> the R1 runs.
+>
+> **Binders dropped:** `hQRH` (ζ 7/8) and `hQRHχ` (Dirichlet 7/8) — the Knausgård-free,
+> certificate-free, native_decide-free consumption is total; **`hFEχ` remains** (the
+> missing product-form Dirichlet FE reflection χ → χ⁻¹; mathlib gap, unchanged by R1).
+>
+> **Landed theorems** (`research/pilots/50/R1.lean`, 178 lines; probe-first per
+> `pilots/50/R1-prework.md` §5): `strip_confinement_seven_eighths` — UNCONDITIONAL:
+> every nontrivial zero ρ of the Riemann zeta function satisfies 1/8 ≤ Re ρ ≤ 7/8, no
+> hypotheses; `strip_confinement_mem_seven_eighths`; `strip_confinement_set_seven_eighths`
+> (the riemannZetaZeros / zeta23-window vocabulary forms); and
+> `strip_confinement_dirichlet_seven_eighths_of_FE` — the primitive-Dirichlet strip at
+> FULL 7/8, conditional only on `hFEχ`.
+>
+> **Evidence:** `feasibility/probe/logs-g/run32-g7-elab.log` (cached-layer substrate,
+> `feasibility/probe/g7_layers.py`) — R1probe.lean and R1.lean OK, 0 errors / 0
+> sorry-warnings; `#print axioms` on all four landings, both donor headlines and both
+> delegation roots = exactly [propext, Classical.choice, Quot.sound] (14/14 prints), zero
+> sorryAx/native_decide. The landings' prints are transitive, so they cover the ported
+> M1/M2a cores and the two one-line discharges.
+>
+> **Constant posture:** the unconditional strip now exists at the FULL
+> conditional-strength constant pair [1/8, 7/8] — the strongest in-corpus form; R2's
+> 31/32 (DZDF) and R3's Liu-1 34999/40000 are superseded for ζ/Dirichlet (R2 remains
+> the only route with ζ_K / ray-class coverage, statement-level). The G7b-vetted
+> donor-pin consumption pattern (statement port ≈ 0 + axiom audit) is now
+> twice-proven infrastructure (M4b2-recipe lineage).

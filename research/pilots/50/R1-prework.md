@@ -149,7 +149,7 @@ Pre-written §Pilot-outcome variants for `research/candidates/
 sentence is final text pending the branch selection. **Neither block is a verdict
 until the orchestrator selects one.**
 
-### (a) G7b PASS → R1 executed (per §5) — STAGED-NOT-A-VERDICT
+### (a) G7b PASS → R1 executed (per §5) — **SELECTED 2026-11-14 (G7b PASS, R1 GREEN; spliced into dossier 50)**
 
 > **Pilot outcome — route R1 (openai in-corpus 7/8): LANDED.** The M1/M2a
 > quasi-RH binders are discharged from the openai donor's own proved theorems

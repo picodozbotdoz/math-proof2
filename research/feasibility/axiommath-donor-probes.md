@@ -28,7 +28,7 @@ oleans present. App `crossmath-gprobe` (`research/feasibility/probe/gprobe.py`),
 | G6a Stacks pricing | **CONFIRMED NEGATIVE (priced out)** — 59,222-job closure; 11,477 jobs then 7,493 drift errors (run21); ≈15 h compute MINUS a 59k-job-scale v4.34→v4.36 fix campaign; direct Stacks import dead this cycle |
 | G6b EllipticCurve→Scheme | **break confirmed on mathlib; bridge exists in TAUCETI** (`EllipticCurve/Scheme/OfWeierstrass.lean`) — not in mathlib, not in Weil-without-Stacks |
 | G7 Liu-1 statements | **OK, 0 errors** — zeta/Dirichlet near-verbatim (mathlib has `DirichletCharacter.LFunction`), Hecke in binder form |
-| G7b OAI 7/8 axioms | pending (see §G7) |
+| G7b OAI 7/8 axioms | **PASS** (2026-11-14, run31/run32: both headlines + both delegation roots = [propext, Classical.choice, Quot.sound]) |
 
 ---
 
@@ -404,7 +404,24 @@ improvement constant is kernel-checked in-probe). **Verdict: OK — 0 errors.**
 0.874975 — the formal statement is the weaker rational; consume 34999/40000, not the
 README number.
 
-### G7b (primary) — OAI's own 7/8 theorems, axiom audit at the donor pin: see run16 (in flight; §G7b to be finalized)
+### G7b (primary) — OAI's own 7/8 theorems, axiom audit at the donor pin: **PASS (2026-11-14)**
+
+**Verdict.** `logs-g/run32-g7-elab.log` (`ProbeG7b_OAI_SevenEighths.lean: OK rc=0, 0 errors,
+0 sorry`): `OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re`,
+`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re`,
+`OAI.SevenEighths.ProbeFinalAssemblyUnconditional.dirichlet_nonzero` and `.zeta_nonzero`
+all depend on exactly `[propext, Classical.choice, Quot.sound]` (no `sorryAx`, no
+`native_decide`-class axiom). The headline prints were already triad in run31; that run's
+two probe errors were wrong delegation-root names in the probe text (`SevenEighths.*` →
+`OAI.SevenEighths.*`), fixed for run32. **Substrate:** the closure was built as 28 cached
+Modal image layers (`feasibility/probe/g7_layers.py`: prep + chunk0 + 25 topological
+~20k-LoC chunks + target; 2 cpu, LEAN_NUM_THREADS=2; chunk memory 8 GB user-approved after
+telemetry showed 5.3–6.5 GB of mmapped Mathlib oleans). Attempt history: run19 FAIL
+(unpatched), run22/24 killed, run26 TIMEOUT, run28 cancelled by the user (over-provisioned
+64 cpu / 128 GB), run29/30 stopped for telemetry fixes, run31 built all layers, run32
+re-elaborated on the cached top layer with no rebuild.
+
+
 
 `OAI/NumberTheory/DirichletL/Nonvanishing.lean:19/:29`
 (`DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re`,
