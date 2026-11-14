@@ -121,6 +121,31 @@ when a `lean-toolchain` is added here.
   (RespondToCoordinator) without derailing the current task. Protocol recorded at
   `research/RESUME-BRIEF-C2.md` §Protocol.
 
+## Modal usage guidelines (MANDATORY — user directive 2026-11-14)
+
+1. **Default resources: `cpu=2.0, memory=4096` (4 GB).** Every Modal function starts here.
+   Modal treats these as soft limits (a container may burst above them), so a small
+   request does not break a run that briefly needs more.
+2. **Telemetry logging during every Modal run.** Each run logs its own resource use
+   (CPU load, memory from `/proc/meminfo` / cgroup `memory.current`, concurrent worker
+   count, elapsed time) at regular intervals into the run log. The log is persisted with
+   its provenance header, so actual usage is always on record.
+3. **Exceeding the defaults triggers an investigation, not an upgrade.** If telemetry
+   shows the run going beyond 2 CPU / 4 GB, first investigate the code, logic or math:
+   - Is the build closure larger than needed?
+   - Is there an unnecessary rebuild, a runaway tactic, or a mis-scoped import?
+   - Is the work wrong-sized? Can it be split, cached or pruned?
+
+   Record the findings in the run log.
+4. **More resources only with specific user approval.** If the investigation shows more
+   resources are genuinely unavoidable, ask the user first. State the exact
+   CPU/memory/timeout requested, the telemetry evidence, and why it cannot be avoided.
+   Launch only after an explicit yes for *that* run. Approval does not carry over to
+   other runs.
+5. Never reserve resources "to be safe". Run28 (G7b, 2026-11-14) reserved 64 CPU /
+   128 GB while using about 19 workers and little RAM. It was cancelled by the user as a
+   budget breach. Do not repeat it.
+
 ## Lean verification via Modal (established 2026-11-09)
 
 No lake scaffolding in this repo yet; pilots/probes elaborate against a pinned mathlib on
