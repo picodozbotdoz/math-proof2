@@ -1,0 +1,8 @@
+# Provenance: Cycle-2 final sweep Step B per-pilot extract (from research/feasibility/probe/logs/stepB-c2.log; donor-tree M4b from stepB-c2-m4b-donor.log). Substrate: doz Modal CLI, mathlib ff2494ea / Lean v4.36.0-rc2, make_axcheck.py TARGETS (44 stages). 2026-11-14, orchestrator resume session.
+
+AxPilot42_M1: OK; axiom-lines=17, sorryAx-lines=0
+AxPilot42_M2a: OK; axiom-lines=30, sorryAx-lines=0
+AxPilot42_M2b: OK; axiom-lines=57, sorryAx-lines=0
+AxPilot42_M3: OK; axiom-lines=22, sorryAx-lines=0
+AxPilot42_M4a: OK; axiom-lines=57, sorryAx-lines=0
+AxPilot42_M4b: plain-substrate FAIL expected (imports built ZetaZerosV2: 'unknown module prefix ZetaZeros'); verdict of record = donor-tree run: OK, 80 axiom-lines (74 '#print' sets, all [propext, Classical.choice, Quot.sound]), 0 sorryAx

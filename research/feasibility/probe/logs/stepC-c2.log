@@ -1,0 +1,5 @@
+# Provenance: Cycle-2 final sweep Step C tally (FINAL-SWEEP-PLAN-C2 §4), 2026-11-14 orchestrator resume session. Inputs: logs/stepA-final-c2.log, logs/stepB-c2.log, logs/stepB-c2-m4b-donor.log.
+Step A: 43 tokens, 0 unexplained (baseline holds).
+Step B (plain substrate, 44 stages): 43 OK + AxPilot42_M4b FAIL-by-design (unknown module prefix 'ZetaZeros' — imports the built donor); donor-tree run: AxPilot42_M4b OK, 80 axiom-lines, 0 sorryAx.
+Axiom-set tally (plain): [propext, Classical.choice, Quot.sound] x568, [propext, Quot.sound] x59, [propext] x43; donor-tree: triad x74. No other axiom names; 0 sorryAx lines anywhere.
+Totals:   32783 total

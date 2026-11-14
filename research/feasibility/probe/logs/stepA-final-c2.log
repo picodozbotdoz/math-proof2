@@ -1,0 +1,45 @@
+# Provenance: Cycle-2 final sweep Step A (FINAL-SWEEP-PLAN-C2 §2 classifier verbatim), run locally over pilots/**/*.lean + feasibility/probe/**/*.lean, 2026-11-14 orchestrator resume session. Result: 73 files, exactly 43 REAL-TOKEN lines = the §1 baseline enumeration (9 main-run + 23 G-series + 4 pilots/71/P0 + 7 pilots/73/P0), 0 unexplained; new since baseline: pilots/50/R1.lean + R1probe.lean (0 tokens).
+files 73
+REAL-TOKEN feasibility/probe/ProbeB1_RHLinalg.lean:51: sorry
+REAL-TOKEN feasibility/probe/ProbeB1_RHLinalg.lean:60: sorry
+REAL-TOKEN feasibility/probe/ProbeB1_RHLinalg.lean:67: sorry
+REAL-TOKEN feasibility/probe/ProbeB2_EthTime.lean:26: sorry
+REAL-TOKEN feasibility/probe/ProbeC1_OAI_QuasiRH.lean:14: sorry
+REAL-TOKEN feasibility/probe/ProbeD_PairCeiling.lean:57: sorry
+REAL-TOKEN feasibility/probe/ProbeD_PairCeiling.lean:70: sorry
+REAL-TOKEN feasibility/probe/ProbeD_PairCeiling.lean:78: sorry
+REAL-TOKEN feasibility/probe/ProbeD_PairCeiling.lean:92: sorry
+REAL-TOKEN feasibility/probe/ProbeG1_DZDF.lean:45: ∀ s, 31 / 32 < s.re → s ≠ 1 → f s ≠ 0 := by sorry
+REAL-TOKEN feasibility/probe/ProbeG1_DZDF.lean:54: ∀ s, 31 / 32 < s.re → (s ≠ 1 ∨ ¬ χ.IsPrincipal) → f s ≠ 0 :=
+REAL-TOKEN feasibility/probe/ProbeG1_DZDF.lean:62: ∀ s : ℂ, 31 / 32 < s.re → s ≠ 1 → f s ≠ 0 := by sorry
+REAL-TOKEN feasibility/probe/ProbeG1_DZDF.lean:71: ∀ s, 31 / 32 < s.re → (s ≠ 1 ∨ ¬ χ.IsPrincipal) → f s ≠ 0 :=
+REAL-TOKEN feasibility/probe/ProbeG2_ZetaZerosV2.lean:92: sorry
+REAL-TOKEN feasibility/probe/ProbeG3_Weil.lean:47: sorry
+REAL-TOKEN feasibility/probe/ProbeG4_AreaLaw.lean:53: sorry
+REAL-TOKEN feasibility/probe/ProbeG4_AreaLaw.lean:94: sorry
+REAL-TOKEN feasibility/probe/ProbeG4_AreaLaw.lean:99: sorry
+REAL-TOKEN feasibility/probe/ProbeG4_AreaLaw.lean:281: sorry
+REAL-TOKEN feasibility/probe/ProbeG5a_AreaLaw_Physlib.lean:59: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:117: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:185: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:206: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:223: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:248: sorry
+REAL-TOKEN feasibility/probe/ProbeG5b_PEPS_Bridge.lean:276: sorry
+REAL-TOKEN feasibility/probe/ProbeG5c_PEPS_Dictionary.lean:74: sorry
+REAL-TOKEN feasibility/probe/ProbeG5c_PEPS_Dictionary.lean:81: sorry
+REAL-TOKEN feasibility/probe/ProbeG5c_PEPS_Dictionary.lean:91: sorry
+REAL-TOKEN feasibility/probe/ProbeG5c_PEPS_Dictionary.lean:106: sorry
+REAL-TOKEN feasibility/probe/ProbeG7_LiuZeroFree.lean:37: sorry
+REAL-TOKEN feasibility/probe/ProbeG7_LiuZeroFree.lean:47: sorry
+REAL-TOKEN pilots/71/P0.lean:65: sorry
+REAL-TOKEN pilots/71/P0.lean:90: sorry
+REAL-TOKEN pilots/71/P0.lean:97: sorry
+REAL-TOKEN pilots/71/P0.lean:110: sorry
+REAL-TOKEN pilots/73/P0.lean:40: ‖wOf q s‖ = Real.exp (-(s.re * Real.log (q : ℝ))) := sorry
+REAL-TOKEN pilots/73/P0.lean:45: (hα : ‖α‖ = √((q : ℝ))) (h : ‖α‖ * ‖wOf q s‖ = 1) : s.re = 1
+REAL-TOKEN pilots/73/P0.lean:53: (lPoly A).eval w = (A.map fun α => 1 - α * w).prod := sorry
+REAL-TOKEN pilots/73/P0.lean:79: theorem no_real_homs (k : Type*) [Field k] [Fintype k] : IsE
+REAL-TOKEN pilots/73/P0.lean:87: χ.toFun (Ideal.span {f}) = 0 ↔ (Ideal.span {f}) ⊔ m ≠ ⊤ := s
+REAL-TOKEN pilots/73/P0.lean:121: (∀ s : ℂ, f s = P₁.eval (wOf q s) / P₀.eval (wOf q s)) := so
+REAL-TOKEN pilots/73/P0.lean:143: P₁.eval (wOf q s) / P₀.eval (wOf q s) ≠ 0 := sorry

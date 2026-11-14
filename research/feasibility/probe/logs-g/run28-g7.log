@@ -123,3 +123,4 @@ warning: carleson: repository '/work/lean/.lake/packages/carleson' has local cha
 warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
 warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
 warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+[341s] ✔ [4218/7061] Built OAI.NumberTheory.DirichletL.GaussSum.LocalProductAssembly (8.4s)

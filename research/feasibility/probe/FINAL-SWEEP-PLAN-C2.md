@@ -1,5 +1,7 @@
 # FINAL-SWEEP-PLAN-C2 — Cycle-2 mechanical close-out (PREP ONLY — execute on the orchestrator's final signal)
 
+**EXECUTED 2026-11-14 (orchestrator resume session) — CLOSED.** Steps A–D ran on the all-final state (G7b/G5a non-gating per §6a): Step A 43/43 baseline tokens, 0 unexplained (`logs/stepA-final-c2.log`); Step B 43/43 plain stages OK + AxPilot42_M4b OK on its donor tree, 0 sorryAx, triad-only (`logs/stepB-c2.log`, `logs/stepB-c2-m4b-donor.log`); Step C/D signed in `../VERIFICATION-LEDGER.md` §9.F (`logs/stepC-c2.log`). Text below is the plan as staged.
+
 Lane A1, 2026-11-13 (queue item 1). Adaptation of the main run's
 `research/feasibility/probe/FINAL-SWEEP-PLAN.md` (R9, read first — same two-step
 discipline, same OK/FAIL routing). **Do not execute before the orchestrator signals that

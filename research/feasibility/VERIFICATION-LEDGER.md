@@ -217,9 +217,9 @@ verification status is only re-established by the final axcheck batch (plan §3)
   `pilots/{20,52}/run_m1.sh`, doz default with xyz fallback).
 
 
-## 9 Cycle-2 final-sweep skeleton (lane A1, 2026-11-13; relaunch cross-check 2026-11-14 — orchestrator-authorized addendum; H informed; fill-in at sweep execution per `probe/FINAL-SWEEP-PLAN-C2.md`)
+## 9 Cycle-2 final sweep — FINAL (executed 2026-11-14, orchestrator resume session; skeleton by lane A1, 2026-11-13; relaunch cross-check 2026-11-14 — orchestrator-authorized addendum; H informed; fill-in at sweep execution per `probe/FINAL-SWEEP-PLAN-C2.md`)
 
-Verdict columns are **[pending final sweep]** until Steps A–B of
+Verdict columns were **pending final sweep** until Steps A–B of
 `probe/FINAL-SWEEP-PLAN-C2.md` run on the orchestrator's trigger. The 2026-11-14 relaunch
 cross-check (post-outage) re-read every file and log tail cited below against the snapshot
 commit `ca4fd22` (working tree clean at check time); `status` reflects the relaunch lane
@@ -237,10 +237,10 @@ stale rows were 72-M1 and the G-series paragraph — both updated below.
 
 | pilot | final files | LoC/thms (on-disk 11-14) | status (relaunch) | axcheck verdict (log cite) | sorry tokens | sign-off | last-verified |
 |---|---|---|---|---|---|---|---|
-| 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | **FINAL-GREEN** (upgrade pilot, if it touches M4a, re-baselines this row) | **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | [pending final sweep] | 2026-11-14 |
+| 42-M4 (donor swap) | `M4a.lean` | 1194 / 52 | **FINAL-GREEN** (upgrade pilot, if it touches M4a, re-baselines this row) | **M4a GREEN** — elaboration `pilots/42/logs/m4-run2.log` ("M4a.lean: OK") + axcheck `m4-axcheck-run1.log` ("AxPilot42_M4a_full.lean: OK") | 0 (Step A pre-baseline) | **OK — Step B 2026-11-14 (`probe/logs/stepB-c2.log`; per-pilot `logs/axcheck-c2-final.log`): OK, 0 sorryAx, ⊆ triad** | 2026-11-14 |
 | 42-M4 | `M4b.lean` (final = PRIMARY route) | 1571 / 68 | **FINAL-GREEN via m4b2-run2 (upgrade COMPLETE)** — direct ZetaZerosV2 import GREEN; fallback preserved byte-exact at `logs/M4b-fallback-GREEN.lean`. A3 official report pending | **OK — independently verified by A1's donor-tree axcheck dry-run 2026-11-14** (`feasibility/probe/logs/m4b-donor-axcheck-dryrun.log`: axcheck copy in the built V2 tree, 78 axiom-lines, **0 sorryAx**, all ⊆ triad incl. donor `ZetaZeros.simple_proportion_d4/distinct_proportion_d5`) | 0 | OK (pending sweep confirm) | 2026-11-14 (donor-axcheck dry-run) |
-| 71 (FF-EZ1) | `P0.lean` | 112 / 4 | **FINAL** (probe-convention — Step A only, never Step B) | header `P0.lean:10–20`; run verdict `pilots/71/logs/run4.log`: "P0.lean: OK (probe, sorry allowed)" | 4 placeholders (certified in plan §1) | [pending final sweep] | 2026-11-14 |
-| 71 | `P1.lean` | 131 / 7 | **FINAL-GREEN** (triad axioms visible in run4 tail) | **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK", 7 triad axiom lines) | 0 | [pending final sweep] | 2026-11-14 |
+| 71 (FF-EZ1) | `P0.lean` | 112 / 4 | **FINAL** (probe-convention — Step A only, never Step B) | header `P0.lean:10–20`; run verdict `pilots/71/logs/run4.log`: "P0.lean: OK (probe, sorry allowed)" | 4 placeholders (certified in plan §1) | **OK (Step A only — 4 certified probe stubs; `probe/logs/stepA-final-c2.log`)** | 2026-11-14 |
+| 71 | `P1.lean` | 131 / 7 | **FINAL-GREEN** (triad axioms visible in run4 tail) | **P1 GREEN** — `pilots/71/logs/run4.log` ("P1.lean: OK", 7 triad axiom lines) | 0 | **OK — Step B 2026-11-14 (`probe/logs/stepB-c2.log`; per-pilot `logs/axcheck-c2-final.log`): OK, 0 sorryAx, ⊆ triad** | 2026-11-14 |
 | 71 | `P2.lean` | 282 / 11 | **FINAL-GREEN (A2, p2-run6)** — descent 6→4→2→1→OK; 11 theorems ALL triad, 0 sorry/0 errors, lint-clean; W1 honestly corrected (pole-family exclusion; prework's s≠1 unsound); Mathlib-only imports | OK (p2-run6 axiom prints; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (p2-run6) |
 | 72 (area-law) | `C-neg.lean` | 369 / 11 | **FINAL (A4 report OFFICIAL, relayed 2026-11-14)** — run8-final GREEN rc=0/0/0 (descent 7→3→1→OK); A4 axcheck `axcheck-run1.log`: **11/11 theorems triad-only, 0 sorryAx** (headline `CrossMath.CNeg.rank_area_law_nogo` + private helpers); deviations documented in `pilots/72-prework.md` execution note; all logs carry provenance headers (runs 1–5 reconstructed, 6–8 + axcheck native) | OK (official; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (official relay) |
 | 72-M1 (Tier-C) | `P72M1T1.lean`, `P72M1T2.lean` (`pilots/72-M1/`) | 702 / 47; 360 / 25 | **FINAL-GREEN, partial-M1 FINAL-for-tranche (A8 formal 2026-11-14 — same pattern as 75)** — m1-run8-GREEN: BOTH files OK, 0 errors / 0 sorry-warnings; T1 GREEN since run 4, T2 descent 24→10→1→0 (runs 6–8, within the ≤5 cap); **L1 ptrace-Gram + entropy match, L2 at constant 1 (stronger than the ≤4 safety form)**, vendor layer verbatim; **L3 + interface theorem NOT landed — carried to iteration 4 by design** (continuation spec in the m1-run8-GREEN.log header; A8 formalizing `pilots/72-M1/L3-spec.md`) | **OK** — `pilots/72-M1/logs/m1-axcheck-final.log`: both staged copies OK, **52 + 28 axiom-lines, 0 sorryAx, triad-only** (A8's local variant builder; A1 folded its attribute-prefix regex + added both targets to `make_axcheck.py` — outputs unit-checked byte-identical; sweep Step B re-confirms) | **0 / 0** (Step A classifier run on both final files 2026-11-14 — proof artifacts, baseline 43 unchanged) | OK (pending sweep confirm) | 2026-11-14 (m1-run8 + m1-axcheck-final + A8 formal relay) |
@@ -271,16 +271,37 @@ again → **BLOCKED-INFRA disposition expected** (A7). G7b/G5a dispositions are
 sweep-relevant but NOT sweep-gating TARGETS rows (50-M2 has no row; G-probes sit outside
 TARGETS by §0a).
 
-Conventions (Cycle-2): (i) probe-convention stubs = the 36 header-justified tokens
+Conventions (Cycle-2): (i) probe-convention stubs = the 43 header-justified tokens
 enumerated in `probe/FINAL-SWEEP-PLAN-C2.md` §1 (9 main-run + 23 G-series + 4 in
-`pilots/71/P0.lean`) — never cited as results; (ii) donor-consumption audit — external
+`pilots/71/P0.lean` + 7 in `pilots/73/P0.lean`) — never cited as results; (ii) donor-consumption audit — external
 donors (DZDF, Weil, Liu-1, upstream PNT+) enter proof artifacts only as hypothesis
 binders, verbatim marked probe copies, or already-built on-pin libraries (ZetaZerosV2 =
 built per G2; DZDF statement-level only per G1a/G1b); (iii) substrate note — Cycle-2 runs
 use the doz Modal CLI directly (`MODAL_USER=doz`; `sudo -n -u xyz` blocked in this
 environment; `pilots/71/run_pilot.sh:11`).
 
-> Compliance [pending final sweep]: signed off only after FINAL-SWEEP-PLAN-C2 Steps A–C —
-> all kept Cycle-2 artifacts elaborating on mathlib `ff2494ea` (v4.36.0-rc2), standard
-> axioms only, 0 unexplained sorry tokens, logs persisted with provenance headers
-> (`logs/axcheck-final-c2.log` per pilot).
+### 9.F Final sweep result (Steps A–D, executed 2026-11-14)
+
+- **Step A** (`probe/logs/stepA-final-c2.log`): 73 `.lean` files, exactly the 43 §1-baseline
+  tokens, 0 unexplained (new since baseline: `pilots/50/R1.lean`, `R1probe.lean` — 0 tokens).
+- **Step B** (`probe/logs/stepB-c2.log`, app ap-ofuvdt0qIZ3mzLjEch7H4s; 44 make_axcheck
+  stages): **43/43 plain-substrate stages OK**; `AxPilot42_M4b` FAILs on the plain substrate
+  by design (`unknown module prefix 'ZetaZeros'` — it imports the built donor) and is
+  **OK in its donor-tree run** (`probe/logs/stepB-c2-m4b-donor.log`, app
+  ap-AEdpY6R5u7rsh78Lveu9f5: ZetaZerosV2 build rc=0, 80 axiom-lines). Axiom-set tally:
+  `[propext, Classical.choice, Quot.sound]` ×568 (+74 donor-tree), `[propext, Quot.sound]`
+  ×59, `[propext]` ×43; **no other axiom name and 0 `sorryAx` anywhere**. Per-pilot
+  extracts with provenance headers: `pilots/*/logs/axcheck-c2-final.log` (15 files).
+- **Step C** (`probe/logs/stepC-c2.log`): every §9 row above signed **OK**; pilot tree
+  32,783 lines of Lean.
+- **Step D — compliance sign-off:**
+
+> Signed off (Cycle-2 final sweep, 2026-11-14): all kept Cycle-2 pilot artifacts elaborate
+> on mathlib `ff2494ea` (v4.36.0-rc2) with standard axioms only — no `sorry`, no
+> `native_decide`, no external CAS in any proof artifact; the sole `sorry` tokens in the
+> tree are the 43 header-justified probe-convention stubs (9 main-run + 23 G-series + 4 in
+> `pilots/71/P0.lean` + 7 in `pilots/73/P0.lean`), never cited as results; external donors
+> (DZDF, Weil, Liu-1, upstream PNT+) enter only as statements — binders, verbatim probe
+> copies, or already-built on-pin libraries (ZetaZerosV2, `logs/axcheck-c2-final.log`).
+> The openai-math 7/8 donor (pilot 50 route R1) is audited separately at the DONOR pin
+> (G7b, `feasibility/axiommath-donor-probes.md`) — it is not an on-pin TARGETS row.

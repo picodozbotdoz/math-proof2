@@ -1,0 +1,5 @@
+# Provenance: Cycle-2 final sweep Step B per-pilot extract (from research/feasibility/probe/logs/stepB-c2.log; donor-tree M4b from stepB-c2-m4b-donor.log). Substrate: doz Modal CLI, mathlib ff2494ea / Lean v4.36.0-rc2, make_axcheck.py TARGETS (44 stages). 2026-11-14, orchestrator resume session.
+
+AxPilot10_L1: OK; axiom-lines=36, sorryAx-lines=0
+AxPilot10_L2: OK; axiom-lines=126, sorryAx-lines=0
+AxPilot10_M1: OK; axiom-lines=106, sorryAx-lines=0

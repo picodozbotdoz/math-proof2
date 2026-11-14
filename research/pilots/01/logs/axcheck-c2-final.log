@@ -1,0 +1,14 @@
+# Provenance: Cycle-2 final sweep Step B per-pilot extract (from research/feasibility/probe/logs/stepB-c2.log; donor-tree M4b from stepB-c2-m4b-donor.log). Substrate: doz Modal CLI, mathlib ff2494ea / Lean v4.36.0-rc2, make_axcheck.py TARGETS (44 stages). 2026-11-14, orchestrator resume session.
+
+AxPilot01_BindingSurface: OK; axiom-lines=0, sorryAx-lines=0
+AxPilot01_MasterIdentity: OK; axiom-lines=0, sorryAx-lines=0
+AxPilot01_port01: OK; axiom-lines=0, sorryAx-lines=0
+AxPilot01_port02: OK; axiom-lines=0, sorryAx-lines=0
+AxPilot01_port03: OK; axiom-lines=1, sorryAx-lines=0
+AxPilot01_port04: OK; axiom-lines=5, sorryAx-lines=0
+AxPilot01_port05: OK; axiom-lines=7, sorryAx-lines=0
+AxPilot01_port06: OK; axiom-lines=9, sorryAx-lines=0
+AxPilot01_port07: OK; axiom-lines=11, sorryAx-lines=0
+AxPilot01_port08: OK; axiom-lines=20, sorryAx-lines=0
+AxPilot01_port09: OK; axiom-lines=42, sorryAx-lines=0
+AxPilot01_port10: OK; axiom-lines=41, sorryAx-lines=0
