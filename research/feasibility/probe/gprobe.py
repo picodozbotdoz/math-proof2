@@ -444,7 +444,7 @@ def _g7_elab(d, probes, summary):
         print(out2[:40000], flush=True)
 
 
-@app.function(image=image, cpu=8.0, memory=65536, timeout=4 * 60 * 60,
+@app.function(image=image, cpu=4.0, memory=16384, timeout=4 * 60 * 60,
               volumes={"/vol": g7vol})
 def g7elab(probes: dict):
     """Re-elaborate consumer files inside the persisted, already-built donor tree

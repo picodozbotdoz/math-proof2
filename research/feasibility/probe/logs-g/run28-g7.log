@@ -124,3 +124,11 @@ warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondr
 warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
 warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
 [341s] ✔ [4218/7061] Built OAI.NumberTheory.DirichletL.GaussSum.LocalProductAssembly (8.4s)
+[1331s] ✔ [4318/7061] Built OAI.NumberTheory.DirichletL.QuadraticSieve.MaskedPrincipalBounds (14s)
+[2384s] ✔ [4418/7061] Built OAI.NumberTheory.DirichletL.Eisenstein.ResidualFourierBounds (17s)
+[3417s] ✔ [4518/7061] Built OAI.NumberTheory.DirichletL.Detector.GramLatticeDecay (107s)
+[3715s] ✔ [4618/7061] Built OAI.NumberTheory.DirichletL.Hecke.DetectorFamilyInclusion (80s)
+[3964s] ✔ [4718/7061] Built OAI.NumberTheory.DirichletL.Moments.ExceptionalPair (79s)
+[4228s] ✔ [4818/7061] Built OAI.NumberTheory.DirichletL.CubicSieve.DescentEnergy (69s)
+[4522s] ✔ [4918/7061] Built OAI.NumberTheory.DirichletL.Descent.FirstWholeCanonicalTail (66s)
+[4817s] ✔ [5018/7061] Built OAI.NumberTheory.DirichletL.Detector.RadialSpectral (56s)
