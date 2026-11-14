@@ -1,0 +1,54 @@
+# axcheck-c2-machinery-check-2 — post-interruption sweep-readiness health check (lane A1, 2026-11-14 ~03:2x)
+# Pattern: same as axcheck-c2-machinery-check.log (one small FINAL artifact end-to-end) but a
+# DIFFERENT target (AxPilot71_P1) to also re-confirm a final row after the ~03:15 restart.
+# Command: bash research/feasibility/probe/run_axcheck.sh AxPilot71_P1   (MODAL_USER=doz,
+#   /home/doz/dozenv/bin/modal, ephemeral app crossmath-probe pattern, mathlib ff2494ea5e43,
+#   toolchain leanprover/lean4:v4.36.0-rc2 — confirmed in-run above)
+# Modal run URL: https://modal.com/apps/semraker/main/ap-pgnev5PiPBT1XOBqNe0mbj
+# Verdict: AxPilot71_P1.lean: OK | 14 axiom-lines, 0 with sorryAx — every line full triad
+#   (7 theorems x2: P1.lean carries in-file #print axioms, staged copy duplicates them —
+#   idempotent, benign, same class as the L1 note in plan §0 machinery (ii)); one style
+#   linter warning (haveI, :63) only. Machinery, account, image, and pin all healthy
+#   post-restart — the sweep Step-B batch can fire without surprises.
+# Raw transcript below (verbatim from /tmp/axcheck-c2-machinery-check-2.raw.log, RC=0).
+AxPilot71_P1: 7 theorems -> Pilot71.one_lt_card_field, Pilot71.norm_wOf, Pilot71.norm_wOf_pos, Pilot71.norm_wOf_lt_one …
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pgnev5PiPBT1XOBqNe0mbj
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axcheck-stage/axcheck_probe.py
+└── ✓ Created Function probe.
+[ax] staging 1 file(s): ['AxPilot71_P1.lean']
+[ax] mathlib ff2494ea5e43, toolchain leanprover/lean4:v4.36.0-rc2
+[ax] base LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== AxPilot71_P1.lean
+[ax] AxPilot71_P1.lean: OK; axiom-lines=14, sorryAx-lines=0
+AxPilot71_P1.lean:63:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.one_lt_card_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.norm_wOf_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.multiset_norm_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot71.a2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] SUMMARY
+[ax]   AxPilot71_P1.lean: OK | 14 axiom-lines, 0 with sorryAx
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pgnev5PiPBT1XOBqNe0mbj
+RC=0

@@ -68,7 +68,7 @@ pending files get added on landing.
 | ~~AxPilot71_P2~~ | `pilots/71/P2.lean` | *(stale duplicate row removed at the 2026-11-14 post-interruption reconciliation — it contradicted the FINAL-GREEN p2-run6 row above and the target already present in `make_axcheck.py` TARGETS)* |
 | AxPilot73_C | `pilots/73/C.lean` | **FINAL-GREEN run6-c-green** (2026-11-14; Q1–Q3 + 71-glue, 7 thms all triad, 0 sorry; 236 LoC; Step A 0 tokens; target ADDED; Q4 NOT attempted per gate) — `73/P0.lean` = probe-convention, Step A only, EXCLUDED (7 stubs in the 43-token baseline) |
 | AxPilot75_Pa | `pilots/75/Pa.lean` | **FINAL-FOR-ENTRY (A4 formal 2026-11-14)** — run6-final rc=0 (descent 26→0), in-file axcheck 17/17 triad, Mathlib-only (plain axcheck class); **DECLARED DEFERRAL: P-b/N2/N3 → iteration 4** (orchestrator decision; C2 scope complete per F0 sequencing); target ADDED, Step A 0 tokens |
-| AxPilot72_M1 (T1/T2) | `pilots/72-M1/P72M1T1.lean`, `pilots/72-M1/P72M1T2.lean` | **PENDING** (A8, post-interruption: T1 GREEN since m1-run4, OK again m1-run5; T2 mid-fix at 24 errors, m1-run5) — ADD ON LANDING **or DECLARED-DROP** (both valid final states per the final-or-declared-drop rule; if T1-only is kept, add T1 alone per A8's declaration). T2 `import P72M1T1` (:14) — the generalized sibling-import dict in `make_axcheck.py` rewrites it once both targets exist; sorted order respects the dependency |
+| AxPilot72_M1_T1 / _T2 | `pilots/72-M1/P72M1T{1,2}.lean` | **FINAL-GREEN, partial-M1 FINAL-for-tranche (A8 formal 2026-11-14)** — m1-run8-GREEN both OK (T2 descent 24→10→1→0 runs 6–8); `m1-axcheck-final.log` 52+28 axiom-lines, 0 sorryAx, triad-only; L3 + interface carried to iteration 4 BY DESIGN (continuation spec in the run-8 header; `L3-spec.md` being formalized by A8) — NOT a drop. **Targets ADDED to `make_axcheck.py` + A8's attribute-prefix regex FOLDED in (unit-checked byte-identical staged output vs A8's variant; 42/M1 now also captures its zeroMult pair — coverage strictly up, historical §1 counts remain historical)** |
 | (42-upgrade product) | — | **CLOSED N/A (reconciliation 2026-11-14):** upgrade COMPLETE, no separate product file — the final artifact IS `M4b.lean` (primary direct-V2-import route; fallback preserved at `logs/M4b-fallback-GREEN.lean`), row above is the record |
 | AxPilot20_M1 / AxPilot52_M1 | `pilots/{20,52}/M1.lean` | FINAL cross-refs (drift-check only, §8) |
 
@@ -153,6 +153,20 @@ respected — every C2 file imports only Mathlib):
     # on landing: AxPilot71_P2, AxPilot73_C*, AxPilot72_M1
 ```
 
+*(2026-11-14 update: ALL of the above landed and are IN `make_axcheck.py` TARGETS,
+plus `AxPilot75_Pa` and `AxPilot72_M1_T1/_T2`; the "if lane-final" / "on landing"
+provisos are all closed. Additionally folded from A8's proven variant: the
+attribute-prefix regex extension (`@[simp]`/`@[ext]` theorems now captured — unit-checked
+byte-identical on 72-M1 vs `pilots/72-M1/make_axcheck72m1.py`); expect ≥ historical
+axiom-line counts on the `@[simp]`-carrying files at Step B (local full staging pass
+2026-11-14: 44 files stage cleanly; AxPilot10_M1 now captures 135 = the historical
+axcheck_full count, P11T3 110, M4a/M4b +2 each). Count-direction caveat: make_axcheck
+excludes `private` theorems BY DESIGN, so e.g. AxPilot72_Cneg stages 5 public theorems
+vs A4's 11/11 record (which audited private helpers too — the stronger landed evidence
+stands in `pilots/72/logs/axcheck-run1.log`); fewer Step-B lines than a lane's
+private-inclusive audit is NOT a regression. The code block is kept for
+the record; the file's TARGETS is authoritative.)*
+
 Run `research/feasibility/probe/run_axcheck.sh 2>&1 | tee /tmp/crossmath-axcheck-c2.log`;
 rescue with provenance header to each pilot's `logs/axcheck-final-c2.log`. Per-file OK
 criterion (unchanged): `OK; axiom-lines=N, sorryAx-lines=0`, every axiom line ⊆
@@ -212,38 +226,30 @@ Orchestrator signal "Cycle-2 pilot lanes final" (expected after 71-P2, 73 C-seri
 Modal batch via `run_axcheck.sh` → Steps C–D ledger + sign-off. Blockers route to lanes;
 the plan re-baselines §1 if pending files landed with tokens.
 
-## 6a Endgame checklist — pre-positioned 2026-11-14 (post-interruption reconciliation)
+## 6a Endgame checklist — pre-positioned 2026-11-14; NARROWED same day (72-M1 landed)
 
-11-M2 confirmed GREEN on disk (m2-run8 + m2-axcheck-final), so with every §0a row final
-except those below, the ALL-FINAL state is reached on exactly these incoming verdicts
-(nothing else can gate the sweep):
+72-M1 landed FINAL-GREEN partial-M1 (A8 formal): §9/§0a rows final, Step-A rows appended
+(0/0 tokens — the 43-token baseline unchanged), targets + regex fold done. With every
+§0a row now FINAL, the ALL-FINAL state is reached on exactly TWO incoming dispositions
+from A7 — nothing else can gate the sweep:
 
-1. **72-M1 (A8, bounded ≤5 further runs or declared-drop):**
-   - *GREEN* → append Step-A rows for `P72M1T1.lean`/`P72M1T2.lean` to
-     `logs/stepA-incremental-c2.log` (expect 0 tokens — Tier-C transcription = proof
-     artifacts, so the 43-token baseline is UNCHANGED); add targets
-     `AxPilot72_M1_T1` (+ `_T2` if landed) to `make_axcheck.py` (T2 `import P72M1T1`
-     is auto-rewritten by the sibling-import dict; sorted order respects it); §9 row
-     flips FINAL-GREEN, axcheck cite = the Step-B batch output.
-   - *DECLARED-DROP* → §9 row flips to **DROPPED (valid final state** per the
-     final-or-declared-drop rule) with the disposition recorded; NO target added; if
-     A8 keeps T1 only, add `AxPilot72_M1_T1` alone and note the T2 drop in the row.
-   - Either way §0a's PENDING row closes — no third state exists.
-2. **G7b (A7, attempt 3 in flight — patch mechanism proven by run22):** verdict lands
+1. **G7b (A7, attempt 3 in flight — patch mechanism proven by run22):** verdict lands
    in `feasibility/axiommath-donor-probes.md` + a one-line §9 G-note update. Gates ONLY
    50-M2-R1's kernel-hygiene claim — 50-M2 has NO §0a row, so FAIL/BLOCKED-INFRA here
    merely records 50-M2-R1 as ungated-open/not-claimed. **Not sweep-gating.**
-3. **G5a (A7, final retry run23 hit cache-fetch again):** BLOCKED-INFRA disposition
+2. **G5a (A7, final retry run23 hit cache-fetch again):** BLOCKED-INFRA disposition
    expected — probe-tier item outside TARGETS; §9 G-note only. **Not sweep-gating.**
-4. **G6a:** TERMINAL (run21 FAIL rc=1, 7,493 errors — negative pricing, DONE-FAIL).
-   No further action.
 
-**On the all-final signal, execute Steps B–C ONLY** (Step A is current per
-`logs/stepA-incremental-c2.log` through 02:59 + per-landing rows; a fresh tree-wide
-classifier pass is needed ONLY for files landed since — i.e. 72-M1's, expected 0 tokens;
-the 43-token baseline moves only if a new probe-convention file lands, and none is
-expected). Step-B batch = current `make_axcheck.py` TARGETS (C2 block incl.
-AxPilot71_P2/P73_C/P75_Pa) + the 72-M1 additions per disposition above; `AxPilot42_M4b`
-runs via its donor-tree pattern (`run_m4b_donor_axcheck.sh`, dry-run proven); 20/52 ride
-along as drift-check. Then Step C fills §9 verdict columns, Step D signs off with the
-43-token text (§5, as corrected).
+(G6a TERMINAL — run21 FAIL rc=1, 7,493 errors; no action. 72-M1 closed per the GREEN
+path above; the declared-drop path is now moot.)
+
+**On the all-final signal, execute Steps B–C ONLY** (Step A is current: tree-wide
+02:59 baseline + per-landing rows through 72-M1; no probe-convention file has landed
+since, so the 43-token enumeration stands). Step-B batch = the CURRENT
+`make_axcheck.py` TARGETS — now complete, including AxPilot71_P2/P73_C/P75_Pa and
+AxPilot72_M1_T1/_T2, with the attribute-prefix regex fold (expect ≥ the historical
+axiom-line counts on files carrying `@[simp]` theorems — e.g. 42/*'s zeroMult pair,
+10's simp layer, P11T3's 22 attr lines; more lines = more coverage, not a regression);
+`AxPilot42_M4b` runs via its donor-tree pattern (`run_m4b_donor_axcheck.sh`, dry-run
+proven); 20/52 ride along as drift-check. Then Step C fills §9 verdict columns, Step D
+signs off with the 43-token text (§5, as corrected).

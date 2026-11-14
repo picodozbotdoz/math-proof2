@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """Build axcheck stage copies: pilot file + appended `#print axioms` lines for
-every top-level theorem (namespace-aware, full names). Output dir: argv[1]."""
+every top-level theorem (namespace-aware, full names). Output dir: argv[1].
+
+Regex extension (folded 2026-11-14 from lane A8's proven pilot-local variant
+`pilots/72-M1/make_axcheck72m1.py`, whose m1-axcheck-final run went GREEN with it):
+attribute-prefixed theorems (`@[simp] theorem …`, `@[ext] …`) are now captured — the
+long-known make_axcheck gap otherwise covered only by `pilots/10/axcheck_full.py`.
+Effect: Step-B coverage increases for all TARGETS (e.g. 42/*'s zeroMult_count[On],
+10's @[simp] layer); historical axiom-line counts in VERIFICATION-LEDGER §1 were
+taken with the older extractor and stay as historical records."""
 import re
 import sys
 from pathlib import Path
@@ -49,9 +57,8 @@ TARGETS = [
     ("AxPilot73_C",       PILOTS / "73/C.lean"),       # FINAL-GREEN run6-c-green (landed 2026-11-14); 73/P0 EXCLUDED (probe-convention)
     ("AxPilot75_Pa",      PILOTS / "75/Pa.lean"),      # FINAL-FOR-ENTRY (A4 formal 2026-11-14; P-b/N2/N3 DEFERRED to iteration 4); Mathlib-only
     ("AxPilot72_Cneg",    PILOTS / "72/C-neg.lean"),   # FINAL-GREEN run8 + axcheck-run1
-    # on landing, add at sweep execution: AxPilot71_P2, AxPilot73_C*, AxPilot72_M1,
-    #   AxPilot75_* (FINAL Cycle-2 pilot, lane A4, executing per orchestrator decision
-    #   2026-11-14), and the 42-M4b-upgrade product file if separate from M4b.lean
+    ("AxPilot72_M1_T1",   PILOTS / "72-M1/P72M1T1.lean"),  # FINAL-GREEN m1-run8 (vendor layer, GREEN since run 4); landed 2026-11-14
+    ("AxPilot72_M1_T2",   PILOTS / "72-M1/P72M1T2.lean"),  # FINAL-GREEN m1-run8 (partial-M1, FINAL-for-tranche; L3 → iteration 4); import P72M1T1 auto-rewritten
 ]
 
 
@@ -76,7 +83,7 @@ def theorem_full_names(src: str):
             if ns:
                 ns.pop()
             continue
-        m = re.match(r"^(?:private\s+)?theorem\s+([^\s:({\[]+)", s)
+        m = re.match(r"^(?:@\[[^\]]*\]\s+)*(?:private\s+)?theorem\s+([^\s:({\[]+)", s)
         if m and not s.startswith("private"):
             out.append(".".join([n for n in ns if n] + [m.group(1)]))
     return out

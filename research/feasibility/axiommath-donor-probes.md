@@ -22,10 +22,10 @@ oleans present. App `crossmath-gprobe` (`research/feasibility/probe/gprobe.py`),
 | G2 ZetaZerosV2 | **build OK (8262 jobs, ≈15 min warm) + 13/13 audited theorems triad-clean** — fully consumable as lake dep or binder source |
 | G3 Weil statement | **OK, 0 errors** — the LeanEval `weil_conjectures` statement elaborates verbatim on mathlib-only; all three geometric classes are mathlib's on our pin |
 | G4 AreaLaw2D statement | **OK, 0 errors** after 3 probe-side fixes — the full Challenge statement layer (incl. entropy) re-derives mathlib-only; Physlib not needed at statement level |
-| G5a AreaLaw2D+Physlib | pending (see §G5a) |
+| G5a AreaLaw2D+Physlib | **BLOCKED-INFRA (clean route: artifact-cache outage 14+ h, 4 attempts) — DEFER-TO-ITERATION-4**; seed route works (15,539+/18,274 jobs) and isolates the real blocker: Physlib a50684a1 not ff2494ea-compatible (17 errors / 1 module, first-ever build of the pair) |
 | G5b AL-EZ3 bridge shapes | **OK, 0 errors** — ptrace-Gram, boundary-match, interface conditional, gap dictionary all elaborate |
 | G5c AL-EZ1 dictionary | **OK, 0 errors** — `reducedDensity = Pmat` (W Wᴴ ↔ atom-sum) + trace bookkeeping + binding surface |
-| G6a Stacks pricing | pending (see §G6a) |
+| G6a Stacks pricing | **CONFIRMED NEGATIVE (priced out)** — 59,222-job closure; 11,477 jobs then 7,493 drift errors (run21); ≈15 h compute MINUS a 59k-job-scale v4.34→v4.36 fix campaign; direct Stacks import dead this cycle |
 | G6b EllipticCurve→Scheme | **break confirmed on mathlib; bridge exists in TAUCETI** (`EllipticCurve/Scheme/OfWeierstrass.lean`) — not in mathlib, not in Weil-without-Stacks |
 | G7 Liu-1 statements | **OK, 0 errors** — zeta/Dirichlet near-verbatim (mathlib has `DirichletCharacter.LFunction`), Hecke in binder form |
 | G7b OAI 7/8 axioms | pending (see §G7) |
@@ -248,7 +248,7 @@ through the dictionary). **Verdict: OK — 0 errors** (only fix: `noncomputable 
 for `Real.sqrt` in `Wmat`). **Consumption: dossier-72 milestone-1 / AL-EZ1 part-2 input
 shapes are elaboration-validated; the encoding gap is confined to the `hequiv`-binder.**
 
-### G5a — AreaLaw2D statement layer with Physlib staged: BOUNDARY MEASURED; build not completed tonight (service outage)
+### G5a — AreaLaw2D statement layer with Physlib staged: DISPOSITION BLOCKED-INFRA (artifact-cache outage, clean route) — DEFER-TO-ITERATION-4; seed route now works and isolates the real blocker (Physlib a50684a1 is NOT ff2494ea-compatible)
 
 `ProbeG5a_AreaLaw_Physlib.lean` (checks `OpenAI.HasGlobalGap`, `pureState`,
 `Arealaw.SubState.regionEntropy`, `AreaLaw`, `AreaLawCorollary`, `VertexAreaLaw`,
@@ -258,12 +258,32 @@ was to be elaborated inside the AreaLaw2D tree after `lake build OpenAI.Statemen
 which fetches Physlib from the donor's own pin (`leanprover-community/physlib` @
 `a50684a1`, correctly resolved by lake in run6; Physlib additionally pulls MD4Lean,
 acmepjz/md4lean @ 31907cc1) and builds the vendored region core against ff2494ea.
-**The build itself did not complete tonight**: from ≈22:05 the mathlib artifact service
-failed persistently (`mathlib: failed to fetch cache`; Reservoir invalid-JSON once —
-runs 6/8/9/12/17), and a seed-and-build fallback (pre-copy /opt/mathlib olens, patch the
-manifest; runs 14) foundered on lake rebuilding the dep packages (Batteries/Aesop) from
-source without their own olens/traces — a lake materialization subtlety, recorded as an
-infra lesson, not a donor verdict.
+**Disposition (2026-11-14, attempts exhausted per queue rule):**
+- **Clean route (lake update + cache) = BLOCKED-INFRA.** The mathlib artifact service
+  has been down from ≈22:05 Nov 13 through ≥04:00 Nov 14 (14+ h): `mathlib: failed to
+  fetch cache` on every attempt — 4× in run25 alone (attempt 4 = the final retry), same
+  in runs 23/20/17, and the outage shape also killed runs 6/8/9/12 (g5a) and 11/18
+  (g6a). No retry burn beyond attempt 4, per protocol.
+- **Seed route = infra now SOLVED, donor-stack drift exposed instead.** The improved
+  `_seed_mathlib` (dep-olen redistribution, the run21 g6a seed) fixed runs 14/20's
+  foundering: run25's seeded build processed **15,539+/18,274 jobs** — Physlib's
+  `ClassicalInfo.*` and the vendored `AreaLawForMathlib.QuantumInfo.Region.*` core
+  BUILD against ff2494ea — then failed with **17 errors in exactly ONE module,
+  `QuantumInfo.ForMathlib.Matrix` (Physlib's own)**: drift-shaped (`simp made no
+  progress` ×4, `unsolved goals` ×2, type mismatches ×3, an invalid `cfc` rewrite —
+  mathlib's continuously-functional-calculus API moved, `Function expected at`, …).
+  Root cause is pin archaeology, not our flow: the donor's manifest records its last
+  real upstream resolution as mathlib `db584cd6` + Physlib `a50684a1`; the bump lane's
+  commit `c0f6d96` re-pinned the lakefile to ff2494ea WITHOUT a manifest refresh (lake
+  update = artifact service = down). **Run25 is therefore the first-ever build of the
+  (ff2494ea + Physlib a50684a1) pair, and Physlib @ a50684a1 does not build against
+  ff2494ea.** Fix options for a future iteration: refresh Physlib to a ff2494ea-era rev
+  (needs `lake update`, i.e. the artifact service) or patch the 17 errors in that one
+  Physlib module (S–M effort by G1b/G2 analogy: 1 module / 17 errors vs CFT 11/62 and
+  V2's 9-round/38-error campaign).
+- **Probe verdict: DEFER-TO-ITERATION-4** — re-run `run_gprobe.sh g5a` turnkey once the
+  artifact service recovers (the runner refreshes the manifest and gets Physlib's
+  compatible rev automatically); statement-level consumption is NOT blocked (G4).
 
 **What IS measured (definitive, textual + run evidence):**
 - **Import-boundary map (local BFS + run6 log):** the statement layer
@@ -281,40 +301,55 @@ infra lesson, not a donor verdict.
   refreshed by `lake update` when the service is up (run6 got as far as resolving both
   mathlib and Physlib revs).
 - **Consumption: statement level via the G4 mathlib-only transcription (validated);
-  the Physlib-staged direct-import route is one `run_gprobe.sh g5a` away whenever the
-  artifact service recovers (runner + probe are on disk, turnkey).**
+  the Physlib-staged direct-import route is DEFER-TO-ITERATION-4 (see disposition above
+  — one `run_gprobe.sh g5a` once the artifact service recovers, which also refreshes
+  Physlib past a50684a1; runner + probe are on disk, turnkey).**
 
 ## §G6 function-field cluster (A2's `research/bridges/function-field.md`)
 
-### G6a — partial StacksFrontier build pricing: MEASURED (closure 59,173 jobs; hours-scale at best; drift risk unbounded)
+### G6a — partial StacksFrontier build pricing: CONFIRMED NEGATIVE (priced out — 59,222-job closure, 7,493 drift errors at saturation)
 
-Facts established (runs 11/15/18 + raw GitHub reads + local BFS):
+Facts established (runs 11/15/18/**21** + raw GitHub reads + local BFS):
 
 - **Stacks @ `012108f6` pins toolchain v4.34.0-rc2 and mathlib `16edf57d`** (its
   `lean-toolchain` / `lakefile.toml` read off raw.githubusercontent). Building it as
   Weil's dependency forces the root pins (v4.36.0-rc2 / ff2494ea) — i.e. a v4.34-era
   ~60k-module corpus against v4.36 mathlib, the same class of bump that took ZetaZerosV2
   **nine fix rounds at 1/20th the size**.
-- **The closure is measured, not guessed:** the seed-run (run15) reached lake's job
-  scheduler, which reported **59,173 total jobs** for
+- **The closure is measured, not guessed:** the seed-runs reached lake's job scheduler —
+  **59,173 total jobs** (run15) / **59,222** (run21) for
   `lake build Weil.LeanEval.WeilConjectures` — the Weil-side statement closure is only
   **69 modules with 68 direct StacksFrontier imports** (local BFS), so ≈59k jobs are the
   StacksFrontier transitive closure + deps. At the measured healthy-build rate on this
   Modal shape (g1b: 648 modules / ≈10 min ≈ 1.1 modules/s on 16 CPU) a zero-error build
-  would run **≈ 15 hours** — and zero-error is excluded: Stacks publishes no olean cache
-  (bridge §5), so every module compiles from source against drifted mathlib.
-- The clean update+cache route additionally hit the artifact-service outage (runs 11/18);
-  the seed route rebuilt deps from source and saturated (run15) — infra, not donor
-  verdicts.
+  would run **≈ 15 hours** — and zero-error is now EXCLUDED, see next bullet.
+- **Drift CONFIRMED at scale (run21, the clean seed run — mathlib ff2494ea olens
+  pre-seeded + dep olens redistributed, so failures are genuinely Stacks-side, not
+  dep-rebuild noise):** the build compiled **11,477 / 59,222 jobs** and then saturated
+  with **7,493 errors** across 50+ `StacksCore.*` / `StacksFrontier.*` modules — starting
+  in the corpus's own foundations (`StacksCore.Algebra.Algebra.Subalgebra.Basic`,
+  `StacksCore.Algebra.Homology.ShortComplex.SnakeLemma`,
+  `StacksCore.Algebra.Homology.SpectralSequence.EdgeStep`,
+  `StacksCore.CategoryTheory.Basic`, dozens of
+  `StacksFrontier.Algebra.Category.ModuleCat.Sheaf.*`, …; representative first break:
+  `StacksFrontier/CategoryTheory/Sites/Continuous.lean:164` — instance-synthesis failure
+  `PreservesLimitsOfShape I (sheafToPresheaf J (Type w) ⋙ u.op.lan ⋙
+  presheafToSheaf K (Type w))`, i.e. v4.36 mathlib category-theory API drift). Run15's
+  143,641 errors (259 jobs done) were dominated by Aesop/Batteries rebuilding from source
+  without traces — infra noise, superseded by run21's cleaner seed.
+- The clean update+cache route additionally hit the artifact-service outage (runs 11/18/
+  21-update ×4 attempts each) — infra, not donor verdicts.
 - **Pricing verdict (FF-EZ3/FF-EZ4 consumption): buildable-in-principle = yes (lake
   resolves Stacks @ 012108f6 from Weil's lakefile; toolchain answer = root v4.36.0-rc2
-  overrides Stacks' v4.34.0-rc2 lean-toolchain); estimated cost ≈ 15 h of 16-CPU compute
-  MINUS the v4.34→v4.36 drift fix campaign on a ~59k-module corpus of unknown breakage
-  density (ZetaZerosV2 analogy says nontrivial). Direct import is priced OUT for this
-  cycle; the G3 statement route and pilot-71's no-Stacks baseline are the consumption
-  paths.** Baseline note: A2's pilot-71 P0 (statement probe, no Stacks) doubles as the FF
-  no-Stacks baseline — cite `research/pilots/71-prework.md` + `research/pilots/71/logs/`
-  (not re-run here, per coordinator de-duplication).
+  overrides Stacks' v4.34.0-rc2 lean-toolchain), but the real cost is ≈ 15 h of 16-CPU
+  compute PLUS a v4.34→v4.36 drift fix campaign that run21 proves is needed at
+  7,493-errors-in-the-first-12k-jobs density on a ~59k-job corpus (ZetaZerosV2 needed
+  nine fix rounds at 1/20th the size). Direct Stacks import is DEAD for this cycle and
+  priced L-and-worse for any cycle; the G3 statement route and pilot-71's no-Stacks
+  baseline are the consumption paths.** Baseline note: A2's pilot-71 P0 (statement
+  probe, no Stacks) doubles as the FF no-Stacks baseline — cite
+  `research/pilots/71-prework.md` + `research/pilots/71/logs/` (not re-run here, per
+  coordinator de-duplication).
 
 ### G6b — EllipticCurve→Scheme instance path (FF-EZ4): BREAK on mathlib; bridge exists in tauceti
 

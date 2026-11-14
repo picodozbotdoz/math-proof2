@@ -139,7 +139,6 @@ in 1b has a live gate — they are cold inventory.
     charter must differentiate from BOTH article 52 and physlib's `WickContraction/Sign/`
     stack; per-pair round-level battery mandatory.]**
 12. **Weil-as-binder for FF window clauses** — G3 CLEAN: the LeanEval `weil_conjectures`
-12. **Weil-as-binder for FF window clauses** — G3 CLEAN: the LeanEval `weil_conjectures`
     statement elaborates verbatim mathlib-only, all three geometric classes are mathlib's
     on our pin; Tier A (Stacks) stays priced-and-blocked (G6a). Rationale: FF-EZ1-style
     window transports can consume Weil RH by binder NOW, no Stacks build.

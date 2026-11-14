@@ -1,0 +1,708 @@
+# Provenance: modal run gprobe.py --mode g5a (AreaLaw2D statement layer + Physlib staged = G5a, attempt 4 = FINAL retry per lane queue; attempts 1-3 = runs 17/20/23 all died on the persistent mathlib artifact-cache/Reservoir outage at lake update "mathlib: failed to fetch cache"; run14 = seed-and-build fallback foundering on lake rebuilding dep packages from source), 2026-11-14, lane A7 relaunch-2, command: TAUCETI_STAGE=/tmp/a7r25 ./run_gprobe.sh g5a (background)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-hInsycHfyADLQa12ZYkmPU
+✓ Created objects.
+├── ✓ Uploaded /tmp/a7r25/crossmath-gprobe-stage/gprobe.py
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+└── ✓ Created Function g7.
+
+=== AreaLaw2D update (attempt 1): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: Physlib: materializing new dependency
+info: Physlib: fetching revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b' from https://github.com/leanprover-community/physlib
+info: Physlib: checking out revision 'a50684a1919e84dc1c761028ff4f77cd59e2de6b'
+info: leanprover-community/mathlib: materializing new dependency
+info: leanprover-community/mathlib: fetching revision 'ff2494ea5e438f8a8452db803068acd711fa0059' from https://github.com/leanprover-community/mathlib4
+info: leanprover-community/mathlib: checking out revision 'ff2494ea5e438f8a8452db803068acd711fa0059'
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+info: doc-gen4: materializing new dependency
+info: doc-gen4: fetching revision 'aceca4eeb5a79092eabefaa75fcb72b701d02205' from https://github.com/leanprover/doc-gen4
+info: doc-gen4: checking out revision 'aceca4eeb5a79092eabefaa75fcb72b701d02205'
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: plausible: materializing new dependency
+info: plausible: fetching revision 'b7eb3304aeae834b12dda98993a37f6a41f6f0bb' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'b7eb3304aeae834b12dda98993a37f6a41f6f0bb'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision '5f4d51b81cbd3f6b32b156bfad9056621a040404' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '5f4d51b81cbd3f6b32b156bfad9056621a040404'
+info: importGraph: materializing new depende
+
+=== AreaLaw2D update (attempt 2): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+
+=== AreaLaw2D update (attempt 3): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+
+=== AreaLaw2D update (attempt 4): rc=1
+Warning: .lake/packages/importGraph/ImportGraph/Imports/Pretty.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/importGraph/ImportGraph/Widget/GoToModule.lean not found. Skipping all files that depend on it.
+Warning: .lake/packages/batteries/Batteries/Data/Except.lean not found. Skipping all files that depend on it.
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Warning: your project pins different versions of some dependencies than Mathlib.
+This will cause `lake exe cache get` to compute wrong hashes.
+
+  plausible:
+    project: b7eb3304aeae
+    mathlib: 129d1ba9a16b
+  LeanSearchClient:
+    project: 5f4d51b81cbd
+    mathlib: c61286b7b63c
+  importGraph:
+    project: 16f02aa76428
+    mathlib: e5d5639bedc7
+  proofwidgets:
+    project: 4be2e3d5087e
+    mathlib: 16259c0d07d6
+  aesop:
+    project: 3448c0bcc5ce
+    mathlib: 7d11bfa88558
+  Qq:
+    project: 92c15be17b7c
+    mathlib: b0256621cb88
+  batteries:
+    project: 4488d40d070b
+    mathlib: 4af7237d1462
+  Cli:
+    project: 6130a47896ce
+    mathlib: c09cb1e4f1e6
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+info: toolchain not updated; already up-to-date
+warning: lintall: ignoring missing manifest:
+  /work/AreaLaw2D/scripts/lint/lake-manifest.json
+warning: /work/AreaLaw2D/.lake/packages/doc-gen4/lakefile.lean:257:19: `Lake.Module.leanArts` has been deprecated: Use `elabArts` or `irArts` instead.
+info: mathlib: running post-update hooks
+error: mathlib: failed to fetch cache
+[AreaLaw2D] update still failing after 4 attempts — seeding
+[seed] mathlib pre-seeded at ff2494ea5e43 + dep olens redistributed
+
+=== AreaLaw2D build: rc=1
+{'build': 'FAIL rc=1 errors=17 failed_modules=1'}
+[g5a] build FAIL rc=1 errors=17 failed_modules=1; failed modules: ['QuantumInfo.ForMathlib.Matrix']
+⚠ [5139/18274] Built AreaLawForMathlib.QuantumInfo.Region.Basic (5.6s)
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean:53:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean:62:18: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean:111:44: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean:115:44: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [5159/18274] Ran AreaLawForMathlib.QuantumInfo.Region.Basic:irArts
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/Basic.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [15425/18274] Built QuantumInfo.ClassicalInfo.Prob (11s)
+warning: QuantumInfo/ClassicalInfo/Prob.lean:11:0: 'Mathlib.Data.NNReal.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.NNReal.Basic
+warning: QuantumInfo/ClassicalInfo/Prob.lean:53:29: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+warning: QuantumInfo/ClassicalInfo/Prob.lean:496:13: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: QuantumInfo/ClassicalInfo/Prob.lean:496:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: QuantumInfo/ClassicalInfo/Prob.lean:535:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+⚠ [15539/18274] Built QuantumInfo.ClassicalInfo.Distribution (7.7s)
+warning: QuantumInfo/ClassicalInfo/Distribution.lean:50:10: `Finset.sum_nonneg'` has been deprecated: Use `Finset.sum_nonneg` instead
+
+Note: The updated constant has a different type:
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+instead of
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ (i : ι), 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+warning: QuantumInfo/ClassicalInfo/Distribution.lean:119:6: `Finset.sum_nonneg'` has been deprecated: Use `Finset.sum_nonneg` instead
+
+Note: The updated constant has a different type:
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+instead of
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ (i : ι), 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+⚠ [17015/18274] Built QuantumInfo.ClassicalInfo.Entropy (3.7s)
+warning: QuantumInfo/ClassicalInfo/Entropy.lean:92:2: `Finset.sum_nonneg'` has been deprecated: Use `Finset.sum_nonneg` instead
+
+Note: The updated constant has a different type:
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+instead of
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ (i : ι), 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+⚠ [17057/18274] Built AreaLawForMathlib.QuantumInfo.ClassicalInfo.Entropy (6.4s)
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.NegMulLog` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.Matrix.PosDef` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [17058/18274] Ran AreaLawForMathlib.QuantumInfo.ClassicalInfo.Entropy:irArts
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.NegMulLog` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.Matrix.PosDef` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/ClassicalInfo/Entropy.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [17081/18274] Built AreaLawForMathlib.QuantumInfo.Entropy.VonNeumann (4.1s)
+warning: AreaLawForMathlib/QuantumInfo/Entropy/VonNeumann.lean: imports `Mathlib.Analysis.Matrix.HermitianFunctionalCalculus` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [17082/18274] Ran AreaLawForMathlib.QuantumInfo.Entropy.VonNeumann:irArts
+warning: AreaLawForMathlib/QuantumInfo/Entropy/VonNeumann.lean: imports `Mathlib.Analysis.Matrix.HermitianFunctionalCalculus` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✖ [17105/18274] Building QuantumInfo.ForMathlib.Matrix (14s)
+trace: .> LEAN_PATH=/work/AreaLaw2D/.lake/packages/MD4Lean/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/BibtexQuery/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/UnicodeBasic/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/Cli/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/leansqlite/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/batteries/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/Qq/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/aesop/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/importGraph/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/plausible/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/doc-gen4/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/mathlib/.lake/build/lib/lean:/work/AreaLaw2D/scripts/lint/.lake/build/lib/lean:/work/AreaLaw2D/.lake/packages/Physlib/.lake/build/lib/lean:/work/AreaLaw2D/.lake/build/lib/lean /opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/lean -Dwarn.sorry=false -Dweak.says.verify=true /work/AreaLaw2D/.lake/packages/Physlib/QuantumInfo/ForMathlib/Matrix.lean -o /work/AreaLaw2D/.lake/packages/Physlib/.lake/build/lib/lean/QuantumInfo/ForMathlib/Matrix.olean -i /work/AreaLaw2D/.lake/packages/Physlib/.lake/build/lib/lean/QuantumInfo/ForMathlib/Matrix.ilean -c /work/AreaLaw2D/.lake/packages/Physlib/.lake/build/ir/QuantumInfo/ForMathlib/Matrix.c --setup /work/AreaLaw2D/.lake/packages/Physlib/.lake/build/ir/QuantumInfo/ForMathlib/Matrix.setup.json --json
+error: QuantumInfo/ForMathlib/Matrix.lean:76:2: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (c • A) i✝
+error: QuantumInfo/ForMathlib/Matrix.lean:176:4: `simp` made no progress
+warning: QuantumInfo/ForMathlib/Matrix.lean:214:81: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+warning: QuantumInfo/ForMathlib/Matrix.lean:246:14: `ite_cond_eq_false` has been deprecated: Use `ite_eq_right_of_eq_false` instead
+
+Hint: Replace the deprecated name:
+  i̵t̵e̵_̵c̵o̵n̵d̵_̵e̵q̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲_̲o̲f̲_̲e̲q̲_̲f̲a̲l̲s̲e̲
+error: QuantumInfo/ForMathlib/Matrix.lean:289:24: Function expected at
+  dotProduct_mulVec_zero_iff hA
+but this term has type
+  star ?m.63 ⬝ᵥ A *ᵥ ?m.63 = 0 ↔ A *ᵥ ?m.63 = 0
+
+Note: Expected a function because this term is being applied to the argument
+  x
+error: QuantumInfo/ForMathlib/Matrix.lean:379:6: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (C * B * Cᴴ - C * A * Cᴴ) i
+error: QuantumInfo/ForMathlib/Matrix.lean:429:82: unsolved goals
+n : Type u_3
+𝕜 : Type u_5
+inst✝² : Fintype n
+inst✝¹ : RCLike 𝕜
+A : Matrix n n 𝕜
+inst✝ : DecidableEq n
+hA : A.IsHermitian
+c : ℝ
+U : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+hU : Uᴴ = star U
+hU' : U * star U = 1
+hc : c • 1 = U * c • 1 * Uᴴ
+i j : n
+⊢ (c • 1) i j = if i = j then ↑c else 0
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:15: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:27: This simp argument is unused:
+  one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:38: This simp argument is unused:
+  smul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:48: This simp argument is unused:
+  RCLike.real_smul_eq_coe_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, mul_one, smul_zero, diagonal, Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:77: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:431:86: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: QuantumInfo/ForMathlib/Matrix.lean:467:82: unsolved goals
+n : Type u_3
+𝕜 : Type u_5
+inst✝² : Fintype n
+inst✝¹ : RCLike 𝕜
+A : Matrix n n 𝕜
+inst✝ : DecidableEq n
+hA : A.IsHermitian
+c : ℝ
+U : Matrix n n 𝕜 := ↑hA.eigenvectorUnitary
+hU : Uᴴ = star U
+hU' : U * star U = 1
+hc : c • 1 = U * c • 1 * Uᴴ
+i j : n
+⊢ (c • 1) i j = if i = j then ↑c else 0
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:15: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:27: This simp argument is unused:
+  one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:38: This simp argument is unused:
+  smul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, RCLike.real_smul_eq_coe_mul, mul_one, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:48: This simp argument is unused:
+  RCLike.real_smul_eq_coe_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, mul_one, smul_zero, diagonal, Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:77: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, smul_zero, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:469:86: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_apply, one_apply, smul_ite, RCLike.real_smul_eq_coe_mul, mul_one, diagonal,
+    Function.comp_apply, of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: QuantumInfo/ForMathlib/Matrix.lean:641:40: Type mismatch
+  Finset.sum_comm
+has type
+  ∑ x ∈ ?m.63, ∑ y ∈ ?m.64, ?m.65 x y = ∑ y ∈ ?m.64, ∑ x ∈ ?m.63, ?m.65 x y
+but is expected to have type
+  ∑ y, (M * kroneckerMap (fun x1 x2 => x1 * x2) A 1) (x✝¹, y) (x✝¹, y) =
+    ((of fun i₂ j₂ => ∑ i₁, M (i₂, i₁) (j₂, i₁)) * A) x✝¹ x✝¹
+warning: QuantumInfo/ForMathlib/Matrix.lean:639:15: This simp argument is unused:
+  mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, kroneckerMap_apply, traceRight, one_apply, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:639:26: This simp argument is unused:
+  kroneckerMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, traceRight, one_apply, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:639:58: This simp argument is unused:
+  one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, kroneckerMap_apply, traceRight, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:640:27: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, kroneckerMap_apply, traceRight, one_apply, Fintype.sum_prod_type]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: QuantumInfo/ForMathlib/Matrix.lean:654:40: Type mismatch
+  Finset.sum_comm
+has type
+  ∑ x ∈ ?m.71, ∑ y ∈ ?m.72, ?m.73 x y = ∑ y ∈ ?m.72, ∑ x ∈ ?m.71, ?m.73 x y
+but is expected to have type
+  ∑ x, (M * kroneckerMap (fun x1 x2 => x1 * x2) 1 B) (x, x✝¹) (x, x✝¹) =
+    ((of fun i₁ j₁ => ∑ i₂, M (i₂, i₁) (i₂, j₁)) * B) x✝¹ x✝¹
+warning: QuantumInfo/ForMathlib/Matrix.lean:651:15: This simp argument is unused:
+  mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, kroneckerMap_apply, traceLeft, one_apply, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:651:26: This simp argument is unused:
+  kroneckerMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, traceLeft, one_apply, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:651:57: This simp argument is unused:
+  one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, kroneckerMap_apply, traceLeft, Fintype.sum_prod_type, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:652:27: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [trace, mul_apply, kroneckerMap_apply, traceLeft, one_apply, Fintype.sum_prod_type]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:666:12: `Finset.sum_nonneg'` has been deprecated: Use `Finset.sum_nonneg` instead
+
+Note: The updated constant has a different type:
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+instead of
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ (i : ι), 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+warning: QuantumInfo/ForMathlib/Matrix.lean:676:12: `Finset.sum_nonneg'` has been deprecated: Use `Finset.sum_nonneg` instead
+
+Note: The updated constant has a different type:
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+instead of
+  ∀ {ι : Type u_1} {N : Type u_5} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ (i : ι), 0 ≤ f i) → 0 ≤ ∑ i ∈ s, f i
+warning: QuantumInfo/ForMathlib/Matrix.lean:723:4: syntax 'Mathlib.Tactic.Peel.peel' has been deprecated: use `gconvert` or `congr!` instead of `peel`
+
+Note: This linter can be disabled with `set_option linter.deprecated.syntax false`
+error: QuantumInfo/ForMathlib/Matrix.lean:727:70: Application type mismatch: The argument
+  PosDef
+has type
+  Matrix n n 𝕜 → Prop
+but is expected to have type
+  Set ?m.1
+in the application
+  Convex ℝ PosDef
+error: QuantumInfo/ForMathlib/Matrix.lean:867:6: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `cfc ?f ?a` is a value of type
+  ?m.53
+error: QuantumInfo/ForMathlib/Matrix.lean:1013:8: simp_all made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (kroneckerMap (fun x1 x2 => x1 * x2) (P⁻¹ * A * P) (Q⁻¹ * B * Q) - x • 1) (fst, snd)
+warning: QuantumInfo/ForMathlib/Matrix.lean:1007:41: This simp argument is unused:
+  sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ne_eq, kronecker, kroneckerMap_apply, smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1008:10: This simp argument is unused:
+  kroneckerMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ne_eq, kronecker, sub_apply, smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1008:30: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ne_eq, kronecker, sub_apply, kroneckerMap_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1008:42: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ne_eq, kronecker, sub_apply, kroneckerMap_apply, smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1029:30: This simp argument is unused:
+  sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1029:41: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1029:53: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, sub_apply, smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1032:44: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1045:95: This simp argument is unused:
+  sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, isUnit_iff_ne_zero, ne_eq, not_false_eq_true, nonsing_inv_mul, smul_apply,
+    smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1046:10: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, isUnit_iff_ne_zero, ne_eq, not_false_eq_true, nonsing_inv_mul, sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1046:22: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [map_mul, isUnit_iff_ne_zero, ne_eq, not_false_eq_true, nonsing_inv_mul, sub_apply, smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1212:82: This simp argument is unused:
+  sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ge_iff_le, dotProduct, Pi.star_apply, RCLike.star_def, mulVec, smul_apply, Complex.real_smul,
+    conjTranspose_apply, star_sum, star_mul', RingHomCompTriple.comp_apply, RingHom.id_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1213:6: This simp argument is unused:
+  smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ge_iff_le, dotProduct, Pi.star_apply, RCLike.star_def, mulVec, sub_apply, Complex.real_smul,
+    conjTranspose_apply, star_sum, star_mul', RingHomCompTriple.comp_apply, RingHom.id_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1213:18: This simp argument is unused:
+  Complex.real_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [ge_iff_le, dotProduct, Pi.star_apply, RCLike.star_def, mulVec, sub_apply, smul_apply,
+    conjTranspose_apply, star_sum, star_mul', RingHomCompTriple.comp_apply, RingHom.id_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: QuantumInfo/ForMathlib/Matrix.lean:1575:133: `ring_nf` made no progress on the goal
+error: QuantumInfo/ForMathlib/Matrix.lean:1575:42: Type mismatch
+  Eq.trans Finset.sum_comm (Finset.sum_congr rfl fun x x_1 => Finset.sum_congr rfl fun x_2 x_3 => ?m.439)
+has type
+  ∑ x ∈ ?m.436, ∑ y ∈ ?m.415, ?m.402 x y = ∑ x ∈ ?m.415, Finset.sum ?m.436 (?m.432 x)
+but is expected to have type
+  ∑ i,
+      x x✝¹ *
+        ((starRingEnd R) (x i) *
+          ((of fun j k => ∏ i, B i (j i) (k i)) * star (of fun j k => ∏ i, B i (j i) (k i))) i x✝¹) =
+    ∑ x_1,
+      ∑ i, x x✝¹ * ((∏ x, B x (i x) (x_1 x)) * ((starRingEnd R) (x i) * ∏ x, (starRingEnd R) (B x (x✝¹ x) (x_1 x))))
+warning: QuantumInfo/ForMathlib/Matrix.lean:1572:15: This simp argument is unused:
+  mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [of_apply, star_apply, star_prod, RCLike.star_def, Finset.mul_sum _ _ _, mul_left_comm, mulVec,
+    dotProduct, mul_comm, map_sum, map_mul, map_prod, RingHomCompTriple.comp_apply, RingHom.id_apply, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuantumInfo/ForMathlib/Matrix.lean:1573:6: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_apply, of_apply, star_apply, star_prod, RCLike.star_def, Finset.mul_sum _ _ _, mulVec,
+    dotProduct, mul_comm, map_sum, map_mul, map_prod, RingHomCompTriple.comp_apply, RingHom.id_apply, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [17107/18274] Ran AreaLawForMathlib.QuantumInfo.Region.PartialTrace
+warning: AreaLawForMathlib/QuantumInfo/Region/PartialTrace.lean: imports `Mathlib.Analysis.Matrix.Order` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: AreaLawForMathlib/QuantumInfo/Region/PartialTrace.lean: imports `Mathlib.LinearAlgebra.Matrix.Kronecker` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18271/18274] Ran AreaLawForMathlib.QuantumInfo.Region.TraceDistance
+warning: AreaLawForMathlib/QuantumInfo/Region/TraceDistance.lean: imports `Mathlib.Analysis.Matrix.Order` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18273/18274] Ran OpenAI.Statements
+warning: OpenAI/Statements.lean: imports `Mathlib.Algebra.Group.Pointwise.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Analysis.Convex.Hull` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Analysis.SpecialFunctions.BinaryEntropy` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Analysis.SpecialFunctions.Pow.Real` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Combinatorics.SimpleGraph.Density` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Combinatorics.SimpleGraph.Hasse` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Combinatorics.SimpleGraph.Metric` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Combinatorics.SimpleGraph.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Data.Int.Interval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Topology.EMetricSpace.Diam` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Topology.Instances.Int` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: OpenAI/Statements.lean: imports `Mathlib.Topology.MetricSpace.HausdorffDistance` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Some required targets logged failures:
+- QuantumInfo.ForMathlib.Matrix
+info: plausible: checking out revision '129d1ba9a16bc0660f46c79e9fb041ef5d5d80de'
+info: LeanSearchClient: checking out revision 'c61286b7b63cbfd563b28e11e81d0a18233a044a'
+info: importGraph: checking out revision 'e5d5639bedc7feecfbcb98e30b3bf26463d9f722'
+info: proofwidgets: checking out revision '16259c0d07d61ee37d999d05b5cf96338b8daa11'
+info: aesop: checking out revision '7d11bfa88558f8d3d90afdf6bd877ed70001498d'
+info: Qq: checking out revision 'b0256621cb88178e9ad932a53633077b3029e621'
+info: batteries: checking out revision '4af7237d146261353907b06a01b6f3fc06cfa067'
+info: Cli: checking out revision 'c09cb1e4f1e6e1c231a1175a12b681b075054a1b'
+error: build failed
+
+=== SUMMARY
+build: FAIL rc=1 errors=17 failed_modules=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-hInsycHfyADLQa12ZYkmPU
