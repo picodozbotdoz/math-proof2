@@ -264,20 +264,18 @@ rows), pilot outcome slot per pilot pipeline.
   route R3 (Liu-1 full-strength binder) statement-level until G7. Clock-sweep must-cites
   folded by A9 (Chang–Wang 2611.00924 conditional frontier; Ji 2611.16665 ζ_{Q(i)}; 13-repo
   QR-D Lean landscape, no ζ_K formal artifact anywhere).
-- **(71) Function-field s-plane dictionary.** The first formal s-plane zeta of a curve —
-  ζ_C(s) := Z_C(q^{−s}) meromorphic (poles exactly {0,…,d}), every nontrivial zero exactly on
-  Re s = 1/2 (function-field quasi-RH, DZDF statement shape), uniform Hasse–Weil point-count
-  transport, and the anti-CT window-comparison corollary (step-function density at 1/2 vs the
-  number side's 31/32) — the dictionary every other FF zone consumes. Primary GLUE/
-  formalization-first (Weil 1948 math-known); FF-EZ2-family secondary DISCOVERY-grade
-  [HYPOTHESIS], flagged not-pilot. A5: primary "formalization-first (dictionary value)",
-  WARM (Suzuki 2610.41115 month-clock). Pilot (slot 1, A2): P0 OK + P1 GREEN (7/7
-  kernel-clean, triad; 243 LoC total) → outcome **FINAL-GREEN (A2 formal report
-  received 2026-11-14)** — p2-run6 "P2.lean: OK": final 279 LoC / 11 theorems,
-  22 triad axiom-lines, 0 sorryAx; descent 6→4→2→1→OK across p2-run1–6; W1 honestly
-  corrected to the pole-family exclusion (prework's s≠1 reading refined). 73-C:
-  **GREEN FINAL** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 theorems all triad,
-  descent 2→4→4→2→OK; Q4 untouched per the separate gate.
+- **(71) Function-field s-plane dictionary — PROVED, FINAL (article 71).** The first formal
+  s-plane zeta of a curve, ζ_C(s) := P₁(q^{−s})/((1−q^{−s})(1−q·q^{−s})), with three landing
+  theorems conditional on a `WeilData` hypothesis structure (the Weil conjectures as stated in
+  AxiomMath `Weil`): **W1** ζ_C(s) ≠ 0 for Re s > 1/2 off the pole factor (optimal window;
+  `curve_zeta_ne_zero`), **W2** every zero of P₁(q^{−s}) has Re s = 1/2
+  (`curve_zero_re_eq_half`), **HW** |#C(𝔽_{q^m}) − q^m − 1| ≤ |A₁|·q^{m/2}
+  (`hasse_weil_point_count`). Formalization forced a correction: the number-field-style
+  exclusion "s ≠ 1" is false in Lean (the pole factor vanishes on 1 + (2πi/log q)ℤ); the
+  proved W1 excludes the pole factor and Core 2 locates that family on Re s = 1. P2.lean 279
+  LoC / 11 thms, all triad (p2-run6; descent 6→4→2→1→0). Formalization-first (Weil 1948);
+  A5 WARM. Not formalized: meromorphy, the exact zero-set form, the number-field comparison
+  conjunction.
 - **(72) Area-law inertial defect.** Post-Kuwahara restructure: the gap-to-inertia dictionary
   (HasGlobalGap ⇔ `posIndexAbove θ (E₀−H) ≤ 1`, provable now; isometric-B erratum applied),
   a purity (α = 2) certificate route [HYPOTHESIS] via pilot-01's PROVED master identity, a
@@ -297,33 +295,32 @@ rows), pilot outcome slot per pilot pipeline.
   vendor layer + L1+L2 kernel-clean (m1-run8 both OK; axcheck 52+28 axiom-lines,
   0 sorryAx, triad-only); L3 + the interface theorem carried to Iteration-4
   (decision recorded; continuation spec in the m1-run8 header).
-- **(73) Function-field Hecke–Tate (CONDITIONAL-CORE, Stacks-blocked).** The FF Hecke-L
-  statement class in the DZDF `heckeCorollary` shape with every Weil-side input a binder
-  (`hTate`/`hRat`/`hPur`): (i) rationality/continuation, (ii) RH-form with window exactly
-  1/2 (anti-CT at the Hecke level), (C1) the 𝔽_q(T) probe — `hRat` dischargeable
-  (elementary periodicity), `hPur` STAYS A BINDER (RH for Kummer covers — deep), so (C1)
-  lands (i) unconditional + (ii) conditional; (C2) three-corpus window comparison
-  (1/2 vs 31/32 vs B_new); (C3) proportion extensions fenced off (trap-reasoned). Highest
-  ceiling of the 70-series, least claimable today; Tier A blocked (StacksFrontier ~63k
-  modules un-cloned; priced ceiling, not a slot). A5 row: zone WARM, dossier-level query
-  re-run owed (Rosen chapter pin). Pilot (slot 1b, A2): 73-C skeleton Q0→Q3, STOP before Q4
-  → outcome **GREEN FINAL (covered by A2's formal report 2026-11-14)**: run6-c-green,
-  236 LoC, Q1–Q3 + 71-glue, 7 theorems all triad; descent 2→4→4→2→OK; Q4 untouched per
-  the separate gate (Iteration-4 item).
+- **(73) Hecke L-series over 𝔽_q[T], statement layer — PROVED at Tier C, FINAL (article
+  73).** `FFRayClassCharacter` (DZDF's `RayClassCharacter` transplanted field-by-field onto
+  k[X]; the archimedean positivity clause proved vacuous, `no_real_homs`), the L-series
+  `heckeSeriesT χ ∈ ℂ⟦T⟧`, **continuation** under the rationality hypothesis `hRat`
+  (`hecke_continuation`: P₁(q^{−s})/P₀(q^{−s}) differentiable off P₀(q^{−s}) = 0) and the
+  **1/2 window** under purity `hPur` (`hecke_window`; hPur = RH for the Kummer covers, never
+  discharged). C.lean 236 LoC / 7 thms all triad (run6-c-green). **Q4 — the elementary
+  hRat discharge for 𝔽_q[T] — not attempted (separate gate), carried to Iteration 4**;
+  general curves, the FE and the comparison theorem are out of scope. A5 P2-13: "first formal
+  Tate-type statement" SUPPORTED in the function-field scope (WenrongZou clock).
 - **(74) Surprisal moment-hierarchy ceilings (A4).** Owns AL-EZ2 outright: T1 two-sided
   window theorem, T2 class-inclusion ladder, T3 LP core contingent on dossier-02's unclaimed
   layer, T4 method-barrier corollary; consumer = AreaLaw2D's 3D bottleneck C.3. Boundary note
   vs 72: no statement overlap, no inheritance of the 72 §P1 erratum. No Cycle-2 pilot
   (u≠1 dossier edit queued to A4). Block data: `candidates/74-*.md`.
-- **(75) Abelian-assembly ζ_L proportions (70-Part-B split-out).** DZDF's
-  `dedekindAbelianQuotient`/`abelianFactorization` (ζ_L = (∏ nonprincipal Hecke L)·ζ_K, every
-  abelian L/K) turns pilot 42's proved two-factor assembly into n+1-factor landing theorems
-  for ζ_L — the first zero-proportion (and real-abelian strip) statements for any ζ_L —
-  with the component-proportion binder schema as the named open core and the
-  partially-unconditional K = ℚ accounting (ζ-side discharged by V2 per 42-M4; Dirichlet side
-  zeta23-conditional). A5 (P2-3 flip resolved): DLRT 1908.04876 is SCOPED (fixed quadratic K,
-  GRH-conditional) ⇒ primary NOT math-known ⇒ N stays 4; WARM. Pilot: DEFERRED wave-4 (spec
-  complete, `pilots/75-prework.md`); entry (P-a)+(C1)@2/3 when slotted.
+- **(75) Abelian-assembly ζ_L proportions — entry milestone PROVED, FINAL for Cycle 2
+  (article 75).** `zetaL_assembly_landed`: for f_L = (∏_{i∈ι} F_i)·f_K (finite ι; the
+  abelian factorization ζ_L = ζ_K·∏ L(s,χ_i) as a hypothesis), component proportion bounds
+  c₀, c_i give ζ_L's proportion ≥ min(c₀, min c_i); `zetaL_two_thirds_conditional` at 2/3
+  (ζ_K via Knausgård's certified 0.6735 slot, components at 2/3 as the named open core).
+  The first zero-proportion statements for ζ_L of degree > 2. The 2-factor engine's
+  partial-product non-degeneracy hypothesis is derived away (ℕ∞ order additivity). Pa.lean
+  1,557 LoC (≈363 new) / 66 thms; 17/17 in-file audit triad (run6-final, descent
+  26→7→1→2→2→0). DLRT 1908.04876 SCOPED ⇒ N stays 4; WARM. **Carried to Iteration 4:** the
+  5/6 strip-distinct arm (P-b, design on file) and the K = ℚ instantiation (N2: ζ-side via
+  V2 as in 42-M4).
 
 ### C2.2 Donor-discharge outcomes
 
@@ -368,9 +365,9 @@ rows), pilot outcome slot per pilot pipeline.
 | 52 | unified CCR Fock close-out | **CLOSED-GREEN** (A8, 2026-11-13): verified-green reproduction, axcheck 15 axiom-lines 0 sorryAx; ledger §8 |
 | 20 | hecke-zetaK close-out | **CLOSED-GREEN** (A8, 2026-11-13): runs recorded, axcheck 36 axiom-lines 0 sorryAx; hCZ seam unchanged |
 | 10-L1 | counter combinators | **GREEN + axcheck-clean** (A6, 2026-11-13; 529 LoC / 25 thms, logs l1-run1..4-final) |
-| 10-L2 | `PolyTVal` | **GREEN + axcheck-clean — A6 formal report received 2026-11-14**: final 2,625 LoC (2,042 M1-verbatim, byte-identical but one prose line, + ~580 new Part D); full axcheck **151 thms = 134 M1-region + 17 Part D**, all triad, 0 sorryAx; descent 12→3→1→0→final across l2-run1–5 (17-defect list in run1 header) — **the main-run Top-3 #2 conjunction completes** |
+| 10-L2 | `PolyTVal` | **GREEN + axcheck-clean — A6 formal report received 2026-11-14**: final 2,625 LoC (2,042 M1-verbatim, byte-identical but one prose line, + ~580 new Part D); full axcheck **151 thms = 134 M1-region + 17 Part D**, all triad, 0 sorryAx; descent 12→3→1→0→final across l2-run1–5 (17-defect list in run1 header) — the three-layer certificate stack (M1/L1/L2) completes; **the headline uniform+poly-space conjunction stays OPEN** (assembly tranche D1–D6 carried to Iteration 4; article 10) |
 | 11-M2 | reduction-theory tier 2 (A8-3) | **GREEN FINAL — A8 FORMAL REPORT RECEIVED 2026-11-14** — m2-run8 all six files OK incl. RedTm2 (final 421 LoC / 8 thms); churn 4→2→3→6→3→2→2→0 (site-basis; run5's machine counter reads 4 — only divergent run); all m2 logs run-time persisted (provenance marks, none reconstructed); axcheck `m2-axcheck-final` BOTH OK — 76 axiom-lines (64 P11T3 + 12 RedTm2), 0 sorryAx, triad-only; blueprint §8 = the formal record (root-cause table, P11T3 first-run GREEN) |
-| 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (disk-verified 2026-11-14; A3 formal report owed)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); M4-note finalization owed |
+| 42-M4 | V2 donor-swap (A3) | M4a **GREEN + axcheck-clean** (1,194 LoC / 52 thms; logs m4-run2, m4-axcheck-run1); **42-M4b + upgrade COMPLETE — FINAL (A3 formal report landed, 2026-11-14)**: fallback GREEN (1,560 LoC / 66 thms; run2 + `m4b-axcheck-run1` triad-only 0 sorryAx) AND upgrade COMPLETE-primary (m4b2-run2 "M4b.lean: OK" — direct ZetaZerosV2 import; final 1,571 LoC / 68 thms = PRIMARY route; fallback byte-preserved; ≤20-line gate met); A3 formal report (`pilots/42/M4-note.md`) landed |
 | 71-P2 / 73-C | FF slot 1 (A2) | P0+P1 GREEN; **71-P2 FINAL-GREEN (A2 formal report received 2026-11-14)** — p2-run6 "P2.lean: OK", final **279 LoC** / 11 thms, 22 triad axiom-lines, 0 sorryAx, descent 6→4→2→1→OK, W1 pole-family correction; **73-C GREEN FINAL (covered by A2's report)** — run6-c-green, 236 LoC, Q1–Q3 + 71-glue, 7 thms all triad, descent 2→4→4→2→OK, Q4 untouched per separate gate |
 | 72-C-neg | Kuwahara no-go gate (A4) | **FINAL-GREEN OFFICIAL (A4 formal report received 2026-11-14)** — run8-final rc=0/0/0; descent 20→14→12→6→7→3→1→0 runs 1–8 (1–5 headers reconstructed); 369 LoC / 11 thms (5 public + 6 private); axcheck-run1 11/11 exactly triad, 0 sorryAx; Appendix-A deviations documented (N1 0<α≤β<1; N3 False-forms ≡ ¬∃C; Kuwahara `hKL` binder) |
 | 72-M1 | family-265 interface, Tier-C transcription (A8, slot 3) | **PARTIAL-M1 GREEN — FINAL-FOR-TRANCHE, A8 FORMAL REPORT RECEIVED 2026-11-14**: vendor `P72M1T1.lean` (702 LoC, both endpoint statement layers) + L1+L2 in `P72M1T2.lean` (360 LoC / 25 thms) kernel-clean — m1-run8 both OK, descent 4+1→…→24→10→1→0 (runs 1–8; the resumed run-6 static audit found the run-5 fixes already on disk — the interruption killed the turn between edit and run); axcheck `m1-axcheck-final` BOTH OK — 52 + 28 axiom-lines (28 = 25 theorems + 3 in-file milestone repeats), 0 sorryAx, triad-only; **L3 (symmetrization/state-conventions/gap-quadratic-form) + the interface theorem CARRIED to Iteration-4 — decision recorded** (overrun guard; continuation spec in the m1-run8 header; L2 landed at constant 1, stronger than the ≤4 safety form) |
@@ -429,20 +426,25 @@ cites, sorry-token counts, sign-off cells). **Sweep machinery pre-verified post-
 `run_axcheck.sh` now defaults to `MODAL_USER=doz` (xyz blocked in this environment) and
 forwards subset stage-names. Two GREEN-on-disk landings already carry their axcheck
 evidence (42-M4b: 92 axiom-prints / 68 thms triad-only; 72-C-neg: rc=0, 0 sorryAx,
-triad-only). Cycle-2 final sweep per `feasibility/probe/FINAL-SWEEP-PLAN-C2.md` (trigger =
-A1 standby signal when all TARGETS final-or-declared-drop; Steps A–C; 36 sorry-tokens in
-tree at plan time, all justified) → **[SWEEP]** (outcome appended here + ledger §9
-sign-off). Outage note: log tails written post-outage were treated as suspect until
+triad-only). **Cycle-2 final sweep — EXECUTED and SIGNED OFF (2026-11-14; ledger §9.F):** Step A —
+73 `.lean` files, exactly the 43 baseline probe-convention tokens (9 main-run + 23 G-series
++ 4 `pilots/71/P0` + 7 `pilots/73/P0`), 0 unexplained; Step B — all 44 `make_axcheck.py`
+stages OK (43 on the plain substrate + `AxPilot42_M4b` in its built-ZetaZerosV2 donor tree),
+axiom sets only `[propext, Classical.choice, Quot.sound]` and its subsets, **0 sorryAx**
+(`probe/logs/stepB-c2.log`, `stepB-c2-m4b-donor.log`; per-pilot
+`pilots/*/logs/axcheck-c2-final.log`); Steps C–D — every §9 row OK, compliance signed. Outage note: log tails written post-outage were treated as suspect until
 re-verified — G7b run16 (verdict-less) was the cautionary case; every relaunched run
 since carries a provenance header (H header-discipline QA, batch 1–3: no violations).
 
 ### C2.6 Triage decision (orchestrator)
 
-**[TRIAGE-DECISION]** — typeset by the orchestrator at close-out from
-`TRIAGE-C2-ROWS.md` (decision-ready staging, A9) + `qa/triage-decision-staging.md` (H input
-brief), mirroring the main-run §Top-3 format. Draft inputs: lane proposals in the rows file;
-A5 VERDICTS N-adjusts landed; A7 effort grades [incoming] — empirical costs where missing
-(M4a ~180 LoC delta green; 71-P0+P1 243 LoC green; substrate map S-cost).
+**DECIDED (orchestrator, 2026-11-14; `TRIAGE.md` § Cycle-2 pilot decision).** Delivered:
+71-P2 (rank ≈ 5.8), 72-C-neg + the 72-M1 tranche (≈ 4.9), 42-M4 both routes, 73-C at Tier C
+(≈ 4.8), 75's entry milestone — the cycle's discovery-grade core (≈ 6.4) — and the main-run
+completions 10-L2 (three-layer stack; headline open) and 11-M2 (Theorem B(ii)). 50-M2-R1 is
+resolved by the G7b donor-pin audit (C2.3 row). 74 and every carried tranche (73-Q4,
+75 P-b/N2, 72-M1 L3+interface, 10 assembly, 22-T2a) go to Iteration 4. Every landed pilot
+finished inside its graded effort band.
 
 ### C2.7 Corpus-integration notes
 
