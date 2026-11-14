@@ -129,43 +129,67 @@ layer exists (bridge map Z1; novelty R8: N4).
 
 ---
 
-## Cycle-2 addendum (2026-11-14): M2 — the TM2 realization, COMPLETE (m2-run8-GREEN)
+## Cycle-2 addendum (2026-11-14): M2 — the TM2 realization (Theorem B(ii)), PROVED
 
-The open milestone named in §7 (the machine realization via eth's `PolyT` fragment
-calculus, dossier 11's Theorem B(ii); blueprint `research/pilots/11-blueprint.md` §M2,
-~1.5–2.5k LoC, effort M) is Cycle-2 slot 2, lane A8, executing after the pilot-52/20
-close-outs. **Ledger-final state (filled 2026-11-14 per the orchestrator's instruction):
-P11T1.lean and P11T2.lean GREEN, FINAL; P11T3.lean GREEN in both m2 runs
-(`research/pilots/11/logs/m2-run1.log` / `m2-run2.log`, 2026-11-14, after the four
-outage-killed pinpoint fixes — explicit type params on stuck instance applications,
-branch-form machine in choice, induction-style `sum_sf`, missing `hk` in
-`composed_sum_le` — plus run-1's id'/rfl/length_cons repairs; ≈1.1k LoC / 88 thms),
-marked PENDING A8 OFFICIAL RELAY at the time — **promoted to FINAL 2026-11-14: A8's
-formal report received**; the verdict block below is that report's record.**
+The open milestone of §7, realizing the calculus on actual machines (dossier 11
+Theorem B(ii)), is proved. It uses mathlib's own TM2 machines and eth's polynomial-time
+fragment calculus. Files: `research/pilots/11/P11T3.lean` (1,100 lines, 88 theorems;
+eth's machine-model tranche ported with proofs) and `research/pilots/11/RedTm2.lean`
+(421 lines).
 
-**[VERDICT:11-M2] FILLED-FINAL — GREEN — A8 FORMAL REPORT RECEIVED (2026-11-14;
-supersedes the A1 §9 provisional fill; every figure disk-verified against the logs).
-`m2-run8-GREEN.log` — ALL SIX FILES OK, 0 errors, 0 sorry-warnings** (P11T1, P11T2,
-P11T3, RedCompA, RedCompB, **RedTm2** — final 421 LoC, 0 sorry-tokens; P11T3 1,100 LoC /
-88 thms, the whole eth machine-model tranche with donor proofs, GREEN on its FIRST run).
-**Theorem B(ii) — the machine realization of the call-charged calculus — is proved**
-(blueprint §8: the composed bound `c·(calls·T + calls + 1)·(|x|+1)^c` realized by ONE
-TM2 machine via the eth interface binders). Full-coverage axcheck `m2-axcheck-final.log`
-(`run_axcheck.sh AxPilot11_P11T3 AxPilot11_RedTm2`): **76 axiom-lines (P11T3 64 +
-RedTm2 12), 0 sorryAx, every line triad-only** — dedup `[propext, Classical.choice,
-Quot.sound]` ×22, `[propext, Quot.sound]` ×17, `[propext]` ×15; the acceptance
-theorems `Tm2Sol.mono`/`tm2_choice`/`tm2_charging`/`tm2_realized_composed` full triad,
-`composed_sum_le` `[propext, Quot.sound]`, and `map_headD_sf` **axiom-free**. The four
-outage-killed pinpoint fixes landed in their final form per 11-blueprint §8's table:
-named `(α := …) (β := …)` binders (the stuck `Enc ?β` class), `sum_sf`'s explicit
-trailing `rfl`, `List.length_cons` into `composed_sum_le`'s simp set, and the
-half-applied `hk` fix **re-proved** via `clear hk` + inner length-form induction +
-`Nat.mul_le_mul_right` (plus the never-reached `hsomeCons` rebuild: `hsfOpt` +
-`comp`-routing for `hstart`). **Error series (corrected per A8's formal report):
-4→2→3→6→3→2→2→0** — run 5 shows 3 displayed sites (`:216`/`:234`/`:354`) against the
-counter's 4; the run-8 log header carries 4 at run 5 **as-written, run-time persisted,
-NOT reconstructed** (all m2-run1–7 headers were in place within ~2 min of their runs,
-before the interruption). The churn itself = hard elaboration errors aborting whole
-declarations and exposing the next error class — **no regressions**. This addendum's
-claim is complete; the M1 record of §5 stands unchanged; M3 (CH20∘VW13 instantiation)
-remains per blueprint §4. The close-out sweep confirms at FINAL-SWEEP-PLAN-C2.
+**Cost model.** `Tm2Sol f T` :⟺ there is a `TM2ComputableAux Bool Bool` machine M
+that, on every input x, outputs f x within T x steps (mathlib's `TM2OutputsInTime`).
+This is eth's `MainResults.lean:158` shape.
+
+**Interface hypotheses.** eth results whose proofs need its full fragment library enter
+as verbatim statement hypotheses, following eth's own interface convention:
+- `EthExistsTm` (`exists_tm`, `Machine/Host.lean:305–309`);
+- `EthPoly` (function-level `PolyT` closure facts, e.g. `Closure/Basic.lean:53–127`);
+- `EthIsPoly` (`IsPolyT` closure of the Stepped combinators, `Poly/Comb.lean:50,63`).
+
+Everything else is proved.
+
+**Theorem B(ii) (`tm2_realized_composed`).** Assume `EthExistsTm`, `EthPoly` and
+`EthIsPoly`. Let:
+- qs : input → list of queries, polynomial-time;
+- Md, a polynomial-time Stepped callee answering each query q as v q within tquery q
+  steps, with state size Sm;
+- Tn x, a bound with tquery q ≤ Tn x for every q ∈ qs x;
+- a polynomial-time combining step g and initial value c₀, with all intermediate
+  sizes bounded by (|x| + 2)^d;
+- calls x ≥ |qs x|.
+
+Then there is c with
+  Tm2Sol (x ↦ fold of g over the answers to qs x, starting at c₀ x)
+         (x ↦ c · (calls x · (Tn x + 1) + 1) · (|x| + 1)^c).
+**One TM2 machine** realizes the calculus's composed bound "calls × callee time +
+polynomial overhead".
+
+**Companion results:**
+- `Tm2Sol.mono`: time bounds widen. It needs no interface hypotheses.
+- `tm2_choice`: a size-threshold branch between two machines costs the selected
+  branch's time plus polynomial overhead. It is built from eth's `Stepped.ite` and the
+  decision x.length < n₀.
+- `tm2_charging`: the composed machine is eth's `Stepped.foldWhile` over the query
+  list's suffixes `sf (qs x)`, running the callee once per query. Its step count is
+  Σ_q (tquery q + 1) plus overhead.
+- `composed_sum_le`: Σ_q (tquery q + 1) ≤ calls · (Tn + 1).
+
+**Proof outline.** Express the caller as a Stepped machine: `foldWhile` walks the
+suffixes of the query list (`orbit_sf`, `map_headD_sf`, `sum_sf`). Each iteration
+invokes Md on the head query and folds the answer with g. eth's IsPolyT closure gives
+the iteration polynomial overhead. `exists_tm` compiles the Stepped machine to a TM2 with
+time c·(steps + 1)·(|x| + 1)^c. The step count is bounded by `sum_sf` and
+`composed_sum_le` (induction on the query list). Finally `Tm2Sol.mono` widens to the
+stated bound.
+
+**Verification.** `pilots/11/logs/m2-run8-GREEN.log`: all six pilot-11 files (P11T1,
+P11T2, P11T3, RedCompA, RedCompB, RedTm2) elaborate with 0 errors and 0 sorry. The
+RedTm2 error count over runs 1–8 was 4 → 2 → 3 → 6 → 3 → 2 → 2 → 0. `m2-axcheck-final.log`
+has 76 axiom lines (P11T3 64 + RedTm2 12), 0 sorryAx, all ⊆ triad. `map_headD_sf` is
+axiom-free. The Cycle-2 final sweep confirms the result: `AxPilot11_P11T3` has 71 lines
+and `AxPilot11_RedTm2` 12, all OK (`pilots/11/logs/axcheck-c2-final.log`).
+
+**Still open.** The word-RAM (Light-language) half of Theorem B. The M3 instantiation
+(CH20 ∘ VW13 as one composed realization, blueprint §4). Discharging the three eth
+interface hypotheses by porting the fragment library.
