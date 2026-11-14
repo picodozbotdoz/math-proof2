@@ -25,3 +25,12 @@ Pending-verdict items are NOT debts (they are close-out preconditions, tracked i
 closeout-commit-plan preconditions block and A9's slot ledger): 71-P2 axcheck+report,
 42-M4b-upgrade, 10-L2, 11-M2 final, 72-M1 (slot 3), 75 (executing), G7b/G5a/G6a, seed-1
 rg-gate + seeds-6/11 differentiation, TRIAGE-C2-ROWS reconciliation, A1 relabel batch.
+
+## Cycle-2 close (2026-11-14) — deferred-with-owner (STEP-8 gate 4 cross-list)
+
+`REPORT-INPUTS-C2.md` rows still marked OPEN at close are next-cycle obligations only, owned as follows:
+[A5-SEED-TRIAGE] (charter) → A5; [A5-triage-pending] (seed dossiers) → A5;
+[NOVELTY-CHECK-NEEDED] (seed dossiers) → next-cycle novelty lane; [TRIAGE-DECISION]
+annotation family in the ITERATION4-* files → Iteration-4 orchestrator. Class: ITER-4.
+The [VERDICT:10-L2] row is FILLED-FINAL; it matches the gate grep only because it records
+that article 10's headline "stays OPEN" (carried assembly tranche, D1–D6).
