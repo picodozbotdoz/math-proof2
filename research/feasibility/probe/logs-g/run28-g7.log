@@ -132,3 +132,8 @@ warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point
 [4228s] ✔ [4818/7061] Built OAI.NumberTheory.DirichletL.CubicSieve.DescentEnergy (69s)
 [4522s] ✔ [4918/7061] Built OAI.NumberTheory.DirichletL.Descent.FirstWholeCanonicalTail (66s)
 [4817s] ✔ [5018/7061] Built OAI.NumberTheory.DirichletL.Detector.RadialSpectral (56s)
+[5138s] ✔ [5118/7061] Built OAI.NumberTheory.DirichletL.PrimeRows.MarkedEuler (62s)
+Stopping app - user stopped from CLI.
+Terminated
+
+# CANCELLED by the user ~10:35 2026-11-14 at 5018/7061 jobs (app ap-JmB4Id9UpeUajJbNDqNr1O stopped): 64 cpu / 128 GB was over-provisioned (~19 concurrent lean workers, low RAM). No G7b verdict. Runner right-sized afterwards (24 cpu / 32 GB) but NOT relaunched.
