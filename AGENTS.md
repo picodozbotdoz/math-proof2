@@ -31,27 +31,30 @@ Relative to `/home/doz/zcode-workdir/`:
   `zeta23/`.
 - `axiom-lean-engine/` — AXLE: Python client/CLI (`axle`) for the AXLE Lean
   verification API; uv-based (see its `pyproject.toml` / `Makefile`).
-- `axiommath/` — AxiomMath Lean formalizations (added 2026-11-13; shallow clones,
-  `--depth 1`, of `github.com/AxiomMath/<name>`; all sorry-free, standard axioms):
-  - `DedekindZetaZeroFree/` (`09afbb4c`, v4.35.0-rc3, deps mathlib + TauCeti) —
-    Cureton–Thorner quasi-RH: ζ_K ≠ 0 for Re s > 31/32, every number field K;
-    same for finite-order Hecke L-functions. Donor for dossiers 20/22/40/42/50.
-  - `ZetaZerosV2/` (`1d7edeb4`, v4.34.0-rc2, deps mathlib + PNT+ `c19697c7`) and
-    `ZetaZeros/` (`4bcaf70e`, v4.34.0-rc2) — Lamzouri: > 2/3 of ζ zeros simple and
-    on the line, > 83.6% distinct. Novelty check / donor for 01/21/42.
-  - `PrimeNumberTheoremAnd/` (`d71f7b41`, v4.35.0-rc2) — Axiom's PNT+ fork (HEAD;
-    ZetaZerosV2 pins the older `c19697c7`). Overlaps tauceti Perron (dossier 22).
-  - `Weil/` (`27cdb204`, v4.34.0-rc2, deps mathlib + AxiomMath/Stacks `012108f6`)
-    — all four Weil conjectures incl. RH over 𝔽_q (Deligne). Function-field
-    analog for the quasi-RH cluster. Stacks itself is NOT cloned (~63k modules);
-    consult it on GitHub for reference only.
-  - `AreaLaw2D/` (`7768136b`, v4.33.0) — formalizes openai-math family 265
-    (2D area law from a global spectral gap); bridges openai-math ↔ linear algebra.
+- `axiommath/` — six AxiomMath repos, **all bumped 2026-11-13 to our pin** (branch
+  `dev/claude`: toolchain `v4.36.0-rc2`, lakefiles pin mathlib `ff2494ea`; per-repo bump
+  commits in each git log). Donor status per `feasibility/axiommath-bump/` +
+  `feasibility/axiommath-donor-probes.md` §G: `ZetaZeros` (V1) and `ZetaZerosV2` **BUILT**
+  (V2 incl. its PrimeNumberTheoremAnd path, 8262 jobs; 13/13 audited theorems triad-clean,
+  probe G2); `DedekindZetaZeroFree` **statement-level only** (G1a OK; G1b direct build
+  FAILS — vendored CFT breaks vs ff2494ea, 62 errors/11 modules; vendors
+  `FiniteAbelianGlobalReciprocityv2` = n-yamaguchi ClassFieldTheory @ `77137952`, 1658
+  files, `vendor/class-field-theory`, surveyed in `survey/axiommath-cft-vendor.md`);
+  `Weil` (deps AxiomMath/Stacks `012108f6`, NOT cloned) statement-level OK (G3); direct import
+  priced out (G6a CONFIRMED NEGATIVE: 59,222-job closure, 7,493 drift errors);
+  `AreaLaw2D` (deps Physlib `a50684a1`) statement-level OK (G4; Physlib not needed at
+  statement level; G5a BLOCKED-INFRA — Physlib `a50684a1` is not `ff2494ea`-compatible,
+  17 errors in 1 module; deferred to Iteration 4). Surveys:
+  `survey/axiommath.md`, `survey/axiommath-pntplus.md`, `survey/axiommath-cft-vendor.md`;
+  donor map `novelty/axiommath-as-donor.md` + `novelty/pntplus-glue-as-donor.md`.
+  Original shallow-clone revs (`--depth 1`, `github.com/AxiomMath/<name>`): DZDF `09afbb4c`,
+  ZetaZerosV2 `1d7edeb4` (PNT+ dep `c19697c7`), ZetaZeros `4bcaf70e`, PrimeNumberTheoremAnd
+  `d71f7b41`, Weil `27cdb204`, AreaLaw2D `7768136b`.
 - `liu-zerofree/` — shallow clone (`--depth 1`, rev `7d10420`, toolchain `v4.34.1`,
   registered 2026-11-13) of
   github.com/liubaiying101/Slightly-improved-zero-free-half-planes-for-the-quasi-Riemann-hypothesis
   — companion to Liu arXiv:2610.12234 (round-4 §5): zero-free Re s >
-  B_new = 0.874957019… for finite-order Hecke L over ℚ(√−3), with Cor. 14.1 transfer
+  B_new = 0.8749570698… for finite-order Hecke L over ℚ(√−3), with Cor. 14.1 transfer
   to every Dirichlet L **including ζ** (principal character); exact-arithmetic
   certificates. B_new < 7/8, so its zero-free half-plane strictly contains the 7/8
   region — it discharges pilot 50's `hQRH`/`hQRHχ` binders as written (no weakening,
@@ -68,6 +71,14 @@ Relative to `/home/doz/zcode-workdir/`:
   sorry-free and native_decide-free
   (grep-level only — NOT yet built on our pin; probe owned by A7/G7). Second external
   formal donor of the QR-D cluster, after `axiommath/DedekindZetaZeroFree`. Read-only.
+- `PrimeNumberTheoremAnd` upstream (AlexKontorovich, NOT cloned) — **DEFER-watchlist**,
+  not registered: HEAD `938912bb` (2026-11-12) proves StrongPNT
+  (ψ = x + O(x·exp(−c√log x)), triad via in-file `#guard_msgs #print axioms`) on
+  v4.35.0/mathlib `56a00585`; IEANTN porting out to teorth/IEANTN; 39/75 of the fork's
+  `Mathlib/` subtree files drift from upstream. Register-and-port triggers
+  (`novelty/pntplus-glue-as-donor.md` §c): T1 a dossier-22-T2a pilot wants the upstream
+  Borel–Carathéodory chain; T2 a PNT-AP/Chebotarev consumer appears; T3 upstream reaches
+  v4.36-class pins. Until then cite as external formal prior art (Liu-1 convention).
 
 Never edit or commit inside the sibling repos; work only in this workspace.
 Toolchain family across the ecosystem: Lean `v4.36.0-rc1`/`-rc2` — match it
@@ -88,6 +99,28 @@ when a `lean-toolchain` is added here.
 - When Lean scaffolding (lakefile, CI, check scripts) is first added here,
   mirror `math-proof1`'s patterns and record the commands in this file.
 
+## Cycle-2 conventions (applied at Cycle-2 close, 2026-11-14)
+
+- Donor hygiene gate: before consuming any external theorem, run the triad check
+  (propext/Classical.choice/Quot.sound) at statement level — comparator configs and
+  READMEs are claims, on-pin `#print axioms` is proof (G2 did this for ZetaZerosV2's
+  13 audited theorems; executed for a consumer at `pilots/42/logs/m4b-axcheck-run1.log`;
+  DZDF/Liu-1 remain claim-level).
+- Decl index: novelty/absence work uses `qa/decl-index-v2.tsv` (+ labels
+  `axiommath-{dzzf,vendor-cft,zetazeros-v2,zetazeros,pnt,weil,arealaw2d}`); **caveat
+  block** as pre-registered in `qa/cycle2-qa-plan.md` §(b): AxiomMath repos re-export
+  mathlib/TauCeti content — a TSV hit is never evidence of provability; openai-math
+  vendors mathlib-like trees; preprints are never indexed. Direct-source (`rg` in the
+  tree, namespace check) before any "corpus X has Y" claim.
+- G-series probes (`feasibility/axiommath-donor-probes.md`, logs
+  `feasibility/probe/logs-g/`): statement-elaboration-only probes, numbered G1…, one
+  verdict line each, probe `sorry` only inside "not a proof artifact" headers;
+  hypothesis-binder forms per the EnclOK/ProbeE precedent.
+- Queue-loaded-lane protocol: lanes receive bottom-up task queues from the orchestrator
+  and answer with one consolidated report per batch; mid-task relays are answered
+  (RespondToCoordinator) without derailing the current task. Protocol recorded at
+  `research/RESUME-BRIEF-C2.md` §Protocol.
+
 ## Lean verification via Modal (established 2026-11-09)
 
 No lake scaffolding in this repo yet; pilots/probes elaborate against a pinned mathlib on
@@ -99,7 +132,8 @@ Modal (math-proof1's account and staging pattern). Canonical evidence:
   `xyz` user (math-proof1's account). Runner scripts resolve the binary via
   `MODAL_BIN=$(getent passwd xyz | cut -d: -f6)/xyzenv/bin/modal` and invoke
   `sudo -n -u xyz bash -lc "… modal run <app>.py --dir <stage>"`
-  (`/home/doz/dozenv/bin/modal` also exists for the doz user; scripts use xyz's).
+  (`/home/doz/dozenv/bin/modal` also exists for the doz user; scripts used xyz's through
+  2026-11-13 — superseded by the substrate note below).
 - Substrate: `leanprover-community/mathlib4` @ `ff2494ea…` (exact encore checkout rev),
   toolchain `leanprover/lean4:v4.36.0-rc2`, image elan v4.2.4; CI oleans via
   `lake exe cache get` — 9,096 olens fetched for the exact rev (run 1, `port-probe.md:35`);
@@ -133,3 +167,22 @@ Modal (math-proof1's account and staging pattern). Canonical evidence:
   corpus-wide — donor *statements* elaborate verbatim on v4.36; proofs and new math are
   the cost. Consumption patterns: zeta23 → binder types (ProbeE); OAI → interface
   hypotheses (closure-heavy trees); tauceti → direct dependency (same toolchain).
+- Substrate note (recorded 2026-11-13): `sudo -n -u xyz` is blocked in this environment;
+  runners fall back to the doz CLI directly — `MODAL_BIN=/home/doz/dozenv/bin/modal`
+  (in use by `pilots/71/run_pilot.sh:11`); `run_axcheck.sh` DEFAULTS to `MODAL_USER=doz`
+  (canonical protocol: `research/RESUME-BRIEF-C2.md` §Protocol 3). The xyz staging pattern
+  (world-readable `/tmp/crossmath-*-stage/`) still applies when xyz is available. Long builds
+  (> ~40 min) use `modal run --detach` from a `setsid nohup` wrapper so they survive the
+  session (G7b lesson; `feasibility/probe/run_gprobe.sh g7`, Volume `crossmath-g7-tree`).
+- Cycle-2 ephemeral apps (same no-volume/no-secret recipe as `crossmath-probe`):
+  `crossmath-axbump` (`feasibility/axiommath-bump/axbump.py`), `crossmath-gprobe`
+  (`feasibility/probe/gprobe.py`, the G-series), `crossmath-pilot-71`
+  (`pilots/71/run_pilot.py`), `crossmath-pilot-42-m4` (`pilots/42/run_m4.py`),
+  `crossmath-pilot-42-m4b2` (`pilots/42/run_m4b2.py:23`), `crossmath-pilot-72`
+  (`pilots/72/run_pilot.py:17`); the pilot-11 revival reuses `crossmath-probe`
+  (`pilots/11/pilot11_probe.py:19`).
+- Full-coverage axiom audit: the pilot-10 `axcheck_full.py` pattern (dotted names +
+  `@[simp]` theorems, dependency-order olean compilation, per-file axioms report) is now
+  the standard for donor-swap pilots (`pilots/10/axcheck_full.py`; make_axcheck's regex
+  misses remain documented above). First executed instance:
+  `pilots/42/logs/m4b-axcheck-run1.log` (AxPilot42_M4b_full, triad-only, 0 sorryAx).
