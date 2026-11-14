@@ -131,10 +131,14 @@ def _layered_image():
     .run_function(build_chunk, **SPEC, timeout=LAYER_TIMEOUT,
                   kwargs={"idx": 0, "targets": PLAN["chunk0"]})
 )
+  # Chunk layers 1..N + target: memory 8 GB — USER-APPROVED 2026-11-14 for this G7b build
+  # only (telemetry run30: 5.3–6.1 GB from mmapped Mathlib oleans; cpu stays at spec 2).
+  # prep/chunk0 keep SPEC so their cached layers are reused.
+  approved = {"cpu": SPEC["cpu"], "memory": 8192}
   for i, c in enumerate(PLAN["chunks"], start=1):
-      image = image.run_function(build_chunk, **SPEC, timeout=LAYER_TIMEOUT,
+      image = image.run_function(build_chunk, **approved, timeout=LAYER_TIMEOUT,
                                  kwargs={"idx": i, "targets": c})
-  return image.run_function(build_chunk, **SPEC, timeout=LAYER_TIMEOUT,
+  return image.run_function(build_chunk, **approved, timeout=LAYER_TIMEOUT,
                             kwargs={"idx": 999, "targets": [PLAN["target"]]})
 
 
