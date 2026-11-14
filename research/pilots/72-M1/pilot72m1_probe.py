@@ -14,6 +14,14 @@ Files are read from the staged directory embedded by the local entrypoint.
 """
 
 import modal
+
+# AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
+# run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
+import sys as _sys
+_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
+from modal_telemetry import SPEC, telemetered  # noqa: E402
+CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+
 import os
 
 app = modal.App("crossmath-probe")  # same app name as R9's probe: reuses the image
@@ -40,7 +48,11 @@ image = (
 )
 
 
-@app.function(image=image, cpu=4.0, memory=32768, timeout=2 * 60 * 60)
+image = image.add_local_python_source("modal_telemetry")
+
+
+@app.function(image=image, **SPEC, secrets=CAP, timeout=2 * 60 * 60)
+@telemetered
 def pilot(files: dict, order: list):
     import pathlib
     import subprocess

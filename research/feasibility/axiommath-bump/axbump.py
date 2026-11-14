@@ -14,6 +14,14 @@ Same image recipe as research/pilots/32/run_pilot.py. Ephemeral `modal run` only
 
 import modal
 
+# AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
+# run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
+import sys as _sys
+_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
+from modal_telemetry import SPEC, telemetered  # noqa: E402
+CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+
+
 app = modal.App("crossmath-axbump")
 
 MATHLIB_REV = "ff2494ea5e438f8a8452db803068acd711fa0059"
@@ -45,7 +53,11 @@ BUILDS = [("ZetaZeros", ["ZetaZeros"]),
           ("ZetaZerosV2", ["ZetaZeros"])]
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+image = image.add_local_python_source("modal_telemetry")
+
+
+@app.function(image=image, **SPEC, secrets=CAP, timeout=3 * 60 * 60)
+@telemetered
 def run(tarball: bytes, only: str = ""):
     import io, re, subprocess, tarfile, pathlib
 

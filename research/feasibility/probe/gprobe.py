@@ -24,6 +24,14 @@ Usage (via research/feasibility/probe/run_gprobe.sh):
 
 import modal
 
+# AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
+# run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
+import sys as _sys
+_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
+from modal_telemetry import SPEC, telemetered  # noqa: E402
+CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+
+
 app = modal.App("crossmath-gprobe")
 
 MATHLIB_REV = "ff2494ea5e438f8a8452db803068acd711fa0059"
@@ -151,7 +159,11 @@ def _condense(out, limit=120000):
     return "\n".join(keep)[:limit]
 
 
-@app.function(image=image, cpu=4.0, memory=32768, timeout=2 * 60 * 60)
+image = image.add_local_python_source("modal_telemetry")
+
+
+@app.function(image=image, **SPEC, secrets=CAP, timeout=2 * 60 * 60)
+@telemetered
 def probe(files: dict, order: list):
     import pathlib
     import subprocess
@@ -202,7 +214,8 @@ def probe(files: dict, order: list):
     return results
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+@app.function(image=image, **SPEC, secrets=CAP, timeout=3 * 60 * 60)
+@telemetered
 def g2(tarball: bytes, probes: dict):
     import io, pathlib, re, tarfile
 
@@ -252,7 +265,8 @@ def g2(tarball: bytes, probes: dict):
     return summary
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+@app.function(image=image, **SPEC, secrets=CAP, timeout=3 * 60 * 60)
+@telemetered
 def g1b(tarball: bytes, build_timeout: int = 2700):
     import io, pathlib, re, tarfile
 
@@ -307,7 +321,8 @@ def g1b(tarball: bytes, build_timeout: int = 2700):
     return summary
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+@app.function(image=image, **SPEC, secrets=CAP, timeout=3 * 60 * 60)
+@telemetered
 def g5a(tarball: bytes, probes: dict):
     """Build AreaLaw2D's statement layer (OpenAI.Statements) with Physlib fetched from the
     donor's own pinned git rev, then elaborate the G5a probe inside the tree."""
@@ -347,7 +362,8 @@ def g5a(tarball: bytes, probes: dict):
     return summary
 
 
-@app.function(image=image, cpu=16.0, memory=65536, timeout=3 * 60 * 60)
+@app.function(image=image, **SPEC, secrets=CAP, timeout=3 * 60 * 60)
+@telemetered
 def g6a(tarball: bytes, build_timeout: int = 2400):
     """Price a partial StacksFrontier build: bounded `lake build
     Weil.LeanEval.WeilConjectures` (the RH/purity statement closure; Weil-side closure
@@ -444,8 +460,9 @@ def _g7_elab(d, probes, summary):
         print(out2[:40000], flush=True)
 
 
-@app.function(image=image, cpu=4.0, memory=16384, timeout=4 * 60 * 60,
+@app.function(image=image, **SPEC, secrets=CAP, timeout=4 * 60 * 60,
               volumes={"/vol": g7vol})
+@telemetered
 def g7elab(probes: dict):
     """Re-elaborate consumer files inside the persisted, already-built donor tree
     (no rebuild beyond lake's no-op check): the R1 fix-iteration path."""
@@ -462,8 +479,9 @@ def g7elab(probes: dict):
     return summary
 
 
-@app.function(image=image, cpu=24.0, memory=32768, timeout=24 * 60 * 60,
+@app.function(image=image, **SPEC, secrets=CAP, timeout=24 * 60 * 60,
               volumes={"/vol": g7vol})
+@telemetered
 def g7(tarball: bytes, probes: dict):
     """G7 primary: axiom audit of openai-math's own 7/8 quasi-RH theorems
     (OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re,
