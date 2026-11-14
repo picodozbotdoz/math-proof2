@@ -462,7 +462,7 @@ def g7elab(probes: dict):
     return summary
 
 
-@app.function(image=image, cpu=64.0, memory=131072, timeout=24 * 60 * 60,
+@app.function(image=image, cpu=24.0, memory=32768, timeout=24 * 60 * 60,
               volumes={"/vol": g7vol})
 def g7(tarball: bytes, probes: dict):
     """G7 primary: axiom audit of openai-math's own 7/8 quasi-RH theorems
@@ -483,7 +483,9 @@ def g7(tarball: bytes, probes: dict):
     3 h→4 h — run22 proved the patch tier but was killed mid-build by the lane's
     execution-window interruption; the caps now cover a full 7,075-job compile.
     Attempt 5 (run27): run26 TIMEOUT at 2520/7061 jobs under the 9000 s cap — now
-    cpu 16→64, memory 64→128 GB, build cap 82000 s, function cap 24 h (Modal max),
+    cpu 16→64, memory 64→128 GB (run28 — OVER-PROVISIONED: measured ~19 concurrent lean
+    workers and low memory use; right-sized to 24 cpu / 32 GB for later runs), build cap
+    76000 s, function cap 24 h (Modal max),
     streamed progress, and the client launches with `modal run --detach`."""
     import io, pathlib, re, tarfile
 
