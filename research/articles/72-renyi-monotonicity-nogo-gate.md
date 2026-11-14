@@ -1,202 +1,200 @@
-# The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements
+# The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements (with the Family-265 Interface Layer)
 
-*cross-math-fronttier research article 72 (Cycle 2) · DRAFT (C-neg LANDED, A4 report
-2026-11-14; M1 tranche LANDED, A8 report 2026-11-14 — L3 + interface theorem carried to
-Iteration 4) · dossier `research/candidates/72-area-law-inertial-defect.md` · prework/pilot
-`research/pilots/72-prework.md` (Appendix A) + `research/pilots/72/` (C-neg.lean, runs
-1–5) + `research/pilots/72-M1/` (P72M1T1/T2) · bridge `research/bridges/area-law.md`*
+*cross-math-fronttier research article 72 (Cycle 2) · FINAL (C-neg complete; M1 interface
+layer landed for its Cycle-2 tranche, with the gap transfer and the interface theorem
+carried to Iteration 4) · dossier `research/candidates/72-area-law-inertial-defect.md` ·
+prework `research/pilots/72-prework.md` (Appendix A) · Lean `research/pilots/72/C-neg.lean`,
+`research/pilots/72-M1/P72M1T{1,2}.lean` · bridge `research/bridges/area-law.md`*
 
-**Status: C-neg PROVED, GREEN + axcheck-clean (filled from A4's official report,
-2026-11-14 — §5); M1 (family-265 interface companion, Tier C) partial-GREEN —
-[VERDICT:72-M1] FILLED from A8's formal report (2026-11-14 — §6): the assigned Cycle-2
-tranche is COMPLETE, GREEN, FINAL for the tranche** (vendor layer + L1 ptrace-Gram +
-entropy match + L2 at constant 1, all kernel-clean; **L3 and the interface theorem
-itself carry to Iteration 4 by design**, spec in the m1-run8-GREEN.log header). The
-mathematical content of the gate is elementary (a
-monotonicity lemma plus a contrapositive); the point is that it is *worth formalizing*:
-it permanently fences a zone that a 2026 preprint just dynamited, and the
-negative-result article kind has precedent in this project (articles 30, 50).
+**Status: PROVED, FINAL.**
+- **Part I (the gate, C-neg)** is complete. It has 369 lines and 11 theorems (5 public,
+  6 private), each with axioms exactly `[propext, Classical.choice, Quot.sound]`.
+- **Part II (M1)** proves the first two links of the planned AreaLaw2D → openai-math
+  interface chain, kernel-clean: the partial-trace/Gram identity with entropy match, and
+  the boundary comparison at constant 1. The third link (Hamiltonian/gap transfer) and
+  the interface theorem itself carry to Iteration 4.
+
+The mathematics of Part I is elementary. Its value is as a permanent formal fence around
+a statement shape that a 2026 preprint refuted.
 
 ---
 
 ## Abstract
 
-Kuwahara (arXiv:2610.15199, 2026-10-10) disproved the Rényi-α area law conjecture below
-α = 1 in high dimensions: there are 2D-embedding, unique-ground-state, uniformly gapped
-interaction families whose ground states have volume-law Rényi-α entanglement for every
-0 < α < 1. An immediate consequence — never stated in any corpus, and the first thing any
-future "rank concentration from a spectral gap" proposal would collide with — is that
-**every theorem of the form "log Schmidt rank of the ground state's region RDM ≤ f(|∂A|)
-for every unique gapped 2D ground state" is false**, since log rank = S₀ ≥ S_α = Ω(volume).
-We formalize the consequence chain itself, corpus-free: (N1) Rényi monotonicity
-S_β(ρ) ≤ S_α(ρ) for 0 < α ≤ β at the density-matrix level; (N2) the rank bridge
-log rank ρ = S₀(ρ) ≥ S_α(ρ) for α ∈ (0,1); (N3) the gate: for any proposed bound-shape
-function f, a single state family with volume-law S_α (α < 1) refutes the rank statement —
-Kuwahara's class supplies the family (cited as scope, not formalized). The gate is the
-permanent no-go fence for the area-law zone; the same pilot carries the positive-side
-interface theorem M1 (below, §6).
+Kuwahara (arXiv:2610.15199, October 2026) constructed families of 2D finite-range,
+uniformly gapped Hamiltonians with unique ground states whose Rényi-α entanglement
+entropy obeys a *volume* law for every 0 < α < 1. A consequence is never stated in the
+corpora we surveyed, yet it is what any "rank concentration from a spectral gap"
+proposal would run into. The consequence: no bound of the form
+log(Schmidt rank of ρ_A) ≤ C·|∂A| can hold for all such ground states. The reason is
+that log rank = S₀ ≥ S_α. We formalize the chain that makes this a theorem:
+
+- **(N1)** S_β(p) ≤ S_α(p) for 0 < α ≤ β < 1, for every probability vector p;
+- **(N2)** S_α ≤ log #supp p, and, for a Hermitian PSD matrix with unit eigenvalue sum,
+  S_α(eigenvalues) ≤ log rank;
+- **(N3)** two gate theorems. A family whose α-entropy grows like c·n², with boundaries
+  of size ≤ n, refutes every boundary-linear Rényi-α law (N3a). With N2 it also refutes
+  every boundary-linear log-rank law (N3b).
+
+Kuwahara's construction enters only as a hypothesis (`hKL`). Part II records the
+positive companion: the first kernel-checked identification of AxiomMath AreaLaw2D's
+reduced density matrices and entropies with openai-math's PEPS encodings on the L×L
+grid. It also proves the comparison of the two boundary counts.
 
 ## 1. Introduction
 
-The Cycle-2 area-law bridge (`research/bridges/area-law.md`) set out to connect
-AxiomMath's AreaLaw2D (a proved 2D area law for gapped ground states) with the main run's
-kernel-verified inertial-defect machinery (pilot 01) and openai-math's PEPS layer (which
-*assumes* an area law it never proves). Lane A5's round-4 §2 sweep then surfaced
-Kuwahara's refutation, which kills the bridge's most tempting headline: literal rank
-concentration from a spectral gap is FALSE. This article is the fence: the formal
-monotonicity-to-gate chain that turns Kuwahara's informal physics result into a permanent
-typechecking obstruction inside Lean. Its value is the same as articles 30/50 in the main
-run: negative results that are cheap, citable, and protect the program from re-proposing
-the dead shape.
+The Cycle-2 area-law bridge aimed to connect three things: AxiomMath's AreaLaw2D (a
+formal 2D area law from a global spectral gap), the main run's inertia/rank machinery
+(article 01), and openai-math's PEPS layer, which *assumes* a uniform area law. The
+tempting headline was "spectral gap ⟹ rank concentration". It is false. The novelty
+sweep (`novelty/round-4.md` §2) found Kuwahara's refutation of the Rényi-α (α < 1) area
+law, which kills every rank statement by S₀ ≥ S_α. This article turns that observation
+into a kernel-checked obstruction, in the tradition of the project's other negative
+results (articles 30 and 50).
 
-**Honesty.** The mathematics is a Jensen/log-sum computation at the density-matrix level —
-no physics, no gap hypothesis, no geometry. Kuwahara's theorem is cited as the
-scope-supplying informal input; the gate itself is unconditional once stated. The related
-positive claims (the gap-to-inertia dictionary P1, the purity-certificate route P2) are
-separate parts of dossier 72 and are NOT claimed here; P2 remains [HYPOTHESIS]-flagged.
+**Honesty.** Part I uses no physics, no gap hypothesis and no geometry: it is a Hölder
+inequality and a contrapositive. Kuwahara's theorem is the informal input that makes the
+gate bite. It is a hypothesis, never re-proved. Part II is glue-grade: two encodings of
+the same objects, proved equal.
 
 ## 2. Setting
 
-Density matrices: ρ ⪰ 0, tr ρ = 1, eigenvalue list p (a probability vector on ℂ^n). For
-α ∈ (0,1) ∪ (1, ∞), S_α(ρ) := (1/(1−α)) log Σ_i p_i^α; S_1 := −Σ p_i log p_i
-(von Neumann); S₀(ρ) := log #{i : p_i > 0} = log rank ρ (Hartley, by limit). All three
-corpora' encodings: AreaLaw2D's `SubState.regionEntropy` (`State.lean:198`) with
-`entropy_eq_H` (:75), openai-math's `vonNeumannEntropy` (`PEPSFilters/Basic.lean:127`).
-No corpus has Rényi entropies at all (dossier 72 §Novelty: mathlib has no
-`Mathlib/Information/` quantum entropy; the pilot defines S_α over the eigenvalue layer).
+For a probability vector p : ι → ℝ (finite ι, p ≥ 0, Σ p = 1) and α ≠ 1,
+`renyi p α := (1/(1−α)) · log Σ_i p_i^α`. For a matrix, the Rényi entropy is taken on
+the eigenvalue vector `hM.eigenvalues` of a Hermitian matrix (mathlib
+`Analysis/Matrix/Spectrum.lean`). Mathlib has no quantum entropies; the definition is
+the pilot's own (`C-neg.lean:52`). Everything imports only Mathlib, on mathlib
+`ff2494ea` with Lean v4.36.0-rc2.
 
-## 3. Main results
+## 3. Part I — results
 
-**N1 (Rényi monotonicity in α).** For every density matrix ρ and 0 < α ≤ β (α, β ≠ 1;
-S_1 by limit): S_β(ρ) ≤ S_α(ρ). Proof: log-sum-interpolation on the eigenvalue vector
-(the α ↦ log Σ p_i^α log-convexity layer; elementary, the pilot's only real analysis).
+**Theorem N1 (`renyi_antiMono`).** If 0 < α ≤ β < 1, then renyi p β ≤ renyi p α.
 
-**N2 (rank bridge).** log rank ρ = S₀(ρ) ≥ S_α(ρ) for every α ∈ (0, 1): N1 at β = 0,
-with S₀ the limit form. Hence volume-law S_α (α < 1) forces log rank ρ = Ω(volume).
+**Theorem N2a (`renyi_le_log_card`).** If 0 < α < 1, then
+renyi p α ≤ log #{i | p_i > 0}.
 
-**N3 (the gate).** For any f : ℕ → ℝ and any region family (Λ, A) with |∂A| = o(|A|):
-if there exists a family of unique-gapped 2D ground states whose region RDMs satisfy
-S_α(ρ_A) ≥ c·|A| for some α ∈ (0,1) (hypothesis-class H_Kuw, quoted as a binder citing
-arXiv:2610.15199), then the statement "∀ unique-gapped 2D ground states,
-log rank ρ_A ≤ f(|∂A|)" is false. The formal content is N1+N2+contraposition; H_Kuw is an
-explicit Prop binder (the EnclOK/hQRH consumption pattern — the physics refutation is
-imported as a hypothesis, never re-proved).
+**Theorem N2b (`renyi_le_log_rank`).** Let M be Hermitian and positive semidefinite with
+Σ eigenvalues = 1. Then for 0 < α < 1, renyi (eigenvalues M) α ≤ log (rank M). When M is
+a reduced density matrix ρ_A of a pure state, rank M is the Schmidt rank across the cut.
 
-## 4. Proofs
+**Theorem N3a (`renyi_area_law_nogo`).** Let 0 < α < 1, c > 0 and C ≥ 0, and let
+renyiOf, bndOf : ℕ → ℝ. The following three hypotheses are jointly contradictory (the
+conclusion is `False`):
+- (volume law, `hKL`) c·n² ≤ renyiOf n for all n;
+- (boundary) bndOf n ≤ n for all n;
+- (area law) renyiOf n ≤ C · bndOf n for all n.
 
-N1 is the load-bearing computation (prework Appendix A prices it "the only real proof"):
-power-mean monotonicity of the eigenvalue list, transported through the log. N2 is the
-limit case β ↓ 0. N3 is pure logic on top. Expected shape: a 3-theorem Lean file over
-mathlib's `Matrix`/probability-vector layer, no imports beyond mathlib (Appendix A's
-mini-spec: `N1`, `N2`, `N3_gate` with the H_Kuw binder).
+**Theorem N3b (`rank_area_law_nogo`).** The same, with an intermediate rankLogOf and
+renyiOf n ≤ rankLogOf n (supplied per instance by N2b). A volume-law Rényi family refutes
+every boundary-linear *log-rank* law.
 
-## 5. Formal verification
+**Reading.** Take n = side length of a square region in Kuwahara's family. Then
+renyiOf n is S_α of the region's reduced state, at least c·n² by the volume law. bndOf n
+is its boundary size, at most 4n (rescale c). N3b says no constant C makes
+log rank ρ_A ≤ C·|∂A| hold along the family, so no such theorem can be proved for the
+class of unique gapped 2D ground states.
 
-**Landed (evidence):** the AL-side bridge shapes elaborate clean on the pin — A7's
-G5b (ptrace-Gram, boundary-match, interface conditional, gap dictionary: **OK, 0
-errors**) and G5c (`reducedDensity = Pmat` W Wᴴ ↔ atom-sum + trace bookkeeping:
-**OK, 0 errors**) verdicts (`research/feasibility/axiommath-donor-probes.md` §table);
-G4 (AreaLaw2D full Challenge statement layer re-derives mathlib-only, Physlib not needed
-at statement level: OK). These de-risk both prongs below.
+## 4. Part I — proofs
 
-**Landed (filled from A4's official report, relayed 2026-11-14; disk-verified by A9):**
+**Hölder workhorse (`sum_rpow_mul_le`).** For x, y ≥ 0 and θ ∈ [0, 1], weighted AM–GM
+gives x^θ y^{1−θ} ≤ θx + (1 − θ)y. Summed over a finset with normalization, this yields
+Σ f g ≤ (Σ f^{1/θ})^θ (Σ g^{1/(1−θ)})^{1−θ} in the form needed.
 
-- **C-neg: GREEN.** `run8-final.log`: rc=0, errors=0, sorry=0 — the honest descent
-  20→14→12→6→7 (pre-outage runs 1–5) → 3→1→0 (relaunch runs 6–8). Final file
-  `research/pilots/72/C-neg.lean`: **369 LoC / 11 theorems** (5 public, incl.
-  `rank_area_law_nogo` at :354, + 6 private). Runs 1–5's provenance headers were
-  reconstructed post-outage; run5's log notes a post-run mid-fix edit (A4's report).
-- **Axiom audit:** `axcheck-run1.log` — **11/11 theorems triad-only**
-  ([propext, Classical.choice, Quot.sound]), 0 sorryAx, 0 native_decide.
-- **Deviations from the Appendix-A mini-spec, all documented in `72-prework.md` §"Execution
-  outcome" (:495):** N1 stated for 0 < α ≤ β < 1 (the rank-relevant range); N3 stated as
-  concrete-family FALSE forms; Kuwahara's construction enters as the external `hKL`
-  binder (EnclOK pattern — informal physics input quoted, never re-proved).
+**N1.** Put θ = (1 − β)/(1 − α) ∈ (0, 1]. Write p_i^β = (p_i^α)^θ · p_i^{1−θ}, since
+αθ + (1 − θ) = β. Hölder and Σ p = 1 give Σ p^β ≤ (Σ p^α)^θ. Take logs (both sums are
+positive, because some p_i > 0) and divide by 1 − β > 0:
+renyi p β = log Σ p^β/(1 − β) ≤ θ log Σ p^α/(1 − β) = log Σ p^α/(1 − α) = renyi p α.
 
-**[VERDICT:72-M1] FILLED-FINAL — partial-M1 GREEN, FINAL for the Cycle-2 tranche
-(filled from A8's official report, relayed 2026-11-14; figures disk-verified by A9
-against `research/pilots/72-M1/logs/`):**
+**N2a.** Apply the workhorse with g ≡ 1 on the support s:
+Σ_{i∈s} p_i^α ≤ |s|^{1−α} (Σ p)^α = |s|^{1−α}. Take logs and divide by 1 − α.
 
-- **GREEN:** `m1-run8-GREEN.log` — P72M1T1.lean OK + P72M1T2.lean OK, errors=0,
-  sorry-warnings=0. **P72M1T1 702 LoC vendor layer** (the AreaLaw2D/OAI statement layer
-  on our pin; GREEN since run 4) **+ P72M1T2 360 LoC / 25 top-level theorems** (axcheck
-  count). Error descent post-resume **24→10→1→0** (run 5 pre-resume 24 → runs 6–8),
-  within the ≤ 5 fix-round cap; 5 latent bugs found by the post-interruption static
-  audit (the interruption had killed the turn between applying the run-5 fix classes
-  and running — file mtime 03:15 > run-5 log 03:08).
-- **Axiom audit:** `m1-axcheck-final.log` — BOTH OK, **52 + 28 axiom-lines, 0 sorryAx,
-  every line a subset of the triad** (stage copies via `make_axcheck72m1.py`, A1's
-  `axcheck_probe.py` runner; repo files untouched).
-- **Landed (kernel-clean):** **L1** — the ptrace-Gram identity
-  `ptrace_pureState_eq_reducedDensity` (full triad) **+ the entropy match**
-  `regionEntropy_eq_vonNeumannEntropy` (full triad); **L2** — boundary comparability
-  `boundaryCard_le_edgeBoundary` (full triad) **at constant 1, stronger than the
-  prework's ≤ 4 safety form**; the vendor layer. L1 landed with the toGrid-explicit
-  `hΩ` hypothesis.
-- **NOT landed — carried to Iteration 4 by design** (overrun guard; continuation spec
-  verbatim in the `m1-run8-GREEN.log` header; A8 formalizing it next): **L3** — the
-  Hamiltonian/ground-state/gap transfer (L3a Hermitian symmetrization, L3b state
-  conventions, L3c `FullSystemGap` → `HasGlobalGap`) **and the interface theorem
-  itself** (`interface_areaLaw_uniformAreaLaw`, the `hAreaLaw` Tier-C binder + L1/L2/L3
-  + the max-C-1 witness).
+**N2b.** The eigenvalues are nonnegative (PSD) and sum to 1, so N2a applies. Mathlib's
+`Matrix.IsHermitian.rank_eq_card_non_zero_eigs` identifies the support size with
+rank M.
 
-## 6. Companion: the family-265 interface theorem (M1, AL-EZ3)
+**N3 (`nogo_core`).** If C = 0, then at n = 1 we get c ≤ x 1 ≤ y 1 ≤ 0, contradicting
+c > 0. Otherwise choose N > C/c. Then c·N² ≤ x N ≤ y N ≤ C·b N ≤ C·N. Hence c·N ≤ C,
+contradicting N > C/c. N3a takes y = x; N3b takes y = rankLogOf. ∎
 
-The same pilot family carries the first Lean contact between the two halves of openai's
-family 265: a chain (i) ptrace-Gram identity — the two encodings of ρ_A (AreaLaw2D's
-partial-trace form and openai's `reducedDensity := W Wᴴ` coefficient-matrix form) are
-equal on the L×L grid instance; (ii) boundary match `(edgeBoundary Λ A).card =
-boundaryCard A`; (iii) gap-form match `FullSystemGap` (quadratic form) ↔ `HasGlobalGap`
-(Loewner); (iv) the discharge theorem: `AreaLaw.areaLaw ℂ q 1 J Δ` (`Transfer.lean:361`)
-implies `PolynomialPEPS.PinnedEntropy.UniformAreaLaw` (`Basic.lean:135`) — making
-openai-math's `MainStatement` (:97) unconditional modulo its remaining hypotheses.
-Corollary-grade mathematics, statement-transcribed at Tier C (zero import gates); the
-G5b/G5c/G4 elaboration verdicts above are its de-risking evidence.
-Verdicts: **[VERDICT:72-M1] FILLED — partial-M1 GREEN, FINAL for the tranche** (§5's
-evidence block): of the chain above, (i) ptrace-Gram + the entropy match and (ii)-form
-boundary comparability (L2, constant 1) plus the vendor layer LANDED kernel-clean;
-(iii) the gap-form match and (iv) the discharge theorem are the carried L3 + interface
-item (Iteration 4, spec in the m1-run8-GREEN.log header). The reader should treat M1
-as GLUE-with-real-consumer (dossier 72 §Significance), not as a discovery claim.
+## 5. Part II — the family-265 interface layer (M1)
+
+openai-math's PEPS work (family 265) assumes `UniformAreaLaw`. AxiomMath's AreaLaw2D
+proves an area law from a global gap, in a different encoding. M1 aims at the theorem
+"AreaLaw2D's `areaLaw` implies openai's `UniformAreaLaw`". That theorem would make
+openai's `MainStatement` unconditional in that hypothesis. The planned chain has four
+links:
+
+1. **(proved, `ptrace_pureState_eq_reducedDensity`)** For a normalized grid state Ω and
+   region A, AreaLaw2D's partial trace of the pure state |Ω⟩⟨Ω|, re-indexed, *equals*
+   openai's `reducedDensity Ω A := W Wᴴ`. Here W is the coefficient matrix across the
+   cut.
+2. **(proved, `regionEntropy_eq_vonNeumannEntropy`)** consequently AreaLaw2D's
+   `regionEntropy` equals openai's `vonNeumannEntropy`. The eigenvalue multisets are
+   transported by `hermEigen_eq_of_matrix_eq`.
+3. **(proved, `boundaryCard_le_edgeBoundary`)** openai's `boundaryCard A` is at most the
+   AreaLaw2D edge boundary of the embedded region, **with constant 1**. The design
+   expected a factor ≤ 4. The proof orients each crossing edge and injects it
+   (`orientPair_injective`).
+4. **(carried to Iteration 4)** the gap/Hamiltonian transfer: Hermitian symmetrization,
+   state conventions, and `FullSystemGap` (quadratic-form gap) → `HasGlobalGap` (Loewner
+   gap). Also carried: the interface theorem `interface_areaLaw_uniformAreaLaw` built
+   from links 1–4. The specification is `pilots/72-M1/L3-spec.md`.
+
+The vendor layer `P72M1T1.lean` (702 lines) re-states the needed AreaLaw2D and openai
+statement-level definitions on our pin. Both encodings re-derive mathlib-only (probe G4;
+G5b/G5c elaborate the bridge shapes).
+
+## 6. Formal verification
+
+| file | content | size | run | axioms |
+|---|---|---|---|---|
+| `pilots/72/C-neg.lean` | N1–N3 | 369 lines, 11 thms | `run8-final.log` rc=0, 0 err, 0 sorry (errors 20→14→12→6→7→3→1→0) | `axcheck-run1.log`: 11/11 triad |
+| `pilots/72-M1/P72M1T1.lean` | vendor statement layer | 702 lines | `m1-run8-GREEN.log` OK | `m1-axcheck-final.log`: 52 lines ⊆ triad |
+| `pilots/72-M1/P72M1T2.lean` | links 1–3 | 360 lines, 25 thms | `m1-run8-GREEN.log` OK (errors 24→10→1→0) | 28 lines ⊆ triad |
+
+All three files are Cycle-2 final-sweep targets: `AxPilot72_Cneg`, `AxPilot72_M1_T1` and
+`AxPilot72_M1_T2` are OK with 0 sorryAx (`pilots/72{,-M1}/logs/axcheck-c2-final.log`).
+The sweep's 5 C-neg lines cover the public theorems; the 11/11 record includes the
+private helpers.
+
+**Deviations from the design (documented in `72-prework.md` §"Execution outcome"):**
+- N1 is stated for 0 < α ≤ β < 1, the range the rank argument needs, rather than for
+  all α, β ≠ 1.
+- N3 is stated as concrete-family contradictions rather than as a general "∀ f" schema.
+- Kuwahara's construction is the external hypothesis `hKL`.
 
 ## 7. Relation to prior work
 
-- **Kuwahara, arXiv:2610.15199** (2026-10-10): the refutation itself — finite-range,
-  fixed local dimension, bounded interactions, UNIQUE ground state, UNIFORM gap,
-  volume-law Rényi-α for all 0 < α < 1; also Schmidt-rank trade-offs for approximate
-  projectors (the 1D-style mechanism). The gate formalizes its consequence; the paper is
-  cited as scope-binder H_Kuw, never re-proved.
-- **Anshu–Harrow–Soleimanifar, arXiv:2004.15009** (Nature Physics 2022): entanglement-
-  *spread* area law from the same hypothesis class — the nearest POSITIVE result, and a
-  different functional (spread vs purity/rank; neither implies the other).
-- **Anshu–Arad–Gosset arXiv:2103.02492 + 1905.11337; AAH FOCS 2022**: the modern 2D
-  area-law cluster. **Abrahamsen et al arXiv:2203.16012**: 1D AGSP framework (the
-  classical technique nearest rank-certificates-from-a-gap).
-- **AreaLaw2D** (AxiomMath, our donor): the proved area law — "first formal area law"
-  framings are dead on arrival (it IS the first); our novelty is the cross-bridge, and
-  here the fence.
-- In-corpus: openai-math's PEPS companion preprint (representation form); A5 PART-2 row 72
-  ("P1: formal-new (moderate); P2: N as proposed ([HYPOTHESIS]); C-neg:
-  precedent-backed (50/30 lineage)", tier WARM with "hard NO-GO on literal rank
-  statements — already honored").
+- **T. Kuwahara, arXiv:2610.15199**: the refutation itself (finite range, fixed local
+  dimension, unique ground state, uniform gap, volume-law Rényi-α for all 0 < α < 1).
+  The gate formalizes its consequence for rank.
+- **Anshu–Harrow–Soleimanifar, arXiv:2004.15009** (Nature Physics 2022): an area law for
+  entanglement *spread* under related hypotheses. It is the nearest positive result, for
+  a different functional.
+- **Anshu–Arad–Gosset, arXiv:1905.11337 and arXiv:2103.02492**: 2D area laws and
+  subvolume laws for frustration-free systems. **Abrahamsen et al., arXiv:2203.16012**:
+  the 1D approximate-ground-space-projector framework.
+- **AxiomMath AreaLaw2D**: the formal area law. "First formal area law" belongs to it.
+  Our contribution is the cross-encoding bridge and, here, the fence.
+  (`AreaLaw/Transfer.lean:361`, `QuantumInfo/Region/PartialTrace.lean:25`,
+  `State.lean:75,198`).
+- **openai-math `PolynomialPEPS`** (`PEPSFilters/Basic.lean:74–135`): the consumer of
+  `UniformAreaLaw`.
 
 ## 8. Limitations and open problems
 
-- The gate fences RANK and (via monotonicity) all α < 1 statements; it says nothing about
-  α ≥ 1 (the dossier's P2 purity route lives there, [HYPOTHESIS], H-QA unprobed).
-- H_Kuw is informal-input: a future formalization of Kuwahara's construction would
-  discharge it; until then the gate theorem is a conditional of the cleanest kind.
-- P2 (the certificate route to purity-type bounds linear in the boundary budget) is the
-  zone's surviving discovery-grade objective and is NOT part of this article.
+1. The gate covers rank and all α < 1. It says nothing about α ≥ 1. The dossier's
+   purity-certificate route (P2) lives there and remains a hypothesis-grade objective.
+2. `hKL` is an informal input. Formalizing Kuwahara's construction would discharge it.
+3. Part II's link 4 and the interface theorem are open (Iteration 4). Until they land,
+   openai's `MainStatement` still carries `UniformAreaLaw` as a hypothesis.
 
 ## References
 
-- T. Kuwahara, arXiv:2610.15199. A. Anshu, A. W. Harlow, M. Soleimanifar,
-  arXiv:2004.15009 (Nature Physics 2022). A. Anshu, I. Arad, D. Gosset, arXiv:2103.02492
-  and arXiv:1905.11337. A. Abrahamsen, L. Tong, Y. Bao, N. Su, R. de Wolf, arXiv:2203.16012.
-  axiommath `AreaLaw2D` (`OpenAI/Statements.lean:185–259`, `AreaLaw/Transfer.lean:361`,
-  `AreaLawForMathlib/QuantumInfo/Region/PartialTrace.lean:25`, `State.lean:75,198`).
-  openai-math `PolynomialPEPS/PEPSFilters/Basic.lean:74–135`. Dossier 72;
-  pilots/72-prework Appendix A; `research/novelty/round-4.md` §2; main-run article 50
-  (`50-zero-free-regions-cannot-move-certificate-constants.md`) and article 30 for the
-  negative-result precedent.
+T. Kuwahara, arXiv:2610.15199. A. Anshu, A. W. Harrow, M. Soleimanifar, arXiv:2004.15009.
+A. Anshu, I. Arad, D. Gosset, arXiv:1905.11337, arXiv:2103.02492. Abrahamsen et al.,
+arXiv:2203.16012. AxiomMath `AreaLaw2D` (`OpenAI/Statements.lean:185–259`,
+`AreaLaw/Transfer.lean:361`, `AreaLawForMathlib/QuantumInfo/Region/PartialTrace.lean:25`,
+`State.lean:75,198`). openai-math `PolynomialPEPS/PEPSFilters/Basic.lean:74–135`.
+Project: dossier 72; `pilots/72-prework.md` Appendix A; `pilots/72-M1/L3-spec.md`;
+`novelty/round-4.md` §2; articles 01, 30, 50.

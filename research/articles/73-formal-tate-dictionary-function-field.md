@@ -1,177 +1,192 @@
-# A Formal Tate Dictionary for Function-Field Hecke L-Series, I: Statement Layer
+# Hecke L-Series over 𝔽_q[T] in Lean, I: Character Class, Series, Continuation and the 1/2 Window
 
-*cross-math-fronttier research article 73 (Cycle 2) · DRAFT 2026-11-14 · dossier
-`research/candidates/73-function-field-hecke-tate.md` · prework `research/pilots/
-73-prework.md` (pilot 73-C queued after 71-P2, lane A2) · bridge `research/bridges/
-function-field.md` §4 FF-EZ3*
+*cross-math-fronttier research article 73 (Cycle 2) · FINAL (Tier C; the rationality
+discharge Q4 carried to Iteration 4) · dossier
+`research/candidates/73-function-field-hecke-tate.md` · prework `research/pilots/73-prework.md`
+· Lean `research/pilots/73/{P0,C}.lean` · builds on article 71*
 
-**Status: PROVED at Tier C, FINAL-GREEN — A2's FORMAL REPORT LANDED (2026-11-14).**
-Q0 first-try GREEN (143 LoC probe; `run1-q0` + `run7-p0-final` re-confirmation);
-Q1–Q3 GREEN (`run6-c-green`: C.lean OK — 236 LoC, 7/7 theorems triad, honest descent
-2→4→4→2→OK across runs 1–6); **Q4 UNTOUCHED per the separate-gate decision — the
-STOP-before-Q4 discipline held; the `hRat` discharge carries to Iteration 4** (A2 owns
-the recommendation). "First formal Tate-thesis-type statement" is claimed **in the
-function-field/rationality-dictionary scope only**, per A5's P2-13 audit, with the
-WenrongZou nearest-neighbor clock attached.
+**Status: PROVED at Tier C, FINAL.** `pilots/73/C.lean` has 236 lines and 7 theorems,
+each with axioms exactly `[propext, Classical.choice, Quot.sound]` (run6-c-green). This is
+the *statement layer* of a function-field Tate dictionary, for the rational function
+field 𝔽_q(T). It contains the character class, the L-series as a formal power series, the
+continuation statement under a rationality hypothesis, and the 1/2 zero-free window under
+a purity hypothesis. Rationality (`hRat`) and purity (`hPur`, the Riemann hypothesis for
+the associated Kummer covers) are hypotheses throughout. The planned unconditional
+discharge of `hRat` for this class (milestone Q4) was not attempted. It sits behind a
+separate gate and carries to Iteration 4.
 
 ---
 
 ## Abstract
 
-Tate's 1950 thesis (function-field case) and Weil's *Basic Number Theory* ch. VII prove
-that the L-series of a Hecke character (grössencharakter) of a global function field
-K = 𝔽_q(C) are rational functions of T = q^{−s} — entire for nontrivial characters, off
-the trivial factors, with a functional equation and all nontrivial inverse roots of
-modulus √q. No formal system carries any of this: the Hecke class over function fields
-does not exist in mathlib, tauceti, the AxiomMath family, or the vendored class-field-
-theory tree (1,658 files, number-field-only by construction — every `Tate` hit is
-Lubin–Tate). We state the dictionary formally for the first time, in three layers:
-(P)(i) rationality ⟹ meromorphic continuation of L(s,χ) with the T-form pole/period
-bookkeeping (proved at Tier C from dossier 71's t ↔ s transfer, under the rationality
-binder hRat); (P)(ii) the RH-form with **window exactly 1/2** — every nontrivial zero of
-the continued L(s,χ) lies on Re s = 1/2 (under the purity binder hPur: the function-field
-analogue of DZDF's `heckeL_ne_zero` at 31/32, sharp); (C1) the 𝔽_q(T) probe class where
-hRat is discharged *unconditionally* by elementary periodicity bookkeeping (χ mod m ⇒
-residue-class decomposition), while hPur — the RH for Kummer covers of ℙ¹ — honestly
-remains a binder; and (C2) the three-column window-comparison theorem: FF Hecke 1/2
-(binder) vs ζ_K/Hecke-all-K 31/32 (DZDF, in-corpus) vs ζ/Dirichlet at the formal class
-frontier 0.8733458561 (tracker; from Liu-1's B_new = 0.8749570).
-Part I is the statement layer; the dictionary itself (Kummer sheaves,
-purity) is the Stacks-gated Part II ceiling.
+For a finite field k with q elements and a nonzero ideal m ⊆ k[X], a ray-class character
+mod m is a completely multiplicative function χ on the ideals of k[X]. It vanishes exactly
+off the coprime-to-m cone and is 1 on principal ideals (f) with f ≡ 1 mod m. Its L-series
+is L(T, χ) = Σ_{f monic} χ((f)) T^{deg f}. Classically (Weil; Rosen GTM 210 ch. 4 and
+9), L(T, χ) is a polynomial for nontrivial χ, and its inverse roots have absolute value √q.
+That is the Riemann hypothesis for the corresponding Kummer cover of ℙ¹. None of this
+exists in any formal library we surveyed. The class-field-theory material in our corpora
+is number-field-only.
+
+We give the first formal statement layer:
+
+1. a character structure `FFRayClassCharacter` transplanted field-by-field from
+   AxiomMath DedekindZetaZeroFree's number-field `RayClassCharacter`. The only change is
+   the archimedean positivity clause, which we prove vacuous (k has no ring maps to ℝ);
+2. the L-series `heckeSeriesT χ ∈ ℂ⟦T⟧`, well defined by construction;
+3. a continuation theorem: under a rationality identity L(T, χ)·P₀ = P₁, the
+   s-plane function s ↦ P₁(q^{−s})/P₀(q^{−s}) is complex-differentiable wherever
+   P₀(q^{−s}) ≠ 0;
+4. the window theorem: under purity of P₁, that function has no zeros with Re s > 1/2,
+   away from the zeros of P₀.
+
+The window constant 1/2 is optimal. Compare 31/32 for Hecke L-functions of number
+fields in DedekindZetaZeroFree, and 0.8733458561 for ζ and Dirichlet L in the best formal
+result we know of (§6).
 
 ## 1. Introduction
 
-The number side of the L-function world gained, in six weeks of 2026, formal zero-free
-half-planes at 7/8, 11/12, 31/32 and informal ones below B♭ (dossier 70's clock-sweep
-standing notes). The function-field side has had, for 75 years, the complete answer —
-every nontrivial zero exactly on the line — and exactly zero formal presence. The gap is
-not analytic difficulty (there is none at the statement layer) but vocabulary: no formal
-corpus defines a Hecke character of a function field, its divisor-modulus ray class, or
-its L-series. This article builds that vocabulary as a transplant of DZDF's
-`RayClassCharacter` structure (`Arithmetic/RayClasses/Character.lean:12`) onto mathlib's
-function-field substrate, with one named delta: the archimedean "totally positive" clause
-is vacuous over 𝔽_q(C) (no order), which is exactly what makes the transplant a
-transplant rather than a re-derivation.
+Over number fields, formal zero-free regions for Hecke L-functions now exist:
+DedekindZetaZeroFree proves L(s, χ) ≠ 0 for Re s > 31/32, for every number field and
+every finite-order Hecke character. Over function fields the classical answer is
+complete: every nontrivial zero lies on Re s = 1/2. Yet no formal system defines a
+function-field Hecke character, a ray class over k[X], or its L-series. The gap is
+vocabulary, not analysis. This article supplies the vocabulary for the rational function
+field. It proves the two s-plane statements that follow directly from rationality and
+purity, using the T ↔ s dictionary of article 71.
 
-**Honesty.** Formalization-first, conditional-core, Stacks-blocked at the ceiling: the
-mathematics is Tate/Weil/Rosen textbook material (round-4 §6.2's executed verdict:
-KNOWN-INFORMAL-ONLY); the claim is the statement class + the shape discipline (binders a
-future Stacks-priced build discharges wholesale). The falsity trap (maximal curves,
-multiplicity 2g) kills multiplicity *proportions* — checked and scoped out (C3): it does
-not touch rationality/entireness/nonvanishing statements, where eigenvalue coincidences
-make zeros multiple, never absent or spurious.
+**Honesty.**
+1. The mathematics is textbook: Tate's thesis (1950), Weil, *Basic Number Theory*
+   ch. VII, and Rosen GTM 210. Novelty is formalization-first. The novelty audit
+   (`novelty/round-4.md` PART-2 P2-13) supports "first formal Tate-type statement"
+   *in the function-field scope*. The nearest formal neighbour is
+   WenrongZou/TateThesis, a number-field project in progress, which would retire any
+   "anywhere" phrasing if it lands.
+2. At this tier the two analytic theorems are statements about the quotient
+   P₁(q^{−s})/P₀(q^{−s}). The rationality hypothesis is what *identifies* that quotient
+   with L(·, χ). The proofs do not otherwise use it, and the agreement of the quotient
+   with the series on Re s > 1 (power-series evaluation) is not formalized here (§7).
+3. `hPur` is deep (Weil). It is not elementary via Gauss sums, and it is never
+   discharged.
 
 ## 2. Setting
 
-k = 𝔽_q; C/k smooth projective geometrically irreducible; K := 𝔽_q(C). The Hecke class
-`FFRayClassCharacter K m` for an effective divisor m: completely multiplicative χ on the
-nonzero fractional ideals (finitely-supported divisors) of K, χ ⊤ = 1, vanishing off the
-coprime-to-m cone, trivial on principals α ≡ 1 mod m. The L-series, for ℜs > 1:
-L(s,χ) = ∏_{v ∤ supp m} (1 − χ(v) N(v)^{−s})⁻¹, N(v) = q^{deg v}; the T-form
-L(T,χ) = ∏_{v∤m} (1 − χ(v) T^{deg v})⁻¹, T = q^{−s}. Weil-side binders (all Tier C):
-`hRat` (∃ P₀ P₁ : ℂ[T], series·P₀ = P₁ — the shape of
-`exists_rationalLFunction_mul_eq_polynomial`, `LAdicTraceFormulaFinal.lean:51`);
-`hPur` (off trivial factors, L(T,χ) = ε(χ)·∏_j (1 − α_j T), ‖α_j‖ = √q — purity of H¹ of
-the Kummer sheaf, Weil II for curves); `hTate` (the dictionary clause identifying the
-Euler product with `LAdicSheaf.rationalLFunction` of ℒ_χ, `LFunctionRationalSheaf.lean:87`).
+All in `research/pilots/73/C.lean`. It imports only Mathlib, on mathlib `ff2494ea` with
+Lean v4.36.0-rc2. Article 71's glue (`wOf`, `norm_wOf`, `lPoly`, `lPoly_eval`, Core 1) is
+carried verbatim.
+
+- **Character class.** `FFRayClassCharacter k m` is a structure with
+  `toFun : Ideal k[X] → ℂ` and the following fields:
+  - `map_mul'`: χ(IJ) = χ(I)χ(J);
+  - `map_top'`: χ(⊤) = 1;
+  - `eq_zero_iff'`: χ(I) = 0 ⟺ I = ⊥ ∨ I ⊔ m ≠ ⊤;
+  - `map_span'`: f ≠ 0 and f − 1 ∈ m imply χ((f)) = 1.
+
+  This matches DedekindZetaZeroFree's `RayClassCharacter`
+  (`Challenge/DedekindZetaChallenge.lean:14–20`) field for field. The donor's
+  `map_span'` additionally requires α to be totally positive (∀ φ : F →+* ℝ, 0 < φ α).
+  Over k that clause is vacuous: the theorem `no_real_homs` shows there is no ring
+  homomorphism k → ℝ.
+- **Monic polynomials of degree n.** `monicDegreeN k n` is the image of the coefficient
+  vectors v : Fin n → k under v ↦ Xⁿ + Σ v_i X^i. It is a `Finset` because k is finite.
+- **L-series.** `heckeSeriesT χ := PowerSeries.mk (n ↦ Σ_{f ∈ monicDegreeN k n} χ((f)))`.
+  The series is the *defined* object. An Euler-product expansion would be a theorem, and
+  is not used.
+- **Purity.** `HeckePurity χ q P₀ P₁ hRat` :⟺ P₁ = ε · ∏_{a∈α}(1 − aT) with |ε| = 1 and
+  |a| = √q for every a ∈ α. This is the shape of the purity clause in AxiomMath's
+  `LeanEval.WeilConjectures`.
 
 ## 3. Main results
 
-**(P)(i) Rationality ⟹ continuation (Tier C, under hRat).** There is f : ℂ → ℂ,
-meromorphic, with f s = L(s,χ) for ℜs > 1, the T-form identity local L(T,χ) ∈ ℂ(T), and
-the q-periodicity bookkeeping; χ nontrivial ⟹ f entire off the trivial factors. Proof:
-dossier 71's t ↔ s transfer (rational ∘ q^{−s} ⟹ meromorphic; poles/periods transported)
-— reuse, not reproof.
+Let χ : `FFRayClassCharacter k m`, q > 1, P₀, P₁ ∈ ℂ[T], and
+hRat : `heckeSeriesT χ * P₀ = P₁` in ℂ⟦T⟧.
 
-**(P)(ii) RH-form, window exactly 1/2 (Tier C, under hPur + (i)).** Every zero of f off
-the trivial locus satisfies Re s = 1/2; DZDF-shaped clause `∀ s, 1/2 < s.re → (trivial
-exclusions) → f s ≠ 0`. Proof: |T| = q^{−ℜs}, roots at |α_j|⁻¹ = q^{−1/2} ⟹ ℜs = 1/2
-(71's modulus arithmetic, one more factor level).
+**Theorem 1 (`hecke_continuation`).** There is f : ℂ → ℂ with
+f(s) = P₁(q^{−s}) / P₀(q^{−s}) for all s, and f complex-differentiable at every z with
+P₀(q^{−z}) ≠ 0.
 
-**(C1) The 𝔽_q(T) probe (with the honesty correction).** For K = 𝔽_q(T), m a polynomial
-modulus, χ finite-order on (𝔽_q[T]/m)-type data: **(P)(i) lands unconditionally** — hRat
-is elementary here (χ periodic mod m ⇒ residue-class decomposition of Σ_{f monic} χ(f)
-T^{deg f}; ≈0.3–0.6k LoC of bookkeeping, Rosen GTM 210 ch. 8 territory) — while **hPur
-stays a binder**: "all inverse roots √q for Dirichlet L over 𝔽_q[T]" IS the RH for the
-Kummer covers of ℙ¹ (Weil's theorem, deep). The probe therefore lands as (i)
-unconditional + (ii) conditional — the correction recorded 2026-11-13 (A2's
-FF-sequencing memo; dossier 73 §C1), superseding an earlier "P outright" draft.
+**Theorem 2 (`hecke_window`).** Assume `HeckePurity χ q P₀ P₁ hRat`. If Re s > 1/2 and
+P₀(q^{−s}) ≠ 0, then P₁(q^{−s}) / P₀(q^{−s}) ≠ 0.
 
-**(C2) Three-column window comparison.** One theorem: FF Hecke L window 1/2 (binder-
-purity) vs ζ_K/finite-order Hecke L 31/32 (DZDF `heckeL_ne_zero`, in-corpus) vs
-ζ/Dirichlet at the current formal class frontier **0.8733458561** (QuasiRiemannTracker,
-tri-kernel-verified, Bebel's continuum-anchor — descending from Liu-1's formalized
-B_new = 0.8749570; per round-4 §5.3's updated table) — extends article 71's comparison
-corollary and dossier 70's §5.3 per-class table to the Hecke row.
+**Structural lemmas.**
+- `no_real_homs`: `IsEmpty (k →+* ℝ)`, for every finite field k.
+- `apply_span_singleton_eq_zero_iff`: for f ≠ 0, χ((f)) = 0 ⟺ (f) ⊔ m ≠ ⊤. So χ
+  vanishes exactly at the polynomials not coprime to m.
 
-**(C3, scope note).** No simple-zero *proportion* statement is claimed or implied — the
-maximal-curve trap (round-4 §6.3) fences exactly those shapes.
+**Reading.** For nontrivial χ, the classical theory gives hRat with P₀ = 1 and P₁ a
+polynomial of degree < deg m. Theorem 1 then says L(q^{−s}, χ) extends to an entire
+function. Theorem 2, given RH for the Kummer cover (purity), says it has no zeros in
+Re s > 1/2. Combined with the functional equation (not formalized), all nontrivial zeros
+would then lie on Re s = 1/2.
 
-## 4. Proofs (Tier C architecture)
+## 4. Proofs
 
-Q0 probe → Q1 the class definition (transplant + vacuous-positivity discharge) + the
-Euler-series↔T-form dictionary + the 71-glue → Q2 = (P)(i) → Q3 = (P)(ii). Hard STOP
-before Q4 (the Kummer-sheaf dictionary — Stacks-gated Tier A, Part II). The priced
-provable item is Q1's periodicity layer for C1; everything else is template-following on
-71's landed transfer pattern. Zero import gates at Tier C (mathlib + binders only).
+**`no_real_homs`.** A finite field has characteristic p ≠ 0, so (p : k) = 0. A ring map
+φ : k → ℝ would send this to (p : ℝ) = 0, which is false.
 
-## 5. Formal verification (LANDED — A2's FORMAL REPORT LANDED, 2026-11-14)
+**Theorem 1.** s ↦ −s log q is entire, so s ↦ q^{−s} = exp(−s log q) is entire. Hence
+s ↦ P_i(q^{−s}) is entire for each polynomial P_i (`Polynomial.differentiable`
+composed with `wOf`). A quotient of differentiable functions is differentiable where
+the denominator does not vanish (`DifferentiableAt.div`).
 
-- Q0 (statement probe): **GREEN first-try** (143 LoC probe; `run1-q0.log` +
-  `run7-p0-final.log` re-confirmation).
-- Q1 (class + series + 71-glue), Q2 ((P)(i)), Q3 ((P)(ii)): **GREEN —
-  `run6-c-green.log`: C.lean OK, 236 LoC, 7/7 theorems exactly
-  [propext, Classical.choice, Quot.sound]**; honest descent 2→4→4→2→0 errors across
-  runs 1–6 (fix1–fix4 logs on disk). Formal-report details: **Q2's continuation runs
-  via `DifferentiableAt.div` off the P₀(q^{−z}) = 0 locus; series-agreement is honestly
-  deferred to the eval layer** (not claimed at the germ level); **`hPur` is a binder
-  everywhere** per the sequencing memo's honesty correction.
-- Final LoC / theorem count: **236 / 7** (C.lean; probe 143 separate).
-- **Q4 UNTOUCHED — the separate-gate decision held: no `hRat` discharge attempted; the
-  pilot stopped at Q3 exactly as specified** (`research/pilots/73-prework.md`; the STOP
-  was a hard gate, not a shortcut — **Q4 carries to Iteration 4**, A2 owning the
-  recommendation).
-- Full close-out axcheck: registered in FINAL-SWEEP-PLAN-C2 TARGETS (A1 at sweep); the
-  run's own axiom lines are triad per run6-c-green.
+**Theorem 2.** Suppose the quotient vanishes. Since the denominator is nonzero by
+hypothesis, P₁(q^{−s}) = 0, i.e. ε · ∏_{a∈α}(1 − a q^{−s}) = 0. Now ε ≠ 0 because
+|ε| = 1, so some factor vanishes: a q^{−s} = 1 with |a| = √q. Article 71's Core 1 (from
+|a| · |q^{−s}| = 1 and |q^{−s}| = q^{−Re s}) gives Re s = 1/2, contradicting
+Re s > 1/2. ∎
 
-Elaboration de-risking that preceded the runs: A7's G3 verdict (the LeanEval
-`weil_conjectures` statement elaborates verbatim mathlib-only, 0 errors) and the A1-4
-CFT-vendor survey (nothing borrowable, nothing competing — the vendor is
-number-field-only).
+## 5. Formal verification
+
+| file | role | size | verdict |
+|---|---|---|---|
+| `pilots/73/P0.lean` | Q0 statement probe (7 header-justified stubs; "not a proof artifact") | 143 lines | GREEN first try (`run1-q0.log`, re-confirmed `run7-p0-final.log`) |
+| `pilots/73/C.lean` | Q1–Q3 (class, series, Theorems 1–2, 71-glue) | 236 lines, 7 theorems | GREEN `run6-c-green.log`; 7/7 triad |
+
+The error count went 2 → 4 → 4 → 2 → 0 over runs 1–6. C.lean is a Cycle-2 final-sweep
+target (`AxPilot73_C`: OK, 14 axiom lines, 0 sorryAx,
+`pilots/73/logs/axcheck-c2-final.log`). P0's seven stubs are certified probe-convention
+tokens and are never cited as results.
 
 ## 6. Relation to prior work
 
-- **Tate's 1950 thesis; Weil, *Basic Number Theory*, ch. VII; Rosen, GTM 210, ch. 8–9**
-  (incl. the grössencharakter case): the entire informal content.
-- **A5 PART-2 P2-13 (executed)**: "first formal Tate-thesis-type statement anywhere" is
-  SUPPORTED in the function-field/rationality-dictionary scope — arXiv 8+2 entries all
-  irrelevant, AFP none, GitHub exactly 2 repos both audited and both number-field-only
-  (DawidLipin dissertation stub; **WenrongZou/TateThesis** PhD project — Nuccio/Brasca,
-  ANR FALSE, CI — the nearest formal neighbor and the standing clock on the "anywhere"
-  phrasing; <2 weeks old at sweep, keep the clock).
-- **Suzuki arXiv:2610.41115**: method-neighbor for ζ_C only (no Hecke content); Boyang
-  Hu's function-field Langlands trilogy (hexagonmath): different layer.
-- **DZDF**: the transplanted structure and statement shape; the C2 comparison column.
-- **dossier 71 / article 71**: the t ↔ s dictionary this builds on (χ trivial reduces
-  (P) to 71's (P)(i)/(ii)).
+- **Mathematics:** J. Tate, thesis (1950); A. Weil, *Basic Number Theory*, ch. VII;
+  M. Rosen, *Number Theory in Function Fields* (GTM 210), chs. 4 and 9 (Dirichlet
+  L-series over 𝔽_q[T]; RH via Weil).
+- **Formal:** AxiomMath DedekindZetaZeroFree supplies the transplanted structure and the
+  number-field comparison point (31/32). AxiomMath `Weil` has rationality of L-functions
+  of ℓ-adic sheaves (`LAdicTraceFormulaFinal.lean:51`, `LFunctionRationalSheaf.lean:87`),
+  but no Hecke characters and no s-plane. The best formal ζ/Dirichlet zero-free
+  half-plane we know of is Re s > 0.8733458561 (the QuasiRiemannTracker entry, as of
+  2026-11-14; dossier 70 standing notes). The vendored class-field-theory tree in the
+  corpus is number-field-only: every "Tate" hit is Lubin–Tate
+  (`survey/axiommath-cft-vendor.md`). WenrongZou/TateThesis is a number-field Tate
+  thesis in progress.
+- **Article 71:** the T ↔ s dictionary. The trivial-character case is article 71's
+  setting for ℙ¹.
 
 ## 7. Limitations and open problems
 
-- Tier A (the dictionary itself: Kummer sheaves, trace formula, purity) is Stacks-blocked
-  (G6a pricing pending; "probably infeasible near-term").
-- hPur is not dischargeable at any tier short of Weil II — the article's (ii) columns are
-  honestly binder-conditional forever at Tier C.
-- The WenrongZou clock: a number-field Tate thesis landing there would NOT preempt the
-  function-field scope claim, but would retire the "anywhere" phrasing.
-- Proportion extensions (Lamzouri-for-FF-family) remain trapped (C3) — a separate,
-  flagged dossier-71 (S)-objective.
+1. **Q4, the rationality discharge for 𝔽_q[T]** (carried to Iteration 4). For χ mod m
+   nontrivial, the coefficient of Tⁿ vanishes once n ≥ deg m, by equidistribution of
+   monic polynomials over residue classes. This makes hRat elementary with P₀ = 1,
+   estimated at 0.3–0.6k lines of bookkeeping. `monicDegreeN` is the substrate for it.
+2. **Series agreement.** f(s) = Σ_n a_n q^{−ns} for Re s > 1 needs power-series
+   evaluation at q^{−s}. It is not formalized, so Theorem 1 is "continuation" only
+   through hRat's identification.
+3. **Purity is a hypothesis** (Weil II for the Kummer covers). Discharging it requires
+   AxiomMath's `Weil`, behind the Stacks wall (probe G6a priced it out).
+4. **Scope:** only the rational function field, and only finite moduli. The
+   infinite-place (sign/degree) data of a full Hecke character and general curves are
+   not covered, nor is the functional equation / root number.
+5. **No proportion statements.** Maximal curves (article 71 §1) make multiplicity
+   proportions false; none are claimed.
 
 ## References
 
-- J. Tate, PhD thesis (1950); A. Weil, *Basic Number Theory*, ch. VII; M. Rosen,
-  *Number Theory in Function Fields*, GTM 210, ch. 8–9. J. Suzuki, arXiv:2610.41115.
-  axiommath `Weil` (`LAdicTraceFormulaFinal.lean:51`, `LFunctionRationalSheaf.lean:87`)
-  and `DedekindZetaZeroFree` (`Arithmetic/RayClasses/Character.lean:12`,
-  `HeckeCorollary.lean:12`, `Challenge/DedekindZetaChallenge.lean:34`).
-  `research/survey/axiommath-cft-vendor.md` (A1-4). Dossier 73; pilots/73-prework;
-  `research/novelty/round-4.md` §6.2–6.3, PART-2 P2-13.
+J. Tate, *Fourier analysis in number fields and Hecke's zeta-functions* (thesis, 1950).
+A. Weil, *Basic Number Theory*, ch. VII. M. Rosen, *Number Theory in Function Fields*,
+GTM 210. AxiomMath DedekindZetaZeroFree (`Challenge/DedekindZetaChallenge.lean:14–20`,
+`HeckeCorollary.lean:12`); AxiomMath `Weil` (`LAdicTraceFormulaFinal.lean:51`,
+`LFunctionRationalSheaf.lean:87`, `LeanEval/WeilConjectures.lean:191`). Project: dossier
+73; `pilots/73-prework.md`; article 71; `novelty/round-4.md` §6.2–6.3 and PART-2 P2-13;
+`survey/axiommath-cft-vendor.md`.
