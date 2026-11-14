@@ -1,0 +1,253 @@
+# Provenance: modal run --detach g7_layers.py (G7b attempt 6: cached image-layer build — 1 prep + chunk0 + 25 topo chunks + target layer; every layer 2 cpu / 4 GB soft with @telemetered; finished layers persist across runs; then G7b probe + pilot-50 R1probe/R1 on the top layer). 2026-11-14, per user directive (AGENTS.md § Modal usage guidelines).
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-q4xk8NTwzeORXNebdCMez1
+Building image im-wffgNLog7buDd4j3sUlmp4
+
+=> Step 0: FROM base
+
+=> Step 1: RUN curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /tmp
+
+=> Step 2: RUN mkdir -p /opt/elan
+
+=> Step 3: RUN ELAN_HOME=/opt/elan /tmp/elan-init -y --default-toolchain none
+
+=> Step 4: RUN ELAN_HOME=/opt/elan /opt/elan/bin/elan toolchain install leanprover/lean4:v4.34.1
+info: downloading https://releases.lean-lang.org/lean4/v4.34.1/lean-4.34.1-linux.tar.zst
+info: installing /opt/elan/toolchains/leanprover--lean4---v4.34.1
+
+leanprover/lean4:v4.34.1 installed - Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+
+Saving image...
+Image saved, took 4.12s
+
+Built image im-wffgNLog7buDd4j3sUlmp4 in 29.37s
+
+
+Building image im-rx0w4rUi17iqWAi7ThUQ0P
+
+=> Step 0: FROM base
+
+=> Step 1: ENV ELAN_HOME=/opt/elan
+
+=> Step 2: ENV PATH=/opt/elan/bin:/usr/local/bin:/usr/bin:/bin
+
+=> Step 3: ENV TELE_INTERVAL=120
+Saving image...
+Image saved, took 1.77s
+
+Built image im-rx0w4rUi17iqWAi7ThUQ0P in 2.68s
+
+
+Building image im-HHv3gqDL9kd50OMpFnwsuA
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 1.41s
+
+Built image im-HHv3gqDL9kd50OMpFnwsuA in 3.07s
+
+
+Building image im-37ZZVl1XitXGdqMTQZjfSD
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 3.63s
+
+Built image im-37ZZVl1XitXGdqMTQZjfSD in 59.22s
+
+
+Building image im-bhv8VywIMAsmAaCaknvkuj
+
+=> Step 0: running function 'prep'
+[tele] start prep: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+info: /work/lean/lakefile.lean:290:0: iut: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: tate-curves-theta: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: genl: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: heights: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: pi1: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: orbicurve-cores: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: oka: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: tempered-fundamental-groups: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: elliptic-curves: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: formal-schemes: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: belyi: applied compatibility patch before dependency resolution
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: mathlib: checking out revision 'd13f23b723b8a846827a245b89c10fc7d3f11612'
+info: checkdecls: cloning https://github.com/PatrickMassot/checkdecls.git
+info: checkdecls: checking out revision '3d425859e73fcfbef85b9638c2a91708ef4a22d4'
+info: doc-gen4: cloning https://github.com/leanprover/doc-gen4.git
+info: doc-gen4: checking out revision '953c8992d174b4e56955e01e101d46668c68f2bb'
+info: PrimeCert: cloning https://github.com/b-mehta/PrimeCert.git
+info: PrimeCert: checking out revision '0803c2f6bd289c09704c7d352bb8fcf770cbb9b2'
+info: LeanArchitect: cloning https://github.com/hanwenzhu/LeanArchitect.git
+info: LeanArchitect: checking out revision '468e8f58fb4ad6e6ad672a08da6d0d0531e95a97'
+info: leancert: cloning https://github.com/alerad/leancert.git
+info: leancert: checking out revision '7f91b6eb3567437f6cfac03ed279706603ee22f4'
+info: PrimeNumberTheoremAnd: cloning https://github.com/AlexKontorovich/PrimeNumberTheoremAnd.git
+info: PrimeNumberTheoremAnd: checking out revision 'c39a751132c88b6e8080b74c74023fd95b3d8be0'
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+info: gromov: cloning https://github.com/Aaron1011/gromov.git
+info: gromov: checking out revision '8db79f13cf211b570e3116301d91379fbc01cf3e'
+info: TauCeti: cloning https://github.com/TauCetiProject/TauCeti.git
+info: TauCeti: checking out revision '3bed7e37f3c504a99e8c07e9f309540812a7aa90'
+info: SphereEversion: cloning https://github.com/leanprover-community/sphere-eversion.git
+info: SphereEversion: checking out revision '9c53f91e2a281199163ecea04dc4976cb79e2076'
+info: schoenflies-lean: cloning https://github.com/alonamaloh/schoenflies-lean
+info: schoenflies-lean: checking out revision '05a43d29cde026618777db3d4e4316204ccca237'
+info: ClassFieldTheory: cloning https://github.com/n-yamaguchi-0729/ClassFieldTheory.git
+[tele] t=120s cpu=1.11 mem=2112MB anon=0MB peak=-1MB procs=3
+info: ClassFieldTheory: checking out revision '2eb22d6485af45f29c5219de6c49f196a61c4f49'
+info: AINTLIB: cloning https://github.com/CBirkbeck/AINTLIB.git
+info: AINTLIB: checking out revision '160e446617a2168c34c95bbe7a76c4105b392434'
+info: AbsorptionCutoff: cloning https://github.com/BennyAvelin/AbsorptionCutoff.git
+info: AbsorptionCutoff: checking out revision '41c45c6d72e979419e46224bb7b4be5cee31f2b5'
+info: StrongPNT: cloning https://github.com/math-inc/strongpnt.git
+info: StrongPNT: checking out revision '2f5835c322314f55f1026ec2f139d704b7c45c69'
+info: carleson: cloning https://github.com/fpvandoorn/carleson.git
+info: carleson: checking out revision '306ae5b29300771aece1aa39f0a939183cc59486'
+info: rellich-kondrachov: cloning https://github.com/abenenson/rellich-kondrachov.git
+info: rellich-kondrachov: checking out revision '70f85d4c1bf99c6e7d61e8be4daa6f3664d08d23'
+info: Zeta3Irrational: cloning https://github.com/ahhwuhu/zeta_3_irrational.git
+info: Zeta3Irrational: checking out revision 'e8785315a01c8fbcddaa0fc03b3c8b29a61bc1f1'
+info: fixed-point-theorems: cloning https://github.com/harfe/fixed-point-theorems-lean4.git
+info: fixed-point-theorems: checking out revision '770940ddf9878cf61952ed53d910b92bca841838'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '106ff4fafc74ef4ac99d81dbf3ab399118f497a5'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '355695d523e41d0554926416cba2a2b3544fbbc9'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'f2effa3d803fda822b1f97b806c47cf2adfbcbc2'
+info: leansqlite: cloning https://github.com/leanprover/leansqlite
+info: leansqlite: checking out revision 'f9cdb9eacb5c8b8ecc02ee9fd9e568d7d28c1416'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204'
+info: UnicodeBasic: cloning https://github.com/fgdorais/lean4-unicode-basic
+info: UnicodeBasic: checking out revision '0e569d08b6443ce0908d356884c765397253e2f0'
+info: BibtexQuery: cloning https://github.com/dupuisf/BibtexQuery
+info: BibtexQuery: checking out revision '4d8616fd4870d0a3453d845770833eac7951fe1c'
+info: MD4Lean: cloning https://github.com/acmepjz/md4lean
+info: MD4Lean: checking out revision '31907cc18f48a95384f99cee5582c00fb39e0f67'
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Attempting to download 8908 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+
+Downloaded: 3 file(s) [attempted 3/8908 = 0%, 1969 KB/s], Decompressed: 0[K
+Downloaded: 180 file(s) [attempted 180/8908 = 2%, 956 KB/s], Decompressed: 1[K
+Downloaded: 332 file(s) [attempted 332/8908 = 3%, 4274 KB/s], Decompressed: 1[K
+Downloaded: 495 file(s) [attempted 495/8908 = 5%, 1388 KB/s], Decompressed: 1[K
+Downloaded: 645 file(s) [attempted 645/8908 = 7%, 337 KB/s], Decompressed: 48[K
+Downloaded: 751 file(s) [attempted 751/8908 = 8%, 1394 KB/s], Decompressed: 48[K
+Downloaded: 891 file(s) [attempted 891/8908 = 10%, 943 KB/s], Decompressed: 48[K
+Downloaded: 1038 file(s) [attempted 1038/8908 = 11%, 257 KB/s], Decompressed: 48[K
+Downloaded: 1197 file(s) [attempted 1197/8908 = 13%, 1181 KB/s], Decompressed: 48[K
+Downloaded: 1318 file(s) [attempted 1318/8908 = 14%, 500 KB/s], Decompressed: 48[K
+Downloaded: 1426 file(s) [attempted 1426/8908 = 16%, 997 KB/s], Decompressed: 48[K
+Downloaded: 1532 file(s) [attempted 1532/8908 = 17%, 1607 KB/s], Decompressed: 48[K
+Downloaded: 1674 file(s) [attempted 1674/8908 = 18%, 240 KB/s], Decompressed: 48[K
+Downloaded: 1804 file(s) [attempted 1804/8908 = 20%, 1063 KB/s], Decompressed: 48[K
+Downloaded: 1947 file(s) [attempted 1947/8908 = 21%, 322 KB/s], Decompressed: 48[K
+Downloaded: 2075 file(s) [attempted 2075/8908 = 23%, 191 KB/s], Decompressed: 48[K
+Downloaded: 2228 file(s) [attempted 2228/8908 = 25%, 2192 KB/s], Decompressed: 48[K
+Downloaded: 2352 file(s) [attempted 2352/8908 = 26%, 233 KB/s], Decompressed: 48[K
+Downloaded: 2494 file(s) [attempted 2494/8908 = 27%, 545 KB/s], Decompressed: 48[K
+Downloaded: 2639 file(s) [attempted 2639/8908 = 29%, 544 KB/s], Decompressed: 48[K
+Downloaded: 2791 file(s) [attempted 2791/8908 = 31%, 1821 KB/s], Decompressed: 48[K
+Downloaded: 2912 file(s) [attempted 2912/8908 = 32%, 1425 KB/s], Decompressed: 48[K
+Downloaded: 3050 file(s) [attempted 3050/8908 = 34%, 2226 KB/s], Decompressed: 48[K
+Downloaded: 3198 file(s) [attempted 3198/8908 = 35%, 428 KB/s], Decompressed: 48[K
+Downloaded: 3344 file(s) [attempted 3344/8908 = 37%, 681 KB/s], Decompressed: 48[K
+Downloaded: 3490 file(s) [attempted 3490/8908 = 39%, 639 KB/s], Decompressed: 48[K
+Downloaded: 3615 file(s) [attempted 3615/8908 = 40%, 719 KB/s], Decompressed: 48[K
+Downloaded: 3781 file(s) [attempted 3781/8908 = 42%, 4264 KB/s], Decompressed: 48[K
+Downloaded: 3918 file(s) [attempted 3918/8908 = 43%, 1799 KB/s], Decompressed: 519[K
+Downloaded: 4074 file(s) [attempted 4074/8908 = 45%, 1786 KB/s], Decompressed: 519[K
+Downloaded: 4205 file(s) [attempted 4205/8908 = 47%, 1379 KB/s], Decompressed: 519[K
+Downloaded: 4336 file(s) [attempted 4336/8908 = 48%, 284 KB/s], Decompressed: 519[K
+Downloaded: 4476 file(s) [attempted 4476/8908 = 50%, 198 KB/s], Decompressed: 519[K
+Downloaded: 4609 file(s) [attempted 4609/8908 = 51%, 5308 KB/s], Decompressed: 519[K
+Downloaded: 4748 file(s) [attempted 4748/8908 = 53%, 395 KB/s], Decompressed: 519[K
+Downloaded: 4890 file(s) [attempted 4890/8908 = 54%, 321 KB/s], Decompressed: 519[K
+Downloaded: 5028 file(s) [attempted 5028/8908 = 56%, 982 KB/s], Decompressed: 519[K
+Downloaded: 5175 file(s) [attempted 5175/8908 = 58%, 1218 KB/s], Decompressed: 519[K
+Downloaded: 5332 file(s) [attempted 5332/8908 = 59%, 706 KB/s], Decompressed: 519[K
+Downloaded: 5495 file(s) [attempted 5495/8908 = 61%, 1315 KB/s], Decompressed: 519[K
+Downloaded: 5644 file(s) [attempted 5644/8908 = 63%, 7993 KB/s], Decompressed: 519[K
+Downloaded: 5789 file(s) [attempted 5789/8908 = 64%, 397 KB/s], Decompressed: 519[K
+Downloaded: 5906 file(s) [attempted 5906/8908 = 66%, 2359 KB/s], Decompressed: 519[K
+Downloaded: 6062 file(s) [attempted 6062/8908 = 68%, 649 KB/s], Decompressed: 519[K
+Downloaded: 6211 file(s) [attempted 6211/8908 = 69%, 2250 KB/s], Decompressed: 519[K
+Downloaded: 6342 file(s) [attempted 6342/8908 = 71%, 426 KB/s], Decompressed: 519[K
+Downloaded: 6511 file(s) [attempted 6511/8908 = 73%, 4482 KB/s], Decompressed: 519[K
+Downloaded: 6632 file(s) [attempted 6632/8908 = 74%, 401 KB/s], Decompressed: 519[K
+Downloaded: 6785 file(s) [attempted 6785/8908 = 76%, 3450 KB/s], Decompressed: 519[K
+Downloaded: 6919 file(s) [attempted 6919/8908 = 77%, 4046 KB/s], Decompressed: 519[K
+Downloaded: 7075 file(s) [attempted 7075/8908 = 79%, 718 KB/s], Decompressed: 519[K
+Downloaded: 7222 file(s) [attempted 7222/8908 = 81%, 357 KB/s], Decompressed: 519[K
+Downloaded: 7334 file(s) [attempted 7334/8908 = 82%, 3992 KB/s], Decompressed: 519[K
+Downloaded: 7459 file(s) [attempted 7459/8908 = 83%, 6026 KB/s], Decompressed: 519[K
+Downloaded: 7598 file(s) [attempted 7598/8908 = 85%, 191 KB/s], Decompressed: 519[K
+Downloaded: 7736 file(s) [attempted 7736/8908 = 86%, 770 KB/s], Decompressed: 519[K
+Downloaded: 7877 file(s) [attempted 7877/8908 = 88%, 2914 KB/s], Decompressed: 519[K
+Downloaded: 8013 file(s) [attempted 8013/8908 = 89%, 477 KB/s], Decompressed: 519[K
+Downloaded: 8161 file(s) [attempted 8161/8908 = 91%, 1659 KB/s], Decompressed: 519[K
+Downloaded: 8307 file(s) [attempted 8307/8908 = 93%, 3376 KB/s], Decompressed: 519[K
+Downloaded: 8455 file(s) [attempted 8455/8908 = 94%, 837 KB/s], Decompressed: 519[K
+Downloaded: 8600 file(s) [attempted 8600/8908 = 96%, 145 KB/s], Decompressed: 519[K
+Downloaded: 8735 file(s) [attempted 8735/8908 = 98%, 490 KB/s], Decompressed: 519[K
+Downloaded: 8863 file(s) [attempted 8863/8908 = 99%, 3776 KB/s], Decompressed: 519[K
+Downloaded: 8904 file(s) [attempted 8904/8908 = 99%, 1524 KB/s], Decompressed: 519[K
+Downloaded: 8908 file(s) [attempted 8908/8908 = 100%, 1524 KB/s], Decompressed: 519[K
+[tele] t=240s cpu=5.40 mem=2396MB anon=0MB peak=-1MB procs=4 OVER cpu
+Decompressed 8908 file(s)
+Already decompressed 8908 file(s)
+[patch] fixed-point-theorems: applied
+[patch] PrimeNumberTheoremAnd: applied
+[patch] Zeta3Irrational: applied
+[patch] rellich-kondrachov: applied
+[patch] carleson: applied
+[patch] StrongPNT: applied
+[patch] AbsorptionCutoff: applied
+[patch] AINTLIB: applied
+[patch] ClassFieldTheory: applied
+[patch] schoenflies-lean: applied
+[patch] SphereEversion: applied
+[patch] gromov: applied
+[tele] SUMMARY prep: wall=257s max_cpu=5.40 max_mem=2396MB max_anon=0MB samples=2 OVER=1
+Saving image...
+Image saved, took 72.81s
+Finished image build for im-bhv8VywIMAsmAaCaknvkuj
+Building image im-GRQS5g8cMDYVaEVYGsIb1K
+
+=> Step 0: running function 'build_chunk'
+[tele] start build_chunk: spec cpu=2.0 mem=4096MB nproc=18 interval=120s
+[layer] chunk 0: 2 targets
+Stopping app - user stopped from CLI.
+[tele] SUMMARY build_chunk: wall=21s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Saving image...
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ Image build for im-GRQS5g8cMDYVaEVYGsIb1K terminated due to external         │
+│ shut-down. Please try again.                                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
