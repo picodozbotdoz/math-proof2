@@ -726,3 +726,167 @@ discharge lands *in the same article* per the adopted bar). With §9's 01-stabil
 is one of the two Iter-4 moves that convert the corpus's strongest conditional assets
 into unconditional theorems; KPI hook: ≥half-discovery quota satisfied by
 42-v2-B + 75-N2 as the two discovery-graded deliverables.
+
+---
+
+## 11. Strength-bar re-grade of R6's five seeds (`novelty/iter4-fresh-bridges.md`)
+
+Bar applied strictly (§4: S1 statement-level novelty with named nearest-miss, S2
+essential multi-corpus bridge, S3 non-trivial proof or surprising statement, S4
+discharge discipline). Verdict vocabulary per queue: ITER-4-WATCH (charter watch list,
+gated, no slot by default) / ITER-5-QUEUE / KILL.
+
+| seed | R6 grade | S1 | S2 | S3 | S4 | verdict |
+|---|---|---|---|---|---|---|
+| FB-1 zero-temp duality + tropical rule | B | R2 pass (raised by in-corpus counterexample, answered nowhere); R1 **unresolved** (Carlier–Duval–Peyré–Schmitzer 2017 [LIT] likely covers dual convergence) | **pass, strong** (tauceti entropic + OAI tropical + mathlib Tropical/LP — no single side can state R2) | R2 pass (characterization/fence shape); R1 fail (compactness + sandwich) | n/a | **ITER-4-WATCH** — the only seed with a live discovery-grade rung after its gates; gate = the two R6-named checks (CDPS differentiation sweep; Truffet-literature kill-check on R2). If CDPS states R1-ii verbatim, R1 drops to citation-grade and the seed stands or falls on R2 alone. |
+| FB-2 SiegelZeros/QRH registration + PNT-AP | B− | **fail** for the pilot: PNT-AP at x^{7/8+δ} = QRH paper2 **Corollary 1.2 verbatim** (`preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf`, [V per R6 §3-FB-2]) — FORMALIZATION-OF-RECENT | pass (OAI binder + mathlib `PrimesInAP` + explicit-formula build) | fail (paper corollary; the explicit formula is formalization cost, not math) | binders = donor theorems (fine) | **split**: registration + clock correction (`OAI.SiegelZeros.exists_absolute_real_zero_gap`; QRH-paper2 11/12; the tracker-vs-7/8 [H] re-check) = **Iter-4 infrastructure, no slot**; the PNT-AP pilot = **ITER-5-QUEUE** behind the PrimeNumberTheoremAnd T2 trigger. |
+| FB-3 irrationality-exponent layer | C+ | **fail** everywhere: (i)–(iii) classical (μ = ∞ ↔ Liouville textbook; μ ≥ 2 = Dirichlet); (iv) is a **definition-unpacking of the donor's own μ(π) = 2** (from `EventualLowerBound` at ν > 2: eventually ‖qπ‖ ≥ q^{1−ν}, so q^{ν−1}‖qπ‖ ≥ 1 — a citation, exactly R6's own kill-check outcome) | pass (OAI × mathlib × tauceti) | fail (glue + pigeonhole) | n/a | **KILL** (as a discovery or watch item; the S-class (i)–(iii) port remains permissible filler infrastructure if a lane is idle — never a slot, never an article) |
+| FB-4 FF PNT | C+ | **fail** (Schmidt-1931-class classical; R6's own cap: "no new mathematics, a new formal artifact") | **pass, genuine** (Weil rationality/RH binders × tauceti general Wiener–Ikehara — first non-ℚ consumer of the Tauberian) | fail (assembly = the classical proof) | binders = Weil conjectures, named and proved elsewhere | **ITER-5-QUEUE** — honest formalization-first technical record; natural second consumer of the 71/73 FF substrate once that zone is warm; must not consume a discovery slot |
+| FB-5 Laughlin/CAR parity decomposition | B | **likely fail** even if the in-file read comes back empty: parity-sector decomposition of number-conserving pair Hamiltonians is standard many-body folklore (nearest-miss must be named: even/odd Fock sectors, textbook quantum many-body; the S1 sweep R6 ran was corpus-only) | pass (tauceti graded CAR × OAI LaughlinFock, zero cross-citations [V]) | fail ((b) is S-class graded-algebra bookkeeping per R6 itself) | binder = OAI's proved `thm_fock` | **ITER-5-QUEUE** + one no-slot confirm-read now (R6's own kill-check: `OAI/Analysis/LaughlinFock/{SquareSplitting,Assembly}.lean` — if a parity/block decomposition is already proved there, KILL) |
+
+**FB-2 and the N=1/N=2 slot question (argued as instructed): FB-2 does not consume a
+discovery slot.** Its operational content is donor *registration* — the same class as
+the ZZV2 on-pin bump, the Liu-1 registration, and the PNT+ watchlist entry (all recorded
+in AGENTS.md §Sibling resources / feasibility as infrastructure chores, none ever a
+pilot slot). Under the adopted bar the pilot half fails S1 outright (the target
+statement is printed in the donor's own preprint), so it is at best a formalization-first
+technical record, and the existing watchlist convention already routes this territory:
+AGENTS.md's PNT+ trigger T2 ("a PNT-AP/Chebotarev consumer appears") fires on exactly
+this pilot, at which point the right move is registering/citing upstream
+(PrimeNumberTheoremAnd, Liu-1 convention), not building our own explicit formula.
+Net: registration in Iter-4 at zero slot cost; pilot deferred and possibly never ours.
+
+**Net effect on the charter's watch list:** one watch entry (FB-1, gated), one
+infrastructure chore (FB-2 registration), three non-slots (FB-3 dead, FB-4/FB-5 queued
+to Iter-5 as technical-record material). None of the five competes with §10-hEχ,
+§12-01-stability, or §12-32-crossing for the cap-N=2 discovery quota.
+
+---
+
+## 12. Completion-path mini-specs (companions to §10)
+
+### 12.1 01-stability converse (the identity → characterization upgrade)
+
+**Objective.** Convert article 01 from "exact identity + equality at one configuration"
+into a characterization theorem: the five-defect sum controls distance to the extremal
+SHAPE. This is the single completion that deepens the project's strongest unconditional
+discovery.
+
+**Precise statement, two rungs.**
+
+*(Rung 0 — zero-locus converse; sharpens Theorem 3 to an iff, and is a better theorem
+than the dossier's A4 as originally framed.)* Define the **TightMult shape class**
+(real-weight form): pairs (P, Q) such that some unitary U, some b, and weights
+λ₁,…,λ_r ∈ [0, c] give UPU* = diag(λ₁,…,λ_r, 0,…) and UQU* = diag(0,…,0, c·I_b).
+Claim: **all five defects vanish ⟺ (P,Q) has TightMult shape.** (⇐ is a computation
+each channel vanishes on the shape; note the shape class is strictly larger than the
+donor's `TightMult` — integrality of the m_j was the donor lemma's artifact, and
+e.g. diag(λ, 0 | 0, c) with any real λ ∈ [0,c] already has Δ_pt = Δ_SJ = Δ_vN = Δ₊ =
+Δ_Q+ = 0 since for p ≤ c, μ = 0: Δ_c(p,0) = 0.) **Integrality is not recoverable from
+the defects — state the converse over real weights and say so in the article.**
+
+*(Rung 1 — quantitative stability.)* With normalization scale := c²·(1 + π):
+for every (P, Q) there is a shape-class (P', Q') with
+‖P − P'‖²_F + ‖Q − Q'‖²_F ≤ K·(Δ_pt + Δ_SJ + 2Δ_vN + Δ₊ + Δ_Q+)^(1/2)·scale^(1/2)
+— i.e. distance O(defect^{1/2}); π = n₊(Q) and b' := π is forced by Δ_Q+ ≈ 0. (Rate
+√δ is the natural one since every defect channel is quadratic; if the quantitative
+cores resist, fall back to qualitative stability — defects → 0 forces distance → 0 —
+which is already a real theorem.)
+
+**Proof-sketch requirements (paper):** five mechanism lemmas, two hard cores.
+1. Δ_Q+ channel: Σ_{q_i>0}(q_i − c)² — zero locus = positive spectrum ⊆ {c};
+   stability |q_i − c| ≤ √Δ_Q+ per eigenvalue (trivial).
+2. Δ₊ channel: 2·Re tr(P^{1/2}Q₊P^{1/2}) = 2‖P^{1/2}Q₊^{1/2}‖²_F — zero iff PQ₊ = 0;
+   stability = small Frobenius norm of the cross block.
+3. Δ_pt channel: explicit quadratics Δ_c(p,m) = m(m+2(c−p)) for p ≤ c, (p−c−m)² for
+   p ≥ c — zero locus = the two branches (p ≤ c, m = 0) and (m = p−c); stability:
+   each eigenvalue pair within O(√Δ_pt) of a branch point (elementary).
+4. **[Hard core A] Δ_vN channel:** equality/stability of von Neumann's trace
+   inequality for the PSD pair (P, Q₋). Zero locus = simultaneous diagonalizability
+   with the reversed ordering. **Mandatory LIT sweep: quantitative von Neumann trace
+   inequality** (stability versions exist in matrix-analysis literature — the paper
+   tranche must name them or prove a bespoke rate).
+5. **[Hard core B] Δ_SJ channel:** equality/stability of the convex-majorization
+   bound (g_c convex, g_c(0)=0) between the Gram diagonal {m_j‖v_j‖²} and the spectrum.
+   Note g_c is only piecewise strictly convex (linear on x ≥ c), so the zero locus is
+   *partial* rigidity, not full permutation — this lemma is the subtlest.
+   **Mandatory LIT sweep: quantitative Schur–Horn.**
+Assembly: 1–3 pin the block/eigenvalue geometry; 4–5 pin near-simultaneous
+diagonalization + near-orthonormal atoms; glue gives the shape approximation.
+
+**What the Lean diagonal case covers:** the commuting sector (v_j = e_j, P and Q
+diagonal) — mechanisms 1, 3 in full, 2 trivially, 4 and 5 vacuous (Δ_vN = Δ_SJ = 0
+automatically in the sector). Lean deliverables (on the ported stack,
+`pilots/01/port/…`): `defect_zero_diag_iff_shape` (Rung 0 in the sector) and
+`tightmult_shape_approx_diag` (Rung 1 in the sector, explicit constants). The
+noncommutative case stays paper-only this iteration.
+
+**Effort:** paper Rung 0 **M**; Rung 1 **M+** (gated on the two LIT sweeps; fall back
+qualitative). Lean diagonal **S–M** (~0.4–0.8k LoC).
+
+**Slot-worthiness:** third in line after §10-hEχ (M) and §12.2-32-crossing (S–M).
+Recommendation: **Iter-4 = paper Rung-0 tranche only**, and only if a lane is free
+after hEχ Route A lands; quantitative stability + Lean diagonal tranche = Iter-5.
+Feeds R5 (deepens the strongest KEEP article; a characterization theorem is a
+category upgrade for the KPI's "discovery-grade" accounting).
+
+### 12.2 32-crossing discharge (close the frontier theorem's last gap)
+
+**Objective.** Discharge the one §5 gap article 32 admits: the crossing c*(ε) is a
+*parameter*; prove it **exists** for every ε ∈ (0, ε*), making Theorem 5 unconditional
+parametric.
+
+**Ingredients already in-file** (`pilots/32/M1.lean`, verified this session):
+`gammaOf_eq` (:79–80, gammaOf c θ = θ·ln((c−1)/9)/ln4), `gammaOf_pos` (:88),
+`gammaOf_strictMono` (:98–100), `lnΛ_upper` (:272, lnΛ c 0 ≤ lnΛ 10 0 + (c−10)·Lconst),
+`lnΛ_10_0` (Thm 2), lnΛ continuity via `hasDerivAt_Ffun … ContinuousAt` (:204),
+`gmax_strictAnti` (:367–368), `IsCrossing ε c := gammaOf c (9/10) = gmax ε c` (:375),
+`membership_of_lt` (:403), `frontier_of_crossing` (:433).
+
+**Missing lemma forms (exact; new file `pilots/32/M2.lean`):**
+1. `gammaOf_tendsto_ten_right : ∀ e > 0, ∃ c > 10, gammaOf c (9/10) < e`
+   — `gammaOf_eq` + `Real.log_lt_log`/ln(1+x) ≤ x on (c−1)/9 near 1.
+2. `gmax_pos_near_ten : ε < ε* → ∃ c > 10, 0 < gmax ε c`
+   — `lnΛ_upper` + `lnΛ_10_0`: gmax ε c ≥ (ln4/ε − 5·ln10 − (c−10)·Lconst)/ln4; since
+   ε < ε* = ln4/(5 ln10) the bracket is positive; halve it and pick c.
+3. `gmax_neg_far : 0 < ε → ∃ c > 10, gmax ε c < 0 ≤ gammaOf c (9/10)`
+   — `lnΛ_upper` with (c−10)·Lconst > ln4/ε − 5·ln10; `gammaOf_pos` for the right half.
+4. `crossDiff_continuous : ContinuousOn (fun c => gammaOf c (9/10) − gmax ε c) (Icc c₁ c₂)`
+   for 10 < c₁ ≤ c₂ — continuity of `gammaOf` (field ops + `Real.continuous_log`) and
+   of `gmax` (from the `hasDerivAt_Ffun` derivative on c > 1; add `lnΛ_contAt` if the
+   pointwise form at :204 does not compose directly).
+5. `crossing_exists : ε < ε* → ∃ c > 10, IsCrossing ε c`
+   — from 1–3 pick c₁ with gammaOf(c₁) < gmax(ε,c₁) and c₂ with gmax(ε,c₂) < 0 <
+   gammaOf(c₂); the difference changes sign on [c₁,c₂]; apply mathlib's interval IVT
+   (`intermediate_value_Icc` / `intermediate_value_Icc'`,
+   `Mathlib/Topology/Order/IntermediateValue.lean`, names verified on the encore
+   checkout @ ff2494ea, module doc lines 26–28).
+6. `frontier_unconditional : ε < ε* → ∃ c*, IsCrossing ε c* ∧ Ach ε = Ioo 0 (gammaOf c* (9/10))`
+   — compose 5 with the existing `frontier_of_crossing` (:433) + `membership_of_lt`
+   (:403). Then update article 32 §5 ("What is not formalized" → discharged) and the
+   README status cell (R-set: "**proved**; crossing exists for all ε < ε*").
+
+**Effort:** **S–M** (~300–600 LoC; bounds 1–3 are one-liners, 4–5 are IVT plumbing).
+
+**Rides an existing lane: yes.** `research/pilots/32/run_pilot.sh` is the generic
+multi-file runner (app `crossmath-pilot-32`); add `M2.lean`, in-file `#print axioms`,
+register in the final-sweep axcheck TARGETS. No new Modal app; warm-run cost class
+(default 2 CPU / 4 GB).
+
+**Slot-worthiness: Iter-4 YES** — the cheap filler slot: closes a KEEP article's only
+formalization gap, riskless, rides an existing lane; feeds R9's quality-gate story
+(a discovery-grade article completed to fully-unconditional parametric form).
+
+---
+
+## 13. Concurrence with the orchestrator-resolved R1 splits (record per queue)
+
+- **42-M4 integrated-merge into article 42 (§Cycle-2 addendum): R2 CONCURS** — matches
+  this lane's §8 MERGE verdict (effort M; M4a vocabulary + donor-hygiene trail to the
+  pilot record/ledger; main-run sections untouched, append-only).
+- **10 keep-relabel (no rename): R2 CONCURS** — the softer of the two options §7.2-A1
+  offered; the R6+RELABEL row edit and the OPEN-leading status line carry the fix, and
+  skipping the rename avoids the cross-reference sweep.
+- **21 demote (certificate moved out of articles): R2 CONCURS** — matches §8
+  DEMOTE-to-dossier; certified numerics are not an article under the adopted bar and
+  TRIAGE had already demoted the candidate.
