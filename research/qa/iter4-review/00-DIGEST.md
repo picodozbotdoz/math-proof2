@@ -19,6 +19,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 11 | R1 (2nd) | `r1-rewrite-50v2.md` + `r1-swapin-runbook.md` (+ 42v2 R3 fills, README resolutions) | 50+50-M2 merged technical-record draft; 8-step GO-triggered swap-in runbook with verification greps (R4 verifies); NO execution |
 | 12 | R2 (4th) | `r2-discovery-strength.md` §§11–13 | R6 seed re-grades (FB-1 watch / FB-2 split-infra / FB-3 kill / FB-4+5 iter-5); completion mini-specs 01-stability + 32-crossing; R1-split concurrence (rename-moot note: the executed article-10 rename STANDS, no revert) |
 | 13 | R7 + R8 (3rd) | `novelty/iter4-external-priorart.md` + donor-unblock §9 | R7: 7/7 verdict rows cited, ZERO retracts (QR-D gap = cheap win; AL-3D α=1 validated; PNT+ T3 not fired). R8: run-log review checklist (13 boxes, between-runs card; LP runner validated PASS; al3d/zzv2-lam/zeta23E pending landing) |
+| 14 | R3 (2nd) | `feasibility/probe/axcheck_iter4.py` + tables §9 | Iter-4 axcheck toolchain (gen/gate/scan/decls; T1–T7 acceptance executed) — measured **14/44 C2 stages TALLY-ONLY** (verdicts exceeded persisted records; class eliminated by the custody rule); §9 = G11/G12 donor-audit pattern (G7b verbatim; D-PIN coverage class; registration ≠ endorsement) |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 

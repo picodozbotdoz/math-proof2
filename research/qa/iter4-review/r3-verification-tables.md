@@ -228,7 +228,43 @@ Coverage: **C2** (7/7). P0 = probe-convention stubs, never cited as results.
 
 —
 
+## 9. Donor-audit pattern for the two new OAI donors (G11/G12) — shared vocabulary for R6's probes and R8's hygiene gate
+
+The two Iteration-4 OAI donor registrations — **G11** (OAI-SiegelZeros: the uniform
+Landau–Siegel zero exclusion, every real zero β ∈ (0,1) of every primitive nonprincipal
+real Dirichlet L-function of conductor q ≥ 3 satisfies (1−β)·log q ≥ c;
+`ProbeG11_OAI_SiegelZeros.lean`) and **G12** (OAI-PiExponent: the
+irrationality-exponent-of-π headline quartet + the generic hypothesis-binder
+interpolation interface; `ProbeG12_OAI_PiExponent.lean`) — follow the **G7b pattern**
+verbatim, and this file's vocabulary fixes how their evidence is expressed so R6's
+probes and R8's donor-hygiene gate cite one thing: (i) *statement-level elaboration
+plus donor-pin `#print axioms`* — the probe elaborates the donor statements and prints
+their axioms INSIDE the donor's own tree at the donor pin (v4.34.1 / mathlib `d13f23b7`),
+which is legitimate because axiom verdicts are pin-independent (they report the proof
+tree, not the mathlib revision), with a full-tree sweep ONLY if a consumer lands (G7b
+scope convention); (ii) *table semantics* — in R3 verification tables the audited donor
+theorems appear as `PROVED-UNCONDITIONAL (donor)` rows whose axioms print source is the
+donor-pin probe log, and any of OUR consumers elaborated in that donor tree carry the
+**D-PIN** coverage class with the pin named in the status line (the 50-v2 rows for
+`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` at `run32-g7-elab.log:144–145` are the
+worked template), while a consumer on our own pin carries the donor statement as a
+PROVED-CONDITIONAL binder until a donor-pin build discharges it (the article-50 → 50-M2
+R1 progression); (iii) *hygiene gate* — the consumable passes R8's gate iff the donor
+headline + its delegation roots print ⊆ {propext, Classical.choice, Quot.sound} at the
+donor pin from the consumer side (AGENTS.md Cycle-2 donor-hygiene gate; G7b's
+`ProbeFinalAssemblyUnconditional` root-audit is the precedent), sorry-free by `rg` over
+the donor subtree; and (iv) *registration ≠ endorsement* — the pattern audits the
+donor's internal hygiene, not the mathematical claim (G12's μ(π) = 2 exceeds every
+classical record and is expressly NOT endorsed by the probe; a statement-binder
+consumer inherits exactly what the audit shows — a triad-clean proof tree — and nothing
+about the preprint's truth). G11/G12 consumers, if any land, enter the §1–8 tables
+above under these rules with the G-series probe log as the axioms print source.
+
+—
+
 *Sources: all log lines above were read directly in the R3 audit
 (`qa/iter4-review/r3-verification-integrity.md` §§1–2, 4) except the in-stage rows
 marked by stage verdicts; LoC/theorem-count drifts are tabulated there (§4 F4/F5).
-Lane R3, 2026-11-16.*
+Lane R3, 2026-11-16. Updated same day: §9 appended (G11/G12 pattern), tool
+implementation `feasibility/probe/axcheck_iter4.py` (audit §7) landed with acceptance
+results in its header.*
