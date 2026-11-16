@@ -21,6 +21,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 13 | R7 + R8 (3rd) | `novelty/iter4-external-priorart.md` + donor-unblock §9 | R7: 7/7 verdict rows cited, ZERO retracts (QR-D gap = cheap win; AL-3D α=1 validated; PNT+ T3 not fired). R8: run-log review checklist (13 boxes, between-runs card; LP runner validated PASS; al3d/zzv2-lam/zeta23E pending landing) |
 | 14 | R3 (2nd) | `feasibility/probe/axcheck_iter4.py` + tables §9 | Iter-4 axcheck toolchain (gen/gate/scan/decls; T1–T7 acceptance executed) — measured **14/44 C2 stages TALLY-ONLY** (verdicts exceeded persisted records; class eliminated by the custody rule); §9 = G11/G12 donor-audit pattern (G7b verbatim; D-PIN coverage class; registration ≠ endorsement) |
 | 15 | R6 (2nd) | G11/G12 probes + OAI donor map + dossiers 76/77 + FB-5 correction | Two OAI donors registered (SiegelZeros, PiExponent — G7b-pattern probes staged w/ g11 wiring); dossiers 76 (FB-1, R7-delegated lit sweep) and 77 (FB-5 re-scoped: pre-dossier novelty claims FALSE — OAI tree owns sector decomposition + CAR); fresh-bridges FB-5/§6 corrected |
+| 16 | R5 (staging) | 4 pilot runner apps (lp/al3d/zzv2-lam/zeta23e) + backlog §14 rows 8–12 + REPORT-INPUTS-ITER4 | All STAGED-NO-RUN (R8 validating clones now); run queue FINAL incl. run 12 = 32-crossing on warm pilot-32; R5 standby-integrated. Pre-GO remaining: R9 final block, R6's one rg, then L1 |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 

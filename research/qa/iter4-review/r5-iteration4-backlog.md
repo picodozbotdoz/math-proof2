@@ -910,10 +910,11 @@ confirmed at `r2-discovery-strength.md:535–553`; run 8 + judgments in §14.1 b
 | 5 | **75-Pb runs 2–5** (E4 Bonferroni descent; expected 2–4 further runs to GREEN) | `crossmath-pilot-75` | C2 | 3–5 min each | run-2 verdict + error-class hypotheses | STAGED-NO-RUN |
 | 6 | **72-M1 L3a** first elaboration (`P72M1T3.lean`: hermPart block) | `crossmath-probe` (72-M1 runner reuses it — `pilots/72-M1/pilot72m1_probe.py:27`; **WARM**) | C2 | ≈3–5 min | none hard (carried list) | STAGED-NO-RUN |
 | 7 | **AL-P1** fibre core (`A1.lean`: P1-a…P1-d + GO/NO-GO read) | `crossmath-pilot-al3d` | C2 | ≈5–10 min | AL-P0 GREEN | STAGED-NO-RUN |
-| 8 | **hEχ donor-pin build + Theorem-E audit** (zeta23's small v4.33 tree; 50-M2-pattern runner cloned from `pilots/50/run_r1.py`; transitive `#print axioms` of the Theorem-E chain + consumer elaboration; statements port back as discharged 2/3 binders) | `crossmath-pilot-zeta23E` (NEW; **v4.33 pin — does NOT share the v4.36 layer cache**) | **C3 [LAYERS]** | hour-class @SPEC (small tree — expect the low end; measured at run 1; 3-h timeout) | charter line + run-1 ping healthy + runner authored | STAGED-NO-RUN — day-2/3 position |
-| 9 | **ZZV2-λ P0** probe (V2 tree, M4b2 recipe; pins P0(a)/(b)/(c)) | `crossmath-pilot-zzv2-lam` (NEW; donor-tree) | **C3 [LAYERS]** | **≈1–2 h** (8.2k-job in-run build; 3-h timeout; R8 §5b) | slot-3 KEEP at typeset (§12) + service ping (run 1) healthy | STAGED-NO-RUN — LAST (longest cold-class item; parallelizable with run 8 — different lanes, different pins) |
+| 8 | **hEχ donor-pin build + Theorem-E audit** (zeta23's pruned `Zeta23.ThmE.Final` closure; 50-M2-pattern runner; transitive `#print axioms` of the Theorem-E chain + consumer elaboration; statements port back as discharged 2/3 binders) | `crossmath-pilot-zeta23E` (STAGED at `pilots/zeta23e/`) | **C3 [LAYERS]** | hour-class @SPEC (v4.33.0-rc2 toolchain at function start + donor mathlib `51e6992e` olean fetch + closure build — the per-run cold cost; base image layers SHARED with the family per the diff-check) | charter line + run-1 ping healthy | STAGED-NO-RUN — day-2/3 position |
+| 9 | **ZZV2-λ P0** probe (V2 tree, M4b2 recipe; pins P0(a)/(b)/(c)) | `crossmath-pilot-zzv2-lam` (STAGED at `pilots/zzv2-lam/`) | **C3 [LAYERS]** | **≈1–2 h** (8.2k-job in-run build; 3-h timeout; R8 §5b) | slot-3 KEEP at typeset (§12) + service ping (run 1) healthy | STAGED-NO-RUN — LAST (longest cold-class item; parallelizable with run 8 — different lanes, different pins) |
 | 10 | **G9** StrongPNT binder probe (`ProbeG9_StrongPNT.lean`, g-mode) | `crossmath-gprobe` (**WARM**) | C1 | 3–4 min | CONDITIONAL: 22-T2a chartered (R9 §6f: A8, statement-only, T1 NOT fired) | STAGED-NO-RUN |
 | 11 | **LP-P2** consumer (`L2.lean`: `bw2_ceiling_of_dual` + inline axcheck) | `crossmath-pilot-lp` | C2 | ≈5–10 min | LP-P1 GREEN | STAGED-NO-RUN (day 2) |
+| 12 | **32-crossing discharge** (R2 §12.2: the six missing lemma forms 1–6 for `pilots/32/M2.lean` — `gammaOf_tendsto_ten_right`/`gmax_pos_near_ten`/`gmax_neg_far`/`crossDiff_continuous`/`crossing_exists` (IVT)/`frontier_unconditional`; S–M ≈300–600 LoC) | `crossmath-pilot-32` (**WARM**, existing) — **CAVEAT: `pilots/32/run_pilot.sh:15–16` is one of R8's two flagged STALE xyz-default wrappers — run with `MODAL_USER=doz` override or after L7's one-line patch** | C2 [WARM] | minutes per run | riskless filler — any lane drain; on GREEN, article-32 §5's "not formalized" paragraph discharges (the v2 status rewrite is R1's small post-GO edit) | STAGED-NO-RUN — conditional filler (R2 §12.2 "Iter-4 YES") |
 
 **Warm-cache ordering note.** Already warm from Cycle 2: `crossmath-pilot-75` (run6-final),
 `crossmath-probe` (72-M1/11-revival/probe family), `crossmath-gprobe` + the axcheck
@@ -929,6 +930,30 @@ different pins, no substrate contention; if the orchestrator prefers image-layer
 for either (g7_layers pattern), that is a launch-day option, not a default. Cycle-level
 Step-B axcheck batches stay at close-out, not first-48h; each pilot's inline
 full-coverage `#print axioms` covers the interim evidence rule.
+
+**Staged runner apps (launch-prep item 1, executed 2026-11-16 — all STAGED-NO-RUN,
+H commits with the kit):** four new apps staged as file clones per the specs, each
+header marked STAGED-NO-RUN with its §14 run pointer, doz-CLI default (no xyz branch —
+the post-2026-11-13 canonical pattern), SPEC 2cpu/4GB + `@telemetered` +
+`LEAN_NUM_THREADS=2` verified present in every clone, and the layer-sharing diff-check
+recorded in-file:
+`research/pilots/lp/{run_pilot.py,run_pilot.sh}` (app `crossmath-pilot-lp`; 75-clone
+with the 73-style probe-convention RESTORED — LP-P0 is a probe file; image block
+byte-identical to 75/73, verified by diff); `research/pilots/al3d/{run_pilot.py,run_pilot.sh}`
+(app `crossmath-pilot-al3d`; 73-clone per al-3d-prework §4; image block byte-identical
+to 73, verified); `research/pilots/zzv2-lam/{run_zzv2.py,run_zzv2.sh}` (app
+`crossmath-pilot-zzv2-lam`; M4b2-recipe clone verbatim — tarball/PNT+-redirect/build/
+consumer-elaboration unchanged; image block byte-identical to run_m4b2.py, verified);
+`research/pilots/zeta23e/{run_zeta23e.py,run_zeta23e.sh}` (app
+`crossmath-pilot-zeta23E`; 50-M2-pattern clone with donor constants re-pointed at
+zeta23 — `DONOR_ROOT=anthropics_formal-math/zeta23`, `TARGET=Zeta23.ThmE.Final`
+(the PROVED Theorem-E chain: `thmE_A/B/C` + `paperInputsChi_L`, sorry-free — the
+sorry'd `Challenge.lean` comparator statements are never the build target),
+`DONOR_TOOLCHAIN=v4.33.0-rc2` (zeta23/lean-toolchain), donor mathlib `51e6992e`
+(zeta23/lake-manifest.json), lakefile.toml + no-patches handling; base image block
+byte-identical to run_r1.py, verified — the family layer cache is shared, the donor
+substrate is the per-run cold cost). All eight files syntax-checked
+(`python -m py_compile` / `bash -n`).
 
 ### §14.1 hEχ fold-in judgments (executed on signal, 2026-11-16)
 
@@ -1039,15 +1064,17 @@ the **LP-duality layer + 02-core consumer** (engineering-deliverable billing; sp
 74-T3 (gated), 10-tranche D1–D6, 75-N2/N3, G10 on the shelf. Full ranked queue + DROP
 list: `qa/iter4-review/r5-iteration4-backlog.md` §2/§4.
 
-**First-48h Modal run queue:** `qa/iter4-review/r5-iteration4-backlog.md` §14 — eleven
+**First-48h Modal run queue:** `qa/iter4-review/r5-iteration4-backlog.md` §14 — twelve
 STAGED-NO-RUN rows (LP-P0 doubles as the artifact-cache ping; 75-Pb run 1 second; the
 two cold-class hour items — the **hEχ zeta23 donor-pin build** at run 8 and ZZV2-P0 at
-run 9 — queued at the tail, parallelizable on separate lanes/pins), all at SPEC 2 CPU /
-4 GB + telemetry + `LEAN_NUM_THREADS=2` per the AGENTS.md mandatory Modal guidelines;
-approvals at charter typeset. The hEχ discharge and 75-Pb are COMPANIONS — two binder
-tiers of the one 75 statement-class article (judgments: r5 §14.1). Slot ledger +
-evidence-slot formats + OPEN markers: `qa/REPORT-INPUTS-ITER4.md` (modeled on
-`REPORT-INPUTS-C2.md`).
+run 9 — queued at the tail, parallelizable on separate lanes/pins; run 12 = the
+32-crossing riskless filler on the existing warm app), all at SPEC 2 CPU / 4 GB +
+telemetry + `LEAN_NUM_THREADS=2` per the AGENTS.md mandatory Modal guidelines;
+approvals at charter typeset. The four new runner apps are STAGED on disk
+(`pilots/{lp,al3d,zzv2-lam,zeta23e}/`, diff-checked; r5 §14 tail note). The hEχ
+discharge and 75-Pb are COMPANIONS — two binder tiers of the one 75 statement-class
+article (judgments: r5 §14.1). Slot ledger + evidence-slot formats + OPEN markers:
+`qa/REPORT-INPUTS-ITER4.md` (modeled on `REPORT-INPUTS-C2.md`).
 
 Branch `dev/iteration4` (cut from the Cycle-2 close commit; H commits). Protocols carry
 over from Cycle 2 unchanged (queue-loaded lanes, one writer per file, log provenance
