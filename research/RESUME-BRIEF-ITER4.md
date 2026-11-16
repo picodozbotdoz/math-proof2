@@ -52,7 +52,7 @@ charter splice is appended at phase-B start) + this brief +
 | R1 | articles editorial audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
 | R2 | discovery-strength audit | `research/qa/iter4-review/r2-discovery-strength.md` (v1 landed batch 6; S1–S4 bar proposed) | delivered v1 |
 | R3 | verification integrity audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
-| R4 | process/completeness audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
+| R4 | process/completeness audit | `research/qa/iter4-review/r4-process-completeness.md` (v1 + Part-2 fixes package landed batch 7; H applies A+B) | delivered v1 |
 | R5 | iteration-4 backlog consolidation | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
 | R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` | active (writing) |
 | R7 | external prior-art web check | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |

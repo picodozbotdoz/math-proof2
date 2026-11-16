@@ -8,6 +8,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 |---|---|---|---|
 | 1 | R9 | `r9-iteration-plan-draft.md` | Splice + lane-plan + quality-gate draft complete at ZERO review inputs (all review cells [MERGE: Rx]-marked); ready for orchestrator typeset pending merges |
 | 2 | R2 | `r2-discovery-strength.md` | 18 articles ≈ 4–5 genuine discoveries; strength bar S1–S4 proposed; 11 demotion/relabel items |
+| 3 | R4 | `r4-process-completeness.md` | No substantive charter obligation missing (1 delivered-differently, recorded); 1 MISSING/13 INCOMPLETE/4 WRONG records-level; fixes package A+B pre-approved, C rides splice |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -65,3 +66,28 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   decide the two-strike cap N (R2's bar implies ≤ R9's N=2, possibly 1 — R9 open
   decision #2); approve/assign the 11 demotion-relabel actions (interlock with R1's
   template + rewrite proposals); the 42 README "zero-density" terminology mislabel.
+
+## R4 — r4-process-completeness.md (landed 2026-11-16, batches 7–8; Part 2 same day)
+
+- **Verdict:** charter-vs-delivered gap analysis across both cycles: **no substantive
+  charter obligation is MISSING** (one delivered-differently — the hQRH discharge
+  landed via openai R1 7/8, not DZDF — documented but unreconciled at charter level);
+  records-level findings 1 MISSING (STEP-8 final gate-run never persisted) / 13
+  INCOMPLETE / 4 WRONG (two date errors, one rank-arithmetic slip 4.5→4.9, one
+  debts-line misclassification); marker sweep reconciled; 28-check citation
+  verification delegated to R1 (donor citations exact — corpus strength).
+- **Top-3 findings:**
+  1. INDEX discipline: ~25 pre-close files unindexed + a dozen statuses contradicting
+     final records — R4's batch B refresh (30 rows, 12 stale rewrites, the parked :13
+     line) is the repair, plus a standing close-gate (§6.3).
+  2. Gate quality: STEP-8 gate 5 could never pass (whole-file grep vs frozen main-run
+     text); final gate-run unrecorded — §6 close-protocol addendum (scoped gates,
+     persisted gate tables, INDEX gate, date discipline, staging supersession) for R9
+     to fold into the charter verbatim.
+  3. Staging-file lifecycle: pre-decision state under "RECONCILED" headers without
+     superseded stamps (TRIAGE-C2-ROWS, R1-prework §7) invites mis-consumption.
+- **Open asks / handoffs:** batch A (14 one-liners) + batch B (INDEX refresh) applied
+  by H under pre-approval (done immediately after this landing); batch C (2 authored:
+  RESEARCH.md delivered-differently record + STATUS:761 debts line) rides the charter
+  splice; C3 (42→42-M4 "discovery headline" rewording) adopted via R2's edit set with
+  the dated-correction convention; F1 STEP-8 retroactive record still owed to H.
