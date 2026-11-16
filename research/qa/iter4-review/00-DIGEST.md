@@ -91,3 +91,10 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   RESEARCH.md delivered-differently record + STATUS:761 debts line) rides the charter
   splice; C3 (42→42-M4 "discovery headline" rewording) adopted via R2's edit set with
   the dated-correction convention; F1 STEP-8 retroactive record still owed to H.
+- **Part 3 (batch 9):** F1 CLOSED — `qa/closeout-gate-run-C2-reconstructed.md`
+  (11/11 PASS at 081a79f, scoped greps; gate-5 whole-file false-positive demonstrated;
+  gate-11 STEP→commit map with 3 documented order deviations). R3 cross-read: no
+  contradictions; NEW WRONG finding C4 (TRIAGE.md:259 LoC arrow inverted 282→279; disk
+  is 282) → batch C; pass-2 rule: R3 extractor-counts land FIRST, then articles+ledger+
+  INDEX B-rows in ONE pass (no piecemeal count fixes). A+B verification armed on
+  orchestrator signal.

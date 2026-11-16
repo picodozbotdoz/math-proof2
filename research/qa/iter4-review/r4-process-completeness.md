@@ -367,3 +367,75 @@ orchestrator decides on R2** — never a second uncoordinated edit round:
 4. Batch C rides the charter-splice commit (C1 + C2 together; C3 only if adopted).
 
 — end R4 part 2. Batches: A = 14 edits (12 one-liners + the CHARTER-DRAFT pack counted as 4 one-liners, with the STATUS:761 item re-homed to C2 per queue), B = 1 + 34-file block (30 rows) + 12 stale-row rewrites, C = 2 authored + 1 flagged. Nothing applied by R4.
+
+---
+
+# Part 3 — Gate-run record delivered + R3 cross-read (R4, queue 3, 2026-11-16)
+
+## 8. Gate-run record (closes Part-1 finding F1)
+
+Written to **`research/qa/closeout-gate-run-C2-reconstructed.md`** — all 11 STEP-8 gates
+re-executed 2026-11-16 at HEAD `081a79f` with the corrected/scoped greps, header-marked
+RECONSTRUCTED as mandated. Summary: **11/11 PASS** (gate 1 manual-recorded; gates 4 and
+10 via their documented escape/reconstruction clauses; gate 5 passes only under the
+scoped grep — the demonstration line records the original false positive: whole-file
+`grep -c 'do not decide until' research/TRIAGE.md` = 1 at frozen `TRIAGE.md:115` while
+the scoped §Cycle-2-addendum section has 0). Gate 11's reconstruction maps every plan
+STEP to its commit and records three order deviations with their documented rationales
+(typeset `1490e22` before sweep `3876126` — the splice carried pre-written [CONDITIONAL]
+markers; E2 riding `d36d62d` after `bf025a1` per the apply-plan's G7b dependency;
+STEP-8 slot-ledger fills `b1ea051` after the close block `0d3c94b` — gate-4's deferral
+cross-list landing, not a reopen). Batches A+B were verified **unapplied** at execution
+and no gate grep reads a site A/B edits, so the record stays valid post-apply.
+This file is the worked example for protocol addendum rules 1–2 (§6 above).
+
+## 9. Cross-read: R3's `r3-verification-integrity.md` vs this audit (no silent contradictions)
+
+R3's mandate (evidence chain) is disjoint from mine (process records); its six
+machinery/records findings neither overlap nor conflict with my four WRONG findings
+(F5 date, F6 rank, F9 debts line, F13 date — R3 audits none of those files' prose).
+Three coordination points and one **new WRONG finding** from the cross-read:
+
+1. **NEW WRONG (cross-read product): `TRIAGE.md:259` LoC correction is direction-inverted.**
+   It reads "(A2 formal report LANDED; LoC corrected **282→279** …)" — but disk is
+   **282** (`wc -l pilots/71/P2.lean` = 282) and A2's formal commit `56fba53` says
+   "**282 LoC disk**"; 279 is the stale figure (run6 header + article, per R3 F5:
+   3-line post-run drift, sweep staged the current bytes). The intended note was
+   "corrected 279→282" (or "disk 282 vs header 279"). Same-direction 279 quotes ride
+   `TRIAGE.md:228` (matrix row), `TRIAGE-C2-ROWS.md:117`, `REPORT.md:276`, and this
+   file's B2/B3 rows. Disposition: added as **C4** below (TRIAGE decision text is
+   orchestrator-owned); my released B rows keep 279 until pass 2 so they match the
+   current records of record — flag, don't fork the numbers.
+   **C4 (add to batch C, apply at charter-splice):** `research/TRIAGE.md:259`
+   - old: `(A2 formal report LANDED; LoC corrected 282→279; W1 statement`
+   - new: `(A2 formal report LANDED; LoC corrected 279→282-disk (run6 header says 279; sweep staged the 282-byte file); W1 statement`
+   - why: the correction arrow points the wrong way vs disk (`wc -l` = 282), A2's formal
+     commit 56fba53, and R3 F5; as written it instructs future readers to prefer the
+     stale count.
+2. **Counting-convention coordination (R3 F4 vs batch B).** R3 documents systematic
+   undercounts (75: 66→68 decls; 42-M4 M4b: 68→70; P11T3: 88→110; 10-L1: 25→27; 20:
+   27→28; ledger M4a 52→54) and proposes extractor-generated counts (its §5 rule 4).
+   Batch B rows intentionally quote the current articles/ledger figures, so they inherit
+   those undercounts. **Pass 2 must not fix counts piecemeal:** adopt R3's
+   extractor-count rule first, then update articles + ledger + INDEX B-rows in the same
+   sequence (same pass-2 discipline as the R2 couplings in §7).
+3. **"44/44" paraphrase (R3 §4.2).** R3 reads the close block's "44/44 stages OK" as
+   "43/43 plain + M4b donor-tree OK" (the ledger §9.F form). No conflict with this
+   audit: my gate-run record's gate-2b checks log existence, not stage tallies, and my
+   Part-1 §1.2 quoted the ledger's exact form. If pass 2 touches the close block,
+   aligning the paraphrase to the ledger form is optional polish (C-batch adjacent, not
+   authored).
+4. **Complementary, not conflicting:** R3's custody/coverage findings (m2-axcheck-final
+   P11T3 prints not persisted; private/lemma blind spot in make_axcheck) are exactly the
+   class of evidence-hygiene rules my protocol addendum (§6) covers for gates; R3 §5's
+   article verification-block format and my §6 close-protocol rules are disjoint and
+   both fold into R9's charter conventions block without overlap.
+
+**Task 2 standing:** A+B verification pass is armed and waiting on the orchestrator's
+signal that H has applied them (confirmed unapplied at `081a79f`; the only commits since
+Part 2 are R2/R9 deliverable landings + iteration-4 infra). On signal: re-read every
+touched file, verify each edit byte-exact per Part 2, report PASS per batch or the exact
+divergences routed to H. No fixes by R4.
+
+— end R4 part 3. New: gate-run record file (11/11 PASS), C4 added to batch C, one new
+WRONG finding (TRIAGE.md:259 direction), two coordination rules for pass 2.
