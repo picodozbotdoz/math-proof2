@@ -18,6 +18,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 10 | R8 (2nd) | donor-unblock §8 + `AGENTS-ITER4-DRAFT.md` | First-48h approval packet (10 cards; cache-ping = LP-P0 first; no >4GB requests; inherent-mem pre-flag on donor-build cards 8–9) + E1–E4 AGENTS addendum draft (NOTHING applied) |
 | 11 | R1 (2nd) | `r1-rewrite-50v2.md` + `r1-swapin-runbook.md` (+ 42v2 R3 fills, README resolutions) | 50+50-M2 merged technical-record draft; 8-step GO-triggered swap-in runbook with verification greps (R4 verifies); NO execution |
 | 12 | R2 (4th) | `r2-discovery-strength.md` §§11–13 | R6 seed re-grades (FB-1 watch / FB-2 split-infra / FB-3 kill / FB-4+5 iter-5); completion mini-specs 01-stability + 32-crossing; R1-split concurrence (rename-moot note: the executed article-10 rename STANDS, no revert) |
+| 13 | R7 + R8 (3rd) | `novelty/iter4-external-priorart.md` + donor-unblock §9 | R7: 7/7 verdict rows cited, ZERO retracts (QR-D gap = cheap win; AL-3D α=1 validated; PNT+ T3 not fired). R8: run-log review checklist (13 boxes, between-runs card; LP runner validated PASS; al3d/zzv2-lam/zeta23E pending landing) |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -163,8 +164,29 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   adopted); §15 dependency ledger (specs owned vs pending decisions).
 - **Open asks / holds:** §16 stages the STATUS.md "§ Iteration 4" block snippet and
   REPORT-INPUTS-ITER4 rows — **held for the LAUNCH commit** (per orchestrator), NOT in
-  this review commit; four runner app clones (lp/al3d/zzv2-lam/zeta23E) being staged
+  this review commit; four runner app clones (lp/al3d/zzv2-lam/zeta23e) being staged
   by R5, commit on report.
+
+## R7 — novelty/iter4-external-priorart.md (landed 2026-11-16, batch 22, with R8 §9)
+
+- **Verdict:** independent external evidence for all 7 headline claims (arXiv API +
+  abstract fetches, OpenAlex, AFP entry pages, GitHub API, the tracker's live badge,
+  on-pin mathlib as formal ground truth; fetch date disclosed; zbMATH 403-blocked and
+  disclosed): **zero RETRACTs, zero REWRITEs.** 75/42/71/73/11 NOVEL (scoped);
+  50-M2 KNOWN-informal (honesty header already correct); 72's mathematics KNOWN
+  (textbook) with the no-go *packaging* the novel part — one relabel-grade note: add
+  textbook cites and correct "2D" to Kuwahara's actual dimension-general D≥2 result
+  (which strengthens the gate).
+- **Standout facts:** the QR-D formal Dirichlet frontier gap (tracker 0.8733 vs the
+  7/8 already landed) is confirmed as a cheap win; WenrongZou/TateThesis is the
+  nearest formal neighbor for 73 (number-field scope, early-stage — clock kept);
+  no competing formalization exists anywhere for 71's s-plane dictionary or 11's
+  call-charged calculus; the 3SUM refutation is externally corroborated (Fischer
+  2610.32162) with no other formal verification.
+- **Flow:** R7's r7-bib-cards.md follows (commit on report). R8's §9 (same commit):
+  the 13-box run-log review checklist (verdict/telemetry/descent-class/guards/axiom
+  lines/donor-rev/cache-ping rules) — LP runner validated PASS; al3d/zzv2-lam/zeta23E
+  clones pending landing. This landing unblocks R9's final splice block → L1 → GO.
 
 ## R1 — r1-articles-editorial.md + articles/TEMPLATE-iter4.md (landed 2026-11-16, batch 13)
 
