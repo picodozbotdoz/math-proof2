@@ -953,7 +953,13 @@ sorry'd `Challenge.lean` comparator statements are never the build target),
 (zeta23/lake-manifest.json), lakefile.toml + no-patches handling; base image block
 byte-identical to run_r1.py, verified — the family layer cache is shared, the donor
 substrate is the per-run cold cost). All eight files syntax-checked
-(`python -m py_compile` / `bash -n`).
+(`python -m py_compile` / `bash -n`). **R8 pre-GO touch-ups applied 2026-11-16:**
+divergence d2 — `run_zzv2.py`'s consumer verdict gained the P0 prefix-exemption (the
+71/73/LP/al3d family pattern; as cloned from run_m4b2 it was sorry-strict and would
+false-FAIL a healthy ZZV2-P0 statement probe; exemption chosen over the G11
+#check-only alternative so any P0-prefixed probe file is safe — noted in-file);
+cosmetic d1 — `al3d/run_pilot.sh`'s header now cites §14 runs 3/7 (AL-P0/AL-P1)
+instead of the LP runs. Image blocks re-diffed identical after both fixes.
 
 ### §14.1 hEχ fold-in judgments (executed on signal, 2026-11-16)
 

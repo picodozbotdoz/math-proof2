@@ -151,8 +151,20 @@ def run(tarball: bytes, files: dict, order: list):
         sorry = [l for l in out2.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out2.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]
-        verdict = "OK" if (rco == 0 and not errors and not sorry) else \
-            f"FAIL rc={rco} errors={len(errors)} sorry={len(sorry)}"
+        # probe convention: P0* files are statement probes (sorry allowed) — the
+        # 71/73/LP/al3d family pattern. (R8 divergence d2 fix, 2026-11-16: as cloned
+        # from run_m4b2.py the verdict was sorry-STRICT, which false-FAILs a healthy
+        # ZZV2-P0 statement probe carrying sorry'd stubs; exemption applied instead of
+        # the G11 #check-only alternative so any P0-prefixed probe file is safe.)
+        probe = rel.startswith("P0")
+        if probe:
+            verdict = "OK (probe, sorry allowed)" if (rco == 0 and not errors) \
+                else f"FAIL rc={rco} errors={len(errors)}"
+            if sorry:
+                verdict += f" [sorry x{len(sorry)}, expected for probe]"
+        else:
+            verdict = "OK" if (rco == 0 and not errors and not sorry) else \
+                f"FAIL rc={rco} errors={len(errors)} sorry={len(sorry)}"
         summary[rel] = verdict
         print(f"[zzv2] {rel}: {verdict}", flush=True)
         if axioms:
