@@ -412,6 +412,8 @@ theorem projLattice_le_planar (Λ : Finset (ℤ × ℤ × ℤ)) :
 #print axioms proj_walk_full
 #print axioms walk_induce_length
 #print axioms proj_edist_le
+#print axioms domainEDistG_of_mem
+#print axioms domainEDist3D_of_mem
 #print axioms proj_diam_le
 #print axioms col_subset_A_of_mem_proj
 #print axioms edgeBoundaryG_card_le

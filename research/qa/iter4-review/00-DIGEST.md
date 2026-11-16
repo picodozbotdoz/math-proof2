@@ -34,6 +34,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 26 | AL lane | `pilots/al3d/{P0,A1}.lean` + 5 logs + prework §9 | **Third pilot GREEN: AL-P0 + AL-P1** (A1 20/20 triad, sorry-strict, 16-run descent 20→…→0); **P1-b GO ratified — B.2 stays chartered**; prework §9 dated correction (induced-square refuted at the fibre core; projLattice encoded) |
 | 27 | A3 (75-Pb) | `pilots/75/Pb.lean` + 12 logs | **TOP HEADLINE — the day-1 top-billed discovery milestone LANDED: 75-Pb GREEN** (P-b + C1 5/6 arm; all four landings + E1–E6 + heritage triad-only, 0 sorryAx, ZERO donor imports; 11-run descent under continuation policy ×2; M1 design-erratum honestly recorded) — the one Cycle-2 statement class that survived audit is now complete at its designed endpoint |
 | 28 | A2 (hEχ) | `pilots/zeta23e/P0.lean` + run log + ledger fills | **hEχ GREEN in ONE run — the 75 companion tier cleared**: Theorem-E chain triad at the donor pin (v4.33.0-rc2/51e6992e, pruned 144-file closure), χ-column binder swap cleared (PROVED-UNCONDITIONAL (donor), D-PIN pattern); ledger fills: **75-Pb FINAL-GREEN**; the nproc/-j build-phase burst note recorded (soft-limit class, AGENTS §1) |
+| 29 | A4 (AL-P2 m1) | `pilots/al3d/` P0 amended + A1 audit-tail + A2 new + multi-file staging | **AL-P2 milestone-1 GREEN** (alp2-run7-m1green): statement amendment (find #3 `groupStrength`) + column regrouping triad; P2-c/d/e decomposed, **P2-d risk-flagged**; run_pilot.py multi-file staging mechanism landed |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 

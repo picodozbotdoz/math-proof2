@@ -1,0 +1,7 @@
+# alp2-run1 — AL-P2 milestone 1 (P2-b column regrouping; A1 re-elaborated as import base)
+# Provenance: 2026-11-16, lane A4; files A1.lean (unchanged math; +2 audit lines per R3
+# fold) + A2.lean (NEW, ~130 LoC: colCard, colSigmaEquiv, colRegEquiv, regReindexEquiv,
+# colCard_le_h). Pre-registered risk points: piCurry/piCongrLeft' type unification
+# through defeq (Qudits3Q vs Fin q); Fintype.card_coe defeq vs colCard; sigma-subtype
+# rfl proofs (proof irrelevance).
+# Command: bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/A1.lean research/pilots/al3d/A2.lean

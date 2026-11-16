@@ -88,16 +88,39 @@ def run(files: dict, order: list):
         print("[al3d] CACHE-MISS abort", flush=True)
         return {rel: "CACHE-MISS" for rel in order}
 
-    for rel, content in files.items():
-        p = repo / rel
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(content)
+    # Sibling-import mechanism (pilot-11 precedent): multi-file batches are staged in
+    # a SEPARATE dir (repo/AL3D — never the repo root: a root LEAN_PATH entry lets the
+    # Mathlib SOURCE tree hijack olean resolution) and compiled to .olean in dependency
+    # order with that dir prepended to LEAN_PATH, so later files `import` earlier ones
+    # (A2 imports A1). Single-file batches keep the plain `lake env lean` path.
+    multi = len(order) > 1
+    stage = repo / "AL3D"
+    if multi:
+        stage.mkdir(parents=True, exist_ok=True)
+        for rel, content in files.items():
+            (stage / rel).write_text(content)
+    else:
+        for rel, content in files.items():
+            p = repo / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(content)
+    lp = sh("cd /opt/mathlib && lake env printenv LEAN_PATH").stdout.strip()
+    if not lp:
+        lp = str(repo / ".lake/build/lib/lean")
+    print(f"[al3d] LEAN_PATH base: {lp}", flush=True)
+    env = (f'ELAN_HOME=/opt/elan PATH=/opt/elan/bin:/usr/local/bin:/usr/bin:/bin '
+           f'LEAN_PATH="{stage}:{lp}"') if multi else None
 
     results = {}
     for rel in order:
         print(f"\n=== {rel}", flush=True)
         try:
-            r = sh(["lake", "env", "lean", rel], timeout=2400)
+            if multi and env:
+                stem = rel[:-len(".lean")] if rel.endswith(".lean") else rel
+                r = sh(f"cd {stage} && {env} lean -o {stem}.olean {rel} && "
+                       f"{env} lean {rel}", timeout=2400)
+            else:
+                r = sh(["lake", "env", "lean", rel], timeout=2400)
         except subprocess.TimeoutExpired:
             print(f"[al3d] TIMEOUT elaborating {rel}", flush=True)
             results[rel] = "TIMEOUT"

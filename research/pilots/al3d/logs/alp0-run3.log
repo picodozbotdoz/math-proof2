@@ -1,0 +1,54 @@
+# alp0-run3 — AL-P0 statement amendment (find #3: binder at groupStrength, P2 planning)
+# Provenance: 2026-11-16, lane A4; P0.lean amended: new def groupStrength h R J :=
+# 2^(h*(2R+1)^2) * max J 1; SlabAreaLawColumnCuts3D instantiates the planar binder at
+# groupStrength h R J (raw-J instantiation cannot consume the grouped interaction —
+# prework §2.3 sketch gap, recorded as header find #3; frozen layer untouched).
+# Command: bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/P0.lean
+https://modal.com/apps/semraker/main/ap-gZY2oEkaSCi6fKeUKFRN2m
+[al3d] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+
+=== P0.lean
+[al3d] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:73:8: warning: declaration uses `sorry`
+P0.lean:111:8: warning: declaration uses `sorry`
+P0.lean:116:8: warning: declaration uses `sorry`
+
+[al3d] SUMMARY
+[al3d]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=19s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+https://modal.com/apps/semraker/main/ap-gZY2oEkaSCi6fKeUKFRN2m
+
+# [amended re-run] find-3 + A1 audit-tail completion (R3 fold): P0 OK (probe) with
+# groupStrength; A1 re-OK with 22/22 audit lines (20 prior + 2 dite helpers).
+[al3d]   A1.lean: OK
+[al3d] A1.lean: OK
+[al3d]   P0.lean: OK (probe, sorry allowed)
+[al3d] P0.lean: OK (probe, sorry allowed)
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.cubic_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDist3D_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDistG_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.int_covBy_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.walk_induce_length' depends on axioms: [propext, Quot.sound]

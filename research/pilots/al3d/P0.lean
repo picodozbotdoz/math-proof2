@@ -33,7 +33,17 @@ the PROJECTED graph `projLattice Λ` (edges = projections of cubic Λ-edges), an
 `PlanarAreaLawVar` binder accordingly carries an ambient-graph parameter `G ≤ planarLattice`
 (at `G = planarLattice`, uniform heights: the donor `AreaLaw` shape verbatim — the
 specialization note below). This find changes MY new defs only; the frozen layer is
-untouched. Honesty ledger for the binder (prework §2.4): NOT discharged here; AAG
+untouched.
+
+STATEMENT-LEVEL FIND #3 (at P2 planning, 2026-11-16): the prework §2.3 sketch
+instantiates `PlanarAreaLawVar` at the 3D statement's raw `J`, but the projected
+(grouped) interaction has strength `groupStrength h R J := 2 ^ (h * (2*R+1)^2) * max J 1`
+(diameter-bounded preimages per projected support, each of 3D strength at most `J`) —
+a binder at raw J cannot consume it. `SlabAreaLawColumnCuts3D` below therefore
+instantiates the binder at `groupStrength h R J`; the range R is preserved by the
+P1-a diameter contraction. New-defs side only; frozen layer untouched.
+
+Honesty ledger for the binder (prework §2.4): NOT discharged here; AAG
 arXiv:2103.02492 = frustration-free 2D only; uniform donor `area_law` rests on the
 unrefereed [OAI265]; the padding route FAILS at the boundary count (prework §2.4(iii)).
 -/
@@ -435,6 +445,11 @@ def PlanarAreaLawVar (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : 
 def IsColumnClosed3D (Λ A : Finset (ℤ × ℤ × ℤ)) : Prop :=
   ∀ x ∈ A, ∀ y ∈ Λ, (y.1, y.2.1) = (x.1, x.2.1) → y ∈ A
 
+/-- The grouped strength of a projected interaction: at most `2 ^ (h * (2*R+1)^2)`
+diameter-bounded preimages per projected support (each of 3D strength at most `J`), so
+the projected terms have norm at most this (find #3 above; the prework's `J'`). -/
+def groupStrength (h R : ℕ) (J : ℝ) : ℝ := 2 ^ (h * (2 * R + 1) ^ 2) * max J 1
+
 /-- The slab area law for COLUMN-CLOSED cuts — the first B.2 rung-stone.  WEAKER than the
 frozen `SlabAreaLaw3D` (cut class restricted; recorded as such per Targets.md §D rule 3 —
 this is NOT progress on the frozen target, whose arbitrary cuts remain donor-scale) and
@@ -443,7 +458,7 @@ CONDITIONAL on the variable-height, ambient-`G` planar area law `PlanarAreaLawVa
 honesty ledger above).  No `AreaLaw3D` content: this claim resolves none of C.1–C.4. -/
 def SlabAreaLawColumnCuts3D (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : ℕ) : Prop :=
   ∀ (G : SimpleGraph (ℤ × ℤ)) (hG : G ≤ planarLattice),
-    PlanarAreaLawVar 𝕜 q R J Δ h G hG →
+    PlanarAreaLawVar 𝕜 q R (groupStrength h R J) Δ h G hG →
     ∃ C : ℝ, ∀ Λ : Finset (ℤ × ℤ × ℤ), IsSlabDomain3D h Λ →
       ∀ Φ : (X : Finset (ℤ × ℤ × ℤ)) → Matrix (Reg (Qudits3D q) X) (Reg (Qudits3D q) X) 𝕜,
         IsAdmissible3D Λ R J Φ →
