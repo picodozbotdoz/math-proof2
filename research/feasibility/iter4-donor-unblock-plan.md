@@ -379,3 +379,205 @@ Sibling (read-only): `axiommath/DedekindZetaZeroFree/DedekindZetaZeroFree/{Main,
 `QuantumInfo/ForMathlib/` present, pushed 2026-11-16).
 
 — end plan (R8).
+
+---
+
+## §8 FIRST-48h APPROVAL PACKET (added 2026-11-16, queue 3 — the orchestrator's per-run sheet)
+
+One card per staged run of R5's §14 queue (`qa/iter4-review/r5-iteration4-backlog.md` §14,
+resolutions + hEχ fold-in applied). Standing rules for every card: SPEC `cpu=2.0,
+memory=4096` + `@telemetered` + `LEAN_NUM_THREADS=2`; approval is PER-RUN and does not
+carry over (AGENTS.md guideline 4); **no run in this window requests >4 GB** — the two
+donor-build runs (8–9) carry the known *inherent* mmapped-olen `mem` readings (≈5–6 GB,
+guideline 5 / G7b measured fact): telemetry OVER on `mem` with flat `anon` is expected
+and NOT an escalation trigger; `anon` growth is the investigate signal. Telemetry rides
+the `[tele]` lines inside each run's tee'd log (the decorator prints them at interval +
+summary). **Cache-ping marking: runs 1a (LP-P0), 8 (ZZV2-P0), 9 (hEχ)** — 1a IS the ping
+(run it FIRST); 8–9 are ping-gated (execute only if 1a's cache step was healthy).
+Runners marked AUTHOR-AT-EXEC do not exist on disk yet (R5's queue is staged-no-run; the
+lane authors runner + file at execution per the cited spec).
+
+### 1a. LP-P0 — statement probe + ARTIFACT-CACHE HEALTH PING (run FIRST)
+- **Command**: `research/pilots/lp/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC (clone
+  `pilots/73/run_pilot.sh`+`run_pilot.py` verbatim; app `crossmath-pilot-lp`; spec =
+  R5 §9c LP-P0, file `research/pilots/lp/P0.lean` ≤0.15k LoC, probe-convention header).
+- **App / class**: `crossmath-pilot-lp` (NEW) · C1 warm probe — image layers shared by
+  construction (recipe textually identical; do not reword fetch lines).
+- **Duration @SPEC**: 3–5 min. **Resources**: SPEC default.
+- **Ping duty**: the app's mathlib `cache get` step IS the service health check for the
+  window — record its rc in the log header; runs 8–9 read it.
+- **Telemetry path**: `research/pilots/lp/logs/p0-run1.log` (provenance header + `[tele]`).
+- **Abort**: probe FAIL on import set (the `to_additive` twin names / `Sum` glue) ⇒ lane
+  diagnoses before any re-run; 2 failed runs ⇒ stop, diagnose-note (fix-round discipline).
+
+### 2. 75-Pb run 1 — Pb.lean v1 (day-1 top-billed; A3-pattern lane)
+- **Command**: `research/pilots/75/run_pilot.sh Pb.lean` (runner EXISTS, warm; `Pb.lean`
+  authored at execution = Pa.lean carried verbatim + E1–E3, R5 §8d).
+- **App / class**: `crossmath-pilot-75` (Cycle-2 run6-final WARM) · C2 mathlib-only pilot.
+- **Duration @SPEC**: ≈3–5 min (single ≈1.8k-LoC file). **Resources**: SPEC default.
+- **Telemetry path**: `research/pilots/75/logs/pb-run1.log`.
+- **Abort**: R5 §8d hard stops — 0.45k LoC new content without GREEN ⇒ stop; F1/F2 > 3
+  runs each ⇒ §8e fallback or park. (Descent-guard below applies runs 2+.)
+
+### 3. AL-P0 — 3D statement-layer port probe (charter-gated: slot-2 typeset)
+- **Command**: `research/pilots/al3d/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC (clone 73
+  pattern; app `crossmath-pilot-al3d`; `pilots/al-3d-prework.md` §4; file `P0.lean` =
+  G4-template core + 3D encoding cluster + new defs, ≤0.45k LoC).
+- **App / class**: `crossmath-pilot-al3d` (NEW) · C1/C2 heavy-import (entropy core).
+- **Duration @SPEC**: ≈5–15 min. **Resources**: SPEC default (mmapped-olen `mem`
+  readings inherent on mathlib-heavy elaboration; `anon` is the signal).
+- **Telemetry path**: `research/pilots/al3d/logs/p0-run1.log`.
+- **Abort**: probe-convention FAILs on the 3D lattice spellings ⇒ fix and re-run (≤2);
+  any need for donor imports / Physlib ⇒ HARD STOP (al-3d §5 gates iv–v) — design error.
+
+### 4. LP-P1 — the layer theorem (day 2; after 1a pins spellings)
+- **Command**: `research/pilots/lp/run_pilot.sh L1.lean` (same AUTHOR-AT-EXEC runner).
+- **App / class**: `crossmath-pilot-lp` (warm after 1a) · C2.
+- **Duration @SPEC**: ≈3–5 min. **Resources**: SPEC default.
+- **Telemetry path**: `research/pilots/lp/logs/l1-run<N>.log`.
+- **Abort**: GO/NO-GO (R5 §9c) — proof reaching for convexity/separation/`Matrix`
+  machinery or >0.25k LoC ⇒ STOP (contradicts the bridge's S-grade); 3 runs without
+  GREEN ⇒ stop + diagnose-note. (LP-P2 `L2.lean` = run 11, same card shape, ≈5–10 min.)
+
+### 5. 72-M1 L3a — hermPart block first elaboration (carried list)
+- **Command**: `research/pilots/72-M1/run_pilot72m1.sh` (runner EXISTS; stages the dir's
+  `*.lean` sorted = dependency order; `P72M1T3.lean` authored at execution per
+  `pilots/72-M1/L3-spec.md`).
+- **App / class**: `crossmath-probe` (WARM — 72-M1/11-revival family) · C2.
+- **Duration @SPEC**: ≈3–5 min. **Resources**: SPEC default.
+- **Telemetry path**: `research/pilots/72-M1/logs/` (L3 run file, provenance header).
+- **Abort**: L3-spec §7 fix-round discipline — no re-run without a written error-class
+  hypothesis; 3 runs without descent ⇒ stop, diagnose-note (72-M1 precedent).
+
+### 6. 75-Pb descent — runs 2–5 (E4 Bonferroni; expected 2–4 further runs to GREEN)
+- **Command**: `research/pilots/75/run_pilot.sh Pb.lean` (per fix round).
+- **App / class / duration / resources**: identical to card 2 (3–5 min each).
+- **Telemetry path**: `research/pilots/75/logs/pb-run<N>.log`.
+- **Abort**: 6 consecutive runs without clear error-class descent ⇒ stop (R5 §8d);
+  F2 (offDiag) resisting past sub-guard ⇒ §8e iterated-2-factor fallback, honestly
+  labeled; acceptance = GREEN + full-coverage inline axcheck triad-only (R5 §8f).
+
+### 7. AL-P1 — fibre-geometry core (after AL-P0 GREEN)
+- **Command**: `research/pilots/al3d/run_pilot.sh A1.lean` (AUTHOR-AT-EXEC same runner).
+- **App / class**: `crossmath-pilot-al3d` (warm after 3) · C2.
+- **Duration @SPEC**: ≈5–10 min. **Resources**: SPEC default.
+- **Telemetry path**: `research/pilots/al3d/logs/a1-run<N>.log`.
+- **Abort**: GO/NO-GO (al-3d §5) — P1-b boundary lift needing fibre-generic donor-lemma
+  restatement (B.2-full territory) ⇒ STOP, diagnose, report; ≤0.4k LoC guard.
+
+### 8. ZZV2-λ P0 — donor-tree probe [PING-GATED: needs 1a healthy] (LAST; parallelizable with 9)
+- **Command**: `research/pilots/zzv2-lam/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC
+  (`zzv2-lambda-prework.md` :105–114: copy `pilots/42/run_m4b2.py` verbatim → app
+  `crossmath-pilot-zzv2-lam`, tarball = ZetaZerosV2 + redirected PNT+ (axbump patch),
+  keep the elan mirror line; probe elaborated INSIDE the built tree; ≤2 runs).
+- **App / class**: `crossmath-pilot-zzv2-lam` (NEW, donor-tree) · C3 [LAYERS-class
+  profile, single function] — the 8.2k-job V2+PNT+ build happens IN-RUN (not
+  image-cached), the window's longest item.
+- **Duration @SPEC**: ≈1–2 h (3-h function timeout; if it outgrows, the g7_layers
+  chunk recipe is a launch-day option, NOT a default — and chunk memory >4 GB would need
+  its own approval). **Resources**: SPEC default; **pre-flag**: `mem` OVER ≈5–6 GB is
+  the inherent mmapped-olen reading — record, do not escalate; `anon` growth ⇒
+  investigate (guideline 3) before any re-run.
+- **Telemetry path**: `research/pilots/zzv2-lam/logs/p0-run<N>.log`.
+- **Abort**: cache-fetch failure after the §14 retry protocol (≤4 attempts) ⇒ seed
+  fallback (`_seed_mathlib`) or defer (infra, not donor verdict); probe errors on the
+  pinned statement facts ⇒ ≤2 runs then stop (P0 is statement-only).
+
+### 9. hEχ — zeta23 Theorem-E donor-pin build + audit [PING-GATED: needs 1a healthy] (day-2/3, beside 8)
+- **Command**: `research/pilots/<zeta23E>/run_pilot.sh <consumer.lean>` — AUTHOR-AT-EXEC
+  (R5 §14 run 8: clone `pilots/50/run_r1.py`+`run_r1.sh` (the donor-pin pattern) → app
+  `crossmath-pilot-zeta23E`; build zeta23's small v4.33 tree at ITS pin, transitive
+  `#print axioms` of the Theorem-E chain, elaborate the consumer file in-tree; the
+  statement ports back as discharged 2/3 binders — R2 mini-spec
+  `r2-discovery-strength.md` :535–553).
+- **App / class**: `crossmath-pilot-zeta23E` (NEW) · C3 hour-class · **v4.33 pin — own
+  image lineage, shares NOTHING with the v4.36 family** (cold start is structural).
+- **Duration @SPEC**: hour-class low end expected (small tree; measured at run 1; 3-h
+  timeout). **Resources**: SPEC default; same inherent-`mem` pre-flag as card 8.
+- **Telemetry path**: `research/pilots/<zeta23E>/logs/he-run1.log`.
+- **Abort**: donor build errors beyond the 50-M2-pattern fix loop (≤3 rounds) ⇒ stop,
+  record error taxonomy (Knausgård-tree alternative is R2's named fallback); Theorem-E
+  chain axioms ≠ triad ⇒ donor-hygiene FAIL — do NOT consume; report for the claims
+  register. **Donor-hygiene gate applies here** (new built donor ⇒ on-pin `#print
+  axioms` is the proof, comparator configs are claims).
+
+### 10. G9 — StrongPNT binder probe (CONDITIONAL: 22-T2a chartered)
+- **Command**: `research/feasibility/probe/run_gprobe.sh probe` (runner EXISTS, warm) —
+  elaborates ALL mathlib-only `ProbeG*.lean` in one batch (G1a/G3/G4/G5b/G5c/G7
+  regression + **G9**; G2/G5a/G10/G11/G12 are skip-set-excluded by design). There is no
+  single-file mode; the batch IS the mode (run13 precedent).
+- **App / class**: `crossmath-gprobe` (WARM) · C1.
+- **Duration @SPEC**: 3–4 min. **Resources**: SPEC default.
+- **Telemetry path**: `research/feasibility/probe/logs-g/run<N>-probe.log` (tee'd copy
+  canonical — log-rescue lesson).
+- **Abort**: none needed (statement probe); FAIL ⇒ the 22-T2a binder spelling needs the
+  mapping table updated before the slot runs — record, no re-run burn.
+
+**Packet note (R5 §14 folds):** LP-P2 (run 11, `L2.lean`, ≈5–10 min, same LP card shape)
+is omitted above only because it sits outside the requested ten; the two cold-class runs
+(8–9) are tail-ordered, lane- and pin-disjoint, and stay single SPEC functions with 3-h
+timeouts unless the orchestrator elects layer-chunking at launch.
+
+---
+
+## §9 RUN-LOG REVIEW CHECKLIST (added 2026-11-16, queue 5 — the between-runs card)
+
+The orchestrator/supervisor reads this over EVERY §8 run's persisted log before the next
+run is approved. It operationalizes AGENTS.md guideline 3 (overrun ⇒ investigation, not
+upgrade) as a pass/fail checklist; any ✗ blocks the next approval until resolved or
+waived on-record. Log = the tee'd copy in the pilot's `logs/` dir (canonical; /tmp
+transcripts are ephemeral — log-rescue lesson).
+
+**A. Custody (before anything else)**
+1. ☐ Log persisted at the §8 card's telemetry path, and ONLY there is it read.
+2. ☐ Provenance header intact: date, file + LoC, exact command line, verdict, Modal run
+   URL (the `pilots/75/logs` header convention; missing header ⇒ re-derive before use).
+3. ☐ Verdict line present and matches the artifact state (`OK`/`FAIL rc=… errors=N
+   sorry=M`/`TIMEOUT`/`CACHE-MISS`; probe files: `OK (probe, sorry allowed)`).
+
+**B. Telemetry (the guideline-1/2 evidence)**
+4. ☐ `[tele] start …` line present (spec stated: cpu=2.0 mem=4096) and `[tele] SUMMARY`
+   line present (wall, max_cpu, max_mem, max_anon, samples, OVER count). Cadence: at
+   least one interval sample per ~10 min of wall — a run >10 min with `samples=1` is a
+   telemetry outage ⇒ re-run telemetry before trusting the resource story.
+5. ☐ CPU vs SPEC: `max_cpu ≤ ~2` sustained. CPU OVER ⇒ check LEAN_NUM_THREADS actually
+   applied (the secret is in the app config, but verify no ad-hoc `lake build -j` crept
+   into a command line) — that is a code defect, not a resource need (guideline 3).
+6. ☐ Memory vs SPEC **with the inherent-mem rule** (§8 standing rules): `max_mem` OVER
+   4096 MB with `max_anon` flat/small on mathlib-heavy elaboration or donor builds =
+   the expected mmapped-olen class (G7b measured ≈5–6.5 GB; card 8–9 pre-flag) —
+   record, proceed, NO escalation. `anon` growth past ~2 GB ⇒ STOP: investigate (build
+   closure size, rebuild churn, mis-scoped import) before any re-run; more resources
+   only via a fresh per-run user approval (never carry-over).
+
+**C. Build/elaboration discipline**
+7. ☐ Error-class descent (fix rounds): this round's errors classified by CLASS
+   (type-mismatch / instance-synth / unsolved-goals / name-drift …), and the count of
+   DISTINCT classes is ≤ the previous round's — raw error counts may rise while classes
+   fall (valid descent). No written error-class hypothesis for the round ⇒ the re-run
+   was undisciplined: stop, write it, then decide.
+8. ☐ Guard numbers: LoC and run-count vs the spec's guard (§8 card abort line; e.g.
+   75-Pb 0.45k LoC / 6-run descent cap; LP 0.25k / 3 runs; AL-P1 0.4k; ZZV2-P0 ≤2
+   runs). Breach without GREEN ⇒ the card's abort fires — no discretionary extra run.
+9. ☐ Axiom lines: `depends on axioms:` records present where the artifact claims them;
+   every consumed/new decl's set ⊆ {propext, Classical.choice, Quot.sound}; any
+   `sorryAx` in a kept artifact ⇒ FAIL regardless of rc (donor-hygiene gate; for new
+   donors see D2).
+10. ☐ Donor runs only: the resolved donor/mathlib rev(s) quoted in the log (update-step
+    `checking out revision` lines) and match the card's substrate claim; a silently
+    different rev ⇒ re-read the card before consuming anything from the run.
+
+**D. Substrate/infra events**
+11. ☐ No `mathlib: failed to fetch cache` beyond the §14 retry protocol (≤4 attempts →
+    seed fallback recorded, or deferred). Post-outage log tails are suspect until
+    re-verified (RESUME-BRIEF-C2 §Protocol).
+12. ☐ Cache-ping verdict (LP-P0 first run ONLY — the supervisor's call): the run's
+    cache steps (image `lake exe cache get` + any `lake update`) healthy ⇒ **PING
+    GREEN** — cards 8–9 (ZZV2-P0, hEχ) are released; unhealthy ⇒ cards 8–9 hold, the
+    window continues on warm-image runs only. Record the verdict in the LP-P0 log
+    header + the orchestrator relay.
+
+**E. Decision (the between-runs output)**
+13. ☐ One line per reviewed run into the orchestrator relay: `run <card> — verdict
+    <OK/FAIL/…>, telemetry <nominal/OVER-inherent/OVER-anomalous>, descent <n classes,
+    ↓/↑>, guard <ok/breach>, next <approve card N / hold / abort per card>`.
