@@ -10,11 +10,16 @@
 #   research/feasibility/probe/run_gprobe.sh g1b [secs]     # bounded DZDF build attempt
 #   research/feasibility/probe/run_gprobe.sh g5a            # build AreaLaw2D stmt layer (+Physlib), then ProbeG5a
 #   research/feasibility/probe/run_gprobe.sh g10            # G5a refresh probe (STAGED — orchestrator approval only)
+#   research/feasibility/probe/run_gprobe.sh g11            # OAI SiegelZeros+PiExponent donor-pin audit (STAGED — approval only)
 #
 # Env: MODAL_BIN (default /home/doz/dozenv/bin/modal).
 # G9 (ProbeG9_StrongPNT.lean, mathlib-only) rides the `probe` auto-glob; G10
 # (ProbeG10_PhyslibRefresh.lean, in-tree) is EXCLUDED from it (gprobe.py skip set) and
 # runs only via this g10 mode. Both staged 2026-11-16 (lane R8) — approval-gated.
+# G11/G12 (ProbeG11_OAI_SiegelZeros.lean / ProbeG12_OAI_PiExponent.lean, lane R6,
+# 2026-11-16) are likewise excluded from the auto-glob and run only via this g11 mode:
+# donor-pin (v4.34.1) tarball build of the two OAI closures on volume
+# `crossmath-g11-tree` (the g7 resume tree is untouched) — approval-gated.
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -59,11 +64,17 @@ case "$MODE" in
   g7)
     "$MODAL_BIN" run --detach "$STAGE/gprobe.py" --dir "$STAGE" --mode g7
     ;;
+  g11)
+    # G11/G12 (staged 2026-11-16, lane R6 — orchestrator approval required): donor-pin
+    # registration audit of OAI SiegelZeros + PiExponent at the donor's own pin
+    # (v4.34.1). Own volume `crossmath-g11-tree` (the g7 resume tree stays untouched).
+    "$MODAL_BIN" run --detach "$STAGE/gprobe.py" --dir "$STAGE" --mode g11
+    ;;
   g7elab)
     # re-elaborate files inside the persisted built donor tree: ./run_gprobe.sh g7elab a.lean,b.lean
     "$MODAL_BIN" run --detach "$STAGE/gprobe.py" --dir "$STAGE" --mode g7elab --members "$2"
     ;;
   *)
-    echo "usage: $0 probe|g2|g5a|g10|g1b|g6a|g7|g7elab [build-seconds|files]" >&2; exit 2
+    echo "usage: $0 probe|g2|g5a|g10|g11|g1b|g6a|g7|g7elab [build-seconds|files]" >&2; exit 2
     ;;
 esac

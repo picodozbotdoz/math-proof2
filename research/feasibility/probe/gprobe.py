@@ -776,6 +776,53 @@ def main(dir: str = "./probes", mode: str = "probe", root: str = "",
             if f:
                 probes[pathlib.Path(f).name] = pathlib.Path(f).read_text()
         print(g7elab.remote(probes))
+    elif mode == "g11":
+        # G11 (STAGED 2026-11-16, lane R6 — run only on orchestrator approval): donor-pin
+        # registration audit of the two UNREGISTERED proved OAI closures found by the R6
+        # re-scan (research/novelty/iter4-fresh-bridges.md §0.1): SiegelZeros (uniform
+        # Landau–Siegel exclusion) + PiExponent (μ(π) = 2, Flint–Hills). Closure walk =
+        # g7's import-BFS from BOTH seed targets; tarball adds lakefile/manifest/toolchain/
+        # patches like g7. Elaborates ProbeG11 + ProbeG12 (both #check/#print-axioms only).
+        # Long build → run under `modal run --detach` (run_gprobe.sh g11 does this).
+        import io, tarfile
+        root = pathlib.Path("/home/doz/zcode-workdir/openai-math/lean")
+
+        def to_path(mod):
+            if not mod.startswith("OAI."):
+                return None
+            rel = "OAI/" + mod[4:].replace(".", "/") + ".lean"
+            return rel if (root / rel).exists() else None
+
+        seen, frontier = set(), []
+        for target in ["OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean",
+                       "OAI/NumberTheory/PiExponent/Main.lean"]:
+            if target in seen:
+                continue
+            seen.add(target)
+            frontier.append(target)
+        while frontier:
+            rel = frontier.pop()
+            for line in (root / rel).read_text(errors="replace").splitlines():
+                s = line.strip()
+                if s.startswith("import "):
+                    nxt = to_path(s[len("import "):].strip())
+                    if nxt and nxt not in seen:
+                        seen.add(nxt)
+                        frontier.append(nxt)
+        buf = io.BytesIO()
+        with tarfile.open(fileobj=buf, mode="w:gz") as tf:
+            for extra in ["lakefile.lean", "lake-manifest.json", "lean-toolchain"]:
+                tf.add(str(root / extra), arcname=extra)
+            tf.add(str(root / "patches"), arcname="patches")
+            for s in sorted(seen):
+                tf.add(str(root / s), arcname=s)
+        print(f"[gprobe] OAI SiegelZeros+PiExponent closure: {len(seen)} files, "
+              f"tarball {buf.tell() // 1024 // 1024} MB")
+        probes = {"ProbeG11_OAI_SiegelZeros.lean":
+                  (stage / "ProbeG11_OAI_SiegelZeros.lean").read_text(),
+                  "ProbeG12_OAI_PiExponent.lean":
+                  (stage / "ProbeG12_OAI_PiExponent.lean").read_text()}
+        print(g11.remote(buf.getvalue(), probes))
     elif mode == "g6a":
         buf = io.BytesIO()
         with tarfile.open(fileobj=buf, mode="w:gz") as tf:

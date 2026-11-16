@@ -339,19 +339,31 @@ sectors, and `FockInequality Q γ ↔ FockInequality-sectorwise` — proved once
 tauceti's graded CAR; (c) first corollary: the parity-0 vs parity-1 ground-state energy split
 as an explicit finite computation at small Q (the OAI certificates `Certificate01–10` [V]
 become sector-local).
-**Why-new.** The sector decomposition exists in neither corpus as a theorem (OAI's tree
-carries it only implicitly in its certificates; tauceti's CAR stack has grading but no
-Hamiltonian application). The substrate bridge itself (same occupation/sign calculus, two
-corpora, zero citations across) is the Phase-1 "shared object under different names" finding.
+**[CORRECTED AT HARDENING, 2026-11-16 — the paragraph above is the ORIGINAL scan claim and
+is PARTLY FALSE: the OAI proved tree already owns the CAR relations (`annihilator_square`/
+`annihilator_anticommute`/`annihilator_creator_anticommute`/`annihilator_adjoint_anticommute`,
+`Analysis/LaughlinFock/FermionOperators.lean:95,102,156,190`) and the sector decomposition in
+the STRONGER exact-card form (`sectorHamiltonian` family, `Model.lean:51,138,150,167,197` —
+(b) as stated is donor-owned, not new). What survives as fresh is the tauceti-side algebraic
+substrate bridge: the CAR dictionary, the graded-algebra↔block-structure equivalence, and
+transported occupation-spectral identities. Full corrected Phase-3 dossier:
+`candidates/77-car-occupation-dictionary-laughlin.md` (honesty header carries this
+correction; grade adjusted B → B−).]**
+**Why-new (as corrected).** No graded-algebra lemma, no Clifford/CAR identification, no
+occupation-spectral/trace identity exists in either corpus (rg evidence in dossier 77);
+tauceti's CAR stack has no consumer anywhere (survey §2(d)); the OAI tree has the model but
+no representation theory. The substrate bridge itself (same occupation/sign calculus, two
+corpora, zero citations across) remains the Phase-1 "shared object under different names"
+finding.
 **Bridge-essentiality.** tauceti supplies the graded CAR algebra + sign discipline on our pin
 (direct dep); OAI supplies the statement + proved inequality + certificate structure
-(statement-port≈0). Neither alone yields (b).
-**Feasibility.** (b) is S-class linear algebra (block-diagonalization by a grading —
-`SetLike.GradedMonoid` machinery in mathlib); (a) is M statement-port + binder; (c) is
-numeric-decision S/M. Substrate: crossmath-probe; tauceti import is legal (same pin).
-**Fast kill/confirm.** Confirm: read `OAI/Analysis/LaughlinFock/SquareSplitting.lean` +
-`Assembly.lean` to check whether a parity/block decomposition is already proved there (one
-read; if yes, (b) collapses to a port and the seed drops to C+). Kill: none structural.
+(statement-port≈0). Neither alone yields the dictionary or the identity layer.
+**Feasibility.** Dictionary T1 S–M; grading lemma T2 S; identity layer T3 M. Substrate:
+crossmath-probe; tauceti import is legal (same pin).
+**Fast kill/confirm.** (executed at hardening): the sector-decomposition pre-check
+("read SquareSplitting/Assembly") returned DONOR-OWNS — folded into dossier 77's honesty
+header. Remaining batteries: the donor's `Assembly/AveragedOperators` trace-identity
+pre-check + the physlib (seed-13) differentiation + the companion-preprint theorem list.
 
 ## §4 Not dossiered (one line each, for the next scan)
 
@@ -387,5 +399,23 @@ read; if yes, (b) collapses to a port and the seed drops to C+). Kill: none stru
   (Laughlin/Fock/Heisenberg) rather than the (already-seeded) 3D ladder.
 
 Files written: this file only. Siblings untouched; no builds; no Modal usage.
+
+## §6 Follow-ups landed in the hardening batch (same lane, 2026-11-16, later session)
+
+- **Probes G11/G12 staged** (no runs): `feasibility/probe/ProbeG11_OAI_SiegelZeros.lean`
+  (donor-pin signature + axiom audit of `exists_absolute_real_zero_gap` + both delegation
+  roots), `feasibility/probe/ProbeG12_OAI_PiExponent.lean` (headline quartet + the
+  `GlobalInterpolationStatement` binder surface + `analyticAggregate`). Runner mode
+  **g11** added to `feasibility/probe/gprobe.py` (own volume `crossmath-g11-tree`, g7's
+  donor-pin tarball pattern, import-BFS closure from both seed targets) + case in
+  `run_gprobe.sh`; both syntax-checked locally. G9/G10 numbering confirmed R8's.
+- **Donor registration record**: `novelty/oai-siegelzeros-piexponent-as-donor.md`
+  (axiommath-as-donor format; DO-NOT-CONSUME-until-probe gating; both preprint citations
+  with the weaker-than-7/8 note; binder forms for consumers).
+- **Dossier hardening**: FB-1 → `candidates/76-zero-temperature-schrodinger-duality.md`
+  (R7-delegated Carlier/tropical-Sinkhorn novelty sweep flagged inline); FB-5 →
+  `candidates/77-car-occupation-dictionary-laughlin.md` — **re-scoped after the donor
+  read** (OAI tree owns CAR relations + exact-card sectors + `thm_fock` proved;
+  corrections recorded in §3 FB-5 above and the dossier's honesty header; grade B → B−).
 
 — lane R6, 2026-11-16
