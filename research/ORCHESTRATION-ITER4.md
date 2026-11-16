@@ -6,7 +6,7 @@ first, then pilot phase. Maintained by H on orchestrator signal.
 | Lane | Role | Current task | Status | Last update |
 |---|---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | Executing signal backlog (runner staged; next: R4 deliverable + fix batches A/B, R2 edit set, R5/R8/R1 landings, R9/R2 updates) | active | 2026-11-16 |
-| R1 | articles editorial audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
+| R1 | articles editorial audit | v1 LANDED (audit + TEMPLATE-iter4 gate, batch 13); proposals ×3 landed batch 14; 50v2 + swap-in runbook owed | delivered v1 | 2026-11-16 |
 | R2 | discovery-strength audit | v1 LANDED (r2-discovery-strength.md, batch 6): S1–S4 bar; ≈4–5/18 genuine; 11 demotions — resolves R9 [MERGE: R2] on adoption | delivered v1 | 2026-11-16 |
 | R3 | verification integrity audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R4 | process/completeness audit | v1+fixes-package LANDED (r4-process-completeness.md, batch 7): batches A+B pre-approved for H; batch C rides splice | delivered v1 | 2026-11-16 |

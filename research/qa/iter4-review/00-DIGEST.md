@@ -11,6 +11,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 3 | R4 | `r4-process-completeness.md` | No substantive charter obligation missing (1 delivered-differently, recorded); 1 MISSING/13 INCOMPLETE/4 WRONG records-level; fixes package A+B pre-approved, C rides splice |
 | 4 | R8 | `feasibility/iter4-donor-unblock-plan.md` (+ runner drain) | DZDF-shim DEAD (≤4/62 aliasable), Physlib direct DROP / G10 refresh live on the shelf, PNT+ DEFER w/ G9 preflight, Weil statement-tier landed; runner kit audited 10/10 compliant, 2 stale wrappers patched, iter4 template PASS |
 | 5 | R5 | `r5-iteration4-backlog.md` | Merged inventory + ranked 15-item queue + 3 argued decisions + 10-item DROP list; integration pass folds R2/R8 (launch order: 75-Pb top-billed day-1, LP = named engineering deliverable); 6 execution specs, first-48h run queue, dependency ledger |
+| 6 | R1 | `r1-articles-editorial.md` + `articles/TEMPLATE-iter4.md` | Corpus fails as a collection (6-axis rubric 8–11/12, prose/register 1/2 universal); Cycle-2 ≈ 0–2/9 discovery-grade; 5 BLOCKERs (README self-contradiction, 11 §7, 42M4 freeze claim, 73 status opacity + 1); top-3 rewrites 42v2/73/11; TEMPLATE = the adopted gate |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -158,3 +159,33 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   REPORT-INPUTS-ITER4 rows — **held for the LAUNCH commit** (per orchestrator), NOT in
   this review commit; four runner app clones (lp/al3d/zzv2-lam/zeta23E) being staged
   by R5, commit on report.
+
+## R1 — r1-articles-editorial.md + articles/TEMPLATE-iter4.md (landed 2026-11-16, batch 13)
+
+- **Verdict:** 17 articles + README audited on a 6-axis rubric (headline precision /
+  status honesty / novelty-vs-evidence / citations / self-containment / register).
+  Articles are "individually near-competent and citation-excellent, and collectively
+  unacceptable as a research-article corpus": scores compress 8–11/12, NO article
+  better than 1/2 on prose/register; (d) citations verified exact by 28 spot checks
+  (corpus strength — 2 minor LoC drifts + 1 false git claim the only misses).
+  Cross-cycle: main run ≈ 7–8/10 discovery-grade; Cycle 2 ≈ 0–2/9 — authoring
+  degraded from theorem-units to milestone-units (02:21 drafts force-rewritten as
+  "finished articles" by 09:19).
+- **Top findings:** 5 BLOCKERs — README says dossier 10 "has no article yet" in the
+  same file listing article 10; article 11 §7 "not attempted here" vs its own addendum
+  proving M2; 42M4's "kept frozen, not edited" claim false in git (c540682 before
+  4e19303); 73's unparseable "PROVED at Tier C" status; 42-M4 lowest score 8/12.
+  Kind verdicts: donor swaps / tranches / addenda are NOT article kinds; 71 keeps
+  article status (formalization forced a statement correction); 73 does not (until
+  Q4). Five ranked causes of the bad feedback (close-out paperwork as discoveries;
+  house-dialect status lines; statement-level "first"s; seam-integrity failures;
+  infrastructure narration).
+- **TEMPLATE-iter4.md:** the adopted article gate — closed status vocabulary
+  (PROVED-UNCONDITIONAL / PROVED-CONDITIONAL / CERTIFIED-NUMERIC / PAPER-ONLY), kind
+  declaration, per-theorem status row, ≥2-row nearest-miss table, formal-record table
+  only (infrastructure narration banned), fixed section skeleton, 12-box shipping
+  checklist, rubric floor (≥1 all axes, 2 on a/b/d).
+- **Open asks / flow:** three rewrite proposals landed separately (42v2 merged
+  article, README v2, 11/73 dispositions); 50v2 + swap-in runbook next; NO proposal
+  applied — articles/ swap-in executes only on orchestrator GO after the
+  restructuring review.
