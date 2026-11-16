@@ -366,3 +366,67 @@ as done per RESUME-BRIEF-C2 §A9; pilot dir/logs to be created at execution).
   statement (2/3 with multiplicity, every abelian extension, component binders as the
   named open core) is kernel-verified; P-b + the ℚ-route carry to Iteration 4 (article
   75 promoted SKELETON → DRAFT).**
+
+---
+
+## Outcome record — P-b + C1 (5/6 strip-distinct arm), GREEN 2026-11-16 (Iteration 4, lane A3 execution / A4 design; recorded by R1 A9-records duty per R2's handoff)
+
+Evidence of record: `pilots/75/logs/pb-run11-final.log` — **GREEN, rc=0, 0 errors, 0
+sorry**, wall 51 s (2 cpu/4 GB, mathlib `ff2494ea` @ v4.36.0-rc2); descent
+55→21→27→21→12→11→8→3→1→1→0 over 11 runs, runs 5–11 under the continuation policy,
+each fix round with written error-class hypotheses. Every declaration (heritage P-a +
+the new E1–E6/Pb layer) prints exactly `[propext, Classical.choice, Quot.sound]`;
+0 `sorryAx`. **Zero donor imports** — `Pb.lean:51` imports only `Mathlib`; `hAbFac`
+is the statement-quoted mirror of DZDF `abelianFactorization`
+(`AbelianRayCharacterFactorization.lean:62`), never imported (G1 dead).
+
+| theorem (all PROVED-CONDITIONAL, binders verbatim from `Pb.lean:2144–2296`) | content | print |
+|---|---|---|
+| Pb-1 `zetaL_assembly_distinct_defect_landed` (:2144) | n+1-factor strip-distinct assembly at c\*: (c\*−ε)·N_L(T) ≤ D_L(T) + [K-vs-family common-strip defect + Σ_{ordered pairs} pairwise common-strip defects] | pb-run11 (triad) |
+| Pb-2 `zetaL_assembly_distinct_landed_of_negligible` (:2191) | the hCZStripFam-seamed form: summed common-strip-defect negligibility ⇒ full `EpsLowerDistinctStripCum ζ_L c*` | pb-run11 (triad, wrapped) |
+| Pb-3 `zetaL_distinct_five_sixths_strip_conditional` (:2229) | the 5/6 instantiation, defect form: ζ_K slot via the carried `K839OfLocalStrip` certificate slot (Knausgård 839 ≥ 5/6), family components at 5/6 binders — M4a's two distinct landings one degree up the tower | pb-run11 (triad, wrapped) |
+| Pb-3′ `zetaL_distinct_five_sixths_strip_conditional_of_negligible` (:2255) | the full strip-distinct 5/6 statement for ζ_L under hCZStripFam | pb-run11 (triad, wrapped) |
+| C1 support layer | `commonStripCum_eq/_mono/_add_le/_addFinOver_le`, `ZeroMult.addFinOver`, `addFinOver_cons`, `bonferroni_addFinOver`, `supp_addFin_inter/_addFinOver_inter`, `distinctCountCum_of_abelFac`, `assemble_eps_defect_strip_cum_fin` (E1–E6) | pb-run11 (triad) |
+
+**Binder inventory (the honest open core, unchanged in kind from P-a):** structural —
+hK/hF (analyticity), hntopK/hntopF (non-degeneracy), hAbFac (factorization mirror),
+hfinK/hfinL/hfinF (window finiteness), hcK/hcF (constants); **open core** — hAKd/hAFd
+(component strip-distinct proportions; hAFd at 5/6 in Pb-3), plus Pb-3's certificate
+slot hCert + hK839 (Knausgård, as in article 42-v1's convention); **by-design binder**
+— hCZStripFam (Pb-2/Pb-3′ only; 20-hCZ-NOTE's not-provable-today verdict). Binder-shape
+note (Pb.lean header, design remark): hCZStripFam is stated in the SUMMED form;
+discharge-equivalent to the per-pair form of 75-prework §(b)-6 (per-pair ⇒ summed via
+`Finset.sum_const` + card arithmetic at ε′ := δ/(card univ² + 1) — a bookkeeping
+bridge, deliberately not a lemma).
+
+**Math finding — M1 design-erratum (dated correction, 2026-11-16; the design text
+stands unedited above per append-only).** `Pb-design.md` E4 (:94–95) claimed the
+cons-step "closes trivially" via monotonicity (`OffDiag(t) + ∑ C ≥ 0`, design :52).
+That is **wrong**: monotonicity alone does not close the cons-step. The corrected E4
+invariant is **superadditivity-up-to-overlap**, realized as the abstract two-level
+**Finset Bonferroni** (`Finset.bonferroni_union_le` in mathlib) plus a both-column
+offDiag growth lemma (`offDiag_cons_ge`, `Pb.lean:1797`); the E2–E3 union-intersection
+layer feeds it. This re-architecture is the mathematical content of the n-ary defect
+lift beyond M4a's 2-factor inclusion–exclusion — small, but real: the defect engine's
+n-ary transport needs Bonferroni, not monotonicity+subadditivity.
+
+**Notation correction (run-1 H1):** the design's `(s ×ˢ s).offDiag` is not the API
+form — corrected to `s.offDiag` with `[DecidableEq ι]` added (`Pb.lean:1576–1590`).
+Ordered-pair convention: each unordered pair counted twice, no linear order on ι,
+factor 2 harmless at the negligibility stage (absorbed via `Finset.inter_comm`; the
+design's THE CALL stands).
+
+**LoC note:** ~0.73k new (Pb.lean 2,296 lines on disk = 1,557 Pa.lean carry + 739 new;
+the run-11 header says 2,289 — post-run audit-tail drift, the known R3-F5 convention)
+vs the ~0.45k design guard (Pb-design's per-step LoC sum) — the overrun is the E4
+re-architecture above, not scope creep: statements are spec-final throughout
+(`qa/iter4-review/r5-iteration4-backlog.md` §8 EXECUTION SPEC A), and the
+spec-sanctioned iterated-2-factor fallback (design §4/§8e) was **never invoked** —
+GREEN landed on the primary offDiag route.
+
+**Strength-bar framing (unchanged):** this is the discovery-billed milestone's record —
+75 stays **statement-class, conditional tier** (R2 S1/S4(b)): the n+1-factor
+strip-distinct statement class for ζ_L is the contribution; every analytic input is a
+named open binder. Article 75 §7.4 listed this arm as "carried to Iteration 4" — that
+item has now landed; folding the 5/6 arm into the article's status table is H's splice
+decision (one status row per landing, closed vocabulary, evidence = pb-run11).
