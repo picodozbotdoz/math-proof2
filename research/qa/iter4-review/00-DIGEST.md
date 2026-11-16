@@ -183,10 +183,11 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   no competing formalization exists anywhere for 71's s-plane dictionary or 11's
   call-charged calculus; the 3SUM refutation is externally corroborated (Fischer
   2610.32162) with no other formal verification.
-- **Flow:** R7's r7-bib-cards.md follows (commit on report). R8's §9 (same commit):
-  the 13-box run-log review checklist (verdict/telemetry/descent-class/guards/axiom
-  lines/donor-rev/cache-ping rules) — LP runner validated PASS; al3d/zzv2-lam/zeta23E
-  clones pending landing. This landing unblocks R9's final splice block → L1 → GO.
+- **Flow:** R7's r7-bib-cards.md follows (commit on report). R8's §9 (in-tree via
+  commit 4f561bb, noted here at the R7 landing): the 13-box run-log review checklist
+  (verdict/telemetry/descent-class/guards/axiom lines/donor-rev/cache-ping rules) —
+  LP runner validated PASS; al3d/zzv2-lam/zeta23E clones pending landing. This
+  landing unblocks R9's final splice block → L1 → GO.
 
 ## R1 — r1-articles-editorial.md + articles/TEMPLATE-iter4.md (landed 2026-11-16, batch 13)
 
