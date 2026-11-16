@@ -73,7 +73,9 @@ quadratic K, T→∞ asymptotic). Later that morning, commit `4e19304` (09:19) f
 42-M4, whose byline claimed v1 "is kept frozen … and is cited, not edited" — already
 false when written. This v2 merges both articles, removes the errata brackets by
 stating the comparison correctly once (§4), and records that the Knausgård constants
-remain the stronger *conditional* ζ-side route (0.67354 / 0.83900), superseded only as
+remain the stronger *conditional* ζ-side route (0.67353… / 0.83900, per the arXiv
+abstracts — the in-repo 2026-11-09 record's "0.67354" was a rounding slip; R7 card C.4),
+superseded only as
 a consumption route.
 
 ## 1. Introduction
@@ -149,7 +151,7 @@ analogue from `distinct_proportion_d5` (5/6 ≤ 0.83625). No certificate binder 
 `native_decide` appears anywhere in the dependency tree of Theorems 1–3.
 
 **Remark (v1's certificate route).** v1 obtained the same shape with the ζ column from
-Knausgård's certified 0.67354 / 0.83900 constants behind an opaque `LocalInequality`
+Knausgård's certified 0.67353… / 0.83900 constants behind an opaque `LocalInequality`
 certificate checked by external C++/Python tooling. Those constants are *stronger* but
 the route is tool-conditional; the donor import is weaker per constant but unconditional.
 The binder-only fallback (donor endpoints as hypotheses hV2d4/hV2d5) is preserved and
@@ -162,7 +164,7 @@ off-pin.
 |---|---|---|
 | de Laat–Rolen–Tripp–Wagner, arXiv:1908.04876, Thm 1.1 / Cor 1.3 | for a *fixed quadratic* K, *under GRH*, as T → ∞: > 45% of zeros are *distinct* (SDP method) | ours: on-line proportions with multiplicity (Thm 1) and 5/6-class distinct up to an explicit defect (Thm 2); hypothesis shape is certificate-conditional (χ column), not GRH; not comparable as unconditional-vs-unconditional |
 | Lamzouri arXiv:2609.02882 / AxiomMath ZetaZerosV2 `Main.lean:130,149` | ζ-only proportions: > 0.6725 simple on-line, > 0.83625 distinct (kernel-verified) | the ζ column of our assembly, imported; no ζ_K or product statement there |
-| Knausgård arXiv:2609.33043, arXiv:2610.08965 | ζ constants 0.67354 / 0.83900, formal, behind an externally checked certificate layer | stronger constants, tool-conditional route; superseded here as consumption route, retained as v1 record |
+| Knausgård arXiv:2609.33043, arXiv:2610.08965 | ζ constants 0.67353… / 0.83900 (distinct = 1645064/1960733), formal, behind an externally checked certificate layer (author-disclosed: three axioms beyond Mathlib, one per inequality, native_decide-class — R7 card C.4) | stronger constants, tool-conditional route; superseded here as consumption route, retained as v1 record |
 | Bansal–Maji arXiv:2507.18121 (found in R2's 2026-11-16 arXiv sweep, `r2-discovery-strength.md` §5 q2) | Hardy-type *infinitude* of on-line zeros for zeta functions of any number field | infinitude, not positive proportion; no multiplicity/distinct statements |
 | article 75 (this project) | the n+1-factor generalization of Thms 1–2 to abelian towers | Thms 1–3 here are its n = 2 instances with the ζ column discharged |
 
@@ -227,7 +229,9 @@ theorems triad-clean) and the M4b donor-tree sweep run are recorded in
 3. Window finiteness and the ⊤-order exclusions are carried in H; classically true,
    not formalized here.
 4. The unconditional constants' margins over 2/3 and 5/6 (≈ 0.0058, ≈ 0.0029) come from
-   the donor; improvements are the donor's to make.
+   the donor; improvements are the donor's to make. Lamzouri's paper also proves a
+   **simple-or-on-line ≥ 0.8876** endpoint that ZetaZerosV2 does not export (R7 card
+   C.3) — a future donor-endpoint shape for this assembly, not consumable today.
 5. Beyond quadratic K: the Artin/abelian factorization and per-factor Theorem E — that
    is article 75's schema; its ℚ-instantiation of this very discharge (N2) is the
    carried next step.

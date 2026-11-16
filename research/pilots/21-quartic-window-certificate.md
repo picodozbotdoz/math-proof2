@@ -1,7 +1,9 @@
 # The ξ′-Tuned Quartic Window Does Not Improve the ζ Zero-Proportion Constant: A Certified Comparison
 
-*cross-math-fronttier research article 21 · 2026-11-09 · dossier
-`research/candidates/21-quartic-window-zeta-thmD.md` · milestone note
+*certificate study — demoted from research article 2026-11-16 (R1/R2/orchestrator; R1
+swap-in runbook STEP 5; formerly `articles/21-quartic-window-transplant-certified-loss.md`)
+· dossier `research/candidates/21-quartic-window-zeta-thmD.md` (case-study stub in
+`candidates/02-ez5-bandwidth-k-ceiling-laws.md`) · milestone note
 `research/pilots/21-milestoneC.md`*
 
 **Status: CERTIFIED-NUMERIC — computationally certified by an external stdlib-only script; not a proof under the project's kernel-only standard; excluded from proved-artifact counts.** The inequality below is established
@@ -21,7 +23,7 @@ quartic window. We ask whether that quartic window, transplanted to ζ, improves
 It does not: with exact rational moments, c(1, v_quartic) = 593803133/788678420 ≈ 0.7529091,
 and
 
-  c⋆(1) − c(1, v_quartic) ≥ 3.870·10⁻⁴   (certified),
+  c⋆(1) − c(1, v_quartic) ≥ 3.870·10⁻⁴   (computationally certified — external script, not kernel-verified, excluded from proved-artifact counts),
 
 so the transplant would *lower* the constant to H_D ≈ 0.6718184. A grid over the quartic
 family, plus the free-frequency cosine family, points the same way.

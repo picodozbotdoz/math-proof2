@@ -311,3 +311,31 @@ Fill rule: every slot below stays empty until the outcome is relayed by the orch
 - Verdict line: **GREEN-with-binders — the Tier-C statement layer of the first formal
   Tate-type dictionary is kernel-verified on our pin (article 73 promoted past DRAFT;
   Q4 the priced next gate).**
+
+---
+
+## Outcome record (2026-11-16) — replaces the Cycle-2 article
+
+Demoted from article to pilot record (R1 `qa/iter4-review/r1-articles-editorial.md`
+§3/§6; R2 `qa/iter4-review/r2-discovery-strength.md` §4 item 3; executed by the R1
+swap-in runbook STEP 4): the Cycle-2 tier is a statement layer whose two analytic
+theorems are one-step consequences of article 71's Core 1 under binders (hRat, hPur)
+that are never discharged; the "Tier C" status label was project-internal vocabulary;
+Q4 (rationality discharge for 𝔽_q[T]) was not attempted.
+
+| item | status | hypotheses | evidence |
+|---|---|---|---|
+| `FFRayClassCharacter k m` — field-for-field transplant of DZDF's number-field `RayClassCharacter` (`Challenge/DedekindZetaChallenge.lean:14–20`), archimedean clause proved vacuous (`no_real_homs`) | PROVED-UNCONDITIONAL (definition + structural lemmas `apply_span_singleton_eq_zero_iff`) | none | `pilots/73/C.lean`; prints `pilots/73/logs/run6-c-green.log:17–18` — triad; sweep `axcheck-c2-final.log` AxPilot73_C OK, 14 axiom-lines, 0 sorryAx, 7/7 [R3 tables §7] |
+| `heckeSeriesT χ ∈ ℂ⟦T⟧` — the L-series as a formal power series (defined object; Euler product a theorem, not used) | PROVED-UNCONDITIONAL (definition) | none | idem |
+| Thm 1 `hecke_continuation` (`C.lean:165`) — s ↦ P₁(q⁻ˢ)/P₀(q⁻ˢ) differentiable wherever P₀(q⁻ˢ) ≠ 0 | PROVED-CONDITIONAL | hRat : `heckeSeriesT χ * P₀ = P₁` (identifies the quotient with the series; series agreement NOT formalized) | print `run6-c-green.log:19` — triad [R3 tables §7] |
+| Thm 2 `hecke_window` (`C.lean:205`) — no zeros of the quotient in Re s > 1/2 away from P₀-zeros | PROVED-CONDITIONAL | hRat + hPur : `HeckePurity χ q P₀ P₁ hRat` (purity = Weil RH for the Kummer covers; never discharged) | print `run6-c-green.log:20` — triad [R3 tables §7] |
+| Q4 rationality discharge (hRat with P₀ = 1, deg P₁ < deg m, via `monicDegreeN` bookkeeping) | OPEN — carried (est. 0.3–0.6k lines) | — | `pilots/73-prework.md` |
+
+Known non-content (recorded so it is not re-claimed): series agreement on Re s > 1 is
+not formalized; the functional equation / root number is out of scope; only 𝔽_q(T)
+with finite moduli.
+
+Re-article condition: branch 2 of `qa/iter4-review/r1-fixes-11-73.md` (Q4 landed +
+series agreement formalized + window theorem about the L-function itself); until then
+this record is the citable artifact. The retired article file was
+`articles/73-formal-tate-dictionary-function-field.md` (2026-11-09..2026-11-16).

@@ -4,12 +4,19 @@
 `research/candidates/11-z1-composable-reduction-theory.md` · Lean pilot
 `research/pilots/11/` · blueprint `research/pilots/11-blueprint.md`*
 
-**Status: Milestone 1 PROVED, kernel-verified (formal calculus for folklore composition — technical record; the acceptance test, not the calculus, is the article's deliverable)** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
-all declarations `[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`)
-**+ M2 COMPLETE (2026-11-14; A8 formal report received)** — Theorem B(ii), the TM2
-realization, kernel-verified (`m2-run8-GREEN.log` all six files OK; `m2-axcheck-final.log`
-76 axiom-lines, 0 sorryAx, triad-only). Of Theorem B only the word-RAM (Light-language)
-half and the M3 instantiation remain open.
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thm 1 `RedB.Red.comp` (calls multiply, extras add) | PROVED-UNCONDITIONAL | none | print `pilots/11/logs/axcheck-final.log:386` — triad [R3 tables §5] |
+| Thm 2 `RedB.red_of_theorem_17` / `Corollary_16` repackaging | PROVED-CONDITIONAL | `Claim.Theorem_17` (donor statement as binder; donor reference compiled verbatim alongside as faithfulness check — `stepB-c2.log:60` triad) | print `axcheck-final.log:389` — triad [R3 tables §5] |
+| Thm 3 acceptance: `Claim.Theorem_19_explicit M 0.00175 1` from one composition | PROVED-CONDITIONAL | `Claim.Theorem_17` + `Claim.Corollary_16` binders (donor parameter arithmetic ported verbatim) | print `axcheck-final.log:387` — triad [R3 tables §5] |
+| Thm B(ii) `tm2_realized_composed` (§8) | PROVED-CONDITIONAL | EthExistsTm, EthPoly, EthIsPoly (eth interface statements as explicit binders) + the machine/size binders of §8 | print `pilots/11/logs/m2-axcheck-final.log:22` — triad [R3 tables §5] |
+| Thm B(i) word-RAM realization | open — not attempted | — | — |
+| M3 instantiation (CH20 ∘ VW13) | open — not attempted | — | — |
+
+All kernel verification on mathlib `ff2494ea`, Lean v4.36.0-rc2; axioms ⊆ {propext,
+Classical.choice, Quot.sound}; no `sorry`, no `native_decide`. Kind: formal calculus
+for folklore composition — technical record; the acceptance test, not the calculus,
+is the article's deliverable (relabeled 2026-11-16).
 
 ---
 
@@ -111,11 +118,12 @@ layer exists (bridge map Z1; novelty R8: N4).
 
 ## 7. Limitations and open problems
 
-- **Machine realizations (M2).** Theorem B of the dossier — every calculus derivation is
-  realized by light-language word-RAM programs (oracle calls inlined, via
-  `Ends.callTo`/`Ends.callLast`, `ThreeSumApsp/Lang/Calls.lean:93–124`) and by a single TM2
-  machine (via eth's `PolyT` fragment calculus) — is the substantive next milestone
-  (≈ 1.5–2.5k LoC, eth slice) and is not attempted here.
+- **Machine realizations.** The TM2 half of Theorem B — every calculus derivation
+  realized by a single machine — is proved in §8, conditional on the three eth
+  interface binders (EthExistsTm, EthPoly, EthIsPoly). The word-RAM half (light-language
+  programs with oracle calls inlined, via `Ends.callTo`/`Ends.callLast`,
+  `ThreeSumApsp/Lang/Calls.lean:93–124`) and the M3 instantiation (CH20 ∘ VW13 as one
+  composed realization, blueprint §4) remain open.
 - The calculus is over real-valued time shapes with pointwise guards; asymptotic (`=O`)
   forms and randomized cost models are not covered.
 
@@ -129,13 +137,13 @@ layer exists (bridge map Z1; novelty R8: N4).
 
 ---
 
-## Cycle-2 addendum (2026-11-14): M2 — the TM2 realization (Theorem B(ii)), PROVED
+## 8. The TM2 realization (Theorem B(ii))
 
-The open milestone of §7, realizing the calculus on actual machines (dossier 11
-Theorem B(ii)), is proved. It uses mathlib's own TM2 machines and eth's polynomial-time
-fragment calculus. Files: `research/pilots/11/P11T3.lean` (1,100 lines, 88 theorems;
-eth's machine-model tranche ported with proofs) and `research/pilots/11/RedTm2.lean`
-(421 lines).
+Every derivation of the calculus is realized by a single TM2 machine. The realization
+uses mathlib's own TM2 machines and eth's polynomial-time fragment calculus, in
+`research/pilots/11/P11T3.lean` (1,100 lines, 88 theorems as run-counted — 110 public
+declarations on disk, R3 §4 F4; eth's machine-model tranche ported with proofs) and
+`research/pilots/11/RedTm2.lean` (421 lines).
 
 **Cost model.** `Tm2Sol f T` :⟺ there is a `TM2ComputableAux Bool Bool` machine M
 that, on every input x, outputs f x within T x steps (mathlib's `TM2OutputsInTime`).
@@ -183,13 +191,14 @@ time c·(steps + 1)·(|x| + 1)^c. The step count is bounded by `sum_sf` and
 `composed_sum_le` (induction on the query list). Finally `Tm2Sol.mono` widens to the
 stated bound.
 
-**Verification.** `pilots/11/logs/m2-run8-GREEN.log`: all six pilot-11 files (P11T1,
-P11T2, P11T3, RedCompA, RedCompB, RedTm2) elaborate with 0 errors and 0 sorry. The
-RedTm2 error count over runs 1–8 was 4 → 2 → 3 → 6 → 3 → 2 → 2 → 0. `m2-axcheck-final.log`
-has 76 axiom lines (P11T3 64 + RedTm2 12), 0 sorryAx, all ⊆ triad. `map_headD_sf` is
-axiom-free. The Cycle-2 final sweep confirms the result: `AxPilot11_P11T3` has 71 lines
-and `AxPilot11_RedTm2` 12, all OK (`pilots/11/logs/axcheck-c2-final.log`).
+Formal record for §8 (elaboration: `pilots/11/logs/m2-run8-GREEN.log:7–8` — all six
+pilot-11 files, 0 errors, 0 sorry):
 
-**Still open.** The word-RAM (Light-language) half of Theorem B. The M3 instantiation
-(CH20 ∘ VW13 as one composed realization, blueprint §4). Discharging the three eth
-interface hypotheses by porting the fragment library.
+| theorem | declaration | file | axioms | evidence |
+|---|---|---|---|---|
+| Thm B(ii) | `tm2_realized_composed` (`RedTm2.lean:392`) | `research/pilots/11/RedTm2.lean` (421 lines) | ⊆ triad | print `m2-axcheck-final.log:22` [R3 tables §5]; sweep `AxPilot11_RedTm2` OK, 12 axiom-lines, 0 sorryAx |
+| companions | `Tm2Sol.mono` (unconditional, no interface hypotheses) `:18`; `tm2_choice`, `tm2_charging` (interface binders) `:19–20`; `composed_sum_le` (`[propext, Quot.sound]`) `:21` | idem | ⊆ triad or fewer | prints `m2-axcheck-final.log:18–21` [R3 tables §5] |
+| list lemmas | `orbit_sf` (`[propext]`), `map_headD_sf` (axiom-free), `sum_sf` (`[propext]`) | idem | ⊆ triad or fewer | prints `m2-axcheck-final.log:23–25` [R3 tables §5] |
+| ported machine tranche | 110 public theorems (run-header "88"; R3 §4 F4) | `research/pilots/11/P11T3.lean` | ⊆ triad | sweep of record `stepB-c2.log:533` — AxPilot11_P11T3 OK, 71 axiom-lines, 0 sorryAx, excerpts `:534–586` (the "64 axiom-lines" at `m2-axcheck-final.log:13` is tally-only — custody gap F1; the sweep is the evidence of record) |
+
+The still-open word-RAM half and M3 instantiation are listed in §7.

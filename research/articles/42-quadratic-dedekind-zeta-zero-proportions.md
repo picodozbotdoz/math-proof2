@@ -1,178 +1,249 @@
-# Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions by Certified Assembly
+# Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions: a Two-Column Assembly, Unconditional in the ζ Column
 
-*cross-math-fronttier research article 42 · 2026-11-09 · dossier
-`research/candidates/42-zeta-k-two-thirds-product-assembly.md` · Lean pilot
-`research/pilots/42/` (M1, M2a, M3, M2b) · blueprint `research/pilots/42-blueprint.md`*
+*kind: DISCOVERY-CONDITIONAL · date: 2026-11-16 (v2; v1 2026-11-09) · supersedes:
+`42-quadratic-dedekind-zeta-zero-proportions.md` (v1 + its 2026-11-14 erratum patch) and
+`42M4-zetaK-proportions-unconditional-zeta-column.md` (2026-11-14) · artifacts:
+`research/pilots/42/{M1,M2a,M3,M2b,M4a,M4b}.lean`,
+`research/pilots/42/logs/` (runs + axchecks),
+`research/pilots/42/logs/M4b-fallback-GREEN.lean`*
 
-**Status: PROVED, certificate-conditional** — kernel-verified (mathlib `ff2494ea`, Lean
-`v4.36.0-rc2`; the three landed theorems have exactly `[propext, Classical.choice,
-Quot.sound]`; no `sorry`, no `native_decide`, no external CAS inside Lean). The theorems are
-stated with explicit hypothesis binders for donor results proved in other Lean developments
-(§5). This is the project's #1 Phase-4 pick (`research/TRIAGE.md` §Top-3).
-
----
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| ζ-column input `EpsLowerCum (multOf riemannZeta) (2/3)` and distinct analogue | PROVED-UNCONDITIONAL | none **at the landings**: the discharge lemmas take hntopζ/hfinζ + the donor endpoint (hV2d4/hV2d5), and the endpoint itself is the imported donor theorem — so no hypothesis of the project's or any external paper remains on this column | donor prints `m4b2-axcheck-run1.log:144` (`simple_proportion_d4`) and `:145` (`distinct_proportion_d5`), both triad; wrappers `V2d4_endpoint`/`V2d5_endpoint` (`M4b.lean:1390/:1396`) print triad at `:142–143`; discharge lemma prints `:211` (2/3) and `:212` (5/6); header verdict `:2` GREEN, triad-only, 98 prints / 72 names [R3 §1.2; tables §1; R3 cross-check relay] |
+| Thm 1 `zetaK_two_thirds_landed_of_V2` | PROVED-CONDITIONAL | hfinK, hfinζ, hfinχ (window finiteness); hEχ : `EpsLowerCum (multOf fχ) (2/3)` (zeta23 ThmE transcription — the open core); hχ, hK, hK1, hP1 (analyticity); hntopζ, hntopχ (non-degeneracy); hfac (factorization) — i.e. H (§3) + hEχ | print `m4b2-axcheck-run1.log:139` triad; statement `M4b.lean:1479–1492` — no hCert/hK673/hK839/hV2 binder, ζ column fed `V2d4_endpoint` inline at `:1492` [R3 §1.2; tables §1] |
+| Thm 2 `zetaK_distinct_five_sixths_strip_landed_of_V2` | PROVED-CONDITIONAL | H + hEχdStrip : `EpsLowerDistinctStripCum (multOf fχ) (5/6)` | print `m4b2-axcheck-run1.log:140` triad (wrapped); statement `M4b.lean:1497–1511` (fed `V2d5_endpoint` at `:1513`); verdict of record `42/logs/axcheck-c2-final.log:8` — donor-tree run OK, 80 axiom-lines, 74 print-sets all triad, 0 sorryAx [R3 §1.2; tables §1] |
+| Thm 3 `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` | PROVED-CONDITIONAL | H + hEχdStrip + hCZStrip (common-strip-zeros negligible; conjecture-grade, never discharged) | print `m4b2-axcheck-run1.log:141` triad (wrapped); statement `M4b.lean:1535–1549` [R3 §1.2; tables §1] |
+| binder-only fallback of Thms 1–3 | PROVED-CONDITIONAL | H + hV2d4 + hV2d5 (donor endpoints as hypotheses) | `m4b-run2.log` GREEN; `m4b-axcheck-run1.log:2` header verdict — 68 distinct theorems (66 + 2 `@[simp]`), all triad, 0 sorryAx; prints `:20–21`; fallback file byte-exact on disk (85,641 bytes) [R3 §1.2; tables §1] |
 
 ## Abstract
 
-For a quadratic field K with fundamental discriminant D, the Dedekind zeta function factors
-as ζ_K(s) = ζ(s)·L(s, χ_D). We show that zero-proportion theorems for ζ_K follow from
-proportion theorems for the two factors by an exact counting algebra, and we formalize the
-whole passage. With N_K(T) the number of nontrivial zeros of ζ_K with 0 < Im ρ ≤ T counted with
-multiplicity, we obtain: (i) at least 2/3 of them, with multiplicity, lie on the critical line
-(liminf N_K^on/N_K ≥ 2/3); (ii) the *distinct* on-line zeros together with the common
-on-line zeros of ζ and L(χ_D) account for at least 5/6 of N_K; (iii) if the common zeros are
-negligible (a hypothesis we isolate as hCZ), at least 5/6 of the zeros of ζ_K are distinct
-and on the line. The ζ-side input is consumed from K. Knausgård's clean Lean layer (constants
-0.67354 and 0.83900) through a certificate binder; the L(χ_D)-side input is zeta23's
-Theorem E. These are the first formal on-line zero-proportion statements for a number-field zeta
-function, and form (ii) improves the literature's 45%-distinct statement for Dedekind zetas
-(de Laat–Rolen–Tripp–Wagner 2019 — **[erratum 2026-11-14: their result is GRH-conditional,
-fixed quadratic K, T→∞ asymptotic; the comparison is hypothesis-shape-to-hypothesis-shape,
-not unconditional-vs-conditional]**) to the 5/6 class modulo an explicit defect.
+For a quadratic field K, ζ_K(s) = ζ(s)·L(s, χ_D). We prove in Lean (mathlib `ff2494ea`,
+Lean v4.36.0-rc2; axioms ⊆ {propext, Classical.choice, Quot.sound}) that if the Dirichlet
+column satisfies the on-line proportion bound `EpsLowerCum (multOf L(·,χ_D)) (2/3)` —
+zeta23's Theorem E, carried as an explicit hypothesis, not proved here — then at least
+2/3 of the nontrivial zeros of ζ_K up to height T, counted with multiplicity, lie on the
+critical line (Theorem 1); the analogous 5/6 statements for distinct zeros hold with an
+explicit common-zero defect (Theorem 2) and, under a negligibility hypothesis on common
+zeros, without it (Theorem 3). The ζ-column input is not a hypothesis: it is imported
+unconditionally from AxiomMath ZetaZerosV2 (Lamzouri endpoints 0.6725 / 0.83625,
+axiom-audited on our pin). These are the first on-line zero-proportion statements for a
+number-field zeta function in any formal corpus we surveyed; the nearest informal
+result (de Laat–Rolen–Tripp–Wagner) is GRH-conditional, fixed quadratic, and about
+distinct zeros. The mathematics is corollary-level assembly; the contribution is the
+statement class, the exact defect vocabulary, and the verified two-column schema.
+
+## 0. Version history (replaces the v1/42-M4 record)
+
+v1 (2026-11-09) stated the assembly with both columns as binders, the ζ column taken
+from Knausgård's certified constants through a certificate binder. On 2026-11-14,
+commit `c540682` (02:31) patched v1's DLRT comparison with inline errata (the
+main-run reading of DLRT as unconditional was wrong: DLRT is GRH-conditional, fixed
+quadratic K, T→∞ asymptotic). Later that morning, commit `4e19304` (09:19) finalized
+42-M4, whose byline claimed v1 "is kept frozen … and is cited, not edited" — already
+false when written. This v2 merges both articles, removes the errata brackets by
+stating the comparison correctly once (§4), and records that the Knausgård constants
+remain the stronger *conditional* ζ-side route (0.67353… / 0.83900, per the arXiv
+abstracts — the in-repo 2026-11-09 record's "0.67354" was a rounding slip; R7 card C.4),
+superseded only as
+a consumption route.
 
 ## 1. Introduction
 
-The anthropics `zeta23` corpus proves Alpöge–Furman-type statements for ζ and for primitive
-Dirichlet L-functions: liminf of the on-line proportion ≥ 2/3, and ≥ 5/6 for distinct zeros
-(Theorem E for L). Knausgård (arXiv:2609.33043, arXiv:2610.08965, repo `kristianmk/839`)
-improved the ζ constants to 0.67354 (simple, on-line) and 0.83900 (distinct), formally, with
-headline theorems that use `native_decide` over a clean `*_of_local` layer whose only
-non-standard input is a `LocalInequality` certificate checked externally.
+Lower bounds for the proportion of zeros of ζ on the critical line go back to Selberg,
+Levinson (> 1/3) and Conrey (> 2/5); Lamzouri's theorem, formalized in AxiomMath's
+ZetaZerosV2, gives > 0.6725 simple-and-on-line and > 0.83625 distinct. For Dedekind zeta
+functions of K ≠ ℚ nothing formal existed before this programme, and informally the
+nearest result is DLRT's > 45% *distinct* zeros for a *fixed quadratic* K *under GRH*.
+The zeta23 corpus proves the Alpöge–Furman-type proportion theorems for ζ and for
+primitive Dirichlet L-functions; tauceti provides the continuation and the
+factorization ζ_K = ζ·L(·,χ_D) on Re s > 1 for quadratic K. Multiplicities add under
+products, so window counts add and proportions assemble: that is the whole mechanism,
+and this article assembles it once, with both columns accounted for honestly.
 
-No corpus contains any zero-counting statement for a Dedekind zeta function of a number
-field ≠ ℚ. tauceti, however, provides the continuation `dedekindZetaC K` and the identity
-ζ_K = ζ·L(χ_D) on Re s > 1 for quadratic K. The bridge (tauceti-contributions C1(ii)) is
-therefore: multiplicities add under products, so proportions assemble.
-
-**Honesty.** As mathematics, (i) is corollarical: it follows formally from the factor
-theorems plus Euler's factorization, with no new analytic idea. Its content is (a) the exact
-counting algebra, including the defect C_D of (ii) — a quantity no corpus or paper studies —
-and (b) the first end-to-end formal statement, assembled across three independent Lean
-developments under a charter-compliant consumption discipline.
+**What is new here.** (a) The statement class: first on-line zero-proportion statements
+for a number-field zeta function (formal or informal, within the corpora and literature
+surveyed — R2 re-ran the absence queries 2026-11-16, `r2-discovery-strength.md` §5 q1–q2).
+(b) The defect vocabulary: the distinct-count statement carries an explicit common-zero
+defect, a quantity no corpus or paper studies. (c) The ζ-column discharge: the first
+ζ_K proportion statements whose ζ column is unconditional *inside Lean*, via the
+audited ZetaZerosV2 import. **What is not new:** any analytic mathematics — the assembly
+is corollary-level, and we say so; the χ column remains exactly as open as zeta23's
+Theorem E.
 
 ## 2. Setting
 
-For a function f meromorphic on ℂ write mult_f(ρ) = ord_ρ f (as a natural number), and for a
-finite-window multiplicity function z define
+Fix fK, fχ : ℂ → ℂ (intended: fK = ζ_K, fχ = L(·, χ_D)). `multOf f ρ := analyticOrderNatAt
+f ρ`. Windows are cumulative: `stripWindow 0 T = {ρ | 0 < Re ρ < 1, 0 < Im ρ ≤ T}`,
+`lineWindow 0 T = {ρ | Re ρ = 1/2, 0 < Im ρ ≤ T}`. `countCum z T` and `countOnCum z T`
+sum a multiplicity function z over the two windows. `EpsLowerCum z c` :⟺ ∀ ε > 0, ∃ T₀,
+∀ T ≥ T₀, (c − ε)·countCum z T ≤ countOnCum z T (the division-free liminf form of
+"≥ c of the zeros lie on the line"). `FactorizationOnHalfPlane fK fζ fχ` :⟺ ∀ s,
+Re s > 1 → fK s = fζ s · fχ s.
 
-  N_z(T) = Σ_{0 < Im ρ ≤ T, 0 < Re ρ < 1} z(ρ),  N_z^on(T) = Σ_{… , Re ρ = 1/2} z(ρ),
-  N_z^{d,on}(T) = #{ρ on the line in the window with z(ρ) > 0}.
+M4a's distinct-count vocabulary: `distinctCountCum z T` (number of distinct strip zeros
+up to T), `EpsLowerDistinctStripCum z c` (ε-form ratio bound with the distinct count as
+numerator), `commonStripCum z w T` (strip points that are zeros of both factors).
 
-**ε-forms.** `EpsLowerCum z c` means: ∀ ε > 0, eventually (c − ε)·N_z(T) ≤ N_z^on(T);
-`EpsLowerDistinctCum z c` likewise with N_z^{d,on}. These are the liminf statements in
-division-free form. For two multiplicity functions z, w let C_D(T) = #{ρ on the line in the
-window with z(ρ) > 0 and w(ρ) > 0} (common on-line zeros).
+Donor endpoints (imported, `axiommath/ZetaZerosV2/ZetaZeros/Main.lean:130` and `:149`;
+statements re-verified line-exact 2026-11-16, R1 audit §4):
+`ZetaZeros.simple_proportion_d4` : ∃ T₀, ∀ T ≥ T₀, 0.6725 < simpleOnLineCount T /
+zeroCount T; `ZetaZeros.distinct_proportion_d5` : the same with 0.83625 <
+distinctZeroCount T / zeroCount T.
 
 ## 3. Main results
 
-Let f_K, f_ζ, f_χ be the zeta functions of K, ℚ and L(·, χ_D), with the structural facts
-listed in §5 (analytic off s = 1, simple pole at 1, not locally identically zero,
-factorization on a half-plane).
+Structural hypothesis set **H** (all classical, none discharged except where noted):
+- window finiteness of `multOf fK`, `multOf riemannZeta`, `multOf fχ`;
+- fK and fχ analytic at every s ≠ 1; (s − 1)·fK(s) and (s − 1)·ζ(s)·fχ(s) analytic at 1;
+- `analyticOrderAt fχ ρ ≠ ⊤` for all ρ (fχ not locally zero); the same for ζ is
+  discharged inline (`analyticAt_riemannZeta`);
+- `FactorizationOnHalfPlane fK riemannZeta fχ`.
 
-**Theorem 1 (counting algebra).** If f_K = f_ζ·f_χ as meromorphic functions then
-mult_{f_K} = mult_{f_ζ} + mult_{f_χ} on ℂ \ {1}; consequently N_K = N_ζ + N_χ and
-N_K^on = N_ζ^on + N_χ^on (window additivity), and
+**Theorem 1 (with multiplicity, 2/3).** Assume H and hEχ : `EpsLowerCum (multOf fχ)
+(2/3)`. Then `EpsLowerCum (multOf fK) (2/3)`: for every ε > 0, for all large T,
+(2/3 − ε)·N_K(T) ≤ N⁰_K(T), where N_K, N⁰_K are ζ_K's strip and on-line counts with
+multiplicity.
 
-  N_K^{d,on}(T) + C_D(T) = N_ζ^{d,on}(T) + N_χ^{d,on}(T)   (inclusion–exclusion).
+**Theorem 2 (distinct, 5/6, with defect).** Assume H and hEχdStrip :
+`EpsLowerDistinctStripCum (multOf fχ) (5/6)`. Then for every ε > 0, for all large T,
+(5/6 − ε)·N_K(T) ≤ D_K(T) + commonStrip(ζ, fχ)(T), with D_K the distinct strip count.
 
-**Theorem 2 (assembly).** If `EpsLowerCum z c` and `EpsLowerCum w c` then
-`EpsLowerCum (z + w) c`. If the distinct forms hold with constant c for z and w, then for
-every ε > 0, eventually (c − ε)·N_{z+w} ≤ N_{z+w}^{d,on} + C_D.
+**Theorem 3 (distinct, 5/6, negligible common zeros).** Assume further hCZStrip: for
+every ε > 0, eventually commonStrip(ζ, fχ)(T) ≤ ε·N_K(T). Then
+`EpsLowerDistinctStripCum (multOf fK) (5/6)`.
 
-**Theorem 3 (ζ_K, with multiplicity).** liminf_{T→∞} N_K^on(T)/N_K(T) ≥ 2/3.
+**ζ-column discharge (unconditional).** `epsLowerCum_zeta_of_V2d4` derives
+`EpsLowerCum (multOf riemannZeta) (2/3)` from `simple_proportion_d4` (every simple
+on-line zero is a strip zero of multiplicity one; V2's `zeroCount` is the pilot's
+`countCum` under the identification glue; 2/3 ≤ 0.6725 by `norm_num`), and the distinct
+analogue from `distinct_proportion_d5` (5/6 ≤ 0.83625). No certificate binder and no
+`native_decide` appears anywhere in the dependency tree of Theorems 1–3.
 
-**Theorem 4 (ζ_K, distinct with defect).** For every ε > 0, eventually
+**Remark (v1's certificate route).** v1 obtained the same shape with the ζ column from
+Knausgård's certified 0.67353… / 0.83900 constants behind an opaque `LocalInequality`
+certificate checked by external C++/Python tooling. Those constants are *stronger* but
+the route is tool-conditional; the donor import is weaker per constant but unconditional.
+The binder-only fallback (donor endpoints as hypotheses hV2d4/hV2d5) is preserved and
+verified (`M4b-fallback-GREEN.lean`) so the pure-hypothesis form remains available
+off-pin.
 
-  (5/6 − ε)·N_K(T) ≤ N_K^{d,on}(T) + C_D(T).
+## 4. Novelty and nearest misses
 
-**Theorem 5 (ζ_K, distinct, hCZ-conditional).** If C_D(T) = o(N_K(T)), then at least 5/6 of
-the zeros of ζ_K (with multiplicity in the denominator) are distinct and on the line.
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| de Laat–Rolen–Tripp–Wagner, arXiv:1908.04876, Thm 1.1 / Cor 1.3 | for a *fixed quadratic* K, *under GRH*, as T → ∞: > 45% of zeros are *distinct* (SDP method) | ours: on-line proportions with multiplicity (Thm 1) and 5/6-class distinct up to an explicit defect (Thm 2); hypothesis shape is certificate-conditional (χ column), not GRH; not comparable as unconditional-vs-unconditional |
+| Lamzouri arXiv:2609.02882 / AxiomMath ZetaZerosV2 `Main.lean:130,149` | ζ-only proportions: > 0.6725 simple on-line, > 0.83625 distinct (kernel-verified) | the ζ column of our assembly, imported; no ζ_K or product statement there |
+| Knausgård arXiv:2609.33043, arXiv:2610.08965 | ζ constants 0.67353… / 0.83900 (distinct = 1645064/1960733), formal, behind an externally checked certificate layer (author-disclosed: three axioms beyond Mathlib, one per inequality, native_decide-class — R7 card C.4) | stronger constants, tool-conditional route; superseded here as consumption route, retained as v1 record |
+| Bansal–Maji arXiv:2507.18121 (found in R2's 2026-11-16 arXiv sweep, `r2-discovery-strength.md` §5 q2) | Hardy-type *infinitude* of on-line zeros for zeta functions of any number field | infinitude, not positive proportion; no multiplicity/distinct statements |
+| article 75 (this project) | the n+1-factor generalization of Thms 1–2 to abelian towers | Thms 1–3 here are its n = 2 instances with the ζ column discharged |
 
-The ζ-side constants 0.67354 ≥ 2/3 and 0.83900 ≥ 5/6 are absorbed by monotonicity
-(`EpsLowerCum_mono`), so Theorems 3–5 are stated with the round constants shared by the
-L(χ_D)-side inputs.
+Scope statement: "first on-line zero-proportion statements for a number-field zeta
+function" means first among the corpora surveyed (mathlib, tauceti, the six AxiomMath
+repositories, openai-math, anthropics) and the informal literature searched (arXiv
+full-text queries recorded in R2 §5 q1–q2). The assembly mathematics itself is
+corollary-level; the claim is about the statement class, not the difficulty.
 
-## 4. Proofs
+## 5. Proofs
 
-**Theorem 1.** On ℂ \ {1} both sides are analytic and not identically zero near any point,
-so orders add: ord(fg) = ord f + ord g (mathlib `analyticOrderNatAt_mul`). The global
-identity f_K = f_ζ f_χ is obtained from the half-plane identity by multiplying by (s − 1) to
-remove the common pole and applying the identity principle on the connected domain.
-Window counts are finite sums of multiplicities over finite supports; additivity of the
-summand gives additivity of the sums, and supp(z + w) = supp z ∪ supp w gives
-inclusion–exclusion for the distinct counts. ∎
+**ζ column.** See §3, ζ-column discharge. The denominators are eventually positive
+(0.6725 < 0 is false, so the ratio is defined for large T).
 
-**Theorem 2.** Choose T₀ = max of the two thresholds and add the two inequalities; the
-denominator N_{z+w} = N_z + N_w is additive. For the distinct form,
-N_z^{d,on} + N_w^{d,on} = N_{z+w}^{d,on} + C_D by Theorem 1. ∎
+**Multiplicities add.** The factorization holds on Re s > 1; multiplying by (s − 1)
+removes the common pole and the identity principle extends it to ℂ \ {1}
+(`funEq_of_factorization`). At every strip point ρ ≠ 1, `multOf_mul` gives
+mult fK ρ = mult ζ ρ + mult fχ ρ; window counts are finite sums over finite supports,
+so N_K = N_ζ + N_χ and N⁰_K = N⁰_ζ + N⁰_χ.
 
-**Theorems 3–5.** Instantiate Theorem 2 with z = mult_{f_ζ} (Knausgård's 0.67354, resp.
-0.83900, absorbed down to 2/3, resp. 5/6) and w = mult_{f_χ} (zeta23 Theorem E, cumulative
-form), then transport along Theorem 1. For Theorem 5, apply Theorem 4 with ε/2 and hCZ with
-ε/2. A distinct-count numerator is dominated by the with-multiplicity numerator, so every
-numerator convention used by the donors is covered a fortiori. ∎
+**Theorem 1.** Both summands satisfy `EpsLowerCum · (2/3)` (ζ by the discharge, fχ by
+hEχ); take T₀ = max of the two thresholds and add (ε is shared):
+(2/3 − ε)·N_K = (2/3 − ε)·N_ζ + (2/3 − ε)·N_χ ≤ N⁰_ζ + N⁰_χ = N⁰_K.
 
-**Why hCZ is the obstruction.** A common zero of ζ and L(χ_D) is a zero of ζ_K of
-multiplicity ≥ 2. The certificate method controls multiplicity through a convex penalty, so
-a merged multiplicity-2 atom degrades it; no per-function statistic of ζ or of L(χ_D) can
-bound C_D. hCZ implies S₁ = o(N) (simple–simple shared zeros negligible), and conversely
-hCZ follows from S₁ = o(N) *together with* density-zero multiple zeros for ζ and for
-L(χ_D) — the latter open even for ζ alone. Unconditionally only C_D ≤ S₁ + (1/6 + ε)N is
-available. hCZ is conjecture-grade today (`research/pilots/20-hCZ-NOTE.md`, with the
-erratum appended there in the resume session).
+**Theorem 2.** Distinct counts satisfy inclusion–exclusion
+D_K = D_ζ + D_χ − commonStrip; assembling the distinct bounds for the two factors gives
+the inequality with the defect carried (`assemble_eps_defect_strip_cum`, M4a).
 
-## 5. Formal verification
+**Theorem 3.** Split ε = ε/2 + ε/2 and absorb the defect with hCZStrip. ∎
 
-| item | Lean |
-|---|---|
-| files | `research/pilots/42/M1.lean` (337 LoC: windows, `multOf`, `ZeroMult`, additivity, ε-forms, `assemble_eps`), `M2a.lean` (612: germ congruence, `funEq_of_factorization`, χ-side `≠ ⊤` discharge, `zetaK_two_thirds_wired`), `M3.lean` (453: distinct counts, `commonOnLine`, inclusion–exclusion, `zetaK_five_sixths_defect`), `M2b.lean` (1,150: cumulative layer, transcribed donor endpoints, landed theorems; self-contained superset) |
-| landed theorems | `CrossMath.Pilot42.zetaK_two_thirds_landed` (Thm 3), `zetaK_distinct_five_sixths_landed` (Thm 4), `zetaK_distinct_five_sixths_landed_of_negligible` (Thm 5) |
-| axioms | exactly `[propext, Classical.choice, Quot.sound]` (`research/pilots/42/logs/m2b_run6.log`; final sweep `logs/axcheck-final.log`) |
+**Why hCZStrip is the honest frontier.** A common zero of ζ and L(·,χ_D) is a zero of
+ζ_K of multiplicity ≥ 2; no per-function statistic of ζ or of L(·,χ_D) can bound the
+coincidence count (the seam analysis — `research/pilots/20-seam-analysis.md`, the
+companion note of article 20 v2 — shows hCZ follows from S₁ = o(N) plus density-zero
+multiplicity for each factor, both open). hCZStrip is conjecture-grade
+(`research/pilots/20-hCZ-NOTE.md`).
 
-**Binders (the complete list).** `hCert` (Knausgård's `LocalInequality`, an opaque Prop) and
-the transcriptions `hK673 : K673OfLayers cert …` / `hK839 : K839OfLocal cert …` of his clean
-endpoints `simple_critical_zeros_673_of_layers` and `distinct_zeros_839_of_local`;
-`hEχ` / `hEχd` (zeta23 Theorem E, cumulative); the tauceti ported statements (continuation
-and analyticity `hK`, `hK1`, `hζ`, `hχ`, `hP1`, the factorization `hfac`, window finiteness
-`hfin*`); `hntopχ` (discharged in M2a for the χ side; carried uniformly here) and `hntopζ`
-(ζ not locally identically zero — mathlib v4.36 lacks the infinite-ball family lemma; the
-path via `IsCompact.inter_riemannZetaZeros_finite` is recorded). Removing a binder by
-proving it yields the unconditional statement; nothing else is assumed. Knausgård's
-`native_decide` headline theorems are never consumed; his C++/Python certificate checkers
-and checksums are cited as external audit artifacts only (the same posture as zeta23's own
-`EnclOK`, `PairCeiling/NumericCert.lean:72`).
+## 6. Formal record
 
-## 6. Relation to prior work
+| theorem / artifact | declaration | file | axioms | evidence |
+|---|---|---|---|---|
+| strip-distinct vocabulary | `distinctCountCum` (`M4a.lean:821`), `EpsLowerDistinctStripCum` (`:833`), `commonStripCum`, `assemble_eps_defect_strip_cum` (`:1023`; binders hz, hw = the two component distinct-proportion inputs) | `research/pilots/42/M4a.lean` (1,194 lines, 54 public theorems) | ⊆ triad | prints `m4-axcheck-run1.log:58–68` (`assemble_eps_defect_strip_cum` at `:68`); `m4-run2.log:2` GREEN; sweep `42/logs/axcheck-c2-final.log:7` — AxPilot42_M4a OK, 57 axiom-lines, 0 sorryAx; C2 coverage (54/54 public) [R3 §1.2; tables §1] |
+| ζ-column discharge | `epsLowerCum_zeta_of_V2d4` (`M4b.lean:1404`), `epsLowerDistinctStripCum_zeta_of_V2d5` (`:1439`) — own binders hntopζ, hfinζ, hV2d4/hV2d5, discharged at the landings by the imported endpoints | `research/pilots/42/M4b.lean` | ⊆ triad | prints `m4b2-axcheck-run1.log:211` and `:212` [tables §1] |
+| Thm 1 | `zetaK_two_thirds_landed_of_V2` (`M4b.lean:1479`) | `research/pilots/42/M4b.lean` (1,571 lines; 70 theorem declarations on disk — the v1 articles' "68" was an undercount, R3 §4 F4) | ⊆ triad | `m4b2-axcheck-run1.log:139` [tables §1] |
+| Thm 2 | `zetaK_distinct_five_sixths_strip_landed_of_V2` (`:1497`) | idem | ⊆ triad | `m4b2-axcheck-run1.log:140` (wrapped); donor-tree verdict of record `axcheck-c2-final.log:8` [tables §1] |
+| Thm 3 | `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` (`:1535`) | idem | ⊆ triad | `m4b2-axcheck-run1.log:141` (wrapped); donor-tree verdict of record `axcheck-c2-final.log:8` [tables §1] |
+| donor endpoints | `ZetaZeros.simple_proportion_d4`, `distinct_proportion_d5` | `axiommath/ZetaZerosV2/ZetaZeros/Main.lean:130,149` | ⊆ triad (printed from the consumer side) | `m4b2-axcheck-run1.log:144–145`; donor-tree run of record `feasibility/probe/logs/stepB-c2-m4b-donor.log:1–3` [tables §1] |
+| binder-only fallback | Thms 1–3 with hV2d4/hV2d5 | `research/pilots/42/logs/M4b-fallback-GREEN.lean` (1,560 lines; byte-exact, 85,641 bytes) | ⊆ triad | `m4b-axcheck-run1.log:2` (68 distinct theorems = 66 + 2 `@[simp]`, all triad, 0 sorryAx) + prints `:20–21`; `m4b-run2.log` GREEN [tables §1] |
+| v1 certificate route | `zetaK_two_thirds_landed` (`M2b.lean:1062`), `zetaK_distinct_five_sixths_landed` (`:1081`), `…_of_negligible` (`:1121`) — hCert/hK673/hK839 binders | `research/pilots/42/{M1,M2a,M3,M2b}.lean` | ⊆ triad | prints `42/logs/axcheck-final.log:731/:732/:733`; GREEN run `m2b_run6.log`; LoC table 337/612/453/1150 matches disk exactly [R3 §2; tables §1] |
 
-- **Alpöge–Furman** (arXiv:2608.13637) and the zeta23 corpus: the method and the factor
-  theorems for ζ and primitive L(χ).
-- **Knausgård** (arXiv:2609.33043, arXiv:2610.08965, `kristianmk/839`): improved ζ
-  constants; the constant race is lost to him, and we claim none.
-- **de Laat–Rolen–Tripp–Wagner** (arXiv:1908.04876): > 45% distinct zeros for Dedekind zetas
-  (SDP method) **[erratum 2026-11-14, H QA Part 7 / A5 standing note 3: GRH-conditional,
-  fixed quadratic K, T→∞ asymptotic — the main-run VERDICTS §5.2(c) "unconditional" reading
-  was wrong; our Theorems 3–5 are therefore not strictly-stronger-unconditional vs DLRT but
-  a different hypothesis shape (certificate + ThmE binders vs GRH), per dossier 75's
-  resolved scope]**. Theorem 4 places quadratic ζ_K in the 5/6 class modulo C_D; Theorem 3 is the
-  first with-multiplicity on-line proportion for ζ_K.
-- **Majdoddin** (arXiv:2610.17420, `Majdoddin/formal-math`): a second, independent
-  build-out on the anthropics tree; the certificate-binder consumption template used here
-  applies to it.
+Donor build and hygiene audit (G2: full ZetaZerosV2 rebuild on our pin, 13 audited
+theorems triad-clean) and the M4b donor-tree sweep run are recorded in
+`research/feasibility/axiommath-donor-probes.md` §G2 and
+`research/feasibility/VERIFICATION-LEDGER.md` §9.F — not narrated here.
 
 ## 7. Limitations and open problems
 
-- Discharging the tauceti binders requires tauceti as a Lake dependency (same toolchain); the
-  Knausgård and zeta23 binders require porting v4.33 developments (statement port measured at
-  ≈ 0 cost; proofs not ported).
-- hCZ is the honest frontier: any unconditional distinct-count statement beyond Theorem 4
-  needs control of common zeros of ζ and L(χ_D).
-- Extending beyond quadratic fields needs the Artin factorization ζ_K = Π L(ρ) and Theorem E
-  for each factor (dossier 20 pursues the engine route instead).
+1. **The χ column is the open core.** hEχ / hEχdStrip transcribe zeta23's Theorem E;
+   they are hypotheses, not proved. Discharging them needs zeta23's proofs ported from
+   Lean v4.33 (statement port measured at ≈ 0 cost; proof port is the cost).
+2. **hCZStrip is conjecture-grade** (see §5). Only Theorem 2 is free of it.
+3. Window finiteness and the ⊤-order exclusions are carried in H; classically true,
+   not formalized here.
+4. The unconditional constants' margins over 2/3 and 5/6 (≈ 0.0058, ≈ 0.0029) come from
+   the donor; improvements are the donor's to make. Lamzouri's paper also proves a
+   **simple-or-on-line ≥ 0.8876** endpoint that ZetaZerosV2 does not export (R7 card
+   C.3) — a future donor-endpoint shape for this assembly, not consumable today.
+5. Beyond quadratic K: the Artin/abelian factorization and per-factor Theorem E — that
+   is article 75's schema; its ℚ-instantiation of this very discharge (N2) is the
+   carried next step.
 
-## References
+## 8. Prior work and references
 
-- anthropics_formal-math `zeta23` (`ChallengeDeps.lean` :46–55, `Final.lean`, `Statement.lean`,
-  `PairCeiling/NumericCert.lean:72`). K. Knausgård, arXiv:2609.33043, arXiv:2610.08965,
-  `github.com/kristianmk/839`. L. Alpöge, A. Furman, arXiv:2608.13637. D. de Laat, L. Rolen,
-  Z. Tripp, I. Wagner, arXiv:1908.04876. tauceti `TauCeti/NumberTheory/LFunctions/DedekindZeta/`.
-  R. Majdoddin, arXiv:2610.17420.
+**Literature.** Y. Lamzouri, arXiv:2609.02882. K. Knausgård, arXiv:2609.33043,
+arXiv:2610.08965. L. Alpöge, A. Furman, arXiv:2608.13637 (the method zeta23
+formalizes). D. de Laat, L. Rolen, Z. Tripp, I. Wagner, arXiv:1908.04876 (scope as in
+§4 — GRH, fixed quadratic, asymptotic, distinct). Bansal–Maji, arXiv:2507.18121.
+R. Majdoddin, arXiv:2610.17420 (independent build-out; the certificate-binder template
+applies to it).
+
+**Project artifacts.** `research/pilots/42/` (six Lean files + fallback), logs under
+`research/pilots/42/logs/`; v1 article and 42-M4 (superseded by this file; edit history
+in §0); article 75 (n+1-factor schema); article 20 v2 (the interface) and its companion
+seam note `research/pilots/20-seam-analysis.md`;
+`research/candidates/42-zeta-k-two-thirds-product-assembly.md`;
+`research/feasibility/axiommath-donor-probes.md` §G2;
+`research/feasibility/VERIFICATION-LEDGER.md` §9.F;
+zeta23 `Challenge.lean:131–229` (Theorem E source); tauceti
+`TauCeti/NumberTheory/LFunctions/DedekindZeta/` (factorization source);
+AxiomMath ZetaZerosV2 `ZetaZeros/Main.lean:130,149`.
+
+---
+
+## Shipping-gate self-check (TEMPLATE-iter4 §9) — R1, 2026-11-16 · verdict: **PASSES, all blockers cleared**
+
+| # | hard rule | result |
+|---|---|---|
+| 1 | article kind (not donor-swap/tranche/addendum clothing) | PASS — `DISCOVERY-CONDITIONAL`; the donor-swap *content* is a section of the merged statement-class article, which is the sanctioned form post-resolution |
+| 2 | title free of project-internal tokens | PASS — "Two-Column Assembly" is coined and defined in the abstract; no dossier/pilot/probe tokens |
+| 3 | status row per theorem, closed vocabulary, every binder listed | PASS — 5 rows; PROVED-CONDITIONAL rows carry verbatim binder lists (hfin*, hEχ(/dStrip), hχ, hK, hK1, hP1, hntop*, hfac, hCZStrip); ζ-column row carries the two-layer note (endpoint import → discharge lemmas → landings) |
+| 4 | abstract ≤ 200 words with theorem+hypotheses+status+scoped novelty+nearest prior | PASS — 175 words; DLRT named; scope "in any formal corpus we surveyed" in-sentence |
+| 5 | nearest-miss table ≥ 2 rows; "first" scoped in-sentence | PASS — 5 rows (DLRT, Lamzouri/V2, Knausgård, Bansal–Maji, article 75); §4 scope paragraph |
+| 6 | no bracketed errata | PASS — DLRT comparison written correctly once |
+| 7 | no section contradicts another; no addendum | PASS — single integrated v2; §0 records history instead |
+| 8 | formal record table-only; no infra narration | PASS — §6 table + one ledger-pointer sentence (permitted) |
+| 9 | internal vocabulary ≤ 3 glosses | PASS — no dossier/pilot/tranche/G-probe tokens in body prose; donor names are corpus names |
+| 10 | citations spot-checked (5+) | PASS — R1 audit §4 (ZetaZerosV2 `:130/:149` line-exact, logs, wc, git) + R3 tables §1 prints |
+| 11 | README row in same commit | satisfied via runbook STEP 7 (noted here, executed at swap) |
+| 12 | superseded files marked; record claims git-checked | PASS — §0 verified against `c540682` vs `4e19304` |
+
+Rubric floor: (a) precision 2, (b) status honesty 2, (d) citations 2. Evidence cells all
+filled from R3's audits (integrity §1.2 + tables §1 + cross-check relay); no unfilled
+slots. The proposal header above is stripped at swap (runbook STEP 1 paste rule).

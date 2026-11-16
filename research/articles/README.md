@@ -1,57 +1,59 @@
-# Research articles — one per discovery
+# Research articles — iteration 4 index
 
-Written 2026-11-09 at project close, per the user's standing instruction conveyed in the
-close-out session ("a complete research article for each discovery, each in its own file,
-not mixed"; no in-repo instruction file exists — citation corrected 2026-11-10).
-Each article is self-contained: statement, proof, formal-verification record (Lean
-declarations, files, axioms, binders), relation to prior work, limitations. Every Lean claim
-is backed by `research/pilots/<NN>/logs/axcheck-final.log` (final sweep: 29/29 files OK,
-0 sorryAx, axioms ⊆ {propext, Classical.choice, Quot.sound}).
+Honest counts — **FINAL, orchestrator-ratified 2026-11-16**: **5 discovery-grade** ·
+**7 technical records & formalizations** · **4 notes/certificates (1 pending a branch
+decision)** + 3 relocated notes — down from 17 article files for both cycles. Not every
+verified artifact is an article: donor swaps, binder discharges, statement layers and
+closure notes live in dossiers/ledger rows (§C) with full verification records. Article
+gate: `TEMPLATE-iter4.md` (mandatory). Discovery bar: R2's S1–S4 and the R1 editorial
+rubric (`qa/iter4-review/r2-discovery-strength.md` §4, `r1-articles-editorial.md`).
+Status strings below use the template's closed vocabulary (PROVED-UNCONDITIONAL /
+PROVED-CONDITIONAL / CERTIFIED-NUMERIC / PAPER-ONLY; "at donor pin" flags a donor
+toolchain substrate).
 
-| # | article | kind | status |
-|---|---|---|---|
-| 01 | [An Exact Five-Defect Identity for the Rank–Trace Inequality](01-inertial-defect-master-identity.md) | new theorem (linear algebra) | **proved, unconditional** (Top-3 #3) |
-| 30 | [The ETH-Appendix Operators Q_s Are Second Differences of Number Operators](30-boson-operators-second-difference-closed-form.md) | new closed form + refutation of a project-formulated conjecture | **proved, unconditional** (general moment identities: paper proof, instances kernel-checked) |
-| 52 | [A Statistics-Universal Creation–Annihilation Calculus](52-statistics-universal-occupation-calculus.md) | axiomatization + ε-universal dual-family lemma (formal-first) | **proved, unconditional** |
-| 32 | [The Exact Savings Frontier of the Corollary-31 Certificate Class](32-rc-savings-frontier.md) | new theorem (complexity/analysis) | **proved**; crossing point as a parameter |
-| 42 | [Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions](42-quadratic-dedekind-zeta-zero-proportions.md) | first formal ζ_K on-line zero-proportion lower bounds (formal-first; "zero-density" = N(σ,T) bounds — wrong term, retired) | **proved, certificate-conditional** (Top-3 #1) |
-| 20 | [The Common-Zero Seam](20-common-zero-seam-dedekind-zero-density.md) | conditional interface (engine seam) + knowledge-level seam analysis | conditional core **proved**; hCZ analysis on paper |
-| 11 | [A Call-Charged Reduction Calculus for Fine-Grained Complexity](11-call-charged-reduction-calculus.md) | formal calculus for folklore composition (acceptance-tested on donor Thm 19) | M1 **proved**; Theorem B(ii) TM2 realization **proved** (Cycle 2, on three eth interface hypotheses); word-RAM half + M3 open |
-| 50 | [Zero-Free Regions Cannot Improve Window-Certificate Constants; Formal Strip Confinement](50-zero-free-regions-cannot-move-certificate-constants.md) | source-verified structural observation (knowledge-level; about the donor's proof architecture) + formal corollary of a donor-printed statement | Part I source-verified argument; Part II **proved, binder-conditional** |
-| 21 | *(moved)* certified numerical comparison → `research/pilots/21-certified-comparison.md` (certificate, not an article per the Iter-4 strength bar) | numerical certificate | **certified numerically** (not kernel-verified); content folded into dossier 02's case study |
-| 22 | [The Prime Number Theorem in ψ-Form from Mathlib's Wiener–Ikehara](22-pnt-psi-form-from-mathlib-wiener-ikehara.md) | formalization (classical theorem) | **proved, unconditional** — not new mathematics |
-
-Ordering above is by how new the mathematics is (01, 30, 52, 32 first), not by triage
-rank. Honest counts under the Iter-4 strength bar
-(`qa/iter4-review/r2-discovery-strength.md`): **5 discovery-grade articles (01,
-30, 32, 42, 75 — 75 conditional), 9 technical records, 1 numerical certificate moved
-out of articles (21), 2 records merged (42-M4, 50-M2).** Candidates without a Lean or certified result (02, 03, 10, 12, 31, 40, 41, 51, 60) remain
-proposals in `research/candidates/` and have no article; dossier 10 (Top-3 #2) is cleared to
-pilot (G1 audit CASE A) and its first milestone (M1 = L3, `exists_tm_space`) is proved
-axioms-clean (`pilots/10-blueprint.md`), but the headline refutation still needs L1/L2, so it has
-no article yet.
-
-## Cycle 2 (2026-11-13 → 2026-11-14) — articles
-
-One article per Cycle-2 deliverable, each standalone; kind column carries the strength-bar class. Every Lean claim is backed by the
-Cycle-2 final sweep (`feasibility/VERIFICATION-LEDGER.md` §9.F: 44/44 stages OK, 0 sorryAx,
-axioms ⊆ {propext, Classical.choice, Quot.sound}; per-pilot `pilots/*/logs/axcheck-c2-final.log`).
+## A. Discovery-grade
 
 | # | article | kind | status |
 |---|---|---|---|
-| 75 | [Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower](75-abelian-assembly-zetaL-proportions.md) | conditional statement-class first (first ζ_L proportion statements; component-proportion binders = the open core; assembly mathematics is corollary-level) | **proved, conditional** on component-proportion hypotheses (the open core); 5/6 arm + ℚ-instantiation carried to Iteration 4 |
-| 42-M4 | [ζ_K Zero Proportions with an Unconditional ζ-Column](42M4-zetaK-proportions-unconditional-zeta-column.md) | donor-swap upgrade of article 42 — on-line proportion lower bounds (formal-first); no new mathematics (§1 Honesty) | **proved**; ζ-side unconditional in Lean (ZetaZerosV2 imported), χ-side conditional |
-| 71 | [The s-Plane Zeta of a Curve over 𝔽_q](71-splane-zeta-curve-dictionary.md) | formalization-first (Weil 1948) + a forced statement correction | **proved, conditional** on `WeilData` (the Weil conjectures as a hypothesis structure) |
-| 73 | [Hecke L-Series over 𝔽_q[T] in Lean, I](73-formal-tate-dictionary-function-field.md) | formalization-first statement layer (technical record; hRat/hPur never discharged; Q4 pending) | **proved at Tier C**, under rationality/purity hypotheses; Q4 (rationality discharge) carried |
-| 72 | [The Rényi Monotonicity No-Go Gate (+ family-265 interface layer)](72-renyi-monotonicity-nogo-gate.md) | formal fence around Kuwahara's refutation (the no-go is his, arXiv:2610.15199; N1–N3 are textbook) + interface layer | **proved** (gate unconditional given the `hKL` family); interface theorem carried |
-| 50-M2 | [Unconditional Strip Confinement for ζ and Dirichlet L](50M2-unconditional-strip-confinement.md) | binder discharge of article 50's shell — formalizes the openai preprint's own Cor. 1.2 (technical record; no new mathematics) | **proved, unconditional** for ζ (1/8 ≤ Re ρ ≤ 7/8; openai 7/8 donor, G7b-audited); Dirichlet with one FE hypothesis |
-| 10 | [Toward One Machine for All k: Space-Certified Layers](10-layers-toward-uniform-poly-space-eth-refutation.md) | certified layers toward an OPEN headline (technical record) | **HEADLINE OPEN** — three layers proved (M1/L1/L2, 151 thms ⊆ triad); assembly tranche carried to Iteration 4 |
-| 11 | [A Call-Charged Reduction Calculus](11-call-charged-reduction-calculus.md) §Cycle-2 addendum | Theorem B(ii): TM2 realization | **proved** (on three eth interface hypotheses) |
-| 22 | [The PNT in ψ-Form](22-pnt-psi-form-from-mathlib-wiener-ikehara.md) §Cycle-2 closure note | knowledge-level closure | upstream PrimeNumberTheoremAnd @ 938912bb proves StrongPNT (T2b retired) |
+| 01 | [An Exact Five-Defect Identity for the Rank–Trace Inequality](01-inertial-defect-master-identity.md) | new theorem (linear algebra) | Thms 1–3 PROVED-UNCONDITIONAL |
+| 30 | [The ETH-Appendix Operators Q_s Are Second Differences of Number Operators](30-boson-operators-second-difference-closed-form.md) | new closed form + refutation of a project-formulated conjecture (B2) | refutation/closed form/spectral/commutativity PROVED-UNCONDITIONAL; moment identities PAPER-ONLY with kernel-checked instances |
+| 32 | [The Exact Savings Frontier of the Corollary-31 Certificate Class](32-rc-savings-frontier.md) | new theorem (frontier function Γ(ε), phase transition); constants superseded at birth — caveat carried in-article | frontier/uniqueness/transition PROVED-CONDITIONAL (crossing existence carried as parameter, PAPER-ONLY); `frontier_nonempty_iff` PROVED-UNCONDITIONAL |
+| 42 | [Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions](42-quadratic-dedekind-zeta-zero-proportions.md) | new statement class, corollary-level assembly; v2 = merged 42 + 42-M4 (2026-11-16) | Thms 1–3 PROVED-CONDITIONAL (χ-column = zeta23 Thm E as binder — the open core); ζ-column PROVED-UNCONDITIONAL (ZetaZerosV2 import, triad-audited) |
+| 75 | [Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower](75-abelian-assembly-zetaL-proportions.md) | new statement class (n+1-factor schema) under named open binders — conditional billing in title/abstract | Thms A–B PROVED-CONDITIONAL (component proportions = the open core); strip-distinct arm + ℚ-instantiation (N2) carried |
 
-Ordering is by strength-bar class. Formalization-first items (71, 73, 22) are technical
-records of classical mathematics (Weil 1948; Tate/Weil/Rosen; Hadamard–dVV), not
-discoveries. Knowledge-level records (the Liu-1 constant story, the QR-D race state
-incl. the QuasiRiemannTracker audit and the formal Dirichlet frontier 0.8733458561)
-live in dossier 70's standing notes and the verification ledger, not in articles. Dossier 74 (surprisal-moment ceilings) has no pilot this cycle and no
-article; it is carried to Iteration 4.
+## B. Technical records & formalizations
+
+| # | article | kind | status |
+|---|---|---|---|
+| 11 | [A Call-Charged Reduction Calculus for Fine-Grained Complexity](11-call-charged-reduction-calculus.md) | formal calculus for folklore composition, acceptance-tested on donor Theorem 19 (M2 integrated into the body, 2026-11-16) | Thms 1 PROVED-UNCONDITIONAL; Thms 2–3 PROVED-CONDITIONAL (donor claim binders); Thm B(ii) `tm2_realized_composed` PROVED-CONDITIONAL (EthExistsTm, EthPoly, EthIsPoly); word-RAM half + M3 open |
+| 20 | [An Interface Theorem for Zero-Proportion Engines](20-engine-seam-interface.md) | conditional interface + the two multiplicity-merging lemmas — technical record; the seam analysis moves to `pilots/20-seam-analysis.md` (dossier-grade note) | Thms 1–3 + merging lemmas PROVED-CONDITIONAL (Card20/TracesFamily/EngineStep; hz/hw, hfamz/hfamw); `merged_mult_of_common` PROVED-UNCONDITIONAL; seam Prop (old Thm 5) PAPER-ONLY in the note, not the article |
+| 22 | [The PNT in ψ-Form](22-pnt-psi-form-from-mathlib-wiener-ikehara.md) | formalization of a classical theorem — the corpus's honesty exemplar | M1–M4 PROVED-UNCONDITIONAL; T2b closed by upstream (note destined for dossier 22/survey) |
+| 50 | [What the 7/8 Half-Plane Buys](50-zero-free-regions-cannot-move-certificate-constants.md) | technical record (v2 = merged 50 + 50-M2, 2026-11-16): Part II formal corollary + its discharge + Part I source-verified structural observation (knowledge-level — never "theorem" billing) | ζ strip confinement 1/8 ≤ Re ρ ≤ 7/8 PROVED-UNCONDITIONAL **at donor pin** (openai 7/8 donor, G7b-audited); Dirichlet PROVED-CONDITIONAL (hFEχ); Part I PAPER-ONLY (source-reading) |
+| 52 | [A Statistics-Universal Creation–Annihilation Calculus](52-statistics-universal-occupation-calculus.md) | axiomatization + ε-universal dual-family lemma (formal-first) | Thms 1–5 PROVED-UNCONDITIONAL (Thms 1, 3 without Classical.choice); physlib `ExchangeSign` nearest-neighbor note destined for `novelty/` |
+| 71 | [The s-Plane Zeta of a Curve over 𝔽_q](71-splane-zeta-curve-dictionary.md) | formalization-first that **forced a statement correction** (the false s ≠ 1 pole clause) — earns article status | W1/W2/HW PROVED-CONDITIONAL (WeilData = Weil conjectures as hypothesis structure) |
+| 72 | [A Kernel-Verified Fence for Kuwahara's Refutation of the Rényi Area Laws](72-renyi-monotonicity-nogo-gate.md) | kernel-verified fence around **Kuwahara's** refutation (external theorem, d ≥ 2, carried as hypothesis hKL; the stated boundary-linear log-rank no-go is ours) + interface layer | N1/N2a/N2b PROVED-UNCONDITIONAL; N3a/N3b PROVED-CONDITIONAL (hKL + boundary + the negated law); M1 links 1–3 PROVED-UNCONDITIONAL; link 4 + interface theorem carried |
+
+## C. Notes, certificates & addenda (low-billing tier; verification records live in dossiers/ledger)
+
+*Section note: "not articles" applies to every row except 10, which KEEPS article status
+as a relabeled technical record (orchestrator resolution, 2026-11-16) and is listed here
+for low billing — its row leads with the open headline.*
+
+| item | home | note |
+|---|---|---|
+| 10 | [Toward One Machine for All k: Space-Certified Layers](10-layers-toward-uniform-poly-space-eth-refutation.md) — KEEPS article status, renamed 2026-11-16 | M1/L1/L2 PROVED-UNCONDITIONAL as layers; **headline OPEN**; assembly tranche D1–D6 carried to Iteration 4 |
+| 21 | [quartic-window certificate study](../pilots/21-quartic-window-certificate.md) — DEMOTED 2026-11-16 (formerly article 21); case-study stub in dossier 02 | Proposition **computationally certified (external script, not kernel-verified, excluded from proved-artifact counts)** — R3's wording, applied at every mention incl. the abstract marker; family evidence PAPER-ONLY |
+| 50-M2 | folded into article 50 v2 as its Part II discharge section (2026-11-16); ops narration → ledger pointers | ζ strip confinement PROVED-UNCONDITIONAL at donor pin; Dirichlet PROVED-CONDITIONAL (hFEχ) |
+| 73 | demoted to dossier/pilot record 2026-11-16 — [`candidates/73` outcome record](../candidates/73-function-field-hecke-tate.md) | C.lean layer PROVED-CONDITIONAL (hRat/hPur binders, never discharged); Q4 carried; re-article condition = runbook-file branch 2 |
+| 22-T2b closure note | dossier 22 / `survey/axiommath-pntplus.md` (out of the article file; deferred with its owning dossier) | closed-by-upstream (PrimeNumberTheoremAnd @ 938912bb); cite upstream, not us |
+| 52 physlib addendum | `novelty/physlib-surface.md` standing notes (deferred with its owning dossier) | dated nearest neighbor; theorems unaffected |
+| 42-M4 file | retired on merge into 42 v2 (2026-11-16) — integrated merge, not an addendum | edit history preserved in 42 v2 §0 (c540682 vs 4e19304) |
+
+Retired/superseded pointers: article 42 v1 (replaced in place by v2, 2026-11-16);
+42-M4, 50-M2, 73 article files (retired; frozen cycle records carry dated drift-notes);
+dossier-only items 02, 03, 12, 31, 40, 41, 51, 60, 74 remain proposals without articles.
+
+Restructuring provenance: iteration-4 review lanes R1 (editorial audit + swap-in
+runbook), R2 (discovery-strength bar + 20/72 rewrites), R3 (verification tables — all
+status rows above trace to per-declaration axiom prints); files under
+`qa/iter4-review/`.

@@ -710,8 +710,11 @@ not expected at ~40 modules).
   zeros, **fixed abelian/quadratic K, GRH-conditional, T→∞ asymptotic** (A5 P2-3 scope
   flip; re-confirmed by arXiv sweep 2026-11-16). Comparison stays
   hypothesis-shape-to-hypothesis-shape (structural binders remain on our side).
-- Bansal–Maji, arXiv:2507.18121 — Hardy-type *infinitude* of on-line zeros for any
-  number field; nearby family, weaker shape.
+- Bansal–Maji, arXiv:2507.18121 (v1 2025-07-24, 25 pp., R7 card C.1) — via a
+  number-field Jacobi-theta relation, **infinitely many** nontrivial zeros of ζ_F on
+  Re(s) = 1/2 for **any** number field F (Hardy-type, unconditional at abstract level;
+  no proportion claimed — cite the main application (abs) until the PDF is pulled);
+  nearby family, weaker shape.
 - Our articles 42 / 42-M4 / 75 — the statement family being upgraded; 42-M4's ζ-column
   discharge is the template for this χ-column discharge.
 - zeta23 preprint (the factor theorems' source); Lamzouri/V2 and Knausgård (sharper ζ
@@ -765,6 +768,24 @@ Net: registration in Iter-4 at zero slot cost; pilot deferred and possibly never
 infrastructure chore (FB-2 registration), three non-slots (FB-3 dead, FB-4/FB-5 queued
 to Iter-5 as technical-record material). None of the five competes with §10-hEχ,
 §12-01-stability, or §12-32-crossing for the cap-N=2 discovery quota.
+
+**Gate outcomes landed (R7 §A/§B, folded 2026-11-16 — the §11 gates are RESOLVED):**
+- **FB-1 gates (a)+(b): both clear.** R1-ii (zero-temperature dual limit) = NEAREST-MISS
+  (no dual/potential statement anywhere in the arXiv sweep; nearest = Mengue 2501.19369,
+  a primal-pressure limit); R2 (substitution-rule soundness) = NOVEL question type,
+  canonical nearest-miss = Allamigeon–Benchimol–Gaubert–Joswig 1308.0454; Truffet
+  kill-check = NO KILL (neighborhood clean; cite Truffet 2603.26423 v4 as
+  target-of-refutation + classical sibling 2604.06726). One structural caution:
+  **Gwozdz 2607.16881** (entropic OT need not select a zero-temperature limit) — R1-ii
+  is honest only in the finite-support regime; the dossier must say so. CDPS body =
+  paywalled-unverified (conditional class). Verdict update: **FB-1 stays ITER-4-WATCH,
+  grade B→B+** (per R7's relay to R6).
+- **§12.1's two mandatory LIT sweeps: both CLEAR.** No quantitative von Neumann trace
+  stability exists at arXiv level (nearest: Guterman–Wolf 2607.28061 refinement;
+  Hastings 0808.2474 / H. Lin as the structural almost-commuting template — with the
+  v4 Filonov–Kachkovskiy hygiene note); no quantitative Schur–Horn stability (nearest:
+  Chen–Li 2407.00701 continuity). The 01-stability rung is **unobstructed**; nearest-
+  miss rows for the paper tranche are now named. (R7 §B.)
 
 ---
 

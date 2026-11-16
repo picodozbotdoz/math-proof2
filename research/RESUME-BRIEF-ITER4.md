@@ -49,6 +49,20 @@ charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
    discipline breached — the eventual swap-in completion commit carries a dated note to
    this effect per the frozen-record convention). The hardened rule caught a second
    in-flight staging (the 21-rename) the same hour and unstaged it cleanly.
+   **Second sweep, same class:** commit `1719115` (R6 Wing check) swept the staged
+   article-20 deletion (R1's 20-split step) — the rule-2 check PRINTED the foreign
+   entry but H failed to enforce step (b); ruled authorized, no revert. Both incidents
+   fold into the swap-in completion note: "deletions for steps 1–3 and the 20-split
+   landed early in bb969c0/1719115 — H index-sweep incidents, ruled authorized;
+   per-step commit discipline superseded by end-batch."
+   **PAUSE PROTOCOL (orchestrator, 2026-11-16, effective until R1's swap-in completion
+   report):** H commits NOTHING autonomously — commits only on explicit orchestrator
+   signal (the shared-index race cannot be check-then-committed reliably while R1
+   stages mid-step). Rule 2 is a HARD GATE: any staged line H did not stage ⇒ stop,
+   unstage foreign entries, re-verify, commit in a separate command. **At R1
+   completion (on signal):** (1) census verification first (articles end-state per the
+   runbook); (2) stage the FULL swap-in changeset deliberately (R1 leaves everything
+   worktree-only); (3) ONE serialized commit carrying the incident notes above.
 6. Modal ONLY via the doz CLI `/home/doz/dozenv/bin/modal` (`sudo -n -u xyz` is blocked
    in this env); NEVER local lake/lean builds. `AGENTS.md` § Modal usage guidelines is
    mandatory: defaults cpu=2.0/memory=4096, telemetry in every run,

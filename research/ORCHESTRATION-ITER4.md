@@ -6,7 +6,7 @@ block spliced; review phase CLOSED at L1). Maintained by H on orchestrator signa
 
 | Lane | Role | Current task | Status | Last update |
 |---|---|---|---|---|
-| H | helper/infra (branch, commits, probes, tracker) | L1+L2 executed; standing by for phase-B lane outputs + batch commits | idle | 2026-11-16 |
+| H | helper/infra (branch, commits, probes, tracker) | Swap-in close-out executed (census 15 PASS; one serialized commit); pause LIFTED — normal rule-2 cadence; holding other lanes' unreported phase-B files (Pb.lean, al3d/*, P72M1T3, week1-agenda, R6/R7 touches) | active | 2026-11-16 |
 | R1 | articles editorial audit | review CLOSED (L1); articles swap-in runbook staged — executes on orchestrator GO only | closed | 2026-11-16 |
 | R2 | discovery-strength audit | review CLOSED (L1); strength bar S1–S4 chartered (RESEARCH.md §Iteration 4) | closed | 2026-11-16 |
 | R3 | verification integrity audit | review CLOSED (L1); axcheck_iter4.py = default sweep config; count remainder at close STEP-5 | closed | 2026-11-16 |

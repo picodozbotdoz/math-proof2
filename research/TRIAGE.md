@@ -351,6 +351,13 @@ the three-layer certificate stack completes; article 10 promoted FINAL by the
 orchestrator's 2026-11-14 decision, assembly tranche honestly carried, headline a
 target not a claim) and [VERDICT:11-M2] (A8 formal report — Theorem B(ii) completes and
 article 11's addendum closes; article Status line carries "+ M2 COMPLETE").]**
+[iter4 2026-11-16 drift-note: article 20 split (R1 runbook STEP 4c) — new article
+`articles/20-engine-seam-interface.md`, seam analysis moved to
+`pilots/20-seam-analysis.md`, old `20-common-zero-seam-dedekind-zero-density.md` retired;
+rows citing "article 20" for the seam now cite the note. Separately: article 10 renamed `10-layers-toward-uniform-poly-space-eth-refutation.md`;
+article 11's Status line now the integrated per-theorem table (R1 runbook STEP 3); the
+"+ M2 COMPLETE" phrasing is retired; LoC/theorem counts in the ledger below corrected by
+R3 §4 F4 (M4b 70 decls; L1 27 public; P11T3 110 public).]
 
 **Empirical cost ledger (typeset verbatim from this file's block above):** C-neg 369/11
 (S confirmed) · M4a 1,194/54 (≈180 delta) · M4b 1,560/66 fallback + axcheck 68/68 + 1,571/68 primary FINAL artifact (A3 formal report LANDED; M4c(i) discharged) (M) ·

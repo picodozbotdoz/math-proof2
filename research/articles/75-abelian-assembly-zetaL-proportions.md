@@ -4,8 +4,8 @@
 milestone proved; the strip-distinct arm and the ℚ-instantiation carried to Iteration 4) ·
 dossier `research/candidates/75-abelian-assembly-zetaL-proportions.md` (split out of
 dossier 70, Part B) · spec `research/pilots/75-prework.md` · Lean `research/pilots/75/Pa.lean` ·
-sibling articles `42-quadratic-dedekind-zeta-zero-proportions.md`,
-`42M4-zetaK-proportions-unconditional-zeta-column.md`*
+sibling article `42-quadratic-dedekind-zeta-zero-proportions.md` (v2, merged with the
+former 42-M4 donor-swap article)*
 
 **Status: PROVED (entry milestone), FINAL for Cycle 2 — discovery-grade at the statement-class level only (strength bar S4(b)); the assembly mathematics is corollary-level and every analytic input is an open binder.** The n+1-factor assembly theorem
 `zetaL_assembly_landed` and its 2/3 instantiation `zetaL_two_thirds_conditional` are
@@ -49,7 +49,8 @@ The nearest prior result we found is de Laat–Rolen–Tripp–Wagner (DLRT, arX
 For a *fixed quadratic* K, assuming GRH, asymptotically in T, they show > 45% of zeros
 are distinct, via semidefinite programming. They state nothing for critical-line
 proportions of ζ_L with [L : ℚ] > 2, nothing unconditional, and nothing uniform in K
-(novelty close-read: `novelty/round-4.md` P2-3).
+(novelty close-read: `novelty/round-4.md` P2-3); and, beyond DLRT, the unconditional
+on-line *infinitude* of Bansal–Maji (arXiv:2507.18121) — infinitude, not proportion.
 
 **The observation.** When ζ_L factors as a product of entire (or, for ζ_K, meromorphic
 with a single pole at s = 1) functions, the multiplicity of a zero ρ ≠ 1 of ζ_L is the sum
@@ -205,12 +206,21 @@ Theorem B is Theorem A with c* = c₀' = c_i = 2/3. The ζ_K input is lowered fr
 
 ## 6. Relation to prior work
 
-- **Article 42 / 42-M4** (this project): the n = 1 case (ζ_K = ζ · L(s, χ_D)). Article
-  42-M4 replaces the ζ-column certificate by ZetaZerosV2's unconditional Lamzouri
-  endpoints. That replacement is what N2 would carry over to ζ_L for base K = ℚ.
+- **Article 42 v2** (this project; the 2026-11-16 merge of the v1 assembly article and
+  the former 42-M4 donor swap): the n = 1 case (ζ_K = ζ · L(s, χ_D)), with the ζ-column
+  certificate replaced by ZetaZerosV2's unconditional Lamzouri endpoints. That
+  replacement is what N2 would carry over to ζ_L for base K = ℚ.
 - **DLRT (arXiv:1908.04876):** distinct zeros (> 45%) for a fixed quadratic K, under
   GRH, asymptotic in T. It is the nearest neighbour in statement shape, but different in
   kind: distinctness rather than on-line, a fixed quadratic field, and GRH-conditional.
+- **Bansal–Maji, arXiv:2507.18121** (D. R. Bansal, B. Maji, *Number Field Analogue of
+  Jacobi Theta Relation And Zeros of Dedekind zeta function on Re(s)=1/2*, v1
+  2025-07-24): via a number-field Jacobi-theta relation, infinitely many nontrivial
+  zeros of ζ_F lie on Re(s) = 1/2 for **any** number field F — Hardy-type,
+  unconditional at abstract level, no proportion claimed. The strongest on-line
+  statement for general ζ_L in the literature; weaker in kind (infinitude, not
+  proportion) — an infinitude theorem cannot feed Theorem A's component-proportion
+  hypotheses; a proportion theorem would.
 - **DedekindZetaZeroFree (AxiomMath):** supplies the abelian factorization and
   zero-free regions. It has no counting results.
 - **Liu (arXiv:2610.26835) and Cureton–Thorner:** half-plane nonvanishing for Hecke
@@ -234,7 +244,8 @@ Theorem B is Theorem A with c* = c₀' = c_i = 2/3. The ζ_K input is lowered fr
 4. **Strip-distinct 5/6 (P-b):** the defect-form and negligibility-form distinctness
    statements over the tower. They are designed in `pilots/75/Pb-design.md` (about
    +0.2–0.3k lines) and not proved here. The negligibility form inherits the
-   conjecture-grade status of the common-zero hypothesis (`pilots/20-hCZ-NOTE.md`).
+   conjecture-grade status of the common-zero hypothesis (`pilots/20-hCZ-NOTE.md`;
+   analysis in the seam note `research/pilots/20-seam-analysis.md`).
 5. **No per-field uniformity:** all statements are asymptotic in T for a fixed tower.
    Nothing is uniform over discriminants.
 
@@ -243,11 +254,14 @@ Theorem B is Theorem A with c* = c₀' = c_i = 2/3. The ζ_K input is lowered fr
 - Pilot files: `research/pilots/75/Pa.lean` (lines 1202–1541 new; the declarations
   named in §3), `pilots/75/logs/run6-final.log`, `pilots/75-prework.md`,
   `pilots/75/Pb-design.md`.
-- Pilot-42 stack: `research/pilots/42/{M1,M2a,M3,M2b,M4a,M4b}.lean`; articles 42 and 42-M4.
+- Pilot-42 stack: `research/pilots/42/{M1,M2a,M3,M2b,M4a,M4b}.lean`; article 42 v2
+  (merged 2026-11-16; the standalone 42-M4 file is retired into it).
 - AxiomMath DedekindZetaZeroFree: `EntireAbelianQuotient.lean:13`
   (`dedekindAbelianQuotient`), `AbelianRayCharacterFactorization.lean:62`
   (`abelianFactorization`). AxiomMath ZetaZerosV2: `ZetaZeros/Main.lean:47,88`.
 - D. de Laat, L. Rolen, Z. Tripp, I. Wagner, arXiv:1908.04876 (scope as corrected in `novelty/round-4.md` P2-3); Y. Lamzouri,
-  arXiv:2609.02882; Liu, arXiv:2610.26835.
+  arXiv:2609.02882; Liu, arXiv:2610.26835. D. R. Bansal, B. Maji, *Number Field
+  Analogue of Jacobi Theta Relation And Zeros of Dedekind zeta function on Re(s)=1/2*,
+  arXiv:2507.18121 (main application, abs-level cite).
 - Novelty: `research/novelty/VERDICTS.md` (Cycle-2 row 75),
   `research/novelty/axiommath-as-donor.md` §(f).

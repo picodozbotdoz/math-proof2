@@ -404,3 +404,5 @@ any future external-tree consumption (Majdoddin's tree is the obvious next donor
   RiemannZetaHadamard). `hCert`/`hK673`/`hK839` dropped on the ζ side. Article:
   `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` (standalone by
   orchestrator decision; [VERDICT:M4b] and [VERDICT:M4b-upgrade] both FILLED-FINAL).
+  [iter4 2026-11-16 drift-note: that standalone file is retired — merged into article 42
+  v2 (`articles/42-quadratic-dedekind-zeta-zero-proportions.md`); R1 runbook STEP 1.]

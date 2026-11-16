@@ -1,10 +1,32 @@
 # GO-READINESS — Iteration-4 launch gate table (R4-maintained; orchestrator reads at each drain)
 
+> ## CLOSED — GO EXECUTED 2026-11-16 (phase B active)
+>
+> **L1 = `226fa08`, L2 = `808c809`, R7-fix = `e118f50`. R4 verification at GO:**
+>
+> | check | result | verdict |
+> |---|---|---|
+> | L2 grep 1 — `^## Iteration 4` in RESEARCH.md | 1 | PASS |
+> | L2 grep 2 — C1 close-out record paragraph | present at RESEARCH.md:41, byte-exact per Part-2 C1 text | PASS (R4's grep pattern omitted the bold markers — pattern erratum, application exact) |
+> | L2 grep 3 — C2 debts line | "(b)(c)(d)(e)(i) CLOSED" present ×1; old "(f)(g)(h)(i)–(m)" absent | PASS |
+> | L2 grep 4 — C4 LoC direction | "LoC corrected 279→282-disk" present ×1 | PASS |
+> | L2 grep 5 — STATUS opened block | "^## Iteration 4 (opened 2026-11-16)" present ×1 | PASS |
+> | L2 grep 6 — INDEX two-direction reconciliation | 304 disk files (excl. logs/data): 140 individually indexed, remainder dir-/group-covered; **1 residual: no INDEX row for `feasibility/iter4-donor-unblock-plan.md`** (L1-committed); zero dangling INDEX entries | PASS-with-nit — row routed to H (rides next phase-B commit) |
+> | L2 grep 7 — date discipline | no future/split-mind dates in the five top records | PASS |
+> | L2 grep 8 — C5 REPORT §C2.6 | new phrase present ×1; "discovery-grade core" absent | PASS |
+> | L1 closure — file-set diff vs r4 §13 L1 list | all 19 spot-checked list files tracked (incl. `axcheck_iter4.py` ✓, AGENTS-ITER4-DRAFT ✓, gate-run record ✓); L1 additionally swept later review work in-scope (r1-review-r2-rewrites, r9 +318, r2-rewrite-72 updates); working tree carries only phase-B edits (candidates/76, fresh-bridges, r1/r2 rewrites) — no review-phase stragglers | PASS |
+> | R7-fix `e118f50` | additive (r7-bib-cards.md 278 ln + INDEX row + digest entry); no regression to greps 1–8 | PASS |
+>
+> **Verdict: GO verification 8/8 PASS (grep 6 with one routed nit). This checklist is
+> CLOSED; phase B is active. R4's A8 assignment (72-M1 L3a, then 22-T2a G9) begins —
+> progress reports at drain.**
+
 Header-dated 2026-11-16, lane R4. Live state re-verified against disk + git at each
 orchestrator signal; states below are as of this writing (HEAD `f2bbc17` + worktree).
 GO = orchestrator fires L2 (the splice commit, mechanics in
 `r4-process-completeness.md` §13). **Blocking set is exactly three rows: R9-final,
-R7, L1** — everything else rides post-GO by design.
+R7, L1** — everything else rides post-GO by design. *(Table below = pre-GO state,
+frozen for provenance at GO.)*
 
 | # | Item | Owner | State (2026-11-16) | Blocking GO? |
 |---|---|---|---|---|

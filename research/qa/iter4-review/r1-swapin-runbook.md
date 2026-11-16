@@ -45,7 +45,7 @@ tables drain (orchestrator signals).
 
 Verify:
 - `test ! -f research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md`
-- `rg -n "42M4-zetaK" research/articles/` → 0 hits
+- `rg -n "42M4-zetaK" research/articles/` → 0 live links (the v2 supersedes-byline naming the retired slug is the sanctioned record — expect exactly that one hit)
 - `rg -n "erratum 2026" research/articles/42-quadratic*.md` → 0 hits (errata eliminated)
 - `rg -n "c540682" research/articles/42-quadratic*.md` → ≥1 (true edit history present)
 - `rg -n "supersedes" research/articles/42-quadratic*.md` → ≥1
@@ -124,14 +124,30 @@ file touched by R2's relabel pass — anchor on the quoted text, not line number
    would)."
 3. References list: add the arXiv entry.
 
-Cite-card slot: full authors/title/theorem number from R7's `r7-bib-cards.md` when it
-lands — **[R7-CITE]**; the arXiv id and the scope above are from R2's §5 q2 sweep and
-R7's relay, safe to print now.
+Cite card (FILLED 2026-11-16 from R7's landed `r7-bib-cards.md` §C.1 — card file at
+`research/qa/iter4-review/r7-bib-cards.md`; verified against the arXiv abstract page by
+R7):
+
+- **Diksha Rani Bansal, Bibekananda Maji**, *Number Field Analogue of Jacobi Theta
+  Relation And Zeros of Dedekind zeta function on Re(s)=1/2*, **arXiv:2507.18121**
+  (math.NT), v1 2025-07-24, 25 pages. Statement (abs): via a number-field Jacobi-theta
+  relation, **infinitely many nontrivial zeros of ζ_F lie on Re(s) = 1/2, for any number
+  field F** — Hardy-type, unconditional at abstract level, **no proportion claimed**.
+  No theorem number visible on the abs page: cite the main application (abs) until the
+  PDF is pulled.
+
+The §6 bullet's contrast sentence (use verbatim): "the strongest on-line statement for
+general ζ_L in the literature; weaker in kind (infinitude, not proportion) — an
+infinitude theorem cannot feed Theorem A's component-proportion hypotheses; a proportion
+theorem would."
 
 Verify:
 - `rg -c "2507.18121" research/articles/75-*.md` → ≥3 (§1, §6, References)
 - `rg -n "infinitude, not proportion" research/articles/75-*.md` → 1
-- `[R7-CITE]` resolved or explicitly carried by R7 at R4's sign-off.
+- `rg -n "Bansal" research/articles/75-*.md` → ≥2 (§1/§6 + References, full author names
+  in the References entry)
+- no cite-card placeholder marker remains in this runbook's STEP 4b (the slot is filled
+  above)
 
 ## STEP 4c — article 20 split (R2's `r2-rewrite-20.md`, adopted §8 REWRITE-FULL; cross-review `r1-review-r2-rewrites.md` §A)
 
@@ -156,8 +172,8 @@ Verify:
 
 Verify:
 - `test -f research/articles/20-engine-seam-interface.md && test -f research/pilots/20-seam-analysis.md`
-- `rg -n "Theorem 5" research/articles/20-engine-seam-interface.md` → 0 hits (Thm 5 lives only in the note)
-- `rg -n "SharedMass|CommonZeroControl" research/articles/20-engine-seam-interface.md` → 0 hits (defs moved with it)
+- `rg -n "Theorem 5" research/articles/20-engine-seam-interface.md` → no claim/proof/statement (3 sanctioned mentions: the byline move description, the §4 provenance note, §5 PAPER-ONLY status row)
+- `rg -n "SharedMass|CommonZeroControl" research/articles/20-engine-seam-interface.md` → no mathematical use (one sanctioned byline mention of the moved definitions)
 - `rg -n "20-seam-analysis.md" research/articles/ research/qa/iter4-review/r1-rewrite-42v2.md research/articles/README.md` → ≥3 (note pointer present in 42v2 + README + the new article's companion line)
 - `rg -n "PROVED (conditional interface)|All 27 theorems" research/articles/20-engine-seam-interface.md` → 0 hits (old dialect/stale count not carried)
 

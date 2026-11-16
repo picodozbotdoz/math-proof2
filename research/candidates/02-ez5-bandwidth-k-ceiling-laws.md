@@ -356,3 +356,11 @@ with an absorbed worked instance), Effort 4 (LP-duality layer is the missing-glu
 stability law and inclusion remain as before) → **proposed rank = 3.5 × 4 ÷ 4 = 3.5**.
 Condition for triage: pilot only if the LP weak-duality layer (item 1) is scoped first — it is
 the rate-limiter and the unclaimed ground.
+
+### Case-study stub (2026-11-16, article 21 demoted here per R2/R1/orchestrator)
+
+The quartic-window certified comparison (ξ′-tuned window does not improve the ζ
+Theorem-D constant; c⋆(1) − c(1, v_quartic) ≥ 3.87·10⁻⁴) now lives at
+`research/pilots/21-quartic-window-certificate.md` — computationally certified
+(external script, not kernel-verified, excluded from proved-artifact counts).
+Dossier owner: fold as §case-study with any bandwidth-k framing you see fit.

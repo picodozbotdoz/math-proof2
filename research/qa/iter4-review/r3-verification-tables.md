@@ -262,9 +262,49 @@ above under these rules with the G-series probe log as the axioms print source.
 
 —
 
+## 10. Iteration-4 landings (LIVE — rows appended as pilots land; Phase B, L2=808c809)
+
+Standing service block. Row conventions per lane, fixed in advance so tables land
+with the pilot, not after:
+
+- **75-Pb** (`pilots/75/Pb.lean`, + shared-ℚ staging d1/d2): Pa-row conventions —
+  PROVED-CONDITIONAL with the full defect-form binder list; the negligibility-form
+  rows inherit hCZ's conjecture-grade note verbatim; N2 `zetaL_two_thirds_landed_ℚ`
+  discharges the ζ-column via the BUILT ZetaZerosV2 library → donor rows per §1's
+  42-v2 convention (`ZetaZeros.simple_proportion_d4`-class rows, on-pin, not D-PIN);
+  Pa rides along as drift-check (its sha at sweep time is the Pa record of standing).
+- **LP** (`pilots/lp/{P0,L1,L2}.lean`): P0 = probe-convention (Step A only, no status
+  rows, stubs enumerated); L1 `lp_weak_duality`-class rows PROVED-UNCONDITIONAL unless
+  binder-carrying (LP consumes no donor — full-coverage audit anyway, per plan §2.1);
+  L2 consumer rows cite L1's declarations by stage (sibling-import staging:
+  `axcheck_iter4.py gen --rewrite L1=AxL1` / make_axcheck TARGETS append).
+- **AL-3D** (`pilots/al3d/*`): statement-layer rows are DEFINITIONS (no status rows);
+  the 3 new statements (`IsColumnClosed3D`/`SlabAreaLawColumnCuts3D`/`PlanarAreaLawVar`)
+  get rows only when a proved rung consumes them; every artifact carries the
+  "B.2-staged" label; [HEAVY-IMPORT] substrate noted per stage.
+- **ZZV2-λ** (`pilots/zzv2-lam/*`): P1/P2 elaborated inside the built ZetaZerosV2 tree
+  → the 42-v2 M4b convention (donor rows PROVED-UNCONDITIONAL (donor) with the
+  donor-tree print source; consumer rows D-PIN-class with pin named; P0(b)-unfavorable
+  = stop-and-report, no rows).
+- **zeta23e** (hEχ donor-pin discharge): §9 conventions verbatim — `Zeta23.ThmE.Final`
+  chain rows PROVED-UNCONDITIONAL (donor) with donor-pin (v4.33.0-rc2 / mathlib
+  51e6992e) print source + transitive audit; OUR consumer rows D-PIN; on-pin consumers
+  (42-v2/75) keep hEχ as a binder until this discharge lands, at which point their
+  tables gain supersession rows, not edits.
+- **72-M1 T3 / 73-Q4 / 22-T2a / 10-D / 11-M3 / 74**: rows on landing, same rules;
+  22-T2a's upstream StrongPNT binder = donor-row convention with the upstream inline
+  axiom check as print source (`survey/axiommath-pntplus.md:90` record).
+
+Table requests processed in landing order; every table cites log:line evidence read by
+this lane, extractor-generated counts only (`axcheck_iter4.py decls`), and the
+coverage class (C1/C2/C3/D-PIN) per audit F2.
+
+—
+
 *Sources: all log lines above were read directly in the R3 audit
 (`qa/iter4-review/r3-verification-integrity.md` §§1–2, 4) except the in-stage rows
 marked by stage verdicts; LoC/theorem-count drifts are tabulated there (§4 F4/F5).
 Lane R3, 2026-11-16. Updated same day: §9 appended (G11/G12 pattern), tool
 implementation `feasibility/probe/axcheck_iter4.py` (audit §7) landed with acceptance
-results in its header.*
+results in its header; §10 appended at Phase B activation (L2=808c809) with lane
+conventions pre-fixed for 75-Pb / LP / AL-3D / ZZV2-λ / zeta23e.*
