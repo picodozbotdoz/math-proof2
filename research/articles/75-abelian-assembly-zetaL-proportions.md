@@ -1,19 +1,33 @@
 # Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower
 
-*cross-math-fronttier research article 75 (Cycle 2) · FINAL (Cycle-2 scope; entry
-milestone proved; the strip-distinct arm and the ℚ-instantiation carried to Iteration 4) ·
-dossier `research/candidates/75-abelian-assembly-zetaL-proportions.md` (split out of
-dossier 70, Part B) · spec `research/pilots/75-prework.md` · Lean `research/pilots/75/Pa.lean` ·
+*kind: DISCOVERY-CONDITIONAL (statement class; strength bar S4(b)) · Iter-4 edition
+2026-11-16 (Cycle-2 scope FINAL + the strip-distinct P-b arm landed in Iteration 4;
+the ℚ-instantiation N2 carried) · dossier
+`research/candidates/75-abelian-assembly-zetaL-proportions.md` (incl. the P-b outcome
+record) · spec `research/pilots/75-prework.md` · Lean `research/pilots/75/{Pa,Pb}.lean` ·
 sibling article `42-quadratic-dedekind-zeta-zero-proportions.md` (v2, merged with the
 former 42-M4 donor-swap article)*
 
-**Status: PROVED (entry milestone), FINAL for Cycle 2 — discovery-grade at the statement-class level only (strength bar S4(b)); the assembly mathematics is corollary-level and every analytic input is an open binder.** The n+1-factor assembly theorem
-`zetaL_assembly_landed` and its 2/3 instantiation `zetaL_two_thirds_conditional` are
-kernel-verified (run6-final: 0 errors, 0 sorry; every declaration's axioms are exactly
-`[propext, Classical.choice, Quot.sound]`). The results are **conditional**: the
-component zero-proportion inputs and the abelian factorization enter as named hypotheses.
-Two planned extensions are not proved here and carry to Iteration 4: the 5/6
-strip-distinct arm (P-b) and the partly unconditional instantiation over ℚ (N2).
+Discovery-grade at the statement-class level only (strength bar S4(b)): the assembly
+mathematics is corollary-level and every analytic input is an open binder. All six
+landings below are kernel-verified on mathlib `ff2494ea` / Lean v4.36.0-rc2, axioms
+exactly `[propext, Classical.choice, Quot.sound]`, 0 sorry / 0 sorryAx, zero donor
+imports (`hAbFac` is the statement-quoted mirror of DZDF `abelianFactorization`, never
+imported).
+
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thm A `zetaL_assembly_landed` (`Pa.lean:1473`) | PROVED-CONDITIONAL | structural: hK/hF (analyticity), hntopK/hntopF, hAbFac (factorization mirror), hfinK/hfinL/hfinF (window finiteness), hcK/hcF (constants); open core: hAK/hAF (component on-line proportions) | `pilots/75/logs/run6-final.log:31` — triad [R3 tables §6] |
+| Thm B `zetaL_two_thirds_conditional` (`Pa.lean:1525`) | PROVED-CONDITIONAL | idem + certificate slot hCert + hK673 (Knausgård 0.67353… ≥ 2/3); hAF at 2/3 | `run6-final.log:32` — triad [R3 tables §6] |
+| Pb-1 `zetaL_assembly_distinct_defect_landed` (`Pb.lean:2144`) | PROVED-CONDITIONAL | structural tier as Thm A; open core: hAKd/hAFd (component strip-distinct proportions) | `pilots/75/logs/pb-run11-final.log` — triad |
+| Pb-2 `zetaL_assembly_distinct_landed_of_negligible` (`Pb.lean:2191`) | PROVED-CONDITIONAL | idem + hCZStripFam (summed common-strip-defect negligibility; by-design binder, conjecture-grade) | idem — triad |
+| Pb-3 `zetaL_distinct_five_sixths_strip_conditional` (`Pb.lean:2229`) | PROVED-CONDITIONAL | idem + certificate slot hCert + hK839 (Knausgård 0.83900 ≥ 5/6); hAFd at 5/6 | idem — triad |
+| Pb-3′ `zetaL_distinct_five_sixths_strip_conditional_of_negligible` (`Pb.lean:2255`) | PROVED-CONDITIONAL | idem + hCZStripFam | idem — triad |
+
+Of the two Cycle-2-planned extensions, the **5/6 strip-distinct arm (P-b) landed
+2026-11-16** (Iteration 4; rows above; outcome record + the E4 Bonferroni design-erratum
+in the dossier); the partly unconditional instantiation over ℚ (N2) carries to
+Iteration 4.
 
 ---
 
@@ -241,11 +255,17 @@ Theorem B is Theorem A with c* = c₀' = c_i = 2/3. The ζ_K input is lowered fr
    article 42. Over K = ℚ it can be discharged unconditionally from ZetaZerosV2. That is
    the N2 milestone, carried to Iteration 4 together with the Dirichlet ↔ ray-class
    dictionary it needs.
-4. **Strip-distinct 5/6 (P-b):** the defect-form and negligibility-form distinctness
-   statements over the tower. They are designed in `pilots/75/Pb-design.md` (about
-   +0.2–0.3k lines) and not proved here. The negligibility form inherits the
-   conjecture-grade status of the common-zero hypothesis (`pilots/20-hCZ-NOTE.md`;
-   analysis in the seam note `research/pilots/20-seam-analysis.md`).
+4. **Strip-distinct 5/6 (P-b): LANDED (Iteration 4, 2026-11-16).** The defect-form and
+   negligibility-form distinctness statements over the tower are proved in
+   `pilots/75/Pb.lean` (~0.73k new lines; status rows above; evidence
+   `pilots/75/logs/pb-run11-final.log`; outcome record in the dossier). Two record
+   notes: the design's E4 required correction — the cons-step closes by
+   superadditivity-up-to-overlap (abstract Finset Bonferroni + offDiag growth), not by
+   monotonicity (math finding, dated correction in the dossier); and the negligibility
+   form's hCZStripFam binder keeps the conjecture-grade status of the common-zero
+   hypothesis (`pilots/20-hCZ-NOTE.md`; analysis in the seam note
+   `research/pilots/20-seam-analysis.md`). The spec-sanctioned 2-factor fallback was
+   never invoked.
 5. **No per-field uniformity:** all statements are asymptotic in T for a fixed tower.
    Nothing is uniform over discriminants.
 
