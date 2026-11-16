@@ -299,6 +299,92 @@ Table requests processed in landing order; every table cites log:line evidence r
 this lane, extractor-generated counts only (`axcheck_iter4.py decls`), and the
 coverage class (C1/C2/C3/D-PIN) per audit F2.
 
+### 10.1 LP — LANDED 2026-11-16 (first Phase-B table; lane A2 executing, R5 card 1a/4)
+
+**L1 (LP-P1, proof artifact — 90 LoC, 2 decls, both public; coverage C2; disk sha256
+0d200325f3f105cb…; TARGETS row `AxPilotLP_L1` appended and staging-verified 2/2):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `lp_weak_duality` | `pilots/lp/L1.lean:41–48` | PROVED-UNCONDITIONAL — binders are type-classes (`Fintype m/n`, `CommSemiring R`, `LinearOrder R`, `IsOrderedRing R`) + data (A, b, c, x, y) + the feasibility hypotheses hAx/hy/hATy (definition of subject: "primal-feasible x, dual-feasible y ⟹ c⬝x ≤ b⬝y"); NO donor binders | `pilots/lp/logs/lp-l1-run2.log:21` (repeat :24) — `[propext, Classical.choice, Quot.sound]`; also compiled clean+triad in run1 (`lp-l1-run1.log:1` header note) | in-file audit tail (L1.lean:89–90) prints it — dual evidence; run1→run2 descent = 2 mechanical proof fixes (:62 dead `exact` after rw-auto-rfl; :84 calc `=` vs `h : ≤`), no statement change |
+| `lp_weak_duality_symm` | `pilots/lp/L1.lean:73–85` | PROVED-UNCONDITIONAL — adds hx : `0 ≤ x j` (symmetric-form feasibility; still definition of subject) | `lp-l1-run2.log:22` (repeat :25) — triad | reserve interface (bridge §4 row 3) — no 02-core/74-T3 consumer as specced |
+
+**P0 (probe-convention — Step-A only, NEVER a Step-B stage, no status rows):** 4
+theorem decls (:37, :48, :88, :119) carrying **3 probe-convention sorry stubs** —
+`:44`, `:55`, `:97` (decls :37/:48/:88; p0-run4 confirms exactly 3 `declaration uses
+sorry` warnings, at the declaring lines :37/:48/:88). The 4th decl
+`grid_ceiling_of_dual` (:119–125) is a one-line application of the stubbed core and
+carries no stub of its own; as a probe-convention decl it is never cited as a result.
+**Step-A incremental baseline: +3 tokens (`pilots/lp/P0.lean:44,55,97`)** — the lane
+report's "4 stubs" is corrected here to 3 stubs / 4 decls. Descent: p0-run1 FAIL =
+the port-delta discovery run; run2 pinned `Finset.sum_disjSum`/`sum_sumElim` (the
+prework's guessed `sum_sum_elim` does not exist at the pin); run3/4 anchor preflight →
+GREEN run4 (3 sorry-warnings only). Disk sha256 d14aabda5d3a69f0….
+
+**Statement-port delta (recorded per instruction; both files):** the bridge/prework
+vocabulary `[LinearOrderedRing R]` does not exist at mathlib `ff2494ea` (2026
+ring-order mixin refactor — no bundled LinearOrderedRing/Semiring/CommRing classes
+remain; discovered `lp-p0-run1.log:1`). The frozen statements use
+`[CommSemiring R] [LinearOrder R] [IsOrderedRing R]` — the pin-canonical umbrella
+(`Mathlib/Algebra/Order/Ring/Defs.lean:64`; exports `PosMulMono`/`MulPosMono` :68–70;
+`IsOrderedAddMonoid.toAddLeftMono` at priority 900 discharges `Finset.sum_le_sum`'s
+`[AddLeftMono]`). Mathematical content unchanged (both mul-mono directions =
+LinearOrderedRing's order-multiplication content). Sources: `L1.lean:9–16`,
+`P0.lean:14–20`, `lp-p0-run1.log:1`, `lp-l1-run1.log:1`.
+
+**Machinery notes:** (i) the lp run logs carry no sha256 stamps (Iteration-4 default
+#4 not yet in this lane's log header) — record-only gap for A2/R5; Step-B sweep-time
+staging stamps the bytes of record regardless (plan §2.4). (ii) Substrate per log
+headers: Modal app `crossmath-pilot-lp`, doz CLI, SPEC 2cpu/4GB + telemetry +
+LEAN_NUM_THREADS=2, mathlib `ff2494ea`, warm layers — Modal-rule compliant.
+**Gap (i) CLOSED at LP-P2**: `lp-l2-run6.log:7` stamps sha256(16) for all three files
+(P0 d14aabda…, L1 0d200325…, L2 282c9c05…).
+
+### 10.2 LP-P2 — LANDED 2026-11-16 (slot 1 COMPLETE: P0 → P1 → P2; lane A2, card 11)
+
+**L2 (LP-P2, proof artifact — 127 LoC, 2 decls (1 public + 1 private), coverage C1
+(the in-file audit tail L2.lean:126–127 prints BOTH decls; extractor census confirms
+the private decl); disk sha256 282c9c05711dc54c… (stamped in-log at
+`lp-l2-run6.log:7`); TARGETS row `AxPilotLP_L2` appended, sibling import
+`import L1` auto-rewrites to `AxPilotLP_L1` — verified in both generators):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `bw2_ceiling_of_dual` | `pilots/lp/L2.lean:79–122` | PROVED-UNCONDITIONAL — binders: type-classes (`Fintype G/D`), data (dat, μ, y, cert), dual-feasibility hypotheses (hy : y ≥ 0, hsum : Σy = 1, hbary₁/hbary₂ : barycenter equalities) and hvalid (certificate validity at every datum) — all definition-of-subject for "every dual-feasible combination of data rows bounds every valid certificate's value"; NO donor binders (the EnclOK-style enclosure binder enters only at the consumer's consumer, explicitly not here — L2.lean:36–38) | `pilots/lp/logs/lp-l2-run6.log:38` (repeat :62) — `[propext, Classical.choice, Quot.sound]` | the 02-core consumer clause, POINTWISE in the certificate (no `sSup`; B_k–sSup packaging = stop-gated optional extension, 02 Thms A/B/C NOT slot-1); proof = `lp_weak_duality` at the dictionary program m := D, n := Unit ⊕ G ⊕ G; L1 regression re-verified GREEN in the same run (:27–33) |
+| `sum_uGG` (private) | `pilots/lp/L2.lean:59–71` | PROVED-UNCONDITIONAL (Sum-index plumbing lemma) | `lp-l2-run6.log:39` (repeat :63), printed from the in-file tail under the `_private.L2.0.sum_uGG` name shape — triad | the appended-tail-in-same-file private-name pattern working live; consumed only by `bw2_ceiling_of_dual` (transitive cover even without the in-file print) |
+
+**0 sorryAx; telemetry OVER=0 (mem 3982 MB ≤ 4 GB spec)** (`lp-l2-run6.log:14` —
+Modal-rule compliant). **Descent (card 11):** run1 (P0/L1 regression rode along),
+run2 runner gained dependency-order olean emission + sum_uGG restructure, run3
+ring_nf finding (assoc + 1·c₀ residues), runs 3–5 grouping-diagnosis
+(`DIAGNOSE-lp-p2-run5.md`: sum_uGG RHS right-associated vs `valid`'s left-associated
+body — not defeq, linarith cannot normalize), run5 STOP at card limit (5 of 3–5),
+**run6 GREEN via orchestrator-authorized +1** (DETERMINISTIC-CONTINUATION class; the
++1 policy's four requirements — monotone descent, written hypotheses, staged
+deterministic fix, diagnostic pointer — all logged at `lp-l2-run6.log:8–10`; the fix
+itself is the one-line re-association bridge at L2.lean:94–99).
+
+**Slot-1 completion record (P0 → P1 → P2):** P0 = probe-convention statement freeze +
+anchor preflight (3 stubs, §10.1); P1 = the `lp_weak_duality` layer (2 theorems,
+§10.1); P2 = the 02-core consumer clause (this table). LP slot 1 is COMPLETE at
+statement-freeze fidelity (P0/P1/P2 share the frozen bundle idioms verbatim;
+statement-port delta recorded at §10.1). Phrasing rule (A5 seed-9) travels with every
+artifact: AFP trio + Coq 1706.10269 + Yamashita 2026 = mandatory nearest-miss
+citations; Knausgård §7.6 owns the all-windows ceiling framing; never "first formal
+LP duality"/"unformalized"/unqualified "first" (L2.lean:23–27).
+
+**Citation correction (record-only):** the lane relay cited the triad prints at
+`lp-l2-run6.log:24–25`; the actual `depends on axioms` lines are **:38–39** (repeats
+at :62–63) — :24–25 fall inside the header/authorization block. Table cites the real
+lines.
+
+**Pending-tables record (R5's pinned hEχ audit set — table follows the zeta23e run's
+verdict, §9 conventions):** `thmE_A₀/B₀/C₀` + `paperInputsChi_L` + `thmE_A` + the
+`hex_two_thirds_binder_port` EnclOK port. Donor rows will be PROVED-UNCONDITIONAL
+(donor) with donor-pin print source (v4.33.0-rc2 / mathlib 51e6992e); OUR consumer
+rows D-PIN; on-pin 42-v2/75 consumers keep hEχ binders until discharge, then gain
+supersession rows, not edits.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
