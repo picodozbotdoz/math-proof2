@@ -51,7 +51,7 @@ charter splice is appended at phase-B start) + this brief +
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief | idle (standing by for signals) |
 | R1 | articles editorial audit | `research/qa/iter4-review/r1-articles-editorial.md` + `articles/TEMPLATE-iter4.md` (v1 landed batch 13; rewrite proposals follow) | delivered v1 |
 | R2 | discovery-strength audit | `research/qa/iter4-review/r2-discovery-strength.md` (v1 landed batch 6; S1–S4 bar proposed) | delivered v1 |
-| R3 | verification integrity audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
+| R3 | verification integrity audit | `research/qa/iter4-review/r3-verification-integrity.md` + `r3-verification-tables.md` (landed batches 16–17; axcheck_iter4.py owed) | delivered v1 |
 | R4 | process/completeness audit | `research/qa/iter4-review/r4-process-completeness.md` (v1 + Part-2 fixes package landed batch 7; H applies A+B) | delivered v1 |
 | R5 | iteration-4 backlog consolidation | `research/qa/iter4-review/r5-iteration4-backlog.md` (final §§1–16 landed batch 12; §16 STATUS snippet + REPORT-INPUTS-ITER4 held for LAUNCH commit) | delivered final |
 | R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` | active (writing) |

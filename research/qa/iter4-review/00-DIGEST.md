@@ -12,6 +12,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 4 | R8 | `feasibility/iter4-donor-unblock-plan.md` (+ runner drain) | DZDF-shim DEAD (≤4/62 aliasable), Physlib direct DROP / G10 refresh live on the shelf, PNT+ DEFER w/ G9 preflight, Weil statement-tier landed; runner kit audited 10/10 compliant, 2 stale wrappers patched, iter4 template PASS |
 | 5 | R5 | `r5-iteration4-backlog.md` | Merged inventory + ranked 15-item queue + 3 argued decisions + 10-item DROP list; integration pass folds R2/R8 (launch order: 75-Pb top-billed day-1, LP = named engineering deliverable); 6 execution specs, first-48h run queue, dependency ledger |
 | 6 | R1 | `r1-articles-editorial.md` + `articles/TEMPLATE-iter4.md` | Corpus fails as a collection (6-axis rubric 8–11/12, prose/register 1/2 universal); Cycle-2 ≈ 0–2/9 discovery-grade; 5 BLOCKERs (README self-contradiction, 11 §7, 42M4 freeze claim, 73 status opacity + 1); top-3 rewrites 42v2/73/11; TEMPLATE = the adopted gate |
+| 7 | R3 | `r3-verification-integrity.md` (+ `r3-verification-tables.md`) | 19/19 articles VERIFIED — zero mathematical overclaims; 2 MEDIUM (log custody gap; sweep's private/lemma blind spot) + 4 LOW records findings, all safe-direction; 678 axiom lines independently re-classified triad-only; axcheck upgrade spec + [R3-FILL] tables |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -195,3 +196,28 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   §8 SPLICE TEXT v2 (supersedes §1; consumes all landed review inputs except
   R6/R7); §10 launch-day checklist v2. A final touch-up + paste-ready splice block
   follows (R5 tail/hEχ + R6 fold + R7 when it lands).
+
+## R3 — r3-verification-integrity.md + r3-verification-tables.md (landed 2026-11-16, batches 16–17)
+
+- **Verdict:** **19/19 articles VERIFIED — no mathematical overclaim anywhere.** Every
+  unconditional claim maps to a binder-free statement; every conditional names donor
+  or disclosed structural binders; no smuggled vacuity. The evidence chain is sound:
+  both sweeps independently re-verified from raw logs (678 "depends on axioms" lines =
+  568 triad + 59 [propext, Quot.sound] + 43 [propext] + 8 wrapped, 0 sorryAx); the
+  "44/44" paraphrase resolves as 43/43 plain + M4b donor-tree.
+- **Findings (records-level, all safe-direction):** 2 MEDIUM — F1 log custody
+  (m2-axcheck-final.log tallies 64 P11T3 lines it does not persist; conclusion
+  independently covered by stepB-c2.log:533–586) and F2 sweep coverage (make_axcheck
+  drops `private theorem`/`lemma`s — 10/L1 6, 10/L2 26, 30-falsify 53, 32/M1 28 etc.
+  never directly printed; mitigated by Step A + construct scan + transitivity); 4 LOW
+  (counter blind spots; systematic count drift — all undercounts; stale LoC;
+  headerless-log classes). Article 21 correctly quarantined from kernel claims;
+  relabel to CERTIFIED-NUMERIC with the exclusion clause.
+- **Deliverables:** §5 article verification-block format + 7 checklist rules
+  (extractor-generated counts, sha256-at-sweep, donor-pin status-line flag);
+  §7 axcheck upgrade mini-spec (private+lemma-aware unified generator, FORBIDDEN-TOKEN
+  gate, wrapped-line joining, middle-excerpt ban, acceptance tests vs known stages);
+  §8 relabel one-liners for H (21 status; m2 custody corrections appended to two logs
+  + ledger companion; stale LoC 279→282 / 576→582 / 178→180); `r3-verification-tables.md`
+  = the [R3-FILL] payload for R1's/R2's rewrite drafts, consumer-marked. R3 is
+  implementing axcheck_iter4.py (commit on report).
