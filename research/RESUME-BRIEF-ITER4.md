@@ -35,6 +35,20 @@ charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
    `ORCHESTRATION-ITER4.md` and this brief's lane table and refreshes both (status +
    date); they ride in the same commit. Extended at batch 4: every batch that introduces
    a new `research/` file stages its `research/INDEX.md` row in the same commit.
+   **HARDENED at the L2 release (orchestrator ruling, 2026-11-16 — the index is SHARED
+   STATE during parallel lane work):** before EVERY commit — (a) `git status --porcelain`
+   + `git diff --cached --stat`; (b) if the staged set contains anything H did not stage
+   itself, `git restore --staged` the foreign entries (disk content untouched; the
+   owning lane re-stages for its own commit); (c) only then commit the exact files.
+   **Serialization while R1's articles swap-in executes:** H does not commit anything
+   under `articles/`, `candidates/`, or runbook-touched files; R1's step-commits are its
+   own or ride on its execution report.
+   **Incident record (2026-11-16):** commit `bb969c0` (R7 Truffet file) swept in three
+   pre-staged article deletions (42M4/50M2/73 — R1's authorized swap-in STEP 1–3 work,
+   landed early in the wrong commit; ruled authorized, no revert; per-step commit
+   discipline breached — the eventual swap-in completion commit carries a dated note to
+   this effect per the frozen-record convention). The hardened rule caught a second
+   in-flight staging (the 21-rename) the same hour and unstaged it cleanly.
 6. Modal ONLY via the doz CLI `/home/doz/dozenv/bin/modal` (`sudo -n -u xyz` is blocked
    in this env); NEVER local lake/lean builds. `AGENTS.md` § Modal usage guidelines is
    mandatory: defaults cpu=2.0/memory=4096, telemetry in every run,
