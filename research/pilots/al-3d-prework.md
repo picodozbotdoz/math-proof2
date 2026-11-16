@@ -336,3 +336,18 @@ AGENTS.md.
 
 — end prework (A2; PROPOSAL — chartering, rung choice and slot ordering are the
 orchestrator's; this file owns the execution spec only).
+
+---
+
+## §9 CORRECTION LOG (append-only)
+
+- **2026-11-16 (R9-as-A4, at AL-P0 staging):** the §2.3/§2.5 reading of the P1-b
+  boundary lift via "π(Λ)'s INDUCED (square) graph" is **REFUTED at statement level**
+  by the two-site slab `Λ = {(0,0,0), (1,0,5)}` (any `h > 5`), `A = {(0,0,0)}`
+  (column-closed): `|∂^square_{πΛ} πA| = 1` but `|∂^cubic_Λ A| = 0`. The honest object is
+  the PROJECTED graph (`projLattice Λ`: edges = projections of cubic `Λ`-edges), and the
+  `PlanarAreaLawVar` binder carries an ambient-graph parameter `G ≤ planarLattice`
+  (at `G = planarLattice` + uniform heights = the donor `AreaLaw` shape verbatim).
+  Encoded in `pilots/al3d/P0.lean` (new defs beside, per Targets.md §D rules 2–3; the
+  frozen layer untouched). §2.3's "π(Λ)'s induced graph" and §2.5 P1-b's "π(A)|π(Λ)"
+  above are superseded by this note for all consumers.

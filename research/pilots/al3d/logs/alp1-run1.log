@@ -1,0 +1,580 @@
+# alp1-run1 — AL-P1 fibre core first elaboration (card 7; proof artifact, sorry-strict)
+# Provenance: 2026-11-16, lane A4; file research/pilots/al3d/A1.lean (~370 LoC new;
+# guard ≤0.4k met). Self-contained (pilot-01/73 convention); no donor imports, no
+# Physlib. Content: P1-d column basics (col/col_heights/col_inj_on_z/col_card_le),
+# P1-c fibre count (fibre_card_le via card_bUnion_le), P1-a contraction (walk form via
+# Walk induction + fromRel_adj; edist form via edist_eq_sInf + le_sInf_iff + Walk.induce;
+# diameter form via iSup₂_le/le_iSup₂), P1-b boundary lift (mem_interedges_iff +
+# column-closure + choice-lift + card_image_of_injOn), planar_adj_of_cubic_adj +
+# projLattice_le_planar (fromRel_adj case split). Inline full-coverage #print axioms
+# (15 theorems). Expected risk points (pre-registered): le_sInf_iff name;
+# induce_adj iff-direction; Walk.support_cons name; simp-set in planar_adj_of_cubic_adj.
+# Command: bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/A1.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-u81S4INPNlHNUwKCaDjcow
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['A1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+
+=== A1.lean
+[al3d] A1.lean: FAIL rc=1 errors=20 sorry=0
+---- axioms ----
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+A1.lean:43:12: error: unknown namespace `ComplexOrder`
+A1.lean:131:36: error: Application type mismatch: The argument
+  hp
+has type
+  (x.1, x.2.1) = (y.1, y.2.1)
+but is expected to have type
+  x = y
+in the application
+  congrArg Prod.fst hp
+A1.lean:145:75: error(lean.invalidField): Invalid field `card`: The environment does not contain `Function.card`, so it is not possible to project the field `card` from an expression
+  fun x => x.2.2
+of type `ℤ × ℤ × ℤ → ℤ`
+A1.lean:147:8: error: Type mismatch
+  (Finset.Ico 0 ↑h).card
+has type
+  ℕ
+but is expected to have type
+  Unit
+A1.lean:147:4: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `A1.145.7.145.79.7.79._sorry._@.A1.1227293776._hygCtx._hyg.335 : Unit
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+···
+A1.lean:43:12: error: unknown namespace `ComplexOrder`
+A1.lean:131:36: error: Application type mismatch: The argument
+  hp
+has type
+  (x.1, x.2.1) = (y.1, y.2.1)
+but is expected to have type
+  x = y
+in the application
+  congrArg Prod.fst hp
+A1.lean:145:75: error(lean.invalidField): Invalid field `card`: The environment does not contain `Function.card`, so it is not possible to project the field `card` from an expression
+  fun x => x.2.2
+of type `ℤ × ℤ × ℤ → ℤ`
+A1.lean:147:8: error: Type mismatch
+  (Finset.Ico 0 ↑h).card
+has type
+  ℕ
+but is expected to have type
+  Unit
+A1.lean:147:4: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `A1.145.7.145.79.7.79._sorry._@.A1.1227293776._hygCtx._hyg.335 : Unit
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+is not an inductive type
+···
+of type `ℤ × ℤ × ℤ → ℤ`
+A1.lean:147:8: error: Type mismatch
+  (Finset.Ico 0 ↑h).card
+has type
+  ℕ
+but is expected to have type
+  Unit
+A1.lean:147:4: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `A1.145.7.145.79.7.79._sorry._@.A1.1227293776._hygCtx._hyg.335 : Unit
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+A1.lean:171:61: error(lean.unknownIdentifier): Unknown constant `Finset.card_bUnion_le`
+A1.lean:173:22: error: unsolved goals
+h : ℕ
+Λ : Finset (ℤ × ℤ × ℤ)
+hΛ : IsSlabDomain3D h Λ
+S : Finset (ℤ × ℤ)
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+···
+  Unit
+A1.lean:147:4: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `A1.145.7.145.79.7.79._sorry._@.A1.1227293776._hygCtx._hyg.335 : Unit
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+A1.lean:171:61: error(lean.unknownIdentifier): Unknown constant `Finset.card_bUnion_le`
+A1.lean:173:22: error: unsolved goals
+h : ℕ
+Λ : Finset (ℤ × ℤ × ℤ)
+hΛ : IsSlabDomain3D h Λ
+S : Finset (ℤ × ℤ)
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+but this term has type
+  ?m.28 ∨ (?m.32 ≠ ?m.33 ∧ (?m.31 ?m.32 ?m.33 ∨ ?m.31 ?m.33 ?m.32) → (fromRel ?m.31).Adj ?m.32 ?m.33)
+
+Note: Expected a function because this term is being applied to the argument
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+···
+  Function.const Lean.Name () `A1.145.7.145.79.7.79._sorry._@.A1.1227293776._hygCtx._hyg.335 : Unit
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+A1.lean:171:61: error(lean.unknownIdentifier): Unknown constant `Finset.card_bUnion_le`
+A1.lean:173:22: error: unsolved goals
+h : ℕ
+Λ : Finset (ℤ × ℤ × ℤ)
+hΛ : IsSlabDomain3D h Λ
+S : Finset (ℤ × ℤ)
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+but this term has type
+  ?m.28 ∨ (?m.32 ≠ ?m.33 ∧ (?m.31 ?m.32 ?m.33 ∨ ?m.31 ?m.33 ?m.32) → (fromRel ?m.31).Adj ?m.32 ?m.33)
+
+Note: Expected a function because this term is being applied to the argument
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+···
+A1.lean:161:11: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => proj x ∈ l) ⋯ S.val` is not an inductive datatype
+A1.lean:164:10: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => proj x ∈ l) ⋯ S.val
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+A1.lean:171:61: error(lean.unknownIdentifier): Unknown constant `Finset.card_bUnion_le`
+A1.lean:173:22: error: unsolved goals
+h : ℕ
+Λ : Finset (ℤ × ℤ × ℤ)
+hΛ : IsSlabDomain3D h Λ
+S : Finset (ℤ × ℤ)
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+but this term has type
+  ?m.28 ∨ (?m.32 ≠ ?m.33 ∧ (?m.31 ?m.32 ?m.33 ∨ ?m.31 ?m.33 ?m.32) → (fromRel ?m.31).Adj ?m.32 ?m.33)
+
+Note: Expected a function because this term is being applied to the argument
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+···
+A1.lean:171:61: error(lean.unknownIdentifier): Unknown constant `Finset.card_bUnion_le`
+A1.lean:173:22: error: unsolved goals
+h : ℕ
+Λ : Finset (ℤ × ℤ × ℤ)
+hΛ : IsSlabDomain3D h Λ
+S : Finset (ℤ × ℤ)
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+but this term has type
+  ?m.28 ∨ (?m.32 ≠ ?m.33 ∧ (?m.31 ?m.32 ?m.33 ∨ ?m.31 ?m.33 ?m.32) → (fromRel ?m.31).Adj ?m.32 ?m.33)
+
+Note: Expected a function because this term is being applied to the argument
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:197:24: error(lean.unknownIdentifier): Unknown constant `Nat.le_rfl`
+A1.lean:215:25: error: Tactic `rcases` failed: `q.support` is not a free variable
+A1.lean:214:40: warning: This simp argument is unused:
+  Finset.mem_cons
+
+Hint: Omit it from the simp argument list.
+···
+⊢ S.card • h = S.card * h
+A1.lean:184:10: error: Function expected at
+  Or.inr (fromRel_adj ?m.31 ?m.32 ?m.33).mpr
+but this term has type
+  ?m.28 ∨ (?m.32 ≠ ?m.33 ∧ (?m.31 ?m.32 ?m.33 ∨ ?m.31 ?m.33 ?m.32) → (fromRel ?m.31).Adj ?m.32 ?m.33)
+
+Note: Expected a function because this term is being applied to the argument
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:197:24: error(lean.unknownIdentifier): Unknown constant `Nat.le_rfl`
+A1.lean:215:25: error: Tactic `rcases` failed: `q.support` is not a free variable
+A1.lean:214:40: warning: This simp argument is unused:
+  Finset.mem_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Walk.support_cons] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A1.lean:223:28: error: Type mismatch
+  proj '' ↑Λ
+has type
+···
+  ⟨h, Or.inl ⟨x, y, hx, hy, hadj, rfl, rfl⟩⟩
+A1.lean:194:49: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:197:24: error(lean.unknownIdentifier): Unknown constant `Nat.le_rfl`
+A1.lean:215:25: error: Tactic `rcases` failed: `q.support` is not a free variable
+A1.lean:214:40: warning: This simp argument is unused:
+  Finset.mem_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Walk.support_cons] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A1.lean:223:28: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:238:33: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+···
+A1.lean:197:24: error(lean.unknownIdentifier): Unknown constant `Nat.le_rfl`
+A1.lean:215:25: error: Tactic `rcases` failed: `q.support` is not a free variable
+A1.lean:214:40: warning: This simp argument is unused:
+  Finset.mem_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Walk.support_cons] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A1.lean:223:28: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:238:33: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  domainEDiamG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:257:45: error: Application type mismatch: The argument
+  hu
+has type
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A1.lean:223:28: error: Type mismatch
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+A1.lean:238:33: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  domainEDiamG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:257:45: error: Application type mismatch: The argument
+  hu
+has type
+  u ∈ proj '' ↑A
+but is expected to have type
+  ?m.19 ∈ Finset.image ?m.17 ?m.18
+in the application
+  Finset.mem_image.mp hu
+A1.lean:265:35: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+···
+  Finset (ℤ × ℤ)
+A1.lean:238:33: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  domainEDiamG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:257:45: error: Application type mismatch: The argument
+  hu
+has type
+  u ∈ proj '' ↑A
+but is expected to have type
+  ?m.19 ∈ Finset.image ?m.17 ?m.18
+in the application
+  Finset.mem_image.mp hu
+A1.lean:265:35: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:268:49: error: Application type mismatch: The argument
+···
+  domainEDiamG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:257:45: error: Application type mismatch: The argument
+  hu
+has type
+  u ∈ proj '' ↑A
+but is expected to have type
+  ?m.19 ∈ Finset.image ?m.17 ?m.18
+in the application
+  Finset.mem_image.mp hu
+A1.lean:265:35: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:268:49: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:276:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+  Finset.mem_image.mp hu
+A1.lean:265:35: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:268:49: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:276:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRel ?r).Adj ?v ?w
+in the target expression
+  (projLattice Λ).Adj e.1 e.2
+
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+e : (ℤ × ℤ) × ℤ × ℤ
+···
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:268:49: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:276:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRel ?r).Adj ?v ?w
+in the target expression
+  (projLattice Λ).Adj e.1 e.2
+
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+e : (ℤ × ℤ) × ℤ × ℤ
+h1 : e.1 ∈ sorry
+h3 : (projLattice Λ).Adj e.1 e.2
+h2Λ : e.2 ∈ sorry
+h2A : e.2 ∉ sorry
+⊢ ∃ z ∈ edgeBoundary3D Λ A, (proj z.1, proj z.2) = e
+A1.lean:289:62: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+···
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:276:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRel ?r).Adj ?v ?w
+in the target expression
+  (projLattice Λ).Adj e.1 e.2
+
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+e : (ℤ × ℤ) × ℤ × ℤ
+h1 : e.1 ∈ sorry
+h3 : (projLattice Λ).Adj e.1 e.2
+h2Λ : e.2 ∈ sorry
+h2A : e.2 ∉ sorry
+⊢ ∃ z ∈ edgeBoundary3D Λ A, (proj z.1, proj z.2) = e
+A1.lean:289:62: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:309:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+···
+⊢ ∃ z ∈ edgeBoundary3D Λ A, (proj z.1, proj z.2) = e
+A1.lean:289:62: error: Application type mismatch: The argument
+  proj '' ↑Λ
+has type
+  Set (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:309:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+A1.lean:312:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:318:6: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.le_def`
+A1.lean:317:37: error: unsolved goals
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ projLattice Λ ≤ planarLattice
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+  edgeBoundaryG (projLattice Λ) (proj '' ↑Λ)
+A1.lean:309:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+A1.lean:312:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:318:6: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.le_def`
+A1.lean:317:37: error: unsolved goals
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ projLattice Λ ≤ planarLattice
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+A1.lean:335:14: error(lean.unknownIdentifier): Unknown constant `proj_walk_full`
+···
+at case `Eq.refl`
+A1.lean:312:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:318:6: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.le_def`
+A1.lean:317:37: error: unsolved goals
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ projLattice Λ ≤ planarLattice
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+A1.lean:335:14: error(lean.unknownIdentifier): Unknown constant `proj_walk_full`
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+A1.lean:318:6: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.le_def`
+A1.lean:317:37: error: unsolved goals
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ projLattice Λ ≤ planarLattice
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+A1.lean:335:14: error(lean.unknownIdentifier): Unknown constant `proj_walk_full`
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[al3d] SUMMARY
+[al3d]   A1.lean: FAIL rc=1 errors=20 sorry=0
+[tele] SUMMARY run: wall=37s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-u81S4INPNlHNUwKCaDjcow

@@ -1,0 +1,332 @@
+# alp1-run2 — AL-P1 fix round 1 (distinct error classes 20 → expected 0)
+# Provenance: 2026-11-16, lane A4; A1.lean post-fix (~375 LoC). Run-1 classes (all
+# single-round mechanical, error-class hypothesis per fix-round discipline):
+# (i) unneeded `open scoped ComplexOrder` without its import — dropped (A1 is pure
+#     graph combinatorics); (ii) congrArg elaboration at Prod.fst — explicit lambdas;
+# (iii) parse bug `.card` binding to the image FUNCTION not the Finset — parenthesized;
+# (iv) fibre_eq_bUnion_cols rintro pattern mismatch (Finset-membership destructured) —
+#     ⟨proj x, hPS, hxΛ, rfl⟩ witness form; (v) `Finset.card_bUnion_le` absent on pin —
+#     replaced by `Finset.card_biUnion_le_card_mul` (Algebra/Order/BigOperators/Group/
+#     Finset.lean, one-shot P1-c) + Nat.mul_comm; (vi) Nat.le_rfl → le_rfl;
+# (vii) Finset.mem_cons → List.mem_cons (support is a List); (viii) SimpleGraph.le_def
+#     absent — LE-abbrev rintro directly; (ix) Set/Finset image ascription ambiguity —
+#     projF abbreviation introduced (statement level only; no math change); (x) cascade
+#     garbage (Function.const Unit sorry-artifacts) from (iii).
+# Command: bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/A1.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-DoS8M1Tofh4xJ1dvLqZwxb
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['A1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+
+=== A1.lean
+[al3d] A1.lean: FAIL rc=1 errors=10 sorry=0
+---- axioms ----
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+A1.lean:156:22: error(lean.unknownIdentifier): Unknown constant `Finset.card_Ico`
+A1.lean:180:43: error: Application type mismatch: The argument
+  Nat.mul_comm ?m.24 ?m.25
+has type
+  ?m.24 * ?m.25 = ?m.25 * ?m.24
+but is expected to have type
+  S.card * h ≤ h * S.card
+in the application
+  LE.le.trans (Finset.card_biUnion_le_card_mul S (col Λ) h fun u x => col_card_le h hΛ u) (Nat.mul_comm ?m.24 ?m.25)
+A1.lean:192:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRel ?r).Adj ?v ?w
+in the target expression
+  (projLattice Λ).Adj (proj x) (proj y)
+
+case inr
+Λ : Finset (ℤ × ℤ × ℤ)
+x y : ℤ × ℤ × ℤ
+hx : x ∈ Λ
+hy : y ∈ Λ
+hadj : cubicLattice3D.Adj x y
+h : proj x ≠ proj y
+⊢ (projLattice Λ).Adj (proj x) (proj y)
+A1.lean:210:59: error: Application type mismatch: The argument
+  a.property
+has type
+  ↑a ∈ ↑Λ
+···
+  LE.le.trans (Finset.card_biUnion_le_card_mul S (col Λ) h fun u x => col_card_le h hΛ u) (Nat.mul_comm ?m.24 ?m.25)
+A1.lean:192:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRel ?r).Adj ?v ?w
+in the target expression
+  (projLattice Λ).Adj (proj x) (proj y)
+
+case inr
+Λ : Finset (ℤ × ℤ × ℤ)
+x y : ℤ × ℤ × ℤ
+hx : x ∈ Λ
+hy : y ∈ Λ
+hadj : cubicLattice3D.Adj x y
+h : proj x ≠ proj y
+⊢ (projLattice Λ).Adj (proj x) (proj y)
+A1.lean:210:59: error: Application type mismatch: The argument
+  a.property
+has type
+  ↑a ∈ ↑Λ
+but is expected to have type
+  ↑u✝ ∈ Λ
+in the application
+  Finset.mem_coe.mpr a.property
+A1.lean:232:70: error(lean.invalidField): Invalid field `edist`: The environment does not contain `Set.edist`, so it is not possible to project the field `edist` from an expression
+  ↑(projF Λ)
+of type `Set (ℤ × ℤ)`
+A1.lean:247:33: error: Application type mismatch: The argument
+···
+⊢ (projLattice Λ).Adj (proj x) (proj y)
+A1.lean:210:59: error: Application type mismatch: The argument
+  a.property
+has type
+  ↑a ∈ ↑Λ
+but is expected to have type
+  ↑u✝ ∈ Λ
+in the application
+  Finset.mem_coe.mpr a.property
+A1.lean:232:70: error(lean.invalidField): Invalid field `edist`: The environment does not contain `Set.edist`, so it is not possible to project the field `edist` from an expression
+  ↑(projF Λ)
+of type `Set (ℤ × ℤ)`
+A1.lean:247:33: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  domainEDiamG (projLattice Λ) projF
+A1.lean:274:35: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+···
+of type `Set (ℤ × ℤ)`
+A1.lean:247:33: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  domainEDiamG (projLattice Λ) projF
+A1.lean:274:35: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:277:49: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:275:35: error: unsolved goals
+···
+  domainEDiamG (projLattice Λ) projF
+A1.lean:274:35: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:277:49: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:275:35: error: unsolved goals
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+⊢ sorry ≤ (edgeBoundary3D Λ A).card
+A1.lean:318:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+···
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:277:49: error: Application type mismatch: The argument
+  projF
+has type
+  Finset (ℤ × ℤ × ℤ) → Finset (ℤ × ℤ)
+but is expected to have type
+  Finset (ℤ × ℤ)
+in the application
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:275:35: error: unsolved goals
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+⊢ sorry ≤ (edgeBoundary3D Λ A).card
+A1.lean:318:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+A1.lean:321:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+···
+  edgeBoundaryG (projLattice Λ) projF
+A1.lean:275:35: error: unsolved goals
+Λ A : Finset (ℤ × ℤ × ℤ)
+hA : IsColumnClosed3D Λ A
+hAΛ : A ⊆ Λ
+⊢ sorry ≤ (edgeBoundary3D Λ A).card
+A1.lean:318:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+A1.lean:321:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:328:2: error: `simp` made no progress
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+⊢ sorry ≤ (edgeBoundary3D Λ A).card
+A1.lean:318:19: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  y.2 = x.2
+at case `Eq.refl`
+A1.lean:321:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:328:2: error: `simp` made no progress
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+at case `Eq.refl`
+A1.lean:321:18: error: Application type mismatch: The argument
+  h1
+has type
+  (hasse ℤ).Adj x.2.1 y.2.1 ∧ x.2.2 = y.2.2 ∨ (hasse ℤ).Adj x.2.2 y.2.2 ∧ x.2.1 = y.2.1
+but is expected to have type
+  (hasse ℤ).Adj (proj x).2 (proj y).2
+in the application
+  And.intro h1
+A1.lean:328:2: error: `simp` made no progress
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  And.intro h1
+A1.lean:328:2: error: `simp` made no progress
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, sorryAx, Quot.sound]
+'OpenAI.AL3D.projLattice_le_planar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[al3d] SUMMARY
+[al3d]   A1.lean: FAIL rc=1 errors=10 sorry=0
+[tele] SUMMARY run: wall=25s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-DoS8M1Tofh4xJ1dvLqZwxb
+
+# --- fix rounds 2-3 (runs 3-4 context, consolidated; see alp1-run3.log capture /tmp ---
+# run-3 classes (8 distinct): (xi) projF Λ un-parenthesized in argument position
+# (python replace artifact) — parenthesized at 6 sites; (xii) Finset.card_Ico absent —
+# Int.card_Ico (Data/Int/Interval.lean:102, # = Finset.card) + Int.sub_zero + simp;
+# (xiii) Nat.mul_comm eq-in-le-trans — le_of_eq; (xiv) fromRel_adj rw needs projLattice
+# unfolded — simp only [projLattice] first; (xv) mem_coe direction on subtype props —
+# .mp (Set→Finset) at the 3 subtype sites; (xvi) .edist bound to the Set coe — parens;
+# round-4 (this batch): (xvii) nil-case typed site-membership (show ... from);
+# (xviii) dif_pos term-args in simp only invalid — rw [dif_pos ...]; (xix) P1-b: pair-
+# destructure e := (u, u') before the rfl-substs (subst needs var equations);
+# (xx) planar_adj via raw-hasse restatement + the G4-proven simp set
+# [boxProd_adj, hasse_adj, Order.covBy_iff_add_one_eq]; (xxi) dropped a no-progress simp
+# at hdir (destructure already reduces through the fromRel Iff.rfl).
+
+# [pointer] rounds 3-16 + final verdict consolidated in alp1-final.log (this file's
+# header anticipated rounds 2-3 only).

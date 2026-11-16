@@ -1,0 +1,58 @@
+# alp0-run1 — AL-P0 statement probe (card 3, iteration-4 AL-3D B.2 staged)
+# Provenance: 2026-11-16, lane A4 (R9-as-A4); file research/pilots/al3d/P0.lean
+# (468 LoC = G4 core carried verbatim ~190 + frozen donor transcription ~120 + new defs
+# ~155; 3 probe-convention sorries, all G4-carried). App crossmath-pilot-al3d (SPEC
+# 2cpu/4GB + telemetry + LEAN_NUM_THREADS=2; image layers shared with the 71/73/75
+# family — run_commands textually identical). Command:
+#   bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/P0.lean
+# Authorization: orchestrator run ruling 2026-11-16 (ping gate advisory for card 3;
+# LP-P0 in flight in parallel, different app, no substrate contention).
+# Statement-level find recorded: prework §2.3/§2.5 induced-square reading refuted
+# (two-site slab); projLattice + ambient-G binder encoded (P0 header; prework §9).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-NmdOaz34B0idDwKgi6ipBd
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+
+=== P0.lean
+[al3d] P0.lean: FAIL rc=1 errors=2
+---- error contexts ----
+P0.lean:116:8: warning: declaration uses `sorry`
+P0.lean:364:2: error: `edge_self` is not a field of structure `SimpleGraph`
+P0.lean:362:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ Std.Symm fun u u' => u ≠ u' ∧ ∃ x y, x ∈ Λ ∧ y ∈ Λ ∧ cubicLattice3D.Adj x y ∧ proj x = u ∧ proj y = u'
+P0.lean:420:31: warning: Variable name `hG` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hG
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+···
+P0.lean:364:2: error: `edge_self` is not a field of structure `SimpleGraph`
+P0.lean:362:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+Λ : Finset (ℤ × ℤ × ℤ)
+⊢ Std.Symm fun u u' => u ≠ u' ∧ ∃ x y, x ∈ Λ ∧ y ∈ Λ ∧ cubicLattice3D.Adj x y ∧ proj x = u ∧ proj y = u'
+P0.lean:420:31: warning: Variable name `hG` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hG
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+···
+
+[al3d] SUMMARY
+[al3d]   P0.lean: FAIL rc=1 errors=2
+[tele] SUMMARY run: wall=24s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-NmdOaz34B0idDwKgi6ipBd
