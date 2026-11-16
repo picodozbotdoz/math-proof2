@@ -236,11 +236,12 @@ STATUS.md § Cycle-2 pilots pipeline + on-disk `research/pilots/*`; donor-remap 
 ### Cycle-2 pilot decision (DECIDED — orchestrator, 2026-11-14)
 
 Cycle 2 set out to consume the AxiomMath corpus as Lean donors and close the main run's
-open pilots. Both halves delivered. The discovery headline is **not a constant and not a
-first-formal claim in the hot cluster** — it is the **first formal zero-proportion and
-zero-location statements for Dedekind zeta functions of non-quadratic shape**: the 42→42-M4
-line (quadratic ζ_K proportions, now with an unconditionally discharged ζ-column) and its
-abelian-tower generalization (75, executing). Around it, the cycle landed the FF
+open pilots. Both halves delivered. The cycle's discovery-grade output is **one conditional statement class** — the first
+formal zero-proportion and zero-location statements for Dedekind zeta functions of
+non-quadratic shape, generalizing to the abelian tower (75, executing). The 42→42-M4
+line is its **ecosystem/donor-swap completion** (unconditional ζ-column inside Lean; no
+new mathematics, per the article's own §1) and is billed as a technical record, not a
+discovery headline (Iter-4 strength bar). (corrected 2026-11-16, Iter-4 review) Around it, the cycle landed the FF
 s-plane dictionary (71), the Rényi no-go gate (72-C-neg), and three knowledge-level
 closures (22-T2b by upstream; the Liu-1 constant story; the QR-D Lean-ecosystem audit
 incl. the tracker). Honest posture: per A5's landed tiers, one WARM discovery-grade

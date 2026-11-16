@@ -1,4 +1,4 @@
-# The ETH-Appendix Operators Q_s Are Second Differences of Number Operators: Refutation of a Parseval Conjecture and a Closed Form at h = 1
+# The ETH-Appendix Operators Q_s Are Second Differences of Number Operators: Refutation of a Project-Formulated Parseval Conjecture and a Closed Form at h = 1
 
 *cross-math-fronttier research article 30 · 2026-11-09 · dossier
 `research/candidates/30-hall-parseval-boson-identification.md` · Lean pilot

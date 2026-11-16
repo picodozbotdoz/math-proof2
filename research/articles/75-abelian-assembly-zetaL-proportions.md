@@ -7,7 +7,7 @@ dossier 70, Part B) · spec `research/pilots/75-prework.md` · Lean `research/pi
 sibling articles `42-quadratic-dedekind-zeta-zero-proportions.md`,
 `42M4-zetaK-proportions-unconditional-zeta-column.md`*
 
-**Status: PROVED (entry milestone), FINAL for Cycle 2.** The n+1-factor assembly theorem
+**Status: PROVED (entry milestone), FINAL for Cycle 2 — discovery-grade at the statement-class level only (strength bar S4(b)); the assembly mathematics is corollary-level and every analytic input is an open binder.** The n+1-factor assembly theorem
 `zetaL_assembly_landed` and its 2/3 instantiation `zetaL_two_thirds_conditional` are
 kernel-verified (run6-final: 0 errors, 0 sorry; every declaration's axioms are exactly
 `[propext, Classical.choice, Quot.sound]`). The results are **conditional**: the

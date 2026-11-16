@@ -24,7 +24,7 @@ on-line zeros of ζ and L(χ_D) account for at least 5/6 of N_K; (iii) if the co
 negligible (a hypothesis we isolate as hCZ), at least 5/6 of the zeros of ζ_K are distinct
 and on the line. The ζ-side input is consumed from K. Knausgård's clean Lean layer (constants
 0.67354 and 0.83900) through a certificate binder; the L(χ_D)-side input is zeta23's
-Theorem E. These are the first formal zero-density statements for a number-field zeta
+Theorem E. These are the first formal on-line zero-proportion statements for a number-field zeta
 function, and form (ii) improves the literature's 45%-distinct statement for Dedekind zetas
 (de Laat–Rolen–Tripp–Wagner 2019 — **[erratum 2026-11-14: their result is GRH-conditional,
 fixed quadratic K, T→∞ asymptotic; the comparison is hypothesis-shape-to-hypothesis-shape,

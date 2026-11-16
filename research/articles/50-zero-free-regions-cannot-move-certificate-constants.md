@@ -4,7 +4,7 @@
 `research/candidates/50-quasi-rh-truncated-window-constants.md` · Lean pilot
 `research/pilots/50/` · blueprint `research/pilots/50-blueprint.md`*
 
-**Status:** Part I (structural negative result) is a source-verified mathematical argument,
+**Status:** Part I (source-verified structural observation, knowledge-level) is a reading of the donor's engine, not a theorem,
 not a Lean theorem. Part II is **PROVED, binder-conditional, kernel-verified** (mathlib
 `ff2494ea`, Lean `v4.36.0-rc2`; `[propext, Classical.choice, Quot.sound]`; no `sorry`, no
 `native_decide`).
@@ -27,7 +27,7 @@ hypothesis, discharging the reflection step from mathlib's product-form function
 equation. We also record a gap in mathlib: the product-form Dirichlet functional equation
 `DirichletCharacter.LFunction_one_sub` is missing, although its completed form exists.
 
-## Part I — the structural negative result
+## Part I — structural observation, source-verified (knowledge-level; a reading of the donor's proof architecture, not a theorem about mathematics)
 
 **Setting.** zeta23's ThmD functional (`Zeta23/ThmD/Functional.lean:40–43`) is
 

@@ -4,7 +4,7 @@
 `research/candidates/20-hecke-zetaK-zero-density.md` · Lean pilot `research/pilots/20/M1.lean`
 · blueprint `research/pilots/20-blueprint.md` · obstruction note `research/pilots/20-hCZ-NOTE.md`*
 
-**Status: conditional core PROVED, kernel-verified** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
+**Status: conditional interface PROVED, kernel-verified (technical record: engine seam + knowledge-level seam analysis — not a discovery article)** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
 all 27 theorems `[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`).
 The engine inputs (zeta23 `PaperInputs` card, traces family, engine step) are explicit
 hypotheses; the common-zero analysis of §4.3 is a paper result.

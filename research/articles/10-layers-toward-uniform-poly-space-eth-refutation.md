@@ -6,7 +6,7 @@
 (Top-3 #2) · blueprint `research/pilots/10-blueprint.md` · Lean
 `research/pilots/10/{M1,L1,L2}.lean` · next-tranche spec `research/pilots/10/next-tranche-spec.md`*
 
-**Status: three layers PROVED; headline theorem OPEN.** M1 (space-annotated host
+**Status: HEADLINE OPEN (not a theorem of this article). Three layers PROVED.** M1 (space-annotated host
 simulation), L1 (counter combinators agree with padded ones) and L2 (the space-certified
 countdown loop and the first value-time/word-space certificate) are kernel-verified.
 L2.lean has 2,625 lines and 151 theorems, every one with axioms ⊆

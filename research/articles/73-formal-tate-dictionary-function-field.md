@@ -5,7 +5,7 @@ discharge Q4 carried to Iteration 4) · dossier
 `research/candidates/73-function-field-hecke-tate.md` · prework `research/pilots/73-prework.md`
 · Lean `research/pilots/73/{P0,C}.lean` · builds on article 71*
 
-**Status: PROVED at Tier C, FINAL.** `pilots/73/C.lean` has 236 lines and 7 theorems,
+**Status: PROVED at Tier C, FINAL — formalization-first technical record (hRat/hPur never discharged; Theorems 1–2 are one-step consequences of article 71's Core 1).** `pilots/73/C.lean` has 236 lines and 7 theorems,
 each with axioms exactly `[propext, Classical.choice, Quot.sound]` (run6-c-green). This is
 the *statement layer* of a function-field Tate dictionary, for the rational function
 field 𝔽_q(T). It contains the character class, the L-series as a formal power series, the

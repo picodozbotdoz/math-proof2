@@ -1,4 +1,4 @@
-# The Rényi Monotonicity No-Go Gate for Area-Law Rank Statements (with the Family-265 Interface Layer)
+# A Kernel-Verified Fence for Kuwahara's Refutation of the Rényi Area Laws (with the Family-265 Interface Layer)
 
 *cross-math-fronttier research article 72 (Cycle 2) · FINAL (C-neg complete; M1 interface
 layer landed for its Cycle-2 tranche, with the gap transfer and the interface theorem
@@ -6,7 +6,7 @@ carried to Iteration 4) · dossier `research/candidates/72-area-law-inertial-def
 prework `research/pilots/72-prework.md` (Appendix A) · Lean `research/pilots/72/C-neg.lean`,
 `research/pilots/72-M1/P72M1T{1,2}.lean` · bridge `research/bridges/area-law.md`*
 
-**Status: PROVED, FINAL.**
+**Status: PROVED, FINAL — fence, not refutation.** The refutation is Kuwahara's theorem (arXiv:2610.15199, hypothesis `hKL` here); N1–N2 are textbook; our layer is the kernel-verified gate N3 plus the interface chain.
 - **Part I (the gate, C-neg)** is complete. It has 369 lines and 11 theorems (5 public,
   6 private), each with axioms exactly `[propext, Classical.choice, Quot.sound]`.
 - **Part II (M1)** proves the first two links of the planned AreaLaw2D → openai-math
@@ -23,11 +23,9 @@ a statement shape that a 2026 preprint refuted.
 
 Kuwahara (arXiv:2610.15199, October 2026) constructed families of 2D finite-range,
 uniformly gapped Hamiltonians with unique ground states whose Rényi-α entanglement
-entropy obeys a *volume* law for every 0 < α < 1. A consequence is never stated in the
-corpora we surveyed, yet it is what any "rank concentration from a spectral gap"
-proposal would run into. The consequence: no bound of the form
+entropy obeys a *volume* law for every 0 < α < 1. The log-rank consequence — no bound of the form
 log(Schmidt rank of ρ_A) ≤ C·|∂A| can hold for all such ground states. The reason is
-that log rank = S₀ ≥ S_α. We formalize the chain that makes this a theorem:
+that log rank = S₀ ≥ S_α. It is an immediate corollary of his theorem (his abstract announces the refutation and proves its own rank-error trade-offs); the fence below, not the consequence, is our contribution. We formalize the chain that makes the gate a theorem:
 
 - **(N1)** S_β(p) ≤ S_α(p) for 0 < α ≤ β < 1, for every probability vector p;
 - **(N2)** S_α ≤ log #supp p, and, for a Hermitian PSD matrix with unit eigenvalue sum,

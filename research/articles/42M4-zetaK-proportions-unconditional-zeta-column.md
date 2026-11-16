@@ -8,7 +8,7 @@ certificate-conditional record and is cited, not edited) · dossier
 `research/pilots/42-M4-blueprint.md` · Lean `research/pilots/42/{M4a,M4b}.lean` · note
 `research/pilots/42/M4-note.md`*
 
-**Status: PROVED, FINAL.** `M4b.lean` (1,571 lines, 68 theorems) imports AxiomMath's
+**Status: PROVED, FINAL — technical record (donor-swap of article 42; "There is no new analytic mathematics", §1).** `M4b.lean` (1,571 lines, 68 theorems) imports AxiomMath's
 ZetaZerosV2, built on our exact mathlib pin, and proves the three upgraded landing
 theorems. Every theorem, including the imported donor endpoints, has axioms exactly
 `[propext, Classical.choice, Quot.sound]`. On the ζ side there is no certificate

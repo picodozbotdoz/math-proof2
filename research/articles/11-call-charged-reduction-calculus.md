@@ -4,7 +4,7 @@
 `research/candidates/11-z1-composable-reduction-theory.md` · Lean pilot
 `research/pilots/11/` · blueprint `research/pilots/11-blueprint.md`*
 
-**Status: Milestone 1 PROVED, kernel-verified** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
+**Status: Milestone 1 PROVED, kernel-verified (formal calculus for folklore composition — technical record; the acceptance test, not the calculus, is the article's deliverable)** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
 all declarations `[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`)
 **+ M2 COMPLETE (2026-11-14; A8 formal report received)** — Theorem B(ii), the TM2
 realization, kernel-verified (`m2-run8-GREEN.log` all six files OK; `m2-axcheck-final.log`

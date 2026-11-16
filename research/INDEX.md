@@ -165,7 +165,7 @@ state per the resume brief).
 
 ### Cycle-2 close & endgame additions (INDEX refresh, R4 batch B, 2026-11-16)
 
-- `research/articles/10-uniform-poly-space-eth-refutation.md` | article (C2) | FINAL 2026-11-14 (orchestrator promotion, 8a43767) | main-run dossier 10's Cycle-2 article: three proved layers M1/L1/L2 (2,043+529+2,625 LoC; l2-run5-final 151/151 ⊆ triad); headline OPEN, assembly tranche D1–D6 carried.
+- `research/articles/10-layers-toward-uniform-poly-space-eth-refutation.md` (renamed 2026-11-16 from `10-uniform-poly-space-eth-refutation.md`, R2 §7 A1) | article (C2) | FINAL 2026-11-14 (orchestrator promotion, 8a43767) | main-run dossier 10's Cycle-2 article: three proved layers M1/L1/L2 (2,043+529+2,625 LoC; l2-run5-final 151/151 ⊆ triad); headline OPEN, assembly tranche D1–D6 carried.
 - `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` | article (C2) | FINAL 2026-11-14 | donor-swap upgrade of article 42 (frozen): unconditional ζ-column via direct ZetaZerosV2 import — M4b both routes (1,571/68; m4b2-run2 + donor-tree axcheck; M4-note = A3 formal report).
 - `research/articles/50M2-unconditional-strip-confinement.md` | article (C2) | FINAL 2026-11-14 | unconditional ζ strip [1/8, 7/8] + Dirichlet at 7/8 under hFEχ (R1.lean 178 LoC; G7b PASS run32); grows article 50.
 - `research/articles/71-splane-zeta-curve-dictionary.md` | article (C2) | FINAL 2026-11-14 | FF s-plane dictionary: W1/W2/HW conditional on WeilData (P2 279/11 triad, p2-run6; pole-family correction).

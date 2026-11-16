@@ -1,4 +1,4 @@
-# Unconditional Strip Confinement for ζ in Lean: Discharging the Quasi-RH Hypothesis of Article 50
+# Discharging Article 50's Strip Shell at the Donor Pin: the openai Preprint's Corollary 1.2, Formalized (Technical Record)
 
 *cross-math-fronttier research article 50-M2 (Cycle 2) · FINAL · grows article 50
 (main run, Part II: hypothesis-conditional strip confinement) and dossier 70 Part A ·
@@ -6,7 +6,7 @@ Lean `research/pilots/50/R1.lean` (+ the main-run shells `pilots/50/{M1,Dirichle
 route plan `research/pilots/50/R1-prework.md`, `research/pilots/50-M2-31-32-spec.md` ·
 donor audit `research/feasibility/axiommath-donor-probes.md` §G7b*
 
-**Status: PROVED, FINAL.** `strip_confinement_seven_eighths` holds with no hypotheses:
+**Status: PROVED, FINAL — technical record (class (iii) binder discharge; no new mathematics).** The mathematical statement is the donor preprint's own Cor. 1.2 (*The Quasi-Riemann Hypothesis*, 2026-09-30; see article 50 §Relation). `strip_confinement_seven_eighths` holds with no hypotheses:
 every nontrivial zero of the Riemann zeta function satisfies 1/8 ≤ Re ρ ≤ 7/8. It is
 kernel-verified with axioms exactly `[propext, Classical.choice, Quot.sound]`. The input
 is openai-math's in-corpus proof that ζ(s) ≠ 0 for Re s > 7/8. Before consuming it, we
