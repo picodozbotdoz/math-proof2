@@ -23,6 +23,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 15 | R6 (2nd) | G11/G12 probes + OAI donor map + dossiers 76/77 + FB-5 correction | Two OAI donors registered (SiegelZeros, PiExponent — G7b-pattern probes staged w/ g11 wiring); dossiers 76 (FB-1, R7-delegated lit sweep) and 77 (FB-5 re-scoped: pre-dossier novelty claims FALSE — OAI tree owns sector decomposition + CAR); fresh-bridges FB-5/§6 corrected |
 | 16 | R5 (staging) | 4 pilot runner apps (lp/al3d/zzv2-lam/zeta23e) + backlog §14 rows 8–12 + REPORT-INPUTS-ITER4 | All STAGED-NO-RUN (R8 validating clones now); run queue FINAL incl. run 12 = 32-crossing on warm pilot-32; R5 standby-integrated. Pre-GO remaining: R9 final block, R6's one rg, then L1 |
 | 17 | CLOSURE (L1) | all nine lanes v-final + launch kit | Review phase CLOSED at GO: nine audits + fix-side passes (R4 A/B, R2 29-edit, R3 pass-2 all applied + verified), R9 v5-FINAL §11 splice text emitted, R4 Parts 6–8 + go-readiness + ITER4 close plans, R1/R2 finals, R8 §8/§3 + AGENTS-ITER4 E-block — GO executed |
+| 18 | R7 (final) + L2 | `r7-bib-cards.md` (path-corrected) + the splice commit | R7 bib cards: FB-1 gate sweeps both-clear (B→B+; Truffet located, no soundness theorem, high-value follow-up); 01-stability sweeps clear; six bib cards. L2 = charter TYPESET (R9 §11 → RESEARCH.md; batch C1/C2/C4/C5; STATUS opened block; phase B ACTIVE) |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
