@@ -2,25 +2,23 @@
 
 Unlike the Cycle-2 brief (`RESUME-BRIEF-C2.md`, written only at wrap after an outage
 killed all lanes), this one is written at launch and kept current by H at every commit
-batch. Read AFTER `AGENTS.md` + `research/RESEARCH.md` (§ Cycle 2; the § Iteration 4
-charter splice is appended at phase-B start) + this brief +
-`research/ORCHESTRATION-ITER4.md`.
+batch. Read AFTER `AGENTS.md` + `research/RESEARCH.md` (§ Cycle 2 + § Iteration 4 —
+charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
 
 ## (a) Session context
 
 - Iteration-4 run (the user's "Iteration 3" launch) opened 2026-11-16 on branch
   `dev/iteration4`, cut at `b1ea051` (the Cycle-2 close commit; == `master` at open;
   ff-only merge confirmed identical; never pushed).
-- **Phase A (current)** — Cycle-2 review: the user reported unsatisfactory external
-  feedback on the iteration-2 articles; 9 review lanes (R1–R9) audit and consolidate
-  before any new pilot work.
-- **Phase B (after review)** — pilot execution; starts when the orchestrator typesets
-  the charter splice into `research/RESEARCH.md` (kit:
-  `feasibility/ITERATION4-CHARTER-SPLICE.md`; carried inventory:
-  `feasibility/ITERATION4-SCAN.md`, `feasibility/ITERATION4-SEED-DOSSIERS.md`,
-  `novelty/iter4-seed-triage.md`).
-- Commit history: batch 1 `f8f37e6` (orchestration tracker + review workspace); this
-  brief = batch 2.
+- **Phase A (review) CLOSED at L1** (`226fa08`): nine lane audits + fix-side passes all
+  landed and applied (digest: `qa/iter4-review/00-DIGEST.md`, 17 entries).
+- **Phase B (pilots) ACTIVE since L2** (the splice commit): charter typeset into
+  `RESEARCH.md` §Iteration 4; STATUS opened block spliced; R4 batch C applied
+  (C1/C2/C4/C5). Launch order: 75-Pb day-1 top-billed; LP layer same week (engineering
+  billing); AL-3D B.2; ZZV2-λ (a); 72-M1 L3a; hEχ companion day-2/3. First-48h run
+  queue: r5 backlog §14 (12 STAGED-NO-RUN rows; approvals at charter typeset).
+- Lane reassignment: the R1–R9 review lanes are CLOSED; phase-B lanes spawn per R9 §9
+  briefs (A-lane pattern) on orchestrator signal; H stays sticky.
 
 ## (b) Protocol
 

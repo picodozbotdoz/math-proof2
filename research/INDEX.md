@@ -6,8 +6,8 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 
 ## Charter & coordination
 
-- `research/RESEARCH.md` | — | stable | Research charter: objective, Phases 1–4, ground rules (discovery-first; kernel-only verification; exact citations).
-- `research/STATUS.md` | — | live | Coordination board: lane table, phase pipeline, file-ownership rule.
+- `research/RESEARCH.md` | — | stable | Research charter: objective, Phases 1–4, ground rules (discovery-first; kernel-only verification; exact citations). § Cycle 2 + **§ Iteration 4 TYPESET 2026-11-16 at L2** (R9 §11 splice: raised discovery bar, S1–S4 gate, launch order 75-Pb/LP/AL-3D/ZZV2/72-M1 + hEχ companion, close-out protocol).
+- `research/STATUS.md` | — | live | Coordination board: lane table, phase pipeline, file-ownership rule. **§ Iteration 4 — opened 2026-11-16 block spliced at L2** (R5 §16 snippet; batch C2 applied).
 - `research/INDEX.md` | — | live | This file.
 - `research/REPORT-INPUTS.md` | final input | DONE 2026-11-09 19:58 (H) | Orchestrator's §1-conclusion data pack: headline-numbers block + §A scale (QA recompute 230 items / 193 OK / 37 minor / 0 WRONG) + §B verification (final-disk) + §C decision + §D timeline (3 pivots 19:26–19:31). Every number file-cited.
 - `research/REPORT.md` | final | **FINAL** (≈2.4k words); Cycle-2 addendum FILLED-FINAL 2026-11-14 | §1 executive summary integrated with final-sweep counts; §7 final proved-artifacts table; §8 Top-3 outcomes; §9 signed-off compliance; § Cycle 2 = C2.1–C2.7 all filled (close-out chain executed: sweep Steps A–D signed at ledger §9.F; §C2.6 mirrors the TRIAGE decision).

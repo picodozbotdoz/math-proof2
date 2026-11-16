@@ -253,7 +253,7 @@ claims the 2026 cluster has already taken.
 zeta of a curve in any formal system — meromorphic dictionary, exact-1/2 window
 (W1 as landed with the pole-FAMILY exclusion — honest correction), perfect zero-density
 (W2), uniform Hasse–Weil transport (HW) — 279 LoC / 11 theorems all triad, descent
-6→4→2→1→0 over p2-run1..6 (A2 formal report LANDED; LoC corrected 282→279; W1 statement
+6→4→2→1→0 over p2-run1..6 (A2 formal report LANDED; LoC corrected 279→282-disk (run6 header says 279; sweep staged the 282-byte file); W1 statement
 delta: pole-family exclusion + Core-2 re_eq_one_of_card_mul_wOf). Formalization-
 first (Weil 1948 classical; A5 tier WARM), the load-bearing substrate for the FF zone;
 per-curve uniform proportions correctly absent (maximal-curve trap; HKT cited at

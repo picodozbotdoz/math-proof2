@@ -441,7 +441,7 @@ since carries a provenance header (H header-discipline QA, batch 1–3: no viola
 
 **DECIDED (orchestrator, 2026-11-14; `TRIAGE.md` § Cycle-2 pilot decision).** Delivered:
 71-P2 (rank ≈ 5.8), 72-C-neg + the 72-M1 tranche (≈ 4.9), 42-M4 both routes, 73-C at Tier C
-(≈ 4.8), 75's entry milestone — the cycle's discovery-grade core (≈ 6.4) — and the main-run
+(≈ 4.8), 75's entry milestone — the cycle's one conditional statement class, discovery-grade at statement-class level only (≈ 6.4; corrected 2026-11-16, Iter-4 review: the 42→42-M4 line and the other completions around it are ecosystem/donor-swap technical records, not a discovery headline) — and the main-run
 completions 10-L2 (three-layer stack; headline open) and 11-M2 (Theorem B(ii)). 50-M2-R1 is
 resolved by the G7b donor-pin audit (C2.3 row). 74 and every carried tranche (73-Q4,
 75 P-b/N2, 72-M1 L3+interface, 10 assembly, 22-T2a) go to Iteration 4. Every landed pilot

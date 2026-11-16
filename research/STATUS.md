@@ -758,7 +758,7 @@ mandatory section **§ Modal usage guidelines** (user directive 2026-11-14), cov
 - overrun ⇒ investigate, more only with explicit per-run approval;
 - long builds as cached image layers.
 
-**Debts:** `qa/debts-register.md` — (b)(c)(d)(e) CLOSED; (f)(g)(h)(i)–(m) carried or recorded.
+**Debts:** `qa/debts-register.md` — (b)(c)(d)(e)(i) CLOSED ((i) applied 2026-11-14, commit 431a941); (f)(g)(h)(j)–(m) carried or recorded.
 
 **Modal incident record (2026-11-14):** run28 reserved 64 CPU / 128 GB. It was cancelled
 by the user as a budget breach. The remediation:
@@ -778,3 +778,40 @@ by the user as a budget breach. The remediation:
 - 74.
 
 Branch `dev/iteration4` is cut from the Cycle-2 close commit on `dev/claude` (never pushed).
+
+## Iteration 4 (opened 2026-11-16) — raising the discovery bar
+
+Chartered in direct response to the Cycle-2 external feedback (too few discovery-grade
+results; the nine-lane review R1–R9 under `qa/iter4-review/` is the diagnosis). The
+discovery bar is RAISED for every slot and article: R2's four-point strength bar
+(`qa/iter4-review/r2-discovery-strength.md` §4) + the iteration-4 article gate
+(`r9-iteration-plan-draft.md` §3, typeset into `RESEARCH.md` §Iteration 4 per the §6d
+hybrid): verification-status table, nearest-miss block, limitations — and the two-strike
+cap at **N = 1 (FINAL)**: at most ONE knowledge-level / formalization-first /
+donor-discharge article per cycle; KPI ≥ half of shipped articles discovery-grade.
+
+**Launch order (orchestrator, 2026-11-16):** day-1 top-billed discovery milestone =
+**75-Pb, the 5/6 strip-distinct arm** (A3-pattern lane; design `pilots/75/Pb-design.md`,
+spec `qa/iter4-review/r5-iteration4-backlog.md` §8; conditional S4(b) title). Same week:
+the **LP-duality layer + 02-core consumer** (engineering-deliverable billing; spec §9),
+**AL-3D B.2 staged** (rung named; C.1–C.4 fences; spec §11), slot-3 **ZZV2-λ route (a)**
+(technical-record posture; spec §12), **72-M1 L3a** in the first 48h (spec ref
+`pilots/72-M1/L3-spec.md`). Carried: 73-Q4 (gate memo owed; spec §13), 22-T2a/G9,
+74-T3 (gated), 10-tranche D1–D6, 75-N2/N3, G10 on the shelf. Full ranked queue + DROP
+list: `qa/iter4-review/r5-iteration4-backlog.md` §2/§4.
+
+**First-48h Modal run queue:** `qa/iter4-review/r5-iteration4-backlog.md` §14 — twelve
+STAGED-NO-RUN rows (LP-P0 doubles as the artifact-cache ping; 75-Pb run 1 second; the
+two cold-class hour items — the **hEχ zeta23 donor-pin build** at run 8 and ZZV2-P0 at
+run 9 — queued at the tail, parallelizable on separate lanes/pins; run 12 = the
+32-crossing riskless filler on the existing warm app), all at SPEC 2 CPU / 4 GB +
+telemetry + `LEAN_NUM_THREADS=2` per the AGENTS.md mandatory Modal guidelines;
+approvals at charter typeset. The four new runner apps are STAGED on disk
+(`pilots/{lp,al3d,zzv2-lam,zeta23e}/`, diff-checked; r5 §14 tail note). The hEχ
+discharge and 75-Pb are COMPANIONS — two binder tiers of the one 75 statement-class
+article (judgments: r5 §14.1). Slot ledger + evidence-slot formats + OPEN markers:
+`qa/REPORT-INPUTS-ITER4.md` (modeled on `REPORT-INPUTS-C2.md`).
+
+Branch `dev/iteration4` (cut from the Cycle-2 close commit; H commits). Protocols carry
+over from Cycle 2 unchanged (queue-loaded lanes, one writer per file, log provenance
+headers, concurrency probe at batch close).
