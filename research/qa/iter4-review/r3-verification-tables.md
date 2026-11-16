@@ -455,6 +455,98 @@ disk shas recorded above); (iii) guard note: the ≤0.4k content guard exceeded 
 docstring fences + the 24-line audit block — math content within, no stop fired
 (`alp1-final.log:5–6`).
 
+### 10.4 75-Pb — LANDED 2026-11-16 (the cycle's headline verification record; lane A3, card 2)
+
+**Pb.lean (proof artifact — 2,296 LoC on disk (log header says 2,289 — LoC drift
+noted, same F5 class), 89 decls = 79 public + 10 private, extractor census; disk
+sha256 b9ad881689927936…; `import Mathlib` ONLY — the zero-donor-imports acceptance
+criterion is met; self-contained carry of the full Pa stack (pilot-01 duplication
+convention), so no sibling-import staging needed; TARGETS row `AxPilot75_Pb`
+appended, staging verified 79 public theorems; forbidden-token gate clean). Verdict:
+rc=0, errors=0, sorry=0 (`pilots/75/logs/pb-run11-final.log:4`), wall 51 s,
+telemetry OVER=0.**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| Pb-1 `zetaL_assembly_distinct_defect_landed` | `pilots/75/Pb.lean:2144` | PROVED-CONDITIONAL — H (hK, hF, hntopK, hntopF, hAbFac, hfinK/hfinL/hfinF) + hcK/hcF (constants) + **hAKd : `EpsLowerDistinctStripCum (multOf fK) c₀` and hAFd : per-component distinct-strip proportions — the open core** | `pb-run11-final.log:50` — `[propext, Classical.choice, Quot.sound]` | the n-fold defect-form landing: defect = ζ_K-vs-family common-strip count PLUS the ORDERED-pair family defect (Pb-design §0) |
+| Pb-2 `zetaL_assembly_distinct_landed_of_negligible` | `:2191` | PROVED-CONDITIONAL — H + hcK/hcF + hAKd/hAFd + **hCZStripFam** (summed common-strip-defect negligibility; by design, discharge-equivalent to the per-pair form per the file header) | `:51` — triad (wrapped) | the full strip-distinct proportion, seamed |
+| Pb-3 `zetaL_distinct_five_sixths_strip_conditional` | `:2229` | PROVED-CONDITIONAL — H + **hCert : cert + hK839 : `K839OfLocalStrip cert ⟨multOf fK, hfinK⟩`** (the Knausgård 839 ≥ 5/6 certificate slot for the ζ_K column — the 5/6 arm's slot) + hAFd at 5/6 (open core) | `:52` — triad (wrapped) | M4a's `zetaK_distinct_five_sixths_strip_landed` one degree up the tower |
+| Pb-3-D `zetaL_distinct_five_sixths_strip_conditional_of_negligible` | `:2255` | PROVED-CONDITIONAL — idem + **hCZStripFam** | `:53` — triad (wrapped) | |
+| E1 `ZeroMult.addFinOver` + `addFinOver_cons` | `:1651+` | PROVED-UNCONDITIONAL (data-only binders) | `pb-run11-final.log` in-log records — triad | sub-family aggregation |
+| E2b `commonStripCum_mono` / E2 `commonStripCum_add_le` / E3 `commonStripCum_addFinOver_le` | `:1628+` | PROVED-UNCONDITIONAL (data-only) | in-log records — triad | pair-defect monotonicity, binary sub-additivity, union-intersection bound |
+| E4 `bonferroni_addFinOver` | `:1910` | PROVED-UNCONDITIONAL (finite family of Finsets — definitional) | `pb-run11-final.log:45` — triad | **the corrected E4 invariant**: superadditivity-up-to-overlap via the abstract Finset Bonferroni (`bonferroni_union_le`) + both-column offDiag growth — monotonicity alone does not close the cons-step (M1 design-erratum, `pb-run11-final.log:6–7`) |
+| E5 `supp_addFin_inter` + `distinctCountCum_of_abelFac` / E6-core `assemble_eps_defect_strip_cum_fin` | `:2064+` | E5 UNCONDITIONAL (data-only); E6-core PROVED-CONDITIONAL — hK : `EpsLowerDistinctStripCum zK c` + hF : per-component (the assembly takes the component defect bounds) | `:49` (E6-core) — triad | n-ary distinct factorization + defect assembly |
+| heritage carry (Pa stack verbatim: M4a 54 + P-a 14 incl. `zetaL_assembly_landed`, `zetaL_two_thirds_conditional`, 3 private) | `Pb.lean:1–1557` (= Pa.lean) | per §1's 75 rows — unchanged (drift-check: Pa rides along in-target) | heritage audit tail `Pb.lean:1558+` (the Pa 17-decl audit, verbatim); in-log records triad | the Pa precedent's carry convention |
+
+**Coverage finding (F2 class, third instance this cycle — flagged for the lane):**
+the file's two hand-written audit tails print **32 of 89** declarations (17 heritage +
+15 P-b, `Pb.lean:1558+`/`:2281–2296`); the persisted log body is additionally
+head/tail-excerpted (records ≈ 40 of the file's prints). The three private lemmas
+named in the lane relay — `bonferroni_union_le` (:1873), `offDiag_cons_ge` (:1797),
+`le_sum_mem` (:1678) — have **no direct print anywhere** (the relay's
+"appended-tail pattern" does not cover them; the tails are hand-written lists).
+Their ⊆-triad status holds by elimination: rc=0 with zero sorry-warnings
+(`pb-run11-final.log:4`), forbidden-token gate clean, and each is consumed inside a
+printed-triad theorem (`le_sum_mem` at :1701/:1723, `offDiag_cons_ge` at :1879,
+`bonferroni_union_le` at :1915 — feeding E-milestone theorems printed triad).
+Step-B full coverage prints all 89 (generator-verified). The log header's "EVERY
+declaration … prints exactly [triad]" is therefore TALLY-ONLY-broad: true for
+everything printed (all persisted records are full triad; 8 wrapped joins complete),
+but 57 of 89 declarations have no direct print in the persisted evidence.
+
+**Descent + policy record:** 55→21→27→21→12→11→8→3→1→1→0 errors over runs 1–11
+(`pb-run11-final.log:4`); runs 5–11 under the orchestrator's continuation policy,
+each with written error-class hypotheses (the policy line is in the run-11 header;
+run-1's FIRE authorization at `pb-run1.log:4`). Fallback §8e never invoked — primary
+offDiag route throughout. Warnings only (2 unused-simp-arg, 1 unused-section-var).
+
+### 10.5 zeta23e (hEχ donor-pin discharge) — LANDED GREEN 2026-11-16/17 (the §9 donor-pattern showcase; lane A2 executing, runner R5, card 9 / r5 §14 run 8)
+
+**The pre-recorded audit set of §10.2, completed. Substrate (D-PIN): the 144-file
+pruned `Zeta23.ThmE.Final` closure built INSIDE the donor's tree at the DONOR pin —
+Lean v4.33.0-rc2 + mathlib `51e6992e` (zeta23's own manifest, resolved by the donor's
+`lake exe cache get`, rc=0 first attempt); base-image layers shared with the
+g7/m4b2 family (diff-checked at staging). Axiom verdicts are pin-independent (§9(i)).
+Wall 862 s — minutes-class, as R2's mini-spec predicted. Log
+`pilots/zeta23e/logs/zeta23e-p0-run1.log`, sha256(16) P0 `986f1ce879786f33` stamped
+in-log (:7).**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `Zeta23.ThmE.thmE_A₀` (donor) | zeta23 `Zeta23/ThmE/Final.lean:93` (seeded upstream; shape pinned by `#check`, `P0.lean:33`) | PROVED-UNCONDITIONAL (donor) | `zeta23e-p0-run1.log:190` (repeat :203) — `[propext, Classical.choice, Quot.sound]` | the χ-column 2/3 WITH-MULTIPLICITY endpoint — the hEχ discharge target |
+| `Zeta23.ThmE.thmE_B₀` (donor) | idem `:99` | PROVED-UNCONDITIONAL (donor) | `:191` (repeat :204) — triad | |
+| `Zeta23.ThmE.thmE_C₀` (donor) | idem `:105` | PROVED-UNCONDITIONAL (donor) | `:192` (repeat :205) — triad | companion-billing (r5 §14.1(c)): thmE_C₀'s 3/4 is the DISTINCT form — WEAKER than 75-Pb's 839-carried 5/6 slot; recorded, NOT consumed |
+| `Zeta23.ThmE.paperInputsChi_L` (donor) | seeded chain (shape pinned `P0.lean:37`) | PROVED-UNCONDITIONAL (donor) | `:193` (repeat :206) — triad | the L-function inputs card |
+| `Zeta23.ThmE.thmE_A` (donor) | seeded chain (shape pinned `P0.lean:36`) | PROVED-UNCONDITIONAL (donor) | `:194` (repeat :207) — triad | the with-multiplicity assembly |
+| `hex_two_thirds_binder_port` | `pilots/zeta23e/P0.lean:54` | PROVED-CONDITIONAL — single binder hEχ : thmE_A₀'s conclusion quoted VERBATIM (`∀ ε > 0, ∃ T₀, ∀ T ≥ T₀, (2/3 − ε)·NcountL χ T (2T) ≤ N0starL χ T (2T)`); conclusion is the `True` carrier | elaborated in-tree (P0.lean OK, zero-sorry probe — the only decl; the elaboration IS the evidence) | the EnclOK/ProbeE pattern: the consumer-side binder until discharge; discharge = the donor name, post-audit (CLEARED below); port cost ≈ 0 by construction; NEVER cited as a result |
+
+**Donor hygiene gate: PASS** (`zeta23e-p0-run1.log:15–18`) — the transitive Theorem-E
+audit: all five donor rows triad-only, **0 sorryAx anywhere in the built closure**
+(the sorry'd `Challenge.lean` comparator statements are never the build target).
+**"The hEχ binder swap for 75-N2/42-M2 is CLEARED."** Consequence for earlier tables
+per §9(iii): the χ-column 2/3 with-multiplicity binder of 42-v2's Thm 1 and 75's
+Theorem B is dischargeable at the donor pin by name; on-pin consumers keep the hEχ
+binder until an on-pin port, then gain supersession rows, not edits. The 5/6
+distinct-strip tier (hEχdStrip / hK839 slots) is untouched by this clearance.
+
+**Substrate/telemetry note (per instruction; the nproc trap, live):** OVER=13 during
+the run — `max_cpu=8.98` at the **LAKE BUILD phase**: lake sizes job parallelism
+from `nproc=18` while the CAP secret caps `LEAN_NUM_THREADS` for elaboration only,
+not `lake -j` (`zeta23e-p0-run1.log:19–26`, telemetry rows :36–50). Classified as the
+soft-limit burst class (AGENTS §1: a small request does not break a run); memory fine
+(peak 1774 MB, anon=0). Guideline-3 investigation recorded in-log; future build-phase
+runs pass `-j 2` (or accept the burst with this note). **No escalation needed or
+requested.**
+
+**Citation correction (record-only):** the log header self-cites the donor prints at
+"lines 165-169" (:17); the actual `depends on axioms` lines are **:190–194** (repeats
+:203–207). Table cites the real lines.
+
+**Step-A baseline: +0 tokens** (zero-sorry probe file; the 3 `sorry` strings in
+P0.lean are prose). P0.lean is probe-convention — NOT a Step-B stage, no TARGETS row.
+The 75-N2 consumer (when it lands) elaborates in this donor tree under the D-PIN
+class; its on-pin statements keep the binder per §9(ii).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
