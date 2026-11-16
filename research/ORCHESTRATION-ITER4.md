@@ -5,13 +5,13 @@ first, then pilot phase. Maintained by H on orchestrator signal.
 
 | Lane | Role | Current task | Status | Last update |
 |---|---|---|---|---|
-| H | helper/infra (branch, commits, probes, tracker) | Executing signal backlog (runner staged; next: R4 deliverable + fix batches A/B, R2 edit set, R5/R8/R1 landings, R9/R2 updates) | active | 2026-11-16 |
-| R1 | articles editorial audit | v1 LANDED (audit + TEMPLATE-iter4 gate, batch 13); proposals ×3 landed batch 14; 50v2 + swap-in runbook owed | delivered v1 | 2026-11-16 |
-| R2 | discovery-strength audit | v1 LANDED (r2-discovery-strength.md, batch 6): S1–S4 bar; ≈4–5/18 genuine; 11 demotions — resolves R9 [MERGE: R2] on adoption | delivered v1 | 2026-11-16 |
-| R3 | verification integrity audit | v1 + tables LANDED (r3-verification-integrity.md + r3-verification-tables.md, batches 16–17): 19/19 VERIFIED; axcheck_iter4.py owed; H applies §8 pass-2 | delivered v1 | 2026-11-16 |
-| R4 | process/completeness audit | v1+fixes-package LANDED (r4-process-completeness.md, batch 7): batches A+B pre-approved for H; batch C rides splice | delivered v1 | 2026-11-16 |
-| R5 | iteration-4 backlog consolidation | v-final LANDED (r5-iteration4-backlog.md §§1–16, batch 12): queue + specs + run queue; STATUS snippet + REPORT-INPUTS-ITER4 held for LAUNCH; runner clones owed | delivered final | 2026-11-16 |
-| R6 | fresh corpus bridge re-scan | writing novelty/iter4-fresh-bridges.md | active | 2026-11-16 |
-| R7 | external prior-art web check | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
-| R8 | donor/feasibility engineering | v1 + drain LANDED (iter4-donor-unblock-plan.md + wrappers patched + G9/G10 staged + template verified PASS, batch 11) | delivered v1 | 2026-11-16 |
-| R9 | synthesis/charter draft | integration pass LANDED (§6–§10: memos, briefs v2, SPLICE v2, checklist v2, batch 15); final touch-up owed (R5 tail/hEχ + R6 + R7) | integrating | 2026-11-16 |
+| H | helper/infra (branch, commits, probes, tracker) | Standing by — review-phase signal backlog DRAINED (21 commits through e558674: all 8 review deliverables + R4 batches A/B + R2 29-edit set + R3 pass-2 landed; digest 11 entries) | idle | 2026-11-16 |
+| R1 | articles editorial audit | v1 + 2nd drain LANDED (audit, TEMPLATE-iter4, 42v2/50v2/README-v2, swap-in runbook — batches 13–15, 20); runbook NOT executed (orchestrator GO only) | delivered | 2026-11-16 |
+| R2 | discovery-strength audit | v1 + fix-side + 3rd drain LANDED (S1–S4 bar; 29 relabels APPLIED by H; §8 restructure plan; §9 completion paths; §10 hEχ mini-spec + 20/72 rewrites) | delivered | 2026-11-16 |
+| R3 | verification integrity audit | v1 + tables + pass-2 LANDED (19/19 VERIFIED; axcheck upgrade spec; count/relabel pass-2 APPLIED); axcheck_iter4.py on disk awaiting report | delivered | 2026-11-16 |
+| R4 | process/completeness audit | v1 + Parts 2–3 LANDED; batches A+B APPLIED by H; gate-run record 11/11; A+B verification armed; batch C at splice; go-readiness + ITER4 skeletons on disk unreported | delivered | 2026-11-16 |
+| R5 | iteration-4 backlog consolidation | v-final LANDED (§§1–16); STATUS snippet + REPORT-INPUTS-ITER4 held for LAUNCH; runner app clones staged in pilots/{lp,al3d,zzv2-lam}/ awaiting report | delivered final | 2026-11-16 |
+| R6 | fresh corpus bridge re-scan | deliverable LANDED (iter4-fresh-bridges.md, batch 18: FB-1..5 + 2 unregistered OAI donors); G11/G12 probes + donor map + dossier 76 on disk awaiting report | delivered v1 | 2026-11-16 |
+| R7 | external prior-art web check | iter4-external-priorart.md on disk (unreported); landing commit on signal | writing | 2026-11-16 |
+| R8 | donor/feasibility engineering | v1 + 2 drains LANDED (route plan, runner kit, wrappers, G9/G10, template PASS, §8 approval packet, AGENTS-ITER4-DRAFT E1–E4 — NOTHING applied) | delivered | 2026-11-16 |
+| R9 | synthesis/charter draft | integration pass LANDED (§6–§10); final touch-up in flight (file re-modified on disk, unreported) | integrating | 2026-11-16 |

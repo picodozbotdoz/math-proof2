@@ -49,15 +49,15 @@ charter splice is appended at phase-B start) + this brief +
 | Lane | Assignment | Deliverable path | Status |
 |---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief | idle (standing by for signals) |
-| R1 | articles editorial audit | `research/qa/iter4-review/r1-articles-editorial.md` + `articles/TEMPLATE-iter4.md` (v1 landed batch 13; rewrite proposals follow) | delivered v1 |
-| R2 | discovery-strength audit | `research/qa/iter4-review/r2-discovery-strength.md` (v1 landed batch 6; S1–S4 bar proposed) | delivered v1 |
-| R3 | verification integrity audit | `research/qa/iter4-review/r3-verification-integrity.md` + `r3-verification-tables.md` (landed batches 16–17; axcheck_iter4.py owed) | delivered v1 |
-| R4 | process/completeness audit | `research/qa/iter4-review/r4-process-completeness.md` (v1 + Part-2 fixes package landed batch 7; H applies A+B) | delivered v1 |
-| R5 | iteration-4 backlog consolidation | `research/qa/iter4-review/r5-iteration4-backlog.md` (final §§1–16 landed batch 12; §16 STATUS snippet + REPORT-INPUTS-ITER4 held for LAUNCH commit) | delivered final |
-| R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` | active (writing) |
-| R7 | external prior-art web check | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
-| R8 | donor/feasibility engineering | `research/feasibility/iter4-donor-unblock-plan.md` (v1 + runner drain landed batch 11; template verified, wrappers patched) | delivered v1 |
-| R9 | synthesis/charter draft | `research/qa/iter4-review/r9-iteration-plan-draft.md` (integration pass §§6–10 landed batch 15; splice v2 paste-ready pending R6/R7 fold) | integrating |
+| R1 | articles editorial audit | audit + TEMPLATE-iter4 + all rewrite proposals + swap-in runbook LANDED (runbook NOT executed — orchestrator GO only) | delivered |
+| R2 | discovery-strength audit | S1–S4 bar + fix-side + hEχ mini-spec + 20/72 rewrites LANDED; 29 relabel edits + pass-2 counts APPLIED by H | delivered |
+| R3 | verification integrity audit | 19/19 VERIFIED + tables + axcheck spec LANDED; §8 pass-2 APPLIED; axcheck_iter4.py awaited | delivered |
+| R4 | process/completeness audit | audit + fixes package + gate-run record LANDED; batches A+B APPLIED; batch C at splice | delivered |
+| R5 | iteration-4 backlog consolidation | §§1–16 final LANDED; STATUS snippet + REPORT-INPUTS-ITER4 HELD for LAUNCH commit; runner clones staged | delivered final |
+| R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` LANDED (5 seeds, 2 OAI donors); follow-ups unreported | delivered v1 |
+| R7 | external prior-art web check | `research/novelty/iter4-external-priorart.md` on disk (unreported) | writing |
+| R8 | donor/feasibility engineering | route plan + runner kit + approval packet + AGENTS-ITER4-DRAFT LANDED (NOTHING applied to AGENTS.md) | delivered |
+| R9 | synthesis/charter draft | §§1–10 LANDED (splice v2); final touch-up in flight | integrating |
 
 ## (d) Restart instructions (after outage / session loss)
 
