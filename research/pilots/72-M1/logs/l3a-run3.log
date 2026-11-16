@@ -1,0 +1,253 @@
+# l3a-run3 — pilot 72-M1 tranche T3 (L3a) elaboration attempt 3 | 2026-11-16T15:00:19Z | runner: run_pilot72m1.sh (app crossmath-probe, warm image) via lane R4-as-A8 | substrate: mathlib ff2494ea v4.36.0-rc2, SPEC 2cpu/4GB LEAN_NUM_THREADS=2 | source: P72M1T3.lean v2 | verdict: see tail (T3 FAIL, iterating)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-uW6BIKUcgXAwSFLJb9Jst9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot72m1-stage/pilot72m1_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function pilot.
+[p11] staging 3 file(s): ['P72M1T1.lean', 'P72M1T2.lean', 'P72M1T3.lean']
+[tele] start pilot: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P72M1T1.lean
+[p11] P72M1T1.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+P72M1T1.lean:70:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:79:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T1.lean:128:44: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:132:44: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+OpenAI.AreaLaw : (𝕜 : Type u_1) → [RCLike 𝕜] → ℕ → ℕ → ℝ → ℝ → Prop
+OAI.PolynomialPEPS.PinnedEntropy.UniformAreaLaw : Prop
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T2.lean
+[p11] P72M1T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T3.lean
+[tele] t=60s cpu=0.90 mem=564MB anon=0MB peak=-1MB procs=2
+[p11] P72M1T3.lean: FAIL rc=1; errors=7, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hermPart_isHermitian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.opNorm_hermPart_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.supportedOn_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hamiltonian_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+P72M1T3.lean:37:2: error: `show` tactic failed, pattern
+  (a x y + star (a y x)) / 2 = 2⁻¹ * (a x y + star (a y x))
+is not definitionally equal to target
+  hermPart a x y = (2⁻¹ • (a + aᴴ)) x y
+P72M1T3.lean:65:20: error: unsolved goals
+case insert
+ι : Type u_1
+inst✝ : DecidableEq ι
+L q : ℕ
+f : ι → Operator L q
+x : ι
+s : Finset ι
+a✝ : x ∉ s
+ih : ∑ i ∈ s, hermPart (f i) = hermPart (∑ i ∈ s, f i)
+⊢ x ∉ s
+
+case insert
+ι : Type u_1
+inst✝ : DecidableEq ι
+L q : ℕ
+f : ι → Operator L q
+x : ι
+s : Finset ι
+a✝ : x ∉ s
+ih : ∑ i ∈ s, hermPart (f i) = hermPart (∑ i ∈ s, f i)
+⊢ x ∉ s
+P72M1T3.lean:72:2: error: `show` tactic failed, pattern
+  star ((a y x + star (a x y)) / 2) = (a x y + star (a y x)) / 2
+is not definitionally equal to target
+  (hermPart a)ᴴ x y = hermPart a x y
+P72M1T3.lean:100:64: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P72M1T3.lean:99:4: error: unsolved goals
+case pos
+L q : ℕ
+S : Finset (Vertex L)
+aS A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ∀ v ∉ S, x v = y v
+hy : ∀ v ∉ S, y v = x v
+⊢ star (if ∀ v ∉ S, y v = x v then A (fun v => y ↑v) fun v => x ↑v else 0) =
+    if ∀ v ∉ S, x v = y v then star (A (fun v => y ↑v) fun v => x ↑v) else 0
+P72M1T3.lean:102:64: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P72M1T3.lean:108:50: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P72M1T3.lean:108:4: error: unsolved goals
+case pos
+L q : ℕ
+S : Finset (Vertex L)
+aS : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+h1 : ∀ (A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ), (liftLocal S A)ᴴ = liftLocal S Aᴴ
+A B : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ∀ v ∉ S, x v = y v
+⊢ (if ∀ v ∉ S, x v = y v then (A (fun v => x ↑v) fun v => y ↑v) + B (fun v => x ↑v) fun v => y ↑v else 0) =
+    (if ∀ v ∉ S, x v = y v then A (fun v => x ↑v) fun v => y ↑v else 0) +
+      if ∀ v ∉ S, x v = y v then B (fun v => x ↑v) fun v => y ↑v else 0
+P72M1T3.lean:109:50: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P72M1T3.lean:115:64: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P72M1T3.lean:115:4: error: unsolved goals
+case pos
+L q : ℕ
+S : Finset (Vertex L)
+aS : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+h1 : ∀ (A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ), (liftLocal S A)ᴴ = liftLocal S Aᴴ
+h2 :
+  ∀ (A B : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ),
+    liftLocal S (A + B) = liftLocal S A + liftLocal S B
+c : ℂ
+A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ∀ v ∉ S, x v = y v
+⊢ (if ∀ v ∉ S, x v = y v then c * A (fun v => x ↑v) fun v => y ↑v else 0) =
+    c * if ∀ v ∉ S, x v = y v then A (fun v => x ↑v) fun v => y ↑v else 0
+P72M1T3.lean:116:64: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P72M1T3.lean:116:4: error: unsolved goals
+case neg
+L q : ℕ
+S : Finset (Vertex L)
+aS : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+h1 : ∀ (A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ), (liftLocal S A)ᴴ = liftLocal S Aᴴ
+h2 :
+  ∀ (A B : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ),
+    liftLocal S (A + B) = liftLocal S A + liftLocal S B
+c : ℂ
+A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ¬∀ v ∉ S, x v = y v
+⊢ 0 = c * 0
+P72M1T3.lean:100:56: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.conjTranspose_apply, hy, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:100:60: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.conjTranspose_apply, hx, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:100:64: warning: This simp argument is unused:
+---- (…45 more lines) tail ----
+P72M1T3.lean:100:56: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.conjTranspose_apply, hy, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:100:60: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.conjTranspose_apply, hx, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:100:64: warning: This simp argument is unused:
+  if_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.conjTranspose_apply, hx, hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:108:46: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.add_apply, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:108:50: warning: This simp argument is unused:
+  if_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.add_apply, hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:115:60: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.smul_apply, smul_eq_mul, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:115:64: warning: This simp argument is unused:
+  if_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.smul_apply, smul_eq_mul, hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:116:74: warning: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [liftLocal, Matrix.smul_apply, smul_eq_mul, hx, if_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot72.M1.hermPart_isHermitian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.opNorm_hermPart_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.supportedOn_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.hamiltonian_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: OK
+[p11]   P72M1T3.lean: FAIL (7 errors)
+[tele] SUMMARY pilot: wall=69s max_cpu=0.90 max_mem=564MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-uW6BIKUcgXAwSFLJb9Jst9

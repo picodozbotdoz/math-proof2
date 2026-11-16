@@ -682,3 +682,46 @@ final block emission, H's L1 execution. At GO: R4 runs L1 closure verification +
 L2 eight-grep set.
 
 — end R4 part 8.
+
+---
+
+# Part 9 — Phase B begins: L3a GREEN + swap-in verified + records (R4-as-A8, 2026-11-16 late)
+
+**A8 item 1 — 72-M1 L3a: GREEN (run 6).** `pilots/72-M1/P72M1T3.lean` (T3 tranche, L3a
+spec §2): all four declarations — `hermPart_isHermitian`, `opNorm_hermPart_le`,
+`supportedOn_hermPart`, `hamiltonian_hermPart` — elaborate 0 errors / 0 sorry and are
+exactly `[propext, Classical.choice, Quot.sound]` (in-log `#print axioms`; T1/T2 re-OK).
+Descent 12→7→6→1→0 over five file iterations, 6 runs total (≤ 8-run guard), warm
+`crossmath-probe` image per `pilot72m1_probe.py:27`, SPEC 2 cpu / 4 GB,
+LEAN_NUM_THREADS=2, telemetry in each log tail. Logs persisted with provenance
+headers: `pilots/72-M1/logs/l3a-run{2,3,4,5}.log` + `l3a-run6-GREEN.log` (run1
+superseded by run2's full capture, noted in-header). Two spec-shape notes recorded in
+the file header: (1) `hermPart` implemented as `(2⁻¹ : ℂ) • (a + aᴴ)` because Matrix
+`/ 2` routes through junk `Ring.inverse` (the W1-correction precedent); (2)
+`hamiltonian_hermPart` carries `hH : (Hamiltonian hv he).IsHermitian` — without it the
+sketched equality is false (map_sum gives `hermPart (Hamiltonian hv he)`).
+
+**Swap-in STEP 8 — SIGNED vs `3639716` (27 files), result row appended to
+`00-DIGEST.md` row 16.** S8.1 slug sweep PASS (6 hits, all dated drift-notes /
+historical records / sanctioned supersedes-bylines — exactly one `42M4-zetaK` byline
+per refined expectation 1; 72 NOT renamed so its slug correctly absent from the list);
+S8.2 census 15 articles + README + TEMPLATE-iter4 PASS; S8.3 `Status: PROVED` 0 hits in
+the 42/50 v2s PASS; S8.4 serialized single commit carries its own authorization record
+(bb969c0/1719115 ruled authorized; per-step discipline superseded); refined
+expectations 2 and 3 exact (3 sanctioned `Theorem 5` mentions; 1 byline
+`SharedMass`/`CommonZeroControl` mention, no mathematical use).
+
+**Records per coordinator notes:** (i) R1's bib-card note ACCEPTED — the Rényi/
+Beck–Schlögl cards were never issued in `r7-bib-cards.md` §C; article 72's provisional
+standard-entries stand as documented in its References — no divergence. (ii) R7
+Truffet row-3 outcome B (soundness absent, §7 locator) — logged in the agenda, record
+only. (iii) Context: LP batch `11b8464` first GREEN (A2); AL-P0 GREEN per R8 review
+(2→0 descent, 4% LoC overage-on-GREEN recorded); R3's LP tables out with the
+stub-count correction (baseline +3) fixed table-side. No verification owed by R4 on
+(iii) beyond this record.
+
+**Next (A8 item 2):** 22-T2a statement-binder G9 probe — `ProbeG9_StrongPNT.lean`
+elaboration via `run_gprobe.sh` probe auto-glob, approval card 10 (APPROVED at SPEC),
+after the drain report.
+
+— end R4 part 9.

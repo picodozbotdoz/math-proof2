@@ -1,0 +1,253 @@
+# l3a-run2 (file-v1 rerun, full capture; run1 = same tree, tail-only, superseded by this log) | see l3a-run6-GREEN.log header for provenance
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-NdxGgRYOySB2roHOsFvIZr
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot72m1-stage/pilot72m1_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function pilot.
+[p11] staging 3 file(s): ['P72M1T1.lean', 'P72M1T2.lean', 'P72M1T3.lean']
+[tele] start pilot: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P72M1T1.lean
+[tele] t=60s cpu=0.86 mem=56MB anon=0MB peak=-1MB procs=1
+[p11] P72M1T1.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+P72M1T1.lean:70:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:79:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T1.lean:128:44: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:132:44: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+OpenAI.AreaLaw : (𝕜 : Type u_1) → [RCLike 𝕜] → ℕ → ℕ → ℝ → ℝ → Prop
+OAI.PolynomialPEPS.PinnedEntropy.UniformAreaLaw : Prop
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T2.lean
+[p11] P72M1T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T3.lean
+[p11] P72M1T3.lean: FAIL rc=1; errors=12, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hermPart_isHermitian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.opNorm_hermPart_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.supportedOn_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hamiltonian_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+P72M1T3.lean:31:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'instDivInvMonoid', which is 'noncomputable'
+P72M1T3.lean:38:4: error(lean.unknownIdentifier): Unknown constant `Matrix.div_apply`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P72M1T3.lean:35:41: error: unsolved goals
+L q : ℕ
+a : Operator L q
+x y : Configuration L q
+⊢ ((a + aᴴ) / 2) x y = a x y * (1 / 2) + star (a y x) * (1 / 2)
+P72M1T3.lean:46:31: error(lean.unknownIdentifier): Unknown constant `Matrix.div_apply`
+P72M1T3.lean:46:74: error(lean.unknownIdentifier): Unknown identifier `inv_mul_eq_mul`
+P72M1T3.lean:46:2: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    ((a + a) / 2) x
+P72M1T3.lean:53:69: error(lean.unknownIdentifier): Unknown constant `Matrix.div_apply`
+P72M1T3.lean:54:30: error(lean.unknownIdentifier): Unknown identifier `conj_add`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P72M1T3.lean:51:50: error: unsolved goals
+L q : ℕ
+a b : Operator L q
+x y : Configuration L q
+⊢ ((a + b + (aᴴ + bᴴ)) / 2) x y = ((a + aᴴ) / 2) x y + ((b + bᴴ) / 2) x y
+P72M1T3.lean:53:23: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hermPart, Matrix.add_apply, Matrix.div_apply, Matrix.conjTranspose_add, conj_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:57:69: error: unsolved goals
+L q : ℕ
+⊢ 0 / 2 = 0
+P72M1T3.lean:66:20: error: unsolved goals
+case insert
+ι : Type u_1
+inst✝ : DecidableEq ι
+L q : ℕ
+f : ι → Operator L q
+x : ι
+s : Finset ι
+a✝ : x ∉ s
+ih : ∑ i ∈ s, hermPart (f i) = hermPart (∑ i ∈ s, f i)
+⊢ x ∉ s
+
+case insert
+ι : Type u_1
+inst✝ : DecidableEq ι
+L q : ℕ
+f : ι → Operator L q
+x : ι
+s : Finset ι
+a✝ : x ∉ s
+ih : ∑ i ∈ s, hermPart (f i) = hermPart (∑ i ∈ s, f i)
+⊢ x ∉ s
+P72M1T3.lean:73:69: error(lean.unknownIdentifier): Unknown constant `Matrix.div_apply`
+P72M1T3.lean:74:4: error(lean.unknownIdentifier): Unknown identifier `conj_add`
+P72M1T3.lean:74:14: error(lean.unknownIdentifier): Unknown identifier `conj_div`
+P72M1T3.lean:74:24: error(lean.unknownIdentifier): Unknown constant `Complex.conj_involution`
+P72M1T3.lean:75:2: error: `ring_nf` made no progress on the goal
+P72M1T3.lean:73:51: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hermPart, Matrix.conjTranspose_apply, Matrix.div_apply, conj_add, conj_div,
+    Complex.conj_involution]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:84:64: error: failed to prove positivity/nonnegativity/nonzeroness
+P72M1T3.lean:85:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖2⁻¹‖
+in the target expression
+  2⁻¹ * (‖a‖ + ‖aᴴ‖) = ‖a‖
+
+L q : ℕ
+a : Operator L q
+hN : ∀ (b : Operator L q), opNorm b = ‖b‖
+hn2 : ‖2⁻¹‖ = 2⁻¹
+⊢ 2⁻¹ * (‖a‖ + ‖aᴴ‖) = ‖a‖
+P72M1T3.lean:96:4: error: unsolved goals
+case pos
+L q : ℕ
+S : Finset (Vertex L)
+aS A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ∀ v ∉ S, x v = y v
+hy : ∀ v ∉ S, y v = x v
+⊢ (starRingEnd ℂ) (if ∀ (a b : Fin L), (a, b) ∉ S → y (a, b) = x (a, b) then A (fun v => y ↑v) fun v => x ↑v else 0) =
+    if ∀ (a b : Fin L), (a, b) ∉ S → x (a, b) = y (a, b) then (starRingEnd ℂ) (A (fun v => y ↑v) fun v => x ↑v) else 0
+P72M1T3.lean:98:4: error: unsolved goals
+case neg
+L q : ℕ
+S : Finset (Vertex L)
+aS A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ¬∀ v ∉ S, x v = y v
+hy : ¬∀ v ∉ S, y v = x v
+⊢ (starRingEnd ℂ) (if ∀ (a b : Fin L), (a, b) ∉ S → y (a, b) = x (a, b) then A (fun v => y ↑v) fun v => x ↑v else 0) =
+    if ∀ (a b : Fin L), (a, b) ∉ S → x (a, b) = y (a, b) then (starRingEnd ℂ) (A (fun v => y ↑v) fun v => x ↑v) else 0
+P72M1T3.lean:105:4: error: unsolved goals
+case pos
+L q : ℕ
+S : Finset (Vertex L)
+aS : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+h1 : ∀ (A : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ), (liftLocal S A)ᴴ = liftLocal S Aᴴ
+A B : Matrix (RegionConfiguration q S) (RegionConfiguration q S) ℂ
+x y : Configuration L q
+hx : ∀ v ∉ S, x v = y v
+⊢ (if ∀ (a b : Fin L), (a, b) ∉ S → x (a, b) = y (a, b) then
+---- (…78 more lines) tail ----
+P72M1T3.lean:97:51: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal, Matrix.conjTranspose_apply, hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:97:55: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal, Matrix.conjTranspose_apply, hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:99:51: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal, Matrix.conjTranspose_apply, hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:99:55: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal, Matrix.conjTranspose_apply, hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:105:23: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:106:23: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:112:23: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P72M1T3.lean:113:23: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftLocal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot72.M1.hermPart_isHermitian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.opNorm_hermPart_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.supportedOn_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.hamiltonian_hermPart' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: OK
+[p11]   P72M1T3.lean: FAIL (12 errors)
+[tele] SUMMARY pilot: wall=79s max_cpu=0.86 max_mem=56MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-NdxGgRYOySB2roHOsFvIZr
