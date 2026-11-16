@@ -89,3 +89,38 @@ charter splice is appended at phase-B start) + this brief +
 - **PARKED for the R4 fixes batch — do NOT fix before then:** `research/INDEX.md:13`
   still describes REPORT § Cycle 2 as a "skeleton with fill-in placeholders" — a stale
   description of a filled section (cosmetic; no gate involved).
+
+## Substrate baseline @ launch (H notary, 2026-11-16 — read-only verification)
+
+All sibling donors match the AGENTS.md-recorded pins. No new commits, no dirty trees,
+no toolchain changes (post-outage restarter: re-run the notary loop and diff against
+this table before any Modal elaboration).
+
+| Repo | Branch | HEAD | Last commit | Toolchain | Mathlib pin | Tree |
+|---|---|---|---|---|---|---|
+| encore-mathlib/repo/mathlib4 | master | `ff2494ea5e` | 2026-11-09 02:14 +0000 | v4.36.0-rc2 | (is the pin) | CLEAN |
+| tauceti | main | `d92acc5c0` | 2026-11-09 11:59 +1100 | v4.36.0-rc2 | n/a | CLEAN (formalization.yaml intact, 4,747 B) |
+| axiommath/ZetaZerosV2 | dev/claude | `a86af1a` | 2026-11-13 20:38 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| axiommath/ZetaZeros | dev/claude | `c0b585e` | 2026-11-13 18:05 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| axiommath/DedekindZetaZeroFree | dev/claude | `4f6208b` | 2026-11-13 17:12 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| axiommath/PrimeNumberTheoremAnd | dev/claude | `d82cfae` | 2026-11-13 20:38 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| axiommath/Weil | dev/claude | `c1c8983` | 2026-11-13 17:12 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| axiommath/AreaLaw2D | dev/claude | `c0f6d96` | 2026-11-13 17:12 +0800 | v4.36.0-rc2 | `ff2494ea5e43…fa0059` | CLEAN |
+| liu-zerofree | main | `7d10420` | 2026-10-08 12:43 -0400 | v4.34.1 | n/a | CLEAN |
+| openai-math (`lean/`) | — | — | — | v4.34.1 | — | not a git-notary target |
+| anthropics/3sum-apsp, anthropics/eth | — | — | — | v4.33.1 | — | not a git-notary target |
+| anthropics/zeta23 | — | — | — | v4.33.0-rc2 | — | not a git-notary target |
+| math-proof1 | (predecessor; untouched) | `a02216a` | 2026-11-05 12:44 +0800 | — | — | CLEAN except untracked `.pwd` |
+
+axiommath HEAD subjects are the 2026-11-13 bump/port commits ("Pin toolchain v4.36.0-rc2
+and mathlib ff2494ea (cross-math-fronttier pin)" / "Port to mathlib ff2494ea…"), i.e. the
+expected post-bump state, not drift; AGENTS.md's shallow-clone revs are the pre-bump
+originals. All six lakefiles pin the full sha `ff2494ea5e438f8a8452db803068acd711fa0059`.
+
+**Modal health @ launch (doz CLI):** client 1.6.2; `app list` EMPTY (no running apps —
+correct post-Cycle-2); profile `semraker`. **Env-fact drift, flagged for the record:**
+`sudo -n -u xyz true` returns rc=0 (2026-11-16) — the AGENTS.md substrate note
+"sudo -n -u xyz is blocked" (recorded 2026-11-13) no longer holds for a basic command;
+xyz (uid 1001, /home/xyz) exists but `/home/xyz/xyzenv/bin/modal` is not visible from
+doz. Protocol unchanged: all Modal runs stay on the doz CLI per orchestrator
+instruction; the AGENTS.md note may warrant an orchestrator-owned correction later.
