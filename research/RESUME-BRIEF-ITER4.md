@@ -56,7 +56,7 @@ charter splice is appended at phase-B start) + this brief +
 | R5 | iteration-4 backlog consolidation | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
 | R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` | active (writing) |
 | R7 | external prior-art web check | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
-| R8 | donor/feasibility engineering | `research/feasibility/iter4-donor-unblock-plan.md` | active (writing) |
+| R8 | donor/feasibility engineering | `research/feasibility/iter4-donor-unblock-plan.md` (v1 + runner drain landed batch 11; template verified, wrappers patched) | delivered v1 |
 | R9 | synthesis/charter draft | `research/qa/iter4-review/r9-iteration-plan-draft.md` (v1 landed batch 5; re-issues §§1–3 as v2 on [MERGE: Rx] resolutions) | delivered v1 |
 
 ## (d) Restart instructions (after outage / session loss)

@@ -9,6 +9,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 1 | R9 | `r9-iteration-plan-draft.md` | Splice + lane-plan + quality-gate draft complete at ZERO review inputs (all review cells [MERGE: Rx]-marked); ready for orchestrator typeset pending merges |
 | 2 | R2 | `r2-discovery-strength.md` | 18 articles ≈ 4–5 genuine discoveries; strength bar S1–S4 proposed; 11 demotion/relabel items |
 | 3 | R4 | `r4-process-completeness.md` | No substantive charter obligation missing (1 delivered-differently, recorded); 1 MISSING/13 INCOMPLETE/4 WRONG records-level; fixes package A+B pre-approved, C rides splice |
+| 4 | R8 | `feasibility/iter4-donor-unblock-plan.md` (+ runner drain) | DZDF-shim DEAD (≤4/62 aliasable), Physlib direct DROP / G10 refresh live on the shelf, PNT+ DEFER w/ G9 preflight, Weil statement-tier landed; runner kit audited 10/10 compliant, 2 stale wrappers patched, iter4 template PASS |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -107,3 +108,27 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   is 282) → batch C; pass-2 rule: R3 extractor-counts land FIRST, then articles+ledger+
   INDEX B-rows in ONE pass (no piecemeal count fixes). A+B verification armed on
   orchestrator signal.
+
+## R8 — feasibility/iter4-donor-unblock-plan.md + runner drain (landed 2026-11-16, batch 11)
+
+- **Verdict:** four route designs, all paper-study (no runs): (a) DZDF/CFT — shim DEAD
+  (≤4 of 62 first-wave errors name-aliasable; the rest is vendor proof-body drift), NEW
+  BFS measurement: Main's closure drags ALL 1,658 vendor modules (≈6.3k narrow target,
+  ≈12–16 h at 2 CPU even zero-error) → binder tier only, direct build DROPped; (b)
+  Physlib/G5a — direct route DROP (no consumer; AL-3D is unblocked mathlib-only per its
+  own G4 template); RECORD CORRECTION: physlib master still carries
+  QuantumInfo/ForMathlib (refresh route viable) — flagged to A5; (c) PNT+ — DEFER
+  (T1/T2/T3 all unfired; upstream still v4.35.0, fetched 2026-11-16); optional G9
+  preflight specced for the carried 22-T2a slot; (d) Weil/Stacks — direct import
+  permanently DEAD (G6a), statement tier already LANDED (G3 + pilot 71).
+- **Runner kit:** §5a compliance audit — all ten Modal apps compliant
+  (SPEC/telemetered/threads); gaps fixed in the drain: the two stale xyz-default
+  wrappers (`pilots/32/run_pilot.sh`, `probe/run_probe.sh`) patched to doz-default with
+  the substrate note; H's staged iter4 template reviewed **PASS** (one fix: probe
+  convention broadened to `P0`/`Probe` prefixes); G9/G10 probes staged (NO-RUN);
+  gprobe wiring g10 mode + skip-set. §5b runner needs: layer-cache textual identity,
+  artifact-cache retry/seed-and-build, cached-layer recipes, cost table at 2cpu.
+- **Open asks:** G8 explicitly NOT recommended; G10 fires only on a chartered
+  donor-proof consumer; §6 dependency note — every R5-ranked slot runs on existing kit
+  (only AL-3D needs its `crossmath-pilot-al3d` app clone); A5 should re-check the
+  physlib QuantumInfo wing vs its §2 claim.
