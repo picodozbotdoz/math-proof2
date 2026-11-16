@@ -35,7 +35,8 @@ charter splice is appended at phase-B start) + this brief +
    reported. Observed so far: 16 at H-spawn close, 22 at batch-1 close.
 5. Standing duty (added at batch 2): at each signal batch, BEFORE committing, H re-reads
    `ORCHESTRATION-ITER4.md` and this brief's lane table and refreshes both (status +
-   date); they ride in the same commit.
+   date); they ride in the same commit. Extended at batch 4: every batch that introduces
+   a new `research/` file stages its `research/INDEX.md` row in the same commit.
 6. Modal ONLY via the doz CLI `/home/doz/dozenv/bin/modal` (`sudo -n -u xyz` is blocked
    in this env); NEVER local lake/lean builds. `AGENTS.md` § Modal usage guidelines is
    mandatory: defaults cpu=2.0/memory=4096, telemetry in every run,
@@ -124,3 +125,8 @@ correct post-Cycle-2); profile `semraker`. **Env-fact drift, flagged for the rec
 xyz (uid 1001, /home/xyz) exists but `/home/xyz/xyzenv/bin/modal` is not visible from
 doz. Protocol unchanged: all Modal runs stay on the doz CLI per orchestrator
 instruction; the AGENTS.md note may warrant an orchestrator-owned correction later.
+
+**Env-fact correction (probe 2026-11-16):** sudo -n -u xyz unblocked as of 2026-11-16
+(basic cmd rc=0; modal route WORKS — client 1.6.3, profile `donniexyz888`, a DIFFERENT
+workspace from doz's `semraker` where the Cycle-2 cached images/apps live) — protocol
+unchanged (doz CLI) pending orchestrator decision.

@@ -162,3 +162,12 @@ state per the resume brief).
 - `research/feasibility/probe/logs-g/run27–run32` | logs | 2026-11-14 | G7b attempts 5–6: run27 aborted, run28 user-cancelled (over-provisioned), run29/30 telemetry-fix stops, run31 full layered build, run32 GREEN (G7b PASS + R1 GREEN)
 - `research/feasibility/probe/logs/step{A-final,B,B-m4b-donor,C}-c2.log` + `research/pilots/*/logs/axcheck-c2-final.log` | verification | 2026-11-14 | Cycle-2 final sweep Steps A–C (ledger §9.F sign-off)
 - `research/pilots/50/R1.lean` | pilot | GREEN 2026-11-14 | unconditional ζ strip [1/8, 7/8] + Dirichlet at 7/8 under hFEχ, on the openai donor pin (article 50-M2)
+
+## Iteration 4 (opened 2026-11-16) — review phase then pilots
+
+Run opened on branch `dev/iteration4` (cut at `b1ea051`, the Cycle-2 close commit);
+phase A = Cycle-2 review (9 lanes R1–R9), phase B = pilot execution after the charter
+splice. Coordination lives in the two docs below (STATUS.md stays the Cycle-≤2 board).
+
+- `research/ORCHESTRATION-ITER4.md` | coordination | live (H; opened 2026-11-16) | Iteration-4 lane tracker: one row per lane (H + R1–R9) with role / current task / status / last update; maintained by H on orchestrator signal, refreshed in every H batch.
+- `research/RESUME-BRIEF-ITER4.md` | coordination | live (H; written at launch 2026-11-16, batches 1–4) | Launch-state continuity doc (unlike C2's, written at launch not wrap): session context, 10-lane protocol, per-lane table mirrored from the tracker, restart instructions, launch gate check (all three Cycle-2 close-out gates resolved), substrate baseline @ launch (sibling pin table, Modal health, xyz-route env-fact correction).
