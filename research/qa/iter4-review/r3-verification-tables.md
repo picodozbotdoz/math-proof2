@@ -385,6 +385,76 @@ verdict, §9 conventions):** `thmE_A₀/B₀/C₀` + `paperInputsChi_L` + `thmE_
 rows D-PIN; on-pin 42-v2/75 consumers keep hEχ binders until discharge, then gain
 supersession rows, not edits.
 
+### 10.3 AL-P1 — LANDED 2026-11-16 (lane A4, card 7; [HEAVY-IMPORT] class per plan §0)
+
+**A1.lean (proof artifact — 424 LoC, 22 public decls, 0 private; disk sha256
+37063886ff9caaa8…; self-contained, Mathlib-only imports, no donor/Physlib per the G5a
+boundary; TARGETS row `AxPilotAL3D_A1` appended). Verdict: rc=0, errors=0, sorry=0
+(`pilots/al3d/logs/alp1-final.log:3`); telemetry OVER=0, wall 24 s (:95). ALL binders
+below are definitional (slab hypothesis / column-closed cut / subset — no donor
+binders anywhere in the file):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| P1-c: `mem_projF` / `col_subset` / `mem_col_of_proj` | `pilots/al3d/A1.lean:63/:121/:124` | PROVED-UNCONDITIONAL | `alp1-final.log:42/:41/:43` — triad | column vocabulary |
+| P1-c: `col_heights` / `col_inj_on_z` / `col_card_le` | `:129/:134/:144` | PROVED-UNCONDITIONAL (hΛ : `IsSlabDomain3D h Λ` = slab hypothesis, definition of subject) | `:44/:45/:46` — triad | `col_card_le`: column ≤ h via InjOn on z-coordinate + Ico 0 h (Int.card_Ico) |
+| P1-c: `fibre_eq_bUnion_cols` / `fibre_card_le` | `:166/:178` | PROVED-UNCONDITIONAL (slab hypothesis) | `:47/:48` — triad | the Targets.md §B.2 "every row count acquires a factor h" step: `|fibre| ≤ h·|S|` via `Finset.card_biUnion_le_card_mul` (pin-fact 2 below) |
+| P1-a: `projLattice_adj_of_cubic_adj` / `proj_walk_full` | `:188/:202` | PROVED-UNCONDITIONAL | `:49/:50` — triad | walk-lift |
+| P1-a: `walk_induce_length` | `:234` | PROVED-UNCONDITIONAL | `:51` — **`[propext, Quot.sound]`** (no choice) | mathlib carries only the rfl-lemmas (descent r6) |
+| P1-a: `proj_edist_le` / `proj_diam_le` | `:247/:282` | PROVED-UNCONDITIONAL (hXΛ : X ⊆ Λ definitional) | `:52/:53` — triad | edist + diameter contraction; `proj_diam_le` is the transfer feeding P2's `IsAdmissibleVar` check at G := projLattice Λ |
+| P1-a helpers: `domainEDistG_of_mem` / `domainEDist3D_of_mem` | `:268/:274` | PROVED-UNCONDITIONAL (dite-unfold plumbing) | **NO direct print — see coverage note** | consumed inside `proj_diam_le`'s proof (:291–293) |
+| P1-b: `col_subset_A_of_mem_proj` | `:300` | PROVED-UNCONDITIONAL (hA : `IsColumnClosed3D Λ A` = column-closed cut, definition of subject) | `:54` — triad | column closure |
+| P1-b: `edgeBoundaryG_card_le` | `:309` | PROVED-UNCONDITIONAL (hA + hAΛ : A ⊆ Λ, definitional) | `:55` — triad | **the subset-image bound** — see note below |
+| P1-d: `int_covBy_add_one` | `:349` | PROVED-UNCONDITIONAL | `:56` — triad | pin-fact 1 below |
+| P1-d: `cubic_adj_iff` / `planar_adj_iff` / `planar_adj_of_cubic_adj` / `projLattice_le_planar` | `:363/:372/:380/:394` | PROVED-UNCONDITIONAL | `:57/:58/:59/:60` — triad | adjacency characterizations (descent r7–r11: replaced nesting-fragile rcases); `projLattice_le_planar` feeds the binder application |
+
+**Coverage note (the audit's F2 class, live):** the lane's inline audit tail prints
+**20 of 22** declarations (`A1.lean:403–422`) — `domainEDistG_of_mem`/`domainEDist3D_of_mem`
+(:268/:274) have no direct axiom print anywhere. Their ⊆-triad status holds by
+elimination: the file compiles rc=0 with **zero sorry-warnings** (`alp1-final.log:3`),
+the forbidden-token gate is clean (`axcheck_iter4.py gate`: 0 hits), and both are
+consumed by `proj_diam_le` (printed triad at :53 — sorryAx would propagate
+transitively). The Iteration-4 Step-B full-coverage stage (generator census: 22 decls)
+prints all 22 — this gap class disappears at sweep time. Remediation if the lane
+re-runs: add the 2 missing lines to the audit tail.
+
+**P1-b note (substrate intel for consumers):** the ≤ bound is proved by the
+**no-injectivity / no-choice subset-image route** (descent r5,
+`alp1-final.log:13–15`): every projected crossing edge e ∈ S has a T-witness under
+the pair projection, so S ⊆ (projpair '' T) and `card S ≤ card image ≤ card T`
+(`Finset.card_le_card` + `Finset.card_image_le`, A1.lean:335–346) — the dependent-choice
+`InjOn` injective lift is NOT needed for the ≤ direction and was dropped entirely.
+Statement-level record: P1-b is stated at the **projected graph** `projLattice Λ`
+(prework §9 correction — the induced-square reading is refuted by the two-site slab
+Λ = {(0,0,0), (1,0,5)}, A = {(0,0,0)}; `A1.lean:2–6`, `alp1-final.log:16–18`); the
+GO/NO-GO criterion was met (pure column-closure + interedges membership + subset-image
+bound, all elementary mathlib — no fibre-generic donor restatement needed).
+
+**Pin-facts recorded (per instruction; for every AL consumer):** (1) **`SuccAddOrder ℤ`
+is ABSENT at this pin** — `Order.covBy_iff_add_one_eq` cannot instantiate at ℤ (descent
+r12–14), so `int_covBy_add_one` (:349) is proved from the root-namespace
+`covBy_iff_lt_and_eq_or_eq` (`Mathlib.Order.Cover`) + `omega`. (2) **`card_biUnion_le`
+naming family**: the descent-round-1 guess `card_bUnion_le` does not exist at the pin;
+the ℤ-interval-bounded form used is `Finset.card_biUnion_le_card_mul`
+(`fibre_card_le`, A1.lean:183–185). Both facts travel to A2/P2 and any AL consumer.
+
+**P0 (probe-convention — Step-A only, no status rows):** 5 decls; **3 probe stubs**
+(:75 `posSemidef_vecMulVec_self_star`, :113 `Arealaw.posSemidef_ptrace`, :118
+`Arealaw.trace_ptrace`); the 2 shape checks (:460 `slab_column_cuts_shape`, :466
+`planar_var_shape`) are sorry-free trivial re-exports validating the
+binder-consumption forms (EnclOK/ProbeE precedent; "never cited as content",
+P0.lean:26). **Step-A incremental baseline: +3 tokens (`pilots/al3d/P0.lean:75,113,118`).**
+Descent: alp0-run1 (2 error classes — SimpleGraph field idioms) → run2 OK. Arealaw
+entropy core carried VERBATIM from green probe `ProbeG4_AreaLaw.lean` (G5a boundary:
+zero donor imports, zero Physlib). Disk sha256 4f1195463a31335f….
+
+**Machinery notes:** (i) descent 16 runs, error classes 20→10→9→7→6→4→2→1→0
+(`alp1-final.log:1`), all rounds 2cpu/4GB + telemetry — Modal-rule compliant;
+(ii) the al3d logs carry no sha256 stamps (same record-only class as LP pre-run-6;
+disk shas recorded above); (iii) guard note: the ≤0.4k content guard exceeded ~6% by
+docstring fences + the 24-line audit block — math content within, no stop fired
+(`alp1-final.log:5–6`).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
