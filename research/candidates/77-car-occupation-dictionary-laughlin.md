@@ -5,8 +5,11 @@ Lane R6 (fresh-bridge scan), 2026-11-16. Realizes territory-(d) of
 time** (the pre-dossier's "sector decomposition exists in neither corpus" and implicit
 CAR-relation novelty claims are FALSE: the OAI proved tree owns both — see the Honesty
 header). Tags: [VERIFIED] = read at the cited locator this lane; [HYPOTHESIS] = proposed.
-[NOVELTY-CHECK-NEEDED] marks survive at T3 (the tauceti-side identity) and at the
-physlib-side differentiation (seed 13's battery).
+**[NOVELTY-CHECK DISCHARGED 2026-11-16 (A5 battery, Phase B) — verdicts in the Novelty
+section: T1/T2 CLEAN (no CAR relations on physlib master 2026-11-16; no graded-algebra
+lemma or Clifford/CAR identification in OAI); T3 NARROWED (spin-sector representation
+theory is donor-owned; the bosonic occupation-basis theorem now exists on physlib master
+— T3's surviving rung is the Frobenius sector-trace identity; grade B− → C+).]**
 
 ## Honesty header (read first — corrections to the pre-dossier)
 
@@ -33,7 +36,13 @@ matrix algebra with zero representation-theoretic identification; tauceti's
 CAR/Occupation/Casimir stack (proved, on OUR pin, with NO consumer anywhere — survey
 §2(d) "no downstream consumer") is the abstract layer it instantiates. The dictionary
 theorem, the graded-algebra↔block-structure equivalence, and the transport of a
-tauceti-side occupation identity are new in both corpora.
+tauceti-side occupation identity are new in both corpora. **[Battery addendum,
+2026-11-16 (A5, Phase B): the honest scope narrowed once more — the donor's
+spin-sector SU₂/Schur theory and physlib's bosonic occupation-basis theorem bracket
+T3 from both sides; the dossier's center of gravity is now T1 (CAR dictionary —
+confirmed clean on physlib master 2026-11-16: still no CAR relations anywhere) + T2
+(graded↔blocks general lemma) + T3's Frobenius sector-trace identity. Grade: B− → C+.
+Verdicts and evidence in the Novelty section's DISCHARGED battery block.]**
 
 ## Name
 
@@ -83,16 +92,20 @@ then instantiated at Φ (T1) to give: `hamiltonian Q` is even ⇔ pair-preservin
 parity-sector coarsening of the donor's exact-card `sectorHamiltonian` decomposition as
 the corollary OAI states only implicitly.
 
-**T3 (identity transport, the discovery rung) [NOVELTY-CHECK-NEEDED].** A closed
-occupation-spectral identity the donor's certificate files do not carry. Target form:
-for each sector n, `Trace_{sector n}(hamiltonian Q) = ∑_{p ≤ 2Q-1} ‖pairAnnihilator Q p
-restricted to sector n‖_F²` (a Hilbert–Schmidt/pythagorean identity over the Gram
-decomposition `hamiltonian = ∑ P_p† P_p`, Model.lean:43) plus the number-operator
-spectrum `spec (Φ(N_Q)) = {0, 1, …, Q+1}` with multiplicity `C(Q+1, k)` — both stated in
-tauceti's occupation vocabulary and proved by transport, giving the first
-representation-theoretic account of the donor's sector data. [HYPOTHESIS: exact closed
-forms and their novelty vs the donor's Certificate01–10 contents need the
-[NOVELTY-CHECK-NEEDED] battery below.]
+**T3 (identity transport, glue rung — NARROWED at battery 2026-11-16).** The surviving
+discovery content is the **H² Frobenius sector-trace identity**: for each particle-number
+sector n, `Trace_{sector n}(hamiltonian Q) = ∑_{p ≤ 2Q-1} ‖(pairAnnihilator Q p)|_{sector
+n→n}‖²_F` (Hilbert–Schmidt/Pythagorean identity over the Gram decomposition `hamiltonian
+= ∑ P_p† P_p`, Model.lean:43), stated in tauceti's occupation vocabulary and proved by
+transport. The originally-planned number-operator spectrum statement
+(`spec (Φ(N_Q)) = {0,…,Q+1}` with binomial multiplicities `C(Q+1,k)`) is **RETIRED AS A
+DISCOVERY CLAIM**: physlib master's `PhyslibAlpha/Mathematics/LadderSystem/
+OccupationBasis.lean` (Diem, 2026) proves the bosonic occupation-basis version
+(`LadderSystem.finrank_vacuumSpan_eq_choose`, eigenvalue-encoding independence) — a
+fermionic restatement would be a variant of a now-existing theorem (at most a
+cite-and-adapt corollary of T1, never a headline). No "first representation-theoretic
+account" claim is made: the donor's representation theory is the spin-sector SU₂ side
+(verdict (i)); T3 is the occupation-side complement only.
 
 ## Novelty check
 
@@ -101,23 +114,63 @@ forms and their novelty vs the donor's Certificate01–10 contents need the
   listed above); rg `sector|grading|graded|Clifford|representation` → the sector family
   (owned) but **no graded-algebra lemma, no Clifford/CAR identification, no trace/spectral
   identity** (0 hits for `Clifford`, `carOccupation`, `equivExterior` in the tree).
+  Recorded adjacent layers (battery, 2026-11-16): the infinite-dimensional occupation
+  wing `OAI/MathematicalPhysics/Fock/Operators.lean` (`NumberIndex`, `up`, weighted-shift
+  `creationSandwich` CLM calculus — analytic, no CAR, no sector algebra) +
+  `OAI/InformationTheory/PhotonNumber/Basic.lean` (`numberKet`, `totalNumber k = ∑ j k j`
+  as an index function, `entropy` — no operator spectrum statement); the spin-sector
+  Schur machinery (`ThreeRows/ThreeTraces/AveragedOperators/SpinSchur`, verdict (i)
+  above). None pre-empts T1/T2 or T3's Frobenius rung; the T3 spectrum rung's fate is
+  physlib's, per verdict (ii).
 - tauceti: rg over `TauCeti/Algebra/Lie/GeneralLinear/` for `Laughlin|pairAnnihilator|
   hamiltonian` → 0 (no physics consumer — confirms survey §2(d)); `CAR/Occupation.lean`
   and `CAR/Casimir.lean` have no consumer outside the CAR stack itself (import rg).
 - mathlib: no occupation/CAR layer at all (`Algebra/Star/CHSH.lean` is the lone
   quantum-adjacent theorem; quantum-info-substrate.md §A: no partial trace, no Fock).
 - anthropics: nothing (surveys).
-- **[NOVELTY-CHECK-NEEDED] batteries:** (i) read OAI `Analysis/LaughlinFock/
-  {Assembly, AveragedOperators, SquareSplitting}.lean` heads for any Frobenius/trace
-  identity that pre-empts T3's first form; (ii) the physlib differentiation battery
-  (ITERATION4-SCAN seed 13): physlib `CrAnFieldOp`/`FieldStatistics` carry an
-  occupation-adjacent calculus — confirm Φ's source-and-target shapes differ from seed
-  13's instantiation target before chartering (seed 13 aims tauceti→physlib; this dossier
-  aims tauceti→OAI-Lauglin; the shared donor-side layer must be factored, not duplicated);
-  (iii) informal: the Laughlin-model literature states sector decompositions routinely —
-  T3's Lean identity layer must be dated against the companion preprint
-  `preprints/A-Fock-space-inequality-and-the-Laughlin-spectral-gap-September-24-2026`
-  (read its theorem list at charter time).
+- **[NOVELTY-CHECK DISCHARGED — A5 battery, 2026-11-16, Phase B]:**
+  (i) **T3 partially pre-empted IN-DONOR (spin side)**: the OAI tree owns a spin-sector
+  representation-theoretic account — `sectorAverage_of_complete_spin`
+  (`ThreeRows.lean:33`, spin-intertwiner averages), `threeSpinProjection_kernel_trace`
+  (`ThreeTraces.lean:155`), `schur_matrix_average`/`matrix_scalar_of_commutes`
+  (`AveragedOperators.lean:113,91`), and eigenvector statements for compressed
+  certificate matrices (`ThreeSpectrum.lean:122 threeWedgeMatrix_gram_eigenvector`,
+  `ExchangeSpectrum.lean:206 pairSwapCompression_eigenvector`). T3's "first
+  representation-theoretic account" phrasing is RETIRED — the donor owns the
+  **spin-sector (SU₂/three-spin) Schur theory**; T3 lives on the **particle-number/
+  occupation side**, where the donor has the block decomposition but NO trace identity
+  (rg `(hamiltonian Q).trace|trace.*hamiltonian` over `OAI/Analysis/` = 0), no
+  Frobenius-norm statement (rg = 0), no eigenvalue/spectrum statement for the
+  occupation sectors.
+  (ii) **physlib differentiation vs the G10-corrected modern surface (master pushed
+  2026-11-16, full tree via gh API — the 2026-11-14 `physlib-surface.md` scan is STALE
+  on this wing)**: the surviving QuantumInfo wing is real and large (root-level
+  `QuantumInfo/{Capacity,Channels,ClassicalInfo,Entropy,ForMathlib,Measurements,
+  Operators,ResourceTheory,States}`). Verdicts: **NO CAR relations anywhere on master
+  (still)** — T1's dictionary stays clean; BUT **T3's number-spectrum rung is
+  NEAREST-MISSED by `PhyslibAlpha/Mathematics/LadderSystem/OccupationBasis.lean`**
+  (Diem, 2026): occupation-number basis of `vacuumSpan L Ω n`, `finrank = (d+n-1).choose n`
+  (`LadderSystem.finrank_vacuumSpan_eq_choose`), linear independence VIA a diagonal
+  number-operator `M = ∑ᵢ (n+1)^i • Nᵢ` at distinct eigenvalues `countEncode n α` —
+  exactly the binomial-multiplicity spectral statement, **bosonic**. The fermionic
+  occupation-sector analogue would be a variant of a now-existing theorem, not a
+  discovery — T3 is RE-GRADED accordingly (its surviving discovery content = the H²
+  Frobenius sector-trace identity + the CAR-dictionary corollaries, not the spectrum
+  statement). Adjacent, non-colliding: `Physlib/QuantumMechanics/HarmonicOscillator/
+  NumberOperator.lean` (Kevorkian 2026) = **CCR** commutation calculus on Schwartz
+  maps (unbounded-operator setting; `[Nᵢ,aⱼ]=−δᵢⱼaⱼ`, `aᵢaᵢ†=Nᵢ+𝟙`, `[H_N,Nᵢ]=0`) —
+  bosonic and analytic, distinct layer, but MUST-CITE as the number-operator
+  commutation precedent. `QuantumInfo/ForMathlib/ExchangeRelations.lean` is NOT
+  physics (rank-one tensor/Segre 2×2-minor characterization — relevant to the
+  border-rank cluster, not here). Seed-13 factoring confirmed: seed 13 (tauceti→physlib
+  `CrAnFieldOp`) and this dossier (tauceti→OAI Laughlin) remain disjoint targets; the
+  shared donor-side layer is tauceti's occupation stack only.
+  (iii) **companion preprint** (`A-Fock-space-inequality-and-the-Laughlin-spectral-gap`,
+  Sept 24 2026, theorem list read): Theorem 1.1 + Cor 1.2 = the Fock inequality; the
+  spectral content is spin-side (Lemma 3.2 "Three-body Gram eigenvalues", Lemma 3.3
+  spin-block traces, Schur partial traces over spin-j irreducibles, p.596–612); particle
+  sectors used conceptually ("in a particle sector without a zero mode", p.103) but no
+  occupation-spectral identity stated. No pre-emption of T1/T2/T3's surviving content.
 - Known nearest misses: donor `sector_inequality_of_fock` (inequality transport — not an
   algebraic identity); donor `gram_quadratic_form` (Model.lean:211ff, the A†A quadratic
   form — the engine T3's first identity formalizes, but stated only pointwise, never as a

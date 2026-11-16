@@ -188,7 +188,7 @@ New observations:
 
 | Candidate | rg / read evidence | Nearest existing statement | Verdict |
 |---|---|---|---|
-| FB-1 zero-temp dual + substitution-rule | `entropicDualValue` × `ZeroTemperature.lean` = 0 [V]; mathlib OT = 0 [V]; OAI Tropical = Truffet model+counterexample only [V] | tauceti `tendsto_entropicTransportCost_transportCost*` (primal only); Carlier–Duval–Peyré–Schmitzer 2017 (cited *inside* ZeroTemperature's own header [V]) proves ε→0 convergence of entropic schemes — **[LIT]** dual/potential statements likely there too | keep, grade B, scope to what the cited paper does NOT do (rule characterization) |
+| FB-1 zero-temp dual + substitution-rule | `entropicDualValue` × `ZeroTemperature.lean` = 0 [V]; mathlib OT = 0 [V]; OAI Tropical = Truffet model+counterexample only [V] | tauceti `tendsto_entropicTransportCost_transportCost*` (primal only); Carlier–Duval–Peyré–Schmitzer 2017 (cited *inside* ZeroTemperature's own header [V]) proves ε→0 convergence of entropic schemes — primal-scoped per tauceti's citation line (R7 confirmed; body paywalled, one conditional pass); nearest misses Mengue 2501.19369 (primal pressure), ABGJ 1308.0454 (pivoting, no rule characterization), Gwozdz 2607.16881 (non-selection caution — MUST-CITE) | **keep, grade B+ (R7-folded 2026-11-16, both rungs clear)** — scope to the finite-support/discretisable regime + rule characterization |
 | FB-2 SiegelZeros/QRH corollaries | `exists_absolute_real_zero_gap` read [V]; comparator `QuasiRiemannHypothesis` = 7/8 shape [V]; mathlib `PrimesInAP.lean` exists [V] | the donors themselves; PNT-AP with power error stated nowhere in-corpus | keep, FORMALIZATION-OF-RECENT |
 | FB-3 irrationality-exponent layer | mathlib `LiouvilleWith` only [V]; OAI `irrationalityExponent`/`EventualLowerBound` [V]; tauceti `BadlyApproximable.lean:248` Littlewood recorded [V via survey §2b] | OAI defs are the layer; mathlib Liouville is qualitative | keep, glue-grade |
 | FB-4 FF-PNT | Weil PNT-content = 0 [V]; mathlib FF = def only [V]; tauceti `WienerIkehara/Asymptotic.lean` general [V] | Schmidt 1931 / Weil's own thesis (classical) | keep, NEW-LEAN only |
@@ -199,9 +199,12 @@ New observations:
 ## §3 Seed dossiers (pre-dossier form)
 
 ### FB-1 — Zero-temperature Schrödinger duality on finite supports, and the tropical substitution-rule question
-**Territory (a)+(b). Strength: B** (A if the rule-characterization statement is open in the
-tropical-Sinkhorn literature — **[LIT]**, must be checked before chartering; web quota
-exhausted this session).
+**Territory (a)+(b). Strength: B+** (R7 gate-sweep 2026-11-16: both rungs clear — the
+dual-limit rung is a literature nearest-miss and the rule-characterization question type
+is unclaimed anywhere; was B with a conditional A-shot at pre-dossier — the "A if the
+rule-characterization statement is open in the tropical-Sinkhorn literature" condition
+resolved POSITIVE; see the folded Fast kill/confirm block below and
+`candidates/76-zero-temperature-schrodinger-duality.md`.)
 
 **Statement (two rungs).**
 (R1, glue) For finite `X Y`, real cost `c`, marginals `μ ν`, and `ε > 0`, let `Dε := sup_{φ,ψ}
@@ -222,10 +225,13 @@ remaining variable is dominated on one side only."
 
 **Why-new / nearest misses.** In-corpus: nothing states (R1-ii) — `entropicDualValue` never
 meets the ε→0 limit [V rg]; (R2) is raised *by* the in-corpus counterexample and answered
-nowhere. Informal: Carlier–Duval–Peyré–Schmitzer 2017 (ZeroTemperature's own reference) treats
-ε→0 convergence of values and (probably) potentials — **[LIT] mandatory differentiation
-sweep**; tropical Sinkhorn exists as a topic (max-plus entropy optimization). The
-differentiator is R2 + the finite-support explicit-dual form.
+nowhere. **[R7-folded 2026-11-16]** informal side resolved: CDPS 2017 is primal-scoped
+(tauceti's own citation line), the zero-temperature dual statement is a literature
+nearest-miss (Mengue 2501.19369 is a primal *pressure* limit), the tropical-Sinkhorn
+phrase-class is empty on arXiv, and Gwozdz 2607.16881 (MUST-CITE) shows selection can
+fail outside the finite-support/discretisable regime — the differentiator is R2 + the
+finite-support explicit-dual form, both now confirmed unclaimed. Full cite-cards:
+`research/qa/iter4-review/r7-bib-cards.md` §A.
 **Bridge-essentiality.** tauceti owns the ε-side (built, our pin, direct dep); OAI owns the
 tropical-side objects and the failure witness (v4.34.1, statement-port≈0); mathlib owns
 `Algebra/Tropical` + would host the finite LP-duality step (seed-9 layer). No one side can
@@ -240,10 +246,23 @@ the 2-row, 3-column shape of `initial/middle/finalState` (all data is explicit n
 stack); R2 first instance = S (decide-on-numerals + a general statement over the
 `TruffetModel` structures restated mathlib-only). Substrate: crossmath-probe class, no donor
 builds.
-**Fast kill/confirm.** Confirm: one arXiv search "tropical Sinkhorn / entropic transport
-ε→0 dual" (2 min) — if Carlier et al. state R1-ii verbatim, drop R1 to citation-grade and keep
-R2. Kill R2: find any soundness theorem for tropical pivot rules in the (unlocated) Truffet
-literature.
+**Fast kill/confirm.** **[EXECUTED — R7 gate-sweep, 2026-11-16, both rungs CLEAR; grade
+B → B+** (full verdicts: `research/qa/iter4-review/r7-bib-cards.md` §A — read from the
+pre-move `qa/iter4-review/` path same session; folded into dossier 76): (1) zero-temperature
+*dual* limit = NEAREST-MISS — no dual/potential statement anywhere (nearest: Mengue
+arXiv:2501.19369, a primal *pressure* limit; CDPS 2017 scoped to primal quantities by
+tauceti's own citation line, body paywalled — one conditional paywall pass if T1b is
+piloted); (2) tropical Sinkhorn phrase-class EMPTY on arXiv (0 hits); (3) T2's question
+type unclaimed — canonical nearest-miss Allamigeon–Benchimol–Gaubert–Joswig arXiv:1308.0454
+(tropical pivoting, NO rule characterization), substrate cites Butkovič 1709.08983, Loho
+1612.01890, Adenwalla et al. 2607.23754; (4) MUST-CITE structural caution: **Gwozdz
+arXiv:2607.16881** — entropic OT need not select a zero-temperature limit; T1 is honest
+exactly in the finite-support/discretisable regime (contrast stated in the dossier);
+(5) **Truffet LOCATED**: arXiv:2603.26423 v4 + 2604.06726 v4 (both v4 2026-08-29 — the
+"V4" of `TruffetV4Counterexample` pinned); no soundness theorem, no erratum, no citing
+papers; the classical sibling claims a strongly-polynomial GENERAL LP method — the
+counterexample-pattern extension to the classical criteria (⇒ refutation of that claim)
+is dossier 76's flagged high-value follow-up.]
 
 ### FB-2 — Register + consume the two unregistered OAI zero-free donors: effective corollaries of 7/8 / Landau–Siegel exclusion
 **Territory (c). Strength: B− as discovery (FORMALIZATION-OF-RECENT; the math is
@@ -349,6 +368,16 @@ substrate bridge: the CAR dictionary, the graded-algebra↔block-structure equiv
 transported occupation-spectral identities. Full corrected Phase-3 dossier:
 `candidates/77-car-occupation-dictionary-laughlin.md` (honesty header carries this
 correction; grade adjusted B → B−).]**
+**[BATTERY-UPDATED 2026-11-16 (A5, Phase B): grade B− → C+. Discharged marks — (i) the
+donor's spin-sector SU₂/Schur theory (`sectorAverage_of_complete_spin` ThreeRows.lean:33,
+`schur_matrix_average` AveragedOperators.lean:113, ThreeSpectrum/ExchangeSpectrum
+eigenvector theorems) brackets T3 from the OAI side; (ii) physlib master (G10-corrected
+surface, pushed 2026-11-16) still has NO CAR relations (T1/T2 clean) but
+`PhyslibAlpha/Mathematics/LadderSystem/OccupationBasis.lean` (Diem 2026) proves the
+bosonic occupation-basis/binomial-multiplicity theorem — T3's spectrum rung retired as a
+discovery, surviving rung = the H² Frobenius sector-trace identity; (iii) the companion
+preprint's spectral content is spin-side only. Full evidence: dossier 77's DISCHARGED
+battery block + the physlib-surface.md dated correction.]**
 **Why-new (as corrected).** No graded-algebra lemma, no Clifford/CAR identification, no
 occupation-spectral/trace identity exists in either corpus (rg evidence in dossier 77);
 tauceti's CAR stack has no consumer anywhere (survey §2(d)); the OAI tree has the model but

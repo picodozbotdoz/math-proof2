@@ -142,3 +142,40 @@ contraction signs. There is NO CAR/CCR relation layer anywhere at file level.
 5. Standing clock: re-check `pushed_at` via `https://api.github.com/repos/
    leanprover-community/physlib` (one fetch; the tracker §9.5 pattern) — the
    library moves daily and fired once already.
+
+## §6. DATED CORRECTION (2026-11-16, A5 battery lane, Phase B) — the QuantumInfo wing landed and §2/§3 aged
+
+R8's G10 record correction said the QuantumInfo/ForMathlib wing survives on modern
+master; the full-tree check (gh API, master `pushed_at` 2026-11-16T09:37:19Z, 2,284
+paths) confirms and extends it. **§2's "no entropy, no density matrices … at directory
+level" and §3's NO-COLLISION verdicts are STALE for these surfaces:**
+
+- Root-level `QuantumInfo/` wing (parallel to `Physlib/`): `{Capacity, Channels,
+  ClassicalInfo, Entropy, ForMathlib, Measurements, Operators, ResourceTheory, States}`
+  — entropy, states, channels, and resource theory now EXIST as directories. Any
+  quantum-info-substrate/dossier-74 claim resting on physlib's emptiness must re-run
+  against this wing before chartering.
+- `QuantumInfo/ForMathlib/HayataGroup/TraceInequality/` = a full operator-inequality
+  stack: `JensenOperatorInequality(+IImpIV/+IVtoV)`, `LownerHeinzCore/Theorem`,
+  `LiebAndoTrace`, `OperatorGeometricMean`, `HilbertSchmidtOperatorSpace`,
+  `BlockDiagonal`, `GeneralizedPerspectiveFunction` (+ PORTING_NOTES.txt) — directly
+  adjacent to tauceti's `Analysis/Matrix/OperatorJensen.lean` (survey §2c) and to any
+  trace-inequality-shaped dossier; collision check REQUIRED before citing tauceti's
+  operator-Jensen layer as physlib-absent.
+- `Physlib/QuantumMechanics/HarmonicOscillator/NumberOperator.lean` (Kevorkian 2026):
+  bosonic number-operator commutation calculus on Schwartz maps (`[Nᵢ,aⱼ]=−δᵢⱼaⱼ`,
+  `aᵢaᵢ†=Nᵢ+𝟙`, `[H_N,Nᵢ]=0`, symmetric unbounded lifts) — CCR, analytic setting.
+- `PhyslibAlpha/Mathematics/LadderSystem/OccupationBasis.lean` (Diem 2026):
+  `LadderSystem.finrank_vacuumSpan_eq_choose` — the bosonic occupation-number basis,
+  dimension `(d+n-1).choose n`, independence via a diagonal number-operator's distinct
+  eigenvalues. **The occupation-spectrum theorem class now EXISTS here** (consumed by
+  dossier 77's battery as T3's nearest miss; bosonic — the fermionic CAR side remains
+  absent, see next).
+- Still TRUE on master (2026-11-16): **no CAR/CCR *relation* layer for fermions
+  anywhere** (`CreateAnnihilate`/`CrAnFieldOp` impose no relations; §1 verdict stands);
+  `QuantumInfo/ForMathlib/ExchangeRelations.lean` is a rank-one-tensor/Segre
+  characterization (border-rank cluster note, not physics).
+
+Tree snapshot of record: `/tmp/r6-traces/physlib-tree.txt` (ephemeral — re-fetch per §5.5
+if needed). Files read in full via API this session: NumberOperator.lean (header+key
+results), ExchangeRelations.lean, OccupationBasis.lean (header+key results).

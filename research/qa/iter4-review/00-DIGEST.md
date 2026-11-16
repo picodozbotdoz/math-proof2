@@ -25,6 +25,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 17 | CLOSURE (L1) | all nine lanes v-final + launch kit | Review phase CLOSED at GO: nine audits + fix-side passes (R4 A/B, R2 29-edit, R3 pass-2 all applied + verified), R9 v5-FINAL §11 splice text emitted, R4 Parts 6–8 + go-readiness + ITER4 close plans, R1/R2 finals, R8 §8/§3 + AGENTS-ITER4 E-block — GO executed |
 | 18 | R7 (final) + L2 | `r7-bib-cards.md` (path-corrected) + the splice commit | R7 bib cards: FB-1 gate sweeps both-clear (B→B+; Truffet located, no soundness theorem, high-value follow-up); 01-stability sweeps clear; six bib cards. L2 = charter TYPESET (R9 §11 → RESEARCH.md; batch C1/C2/C4/C5; STATUS opened block; phase B ACTIVE) |
 | 19 | R7 (phase-B) | `novelty/iter4-truffet-classical-scope.md` | Truffet classical-extension scoping (battery item 1): PLAUSIBLE/UNDECIDED-AT-SCOPE; candidate = **discovery-grade NEGATIVE result vs a claimed strongly-polynomial LP method** — week-1 elevation item; v4 quotes load-bearing (fetches truncated — re-pull discipline recorded) |
+| 20 | R6 (phase-B battery) | dossier 77 + fresh-bridges FB-5 + physlib-surface §6 | Dossier 77 battery DISCHARGED (B−→C+, T3 narrowed); **physlib-surface §6 DATED CORRECTION: the §2/§3 emptiness verdicts are STALE — the QuantumInfo wing (entropy/states/channels + HayataGroup trace-inequality stack + NumberOperator calculus) is LIVE on master; gates any physlib-emptiness-based charter**; R6 next on the Wing check (seed-13/74 differentiation) |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
