@@ -4,11 +4,12 @@
 `research/articles/42-quadratic-dedekind-zeta-zero-proportions.md` (replaces v1 in place;
 `42M4-zetaK-proportions-unconditional-zeta-column.md` is retired and its pointer row
 removed from the README). Built on `research/articles/TEMPLATE-iter4.md`. Evidence cells
-were filled 2026-11-16 from R3's landed verification-integrity audit
-(`r3-verification-integrity.md` §1.2, §2, §4 — cites of the form "[R3 §x]" below); the
-three remaining per-declaration print-line slots are marked **[R3-TABLES]** and get
-filled from R3's `r3-verification-tables.md` when it lands. Every other claim is carried
-from the v1/42-M4 articles and was citation-verified in
+filled 2026-11-16 from R3's landed audits — `r3-verification-integrity.md` §1.2/§2/§4
+("[R3 §x]" cites) and `r3-verification-tables.md` §1 "42-v2" (per-declaration print
+lines + verbatim binder lists; all R3 table slots consumed, including the cross-check
+refinements relayed by the orchestrator: Thm 2 = `:140`, Thm 3 = `:141`, discharges
+`:211`/`:212`, donors `:144–145`). Every other claim is carried from the v1/42-M4
+articles and was citation-verified in
 `research/qa/iter4-review/r1-articles-editorial.md` §4 (2026-11-16).
 
 Editorial deltas vs v1 + 42-M4 (all traceable to the R1 audit):
@@ -39,11 +40,11 @@ Editorial deltas vs v1 + 42-M4 (all traceable to the R1 audit):
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
-| ζ-column input `EpsLowerCum (multOf riemannZeta) (2/3)` and distinct analogue | PROVED-UNCONDITIONAL | none (imported donor theorems) | `m4b2-axcheck-run1.log:139–145` — both donor endpoint prints (`ZetaZeros.simple_proportion_d4`, `distinct_proportion_d5`) triad; header verdict `:2` GREEN, triad-only, 98 prints / 72 names [R3 §1.2] |
-| Thm 1 `zetaK_two_thirds_landed_of_V2` | PROVED-CONDITIONAL | H (§3 structural list) + hEχ : `EpsLowerCum (multOf fχ) (2/3)` | `m4b2-axcheck-run1.log:139–145`; statement form `M4b.lean:1479–1492` — no hCert/hK673/hK839/hV2 binder, ζ column fed `V2d4_endpoint` inline at `:1492` [R3 §1.2] |
-| Thm 2 `zetaK_distinct_five_sixths_strip_landed_of_V2` | PROVED-CONDITIONAL | H + hEχdStrip : `EpsLowerDistinctStripCum (multOf fχ) (5/6)` | statement form `M4b.lean:1497–1511` (fed `V2d5_endpoint` at `:1513`); verdict of record `42/logs/axcheck-c2-final.log:8` — donor-tree run OK, 80 axiom-lines, 74 print-sets all triad, 0 sorryAx [R3 §1.2]; exact print line [R3-TABLES] |
-| Thm 3 `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` | PROVED-CONDITIONAL | H + hEχdStrip + hCZStrip (common-strip-zeros negligible; conjecture-grade) | statement form `M4b.lean:1535–1549` (adds `hCZStrip`, disclosed); same donor-tree verdict of record [R3 §1.2]; exact print line [R3-TABLES] |
-| binder-only fallback of Thms 1–3 | PROVED-CONDITIONAL | H + hV2d4 + hV2d5 (donor endpoints as hypotheses) | `m4b-run2.log` GREEN + `m4b-axcheck-run1.log` 68/68 triad; fallback file byte-exact on disk (85,641 bytes) [R3 §1.2] |
+| ζ-column input `EpsLowerCum (multOf riemannZeta) (2/3)` and distinct analogue | PROVED-UNCONDITIONAL | none **at the landings**: the discharge lemmas take hntopζ/hfinζ + the donor endpoint (hV2d4/hV2d5), and the endpoint itself is the imported donor theorem — so no hypothesis of the project's or any external paper remains on this column | donor prints `m4b2-axcheck-run1.log:144` (`simple_proportion_d4`) and `:145` (`distinct_proportion_d5`), both triad; wrappers `V2d4_endpoint`/`V2d5_endpoint` (`M4b.lean:1390/:1396`) print triad at `:142–143`; discharge lemma prints `:211` (2/3) and `:212` (5/6); header verdict `:2` GREEN, triad-only, 98 prints / 72 names [R3 §1.2; tables §1; R3 cross-check relay] |
+| Thm 1 `zetaK_two_thirds_landed_of_V2` | PROVED-CONDITIONAL | hfinK, hfinζ, hfinχ (window finiteness); hEχ : `EpsLowerCum (multOf fχ) (2/3)` (zeta23 ThmE transcription — the open core); hχ, hK, hK1, hP1 (analyticity); hntopζ, hntopχ (non-degeneracy); hfac (factorization) — i.e. H (§3) + hEχ | print `m4b2-axcheck-run1.log:139` triad; statement `M4b.lean:1479–1492` — no hCert/hK673/hK839/hV2 binder, ζ column fed `V2d4_endpoint` inline at `:1492` [R3 §1.2; tables §1] |
+| Thm 2 `zetaK_distinct_five_sixths_strip_landed_of_V2` | PROVED-CONDITIONAL | H + hEχdStrip : `EpsLowerDistinctStripCum (multOf fχ) (5/6)` | print `m4b2-axcheck-run1.log:140` triad (wrapped); statement `M4b.lean:1497–1511` (fed `V2d5_endpoint` at `:1513`); verdict of record `42/logs/axcheck-c2-final.log:8` — donor-tree run OK, 80 axiom-lines, 74 print-sets all triad, 0 sorryAx [R3 §1.2; tables §1] |
+| Thm 3 `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` | PROVED-CONDITIONAL | H + hEχdStrip + hCZStrip (common-strip-zeros negligible; conjecture-grade, never discharged) | print `m4b2-axcheck-run1.log:141` triad (wrapped); statement `M4b.lean:1535–1549` [R3 §1.2; tables §1] |
+| binder-only fallback of Thms 1–3 | PROVED-CONDITIONAL | H + hV2d4 + hV2d5 (donor endpoints as hypotheses) | `m4b-run2.log` GREEN; `m4b-axcheck-run1.log:2` header verdict — 68 distinct theorems (66 + 2 `@[simp]`), all triad, 0 sorryAx; prints `:20–21`; fallback file byte-exact on disk (85,641 bytes) [R3 §1.2; tables §1] |
 
 ## Abstract
 
@@ -194,22 +195,23 @@ the inequality with the defect carried (`assemble_eps_defect_strip_cum`, M4a).
 
 **Why hCZStrip is the honest frontier.** A common zero of ζ and L(·,χ_D) is a zero of
 ζ_K of multiplicity ≥ 2; no per-function statistic of ζ or of L(·,χ_D) can bound the
-coincidence count (article 20 analyzes this seam: hCZ follows from S₁ = o(N) plus
-density-zero multiplicity for each factor — both open). hCZStrip is conjecture-grade
+coincidence count (the seam analysis — `research/pilots/20-seam-analysis.md`, the
+companion note of article 20 v2 — shows hCZ follows from S₁ = o(N) plus density-zero
+multiplicity for each factor, both open). hCZStrip is conjecture-grade
 (`research/pilots/20-hCZ-NOTE.md`).
 
 ## 6. Formal record
 
 | theorem / artifact | declaration | file | axioms | evidence |
 |---|---|---|---|---|
-| strip-distinct vocabulary | `distinctCountCum`, `EpsLowerDistinctStripCum`, `commonStripCum`, `assemble_eps_defect_strip_cum` | `research/pilots/42/M4a.lean` (1,194 lines, 54 public theorems) | ⊆ triad | `m4-run2.log:2` GREEN; sweep `42/logs/axcheck-c2-final.log:7` — AxPilot42_M4a OK, 57 axiom-lines, 0 sorryAx [R3 §1.2] |
-| ζ-column discharge | `epsLowerCum_zeta_of_V2d4` (+ distinct analogue) | `research/pilots/42/M4b.lean` | ⊆ triad | covered by the 98-print full axcheck (`m4b2-axcheck-run1.log`, header `:2`); per-decl print line [R3-TABLES] |
-| Thm 1 | `zetaK_two_thirds_landed_of_V2` | `research/pilots/42/M4b.lean` (1,571 lines; 70 theorem declarations on disk — the v1 articles' "68" was an undercount, R3 §4 F4) | ⊆ triad | `m4b2-axcheck-run1.log:139–145` [R3 §1.2] |
-| Thm 2 | `zetaK_distinct_five_sixths_strip_landed_of_V2` | idem | ⊆ triad | donor-tree verdict of record `axcheck-c2-final.log:8`; exact print line [R3-TABLES] |
-| Thm 3 | `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` | idem | ⊆ triad | donor-tree verdict of record `axcheck-c2-final.log:8`; exact print line [R3-TABLES] |
-| donor endpoints | `ZetaZeros.simple_proportion_d4`, `distinct_proportion_d5` | `axiommath/ZetaZerosV2/ZetaZeros/Main.lean:130,149` | ⊆ triad (printed from the consumer side) | `m4b2-axcheck-run1.log:139–145` [R3 §1.2] |
-| binder-only fallback | Thms 1–3 with hV2d4/hV2d5 | `research/pilots/42/logs/M4b-fallback-GREEN.lean` (1,560 lines; byte-exact, 85,641 bytes) | ⊆ triad | `m4b-run2.log` GREEN + `m4b-axcheck-run1.log` 68/68 triad [R3 §1.2] |
-| v1 certificate route | `zetaK_two_thirds_landed` etc. | `research/pilots/42/{M1,M2a,M3,M2b}.lean` | ⊆ triad | `42/logs/axcheck-final.log:731,772` (M2b landings triad); LoC table 337/612/453/1150 matches disk exactly [R3 §2] |
+| strip-distinct vocabulary | `distinctCountCum` (`M4a.lean:821`), `EpsLowerDistinctStripCum` (`:833`), `commonStripCum`, `assemble_eps_defect_strip_cum` (`:1023`; binders hz, hw = the two component distinct-proportion inputs) | `research/pilots/42/M4a.lean` (1,194 lines, 54 public theorems) | ⊆ triad | prints `m4-axcheck-run1.log:58–68` (`assemble_eps_defect_strip_cum` at `:68`); `m4-run2.log:2` GREEN; sweep `42/logs/axcheck-c2-final.log:7` — AxPilot42_M4a OK, 57 axiom-lines, 0 sorryAx; C2 coverage (54/54 public) [R3 §1.2; tables §1] |
+| ζ-column discharge | `epsLowerCum_zeta_of_V2d4` (`M4b.lean:1404`), `epsLowerDistinctStripCum_zeta_of_V2d5` (`:1439`) — own binders hntopζ, hfinζ, hV2d4/hV2d5, discharged at the landings by the imported endpoints | `research/pilots/42/M4b.lean` | ⊆ triad | prints `m4b2-axcheck-run1.log:211` and `:212` [tables §1] |
+| Thm 1 | `zetaK_two_thirds_landed_of_V2` (`M4b.lean:1479`) | `research/pilots/42/M4b.lean` (1,571 lines; 70 theorem declarations on disk — the v1 articles' "68" was an undercount, R3 §4 F4) | ⊆ triad | `m4b2-axcheck-run1.log:139` [tables §1] |
+| Thm 2 | `zetaK_distinct_five_sixths_strip_landed_of_V2` (`:1497`) | idem | ⊆ triad | `m4b2-axcheck-run1.log:140` (wrapped); donor-tree verdict of record `axcheck-c2-final.log:8` [tables §1] |
+| Thm 3 | `zetaK_distinct_five_sixths_strip_landed_of_V2_of_negligible` (`:1535`) | idem | ⊆ triad | `m4b2-axcheck-run1.log:141` (wrapped); donor-tree verdict of record `axcheck-c2-final.log:8` [tables §1] |
+| donor endpoints | `ZetaZeros.simple_proportion_d4`, `distinct_proportion_d5` | `axiommath/ZetaZerosV2/ZetaZeros/Main.lean:130,149` | ⊆ triad (printed from the consumer side) | `m4b2-axcheck-run1.log:144–145`; donor-tree run of record `feasibility/probe/logs/stepB-c2-m4b-donor.log:1–3` [tables §1] |
+| binder-only fallback | Thms 1–3 with hV2d4/hV2d5 | `research/pilots/42/logs/M4b-fallback-GREEN.lean` (1,560 lines; byte-exact, 85,641 bytes) | ⊆ triad | `m4b-axcheck-run1.log:2` (68 distinct theorems = 66 + 2 `@[simp]`, all triad, 0 sorryAx) + prints `:20–21`; `m4b-run2.log` GREEN [tables §1] |
+| v1 certificate route | `zetaK_two_thirds_landed` (`M2b.lean:1062`), `zetaK_distinct_five_sixths_landed` (`:1081`), `…_of_negligible` (`:1121`) — hCert/hK673/hK839 binders | `research/pilots/42/{M1,M2a,M3,M2b}.lean` | ⊆ triad | prints `42/logs/axcheck-final.log:731/:732/:733`; GREEN run `m2b_run6.log`; LoC table 337/612/453/1150 matches disk exactly [R3 §2; tables §1] |
 
 Donor build and hygiene audit (G2: full ZetaZerosV2 rebuild on our pin, 13 audited
 theorems triad-clean) and the M4b donor-tree sweep run are recorded in
@@ -241,10 +243,34 @@ applies to it).
 
 **Project artifacts.** `research/pilots/42/` (six Lean files + fallback), logs under
 `research/pilots/42/logs/`; v1 article and 42-M4 (superseded by this file; edit history
-in §0); article 75 (n+1-factor schema); article 20 (the common-zero seam);
+in §0); article 75 (n+1-factor schema); article 20 v2 (the interface) and its companion
+seam note `research/pilots/20-seam-analysis.md`;
 `research/candidates/42-zeta-k-two-thirds-product-assembly.md`;
 `research/feasibility/axiommath-donor-probes.md` §G2;
 `research/feasibility/VERIFICATION-LEDGER.md` §9.F;
 zeta23 `Challenge.lean:131–229` (Theorem E source); tauceti
 `TauCeti/NumberTheory/LFunctions/DedekindZeta/` (factorization source);
 AxiomMath ZetaZerosV2 `ZetaZeros/Main.lean:130,149`.
+
+---
+
+## Shipping-gate self-check (TEMPLATE-iter4 §9) — R1, 2026-11-16 · verdict: **PASSES, all blockers cleared**
+
+| # | hard rule | result |
+|---|---|---|
+| 1 | article kind (not donor-swap/tranche/addendum clothing) | PASS — `DISCOVERY-CONDITIONAL`; the donor-swap *content* is a section of the merged statement-class article, which is the sanctioned form post-resolution |
+| 2 | title free of project-internal tokens | PASS — "Two-Column Assembly" is coined and defined in the abstract; no dossier/pilot/probe tokens |
+| 3 | status row per theorem, closed vocabulary, every binder listed | PASS — 5 rows; PROVED-CONDITIONAL rows carry verbatim binder lists (hfin*, hEχ(/dStrip), hχ, hK, hK1, hP1, hntop*, hfac, hCZStrip); ζ-column row carries the two-layer note (endpoint import → discharge lemmas → landings) |
+| 4 | abstract ≤ 200 words with theorem+hypotheses+status+scoped novelty+nearest prior | PASS — 175 words; DLRT named; scope "in any formal corpus we surveyed" in-sentence |
+| 5 | nearest-miss table ≥ 2 rows; "first" scoped in-sentence | PASS — 5 rows (DLRT, Lamzouri/V2, Knausgård, Bansal–Maji, article 75); §4 scope paragraph |
+| 6 | no bracketed errata | PASS — DLRT comparison written correctly once |
+| 7 | no section contradicts another; no addendum | PASS — single integrated v2; §0 records history instead |
+| 8 | formal record table-only; no infra narration | PASS — §6 table + one ledger-pointer sentence (permitted) |
+| 9 | internal vocabulary ≤ 3 glosses | PASS — no dossier/pilot/tranche/G-probe tokens in body prose; donor names are corpus names |
+| 10 | citations spot-checked (5+) | PASS — R1 audit §4 (ZetaZerosV2 `:130/:149` line-exact, logs, wc, git) + R3 tables §1 prints |
+| 11 | README row in same commit | satisfied via runbook STEP 7 (noted here, executed at swap) |
+| 12 | superseded files marked; record claims git-checked | PASS — §0 verified against `c540682` vs `4e19304` |
+
+Rubric floor: (a) precision 2, (b) status honesty 2, (d) citations 2. Evidence cells all
+filled from R3's audits (integrity §1.2 + tables §1 + cross-check relay); no unfilled
+slots. The proposal header above is stripped at swap (runbook STEP 1 paste rule).

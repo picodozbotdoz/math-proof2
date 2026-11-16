@@ -60,6 +60,14 @@ to an on-disk artifact). Backing record: `research/feasibility/iter4-donor-unblo
   mathlib's own `Chebyshev.psi` — the only delta), and (ii) mathlib itself absorbing
   PNT-AP/Dirichlet-L content WEAKENS the upstream-registration case when T2 is next
   evaluated (evaluate against mathlib-on-pin first, upstream second).
+- Donor-map correction (R6 rg + R8-verified, 2026-11-16): openai-math's
+  `lake-manifest.json` declares **PrimeNumberTheoremAnd** (@ `c39a7511`, :64–:73) AND
+  **TauCeti** (@ `3bed7e37`, :194–:203) as dependencies — importable inside OAI
+  donor-pin builds. New route class **"PNT+ via OAI manifest import"** for any FB-2-class
+  explicit-formula consumer; weakens the upstream register-and-port case further (third
+  datapoint). Neither entry was in `novelty/pntplus-glue-as-donor.md` /
+  `novelty/axiommath-as-donor.md` — correction of record:
+  `feasibility/iter4-donor-unblock-plan.md` §3 addendum.
 
 ## Block E4 — [extend the donor-hygiene bullet in "Cycle-2 conventions":]
 

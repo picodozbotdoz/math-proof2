@@ -107,6 +107,89 @@ Verify:
 - `rg -n "Outcome record (2026-11-16)" research/candidates/73-*.md` → 1
 - `rg -n "re-article condition|branch 2" research/candidates/73-*.md` → ≥1 (re-entry condition recorded)
 
+## STEP 4b — article 75 gains the Bansal–Maji nearest-miss citation (R7 relay, post-GO)
+
+Small content edit to `research/articles/75-abelian-assembly-zetaL-proportions.md`
+(anchors re-verified live: §1 nearest-prior sentence at `:48`; §6 DLRT bullet at `:211`;
+file touched by R2's relabel pass — anchor on the quoted text, not line numbers):
+
+1. §1, append to the sentence beginning "The nearest prior result we found is
+   de Laat–Rolen–Tripp–Wagner…" one clause: "and, beyond DLRT, the unconditional
+   on-line *infinitude* of Bansal–Maji (arXiv:2507.18121) — infinitude, not proportion".
+2. §6, add a bullet after the DLRT bullet:
+   "- **Bansal–Maji, arXiv:2507.18121:** infinitely many on-line zeros of ζ_F, for every
+   number field F, unconditional — Hardy-type infinitude without a proportion statement;
+   the exact nearest-miss boundary for the proportion statements claimed here (an
+   infinitude theorem cannot feed Theorem A's component hypotheses; a proportion theorem
+   would)."
+3. References list: add the arXiv entry.
+
+Cite-card slot: full authors/title/theorem number from R7's `r7-bib-cards.md` when it
+lands — **[R7-CITE]**; the arXiv id and the scope above are from R2's §5 q2 sweep and
+R7's relay, safe to print now.
+
+Verify:
+- `rg -c "2507.18121" research/articles/75-*.md` → ≥3 (§1, §6, References)
+- `rg -n "infinitude, not proportion" research/articles/75-*.md` → 1
+- `[R7-CITE]` resolved or explicitly carried by R7 at R4's sign-off.
+
+## STEP 4c — article 20 split (R2's `r2-rewrite-20.md`, adopted §8 REWRITE-FULL; cross-review `r1-review-r2-rewrites.md` §A)
+
+1. Create `research/articles/20-engine-seam-interface.md` from `r2-rewrite-20.md`
+   Part 1, WITH the cross-review's splice conditions: per-theorem status rows in the
+   closed vocabulary (R3 tables §4: `instantiate_family_A/B/C`, `assemble_eps`,
+   `family_merge` PROVED-CONDITIONAL; `merged_mult_of_common` PROVED-UNCONDITIONAL),
+   §6 converted to the nearest-miss table format, count corrected to 28 public
+   theorems / 582 LoC, no run histories in §5's evidence cells.
+2. Create `research/pilots/20-seam-analysis.md` from Part 2 (the note carries the old
+   Theorem 5 + Discussion, billed PAPER-ONLY + knowledge-level; `SharedMass` /
+   `CommonZeroControl` definitions move WITH it).
+3. `git rm research/articles/20-common-zero-seam-dedekind-zero-density.md` (or keep the
+   filename for the new article if H prefers no rename — then mark the 2026-11-09
+   edition superseded at top; either way the cross-ref sweep below runs).
+4. Cross-ref sweep: article 75 §7.4 (negligibility-form pointer, live anchor
+   "conjecture-grade status of the common-zero hypothesis" cites `pilots/20-hCZ-NOTE.md`
+   — add the seam-note pointer); TRIAGE rows 20/42/75 (dated drift-note convention);
+   42v2's seam pointer already targets `pilots/20-seam-analysis.md` (pre-fixed in
+   `r1-rewrite-42v2.md` §5/§8). README row handled by STEP 7 (v2 §B row 20 is the
+   split form).
+
+Verify:
+- `test -f research/articles/20-engine-seam-interface.md && test -f research/pilots/20-seam-analysis.md`
+- `rg -n "Theorem 5" research/articles/20-engine-seam-interface.md` → 0 hits (Thm 5 lives only in the note)
+- `rg -n "SharedMass|CommonZeroControl" research/articles/20-engine-seam-interface.md` → 0 hits (defs moved with it)
+- `rg -n "20-seam-analysis.md" research/articles/ research/qa/iter4-review/r1-rewrite-42v2.md research/articles/README.md` → ≥3 (note pointer present in 42v2 + README + the new article's companion line)
+- `rg -n "PROVED (conditional interface)|All 27 theorems" research/articles/20-engine-seam-interface.md` → 0 hits (old dialect/stale count not carried)
+
+## STEP 4d — article 72 in-place refocus (R2's `r2-rewrite-72.md`, adopted §8 REWRITE-FULL; cross-review `r1-review-r2-rewrites.md` §B)
+
+1. Replace `research/articles/72-renyi-monotonicity-nogo-gate.md` content from
+   `r2-rewrite-72.md` (filename may stay; H may prefer `72-renyi-fence-kuwahara.md`
+   with an S–M slug sweep), WITH the cross-review's splice conditions:
+   - **title decision pending orchestrator** (divergence #1 in the cross-review):
+     R1 recommends dropping "(with the Family-265 Interface Layer)" — keep "family-265"
+     only in §5 body with a gloss; do not execute this step before the ruling;
+   - abstract trimmed to ≤ 200 words (measured 306; cut the §7-duplicated
+     approximate-projector trade-off detail);
+   - per-theorem status rows from R3 tables §3 (N1/N2a/N2b PROVED-UNCONDITIONAL;
+     N3a/N3b PROVED-CONDITIONAL on hKL + hBnd + hArea; M1 links 1–3
+     PROVED-UNCONDITIONAL; link 4 / interface theorem NOT an article claim);
+   - §6 evidence cells filled from R3 tables §3 (`axcheck-run1.log:24–28` public,
+     `:34+` private, `m1-axcheck-final.log:82–83`, sweep rows) — no descent
+     trajectories;
+   - preserve the fold's load-bearing items verbatim (cross-review §B list): d ≥ 2
+     scope everywhere, the approximate-projector vs boundary-linear-no-go distinction,
+     the attribution sentence, hKL as a named binder, `[R7-CITE]` slots.
+2. README row handled by STEP 7 (v2 §B row 72 is the reconciled form; its "pending
+   orchestrator confirm" note drops once the title ruling lands).
+
+Verify:
+- `rg -c "R3-FILL" research/articles/72-*.md` → 0 (filled at splice)
+- `rg -n "d ≥ 2" research/articles/72-*.md` → ≥3 (status/§1/§7)
+- `rg -n "The refutation is his" research/articles/72-*.md` → 1 (attribution preserved)
+- `rg -n "descent|→0 over" research/articles/72-*.md` → 0 (no run histories)
+- abstract word count `sed -n '/^## Abstract/,/^## 1\./p' … | wc -w` ≤ 200
+
 ## STEP 5 — 21 demotion (R2 package + R3 wording)
 
 1. `git mv research/articles/21-quartic-window-transplant-certified-loss.md
@@ -173,7 +256,7 @@ Verify:
 
 ## STEP 8 — final sweep (R4 verifies after H's GO execution)
 
-1. Dangling-slug sweep: `rg -n "42M4-zetaK|50M2-unconditional|73-formal-tate|21-quartic-window-transplant|10-uniform-poly-space-eth-refutation" research/ --glob '!qa/iter4-review/**' --glob '!INDEX.md'` → every remaining hit must be inside a dated drift-note or a historical cycle record; any live-index hit is a defect.
+1. Dangling-slug sweep: `rg -n "42M4-zetaK|50M2-unconditional|73-formal-tate|21-quartic-window-transplant|10-uniform-poly-space-eth-refutation|20-common-zero-seam" research/ --glob '!qa/iter4-review/**' --glob '!INDEX.md'` → every remaining hit must be inside a dated drift-note or a historical cycle record; any live-index hit is a defect. (If STEP 4d renames 72, add `72-renyi-monotonicity-nogo-gate` to the list.)
 2. Article-set census: `ls research/articles/*.md | wc -l` → 15 article files + README + TEMPLATE-iter4 (17 files, down from 19 incl. TEMPLATE).
 3. Status-vocabulary sweep on the two new articles: `rg -n "Status: PROVED" research/articles/42-*.md research/articles/50-*.md` → 0 hits (old dialect gone; template status rows instead).
 4. Commit shape: one commit per step (or H's batching) on `dev/iteration4`, message prefix "Iter4 articles restructure (R1 runbook step N): …"; never push.

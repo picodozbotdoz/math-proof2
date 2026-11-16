@@ -203,6 +203,18 @@ Triggers as pre-registered (`novelty/pntplus-glue-as-donor.md` §c :130–134):
   = `leanprover/lean4:v4.35.0` — unchanged from the §c record (:108–110).
 
 **Recommendation (c): REMAIN DEFERRED (watchlist), cite as external formal prior art.**
+
+**[Addendum 2026-11-16, R6's rg + R8-verified (donor-map correction):]** openai-math's
+own `lake-manifest.json` declares **PrimeNumberTheoremAnd** (AlexKontorovich @
+`c39a7511`, :64–:73) AND **TauCeti** (TauCetiProject @ `3bed7e37`, :194–:203) as
+dependencies — both importable inside OAI donor-pin builds (the G7b/G11/G12 container
+shape). This creates a NEW route class, **"PNT+ via OAI manifest import"**: a future
+explicit-formula consumer (FB-2-class) could consume PNT+ statements inside an OAI
+donor-pin build instead of registering upstream — WEAKENS the upstream register-and-port
+case further (third datapoint after T2-unfired and mathlib-on-pin absorption, §3 above +
+E3). Neither entry was recorded in our donor maps (`novelty/pntplus-glue-as-donor.md`,
+`novelty/axiommath-as-donor.md`) — this line is the correction of record. No action
+beyond recording; any consumption still passes the donor-hygiene gate at the OAI pin.
 Optional cheap preflight serving the carried slot:
 
 - **G9 — StrongPNT statement-binder transcription probe** (statement-elaboration-only,
@@ -394,13 +406,27 @@ and NOT an escalation trigger; `anon` growth is the investigate signal. Telemetr
 the `[tele]` lines inside each run's tee'd log (the decorator prints them at interval +
 summary). **Cache-ping marking: runs 1a (LP-P0), 8 (ZZV2-P0), 9 (hEχ)** — 1a IS the ping
 (run it FIRST); 8–9 are ping-gated (execute only if 1a's cache step was healthy).
-Runners marked AUTHOR-AT-EXEC do not exist on disk yet (R5's queue is staged-no-run; the
-lane authors runner + file at execution per the cited spec).
+Runner provenance: the four R5 clones were AUTHOR-AT-EXEC when this packet was written;
+all landed and were R8-validated 2026-11-16 (verdict block below) — the per-card Command
+lines now cite the landed runners; only the `.lean` artifacts are authored at execution.
+
+**[VALIDATED 2026-11-16 (R8 double-check, all four runners landed — H commit 10ce989):
+PASS — `pilots/lp/run_pilot.{sh,py}` and `pilots/al3d/run_pilot.{sh,py}` (73-clones,
+image block byte-identical to 73/75), `pilots/zzv2-lam/run_zzv2.{sh,py}` (M4b2 recipe,
+image block byte-identical to `42/run_m4b2.py`, elan-mirror line kept),
+`pilots/zeta23e/run_zeta23e.{sh,py}` (r1-pattern; family v4.36 base image byte-identical
+to `50/run_r1.py` — the v4.33.0-rc2 donor pin is PER-RUN, card 9). SPEC `**SPEC` +
+`@telemetered` + `LEAN_NUM_THREADS=2` + doz default + correct app names verified; all
+six files parse/syntax-clean. Divergences: (d1) `al3d/run_pilot.sh` header cites the LP
+runs — copy-paste slip, logic unaffected; (d2) `run_zzv2.py:154` is sorry-STRICT on the
+in-tree P0 — the P0 file must be written #check/#print-only (G11 style) or the verdict
+needs the probe-prefix exemption BEFORE first run (R5 owns); (d3) cosmetic dead
+`MODAL_USER` var in the lp/al3d shells (deliberate no-xyz-branch).]**
 
 ### 1a. LP-P0 — statement probe + ARTIFACT-CACHE HEALTH PING (run FIRST)
-- **Command**: `research/pilots/lp/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC (clone
-  `pilots/73/run_pilot.sh`+`run_pilot.py` verbatim; app `crossmath-pilot-lp`; spec =
-  R5 §9c LP-P0, file `research/pilots/lp/P0.lean` ≤0.15k LoC, probe-convention header).
+- **Command**: `research/pilots/lp/run_pilot.sh P0.lean` — runner LANDED + R8-validated
+  (73-clone; file `research/pilots/lp/P0.lean` authored at execution per R5 §9c LP-P0,
+  ≤0.15k LoC, probe-convention header).
 - **App / class**: `crossmath-pilot-lp` (NEW) · C1 warm probe — image layers shared by
   construction (recipe textually identical; do not reword fetch lines).
 - **Duration @SPEC**: 3–5 min. **Resources**: SPEC default.
@@ -420,9 +446,9 @@ lane authors runner + file at execution per the cited spec).
   runs each ⇒ §8e fallback or park. (Descent-guard below applies runs 2+.)
 
 ### 3. AL-P0 — 3D statement-layer port probe (charter-gated: slot-2 typeset)
-- **Command**: `research/pilots/al3d/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC (clone 73
-  pattern; app `crossmath-pilot-al3d`; `pilots/al-3d-prework.md` §4; file `P0.lean` =
-  G4-template core + 3D encoding cluster + new defs, ≤0.45k LoC).
+- **Command**: `research/pilots/al3d/run_pilot.sh P0.lean` — runner LANDED +
+  R8-validated (73-clone; `pilots/al-3d-prework.md` §4; file `P0.lean` authored at
+  execution = G4-template core + 3D encoding cluster + new defs, ≤0.45k LoC).
 - **App / class**: `crossmath-pilot-al3d` (NEW) · C1/C2 heavy-import (entropy core).
 - **Duration @SPEC**: ≈5–15 min. **Resources**: SPEC default (mmapped-olen `mem`
   readings inherent on mathlib-heavy elaboration; `anon` is the signal).
@@ -431,7 +457,7 @@ lane authors runner + file at execution per the cited spec).
   any need for donor imports / Physlib ⇒ HARD STOP (al-3d §5 gates iv–v) — design error.
 
 ### 4. LP-P1 — the layer theorem (day 2; after 1a pins spellings)
-- **Command**: `research/pilots/lp/run_pilot.sh L1.lean` (same AUTHOR-AT-EXEC runner).
+- **Command**: `research/pilots/lp/run_pilot.sh L1.lean` (LANDED runner, validated).
 - **App / class**: `crossmath-pilot-lp` (warm after 1a) · C2.
 - **Duration @SPEC**: ≈3–5 min. **Resources**: SPEC default.
 - **Telemetry path**: `research/pilots/lp/logs/l1-run<N>.log`.
@@ -458,7 +484,7 @@ lane authors runner + file at execution per the cited spec).
   labeled; acceptance = GREEN + full-coverage inline axcheck triad-only (R5 §8f).
 
 ### 7. AL-P1 — fibre-geometry core (after AL-P0 GREEN)
-- **Command**: `research/pilots/al3d/run_pilot.sh A1.lean` (AUTHOR-AT-EXEC same runner).
+- **Command**: `research/pilots/al3d/run_pilot.sh A1.lean` (LANDED runner, validated).
 - **App / class**: `crossmath-pilot-al3d` (warm after 3) · C2.
 - **Duration @SPEC**: ≈5–10 min. **Resources**: SPEC default.
 - **Telemetry path**: `research/pilots/al3d/logs/a1-run<N>.log`.
@@ -466,10 +492,11 @@ lane authors runner + file at execution per the cited spec).
   restatement (B.2-full territory) ⇒ STOP, diagnose, report; ≤0.4k LoC guard.
 
 ### 8. ZZV2-λ P0 — donor-tree probe [PING-GATED: needs 1a healthy] (LAST; parallelizable with 9)
-- **Command**: `research/pilots/zzv2-lam/run_pilot.sh P0.lean` — AUTHOR-AT-EXEC
-  (`zzv2-lambda-prework.md` :105–114: copy `pilots/42/run_m4b2.py` verbatim → app
-  `crossmath-pilot-zzv2-lam`, tarball = ZetaZerosV2 + redirected PNT+ (axbump patch),
-  keep the elan mirror line; probe elaborated INSIDE the built tree; ≤2 runs).
+- **Command**: `research/pilots/zzv2-lam/run_zzv2.sh P0.lean` — runner LANDED +
+  R8-validated (`run_zzv2.py`, m4b2 recipe: tarball = ZetaZerosV2 + redirected PNT+
+  (axbump patch), elan mirror kept; probe elaborated INSIDE the built tree; ≤2 runs;
+  **precondition d2**: P0 file must be #check/#print-only or the sorry-strict verdict
+  fixed first).
 - **App / class**: `crossmath-pilot-zzv2-lam` (NEW, donor-tree) · C3 [LAYERS-class
   profile, single function] — the 8.2k-job V2+PNT+ build happens IN-RUN (not
   image-cached), the window's longest item.
@@ -484,14 +511,16 @@ lane authors runner + file at execution per the cited spec).
   pinned statement facts ⇒ ≤2 runs then stop (P0 is statement-only).
 
 ### 9. hEχ — zeta23 Theorem-E donor-pin build + audit [PING-GATED: needs 1a healthy] (day-2/3, beside 8)
-- **Command**: `research/pilots/<zeta23E>/run_pilot.sh <consumer.lean>` — AUTHOR-AT-EXEC
-  (R5 §14 run 8: clone `pilots/50/run_r1.py`+`run_r1.sh` (the donor-pin pattern) → app
-  `crossmath-pilot-zeta23E`; build zeta23's small v4.33 tree at ITS pin, transitive
-  `#print axioms` of the Theorem-E chain, elaborate the consumer file in-tree; the
-  statement ports back as discharged 2/3 binders — R2 mini-spec
-  `r2-discovery-strength.md` :535–553).
-- **App / class**: `crossmath-pilot-zeta23E` (NEW) · C3 hour-class · **v4.33 pin — own
-  image lineage, shares NOTHING with the v4.36 family** (cold start is structural).
+- **Command**: `research/pilots/zeta23e/run_zeta23e.sh <consumer.lean>` — LANDED +
+  R8-validated (r1-pattern; TARGET `Zeta23.ThmE.Final`, DONOR_TOOLCHAIN v4.33.0-rc2,
+  donor mathlib 51e6992e, zeta23 lakefile.toml no-patches handling); transitive
+  `#print axioms` of the Theorem-E chain + consumer elaboration in-tree; the statement
+  ports back as discharged 2/3 binders (R2 mini-spec `r2-discovery-strength.md`
+  :535–553).
+- **App / class**: `crossmath-pilot-zeta23E` · C3 hour-class · **family v4.36 base image
+  (layers shared — recipe byte-identical to r1); the donor pin is PER-RUN**: v4.33.0-rc2
+  toolchain installed in-function (`_elan_ensure` pattern) + 51e6992e olean fetch +
+  zeta23 closure build = the cold cost (R5 correction adopted 2026-11-16).
 - **Duration @SPEC**: hour-class low end expected (small tree; measured at run 1; 3-h
   timeout). **Resources**: SPEC default; same inherent-`mem` pre-flag as card 8.
 - **Telemetry path**: `research/pilots/<zeta23E>/logs/he-run1.log`.

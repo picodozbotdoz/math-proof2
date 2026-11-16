@@ -439,3 +439,246 @@ divergences routed to H. No fixes by R4.
 
 — end R4 part 3. New: gate-run record file (11/11 PASS), C4 added to batch C, one new
 WRONG finding (TRIAGE.md:259 direction), two coordination rules for pass 2.
+
+---
+
+# Part 4 — Iteration-4 close-out skeletons (R4, queue 4, 2026-11-16)
+
+Two skeletons authored and staged (nothing executed; both are PREP-ONLY until the
+orchestrator's triggers):
+
+1. **`research/feasibility/probe/FINAL-SWEEP-PLAN-ITER4.md`** — modeled on the C2 plan
+   (lineage: main-run → C2 → this). §0 TARGETS seeded from R5's specs exactly as
+   mandated: pilots/75/Pb.lean (+ shared-ℚ staging + N2), LP pilot files
+   (`pilots/lp/*`, L1.lean, the `L1→AxL1` sibling-import note), AL-3D
+   (`pilots/al3d/*`, Statements3D cluster, [HEAVY-IMPORT]), ZZV2-λ
+   (`pilots/zzv2-lam/*`, donor-tree class via the M4b2 recipe), 72-M1 L3
+   (`P72M1T3.lean`, stage `AxPilot72_M1_T3`), 73-Q4 (gated), 22-T2a — plus a
+   conditional-rows table for the charter-dependent ranks 7/8/10/11. §1 = sorry-token
+   classifier note (C2 43-token carry-forward + incremental delta log + re-baseline
+   rule). §2 = Step B with R3's upgrades as DEFAULTS, deviations requiring an
+   OVERRIDDEN note: full-coverage private+lemma axcheck (mandatory for donor-swap
+   pilots, recommended for all new stages), counters matching `error(<code>)` +
+   backtick-sorry + wrapped-line joining, no middle-excerpting (full-length print
+   persistence; tally-only logs must name their covering artifact), sha256-at-sweep.
+   §3/§4 = ledger sign-off + compliance text (extractor-generated counts). §5 = the
+   close gates (scoped-grep pattern, gate-run persistence, INDEX-refresh gate,
+   date-discipline grep), citing the reconstructed C2 run as worked example. §6 trigger.
+2. **`research/qa/closeout-commit-plan-ITER4.md`** — modeled on the C2 plan.
+   Preconditions mirror R5's queue ranks 1–11 (per-lane verdict slots) + the records
+   preconditions (A9's REPORT-INPUTS-ITER4 ledger, L9's TRIAGE-ITER4 rows, L6 novelty
+   discharges, R2 decision landed pre-freeze). **STEP 5 is the NAMED pass-2 sequence**
+   (extractor-count rule adopted FIRST → counts fixed everywhere in one pass → R2
+   relabels/folds with cite-chasing → dated correction markers on frozen records,
+   never silent rewrites). STEP 8 hard-codes gate-run persistence (results table in the
+   same commit as the close block). STEP 9 = gates 1–11 scoped + two new gates (12
+   INDEX reconciliation, 13 date discipline). STEP 10 = next-branch cut
+   (orchestrator-only). Appendix restates the log-header convention (no debt-k class
+   available to Iteration-4 logs).
+
+**Standing status:** (a) A+B verification — batch A confirmed applied by H (commit
+`4fad4f0`, "R4 fixes batch A applied"); batch B in progress on disk (INDEX.md modified,
+uncommitted) — **verification pass NOT started**, per the queue it fires only on the
+orchestrator's explicit signal that A+B are applied; the pass will re-read every touched
+file byte-exact against Part 2 and report PASS per batch or exact divergences routed to
+H. (b) R2's relabel set — R2's file has grown to 557 lines (the expanded edit list);
+verification on H's apply, byte-exact + dated-correction-marker convention; divergences
+routed to H, nothing fixed by R4.
+
+— end R4 part 4.
+
+---
+
+# Part 5 — Batch A+B verification results + Iteration-4 launch-commit mechanics (R4, queue 5, 2026-11-16)
+
+## 10. Batch A verification — **PASS (14/14 edits byte-exact; commit `4fad4f0`)**
+
+Method: full `git show 4fad4f0` diff compared hunk-by-hunk against Part 2's A1–A12
+`new` blocks, then current-state site greps (all old strings absent, all new strings
+present, each ×1): A1 date (TRIAGE-C2-ROWS:214 = 2026-11-14, zero `2026-11-15` left),
+A2 rank (both TRIAGE.md:279 and TRIAGE-C2-ROWS.md:137 = ≈ 4.9, zero ≈ 4.5), A3 template
+header gone, A4 round-4 title, A5 dossier-71 header, A6 R1-prework header, A7 debts
+row (i) struck with commit cite, A8 ledger resolution pointer, A9 INPUTS 50M2 row
+superseded, A10 "2026-11-14 close-out fills", A11a-d CHARTER-DRAFT (75 FINAL-FOR-ENTRY
+×2, 50-M2-R1 LANDED, gates RESOLVED), A12 superseded banner. Touched-file set = exactly
+the 9 files the package names; nothing extra changed. One cosmetic note for the record:
+"14 edits" (my Part-2 trailer, echoed in H's commit message) = **16 physical edit
+sites** (A2 spans two files; A11 is four one-liners) — count nuance only, no divergence.
+
+## 11. Batch B verification — **PASS (B1 + B2 33/33 rows byte-exact + B3 12/12; commit `bc1ef81`)**
+
+B1 (:13 REPORT row FILLED-FINAL) applied. B2: all 33 inserted INDEX rows byte-identical
+to the Part-2 block (programmatic row-by-row diff; 0 differences) — trailer nuance: the
+Part-2/commit-message count "30 rows" is actually 33 rows (cosmetic, as with A). B3:
+all 12 stale-row rewrites byte-exact (each new fragment present, each old fragment
+absent; the one apparent :115 miss was my check-fragment spanning H's line wrap — the
+applied line is exact). No collateral edits. **A+B fully verified; both batches PASS.**
+
+## 12. R2 fix-side status — authored, NOT yet applied (verification pending)
+
+Commit `bf99d62` adds the fix-side sections (+447 lines) to
+`r2-discovery-strength.md` only — no artifact edits yet. When H applies the 29 relabel
+edits: verify byte-exact against R2's expanded list + the dated-correction-marker
+convention on frozen records (R4 Part-2 §7 / closeout-commit-plan-ITER4 STEP 5.4);
+divergences routed to H, nothing fixed by R4. Still standing.
+
+## 13. Launch-commit mechanics (H executes at orchestrator GO; R4-verifiable post-GO)
+
+Ownership split per the queue: **R9 §10 checklist v2 owns process steps; this section
+owns commit mechanics** — mapping: R9 §10.1 (pre-splice approvals) = already satisfied
+(A `4fad4f0`, B `bc1ef81`, verified §§10–11; the R2-approval record remains the
+orchestrator's); R9 §10.2 (splice commit) = L2 below; R9 §10.3–10.4 (lane re-task,
+first Modal runs) = after L2, no commits defined here; R9 §10.5 (day-1 disciplines) =
+behavioral, no launch commit.
+
+**L1 — review-phase closure commit** (everything the review produced, minus the
+splice targets; H may split by lane at discretion):
+- files: `research/qa/iter4-review/` complete set — `00-DIGEST.md`, `r1-articles-editorial.md`,
+  `r1-fixes-11-73.md`, `r1-readme-v2.md`, `r1-rewrite-42v2.md`, `r2-discovery-strength.md`
+  (modified), `r3-verification-integrity.md`, `r4-process-completeness.md` (modified,
+  this file), `r5-iteration4-backlog.md`, `r9-iteration-plan-draft.md` (modified);
+  `research/qa/closeout-gate-run-C2-reconstructed.md`; `research/qa/REPORT-INPUTS-ITER4.md`;
+  `research/qa/closeout-commit-plan-ITER4.md`; `research/feasibility/probe/FINAL-SWEEP-PLAN-ITER4.md`;
+  `research/articles/TEMPLATE-iter4.md`; `research/feasibility/iter4-donor-unblock-plan.md`
+  (R8); R8 infra (H confirms which ride here vs a later infra commit — staged-unrun per
+  `f2aaa2e`): `feasibility/probe/{ProbeG9_StrongPNT,ProbeG10_PhyslibRefresh}.lean`,
+  `iter4_probe.py`, `run_iter4_probe.sh`, modified `run_probe.sh` + `pilots/32/run_pilot.sh`.
+  **Not in L1:** `novelty/iter4-fresh-bridges.md` (R6 mid-flight per R9 §10.6 — commit at
+  its own landing, orchestrator call if a DRAFT snapshot is wanted).
+- message: `Iter4 review phase: lane deliverables (R1–R5, R9) + C2 gate-run reconstruction + launch kit (sweep plan, closeout plan, REPORT-INPUTS-ITER4 skeleton, article template)`.
+- verify: `git show --stat <L1>` covers exactly the list above; `git status --short`
+  afterwards shows only R6/R7 in-flight outputs (none expected on disk) and the L2
+  targets; L1 touches none of RESEARCH/STATUS/TRIAGE/INDEX/ORCHESTRATION.
+
+**L2 — the splice/launch commit** (exactly R9 §10.2):
+- `research/RESEARCH.md`: §Iteration 4 block from R9 §8 splice v2 (orchestrator
+  typesets; may compress the protocol block) **+ batch C1** (close-out record paragraph
+  appended after the §Cycle 2 tail line "…carry over from the main run (see
+  STATUS.md).").
+- `research/STATUS.md`: §"Iteration 4 (opened 2026-11-16)" block from R5 §16's staged
+  snippet (extract-and-splice; H owns STATUS) **+ batch C2** (:761 debts line).
+- `research/TRIAGE.md`: **batch C4** (:259 LoC direction fix).
+- `research/ORCHESTRATION-ITER4.md`: re-keyed to R9 §9 A-duties.
+- `research/INDEX.md`: dated, source-cited rows for every file L1/L2 commits (protocol
+  rule 3 applied at landing).
+- message: `Iteration 4: charter splice v2 (R9 §8) + STATUS opened block (R5 §16) + R4 batch C (C1/C2/C4) + tracker re-key + INDEX rows — launch commit`.
+- verify (each one grep, post-GO):
+  1. `grep -c '^## Iteration 4' research/RESEARCH.md` = 1
+  2. `grep -q 'Close-out record (2026-11-14): the hQRH discharge promised above landed via route R1' research/RESEARCH.md` (C1)
+  3. `grep -q '(b)(c)(d)(e)(i) CLOSED' research/STATUS.md && ! grep -q '(f)(g)(h)(i)–(m) carried or recorded' research/STATUS.md` (C2)
+  4. `grep -q 'LoC corrected 279→282-disk' research/TRIAGE.md` (C4)
+  5. `grep -q '^## Iteration 4 (opened 2026-11-16)' research/STATUS.md` (R5 §16 splice)
+  6. INDEX two-direction reconciliation (r4 §6 rule-3 command) → empty except
+     directory-covered/grouped entries
+  7. date-discipline grep (r4 §6 rule 4) clean.
+
+**L3 — launch-state refresh** (fold into L2 or separate at H's discretion):
+`research/RESUME-BRIEF-ITER4.md` refreshed at GO (GO recorded; spawn order per R9
+§10.3; first-48h queue pointer to R5 §14). Message if separate:
+`Iter4: RESUME-BRIEF-ITER4 refresh at GO`. Verify: the brief's launch-gate table shows
+GO + the L1/L2 commit hashes.
+
+**Explicitly NOT in the launch commits:** R2's 29 relabels (pass-2, post-splice, ONE
+sequence per closeout-commit-plan-ITER4 STEP 5 — never bundled here); R6/R7 outputs
+(merge at their own landings); first Modal runs (R9 §10.4 governs; they follow L2).
+Single-commit alternative: L1+L2+L3 fused (R9 §10.2 contemplates one commit) — same
+file set, concatenated message, all seven verification greps run against that commit.
+
+— end R4 part 5.
+
+---
+
+# Part 6 — R2 relabel verification + GO-readiness table (R4, queue 6, 2026-11-16)
+
+**R2's 29 relabel edits — PASS (commit `20af866`).** Found applied in history (same
+posture as batch B: verified on discovery, before later commits confound). Method: R2's
+fix-side list (`r2-discovery-strength.md` §7.1 R1–R13, §7.2 A1–A12, §7.3 D1–D5) reduced
+to 32 current-state site checks (new-fragment present ∧ old-fragment absent) + rename +
+convention checks. Results: 32/32 pass; article-10 file rename complete
+(`10-uniform-poly-space-eth-refutation.md` → `10-layers-toward-…`, old file absent) with
+the cross-reference sweep done (INDEX cites the new name only); dated-correction
+markers present on both frozen records (TRIAGE.md and TRIAGE-C2-ROWS.md "corrected
+2026-11-16, Iter-4 review"); A12 left as R2 recommended and D5 correctly no-edit; D2's
+two-copy sentence moved together. Commit touched exactly the 15 files the list implies;
+nothing extra. Residue (not a divergence — outside R2's list): REPORT §C2.6's
+"discovery-grade core" phrasing for 75 remains, the orchestrator's C3-adjacent call.
+
+**GO-readiness table — written to `qa/iter4-review/r4-go-readiness.md`** (live gate
+table, header-dated, updated on orchestrator signals): rows 1–10 as mandated; blocking
+set exactly {R9-final splice, R7 prior-art audit, L1 review-closure commit}; rows 3–8
+ride post-GO with disk-true states (R6 G11/G12 staged-untracked + runner modes
+mid-edit; R8 AGENTS-ITER4-DRAFT untracked; R1 50v2 + R2 re-grades + R3 axcheck_iter4.py
+in flight); row 8 records the R2 PASS above with the pass-2 count batch deferred to
+close-time by design; row 10 notes L2 is the GO act itself, firing on rows 1/2/9 green.
+Standing verifications unchanged: R3 pass-2 counts, L1 closure + L2's seven greps at
+GO, and any divergence-fix commits before a row goes green.
+
+— end R4 part 6.
+
+---
+
+# Part 7 — C5 proposed (REPORT §C2.6 residue) + R3 pass-2 batch-1 verification (R4, queue 7, 2026-11-16)
+
+## 14. C5 — proposed one-line dated correction for the REPORT §C2.6 residue (joins batch C; orchestrator approves at GO; applied in L2)
+
+- file:line: `research/REPORT.md:444`
+- old (byte-exact): `(≈ 4.8), 75's entry milestone — the cycle's discovery-grade core (≈ 6.4) — and the main-run`
+- new: `(≈ 4.8), 75's entry milestone — the cycle's one conditional statement class, discovery-grade at statement-class level only (≈ 6.4; corrected 2026-11-16, Iter-4 review: the 42→42-M4 line and the other completions around it are ecosystem/donor-swap technical records, not a discovery headline) — and the main-run`
+- why: aligns the REPORT mirror with the applied D2 reframe (TRIAGE + TRIAGE-C2-ROWS already carry the corrected sentence, dated 2026-11-16) and D3's technical-record classing; the dated marker follows the frozen-record convention. No other REPORT §C2.6 change proposed — the ranks and carried list are accurate post-A2.
+- L2 mechanics amendment: C5 rides the L2 splice commit with C1/C2/C4 (r4 §13); verification grep #8: `grep -q 'one conditional statement class, discovery-grade at statement-class level only' research/REPORT.md` and `! grep -q "the cycle's discovery-grade core" research/REPORT.md`.
+
+## 15. R3 pass-2 batch-1 — verified **PASS with one sequencing note** (commit `683fdaf`)
+
+Found applied in history; verified against R3's canonical tables
+(`r3-verification-tables.md`, landed `2b3e121`) and R3 §4–§6:
+- article 20 LoC 576→582 ✓; article 71 two sites 279→282 ✓; article 21 status → the
+  R3-§3 quarantine label (computationally certified / external script / excluded from
+  proved counts) ✓; article 50M2 "R1.lean (178 lines)" → 180 — disk-true
+  (`wc -l pilots/50/R1.lean` = 180; supersedes the run-log count of earlier bytes,
+  extractor-rule direction) ✓; VERIFICATION-LEDGER 11-M2 row amended with the
+  tally-only note naming the covering artifact (stepB-c2.log:533–586) ✓ = R3 F1's fix
+  pattern; both pilot-11 logs gained **dated correction comments (2026-11-16)** for F1
+  (P11T3 prints not persisted) and F5 (RedTm2 410-run vs 421-disk) — frozen-record
+  convention honored ✓. Touched files exactly the 7 implied; nothing extra.
+- **Sequencing note (routed to H, not fixed by R4):** (a) `axcheck_iter4.py` is on disk
+  but **uncommitted** — the extractor whose authority the count fixes invoke must ride
+  L1 (or R3's next commit) for the "extractor rule adopted first" leg to be
+  literally true in history; (b) the count-fix remainder is still owed and stays
+  pre-registered for close-time (75 66→68, 42-M4b 68→70, 11-addendum 88→110, 10-L1
+  25→27, ledger M4a 52→54 + §8 pilot-20 26→28, INDEX B-row counts) — closeout-
+  commit-plan-ITER4 STEP 5 remains its single home; no piecemeal fixes elsewhere.
+
+## 16. Readiness-table updates made this turn (see `r4-go-readiness.md`)
+
+Row 1 (R9): integration pass landed (`3c95134`, +662 ln incl. splice v2 fold-state) —
+state remains in-flight (touch-up + R7 fold; R7 still absent). Row 7 (R3): script
+implemented on disk, **uncommitted** — rides L1. Row 8 (H applications): pass-2 batch-1
+applied + R4-verified (`683fdaf`); remainder registered for STEP 5 at close; no other
+pre-GO applications outstanding. Residue line updated: the REPORT §C2.6 residue is now
+**C5 proposed (Part 7 §14), pending GO approval**. Blocking set unchanged
+{R9-final, R7, L1}; L1/L2 verification held for the GO act.
+
+— end R4 part 7.
+
+---
+
+# Part 8 — C5 approval recorded + readiness batch-3 update (R4, 2026-11-16, orchestrator queue 8)
+
+**C5 APPROVED (orchestrator, 2026-11-16):** exact text as drafted (Part 7 §14), dated
+marker included; rides **L2** with C1/C2/C4; grep #8 amendment adopted. L2's
+verification set is now the eight greps (r4 §13 items 1–7 + the C5 grep).
+
+**Readiness batch-3 updates** (`r4-go-readiness.md`, same-day): row 2 **cleared** — R7
+landed (`1496c9a`, `novelty/iter4-external-priorart.md` 362 ln, 7/7 verdicts, ZERO
+retracts; bib-cards follow-up commits on report); row 1's R7-fold leg = **in flight
+with R9** (r9 worktree-modified; outstanding = fold + emission). Also refreshed from
+the same drain wave: row 5 R1 **landed** (`e558674`, 50v2 + swap-in runbook +
+resolutions), row 6 R2 **landed** (`a0d9373`, §11–13 re-grades + completion mini-specs),
+row 4 R8 §9 checklist landed (`4f561bb`, digest-corrected `2864cbf`; AGENTS-ITER4-DRAFT
+uncommitted, rides L1 or own commit). Pass-2 batch-1 PASS recorded by the orchestrator;
+close-time remainder registration stands. `axcheck_iter4.py` riding L1 confirmed
+belt-and-braces. **Blocking set: {R9-final, L1}** — remaining pre-GO updates: R9's
+final block emission, H's L1 execution. At GO: R4 runs L1 closure verification + the
+L2 eight-grep set.
+
+— end R4 part 8.

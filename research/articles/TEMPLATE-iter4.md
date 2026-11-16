@@ -18,6 +18,7 @@ get an article — it goes to the dossier, the pilot notes, or the verification 
 | `DISCOVERY` — new theorem, unconditional | full article | donor swap / binder discharge → **revise the upgraded article to v2** with a changelog line |
 | `DISCOVERY-CONDITIONAL` — new theorem class under named open hypotheses | full article; hypotheses must be the open core of the field, named in the abstract | progress tranche with open headline → **dossier tranche record** (`pilots/<NN>/next-tranche-spec.md` pattern) |
 | `NEGATIVE` — refutation / no-go / certified comparison | full article; the negated claim and its true owner must be attributed | addendum / closure note / "knowledge-level record" → **dossier or survey note**; articles are versioned wholes, never append-only |
+| `TECHNICAL-RECORD` — interface / fence / calculus / formalization articles kept by orchestrator ruling (iteration-4 kept set: 11, 20, 50, 52, 72) | full article under the same gate (added 2026-11-16 per the R1 cross-review of `r2-rewrite-20/72`; the kept set is closed, not a channel for new engineering articles) | new technical records beyond the kept set and R9's two-strike cap (≤ 2 non-discovery articles/cycle) → dossier/pilot records |
 | `FORMALIZATION-FIRST` — classical math first formalized | article ONLY if formalization changed the statement (forced correction, found falsity) or yields a theorem another dossier consumes; otherwise dossier notes | infrastructure narrative (Modal runs, sweeps, probes) → **verification ledger**, never the article |
 
 Audit anchors: 42-M4 (donor swap) and 10 (open-headline tranche) were published as
@@ -63,6 +64,14 @@ titles: "Tier", "milestone", "GREEN", "landed", "donor", "binder" (as a noun of 
 "Frozen", run/loop/sweep identifiers, orchestrator bookkeeping ("A8 formal report
 received"). One status row per theorem — not one label for the whole file (20's
 Theorem 5 was asserted in the abstract and disclosed as unformalized only in §5).
+
+**Substrate qualifier (reconciled with R3's rule 6, 2026-11-16):** the phrase
+"**at donor pin**" appended after a closed status string (e.g. "PROVED-UNCONDITIONAL —
+at donor pin (Lean v4.34.1, mathlib d13f23b7)") is REQUIRED, not banned, whenever the
+kernel evidence was elaborated on a donor's toolchain rather than the project pin —
+the ban list above targets status *nouns* ("donor" as a kind of result), not the
+substrate disclosure. An unconditional claim proven at a donor pin must say so in the
+status row itself (example: article 50 v2's Theorem 1).
 
 ## 2. Abstract (one paragraph, ≤ 200 words)
 
