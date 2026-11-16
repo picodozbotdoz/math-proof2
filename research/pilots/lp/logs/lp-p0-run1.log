@@ -1,0 +1,80 @@
+# LOG — LP-P0 run 1 (card 1a = ARTIFACT-CACHE PING). P0.lean v1 FAIL rc=1: the prework/bridge vocabulary [LinearOrderedRing R] does not exist at ff2494ea (2026 mixin refactor) -> binder error at the class; + momentIdent needed noncomputable. PING ITSELF GREEN (service healthy, warm layers, elaboration completed, telemetry line present, no cache-fetch failure).
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   produced-by : lane A2 (LP pilot; R5-executing), iteration 4, 2026-11-16
+#   substrate   : Modal app crossmath-pilot-lp (doz CLI; SPEC 2cpu/4GB + @telemetered
+#                 + LEAN_NUM_THREADS=2), mathlib ff2494ea @ v4.36.0-rc2, warm layers
+#   command     : bash research/pilots/lp/run_pilot.sh <files>  (tee'd; body verbatim)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-7h8B27sja3E2LqirOhfYpU
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-lp-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[lp] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[lp] mathlib rev ff2494ea5e43
+[lp] oleans present: 8710
+
+=== P0.lean
+[lp] P0.lean: FAIL rc=1 errors=2
+---- error contexts ----
+P0.lean:27:5: error: invalid binder annotation, type is not a class instance
+  ?m.2
+
+Note: Use the command `set_option checkBinderAnnotations false` to disable the check
+P0.lean:38:5: error: invalid binder annotation, type is not a class instance
+  ?m.2
+
+Note: Use the command `set_option checkBinderAnnotations false` to disable the check
+P0.lean:77:8: warning: declaration uses `sorry`
+P0.lean:100:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instPow', which is 'noncomputable'
+P0.lean:103:57: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P0.lean:104:5: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P0.lean:118:2: error(lean.unknownIdentifier): Unknown identifier `lp_weak_duality`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+···
+Note: Use the command `set_option checkBinderAnnotations false` to disable the check
+P0.lean:38:5: error: invalid binder annotation, type is not a class instance
+  ?m.2
+
+Note: Use the command `set_option checkBinderAnnotations false` to disable the check
+P0.lean:77:8: warning: declaration uses `sorry`
+P0.lean:100:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instPow', which is 'noncomputable'
+P0.lean:103:57: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P0.lean:104:5: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P0.lean:118:2: error(lean.unknownIdentifier): Unknown identifier `lp_weak_duality`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+@Finset.sum_comm : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] {s : Finset γ} {t : Finset α}
+  {f : γ → α → β}, ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+···
+
+[lp] SUMMARY
+[lp]   P0.lean: FAIL rc=1 errors=2
+[tele] SUMMARY run: wall=32s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-7h8B27sja3E2LqirOhfYpU

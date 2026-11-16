@@ -1,0 +1,45 @@
+# LOG — LP-P0 run 2. Bundle swapped to [CommSemiring][LinearOrder][PosMulMono][MulPosMono]; momentIdent noncomputable. FAIL rc=1, single residual: preflight #check Finset.sum_sum_elim unknown at this pin.
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   produced-by : lane A2 (LP pilot; R5-executing), iteration 4, 2026-11-16
+#   substrate   : Modal app crossmath-pilot-lp (doz CLI; SPEC 2cpu/4GB + @telemetered
+#                 + LEAN_NUM_THREADS=2), mathlib ff2494ea @ v4.36.0-rc2, warm layers
+#   command     : bash research/pilots/lp/run_pilot.sh <files>  (tee'd; body verbatim)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-4NfMelkc8KYE2buLyEdDcH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-lp-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[lp] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[lp] mathlib rev ff2494ea5e43
+[lp] oleans present: 8710
+
+=== P0.lean
+[lp] P0.lean: FAIL rc=1 errors=0
+---- output tail ----
+P0.lean:37:8: warning: declaration uses `sorry`
+P0.lean:48:8: warning: declaration uses `sorry`
+P0.lean:88:8: warning: declaration uses `sorry`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+@Finset.sum_comm : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] {s : Finset γ} {t : Finset α}
+  {f : γ → α → β}, ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+@Finset.mul_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+@Finset.sum_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f g : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, f i ≤ g i) → ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+@mul_le_mul_of_nonneg_left : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [PosMulMono α], b ≤ c → 0 ≤ a → a * b ≤ a * c
+@mul_le_mul_of_nonneg_right : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [MulPosMono α], b ≤ c → 0 ≤ a → b * a ≤ c * a
+P0.lean:136:8: error(lean.unknownIdentifier): Unknown constant `Finset.sum_sum_elim`
+
+[lp] SUMMARY
+[lp]   P0.lean: FAIL rc=1 errors=0
+[tele] SUMMARY run: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-4NfMelkc8KYE2buLyEdDcH
