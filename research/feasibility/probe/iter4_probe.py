@@ -1,22 +1,32 @@
 """cross-math-fronttier iteration-4 pilot/probe files on Modal (app `crossmath-iter4-probe`).
 
-STAGED at launch by H — pending R8 runner-kit review before first use; doz workspace
-(semraker) per continuity decision (xyz/donniexyz888 viable but cache-less).
+STAGED at launch by H — R8 runner-kit review done 2026-11-16 (jointly owned H+R8):
+VERDICT PASS after two fixes — (1) probe-convention prefix broadened from `P0` to
+(`P0`, `Probe`) so G-series statement probes (ProbeG*.lean, "not a proof artifact"
+headers) may ride this template without false sorry-FAILs; (2) nothing else off vs the
+§5 checklist (SPEC 2cpu/4GB + @telemetered + LEAN_NUM_THREADS=2 all present; image
+run_commands textually identical → layer cache shared; doz/semraker default; staged-dir
+modal_telemetry import). Donor-axcheck needs NO new app: the existing compliant kit
+(axcheck_probe.py + make_axcheck.py, app crossmath-probe; donor-tree variant
+m4b_donor_axcheck.py) covers iteration-4 — no new donor is chartered to be BUILT.
+
+doz workspace (semraker) per continuity decision (xyz/donniexyz888 viable but cache-less).
 
 Copy of the proven pilots/71/run_pilot.py pattern (2026-11-13) with only the app name,
-docstring, and log prefixes changed. Same image recipe as `crossmath-probe`/
-`crossmath-pilot-32`/`crossmath-pilot-71` (elan v4.2.4 + toolchain v4.36.0-rc2 +
-mathlib4 clone at ff2494ea + `lake exe cache get`) — the image `run_commands` are kept
-TEXTUALLY IDENTICAL so the expensive layers stay shared/cached across all apps
-(R8 iter4-donor-unblock-plan §5b). Ephemeral `modal run` only — NO volume, NO secret,
-NO deploy. Run as user `doz` (`/home/doz/dozenv/bin/modal`).
+docstring, log prefixes, the probe-prefix broadening, and the axioms/error-context print
+blocks changed. Same image recipe as `crossmath-probe`/`crossmath-pilot-32`/
+`crossmath-pilot-71` (elan v4.2.4 + toolchain v4.36.0-rc2 + mathlib4 clone at ff2494ea +
+`lake exe cache get`) — the image `run_commands` are kept TEXTUALLY IDENTICAL so the
+expensive layers stay shared/cached across all apps (R8 iter4-donor-unblock-plan §5b).
+Ephemeral `modal run` only — NO volume, NO secret, NO deploy. Run as user `doz`
+(`/home/doz/dozenv/bin/modal`).
 
 Usage (via run_iter4_probe.sh, which stages copies incl. modal_telemetry.py):
     modal run iter4_probe.py --dir <stage-dir>
 Each `<name>.lean` in the stage dir is elaborated by `lake env lean`.
 `sorry`-warnings are FAIL for kept artifacts — but ALLOWED, by probe convention, for
-files whose name starts with `P0` (statement probes: "not a proof artifact" headers,
-per AGENTS.md).
+files whose name starts with `P0` or `Probe` (statement probes: "not a proof artifact"
+headers, per AGENTS.md).
 """
 
 import modal
@@ -97,8 +107,9 @@ def run(files: dict, order: list):
         sorry = [l for l in out.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]
-        # probe convention: P0* files are statement probes (sorry allowed)
-        probe = rel.startswith("P0")
+        # probe convention: P0* / Probe* files are statement probes (sorry allowed) —
+        # R8 2026-11-16: `Probe` prefix added so G-series files ride this template too.
+        probe = rel.startswith(("P0", "Probe"))
         if probe:
             verdict = "OK (probe, sorry allowed)" if (r.returncode == 0 and not errors) \
                 else f"FAIL rc={r.returncode} errors={len(errors)}"

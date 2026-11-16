@@ -429,6 +429,13 @@ def _sh_stream(cmd, cwd, timeout, every=100):
 g7vol = modal.Volume.from_name("crossmath-g7-tree", create_if_missing=True)
 G7_SNAP = "/vol/oai-lean.tar"
 
+# G11 (staged 2026-11-16, lane R6 — OAI-SiegelZeros + OAI-PiExponent donor registration):
+# separate volume + snapshot so the g7elab resume path (R1 fix-iterations on the 7/8 tree)
+# is untouched — the two registrations are a DIFFERENT closure and must not be unpacked
+# over the persisted Nonvanishing tree.
+g11vol = modal.Volume.from_name("crossmath-g11-tree", create_if_missing=True)
+G11_SNAP = "/vol/oai-lean-g11.tar"
+
 
 def _g7_restore(work, tarball):
     """Restore the persisted donor tree (resume), else unpack the fresh closure tarball."""
@@ -566,6 +573,104 @@ def g7(tarball: bytes, probes: dict):
     return summary
 
 
+@app.function(image=image, **SPEC, secrets=CAP, timeout=24 * 60 * 60,
+              volumes={"/vol": g11vol})
+@telemetered
+def g11(tarball: bytes, probes: dict):
+    """G11 (STAGED 2026-11-16, lane R6 — run only on orchestrator approval):
+    donor-pin registration audit of openai-math's SiegelZeros + PiExponent closures at the
+    DONOR's own pin (v4.34.1 / mathlib d13f23b7) — the G7b precedent on its own volume
+    (G11_SNAP), so the g7elab resume tree is untouched. Tarball members (see the entrypoint
+    g11 mode): OAI/NumberTheory/{SiegelZeros,PiExponent} + lakefile.lean + lake-manifest.json
+    + lean-toolchain + patches/.
+
+    Flow = g7's, with two build targets instead of one:
+      restore-snapshot-or-tarball → elan v4.34.1 → `lake exe cache get` → the donor's own
+      12-dep post_update patch tier (git-apply-check preflight, same labels as g7 —
+      gprobe.py g7 docstring records why run19-style skipping breaks the build) →
+      `lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+             OAI.NumberTheory.PiExponent.Main` → snapshot-save → `_g7_elab` the probes
+      (ProbeG11_OAI_SiegelZeros.lean / ProbeG12_OAI_PiExponent.lean: #check signatures +
+      #print axioms of the headlines, delegation roots, and the PiExponent binder
+      interface — one verdict line per probe for the probes ledger).
+
+    Resources: standard SPEC (2 cpu / 4 GB soft, LEAN_NUM_THREADS=2) per AGENTS.md — both
+    closures are far smaller than g7's 7,075-job build; if telemetry shows the build
+    outgrowing the spec, that triggers an investigation + explicit user approval (guideline
+    3/4), NOT a silent resource bump. Closure-membership risk: if any import escapes the
+    two subtrees, the build fails with a module-not-found on a named OAI.* path — the fix
+    is widening the tarball member list, nothing else."""
+    import io, os, pathlib, tarfile
+
+    work = pathlib.Path("/work")
+    work.mkdir()
+    # restore-snapshot-or-tarball (g7 pattern, G11 snapshot)
+    if os.path.exists(G11_SNAP):
+        rc, _ = _sh(f"tar xf {G11_SNAP} -C {work}", "/", 3600)
+        print(f"[g11] restored persisted tree from volume: rc={rc}", flush=True)
+    tarfile.open(fileobj=io.BytesIO(tarball)).extractall(work / "lean")
+
+    _elan_ensure("leanprover/lean4:v4.34.1")
+    d = work / "lean"
+    summary = {}
+    rc, out = _sh("lake exe cache get", d, 1800)
+    print(f"\n=== OAI cache: rc={rc}", flush=True)
+    print(_condense(out, 6000), flush=True)
+    if rc != 0:
+        summary["cache"] = f"FAIL rc={rc}"
+    else:
+        post_update_deps = ["fixed-point-theorems", "PrimeNumberTheoremAnd",
+                            "Zeta3Irrational", "rellich-kondrachov", "carleson",
+                            "StrongPNT", "AbsorptionCutoff", "AINTLIB", "ClassFieldTheory",
+                            "schoenflies-lean", "SphereEversion", "gromov"]
+        applied = []
+        for label in post_update_deps:
+            dep = d / ".lake" / "packages" / label
+            patch = d / "patches" / f"{label}-lean4341.patch"
+            if not dep.is_dir() or not patch.exists():
+                print(f"[g11] patch {label}: SKIP (dep dir or patch file missing)", flush=True)
+                continue
+            rc_r, _ = _sh(f"git -C {dep} apply --check --reverse {patch}", d, 60)
+            if rc_r == 0:
+                print(f"[g11] patch {label}: already applied", flush=True)
+                continue
+            rc_c, out_c = _sh(f"git -C {dep} apply --check {patch}", d, 60)
+            if rc_c != 0:
+                print(f"[g11] patch {label}: CONFLICT\n{out_c[:800]}", flush=True)
+                continue
+            rc_a, out_a = _sh(f"git -C {dep} apply {patch}", d, 60)
+            ok = rc_a == 0
+            print(f"[g11] patch {label}: {'applied' if ok else 'FAIL ' + out_a[:800]}",
+                  flush=True)
+            if ok:
+                applied.append(label)
+        summary["patches"] = f"{len(applied)}/12 applied: {','.join(applied)}"
+        rc, out = _sh_stream(
+            "lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theory "
+            "OAI.NumberTheory.PiExponent.Main", d, 76000)
+        rc_s, _ = _sh(
+            f"tar cf {G11_SNAP}.tmp -C {work} lean && mv {G11_SNAP}.tmp {G11_SNAP}",
+            "/", 3600)
+        g11vol.commit()
+        print(f"[g11] persisted tree to volume: rc={rc_s}", flush=True)
+        e = _errs(out)
+        done = re.findall(r"(✔|✖) \[(\d+)/(\d+)\]", out)
+        n_ok = sum(1 for m in done if m[0] == "✔")
+        total = int(done[-1][2]) if done else 0
+        failed = sorted({m for m in re.findall(r"✖ \[\d+/\d+\] Building (\S+)", out)})
+        summary["build"] = ("OK" if rc == 0 and not e else
+                            f"FAIL rc={rc} errors={len(e)} failed_modules={len(failed)}")
+        print(f"\n=== OAI build: {summary['build']}; {n_ok}/{total} jobs; "
+              f"failed: {failed[:40]}", flush=True)
+        print(_condense(out), flush=True)
+        if rc == 0:
+            _g7_elab(d, probes, summary)
+    print("\n=== SUMMARY", flush=True)
+    for k, v in summary.items():
+        print(f"{k}: {v}", flush=True)
+    return summary
+
+
 @app.local_entrypoint()
 def main(dir: str = "./probes", mode: str = "probe", root: str = "",
          members: str = "", build_timeout: int = 2700):
@@ -574,8 +679,13 @@ def main(dir: str = "./probes", mode: str = "probe", root: str = "",
     stage = pathlib.Path(dir)
     if mode == "probe":
         files, order = {}, []
-        # G2/G5a import donor libraries and are elaborated inside built trees instead.
-        skip = {"ProbeG2_ZetaZerosV2.lean", "ProbeG5a_AreaLaw_Physlib.lean"}
+        # G2/G5a/G10 import donor libraries and are elaborated inside built trees instead.
+        # (G9 is mathlib-only and rides this auto-glob by design, like G1/G3/G4/G7.
+        # G11/G12 are lane R6's in-tree donor-pin probes — skipped here until R6 wires
+        # their own runner mode, so the mathlib-only batch never false-FAILs on them.)
+        skip = {"ProbeG2_ZetaZerosV2.lean", "ProbeG5a_AreaLaw_Physlib.lean",
+                "ProbeG10_PhyslibRefresh.lean", "ProbeG11_OAI_SiegelZeros.lean",
+                "ProbeG12_OAI_PiExponent.lean"}
         for p in sorted(stage.glob("ProbeG*.lean")):
             if p.name in skip:
                 continue
@@ -601,6 +711,23 @@ def main(dir: str = "./probes", mode: str = "probe", root: str = "",
                    filter=lambda ti: None if "/.git" in ti.name or "/.lake" in ti.name else ti)
         probes = {"ProbeG5a_AreaLaw_Physlib.lean":
                   (stage / "ProbeG5a_AreaLaw_Physlib.lean").read_text()}
+        print(g5a.remote(buf.getvalue(), probes))
+    elif mode == "g10":
+        # G10 (STAGED 2026-11-16, lane R8 — run only on orchestrator approval): the
+        # G5a-successor refresh probe. Same tarball/build as g5a (the g5a remote function
+        # does lake update — which refreshes physlib past the stale a50684a1 pin when the
+        # artifact service is healthy — then `lake build OpenAI.Statements`), elaborating
+        # BOTH in-tree probes. The verdict line must quote the physlib rev lake resolved
+        # (update-step log line `info: physlib: checking out revision '…'`); see
+        # ProbeG10_PhyslibRefresh.lean's header for the PASS / FAIL-REFRESH-BLOCKED /
+        # FAIL-DRIFT protocol.
+        buf = io.BytesIO()
+        with tarfile.open(fileobj=buf, mode="w:gz") as tf:
+            tf.add(str(pathlib.Path(root) / "AreaLaw2D"), arcname="AreaLaw2D",
+                   filter=lambda ti: None if "/.git" in ti.name or "/.lake" in ti.name else ti)
+        probes = {}
+        for f in ["ProbeG5a_AreaLaw_Physlib.lean", "ProbeG10_PhyslibRefresh.lean"]:
+            probes[f] = (stage / f).read_text()
         print(g5a.remote(buf.getvalue(), probes))
     elif mode == "g7":
         import io, tarfile
