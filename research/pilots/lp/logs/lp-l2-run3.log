@@ -1,0 +1,124 @@
+# LOG — LP-P2 run 3 (card 11) — sum_uGG restructured; Unit lambdas annotated.
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   produced-by : lane A2 (LP pilot), iteration 4, 2026-11-16
+#   substrate   : Modal app crossmath-pilot-lp (doz CLI; SPEC 2cpu/4GB + @telemetered
+#                 + LEAN_NUM_THREADS=2), mathlib ff2494ea @ v4.36.0-rc2, warm layers
+#   command     : bash research/pilots/lp/run_pilot.sh P0.lean L1.lean L2.lean
+#   sha256(16)  : P0 d14aabda5d3a69f0 | L1 0d200325f3f105cb | L2 3f61d8be76c05742   (Iteration-4 default #4 stamp)
+#   verdict     : L2 FAIL rc=1 errors=2 — only assoc/one_mul finish mismatches remain
+#                 (decomposition right-associated vs statement left-associated).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-MeiaI6TIqUGnaOsJCMnMLz
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-lp-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[lp] staging ['L1.lean', 'L2.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[lp] mathlib rev ff2494ea5e43
+[lp] oleans present: 8710
+
+=== L1.lean
+[tele] t=60s cpu=0.64 mem=1154MB anon=0MB peak=-1MB procs=1
+[lp] L1.lean: OK
+---- axioms ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== L2.lean
+[lp] L2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'bw2_ceiling_of_dual' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.L2.0.sum_uGG' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+L2.lean:94:4: error: Type mismatch
+  hvalid δ
+has type
+  cert.valid (dat δ)
+but is expected to have type
+  cert.c₀ + (∑ g, (dat δ).s g * cert.r₁ g + ∑ g, (dat δ).s₂ g * cert.r₂ g) ≤ (dat δ).p₁
+L2.lean:112:79: error: unsolved goals
+G : Type u_1
+D : Type u_2
+inst✝¹ : Fintype G
+inst✝ : Fintype D
+dat : D → BWDatum G
+μ : G → ℝ
+y : D → ℝ
+hy : ∀ (δ : D), 0 ≤ y δ
+hsum : ∑ δ, y δ = 1
+hbary₁ : ∀ (g : G), ∑ δ, y δ * (dat δ).s g = μ g
+hbary₂ : ∀ (g : G), ∑ δ, y δ * (dat δ).s₂ g = μ g
+cert : BWCert G
+hvalid : ∀ (δ : D), cert.valid (dat δ)
+hAx :
+  ∀ (δ : D),
+    ∑ j,
+        Sum.elim (fun x => 1) (Sum.elim (dat δ).s (dat δ).s₂) j *
+          Sum.elim (fun x => cert.c₀) (Sum.elim cert.r₁ cert.r₂) j ≤
+···
+  cert.c₀ + (∑ g, (dat δ).s g * cert.r₁ g + ∑ g, (dat δ).s₂ g * cert.r₂ g) ≤ (dat δ).p₁
+L2.lean:112:79: error: unsolved goals
+G : Type u_1
+D : Type u_2
+inst✝¹ : Fintype G
+inst✝ : Fintype D
+dat : D → BWDatum G
+μ : G → ℝ
+y : D → ℝ
+hy : ∀ (δ : D), 0 ≤ y δ
+hsum : ∑ δ, y δ = 1
+hbary₁ : ∀ (g : G), ∑ δ, y δ * (dat δ).s g = μ g
+hbary₂ : ∀ (g : G), ∑ δ, y δ * (dat δ).s₂ g = μ g
+cert : BWCert G
+hvalid : ∀ (δ : D), cert.valid (dat δ)
+hAx :
+  ∀ (δ : D),
+    ∑ j,
+        Sum.elim (fun x => 1) (Sum.elim (dat δ).s (dat δ).s₂) j *
+          Sum.elim (fun x => cert.c₀) (Sum.elim cert.r₁ cert.r₂) j ≤
+      (dat δ).p₁
+hATy :
+  ∀ (j : Unit ⊕ G ⊕ G),
+    ∑ δ, y δ * Sum.elim (fun x => 1) (Sum.elim (dat δ).s (dat δ).s₂) j = Sum.elim (fun x => 1) (Sum.elim μ μ) j
+h :
+  ∑ j, Sum.elim (fun x => 1) (Sum.elim μ μ) j * Sum.elim (fun x => cert.c₀) (Sum.elim cert.r₁ cert.r₂) j ≤
+···
+
+=== P0.lean
+[lp] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:37:8: warning: declaration uses `sorry`
+P0.lean:48:8: warning: declaration uses `sorry`
+P0.lean:88:8: warning: declaration uses `sorry`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+@Finset.sum_comm : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] {s : Finset γ} {t : Finset α}
+  {f : γ → α → β}, ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+@Finset.mul_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+@Finset.sum_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f g : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, f i ≤ g i) → ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+@mul_le_mul_of_nonneg_left : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [PosMulMono α], b ≤ c → 0 ≤ a → a * b ≤ a * c
+@mul_le_mul_of_nonneg_right : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [MulPosMono α], b ≤ c → 0 ≤ a → b * a ≤ c * a
+@Finset.sum_disjSum : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι ⊕ κ → M), ∑ x ∈ s.disjSum t, f x = ∑ x ∈ s, f (Sum.inl x) + ∑ x ∈ t, f (Sum.inr x)
+@Finset.sum_sumElim : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι → M) (g : κ → M), ∑ x ∈ s.disjSum t, Sum.elim f g x = ∑ x ∈ s, f x + ∑ x ∈ t, g x
+
+[lp] SUMMARY
+[lp]   L1.lean: OK
+[lp]   L2.lean: FAIL rc=1 errors=2 sorry=0
+[lp]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=85s max_cpu=0.64 max_mem=1154MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-MeiaI6TIqUGnaOsJCMnMLz

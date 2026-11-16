@@ -1,0 +1,86 @@
+# LOG — LP-P2 run 1 (card 11; P0/L1 regression rode along, both OK).
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   produced-by : lane A2 (LP pilot), iteration 4, 2026-11-16
+#   substrate   : Modal app crossmath-pilot-lp (doz CLI; SPEC 2cpu/4GB + @telemetered
+#                 + LEAN_NUM_THREADS=2), mathlib ff2494ea @ v4.36.0-rc2, warm layers
+#   command     : bash research/pilots/lp/run_pilot.sh P0.lean L1.lean L2.lean
+#   sha256(16)  : P0 d14aabda5d3a69f0 | L1 0d200325f3f105cb | L2 3f61d8be76c05742   (Iteration-4 default #4 stamp)
+#   verdict     : L2 FAIL rc=1 errors=1 — 'unknown module prefix L1': the prework's
+#                 sibling-import bet fails under bare `lake env lean` (no search-path
+#                 entry covers the staging root). Telemetry OVER=1 mem=8216MB anon=0MB
+#                 = mmapped-olean residency, inherent class (AGENTS §5), no action.
+#                 Hypothesis written pre-fix per descent discipline.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-s5May7jicQW4SN0a9pkTbr
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-lp-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[lp] staging ['L1.lean', 'L2.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[lp] mathlib rev ff2494ea5e43
+[lp] oleans present: 8710
+
+=== L1.lean
+[lp] L1.lean: OK
+---- axioms ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== L2.lean
+[lp] L2.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+L2.lean:30:0: error: unknown module prefix 'L1'
+
+No directory 'L1' or file 'L1.olean' in the search path entries:
+/opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean
+/opt/mathlib/.lake/build/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+···
+
+=== P0.lean
+[tele] t=60s cpu=0.83 mem=8216MB anon=0MB peak=-1MB procs=2 OVER mem
+[lp] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:37:8: warning: declaration uses `sorry`
+P0.lean:48:8: warning: declaration uses `sorry`
+P0.lean:88:8: warning: declaration uses `sorry`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+@Finset.sum_comm : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] {s : Finset γ} {t : Finset α}
+  {f : γ → α → β}, ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+@Finset.mul_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+@Finset.sum_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f g : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, f i ≤ g i) → ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+@mul_le_mul_of_nonneg_left : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [PosMulMono α], b ≤ c → 0 ≤ a → a * b ≤ a * c
+@mul_le_mul_of_nonneg_right : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [MulPosMono α], b ≤ c → 0 ≤ a → b * a ≤ c * a
+@Finset.sum_disjSum : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι ⊕ κ → M), ∑ x ∈ s.disjSum t, f x = ∑ x ∈ s, f (Sum.inl x) + ∑ x ∈ t, f (Sum.inr x)
+@Finset.sum_sumElim : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι → M) (g : κ → M), ∑ x ∈ s.disjSum t, Sum.elim f g x = ∑ x ∈ s, f x + ∑ x ∈ t, g x
+
+[lp] SUMMARY
+[lp]   L1.lean: OK
+[lp]   L2.lean: FAIL rc=1 errors=1 sorry=0
+[lp]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=62s max_cpu=0.83 max_mem=8216MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-16T23:01:03+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-s5May7jicQW4SN0a9pkTbr

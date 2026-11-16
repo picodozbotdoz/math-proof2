@@ -96,14 +96,21 @@ def run(files: dict, order: list):
     results = {}
     for rel in order:
         print(f"\n=== {rel}", flush=True)
+        # Sibling imports (e.g. `import L1` from L2.lean) do NOT resolve under bare
+        # `lake env lean` (no search-path entry covers the staging root — L2 run-1
+        # finding, 2026-11-16). Fix: dependency-order olean emission into the
+        # LEAN_PATH-visible build dir (the pilots/10/axcheck_full.py pattern); the
+        # sorted order (L1 < L2 < P0) is the dependency order for this pilot.
+        stem = rel[:-len(".lean")] if rel.endswith(".lean") else rel
         try:
-            r = sh(["lake", "env", "lean", rel], timeout=2400)
+            r = sh(["lake", "env", "lean", "-o",
+                    f".lake/build/lib/lean/{stem}.olean", rel], timeout=2400)
         except subprocess.TimeoutExpired:
             print(f"[lp] TIMEOUT elaborating {rel}", flush=True)
             results[rel] = "TIMEOUT"
             continue
         out = r.stdout + r.stderr
-        errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out.splitlines() if ": error" in l or l.startswith("error")]  # R8-d2: widened to error(<code>) forms (m4b2 debt-(b) fix)
         sorry = [l for l in out.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]

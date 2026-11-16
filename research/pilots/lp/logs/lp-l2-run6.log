@@ -1,0 +1,99 @@
+# LOG — LP-P2 run 6 (card 11; DETERMINISTIC-CONTINUATION class).
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   produced-by : lane A2 (LP pilot), iteration 4, 2026-11-16
+#   substrate   : Modal app crossmath-pilot-lp (doz CLI; SPEC 2cpu/4GB + @telemetered
+#                 + LEAN_NUM_THREADS=2), mathlib ff2494ea @ v4.36.0-rc2, warm layers
+#   command     : bash research/pilots/lp/run_pilot.sh P0.lean L1.lean L2.lean
+#   sha256(16)  : P0 d14aabda5d3a69f0 | L1 0d200325f3f105cb | L2 282c9c05711dc54c
+#   AUTHORIZATION: orchestrator-authorized +1 beyond card 11's 3-5 budget;
+#   diagnostic pointer DIAGNOSE-lp-p2-run5.md. The +1 pattern is now corpus-wide
+#   policy: (monotone descent + written hypotheses + staged deterministic fix +
+#   diagnostic pointer) — all four, logged.
+#   verdict     : L2.lean OK — LP-P2 GREEN. L1 OK (regression), P0 OK (probe).
+#   Axioms: see depends-on lines in body (expect triad-only for
+#   bw2_ceiling_of_dual and sum_uGG). Telemetry OVER=0 (mem 3982MB).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vyaizJAmMG7BglQBArg6vK
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-lp-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[lp] staging ['L1.lean', 'L2.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[lp] mathlib rev ff2494ea5e43
+[lp] oleans present: 8710
+
+=== L1.lean
+[lp] L1.lean: OK
+---- axioms ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'lp_weak_duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lp_weak_duality_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== L2.lean
+[lp] L2.lean: OK
+---- axioms ----
+'bw2_ceiling_of_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.L2.0.sum_uGG' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+L2.lean:66:10: warning: This simp argument is unused:
+  Finset.sum_disjSum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+L2.lean:69:10: warning: This simp argument is unused:
+  Finset.sum_disjSum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+L2.lean:108:17: warning: This simp argument is unused:
+  Sum.elim_inl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Sum.elim_inr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'bw2_ceiling_of_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.L2.0.sum_uGG' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P0.lean
+[tele] t=60s cpu=0.86 mem=3982MB anon=0MB peak=-1MB procs=2
+[lp] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:37:8: warning: declaration uses `sorry`
+P0.lean:48:8: warning: declaration uses `sorry`
+P0.lean:88:8: warning: declaration uses `sorry`
+@Finset.sum_congr : ∀ {ι : Type u_1} {M : Type u_2} {s₁ s₂ : Finset ι} [inst : AddCommMonoid M] {f g : ι → M},
+  s₁ = s₂ → (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+@Finset.sum_comm : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] {s : Finset γ} {t : Finset α}
+  {f : γ → α → β}, ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+@Finset.mul_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+@Finset.sum_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f g : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, f i ≤ g i) → ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+@mul_le_mul_of_nonneg_left : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [PosMulMono α], b ≤ c → 0 ≤ a → a * b ≤ a * c
+@mul_le_mul_of_nonneg_right : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [MulPosMono α], b ≤ c → 0 ≤ a → b * a ≤ c * a
+@Finset.sum_disjSum : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι ⊕ κ → M), ∑ x ∈ s.disjSum t, f x = ∑ x ∈ s, f (Sum.inl x) + ∑ x ∈ t, f (Sum.inr x)
+@Finset.sum_sumElim : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι)
+  (t : Finset κ) (f : ι → M) (g : κ → M), ∑ x ∈ s.disjSum t, Sum.elim f g x = ∑ x ∈ s, f x + ∑ x ∈ t, g x
+
+[lp] SUMMARY
+[lp]   L1.lean: OK
+[lp]   L2.lean: OK
+[lp]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=67s max_cpu=0.86 max_mem=3982MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vyaizJAmMG7BglQBArg6vK
