@@ -66,6 +66,15 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   decide the two-strike cap N (R2's bar implies ≤ R9's N=2, possibly 1 — R9 open
   decision #2); approve/assign the 11 demotion-relabel actions (interlock with R1's
   template + rewrite proposals); the 42 README "zero-density" terminology mislabel.
+- **Part B fix-side (batch 10):** §7 = 29 exact relabel/edit proposals (R1–R13 README
+  kind/status cells; A1–A11 article headers/status — A1 includes the article-10 rename;
+  D1–D4 driver edits, D2 = the Cycle-2 "discovery headline" sentence rewording in
+  TRIAGE + staging copy); §8 = corpus restructure KEEP5/MERGE2/DEMOTE1/RELABEL7/
+  REWRITE3 → 5 discovery-grade / 9 technical records / 1 certificate (≈3M+8S, one
+  lane-week); §9 = completion paths for the genuine core, priority 75/42-hEχ discharge
+  (M) > 01-stability converse (M) > 32-crossing IVT (S–M) > 30-Theorem A (M). Edit set
+  applied by H post-R4-batches under orchestrator approval (frozen records get dated
+  correction markers); restructure swap itself awaits orchestrator GO.
 
 ## R4 — r4-process-completeness.md (landed 2026-11-16, batches 7–8; Part 2 same day)
 
