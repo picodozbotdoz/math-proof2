@@ -1,0 +1,140 @@
+# PROVENANCE — pb-run8 (lane A3 execution, pilot 75 P-b, 2026-11-16)
+# command: research/pilots/75/run_pilot.sh Pb.lean (card 2; warm; 2cpu/4GB)
+# # R1-R5 applied; errors 3: R2 replacement missed (pattern drift), hOD eliminator form; hU (card_union_add_card_inter) added — the missing union-card link behind runs 5-7's identical omega counterexample
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-hgIUDoYzLAME7LH1Rv4cd9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['Pb.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pb.lean
+[tele] t=60s cpu=1.00 mem=8375MB anon=0MB peak=-1MB procs=2 OVER mem
+[pilot] Pb.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional_of_negligible' depends on axioms: [propext,
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Pb.lean:1700:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFinOver s z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+i : ι
+hi : i ∈ s
+h1 : ρ ∈ supp (z i).mult
+h2 : ρ ∈ S
+hsum : (ZeroMult.addFinOver s z).mult ρ = 0
+hterm : 0 < (z i).mult ρ
+hle : (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+⊢ False
+Pb.lean:1721:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFin z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+···
+⊢ False
+Pb.lean:1721:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFin z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+h : ρ ∈ ⋃ i, supp (z i).mult ∩ S
+i : ι
+h1 : ρ ∈ supp (z i).mult
+h2 : ρ ∈ S
+hsum : (ZeroMult.addFin z).mult ρ = 0
+hterm : 0 < (z i).mult ρ
+hle : (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+⊢ False
+Pb.lean:1793:8: warning: automatically included section variable(s) unused in theorem `_private.Pb.0.CrossMath.Pilot75.offDiag_cons_ge`:
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] in theorem ...
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pb.lean:2126:13: error: failed to elaborate eliminator, expected type is not available
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+ sorryAx,
+···
+
+[pilot] SUMMARY
+[pilot]   Pb.lean: FAIL rc=1 errors=3 sorry=0
+[tele] SUMMARY run: wall=62s max_cpu=1.00 max_mem=8375MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-hgIUDoYzLAME7LH1Rv4cd9
+rc=0

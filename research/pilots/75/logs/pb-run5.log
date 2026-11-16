@@ -1,0 +1,382 @@
+# PROVENANCE — pb-run5 (lane A3 execution, pilot 75 P-b, 2026-11-16)
+# command: research/pilots/75/run_pilot.sh Pb.lean (card 2; warm; 2cpu/4GB)
+# # N-list (N1-N9 from pb-run4.log) applied; errors 12: sum_erase arg-order, Finset.insert namespace (root insert), disjoint_right binds 2nd set first -> disjoint_left, P-class new diagnosis written
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ZXyIYjRfbsuD2mhJw1A3Uk
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['Pb.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pb.lean
+[pilot] Pb.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional_of_negligible' depends on axioms: [propext,
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Pb.lean:1678:27: error: Application type mismatch: The argument
+  f
+has type
+  ι → ℕ
+of sort `Type u_1` but is expected to have type
+  ?m.16 ?m.17 = 0
+of sort `Prop` in the application
+  sum_erase s f
+Pb.lean:1677:26: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+f : ι → ℕ
+i : ι
+hi : i ∈ s
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1699:55: error: Type mismatch
+  le_sum_mem hi
+has type
+  ?m.146 i ≤ ∑ j ∈ s, ?m.146 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1720:51: error: Type mismatch
+  le_sum_mem (Finset.mem_univ i)
+···
+  sum_erase s f
+Pb.lean:1677:26: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+f : ι → ℕ
+i : ι
+hi : i ∈ s
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1699:55: error: Type mismatch
+  le_sum_mem hi
+has type
+  ?m.146 i ≤ ∑ j ∈ s, ?m.146 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1720:51: error: Type mismatch
+  le_sum_mem (Finset.mem_univ i)
+has type
+  ?m.131 i ≤ ∑ j, ?m.131 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1795:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1796:26: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1800:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1808:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+···
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1699:55: error: Type mismatch
+  le_sum_mem hi
+has type
+  ?m.146 i ≤ ∑ j ∈ s, ?m.146 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1720:51: error: Type mismatch
+  le_sum_mem (Finset.mem_univ i)
+has type
+  ?m.131 i ≤ ∑ j, ?m.131 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1795:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1796:26: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1800:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1808:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1824:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (j, a).2 = (a, i).2
+but is expected to have type
+  a = j
+Pb.lean:1842:45: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1851:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1856:64: error: Application type mismatch: The argument
+···
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1720:51: error: Type mismatch
+  le_sum_mem (Finset.mem_univ i)
+has type
+  ?m.131 i ≤ ∑ j, ?m.131 j
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1795:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1796:26: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1800:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1808:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1824:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (j, a).2 = (a, i).2
+but is expected to have type
+  a = j
+Pb.lean:1842:45: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1851:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1856:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.603
+in the application
+···
+Pb.lean:1808:53: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1824:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (j, a).2 = (a, i).2
+but is expected to have type
+  a = j
+Pb.lean:1842:45: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1851:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1856:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.603
+in the application
+  ⟨hd2, hd12⟩
+Pb.lean:1877:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1884:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1935:7: error: unsolved goals
+ι : Type u_1
+···
+Pb.lean:1851:15: error(lean.unknownIdentifier): Unknown constant `Finset.insert`
+Pb.lean:1856:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.603
+in the application
+  ⟨hd2, hd12⟩
+Pb.lean:1877:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1884:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1935:7: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+u : ZeroMult
+T : ℝ
+key : ∑ i ∈ s, #⋯.toFinset ≤ #(s.biUnion fun i => ⋯.toFinset) + ∑ p ∈ s.offDiag, #(⋯.toFinset ∩ ⋯.toFinset)
+id0 : #⋯.toFinset = u.distinctCountCum T
+···
+  ⟨hd2, hd12⟩
+Pb.lean:1877:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1884:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1935:7: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+u : ZeroMult
+T : ℝ
+key : ∑ i ∈ s, #⋯.toFinset ≤ #(s.biUnion fun i => ⋯.toFinset) + ∑ p ∈ s.offDiag, #(⋯.toFinset ∩ ⋯.toFinset)
+id0 : #⋯.toFinset = u.distinctCountCum T
+idF : ∀ i ∈ s, #⋯.toFinset = (z i).distinctCountCum T
+eUnion : (⋯.toFinset ∪ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+eInter : (⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+hsetBig :
+  supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T
+hfinAdd : (supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T).Finite
+⊢ supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T =
+···
+Pb.lean:1877:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1884:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1935:7: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+u : ZeroMult
+T : ℝ
+key : ∑ i ∈ s, #⋯.toFinset ≤ #(s.biUnion fun i => ⋯.toFinset) + ∑ p ∈ s.offDiag, #(⋯.toFinset ∩ ⋯.toFinset)
+id0 : #⋯.toFinset = u.distinctCountCum T
+idF : ∀ i ∈ s, #⋯.toFinset = (z i).distinctCountCum T
+eUnion : (⋯.toFinset ∪ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+eInter : (⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+hsetBig :
+  supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T
+hfinAdd : (supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T).Finite
+⊢ supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ ↑s, supp (z i).mult ∩ stripWindow 0 T
+···
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1935:7: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+u : ZeroMult
+T : ℝ
+key : ∑ i ∈ s, #⋯.toFinset ≤ #(s.biUnion fun i => ⋯.toFinset) + ∑ p ∈ s.offDiag, #(⋯.toFinset ∩ ⋯.toFinset)
+id0 : #⋯.toFinset = u.distinctCountCum T
+idF : ∀ i ∈ s, #⋯.toFinset = (z i).distinctCountCum T
+eUnion : (⋯.toFinset ∪ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+eInter : (⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+hsetBig :
+  supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T
+hfinAdd : (supp (u.add (ZeroMult.addFinOver s z)).mult ∩ stripWindow 0 T).Finite
+⊢ supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ ↑s, supp (z i).mult ∩ stripWindow 0 T
+Pb.lean:1966:6: error: No goals to be solved
+Pb.lean:1977:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+···
+    supp u.mult ∩ stripWindow 0 T ∪ ⋃ i ∈ ↑s, supp (z i).mult ∩ stripWindow 0 T
+Pb.lean:1966:6: error: No goals to be solved
+Pb.lean:1977:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c - d - e + f ≥ 1
+  a ≥ 0
+  a + e - f ≥ 0
+where
+ a := ↑(#(s.biUnion fun i => ⋯.toFinset))
+ b := ↑(u.distinctCountCum T)
+ c := ↑((u.add (ZeroMult.addFinOver s z)).distinctCountCum T)
+ d := ↑(commonStripCum u (ZeroMult.addFinOver s z) T)
+ e := ↑(∑ p ∈ s.offDiag, commonStripCum (z p.1) (z p.2) T)
+ f := ↑(∑ i ∈ s, (z i).distinctCountCum T)
+Pb.lean:1917:25: warning: This simp argument is unused:
+  Set.mem_union
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_inter, Finset.mem_biUnion, Set.Finite.mem_toFinset, Set.mem_inter_iff, Set.mem_iUnion₂]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+Pb.lean:1966:6: error: No goals to be solved
+Pb.lean:1977:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c - d - e + f ≥ 1
+  a ≥ 0
+  a + e - f ≥ 0
+where
+ a := ↑(#(s.biUnion fun i => ⋯.toFinset))
+ b := ↑(u.distinctCountCum T)
+ c := ↑((u.add (ZeroMult.addFinOver s z)).distinctCountCum T)
+ d := ↑(commonStripCum u (ZeroMult.addFinOver s z) T)
+ e := ↑(∑ p ∈ s.offDiag, commonStripCum (z p.1) (z p.2) T)
+ f := ↑(∑ i ∈ s, (z i).distinctCountCum T)
+Pb.lean:1917:25: warning: This simp argument is unused:
+  Set.mem_union
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_inter, Finset.mem_biUnion, Set.Finite.mem_toFinset, Set.mem_inter_iff, Set.mem_iUnion₂]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pb.lean:2105:53: error(lean.invalidField): Invalid field `elim`: The environment does not contain `Function.elim`, so it is not possible to project the field `elim` from an expression
+···
+of type `∀ (a : ι), False`
+Pb.lean:2107:4: error: Type mismatch
+  hT₀ T hT
+has type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T)
+but is expected to have type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T) + (↑0 + 0)
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+···
+
+[pilot] SUMMARY
+[pilot]   Pb.lean: FAIL rc=1 errors=12 sorry=0
+[tele] SUMMARY run: wall=48s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ZXyIYjRfbsuD2mhJw1A3Uk
+rc=0

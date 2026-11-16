@@ -1,0 +1,1546 @@
+# PROVENANCE — pb-run1 (lane A3 execution, pilot 75 P-b, 2026-11-16)
+# file: research/pilots/75/Pb.lean (2,106 LoC at run 1 = 1,557 Pa.lean carry + ~0.55k new; spec r5-iteration4-backlog §8)
+# command: research/pilots/75/run_pilot.sh Pb.lean (card 2 APPROVED at SPEC; warm crossmath-pilot-75; 2cpu/4GB; mathlib ff2494ea5e43 @ v4.36.0-rc2; 8710 ooleans)
+# authorization: orchestrator FIRE order post LP-P0 GREEN (R5 telemetry: cache present, zero fetch failures)
+# verdict: FAIL rc=1 errors=55 sorry=0 (source tokens). Wall 70s, cpu 0.69, mem 8087MB [OVER mem flag = the known MemTotal-MemAvailable mapped-olean artifact per AGENTS.md §Modal-5; no action].
+# error classes (H1-H5, written before fix round 1):
+#   H1 (statement notation, ~30): (s ×ˢ s).offDiag = pairs-of-pairs; mathlib API is s.offDiag (ordered pairs from s) + needs [DecidableEq ι]. Fixed: all statements/proofs to s.offDiag / Finset.univ.offDiag; DecidableEq added to section variable (benign instance, Fintype.decidableEqFintype instantiable).
+#   H2 (Finite-API arity/names, ~12): Set.Finite.mem_toFinset / toFinset_eq_empty take explicit finiteness args; toFinset_subset_toFinset is an iff (.mpr); Set.Finite.biUnion needs Finset.finite_toSet; Finset.le_sum -> Finset.single_le_sum; add_mul -> mul_add.
+#   H3 (elaboration detail, ~8): commonStripCum_eq needs inter_subset_left type-ascription; E5 hsetR missed .mult on addFin; supp-membership rewrites via mem_supp_iff; rintro shapes to P-a's proven idioms.
+#   H4 (one math bug): E6 empty-ι case asserted countCum = 0 — wrong (add zK (addFin ∅) ≈ zK); repaired to reduce to hK via eq_of_mult + zero-defect computation.
+#   H5 (cascade): unknown-identifier errors downstream of H1-H4.
+# fix round 1: full P-b layer rewrite (2,108 LoC); fallback §8e NOT invoked.
+# run URL: https://modal.com/apps/semraker/main/ap-6WYNNVA1jm6WPSGt1QsYcr
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-6WYNNVA1jm6WPSGt1QsYcr
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['Pb.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pb.lean
+[tele] t=60s cpu=0.69 mem=8087MB anon=0MB peak=-1MB procs=2 OVER mem
+[pilot] Pb.lean: FAIL rc=1 errors=55 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+Pb.lean:1592:2: error: No goals to be solved
+Pb.lean:1598:6: error: don't know how to synthesize implicit argument `s`
+  @Finite.toFinset ℂ (supp z.mult ∩ stripWindow 0 T ∩ ?m.13 z w T) ⋯
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:7: error: don't know how to synthesize implicit argument `t`
+  @Finite.subset ℂ (supp z.mult ∩ stripWindow 0 T) (z.windowFinite 0 T) (supp z.mult ∩ stripWindow 0 T ∩ ?m.13 z w T)
+    Set.inter_subset_left
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:46: error: don't know how to synthesize implicit argument `t`
+  @Set.inter_subset_left ℂ (supp z.mult ∩ stripWindow 0 T) (?m.13 z w T)
+context:
+···
+Pb.lean:1592:2: error: No goals to be solved
+Pb.lean:1598:6: error: don't know how to synthesize implicit argument `s`
+  @Finite.toFinset ℂ (supp z.mult ∩ stripWindow 0 T ∩ ?m.13 z w T) ⋯
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:7: error: don't know how to synthesize implicit argument `t`
+  @Finite.subset ℂ (supp z.mult ∩ stripWindow 0 T) (z.windowFinite 0 T) (supp z.mult ∩ stripWindow 0 T ∩ ?m.13 z w T)
+    Set.inter_subset_left
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:46: error: don't know how to synthesize implicit argument `t`
+  @Set.inter_subset_left ℂ (supp z.mult ∩ stripWindow 0 T) (?m.13 z w T)
+context:
+ι : Type u_1
+···
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:7: error: don't know how to synthesize implicit argument `t`
+  @Finite.subset ℂ (supp z.mult ∩ stripWindow 0 T) (z.windowFinite 0 T) (supp z.mult ∩ stripWindow 0 T ∩ ?m.13 z w T)
+    Set.inter_subset_left
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:46: error: don't know how to synthesize implicit argument `t`
+  @Set.inter_subset_left ℂ (supp z.mult ∩ stripWindow 0 T) (?m.13 z w T)
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1616:29: error: Function expected at
+  Finite.toFinset_subset_toFinset
+but this term has type
+  Finite.toFinset ?m.101 ⊆ Finite.toFinset ?m.102 ↔ ?m.99 ⊆ ?m.100
+···
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1598:46: error: don't know how to synthesize implicit argument `t`
+  @Set.inter_subset_left ℂ (supp z.mult ∩ stripWindow 0 T) (?m.13 z w T)
+context:
+ι : Type u_1
+inst✝ : Fintype ι
+z w : ZeroMult
+T : ℝ
+⊢ Set ℂ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1616:29: error: Function expected at
+  Finite.toFinset_subset_toFinset
+but this term has type
+  Finite.toFinset ?m.101 ⊆ Finite.toFinset ?m.102 ↔ ?m.99 ⊆ ?m.100
+
+Note: Expected a function because this term is being applied to the argument
+  hsub
+Pb.lean:1625:49: error: Application type mismatch: The argument
+  s
+has type
+  Finset ι
+of sort `Type u_1` but is expected to have type
+  Set.Finite ?m.16
+of sort `Prop` in the application
+  @Finite.biUnion ?m.14 ?m.15 ?m.16 s
+···
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Pb.lean:1616:29: error: Function expected at
+  Finite.toFinset_subset_toFinset
+but this term has type
+  Finite.toFinset ?m.101 ⊆ Finite.toFinset ?m.102 ↔ ?m.99 ⊆ ?m.100
+
+Note: Expected a function because this term is being applied to the argument
+  hsub
+Pb.lean:1625:49: error: Application type mismatch: The argument
+  s
+has type
+  Finset ι
+of sort `Type u_1` but is expected to have type
+  Set.Finite ?m.16
+of sort `Prop` in the application
+  @Finite.biUnion ?m.14 ?m.15 ?m.16 s
+Pb.lean:1623:18: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+s : Finset ι
+z : ι → ZeroMult
+T₁ T₂ : ℝ
+⊢ ((supp fun ρ => ∑ i ∈ s, (z i).mult ρ) ∩ stripWindow T₁ T₂).Finite
+Pb.lean:1641:13: warning: declaration uses `sorry`
+Pb.lean:1637:8: warning: declaration uses `sorry`
+Pb.lean:1654:51: error: Type mismatch
+···
+  hsub
+Pb.lean:1625:49: error: Application type mismatch: The argument
+  s
+has type
+  Finset ι
+of sort `Type u_1` but is expected to have type
+  Set.Finite ?m.16
+of sort `Prop` in the application
+  @Finite.biUnion ?m.14 ?m.15 ?m.16 s
+Pb.lean:1623:18: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+s : Finset ι
+z : ι → ZeroMult
+T₁ T₂ : ℝ
+⊢ ((supp fun ρ => ∑ i ∈ s, (z i).mult ρ) ∩ stripWindow T₁ T₂).Finite
+Pb.lean:1641:13: warning: declaration uses `sorry`
+Pb.lean:1637:8: warning: declaration uses `sorry`
+Pb.lean:1654:51: error: Type mismatch
+  Finite.union hfL hfR
+has type
+  (supp u.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T) ∪
+      supp v.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+but is expected to have type
+  ((supp u.mult ∩ stripWindow 0 T ∪ supp v.mult ∩ stripWindow 0 T) ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+Pb.lean:1671:45: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+···
+  @Finite.biUnion ?m.14 ?m.15 ?m.16 s
+Pb.lean:1623:18: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+s : Finset ι
+z : ι → ZeroMult
+T₁ T₂ : ℝ
+⊢ ((supp fun ρ => ∑ i ∈ s, (z i).mult ρ) ∩ stripWindow T₁ T₂).Finite
+Pb.lean:1641:13: warning: declaration uses `sorry`
+Pb.lean:1637:8: warning: declaration uses `sorry`
+Pb.lean:1654:51: error: Type mismatch
+  Finite.union hfL hfR
+has type
+  (supp u.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T) ∪
+      supp v.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+but is expected to have type
+  ((supp u.mult ∩ stripWindow 0 T ∪ supp v.mult ∩ stripWindow 0 T) ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+Pb.lean:1671:45: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+Pb.lean:1674:20: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+Pb.lean:1675:20: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+Pb.lean:1693:45: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+···
+Pb.lean:1637:8: warning: declaration uses `sorry`
+Pb.lean:1654:51: error: Type mismatch
+  Finite.union hfL hfR
+has type
+  (supp u.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T) ∪
+      supp v.mult ∩ stripWindow 0 T ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+but is expected to have type
+  ((supp u.mult ∩ stripWindow 0 T ∪ supp v.mult ∩ stripWindow 0 T) ∩ (supp w.mult ∩ stripWindow 0 T)).Finite
+Pb.lean:1671:45: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+Pb.lean:1674:20: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+Pb.lean:1675:20: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+Pb.lean:1693:45: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+hE : ZeroMult.addFinOver ∅ z = zeroMult
+ρ : ℂ
+⊢ ρ ∉ supp fun x => 0
+Pb.lean:1697:53: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+···
+Pb.lean:1675:20: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+Pb.lean:1693:45: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+hE : ZeroMult.addFinOver ∅ z = zeroMult
+ρ : ℂ
+⊢ ρ ∉ supp fun x => 0
+Pb.lean:1697:53: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+hE : ZeroMult.addFinOver ∅ z = zeroMult
+hz0 : supp zeroMult.mult = ∅
+hfinU : (supp zeroMult.mult ∩ stripWindow 0 T).Finite
+⊢ ∅ ∩ (supp w.mult ∩ stripWindow 0 T) = ∅
+Pb.lean:1702:12: error(lean.unknownIdentifier): Unknown constant `Set.Finite.toFinset_congr`
+Pb.lean:1708:6: error: Type mismatch
+  Nat.add_le_add (commonStripCum_add_le (ZeroMult.addFinOver t z) (z a) w T) ih
+has type
+  commonStripCum ((ZeroMult.addFinOver t z).add (z a)) w T + commonStripCum (ZeroMult.addFinOver t z) w T ≤
+    commonStripCum (ZeroMult.addFinOver t z) w T + commonStripCum (z a) w T + ∑ i ∈ t, commonStripCum (z i) w T
+···
+⊢ ρ ∉ supp fun x => 0
+Pb.lean:1697:53: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+w : ZeroMult
+T : ℝ
+hE : ZeroMult.addFinOver ∅ z = zeroMult
+hz0 : supp zeroMult.mult = ∅
+hfinU : (supp zeroMult.mult ∩ stripWindow 0 T).Finite
+⊢ ∅ ∩ (supp w.mult ∩ stripWindow 0 T) = ∅
+Pb.lean:1702:12: error(lean.unknownIdentifier): Unknown constant `Set.Finite.toFinset_congr`
+Pb.lean:1708:6: error: Type mismatch
+  Nat.add_le_add (commonStripCum_add_le (ZeroMult.addFinOver t z) (z a) w T) ih
+has type
+  commonStripCum ((ZeroMult.addFinOver t z).add (z a)) w T + commonStripCum (ZeroMult.addFinOver t z) w T ≤
+    commonStripCum (ZeroMult.addFinOver t z) w T + commonStripCum (z a) w T + ∑ i ∈ t, commonStripCum (z i) w T
+but is expected to have type
+  commonStripCum ((ZeroMult.addFinOver t z).add (z a)) w T ≤
+    commonStripCum (z a) w T + ∑ x ∈ t, commonStripCum (z x) w T
+Pb.lean:1689:47: warning: declaration uses `sorry`
+Pb.lean:1716:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+···
+Pb.lean:1702:12: error(lean.unknownIdentifier): Unknown constant `Set.Finite.toFinset_congr`
+Pb.lean:1708:6: error: Type mismatch
+  Nat.add_le_add (commonStripCum_add_le (ZeroMult.addFinOver t z) (z a) w T) ih
+has type
+  commonStripCum ((ZeroMult.addFinOver t z).add (z a)) w T + commonStripCum (ZeroMult.addFinOver t z) w T ≤
+    commonStripCum (ZeroMult.addFinOver t z) w T + commonStripCum (z a) w T + ∑ i ∈ t, commonStripCum (z i) w T
+but is expected to have type
+  commonStripCum ((ZeroMult.addFinOver t z).add (z a)) w T ≤
+    commonStripCum (z a) w T + ∑ x ∈ t, commonStripCum (z x) w T
+Pb.lean:1689:47: warning: declaration uses `sorry`
+Pb.lean:1716:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1716:63: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+···
+Pb.lean:1689:47: warning: declaration uses `sorry`
+Pb.lean:1716:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1716:63: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1765:15: error: Function expected at
+  mem_cons_of_mem ?m.169
+but this term has type
+  ?m.165 ∈ cons ?m.166 ?m.167 ?m.168
+
+Note: Expected a function because this term is being applied to the argument
+  hp.1
+Pb.lean:1765:47: error: Function expected at
+  mem_cons_of_mem ?m.178
+···
+  z p.1
+Pb.lean:1716:63: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1765:15: error: Function expected at
+  mem_cons_of_mem ?m.169
+but this term has type
+  ?m.165 ∈ cons ?m.166 ?m.167 ?m.168
+
+Note: Expected a function because this term is being applied to the argument
+  hp.1
+Pb.lean:1765:47: error: Function expected at
+  mem_cons_of_mem ?m.178
+but this term has type
+  ?m.174 ∈ cons ?m.175 ?m.176 ?m.177
+
+Note: Expected a function because this term is being applied to the argument
+  hp.2.1
+Pb.lean:1765:70: error: Application type mismatch: The argument
+  ha
+has type
+···
+  z p.2
+Pb.lean:1765:15: error: Function expected at
+  mem_cons_of_mem ?m.169
+but this term has type
+  ?m.165 ∈ cons ?m.166 ?m.167 ?m.168
+
+Note: Expected a function because this term is being applied to the argument
+  hp.1
+Pb.lean:1765:47: error: Function expected at
+  mem_cons_of_mem ?m.178
+but this term has type
+  ?m.174 ∈ cons ?m.175 ?m.176 ?m.177
+
+Note: Expected a function because this term is being applied to the argument
+  hp.2.1
+Pb.lean:1765:70: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.174 ∈ ?m.176
+in the application
+  mem_cons_of_mem ha
+Pb.lean:1767:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership (ι × ι) (Finset ((ι × ι) × ι × ι))
+
+···
+  hp.1
+Pb.lean:1765:47: error: Function expected at
+  mem_cons_of_mem ?m.178
+but this term has type
+  ?m.174 ∈ cons ?m.175 ?m.176 ?m.177
+
+Note: Expected a function because this term is being applied to the argument
+  hp.2.1
+Pb.lean:1765:70: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.174 ∈ ?m.176
+in the application
+  mem_cons_of_mem ha
+Pb.lean:1767:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership (ι × ι) (Finset ((ι × ι) × ι × ι))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1773:31: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+···
+  hp.2.1
+Pb.lean:1765:70: error: Application type mismatch: The argument
+  ha
+has type
+  a ∉ t
+but is expected to have type
+  ?m.174 ∈ ?m.176
+in the application
+  mem_cons_of_mem ha
+Pb.lean:1767:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership (ι × ι) (Finset ((ι × ι) × ι × ι))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1773:31: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1773:39: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1773:31: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1773:39: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1774:56: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1774:64: error: Application type mismatch: The argument
+···
+  z p.1
+Pb.lean:1773:39: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1774:56: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1774:64: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1777:40: error: Application type mismatch: The argument
+···
+  z p.2
+Pb.lean:1774:56: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1774:64: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1777:40: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1777:48: error: Application type mismatch: The argument
+···
+  z p.1
+Pb.lean:1774:64: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1777:40: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1777:48: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1778:24: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+···
+  z p.2
+Pb.lean:1777:40: error: Application type mismatch: The argument
+  p.1
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.1
+Pb.lean:1777:48: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1778:24: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq (ι × ι)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1780:45: error: Type mismatch
+  congrArg Prod.fst h
+has type
+  (?m.308 i).1 = (?m.308 j).1
+but is expected to have type
+···
+  z p.1
+Pb.lean:1777:48: error: Application type mismatch: The argument
+  p.2
+has type
+  ι × ι
+but is expected to have type
+  ι
+in the application
+  z p.2
+Pb.lean:1778:24: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq (ι × ι)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1780:45: error: Type mismatch
+  congrArg Prod.fst h
+has type
+  (?m.308 i).1 = (?m.308 j).1
+but is expected to have type
+  i = j
+Pb.lean:1831:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.42 ∈ ⋃ i, ?m.43 i
+in the target expression
+  ¬∃ i, ρ ∈ supp (z i).mult ∩ S
+
+case mp
+ι : Type u_1
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1780:45: error: Type mismatch
+  congrArg Prod.fst h
+has type
+  (?m.308 i).1 = (?m.308 j).1
+but is expected to have type
+  i = j
+Pb.lean:1831:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.42 ∈ ⋃ i, ?m.43 i
+in the target expression
+  ¬∃ i, ρ ∈ supp (z i).mult ∩ S
+
+case mp
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+hs : ρ ∈ supp (ZeroMult.addFin z).mult
+hS : ρ ∈ S
+hall : ¬∃ i, ρ ∈ supp (z i).mult ∩ S
+⊢ False
+Pb.lean:1837:33: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+···
+  i = j
+Pb.lean:1831:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.42 ∈ ⋃ i, ?m.43 i
+in the target expression
+  ¬∃ i, ρ ∈ supp (z i).mult ∩ S
+
+case mp
+ι : Type u_1
+inst✝ : Fintype ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+hs : ρ ∈ supp (ZeroMult.addFin z).mult
+hS : ρ ∈ S
+hall : ¬∃ i, ρ ∈ supp (z i).mult ∩ S
+⊢ False
+Pb.lean:1837:33: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+but is expected to have type
+  ρ ∈ S
+in the application
+  ⟨mem_supp_iff.mpr ?m.67, h2⟩
+Pb.lean:1839:30: error: Application type mismatch: The argument
+  i
+···
+⊢ False
+Pb.lean:1837:33: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+but is expected to have type
+  ρ ∈ S
+in the application
+  ⟨mem_supp_iff.mpr ?m.67, h2⟩
+Pb.lean:1839:30: error: Application type mismatch: The argument
+  i
+has type
+  Set ℂ
+of sort `Type` but is expected to have type
+  ι
+of sort `Type u_1` in the application
+  z i
+Pb.lean:1841:18: error: Application type mismatch: The argument
+  i
+has type
+  Set ℂ
+of sort `Type` but is expected to have type
+  ι
+of sort `Type u_1` in the application
+  z i
+Pb.lean:1842:6: error(lean.unknownIdentifier): Unknown constant `Finset.le_sum`
+···
+  ⟨mem_supp_iff.mpr ?m.67, h2⟩
+Pb.lean:1839:30: error: Application type mismatch: The argument
+  i
+has type
+  Set ℂ
+of sort `Type` but is expected to have type
+  ι
+of sort `Type u_1` in the application
+  z i
+Pb.lean:1841:18: error: Application type mismatch: The argument
+  i
+has type
+  Set ℂ
+of sort `Type` but is expected to have type
+  ι
+of sort `Type u_1` in the application
+  z i
+Pb.lean:1842:6: error(lean.unknownIdentifier): Unknown constant `Finset.le_sum`
+Pb.lean:1865:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  multOf fL ρ
+in the target expression
+  ρ ∈ supp (multOf fL)
+
+case mp
+ι : Type u_1
+inst✝ : Fintype ι
+···
+  z i
+Pb.lean:1841:18: error: Application type mismatch: The argument
+  i
+has type
+  Set ℂ
+of sort `Type` but is expected to have type
+  ι
+of sort `Type u_1` in the application
+  z i
+Pb.lean:1842:6: error(lean.unknownIdentifier): Unknown constant `Finset.le_sum`
+Pb.lean:1865:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  multOf fL ρ
+in the target expression
+  ρ ∈ supp (multOf fL)
+
+case mp
+ι : Type u_1
+inst✝ : Fintype ι
+fL fK : ℂ → ℂ
+F : ι → ℂ → ℂ
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fL ρ = multOf fK ρ + ∑ i, multOf (F i) ρ
+hfinL : WindowFinite (multOf fL)
+hfinK : WindowFinite (multOf fK)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+T : ℝ
+ρ : ℂ
+···
+Pb.lean:1842:6: error(lean.unknownIdentifier): Unknown constant `Finset.le_sum`
+Pb.lean:1865:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  multOf fL ρ
+in the target expression
+  ρ ∈ supp (multOf fL)
+
+case mp
+ι : Type u_1
+inst✝ : Fintype ι
+fL fK : ℂ → ℂ
+F : ι → ℂ → ℂ
+hmult : ∀ (ρ : ℂ), ρ ≠ 1 → multOf fL ρ = multOf fK ρ + ∑ i, multOf (F i) ρ
+hfinL : WindowFinite (multOf fL)
+hfinK : WindowFinite (multOf fK)
+hfinF : ∀ (i : ι), WindowFinite (multOf (F i))
+T : ℝ
+ρ : ℂ
+hs : ρ ∈ supp (multOf fL)
+hS : ρ ∈ stripWindow 0 T
+hall : ρ ∉ supp (multOf fK) ∩ stripWindow 0 T ∧ ∀ (x : ι), ρ ∉ supp (multOf (F x)) ∩ stripWindow 0 T
+hK0 : multOf fK ρ = 0
+hF0 : ∀ (i : ι), multOf (F i) ρ = 0
+⊢ False
+Pb.lean:1876:37: error: Application type mismatch: The argument
+  h2
+has type
+···
+⊢ False
+Pb.lean:1876:37: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+but is expected to have type
+  ρ ∈ stripWindow 0 T
+in the application
+  ⟨mem_supp_iff.mpr ?m.206, h2⟩
+Pb.lean:1878:40: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+but is expected to have type
+  ρ ∈ stripWindow ?m.209 ?m.210
+in the application
+  stripWindow_ne_one h2
+Pb.lean:1886:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd (ℂ → ℕ) ZeroMult ?m.249
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1908:36: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+···
+  ⟨mem_supp_iff.mpr ?m.206, h2⟩
+Pb.lean:1878:40: error: Application type mismatch: The argument
+  h2
+has type
+  ρ ∈ i
+but is expected to have type
+  ρ ∈ stripWindow ?m.209 ?m.210
+in the application
+  stripWindow_ne_one h2
+Pb.lean:1886:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd (ℂ → ℕ) ZeroMult ?m.249
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1908:36: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+  ι
+in the application
+  zF p.1
+Pb.lean:1908:45: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Pb.lean:1908:36: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+  ι
+in the application
+  zF p.1
+Pb.lean:1908:45: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+  ι
+in the application
+  zF p.2
+Pb.lean:1931:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a + ?b) * ?c
+in the target expression
+  (c - ε) * (↑(zK.countCum T) + ∑ i, ↑((zF i).countCum T)) =
+    (c - ε) * ↑(zK.countCum T) + ∑ i, (c - ε) * ↑((zF i).countCum T)
+
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+···
+  zF p.1
+Pb.lean:1908:45: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.21 × ?m.23
+but is expected to have type
+  ι
+in the application
+  zF p.2
+Pb.lean:1931:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a + ?b) * ?c
+in the target expression
+  (c - ε) * (↑(zK.countCum T) + ∑ i, ↑((zF i).countCum T)) =
+    (c - ε) * ↑(zK.countCum T) + ∑ i, (c - ε) * ↑((zF i).countCum T)
+
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+i₀ : ι
+TK : ℝ
+···
+  zF p.2
+Pb.lean:1931:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a + ?b) * ?c
+in the target expression
+  (c - ε) * (↑(zK.countCum T) + ∑ i, ↑((zF i).countCum T)) =
+    (c - ε) * ↑(zK.countCum T) + ∑ i, (c - ε) * ↑((zF i).countCum T)
+
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+i₀ : ι
+TK : ℝ
+hTK : ∀ (T : ℝ), TK ≤ T → (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T)
+TF : ι → ℝ
+hTF : ∀ (i : ι) (T : ℝ), TF i ≤ T → (c - ε) * ↑((zF i).countCum T) ≤ ↑((zF i).distinctCountCum T)
+T : ℝ
+hT : max TK (Finset.univ.sup' ⋯ TF) ≤ T
+eK : (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T)
+eF : ∀ (i : ι), (c - ε) * ↑((zF i).countCum T) ≤ ↑((zF i).distinctCountCum T)
+hBonf :
+···
+    (c - ε) * ↑(zK.countCum T) + ∑ i, (c - ε) * ↑((zF i).countCum T)
+Pb.lean:1936:36: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.270 × ?m.272
+but is expected to have type
+  ι
+in the application
+  zF p.1
+Pb.lean:1936:45: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.270 × ?m.272
+but is expected to have type
+  ι
+in the application
+  zF p.2
+Pb.lean:1940:76: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+···
+  zF p.1
+Pb.lean:1936:45: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.270 × ?m.272
+but is expected to have type
+  ι
+in the application
+  zF p.2
+Pb.lean:1940:76: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+hne : ¬Nonempty ι
+T : ℝ
+h1 : (zK.add (ZeroMult.addFin zF)).countCum T = zK.countCum T + (ZeroMult.addFin zF).countCum T
+h2 : (ZeroMult.addFin zF).countCum T = ∑ i, (zF i).countCum T
+⊢ zK.countCum T = 0 ∧ ∀ (i : ι), (zF i).countCum T = 0
+Pb.lean:1946:26: error: unsolved goals
+ι : Type u_1
+···
+  zF p.2
+Pb.lean:1940:76: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+hne : ¬Nonempty ι
+T : ℝ
+h1 : (zK.add (ZeroMult.addFin zF)).countCum T = zK.countCum T + (ZeroMult.addFin zF).countCum T
+h2 : (ZeroMult.addFin zF).countCum T = ∑ i, (zF i).countCum T
+⊢ zK.countCum T = 0 ∧ ∀ (i : ι), (zF i).countCum T = 0
+Pb.lean:1946:26: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+···
+⊢ zK.countCum T = 0 ∧ ∀ (i : ι), (zF i).countCum T = 0
+Pb.lean:1946:26: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+zK : ZeroMult
+zF : ι → ZeroMult
+c : ℝ
+hK : EpsLowerDistinctStripCum zK c
+hF : ∀ (i : ι), EpsLowerDistinctStripCum (zF i) c
+ε : ℝ
+hε : ε > 0
+hne : ¬Nonempty ι
+h0 : ∀ (T : ℝ), (zK.add (ZeroMult.addFin zF)).countCum T = 0
+T : ℝ
+x✝ : 0 ≤ T
+⊢ 0 ≤
+    ↑((zK.add (ZeroMult.addFin zF)).distinctCountCum T) +
+      (↑(commonStripCum zK (ZeroMult.addFin zF) T) +
+        ↑(Fintype.card (?m.67 zK zF hK hF ε 0 T) * Fintype.card (?m.68 zK zF hK hF ε 0 T) *
+                (Fintype.card (?m.67 zK zF hK hF ε 0 T) * Fintype.card (?m.68 zK zF hK hF ε 0 T)) -
+              Fintype.card (?m.67 zK zF hK hF ε 0 T) * Fintype.card (?m.68 zK zF hK hF ε 0 T)) *
+          ↑(commonStripCum (zF (sorry ())) (zF (sorry ())) T))
+Pb.lean:1945:12: warning: This simp argument is unused:
+  hne
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pb.lean:1973:43: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:1973:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:1974:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:1974:41: error: Application type mismatch: The argument
+···
+  F p.1
+Pb.lean:1973:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:1974:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:1974:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:1991:22: error(lean.unknownIdentifier): Unknown identifier `assemble_eps_defect_strip_cum_fin`
+···
+  hfinF p.1
+Pb.lean:1974:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:1974:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:1991:22: error(lean.unknownIdentifier): Unknown identifier `assemble_eps_defect_strip_cum_fin`
+Pb.lean:1991:9: error: Tactic `rcases` failed: `x✝ : ι` is not an inductive datatype
+Pb.lean:2018:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+···
+  F p.2
+Pb.lean:1974:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:1991:22: error(lean.unknownIdentifier): Unknown identifier `assemble_eps_defect_strip_cum_fin`
+Pb.lean:1991:9: error: Tactic `rcases` failed: `x✝ : ι` is not an inductive datatype
+Pb.lean:2018:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2018:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+···
+Pb.lean:1991:22: error(lean.unknownIdentifier): Unknown identifier `assemble_eps_defect_strip_cum_fin`
+Pb.lean:1991:9: error: Tactic `rcases` failed: `x✝ : ι` is not an inductive datatype
+Pb.lean:2018:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2018:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2019:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+···
+Pb.lean:1991:9: error: Tactic `rcases` failed: `x✝ : ι` is not an inductive datatype
+Pb.lean:2018:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2018:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2019:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2019:37: error: Application type mismatch: The argument
+···
+  F p.1
+Pb.lean:2018:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2019:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2019:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2023:22: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+···
+  hfinF p.1
+Pb.lean:2019:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2019:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2023:22: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2023:9: error: Tactic `rcases` failed: `x✝ : ?m.127` is not an inductive datatype
+Pb.lean:2058:43: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+···
+  F p.2
+Pb.lean:2019:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.76 × ?m.78
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2023:22: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2023:9: error: Tactic `rcases` failed: `x✝ : ?m.127` is not an inductive datatype
+Pb.lean:2058:43: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2058:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+···
+Pb.lean:2023:22: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2023:9: error: Tactic `rcases` failed: `x✝ : ?m.127` is not an inductive datatype
+Pb.lean:2058:43: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2058:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2059:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.2
+···
+Pb.lean:2023:9: error: Tactic `rcases` failed: `x✝ : ?m.127` is not an inductive datatype
+Pb.lean:2058:43: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2058:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2059:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2059:41: error: Application type mismatch: The argument
+···
+  F p.1
+Pb.lean:2058:55: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2059:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2059:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2060:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+···
+  hfinF p.1
+Pb.lean:2059:29: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2059:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2060:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2082:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.1
+···
+  F p.2
+Pb.lean:2059:41: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.85 × ?m.87
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2060:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2082:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2082:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+···
+Pb.lean:2060:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_defect_landed`
+Pb.lean:2082:39: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.1
+Pb.lean:2082:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2083:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2083:37: error: Application type mismatch: The argument
+···
+  F p.1
+Pb.lean:2082:51: error: Application type mismatch: The argument
+  p.1
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.1
+Pb.lean:2083:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2083:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2086:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_landed_of_negligible`
+···
+  hfinF p.1
+Pb.lean:2083:25: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  F p.2
+Pb.lean:2083:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2086:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_landed_of_negligible`
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  F p.2
+Pb.lean:2083:37: error: Application type mismatch: The argument
+  p.2
+has type
+  ?m.81 × ?m.83
+but is expected to have type
+  ι
+in the application
+  hfinF p.2
+Pb.lean:2086:2: error(lean.unknownIdentifier): Unknown identifier `zetaL_assembly_distinct_landed_of_negligible`
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Pb.lean:2102:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin`
+Pb.lean:2103:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed`
+Pb.lean:2104:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible`
+Pb.lean:2105:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional`
+Pb.lean:2106:14: error(lean.unknownIdentifier): Unknown constant `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional_of_negligible`
+···
+
+[pilot] SUMMARY
+[pilot]   Pb.lean: FAIL rc=1 errors=55 sorry=0
+[tele] SUMMARY run: wall=70s max_cpu=0.69 max_mem=8087MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-6WYNNVA1jm6WPSGt1QsYcr
+rc=0

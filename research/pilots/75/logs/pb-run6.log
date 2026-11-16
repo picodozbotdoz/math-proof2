@@ -1,0 +1,355 @@
+# PROVENANCE — pb-run6 (lane A3 execution, pilot 75 P-b, 2026-11-16)
+# command: research/pilots/75/run_pilot.sh Pb.lean (card 2; warm; 2cpu/4GB)
+# # P1-P7 applied; errors 11: REAL signatures read from mathlib source (Finset.add_sum_erase (s)(f)(h); disjoint_union_right is Disjoint s (t ∪ u) — needed LEFT; no Finset.single_le_sum exists), rw-bracket corruption by own patch, IsEmpty field is elim
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-J3Efh55oKBW1hZmM5LCX2Z
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['Pb.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pb.lean
+[pilot] Pb.lean: FAIL rc=1 errors=11 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional_of_negligible' depends on axioms: [propext,
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Pb.lean:1678:25: error: Application type mismatch: The argument
+  hi
+has type
+  i ∈ s
+of sort `Prop` but is expected to have type
+  Finset ?m.12
+of sort `Type ?u.22` in the application
+  @sum_erase ?m.12 ?m.13 ?m.14 ?m.15 hi
+Pb.lean:1677:26: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+f : ι → ℕ
+i : ι
+hi : i ∈ s
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1700:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFinOver s z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+···
+  @sum_erase ?m.12 ?m.13 ?m.14 ?m.15 hi
+Pb.lean:1677:26: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+f : ι → ℕ
+i : ι
+hi : i ∈ s
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1700:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFinOver s z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+i : ι
+hi : i ∈ s
+h1 : ρ ∈ supp (z i).mult
+···
+⊢ f i ≤ ∑ j ∈ s, f j
+Pb.lean:1700:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFinOver s z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+i : ι
+hi : i ∈ s
+h1 : ρ ∈ supp (z i).mult
+h2 : ρ ∈ S
+hsum : (ZeroMult.addFinOver s z).mult ρ = 0
+hterm : 0 < (z i).mult ρ
+hle : (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+⊢ False
+Pb.lean:1721:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFin z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+···
+⊢ False
+Pb.lean:1721:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ZeroMult.addFin z).mult ρ
+in the target expression
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+
+case mpr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+z : ι → ZeroMult
+S : Set ℂ
+ρ : ℂ
+h : ρ ∈ ⋃ i, supp (z i).mult ∩ S
+i : ι
+h1 : ρ ∈ supp (z i).mult
+h2 : ρ ∈ S
+hsum : (ZeroMult.addFin z).mult ρ = 0
+hterm : 0 < (z i).mult ρ
+hle : (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+⊢ False
+Pb.lean:1824:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (a, j).2 = (i, a).2
+but is expected to have type
+···
+⊢ False
+Pb.lean:1824:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (a, j).2 = (i, a).2
+but is expected to have type
+  a = j
+Pb.lean:1858:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Disjoint ?m.702 (?m.703 ∪ ?m.704)
+in the target expression
+  Disjoint (t.offDiag ∪ Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (insert a t).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (insert a t).offDiag
+hcol2 : Finset.image (fun i => (a, i)) t ⊆ (insert a t).offDiag
+hd12 : Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+hd1 : Disjoint t.offDiag (Finset.image (fun i => (i, a)) t)
+hd2 : Disjoint t.offDiag (Finset.image (fun i => (a, i)) t)
+hbig : t.offDiag ∪ Finset.image (fun i => (i, a)) t ∪ Finset.image (fun i => (a, i)) t ⊆ (insert a t).offDiag
+···
+  a = j
+Pb.lean:1858:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Disjoint ?m.702 (?m.703 ∪ ?m.704)
+in the target expression
+  Disjoint (t.offDiag ∪ Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (insert a t).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (insert a t).offDiag
+hcol2 : Finset.image (fun i => (a, i)) t ⊆ (insert a t).offDiag
+hd12 : Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+hd1 : Disjoint t.offDiag (Finset.image (fun i => (i, a)) t)
+hd2 : Disjoint t.offDiag (Finset.image (fun i => (a, i)) t)
+hbig : t.offDiag ∪ Finset.image (fun i => (i, a)) t ∪ Finset.image (fun i => (a, i)) t ⊆ (insert a t).offDiag
+hsum1 :
+  ∑ p ∈ t.offDiag ∪ Finset.image (fun i => (i, a)) t ∪ Finset.image (fun i => (a, i)) t, g p ≤
+    ∑ p ∈ (insert a t).offDiag, g p
+⊢ Disjoint (t.offDiag ∪ Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+Pb.lean:1883:14: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => p ∈ l) ⋯ (f a ∩ f i).val
+···
+⊢ Disjoint (t.offDiag ∪ Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+Pb.lean:1883:14: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => p ∈ l) ⋯ (f a ∩ f i).val
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+Pb.lean:1891:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  j ≥ 0
+  i ≥ 0
+  i - k ≤ 0
+  h ≥ 0
+  h + i - j ≥ 0
+  g ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d - h + j ≥ 1
+  b ≥ 0
+  b - c + h + i - j ≥ 0
+  b - d + e + g ≤ 0
+where
+ b := ↑(∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2))
+ c := ↑(∑ i ∈ t, #(f i))
+ d := ↑(∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2))
+···
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+Pb.lean:1891:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  j ≥ 0
+  i ≥ 0
+  i - k ≤ 0
+  h ≥ 0
+  h + i - j ≥ 0
+  g ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d - h + j ≥ 1
+  b ≥ 0
+  b - c + h + i - j ≥ 0
+  b - d + e + g ≤ 0
+where
+ b := ↑(∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2))
+ c := ↑(∑ i ∈ t, #(f i))
+ d := ↑(∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2))
+ e := ↑(∑ i ∈ t, #(f (i, a).1 ∩ f (i, a).2))
+ g := ↑(∑ i ∈ t, #(f (a, i).1 ∩ f (a, i).2))
+ h := ↑(#(f a ∪ t.biUnion f))
+ i := ↑(#(f a ∩ t.biUnion f))
+ j := ↑(#(f a))
+···
+ k := ↑(∑ i ∈ t, #(f i ∩ f a))
+Pb.lean:1939:70: error: unexpected token ']'; expected ')'
+Pb.lean:1939:62: error: Nested action `← eUnion` must be nested inside a `do` expression.
+Pb.lean:2109:43: error: failed to elaborate eliminator, expected type is not available
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+···
+Pb.lean:1939:70: error: unexpected token ']'; expected ')'
+Pb.lean:1939:62: error: Nested action `← eUnion` must be nested inside a `do` expression.
+Pb.lean:2109:43: error: failed to elaborate eliminator, expected type is not available
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+···
+Pb.lean:1939:62: error: Nested action `← eUnion` must be nested inside a `do` expression.
+Pb.lean:2109:43: error: failed to elaborate eliminator, expected type is not available
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+ sorryAx,
+···
+
+[pilot] SUMMARY
+[pilot]   Pb.lean: FAIL rc=1 errors=11 sorry=0
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-J3Efh55oKBW1hZmM5LCX2Z
+rc=0

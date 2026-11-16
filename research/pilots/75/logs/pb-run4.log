@@ -1,0 +1,638 @@
+# PROVENANCE — pb-run4 (lane A3 execution, pilot 75 P-b, 2026-11-16) — SESSION FINAL, PARKED
+# file: research/pilots/75/Pb.lean (2,258 LoC = 1,557 Pa.lean carry + ~0.70k new; fix round 3 = L1-L6: mem_cons_of_mem arity, rw-at casts, defn order, ext-membership transports, univ_eq_empty, cascades)
+# command: research/pilots/75/run_pilot.sh Pb.lean (card 2; warm; 2cpu/4GB)
+# verdict: FAIL rc=1 errors=21 sorry=0. Wall 37s. Class-descent 55 -> [rearch 27] -> 21; every remaining error diagnosed one-line-or-small (N1-N9 below); NO mathematical obstruction remains — the abstract-Bonferroni architecture is correct and its core (bonferroni_union_le cons) reaches omega with all facts (context at :1882 shows the full valid fact set).
+# PARK DECISION: per run-3 log's commitment (F2 consumed its 3-run sub-guard; run 4 = session final). Next session resumes at run 5 with the N-list; engine warm; fallback §8e still armed.
+# residual fix-list for run 5 (N-classes, all mechanical):
+#   N1 (:1695/:1717) Finset.single_le_sum cannot infer f — replace both sites with a private le_sum_mem (Finset.sum_erase ha + Nat.le_add_left).
+#   N2 (:1812) hcol2: rw needs the REVERSE direction — rw [← show a = i from h] at hi.
+#   N3 (:1821) hd12: the cast equality is a = i (col1 binder j, col2 binder i) — rw [← congrArg Prod.snd heq-as-a=i] at hi.
+#   N4 (:1826/:1833) hd1/hd2: destructure Finset.mem_image at hp1 (the image membership) and rw [Finset.mem_offDiag] at hp2 — hypotheses were swapped.
+#   N5 (:1842-44) Subset application: exact hod h' (element implicit) — drop the explicit p at hod/hcol1/hcol2 sites.
+#   N6 (:1852) hsplit outer disjointness is ⟨hd2, hd12⟩ (Disjoint t.offDiag image2 ++ Disjoint image1 image2), not ⟨hd1, hd12⟩.
+#   N7 (:1882) omega-atom mismatch cons-vs-insert in offDiag: restate offDiag_cons_ge over (insert a t).offDiag (mem_insert_self/mem_insert_of_mem) so hge's offDiag atom matches the goal after cons_eq_insert; ih untouched.
+#   N8 (:1942/:1955/:1966 cascade) eInter/eUnion + toFinset_inj args must carry SPELLED finiteness proofs (drop the hfinC/hfinB have-abbreviations from rw-matched positions); with idInter established, the :1966 omega closes (its fact set is complete modulo the missing C-identification).
+#   N9 (:2093/:2097) E6 hOD minor adjustment — prefer simp [Finset.univ_eq_empty.mpr hise] over the rw-hu chain.
+# axcheck state: carried + E0-E3 layer all triad; E4+ chain carries sorryAx ONLY from unproven-subgoal elaboration (no source sorry tokens) — will clear at GREEN.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Id6DsxbJvvUQ1wbP8PxCRj
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-75-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['Pb.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== Pb.lean
+[pilot] Pb.lean: FAIL rc=1 errors=21 sorry=0
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pb.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pb.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional' depends on axioms: [propext,
+'CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional_of_negligible' depends on axioms: [propext,
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Pb.lean:1695:6: error: Type mismatch
+  single_le_sum (fun j x => Nat.zero_le (?m.146 j)) hi
+has type
+  ?m.146 i ≤ ∑ x ∈ s, ?m.146 x
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1717:6: error: Type mismatch
+  single_le_sum (fun j x => Nat.zero_le (?m.131 j)) (Finset.mem_univ i)
+has type
+  ?m.131 i ≤ ∑ x, ?m.131 x
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1812:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a
+in the target expression
+  i ∈ t
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+···
+  (z i).mult ρ ≤ ∑ j ∈ s, (z j).mult ρ
+Pb.lean:1717:6: error: Type mismatch
+  single_le_sum (fun j x => Nat.zero_le (?m.131 j)) (Finset.mem_univ i)
+has type
+  ?m.131 i ≤ ∑ x, ?m.131 x
+but is expected to have type
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1812:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a
+in the target expression
+  i ∈ t
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (cons a t ha).offDiag
+i : ι
+hi : i ∈ t
+h : (a, i).1 = (a, i).2
+⊢ a ∈ t
+Pb.lean:1821:24: error: Type mismatch
+···
+  (z i).mult ρ ≤ ∑ j, (z j).mult ρ
+Pb.lean:1812:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a
+in the target expression
+  i ∈ t
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (cons a t ha).offDiag
+i : ι
+hi : i ∈ t
+h : (a, i).1 = (a, i).2
+⊢ a ∈ t
+Pb.lean:1821:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (j, a).2 = (a, i).2
+but is expected to have type
+  a = j
+Pb.lean:1826:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+⊢ a ∈ t
+Pb.lean:1821:24: error: Type mismatch
+  congrArg Prod.snd heq
+has type
+  (j, a).2 = (a, i).2
+but is expected to have type
+  a = j
+Pb.lean:1826:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.366 ∈ Finset.image ?m.364 ?m.365
+in the target expression
+  p ∈ t.offDiag
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (cons a t ha).offDiag
+hcol2 : Finset.image (fun i => (a, i)) t ⊆ (cons a t ha).offDiag
+hd12 : Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+p : ι × ι
+hp1 : p ∈ Finset.image (fun i => (i, a)) t
+hp2 : p ∈ t.offDiag
+···
+  a = j
+Pb.lean:1826:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.366 ∈ Finset.image ?m.364 ?m.365
+in the target expression
+  p ∈ t.offDiag
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (cons a t ha).offDiag
+hcol2 : Finset.image (fun i => (a, i)) t ⊆ (cons a t ha).offDiag
+hd12 : Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+p : ι × ι
+hp1 : p ∈ Finset.image (fun i => (i, a)) t
+hp2 : p ∈ t.offDiag
+⊢ False
+Pb.lean:1833:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.395 ∈ Finset.image ?m.393 ?m.394
+in the target expression
+  p ∈ t.offDiag
+
+···
+⊢ False
+Pb.lean:1833:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.395 ∈ Finset.image ?m.393 ?m.394
+in the target expression
+  p ∈ t.offDiag
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a : ι
+t : Finset ι
+ha : a ∉ t
+g : ι × ι → ℕ
+hod : t.offDiag ⊆ (cons a t ha).offDiag
+hcol1 : Finset.image (fun i => (i, a)) t ⊆ (cons a t ha).offDiag
+hcol2 : Finset.image (fun i => (a, i)) t ⊆ (cons a t ha).offDiag
+hd12 : Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+hd1 : Disjoint t.offDiag (Finset.image (fun i => (i, a)) t)
+p : ι × ι
+hp1 : p ∈ Finset.image (fun i => (a, i)) t
+hp2 : p ∈ t.offDiag
+⊢ False
+Pb.lean:1842:14: error: Function expected at
+  hod ?m.467
+but this term has type
+  ?m.466 ∈ (cons a t ha).offDiag
+···
+⊢ False
+Pb.lean:1842:14: error: Function expected at
+  hod ?m.467
+but this term has type
+  ?m.466 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h'
+Pb.lean:1842:18: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.466 ∈ t.offDiag
+of sort `Prop` in the application
+  hod p
+Pb.lean:1843:14: error: Function expected at
+  hcol1 ?m.470
+but this term has type
+  ?m.469 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h'
+Pb.lean:1843:20: error: Application type mismatch: The argument
+  p
+has type
+···
+  h'
+Pb.lean:1842:18: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.466 ∈ t.offDiag
+of sort `Prop` in the application
+  hod p
+Pb.lean:1843:14: error: Function expected at
+  hcol1 ?m.470
+but this term has type
+  ?m.469 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h'
+Pb.lean:1843:20: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.469 ∈ Finset.image (fun i => (i, a)) t
+of sort `Prop` in the application
+  hcol1 p
+Pb.lean:1844:12: error: Function expected at
+  hcol2 ?m.473
+···
+  hod p
+Pb.lean:1843:14: error: Function expected at
+  hcol1 ?m.470
+but this term has type
+  ?m.469 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h'
+Pb.lean:1843:20: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.469 ∈ Finset.image (fun i => (i, a)) t
+of sort `Prop` in the application
+  hcol1 p
+Pb.lean:1844:12: error: Function expected at
+  hcol2 ?m.473
+but this term has type
+  ?m.472 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h
+Pb.lean:1844:18: error: Application type mismatch: The argument
+  p
+has type
+···
+  h'
+Pb.lean:1843:20: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.469 ∈ Finset.image (fun i => (i, a)) t
+of sort `Prop` in the application
+  hcol1 p
+Pb.lean:1844:12: error: Function expected at
+  hcol2 ?m.473
+but this term has type
+  ?m.472 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h
+Pb.lean:1844:18: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.472 ∈ Finset.image (fun i => (a, i)) t
+of sort `Prop` in the application
+  hcol2 p
+Pb.lean:1852:64: error: Application type mismatch: The argument
+  hd12
+···
+  hcol1 p
+Pb.lean:1844:12: error: Function expected at
+  hcol2 ?m.473
+but this term has type
+  ?m.472 ∈ (cons a t ha).offDiag
+
+Note: Expected a function because this term is being applied to the argument
+  h
+Pb.lean:1844:18: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.472 ∈ Finset.image (fun i => (a, i)) t
+of sort `Prop` in the application
+  hcol2 p
+Pb.lean:1852:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.581
+in the application
+  ⟨hd1, hd12⟩
+Pb.lean:1873:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1880:40: error: Type mismatch
+···
+  h
+Pb.lean:1844:18: error: Application type mismatch: The argument
+  p
+has type
+  ι × ι
+of sort `Type u_1` but is expected to have type
+  ?m.472 ∈ Finset.image (fun i => (a, i)) t
+of sort `Prop` in the application
+  hcol2 p
+Pb.lean:1852:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.581
+in the application
+  ⟨hd1, hd12⟩
+Pb.lean:1873:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1880:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cons ?a ?s ?h
+···
+  hcol2 p
+Pb.lean:1852:64: error: Application type mismatch: The argument
+  hd12
+has type
+  Disjoint (Finset.image (fun i => (i, a)) t) (Finset.image (fun i => (a, i)) t)
+but is expected to have type
+  Disjoint t.offDiag ?m.581
+in the application
+  ⟨hd1, hd12⟩
+Pb.lean:1873:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1880:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cons ?a ?s ?h
+in the target expression
+  ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+
+case cons
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → Finset ℂ
+···
+  ⟨hd1, hd12⟩
+Pb.lean:1873:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1880:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cons ?a ?s ?h
+in the target expression
+  ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+
+case cons
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → Finset ℂ
+a : ι
+t : Finset ι
+ha : a ∉ t
+ih : ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+hge :
+  ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2) + ∑ i ∈ t, #(f (i, a).1 ∩ f (i, a).2) + ∑ i ∈ t, #(f (a, i).1 ∩ f (a, i).2) ≤
+    ∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2)
+hIE : #(f a ∪ t.biUnion f) + #(f a ∩ t.biUnion f) = #(f a) + #(t.biUnion f)
+···
+Pb.lean:1873:15: error: Tactic `rcases` failed: `right✝ : Quot.lift (fun l => p ∈ l) ⋯ (t.biUnion f).val` is not an inductive datatype
+Pb.lean:1880:40: error: Type mismatch
+  Finset.inter_comm (f i) (f a)
+has type
+  f i ∩ f a = f a ∩ f i
+but is expected to have type
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cons ?a ?s ?h
+in the target expression
+  ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+
+case cons
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → Finset ℂ
+a : ι
+t : Finset ι
+ha : a ∉ t
+ih : ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+hge :
+  ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2) + ∑ i ∈ t, #(f (i, a).1 ∩ f (i, a).2) + ∑ i ∈ t, #(f (a, i).1 ∩ f (a, i).2) ≤
+    ∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2)
+hIE : #(f a ∪ t.biUnion f) + #(f a ∩ t.biUnion f) = #(f a) + #(t.biUnion f)
+hsub : f a ∩ t.biUnion f ⊆ t.biUnion fun i => f a ∩ f i
+···
+  #(f i ∩ f a) = #(f a ∩ f i)
+Pb.lean:1882:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cons ?a ?s ?h
+in the target expression
+  ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+
+case cons
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → Finset ℂ
+a : ι
+t : Finset ι
+ha : a ∉ t
+ih : ∑ i ∈ t, #(f i) ≤ #(t.biUnion f) + ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2)
+hge :
+  ∑ p ∈ t.offDiag, #(f p.1 ∩ f p.2) + ∑ i ∈ t, #(f (i, a).1 ∩ f (i, a).2) + ∑ i ∈ t, #(f (a, i).1 ∩ f (a, i).2) ≤
+    ∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2)
+hIE : #(f a ∪ t.biUnion f) + #(f a ∩ t.biUnion f) = #(f a) + #(t.biUnion f)
+hsub : f a ∩ t.biUnion f ⊆ t.biUnion fun i => f a ∩ f i
+hia : #(f a ∩ t.biUnion f) ≤ ∑ i ∈ t, #(f a ∩ f i)
+hsym : ∑ i ∈ t, #(f i ∩ f a) = ∑ i ∈ t, #(f a ∩ f i)
+⊢ #(f a) + ∑ x ∈ t, #(f x) ≤ #(f a ∪ t.biUnion f) + ∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2)
+Pb.lean:1942:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinC.toFinset
+in the target expression
+···
+⊢ #(f a) + ∑ x ∈ t, #(f x) ≤ #(f a ∪ t.biUnion f) + ∑ p ∈ (insert a t).offDiag, #(f p.1 ∩ f p.2)
+Pb.lean:1942:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinC.toFinset
+in the target expression
+  #(⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = #⋯.toFinset
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+s : Finset ι
+z : ι → ZeroMult
+u : ZeroMult
+T : ℝ
+hfinB : (⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T).Finite
+key : ∑ i ∈ s, #⋯.toFinset ≤ #(s.biUnion fun i => ⋯.toFinset) + ∑ p ∈ s.offDiag, #(⋯.toFinset ∩ ⋯.toFinset)
+id0 : #⋯.toFinset = u.distinctCountCum T
+idF : ∀ i ∈ s, #⋯.toFinset = (z i).distinctCountCum T
+eUnion : (⋯.toFinset ∪ s.biUnion fun i => ⋯.toFinset) = ⋯.toFinset
+hfinC : (supp u.mult ∩ stripWindow 0 T ∩ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T).Finite
+eInter : (⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = hfinC.toFinset
+idUnion : #(⋯.toFinset ∪ s.biUnion fun i => ⋯.toFinset) = (u.add (ZeroMult.addFinOver s z)).distinctCountCum T
+hsetI :
+  supp u.mult ∩ stripWindow 0 T ∩ ⋃ i ∈ s, supp (z i).mult ∩ stripWindow 0 T =
+    supp u.mult ∩ stripWindow 0 T ∩ (supp (ZeroMult.addFinOver s z).mult ∩ stripWindow 0 T)
+hfinC2 : (supp u.mult ∩ stripWindow 0 T ∩ (supp (ZeroMult.addFinOver s z).mult ∩ stripWindow 0 T)).Finite
+⊢ #(⋯.toFinset ∩ s.biUnion fun i => ⋯.toFinset) = #⋯.toFinset
+···
+    u.windowFinite 0
+Pb.lean:1955:6: error: No goals to be solved
+Pb.lean:1966:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c - d - e + f ≥ 1
+  a ≥ 0
+  a + e - f ≥ 0
+where
+ a := ↑(#(s.biUnion fun i => ⋯.toFinset))
+ b := ↑(u.distinctCountCum T)
+ c := ↑((u.add (ZeroMult.addFinOver s z)).distinctCountCum T)
+ d := ↑(commonStripCum u (ZeroMult.addFinOver s z) T)
+ e := ↑(∑ p ∈ s.offDiag, commonStripCum (z p.1) (z p.2) T)
+ f := ↑(∑ i ∈ s, (z i).distinctCountCum T)
+Pb.lean:1915:25: warning: This simp argument is unused:
+  Set.mem_union
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_inter, Finset.mem_biUnion, Set.Finite.mem_toFinset, Set.mem_inter_iff, Set.mem_iUnion₂]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+Pb.lean:1955:6: error: No goals to be solved
+Pb.lean:1966:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c - d - e + f ≥ 1
+  a ≥ 0
+  a + e - f ≥ 0
+where
+ a := ↑(#(s.biUnion fun i => ⋯.toFinset))
+ b := ↑(u.distinctCountCum T)
+ c := ↑((u.add (ZeroMult.addFinOver s z)).distinctCountCum T)
+ d := ↑(commonStripCum u (ZeroMult.addFinOver s z) T)
+ e := ↑(∑ p ∈ s.offDiag, commonStripCum (z p.1) (z p.2) T)
+ f := ↑(∑ i ∈ s, (z i).distinctCountCum T)
+Pb.lean:1915:25: warning: This simp argument is unused:
+  Set.mem_union
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_inter, Finset.mem_biUnion, Set.Finite.mem_toFinset, Set.mem_inter_iff, Set.mem_iUnion₂]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pb.lean:2093:48: error: Application type mismatch: The argument
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Pb.lean:2093:48: error: Application type mismatch: The argument
+  univ_eq_empty
+has type
+  Finset.univ = ∅
+but is expected to have type
+  (Finset.univ = ∅) = IsEmpty ι
+in the application
+  Eq.mpr univ_eq_empty
+Pb.lean:2097:4: error: Type mismatch
+  hT₀ T hT
+has type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T)
+but is expected to have type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T) + (↑0 + 0)
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+···
+  Eq.mpr univ_eq_empty
+Pb.lean:2097:4: error: Type mismatch
+  hT₀ T hT
+has type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T)
+but is expected to have type
+  (c - ε) * ↑(zK.countCum T) ≤ ↑(zK.distinctCountCum T) + (↑0 + 0)
+'CrossMath.Pilot75.commonStripCum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.ZeroMult.addFinOver' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.addFinOver_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.commonStripCum_addFinOver_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.bonferroni_addFinOver' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFin_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.supp_addFinOver_inter' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.distinctCountCum_of_abelFac' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_defect_strip_cum_fin' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible' depends on axioms: [propext,
+···
+
+[pilot] SUMMARY
+[pilot]   Pb.lean: FAIL rc=1 errors=21 sorry=0
+[tele] SUMMARY run: wall=37s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Id6DsxbJvvUQ1wbP8PxCRj
+rc=0
