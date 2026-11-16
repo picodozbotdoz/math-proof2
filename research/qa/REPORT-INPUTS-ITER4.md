@@ -43,7 +43,7 @@ TARGETS additions land with each pilot's first GREEN (A1's ledger §10 row).
 
 | Row | Item (lane; billing) | First milestone (kernel-checkable) | Evidence slot (path + form) | Status |
 |---|---|---|---|---|
-| 75-Pb | 5/6 strip-distinct arm (A3-pattern lane; discovery completion, S4(b) conditional title) | Pb.lean v1 = Pa.lean carry + E1–E3 GREEN (`zetaL_assembly_distinct_defect_landed` chain begun; spec r5 §8) | `pilots/75/logs/pb-run<N>.log`; inline full-coverage axcheck; expected 3–5 runs | **OPEN** |
+| 75-Pb | 5/6 strip-distinct arm (A3-pattern lane; discovery completion, S4(b) conditional title) | **FINAL-GREEN 2026-11-16 (relay)** — P-b + C1 5/6-arm landed: ALL FOUR landings triad-only, 0 sorryAx, ZERO donor imports; 11-run descent with TWO continuation authorizations (the +1 four-condition policy, both logged) | `pilots/75/logs/pb-run11-final.log` (the evidence record) | **FINAL-GREEN** |
 | LP-1 | LP layer + 02-core consumer (A2; engineering deliverable, never article) | **FINAL-GREEN 2026-11-16 — slot 1 complete end-to-end** (P0 probe frozen → P1 layer → P2 consumer, all triad): `lp_weak_duality` + `_symm` proved kernel-clean in `pilots/lp/L1.lean` (90 LoC ≤ 0.25k; 2 of ≤3 runs) | `pilots/lp/logs/lp-p0-run1..4.log` (probe freeze incl. the **IsOrderedRing port finding**: bridge `[LinearOrderedRing]` absent at ff2494ea — pin idiom `[CommSemiring][LinearOrder][IsOrderedRing]`; anchors held at GroupWithZero/Defs.lean:225/:229; P2 plumbing pin `Finset.sum_disjSum`/`sum_sumElim`), `lp-l1-run1..2.log` (L1 GREEN, triad prints :15–16) | **FINAL-GREEN** |
 | LP-2 | 02-core consumer clause | **FINAL-GREEN 2026-11-16**: `bw2_ceiling_of_dual` GREEN in `pilots/lp/L2.lean` (127 LoC ≤ 0.7k) at `Unit ⊕ G ⊕ G` — 5 card runs + **1 orchestrator-authorized +1** (deterministic-continuation class; four-condition policy logged: monotone descent + written hypotheses + staged fix + diagnostic pointer `pilots/lp/logs/DIAGNOSE-lp-p2-run5.md`) | `pilots/lp/logs/lp-l2-run1..6.log` (run-6 triad prints :24–25 incl. private `sum_uGG`; sha-stamped headers; machinery deltas in headers: error-classifier widening + dependency-order olean emission — the prework's sibling-import bet needed the axcheck_full pattern). Total slot cost: 11 minutes-class runs | **FINAL-GREEN** |
 | AL-3D | B.2 staged (AL lane; formalization-grade, rung NAMED, C.1–C.4 fences in every header) | **AL-P0 GREEN** (R8-reviewed, 2026-11-16 relay: 468 LoC, 4% overage-on-GREEN recorded) — with R9's statement-level find: the prework §2.5 induced-square reading REFUTED; landed encoding = `projLattice` + ambient-graph binder (r5 §11 dated correction re-anchors P1-b + GO/NO-GO on it) | `pilots/al3d/logs/*`; P0 header = the encoding authority | **GREEN (P0 stage)** |
@@ -55,7 +55,7 @@ TARGETS additions land with each pilot's first GREEN (A1's ledger §10 row).
 | 74-T3 | surprisal LP second consumer (A4; ONLY if chartered) | statement-port in LP-P0 already; execution = `≤` clause at `u ≠ 1` in-statement | own guard ≤0.6k additional | **OPEN-GATED** |
 | 10-tranche | D1–D6 assembly (A6; engineering, headline stays OPEN) | D1 wd↔cw walk agreement lemmas GREEN | `pilots/10/logs/*`; tranche guard 1.0–1.6k | **OPEN** (not first-48h) |
 | 75-N2/N3 | unconditional-at-ℚ instantiation (A3-pattern lane, after P-b) | (d1)+(d2) shared staging file → `zetaL_two_thirds_landed_ℚ` | `pilots/75/logs/`; N2 0.4–0.8k | **OPEN** |
-| hEχ | 75/42 χ-column discharge at zeta23 donor pin (A3-pattern lane; **COMPANION billing to 75-Pb** — two binder tiers of the one 75 statement-class article; R2 mini-spec :535–553) | run-8 folded state: `crossmath-pilot-zeta23E` **STAGED at `pilots/zeta23e/`** (50-M2-pattern clone; donor = `Zeta23.ThmE.Final`, v4.33.0-rc2, mathlib `51e6992e`), C3-[LAYERS] hour-class @SPEC, day-2/3; first kernel-checkable = transitive `#print axioms` of the Theorem-E chain + consumer file GREEN in the built tree | `pilots/zeta23e/logs/*` + donor-hygiene audit log; gate = on-pin triad check of the Theorem-E chain before any binder swap | **OPEN** (chartered-pending-typeset; §14 run 8, r5 §14.1) |
+| hEχ | 75/42 χ-column discharge at zeta23 donor pin (A2-executing; **COMPANION billing to 75-Pb** — two binder tiers of the one 75 statement-class article; R2 mini-spec :535–553) | **GREEN FIRST-RUN 2026-11-16/17, card 9 done in ONE run** (wall 862s — minutes-class; the 144-file pruned closure was small as R2 predicted): build OK + zero-sorry probe OK + **donor hygiene gate PASS** — transitive Theorem-E audit all five triad-only (`thmE_A₀/B₀/C₀` + `paperInputsChi_L` + `thmE_A`), 0 sorryAx; the `hex_two_thirds_binder_port` shape (verbatim thmE_A₀ conclusion) elaborated in-tree — statement-port ≈ 0 confirmed | `pilots/zeta23e/logs/zeta23e-p0-run1.log` (triad prints :165–169; sha-stamped; OVER=13 telemetry note in header: build-phase lake -j burst, soft class, `-j 2` for future build runs) | **GREEN (audit + port)** — binder swap CLEARED |
 | 32-crossing | frontier-theorem crossing-existence discharge (R2 §12.2; riskless filler, any lane drain; article-32 §5 "not formalized" paragraph discharges on GREEN — the v2 status rewrite is R1's post-GO edit) | the six missing lemma forms 1–6 in `pilots/32/M2.lean` (`gammaOf_tendsto_ten_right` … `frontier_unconditional` via `intermediate_value_Icc`); S–M ≈300–600 LoC | `pilots/32/logs/*`; in-file `#print axioms`; register `AxPilot32_M2` in the sweep TARGETS; **runs on the existing `crossmath-pilot-32` via `MODAL_USER=doz` override — `pilots/32/run_pilot.sh` is a flagged STALE xyz-default wrapper (R8 §5a gap 1)** | **OPEN-CONDITIONAL** (filler; §14 run 12) |
 | G10 | AreaLaw2D+Physlib refreshed retry (A7 shelf) | n/a until a consumer charters (72-M1 Tier-B / PlanarAreaLawVar discharge) | `logs-g/`; C3-layer-campaign class ≈6–12 h @SPEC | **SHELF** |
 | G9 | StrongPNT statement-binder probe (A7) | see 22-T2a row | `logs-g/` | **OPEN-CONDITIONAL** |
@@ -75,12 +75,14 @@ Shipped iteration-4 articles: **none yet**. Non-discovery (knowledge-level /
 formalization-first / donor-discharge) article slots: **1 maximum for the whole cycle** —
 current recommendation leaves it UNSPENT (75-Pb = discovery-grade conditional per S4(b);
 73-Q4 = dossier note; ZZV2-λ/LP/AL-3D/10-tranche = technical records). Discovery-grade
-billing candidates: **the 75 statement-class article** (75-Pb's distinct-strip tier
-CONDITIONAL + hEχ's 2/3 tier discharged-unconditional-at-ℚ + the quadratic-ζ_K corollary
-— one article, two honestly-labeled tiers, S4(a) satisfied by the in-article hEχ
-discharge; r5 §14.1(c)), 74-T1/T4 (if piloted), 01-stability / 32-crossing / 30-Theorem A
-(R2's completion list, not yet chartered). KPI at close: ≥ half of shipped articles
-discovery-grade — recorded in the cycle-close REPORT block.
+billing candidates: **the 75 statement-class article — now the clear lead with BOTH tiers
+in motion (week-1 note, 2026-11-16): P-b's distinct-5/6 tier LANDED FINAL-GREEN
+(pb-run11-final.log); hEχ's multiplicity-2/3 tier audit-PASSED + port-elaborated
+(zeta23e-p0-run1.log)** — one article, two honestly-labeled tiers, S4(a) satisfied by the
+in-article hEχ discharge (r5 §14.1(c)); plus 74-T1/T4 (if piloted) and R2's completion
+list (01-stability / 32-crossing / 30-Theorem A, not yet chartered). **No quota
+consumption yet — the article ships at cycle close per the gate.** KPI at close: ≥ half
+of shipped articles discovery-grade — recorded in the cycle-close REPORT block.
 
 ## §4 Open-marker summary
 
