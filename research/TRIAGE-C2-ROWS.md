@@ -1,5 +1,7 @@
 # TRIAGE-C2-ROWS — staging rows for the Cycle-2 TRIAGE addendum (A9, 2026-11-13; RECONCILED 2026-11-14)
 
+*Superseded by `TRIAGE.md` § Cycle-2 (typeset 2026-11-14 post-G7b); this file is the pre-typeset snapshot, kept for provenance.*
+
 Mechanical staging only — H transcribes into `research/TRIAGE.md` at decision time. Main-run
 discipline: **verbatim quotes, no judgment** (every quote copied from the named file; ellipses
 only where marked). A5's PART-2 verdicts LANDED before staging
@@ -134,7 +136,7 @@ vendor layer + L1 ptrace-Gram/entropy match + L2 at constant 1, all kernel-clean
 (m1-run8-GREEN; m1-axcheck-final 52+28 axiom-lines, 0 sorryAx, triad-only; 702+360 LoC /
 25 thms); L3 and the interface theorem itself carry to Iteration 4 by design (spec in the
 run-8 header) — the deliverable completes as designed at tranche scope.**
-Recomputed rank ≈ 4.5 ⟨orchestrator: 3.5·3.5÷2.5, C-neg-only⟩.
+Recomputed rank ≈ 4.9 ⟨orchestrator: 3.5·3.5÷2.5, C-neg-only⟩.
 - Pilot plan sketch: C-neg (achieved) → M1 Tier-C (tranche achieved; L3 + interface →
   Iteration 4) → P2 decider probe (unchartered).
 - First Lean milestone: C-neg — achieved.
@@ -211,7 +213,7 @@ six files OK, corrected error series 4→2→3→6→3→2→2→0, axcheck 76 a
 sorryAx / triad-only**), 52 VERIFIED-GREEN close-out, 20 runs recorded.
 **Both main-run conditionals RESOLVED GREEN: [VERDICT:10-L2] (A6 formal report LANDED —
 the three-layer certificate stack completes; article 10 promoted FINAL by the
-orchestrator's 2026-11-15 decision, assembly tranche honestly carried, headline a
+orchestrator's 2026-11-14 decision, assembly tranche honestly carried, headline a
 target not a claim) and [VERDICT:11-M2] (A8 formal report — Theorem B(ii) completes and
 article 11's addendum closes; article Status line carries "+ M2 COMPLETE").]**
 

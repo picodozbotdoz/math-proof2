@@ -129,10 +129,6 @@ effort as proposed by the owning lane (non-binding); "score" is the lane's own a
   30 (5.33, S-proposed-H), 50 (5.0), 02 (4.67 core), 31 (4.0, S-proposed-H), 52 (3.5),
   60 (3.0), 40 (2.25), 21 (1.5), 51 (1.0, N-proposed-H).
 
-### 1. <candidate>
-
-Chosen after all dossiers are scored; per candidate:
-
 ### 1. Candidate 42 — ζ_K zero-density proportions (certificate-conditional landing theorem)
 First simple-or-on-line proportion statements for Dedekind ζ_K anywhere (DLRT-2019 prior: >45%
 distinct via SDP — for a FIXED quadratic K, GRH-conditional, asymptotic in T; erratum per
@@ -276,7 +272,7 @@ vendor layer + L1 ptrace-Gram/entropy match + L2 at constant 1, all kernel-clean
 (m1-run8-GREEN; m1-axcheck-final 52+28 axiom-lines, 0 sorryAx, triad-only; 702+360 LoC /
 25 thms); L3 and the interface theorem itself carry to Iteration 4 by design (spec in the
 run-8 header) — the deliverable completes as designed at tranche scope.**
-Recomputed rank ≈ 4.5 ⟨orchestrator: 3.5·3.5÷2.5, C-neg-only⟩.
+Recomputed rank ≈ 4.9 ⟨orchestrator: 3.5·3.5÷2.5, C-neg-only⟩.
 - Pilot plan sketch: C-neg (achieved) → M1 Tier-C (tranche achieved; L3 + interface →
   Iteration 4) → P2 decider probe (unchartered).
 - First Lean milestone: C-neg — achieved.

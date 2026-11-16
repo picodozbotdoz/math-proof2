@@ -1,4 +1,4 @@
-# Novelty verification — round 4 (Cycle 2) — SKELETON, PART 1
+# Novelty verification — round 4 (Cycle 2) — PARTS 1–2 LANDED
 
 Lane A5 ("novelty", Cycle 2), 2026-11-13. Scope of PART 1: (a) the Cycle-2 novelty
 protocol (same discipline as rounds 1–3, extended to the AxiomMath corpus), and

@@ -294,7 +294,7 @@ FF-EZ3 (dossier 73) = highest-ceiling, Stacks-blocked, pre-registered separately
 WARM — no N-adjust beyond the lane's own proposal; re-scope honored ("family-quantified/
 exclusion-based proportion shapes ONLY").]**
 
-## Pilot outcome (TEMPLATE — appended by A9 2026-11-14; rows P0/P1 FILLED 2026-11-14 from ledger-final verdicts per the orchestrator's instruction; P2 stays slotted)
+## Pilot outcome (appended by A9 2026-11-14; rows P0/P1 FILLED from ledger-final verdicts; P2 FILLED 2026-11-14 — p2-run6 FINAL-GREEN)
 
 Fill rule: slots below stay empty until relayed by the orchestrator (pilot 71 = slot 1,
 lane A2; stages per `research/pilots/71-prework.md` §c; artifacts under

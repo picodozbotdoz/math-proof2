@@ -141,7 +141,7 @@ statement-binder (R2 fallback shape)*). The R1 infra staged here stays reusable 
 OAI tree is ever hygiene-fixed or ported (the runner is route-agnostic donor-pin
 scaffolding).
 
-## 7. Outcome blocks (staged for splice; both STAGED-NOT-A-VERDICT)
+## 7. Outcome blocks (staged for splice; (a) SELECTED 2026-11-14; (b) dead-branch — STAGED-NOT-A-VERDICT)
 
 Pre-written §Pilot-outcome variants for `research/candidates/
 50-quasi-rh-truncated-window-constants.md`, for A9 to splice once the G7b verdict +

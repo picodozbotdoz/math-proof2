@@ -3,8 +3,7 @@
 Lane A1, 2026-11-14; **consistency pass 2026-11-14 (post-triage, post-landings)**.
 **Draft only — the orchestrator typesets and decides; everything
 marked PROPOSAL is mine and may be overridden.** Live slot markers after the
-consistency pass: **[TRIAGE-DECISION]** (orchestrator's), **[G7b]** (donor-pin axiom
-audit, run19 in flight), **[SWEEP]** (Cycle-2 close-out chain). ~~[A5-SEED-TRIAGE]~~ =
+consistency pass: **[TRIAGE-DECISION]** (orchestrator's), **[G7b]** (RESOLVED PASS 2026-11-14, run32), **[SWEEP]** (RESOLVED 2026-11-14 — Steps A–D executed, ledger §9.F). ~~[A5-SEED-TRIAGE]~~ =
 RESOLVED 2026-11-14: `novelty/iter4-seed-triage.md` landed and its verdicts are folded
 in (top-3 NEW-LEAN with the AFP re-scope on seed 9; seed 6 LIKELY-DEAD folded into
 seed 4; seed 11's CAR-half dead, reframed; physlib surface opened seed 13).
@@ -45,8 +44,7 @@ inventory (`feasibility/ITERATION4-SCAN.md` + `feasibility/ITERATION4-SEED-DOSSI
   (0.8733458561, Bebel, at audit).
 - **Carried-over state (post-2026-11-14 landings)** — 42-M4b-upgrade COMPLETE (primary
   route GREEN, donor-tree axcheck dry-run verified); 71-P2, 73-C, 11-M2, 10-L2, 72-C-neg
-  all FINAL-GREEN; **75 pulled INTO Cycle 2 and EXECUTING** (lane A4, the final C2
-  pilot); 50-M2-R1 pre-staged awaiting **[G7b]** (R3 Liu-1 binder CLEAN as fallback);
+  all FINAL-GREEN; **75 landed in Cycle 2 — FINAL-FOR-ENTRY** (lane A4; run6-final GREEN, 17/17 triad); 50-M2-R1 LANDED (G7b PASS run32; R1 GREEN — article 50-M2); R2 DZDF statement-level only;
   73-Q4 carried with A2's recommendation owed; 22-T2a (small, well-scoped); the
   10-completion thread is next-tranche assembly only (L1+L2+M1 all landed).
 - **Main-run cold inventory** — 41/12/31/60/40/30-remainder (SCAN §1b) compete for slots.
@@ -91,7 +89,7 @@ headers (log-rescue lesson); post-outage log tails suspect until re-verified.
 | 3 | ZZV2 λ-family route (a) (continuity/glue) | **FORMALIZATION-FIRST** — Lamzouri's proportions are λ-parametric informally (the λ-dependence IS the paper's content), so the informal math is known and must-cited in full; the novelty claim is the Lean λ-layer artifact only, never new-math (label like dossier 73's "math is 25 years old"). Strengthened: 42-M4b-upgrade COMPLETE (same V2 stack); multiplies with 75's assembly |
 | carried | 50-M2-R1 | pre-staged, awaiting **[G7b]** (run19 in flight); R3 Liu-1 binder fallback CLEAN now |
 | carried | 73-Q4 `hRat` discharge | 73-C LANDED GREEN; Q4 carried as a separate gate — A2's recommendation owed |
-| ~~pulled into C2~~ | 75 | **NOT an iteration-4 slot** — pulled INTO Cycle 2, EXECUTING as the final C2 pilot (lane A4, P-a then C1, final-or-declared-drop) |
+| ~~pulled into C2~~ | 75 | **NOT an iteration-4 slot** — pulled INTO Cycle 2, LANDED FINAL-FOR-ENTRY (lane A4; P-a+C1 GREEN run6-final; P-b/N2 carried) |
 | ~~done~~ | 42-M4b-upgrade | COMPLETE — primary route GREEN (m4b2-run2) + donor-tree axcheck dry-run verified (`feasibility/probe/logs/m4b-donor-axcheck-dryrun.log`) |
 | carried | **75 continuation** (P-b 5/6 strip-distinct arm + N2/N3 remainder; entry (P-a)+C1 GREEN in C2; design input: `pilots/75/Pb-design.md`, A4) | design already priced — fold at **[TRIAGE-DECISION]**, don't rediscover |
 | carried | 22-T2a | small task-slot, upstream PNT+ statement as binder |

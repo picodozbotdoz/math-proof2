@@ -251,7 +251,7 @@ stale rows were 72-M1 and the G-series paragraph — both updated below.
 | 11-M2 | `P11T3.lean`, `RedTm2.lean` | 1100 / 88, 421 / 8 | **FINAL-GREEN (A8, m2-run8)** — ALL SIX files OK (T1/T2/T3/RedCompA/B + **RedTm2 OK**; RedTm2 churn **4→2→3→6→3→2→2→0** across m2-run1..8 — corrected per A8 formal report 2026-11-14: run 5 showed 3 error sites, its counter read 4); P11T3 axcheck-clean independently (A1 fix-verify run); A8 close-out report received | **OK — full axcheck landed** (`pilots/11/logs/m2-axcheck-final.log`: both staged copies OK, 64 + 12 = **76 axiom-lines, 0 sorryAx**, all ⊆ triad; P11T3 also `axcheck-c2-p11t3fix-verify.log` 64/0; sweep Step B re-confirms) | 0 | OK (pending sweep confirm) | 2026-11-14 (m2-run8 + m2-axcheck-final + A8 formal) |
 | 52 / 20 | `M1`s | 292 / 12, 582 / 26 | **CLEAN (cross-ref)** — no drop, drift-check only | already clean (2026-11-09 resume final sweep §6–§7, 30/30 staged OK, 0 sorryAx; Cycle-2 re-verification §8: `20/logs/axcheck-cycle2.log` 36 lines 0 sorryAx, `52/logs/axcheck-cycle2.log` 15 lines 0 sorryAx) | 0 | clean (cross-ref §8) | 2026-11-14 |
 
-Conditional TARGETS additions on landing (not yet rows): **42-M4b-upgrade** (A3, G2-cleared
+[Resolved at close 2026-11-14 — upgrade re-baselined in the M4-note row below; 50-M2 R1 GREEN on the donor pin (§9.F Step D):] Conditional TARGETS additions on landing (not yet rows): **42-M4b-upgrade** (A3, G2-cleared
 gated continuation — direct V2 import; may modify or extend `M4b.lean`, re-baseline that row),
 **50-M2** (gated: R1 openai in-corpus 7/8 on G7b — no G7b verdict yet; R2 DZDF statement-level
 only per G1b). Probe/gate items outside TARGETS: G7b (donor-pin axiom audit, died in outage),
