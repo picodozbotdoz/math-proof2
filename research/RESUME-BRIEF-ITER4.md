@@ -50,7 +50,7 @@ charter splice is appended at phase-B start) + this brief +
 |---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief | idle (standing by for signals) |
 | R1 | articles editorial audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
-| R2 | discovery-strength audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
+| R2 | discovery-strength audit | `research/qa/iter4-review/r2-discovery-strength.md` (v1 landed batch 6; S1–S4 bar proposed) | delivered v1 |
 | R3 | verification integrity audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
 | R4 | process/completeness audit | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |
 | R5 | iteration-4 backlog consolidation | `research/qa/iter4-review/` (lane-named file TBD) | active (writing) |

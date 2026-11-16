@@ -7,7 +7,7 @@ first, then pilot phase. Maintained by H on orchestrator signal.
 |---|---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | Standing by (batches 1–5: launch docs, substrate baseline, xyz-route probe, R9 landing + digest opened; batch 6 next: R2 landing + runner template) | idle | 2026-11-16 |
 | R1 | articles editorial audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
-| R2 | discovery-strength audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
+| R2 | discovery-strength audit | v1 LANDED (r2-discovery-strength.md, batch 6): S1–S4 bar; ≈4–5/18 genuine; 11 demotions — resolves R9 [MERGE: R2] on adoption | delivered v1 | 2026-11-16 |
 | R3 | verification integrity audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R4 | process/completeness audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R5 | iteration-4 backlog consolidation | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |

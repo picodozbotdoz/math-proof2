@@ -7,6 +7,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | # | Lane | File | One-line verdict |
 |---|---|---|---|
 | 1 | R9 | `r9-iteration-plan-draft.md` | Splice + lane-plan + quality-gate draft complete at ZERO review inputs (all review cells [MERGE: Rx]-marked); ready for orchestrator typeset pending merges |
+| 2 | R2 | `r2-discovery-strength.md` | 18 articles ≈ 4–5 genuine discoveries; strength bar S1–S4 proposed; 11 demotion/relabel items |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -36,3 +37,31 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   — 22-T2a has no executing lane before A8 queue item 2; confirm or re-assign.
 - **Watchdog note (H):** R9's cited inputs all exist on disk and are git-tracked
   (incl. `pilots/{lp-layer,al-3d,zzv2-lambda}-prework.md`).
+
+## R2 — r2-discovery-strength.md (landed 2026-11-16, batch 6)
+
+- **Verdict:** cold classification of all 18 articles (both cycles) into classes (i)
+  new theorem / (ii) formalization / (iii) donor-swap / (iv) glue / (v) knowledge-level:
+  **≈ 4–5 genuine discoveries** (01 > 30 > 32 > 52; 75 the only new *statement class*,
+  capped "corollary-level, load-bearing inputs are open binders"); every claim
+  re-queried direct-source in the sibling trees (§5, 13 query families).
+- **Top-3 findings:**
+  1. Article-count inflation: 18 article files for ~4–5 genuine items — donor-swaps
+     (42-M4), binder discharges (50-M2), vocabulary layers (73), certified numerics (21)
+     each got standalone equal-format billing; "the packaging invited the verdict it
+     got."
+  2. The Cycle-2 "discovery headline" (42→42-M4) is an ecosystem upgrade whose own
+     article says "There is no new analytic mathematics" — flagged as the single most
+     likely trigger of the bad feedback; plus conditional-on-open-core shells marketed
+     as discoveries (75's Theorem B is exactly as strong as its undischargeable
+     hypotheses).
+  3. Proposed **strength bar S1–S4** (statement-level novelty w/ named nearest-miss;
+     essential multi-corpus bridge; non-trivial proof OR surprising statement;
+     discharge discipline) + 11 demotion/relabel items (50-M2 retract; 21 fold into
+     dossier 02; 73 demote until Q4; 42-M4 keep-but-relabel; kind fixes for
+     11/42-README/10-slug/72/20/52/50-Part-I).
+- **Open asks for the orchestrator:** adopt S1–S4 as the iteration-4 gate (supersedes
+  R9 §3a criteria via its [MERGE: R2] cell — floor semantics say R2 can only raise);
+  decide the two-strike cap N (R2's bar implies ≤ R9's N=2, possibly 1 — R9 open
+  decision #2); approve/assign the 11 demotion-relabel actions (interlock with R1's
+  template + rewrite proposals); the 42 README "zero-density" terminology mislabel.
