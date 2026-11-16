@@ -10,6 +10,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 2 | R2 | `r2-discovery-strength.md` | 18 articles ≈ 4–5 genuine discoveries; strength bar S1–S4 proposed; 11 demotion/relabel items |
 | 3 | R4 | `r4-process-completeness.md` | No substantive charter obligation missing (1 delivered-differently, recorded); 1 MISSING/13 INCOMPLETE/4 WRONG records-level; fixes package A+B pre-approved, C rides splice |
 | 4 | R8 | `feasibility/iter4-donor-unblock-plan.md` (+ runner drain) | DZDF-shim DEAD (≤4/62 aliasable), Physlib direct DROP / G10 refresh live on the shelf, PNT+ DEFER w/ G9 preflight, Weil statement-tier landed; runner kit audited 10/10 compliant, 2 stale wrappers patched, iter4 template PASS |
+| 5 | R5 | `r5-iteration4-backlog.md` | Merged inventory + ranked 15-item queue + 3 argued decisions + 10-item DROP list; integration pass folds R2/R8 (launch order: 75-Pb top-billed day-1, LP = named engineering deliverable); 6 execution specs, first-48h run queue, dependency ledger |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
@@ -132,3 +133,28 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   donor-proof consumer; §6 dependency note — every R5-ranked slot runs on existing kit
   (only AL-3D needs its `crossmath-pilot-al3d` app clone); A5 should re-check the
   physlib QuantumInfo wing vs its §2 claim.
+
+## R5 — r5-iteration4-backlog.md (landed 2026-11-16 at final state, batch 12)
+
+- **Verdict:** the iteration-4 execution blueprint, landed once at final state
+  (§1–§16). §1 merged inventory (13 seeds + carried obligations + debts); §2 ranked
+  15-item queue under the strict bar (top-5: LP+02-core / 75-Pb / AL-3D-B.2 / ZZV2-λ /
+  72-M1-L3); §3 three argued decisions (B.2 staged over B.3 — 6.3k-LoC transcription
+  re-priced L here vs 1.0–1.6k staged, B.3 → iteration-5 rung with challenge-repo clock
+  noted; first LP consumer = 02-core, 74-T3 optional second; best completion-per-effort
+  = 75-Pb then 72-M1-L3); §4 ten-item DROP list; §5 first-week 9-lane assignment
+  (L1–L9); §7 RECONCILE: R2's bar reorders launch order — **75-Pb top-billed day-1**
+  (the one surviving statement class; conditional-titled per S4(b)), **LP = named
+  engineering deliverable** (no article billing), ranks 3–5 unmoved; R8's verdicts
+  folded (DZDF dead-as-specced; G10 shelved with consumer trigger).
+- **Execution content:** §8–§13 six Phase-B specs (75-Pb statements verbatim with
+  binder-provenance table + E1–E6 decomposition; LP layer + 02-core; G10 fold-in;
+  AL-3D B.2 with ownership resolved to the AL lane; ZZV2-λ route (a) with the FF-EZ2
+  swap branch pre-written; 73-Q4 with article-or-dossier fork); §14 first-48h Modal
+  run queue (all STAGED-NO-RUN; incl. run 8 = the hEχ companion on new
+  `crossmath-pilot-zeta23E`, C3 [LAYERS], displacement NONE — R2's §9 flagship path
+  adopted); §15 dependency ledger (specs owned vs pending decisions).
+- **Open asks / holds:** §16 stages the STATUS.md "§ Iteration 4" block snippet and
+  REPORT-INPUTS-ITER4 rows — **held for the LAUNCH commit** (per orchestrator), NOT in
+  this review commit; four runner app clones (lp/al3d/zzv2-lam/zeta23E) being staged
+  by R5, commit on report.

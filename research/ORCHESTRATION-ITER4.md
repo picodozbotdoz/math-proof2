@@ -10,7 +10,7 @@ first, then pilot phase. Maintained by H on orchestrator signal.
 | R2 | discovery-strength audit | v1 LANDED (r2-discovery-strength.md, batch 6): S1–S4 bar; ≈4–5/18 genuine; 11 demotions — resolves R9 [MERGE: R2] on adoption | delivered v1 | 2026-11-16 |
 | R3 | verification integrity audit | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R4 | process/completeness audit | v1+fixes-package LANDED (r4-process-completeness.md, batch 7): batches A+B pre-approved for H; batch C rides splice | delivered v1 | 2026-11-16 |
-| R5 | iteration-4 backlog consolidation | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
+| R5 | iteration-4 backlog consolidation | v-final LANDED (r5-iteration4-backlog.md §§1–16, batch 12): queue + specs + run queue; STATUS snippet + REPORT-INPUTS-ITER4 held for LAUNCH; runner clones owed | delivered final | 2026-11-16 |
 | R6 | fresh corpus bridge re-scan | writing novelty/iter4-fresh-bridges.md | active | 2026-11-16 |
 | R7 | external prior-art web check | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R8 | donor/feasibility engineering | v1 + drain LANDED (iter4-donor-unblock-plan.md + wrappers patched + G9/G10 staged + template verified PASS, batch 11) | delivered v1 | 2026-11-16 |
