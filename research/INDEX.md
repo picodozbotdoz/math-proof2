@@ -10,7 +10,7 @@ a lane owns them (see STATUS.md). H updates this index as files appear.
 - `research/STATUS.md` | — | live | Coordination board: lane table, phase pipeline, file-ownership rule.
 - `research/INDEX.md` | — | live | This file.
 - `research/REPORT-INPUTS.md` | final input | DONE 2026-11-09 19:58 (H) | Orchestrator's §1-conclusion data pack: headline-numbers block + §A scale (QA recompute 230 items / 193 OK / 37 minor / 0 WRONG) + §B verification (final-disk) + §C decision + §D timeline (3 pivots 19:26–19:31). Every number file-cited.
-- `research/REPORT.md` | final | **FINAL** (≈2.4k words); Cycle-2 addendum pre-staged 2026-11-14 | §1 executive summary integrated with final-sweep counts; §7 final proved-artifacts table; §8 Top-3 outcomes; §9 signed-off compliance; § Cycle 2 = C2.1–C2.7 skeleton with fill-in placeholders ([PILOT-VERDICT:*], [G7b], [SWEEP], [TRIAGE-DECISION]).
+- `research/REPORT.md` | final | **FINAL** (≈2.4k words); Cycle-2 addendum FILLED-FINAL 2026-11-14 | §1 executive summary integrated with final-sweep counts; §7 final proved-artifacts table; §8 Top-3 outcomes; §9 signed-off compliance; § Cycle 2 = C2.1–C2.7 all filled (close-out chain executed: sweep Steps A–D signed at ledger §9.F; §C2.6 mirrors the TRIAGE decision).
 
 ## Phase 1 — surveys (research/survey/)
 
@@ -112,7 +112,7 @@ Nothing remains [expected] from the main run: every file owned by a lane is on d
 
 Statuses as of the 2026-11-14 relaunch (charter addendum: `RESEARCH.md` § Cycle 2; live
 board: `STATUS.md` § Cycle 2 + relaunch block; handoff: `RESUME-BRIEF-C2.md`). QA plan
-passes Parts 1–5 executed (cumulative 0 WRONG — `qa/cycle2-qa-plan.md`). Mid-flight
+passes Parts 1–7 executed (cumulative 0 WRONG — `qa/cycle2-qa-plan.md`; Part 7 = DLRT-erratum propagation sweep). Mid-flight
 artifacts of the outage are committed in snapshot `ca4fd22` (pre-relaunch, unverified
 state per the resume brief).
 
@@ -120,8 +120,8 @@ state per the resume brief).
 - `research/survey/axiommath-pntplus.md` | P1 addendum | landed 2026-11-13 (A1-2) | PNT+ deep dive + §RvM triplication; upstream-PNT+ inspection (rev `938912bb`).
 - `research/survey/axiommath-cft-vendor.md` | P1 addendum | landed 2026-11-13 (A1) | Vendored-CFT audit: DZDF's vendor tree is number-field-only; the binder-route needs ZERO imports.
 - `research/novelty/pntplus-glue-as-donor.md` | P2/P3 support | landed 2026-11-13 (A1-3) | PNT+ glue donor map; upstream registration verdict DEFER-WATCHLIST (triggers T1–T3 in STATUS).
-- `research/bridges/function-field.md` | P2 | v1 + dictionary-zone update landed 2026-11-13 (A2; QA P2 pending) | Weil ↔ quasi-RH cluster; zones FF-EZ1–FF-EZ5; Stacks-wall binder posture.
-- `research/bridges/area-law.md` | P2 | v1 + zone update landed 2026-11-13 (A4; QA P3 pending; Physlib-import premise flag from QA P5c) | AreaLaw2D ↔ openai family 265 ↔ linalg; zones AL-EZ1–AL-EZ4.
+- `research/bridges/function-field.md` | P2 | v1 + dictionary-zone update landed 2026-11-13 (A2; QA P2 9 OK/1 MINOR, `qa/cycle2-qa-plan.md` Part 4) | Weil ↔ quasi-RH cluster; zones FF-EZ1–FF-EZ5; Stacks-wall binder posture.
+- `research/bridges/area-law.md` | P2 | v1 + zone update landed 2026-11-13 (A4; QA P3 9 OK/1 MINOR; Physlib-import premise flag from QA P5c + H erratum) | AreaLaw2D ↔ openai family 265 ↔ linalg; zones AL-EZ1–AL-EZ4.
 - `research/feasibility/quantum-info-substrate.md` | support | landed 2026-11-13 (A4) | Quantum-info substrate gap map over mathlib `ff2494ea` (Phase-3 feasibility input for 72/74).
 - `research/novelty/axiommath-as-donor.md` | P2/P3 support | landed + Liu-1 erratum 2026-11-13 (A3; QA P4: 8 OK / 2 minor pins) | Donor remap: 50 PARTIAL(31/32), 20 object-layer switch, 42 ζ-side DISCHARGES + M4 spec (strip-distinct QA fix), 22/21/40 no deltas; `dedekindAbelianQuotient` feeder.
 - `research/novelty/round-4.md` | P2/P3 support | PART 1+2 landed 2026-11-13 (A5) | Cycle-2 novelty protocol + pre-registered nearest-miss baselines (zones FF/AL/QR-D) + the §5 QR-D precision pass (Liu-1/CT split — binding on dossiers 70/50).
@@ -130,19 +130,19 @@ state per the resume brief).
 - `research/candidates/70-unconditional-zetaK-zero-confinement.md` | P3 | FINAL 2026-11-13 (A9; QA P5a: 7 OK / 1 minor) | Part A posture upgrade (M2-31/32, GATED on G1) + Part B abelian-assembly discovery content; per-class novelty split vs Liu-1/Liu-2.
 - `research/candidates/71-function-field-splane-dictionary.md` | P3 | FINAL 2026-11-13 (A9; QA P5b: 8 OK) | Renamed from 71-simple-zero-proportions on A2's bridge landing; FF-EZ1 dictionary + FF-EZ5 window-comparison corollary; falsity-trap respected.
 - `research/candidates/72-area-law-inertial-defect.md` | P3 | FINAL 2026-11-13 (A9; QA P5c: 7 OK / 1 minor — Physlib premise flag) | Gap-to-inertia dictionary (P1), certificate route (P2, HYPOTHESIS), Kuwahara no-go gate (C-neg), AL-EZ3 interface as M1.
-- `research/candidates/73-function-field-hecke-tate.md` | P3 | pre-registered skeleton 2026-11-13 (A9; FF-EZ3) | Highest-ceiling Stacks-blocked zone; no QA due until filled.
-- `research/candidates/74-surprisal-moment-hierarchy-ceilings.md` | P3 | [expected] (A4, AL-EZ2) | Moment-hierarchy ceilings for surprisal decoupling (secondary of 72 promoted).
-- `research/candidates/75-abelian-assembly-zetaL-proportions.md` | P3 | [expected] (A9, in flight) | Part B of dossier 70 promoted to its own dossier.
-- `research/feasibility/axiommath-donor-probes.md` | support | landed 2026-11-13 (A7; commit 24e8d93) | G-verdicts: G1a OK (DZDF statements elaborate) / **G1b FAIL** (DZDF full build 62 errors → 50-M2-R2 statement-level only), G2 OK (V2 build 8,262 jobs, triad-clean → M4b-upgrade gate cleared), G3 binder-route OK, G4/G6 OK, G7 Liu-1 pins exact. **G7b (run16) killed by the outage — no verdict; re-run = A7 relaunch item (50-M2-R1 gate).**
+- `research/candidates/73-function-field-hecke-tate.md` | P3 | FINAL 2026-11-13 (A9; QA P5d 7 OK/1 MINOR); Tier-C pilot delivered 2026-11-14 (A2) | FF Hecke–Tate; Q4 carried to Iteration 4.
+- `research/candidates/74-surprisal-moment-hierarchy-ceilings.md` | P3 | FINAL 2026-11-13 (A4; QA P5e 7 OK/1 MINOR); unassigned — activates on Iteration-4 chartering | Moment-hierarchy ceilings for surprisal decoupling (secondary of 72 promoted).
+- `research/candidates/75-abelian-assembly-zetaL-proportions.md` | P3 | FINAL 2026-11-13 (A9; QA Q5f 7 OK/1 MINOR); entry milestone delivered 2026-11-14 (run6-final) | Part B of dossier 70 promoted to its own dossier.
+- `research/feasibility/axiommath-donor-probes.md` | support | landed 2026-11-13 (A7; commit 24e8d93) | G-verdicts: G1a OK (DZDF statements elaborate) / **G1b FAIL** (DZDF full build 62 errors → 50-M2-R2 statement-level only), G2 OK (V2 build 8,262 jobs, triad-clean → M4b-upgrade gate cleared), G3 binder-route OK, G4/G6 OK, G7 Liu-1 pins exact. **G7b PASS 2026-11-14 (run32 — headlines + delegation roots triad-only); G5a BLOCKED-INFRA → Iteration 4; G6a CONFIRMED NEGATIVE.**
 - `research/feasibility/probe/{ProbeG1–G5c, gprobe.py, run_gprobe.sh}` + `probe/logs-g/` | evidence | committed 24e8d93 (logs run16–18 added in snapshot ca4fd22) | Cycle-2 donor probes; run16 = G7b has NO verdict (outage-killed); run17 (G5a) / run18 (G6a) tails written post-outage — suspect until re-verified.
 - `research/feasibility/probe/FINAL-SWEEP-PLAN-C2.md` | support | landed 2026-11-13 (A1; tested — 36 sorry-tokens all justified, 0 unexplained) | Cycle-2 final-sweep plan (TARGETS + Steps A–C); trigger = A1 standby signal.
-- `research/pilots/42-M4-blueprint.md` + `pilots/42/` | pilot | M4a GREEN + axcheck-clean 2026-11-13 (1,194 LoC/52 thms, logs m4-run2 + m4-axcheck-run1); `M4a-note.md` = M4c addendum draft; **M4b.lean fallback route GREEN 2026-11-14** (run1 FAIL err=3 sorry=0 → 12-line Fix-C → run2 "M4b.lean: OK" + `m4b-axcheck-run1` GREEN triad-only 0 sorryAx, 92 axiom-prints/68 thms; snapshot 942828c) — next: the CLEARED direct-V2-import upgrade (≤20-line delta) | The V2 donor-swap pilot (GO).
+- `research/pilots/42-M4-blueprint.md` + `pilots/42/` | pilot | M4a GREEN + axcheck-clean 2026-11-13 (1,194 LoC/52 thms, logs m4-run2 + m4-axcheck-run1); `M4a-note.md` = M4c addendum draft; **M4b.lean fallback route GREEN 2026-11-14** (run1 FAIL err=3 sorry=0 → 12-line Fix-C → run2 "M4b.lean: OK" + `m4b-axcheck-run1` GREEN triad-only 0 sorryAx, 92 axiom-prints/68 thms; snapshot 942828c) ; **upgrade COMPLETE 2026-11-14 (A3 formal, M4-note: final 1,571/68, both routes)** | The V2 donor-swap pilot (GO).
 - `research/pilots/50-M2-31-32-spec.md` | pilot | landed 2026-11-13 (A3) | The unconditional [1/32, 31/32] strip spec (GATED on A7/G1; Liu-1 third route).
 - `research/pilots/72-prework.md` | pilot | landed 2026-11-13 (A4) | EZ3-first pilot-72 prework (import tiers, binding constraints).
-- `research/pilots/10/L1.lean` + logs | pilot | committed (snapshot ca4fd22): **L1 GREEN + axcheck-clean** (529 LoC/25 thms, logs l1-run1..4-final) | L1 counter combinators done; **L2.lean (2,595 LoC/126 thms) committed UNRUN** — A6 relaunch: Part-D defect fixes → run → GREEN + full axcheck.
-- `research/pilots/71-prework.md` + `pilots/71/` | pilot | prework landed 2026-11-13 (A2); P0 OK (probe, 4 justified stubs) + **P1 GREEN** (7/7 kernel-clean, triad; logs run1–4); P2.lean (247 LoC, header "proof artifact: no sorry") **first-ever run at relaunch: p2-run1 (2026-11-14) FAIL rc=1 errors=6 sorry=0** — A2 iterating to GREEN | Slot-1 FF pilot (W1 s≠1 pole exclusion → W2 → HW); then 73-C skeleton.
-- `research/pilots/72/C-neg.lean` + `pilots/72/logs/` | pilot | honest **FAIL-in-flight** (descent 20→14→12→6→7 across run1–5; run5: rc=1 errors=7 sorry=0; provenance headers owed at close-out) | Kuwahara no-go gate pilot (A4 relaunch: fix to GREEN per N1–N3, then axcheck triad-only).
-- `research/pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` | pilot | committed (snapshot ca4fd22): 1,100 + 392 LoC, **run verdict NOT landed** — four pinpoint fixes were mid-application at the outage (A8 relaunch) | 11-M2 revival (authorized A8-3; ahead of 72-M1 Tier-C).
+- `research/pilots/10/L1.lean` + logs | pilot | committed (snapshot ca4fd22): **L1 GREEN + axcheck-clean** (529 LoC/25 thms, logs l1-run1..4-final) | L1 counter combinators done; **L2 GREEN 2026-11-14 (A6 formal: 2,625/151 all ⊆ triad; l2-run5-final)** — headline OPEN, assembly tranche carried.
+- `research/pilots/71-prework.md` + `pilots/71/` | pilot | prework landed 2026-11-13 (A2); P0 OK (probe, 4 justified stubs) + **P1 GREEN** (7/7 kernel-clean, triad; logs run1–4); **P2 FINAL-GREEN 2026-11-14 (p2-run6: 279/11 all triad; W1 pole-family correction)** | Slot-1 FF pilot (W1 s≠1 pole exclusion → W2 → HW); then 73-C skeleton.
+- `research/pilots/72/C-neg.lean` + `pilots/72/logs/` | pilot | **FINAL-GREEN 2026-11-14 (run8-final 0/0/0; 369/11; axcheck 11/11 triad; run1–7 headers reconstructed + marked)** | Kuwahara no-go gate pilot (A4 relaunch: fix to GREEN per N1–N3, then axcheck triad-only).
+- `research/pilots/11/{P11T3,RedTm2}.lean` + `run_pilot11.sh` | pilot | **11-M2 GREEN FINAL 2026-11-14 (A8 formal: m2-run8 all six OK; axcheck 76 lines 0 sorryAx; RedTm2 final 421 LoC)** | 11-M2 revival (authorized A8-3; ahead of 72-M1 Tier-C).
 - `research/pilots/75-prework.md` | pilot | landed complete 2026-11-13 (A9; "— end spec"; final report never arrived, treated as done) | Wave-4 abelian-assembly pilot spec.
 - `research/pilots/52/`, `research/pilots/20/` close-outs | pilot | CLOSED 2026-11-13 (A8; commits 6263625/26bd2bc) | 52 M1 VERIFIED-GREEN; 20 runs recorded GREEN; ledger §8.
 - Sibling donor: `liu-zerofree/` registered 2026-11-13 (AGENTS.md; commit 2d5a663) — read-only reference, probe pending A7/G7.
@@ -162,6 +162,42 @@ state per the resume brief).
 - `research/feasibility/probe/logs-g/run27–run32` | logs | 2026-11-14 | G7b attempts 5–6: run27 aborted, run28 user-cancelled (over-provisioned), run29/30 telemetry-fix stops, run31 full layered build, run32 GREEN (G7b PASS + R1 GREEN)
 - `research/feasibility/probe/logs/step{A-final,B,B-m4b-donor,C}-c2.log` + `research/pilots/*/logs/axcheck-c2-final.log` | verification | 2026-11-14 | Cycle-2 final sweep Steps A–C (ledger §9.F sign-off)
 - `research/pilots/50/R1.lean` | pilot | GREEN 2026-11-14 | unconditional ζ strip [1/8, 7/8] + Dirichlet at 7/8 under hFEχ, on the openai donor pin (article 50-M2)
+
+### Cycle-2 close & endgame additions (INDEX refresh, R4 batch B, 2026-11-16)
+
+- `research/articles/10-uniform-poly-space-eth-refutation.md` | article (C2) | FINAL 2026-11-14 (orchestrator promotion, 8a43767) | main-run dossier 10's Cycle-2 article: three proved layers M1/L1/L2 (2,043+529+2,625 LoC; l2-run5-final 151/151 ⊆ triad); headline OPEN, assembly tranche D1–D6 carried.
+- `research/articles/42M4-zetaK-proportions-unconditional-zeta-column.md` | article (C2) | FINAL 2026-11-14 | donor-swap upgrade of article 42 (frozen): unconditional ζ-column via direct ZetaZerosV2 import — M4b both routes (1,571/68; m4b2-run2 + donor-tree axcheck; M4-note = A3 formal report).
+- `research/articles/50M2-unconditional-strip-confinement.md` | article (C2) | FINAL 2026-11-14 | unconditional ζ strip [1/8, 7/8] + Dirichlet at 7/8 under hFEχ (R1.lean 178 LoC; G7b PASS run32); grows article 50.
+- `research/articles/71-splane-zeta-curve-dictionary.md` | article (C2) | FINAL 2026-11-14 | FF s-plane dictionary: W1/W2/HW conditional on WeilData (P2 279/11 triad, p2-run6; pole-family correction).
+- `research/articles/72-renyi-monotonicity-nogo-gate.md` | article (C2) | FINAL 2026-11-14 | C-neg no-go gate (369/11 triad, run8-final) + family-265 interface tranche (702+360/25; L3 + interface carried to Iteration 4).
+- `research/articles/73-formal-tate-dictionary-function-field.md` | article (C2) | FINAL 2026-11-14 | FF Hecke–Tate statement layer at Tier C (Q0 143 + C.lean 236/7 triad; Q4 carried).
+- `research/articles/75-abelian-assembly-zetaL-proportions.md` | article (C2) | FINAL 2026-11-14 (Cycle-2 scope) | ζ_L abelian-assembly entry milestone (Pa.lean 1,557/66; run6-final 17/17 triad; P-b + N2 carried).
+- `research/RESUME-BRIEF-C2-ENDGAME.md` | coordination | frozen 2026-11-14 | endgame-chain protocol doc (G7b → R1 → sweep → TRIAGE typeset → REPORT → AGENTS-C2 apply → close); executed as written.
+- `research/qa/closeout-commit-plan.md` | QA/process | frozen 2026-11-14 | STEP 1–9 close sequence, STEP-8 gate list + baseline dry-run, git-integrity pre-pass, log-header audit appendix (137 files).
+- `research/qa/agents-c2-apply-plan.md` | QA | executed 2026-11-14 | AGENTS-C2 apply plan (E1–E7; applied bf025a1, E2 at d36d62d) + slot-2/3 normalization tail (applied 431a941).
+- `research/qa/articles-novelty-signoff.md` | QA | landed 2026-11-14 (A5) | per-article novelty sign-off pass; 75:114 minor fix applied; [G7b] novelty fold note.
+- `research/qa/debts-register.md` | QA | live (close record) | carried-debts register: (b)–(e) CLOSED 2026-11-14, (i) CLOSED (431a941); (f)(g)(h)(j)–(m) carried/recorded; next-cycle deferrals cross-listed.
+- `research/feasibility/ITERATION4-SCAN.md` | iter-4 input | landed 2026-11-14 (A1) | iteration-4 scan: 13 seeds + substrate §3; [TRIAGE-DECISION]-annotated throughout.
+- `research/feasibility/ITERATION4-SEED-DOSSIERS.md` | iter-4 input | landed 2026-11-14 (A1) | seed dossiers for the top NEW-LEAN candidates (LP-duality, AL-3D, ZZV2 λ-family).
+- `research/feasibility/ITERATION4-CHARTER-DRAFT.md` | iter-4 input | landed 2026-11-14 (A1; consumed by R9's splice draft) | skeleton §Iteration-4 addendum; live gates resolved at close (A11 wording applied).
+- `research/feasibility/ITERATION4-CHARTER-SPLICE.md` | iter-4 input | landed 2026-11-14 (orchestrator) | branch-cut + splice mechanics (STEP 9; dev/iteration4 cut at b1ea051).
+- `research/novelty/iter4-seed-triage.md` | novelty | landed 2026-11-14 (A5) | seed triage: 6 NEW-LEAN / 2 POSSIBLY-KNOWN / 4 DONOR-INFRA; AFP re-scope on seed 9 (Lean-ecosystem scope only).
+- `research/novelty/knausgaard-as-donor.md` | novelty | landed 2026-11-09 (R8) | main-run donor mapping (rows 02/20/21/22/42/50 deltas; folded into TRIAGE).
+- `research/novelty/liu1-as-donor.md` | novelty | landed 2026-11-13 | Liu-1 donor map: §5 DO-NOT-CONSUME as build dep; statement-level citation only (G7-confirmed).
+- `research/novelty/physlib-surface.md` | novelty | landed 2026-11-14 (A5) | physlib surface scan (ExchangeSign nearest neighbor; seeds 11/13 input).
+- `research/feasibility/lp-duality-bridge.md` | feasibility | landed 2026-11-14 (A1) | LP-duality bridge verdict: mathlib Cone/Basic TODO verified on-pin; AFP-HAS-LP_DUALITY; claim scope = Lean-ecosystem only.
+- `research/pilots/20-blueprint.md` + `20-prework.md` + `20-hCZ-NOTE.md` (+ `pilots/20/`) | pilot | main-run; runs recorded GREEN 2026-11-13 (close-out 26bd2bc) | dossier-20 pilot set; hCZ seam note (weakest sufficient form S₁).
+- `research/pilots/52-blueprint.md` | pilot | main-run; M1 VERIFIED-GREEN close-out 2026-11-13 | pilot 52 spec (`pilots/52-note.md` the close record).
+- `research/pilots/30-falsify-TheoremB-h1.lean` | pilot evidence | GREEN 2026-11-09 (resume session) | kernel refutation of Theorem B at h = 1 (article 30).
+- `research/pilots/10/next-tranche-spec.md` | pilot | [CHARTER-PENDING] 2026-11-14 (A6) | assembly-tranche D1–D6 spec; iteration-4 input.
+- `research/pilots/{al-3d,lp-layer,zzv2-lambda}-prework.md` | pilot | [CHARTER-PENDING] 2026-11-14 | iteration-4 seed preworks (AL-3D; LP layer; ZZV2 λ-family).
+- `research/pilots/72-M1/` (`P72M1T1/T2.lean`, `L3-spec.md`, `make_axcheck72m1.py`, runners) | pilot | FINAL-for-tranche 2026-11-14 (A8) | vendor layer 702 + L1/L2 360/25 kernel-clean (m1-run8; axcheck 52+28 triad-only); L3 + interface carried with spec.
+- `research/pilots/73/` (`C.lean`, `P0.lean`, runners) | pilot | 73-C FINAL-GREEN 2026-11-14 (A2) | C.lean 236/7 triad (run6-c-green); Q0 probe 143 first-try.
+- `research/pilots/75/` (`Pa.lean`, `Pb-design.md`, runners) | pilot | entry FINAL 2026-11-14 (A4) | Pa.lean 1,557/66 (run6-final; 17/17 triad); P-b design carried.
+- `research/pilots/50/` additions (`Dirichlet.lean`, `R1-prework.md`, `R1probe.lean`, `run_r1.*`) | pilot | main-run + R1 GREEN 2026-11-14 | R1 staged on the G7b cached layer (article 50-M2).
+- `research/pilots/42/` additions (`M4b.lean`, `M4-note.md`, `M4a-note.md`, `run_m4b2.*`) | pilot | FINAL 2026-11-14 (A3) | donor-swap both routes; M4-note = A3 formal report; M4a-note = superseded-draft pointer.
+- `research/feasibility/probe/` remainder (ProbeA2–A4, C1/C2, D, E, F, G7, G7b; `axcheck_probe.py`, `oai_closure.py`, `m4b_donor_axcheck.py` + runners; `run_axcheck.sh`) | tooling | main-run + C2 | port probes beyond :54/:137 and the axcheck machinery (incl. the full-coverage pilot-10 pattern).
+- `research/pilots/01/` additions (`port/` 10 files, `master_layer.lean`, `tightness_layer.lean`, `make_port.py`) | pilot | main-run (complete) | the port-bundle layers behind MasterIdentity + tightness.
 
 ## Iteration 4 (opened 2026-11-16) — review phase then pilots
 
