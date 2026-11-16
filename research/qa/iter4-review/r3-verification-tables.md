@@ -547,6 +547,49 @@ P0.lean are prose). P0.lean is probe-convention — NOT a Step-B stage, no TARGE
 The 75-N2 consumer (when it lands) elaborates in this donor tree under the D-PIN
 class; its on-pin statements keep the binder per §9(ii).
 
+### 10.6 AL-P2 milestone 1 — LANDED GREEN 2026-11-17 (lane A4; P2-a amendment + P2-b)
+
+**A2.lean (proof artifact — 109 LoC on disk (log header says "~150" — drift noted);
+2 public theorem decls + 5 defs; sha256 3e88be59d8625fdc6…; `import A1` sibling
+staging via the TARGETS auto-rewrite — verified; TARGETS row `AxPilotAL3D_A2`
+appended. Verdict: A2.lean OK, sorry-strict; A1.lean OK in the same run
+(`pilots/al3d/logs/alp2-run7-m1green.log:6`). Content-error descent 3→1→1→0 over
+runs 5–7; runs 1–4 were the import-mechanism build (below).**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `colCard_eq_card` | `pilots/al3d/A2.lean:50` | PROVED-UNCONDITIONAL (data-only) | `alp2-run7-m1green.log:117` (repeats :119/:128/:136) — `[propext, Classical.choice, Quot.sound]` | `colCard` (def, :47) is exactly `Finset.card` of the column — the `Fintype.card`-spelling + `card_coe` bridge |
+| `colCard_le_h` | `pilots/al3d/A2.lean:100` | PROVED-UNCONDITIONAL — hΛ : `IsSlabDomain3D h Λ` (slab hypothesis, definition of subject) | `:118` (repeats :120/:129/:137) — triad | slab heights feed the `PlanarAreaLawVar` application's `hU ≤ h` side (∀ u ∈ projF Λ, colCard Λ u ≤ h); consumes A1's `col_card_le` |
+| defs (no status rows per §10 conventions): `Qudits3D` (:43 abbrev), `colCard` (:47), `colSigmaEquiv` (:57, domain ≃ sigma of columns; Subtype.ext/column-membership), `colRegEquiv` (:75 noncomputable, per-column `finFunctionFinEquiv` at `BigOperators/Fin.lean:577` — the donor's map at variable heights), `regReindexEquiv` (:93, the full regrouping `piCongrLeft' ∘ piCurry ∘ piCongrRight`) | `A2.lean:43–95` | definitions — the statement-layer value only, never a headline (plan §0) | — (defs are elaborated by the OK compile; no axiom prints by convention) | run-4 finding folded into the header: `piCurry`'s direction is (sigma-pi) ≃ (pi-pi); `a.trans b.trans c` parses LEFT-associated — explicit grouping required |
+
+**A1 remediation (the §10.3 coverage finding, CLOSED by the lane):** A1.lean gained
+the +2 audit lines (`A1.lean:415–416`, `domainEDistG_of_mem`/`domainEDist3D_of_mem`)
+— A1 is now **C1** (22/22 printed; both records triad in-log at
+`alp2-run7-m1green.log:50–51`). A1's sha changed accordingly (91b4fba741d05771…);
+content change = the 2 print lines only.
+
+**P0 amendment (find #3) + re-GREEN:** `alp0-run3.log:1–5` — new def
+`groupStrength h R J := 2 ^ (h * (2R+1)^2) * max J 1`; `SlabAreaLawColumnCuts3D` now
+instantiates the planar binder `PlanarAreaLawVar` at `groupStrength h R J` (the raw-J
+instantiation cannot consume the grouped interaction — prework §2.3 sketch gap,
+recorded as header find #3; the frozen layer is otherwise untouched); the range R is
+preserved by P1-a's projection contraction. Re-GREEN as probe. P0 sha
+db5e1cc8307a1a7e…; the 3 stubs shifted lines (:85/:123/:128 — count unchanged);
+**Step-A baseline enumeration update: `pilots/al3d/P0.lean:85,123,128`** (was
+:75,113,118).
+
+**Runner pin-findings (substrate notes, per instruction):** (i) putting the repo ROOT
+on `LEAN_PATH` lets the Mathlib source tree hijack olean resolution — restaged under
+`repo/AL3D` per the pilot-11 precedent; (ii) `lake env printenv LEAN_PATH` returned
+empty on this image → fallback to the build dir. `run_pilot.py` gained the multi-file
+sibling-import mechanism (staging dir + `LEAN_PATH` prepend + per-file `.olean` in
+dependency order; single-file behavior unchanged; IMAGE BLOCK UNTOUCHED — layer
+sharing preserved, `alp2-run7-m1green.log:2–5`).
+
+**Pending:** P2-c/d/e rows follow their verdicts; **P2-d flagged as the risk
+concentration** (per the lane/coordinator — the tables will carry the flag when it
+lands).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
