@@ -446,5 +446,15 @@ Files written: this file only. Siblings untouched; no builds; no Modal usage.
   `candidates/77-car-occupation-dictionary-laughlin.md` — **re-scoped after the donor
   read** (OAI tree owns CAR relations + exact-card sectors + `thm_fock` proved;
   corrections recorded in §3 FB-5 above and the dossier's honesty header; grade B → B−).
+- **A5-battery folds (Phase B, 2026-11-16)**: dossier 76 (R7 gate-sweep: B → B+, must-cites
+  Gwozdz 2607.16881 / ABGJ 1308.0454 / Mengue 2501.19369 / Butkovič 1709.08983, Truffet
+  2603.26423 v4 + 2604.06726 v4 located, classical-LP-refutation follow-up flagged);
+  dossier 77 (battery discharged: grade B− → C+, T3 narrowed to the Frobenius sector-trace
+  rung — physlib master's bosonic `LadderSystem/OccupationBasis.lean` nearest-misses the
+  spectrum rung); dossier 74 (Wing-check rows f–h: physlib entropy object + sandwiched
+  Rényi + HayataGroup trace-inequality stack — no kill, scope corrections); physlib-surface
+  §6 + Wing-check addendum (entropy wing landed; lineage resolved — AreaLaw2D's vendored
+  Physlib @ a50684a1 IS leanprover-community/physlib; seed-13 survives as tauceti→physlib
+  with new must-cites).
 
 — lane R6, 2026-11-16

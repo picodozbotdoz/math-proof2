@@ -165,6 +165,40 @@ Quantifier order (Lean shape): `∀ {ι} [Fintype ι] [DecidableEq ι] (p : ι �
   class-side dual of their upper bound; no class/hierarchy/LP there); (e) classical truncated
   moment theory (Hausdorff) — supplies the 𝒟_k extremal structure T3 consumes, never applied to
   entanglement spectra.
+- **[Wing-check addendum, A5 battery 2026-11-16 (Phase B) — physlib master no longer empty on
+  the entropy side; NO KILL, three new nearest-miss rows.** Source: physlib master
+  `pushed_at` 2026-11-16 (full tree + file contents via gh API; evidence block at
+  `research/novelty/physlib-surface.md` §6 + Wing-check addendum):
+  (f) **`QuantumInfo/Entropy/VonNeumann.lean`** — the von Neumann entropy OBJECT now exists
+  in the Lean ecosystem outside the corpora: `Sᵥₙ` over `MState d` with
+  `Sᵥₙ_eq_trace_cfc_negMulLog` (CFC form), `Sᵥₙ_nonneg`, `Sᵥₙ_le_log_d`, pure-zero,
+  relabel/SWAP/assoc invariances [V via API read]. Consequence: 74's implicit "the entropy
+  object layer is absent from the ecosystem" (quantum-info-substrate §A6 framing) is now
+  physlib-FALSE; 74's own claims (moment hierarchy `m_u`, ceiling classes, LP forms, MGF
+  windows, tightness-for-the-class) remain untouched — physlib has no moments of any kind.
+  Scope correction for any charter phrasing: say "mathlib-absent", never
+  "Lean-ecosystem-absent", for the entropy object.
+  (g) **`QuantumInfo/Entropy/DPI.lean`** — sandwiched Rényi relative entropy
+  (`sandwichedRelRentropy`, `sandwichedTraceFunctional`, Frank–Lieb joint convexity notes,
+  `H_hat`) [V]: the nearest trace-power functional family to `m_u` in the ecosystem —
+  mandatory MUST-CITE if 74 ever phrases `m_u` as trace functionals of the state (the
+  families are distinct: Rényi sandwiched two-state functionals vs single-spectrum moments).
+  `SSA.lean` (toward strong subadditivity; isometry machinery, PosDef states) and
+  `States/Entanglement.lean` (convex-roof constructions) are adjacent-but-distinct [V];
+  neither touches surprisal moments or ceilings.
+  (h) **`QuantumInfo/ForMathlib/HayataGroup/TraceInequality/`** — operator-inequality engine
+  stack (`JensenOperatorInequality.lean` `theorem_2_5_2_i_all_imp_v`/`_iv_imp_v` with
+  `CondIAll/CondIVAll` classes, `LownerHeinzTheorem`, `LiebAndoTrace`,
+  `OperatorGeometricMean`, `HilbertSchmidtOperatorSpace`, `GeneralizedPerspectiveFunction`)
+  [V via tree + theorem inventory]: a proof-engine ALTERNATIVE for 74's spectral steps —
+  never a pre-emption (no entropy-moment content), but any 74 proof route through operator
+  Jensen should now choose between tauceti's `Analysis/Matrix/OperatorJensen.lean` (single
+  compression form) and this broader wing, citing both.
+  Lineage note (record): AreaLaw2D's vendored "Physlib" @ `a50684a1` IS this repository
+  (`lake-manifest.json` url `github.com/leanprover-community/physlib` [V]) — the
+  physlib-surface §3.4 "three distinct Physlibs" trap is corrected to TWO names, ONE repo at
+  different revs; the vendored `MState`/`Region` layer and master's `QuantumInfo/States/
+  Mixed/MState.lean` are the same lineage.]
 
 ## Bridge analysis
 

@@ -179,3 +179,70 @@ level" and §3's NO-COLLISION verdicts are STALE for these surfaces:**
 Tree snapshot of record: `/tmp/r6-traces/physlib-tree.txt` (ephemeral — re-fetch per §5.5
 if needed). Files read in full via API this session: NumberOperator.lean (header+key
 results), ExchangeRelations.lean, OccupationBasis.lean (header+key results).
+
+### Wing check (2026-11-16, A5 battery lane, Phase B — append-only continuation of §6)
+
+Re-running differentiation for every charter that rested on physlib emptiness, against the
+live master surface (same tree snapshot as §6; file contents read via gh API). Verdicts are
+grade-agnostic.
+
+**(1) Seed 13 (occupation-pair semantics for `CrAnFieldOp`) — SURVIVES as
+tauceti→physlib; does NOT fold into dossier 77.** Evidence: `QuantumInfo/Operators/` =
+`Unitary.lean` only — no creation/annihilation algebra there; `States/{Mixed,Pure}` =
+fidelity/trace-distance/MState/Bloch/qubit objects, no occupation algebra; the relation
+gap on `CreateAnnihilate`/`CrAnFieldOp` (§1) is UNCHANGED on master 2026-11-16. The new
+bosonic `PhyslibAlpha/Mathematics/LadderSystem/` wing (Vacuum/Basic/Irreducibility/
+OccupationBasis/SymmetricPower) is the nearest structural neighbor — vacuum, creation
+words, n-particle sector `vacuumSpan` as a **gl(d) Lie submodule**, occupation basis —
+but it is **bosonic and sign-free by design** (`word_perm`: words depend only on the
+color multiset; `SymmetricPower.lean`) so article 52's ε-sign axioms have no home there.
+Consequences: (a) seed-13's bridge target stands; (b) NEW MUST-CITES for its dossier
+round: LadderSystem (the parallel bosonic occupation development — also evidence physlib
+builds occupation semantics DAILY; the relation-layer gap could close any day ⇒ standing
+clock, §5.5), `HarmonicOscillator/NumberOperator.lean` (§6, CCR commutation precedent);
+(c) a tauceti-collision note: LadderSystem's gl(d)-Lie-submodule occupation story is the
+bosonic sibling of tauceti's gl n CAR/Kostant stack (exterior/fermionic) — two parallel
+developments, neither cites the other; any "first occupation-semantics layer" phrasing is
+dead, occupation-PAIR semantics with the ε-cocycle remain unclaimed.
+Fold-vs-77 verdict: distinct source (article 52's axioms vs tauceti's CAR algebra) and
+distinct target (`CrAnFieldOp` vs OAI Laughlin matrices); 77's C+ remainder does not
+absorb it.
+
+**(2) Dossier 74 (surprisal-moment ceilings, carried) — NO KILL; three nearest-miss rows
+added to its Novelty check (rows f–h, this date).** Summary: the entropy OBJECT layer now
+exists on physlib (`QuantumInfo/Entropy/VonNeumann.lean`: `Sᵥₙ` over `MState d`,
+`Sᵥₙ_eq_trace_cfc_negMulLog`, `Sᵥₙ_le_log_d`, pure-zero, relabel/SWAP/assoc invariances)
+— 74 must say "mathlib-absent", never "Lean-ecosystem-absent", for the entropy object;
+`sandwichedRelRentropy`/`sandwichedTraceFunctional` (DPI.lean, with Frank–Lieb
+convexity notes) is the nearest trace-power functional family — MUST-CITE if `m_u` is
+ever phrased as trace functionals; `SSA.lean` (isometry machinery toward SSA, PosDef
+states) and `States/Entanglement.lean` (convex-roof constructions) adjacent-but-distinct;
+`HayataGroup/TraceInequality/` (below) is a proof-engine alternative, not a pre-emption.
+NO surprisal moments, ceiling classes, LP forms, or MGF windows anywhere on master.
+
+**(3) tauceti OperatorJensen adjacency — COLLISION NOTE (record; no charter affected
+today).** physlib `QuantumInfo/ForMathlib/HayataGroup/TraceInequality/` is a broader,
+independent operator-inequality development than tauceti's single compression form:
+`JensenOperatorInequality.lean` (numbered chain `theorem_2_5_2_i_all_imp_v`,
+`theorem_2_5_2_iv_imp_v`, `CondIAll/CondIVAll` condition classes; plus
+`JensenOperatorInequalityIImpIV/IVtoV` steps), `LownerHeinzCore/Theorem`,
+`LiebAndoTrace`, `OperatorGeometricMean`, `HilbertSchmidtOperatorSpace`, `BlockDiagonal`,
+`GeneralizedPerspectiveFunction`. tauceti's `TauCeti/Analysis/Matrix/OperatorJensen.lean`
+(compression Jensen for isometries + operator-concave f; coisometries/contractions not
+extracted — survey §2c) is the SMALLER of the two. Any charter that consumes tauceti's
+operator-Jensen layer as ecosystem-unique must cite HayataGroup; conversely the wing is a
+donor candidate for the SSA-extraction gap on tauceti's side. Same-day note:
+physlib's entropy wing (vN family + SSA-in-progress) is AHEAD of tauceti's
+`Analysis/Matrix/Entropy.lean` (bipartite subadditivity only) — the survey's §2c
+"SSA not stated" gap now has an external fill candidate.
+
+**Lineage correction (supersedes §3.4's trap (b)):** AreaLaw2D's vendored `Physlib`
+@ `a50684a1` IS this repository — `axiommath/AreaLaw2D/lake-manifest.json` pins
+`url: github.com/leanprover-community/physlib, rev: a50684a1…` [read 2026-11-16]. The
+"three distinct Physlibs" note collapses to TWO NAMES, ONE REPO at different revs
+(community-master vs the a50684a1 pin AreaLaw2D vendors); the vendored
+`QuantumInfo.ForMathlib.*`/`MState` layer and master's `QuantumInfo/` wing are the same
+lineage. Downstream: G5a's incompatibility finding ("Physlib a50684a1 not
+ff2494ea-compatible") is a statement about THIS repo's old rev vs our mathlib pin — and
+master's daily motion means a refresh probe (G10-class) is the only honest way to price
+modern consumption.
