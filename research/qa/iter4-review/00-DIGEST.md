@@ -189,3 +189,9 @@ each [MERGE: Rx] resolution). Entry order = landing order.
   article, README v2, 11/73 dispositions); 50v2 + swap-in runbook next; NO proposal
   applied — articles/ swap-in executes only on orchestrator GO after the
   restructuring review.
+- **Integration pass (batch 15):** §6 decision memos for the six §5 decisions
+  (branch-complete where hinged on pending reviews; cap-N folded: N=2 + KPI
+  per orchestrator); §7→§9 Phase-B lane briefs v2 (de-parameterized, paste-ready);
+  §8 SPLICE TEXT v2 (supersedes §1; consumes all landed review inputs except
+  R6/R7); §10 launch-day checklist v2. A final touch-up + paste-ready splice block
+  follows (R5 tail/hEχ + R6 fold + R7 when it lands).

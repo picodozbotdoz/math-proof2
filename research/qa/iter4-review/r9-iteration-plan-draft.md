@@ -286,10 +286,56 @@ empty; `novelty/iter4-fresh-bridges.md` (R6) and `feasibility/iter4-donor-unbloc
   a named list (expected friction points: the slot-3 formalization-first posture vs
   any R5 discovery-first re-ranking; the carried-item load vs A4's queue; whether
   74-T3 belongs in slot 1's scope or A4's queue).
-- **Integration log:** 2026-11-16 (§6/§7 writing pass): re-checked — `qa/iter4-review/`
-  still holds only this file; R6's `novelty/iter4-fresh-bridges.md` and R8's
-  `feasibility/iter4-donor-unblock-plan.md` still absent. No merge points resolved;
-  §6/§7 written branch-complete instead (hinges pre-written both ways).
+- **Integration log:**
+  - 2026-11-16 (§6/§7 writing pass): re-checked — `qa/iter4-review/` still held only
+    this file; R6/R8 outputs absent. No merge points resolved; §6/§7 written
+    branch-complete instead.
+  - 2026-11-16 (§8–§10 integration pass): **consumed** — R1
+    (`r1-articles-editorial.md`, 431 ln: rubric, 17-article defect lists, ranked
+    causes, kind verdicts), R2 incl. Part B (`r2-discovery-strength.md`, 557 ln:
+    4–5-genuine-of-18, strength bar S1–S4, 11 demotions, restructuring plan, §9
+    completion paths), R4 both parts (`r4-process-completeness.md`, 369 ln: batches
+    A/B/C, §6 close-protocol addendum, §7 pass-2 coordination), R5 §§1–10
+    (`r5-iteration4-backlog.md`, 675 ln: ranked queue + §7 launch-order flip + §8/§9
+    execution specs + §10 G10 shelf), R8 (`feasibility/iter4-donor-unblock-plan.md`,
+    381 ln: four route verdicts, runner kit, cost classes),
+    `articles/TEMPLATE-iter4.md` (204 ln, mandatory skeleton), `00-DIGEST.md` (covers
+    R9+R2 only — H's digest lags the later landings). **R3 landed mid-pass**
+    (`r3-verification-integrity.md`, 21:51): headline consumed — no mathematical
+    overclaim in any audited article, defects records-level; §5 verification-block
+    format + checklist rules folded into §10's day-1 disciplines. Still absent: R6
+    (`novelty/iter4-fresh-bridges.md`), R7.
+  - 2026-11-16 (final touch-up pass): **consumed** R5's final state (§16 staged STATUS
+    snippet; §14 now ELEVEN rows with the **hEχ fold-in at run 8** —
+    `crossmath-pilot-zeta23E`, v4.33 pin, C3 [LAYERS] hour-class @SPEC, day-2/3 — and
+    §14.1's judgments: displacement NONE; 75-Pb billing = **COMPANION**, two binder
+    tiers of the one 75 statement-class article) + the NEW
+    `qa/REPORT-INPUTS-ITER4.md` slot ledger (R5, all rows OPEN); **R6**
+    (`novelty/iter4-fresh-bridges.md`, 391 ln: five FB seeds, the two unregistered
+    proved OAI donors with preprints, the FB-2/PNT+-T2 note); the coordinator relay of
+    R8's G9 pure-mathlib find (ψ-object mathlib-native on our pin; R8's on-disk §3
+    pending the update — corroborated by R1's mathlib `Chebyshev.lean` spot-checks,
+    `r1-articles-editorial.md:327`). Applied as §8 v2.1 minimal deltas + §9/§10 fixes
+    + §11 typeset-prep block. R7 still outstanding.
+  - **Merge resolutions (integration pass):** [MERGE: R1] → template adopted verbatim as the
+    article gate; [MERGE: R2] → S1–S4 bar supersedes my §3a floor; two-strike cap
+    **N=1 FINAL** (coordinator correction mid-pass, supersedes the provisional N=2 —
+    R2's landed kind-eligibility makes the stricter form operative); [MERGE: R3] →
+    verification-block format into the gate; [MERGE: R5] → launch order adopted + the
+    A-lane key RETAINED (R5 §15 defers to §7 as typeset-ready; the two deltas it flags —
+    75-Pb's day-1 lane and the 73-Q4 memo's home — are applied in §9 per decisions
+    (e)/(f)), R5 §§11–15 execution specs + first-48h run queue + dependency ledger
+    consumed into §9/§10; [MERGE: R8] → route verdicts folded into the splice's
+    carried/dropped lists. **Changes the review forced:**
+    launch-order flip (75-Pb day-1 discovery-billed, LP same-week engineering-billed);
+    LP loses article eligibility entirely (R2 S1: corollary-level); the gate is now
+    template+bar (my §3 skeleton survives only as the two-strike rule + enforcement
+    points); R4's close-protocol enters the charter conventions; the §7 A-key briefs
+    stand (R5 §15 endorses) with the two typeset deltas applied. One unresolved
+    tension flagged for the orchestrator: R2 §9's
+    completion paths (75/42-hEχ flagship, 01-stability, 32-crossing, 30-Theorem A)
+    are NOT in R5's ranked queue (R5's §7 reconcile predates R2's Part B) — §8 note
+    + open decision.
 
 ## 5 OPEN DECISIONS FOR THE ORCHESTRATOR
 
@@ -313,5 +359,609 @@ empty; `novelty/iter4-fresh-bridges.md` (R6) and `feasibility/iter4-donor-unbloc
    no lane owns 22-T2a's execution start before A8's queue item 2; confirm the ordering
    or re-assign.
 
-— end R9 plan draft. No files outside this deliverable were modified; no Lean work; no
-Modal runs.
+---
+
+## 6 DECISION MEMOS (for §5's open decisions; branch-complete where hinged on pending reviews)
+
+> **DECISIONS RECORDED 2026-11-16 (orchestrator; corrections mid-§8–§10 pass supersede the
+> earlier relay where noted):** (a) slot-3 **KEEP ZZV2-λ**, chartered as an
+> engineering/technical-record deliverable (NOT discovery-billed; stack-reuse value);
+> FF-EZ2 swap branch stays pre-written (R5 §12c). (b) two-strike cap **N=1 FINAL**
+> (supersedes this section's N=2 recommendation and the provisional N=2 — R2's landed
+> kind-eligibility makes the stricter form operative; KPI ≥half discovery-grade
+> unchanged). (c) **B.2 SlabAreaLaw3D**, formal branch point moved to the post-AL-P1
+> GO/NO-GO. (d) **hybrid** gate location (normative paragraph in `RESEARCH.md`
+> §Iteration 4 at splice + template detail in the article file). (e) 75-Pb owned by the
+> **A3-pattern lane from day-1** as the top-billed discovery milestone (M4a-mirror
+> competence, `pilots/75/Pb-design.md:57–65`); the AL lane owns AL-3D B.2 only — the
+> "strictly after AL-P0/P1" sequencing and A3-as-fallback framing below are SUPERSEDED
+> (fallback survives as standing contingency only). (f) 22-T2a = A8, binder-shaped
+> statement-first, T1 NOT fired. §8–§10 carry the operative text.
+
+### (a) Slot 3 — keep ZZV2-λ vs swap to FF-EZ2
+
+**Options.** K = keep ZZV2-λ route (a) as chartered (technical-record posture, §1). S =
+swap to the FF-EZ2 survivor statement.
+
+**Evidence.** Keep: prework complete and guard-fenced (`pilots/zzv2-lambda-prework.md`
+§2 :84–101 — P0 probe pins the λ-range; P1 lands GREEN binder-shaped with no new
+analysis; §5 :129–137 — total M− if P0(b) favorable, S otherwise, hard STOP after P1
+GREEN if the Landau layer is MT-frozen); BUILT-donor recipe reused verbatim (M4b2,
+:105–115); stack-multiplier value — "strengthens automatically if 42-M4b-upgrade lands;
+multiplies with 75's assembly" (`ITERATION4-SEED-DOSSIERS.md` §seed-3 triage line, :232–234)
+and 42-M4b DID land (`REPORT.md:371`); A5 verdict NEW-LEAN formalization-first, corpus
+collision NONE (`novelty/iter4-seed-triage.md:17`). Swap: FF-EZ2 = NEW-LEAN with the
+supersingular-trap analysis already done and S-effort (`ITERATION4-SCAN.md:87–91`); its
+gating pilots 71-P2/73-C both landed GREEN (`REPORT.md:372`), so the "rank only after
+these land" condition is satisfied; but it carries a month-clock + "family version
+literature-occupied" decay note (`ITERATION4-SEED-DOSSIERS.md:44`) and owes a
+dossier-level re-verification (triage row 4: "re-verify at dossier level",
+`iter4-seed-triage.md:19`) plus a from-scratch P0 spec (no prework file exists).
+
+**Cost-risk.** K: risks another formalization-first cycle-item — contained by §3c
+(technical record, no article standing) and by the prework's own novelty posture
+(`zzv2-lambda-prework.md:117–127`: "NEVER phrase as new mathematics"). S: risks an
+unpreworked charter (≈ one lane-day of P0 spec before any run) and re-activating a
+novelty surface A5 has not cleared at dossier grade.
+
+**Recommendation.** **K**, unless R2's strength bar kills formalization-first SLOTS
+(not just articles) — the differentiator: slot 3's output feeds 42-M4/75-class
+assembly either way, so its value survives demotion; FF-EZ2's does not survive a
+novelty re-check failure. **Hinge: R2 (slot-level bar) and R5 (ranking).** Branch S is
+pre-written in §7's A3 brief. If R5 ranks FF-EZ2 above ZZV2-λ on discovery strength,
+the swap is cheap at charter time (A3's brief swaps wholesale; no other lane moves).
+
+### (b) Two-strike cap N = 2 vs N = 1
+
+**Options.** Cap knowledge-level/formalization-first/donor-discharge articles per cycle
+at 2 (§3c.1) or 1.
+
+**Evidence.** Cycle 2 shipped ≥6 such pieces against ≤3 discovery-grade
+(`articles/README.md:37–47`: 71, 73 formalization-first; 22 knowledge-level; 42-M4/50-M2
+donor-discharge; 10/11 layer/completion records — vs 75, 72, and 71's forced
+correction as the discovery-grade residue). Either cap would have forced demotions; N=1
+would have demoted nearly the whole set.
+
+**Cost-risk.** N=2 lets a cycle keep exactly one "enabler" record (e.g. the LP layer)
+plus one knowledge-level closure (e.g. a 22-T2a-style note) while forcing everything
+else into dossiers. N=1 maximizes pressure toward discovery-grade but risks
+under-recording genuinely useful infrastructure (unindexed technical records rot — the
+reason `articles/README.md:49–53` had to explain where knowledge-level records went).
+
+**Recommendation.** **N=2** at charter; the KPI (§3c.4, ≥half discovery-grade) is the
+real teeth. **Hinge: R2** — if R2's bar classifies formalization-first slots as
+never-article-eligible regardless of count, N becomes moot; adopt N=1 then for
+simplicity.
+
+### (c) AL-3D rung — B.2 (`SlabAreaLaw3D`) vs B.3 (`PositiveReplacement3D`)
+
+**Options.** B.2-staged (the preworked ladder) vs B.3 (the donor's "most routine"
+target) vs decide-at-launch.
+
+**Evidence.** B.2: full prework with guards — AL-P0 statement port ≤0.45k, AL-P1 fibre
+core ≤0.4k with a GO/NO-GO, AL-P2 ≤0.9k binder-conditional landing
+(`pilots/al-3d-prework.md:257–270`); HARD STOP before full `SlabAreaLaw3D` (:271–273 —
+donor-scale, separate charter); the donor's §11 whole-column uncertainty shadows only
+B.2-FULL, not the staged ladder (:301–305). B.3: donor verdict "the most routine of the
+targets and the foundation of B.4" (Targets.md :65, via prework :75); crucially **AL-P0
+and AL-P1 serve BOTH rungs** — "AL-P1's fibre lemmas are B.3-neutral (B.3 replaces
+counting constants)" (:77–78); so the branch point is AL-P2, not launch.
+
+**Cost-risk.** Deciding B.2 now risks committing to the volume-heavy rung before P1's
+GO/NO-GO data; deciding B.3 now forfeits the B.2 donor-sketched route. The shared
+P0/P1 substrate makes early commitment nearly free either way.
+
+**Recommendation.** **B.2-staged as the working target, with the branch formally moved
+to post-AL-P1** (not launch): if P1-b's boundary lift needs fibre-generic donor
+restatement (the prewritten NO-GO, :263–266), flip to B.3 — AL-P0/P1 are sunk-cost-free
+for it. No review hinge. The splice's "decided at launch" softens to "B.2 working /
+B.3 at the AL-P1 gate" — one-line typeset change.
+
+### (d) Quality-gate typeset location
+
+**Options.** (i) RESEARCH.md conventions paragraph at splice; (ii) AGENTS.md
+iteration-4 addendum; (iii) leave in this qa file; (iv) articles/README template
+section.
+
+**Evidence.** The gate enforces the ground-rules sentence "Discovery-first, not
+formalization-first: a candidate is valuable only if the statement is new"
+(`RESEARCH.md:23`) — the bar is that sentence's enforcement arm and belongs beside it.
+Precedent cuts both ways: Cycle-2 PROCESS conventions (donor hygiene gate, decl-index
+caveats, probe protocol) were applied into AGENTS.md (`AGENTS.md` §"Cycle-2
+conventions", applied per `STATUS.md:750–754`), but those are environment mechanics,
+not research-content standards; AGENTS.md is also H/user-directive territory
+(application needed a qa/plan + explicit step). Option (iii) is weakest: qa files are
+audit artifacts a working lane may never open. Option (iv) puts a program-wide bar
+inside one lane's owned file (one-writer-per-file makes it A9's private rule).
+
+**Cost-risk.** RESEARCH.md grows by one paragraph (the charter is meant to carry
+addenda — §Cycle 2 precedent, `RESEARCH.md:25–39`); the operational template detail
+must NOT go there (it will churn when R1 lands).
+
+**Recommendation.** **Hybrid:** one normative paragraph (the §3a floor + §3c cap + the
+pointer) typeset into `RESEARCH.md` §Iteration 4 at splice time; the template/rubric
+detail lives in the A9-owned article template once R1 lands; AGENTS.md gets at most a
+one-line pointer if H prefers the AGENTS.md reading habit. No review hinge (R1 affects
+the template's content, not the location).
+
+### (e) 75 P-b lane placement
+
+**Options.** A4 (design owner) vs A3 (V2-stack owner) vs A8 (spare capacity).
+
+**Evidence.** Ownership is explicit: "this file is lane A4's; … the pilot file is
+`research/pilots/75/Pb.lean` (lane A4)" (`pilots/75/Pb-design.md:11–12`); the design is
+fully priced — Pb-1 defect form (verbatim statement, :20–43), Pb-2 `_of_negligible`
+(δ/2-split "exactly as M4a's `zetaK_distinct_five_sixths_strip_landed_of_negligible`",
+:57–65), Pb-3 the 5/6 C1 arm (:67–70). But A4 also owns slot 2 (AL-3D, the cycle's
+heaviest pilot — three M-class milestones) and the 74-T3 option; A3 owns the M4b2 V2
+recipe that Pb-3's `K839OfLocalStrip` slot rides (`pilots/42/run_m4b2.py` recipe,
+`zzv2-lambda-prework.md:105–115`).
+
+**Cost-risk.** A4-overload risks serializing slot 2 behind P-b (both are M). Moving
+P-b costs context transfer: Pa.lean's 1,557-LoC layer + the design file — moderate for
+A3 (the M4a mirror is A3's own pattern), high for A8 (no 75/V2 context).
+
+**Recommendation.** **A4 keeps P-b, sequenced strictly after slot-2 AL-P0/P1 land**
+(the §2 queue order); pre-written fallback: if AL-P2 opens while P-b is untouched, P-b
+moves to A3 at the next re-task (A3's N2 half shares the substrate). No review hinge.
+
+### (f) 22-T2a ownership
+
+**Options.** A8 (execution owner, after 72-M1 L3) vs A2 (analytic-NT provenance) vs
+defer entirely.
+
+**Evidence.** 22-T2a is dossier 22's ONLY open content — T2b closed by upstream
+StrongPNT (`novelty/pntplus-glue-as-donor.md:141–146`); it is "small, well-scoped,
+upstream statement as binder, statement-port≈0" (`ITERATION4-SCAN.md:82–86, :25`). Two
+standing gates: the mathlib-PR clock ("charter fast or binder-shape it",
+`iter4-seed-triage.md:18`) and the PNT+ registration trigger T1 — register-and-port
+fires only if "a dossier-22 T2a pilot wants the upstream Borel–Carathéodory bootstrap
+chain" (`pntplus-glue-as-donor.md:130–132`); without it, DEFER stands (:125–129) and
+upstream is cited as external formal prior art. A2 is loaded (slot 1 + the owed 73-Q4
+recommendation); A8's queue (72-M1 L3, then slot work) matches the C2 shape
+("pilot close-outs + slot work", `ITERATION4-CHARTER-DRAFT.md` §c A8 row).
+
+**Cost-risk.** The T2a statement is conditional (quasi-RH binder + a
+PNT-shape binder) — the risky part is phrasing, not proving: CLAIMS-REGISTER row 22's
+"first effective PNT-class error term in the Lean ecosystem" is already flagged RISKY
+(`pntplus-glue-as-donor.md:148–150`). Whatever lane executes must route wording through
+A5 and NOT fire T1 without a charter decision.
+
+**Recommendation.** **A8**, as a binder-shaped S-pilot: first milestone is statement
+elaboration only (donors as binders; no T1 trigger; claim text pre-cleared by A5). No
+review hinge on ownership; R5 may reorder its priority vs the 10-tranche.
+
+---
+
+## 7 PHASE-B LANE BRIEFS (launch-day first queues; paste-ready at charter typeset)
+
+Parameterized on the two branch-decisions: **[RUNG]** = B.2-staged (default) / B.3 (if
+the AL-P1 GO/NO-GO flips, per §6c — the branch point is post-AL-P1, so the A4 brief is
+written once); **[SLOT3]** = ZZV2-λ (default, §6a K) / FF-EZ2 (swap branch). Modal cost
+classes (all runs default 2 CPU / 4 GB soft + telemetry, per `AGENTS.md` §Modal usage
+guidelines): **C1** = warm statement/elaboration probe, minutes (`ITERATION4-SCAN.md`
+§3.1); **C2** = pilot-file elaboration runs, warm ≈3–15 min; **C3** = donor-tree runs
+(V2+PNT+ build, ≈15–20 min warm, cached layers, M4b2 recipe —
+`zzv2-lambda-prework.md:105–115`). Overrun rule everywhere: guard breach without GREEN
+⇒ stop, diagnose-note in the log dir, report (`lp-layer-prework.md:284–285`
+convention).
+
+**A1 — feasibility upkeep.** Assignment: substrate + ledger for the iteration; fold
+R8's unblock plan when it lands. Deliverable: `feasibility/VERIFICATION-LEDGER.md` (open
+§10), `feasibility/ITERATION4-SCAN.md` upkeep. First milestone (non-pilot): §10 header
++ the generalized axcheck sibling-import rewrite spec (SCAN §3.3 lesson). Overrun guard:
+no Modal runs in item 1; machinery check = one C1 axcheck re-run. Cost class C1.
+
+**A2 — slot 1 (LP layer + 02-core consumer) + 73-Q4 recommendation.** Assignment:
+execute `pilots/lp-layer-prework.md` §5 verbatim. Deliverable: `pilots/lp-layer/`
+(P0.lean, L1.lean, L2.lean + logs; prework file stays A2's). First milestone
+(kernel-checkable): **LP-P1** — `lp_weak_duality` (asymmetric standard form, §2.1
+verbatim from the bridge) + symmetric corollary proved kernel-clean in `L1.lean`,
+inline full-coverage axcheck; guard ≤0.25k LoC (:269–273). Queue item 2: the 73-Q4
+`hRat` discharge recommendation memo (elementary per `FF-sequencing-memo.md:36–44`,
+0.3–0.6k LoC estimate — recommendation only, execution is a separate charter gate).
+Item 3: B-rung launch input to A4 (§6c). Stop gates: no Farkas/strong
+duality/separation, no `sSup` packaging, no 02 Theorems A/B/C (:278–283). Cost class
+C2.
+
+**A3 — [SLOT3] + 50-M2 routes + 75-N2 support.** Default (ZZV2-λ): execute
+`pilots/zzv2-lambda-prework.md` §2. Deliverable: `pilots/zzv2-lam/` (runner + P0 probe
++ `ZZLam.lean` + logs; ownership per :139–144). First milestone (kernel-checkable):
+**P1** — the `ZZLam` file (L0 `LamParams` + L1 `kernelLam`/`C0Lam`-shape defs + L2
+binder-shaped family statements) GREEN on donor+mathlib statements alone, kernel-sum
+side as ONE explicit binder `hKS_lam` (:92–96); guard ≤~300 LoC (:131). P0 (1–2 C3
+runs, statement facts only) precedes and PINS the λ-range — do not guess it (:44–46).
+**STOP rule:** if P0(b) finds the Landau/kernel-sum layer MT-frozen, stop after P1 GREEN
++ diagnose-note; the Landau η-port is a charter decision (:132–135). Posture:
+formalization-first technical record — every phrase routes A5-side (:117–127). Swap
+branch (FF-EZ2): deliverable `pilots/ff-ez2/` + a P0 spec doc first (the 71/73 pattern);
+milestone 1 = the survivor statement elaborated on-pin (C1 probe, tauceti/mathlib-only)
+AFTER A5's dossier-level battery clears it (`iter4-seed-triage.md:19` re-verify mark);
+no guards exist yet — the spec doc must set them before any proof run. Cost class C3
+(default) / C1 (swap probe).
+
+**A4 — slot 2 (AL-3D, [RUNG]) + 75 P-b (sequenced) + 74-T3 option.** Assignment:
+execute `pilots/al-3d-prework.md` §5 (A2's spec, cross-lane handoff). Deliverable:
+`pilots/al-3d/` (AL-P0.lean, AL-P1.lean, AL-P2.lean + logs) + `pilots/75/Pb.lean`
+(A4-owned, `Pb-design.md:11–12`). First milestone (kernel-checkable): **AL-P1** — the
+fibre-geometry core P1-a…P1-d kernel-clean + inline axcheck; guard ≤0.4k (:263–266);
+AL-P0 (statement port, guard ≤0.45k, C1/C2) precedes and is [RUNG]-neutral. [RUNG]
+branch: B.2-staged target = `SlabAreaLawColumnCuts3D` under the `PlanarAreaLawVar`
+binder (AL-P2, guard ≤0.9k); if the AL-P1 GO/NO-GO trips (boundary lift needs
+fibre-generic donor restatement), flip to B.3 — AL-P0/P1 carry over; only AL-P2's
+target statement changes (B.3 replaces counting constants, :77–78). Stop gates: never
+`AreaLaw3D`/progress phrasing without naming a C-item; no full `SlabAreaLaw3D`; no
+donor imports; no binder discharge (:271–276). Queue item 2 (after AL-P1): 75 **Pb-1**
+(the defect-form landing, statement verbatim at `Pb-design.md:20–43`) — Pb-2/Pb-3
+follow; fallback to A3 per §6e if slot 2 runs long. Item 3: 74-T3 ONLY if the charter
+names it (LP-P0 keeps its shape-port; own guard ≤0.6k additional,
+`lp-layer-prework.md:276–277`). Cost class C2 (C1 for AL-P0).
+
+**A5 — novelty batteries + clocks.** Assignment: dossier-level batteries for the three
+slots ([NOVELTY-CHECK-NEEDED] obligations — `ITERATION4-SEED-DOSSIERS.md` header),
+consume R6/R7 when they land, clock sweep (tracker static-asset curl, Liu-2,
+WenrongZou, physlib `FieldStatistics/`+`WickAlgebra/`, mathlib PNT/LP PRs). Deliverable:
+`novelty/round-5.md` + VERDICTS rows. First milestone (non-pilot): slot-1/2/3 battery
+verdicts at dossier grade (the round-4 PART-2 pattern); pre-clear 22-T2a's claim
+wording (§6f). Overrun guard: batteries time-boxed per candidate; no Modal. Cost class
+none (desk work; the tracker curl is not a Modal run).
+
+**A6 — the 10 assembly tranche (D1–D6).** Assignment: execute
+`pilots/10/next-tranche-spec.md` (A6-authored, [CHARTER-PENDING]). Deliverable:
+`pilots/10/` new tranche files + logs. First milestone (kernel-checkable): **D1** — the
+wd↔cw walk agreement lemmas kernel-clean (the tranche's plumbing base; whole tranche M,
+≈1.0–1.6k new LoC, `pilots/10-blueprint.md:188`; D4 = `exists_tm_padded_space` is
+landable without D5/D6 per the blueprint's "charter decides scope/split"). Claim
+discipline: eth-Lib-grade plumbing, no new-math claims except the space conjunct
+(next-tranche-spec §0 :17–24). Overrun guard: tranche-total 1.6k; per-milestone
+diagnose-note convention. Cost class C2.
+
+**A7 — donor probes (G5a + as-chartered).** Assignment: prep the G5a Physlib unblock
+against R8's plan when it lands (boundary known: statement layer imports
+`Region.{State,TraceDistance}` → Physlib @ `a50684a1`; 17 errors/1 module vs our pin —
+`ITERATION4-SCAN.md` §1c A7 row). Deliverable: `feasibility/axiommath-donor-probes.md`
++ `feasibility/probe/ProbeG5a*` + `logs-g/`. First milestone: the re-priced G5a probe
+plan (no run without charter + R8 input; G6a stays priced-and-blocked — 59,222-job
+closure, never re-run without charter). Overrun guard: statement-elaboration probes
+only; any build-class run needs the cached-layer pattern. Cost class C1 (probes) /
+build-class only via cached layers.
+
+**A8 — 72-M1 L3 + interface, then 22-T2a.** Assignment: execute
+`pilots/72-M1/L3-spec.md` (A8-owned continuation; [CHARTER-PENDING]). Deliverable:
+`pilots/72-M1/` L3 files + logs. First milestone (kernel-checkable): **L3a** — per-term
+Hermiticity by symmetrization, ~40–80 LoC kernel-clean (`L3-spec.md:72–86`); then
+L3b/c/d + interface steps i–vi. Queue item 2: 22-T2a binder-shaped S-pilot (§6f) —
+first milestone is statement elaboration only (C1), claim wording pre-cleared by A5,
+T1 NOT fired. Overrun guard: L3-spec's own guards; 22-T2a statement-only until
+charter. Cost class C2 (L3) / C1 (22-T2a probe).
+
+**A9 — dossier hardening + article gate.** Assignment: harden the three slot dossiers
+to full Phase-3 form; instantiate the iteration-4 article template (post-R1) and
+re-classify the standing article set for the two-strike baseline (§3c.5). Deliverable:
+`candidates/` slot dossiers (numbering at spawn), `articles/` template + README rows,
+TRIAGE-ITER4 rows. First milestone (non-pilot): the re-classification table (kind per
+article, the §3b.1 vocabulary) + the slot-1 dossier-hardening record. Overrun guard:
+no Modal; dossiers cite direct-source only (decl-index caveat). Cost class none.
+
+**H — standing.** Launch commit (charter splice + ITERATION4-* kit + this plan);
+concurrency probe at each batch close; custody of `qa/iter4-review/*` landings; STATUS
+cycle-open block. Cost class none.
+
+Spawn order at typeset: A1 → A5 → A9, then A2/A3/A4 (slots), then A6/A7/A8, H last
+(`ITERATION4-CHARTER-SPLICE.md:73–76`). If [SLOT3] = swap, A3's brief needs its P0
+spec doc authorized as a charter line (the spec-before-run rule above).
+
+---
+
+## 8 SPLICE TEXT v2 — the §Iteration 4 block, integration-pass fill (supersedes §1)
+
+All slots resolved; every review input landed by 2026-11-16 evening is folded (R1, R2
+incl. Part B, R3, R4 both parts, R5 §§1–15, R8, `articles/TEMPLATE-iter4.md`). Register
+matches §Cycle 2 (`RESEARCH.md:25–39`). The close-out protocol block is folded near-verbatim
+per R4 §6's instruction ("for R9 to fold verbatim into the Iteration-4 charter conventions
+block"); the orchestrator may compress at typeset.
+
+> ## Iteration 4 (opened 2026-11-16, orchestrator) — raising the discovery bar: complete
+> > the genuine core, bill engineering as engineering
+>
+> Cycle 2 closed 2026-11-14 technically complete — eleven pilots GREEN, final sweep 44/44
+> stages OK with 0 `sorryAx`, TRIAGE §decision typeset, REPORT §C2 filled, AGENTS-C2-DRAFT
+> applied (`STATUS.md:718–754`) — **but its articles drew unsatisfactory external
+> feedback, and the nine-lane review (2026-11-16, `qa/iter4-review/`) confirmed the
+> diagnosis: R2's cold count finds ≈ 4–5 genuine discoveries in the 18-article corpus
+> (01, 30, 32, 75's conditional statement class), with the Cycle-2 "discovery headline"
+> a donor-swap whose own article says "There is no new analytic mathematics"; R1 finds
+> the set "individually near-competent and citation-excellent, and collectively
+> unacceptable as a research-article corpus" (engineering records in article clothing,
+> house-dialect status lines, seam contradictions). R3's trace audit held: 19/19 articles
+> VERIFIED, no mathematical overclaim — the verification chain is sound, and the verdict
+> is about discovery strength and packaging, not proof integrity. R4 confirms both cycles
+> delivered their charters (one delivered-differently, recorded) and upgrades the
+> close-out protocol (adopted below).** Iteration 4 therefore re-charters with a raised
+> discovery bar and a corrected billing discipline over the five corpora (mathlib,
+> tauceti, openai-math, anthropics, axiommath) plus the Cycle-2-surfaced donors and gaps;
+> the seed inventory is pre-assembled (`feasibility/ITERATION4-SCAN.md`,
+> `ITERATION4-SEED-DOSSIERS.md`, A5's `novelty/iter4-seed-triage.md`,
+> `novelty/physlib-surface.md`) and the backlog consolidated (`qa/iter4-review/
+> r5-iteration4-backlog.md`, §§1–15 with execution specs).
+>
+> **Quality gate (adopted; normative here, operational in `articles/TEMPLATE-iter4.md`).**
+> An article ships only through the template — kind declaration (DISCOVERY /
+> DISCOVERY-CONDITIONAL / NEGATIVE / FORMALIZATION-FIRST), per-theorem status rows in the
+> closed four-string vocabulary (PROVED-UNCONDITIONAL / PROVED-CONDITIONAL / CERTIFIED-
+> NUMERIC / PAPER-ONLY), a novelty table with ≥ 2 nearest-miss rows, per-theorem
+> verification blocks per R3 §5 (sha256-at-sweep, extractor-generated counts, binder
+> inventories), no infrastructure narration, and the full §9 shipping checklist. A
+> candidate is article-eligible only if it passes R2's four-point strength bar S1–S4
+> (statement-level novelty with named nearest-miss; essential multi-corpus bridge;
+> non-trivial proof content or a surprising statement; discharge discipline — corollary-
+> level lemmas never pass S1). Donor swaps, binder discharges, open-headline tranches,
+> certified numerics and formalization-first layers are first-class ENGINEERING
+> deliverables — technical records, dossier notes, ledger rows — never discoveries; an
+> upgraded theorem is revised to v2 in one versioned article, never split. Two-strike
+> rule, FINAL: at most **one** knowledge-level / formalization-first / donor-discharge
+> article per cycle (reserved for the exceptional forced-correction class), and ≥ half of
+> shipped articles each cycle must be discovery-grade.
+>
+> Phase mapping: Phases 1–2 pre-done, Phase 3 pre-done at pre-dossier level — the run
+> starts at dossier hardening and Phase-4 triage. **Launch order (R5 §7a, adopted):**
+> (1) **75 P-b, the 5/6 strip-distinct arm — day-1, the iteration's top-billed discovery
+> milestone**: completion of the one Cycle-2 statement class that survived audit
+> (n-fold abelian-assembly ζ_L proportions; Pb-1/Pb-2/Pb-3 over the GREEN Pa.lean carry;
+> conditional-titled per S4(b); DLRT / Bansal–Maji / article-42 nearest misses). (2) The
+> **LP-duality layer + 02-core consumer, same week, chartered as the named ENGINEERING
+> deliverable** (never an article; Lean-ecosystem-scoped claim only — the Isabelle AFP
+> trio `LP_Duality`/`Linear_Programming`/`Farkas` and Coq 1706.10269 own the theorem
+> class and are mandatory nearest-miss citations alongside Yamashita and the mathlib
+> `Analysis/Convex/Cone/Basic.lean:33–37` TODO; `lp_weak_duality` + `bw2_ceiling_of_dual`
+> per R5 §9). (3) **AL-3D, B.2 staged** — `SlabAreaLawColumnCuts3D` under the honest
+> `PlanarAreaLawVar` binder (never an AreaLaw3D-adjacent headline; every claim names its
+> C.1–C.4 fence; **the B.2/B.3 branch sits at the post-AL-P1 GO/NO-GO**, AL-P0/P1 serve
+> both rungs; B.3 is the designated iteration-5 rung at R5's 6.3k-LoC transcription
+> pricing). (4) **ZZV2 λ-family route (a)** — engineering/technical-record deliverable
+> (Lamzouri owns the informal math and is must-cited in full; hard STOP after P1 GREEN if
+> the Landau layer is MT-frozen). (5) **72-M1 L3 + the interface theorem**. **Companion,
+> day-2/3 (R5 §14 run 8): the hEχ discharge at the zeta23 donor pin** — build zeta23's
+> small v4.33 tree once (`crossmath-pilot-zeta23E`, own image lineage, C3 [LAYERS]
+> hour-class at SPEC), transitive `#print axioms` of the Theorem-E chain, consumer
+> elaboration in-tree, statements port back as discharged 2/3 binders; **COMPANION
+> billing to 75-Pb — two binder tiers of the ONE 75 statement-class article** (the 2/3
+> tier unconditional at ℚ = the cycle's strongest S4(a) move, a previously-open binder
+> discharged in the article; the 5/6 distinct tier conditional; the quadratic-ζ_K 2/3
+> zero-analytic-binders corollary as the third tier; R5 §14.1). Slot ledger + evidence
+> formats + OPEN markers: `qa/REPORT-INPUTS-ITER4.md`. Behind them:
+> 73-Q4 `hRat` (GO input per R5 §13; dossier-upgrade note on GREEN, `hPur` stays a
+> binder), 74's T1+T2+T4 discovery-dense core (T3 rides the LP layer), the 10 assembly
+> tranche D1–D4 (week 2; declared plumbing — completion value, never discovery billing),
+> FF-EZ4 + 22-T2a (binder-shaped, statement-first; G9 preflight; PNT+ registration T1 NOT
+> fired), 75-N2, and the bench (41, 12, FF-EZ2 behind its battery, physlib occupation-pair
+> probe). Carried at binder tier only: 50-M2 R2/R3 (R1 landed GREEN in Cycle 2; article
+> 50-M2 final). **Donor-route verdicts (R8, adopted):** DZDF direct build is
+> dead-as-specced (≤ 4 of 62 first-wave errors shim-addressable; ≈ 6.3k-module closure;
+> no consumer — the binder tier already landed); the Physlib/G5a direct route is dropped
+> (AL-3D needs zero Physlib; G10 stays specced on the shelf, fire-gated on a chartered
+> consumer); upstream PNT+ stays DEFERRED (T1/T2/T3 unfired; v4.35.0); Weil stays at the
+> statement tier (Stacks direct import dead; the G3/pilot-71 path IS the consumption
+> route). QuasiRiemannTracker is a CLOCK, not a donor. **Watch (R6's fresh-bridge scan,
+> `novelty/iter4-fresh-bridges.md`):** five FB seeds — FB-1 zero-temperature entropic
+> duality + the tropical substitution-rule question (tauceti OT × OAI tropical × the
+> seed-9 LP layer); FB-2 effective corollaries of the 7/8 / Landau–Siegel donors
+> (PNT-in-AP at x^{7/8+δ}-grade error); FB-3 an irrationality-exponent object layer
+> (OAI × mathlib `LiouvilleWith` × tauceti badly-approximable); FB-4 the function-field
+> PNT (tauceti's general Wiener–Ikehara × Weil rationality, statement-binder); FB-5 the
+> Laughlin/Fock inequality on tauceti's graded CAR (occupation-sector reduction) —
+> **grades provisional: R2 is re-grading them under the bar**; no FB charter before its
+> dossier-level battery. Two unregistered PROVED openai-math donors recorded:
+> `OAI.SiegelZeros.exists_absolute_real_zero_gap` (uniform Landau–Siegel exclusion,
+> `(1−β) log q ≥ c`; preprint *Uniform exclusion of Landau–Siegel zeros*, 2026-10-01,
+> Thm 1) and the `OAI.PiExponent` tree (μ(π) = 2 + Flint–Hills summable; trace record
+> `reasoning_traces/irrationality-exponent-of-pi.pdf`; the adjacent QRH paper2 Thm 1.1
+> = 11/12 is itself unformalized and dominated in-corpus by the G7b-audited 7/8 tree) —
+> **DO-NOT-CONSUME until the G11/G12 statement-binder probes register them** (Liu-1
+> convention: v4.34.1 pin, binder-only, on-pin triad check first). FB-2's PNT-AP shape
+> is the PNT+ watchlist's T2 trigger — **watchlist posture only, registration not
+> fired**. Week-1 drain review (orchestrator): take the completion-path elevation
+> decisions — 01-stability and 32-crossing when R2's specs land (hEχ already folded at
+> run 8; 30-Theorem A behind them).
+>
+> Lane topology: nine lanes + H, queue-loaded re-tasks, one writer per file, H-commit
+> cadence + concurrency probe (assignments: `qa/iter4-review/r9-iteration-plan-draft.md`
+> §9). Ground rules carried verbatim: discovery-first, kernel-only (no sorry, no
+> native_decide, no external CAS), siblings read-only, exact citations for every claim;
+> donor statements enter only as hypothesis binders, verbatim marked probe copies, or
+> already-built on-pin libraries; logs persisted with provenance headers; Modal usage per
+> the mandatory guidelines (2 CPU / 4 GB default, telemetry every run, overrun ⇒
+> investigation; new apps clone the 73/75 runner pattern with textually identical
+> `run_commands` for layer-cache sharing). Substrate: `feasibility/ITERATION4-SCAN.md` §3
+> + R8 §5 (runner kit, cost classes at SPEC, artifact-cache retry ≤ 4 then seed-and-build).
+>
+> **Close-out protocol (adopted from the Cycle-2 close audit, `qa/iter4-review/
+> > r4-process-completeness.md` §6).** (1) **Scoped final gates** — every close gate grep
+> > is scoped to the live section of its target file
+> > (`! sed -n '/^## <live-section>/,$p' <file> | grep -q '<retired-string>'`), never the
+> > whole file; a gate that cannot pass invites silent overrides. (2) **Gate-run
+> > persistence** — the final run of every gate executes on the exact tree being closed
+> > and its results table (gate / command / result / date / commit) is committed with the
+> > close block; failures are fixed-and-rerun or recorded `OVERRIDDEN — reason — owner`;
+> > "passed by inspection" is not a state. (3) **INDEX refresh is a close gate** — close
+> > is not declared until INDEX.md reconciles both directions against disk (every new row
+> > dated and source-cited; stale-status rows rewritten in the same pass). (4) **Date
+> > discipline** — dates in typeset records come from the decision-log row or the commit,
+> > never memory; before the close commit the tree greps clean of future and split-mind
+> > dates. (5) **Staging-file supersession** — when a staged block is spliced or decided,
+> > the staging file gets its superseded/selected stamp in the same commit.
+
+Deltas vs §1 (v1): subtitle and close-summary now carry the quantified review verdict
+(R2's 4–5-of-18, R1's collection-failure line, R3's chain-held line); the slot list is
+re-ordered to R5 §7a's launch order with billing labels (75-Pb discovery day-1; LP
+engineering — v1 had LP as slot 1 with article-gated consumers; R2 S1 removes LP's
+article eligibility entirely); B.2/B.3 branch moved from "decided at launch" to the
+post-AL-P1 gate; ZZV2-λ's posture hardened from "technical-record expectation" to
+chartered engineering deliverable; the two-strike cap is N=1 FINAL (was N=2 provisional);
+R8's route verdicts and the R5 queue ranks 6–15 replace v1's carried/watch prose; the
+close-out protocol block is new. §1's honesty corrections (50-M2-R1 landed; 72-M1-L3 and
+10-tranche carried) survive inside the new ordering.
+
+## 9 PHASE-B LANE BRIEFS v2 (de-parameterized; supersedes §7)
+
+Branches resolved: [RUNG] = B.2 staged, formal branch at the post-AL-P1 GO/NO-GO
+(coordinator decision (c), R5 §11 adopted); [SLOT3] = KEEP ZZV2-λ as engineering
+deliverable (decision (a), R5 §12 adopted). Lane key stays the §7 A-key (R5 §15 defers
+to it as typeset-ready, picking up exactly two deltas, both applied here: 75-Pb's day-1
+lane per decision (e), and the 73-Q4 memo's home). Modal cost classes follow R5 §2 /
+R8 §5b at SPEC: C1 warm probe (minutes), C2 pilot milestone (≈3–15 min; heavy-import
+variants read ≈5–6 GB RSS by mmapped-olean residency — inherent), C3 donor-tree
+(≈1–2 h at SPEC). Overrun rule everywhere: guard breach without GREEN ⇒ stop,
+diagnose-note, report; fix rounds need a written error-class hypothesis.
+
+**A1 — feasibility + gate machinery.** (1) Generalize the make_axcheck sibling-import
+rewrite to map every staged name → ALL sibling TARGETS imports (absorbs the coming
+`AxL1→L1` and `al3d A2→A1` cases; R5 §5 L7 item 1 + R8 §7b wrapper debt: patch the two
+stale xyz wrappers `pilots/32/run_pilot.sh:15–16`, `feasibility/probe/run_probe.sh:15–16`).
+(2) Ledger §10 rows + sweep TARGETS for every landing. (3) The G5a decision memo
+(fix-forward vs mathlib-only; coordinate R8 §2; G10 stays shelf, fire-gated).
+Deliverable: `feasibility/VERIFICATION-LEDGER.md`, `feasibility/probe/*`. First milestone
+(non-pilot): the generalized rewrite, proven on the pilot-11 case. Cost class C1.
+
+**A2 — LP pilot (the engineering deliverable) + the 73-Q4 memo.** Execute R5 §9 verbatim.
+(1) LP-P0 probe (`P0.lean` ≤0.15k; doubles as the artifact-cache health ping — R5 §14
+run 1). (2) LP-P1: `lp_weak_duality` (M0.1) + `lp_weak_duality_symm` (M0.2) proved
+kernel-clean in `pilots/lp/L1.lean`, inline full-coverage axcheck, guard ≤0.25k; GO/NO-GO
+at §9a's inventory (convexity/separation/`Matrix` reach = stop). (3) LP-P2:
+`bw2_ceiling_of_dual` in `L2.lean` (imports L1 — flag the sibling rewrite to A1), guard
+≤0.7k; 74-T3 stays statement-port-only unless chartered. New app `crossmath-pilot-lp`
+(clone `pilots/75/run_pilot.py`, textually identical `run_commands`). Billing:
+engineering deliverable, no article under any outcome. (2nd queue item) the 73-Q4 gate
+recommendation memo — R5 §13's input is GO; the memo is the charter line, execution
+separate. Deliverable: `pilots/lp/*`. First kernel-checkable milestone: M0.1 GREEN.
+Cost class C1/C2, 1–3 runs per stage.
+
+**A3 — 75-Pb day-1 (top-billed discovery milestone) + ZZV2-λ + binder-tier routes.**
+(1) Execute R5 §8 verbatim: `Pb.lean` = Pa.lean carried verbatim + E1–E6 (+0.25–0.35k
+LoC), first milestone E1 `addFinOver_cons` + E2 `commonStripCum_add_le` + E3
+`commonStripCum_addFin_le` GREEN (R5 §14 run 2, warm `crossmath-pilot-75`); then E4–E6 →
+Pb-1/Pb-2/Pb-3; guards 0.45k-LoC/6-runs/F1-F2-3-runs; fallback = iterated 2-factor defect
+(§8e, enumeration-dependent, honestly noted); acceptance per §8f (full-coverage prints,
+zero donor imports, no U+2032 primes). Billing: discovery completion of the 75 statement
+class, conditional-titled per S4(b) — the cycle's first H-commit celebration.
+(2) ZZV2-λ per R5 §12: P0 probe on the V2 tree (pins the Landau η-genericity question;
+C3, ≈1–2 h at SPEC, queued LAST in the 48h window), P1 `ZZLam.lean` ≤300 LoC
+binder-shaped GREEN, STOP-after-P1 rule; technical-record billing, Lamzouri must-cites.
+(3) 50-M2 R2/R3 binder-tier notes + 75-N2 (d1)/(d2) co-staging (post-P-b). Deliverables:
+`pilots/75/Pb.lean`, `pilots/zzv2-lam/*`, `pilots/50/*`. First kernel-checkable
+milestone: E1–E3 GREEN, day 1. Cost class C2 (75) / C3 (ZZV2).
+
+**A4 — AL-3D B.2 only.** Execute R5 §11 verbatim. (1) AL-P0: the frozen statement
+skeleton M0.1/M0.2 + `PlanarAreaLawVar` + encoding cluster, mathlib-only, guard ≤0.45k
+(template `ProbeG4_AreaLaw.lean`). (2) AL-P1: fibre core P1-a…P1-d, guard ≤0.4k; the
+GO/NO-GO here is the B.2/B.3 branch point (flip to B.3 = swap AL-P2's target statement
+only; AL-P0/P1 carry over). (3) AL-P2: `SlabAreaLawColumnCuts3D` under the binder,
+guard ≤0.9k, honestly weaker-than-frozen labeling. New app `crossmath-pilot-al3d` (clone
+73 pattern). Stop gates per R5 §11d (no `AreaLaw3D` progress phrasing without a C-item;
+no full `SlabAreaLaw3D`; no donor imports; no binder discharge). Billing:
+substrate + conditional rung-stone, never a headline. Deliverable: `pilots/al3d/*`.
+First kernel-checkable milestone: AL-P1 P1-a…P1-d. Cost class C1/C2 heavy-import.
+
+**A5 — novelty battery + clocks.** (1) Dossier-hardening batteries for the chartered
+items (mathlib-Cone/LP-PR clock; Lamzouri λ-window and constant shapes; third-party
+formal activity on AreaLaw2D's 3D layer; consume R6/R7 on landing — battery-finality
+BLOCKED until they do). (2) Debts f/g/h/l discharge lines; Rosen ch.-number spot-check
+(due at Q4); 72's α>1 Rényi re-check (due at 74 pilot). (3) Standing clocks (tracker
+static-asset curl w/ `as_of`+commit-date convention, Liu-2, physlib `pushed_at` +
+`QuantumInfo/ForMathlib` wing sweep per R8 §2b correction, WenrongZou, mathlib PRs).
+Deliverable: `novelty/round-5*`, VERDICTS, CLAIMS-REGISTER. Non-pilot. Pre-clears 22-T2a
+claim wording and the FF-EZ2 dossier-grade re-verification (debt g pin).
+
+**A6 — bench activator (week-2).** (1) Week-1: pilot close-out support + readiness
+checks on `pilots/10/next-tranche-spec.md` (scope split D4-without-D5/D6 pre-decided).
+(2) The 10-tranche D1–D4 on first lane-drain or the charter scope call — first
+kernel-checkable milestone D1 (wd↔cw walk agreement lemmas); tranche guard 1.0–1.6k;
+declared plumbing, never discovery-billed. (3) 41 q-deformed-eight-square re-scope probe
+as second drain-filler. Deliverable: `pilots/10/*`. Cost class C2.
+
+**A7 — donor probes.** (1) G9 StrongPNT statement-binder transcription probe
+(conditional on the 22-T2a charter; `ProbeG9_StrongPNT.lean`, g-mode in
+`crossmath-gprobe`, warm; R8 §3). (2) G10 stays shelved — no run without a chartered
+consumer (72-M1 Tier-B or `PlanarAreaLawVar` discharge); G8 NOT recommended (R8 §1d).
+(3) Substrate probes as chartered. Deliverable: `feasibility/axiommath-donor-probes.md`,
+`feasibility/probe/ProbeG*`, `logs-g/`. First milestone (non-run): the G9 probe file
+staged. Cost class C1.
+
+**A8 — 72-M1 L3 + 22-T2a.** (1) Execute `pilots/72-M1/L3-spec.md`: first
+kernel-checkable milestone L3a (`hermPart_isHermitian`/`opNorm_hermPart_le`/
+`hamiltonian_hermPart`, ~40–80 LoC) then L3b/c/d + the interface theorem; ≤8 warm runs
+(reuses `crossmath-probe` — R5 §14 run 6); Tier-C only. (2) 22-T2a binder-shaped
+S-pilot: statement elaboration ONLY after A5 pre-clears wording and A7's G9 validates
+the binder shape; T1 NOT fired; no priority claims beyond the scoped T2a statement.
+Deliverables: `pilots/72-M1/*`, `pilots/22/*`. Cost class C2 / C1.
+
+**A9 — dossiers, records, article gate.** (1) Dossier 74 hardening to full Phase-3 form
+(T1+T2+T4 scored core; T3 rides LP) — unlocks the rank-7 pilot on the first draining
+lane. (2) Pilot-outcome records for A3/A8 landings; TRIAGE-iter4 sync against R5.
+(3) **Article-gate enforcement**: the re-classification baseline (R2 §8 target 5
+discovery-grade / 9 technical records / 1 certificate moved / 2 merged), template
+instantiation for any new article, and the two-strike ledger at N=1; execute the R2/R1
+restructure pass 2 with H as ONE sequence once the orchestrator approves R2's §8 plan
+(R4 §7 coordinates the exact edits). Deliverable: `candidates/74*`, `articles/*`,
+TRIAGE-iter4 rows. Non-pilot.
+
+**H — standing.** Pre-splice batches A+B (pre-approved, R4 part 2); batch C rides the
+splice commit; launch commit (splice + ITERATION4 kit + review files + this plan);
+concurrency probe at each batch close; `qa/iter4-review/*` custody; STATUS cycle-open
+block; ORCHESTRATION-ITER4 re-key to the §9 duties.
+
+## 10 LAUNCH-DAY CHECKLIST v2 (supersedes the §1.1-referenced A1 checklist)
+
+1. **Pre-splice (H):** apply R4 batches A+B (pre-approved one-liners + INDEX refresh);
+   the orchestrator records the R2-restructuring approval (pass 2 then executes as ONE
+   post-splice sequence per R4 §7 — README kinds/folds, filename rename, TRIAGE/REPORT
+   C3 rewording, coordinated with batch-B rows).
+2. **Splice commit (H, on `dev/iteration4`):** orchestrator typesets §8's splice text
+   into `RESEARCH.md` §Iteration 4 (nothing left to fill — v2 is decided text; the
+   orchestrator may compress the close-out protocol block); R4 batch C applied in the
+   same commit (C1 = §Cycle 2 close-out record paragraph; C2 = STATUS:761 debts line);
+   STATUS cycle-open block; ORCHESTRATION-ITER4 re-keyed to §9 duties; commit includes
+   the ITERATION4 kit + all `qa/iter4-review/` files + this plan.
+3. **Lane re-task:** orchestrator re-tasks the nine R-lanes to the §9 A-duties with the
+   briefs above (paste-ready). Spawn order: A5 → A1 → A9 first (gate inputs, machinery,
+   baseline records), then **A3 (75-Pb, day-1 milestone) + A2 (LP-P0 same day)**, then
+   A4, A8, A7, A6 (week-2 activator), H standing; concurrency probe
+   (`ps -eo comm --no-headers | grep -cx zcode-cli`) at each batch close, steady ≈
+   lanes+1.
+4. **First Modal runs — staged-then-approved:** R5 §14's ten-run queue governs the first
+   48 h (every row STAGED-NO-RUN; the approval column resolves at charter typeset). All
+   runs SPEC 2 CPU / 4 GB + `@telemetered` + `LEAN_NUM_THREADS=2`; the three new apps
+   (`-lp`, `-al3d`, `-zzv2-lam`) clone the 73/75 pattern with textually identical
+   `run_commands` (first-run image build = layer-cache hit — do not reword fetch lines);
+   LP-P0 run 1 doubles as the artifact-cache health ping (retry ≤ 4, then seed-and-build);
+   ZZV2-λ P0 runs LAST (the only cold-class item, ≈1–2 h at SPEC, 3-h timeout;
+   image-layer caching is a launch-day option, not a default); G9 is conditional on the
+   22-T2a charter; any run needing > 4 GB re-asks with fresh telemetry (the G7b 8 GB
+   approval is spent).
+5. **Gate disciplines live from day 1:** TEMPLATE-iter4 mandatory for any article (R1's
+   banned status vocabulary; R3's per-theorem verification blocks, extractor-generated
+   counts, sha256-at-sweep; README row in the same commit); billing labels on every
+   artifact from its first commit (75-Pb = discovery-completion conditional-titled;
+   LP/ZZV2-λ = engineering/technical record; AL-3D = substrate/rung-stone; 10-tranche =
+   plumbing; 73-Q4-GREEN = dossier upgrade note, no article even on success); R4's five
+   close-protocol rules apply immediately where they touch daily work (date discipline,
+   staging-supersession stamps, dated+cited INDEX rows at landing); the two-strike
+   ledger (N=1) opens with A9's re-classification baseline.
+6. **What still gates what:** **R6 (fresh bridges) and R7 (external prior art) have NOT
+   landed** — they block article shipping and A5's battery-finality declarations, NOT
+   the splice or the pilot launches; their outputs merge per the standing protocol
+   (nearest-miss tables, clock sweeps). **R3 landed during this pass** and is consumed
+   (19/19 VERIFIED; §5 protocol folded into the day-1 disciplines) — receipt
+   confirmation rests with the orchestrator. **Cap-N is RESOLVED** (N=1 FINAL,
+   coordinator correction; no longer gated on R2's next drain). **Open, non-blocking:**
+   the R2 §9 completion-path elevation (75/42-hEχ donor-build discharge as the flagship
+   continuation, 01-stability, 32-crossing, 30-Theorem A) is NOT in R5's ranked queue —
+   R5's §7 reconcile predates R2's Part B; recommend the orchestrator take the
+   elevation decision at the week-1 drain review (the hEχ route is R2's own "cheapest
+   path to a genuinely unconditional theorem in the flagship statement class" and would
+   absorb the 75-N2 rank-10 item).
+
+— end R9 plan draft v3 (§§1–7 + §8 splice v2 + §9 briefs v2 + §10 checklist v2; §6
+decision memos stamped with the orchestrator's recorded decisions incl. the (b)/(e)
+corrections). No files outside this deliverable were modified; no Lean work; no Modal
+runs.

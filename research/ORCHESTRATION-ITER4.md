@@ -14,4 +14,4 @@ first, then pilot phase. Maintained by H on orchestrator signal.
 | R6 | fresh corpus bridge re-scan | writing novelty/iter4-fresh-bridges.md | active | 2026-11-16 |
 | R7 | external prior-art web check | writing deliverable under qa/iter4-review/ | active | 2026-11-16 |
 | R8 | donor/feasibility engineering | v1 + drain LANDED (iter4-donor-unblock-plan.md + wrappers patched + G9/G10 staged + template verified PASS, batch 11) | delivered v1 | 2026-11-16 |
-| R9 | synthesis/charter draft | v1 LANDED (r9-iteration-plan-draft.md, batch 5): splice fill + lane plan + quality gate; awaiting R1–R8 merges ([MERGE: Rx] cells) | delivered v1 | 2026-11-16 |
+| R9 | synthesis/charter draft | integration pass LANDED (§6–§10: memos, briefs v2, SPLICE v2, checklist v2, batch 15); final touch-up owed (R5 tail/hEχ + R6 + R7) | integrating | 2026-11-16 |
