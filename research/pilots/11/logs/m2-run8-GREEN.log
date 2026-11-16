@@ -27,3 +27,10 @@
 [p11]   RedCompA.lean: OK
 [p11]   RedCompB.lean: OK
 [p11]   RedTm2.lean: OK
+
+# Correction (R3 audit, 2026-11-16): RedTm2 final on disk is 421 LoC (article 11
+# addendum and ledger §9 row carry 421); run8 elaborated a 410-line predecessor.
+# Elaboration + axiom evidence of record for the 421-line file:
+# m2-axcheck-final.log (RedTm2 12 axiom-lines, 0 sorryAx) and
+# stepB-c2.log AxPilot11_RedTm2 (OK, 12 axiom-lines, 0 sorryAx), both staged from
+# the current bytes.

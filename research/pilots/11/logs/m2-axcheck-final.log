@@ -26,3 +26,11 @@
 [ax] SUMMARY
 [ax]   AxPilot11_P11T3.lean: OK | 64 axiom-lines, 0 with sorryAx
 [ax]   AxPilot11_RedTm2.lean: OK | 12 axiom-lines, 0 with sorryAx
+
+# Correction (R3 audit, 2026-11-16): this log persists ONLY the two [ax] verdict
+# lines (:16–17) and the RedTm2 prints (:18–25). The "P11T3: 64 axiom-lines" claim
+# at :13 is TALLY-ONLY — the P11T3 print lines were not captured. The P11T3 axiom
+# evidence of record is the Cycle-2 final sweep:
+# feasibility/probe/logs/stepB-c2.log:533 (AxPilot11_P11T3 OK; 71 axiom-lines,
+# 0 sorryAx) + excerpted prints :534–586 (all ⊆ triad), mirrored at
+# VERIFICATION-LEDGER.md §9.F. Cite both artifacts for P11T3.

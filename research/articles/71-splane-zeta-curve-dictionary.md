@@ -6,7 +6,7 @@
 `research/bridges/function-field.md` §4 (FF-EZ1)*
 
 **Status: PROVED, FINAL.** The three landing theorems W1, W2 and HW, together with the
-dictionary layer, are kernel-verified. P2.lean has 279 lines and 11 theorems, each with
+dictionary layer, are kernel-verified. P2.lean has 282 lines and 11 theorems, each with
 axioms exactly `[propext, Classical.choice, Quot.sound]`. They are conditional on a
 hypothesis structure (`WeilData`) that transcribes the Weil conjectures as stated in
 AxiomMath's `Weil` repository. The mathematics is classical (Weil 1948). The
@@ -157,7 +157,7 @@ give the bound Σ_{α∈A₁} (√q)^m. This equals |A₁| · (√q)^m by
 |---|---|---|---|
 | `pilots/71/P0.lean` | statement probe (header: "not a proof artifact"; 4 stubs) | — | elaborates (runs 1–4) |
 | `pilots/71/P1.lean` | dictionary layer | 7 lemmas | GREEN, all triad (runs 3–4) |
-| `pilots/71/P2.lean` | landing theorems (P1 carried verbatim) | 279 lines, 11 theorems | GREEN `p2-run6.log`; all triad |
+| `pilots/71/P2.lean` | landing theorems (P1 carried verbatim) | 282 lines, 11 theorems | GREEN `p2-run6.log`; all triad |
 
 The error count went 6 → 4 → 2 → 1 → 0 over p2-run1…6. The in-file `#print axioms`
 covers all 11 theorems, and every one reports exactly

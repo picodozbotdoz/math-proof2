@@ -117,7 +117,7 @@ zero; no theorem implies even S₁ = o(N).
 
 ## 5. Formal verification
 
-| item | Lean (`CrossMath.Pilot20`, `research/pilots/20/M1.lean`, 576 LoC) |
+| item | Lean (`CrossMath.Pilot20`, `research/pilots/20/M1.lean`, 582 LoC) |
 |---|---|
 | card transcription | `Card20` (fields ef/rvm/cheb/mv/gamma at `Zeta23/ThmE/Hypotheses.lean:48,67,83,107,125` shapes), `ChebyshevMertensCard`, `MVHilbertCard`, `RvMCard`, `GammaFactsCard`, `EFCard` |
 | engine seam | `EngineStep`, `TracesFamily` (between SWAP-START/END markers) |

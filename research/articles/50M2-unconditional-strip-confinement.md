@@ -64,7 +64,7 @@ which the consumer files elaborate on the cached top layer.
 
 ## 2. Setting
 
-`R1.lean` (178 lines) is elaborated inside the donor workspace (v4.34.1, mathlib
+`R1.lean` (180 lines) is elaborated inside the donor workspace (v4.34.1, mathlib
 `d13f23b7`). It carries pilot 50's main-run cores, ported down from v4.36 (`push Not` was
 replaced by `not_le.mp`; nothing else changed).
 - `IsNontrivialZeroP50 ρ` :⟺ ζ(ρ) = 0 ∧ 0 < Re ρ < 1. This is zeta23's

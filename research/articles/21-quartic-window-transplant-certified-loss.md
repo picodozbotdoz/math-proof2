@@ -4,7 +4,7 @@
 `research/candidates/21-quartic-window-zeta-thmD.md` · milestone note
 `research/pilots/21-milestoneC.md`*
 
-**Status: CERTIFIED NUMERICALLY, not kernel-verified.** The inequality below is established
+**Status: CERTIFIED-NUMERIC — computationally certified by an external stdlib-only script; not a proof under the project's kernel-only standard; excluded from proved-artifact counts.** The inequality below is established
 by exact rational arithmetic plus rational interval enclosures of √2, sin and cos with
 explicit Taylor remainders (a stdlib-only Python script, reproducible from the milestone
 note §6). It is a negative result. The in-Lean proof path is specified but not executed.
