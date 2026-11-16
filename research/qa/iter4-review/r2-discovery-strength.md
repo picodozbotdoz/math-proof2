@@ -884,9 +884,11 @@ formalization gap, riskless, rides an existing lane; feeds R9's quality-gate sto
 - **42-M4 integrated-merge into article 42 (§Cycle-2 addendum): R2 CONCURS** — matches
   this lane's §8 MERGE verdict (effort M; M4a vocabulary + donor-hygiene trail to the
   pilot record/ledger; main-run sections untouched, append-only).
-- **10 keep-relabel (no rename): R2 CONCURS** — the softer of the two options §7.2-A1
-  offered; the R6+RELABEL row edit and the OPEN-leading status line carry the fix, and
-  skipping the rename avoids the cross-reference sweep.
+- **10 keep-relabel (no rename): R2 CONCURS — SUPERSEDED post-execution (2026-11-16,
+  orchestrator relay): the rename + full cite-sweep was already executed and R4-verified
+  (H commit `20af866`), so the no-rename option is MOOT; R2 concurs with the executed
+  rename (`10-layers-toward-uniform-poly-space-eth-refutation.md`) — reverting would be
+  pure churn. The §7.2-A1 row edit (R6, OPEN-leading status) stands as written.
 - **21 demote (certificate moved out of articles): R2 CONCURS** — matches §8
   DEMOTE-to-dossier; certified numerics are not an article under the adopted bar and
   TRIAGE had already demoted the candidate.

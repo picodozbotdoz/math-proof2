@@ -17,6 +17,7 @@ each [MERGE: Rx] resolution). Entry order = landing order.
 | 9 | R2 (3rd) | `r2-discovery-strength.md` §10 + rewrites 20/72 | hEχ-discharge mini-spec (zeta23 ThmE verbatim, binder-port verified green in pilots/42/M2b.lean:1067; effort M/Modal S) + two REWRITE-FULL replacement texts |
 | 10 | R8 (2nd) | donor-unblock §8 + `AGENTS-ITER4-DRAFT.md` | First-48h approval packet (10 cards; cache-ping = LP-P0 first; no >4GB requests; inherent-mem pre-flag on donor-build cards 8–9) + E1–E4 AGENTS addendum draft (NOTHING applied) |
 | 11 | R1 (2nd) | `r1-rewrite-50v2.md` + `r1-swapin-runbook.md` (+ 42v2 R3 fills, README resolutions) | 50+50-M2 merged technical-record draft; 8-step GO-triggered swap-in runbook with verification greps (R4 verifies); NO execution |
+| 12 | R2 (4th) | `r2-discovery-strength.md` §§11–13 | R6 seed re-grades (FB-1 watch / FB-2 split-infra / FB-3 kill / FB-4+5 iter-5); completion mini-specs 01-stability + 32-crossing; R1-split concurrence (rename-moot note: the executed article-10 rename STANDS, no revert) |
 
 ## R9 — r9-iteration-plan-draft.md (landed 2026-11-16, batch 5)
 
