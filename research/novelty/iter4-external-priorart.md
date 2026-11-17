@@ -218,7 +218,10 @@ first") is exactly right. No action.
    (class groups / small generators via OpenAI + CT); Grobner arXiv:2610.24900
    (Euclidean totally real abelian fields); Banks–Shparlinski arXiv:2610.19597;
    Visser arXiv:2610.20058 (primes between 8th powers under the 7/8-QRH);
-   Hakimoglu-Brown arXiv:2610.12803 (Λ ≤ 0.13963 **conditional on the 7/8 strip**).
+   Hakimoglu-Brown arXiv:2610.12803 (Λ ≤ 0.13963 **conditional on the 7/8 strip**);
+   Walsh arXiv:2610.40439v2 (shifted divisor correlations — v2 bibliography cites the
+   openai/math QRH 7/8 zero-free preprint of 30 Sept 2026 as zero-free-region input;
+   cite-level row, usage role not visible on the abs page — A7 clock check 2026-11-17).
 3. **ζ-side proportion constants** (dossiers 42/75 upgrade budget): Lamzouri
    arXiv:2609.02882 (0.6725/0.83625 + NEW 88.76% simple-or-on-line — a NEW donor
    endpoint shape ZetaZerosV2 does not yet export); Knausgård arXiv:2610.08965

@@ -67,3 +67,35 @@ attempt frames our polarized bilinear form as new).
   owed at draft).
 
 — lane A7, 2026-11-17. Scratch PDFs (/tmp) discarded after this record per convention.
+
+---
+
+## §30 (dated 2026-11-17, lane A7) — article-30 prior-art re-confirmation (A9 upgrading now)
+
+*Theorem-B class re-swept for 2026 arrivals since the main-run check (2026-11-09):
+second-quantization operator identities, combinatorial boson calculus, formal-venue
+competitors. All sources accessed 2026-11-17.*
+
+**Verdict: NOVEL (re-confirmed; no 2026 competitor, no formal-venue competitor).**
+Evidence: (a) the combinatorial boson-calculus line — Blasiak–Duchamp–Penson et al.,
+"Combinatorics and Boson Normal Ordering: A Gentle Introduction" (arXiv:0704.3116, 111+
+cites) and Maier, "Boson operator ordering identities from generalized Stirling numbers"
+(arXiv:2308.10332; J. Algebraic Combinatorics 2024) — rewrites operator *strings* in
+(a†, a) via Stirling/combinatorial structures: a different object and shape from article
+30's mode-product family Q_s = second difference of the occupation profile
+ψ_m(j) = |j|·m_{|j|} on the polynomial Fock model, its monomial-eigenvalue form
+δ_{s0} + Δ²ψ_m(s), and its moment identities (Σ_s s²·Q_s = 4·(Euler operator)); no 2026
+arrival in this space (nearest: an Aug-2025 s-ordering press note on older work; a Jan-
+2026 encyclopedia topic page — neither is a statement). (b) Formal venues: Lean/Isabelle/
+Coq sweeps for formalized second-quantization / Fock-space / creation-annihilation
+operator identities surface only pedagogical literature — no competitor formalization;
+article 30's Lean pilots (`pilots/30-falsify-TheoremB-h1.lean`, `pilots/30/ClosedForm.lean`)
+remain first-of-kind for this statement class. (c) The anthropics ETH-refutation external
+wave (Oct 27–Nov 6, 2026: NYT, TechCrunch, computationalcomplexity blog, AWS/DataCamp
+write-ups, all checked at headline level) is press coverage of the algorithmic result —
+no external mathematical follow-up on the appendix half-piece operators, and no
+Parseval-type conjecture about them anywhere outside this project. (d) Symmetric-function
+side: Macdonald's operator literature (SFHP Ch. I–IV) and the 2026 arrivals (e.g., the
+Hopf-algebra framework arXiv:2610.21289v2, 2026-11-03) contain no
+second-difference-of-occupation-profile identity. **Action:** none beyond the article's
+existing nearest-miss rows; the re-confirmation is recorded here for A9's upgrade.
