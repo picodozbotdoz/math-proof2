@@ -1,0 +1,68 @@
+# LOG — pilot 74 T1T2T4-P0 run 1 (ATTEMPT 1: FAIL). 2026-11-17, lane A8 (orchestrator-approved C1).
+# Provenance: artifact research/pilots/74/T1T2T4-P0.lean (staging v1); core-prep.md §6 = the run card.
+#   command : cd /tmp/crossmath-74-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-74-stage --mode probe
+#             (single-file stage; auto-glob requires ProbeG*.lean → staged as ProbeG74T1T2T4P0.lean, byte-identical)
+#   verdict : FAIL rc=1 errors=12 sorry-warnings=0 — two annotation/coercion classes, both anticipated risks
+#             of the non-anticipated kind: (i) 10x dependsOnNoncomputable — the data defs (supp/surprisal/S/mU/
+#             varK/W/Wfun/Phi/datum/Bk) need `noncomputable` (Real.log, negMulLog, decidableLT, sInf/sSup all are);
+#             (ii) 2x synthInstanceFailed at :131 — `j + 1` elaborated in `Fin k` (OfNat (Fin k) 1 / HPow ℝ (Fin k)
+#             missing) instead of ℕ. NOT the sInf/sSup-totality or =o[atTop] risks (those elaborated clean).
+#   telemetry: SUMMARY wall=66s max_cpu=0.62 max_mem=8004MB anon=0 samples=1 OVER=1 (mem — inherent
+#              mmapped-olen class, AGENTS §5; anon flat) — recorded, not escalated.
+#   fix     : `noncomputable` on the 10 data defs + exponent `((j : ℕ) + 1)` (dated in-file fix note);
+#             one authorized fix-retry → run 2.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-P7Ebrig3TNDN9g6yn7SyWX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function g2.
+├── ✓ Created Function probe.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG74T1T2T4P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG74T1T2T4P0.lean
+[tele] t=60s cpu=0.62 mem=8004MB anon=0MB peak=-1MB procs=2 OVER mem
+{'ProbeG74T1T2T4P0.lean': 'FAIL (12 errors)'}
+[probe] ProbeG74T1T2T4P0.lean: FAIL rc=1; errors=12, sorry-warnings=0
+---- output (up to 12000 chars) ----
+Real.negMulLog : ℝ → ℝ
+Real.exp : ℝ → ℝ
+Real.sqrt : ℝ → ℝ
+ProbeG74T1T2T4P0.lean:69:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.decidableLT', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:72:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.log', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:75:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.negMulLog', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:81:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'supp', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:84:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'supp', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:88:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instInfSet', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:93:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'W', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:104:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.sqrt', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:131:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Fin k) 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  Fin k
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ProbeG74T1T2T4P0.lean:131:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HPow ℝ (Fin k) ?m.18
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ProbeG74T1T2T4P0.lean:130:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'supp', which is 'noncomputable'
+ProbeG74T1T2T4P0.lean:138:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instSupSet', which is 'noncomputable'
+
+
+[probe] SUMMARY
+[probe]   ProbeG74T1T2T4P0.lean: FAIL (12 errors)
+[tele] SUMMARY probe: wall=66s max_cpu=0.62 max_mem=8004MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-P7Ebrig3TNDN9g6yn7SyWX

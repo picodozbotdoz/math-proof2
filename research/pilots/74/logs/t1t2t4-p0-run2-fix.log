@@ -1,0 +1,49 @@
+# LOG — pilot 74 T1T2T4-P0 run 2 (FIX-RETRY: GREEN). 2026-11-17, lane A8 (the authorized one fix-retry).
+# Provenance: artifact T1T2T4-P0.lean (+`noncomputable` x10, exponent coercion; no content change — the
+#   dated in-file fix note records run1→run2).
+#   command : cd /tmp/crossmath-74-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-74-stage --mode probe
+#   note    : one CONTAINER PREEMPTION at t=5s (Modal restarted the Function with the same input — both
+#             [tele] starts + both SUMMARY lines preserved verbatim below; the elaboration is the
+#             post-restart 43s segment; no input changed, same staged file).
+#   verdict : ** GREEN — OK rc=0 errors=0 sorry-warnings=0 ** — all 14 defs + the 5 statement Prop-defs
+#             (stmt_T1a/T1b/T1c/T2/T4) + 3 decl pins elaborate on mathlib ff2494ea; the =o[atTop] shape
+#             and the sInf/sSup totality risks DID NOT bite. Decl pins printed live: Real.negMulLog /
+#             Real.exp / Real.sqrt.
+#   telemetry: final SUMMARY wall=43s max_cpu=0.00 samples=0 OVER=0 (sub-interval wall) — compliant.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pnvXnyH4R49YYOXryB3Epg
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG74T1T2T4P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[tele] SUMMARY probe: wall=5s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Container terminated due to preemption. Your Function will be restarted with the same input. For more details, see https://modal.com/docs/guide/preemption
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG74T1T2T4P0.lean
+{'ProbeG74T1T2T4P0.lean': 'OK'}
+[probe] ProbeG74T1T2T4P0.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+Real.negMulLog : ℝ → ℝ
+Real.exp : ℝ → ℝ
+Real.sqrt : ℝ → ℝ
+
+
+[probe] SUMMARY
+[probe]   ProbeG74T1T2T4P0.lean: OK
+[tele] SUMMARY probe: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pnvXnyH4R49YYOXryB3Epg
