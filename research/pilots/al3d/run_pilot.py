@@ -7,9 +7,11 @@ headers.
 
 Clone of pilots/73/run_pilot.py per al-3d-prework.md §4 (the probe-convention check is
 native to the 73 source and kept: AL-P0 is a statement probe whose sorry stubs are
-probe-convention-only; A1/A2 stay sorry-strict). Sorted elaboration order
-A1 < A2 < P0 respects the A1→A2 import direction (A2 imports A1 — same-directory
-import resolution, pilot-11 precedent). Expected class: [WARM] C1/C2 heavy-import
+probe-convention-only; A1/A2 stay sorry-strict). Elaboration order P0 < A1 < A2 (A4
+restructure 2026-11-17: P0 first — the statement layer owns the encoding defs since the
+A1 R4-style dedup; A1 imports P0, A2 imports A1 + P0 — same-directory import resolution,
+pilot-11 precedent; P0* first also keeps the probe-convention file's verdict visible).
+Expected class: [WARM] C1/C2 heavy-import
 (G4-style entropy core; mmapped-olean RSS ≈5–6 GB is inherent, not a breach).
 
 Layer-sharing diff-check (recorded 2026-11-16): the image block — apt_install list,
@@ -170,7 +172,10 @@ def run(files: dict, order: list):
 def main(dir: str = "./stage"):
     from pathlib import Path
     files, order = {}, []
-    for p in sorted(Path(dir).glob("*.lean")):
+    # A4 restructure: P0* first (statement layer; owns the encoding defs), then the rest
+    # alphabetically — respects P0 → A1 → A2 (A1 imports P0; A2 imports A1 + P0).
+    for p in sorted(Path(dir).glob("*.lean"),
+                    key=lambda p: (0 if p.name.startswith("P0") else 1, p.name)):
         files[p.name] = p.read_text()
         order.append(p.name)
     if not order:

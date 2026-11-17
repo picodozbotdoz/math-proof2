@@ -12,7 +12,7 @@
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
-STAGE=/tmp/crossmath-al3d-stage
+STAGE=/tmp/crossmath-al3d-a4-stage
 MODAL_USER=${MODAL_USER:-doz}
 MODAL_BIN=/home/doz/dozenv/bin/modal
 

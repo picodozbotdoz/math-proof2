@@ -43,6 +43,27 @@ a binder at raw J cannot consume it. `SlabAreaLawColumnCuts3D` below therefore
 instantiates the binder at `groupStrength h R J`; the range R is preserved by the
 P1-a diameter contraction. New-defs side only; frozen layer untouched.
 
+STATEMENT-LEVEL FIND #4 (at P2-e assembly planning, 2026-11-17, lane A4): the landed
+binder/rung-stone pair had TWO scoping defects that make the rung-stone unprovable as
+landed, both on the new-defs side (frozen layer untouched):
+(i) `PlanarAreaLawVar` quantified `∃ C` INSIDE `∀ Λ' hU` (per-domain constant), while
+`SlabAreaLawColumnCuts3D` asserts `∃ C` BEFORE `∀ Λ` (uniform); a per-domain-constant
+hypothesis cannot discharge a uniform-constant conclusion. The donor's planar law
+quantifies one `C` outside `∀ Λ` (`OpenAI/AreaLaw` shape, donor `Statements.lean:202–210`,
+"one constant C … for every finite domain"), and the donor's cylinder theorem extracts it
+once (`Cylinder3D.lean:531–532`, `obtain ⟨C, hC⟩ := hplanar _ …`).
+(ii) `SlabAreaLawColumnCuts3D` prefixed `∀ G ≤ planarLattice` OUTSIDE the hypothesis
+while its conclusion is G-independent: instantiating G at the EMPTY graph trivializes
+the hypothesis class while the conclusion remains the full conditional slab law. The
+proof needs the binder at `G := projLattice Λ` per Λ (the honest boundary-lift graph,
+find #1) — so the G-quantification belongs INSIDE the binder, with `∃ C` outside it.
+AMENDED SHAPE (this file, both defs below): `PlanarAreaLawVar := ∃ C, ∀ G ≤
+planarLattice, ∀ Λ' hU (hU ≤ h), …` — one constant serves every subgraph — and
+`SlabAreaLawColumnCuts3D := PlanarAreaLawVar … → ∃ C, ∀ Λ …` (the prework §2.3 sketch's
+outer shape, vindicated). At `G := planarLattice`, constant `hU := h`, the binder is the
+donor `AreaLaw 𝕜 (q ^ h) R J Δ` shape verbatim, uniformity included; the honesty ledger
+is unchanged (still not discharged here).
+
 Honesty ledger for the binder (prework §2.4): NOT discharged here; AAG
 arXiv:2103.02492 = frustration-free 2D only; uniform donor `area_law` rests on the
 unrefereed [OAI265]; the padding route FAILS at the boundary count (prework §2.4(iii)).
@@ -418,21 +439,23 @@ def IsAdmissibleVar (G : SimpleGraph (ℤ × ℤ)) (Λ' : Finset (ℤ × ℤ)) (
     Prop :=
   ∀ X ⊆ Λ', (Φ X).IsHermitian ∧ ‖Φ X‖ ≤ J ∧ (X ∉ supportsG G Λ' R → Φ X = 0)
 
-/-- The planar area law at NON-UNIFORM local dimension and ambient graph `G ≤
-planarLattice`: sites `u ∈ Λ'` carry `Fin (q ^ hU u)` with `hU u ≤ h`; one constant `C`
-per `(Λ', hU)`; admissibility (`supportsG`), eigenvector/gap skeleton and cut as in
-`AreaLaw`, boundary at `G`.  A HYPOTHESIS at this tier (honesty ledger, prework §2.4):
-NOT discharged in this pilot — the general 2D gapped law is open informally (AAG
-arXiv:2103.02492 = frustration-free 2D only) and the uniform donor `area_law` rests on
-the unrefereed [OAI265].  SPECIALIZATION NOTE: at `G := planarLattice` and constant
-`hU := fun _ => h`, this is the donor's `AreaLaw 𝕜 (q ^ h) R J Δ` shape verbatim
-(same supports, same boundary, `Fin (q ^ h)` sites).  The ambient-graph parameter is the
-probe's statement-level find (file header): the rung-stone's application takes
-`G := projLattice Λ`, a subgraph of `planarLattice`. -/
-def PlanarAreaLawVar (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : ℕ)
-    (G : SimpleGraph (ℤ × ℤ)) (_hG : G ≤ planarLattice) : Prop :=
-  ∀ (Λ' : Finset (ℤ × ℤ)) (hU : ℤ × ℤ → ℕ), (∀ u ∈ Λ', hU u ≤ h) →
-    ∃ C : ℝ, ∀ Φ : (X : Finset (ℤ × ℤ)) →
+/-- The planar area law at NON-UNIFORM local dimension and every ambient graph
+`G ≤ planarLattice`: ONE constant `C` (find #4) serves every subgraph `G`, every domain
+`Λ'` and every height profile `hU u ≤ h`; sites `u ∈ Λ'` carry `Fin (q ^ hU u)`;
+admissibility (`supportsG`), eigenvector/gap skeleton and cut as in `AreaLaw`, boundary
+at `G`.  A HYPOTHESIS at this tier (honesty ledger, prework §2.4): NOT discharged in
+this pilot — the general 2D gapped law is open informally (AAG arXiv:2103.02492 =
+frustration-free 2D only) and the uniform donor `area_law` rests on the unrefereed
+[OAI265].  SPECIALIZATION NOTE: at `G := planarLattice` and constant `hU := fun _ => h`,
+this is the donor's `AreaLaw 𝕜 (q ^ h) R J Δ` shape verbatim (same supports, same
+boundary, `Fin (q ^ h)` sites, one constant for every domain — donor
+`Statements.lean:202–210`).  The ambient-graph quantifier and the outer `∃ C` are find
+#4 (file header): the rung-stone's proof instantiates `G := projLattice Λ` per Λ, so the
+G-quantification lives inside the binder and the constant outside it. -/
+def PlanarAreaLawVar (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : ℕ) : Prop :=
+  ∃ C : ℝ, ∀ (G : SimpleGraph (ℤ × ℤ)) (_hG : G ≤ planarLattice),
+    ∀ (Λ' : Finset (ℤ × ℤ)) (hU : ℤ × ℤ → ℕ), (∀ u ∈ Λ', hU u ≤ h) →
+    ∀ Φ : (X : Finset (ℤ × ℤ)) →
         Matrix (Reg (fun u => Fin (q ^ hU u)) X) (Reg (fun u => Fin (q ^ hU u)) X) 𝕜,
       IsAdmissibleVar G Λ' R J hU Φ →
     ∀ (Ω : Reg (fun u => Fin (q ^ hU u)) Λ' → 𝕜) (hΩ : star Ω ⬝ᵥ Ω = 1) (E₀ : ℝ),
@@ -453,12 +476,12 @@ def groupStrength (h R : ℕ) (J : ℝ) : ℝ := 2 ^ (h * (2 * R + 1) ^ 2) * max
 /-- The slab area law for COLUMN-CLOSED cuts — the first B.2 rung-stone.  WEAKER than the
 frozen `SlabAreaLaw3D` (cut class restricted; recorded as such per Targets.md §D rule 3 —
 this is NOT progress on the frozen target, whose arbitrary cuts remain donor-scale) and
-CONDITIONAL on the variable-height, ambient-`G` planar area law `PlanarAreaLawVar` at
-`G := projLattice Λ` per-site (the binder is part of the statement; not-known-discharged —
-honesty ledger above).  No `AreaLaw3D` content: this claim resolves none of C.1–C.4. -/
+CONDITIONAL on the variable-height planar area law `PlanarAreaLawVar` (every subgraph
+`G ≤ planarLattice`, one constant — find #4; the binder is part of the statement;
+not-known-discharged — honesty ledger above).  No `AreaLaw3D` content: this claim
+resolves none of C.1–C.4. -/
 def SlabAreaLawColumnCuts3D (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : ℕ) : Prop :=
-  ∀ (G : SimpleGraph (ℤ × ℤ)) (hG : G ≤ planarLattice),
-    PlanarAreaLawVar 𝕜 q R (groupStrength h R J) Δ h G hG →
+  PlanarAreaLawVar 𝕜 q R (groupStrength h R J) Δ h →
     ∃ C : ℝ, ∀ Λ : Finset (ℤ × ℤ × ℤ), IsSlabDomain3D h Λ →
       ∀ Φ : (X : Finset (ℤ × ℤ × ℤ)) → Matrix (Reg (Qudits3D q) X) (Reg (Qudits3D q) X) 𝕜,
         IsAdmissible3D Λ R J Φ →
@@ -479,8 +502,7 @@ theorem slab_column_cuts_shape (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : 
 /-- Binder-consumption shape for the planar binder itself.  Trivial re-export; not a
 result. -/
 theorem planar_var_shape (𝕜 : Type*) [RCLike 𝕜] (q R : ℕ) (J Δ : ℝ) (h : ℕ)
-    (G : SimpleGraph (ℤ × ℤ)) (hG : G ≤ planarLattice)
-    (hV : PlanarAreaLawVar 𝕜 q R J Δ h G hG) : PlanarAreaLawVar 𝕜 q R J Δ h G hG :=
+    (hV : PlanarAreaLawVar 𝕜 q R J Δ h) : PlanarAreaLawVar 𝕜 q R J Δ h :=
   hV
 
 end OpenAI.AL3D

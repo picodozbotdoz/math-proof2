@@ -9,16 +9,41 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
 - P2-a (DONE, recorded): statement amendments — find #3: the planar binder is
   instantiated at `groupStrength h R J := 2 ^ (h * (2*R+1)^2) * max J 1` (P0.lean, new
   def + header note; frozen layer untouched). Range R preserved by P1-a contraction.
-- P2-b (THIS MILESTONE): `colSigmaEquiv` (a 3D domain ≃ the sigma of its columns) +
-  `regReindexEquiv` (3D configurations ≃ planar variable-height configurations), and
-  `colCard_le_h` (slab heights bound — consumes A1's `col_card_le`).
-- P2-c (next): the projected interaction `Ψ` (grouping Φ-terms by exact projection;
-  support clause via the P1-a diameter contraction, strength via the fibre bound) and
-  `IsAdmissibleVar` at `(R, groupStrength)`.
-- P2-d: eigenvector/gap transport through the reindexing (Loewner/norm transport —
-  the donor's relabelling step; may need reindex-conjugation lemmas mathlib lacks).
+- P2-b (DONE, m1 GREEN): `colSigmaEquiv` + `regReindexEquiv` + `colCard_le_h`.
+- P2-c (THIS MILESTONE — PARKED at ONE lemma, 2026-11-17, `logs/alp2c-run23-parked.log` +
+  `A2-gaps.md` §4): the projected interaction `Ψ := projInteraction` (grouping
+  Φ-terms by exact projection via `projFib`; support clause via the P1-a diameter
+  contraction `image_projF_mem_supportsG`; strength via the fibre bound
+  `card_projFib_le` + the planar packing `card_le_of_mem_supportsG` at any
+  `G ≤ planarLattice`) and `IsAdmissibleVar` at `(R, groupStrength h R J)`. Carries
+  four mathlib-only support layers (glue/extendId calculus; L2-operator-norm
+  relabelling/padding; spectral entropy relabelling; planar support packing — see
+  `A2-gaps.md`). STATE AT PARK: 114 decls triad-clean incl. all four support layers and
+  every projInteraction clause's PROOF; the single failing decl is `colEquivVar_left`'s
+  per-index composite transport (a `Fintype.equivFin`-choice transport along
+  `proj site = u` — TRUE; every direct rw/simp fails on dependent motives), whose
+  error-recovery cascades 4 downstream audit-marks. `colEquivVar_right` is GREEN.
+  Resolution paths pre-written in `A2-gaps.md` §4(a)/(b).
+- P2-d (next): eigenvector/gap transport through the reindexing (Loewner/norm
+  transport — the donor's relabelling step): `colEquivVar` commutes with `glue`, the
+  extend-relabel swap, `hamiltonianVar Λ' (colCard·) Ψ = H.submatrix e e`, eigenvector
+  and `HasGlobalGap` under submatrix-conjugation.
 - P2-e: the entropy identification for column-closed cuts (whole columns = single
   sites) + the final assembly of `SlabAreaLawColumnCuts3D` via P1-b's boundary lift.
+
+STATEMENT-LEVEL FIND #4 (at P2-e assembly planning, 2026-11-17; amended P0, re-GREEN as
+probe in `logs/alp2-run8-substrate.log`): the landed `PlanarAreaLawVar` quantified
+`∃ C` inside `∀ Λ' hU` (per-domain constant) while `SlabAreaLawColumnCuts3D` asserts a
+uniform `∃ C` before `∀ Λ`, and it prefixed `∀ G ≤ planarLattice` OUTSIDE the
+hypothesis with a G-independent conclusion (the empty-graph instantiation trivializes
+the hypothesis class). Both are unprovable-as-landed scoping defects; P0's amended
+binder is `∃ C, ∀ G ≤ planarLattice, ∀ Λ' hU, …` (one constant, every subgraph) and the
+rung-stone consumes it directly — the prework §2.3's outer shape. The proof
+instantiates `G := projLattice Λ` per Λ (find #1's honest boundary-lift graph).
+
+SUBSTRATE RESTRUCTURE (same touch, recorded in run8's log): A1 dropped its textual
+duplicates of P0's encoding defs and imports P0 (theorem texts unchanged, 22/22 triad);
+the runner elaborates P0 → A1 → A2.
 
 FENCES: no `AreaLaw3D` content (NOT A TARGET, Targets.md §A :23; C.1 :103, C.2 :111,
 C.3 :117, C.4 :123); B.1 donor-owned (cite, never re-prove); full `SlabAreaLaw3D`
@@ -26,13 +51,18 @@ HARD-STOPPED (prework stop-gate ii). `PlanarAreaLawVar` binder NOT discharged he
 (honesty ledger, prework §2.4; AAG 2103.02492 frustration-free 2D only; uniform
 donor `area_law` rests on unrefereed [OAI265]).
 
-Imports `A1` (sibling; pilot-11 pattern). R3 fold applied at this touch: A1's audit
-tail now carries all 22 theorems (added domainEDistG_of_mem / domainEDist3D_of_mem).
+Imports `A1` + `P0` (siblings; pilot-11 pattern; P0 first in the run order — it owns
+the encoding defs since the A1 dedup). R3 fold applied at the m1 touch: A1's audit
+tail carries all 22 theorems.
 -/
 
 import A1
+import P0
 import Mathlib.Algebra.Order.SuccPred
 import Mathlib.Order.Cover
+import Mathlib.Analysis.CStarAlgebra.Matrix
+import Mathlib.Analysis.Matrix.Order
+import Mathlib.LinearAlgebra.Matrix.Kronecker
 
 namespace OpenAI.AL3D
 
@@ -105,5 +135,694 @@ theorem colCard_le_h (h : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)} (hΛ : IsSlabDo
 
 #print axioms colCard_eq_card
 #print axioms colCard_le_h
+
+end OpenAI.AL3D
+
+/-! ## P2 support layer I — region calculus (`glue`/`extendId`)
+
+Mathlib-only re-proofs of the vendored `AreaLawForMathlib` patterns (the donor tree's
+mathlib-extension files — `AreaLawForMathlib/QuantumInfo/Region/{Basic,PartialTrace}.lean`;
+per the G5a boundary nothing is imported: each lemma is re-proved here at the generality
+this pilot needs, source noted per lemma; the underlying mathlib gaps are recorded in
+`A2-gaps.md`). -/
+
+namespace Arealaw
+
+section Region
+
+variable {σ : Type*} [DecidableEq σ] {loc : σ → Type*} {S T U : Finset σ}
+
+/-- Gluing then restricting to the subregion returns the subregion part
+(pattern: vendored `Region/Basic.lean:51`). -/
+@[simp] theorem restr_glue (h : S ⊆ T) (x : Reg loc S) (z : Reg loc (T \ S)) :
+    restr h (glue x z) = x :=
+  funext fun i => dif_pos i.2
+
+/-- Gluing then restricting to the complement returns the complement part
+(pattern: vendored `Region/Basic.lean:60`). -/
+@[simp] theorem restr_glue_compl (x : Reg loc S) (z : Reg loc (T \ S)) :
+    restr (S := T \ S) (T := T) Finset.sdiff_subset (glue x z) = z :=
+  funext fun i => dif_neg (Finset.mem_sdiff.1 i.2).2
+
+/-- A configuration is recovered from its two restrictions
+(pattern: vendored `Region/Basic.lean:65`). -/
+@[simp] theorem glue_restr (h : S ⊆ T) (w : Reg loc T) :
+    glue (restr h w) (restr (S := T \ S) (T := T) Finset.sdiff_subset w) = w :=
+  funext fun j => by simp [restr, glue]
+
+/-- `glue` and the two restrictions assemble to an equivalence
+`Reg S × Reg (T \ S) ≃ Reg T` (pattern: vendored `Region/Basic.lean:86`). -/
+def glueEquiv (h : S ⊆ T) : Reg loc S × Reg loc (T \ S) ≃ Reg loc T where
+  toFun p := glue p.1 p.2
+  invFun w := (restr h w, restr (S := T \ S) (T := T) Finset.sdiff_subset w)
+  left_inv p := Prod.ext (restr_glue h p.1 p.2) (restr_glue_compl p.1 p.2)
+  right_inv := glue_restr h
+
+@[simp] theorem glueEquiv_apply (h : S ⊆ T) (p : Reg loc S × Reg loc (T \ S)) :
+    glueEquiv h p = glue p.1 p.2 := rfl
+
+@[simp] theorem glueEquiv_symm_apply (h : S ⊆ T) (w : Reg loc T) :
+    (glueEquiv h).symm w =
+      (restr h w, restr (S := T \ S) (T := T) Finset.sdiff_subset w) := rfl
+
+/-- Transport of configurations along an equality of regions
+(pattern: vendored `Region/Basic.lean:127`, verbatim). -/
+def regEquivOfEq (hst : S = T) : Reg loc S ≃ Reg loc T where
+  toFun := restr (le_of_eq hst.symm)
+  invFun := restr (le_of_eq hst)
+  left_inv _ := rfl
+  right_inv _ := rfl
+
+@[simp] theorem regEquivOfEq_apply (hst : S = T) (z : Reg loc S) :
+    regEquivOfEq hst z = restr (le_of_eq hst.symm) z := rfl
+
+@[simp] theorem regEquivOfEq_symm_apply (hst : S = T) (w : Reg loc T) :
+    (regEquivOfEq (loc := loc) hst).symm w = restr (le_of_eq hst) w := rfl
+
+section DecEqLoc
+
+variable [DecidableEq σ] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+
+/-- Extension by the identity kills zero (pattern: vendored
+`Region/PartialTrace.lean:205`). -/
+@[simp] theorem extendId_zero (h : S ⊆ T) :
+    extendId h (0 : Matrix (Reg loc S) (Reg loc S) 𝕜) = 0 := by
+  ext w w'
+  simp [extendId]
+
+/-- Extension by the identity is additive (pattern: vendored
+`Region/PartialTrace.lean:211`). -/
+@[simp] theorem extendId_add (h : S ⊆ T) (A B : Matrix (Reg loc S) (Reg loc S) 𝕜) :
+    extendId h (A + B) = extendId h A + extendId h B := by
+  ext w w'
+  simp [extendId, apply_ite₂]
+
+/-- Extension by the identity commutes with finite sums (pattern: vendored
+`Region/PartialTrace.lean:267`). -/
+theorem extendId_sum {κ : Type*} (h : S ⊆ T) (s : Finset κ)
+    (f : κ → Matrix (Reg loc S) (Reg loc S) 𝕜) :
+    extendId h (∑ k ∈ s, f k) = ∑ k ∈ s, extendId h (f k) :=
+  map_sum (AddMonoidHom.mk' (extendId h) (extendId_add h)) f s
+
+/-- How `extendId` acts on glued configurations: diagonal on the added region, `A` on
+the subregion (pattern: vendored `Region/PartialTrace.lean:224`). -/
+@[simp] theorem extendId_apply_glue (h : S ⊆ T) (A : Matrix (Reg loc S) (Reg loc S) 𝕜)
+    (u u' : Reg loc S) (z z' : Reg loc (T \ S)) :
+    extendId h A (glue u z) (glue u' z') = if z = z' then A u u' else 0 := by
+  simp only [extendId, Matrix.of_apply]
+  rw [restr_glue_compl, restr_glue_compl, restr_glue, restr_glue]
+
+/-- Extension by the identity is transitive: `(A ⊗ 1_{T∖S}) ⊗ 1_{V∖T} = A ⊗ 1_{V∖S}`
+(pattern: vendored `Region.lean:404`). -/
+theorem extendId_extendId {V : Finset σ} (hST : S ⊆ T) (hTV : T ⊆ V)
+    (A : Matrix (Reg loc S) (Reg loc S) 𝕜) :
+    extendId hTV (extendId hST A) = extendId (hST.trans hTV) A := by
+  ext w w'
+  have hiff : (restr (S := V \ T) (T := V) Finset.sdiff_subset w =
+        restr (S := V \ T) (T := V) Finset.sdiff_subset w' ∧
+      restr (S := T \ S) (T := T) Finset.sdiff_subset (restr hTV w) =
+        restr (S := T \ S) (T := T) Finset.sdiff_subset (restr hTV w')) ↔
+      restr (S := V \ S) (T := V) Finset.sdiff_subset w =
+        restr (S := V \ S) (T := V) Finset.sdiff_subset w' := by
+    simp only [restr, Finset.restrict₂, funext_iff, Subtype.forall, Finset.mem_sdiff]
+    constructor
+    · rintro ⟨h1, h2⟩ i ⟨hiV, hiS⟩
+      by_cases hiT : (i : σ) ∈ T
+      · exact h2 i ⟨hiT, hiS⟩
+      · exact h1 i ⟨hiV, hiT⟩
+    · intro h
+      exact ⟨fun i hi ↦ h i ⟨hi.1, fun hS ↦ hi.2 (hST hS)⟩, fun i hi ↦ h i ⟨hTV hi.1, hi.2⟩⟩
+  simp only [extendId, Matrix.of_apply]
+  by_cases hc1 : restr (S := V \ T) (T := V) Finset.sdiff_subset w =
+      restr (S := V \ T) (T := V) Finset.sdiff_subset w'
+  · by_cases hc2 : restr (S := T \ S) (T := T) Finset.sdiff_subset (restr hTV w) =
+        restr (S := T \ S) (T := T) Finset.sdiff_subset (restr hTV w')
+    · rw [if_pos hc1, if_pos hc2, if_pos (hiff.1 ⟨hc1, hc2⟩)]
+      rfl
+    · rw [if_pos hc1, if_neg hc2, if_neg (fun hc3 => hc2 (hiff.2 hc3).2)]
+  · rw [if_neg hc1, if_neg (fun hc3 => hc1 (hiff.2 hc3).1)]
+
+/-- Extension by the identity preserves Hermitianness (pattern: vendored
+`Region/PartialTrace.lean:248`; proved entrywise here). -/
+theorem isHermitian_extendId (h : S ⊆ T) {A : Matrix (Reg loc S) (Reg loc S) 𝕜}
+    (hA : A.IsHermitian) : (extendId h A).IsHermitian := by
+  rw [Matrix.IsHermitian]
+  ext w w'
+  simp only [Matrix.conjTranspose_apply, extendId, Matrix.of_apply]
+  by_cases hc : restr (S := T \ S) (T := T) Finset.sdiff_subset w =
+      restr (S := T \ S) (T := T) Finset.sdiff_subset w'
+  · rw [if_pos hc.symm, if_pos hc, ← Matrix.conjTranspose_apply, hA]
+  · rw [if_neg (fun hh => hc hh.symm), if_neg hc, star_zero]
+
+end DecEqLoc
+
+end Region
+
+/-! ## P2 support layer II — the L2 operator norm under relabelling and identity padding
+
+Mathlib (pin `ff2494ea`) carries the L2-operator-norm C*-structure on matrices
+(`Mathlib/Analysis/CStarAlgebra/Matrix.lean`) but has no submatrix/reindexing bound and
+no identity-Kronecker padding bound; both are re-proved here at the needed generality
+(patterns: the donor tree's mathlib-extension file
+`AreaLawForMathlib/Analysis/CStarAlgebra/Matrix.lean:60–104`, mathlib-only in content).
+Recorded in `A2-gaps.md`. -/
+
+section L2OpNorm
+
+open scoped Matrix.Norms.L2Operator Kronecker
+open Matrix
+
+variable {𝕜 : Type*} [RCLike 𝕜] {m n p q ι : Type*}
+  [Fintype m] [Fintype n] [Fintype p] [Fintype q]
+  [DecidableEq m] [DecidableEq n] [DecidableEq p] [DecidableEq q]
+
+/-- The Euclidean norm of a subvector along an injection: injectivity keeps a
+coordinate from being counted twice. -/
+theorem euclidean_norm_comp_le (y : n → 𝕜) {f : p → n} (hf : Function.Injective f) :
+    ‖(EuclideanSpace.equiv p 𝕜).symm (y ∘ f)‖ ≤ ‖(EuclideanSpace.equiv n 𝕜).symm y‖ := by
+  rw [EuclideanSpace.norm_eq, EuclideanSpace.norm_eq]
+  gcongr
+  exact (Finset.sum_map _ ⟨f, hf⟩ fun j => ‖y j‖ ^ 2).symm.trans_le
+    (Finset.sum_le_univ_sum_of_nonneg fun _ => by positivity)
+
+/-- Upper-bound criterion for the L2 operator norm; the converse direction is
+`Matrix.l2_opNorm_mulVec`. -/
+theorem l2_opNorm_le_bound (A : Matrix m n 𝕜) {c : ℝ} (hc : 0 ≤ c)
+    (h : ∀ x : EuclideanSpace 𝕜 n,
+      ‖(EuclideanSpace.equiv m 𝕜).symm (A *ᵥ WithLp.ofLp x)‖ ≤ c * ‖x‖) : ‖A‖ ≤ c :=
+  ContinuousLinearMap.opNorm_le_bound _ hc h
+
+/-- Selecting rows along an injection cannot increase the norm. -/
+theorem l2_opNorm_submatrix_id_le (A : Matrix m n 𝕜) {f : p → m}
+    (hf : Function.Injective f) : ‖A.submatrix f id‖ ≤ ‖A‖ :=
+  l2_opNorm_le_bound _ (norm_nonneg _) fun x =>
+    (euclidean_norm_comp_le (A *ᵥ WithLp.ofLp x) hf).trans (Matrix.l2_opNorm_mulVec A x)
+
+/-- Taking a submatrix along injections does not increase the L2 operator norm.
+Injectivity is necessary: duplicating the row of `(1 : Matrix Unit Unit ℝ)` gives norm
+`√2`. -/
+theorem l2_opNorm_submatrix_le (A : Matrix m n 𝕜)
+    {f : p → m} {g : q → n} (hf : Function.Injective f) (hg : Function.Injective g) :
+    ‖A.submatrix f g‖ ≤ ‖A‖ := by
+  classical
+  refine le_trans ?_ (l2_opNorm_submatrix_id_le A hf)
+  rw [← Matrix.l2_opNorm_conjTranspose (A.submatrix f id), ← Matrix.l2_opNorm_conjTranspose]
+  exact l2_opNorm_submatrix_id_le (A.submatrix f id)ᴴ hg
+
+/-- The L2 operator norm is invariant under reindexing along equivalences. -/
+@[simp] theorem l2_opNorm_submatrix (A : Matrix m n 𝕜) (e : p ≃ m) (f : q ≃ n) :
+    ‖A.submatrix e f‖ = ‖A‖ :=
+  le_antisymm (l2_opNorm_submatrix_le A e.injective f.injective)
+    (by simpa using l2_opNorm_submatrix_le (A.submatrix e f) e.symm.injective f.symm.injective)
+
+/-- Pythagoras over a product index. -/
+theorem euclidean_norm_sq_prod (v : EuclideanSpace 𝕜 (m × p)) :
+    ‖v‖ ^ 2 = ∑ b : p, ‖(EuclideanSpace.equiv m 𝕜).symm fun i => v.ofLp (i, b)‖ ^ 2 := by
+  simp [EuclideanSpace.norm_sq_eq, Fintype.sum_prod_type_right]
+
+/-- `A ⊗ₖ 1` acts fibrewise: on the fibre over `b` of the second factor it is `A`. -/
+theorem kronecker_one_mulVec_apply [DecidableEq p] [Fintype ι] (A : Matrix ι n 𝕜)
+    (v : n × p → 𝕜) (i : ι) (b : p) :
+    ((A ⊗ₖ (1 : Matrix p p 𝕜)) *ᵥ v) (i, b) = (A *ᵥ fun j => v (j, b)) i := by
+  simp only [mulVec, dotProduct, Matrix.kroneckerMap_apply, Fintype.sum_prod_type,
+    Matrix.one_apply, Prod.mk.injEq, mul_ite, mul_zero, mul_one, Finset.sum_ite_eq,
+    Finset.sum_ite_eq']
+  simp
+
+/-- Padding on the right by an identity factor does not increase the L2 operator norm. -/
+theorem l2_opNorm_kronecker_one_le [DecidableEq p] (A : Matrix m n 𝕜) :
+    ‖A ⊗ₖ (1 : Matrix p p 𝕜)‖ ≤ ‖A‖ := by
+  refine l2_opNorm_le_bound _ (norm_nonneg _) fun x => ?_
+  refine (sq_le_sq₀ (norm_nonneg _) (by positivity)).mp ?_
+  rw [euclidean_norm_sq_prod, mul_pow, euclidean_norm_sq_prod, Finset.mul_sum]
+  simp_rw [← mul_pow]
+  gcongr with b _
+  simpa [kronecker_one_mulVec_apply] using
+    Matrix.l2_opNorm_mulVec A ((EuclideanSpace.equiv n 𝕜).symm fun j => x.ofLp (j, b))
+
+variable {σ : Type*} [DecidableEq σ] {loc : σ → Type*} [∀ i, DecidableEq (loc i)]
+  {S T : Finset σ}
+
+/-- `extendId` is the Kronecker product with the identity, transported along `glueEquiv`
+(pattern: vendored `Region/PartialTrace.lean:230`). -/
+theorem extendId_eq_kronecker (h : S ⊆ T) (A : Matrix (Reg loc S) (Reg loc S) 𝕜) :
+    extendId h A = (Matrix.kroneckerMap (· * ·) A
+        (1 : Matrix (Reg loc (T \ S)) (Reg loc (T \ S)) 𝕜)).submatrix
+      (glueEquiv h).symm (glueEquiv h).symm := by
+  ext w w'
+  simp [extendId, Matrix.one_apply, Matrix.kroneckerMap_apply, Matrix.submatrix_apply]
+
+/-- Extension by the identity does not increase the L2 operator norm
+(pattern: vendored `Region/PartialTrace.lean:274`). -/
+theorem l2_opNorm_extendId_le (h : S ⊆ T) (A : Matrix (Reg loc S) (Reg loc S) 𝕜) :
+    ‖extendId h A‖ ≤ ‖A‖ := by
+  rw [extendId_eq_kronecker, l2_opNorm_submatrix]
+  exact l2_opNorm_kronecker_one_le A
+
+end L2OpNorm
+
+/-! ## P2 support layer III — the spectral entropy under relabelling
+
+`Arealaw.vonNeumann` (P0) equals the Shannon entropy of the eigenvalue family, and
+relabeling the index preserves it. Mathlib has the pieces (`IsHermitian.cfc`,
+`IsHermitian.eigenvalues`, `charpoly_reindex`) but neither the trace-of-cfc bridge nor
+the invariance; re-proved here (patterns: the donor tree's mathlib-extension files
+`QuantumInfo/ClassicalInfo/Entropy.lean` and `QuantumInfo/Entropy/VonNeumann.lean`,
+mathlib-only in content). Recorded in `A2-gaps.md`. -/
+
+section Entropy
+
+open Matrix
+
+variable {𝕜 : Type*} [RCLike 𝕜] {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- Shannon entropy of a finite real family `p : ι → ℝ`, `H p = ∑ i, -p i · log (p i)`. -/
+noncomputable def H {ι : Type*} [Fintype ι] (p : ι → ℝ) : ℝ := ∑ i, Real.negMulLog (p i)
+
+/-- `H p` is the sum of `Real.negMulLog` over the multiset of values of `p`. -/
+theorem H_eq_multiset_sum {ι : Type*} [Fintype ι] (p : ι → ℝ) :
+    H p = (Multiset.map (fun x => Real.negMulLog x) (Finset.univ.val.map p)).sum := by
+  rw [H, Finset.sum_eq_multiset_sum, Multiset.map_map, Function.comp_def]
+
+/-- `H` depends only on the multiset of values. -/
+theorem H_eq_of_multiset_eq {ι κ : Type*} [Fintype ι] [Fintype κ] {p : ι → ℝ} {q : κ → ℝ}
+    (h : Finset.univ.val.map p = Finset.univ.val.map q) : H p = H q := by
+  rw [H_eq_multiset_sum, H_eq_multiset_sum, h]
+
+/-- Trace-spectrum bridge: for Hermitian `A` and real `f`, the trace of `f(A)` is
+`∑ f(eigenvalueᵢ)`. -/
+theorem trace_cfc {A : Matrix n n 𝕜} (hA : A.IsHermitian) (f : ℝ → ℝ) :
+    (hA.cfc f).trace = ∑ i, ((f (hA.eigenvalues i) : ℝ) : 𝕜) := by
+  simp [IsHermitian.cfc, trace_mul_cycle]
+
+/-- The operator definition `-tr(ρ log ρ)` equals the Shannon entropy of the
+eigenvalues. -/
+theorem vonNeumann_eq_H {ρ : Matrix n n 𝕜} (hρ : ρ.IsHermitian) :
+    vonNeumann hρ = H hρ.eigenvalues := by
+  simp [vonNeumann, trace_cfc, H, Real.negMulLog]
+
+/-- Reindexing a Hermitian matrix leaves its eigenvalue multiset unchanged. -/
+theorem eigenvalues_multiset_submatrix_equiv {m : Type*} [Fintype m] [DecidableEq m]
+    {A : Matrix n n 𝕜} (hA : A.IsHermitian) (e : m ≃ n) :
+    Finset.univ.val.map (hA.submatrix e).eigenvalues = Finset.univ.val.map hA.eigenvalues := by
+  refine Multiset.map_injective (RCLike.ofReal_injective (K := 𝕜)) ?_
+  rw [Multiset.map_map, Multiset.map_map, ← (hA.submatrix e).roots_charpoly_eq_eigenvalues,
+    ← hA.roots_charpoly_eq_eigenvalues]
+  exact congrArg Polynomial.roots (charpoly_reindex e.symm A)
+
+/-- The von Neumann entropy does not see a relabelling of the index. -/
+theorem vonNeumann_submatrix_equiv {m : Type*} [Fintype m] [DecidableEq m]
+    {A : Matrix n n 𝕜} (hA : A.IsHermitian) (e : m ≃ n) :
+    vonNeumann (hA.submatrix e) = vonNeumann hA := by
+  simpa [vonNeumann_eq_H] using H_eq_of_multiset_eq (eigenvalues_multiset_submatrix_equiv hA e)
+
+end Entropy
+
+end Arealaw
+
+namespace OpenAI.AL3D
+
+open Arealaw
+open scoped Matrix.Norms.L2Operator
+open Matrix SimpleGraph
+
+/-! ## P2 support layer IV — planar boxes (support packing at `G ≤ planarLattice`)
+
+The donor's `card_le_of_mem_supports` chain (`Cylinder3DSupport.lean:150–261`), ported
+to the ambient-graph `supportsG` at any `G ≤ planarLattice`: subgraphs have larger
+distances, so a `G`-admissible support is a planar admissible support, of size at most
+`(2R+1)²`. -/
+
+/-- Distances shrink when the graph grows: `G ≤ H` gives `H.edist ≤ (G.induce s).edist`
+on `s` (mathlib's `SimpleGraph.Hom.edist_le` along the coe-hom). -/
+theorem edist_induce_le_of_adj_le {V : Type*} {G H : SimpleGraph V} (h : G ≤ H) (s : Set V)
+    (u v : s) : (H.induce s).edist u v ≤ (G.induce s).edist u v := by
+  exact SimpleGraph.Hom.edist_le
+    (RelHom.mk (fun x : s => x) fun hadj => h hadj) u v
+
+/-- The ambient distance on `ℤ × ℤ` is the sup-distance of the coordinates
+(donor `Cylinder3DSupport.lean:186`). -/
+theorem planar_dist_eq_max_abs (x y : ℤ × ℤ) :
+    dist x y = ((max |x.1 - y.1| |x.2 - y.2| : ℤ) : ℝ) := by
+  rw [Prod.dist_eq, Int.dist_eq, Int.dist_eq]
+  push_cast
+  rfl
+
+theorem planar_dist_le_iff {x y : ℤ × ℤ} {k : ℕ} :
+    dist x y ≤ k ↔ |x.1 - y.1| ≤ k ∧ |x.2 - y.2| ≤ k := by
+  rw [planar_dist_eq_max_abs, ← Int.cast_natCast (R := ℝ), Int.cast_le, max_le_iff]
+
+/-- Adjacent sites of the square lattice are at sup-distance one (donor
+`Cylinder3DSupport.lean:194`, via A1's `planar_adj_iff`). -/
+theorem planar_dist_eq_one_of_adj {x y : ℤ × ℤ} (h : planarLattice.Adj x y) :
+    dist x y = 1 := by
+  rw [planar_adj_iff] at h
+  rw [planar_dist_eq_max_abs, Int.cast_eq_one]
+  rcases h with ⟨h1 | h1, h2⟩ | ⟨h1 | h1, h2⟩ <;> simp [h2, ← h1]
+
+/-- A walk of length `k` in an induced subgraph of the square lattice moves the
+sup-distance by at most `k` (donor `Cylinder3DSupport.lean:198`). -/
+theorem planar_dist_le_length_of_walk {s : Set (ℤ × ℤ)} {u v : s}
+    (p : (planarLattice.induce s).Walk u v) : dist (u : ℤ × ℤ) v ≤ p.length := by
+  induction p with
+  | nil => simp
+  | cons h p ih =>
+      rw [Walk.length_cons, Nat.cast_add_one, add_comm]
+      exact (dist_triangle _ _ _).trans
+        (add_le_add (planar_dist_eq_one_of_adj (SimpleGraph.induce_adj.1 h)).le ih)
+
+/-- A walk of length at most `n` exists iff the graph distance is at most `n`
+(donor `Cylinder3DSupport.lean:203`). -/
+theorem exists_walk_length_le_iff_edist_le {V : Type*} (G : SimpleGraph V) {u v : V} {n : ℕ} :
+    (∃ p : G.Walk u v, p.length ≤ n) ↔ G.edist u v ≤ n := by
+  constructor
+  · rintro ⟨p, hp⟩
+    exact p.edist_le.trans (by exact_mod_cast hp)
+  · intro h
+    obtain ⟨p, hp⟩ := SimpleGraph.exists_walk_of_edist_ne_top (ne_top_of_le_ne_top (by simp) h)
+    exact ⟨p, by exact_mod_cast hp ▸ h⟩
+
+/-- The ambient planar distance is bounded by the `G`-domain distance at any
+`G ≤ planarLattice`. -/
+theorem planar_dist_le_of_domainEDistG_le {G : SimpleGraph (ℤ × ℤ)} {Λ' : Finset (ℤ × ℤ)}
+    {x y : ℤ × ℤ} {k : ℕ} (hG : G ≤ planarLattice) (h : domainEDistG G Λ' x y ≤ k) :
+    dist x y ≤ k := by
+  by_cases hxy : x ∈ Λ' ∧ y ∈ Λ'
+  · have hmono : (planarLattice.induce (Λ' : Set (ℤ × ℤ))).edist ⟨x, hxy.1⟩ ⟨y, hxy.2⟩ ≤
+        (G.induce (Λ' : Set (ℤ × ℤ))).edist ⟨x, hxy.1⟩ ⟨y, hxy.2⟩ :=
+      edist_induce_le_of_adj_le hG (Λ' : Set (ℤ × ℤ)) ⟨x, hxy.1⟩ ⟨y, hxy.2⟩
+    rw [domainEDistG_of_mem hxy.1 hxy.2] at h
+    obtain ⟨p, hp⟩ := (exists_walk_length_le_iff_edist_le _).2 (hmono.trans h)
+    exact (planar_dist_le_length_of_walk p).trans (by exact_mod_cast hp)
+  · rw [domainEDistG, dif_neg hxy] at h
+    exact absurd h (by simp)
+
+theorem domainEDiamG_le_iff {G : SimpleGraph (ℤ × ℤ)} {Λ' X' : Finset (ℤ × ℤ)} {r : ℕ∞} :
+    domainEDiamG G Λ' X' ≤ r ↔ ∀ x ∈ X', ∀ y ∈ X', domainEDistG G Λ' x y ≤ r := by
+  simp only [domainEDiamG, iSup₂_le_iff]
+
+theorem mem_supportsG_iff {G : SimpleGraph (ℤ × ℤ)} {Λ' X' : Finset (ℤ × ℤ)} {R : ℕ} :
+    X' ∈ supportsG G Λ' R ↔ X' ⊆ Λ' ∧ X'.Nonempty ∧ domainEDiamG G Λ' X' ≤ R := by
+  simp only [supportsG, Finset.mem_filter, Finset.mem_powerset]
+
+/-- A `G`-admissible support of range `R` containing `a` lies in the planar box
+`[a - (R, R), a + (R, R)]` (donor `Cylinder3DSupport.lean:226`, at ambient `G`). -/
+theorem subset_Icc_of_mem_supportsG {G : SimpleGraph (ℤ × ℤ)} {Λ' X' : Finset (ℤ × ℤ)}
+    {R : ℕ} (hG : G ≤ planarLattice) (hX' : X' ∈ supportsG G Λ' R) {a : ℤ × ℤ}
+    (ha : a ∈ X') :
+    X' ⊆ Finset.Icc (a - ((R : ℤ), (R : ℤ))) (a + ((R : ℤ), (R : ℤ))) := by
+  intro x hx
+  obtain ⟨h1, h2⟩ := planar_dist_le_iff.1 <|
+    planar_dist_le_of_domainEDistG_le hG
+      (domainEDiamG_le_iff.1 ((mem_supportsG_iff.1 hX').2.2) x hx a ha)
+  rw [abs_le] at h1 h2
+  rw [Finset.mem_Icc, Prod.le_def, Prod.le_def]
+  simp only [Prod.fst_sub, Prod.snd_sub, Prod.fst_add, Prod.snd_add]
+  omega
+
+theorem card_Icc_eq_mul (a b : ℤ × ℤ) :
+    (Finset.Icc a b).card = (b.1 + 1 - a.1).toNat * (b.2 + 1 - a.2).toNat := by
+  rw [Finset.card_Icc_prod, Int.card_Icc, Int.card_Icc]
+
+theorem card_Icc_sub_add (a : ℤ × ℤ) (R : ℕ) :
+    (Finset.Icc (a - ((R : ℤ), (R : ℤ))) (a + ((R : ℤ), (R : ℤ)))).card = (2 * R + 1) ^ 2 := by
+  rw [card_Icc_eq_mul, sq]
+  simp only [Prod.fst_sub, Prod.snd_sub, Prod.fst_add, Prod.snd_add]
+  congr 1 <;> omega
+
+/-- A `G`-admissible support of range `R` has at most `(2R + 1)²` sites, at any ambient
+`G ≤ planarLattice` (donor `Cylinder3DSupport.lean:247`, at ambient `G`). -/
+theorem card_le_of_mem_supportsG {G : SimpleGraph (ℤ × ℤ)} {Λ' X' : Finset (ℤ × ℤ)} {R : ℕ}
+    (hG : G ≤ planarLattice) (hX' : X' ∈ supportsG G Λ' R) : X'.card ≤ (2 * R + 1) ^ 2 := by
+  obtain ⟨a, ha⟩ := (mem_supportsG_iff.1 hX').2.1
+  exact (Finset.card_le_card (subset_Icc_of_mem_supportsG hG hX' ha)).trans
+    (card_Icc_sub_add a R).le
+
+/-! ## P2-c — the projected interaction `Ψ` and its admissibility -/
+
+/-- The supports of the 3D interaction that group onto the planar support `X'`: subsets
+`X ⊆ Λ` whose column projection is exactly `X'` (the donor's `fibre h X'`
+(`Cylinder3D.lean:249`) at variable heights — no cylinder, so defined directly as a
+filter of the powerset). -/
+def projFib (Λ : Finset (ℤ × ℤ × ℤ)) (X' : Finset (ℤ × ℤ)) :
+    Finset (Finset (ℤ × ℤ × ℤ)) :=
+  Λ.powerset.filter fun X => X.image proj = X'
+
+theorem mem_projFib {Λ : Finset (ℤ × ℤ × ℤ)} {X : Finset (ℤ × ℤ × ℤ)}
+    {X' : Finset (ℤ × ℤ)} : X ∈ projFib Λ X' ↔ X ⊆ Λ ∧ X.image proj = X' := by
+  simp only [projFib, Finset.mem_filter, Finset.mem_powerset]
+
+theorem subset_fibre_of_mem_projFib {Λ : Finset (ℤ × ℤ × ℤ)} {X : Finset (ℤ × ℤ × ℤ)}
+    {X' : Finset (ℤ × ℤ)} (hX : X ∈ projFib Λ X') : X ⊆ fibre Λ X' := by
+  intro x hx
+  refine Finset.mem_filter.2 ⟨(mem_projFib.1 hX).1 hx, ?_⟩
+  rw [← (mem_projFib.1 hX).2]
+  exact Finset.mem_image_of_mem proj hx
+
+/-- The grouping fibre over `X'` has at most `2 ^ (h * |X'|)` members (donor
+`card_fibre_le`, `Cylinder3D.lean:264`; consumes A1's `fibre_card_le`). -/
+theorem card_projFib_le (h : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)} (hΛ : IsSlabDomain3D h Λ)
+    {X' : Finset (ℤ × ℤ)} : (projFib Λ X').card ≤ 2 ^ (h * X'.card) := by
+  refine le_trans (Finset.card_le_card fun X hX =>
+    Finset.mem_powerset.2 (subset_fibre_of_mem_projFib hX)) ?_
+  rw [Finset.card_powerset]
+  exact Nat.pow_le_pow_right two_pos (fibre_card_le h hΛ X')
+
+/-- The column enumeration used by the relabelling: `col Λ u` indexed as
+`Fin (colCard Λ u)` (the variable-height replacement of the donor's `⟨x.2.2.toNat⟩`
+height index; REGION-INDEPENDENT — this is what the P2-d transport rides on). -/
+noncomputable def colToFin (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) :
+    ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) ≃ Fin (colCard Λ u) :=
+  Fintype.equivFin _
+
+/-- The 3D site of column `u` at enumeration index `i`, as an element of the fibre
+(the membership proof: a column site is in `Λ` and projects to `u ∈ X'`). -/
+noncomputable def colSiteOf (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} (u : ℤ × ℤ)
+    (hu : u ∈ X') (i : Fin (colCard Λ u)) :
+    ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) :=
+  ⟨((colToFin Λ u).symm i : ℤ × ℤ × ℤ), by
+    have hx := Finset.mem_filter.1 ((colToFin Λ u).symm i).2
+    exact Finset.mem_filter.2 ⟨hx.1, by rw [hx.2]; exact hu⟩⟩
+
+/-- The enumeration index of a fibre site in its own column. -/
+noncomputable def colIdxOf (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)}
+    (x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ))) :
+    Fin (colCard Λ (proj (x : ℤ × ℤ × ℤ))) :=
+  colToFin Λ (proj (x : ℤ × ℤ × ℤ))
+    ⟨(x : ℤ × ℤ × ℤ), mem_col_of_proj Λ _ (Finset.mem_filter.1 x.2).1 rfl⟩
+
+noncomputable def colEquivVarToFun (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ)) :
+    (∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) →
+      (∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) :=
+  fun f x =>
+    (finFunctionFinEquiv (m := q) (n := colCard Λ (proj (x : ℤ × ℤ × ℤ))).symm
+        (f ⟨proj (x : ℤ × ℤ × ℤ), (Finset.mem_filter.1 x.2).2⟩))
+      (colIdxOf Λ x)
+
+noncomputable def colEquivVarInvFun (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ)) :
+    (∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) →
+      (∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) :=
+  fun g u =>
+    finFunctionFinEquiv (m := q) (n := colCard Λ (u : ℤ × ℤ))
+      fun i => g (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
+
+theorem colEquivVar_left (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ))
+    (f : ∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) :
+    colEquivVarInvFun Λ q X' (colEquivVarToFun Λ q X' f) = f := by
+  funext u
+  have hval : ∀ i : Fin (colCard Λ (u : ℤ × ℤ)),
+      colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
+        = (finFunctionFinEquiv (m := q)).symm (f u) i := by
+    intro i
+    have hcol : proj (((colToFin Λ (u : ℤ × ℤ)).symm i : ℤ × ℤ × ℤ)) = (u : ℤ × ℤ) :=
+      (Finset.mem_filter.1 ((colToFin Λ (u : ℤ × ℤ)).symm i).2).2
+    show colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
+        = (finFunctionFinEquiv (m := q)).symm (f u) i
+    simp [colEquivVarToFun, colIdxOf, colSiteOf, hcol]
+  show (finFunctionFinEquiv (m := q) (n := colCard Λ (u : ℤ × ℤ)))
+      (fun i => colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)) = f u
+  rw [funext hval]
+  exact Equiv.apply_symm_apply _ _
+
+theorem colEquivVar_right (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ))
+    (g : ∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) :
+    colEquivVarToFun Λ q X' (colEquivVarInvFun Λ q X' g) = g := by
+  funext x
+  show (finFunctionFinEquiv (m := q) (n := colCard Λ (proj (x : ℤ × ℤ × ℤ)))).symm
+      (finFunctionFinEquiv (m := q) (n := colCard Λ (proj (x : ℤ × ℤ × ℤ)))
+        (fun i => g (colSiteOf Λ (proj (x : ℤ × ℤ × ℤ))
+          (Finset.mem_filter.1 x.2).2 i)))
+      (colIdxOf Λ x) = g x
+  rw [Equiv.symm_apply_apply]
+  simp only [colSiteOf, colIdxOf, Equiv.symm_apply_apply]
+
+noncomputable def colEquivVar (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ)) :
+    (∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) ≃
+      (∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) where
+  toFun := colEquivVarToFun Λ q X'
+  invFun := colEquivVarInvFun Λ q X'
+  left_inv := colEquivVar_left Λ q X'
+  right_inv := colEquivVar_right Λ q X'
+
+/-- The projected (grouped) interaction: on the planar support `X'`, the `Φ`-terms with
+column set `X'`, extended to the fibre region and relabelled to variable-height planar
+sites (the donor's `colInteraction`, `Cylinder3D.lean:299`, at variable heights). -/
+noncomputable def projInteraction (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    (X' : Finset (ℤ × ℤ)) :
+    Matrix (Reg (fun u => Fin (q ^ colCard Λ u)) X') (Reg (fun u => Fin (q ^ colCard Λ u)) X') 𝕜 :=
+  (∑ X ∈ projFib Λ X',
+      if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0).submatrix
+    (colEquivVar Λ q X') (colEquivVar Λ q X')
+
+/-- The projected interaction is Hermitian. -/
+theorem projInteraction_isHermitian {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    {J : ℝ} {R : ℕ}
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    (hΦ : IsAdmissible3D Λ R J Φ) (X' : Finset (ℤ × ℤ)) :
+    (projInteraction Λ q Φ X').IsHermitian := by
+  have hsum : (∑ X ∈ projFib Λ X',
+      if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0).IsHermitian :=
+    (isSelfAdjoint_sum _ fun X hX => by
+      by_cases hXf : X ⊆ fibre Λ X'
+      · rw [dif_pos hXf]
+        exact (isHermitian_extendId _ (hΦ X (mem_projFib.1 hX).1).1).isSelfAdjoint
+      · rw [dif_neg hXf]
+        exact IsSelfAdjoint.zero _).isHermitian
+  rw [projInteraction]
+  exact Matrix.IsHermitian.submatrix hsum _
+
+/-- 3D admissible supports project to `G`-admissible supports (P1-a's diameter
+contraction, membership form; feeds the zero clause). -/
+theorem image_projF_mem_supportsG {Λ X : Finset (ℤ × ℤ × ℤ)} {R : ℕ} (hXΛ : X ⊆ Λ)
+    (hX : X ∈ supports3D Λ R) : X.image proj ∈ supportsG (projLattice Λ) (projF Λ) R := by
+  rw [supports3D, Finset.mem_filter, Finset.mem_powerset] at hX
+  obtain ⟨-, hne, hdiam⟩ := hX
+  rw [supportsG, Finset.mem_filter, Finset.mem_powerset]
+  refine ⟨?_, hne.image _, ?_⟩
+  · exact Finset.image_subset_image hXΛ
+  · exact (proj_diam_le Λ X hXΛ).trans hdiam
+
+/-- The projected interaction vanishes off the `G`-admissible planar supports. -/
+theorem projInteraction_eq_zero {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    {J : ℝ} {R : ℕ}
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    (hΦ : IsAdmissible3D Λ R J Φ) {X' : Finset (ℤ × ℤ)}
+    (hs : X' ∉ supportsG (projLattice Λ) (projF Λ) R) :
+    projInteraction Λ q Φ X' = 0 := by
+  have hzero : ∀ X ∈ projFib Λ X',
+      (if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0) = 0 := by
+    intro X hX
+    have hXΛ : X ⊆ Λ := (mem_projFib.1 hX).1
+    have hΦ0 : Φ X = 0 := (hΦ X hXΛ).2.2 fun hXs =>
+      hs (by rw [← (mem_projFib.1 hX).2]; exact image_projF_mem_supportsG hXΛ hXs)
+    rw [dif_pos (subset_fibre_of_mem_projFib hX), hΦ0, extendId_zero]
+  rw [projInteraction, Finset.sum_congr rfl hzero, Finset.sum_const_zero]
+  rfl
+
+/-- The projected interaction's strength is the grouped bound `2 ^ (h (2R+1)²) max J 1`
+(find #3's `groupStrength`; donor `isAdmissible_colInteraction`, `Cylinder3D.lean:333`). -/
+theorem projInteraction_norm_le (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)}
+    (hΛ : IsSlabDomain3D h Λ) (q : ℕ) {𝕜 : Type*} [RCLike 𝕜] {J : ℝ}
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    (hΦ : IsAdmissible3D Λ R J Φ) (X' : Finset (ℤ × ℤ)) :
+    ‖projInteraction Λ q Φ X'‖ ≤ groupStrength h R J := by
+  have hJ : 0 ≤ J := (norm_nonneg _).trans (hΦ ∅ (Finset.empty_subset _)).2.1
+  by_cases hs : X' ∈ supportsG (projLattice Λ) (projF Λ) R
+  · rw [projInteraction, l2_opNorm_submatrix]
+    have hterm : ∀ X ∈ projFib Λ X',
+        ‖(if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0)‖ ≤ J := by
+      intro X hX
+      by_cases hXf : X ⊆ fibre Λ X'
+      · rw [dif_pos hXf]
+        exact (l2_opNorm_extendId_le _ _).trans (hΦ X (mem_projFib.1 hX).1).2.1
+      · rw [dif_neg hXf, norm_zero]
+        exact hJ
+    have hcard : ((projFib Λ X').card : ℝ) ≤ 2 ^ (h * (2 * R + 1) ^ 2) := by
+      have h2 : h * X'.card ≤ h * (2 * R + 1) ^ 2 :=
+        Nat.mul_le_mul_left h (card_le_of_mem_supportsG (projLattice_le_plan Λ) hs)
+      exact_mod_cast (card_projFib_le h hΛ).trans (Nat.pow_le_pow_right two_pos h2)
+    calc ‖∑ X ∈ projFib Λ X', if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0‖
+          ≤ ∑ X ∈ projFib Λ X', ‖(if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0)‖ :=
+        norm_sum_le _ _
+      _ ≤ ∑ _X ∈ projFib Λ X', J := Finset.sum_le_sum hterm
+      _ = (projFib Λ X').card * J := by rw [Finset.sum_const, nsmul_eq_mul]
+      _ ≤ 2 ^ (h * (2 * R + 1) ^ 2) * max J 1 :=
+        mul_le_mul hcard (le_max_left J 1) hJ (by positivity)
+      _ = groupStrength h R J := by rw [groupStrength, mul_comm]
+  · rw [projInteraction_eq_zero q Φ hΦ hs, norm_zero, groupStrength]
+    positivity
+
+/-- **P2-c MAIN**: the projected interaction is `(R, groupStrength h R J)`-admissible at
+`G := projLattice Λ`, heights `colCard Λ ·` — the planar binder's admissibility side. -/
+theorem isAdmissible_projInteraction (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)}
+    (hΛ : IsSlabDomain3D h Λ) (q : ℕ) {𝕜 : Type*} [RCLike 𝕜] {J : ℝ}
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    (hΦ : IsAdmissible3D Λ R J Φ) :
+    IsAdmissibleVar (projLattice Λ) (projF Λ) R (groupStrength h R J) (colCard Λ)
+      (projInteraction Λ q Φ) :=
+  fun X' _ => ⟨projInteraction_isHermitian q Φ hΦ X',
+    projInteraction_norm_le h R hΛ q Φ hΦ X',
+    fun hs => projInteraction_eq_zero q Φ hΦ hs⟩
+
+/-! ## P2-c audit (inline full-coverage; every new top-level theorem). -/
+
+#print axioms Arealaw.restr_glue
+#print axioms Arealaw.restr_glue_compl
+#print axioms Arealaw.glue_restr
+#print axioms Arealaw.glueEquiv_apply
+#print axioms Arealaw.glueEquiv_symm_apply
+#print axioms Arealaw.regEquivOfEq_apply
+#print axioms Arealaw.regEquivOfEq_symm_apply
+#print axioms Arealaw.extendId_zero
+#print axioms Arealaw.extendId_add
+#print axioms Arealaw.extendId_sum
+#print axioms Arealaw.extendId_apply_glue
+#print axioms Arealaw.extendId_extendId
+#print axioms Arealaw.isHermitian_extendId
+#print axioms Arealaw.euclidean_norm_comp_le
+#print axioms Arealaw.l2_opNorm_le_bound
+#print axioms Arealaw.l2_opNorm_submatrix_id_le
+#print axioms Arealaw.l2_opNorm_submatrix_le
+#print axioms Arealaw.l2_opNorm_submatrix
+#print axioms Arealaw.euclidean_norm_sq_prod
+#print axioms Arealaw.kronecker_one_mulVec_apply
+#print axioms Arealaw.l2_opNorm_kronecker_one_le
+#print axioms Arealaw.extendId_eq_kronecker
+#print axioms Arealaw.l2_opNorm_extendId_le
+#print axioms Arealaw.H_eq_multiset_sum
+#print axioms Arealaw.H_eq_of_multiset_eq
+#print axioms Arealaw.trace_cfc
+#print axioms Arealaw.vonNeumann_eq_H
+#print axioms Arealaw.eigenvalues_multiset_submatrix_equiv
+#print axioms Arealaw.vonNeumann_submatrix_equiv
+#print axioms OpenAI.AL3D.edist_induce_le_of_adj_le
+#print axioms OpenAI.AL3D.planar_dist_eq_max_abs
+#print axioms OpenAI.AL3D.planar_dist_le_iff
+#print axioms OpenAI.AL3D.planar_dist_eq_one_of_adj
+#print axioms OpenAI.AL3D.planar_dist_le_length_of_walk
+#print axioms OpenAI.AL3D.exists_walk_length_le_iff_edist_le
+#print axioms OpenAI.AL3D.planar_dist_le_of_domainEDistG_le
+#print axioms OpenAI.AL3D.domainEDiamG_le_iff
+#print axioms OpenAI.AL3D.mem_supportsG_iff
+#print axioms OpenAI.AL3D.subset_Icc_of_mem_supportsG
+#print axioms OpenAI.AL3D.card_Icc_eq_mul
+#print axioms OpenAI.AL3D.card_Icc_sub_add
+#print axioms OpenAI.AL3D.card_le_of_mem_supportsG
+#print axioms OpenAI.AL3D.mem_projFib
+#print axioms OpenAI.AL3D.subset_fibre_of_mem_projFib
+#print axioms OpenAI.AL3D.card_projFib_le
+#print axioms OpenAI.AL3D.colEquivVar_left
+#print axioms OpenAI.AL3D.colEquivVar_right
+#print axioms OpenAI.AL3D.projInteraction_isHermitian
+#print axioms OpenAI.AL3D.image_projF_mem_supportsG
+#print axioms OpenAI.AL3D.projInteraction_eq_zero
+#print axioms OpenAI.AL3D.projInteraction_norm_le
+#print axioms OpenAI.AL3D.isAdmissible_projInteraction
 
 end OpenAI.AL3D

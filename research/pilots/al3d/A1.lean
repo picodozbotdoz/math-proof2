@@ -5,9 +5,15 @@ CORRECTED by its §9 correction log: the boundary lift is stated against the PRO
 graph `projLattice Λ` — the induced-square reading is refuted by the two-site slab
 `Λ = {(0,0,0), (1,0,5)}`, `A = {(0,0,0)}` (prework §9, 2026-11-16).
 
-Self-contained (pilot-01/73 convention: this file re-declares the lattice defs it
-consumes; `A2.lean` will import this file as a sibling). NO entropy core — P1 is pure
-graph combinatorics. NO donor imports, NO Physlib (G5a boundary).
+NO entropy core — P1 is pure graph combinatorics. NO donor imports, NO Physlib (G5a
+boundary). `import P0` (the statement layer) supplies the frozen/encoding defs this file
+consumes — R4-style dedup at the P2-c touch (2026-11-17, lane A4): the encoding defs
+this file had re-declared as textual duplicates (`cubicLattice3D`, `planarLattice`,
+`proj`, `projEdge`, `projLattice`, `domainEDist3D`, `domainEDiam3D`, `edgeBoundary3D`,
+`domainEDistG`, `domainEDiamG`, `edgeBoundaryG`, `IsSlabDomain3D`, `IsColumnClosed3D`)
+are now P0's constants; every theorem below is textually unchanged from the landed
+AL-P1 GREEN (`alp1-final.log`), only the head def-block shrank. A2 imports this file
+and P0.
 
 FENCES: nothing here progresses `AreaLaw3D` (NOT A TARGET, Targets.md §A :23; C.1 :103,
 C.2 :111, C.3 :117, C.4 :123); B.1 remains donor-owned; full `SlabAreaLaw3D` is
@@ -24,6 +30,7 @@ P1-d slab/column basics + `projLattice ≤ planarLattice`. Pin-verified API anch
 (Walk/Basic.lean:95/135). Inline full-coverage `#print axioms` at the end.
 -/
 
+import P0
 import Mathlib.Algebra.BigOperators.Fin
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.SuccPred
@@ -44,73 +51,12 @@ namespace OpenAI.AL3D
 
 open SimpleGraph
 
-/-- The cubic lattice `ℤ³` (donor spelling, `OpenAI/Statements3D.lean:64`). -/
-noncomputable abbrev cubicLattice3D : SimpleGraph (ℤ × ℤ × ℤ) := hasse ℤ □ (hasse ℤ □ hasse ℤ)
-
-/-- The square lattice `ℤ²` (donor spelling). -/
-noncomputable abbrev planarLattice : SimpleGraph (ℤ × ℤ) := hasse ℤ □ hasse ℤ
-
-/-- Adjacency in `cubicLattice3D` is decidable (classical, donor convention). -/
-noncomputable instance : DecidableRel cubicLattice3D.Adj := Classical.decRel _
-
-/-- The column projection `π : ℤ³ → ℤ²` (the donor's `column` map). -/
-def proj (x : ℤ × ℤ × ℤ) : ℤ × ℤ := (x.1, x.2.1)
-
 /-- The projection of a 3D domain as a `Finset` (readability: avoids `''`-ascription
 ambiguity between Set- and Finset-image). -/
 def projF (Λ : Finset (ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ) := Λ.image proj
 
 theorem mem_projF {Λ : Finset (ℤ × ℤ × ℤ)} {u : ℤ × ℤ} (hu : u ∈ projF Λ) :
     ∃ x, x ∈ Λ ∧ proj x = u := Finset.mem_image.1 hu
-
-/-- The projected-edge relation (directional; `projLattice` symmetrizes). -/
-def projEdge (Λ : Finset (ℤ × ℤ × ℤ)) (u u' : ℤ × ℤ) : Prop :=
-  ∃ x y : ℤ × ℤ × ℤ, x ∈ Λ ∧ y ∈ Λ ∧ cubicLattice3D.Adj x y ∧ proj x = u ∧ proj y = u'
-
-/-- The PROJECTED graph of a 3D domain (prework §9 correction: the honest
-boundary-lift object, a subgraph of `planarLattice` on `proj '' Λ`). -/
-def projLattice (Λ : Finset (ℤ × ℤ × ℤ)) : SimpleGraph (ℤ × ℤ) :=
-  SimpleGraph.fromRel (projEdge Λ)
-
-/-- The graph distance `d_Λ` of the cubic lattice induced on `Λ` (donor spelling, :75). -/
-noncomputable def domainEDist3D (Λ : Finset (ℤ × ℤ × ℤ)) (x y : ℤ × ℤ × ℤ) : ℕ∞ :=
-  if h : x ∈ Λ ∧ y ∈ Λ then
-    (cubicLattice3D.induce (Λ : Set (ℤ × ℤ × ℤ))).edist ⟨x, h.1⟩ ⟨y, h.2⟩
-  else ⊤
-
-/-- The diameter `diam_{d_Λ} X` (donor spelling, :84 area). -/
-noncomputable def domainEDiam3D (Λ X : Finset (ℤ × ℤ × ℤ)) : ℕ∞ :=
-  ⨆ x ∈ X, ⨆ y ∈ X, domainEDist3D Λ x y
-
-/-- The edge boundary `∂_Λ A` (donor spelling, :98). -/
-noncomputable def edgeBoundary3D (Λ A : Finset (ℤ × ℤ × ℤ)) :
-    Finset ((ℤ × ℤ × ℤ) × (ℤ × ℤ × ℤ)) :=
-  cubicLattice3D.interedges A (Λ \ A)
-
-/-- The graph distance of an ambient planar graph `G` induced on `Λ'`. -/
-noncomputable def domainEDistG (G : SimpleGraph (ℤ × ℤ)) (Λ' : Finset (ℤ × ℤ))
-    (u v : ℤ × ℤ) : ℕ∞ :=
-  if h : u ∈ Λ' ∧ v ∈ Λ' then
-    (G.induce (Λ' : Set (ℤ × ℤ))).edist ⟨u, h.1⟩ ⟨v, h.2⟩
-  else ⊤
-
-/-- The diameter of `X` under `domainEDistG G Λ'`. -/
-noncomputable def domainEDiamG (G : SimpleGraph (ℤ × ℤ)) (Λ' X : Finset (ℤ × ℤ)) : ℕ∞ :=
-  ⨆ u ∈ X, ⨆ v ∈ X, domainEDistG G Λ' u v
-
-/-- The edge boundary at ambient graph `G`. -/
-noncomputable def edgeBoundaryG (G : SimpleGraph (ℤ × ℤ)) (Λ' A : Finset (ℤ × ℤ)) :
-    Finset ((ℤ × ℤ) × (ℤ × ℤ)) :=
-  letI : DecidableRel G.Adj := Classical.decRel _
-  G.interedges A (Λ' \ A)
-
-/-- A domain inside the slab `ℤ² × [0, h)` (donor spelling). -/
-def IsSlabDomain3D (h : ℕ) (Λ : Finset (ℤ × ℤ × ℤ)) : Prop :=
-  ∀ x ∈ Λ, 0 ≤ x.2.2 ∧ x.2.2 < h
-
-/-- A cut is column-closed in `Λ` (Targets.md §D rule-2 new name). -/
-def IsColumnClosed3D (Λ A : Finset (ℤ × ℤ × ℤ)) : Prop :=
-  ∀ x ∈ A, ∀ y ∈ Λ, (y.1, y.2.1) = (x.1, x.2.1) → y ∈ A
 
 /-! ## P1-d — slab and column basics -/
 
@@ -391,7 +337,7 @@ theorem planar_adj_of_cubic_adj {x y : ℤ × ℤ × ℤ} (hadj : cubicLattice3D
 
 /-- `projLattice Λ` is a subgraph of the square lattice (instantiates
 `PlanarAreaLawVar`'s ambient-graph parameter at `G := projLattice Λ`). -/
-theorem projLattice_le_planar (Λ : Finset (ℤ × ℤ × ℤ)) :
+theorem projLattice_le_plan (Λ : Finset (ℤ × ℤ × ℤ)) :
     projLattice Λ ≤ planarLattice := by
   rintro u u' ⟨hne, hdir⟩
   rcases hdir with ⟨x, y, -, -, hadj, rfl, rfl⟩ | ⟨x, y, -, -, hadj, rfl, rfl⟩
@@ -421,6 +367,6 @@ theorem projLattice_le_planar (Λ : Finset (ℤ × ℤ × ℤ)) :
 #print axioms cubic_adj_iff
 #print axioms planar_adj_iff
 #print axioms planar_adj_of_cubic_adj
-#print axioms projLattice_le_planar
+#print axioms projLattice_le_plan
 
 end OpenAI.AL3D
