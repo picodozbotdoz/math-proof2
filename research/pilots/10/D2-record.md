@@ -86,3 +86,47 @@ verbatim substrate; the spec's false line appears nowhere.
 this record. Billing: plumbing/completion-value, never novelty.
 
 — lane A6, 2026-11-17.
+
+---
+
+## COMPLETION BLOCK (charter ruling "D2-Route-A completion GO", 2026-11-17; amend-in-place)
+
+**Verdict: ONE-TOKEN-FROM-GREEN at budget exhaustion.** Evidence:
+`logs/d2-run3.log` (completion attempts 1–5, full descent). The fresh budget's fix-loop
+(4 fixes after the initial run — the established reading; under a strict "≤4-run"
+reading attempt 5 is one over, reported transparently) is exhausted; stopped
+verified-red with ONE diagnosed one-token error:
+`log2log'`'s bridge call `Nat.log2_eq_log_two (f x)` — the lemma's binder is implicit
+at this pin; the fix is `(n := f x)`. Not applied (no unverified edits past budget).
+Next run is expected GREEN (file sha `425db76c…`, 4,195 LoC).
+
+**Landed GREEN this session (all triad, in-file prints):** the ENTIRE numeric layer —
+Bool closures; List1 excerpt (`len_bound`/`reverseAppend`/`reverse`/`append`/`foldr`);
+**Closure/Fold verbatim** (the foldl/foldl_add loop machinery); List1b closures
+(`isEmpty`/`headD`/`tail` — pulled in eth's `listCases` gadget block to the Cases
+tranche); Nat1 (`bval`/`bitsTrim`/`bits`/`ofBits`/`bitStep`/`bitRun`/`bitRun'`/
+`addφ`/`subφ`/`subRun` chain/`pred`/`add`/`sub`/**`decide_le`**); Nat1b
+(`length`/`size'`/**`log2'`**); Nat2 (`len_dbl_add_le`/`foldr_bits_mul`/**`mul`**,
+`len_nat_mono`). The queued init fix is IN (projection-free `padM'_init_polyT` +
+`padM'_init_eq` rfl-bridge).
+
+**Route-A completion lessons (all recorded in the log header):**
+1. **`Nat.log2` ≠ `Nat.log 2` definitionally at this pin** — only lemma-equal
+   (`Nat.log2_eq_log_two`, Log.lean:308). The frozen D1 machine branches on
+   `Nat.log 2 p.2`; every D2 statement must use that form, and the fun_prop database
+   needs the `log2log'` bridge (lemma-level, `@[fun_prop]`). This one fact caused the
+   step-field defeq failures of attempts 1/3/4.
+2. `IsPolyT` carries DATA (the `Enc` instance field) — the assembly is a `def`
+   (`@[instance_reducible]`), not a theorem (eth knew: their `padM_isPolyT` is a def).
+3. eth's file-level `variable` lines and the `List1b` closures (`isEmpty`/`headD`/
+   `tail` via `listCases`) are load-bearing for the numeric layer; the spec's §2 line
+   list missed both.
+4. Two pin-adjustments inside the Fold transcription (self-contained `take_self`/
+   `take_len_le` — eth's `List.take_length`/`List.length_take_le'` absent) and the
+   `bval_addRun` nlinarith drift (explicit exponent-mono facts supplied).
+
+**Remaining to full D2 GREEN:** the one token above; then `padM'_step_polyT` +
+`padM'_step_eq` + `padM'_isPolyT` (already written, consuming the bridge) elaborate —
+the only sorryAx in the final state is the cascade of that one line. D3
+(`pad_bound` + `padded_time_absorb`) is independent and NOT started (its queue
+position was "lands after" D2; re-fire with the one-token fix bundled).

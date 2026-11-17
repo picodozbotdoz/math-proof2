@@ -1,0 +1,873 @@
+# provenance: raw modal run, pilot-10 D2-COMPLETION session (Route A numeric layer + padM'_isPolyT), charter ruling 2026-11-17 (fresh budget; Route A recorded, guard-iii re-measure accepted), app crossmath-pilot-10, doz CLI | date 2026-11-17 | producing lane: A6 | this file = completion attempts 1–5 (raw indices d2-run7..d2-run11 of the session; logs/d2-run1.log + d2-run2.log carry the prior canary/fields session) | fix accounting: initial run7 + fixes after run7/8/9/10 (4 fixes, the established fix-loop reading; the charter's "≤4-run budget" wording is reported transparently — under a strict runs-reading run11 is one over) | LANDED GREEN (all triad, this session): the ENTIRE numeric layer — Bool closures (and'/or'/not'/xor'), List1 excerpt (len_bound/reverseAppend/reverse/append/foldr), Closure/Fold VERBATIM (foldHead/foldBody/foldLoop/roundT/foldLoop_within/foldl_ctx/foldl/foldl_add), List1b closures (isEmpty/headD/tail via the Cases listCases machinery added to the Fields tranche), Nat1 (bval/bitsTrim/bits/ofBits/bitStep/bitRun/bitRun'/addφ/subφ/subRun chain/pred/add/sub/decide_le), Nat1b (length/size'/log2'), Nat2 (len_dbl_add_le/foldr_bits_mul/mul + len_nat_mono) — printed triad: decide_le, log2', mul, foldl_add, foldr | ALSO GREEN: padM'_init_polyT (projection-free) + padM'_init_eq rfl-bridge (the queued D2 fix applied); step statements converted to the D1 log form (Nat.log 2 — Nat.log2 is only LEMMA-equal at this pin, Nat.log2_eq_log_two Log.lean:308, NOT defeq — the root cause of the step-field defeq failures in attempts 1/3/4; a fun_prop bridge log2log' was added) | FINAL STATE (attempt 5, file sha 425db76c21f68a4191613f6752827548b37d828505ef6090c3dec0bb7ce8b3f1, 4,195 LoC): ONE error remaining — log2log' bridge line :4097: Nat.log2_eq_log_two's binder is IMPLICIT at this pin; the call needs (n := f x) — a ONE-TOKEN fix, diagnosed, NOT applied (budget exhausted; verified-red discipline). Everything else GREEN including the full substrate regression | descent: run7 = 6 errors (foldl e3 take-placement; isEmpty/headD/tail closures missing → listCases machinery added; bval_addRun nlinarith drift → explicit exponent-mono facts; len_nat_mono missing; IsPolyT is DATA not Prop → def; step-field defeq) | run8 = List1b block outside namespace + len_le_of_mem/length_le_len missing | run9 = len_nat_mono nested-namespace no-op + step Nat.log2-vs-Nat.log-2 non-defeq surfaced (rfl bridge) | run10 = double docstring parse + the not-defeq CONFIRMED via step_eq | run11 = the implicit-binder one-token error | URLs: run7 https://modal.com/apps/semraker/main/ap-LmII9uw1GclJAZBED2VvLJ run8 ap-l8o5XwKNoyEPGZCL9dagtF run9 ap-il2VJAkb1BvSrkrFZs4ezI run10 ap-iOXjdlTbvaSNLmGShH1SDi run11 ap-m2mhmlSaDS4259xZbNKd49 | telemetry run11: wall=66s warm, mem 8465MB (mmapped-olean class), OVER=1 soft | substrate: mathlib ff2494ea5e43, v4.36.0-rc2, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+
+# === completion attempt 1 (raw d2-run7) ===
+https://modal.com/apps/semraker/main/ap-LmII9uw1GclJAZBED2VvLJ
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-LmII9uw1GclJAZBED2VvLJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+L4.lean:3527:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  List.take (List.length ?l) ?l
+in the target expression
+  len x + len (List.foldl (g x) (a x) (l x)) + 2 ≤ len x + tB (len x) + 2
+
+α γ ε : Type
+inst✝² : Enc α
+inst✝¹ : Enc γ
+inst✝ : Enc ε
+l : α → List ε
+a : α → γ
+g : α → γ → ε → γ
+hl : PolyT l
+ha : PolyT a
+hg : PolyT fun p => g p.1 p.2.1 p.2.2
+tB : ℕ → ℕ
+htB : PB tB
+hB : ∀ (x : α) (k : ℕ), len (List.foldl (g x) (a x) (List.take k (l x))) ≤ tB (len x)
+hh : PolyT fun p => (p.2.1, g p.2.1 p.2.2 p.1)
+h0 : PolyT fun x => (l x, x, a x)
+h1 : PolyT fun s => s.2
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+···
+  B̲o̲o̲l̲.̲cond_false
+L4.lean:3698:8: error: `fun_prop` was unable to prove `PolyT fun p => bif !p.2.1 && p.2.2.isEmpty then [] else p.2.1 :: p.2.2`
+
+Issues:
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x1 => x1.isEmpty`
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3765:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+  No theorems found for `List.headD` in order to prove `PolyT fun x1 => x1.headD false`
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3813:4: error: linarith failed to find a contradiction
+case h
+a b : ℕ
+ha : bval a.bits < 2 ^ a.bits.length
+hb : bval b.bits < 2 ^ b.bits.length
+h1 : 1 ≤ 2 ^ a.bits.length
+h2 : 1 ≤ 2 ^ b.bits.length
+a✝ : 2 ^ (a.bits.length + b.bits.length) * 2 ≤ bval a.bits + bval b.bits
+⊢ False
+failed
+L4.lean:3896:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+···
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3765:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+  No theorems found for `List.headD` in order to prove `PolyT fun x1 => x1.headD false`
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3813:4: error: linarith failed to find a contradiction
+case h
+a b : ℕ
+ha : bval a.bits < 2 ^ a.bits.length
+hb : bval b.bits < 2 ^ b.bits.length
+h1 : 1 ≤ 2 ^ a.bits.length
+h2 : 1 ≤ 2 ^ b.bits.length
+a✝ : 2 ^ (a.bits.length + b.bits.length) * 2 ≤ bval a.bits + bval b.bits
+⊢ False
+failed
+L4.lean:3896:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4026:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4049:10: error: Type mismatch
+  ?m.76
+has type
+···
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3813:4: error: linarith failed to find a contradiction
+case h
+a b : ℕ
+ha : bval a.bits < 2 ^ a.bits.length
+hb : bval b.bits < 2 ^ b.bits.length
+h1 : 1 ≤ 2 ^ a.bits.length
+h2 : 1 ≤ 2 ^ b.bits.length
+a✝ : 2 ^ (a.bits.length + b.bits.length) * 2 ≤ bval a.bits + bval b.bits
+⊢ False
+failed
+L4.lean:3896:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4026:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4049:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+L4.lean:4040:0: error: type of theorem `Groundwork.PadC.padM'_isPolyT` is not a proposition
+  (e : List Bool → ℕ) → (A' : List Bool × ℕ → Bool) → PolyT e → PolyT A' → IsPolyT (padM' e A')
+···
+L4.lean:4026:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4049:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+L4.lean:4040:0: error: type of theorem `Groundwork.PadC.padM'_isPolyT` is not a proposition
+  (e : List Bool → ℕ) → (A' : List Bool × ℕ → Bool) → PolyT e → PolyT A' → IsPolyT (padM' e A')
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' does not depend on any axioms
+···
+  PolyT (padM' e A').step
+L4.lean:4040:0: error: type of theorem `Groundwork.PadC.padM'_isPolyT` is not a proposition
+  (e : List Bool → ℕ) → (A' : List Bool × ℕ → Bool) → PolyT e → PolyT A' → IsPolyT (padM' e A')
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' does not depend on any axioms
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=6 sorry=0
+[tele] SUMMARY run: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-LmII9uw1GclJAZBED2VvLJ
+
+# === completion attempt 2 (raw d2-run8) ===
+https://modal.com/apps/semraker/main/ap-l8o5XwKNoyEPGZCL9dagtF
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-l8o5XwKNoyEPGZCL9dagtF
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[tele] t=60s cpu=1.00 mem=8465MB anon=0MB peak=-1MB procs=2 OVER mem
+Stopping app - local entrypoint completed.
+[p10] L4.lean: FAIL rc=1 errors=13 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+L4.lean:3658:13: error(lean.unknownIdentifier): Unknown identifier `len_le_of_mem`
+L4.lean:3691:51: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3692:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).isEmpty)
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3691:2: error: unrecognized function property `sorry`
+L4.lean:3693:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3696:61: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3692:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).isEmpty)
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3691:2: error: unrecognized function property `sorry`
+L4.lean:3693:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3696:61: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:76: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3691:2: error: unrecognized function property `sorry`
+L4.lean:3693:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3696:61: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:76: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  d
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3697:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+···
+L4.lean:3693:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3696:61: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:76: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  d
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3697:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).headD (d x))
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:76: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  d
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3697:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).headD (d x))
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:2: error: unrecognized function property `sorry`
+L4.lean:3698:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3701:48: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3697:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).headD (d x))
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:2: error: unrecognized function property `sorry`
+L4.lean:3698:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3701:48: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3702:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3696:2: error: unrecognized function property `sorry`
+L4.lean:3698:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3701:48: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3702:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).tail)
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3701:2: error: unrecognized function property `sorry`
+L4.lean:3703:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3764:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+···
+L4.lean:3698:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3701:48: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  l
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3702:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).tail)
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3701:2: error: unrecognized function property `sorry`
+L4.lean:3703:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3764:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+L4.lean:3781:8: error: `fun_prop` was unable to prove `PolyT fun p => bif !p.2.1 && p.2.2.isEmpty then [] else p.2.1 :: p.2.2`
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3702:4: error: Function expected at
+  PolyT
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  (fun x => (l x).tail)
+
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3701:2: error: unrecognized function property `sorry`
+L4.lean:3703:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3764:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+L4.lean:3781:8: error: `fun_prop` was unable to prove `PolyT fun p => bif !p.2.1 && p.2.2.isEmpty then [] else p.2.1 :: p.2.2`
+
+Issues:
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x1 => x1.isEmpty`
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3848:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+···
+Hint: The identifier `PolyT` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+L4.lean:3701:2: error: unrecognized function property `sorry`
+L4.lean:3703:3: error(lean.unknownIdentifier): Unknown identifier `listCases`
+L4.lean:3764:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+L4.lean:3781:8: error: `fun_prop` was unable to prove `PolyT fun p => bif !p.2.1 && p.2.2.isEmpty then [] else p.2.1 :: p.2.2`
+
+Issues:
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x1 => x1.isEmpty`
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3848:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+  No theorems found for `List.headD` in order to prove `PolyT fun x1 => x1.headD false`
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3985:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4115:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4138:10: error: Type mismatch
+  ?m.76
+···
+  B̲o̲o̲l̲.̲cond_false
+L4.lean:3781:8: error: `fun_prop` was unable to prove `PolyT fun p => bif !p.2.1 && p.2.2.isEmpty then [] else p.2.1 :: p.2.2`
+
+Issues:
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x1 => x1.isEmpty`
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3848:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+  No theorems found for `List.headD` in order to prove `PolyT fun x1 => x1.headD false`
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3985:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4115:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4138:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+···
+  No theorems found for `List.isEmpty` in order to prove `PolyT fun x => x.2.2.isEmpty`
+L4.lean:3848:26: error: `fun_prop` was unable to prove `PolyT fun p =>
+  ((φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).1, p.2.1.2.1.tail, p.2.1.2.2.1.tail,
+    (φ (p.2.1.1, p.2.1.2.1.headD false, p.2.1.2.2.1.headD false)).2 :: p.2.1.2.2.2)`
+
+Issues:
+  No theorems found for `List.headD` in order to prove `PolyT fun x1 => x1.headD false`
+  No theorems found for `List.headD` in order to prove `PolyT fun x => x.2.1.2.1.headD false`
+L4.lean:3985:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4115:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4138:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+L4.lean:4129:0: warning: Definition `Groundwork.PadC.padM'_isPolyT` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+L4.lean:4115:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4138:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+L4.lean:4129:0: warning: Definition `Groundwork.PadC.padM'_isPolyT` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=13 sorry=0
+[tele] SUMMARY run: wall=68s max_cpu=1.00 max_mem=8465MB max_anon=0MB samples=1 OVER=1
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-l8o5XwKNoyEPGZCL9dagtF
+
+# === completion attempt 3 (raw d2-run9) ===
+https://modal.com/apps/semraker/main/ap-il2VJAkb1BvSrkrFZs4ezI
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-il2VJAkb1BvSrkrFZs4ezI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[tele] t=60s cpu=1.24 mem=1742MB anon=0MB peak=-1MB procs=1
+[p10] L4.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+L4.lean:4137:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4160:10: error: Type mismatch
+  ?m.76
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+L4.lean:4151:0: warning: Definition `Groundwork.PadC.padM'_isPolyT` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=61s max_cpu=1.24 max_mem=1742MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-il2VJAkb1BvSrkrFZs4ezI
+
+# === completion attempt 4 (raw d2-run10) ===
+https://modal.com/apps/semraker/main/ap-iOXjdlTbvaSNLmGShH1SDi
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-iOXjdlTbvaSNLmGShH1SDi
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+L4.lean:4145:57: error(lean.unknownIdentifier): Unknown identifier `len_nat_mono`
+L4.lean:4161:78: error: unexpected token '/--'; expected 'lemma'
+L4.lean:4171:0: error: Not a definitional equality: the left-hand side
+  (padM' e A').step
+is not definitionally equal to the right-hand side
+  fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+L4.lean:4175:54: error: Type mismatch
+  rfl
+has type
+  ?m.41 = ?m.41
+but is expected to have type
+  (padM' e A').step = fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+L4.lean:4182:10: error: Type mismatch
+  padM'_step_polyT e A' he hA'
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+L4.lean:4161:78: error: unexpected token '/--'; expected 'lemma'
+L4.lean:4171:0: error: Not a definitional equality: the left-hand side
+  (padM' e A').step
+is not definitionally equal to the right-hand side
+  fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+L4.lean:4175:54: error: Type mismatch
+  rfl
+has type
+  ?m.41 = ?m.41
+but is expected to have type
+  (padM' e A').step = fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+L4.lean:4182:10: error: Type mismatch
+  padM'_step_polyT e A' he hA'
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+      (fun b => Sum.inr b) s
+L4.lean:4175:54: error: Type mismatch
+  rfl
+has type
+  ?m.41 = ?m.41
+but is expected to have type
+  (padM' e A').step = fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+L4.lean:4182:10: error: Type mismatch
+  padM'_step_polyT e A' he hA'
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+      (fun b => Sum.inr b) s
+L4.lean:4182:10: error: Type mismatch
+  padM'_step_polyT e A' he hA'
+has type
+  PolyT fun s =>
+    Sum.elim (fun p => bif decide (e p.1 ≤ p.2.log2) then Sum.inr (A' p) else Sum.inl (p.1, 2 * p.2))
+      (fun b => Sum.inr b) s
+but is expected to have type
+  PolyT (padM' e A').step
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=42s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-iOXjdlTbvaSNLmGShH1SDi
+
+# === completion attempt 5 (raw d2-run11) ===
+https://modal.com/apps/semraker/main/ap-m2mhmlSaDS4259xZbNKd49
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-m2mhmlSaDS4259xZbNKd49
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[tele] t=60s cpu=0.91 mem=8465MB anon=0MB peak=-1MB procs=2 OVER mem
+[p10] L4.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  B̲o̲o̲l̲.̲cond_true
+L4.lean:4097:29: error: Function expected at
+  Nat.log2_eq_log_two
+but this term has type
+  Nat.log2 ?m.24 = Nat.log 2 ?m.24
+
+Note: Expected a function because this term is being applied to the argument
+  (f x)
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=66s max_cpu=0.91 max_mem=8465MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-m2mhmlSaDS4259xZbNKd49

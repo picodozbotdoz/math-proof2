@@ -2907,6 +2907,20 @@ theorem len_append (l l' : List α) : len (l ++ l') + 2 = len l + len l' := by
   | cons a l ih => rw [List.cons_append, len_cons, len_cons]; omega
 theorem two_le_len_list (l : List α) : 2 ≤ len l := by
   rw [len_list]; omega
+/-- A list has at most as many entries as its word has symbols. -/
+theorem length_le_len (l : List α) : l.length ≤ len l := by
+  induction l with
+  | nil => exact Nat.zero_le _
+  | cons a l ih => rw [len_cons, List.length_cons]; omega
+/-- The word of an entry is no longer than the word of the list. -/
+theorem len_le_of_mem {a : α} {l : List α} (h : a ∈ l) : len a ≤ len l := by
+  induction l with
+  | nil => cases h
+  | cons b l ih =>
+    rw [len_cons]
+    rcases List.mem_cons.1 h with rfl | h
+    · omega
+    · have := ih h; omega
 /-- A natural number takes three symbols for each binary digit and two more at the end. -/
 theorem len_nat (n : ℕ) : len n = 3 * Nat.size n + 2 := by
   rw [← Nat.size_eq_bits_len, ← len_bools]; rfl
@@ -3315,6 +3329,70 @@ theorem sumCore {f : β → δ} {g : γ → δ} (hf : PolyT f) (hg : PolyT g) :
   exact (comp (sumCore hf hg) (comp hd (prodMk hs id'))).congr
     (fun x => by dsimp only; cases s x <;> rfl)
 
+/-! ### Is the list empty? (eth Cases.lean:90–152) — needed by the List1b closures
+the numeric layer consumes. -/
+
+/-- Look at the second symbol of the item on top of the main stack: a closing bracket
+means that the item is ⟨⟩ (label false), anything else that it is a pair (label true).
+The stack is left as it was. -/
+def nilHead : TM2.Stmt (fun _ : Stk => Sym) Bool (Option Sym) :=
+  .pop .main (fun _ _ => none) <| .peek .main (fun _ o => o) <| .push .main (fun _ => .L) <|
+    .branch (fun s => s == some .R) (.load (fun _ => none) <| .goto fun _ => false)
+      (.load (fun _ => none) <| .goto fun _ => true)
+
+theorem nilHead_nil (M A B N : List Sym) :
+    TM2.stepAux nilHead none (st (.L :: .R :: M) A B N)
+      = ⟨some false, none, st (.L :: .R :: M) A B N⟩ := by
+  simp [nilHead, TM2.stepAux]
+
+theorem nilHead_cons (x : V) (M A B N : List Sym) :
+    TM2.stepAux nilHead none (st (.L :: (code x ++ M)) A B N)
+      = ⟨some true, none, st (.L :: (code x ++ M)) A B N⟩ := by
+  cases x <;> simp [nilHead, TM2.stepAux, TM.code]
+
+/-- Put the tag b on the item on top of the main stack. -/
+def tagF (b : Bool) : Fr := (pushW [.bit b]).seq consF
+
+theorem tagF_within (b : Bool) (x : V) (M A B N : List Sym) :
+    (tagF b).Within (st (code x ++ M) A B N) (2 * (code x).length + 9)
+      (st (code (.cons (.bit b) x) ++ M) A B N) := by
+  have c1 := pushW_within (code x ++ M) A B N [.bit b]
+  have c2 := consF_within (.bit b) x M A B N
+  refine (c1.seq c2).mono ?_
+  have h1 : (TM.code (.bit b)).length = 1 := rfl
+  omega
+
+/-- A list is empty, or it has a first element and a rest. -/
+def listSplit : List β → Unit ⊕ β × List β
+  | [] => .inl ()
+  | e :: r => .inr (e, r)
+
+theorem listSplit_poly : PolyT (listSplit : List β → Unit ⊕ β × List β) := by
+  refine PolyT.of (Frag.branch nilHead (tagF true) (tagF false)) (t := fun n => 2 * n + 9 + 1)
+    (s := fun n => n + 3) ?_ ?_ (fun l M A B N => ?_) (fun l => ?_)
+  · exact (((PB.const 2).mul PB.id').add (PB.const 9)).add (PB.const 1)
+  · exact PB.id'.add (PB.const 3)
+  · cases l with
+    | nil => exact within_branch false (nilHead_nil M A B N) (tagF_within false .nil M A B N)
+    | cons e r =>
+      have h := nilHead_cons (Enc.toV e) (wd r ++ [.R] ++ M) A B N
+      have e0 : wd (e :: r) ++ M = .L :: (TM.code (Enc.toV e) ++ (wd r ++ [.R] ++ M)) := by
+        simp [wd, Enc.toV, TM.code]
+      have c := tagF_within true (Enc.toV (e :: r)) M A B N
+      rw [← e0] at h
+      exact within_branch true h c
+  · cases l with
+    | nil => simp [len, wd, Enc.toV, TM.code, listSplit]
+    | cons e r => simp [len, wd, Enc.toV, TM.code, listSplit]; omega
+
+/-- Case distinction on a list l x: it is empty, or it has a first element and a rest;
+both branches see the context x. -/
+theorem listCases {l : α → List β} {d : α → γ} {f : α → β → List β → γ} (hl : PolyT l)
+    (hd : PolyT d) (hf : PolyT fun p : α × β × List β => f p.1 p.2.1 p.2.2) :
+    PolyT (fun x => match l x with | [] => d x | e :: r => f x e r) :=
+  (sumElim (f := fun x _ => d x) (g := fun x q => f x q.1 q.2) (comp listSplit_poly hl)
+    (comp hd (fst id')) hf).congr (fun x => by cases l x <;> rfl)
+
 end Groundwork.PolyT
 
 /-! ### D2 fields through the landed database (the step field is the remaining
@@ -3324,11 +3402,15 @@ namespace Groundwork.PadC
 
 open Groundwork.PolyT Groundwork Enc
 
-/-- The counter machine's init field: `fun x => .inl (x, 1)` is polynomial-time. -/
-theorem padM'_init_polyT (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool) :
-    PolyT (fun x : List Bool => ((padM' e A').init x : (List Bool × ℕ) ⊕ Bool)) := by
-  have h : PolyT (fun x : List Bool => (.inl (x, 1) : (List Bool × ℕ) ⊕ Bool)) := by fun_prop
-  exact h
+/-- The counter machine's init function IS the canary body (the projection-free
+statement: `PolyT`'s `Enc β` synthesis cannot see through the `.init`/`.σ` structure
+projections — the diagnosed D2 fix). -/
+theorem padM'_init_polyT : PolyT (fun x : List Bool => (.inl (x, 1) : (List Bool × ℕ) ⊕ Bool)) :=
+  canary_init
+
+/-- The bridge: the machine's init field is the canary body, definitionally. -/
+theorem padM'_init_eq (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool) :
+    (padM' e A').init = fun x : List Bool => (.inl (x, 1) : (List Bool × ℕ) ⊕ Bool) := rfl
 
 /-- The counter machine's out field: the Sum-elim to `none`/`some` is polynomial-time. -/
 theorem padM'_out_polyT (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool) :
@@ -3340,4 +3422,774 @@ theorem padM'_out_polyT (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool)
 end Groundwork.PadC
 
 #print axioms Groundwork.PadC.padM'_init_polyT
+#print axioms Groundwork.PadC.padM'_init_eq
 #print axioms Groundwork.PadC.padM'_out_polyT
+
+/-! ## Part G (new, D2 completion, Route A) — the step-field closure
+(eth Lib/Bool, Lib/List1 excerpt, Closure/Fold, Lib/Nat1, Lib/Nat1b excerpt,
+Lib/Nat2 excerpt — verbatim; then `padM'_isPolyT`) -/
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-! ### Bool.lean :23–37 (the subset the numeric layer uses) -/
+
+@[fun_prop] theorem and' {f g : α → Bool} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x && g x) :=
+  (cond' hf hg (const false)).congr fun x => by cases f x <;> rfl
+
+@[fun_prop] theorem or' {f g : α → Bool} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x || g x) :=
+  (cond' hf (const true) hg).congr fun x => by cases f x <;> rfl
+
+@[fun_prop] theorem not' {f : α → Bool} (hf : PolyT f) :
+    PolyT (fun x => !f x) :=
+  (cond' hf (const false) (const true)).congr fun x => by cases f x <;> rfl
+
+@[fun_prop] theorem xor' {f g : α → Bool} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x ^^ g x) :=
+  (cond' hf (not' hg) hg).congr fun x => by cases f x <;> cases g x <;> rfl
+
+/-! ### Closure/Fold.lean (all, verbatim) -/
+
+/-- The head of the loop. On the main stack lies the word of a list, then the word of the
+state. If the list is empty its word is removed and the loop is left; else its opening
+bracket is removed and the body is entered. -/
+def foldHead : TM2.Stmt (fun _ : Stk => Sym) Unit (Option Sym) :=
+  .pop .main (fun _ _ => none) <| .pop .main (fun _ o => o) <|
+    .branch (fun s => s == some .R) (.load (fun _ => none) .halt)
+      (.push .main (fun s => s.getD .L) <| .load (fun _ => none) <| .goto fun _ => ())
+
+/-- The body: park the first element on a and the rest of the list on b, remove the closing
+bracket, fetch the element, pair it with the state, apply P, fetch the rest of the list. -/
+def foldBody (P : Fr) : Fr :=
+  ((((((mv .main .a).seq (mv .main .b)).seq pop1).seq (mv .a .main)).seq consF).seq P).seq (mv .b .main)
+
+/-- The loop: the head, then the body, again and again until the list is empty. -/
+def foldLoop (P : Fr) : Fr := Frag.loop foldHead (foldBody P)
+
+theorem code_ne_R (x : V) : ∃ s w, code x = s :: w ∧ (s == Sym.R) = false := by
+  cases x with
+  | nil => exact ⟨_, _, rfl, by decide⟩
+  | bit b => exact ⟨_, _, rfl, by simp⟩
+  | cons x y => exact ⟨_, _, rfl, by decide⟩
+
+theorem foldHead_nil (M A B N : List Sym) :
+    TM2.stepAux foldHead none (st (.L :: .R :: M) A B N) = ⟨none, none, st M A B N⟩ := by
+  simp [foldHead, TM2.stepAux]
+
+theorem foldHead_cons (x : V) (M A B N : List Sym) :
+    TM2.stepAux foldHead none (st (.L :: (code x ++ M)) A B N)
+      = ⟨some (), none, st (code x ++ M) A B N⟩ := by
+  obtain ⟨s, w, e, hs⟩ := code_ne_R x
+  simp [foldHead, TM2.stepAux, e, hs]
+
+/-- The steps of one round: Lb bounds the length of the word of the list, Bd that of the
+states, t the steps of P. -/
+def roundT (t : ℕ → ℕ) (Lb Bd : ℕ) : ℕ := 6 * Lb + 2 * Bd + 12 + t (Lb + Bd + 2)
+
+/-- The loop computes the fold. -/
+theorem foldLoop_within {σ : Type} [Enc σ] {h : ε × σ → σ} {P : Fr} {t : ℕ → ℕ} (ht : Monotone t)
+    (hP : ∀ (p : ε × σ) (M A B N : List Sym),
+      P.Within (st (wd p ++ M) A B N) (t (len p)) (st (wd (h p) ++ M) A B N))
+    (Lb Bd : ℕ) (M A B N : List Sym) : ∀ (l : List ε) (s : σ), len l ≤ Lb →
+      (∀ k, len ((l.take k).foldl (fun s e => h (e, s)) s) ≤ Bd) →
+      (foldLoop P).Within (st (wd l ++ (wd s ++ M)) A B N) (l.length * roundT t Lb Bd + 1)
+        (st (wd (l.foldl (fun s e => h (e, s)) s) ++ M) A B N)
+  | [], s, _, _ => by
+    refine ⟨1, by simp, ?_⟩
+    exact Frag.loop_runs_exit (foldHead_nil _ A B N)
+  | e :: r, s, hL, hB => by
+    have hs : len s ≤ Bd := by simpa using hB 0
+    have hlc := len_cons e r
+    have ih := foldLoop_within ht hP Lb Bd M A B N r (h (e, s)) (by omega)
+      (fun k => by simpa using hB (k + 1))
+    have b1 := toA_within (Enc.toV e) (wd r ++ (.R :: (wd s ++ M))) A B N
+    have b2 := toB_within (Enc.toV r) (.R :: (wd s ++ M)) (mirror (wd e) ++ A) B N
+    have b3 := pop1_within (wd s ++ M) (mirror (wd e) ++ A) (mirror (wd r) ++ B) N .R
+    have b4 := fromA_within (Enc.toV e) (wd s ++ M) A (mirror (wd r) ++ B) N
+    have b5 := consF_within (Enc.toV e) (Enc.toV s) M A (mirror (wd r) ++ B) N
+    have b6 := hP (e, s) M A (mirror (wd r) ++ B) N
+    have b7 := fromB_within (Enc.toV r) (wd (h (e, s)) ++ M) A B N
+    obtain ⟨n, hn, hbody⟩ := (((((b1.seq b2).seq b3).seq b4).seq b5).seq b6).seq b7
+    obtain ⟨m, hm, hrest⟩ := ih
+    have hhead := foldHead_cons (Enc.toV e) (wd r ++ (.R :: (wd s ++ M))) A B N
+    have e0 : wd (e :: r) ++ (wd s ++ M)
+        = .L :: (code (Enc.toV e) ++ (wd r ++ (.R :: (wd s ++ M)))) := by
+      simp only [wd_cons, List.cons_append, List.append_assoc]
+      rfl
+    refine ⟨1 + n + m, ?_, ?_⟩
+    · have h1 : t (len (e, s)) ≤ t (Lb + Bd + 2) := ht (by rw [len_pair]; omega)
+      have h2 : (code (Enc.toV e)).length = len e := rfl
+      have h3 : (code (Enc.toV r)).length = len r := rfl
+      have h4 : (code (Enc.toV s)).length = len s := rfl
+      rw [h2, h3, h4] at hn
+      have h5 : (e :: r).length * roundT t Lb Bd
+          = r.length * roundT t Lb Bd + roundT t Lb Bd := by
+        rw [List.length_cons, Nat.succ_mul]
+      unfold roundT at h5 ⊢
+      unfold roundT at hm
+      omega
+    · rw [e0]
+      exact Frag.loop_runs_iter hhead hbody hrest
+
+/-! Pin-adjustments (recorded): eth's `List.take_length` and `List.length_take_le'`
+are not on this pin — self-contained proofs. -/
+
+private theorem take_self {β : Type} (l : List β) : l.take l.length = l := by
+  induction l with
+  | nil => rfl
+  | cons a l ih =>
+    have h1 : (a :: l).take ((a :: l).length) = a :: l.take l.length := rfl
+    rw [h1, ih]
+
+private theorem take_len_le {β : Type} (l : List β) (k : ℕ) : (l.take k).length ≤ l.length := by
+  induction l generalizing k with
+  | nil => simp
+  | cons a l ih =>
+    cases k with
+    | zero => simp
+    | succ k => simpa using ih k
+
+omit [Enc α] [Enc γ] [Enc ε] in
+/-- The fold keeps the context in the first component of its state. -/
+theorem foldl_ctx (g : α → γ → ε → γ) (x : α) : ∀ (l : List ε) (c : γ),
+    l.foldl (fun (s : α × γ) e => (s.1, g s.1 s.2 e)) (x, c) = (x, l.foldl (g x) c)
+  | [], _ => rfl
+  | e :: r, c => by simp only [List.foldl_cons]; exact foldl_ctx g x r _
+
+/-- The fold: if l, a and g are polynomial-time and a polynomial in len x bounds the lengths
+of all intermediate values, then x ↦ (l x).foldl (g x) (a x) is polynomial-time. -/
+theorem foldl {l : α → List ε} {a : α → γ} {g : α → γ → ε → γ} (hl : PolyT l) (ha : PolyT a)
+    (hg : PolyT fun p : α × γ × ε => g p.1 p.2.1 p.2.2)
+    (hB : ∃ t, PB t ∧ ∀ x (k : ℕ), len (((l x).take k).foldl (g x) (a x)) ≤ t (len x)) :
+    PolyT (fun x => (l x).foldl (g x) (a x)) := by
+  obtain ⟨tB, htB, hB⟩ := hB
+  have hh : PolyT fun p : ε × α × γ => (p.2.1, g p.2.1 p.2.2 p.1) :=
+    prodMk (by fun_prop) (comp (g := fun p : ε × α × γ => (p.2.1, p.2.2, p.1)) hg (by fun_prop))
+  have h0 : PolyT fun x => (l x, (x, a x)) := by fun_prop
+  have h1 : PolyT fun s : α × γ => s.2 := by fun_prop
+  obtain ⟨P, t, htp, htm, hP, -⟩ := hh.elim
+  obtain ⟨Q, q, hqp, hqm, hQ, hQl⟩ := h0.elim
+  obtain ⟨Z, z, hzp, hzm, hZ, -⟩ := h1.elim
+  refine PolyT.of (((Q.seq unconsF).seq (foldLoop P)).seq Z)
+    (t := fun n => q n + (2 * q n + 6) + (q n * roundT t (q n) (n + tB n + 2) + 1)
+      + z (n + tB n + 2)) (s := tB) ?_ htB (fun x M A B N => ?_)
+    (fun x => by simpa using hB x (l x).length)
+  · unfold roundT
+    have hb : PB fun n => n + tB n + 2 := (PB.id'.add htB).add (PB.const 2)
+    exact (((hqp.add (((PB.const 2).mul hqp).add (PB.const 6))).add
+      ((hqp.mul (((((PB.const 6).mul hqp).add ((PB.const 2).mul hb)).add (PB.const 12)).add
+        (htp.comp ((hqp.add hb).add (PB.const 2))))).add (PB.const 1)))).add (hzp.comp hb)
+  · have hlen := hQl x
+    rw [len_pair, len_pair] at hlen
+    have c1 := hQ x M A B N
+    have c2 := unconsF_within (Enc.toV (l x)) (Enc.toV (x, a x)) M A B N
+    have hst : ∀ k, len (((l x).take k).foldl
+        (fun (s : α × γ) e => (s.1, g s.1 s.2 e)) (x, a x)) ≤ len x + tB (len x) + 2 := by
+      intro k
+      rw [foldl_ctx, len_pair]
+      have := hB x k
+      omega
+    have c3 := foldLoop_within (h := fun p : ε × α × γ => (p.2.1, g p.2.1 p.2.2 p.1)) htm hP
+      (q (len x)) (len x + tB (len x) + 2) M A B N (l x) (x, a x) (by omega) hst
+    rw [foldl_ctx] at c3
+    have c4 := hZ (x, (l x).foldl (g x) (a x)) M A B N
+    refine (((c1.seq c2).seq c3).seq c4).mono ?_
+    have e1 : (code (Enc.toV (l x))).length = len (l x) := rfl
+    have e2 : (code (Enc.toV (x, a x))).length = len (x, a x) := rfl
+    have e3 : z (len (x, (l x).foldl (g x) (a x))) ≤ z (len x + tB (len x) + 2) := hzm (by
+      rw [len_pair]
+      have hfull := hB x (l x).length
+      rw [take_self] at hfull
+      omega)
+    have e4 : (l x).length * roundT t (q (len x)) (len x + tB (len x) + 2)
+        ≤ q (len x) * roundT t (q (len x)) (len x + tB (len x) + 2) :=
+      Nat.mul_le_mul_right _ ((length_le_len _).trans (by omega))
+    rw [e1, e2, len_pair]
+    omega
+
+/-- The fold when every step adds at most b(len x) to the length, b a polynomial bound. -/
+theorem foldl_add {l : α → List ε} {a : α → γ} {g : α → γ → ε → γ} (hl : PolyT l) (ha : PolyT a)
+    (hg : PolyT fun p : α × γ × ε => g p.1 p.2.1 p.2.2)
+    (hB : ∃ b, PB b ∧ ∀ x c, ∀ e ∈ l x, len (g x c e) ≤ len c + b (len x)) :
+    PolyT (fun x => (l x).foldl (g x) (a x)) := by
+  obtain ⟨b, hb, hB⟩ := hB
+  obtain ⟨-, tl, htl, -, -, hll⟩ := hl.elim
+  obtain ⟨-, ta, hta, -, -, hla⟩ := ha.elim
+  refine foldl hl ha hg ⟨fun n => ta n + tl n * b n, hta.add (htl.mul hb), fun x k => ?_⟩
+  have key : ∀ (r : List ε) (c : γ), (∀ e ∈ r, e ∈ l x) →
+      len (r.foldl (g x) c) ≤ len c + r.length * b (len x) := by
+    intro r
+    induction r with
+    | nil => intro c _; simp
+    | cons e r ih =>
+      intro c hr
+      have h1 := ih (g x c e) fun e' he' => hr e' (List.mem_cons_of_mem _ he')
+      have h2 := hB x c e (hr e List.mem_cons_self)
+      rw [List.foldl_cons, List.length_cons, Nat.succ_mul]
+      omega
+  have h1 := key ((l x).take k) (a x) fun e he => List.mem_of_mem_take he
+  have h2 : ((l x).take k).length * b (len x) ≤ tl (len x) * b (len x) :=
+    Nat.mul_le_mul_right _ (((take_len_le (l x) k).trans (length_le_len (l x))).trans (hll x))
+  have h3 := hla x
+  change _ ≤ ta (len x) + tl (len x) * b (len x)
+  omega
+
+end Groundwork.PolyT
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-! ### List1.lean :21–82 excerpt (len_bound, the fold plumbing reverse/append need,
+and foldr) -/
+
+/-- The length of the result of a polynomial-time function has a monotone polynomial bound. -/
+theorem len_bound {f : α → β} (hf : PolyT f) : ∃ t, PB t ∧ Monotone t ∧ ∀ x, len (f x) ≤ t (len x) := by
+  obtain ⟨_, t, ht, hm, _, hlen⟩ := hf.elim
+  exact ⟨t, ht, hm, hlen⟩
+
+omit [Enc β] in
+private theorem foldl_cons_eq (l acc : List β) : l.foldl (fun c e => e :: c) acc = l.reverse ++ acc := by
+  induction l generalizing acc with
+  | nil => rfl
+  | cons e l ih => simp [ih]
+
+/-- Pushing the members of one list, first to last, on another. -/
+theorem reverseAppend {l l' : α → List β} (hl : PolyT l) (hl' : PolyT l') :
+    PolyT (fun x => (l x).reverse ++ l' x) := by
+  obtain ⟨s, hs, _, hls⟩ := len_bound hl
+  have h : PolyT (fun x => (l x).foldl (fun c e => e :: c) (l' x)) := by
+    refine foldl_add (g := fun _ c e => e :: c) hl hl' (by fun_prop)
+      ⟨fun n => s n + 2, hs.add (PB.const 2), ?_⟩
+    intro x c e he
+    have := (len_le_of_mem he).trans (hls x)
+    simp only [len_cons]
+    omega
+  exact h.congr fun x => foldl_cons_eq _ _
+
+@[fun_prop] theorem reverse {l : α → List β} (hl : PolyT l) :
+    PolyT (fun x => (l x).reverse) :=
+  (reverseAppend hl (const [])).congr fun x => by simp
+
+@[fun_prop] theorem append {l l' : α → List β} (hl : PolyT l) (hl' : PolyT l') :
+    PolyT (fun x => l x ++ l' x) :=
+  (reverseAppend (reverse hl) hl').congr fun x => by simp
+
+/-- The fold from the right when the fold of every suffix of the list has length at most t(len x). -/
+theorem foldr {l : α → List ε} {a : α → γ} {g : α → ε → γ → γ} (hl : PolyT l) (ha : PolyT a)
+    (hg : PolyT fun p : α × ε × γ => g p.1 p.2.1 p.2.2)
+    (hB : ∃ t, PB t ∧ ∀ x (k : ℕ), len (((l x).drop k).foldr (g x) (a x)) ≤ t (len x)) :
+    PolyT (fun x => (l x).foldr (g x) (a x)) := by
+  obtain ⟨t, ht, hB⟩ := hB
+  have hg' : PolyT fun p : α × γ × ε => g p.1 p.2.2 p.2.1 :=
+    PolyT.comp (f := fun p : α × ε × γ => g p.1 p.2.1 p.2.2)
+      (g := fun p : α × γ × ε => (p.1, p.2.2, p.2.1)) hg (by fun_prop)
+  have h : PolyT (fun x => (l x).reverse.foldl (fun c e => g x e c) (a x)) := by
+    refine foldl (g := fun x c e => g x e c) (reverse hl) ha hg' ⟨t, ht, fun x k => ?_⟩
+    rw [List.take_reverse, List.foldl_reverse]
+    exact hB x _
+  exact h.congr fun x => by rw [List.foldl_reverse]
+
+end Groundwork.PolyT
+
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-! ### List1b.lean :23–45 excerpt (the closures the numeric layer consumes) -/
+
+@[fun_prop] theorem isEmpty {l : α → List β} (hl : PolyT l) :
+    PolyT (fun x => (l x).isEmpty) :=
+  (listCases (d := fun _ => true) (f := fun _ _ _ => false) hl (by fun_prop) (by fun_prop)).congr
+    fun x => by cases l x <;> rfl
+
+@[fun_prop] theorem headD {l : α → List β} {d : α → β} (hl : PolyT l) (hd : PolyT d) :
+    PolyT (fun x => (l x).headD (d x)) :=
+  (listCases (d := d) (f := fun _ e _ => e) hl hd (by fun_prop)).congr
+    fun x => by cases l x <;> rfl
+
+@[fun_prop] theorem tail {l : α → List β} (hl : PolyT l) :
+    PolyT (fun x => (l x).tail) :=
+  (listCases (d := fun _ => []) (f := fun _ _ r => r) hl (by fun_prop) (by fun_prop)).congr
+    fun x => by cases l x <;> rfl
+
+end Groundwork.PolyT
+
+/-! ### Nat1.lean (the step-field closure, verbatim) -/
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-- The number written by a word, lowest digit first; leading zeros are allowed. -/
+def bval (w : List Bool) : ℕ := w.foldr Nat.bit 0
+
+theorem bval_nil : bval [] = 0 := rfl
+
+theorem bval_cons (b : Bool) (w : List Bool) : bval (b :: w) = 2 * bval w + b.toNat := by
+  simp [bval, Nat.bit_val]
+
+/-- A word is worth its lowest digit plus twice the rest; an empty word counts as a zero digit. -/
+theorem bval_eq (w : List Bool) : bval w = 2 * bval w.tail + (w.headD false).toNat := by
+  cases w <;> simp [bval_cons, bval_nil]
+
+theorem bval_bits (n : ℕ) : bval (Nat.bits n) = n := by
+  induction n using Nat.binaryRec' with
+  | zero => simp [bval_nil]
+  | bit b n h ih => rw [Nat.bits_append_bit _ _ h, bval_cons, ih, Nat.bit_val]
+
+theorem bval_lt (w : List Bool) : bval w < 2 ^ w.length := by
+  induction w with
+  | nil => simp [bval_nil]
+  | cons b w ih =>
+    rw [bval_cons, List.length_cons, pow_succ]
+    cases b <;> simp <;> omega
+
+theorem eq_zero_of_bits_eq_nil {n : ℕ} (h : Nat.bits n = []) : n = 0 := by
+  rw [← bval_bits n, h, bval_nil]
+
+/-- The word without its leading zeros (which stand at its end). -/
+def bitsTrim (w : List Bool) : List Bool :=
+  w.foldr (fun b r => bif !b && r.isEmpty then [] else b :: r) []
+
+theorem bitsTrim_cons (b : Bool) (w : List Bool) :
+    bitsTrim (b :: w) = bif !b && (bitsTrim w).isEmpty then [] else b :: bitsTrim w := rfl
+
+theorem bits_bval (w : List Bool) : Nat.bits (bval w) = bitsTrim w := by
+  induction w with
+  | nil => simp [bval_nil, bitsTrim]
+  | cons b w ih =>
+    rw [bitsTrim_cons, ← ih]
+    by_cases h0 : bval w = 0
+    · cases b
+      · simp [bval_cons, h0]
+      · have : bval (true :: w) = Nat.bit true (bval w) := rfl
+        rw [this, Nat.bits_append_bit _ _ (fun _ => rfl)]; simp
+    · have h1 : Nat.bits (bval w) ≠ [] := fun h => h0 (eq_zero_of_bits_eq_nil h)
+      have : bval (b :: w) = Nat.bit b (bval w) := rfl
+      have h2 : (Nat.bits (bval w)).isEmpty = false := by
+        cases hh : Nat.bits (bval w) with
+        | nil => exact absurd hh h1
+        | cons _ _ => rfl
+      rw [this, Nat.bits_append_bit _ _ (fun h => absurd h h0), h2, Bool.and_false, cond_false]
+
+theorem length_bitsTrim_le (w : List Bool) : (bitsTrim w).length ≤ w.length := by
+  induction w with
+  | nil => simp [bitsTrim]
+  | cons b w ih =>
+    rw [bitsTrim_cons]
+    cases h : (!b && (bitsTrim w).isEmpty) <;> simp
+    omega
+
+/-- A function into ℕ is polynomial-time if the word of its digits is: both are written in
+the same way. -/
+theorem of_bits {f : α → ℕ} (hf : PolyT fun x => Nat.bits (f x)) : PolyT f := hf
+
+theorem bitsTrim' {w : α → List Bool} (hw : PolyT w) : PolyT (fun x => bitsTrim (w x)) := by
+  obtain ⟨t, ht, _, hl⟩ := len_bound hw
+  refine foldr (g := fun _ b r => bif !b && r.isEmpty then [] else b :: r) hw (const [])
+    (by fun_prop) ⟨t, ht, fun x k => ?_⟩
+  refine le_trans ?_ (hl x)
+  have h := length_bitsTrim_le ((w x).drop k)
+  have h' : ((w x).drop k).length ≤ (w x).length := by simp
+  change len (bitsTrim ((w x).drop k)) ≤ _
+  rw [len_bools, len_bools]
+  omega
+
+/-- The converse of `of_bits`: the word of digits of a polynomial-time number is
+polynomial-time. -/
+@[fun_prop] theorem bits {f : α → ℕ} (hf : PolyT f) :
+    PolyT (fun x => Nat.bits (f x)) := hf
+
+/-- The number written by a word, lowest digit first, is polynomial-time: the leading zeros
+are cut off by `bitsTrim`. -/
+theorem ofBits {w : α → List Bool} (hw : PolyT w) :
+    PolyT (fun x => (w x).foldr Nat.bit 0) :=
+  of_bits ((bitsTrim' hw).congr fun x => (bits_bval (w x)).symm)
+
+@[fun_prop] theorem bval' {w : α → List Bool} (hw : PolyT w) : PolyT (fun x => bval (w x)) :=
+  ofBits hw
+
+/-! ### One fold for sum and difference -/
+
+/-- One step of the walk through two words u, v. The state is (carry, rest of u, rest of v,
+digits written so far, last one first); φ maps (carry, digit of u, digit of v) to (new
+carry, digit to write). A word that has run out yields zeros. -/
+def bitStep (φ : Bool × Bool × Bool → Bool × Bool) (s : Bool × List Bool × List Bool × List Bool) :
+    Bool × List Bool × List Bool × List Bool :=
+  ((φ (s.1, s.2.1.headD false, s.2.2.1.headD false)).1, s.2.1.tail, s.2.2.1.tail,
+    (φ (s.1, s.2.1.headD false, s.2.2.1.headD false)).2 :: s.2.2.2)
+
+/-- The walk through u and v with first carry c, one step for every entry of L: the last
+carry and the digits written, lowest first. -/
+def bitRun (φ : Bool × Bool × Bool → Bool × Bool) : List Bool → Bool → List Bool → List Bool → Bool × List Bool
+  | [], c, _, _ => (c, [])
+  | _ :: L, c, u, v =>
+    ((bitRun φ L (φ (c, u.headD false, v.headD false)).1 u.tail v.tail).1,
+      (φ (c, u.headD false, v.headD false)).2
+        :: (bitRun φ L (φ (c, u.headD false, v.headD false)).1 u.tail v.tail).2)
+
+theorem length_bitRun (φ : Bool × Bool × Bool → Bool × Bool) (L : List Bool) (c : Bool)
+    (u v : List Bool) : (bitRun φ L c u v).2.length = L.length := by
+  induction L generalizing c u v with
+  | nil => rfl
+  | cons e L ih => simp [bitRun, ih]
+
+theorem foldl_bitStep (φ : Bool × Bool × Bool → Bool × Bool) (L : List Bool) (c : Bool)
+    (u v out : List Bool) :
+    (L.foldl (fun s _ => bitStep φ s) (c, u, v, out)).1 = (bitRun φ L c u v).1 ∧
+      (L.foldl (fun s _ => bitStep φ s) (c, u, v, out)).2.2.2
+        = (bitRun φ L c u v).2.reverse ++ out := by
+  induction L generalizing c u v out with
+  | nil => simp [bitRun]
+  | cons e L ih =>
+    obtain ⟨h1, h2⟩ := ih (φ (c, u.headD false, v.headD false)).1 u.tail v.tail
+      ((φ (c, u.headD false, v.headD false)).2 :: out)
+    refine ⟨h1, ?_⟩
+    refine h2.trans ?_
+    simp [bitRun]
+
+theorem bitRun' {φ : Bool × Bool × Bool → Bool × Bool} (hφ : PolyT φ)
+    {L u v : α → List Bool} {c : α → Bool}
+    (hL : PolyT L) (hc : PolyT c) (hu : PolyT u) (hv : PolyT v) :
+    PolyT (fun x => bitRun φ (L x) (c x) (u x) (v x)) := by
+  have h : PolyT (fun x => (L x).foldl (fun s _ => bitStep φ s) (c x, u x, v x, [])) := by
+    refine foldl_add (g := fun _ s _ => bitStep φ s) hL (by fun_prop)
+      (by unfold bitStep; fun_prop) ⟨fun _ => 3, PB.const 3, fun x s e _ => ?_⟩
+    have hb : ∀ b : Bool, len b = 1 := fun _ => rfl
+    obtain ⟨c, u, v, out⟩ := s
+    simp only [bitStep, len_pair, len_bools, hb, List.length_tail, List.length_cons]
+    omega
+  have h2 : PolyT (fun x => (((L x).foldl (fun s _ => bitStep φ s) (c x, u x, v x, [])).1,
+      ((L x).foldl (fun s _ => bitStep φ s) (c x, u x, v x, [])).2.2.2.reverse)) := by fun_prop
+  refine h2.congr fun x => ?_
+  obtain ⟨h1, h2⟩ := foldl_bitStep φ (L x) (c x) (u x) (v x) []
+  rw [h1, h2]; simp
+
+/-! ### Sum -/
+
+/-- Full adder: (carry, x, y) ↦ (new carry, digit). -/
+def addφ (p : Bool × Bool × Bool) : Bool × Bool :=
+  ((p.1 && p.2.1) || (p.1 && p.2.2) || (p.2.1 && p.2.2), p.1 ^^ p.2.1 ^^ p.2.2)
+
+theorem addφ_spec (c x y : Bool) :
+    2 * (addφ (c, x, y)).1.toNat + (addφ (c, x, y)).2.toNat = c.toNat + x.toNat + y.toNat := by
+  cases c <;> cases x <;> cases y <;> rfl
+
+theorem bval_bitRun_add (L : List Bool) (c : Bool) (u v : List Bool)
+    (h : bval u + bval v + c.toNat < 2 ^ L.length) :
+    bval (bitRun addφ L c u v).2 = bval u + bval v + c.toNat := by
+  induction L generalizing c u v with
+  | nil =>
+    simp only [List.length_nil, pow_zero] at h
+    simp only [bitRun, bval_nil]; omega
+  | cons e L ih =>
+    have hu := bval_eq u
+    have hv := bval_eq v
+    have hs := addφ_spec c (u.headD false) (v.headD false)
+    rw [List.length_cons, pow_succ] at h
+    have := ih (addφ (c, u.headD false, v.headD false)).1 u.tail v.tail (by omega)
+    simp only [bitRun, bval_cons]
+    omega
+
+theorem bval_addRun (a b : ℕ) :
+    bval (bitRun addφ (false :: (Nat.bits a ++ Nat.bits b)) false (Nat.bits a) (Nat.bits b)).2
+      = a + b := by
+  have ha := bval_lt (Nat.bits a)
+  have hb := bval_lt (Nat.bits b)
+  rw [bval_bitRun_add]
+  · simp [bval_bits]
+  · rw [List.length_cons, List.length_append, pow_succ]
+    have h1 : 1 ≤ 2 ^ (Nat.bits a).length := Nat.one_le_two_pow
+    have h2 : 1 ≤ 2 ^ (Nat.bits b).length := Nat.one_le_two_pow
+    have m1 : 2 ^ (Nat.bits a).length
+        ≤ 2 ^ ((Nat.bits a).length + (Nat.bits b).length) :=
+      Nat.pow_le_pow_right (by norm_num) (by omega)
+    have m2 : 2 ^ (Nat.bits b).length
+        ≤ 2 ^ ((Nat.bits a).length + (Nat.bits b).length) :=
+      Nat.pow_le_pow_right (by norm_num) (by omega)
+    simp only [Bool.toNat_false, add_zero]
+    nlinarith
+
+theorem add_aux {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) : PolyT (fun x => f x + g x) := by
+  have hφ : PolyT addφ := by unfold addφ; fun_prop
+  have h := bitRun' hφ (L := fun x => false :: (Nat.bits (f x) ++ Nat.bits (g x)))
+    (c := fun _ => false) (u := fun x => Nat.bits (f x)) (v := fun x => Nat.bits (g x))
+    (by fun_prop) (by fun_prop) (by fun_prop) (by fun_prop)
+  exact (bval' (snd h)).congr fun x => bval_addRun (f x) (g x)
+
+/-! ### Difference and comparison -/
+
+/-- Full subtractor for x - y - borrow: (borrow, x, y) ↦ (new borrow, digit). -/
+def subφ (p : Bool × Bool × Bool) : Bool × Bool :=
+  ((!p.2.1 && (p.2.2 || p.1)) || (p.2.2 && p.1), p.1 ^^ p.2.1 ^^ p.2.2)
+
+theorem subφ_spec (c x y : Bool) :
+    (subφ (c, x, y)).2.toNat + y.toNat + c.toNat
+      = x.toNat + 2 * (subφ (c, x, y)).1.toNat := by
+  cases c <;> cases x <;> cases y <;> rfl
+
+theorem bval_bitRun_sub (L : List Bool) (c : Bool) (u v : List Bool)
+    (hu : bval u < 2 ^ L.length) (hv : bval v < 2 ^ L.length) :
+    bval (bitRun subφ L c u v).2 + bval v + c.toNat
+      = bval u + 2 ^ L.length * (bitRun subφ L c u v).1.toNat := by
+  induction L generalizing c u v with
+  | nil =>
+    simp only [List.length_nil, pow_zero] at hu hv ⊢
+    simp only [bitRun, bval_nil]; omega
+  | cons e L ih =>
+    have hu' := bval_eq u
+    have hv' := bval_eq v
+    have hs := subφ_spec c (u.headD false) (v.headD false)
+    rw [List.length_cons, pow_succ] at hu hv
+    have := ih (subφ (c, u.headD false, v.headD false)).1 u.tail v.tail (by omega) (by omega)
+    simp only [bitRun, bval_cons, List.length_cons, pow_succ]
+    rw [mul_right_comm]
+    omega
+
+/-- The walk that subtracts b from a. -/
+def subRun (a b : ℕ) : Bool × List Bool :=
+  bitRun subφ (Nat.bits a ++ Nat.bits b) false (Nat.bits a) (Nat.bits b)
+
+theorem subRun_spec (a b : ℕ) :
+    (subRun a b).1 = decide (a < b) ∧ ((subRun a b).1 = false → bval (subRun a b).2 = a - b) := by
+  have hle : ∀ p q : ℕ, 2 ^ p ≤ 2 ^ (p + q) := fun p q => Nat.pow_le_pow_right (by norm_num) (by omega)
+  have ha : bval (Nat.bits a) < 2 ^ (Nat.bits a ++ Nat.bits b).length := by
+    rw [List.length_append]; exact lt_of_lt_of_le (bval_lt _) (hle _ _)
+  have hb : bval (Nat.bits b) < 2 ^ (Nat.bits a ++ Nat.bits b).length := by
+    rw [List.length_append, add_comm]; exact lt_of_lt_of_le (bval_lt _) (hle _ _)
+  have h := bval_bitRun_sub _ false _ _ ha hb
+  have hl := bval_lt (subRun a b).2
+  rw [subRun, length_bitRun] at hl
+  rw [bval_bits] at h ha hb
+  rw [bval_bits] at h
+  change bval (subRun a b).2 + b + _ = a + _ * (subRun a b).1.toNat at h
+  change bval (subRun a b).2 < _ at hl
+  cases hc : (subRun a b).1
+  · rw [hc] at h
+    simp only [Bool.toNat_false, add_zero, mul_zero] at h
+    refine ⟨?_, fun _ => by omega⟩
+    symm; rw [decide_eq_false_iff_not]; omega
+  · rw [hc] at h
+    simp only [Bool.toNat_false, Bool.toNat_true, add_zero, mul_one] at h
+    refine ⟨?_, fun h => by cases h⟩
+    symm; rw [decide_eq_true_iff]; omega
+
+theorem subRun' {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => subRun (f x) (g x)) := by
+  have hφ : PolyT subφ := by unfold subφ; fun_prop
+  exact bitRun' hφ (L := fun x => Nat.bits (f x) ++ Nat.bits (g x)) (c := fun _ => false)
+    (u := fun x => Nat.bits (f x)) (v := fun x => Nat.bits (g x))
+    (by fun_prop) (by fun_prop) (by fun_prop) (by fun_prop)
+
+theorem sub_aux {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) : PolyT (fun x => f x - g x) := by
+  have h := subRun' hf hg
+  have h2 : PolyT (fun x => bif (subRun (f x) (g x)).1 then 0 else bval (subRun (f x) (g x)).2) :=
+    by fun_prop
+  refine h2.congr fun x => ?_
+  obtain ⟨h1, h3⟩ := subRun_spec (f x) (g x)
+  cases hc : (subRun (f x) (g x)).1
+  · simpa using h3 hc
+  · rw [hc] at h1
+    have : f x < g x := by simpa using h1.symm
+    simp only [cond_true]; omega
+
+/-! ### Predecessor, sum, difference, comparison -/
+
+theorem pred {f : α → ℕ} (hf : PolyT f) :
+    PolyT (fun x => f x - 1) := sub_aux hf (const 1)
+
+@[fun_prop] theorem add {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x + g x) := add_aux hf hg
+
+@[fun_prop] theorem sub {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x - g x) := sub_aux hf hg
+
+@[fun_prop] theorem decide_le {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => decide (f x ≤ g x)) := by
+  refine (not' (fst (subRun' hg hf))).congr fun x => ?_
+  rw [(subRun_spec (g x) (f x)).1]
+  by_cases h : f x ≤ g x
+  · simp [h, Nat.not_lt.mpr h]
+  · simp [h, Nat.lt_of_not_le h]
+
+end Groundwork.PolyT
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-! ### Nat1b.lean :22–110 excerpt (size helpers + length/size'/log2') -/
+
+private theorem size_succ_le (c : ℕ) : Nat.size (c + 1) ≤ Nat.size c + 1 := by
+  rw [Nat.size_le, pow_succ]
+  have := Nat.lt_size_self c
+  omega
+
+private theorem size_add_le (c e : ℕ) : Nat.size (c + e) ≤ Nat.size c + Nat.size e + 1 := by
+  rw [Nat.size_le]
+  have h1 := Nat.lt_size_self c
+  have h2 := Nat.lt_size_self e
+  have h3 : 2 ^ Nat.size c ≤ 2 ^ (Nat.size c + Nat.size e) :=
+    Nat.pow_le_pow_right (by norm_num) (by omega)
+  have h4 : 2 ^ Nat.size e ≤ 2 ^ (Nat.size c + Nat.size e) :=
+    Nat.pow_le_pow_right (by norm_num) (by omega)
+  rw [pow_succ]
+  omega
+
+private theorem log2_eq_size_sub (n : ℕ) : Nat.log2 n = Nat.size n - 1 := by
+  rcases Nat.eq_zero_or_pos n with rfl | h
+  · simp
+  · have hs : 0 < Nat.size n := Nat.size_pos.2 h
+    rw [Nat.log2_eq_iff (by omega)]
+    refine ⟨Nat.lt_size.1 (by omega), ?_⟩
+    have := Nat.lt_size_self n
+    rwa [Nat.sub_add_cancel hs]
+
+private theorem foldl_succ_eq {β : Type} (l : List β) (n : ℕ) :
+    l.foldl (fun c _ => c + 1) n = n + l.length := by
+  induction l generalizing n with
+  | nil => rfl
+  | cons e r ih => rw [List.foldl_cons, ih, List.length_cons]; omega
+
+/-- The length of a list, in binary: a fold that adds 1 for every element. -/
+@[fun_prop] theorem length {l : α → List β} (hl : PolyT l) :
+    PolyT (fun x => (l x).length) := by
+  have h : PolyT (fun x => (l x).foldl (fun c _ => c + 1) 0) := by
+    refine foldl_add (g := fun _ c _ => c + 1) hl (by fun_prop) (by fun_prop)
+      ⟨fun _ => 3, PB.const 3, ?_⟩
+    intro x c e _
+    show len (c + 1) ≤ len c + 3
+    have := size_succ_le c
+    rw [len_nat, len_nat]
+    omega
+  exact h.congr fun x => by rw [foldl_succ_eq, Nat.zero_add]
+
+/-- The number of binary digits of a number: the length of its list of digits. -/
+@[fun_prop] theorem size' {f : α → ℕ} (hf : PolyT f) :
+    PolyT (fun x => Nat.size (f x)) :=
+  (length (bits hf)).congr fun x => Nat.size_eq_bits_len (f x)
+
+/-- The binary logarithm, rounded down: the number of binary digits minus 1. -/
+@[fun_prop] theorem log2' {f : α → ℕ} (hf : PolyT f) :
+    PolyT (fun x => Nat.log2 (f x)) :=
+  (pred (size' hf)).congr fun x => (log2_eq_size_sub (f x)).symm
+
+/-- Pin-adjustment (recorded): the frozen D1 machine branches on `Nat.log 2 p.2`
+(we chose `Nat.log_pow`'s form at D1); `Nat.log2` is only LEMMA-equal to it at this
+pin (`Nat.log2_eq_log_two`, Log.lean:308) — this bridge feeds the fun_prop database. -/
+@[fun_prop] theorem log2log' {f : α → ℕ} (hf : PolyT f) :
+    PolyT (fun x => Nat.log 2 (f x)) :=
+  (log2' hf).congr fun x => (Nat.log2_eq_log_two (n := f x)).symm
+
+end Groundwork.PolyT
+
+namespace Groundwork.PolyT
+
+open TM Turing
+
+variable {α β γ δ ε : Type} [Enc α] [Enc β] [Enc γ] [Enc δ] [Enc ε]
+
+/-- A larger natural number has a word at least as long (eth EncLemmas:97). -/
+theorem len_nat_mono {m n : ℕ} (h : m ≤ n) : len m ≤ len n := by
+  rw [len_nat, len_nat]; have := Nat.size_le_size h; omega
+
+/-! ### Nat2.lean :25–80 excerpt (len_dbl_add_le + the product) -/
+
+/-- The word of c + c + z is longer than those of c and z together by at most 4. -/
+theorem len_dbl_add_le (c z : ℕ) : len (c + c + z) ≤ len c + len z + 4 := by
+  have h : Nat.size (c + c + z) ≤ Nat.size c + Nat.size z + 2 := by
+    rw [Nat.size_le]
+    have hc := Nat.lt_size_self c
+    have hz := Nat.lt_size_self z
+    have h1 : 2 ^ Nat.size c ≤ 2 ^ (Nat.size c + Nat.size z) :=
+      Nat.pow_le_pow_right (by norm_num) (by omega)
+    have h2 : 2 ^ Nat.size z ≤ 2 ^ (Nat.size c + Nat.size z) :=
+      Nat.pow_le_pow_right (by norm_num) (by omega)
+    have h3 : 2 ^ (Nat.size c + Nat.size z + 2) = 4 * 2 ^ (Nat.size c + Nat.size z) := by ring
+    omega
+  simp only [len_nat]
+  omega
+
+/-- The product, read off the binary digits of the second factor from the top: double, and
+add m if the digit is 1. -/
+theorem foldr_bits_mul (m n : ℕ) :
+    (Nat.bits n).foldr (fun b acc => acc + acc + bif b then m else 0) 0 = m * n := by
+  induction n using Nat.binaryRec' with
+  | zero => simp
+  | bit b n h ih =>
+    rw [Nat.bits_append_bit _ _ h, List.foldr_cons, ih]
+    cases b <;> simp [Nat.bit] <;> ring
+
+/-- The product of two numbers in binary is polynomial-time. -/
+@[fun_prop] theorem mul {f g : α → ℕ} (hf : PolyT f) (hg : PolyT g) :
+    PolyT (fun x => f x * g x) := by
+  obtain ⟨_, t, ht, _, _, hlen⟩ := hf.elim
+  have h : PolyT (fun x => (Nat.bits (g x)).reverse.foldl
+      (fun acc b => acc + acc + bif b then f x else 0) 0) := by
+    refine foldl_add (l := fun x => (Nat.bits (g x)).reverse) (a := fun _ => 0)
+      (g := fun x acc b => acc + acc + bif b then f x else 0) (by fun_prop) (by fun_prop)
+      (by fun_prop) ⟨fun n => t n + 4, ht.add (PB.const 4), fun x c e _ => ?_⟩
+    have h1 := len_dbl_add_le c (bif e then f x else 0)
+    have h2 : len (bif e then f x else 0) ≤ len (f x) := len_nat_mono (by cases e <;> simp)
+    have h3 := hlen x
+    show len (c + c + bif e then f x else 0) ≤ len c + (t (len x) + 4)
+    omega
+  exact h.congr fun x => by rw [List.foldl_reverse]; exact foldr_bits_mul _ _
+
+end Groundwork.PolyT
+
+/-! ### The D2 headline: `padM'_isPolyT` (all three fields) -/
+
+namespace Groundwork.PadC
+
+open Groundwork.PolyT Groundwork Enc
+
+/-- **D2's target** (eth `padM_isPolyT`, Pad.lean:45–52, same statement for the counter
+machine): every part of the counter padding machine is polynomial-time if `e` and `A'`
+are — the Closure subset for `padM'`, opening `exists_tm_space` (M1) to it. -/
+/- The counter machine's step function, projection-free (the field bridges are rfl). -/
+theorem padM'_step_polyT (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool)
+    (he : PolyT e) (hA' : PolyT A') :
+    PolyT (fun s : (List Bool × ℕ) ⊕ Bool =>
+      s.elim (fun p => bif decide (e p.1 ≤ Nat.log 2 p.2) then
+          (.inr (A' p) : (List Bool × ℕ) ⊕ Bool) else .inl (p.1, 2 * p.2))
+        fun b => (.inr b : (List Bool × ℕ) ⊕ Bool)) := by
+  fun_prop
+
+theorem padM'_step_eq (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool) :
+    (padM' e A').step = fun s : (List Bool × ℕ) ⊕ Bool =>
+      s.elim (fun p => bif decide (e p.1 ≤ Nat.log 2 p.2) then
+          (.inr (A' p) : (List Bool × ℕ) ⊕ Bool) else .inl (p.1, 2 * p.2))
+        fun b => (.inr b : (List Bool × ℕ) ⊕ Bool) := rfl
+
+@[instance_reducible] def padM'_isPolyT (e : List Bool → ℕ) (A' : List Bool × ℕ → Bool)
+    (he : PolyT e) (hA' : PolyT A') : IsPolyT (padM' e A') where
+  enc := (inferInstance : Enc ((List Bool × ℕ) ⊕ Bool))
+  carried := (inferInstance : Carried ((List Bool × ℕ) ⊕ Bool))
+  init := padM'_init_polyT
+  step := padM'_step_polyT e A' he hA'
+  out := padM'_out_polyT e A'
+
+end Groundwork.PadC
+
+#print axioms Groundwork.PolyT.decide_le
+#print axioms Groundwork.PolyT.log2'
+#print axioms Groundwork.PolyT.mul
+#print axioms Groundwork.PolyT.foldl_add
+#print axioms Groundwork.PolyT.foldr
+#print axioms Groundwork.PadC.padM'_isPolyT
