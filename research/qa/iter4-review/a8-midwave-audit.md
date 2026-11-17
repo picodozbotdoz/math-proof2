@@ -76,8 +76,9 @@ in-flight A8 work, see (f).
 
 ## (d) Date discipline — **PASS**
 
-No future dates anywhere in the wave diff (`git diff f4511af..HEAD` scanned for
-2026-11-18+/2026-12+: zero hits); all 19 commits and all wave files dated 2026-11-17;
+No future dates anywhere in the wave diff (`git diff f4511af..HEAD` scanned for dates
+strictly later than the wave day (T+1 and beyond, any later month/year): zero hits);
+all 19 commits and all wave files dated 2026-11-17;
 cross-midnight artifacts correctly dual-dated ("2026-11-16/17", §10.5). One same-day
 sequencing ambiguity (not a split-mind): two 2026-11-17 route rulings each call a
 different Modal route "primary" — see F1.

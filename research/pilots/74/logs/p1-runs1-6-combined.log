@@ -1,0 +1,100 @@
+# LOG — pilot 74 P1 runs 1–6 (fix-loop EXHAUSTED: NOT-GREEN at budget; STOP per abort rule).
+# Provenance: 2026-11-17, lane A8 (orchestrator-chartered S-effort proof run; fix-loop ≤5).
+#   artifact : research/pilots/74/P1.lean (zero-sorry proof artifact; statements amended per
+#              FINDS #1–#4, all recorded in the file header + 74-P1-record.md)
+#   route    : probe auto-glob (stage name ProbeG74P1.lean in /tmp/crossmath-74-p1-stage/), doz CLI,
+#              warm crossmath-gprobe, SPEC cpu=2.0/mem=4096, LEAN_NUM_THREADS=2, no build phase
+#              (taskset rule N/A — lake env lean elaboration only).
+#   DESCENT LEDGER (errors): run1 62 (parse: |·| in nested Mdev def; ~10 API-signature classes)
+#     → run2 60 (batch-1 fixes; several replaces no-opped — silent python str.replace failures)
+#     → run3 57 (batch-2: Mdev abs-form no-opped again; sum_subset/subset_univ arity exposed)
+#     → run4 50 (Mdev parse FIXED; isGLB_sInf/max'/min' signatures decoded)
+#     → run5 46 (Real.sInf API restored — run-1 "unknowns" were parse-cascade artifacts)
+#     → run6 46 — WASTED: my fix-batch script aborted on an assert (hWin pattern x2) BEFORE
+#       writing, and I fired without verifying the patch had applied; run 6 elaborated the
+#       IDENTICAL file as run 5. Process error owned in 74-P1-record.md; not a Lean finding.
+#   verdict  : FAIL rc=1 at every run; ZERO sorry at every run (no forced gaps; all 7 theorems
+#              remain honestly unproved-in-Lean).
+#   telemetry: walls 76/65/102/234/218 s (2M-heartbeats file option from run 4); OVER=1..3
+#              per run — mem class only (mmapped-olen, anon=0; run5/6 cpu≤0.98 with 60-s
+#              samples — nominal); no escalation triggered or requested.
+#   STOP     : remaining ~8 error classes are ALL mechanical API-signature drift vs mathlib
+#              v4.36 (le_max'/le_min'/min'_mem arities, Real.sInf-family shapes, Finset
+#              sum-distribution grouping) — each with a leading fix hypothesis in the record.
+#              Requires an interactive elaboration loop the remote probe route does not
+#              provide; recommend re-charter with a fresh budget OR a local-lean session.
+
+=== RUN 1 (62 errors) ===
+https://modal.com/apps/semraker/main/ap-IqrcQmC823GzosSAzkXoej
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p1-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG74P1.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG74P1.lean
+[tele] t=60s cpu=1.15 mem=8339MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=62, sorry-warnings=2
+{'ProbeG74P1.lean': 'FAIL (62 errors)'}
+---- output (up to 12000 chars) ----
+ProbeG74P1.lean:77:75: error: Application type mismatch: The argument
+  h
+has type
+  Finset.Nonempty.{u_1} (supp p)
+but is expected to have type
+  Finset.Nonempty.{0} (Finset.image (fun i => |dev p i|) (supp p))
+in the application
+  (Finset.image (fun i => |dev p i|) (supp p)).max' h
+[tele] t=60s cpu=0.95 mem=8363MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=60, sorry-warnings=2
+[tele] SUMMARY probe: wall=65s max_cpu=0.95 max_mem=8363MB max_anon=0MB samples=1 OVER=1
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=57, sorry-warnings=2
+[tele] SUMMARY probe: wall=57s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+[tele] t=60s cpu=0.80 mem=4946MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=50, sorry-warnings=0
+[tele] SUMMARY probe: wall=102s max_cpu=0.80 max_mem=4946MB max_anon=0MB samples=1 OVER=1
+[tele] t=60s cpu=0.85 mem=8368MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=120s cpu=0.98 mem=8532MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=180s cpu=0.98 mem=8696MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=46, sorry-warnings=0
+[tele] SUMMARY probe: wall=234s max_cpu=0.98 max_mem=8696MB max_anon=0MB samples=3 OVER=3
+[tele] t=60s cpu=0.96 mem=8380MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=120s cpu=0.98 mem=8556MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=180s cpu=0.98 mem=8728MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=46, sorry-warnings=0
+[tele] SUMMARY probe: wall=218s max_cpu=0.98 max_mem=8728MB max_anon=0MB samples=3 OVER=3
+
+=== RUN 2 (FAIL) ===
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=60, sorry-warnings=2
+[tele] SUMMARY probe: wall=65s max_cpu=0.95 max_mem=8363MB max_anon=0MB samples=1 OVER=1
+https://modal.com/apps/semraker/main/ap-tfWCEEyMepS7ofRkXsHUIb
+
+=== RUN 3 (FAIL) ===
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=57, sorry-warnings=2
+[tele] SUMMARY probe: wall=57s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+https://modal.com/apps/semraker/main/ap-mCm7kau7DRyo5vccnnKiWO
+
+=== RUN 4 (FAIL) ===
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=50, sorry-warnings=0
+[tele] SUMMARY probe: wall=102s max_cpu=0.80 max_mem=4946MB max_anon=0MB samples=1 OVER=1
+https://modal.com/apps/semraker/main/ap-tBOtYSgBSoA5edWtsRPYPd
+
+=== RUN 5 (FAIL) ===
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=46, sorry-warnings=0
+[tele] SUMMARY probe: wall=234s max_cpu=0.98 max_mem=8696MB max_anon=0MB samples=3 OVER=3
+https://modal.com/apps/semraker/main/ap-Yg0hHW1GoDRXSx4JZXL5Aa
+
+=== RUN 6 (FAIL) ===
+[probe] ProbeG74P1.lean: FAIL rc=1; errors=46, sorry-warnings=0
+[tele] SUMMARY probe: wall=218s max_cpu=0.98 max_mem=8728MB max_anon=0MB samples=3 OVER=3
+https://modal.com/apps/semraker/main/ap-h8RqSl4gadybmmV6k3DsCX

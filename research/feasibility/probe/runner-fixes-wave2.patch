@@ -1,11 +1,18 @@
 # runner-fixes-wave2.patch — A8 wave-2 runner fixes (lane A8, 2026-11-17; STAGED — H applies post-wave on orchestrator signal)
+# REVISED 2026-11-17 (same day, post A3-P1 run-1 finding): lake at v4.36.0-rc2 has NO -j/--jobs flag
+# ("unknown short option '-j'") — fix (a) is now the taskset form, not -j. The first revision of this patch
+# (same session) prescribed `lake build -j 2`; it would have failed at first build-phase use. Never applied.
+#
 # Targets: research/pilots/zzv2-lam/run_zzv2.py + research/pilots/zeta23e/run_zeta23e.py (base = worktree agent-09 @ 53c1548 disk state;
 # zzv2 sha256(16) e202c9d694fa3e1b, zeta23e sha256(16) 6ca8279b7a96af55 — re-base if lanes touch the runners before application).
-# Fixes: (a) lake build -j 2 — caps lake job parallelism at SPEC cpu (the measured CPU-burst OVER class: zeta23e-p0-run1.log:19-25 OVER=13, run35-g11-fix.log OVER=12);
-#        (b) cache retry raised to the full iter4-donor-unblock-plan §5b budget (<=4 attempts) + DEFER-infra verdict on exhaustion (abort=defer per §8 cards 8-9; seed fallback deliberately NOT wired — porting _seed_mathlib into donor-tree runners is out of scope for a prepared patch);
-#        (c) modal_telemetry path resolution: __file__-relative first (in-repo runs), canonical absolute path as staged-run fallback (replaces the bare absolute insert; §5a gap-2 class).
+# Fixes: (a) taskset -c 0,1 lake build ... — hard-caps the build phase at the SPEC's 2 CPUs (the measured build-phase
+#        CPU-burst OVER class: zeta23e-p0-run1.log:19-25 OVER=13; lake sizes parallelism from nproc=18 — AGENTS §5 nproc trap;
+#        -j does not exist at this toolchain; taskset is A3's empirically-verified working form, function-body only, layer sharing intact);
+#        (b) cache retry raised to the full iter4-donor-unblock-plan §5b budget (<=4 attempts) + DEFER-infra verdict on exhaustion
+#        (abort=defer per §8 cards 8-9; seed fallback deliberately NOT wired — porting _seed_mathlib into donor-tree runners is out of scope);
+#        (c) modal_telemetry path resolution: __file__-relative first (in-repo runs), canonical absolute path as staged-run fallback (§5a gap-2 class).
 # Apply from repo root: patch -p1 < research/feasibility/probe/runner-fixes-wave2.patch
-# Verified 2026-11-17 by lane A8: dry-run clean + applies clean to fresh copies of both originals; patched files py_compile OK.
+# Verified 2026-11-17 by lane A8 (both revisions): dry-run clean + applies clean to fresh copies of both originals; patched files py_compile OK.
 
 --- a/research/pilots/zzv2-lam/run_zzv2.py
 +++ b/research/pilots/zzv2-lam/run_zzv2.py
@@ -39,7 +46,7 @@
          rc, out = None, ""
          for attempt in range(tries):
              rc, out = _sh(cmd, d, t)
-@@ -119,12 +130,20 @@
+@@ -119,12 +130,22 @@
              _, rev = _sh("git -C .lake/packages/mathlib rev-parse HEAD", d, 60)
              print(f"[zzv2] resolved mathlib {rev.strip()}", flush=True)
          if rc != 0:
@@ -55,10 +62,12 @@
                  print(f"{k}: {v}", flush=True)
              return summary
 -    rc, out = _sh("lake build ZetaZeros", d, 2 * 3600)
-+    # A8 wave-2 fix (a): -j 2 caps lake's job parallelism at the SPEC cpu count (lake
-+    # otherwise sizes from nproc; the measured CPU-burst OVER class — zeta23e OVER=13,
-+    # g11 OVER=12 — is this exact trap; zeta23e-p0-run1.log:19–25 investigation).
-+    rc, out = _sh("lake build -j 2 ZetaZeros", d, 2 * 3600)
++    # A8 wave-2 fix (a), REVISED 2026-11-17 post A3-P1 finding: lake at v4.36.0-rc2 has
++    # NO -j/--jobs flag ("unknown short option '-j'"); the working CPU cap is
++    # `taskset -c 0,1` (hard-caps the build at the SPEC's 2 CPUs; function-body change
++    # only, layer sharing intact) — the measured build-phase CPU-burst OVER class
++    # (zeta23e-p0-run1.log:19–25, OVER=13) is this exact trap.
++    rc, out = _sh("taskset -c 0,1 lake build ZetaZeros", d, 2 * 3600)
      e = [l for l in out.splitlines() if "error:" in l]
      done = len(re.findall(r"✔ \[\d+/\d+\]", out))
      summary["build"] = "OK" if rc == 0 and not e else f"FAIL rc={rc} errors={len(e)}"
@@ -93,7 +102,7 @@
          rc, out = _sh("lake exe cache get", d, 1800)
          print(f"\n=== zeta23 cache (attempt {attempt + 1}): rc={rc}", flush=True)
          if rc == 0:
-@@ -164,9 +175,13 @@
+@@ -164,9 +175,14 @@
          print(_condense(out, 4000), flush=True)
          time.sleep(60)
      if rc != 0:
@@ -102,10 +111,11 @@
 +                            f"attempts — §5b retry protocol; abort=defer per card 9)")
      else:
 -        rc, out = _sh(f"lake build {TARGET}", d, 2 * 3600)
-+        # A8 wave-2 fix (a): -j 2 caps lake's job parallelism at the SPEC cpu count
-+        # (lake otherwise sizes from nproc — the measured CPU-burst OVER class, see
-+        # this run family's own zeta23e-p0-run1.log:19–25 investigation, OVER=13).
-+        rc, out = _sh(f"lake build -j 2 {TARGET}", d, 2 * 3600)
++        # A8 wave-2 fix (a), REVISED 2026-11-17 post A3-P1 finding: lake at v4.36.0-rc2
++        # has NO -j/--jobs flag; the working CPU cap is `taskset -c 0,1` (SPEC's 2 CPUs;
++        # function-body only, layer sharing intact) — the CPU-burst OVER class this run
++        # family itself measured (zeta23e-p0-run1.log:19–25, OVER=13).
++        rc, out = _sh(f"taskset -c 0,1 lake build {TARGET}", d, 2 * 3600)
          e = [l for l in out.splitlines() if ": error" in l]
          failed = sorted({m for m in re.findall(r"✖ \[\d+/\d+\] Building (\S+)", out)})
          summary["build"] = ("OK" if rc == 0 and not e else
