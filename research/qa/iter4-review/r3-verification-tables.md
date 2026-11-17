@@ -705,13 +705,28 @@ remain OPEN (REPORT-INPUTS-ITER4 §1 72-M1 row).
 | `CrossMath.Pilot72.M1.opNorm_hermPart_le` | `:78` | PROVED-UNCONDITIONAL | `:60` (repeat :121) — triad | contraction bound feeding the interface theorem's norm side |
 | `CrossMath.Pilot72.M1.supportedOn_hermPart` | `:91` | PROVED-UNCONDITIONAL | `:61` (repeat :122) — triad | support preservation |
 | `CrossMath.Pilot72.M1.hamiltonian_hermPart` | `:128` | PROVED-UNCONDITIONAL — hH : `∀ v, (hv v).IsHermitian` (hypothesis of subject) | `:62` (repeat :123) — triad | the L3a headline assembly |
-| PRINT-GAP (5 of 9 T3 theorems, no direct print): `hermPart_smul` (:40), `hermPart_eq_self` (:43), `hermPart_add` (:51), `hermPart_zero` (:57), `hermPart_sum` (:60) | `P72M1T3.lean:40–66` | ⊆-triad by elimination: rc=0 + 0 sorry-warnings + every one consumed inside a printed-triad theorem (`hermPart_smul` at :46/:53/:73; `hermPart_zero` :65, `hermPart_add` :66 — inside the printed block; `hermPart_sum` :132–:133, `hermPart_add` :135, `hermPart_eq_self` :136 — inside `hamiltonian_hermPart` :128) | none direct — prints owed | the log header's "ALL FOUR L3a theorems" is accurate for the four it prints but NOT file-complete (census: 9 public theorems, `axcheck_iter4.py decls` 2026-11-17); tally-narrow, not tally-broad |
+| PRINT-GAP (5 of 9 T3 theorems, no direct print) — **CLOSED 2026-11-17** (see the closure block below): `hermPart_smul` (:40), `hermPart_eq_self` (:43), `hermPart_add` (:51), `hermPart_zero` (:57), `hermPart_sum` (:60) | `P72M1T3.lean:40–66` | PROVED-UNCONDITIONAL — direct prints now in-log (was ⊆-triad by elimination: rc=0 + 0 sorry-warnings + every one consumed inside a printed-triad theorem — `hermPart_smul` at :46/:53/:73; `hermPart_zero` :65, `hermPart_add` :66; `hermPart_sum` :132–:133, `hermPart_add` :135, `hermPart_eq_self` :136 — inside `hamiltonian_hermPart` :128) | `axcheck-l3a-run1.log:213–217` — all five `[propext, Classical.choice, Quot.sound]` | the l3a header's "ALL FOUR L3a theorems" was accurate for the four it printed but not file-complete (census: 9 public theorems); tally-narrow — now moot, 9/9 direct |
 
-**Queued (print-gap):** close the 5-print gap at the next axcheck pass —
-`axcheck_iter4.py gen` on P72M1T3.lean staged through the pilot-75 custody-runner
-pattern (minutes-class, SPEC), alongside the already-owed `make_axcheck72m1.py`
-TARGETS extension with T3 (REPORT-INPUTS-ITER4 §1 72-M1 row). No new information
-expected (elimination already covers), custody completion only.
+**Queued (print-gap) — EXECUTED SAME DAY (2026-11-17, this lane): CLOSED.** Run
+`axcheck-l3a-run1` — log `pilots/72-M1/logs/axcheck-l3a-run1.log`, warm route app
+`crossmath-probe` via `pilot72m1_probe.py` (dependency-order per-file olen +
+LEAN_PATH sibling staging), doz CLI, SPEC 2 cpu/4 GB + LEAN_NUM_THREADS=2; wall
+105 s. `make_axcheck72m1.py` TARGETS extended with T3 (the owed extension;
+AxT3 imports AxT2 imports AxT1 via the rewrites map); T3 source sha fe57d30b19d9a836
+(== l3a-run6's stamp, disk-verified), AxT3 stage sha stamped in-log (:7). **Verdict:
+PASS — AxT3 stage 13 records (9 appended + 4 in-file ride-along), ALL
+`[propext, Classical.choice, Quot.sound]`, 0 sorryAx, 0 errors** (scan: T3 13 OK;
+the 5 gap decls direct-print triad at `:213–217`); 9/9 T3 census decls now
+direct-printed. **Bonus custody discharge:** the T1/T2 stages reprinted in the same
+run (52 + 28 records, all ⊆ triad — 2 × [propext, Quot.sound], data-only, no
+Classical.choice) — the C2 sweep's persisted-record shortfall for
+`AxPilot72_M1_T1` (52 claimed → 34 persisted) and `_T2` (28 → 27) is closed by this
+log (scan: 93 records total, 0 sorryAx). Telemetry note: wall 105 s, max_cpu 0.51,
+**OVER=1 on the single memory sample (6576 MB) — the documented mmapped-Mathlib-olen
+measurement class** (AGENTS § Modal measured facts: mem = MemTotal−MemAvailable
+incl. ~5–6 GB of mmapped olen pages; max_anon=0 confirms no anon spike); no CPU
+burst, no escalation. Machinery: `pilots/72-M1/run_axcheck72m1_l3a.sh` (wrapper,
+stages from `/tmp/crossmath-ax72m1-l3a-gen`).
 
 ### 10.10 ZZV2-λ P0 — LANDED GREEN 2026-11-17 (lane A3; r5 §12a rung 1, probe-convention rows only — P0(b) UNFAVORABLE ⇒ stop-after-P1 rule ARMED)
 
@@ -775,4 +790,9 @@ note) + A8 week-1 validation folds F1 (§10.6 A1/A2 sha transpose, disk-verified
 F2 (§10.3/§10.6 stub-line citations corrected to the persisted logs' :73/:111/:116).
 Third batch: §10.10 ZZV2-λ P0 (A3's block merged from the agent-04 stale-baseline
 copy, renumbered §10.7→§10.10, log citations re-verified there — 4/4 donor rows
-triad at `p0-run1.log:151–154`).*
+triad at `p0-run1.log:151–154`). Fourth batch: §10.9's L3a print-gap CLOSED
+(`axcheck-l3a-run1` — 5 gap decls direct-print triad :213–217; T1/T2 C2 custody
+shortfall discharged in the same log, 93 records); axcheck_iter4 T9 primed-name
+regex fix (RECORD_RE + join openers `([^']*)`→`(.*)`) — axcheck-full-run1.log now
+scans 124 records all-triad (was 120 + 4 hand-joined), C2 sweep log 719→724 all
+triad, dated note in the tool header.*

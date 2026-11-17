@@ -82,7 +82,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | Lane | Assignment | Deliverable path | Status | Last update |
 |---|---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief; 2026-11-17 Modal route ruling test recorded (xyz primary, LIVE) | active | 2026-11-17 |
-| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | Pb full-coverage axcheck PASS 89/89 triad 0 sorryAx (`pilots/75/logs/axcheck-full-run1.log`); F1–F3 closed; §10.9 L3a + §10.10 ZZV2 folded into canonical r3-tables; SCAN §1c corrected; L3a print-gap + RECORD_RE queued | Pb full-coverage axcheck PASS 89/89 triad (F1–F3 closed; §10.9 L3a + §10.10 ZZV2 folded); L3a print-gap + RECORD_RE queued | 2026-11-17 |
+| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | L3a print-gap CLOSED (5/5 hermPart triad, 9/9 census; `axcheck-l3a-run1.log`); axcheck T9 RECORD_RE fixed (124/124 machine-confirmed); sweep pre-staging next | L3a gap CLOSED (9/9 direct); RECORD_RE T9 fixed (124/124 machine-confirmed); sweep pre-staging next | 2026-11-17 |
 | A2 | 73-Q4 execution | `research/pilots/73/Q4.lean` (gate memo GO at `Q4-gate-memo.md`, `3b9b0a0`) | spawned (queue loaded) | 2026-11-17 |
 | A3 | ZZV2-λ P0 execution | **P0 GREEN 2026-11-17** (run 1, 681 s; `p0-run1.log` + `P0-record.md`; 4/4 triad consumer-side; MT-frozen Landau bridge); P1 chartered, hard-STOP armed (R5 §12a) | P0 GREEN (1 run, 681s); P1 chartered, hard-STOP armed | 2026-11-17 |
 | A4 | AL-P2 c/d/e milestones | `research/pilots/al3d/A2.lean` (P2-d risk concentration; C.1–C.4 fence) | spawned (queue loaded) | 2026-11-17 |

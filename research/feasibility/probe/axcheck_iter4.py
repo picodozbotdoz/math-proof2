@@ -70,6 +70,18 @@ against the on-disk C2 evidence (`python3 -I axcheck_iter4.py …`); measured re
      rewritten, all other content byte-verbatim; plain `gen` regression OK.
      Purpose: sibling-import staging for Iteration-4 consumers (lp L2 imports L1;
      72-M1 T3 imports T1/T2) without touching frozen make_axcheck.py logic.
+  T9 PRIMED-NAME FIX (lane A1, 2026-11-17): RECORD_RE + join_records' opener
+     patterns widened `([^']*)` → `(.*)` (greedy, backtracks to the last quote
+     before `depends on`/`does not depend`) — names ENDING IN A PRIME
+     (`analyticAt_finset_prod'`, Lean prints `'name'' depends …`) broke the
+     quote pairing and those records were silently skipped. Found live on
+     pilots/75/logs/axcheck-full-run1.log: scan said 120 records; the fix says
+     124 (the +4 = the two primed names × their two prints each), all triad,
+     0 sorryAx — matching the hand-join recorded in r3-verification-tables
+     §10.8's Step-B closure. Regression on the T6 C2 sweep log (stepB-c2.log):
+     719 → 724 records (+5 primed-name records recovered, all ⊆ triad, 0 sorryAx,
+     custody TALLY-ONLY flags unchanged — they were excerpt-based); normal names
+     unaffected. Axiom lists never contain quotes, so greedy is safe.
 
 The gen tail is APPENDED ONLY — the source file is copied verbatim; sweep-time
 staging remains the bytes of record (sha256-at-sweep per FINAL-SWEEP-PLAN-ITER4 §2.4;
@@ -96,7 +108,7 @@ FORBIDDEN = [
     ("attr-extern", re.compile(r"@\[\s*extern\b")),
 ]
 
-RECORD_RE = re.compile(r"^'([^']*)'\s+(depends on axioms:.*|does not depend on any axioms\.?)\s*$")
+RECORD_RE = re.compile(r"^'(.*)'\s+(depends on axioms:.*|does not depend on any axioms\.?)\s*$")
 VERDICT_RE = re.compile(r"^\[ax\]\s+(\S+?):\s+(OK|FAIL[^\n]*?);\s+axiom-lines=(\d+),\s+sorryAx-lines=(\d+)")
 EXCERPT_RE = re.compile(r"^\(…(\d+) more\)")
 ERROR_LINE_RE = re.compile(r":\s*error\b")
@@ -224,8 +236,8 @@ def join_records(lines):
 
     for idx, line in enumerate(lines, 1):
         s = line.strip()
-        m = re.match(r"^'([^']*)'\s+depends on axioms:\s*(.*)$", s)
-        noax = re.match(r"^'([^']*)'\s+does not depend on any axioms", s)
+        m = re.match(r"^'(.*)'\s+depends on axioms:\s*(.*)$", s)
+        noax = re.match(r"^'(.*)'\s+does not depend on any axioms", s)
         if m or noax:
             if cur:
                 records.append(cur)

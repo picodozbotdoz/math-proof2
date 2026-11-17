@@ -13,9 +13,14 @@ import sys
 from pathlib import Path
 
 PILOTS = Path("/home/doz/zcode-workdir/cross-math-fronttier/research/pilots")
+# T3 appended 2026-11-17 by lane A1 (the §10.9 L3a print-gap closure — the owed
+# extension per REPORT-INPUTS-ITER4 §1 72-M1 row): L3a's 9 public theorems incl. the
+# 5 with no direct print in l3a-run6-GREEN.log. T3's `import P72M1T2` rewrites to the
+# T2 stage via the rewrites map below (sibling-import staging).
 TARGETS = [
     ("AxPilot72_M1_T1", PILOTS / "72-M1/P72M1T1.lean"),
     ("AxPilot72_M1_T2", PILOTS / "72-M1/P72M1T2.lean"),
+    ("AxPilot72_M1_T3", PILOTS / "72-M1/P72M1T3.lean"),
 ]
 
 
