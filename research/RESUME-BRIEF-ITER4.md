@@ -63,8 +63,12 @@ charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
    completion (on signal):** (1) census verification first (articles end-state per the
    runbook); (2) stage the FULL swap-in changeset deliberately (R1 leaves everything
    worktree-only); (3) ONE serialized commit carrying the incident notes above.
-6. Modal ONLY via the doz CLI `/home/doz/dozenv/bin/modal` (`sudo -n -u xyz` is blocked
-   in this env); NEVER local lake/lean builds. `AGENTS.md` § Modal usage guidelines is
+6. **SUPERSEDED 2026-11-17 (orchestrator ruling: user directive makes xyz PRIMARY —
+   route-test note in §Substrate baseline "Modal health" below):** xyz route
+   `sudo -n -u xyz /home/xyz/xyzenv/bin/modal` is LIVE (client 1.6.3, workspace
+   `donniexyz888`); doz CLI `/home/doz/dozenv/bin/modal` (1.6.2, `semraker`) is the
+   verified fallback and holds the warm Cycle-2/Iter-4 caches. NEVER local lake/lean
+   builds. `AGENTS.md` § Modal usage guidelines is
    mandatory: defaults cpu=2.0/memory=4096, telemetry in every run,
    `LEAN_NUM_THREADS=2`, overrun ⇒ investigate-not-upgrade (more resources only with
    explicit per-run user approval), long builds (> ~40 min) as cached image layers,
@@ -72,18 +76,22 @@ charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
 
 ## (c) Per-lane table (current state; mirrored from ORCHESTRATION-ITER4.md)
 
-| Lane | Assignment | Deliverable path | Status |
-|---|---|---|---|
-| H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief | idle (standing by for signals) |
-| R1 | articles editorial audit | audit + TEMPLATE-iter4 + all rewrite proposals + swap-in runbook LANDED (runbook NOT executed — orchestrator GO only) | delivered |
-| R2 | discovery-strength audit | S1–S4 bar + fix-side + hEχ mini-spec + 20/72 rewrites LANDED; 29 relabel edits + pass-2 counts APPLIED by H | delivered |
-| R3 | verification integrity audit | 19/19 VERIFIED + tables + axcheck spec LANDED; §8 pass-2 APPLIED; axcheck_iter4.py awaited | delivered |
-| R4 | process/completeness audit | audit + fixes package + gate-run record LANDED; batches A+B APPLIED; batch C at splice | delivered |
-| R5 | iteration-4 backlog consolidation | §§1–16 final LANDED; STATUS snippet + REPORT-INPUTS-ITER4 HELD for LAUNCH commit; runner clones staged | delivered final |
-| R6 | fresh corpus bridge re-scan | `research/novelty/iter4-fresh-bridges.md` LANDED (5 seeds, 2 OAI donors); follow-ups unreported | delivered v1 |
-| R7 | external prior-art web check | `research/novelty/iter4-external-priorart.md` on disk (unreported) | writing |
-| R8 | donor/feasibility engineering | route plan + runner kit + approval packet + AGENTS-ITER4-DRAFT LANDED (NOTHING applied to AGENTS.md) | delivered |
-| R9 | synthesis/charter draft | §§1–10 LANDED (splice v2); final touch-up in flight | integrating |
+**PHASE-B WAVE 2 (opened 2026-11-17, post-restart):** lane map H + A1–A9; the R1–R9
+review lanes CLOSED at L1 (2026-11-16) — their phase-B follow-ups are inherited by the
+A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
+
+| Lane | Assignment | Deliverable path | Status | Last update |
+|---|---|---|---|---|
+| H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief; 2026-11-17 Modal route ruling test recorded (xyz primary, LIVE) | active | 2026-11-17 |
+| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | `research/novelty/oai-siegelzeros-piexponent-as-donor.md` + §1c clocks; `research/pilots/75/logs/pb-run12-auditfix.log` check vs §10.4 | spawned (queue loaded) | 2026-11-17 |
+| A2 | 73-Q4 execution | `research/pilots/73/Q4.lean` (gate memo GO at `Q4-gate-memo.md`, `3b9b0a0`) | spawned (queue loaded) | 2026-11-17 |
+| A3 | ZZV2-λ P0 execution | `research/pilots/zzv2-lam/P0.lean` (card 8, released; hard STOP rule R5 §12) | spawned (queue loaded) | 2026-11-17 |
+| A4 | AL-P2 c/d/e milestones | `research/pilots/al3d/A2.lean` (P2-d risk concentration; C.1–C.4 fence) | spawned (queue loaded) | 2026-11-17 |
+| A5 | 75-N2 consumer design (discovery; R2 §10 consumer (ii)) | design note (ℚ ray-class↔Dirichlet dictionary + DZDF statement-binder + hEχ port) — NOT started at wave-2 open | spawned (queue loaded) | 2026-11-17 |
+| A6 | 32-crossing run-12 + 01-stability tranche | `research/pilots/32/` run 12 (warm app; wrapper caveat week1-agenda row 1) + 01-Rung-0 paper tranche if lane-free | spawned (queue loaded) | 2026-11-17 |
+| A7 | Truffet elevation decision | `research/novelty/iter4-truffet-classical-scope.md` §7/§9 (week1-agenda row 3) | spawned (queue loaded) | 2026-11-17 |
+| A8 | pilot-GREEN validation + donor infra | R8-pattern validation records (al3d / zzv2-lam / zeta23E) + runner kit / approval packet upkeep | spawned (queue loaded) | 2026-11-17 |
+| A9 | article-75 two-tier v2 (R1 gate) | `research/articles/75-abelian-assembly-zetaL-proportions.md` v2 (R5 §14.1 tiers; template gate; N=1 quota — week1-agenda row 9) | spawned (queue loaded) | 2026-11-17 |
 
 ## (d) Restart instructions (after outage / session loss)
 
@@ -156,6 +164,34 @@ instruction; the AGENTS.md note may warrant an orchestrator-owned correction lat
 (basic cmd rc=0; modal route WORKS — client 1.6.3, profile `donniexyz888`, a DIFFERENT
 workspace from doz's `semraker` where the Cycle-2 cached images/apps live) — protocol
 unchanged (doz CLI) pending orchestrator decision.
+
+**2026-11-17 route ruling test, H (orchestrator ruling: user directive makes xyz
+PRIMARY).** Verdict: **xyz route LIVE and primary.**
+- `sudo -n -u xyz /home/xyz/xyzenv/bin/modal --version` → **client 1.6.3**, rc=0. No
+  login shell needed for basic commands; `sudo -n -u xyz bash -lc '…'` also works
+  (used for `profile current` / `profile list`).
+- Authenticated: `app list` returns data. Profile **`donniexyz888`**, workspace
+  **`donniexyz888`** (`profile list`: profile == workspace, the only one configured).
+- Fallback re-verified healthy: doz CLI `/home/doz/dozenv/bin/modal` client 1.6.2,
+  profile `semraker`, `app list` EMPTY (clean, no running apps).
+- This note supersedes §(b) item 6 above and the restart-addendum "Modal ONLY via doz
+  CLI" line.
+
+Operational caveats (matter for warm runs):
+1. **The two workspaces are DISTINCT.** Every Cycle-2 / early-Iter-4 warm artifact —
+   volumes (`crossmath-g7-tree`, `crossmath-g11-tree`), pilot-app image-layer caches
+   (73/75/32/zeta23E-era) — was built under `semraker` (doz) and is NOT visible on
+   `donniexyz888`; first xyz-side runs pay cold-start (olean-fetch ≈3 m 45 s class per
+   AGENTS.md). Warm-app runs (73-Q4 on `crossmath-pilot-73`, 32 run-12 on
+   `crossmath-pilot-32`) should stay doz-side unless/until caches are re-seeded on xyz —
+   route per-run until a migration decision.
+2. **The xyz workspace carries FOREIGN activity today** (apps `indo-train-watch` ×4,
+   `indo-preflight` ×1, `zapfast-build` ×7 — created 2026-11-17 16:42–17:09 +08, all
+   stopped/ephemeral, 0 tasks; not ours). The workspace is shared with other workloads:
+   keep crossmath names namespaced (`crossmath-*`) and expect non-crossmath rows in
+   `app list`.
+3. AGENTS.md § Modal usage guidelines unchanged and route-agnostic: cpu=2.0/mem=4096,
+   telemetry every run, LEAN_NUM_THREADS=2, overrun ⇒ investigate-not-upgrade.
 
 ## SESSION END — 2026-11-17 (external termination: orchestrator session exceeded max duration)
 

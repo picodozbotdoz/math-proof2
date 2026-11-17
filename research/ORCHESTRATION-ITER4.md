@@ -1,18 +1,23 @@
 # ORCHESTRATION-ITER4 — Iteration 4 lane tracker
 
 Iteration 4 run (= user's "Iteration 3" launch), opened 2026-11-16. **PHASE B ACTIVE as
-of the L2 splice commit** (charter typeset into RESEARCH.md §Iteration 4; STATUS opened
+OF the L2 splice commit** (charter typeset into RESEARCH.md §Iteration 4; STATUS opened
 block spliced; review phase CLOSED at L1). Maintained by H on orchestrator signal.
+
+**PHASE-B WAVE 2 opened 2026-11-17** (post-restart; session-end snapshot `53c1548`):
+lane map re-cut to H + A1–A9 per the orchestrator's wave-2 assignments; the R1–R9 review
+lanes stay CLOSED at L1 (2026-11-16 — their phase-B follow-ups are inherited by the
+A-lanes as noted per row). In-flight state at wave-2 open: RESUME-BRIEF-ITER4 §Session-end.
 
 | Lane | Role | Current task | Status | Last update |
 |---|---|---|---|---|
-| H | helper/infra (branch, commits, probes, tracker) | Swap-in close-out executed (census 15 PASS; one serialized commit); pause LIFTED — normal rule-2 cadence; holding other lanes' unreported phase-B files (Pb.lean, al3d/*, P72M1T3, week1-agenda, R6/R7 touches) | active | 2026-11-16 |
-| R1 | articles editorial audit | review CLOSED (L1); articles swap-in runbook staged — executes on orchestrator GO only | closed | 2026-11-16 |
-| R2 | discovery-strength audit | review CLOSED (L1); strength bar S1–S4 chartered (RESEARCH.md §Iteration 4) | closed | 2026-11-16 |
-| R3 | verification integrity audit | review CLOSED (L1); axcheck_iter4.py = default sweep config; count remainder at close STEP-5 | closed | 2026-11-16 |
-| R4 | process/completeness audit | review CLOSED (L1); runs the L2 eight-grep verification next | closed | 2026-11-16 |
-| R5 | iteration-4 backlog consolidation | review CLOSED (L1); §16 STATUS snippet spliced at L2; standby-integrated | closed | 2026-11-16 |
-| R6 | fresh corpus bridge re-scan | review CLOSED (L1); FB watch chartered; G11/G12 staged NO-RUN | closed | 2026-11-16 |
-| R7 | external prior-art web check | review CLOSED (L1); bib-cards follow-up on report | closed | 2026-11-16 |
-| R8 | donor/feasibility engineering | review CLOSED (L1); approval packet §8 + §9 checklist live; AGENTS-ITER4 E-block pending orchestrator apply | closed | 2026-11-16 |
-| R9 | synthesis/charter draft | review CLOSED (L1); §11 splice text TYPESET at L2; standby for phase-B re-issues | closed | 2026-11-16 |
+| H | helper/infra (branch, commits, probes, tracker) | Standing duty: signal batches with hardened pre-commit gate, tracker/brief upkeep, concurrency probes; 2026-11-17 route ruling test recorded (xyz Modal primary, LIVE — brief §Substrate/Modal-health) | active | 2026-11-17 |
+| A1 | verification integrity (inherits R3 §9) | G11/G12 verdict review: read `feasibility/probe/logs-g/` run33/34/35 tails → fold verdicts into `novelty/oai-siegelzeros-piexponent-as-donor.md` + §1c clocks; verify pb print-gap closed (`pilots/75/logs/pb-run12-auditfix.log` rc=0/triad vs §10.4) | spawned (queue loaded) | 2026-11-17 |
+| A2 | 73-Q4 execution (inherits R5) | Execute `pilots/73/Q4.lean` per gate memo GO (`pilots/73/Q4-gate-memo.md`, `3b9b0a0`; `hPur` stays a binder; dossier-upgrade note on GREEN) | spawned (queue loaded) | 2026-11-17 |
+| A3 | ZZV2-λ P0 execution (inherits R2) | Execute `pilots/zzv2-lam/P0.lean` (card 8, released; Lamzouri must-cited; hard STOP after P1 GREEN if Landau layer MT-frozen — R5 §12) | spawned (queue loaded) | 2026-11-17 |
+| A4 | AL-P2 c/d/e milestones (inherits R9) | P2-d is the risk concentration (reindex-conjugation transport; decomposition in `pilots/al3d/A2.lean` header; every claim names its C.1–C.4 fence) | spawned (queue loaded) | 2026-11-17 |
+| A5 | 75-N2 consumer design (discovery; inherits R2 §10 consumer (ii)) | Design note: ℚ ray-class↔Dirichlet dictionary + DZDF `abelianFactorization` statement-binder + hEχ port — the cycle's strongest discovery candidate, NOT started at wave-2 open | spawned (queue loaded) | 2026-11-17 |
+| A6 | 32-crossing run-12 + 01-stability tranche | Run 12 on the warm `crossmath-pilot-32` (wrapper caveat week1-agenda row 1: `MODAL_USER` per the 2026-11-17 route ruling — warm cache is doz-side); then article-32 §5 discharge + R1's v2 edit; 01-Rung-0 paper tranche if lane-free (week1-agenda row 2) | spawned (queue loaded) | 2026-11-17 |
+| A7 | Truffet elevation decision (inherits R7) | Week1-agenda row 3: OUTCOME B confirmed absent (§§6.4–9 re-pulled) — decide ELEVATE (fidelity back-mapping closes, or blockers don't block an instance family) vs stand-down citation note; file `novelty/iter4-truffet-classical-scope.md` §7/§9 | spawned (queue loaded) | 2026-11-17 |
+| A8 | pilot-GREEN validation + donor infra (inherits R8) | Validate pending GREENs (al3d / zzv2-lam / zeta23E) per the R8 pattern; donor infra upkeep (runner kit, approval packet cards 1–10, G11 sizing) | spawned (queue loaded) | 2026-11-17 |
+| A9 | article-75 two-tier v2 (R1 gate) | Two-tier v2 revision of `research/articles/75-abelian-assembly-zetaL-proportions.md` behind the hEχ clearance (2/3 tier unconditional at ℚ = strongest S4(a) move; 5/6 distinct tier conditional; third tier = quadratic-ζ_K corollary — R5 §14.1); template gate + N=1 quota check (week1-agenda row 9) | spawned (queue loaded) | 2026-11-17 |
