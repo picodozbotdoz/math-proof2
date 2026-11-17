@@ -961,6 +961,92 @@ alternative DEAD, tauceti route designed).
 (zero tokens today); NO Step-B stage ever; P1 (if chartered) classifies per its lane
 report.
 
+### 10.15 74 T1T2T4-P0 — LANDED GREEN 2026-11-17 (run 2; lane A8; folded + re-verified by lane A1) — PROBE-CONVENTION statement rung, never a Step-B stage
+
+*(Merged 2026-11-17 by lane A1 from A8's `pilots/74/74-P0-record.md` (worktree
+agent-09, pending H's commit). Cites re-verified on agent-09 disk: verdict
+`t1t2t4-p0-run2-fix.log:8` ("GREEN — OK rc=0 errors=0 sorry-warnings=0"), stage OK
+`:36–37`, telemetry `:12` (final segment wall 43 s, OVER=0) with BOTH preemption
+telemetry segments preserved per the header — the container-preemption restart
+record is in-log, input unchanged.)*
+
+**T1T2T4-P0.lean (PROBE-CONVENTION — 172 LoC, sha256(16) `09670d11395b5f70`;
+14 defs + 5 statement Prop-defs (`stmt_T1a/T1b/T1c/T2/T4`) + 3 pins on mathlib
+ff2494ea; the declared probe sorry class is EMPTY — the file's one `sorry` string is
+header prose; warm `crossmath-gprobe` probe route, doz CLI. Run 1 staging FAIL on two
+annotation/coercion classes (10× `dependsOnNoncomputable` on the data defs; `j + 1`
+elaborating in `Fin k`) → fixed by `noncomputable` ×10 + exponent `((j : ℕ) + 1)`,
+the one authorized fix-retry; the anticipated `sInf`/`sSup`-totality and `=o[atTop]`
+risks did NOT bite; dated in-file fix note, no content change.)**
+
+**Binder-table confirmation at GREEN (the statement layer's content):** `hMGF`
+(verbatim MarginalTails first clause, `Statements.lean:482–485`) elaborated inside
+`InMGFClass` + `stmt_T1c` ✓; `hVarLB` (extremal-family variance floor κ·B ≤ Var(P B))
+= the inventoried open core, elaborated in `stmt_T4` — **P1-e's discharge target**;
+`hB`/scale absorbed into `InMGFClass`'s `1 ≤ B`; the `u ≠ 1` degeneracy void by
+construction (filtered `mU`) — no side condition needed anywhere. **P1 GO input with
+two charter prerequisites:** (1) Q1 resolved first (core-prep §5: T4's
+class-restricted-B₁ vs per-spectrum-floor reading decides P1-e's target shape; owner
+A4 + chartering lane; P0 shape is (ii)); (2) run-1's lesson travels (annotate
+`noncomputable` at authoring time on data-carrying defs over
+`Real.log`/`negMulLog`/`sInf`/`sSup`; coerce `Fin k` exponents explicitly). Effort
+S-class (≈0.6–1k LoC); T3 stays unchartered (+M). Sweep treatment: Step-A row (0
+tokens), never Step-B, no TARGETS — the record's own class.
+
+### 10.16 ZZV2-λ P1 — LANDED GREEN 2026-11-17 (lane A3; the ladder's FINAL rung — HARD STOP executed per r5 §12a; folded + re-verified by lane A1)
+
+*(Merged 2026-11-17 by lane A1 from A3's block authored into a STALE baseline copy of
+this file in agent-04 (labeled §10.8 there) — renumbered to the live lineage as
+§10.16; content verbatim below except this note + the addendum. Cites re-verified on
+agent-04 disk: verdict `p1-run3.log:143`, the 10 triad prints `:145–:155` (repeats
+`:157–:166`, the two `_private.P1.0.*` records included), telemetry `:171`, header
+route note `:2`, RESULT block `:177–:180`.)*
+
+**P1.lean (`ZZLam`, proof artifact — 290 LoC ≤ 300 guard; 10 theorems + 5 defs; sha256
+a9a6555cadcd604c ✓; elaborated INSIDE the built ZetaZerosV2 tree, mathlib pin ff2494ea,
+toolchain v4.36.0-rc2, M4b2 recipe; verdict `p1-run3.log:143`: `P1.lean: OK` under the
+runner's SORRY-STRICT branch — rc=0, 0 errors, 0 sorry. FULL PRINT SURFACE 10/10
+triad-only incl. both private helpers; token-level log sweep: only
+propext/Classical.choice/Quot.sound appear — zero sorryAx, zero native_decide.
+Descent: run1 wiring friction (lake v4.36.0-rc2 has NO -j flag → `taskset -c 0,1`
+build cap; no elaboration), run2 3 mechanical errors (2× noncomputable markers on the
+dividing constant defs — the m4b2-run1 class; 1 rcases flattening) with 8/10 already
+triad, run3 GREEN, wall 582 s. Route: doz/semraker.)**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `ZZLam.thm_simple_lam` | `pilots/zzv2-lam/P1.lean:124` | PROVED-CONDITIONAL — binders: `P : LamParams` (data: lam + hpos : 0 < lam, the P0(a)-pinned minimal range), `c : ℝ`, and the ONE kernel-sum binder `hKS : KSAsymptotic P.lam c` (= `∃ eta, IsAdmissible lam eta ∧ Tendsto (Re (KS η T)/zeroScale T) (nhds c)` — `kernelConstruction`'s tuple minus the frozen λ=1/2 constant), + `ε > 0`; NO donor-binder discharge claimed | `p1-run3.log:149` (repeat :161) — `[propext, Classical.choice, Quot.sound]` | family thm 1: eventually `C0Lam c − ε = 2 − c − ε < simpleOnLineCount/N(T)`; consumes `simpleOnLineCount_lower` + `eventually_simple_proportion` + RvM bookkeeping (donor, public) |
+| `ZZLam.thm_distinct_lam` | `P1.lean:149` | PROVED-CONDITIONAL (same binder shape) | `:150` (repeat :162) — triad | family thm 2: `C1Lam c − ε = 3/2 − c/2 − ε < distinctZeroCount/N(T)`; consumes `distinctZeroCount_lower` + `eventually_distinct_proportion` |
+| `ZZLam.thm_average_lam` | `P1.lean:175` | PROVED-CONDITIONAL (same binder shape) | `:151` (repeat :163) — triad | family thm 3: `C1Lam c − ε < (simpleZeroCount + onLineCount)/(2N(T))`; consumes `simpleZeroCount_add_onLineCount_lower` + the LOCAL copy of the donor's private `eventually_average_proportion` (cited) |
+| `ZZLam.thm_simple_or_critical_lam` | `P1.lean:204` | PROVED-CONDITIONAL — same binder shape + the A-window hypotheses `1 ≤ c + ε/2 < 2` (which the donor derives from its frozen constant bounds; kept explicit here) | `:152` (repeat :164) — triad | family thm 4: `C2Lam c (ε/2) − ε < simpleOrOnLineCount/N(T)`; consumes `simpleOrOnLineCount_lower` + the local copy of the private `eventually_le_mul_of_tendsto_ratio` |
+| `ZZLam.KSAsymptotic_mono` | `P1.lean:75` | PROVED-UNCONDITIONAL (Prop-level; λ-free) | `:145` (repeat :157) — triad | domain pin: admissibility windows widen — the same witness serves every `lam' ≥ lam` |
+| `ZZLam.exists_KSAsymptotic_of_half_le` | `P1.lean:85` | PROVED-UNCONDITIONAL (donor `kernelConstruction` as the witness) | `:146` (repeat :158) — triad | domain pin: family nonempty on `[1/2, ∞)` with constants ε-close to `montgomeryTaylorConst` — via the FROZEN kernels re-windowed, not new λ-kernels |
+| `ZZLam.thm_simple_lam_half_regression` | `P1.lean:239` | PROVED-UNCONDITIONAL (donor `kernelConstruction` discharges the binder) | `:153` (repeat :165) — triad | L4-at-binder: family at `lam = 1/2` re-derives the donor's headline constant `3/2 − (1/√2)cot(1/√2)` bit-for-bit |
+| `ZZLam.thm_distinct_lam_half_regression` | `P1.lean:258` | PROVED-UNCONDITIONAL (same discharge) | `:154` (repeat :166) — triad | L4-at-binder: re-derives `5/4 − (1/(2√2))cot(1/√2)` bit-for-bit |
+| privates `eventually_average_proportion_lam` (:95), `eventually_le_mul_of_tendsto_ratio_lam` (:109) | `P1.lean:95,:109` | PROVED-UNCONDITIONAL — cited verbatim copies of the donor's PRIVATE lemmas (`ZetaZeros/Proportions.lean:32/:47`, inaccessible cross-module) | `:147–:148` (repeats :159–:160) — triad | λ-free bookkeeping only; the copying is recorded as donor-debt-free (no statement drift — the copies are literal modulo renaming) |
+| defs (no status rows per §10 conventions): `LamParams` (:40), `KSAsymptotic` (:54), `C0Lam` (:62), `C1Lam` (:66, noncomputable), `C2Lam` (:70, noncomputable) | `P1.lean:40–70` | definitions — the binder + functional vocabulary; NO closed form in `lam` guessed | — (elaborated by the OK compile) | the P0(b) seam is EXACTLY `KSAsymptotic`: everything an iteration-5 Landau η-port must produce is this one Prop at scaled kernels |
+
+**HARD STOP (r5 §12a, executed 2026-11-17):** P0(b) MT-frozen + P1 GREEN ⇒ the ladder
+ends here for iteration 4; P2 (glue/continuity/margin; any λ ≠ frozen binder
+discharge) = a Landau η-port = iteration-5 charter decision (diagnose-note in
+`P1-record.md` specifies the iteration-5 ask as exactly `∃ c, KSAsymptotic lam c` at
+λ-scaled kernels). P3 full-coverage axcheck: the in-file 10/10 enumeration is
+exhaustive (no dotted/`@[simp]` theorems in the artifact); the axcheck_full sweep
+remains available to close-out on demand.
+
+**Verification-lane addendum (A1, 2026-11-17):** **Telemetry class note (incl. the
+run-1 infra finding, per relay):** `wall=582s max_cpu=12.73 OVER=8, max_mem=2949MB <
+4096` (`:171`) — the OVER window is the t=180 `lake update`/cache git+zstd burst in
+the PRE-taskset phase (`:180`); the build itself was CPU-capped via
+**`taskset -c 0,1` because lake v4.36.0-rc2 has NO `-j` flag** (`:2` — the run-1
+finding; this is the working CPU cap for donor-tree build phases pending a lake
+`-j`, and it supersedes the §10.5 "-j 2" note for donor-tree runs). Step-B class:
+proof artifact in the BUILT donor tree ⇒ [LAYERS]-donor-tree stage at sweep
+(`run_m4b_donor_axcheck.sh` recipe, AxPilot42_M4b precedent); P1's own 10/10 in-file
+surface is the landed evidence; census check deferred to the sweep staging (10
+theorems + 5 defs claimed, no dotted/`@[simp]` per A3 — verified by enumeration in
+`P1-record.md`). §7a's zzv2-P1 "owed" row resolves LANDED (below).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -998,4 +1084,8 @@ census 3 public + 23 private lemmas, elimination-noted; NEGATIVE-kind discovery
 candidate; Stage-B/TARGETS deferred with the family). Eighth batch: §10.14 FF-EZ4 P0
 (A6's record from agent-07, cites re-verified — verdict :15, telemetry :34; PROBE-
 CONVENTION class, Step-A only, never a Step-B stage, no TARGETS — the record's own
-ruling, adopted).
+ruling, adopted). Ninth batch: §10.15 74 T1T2T4-P0 (A8's record from agent-09 —
+verdict :8, stage OK :36–37; probe-convention statement rung, 0 tokens, never
+Step-B) + §10.16 ZZV2-λ P1 (A3's block from agent-04's STALE baseline, renumbered
+§10.8→§10.16 — 10/10 triad :145–:155; HARD STOP executed; taskset-not-j infra
+finding recorded in the telemetry class note).

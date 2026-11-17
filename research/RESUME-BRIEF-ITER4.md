@@ -82,7 +82,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | Lane | Assignment | Deliverable path | Status | Last update |
 |---|---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief; 2026-11-17 Modal route ruling test recorded (xyz primary, LIVE) | active | 2026-11-17 |
-| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | Gates pre-staged; §10.11–10.14 folded; pre-checks LANDED (75v2: 1 blocker; 32/01v2: 3 blockers — fixes→A9); corrections file landed (H hand-applies) | §10.13/14 folded; 32/01 pre-checks (3 blockers, fixes→A9); corrections file landed | 2026-11-17 |
+| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | Mid-wave gates checkpoint (G1 PASS+delta/G4 PASS); §10.11–10.16 folded; pre-checks + corrections landed; AGENTS-ITER4 draft update next | mid-wave gates G1 PASS+delta/G4 PASS; §10.15/16 folded; AGENTS-ITER4 draft update next | 2026-11-17 |
 | A2 | 73-Q4 execution | `research/pilots/73/Q4.lean` (gate memo GO at `Q4-gate-memo.md`, `3b9b0a0`) | spawned (queue loaded) | 2026-11-17 |
 | A3 | ZZV2-λ P0 execution | **P1 GREEN FINAL** (run 3, 582 s; 10/10 triad sorry-strict; HARD-STOP executed per r5 §12a — Landau η-port = iter-5 ask); FB-1 battery next | P1 GREEN FINAL (10/10 triad, sorry-strict); HARD-STOP executed per r5 §12a; iteration-5 ask recorded; FB-1 battery next | 2026-11-17 |
 | A4 | AL-P2 c/d/e milestones | `research/pilots/al3d/A2.lean` (P2-d risk concentration; C.1–C.4 fence) | spawned (queue loaded) | 2026-11-17 |

@@ -198,3 +198,60 @@ OVERRIDDEN convention: `OVERRIDDEN — <reason> — <owner>` in the verdict cell
 stay in their plan/log files and are labeled baselines.
 
 — pre-staged by lane A1 (R3-role successor), 2026-11-17. No gate executed herein.
+
+## MID-WAVE CHECKPOINT — 2026-11-17 (lane A1; EARLY-DETECTION pass, NOT the final gate run)
+
+Executed against the LIVE main tree @ `47bec92` (read-only scoped-command runs, G1 +
+G4 only). The final gate run still executes on the exact closing tree per §G8.
+
+### G1 at snapshot: 52 real tokens vs the 49 expectation — DELTA +3, itemized
+
+Command: §G1 classifier verbatim, scope `research/pilots/**/*.lean` +
+`research/feasibility/probe/**/*.lean` (93 files, main @ 47bec92). Tally **52**:
+
+| bucket | expected | found | verdict |
+|---|---|---|---|
+| main-run probes (B1×3, B2×1, C1×1, D×4) | 9 | 9 | ✓ |
+| C2 G-series (G1×4, G2×1, G3×1, G4×4, G5a×1, G5b×6, G5c×4, G7×2) | 23 | 23 | ✓ |
+| `71/P0` (:65/:90/:97/:110) | 4 | 4 | ✓ |
+| `73/P0` (:40/:45/:53/:79/:87/:121/:143 — +2 line drift vs C2, count unchanged) | 7 | 7 | ✓ |
+| `al3d/P0` (:85/:123/:128) | 3 | 3 | ✓ |
+| `lp/P0` (:44/:55/:97) | 3 | 3 | ✓ |
+| **NEW: `ProbeG9_StrongPNT` (:51/:67) + `ProbeG10_PhyslibRefresh` (:96)** | 0 | **3** | **DELTA — unrecorded lane additions** |
+
+**Delta itemization (the catch this pass exists for):** the +3 are R8-lane
+probe-convention files staged 2026-11-16 (post-C2-certificate), BOTH carrying the
+"Statement elaboration probe — not a proof artifact" header with sorry'd
+donor-statement transcriptions (G9: upstream StrongPNT conclusion + its binder form;
+G10: the SHELF `areaLaw_to_corollary` stub) — header-justified, so NOT
+VIOLATION-UNEXPLAINED, but they are **unrecorded in
+`stepA-incremental-iter4.log`** (which was seeded 2026-11-17 from the pilots-only
+baseline and predates their sweep into scope). **Remedy (owner: the G9/G10 lane,
+R8-successor): append entry 2 to the incremental log re-baselining the certificate
+49 → 52** (plan §1's "any file landing WITH tokens re-baselines the certificate
+before Step B" — orchestrator-visible, not silent). All wave-2 landed pilots check
+0 tokens as expected: 73/Q4 ✓, zzv2-P0 ✓, N2-P0 ✓, M2.lean ✓, 78-P0 ✓, ff-ez4-P0 ✓,
+74-P0 (1 `sorry` string = header prose) ✓.
+
+**G1 verdict at snapshot: PASS-WITH-DELTA** — 0 unexplained; 3 unrecorded-but-justified
+(re-baseline owed).
+
+### G4 at snapshot: PASS (1 meta-hit)
+
+- G4a `grep -rn "2026-11-18" research/ --include='*.md'` → **1 hit**:
+  `qa/iter4-review/a8-midwave-audit.md:80` — A8's own mid-wave audit REPORTING its
+  zero-hit result ("2026-11-18+/2026-12+: zero hits") — the date string inside the
+  audit quoting its own grep pattern. **Meta-hit class** (the C2 whole-file-grep
+  false-positive precedent): not a future-dated record. Cosmetic early-warning,
+  **owner A8** (reword to avoid embedding tomorrow's literal, e.g. "T+1 dates") or
+  H whitelists it in the final gate table; otherwise the final run false-positives.
+- G4b compound dates `YYYY-MM-DD/DD` → **0 hits** ✓.
+- Broader early-warning sweep (any date > 2026-11-17, incl. 2026-12+/2027): **only the
+  same 1 meta-hit** — the tree is future-date clean.
+
+**G4 verdict at snapshot: PASS** (with the 1 meta-hit disposition owed before the
+final run). Corroboration: A8's independent mid-wave audit
+(`qa/iter4-review/a8-midwave-audit.md:80`) reports the same date-discipline result.
+
+— checkpoint lane A1, 2026-11-17, main @ 47bec92. G2/G3/G5–G7 NOT run (not yet
+unblocked; see the summary table).
