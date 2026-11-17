@@ -62,6 +62,11 @@ SIZING CARD (A8's §4 method, a8-week1-validation.md §4; applied as instructed)
 Expected verdict (one line, for the probes ledger): OK, 0 errors, 0 sorry-warnings —
 the axiom-layer shapes and the bridge statement elaborate on ff2494ea; a FAIL means
 a mirror-shape drift (fix the quotation, never the donor).
+
+VERDICT (2026-11-17, runs 38/39, orchestrator-approved): run 38 FAIL (sigma-universe
+quotation drift, :107 — fixed Type-0-uniform) → **run 39 GREEN: OK rc=0 errors=0
+sorry-warnings=0**, wall 77 s, telemetry mem OVER=1 = inherent mmapped-olen class
+(anon=0). Logs: `logs-g/run38-g13.log`, `logs-g/run39-g13-fix.log`.
 -/
 import Mathlib
 
@@ -103,8 +108,11 @@ def normalOrderMirror : CrAnTag → CrAnTag → Prop
 /-- Mirror of physlib `CrAnFieldOp := Σ (s : 𝓕.FieldOp), 𝓕.fieldOpToCrAnType s`
 (`FieldSpecification/CrAnFieldOp.lean`; physlib-surface.md :39–41 — "no algebra
 structure is imposed", the relation-layer gap this seed donates INTO). The tag map
-`crAnFieldOpToCreateAnnihilate` is abstracted to a parameter below (`tagOf`). -/
-def CrAnFieldOpMirror (F : Type*) (σ : F → Type*) : Type := Σ s : F, σ s
+`crAnFieldOpToCreateAnnihilate` is abstracted to a parameter below (`tagOf`).
+A8 fix (2026-11-17, run38→run39): Type-0-uniform (was `Type*` — the sigma
+`Σ s : F, σ s : Type (max u v)` cannot land in the def's `Type` result; quotation
+fix per the header rule, no content change). -/
+def CrAnFieldOpMirror (F : Type) (σ : F → Type) : Type := Σ s : F, σ s
 
 /-! ## Seed-13 bridge statement (statement-only; elaborates, unproved by design —
 the 22-blueprint `stmt_Tier2` Prop-def pattern). -/
@@ -116,18 +124,18 @@ indexed by tagged field ops, a vacuum, the `OccupationPair` relations, and the t
 discipline (every index's carrier op is create- or annihilate-tagged via `tagOf`).
 Nondegeneracy conditions are deliberately NOT asserted here — the dossier refines
 them; this is the statement-elaboration surface the G13 verdict certifies. -/
-def stmt_physlib_occupation_pair (R M ι F : Type*)
+def stmt_physlib_occupation_pair (R M ι F : Type)
     [CommRing R] [AddCommGroup M] [Module R M] [DecidableEq ι]
-    (σ : F → Type*) (ε : R) (tagOf : CrAnFieldOpMirror F σ → CrAnTag) : Prop :=
+    (σ : F → Type) (ε : R) (tagOf : CrAnFieldOpMirror F σ → CrAnTag) : Prop :=
   ∃ (φ : ι → CrAnFieldOpMirror F σ) (c a : ι → (M →ₗ[R] M)) (vac : M),
     (∀ i, tagOf (φ i) = CrAnTag.create ∨ tagOf (φ i) = CrAnTag.annihilate) ∧
       IsOccupationPairOn ε ι c a vac
 
 /-- Binder-consumption pattern (trivial; validates the conditional-theorem shape —
 the G9 `conditional_shape` precedent). -/
-theorem conditional_shape {R M ι F : Type*}
+theorem conditional_shape {R M ι F : Type}
     [CommRing R] [AddCommGroup M] [Module R M] [DecidableEq ι]
-    {σ : F → Type*} {ε : R} {tagOf : CrAnFieldOpMirror F σ → CrAnTag}
+    {σ : F → Type} {ε : R} {tagOf : CrAnFieldOpMirror F σ → CrAnTag}
     (h : stmt_physlib_occupation_pair R M ι F σ ε tagOf) :
     stmt_physlib_occupation_pair R M ι F σ ε tagOf := h
 

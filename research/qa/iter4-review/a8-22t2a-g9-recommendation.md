@@ -8,10 +8,12 @@ outside this lane's outputs touched.
 ## 1. State of record: G9 is ALREADY STAGED (main repo) — validated here, not re-staged
 
 `research/feasibility/probe/ProbeG9_StrongPNT.lean` **exists in the main checkout**
-(staged 2026-11-16 by lane R8; INDEX.md:214 records it). It postdates this worktree's
-snapshot (53c1548), so A8 did NOT re-stage a duplicate — this section is the A8
-validation of the landed file (the task's "stage" duty is discharged by the
-predecessor's file; re-staging in the worktree would collide at H-commit).
+(staged 2026-11-16 by lane R8; INDEX.md:214 records it) and was already tracked in
+this worktree's snapshot (53c1548) — byte-identical to the main-repo original
+(sha256(16) `6284bfd4dfcf2cc4` both sides; an earlier A8 `ls | head` truncation
+briefly suggested otherwise — corrected here). A8 did not duplicate it; this section
+is the A8 validation of the landed file, and the run-36/37 executions below were made
+against the worktree copy (post-fix sha carries the 5-line `open Filter` correction).
 
 **Validation — all cite-claims independently re-verified in the encore checkout
 (read-only, this session):**
@@ -43,9 +45,17 @@ conventions; do not touch the file before then.
 slot.**
 
 GO conditions (all required):
-- **(i) G9 GREEN** on the next approved probe-mode batch (0 errors expected — corpus-wide
-  statement-port ≈ 0, `FEASIBILITY-SUMMARY.md`; a FAIL means a binder-spelling mismatch:
-  fix the name-mapping table and re-run BEFORE chartering — the §14 row-10 card).
+- **(i) G9 GREEN — RESOLVED GREEN 2026-11-17** (runs 36/37, orchestrator-approved):
+  run 36 FAIL (`unknown identifier atTop` at :51 — `Filter.atTop` needs `open Filter`;
+  the binder-spelling class the §14 row-10 card anticipated, fixed by the one-line
+  `open Filter` + authorized retry) → **run 37 GREEN: OK rc=0, errors=0,
+  sorry-warnings=2 = exactly the file's declared probe-convention class; statement-port
+  ≈ 0 CONFIRMED on ff2494ea**. Evidence: `feasibility/probe/logs-g/run36-g9.log`,
+  `run37-g9-fix.log` (walls 88 s / 29 s; telemetry OVER=1 mem on run 36 = the inherent
+  mmapped-olen class, anon flat). Fold note: the MAIN-REPO `ProbeG9_StrongPNT.lean`
+  original still lacks `open Filter` — the identical one-liner is owed there at
+  H-commit (A8's executed copy in worktree agent-09 carries it, with the dated
+  in-file fix comment).
 - **(ii) Lane-free as drain-filler**: backlog L8 slots 22-T2a as a task-slot pair with
   FF-EZ4 ("22-T2a rides the same lane as a small binder task", backlog :110). It is an
   S-grade statement-first task (statement-port ≈ 0; S3 row) — it runs only on a free

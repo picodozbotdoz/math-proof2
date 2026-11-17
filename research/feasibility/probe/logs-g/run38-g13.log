@@ -1,0 +1,53 @@
+# LOG — G13 run 38 (ATTEMPT 1: FAIL). ProbeG13_PhyslibOccupation.lean on mathlib ff2494ea @ v4.36.0-rc2.
+# Provenance: 2026-11-17, lane A8 (orchestrator-approved C1 batch run; one fix-retry authorized).
+#   command  : cd /tmp/crossmath-g13-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-g13-stage --mode probe
+#   source   : ProbeG13_PhyslibOccupation.lean (A8 staging v1) sha256(16) 2ff6b9a8eeb6e163
+#   verdict  : FAIL rc=1 errors=1 — Type mismatch at :107:69: `σ s : Type u_2` vs expected `Type` —
+#              the sigma mirror `Σ s : F, σ s : Type (max u v)` cannot land in a `Type` result under
+#              `Type*` binders. Mirror-shape drift in OUR quotation (the header's own anticipated FAIL
+#              class: fix the quotation, never the donor). sorry-warnings=0.
+#   telemetry: SUMMARY wall=64s max_cpu=0.73 max_mem=8072MB anon=0 samples=1 OVER=1 (mem) — inherent
+#              mmapped-olen class (AGENTS §5; anon flat) — recorded, not escalated.
+#   fix      : CrAnFieldOpMirror + stmt + conditional_shape made Type-0-uniform (quotation fix, no
+#              content change; see run39-g13-fix.log).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-12vIwz4Gj7UPvs8kk5aR7P
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-g13-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG13_PhyslibOccupation.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG13_PhyslibOccupation.lean
+[tele] t=60s cpu=0.73 mem=8072MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] ProbeG13_PhyslibOccupation.lean: FAIL rc=1; errors=1, sorry-warnings=0
+{'ProbeG13_PhyslibOccupation.lean': 'FAIL (1 errors)'}
+---- output (up to 12000 chars) ----
+Module.End : (R : Type u_1) →
+  (M : Type u_2) → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [Module R M] → Type u_2
+ProbeG13_PhyslibOccupation.lean:107:69: error: Type mismatch
+  σ s
+has type
+  Type u_2
+of sort `Type (u_2 + 1)` but is expected to have type
+  Type
+of sort `Type 1`
+
+
+[probe] SUMMARY
+[probe]   ProbeG13_PhyslibOccupation.lean: FAIL (1 errors)
+[tele] SUMMARY probe: wall=64s max_cpu=0.73 max_mem=8072MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-17T19:13:31+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-12vIwz4Gj7UPvs8kk5aR7P

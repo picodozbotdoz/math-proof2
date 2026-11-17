@@ -36,6 +36,11 @@ verdicts here are STATEMENT-elaboration results, never proof claims.
 -/
 import Mathlib
 
+-- A8 fix (2026-11-17, run36→run37): `atTop` lives in the Filter namespace; without
+-- `open Filter` the =O[...] filter slot fails elaboration (run36-g9.log: unknown
+-- identifier at :51). The mapping-table fix anticipated by the §14 row-10 card.
+open Filter
+
 namespace ProbeStrongPNT
 
 /-! ## Upstream statement, transcribed (ψ ↦ Chebyshev.psi), mathlib-only -/

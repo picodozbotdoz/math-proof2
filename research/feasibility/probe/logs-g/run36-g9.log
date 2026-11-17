@@ -1,0 +1,51 @@
+# LOG — G9 run 36 (ATTEMPT 1: FAIL). ProbeG9_StrongPNT.lean on mathlib ff2494ea @ v4.36.0-rc2.
+# Provenance: 2026-11-17, lane A8 (orchestrator-approved C1 batch run; one fix-retry authorized per probe).
+#   command  : cd /tmp/crossmath-g9-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-g9-stage --mode probe
+#              (single-probe stage: gprobe.py + ProbeG9_StrongPNT.lean copied from the worktree; the probe-mode
+#              auto-glob IS the G9 invocation — no g9 case exists in run_gprobe.sh by design, gprobe.py:683-691)
+#   source   : ProbeG9_StrongPNT.lean sha256(16) 6284bfd4dfcf2cc4 (main-repo R8 original, copied read-only into
+#              worktree agent-09 for execution; header conventions per the file)
+#   verdict  : FAIL rc=1 — error(lean.unknownIdentifier): Unknown identifier `atTop` at :51:35
+#              (Filter.atTop needs `open Filter`; the binder-spelling class the §14 row-10 card anticipated).
+#              NOTE the runner's error COUNTER reads errors=0: the `": error:"` substring filter misses the
+#              `error(lean.unknownIdentifier)` message format — the rc-based verdict caught it anyway.
+#              sorry-warnings=2 at :43/:58 = exactly the file's declared probe-convention class.
+#   telemetry: [tele] start spec cpu=2.0 mem=4096MB; SUMMARY wall=88s max_cpu=0.61 max_mem=7509MB anon=0
+#              samples=1 OVER=1 (mem) — the inherent mmapped-olen class for Mathlib-importing modules
+#              (AGENTS §5; anon flat) — recorded, not escalated.
+#   fix      : one-line `open Filter` added after `import Mathlib` (worktree copy; see run37-g9-fix.log).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5RWcALTOQzwg15l9Az407d
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-g9-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG9_StrongPNT.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG9_StrongPNT.lean
+[tele] t=60s cpu=0.61 mem=7509MB anon=0MB peak=-1MB procs=2 OVER mem
+{'ProbeG9_StrongPNT.lean': 'FAIL rc=1'}
+[probe] ProbeG9_StrongPNT.lean: FAIL rc=1; errors=0, sorry-warnings=2
+---- output (up to 12000 chars) ----
+ProbeG9_StrongPNT.lean:43:8: warning: declaration uses `sorry`
+ProbeG9_StrongPNT.lean:51:35: error(lean.unknownIdentifier): Unknown identifier `atTop`
+ProbeG9_StrongPNT.lean:58:8: warning: declaration uses `sorry`
+
+
+[probe] SUMMARY
+[probe]   ProbeG9_StrongPNT.lean: FAIL rc=1
+[tele] SUMMARY probe: wall=88s max_cpu=0.61 max_mem=7509MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-17T19:09:54+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5RWcALTOQzwg15l9Az407d

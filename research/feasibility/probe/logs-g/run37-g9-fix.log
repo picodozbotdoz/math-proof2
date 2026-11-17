@@ -1,0 +1,41 @@
+# LOG — G9 run 37 (FIX-RETRY: GREEN). ProbeG9_StrongPNT.lean, + `open Filter` (the run-36 spelling fix).
+# Provenance: 2026-11-17, lane A8 (the authorized one fix-retry; fix = 5 header lines incl. open Filter).
+#   command  : cd /tmp/crossmath-g9-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-g9-stage --mode probe
+#   source   : ProbeG9_StrongPNT.lean (worktree-fixed copy; the MAIN-REPO R8 original still lacks open Filter —
+#              same one-liner owed there at H-commit fold)
+#   verdict  : ** GREEN — OK rc=0 errors=0 sorry-warnings=2 ** (theorems :48/:63 = the declared
+#              probe-convention sorries exactly; HypStrongPNT + conditional_shape sorry-free).
+#              Statement-port ≈ 0 CONFIRMED for the 22-T2a donor binder on ff2494ea.
+#   telemetry: SUMMARY wall=29s max_cpu=0.00 max_mem=0MB anon=0 samples=0 OVER=0 (sub-interval wall).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-gCfaPLX0uIut85Rbx0fziR
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-g9-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG9_StrongPNT.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG9_StrongPNT.lean
+{'ProbeG9_StrongPNT.lean': 'OK'}
+[probe] ProbeG9_StrongPNT.lean: OK; errors=0, sorry-warnings=2
+---- output (up to 12000 chars) ----
+ProbeG9_StrongPNT.lean:48:8: warning: declaration uses `sorry`
+ProbeG9_StrongPNT.lean:63:8: warning: declaration uses `sorry`
+
+
+[probe] SUMMARY
+[probe]   ProbeG9_StrongPNT.lean: OK
+[tele] SUMMARY probe: wall=29s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-gCfaPLX0uIut85Rbx0fziR

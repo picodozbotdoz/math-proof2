@@ -1,0 +1,43 @@
+# LOG — G13 run 39 (FIX-RETRY: GREEN). ProbeG13_PhyslibOccupation.lean, Type-0-uniform sigma mirror.
+# Provenance: 2026-11-17, lane A8 (the authorized one fix-retry).
+#   command  : cd /tmp/crossmath-g13-stage && /home/doz/dozenv/bin/modal run gprobe.py --dir /tmp/crossmath-g13-stage --mode probe
+#   verdict  : ** GREEN — OK rc=0 errors=0 sorry-warnings=0 ** (fully sorry-free by design: Prop-defs +
+#              trivial binder-consumer; #check Module.End anchor printed). The seed-13 bridge statement,
+#              the article-52 axiom-layer quotation (M1.lean:37-46 shapes) and the physlib mirrors
+#              (CrAnTag / normalOrderMirror / CrAnFieldOpMirror) all elaborate on ff2494ea.
+#   telemetry: SUMMARY wall=77s max_cpu=0.70 max_mem=5291MB anon=0 samples=1 OVER=1 (mem) — inherent
+#              mmapped-olen class (AGENTS §5; anon flat) — recorded, not escalated.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-CZkspQ6Z9P6jMwKhMpHoK6
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-g13-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeG13_PhyslibOccupation.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeG13_PhyslibOccupation.lean
+[tele] t=60s cpu=0.70 mem=5291MB anon=0MB peak=-1MB procs=2 OVER mem
+{'ProbeG13_PhyslibOccupation.lean': 'OK'}
+[probe] ProbeG13_PhyslibOccupation.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+Module.End : (R : Type u_1) →
+  (M : Type u_2) → [inst : Semiring R] → [inst_1 : AddCommMonoid M] → [Module R M] → Type u_2
+
+
+[probe] SUMMARY
+[probe]   ProbeG13_PhyslibOccupation.lean: OK
+[tele] SUMMARY probe: wall=77s max_cpu=0.70 max_mem=5291MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-17T19:15:51+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-CZkspQ6Z9P6jMwKhMpHoK6
