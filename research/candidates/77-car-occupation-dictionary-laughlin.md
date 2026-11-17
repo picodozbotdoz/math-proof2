@@ -245,3 +245,102 @@ unconsumed (R6 scan §0.4).
 - Novelty (1–5):
 - Significance (1–5):
 - Effort (S/M/L → 1–5):
+
+---
+
+## Battery (2026-11-17, lane A7) — the C+ substrate census + wing-check; verdict **CHARTER-GO**
+
+*The FB-5 dossier-level battery (the same gate A3 executed for FB-1), per the coordinator's
+queue. Inputs: this dossier (re-scoped C+ at hardening), R6's FB-5 entry
+(`novelty/iter4-fresh-bridges.md` §3 FB-5, honesty-corrected B → B− → C+), and A8's G13
+verdict as coordinator-relayed (not yet in a repo file; operative content: seed-13 stands
+alone — the physlib `CrAnFieldOp` carrier target is distinct from this dossier's Laughlin
+matrix target; wing-check gate (c) applies here). All sibling reads read-only; the physlib
+check is API-level.*
+
+### (1) C+ substrate census (on-pin, exact decls; tauceti @ our pin, OAI LaughlinFock,
+encore mathlib)
+
+**tauceti CAR side — the importable (public) surface:**
+`traceQuadraticForm` (`GeneralLinear/TraceForm.lean:177`), `polarBilin_traceQuadraticForm`
+(:218), `carGenerator` (TraceForm.lean, public); `carOccupationElement`
+(`GeneralLinear/CAR/Occupation.lean:70`), `carOccupationElement_def` (:79),
+`isIdempotentElem_carOccupationElement` (:121), `carOccupationElement_mul_self` (@[simp],
+:126), `commute_carOccupationElement` (:138); `car_lie_def` (`GeneralLinear/Fock.lean:96`),
+`CliffordAlgebra.car_one_lie_eq_smul` (:103), `car_lie_ι` (:113), `carRightMul` (:133,
+apply :142), `carLieSubmoduleOfLeftIdeal` (:148, :156), `carLieModule_isFaithful` (:167),
+**`finrank_cliffordAlgebra_traceQuadraticForm` (:182 — directly serves T1's
+dimension-count injectivity; not cited by the dossier before)**. **Privacy correction
+(A3's, confirmed and extended): the ENTIRE Casimir layer is file-private —
+`carCasimirElement` itself is a `private noncomputable def` (`CAR/Casimir.lean:63`), and
+every theorem about it is private (:130 `commute_carCasimirElement_carGenerator`, :169
+`carCasimirElement_mem_even`, :188 `carCasimirElement_eq_algebraMap`, :210
+`representation_glCasimir_eq_carCasimirElement_mul`, :231 `carCasimirElement_eq_scalar`).**
+Consequence in (2).
+
+**OAI LaughlinFock side (v4.34.1 sibling; statement-port ≈ 0, all ℂ-matrix-only):**
+`annihilator` (`Model.lean:28`), `pairAnnihilator` (:35), `hamiltonian` (:43),
+`sectorHamiltonian` (:51), `gammaStar` (:56), `hamiltonian_entry_eq_zero` (:138),
+`sectorHamiltonian_eq_zero_of_le_one` (:153 — the dossier's :150 has drifted),
+`sectorHamiltonian_square` (:174 — was :167), `sector_inequality_of_fock` (:197); the four
+CAR theorems (`FermionOperators.lean:94` `annihilator_square` — was :95 — `:102` `:156`
+`:190`); `thm_fock` (`Main.lean:69`). The tree is far larger than the scan surface (≈230
+files: Sparse-certificate families, SpinSchur, Assembly, SquareSplitting) — the honesty
+header's "donor owns more" stance stands; no NEW pre-emption beyond the three discharged
+2026-11-16 verdicts (re-rg at battery: trace-of-hamiltonian / Frobenius-norm statements
+still 0 in `OAI/Analysis/`).
+
+**mathlib Matrix/Clifford side:** `CliffordAlgebra.equivExterior`
+(`LinearAlgebra/CliffordAlgebra/Contraction.lean:351`, `[Invertible (2:R)]` — free at ℂ);
+`Matrix.trace_mul_comm` (`LinearAlgebra/Matrix/Trace.lean:156`); the Frobenius norm family
+(`Matrix.frobeniusNormedRing` etc., `Analysis/Matrix/Normed.lean:25–28`); the
+DirectSum/`SetLike` graded-algebra discipline (T2's substrate). All present on-pin.
+
+### (2) B− honesty correction vs the C+ substrate — does the substrate close it?
+
+**Yes for T1/T2/T3-surviving, with one sub-rung dropped.** Every declaration T1 (CAR
+dictionary), T2 (graded ↔ blocks), and T3's surviving rung (H² Frobenius sector-trace
+identity) needs is public on-pin: T1 = tauceti generators + relation theorems + faithfulness
+(:167) + finrank (:182) + OAI statement ports; T2 = mathlib SetLike/DirectSum; T3-surviving
+= mathlib `trace_mul_comm`/Frobenius + the donor's Gram decomposition + the
+`sectorHamiltonian` family — **no Casimir anywhere in the surviving scope**. The **Casimir
+transport sub-rung (the one-line pitch's "Casimir-type scalar action"; the Setting's
+:231/:169 citations) is DEAD-AS-IMPORT** (all private, §1): charter scope drops it; options
+if ever wanted are an in-repo re-proof (the private scaffolding spans ≈170 lines,
+Casimir.lean :59–:235 — M-tier by itself) or upstream publicity (out of our hands; siblings
+read-only). With the drop, the effort class stands at T1 S–M / T2 S / T3 M (≈ 2–3k LoC, now
+bounded below by the Casimir exclusion). The B−/C+ honesty corrections (spin-side
+rep-theory disclaimed; spectrum rung retired on physlib's bosonic theorem) are unaffected
+by the census — the C+ center of gravity (T1 dictionary + T2 lemma + Frobenius identity) is
+exactly what the public substrate closes.
+
+### (3) Wing-check gate (c) — physlib daily-build risk (seed-13 protocol)
+
+Clock **ticked**: `pushed_at = 2026-11-17T09:42:38Z` (leanprover-community/physlib, master;
+vs the 2026-11-16T09:37:19Z snapshot — the library moved within 24 h, as the week-1 row-6
+warning said it does daily). Re-grep of the full tree (gh API, 2288 files): **still NO CAR
+relations anywhere** — the only Clifford/anticommut content is the pre-existing Relativity
+`CliffordAlgebra.lean` + `PauliMatrices/Anticommuting.lean`; no `CrAnFieldOp` path exists
+at all (seed-13's gap persists); the LadderSystem wing is stable at 7 files and
+`OccupationBasis.lean` (Diem) is still explicitly **bosonic** ("the degeneracy of the n-th
+level of a d-dimensional bosonic oscillator"; 18 decls, content fetched 2026-11-17) — no
+fermionic occupation-sector identity appeared. T1/T2/T3-surviving are clean as of
+2026-11-17, but the risk is LIVE: any charter carries the clock as a standing condition on
+T1's novelty (a physlib CAR landing mid-pilot would drop T1 to formalization-parity).
+
+### (4) Verdict: **CHARTER-GO**
+
+All three FB-5 battery items were discharged 2026-11-16 (donor trace-identity pre-check,
+physlib differentiation, preprint theorem list); this battery adds the substrate closure
+(public, exact-pinned), the Casimir-privacy re-scope (sub-rung dropped), and a clean
+wing-check on a ticked clock. No blocker remains on the evidence side. Conditions on the
+charter: (i) **billing at C+** — substrate-bridge + identity layer, the
+lane-opening/infrastructure class per the dossier's own significance note, never a
+discovery headline; (ii) Casimir sub-rung OUT of scope (privacy; a re-proof is a separate
+decision); (iii) the physlib clock rides the pilot (re-check at pilot start and end);
+(iv) effort per §Feasibility minus the dropped rung. The charter/ranking decision stays
+with the orchestrator.
+
+— lane A7, 2026-11-17. Sources: tauceti/OAI/mathlib checkouts (read-only, session reads);
+`api.github.com/repos/leanprover-community/physlib` + raw `OccupationBasis.lean`
+(2026-11-17).
