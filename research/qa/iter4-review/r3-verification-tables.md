@@ -1258,6 +1258,77 @@ finalizes — the PARTIAL state here is the interim record, with the queued 2-li
 explicitly NOT applied). §7a's 10-tranche row updates D2→PARTIAL (canary GREEN;
 step-field charter call pending).
 
+### 10.21 74-P1 — NOT-GREEN, honest stop at the 6-run budget (lane A8, 2026-11-17; folded + re-verified by lane A1) — the FINDS stand as record; residue mechanical
+
+*(Merged 2026-11-17 by lane A1 from A8's `pilots/74/74-P1-record.md` (worktree
+agent-09, pending H's commit). Cites re-verified on agent-09 disk: the combined
+log's descent ledger `p1-runs1-6-combined.log:8` (62→60→57→50→46→46), per-run
+verdicts :47/:59/:61/:64/:69 (FAIL rc=1 throughout), the run-6 process disclosure
+:14–16, telemetry :17–18; P1.lean sha256(16) `170520aa2fd5509d` ✓.)*
+
+**P1.lean (NOT-GREEN at budget — six runs = initial + 5 fix-retries, the charter
+ceiling; error descent 62→60→57→50→46→46, rc=1 throughout. Zero forced gaps: the
+artifact never left proof-artifact discipline — "all 7 theorems remain honestly
+unproved-in-Lean" (`:16`). The stop is per the abort rule; the residue is
+mechanical, not mathematical.)**
+
+**The four FINDS (real mathematics; stand regardless of elaboration state):**
+- **FIND #1 (REFUTATION — itself a dossier-74 deliverable):** the dossier's T1(a)
+  per-spectrum floor √((1−ε)/ε·Var) ≤ W_ε is **FALSE** — counterexample verified
+  numerically (p₀ = 1−δ, n atoms at δ/n: Var ≈ 3.36, W_{0.01} ≈ 0.184, claimed
+  floor ≈ 18.2). The honest per-spectrum statement is the marking bound T1a′:
+  Var ≤ (1−ε)W² + ε·Mdev². The class-level √-floor survives only at shape (i) = P2
+  (the [HYPOTHESIS] tag earned its keep).
+- **FIND #2:** the transcribed hMGF ("log m_u ≤ uS + σ²u², ∀|u| ≤ δ") is degenerate
+  at u < 0 (needs 2|u|S ≤ σ²u² near 0 — fails whenever S > 0); the faithful
+  MarginalTails reading is the CENTERED form ∑ p·e^{u(K−S)} ≤ e^{v·u²}.
+- **FIND #3:** the dossier's exact constants (2σ², 1024 = 2·512) need the limit
+  argument (log g(u)/u² → Var/2); the elementary window-edge constants are
+  Var ≤ 8(e^{v·u₀²}−1)/u₀² and W ≤ (log(2/ε)+v·u₀²)/u₀ — Θ-shapes confirmed.
+- **FIND #4:** T4's per-spectrum o(√B) negation is refuted at shape (ii) by the
+  FIND #1 family (Var ≥ κB realizable with W = o(√B) along subfamilies) — the
+  tightness statement is inherently class-level = shape (i) = P2, consistent with
+  the Q1 ruling (recorded in the artifact header).
+
+**Residue taxonomy (the resume map; 8 classes, ALL API-signature drift vs
+v4.36.0-rc2, each with its leading fix hypothesis in the record):** Finset
+le_max'/le_min'/min'_mem arities (triangulated to the `(s, a, m ∈ s)` shape); the
+Real.sInf family shapes (restored in the final batch); `Finset.sum_add_sum_compl`
+arg order; `Finset.sum_subset` subset-must-be-APPLIED; ring-grouping syntactic
+discipline for `rw` (the assert that aborted the final batch); sum_filter arg order
++ summands (fixed via `linarith [h]`); `by_cases` negative branch needs
+`not_le.mp`/push_neg (`lt_of_not_le` unknown at the pin); heartbeat blowups (2M) in
+the two heaviest proofs once cascades stack — precompute the final algebra chains.
+**Root cause, honestly stated (A8):** authoring ~600 LoC of real-analysis Lean
+against a pin with no local elaboration — the probe route is batch-only, so each
+signature guess costs a full run.
+
+**Run-6 process disclosure (carried per relay, in A8's own words):** the final fix
+batch aborted on a script assert BEFORE writing, and run 6 was fired without
+verifying the patch had applied — run 6 elaborated a file byte-identical to run 5.
+Owned in the record; not a Lean finding. (Also the origin of the taskset finding's
+lineage via A3's P1 — see `runner-fixes-wave2.patch`.)
+
+**Completion re-charter (A8's recommendation to the orchestrator):** re-charter P1
+with a fresh ≤5 budget AND (a) a LOCAL `lake env lean` loop (the encore checkout +
+stage dir — the substrate exists on this machine) or (b) two-batch remote discipline
+(fix-batch → verify-script-applied → fire). Expected distance to GREEN: the 8
+classes, all one-line-to-ten-line fixes; 2–3 interactive-loop iterations.
+Decomposition state: P1-a designed-not-elaborated; P1-b pair-bounds designed; P1-c
+instantiation designed (window match exact); P1-d/P1-e written-not-elaborated.
+T3 unchartered (unchanged).
+
+**Verification-lane addendum (A1):** (i) **sorry-state honesty note:** the on-disk
+P1.lean carries **0 real sorry tokens** (its 2 strings are the :3 compliance line
+and the :675 audit-tail comment — verified); the combined log's runs 1–3 print
+`sorry-warnings=2` vs runs 4–6's 0 — classified as FAIL-cascade diagnostic counters
+on partially-elaborated decls (runs 4–6 = 0, the file = 0 tokens); the record's
+"zero sorry" claim is file-level TRUE, the run-1–3 counters are superseded state —
+the resume lane mechanically confirms at the re-charter if it matters. (ii) Step-A:
+0 tokens (this file). (iii) No Step-B row (NOT-GREEN — nothing to stage); the FINDS
+route to the dossier/triage records, not the verification tables' status rows. §7a's
+74 row: P0 GREEN (§10.15) + P1 NOT-GREEN-at-budget with re-charter pending.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -1313,4 +1384,9 @@ construction; the rung-correction ≤ vs ≥ carried) + §10.20 10-D2 PARTIAL GR
 record from agent-07 — canary milestone triad incl. carried_σ [propext, Quot.sound]
 at d2-run2:38/:42; ONE diagnosed statement error, 2-line fix queued; Route A
 validated + recommended; the d2-run1:64 sorryAx = attempt-2 intermediate state,
-superseded — noted so it is never read as final evidence).
+superseded — noted so it is never read as final evidence). Thirteenth batch:
+§10.21 74-P1 NOT-GREEN honest stop (A8's record from agent-09 — descent
+62→60→57→50→46→46 rc=1, zero forced gaps; the four FINDS as record incl. the T1(a)
+refutation; the 8-class mechanical residue map; the run-6 process disclosure; the
+re-charter recommendation; 0 real tokens on disk, runs-1–3 counters classified
+superseded).
