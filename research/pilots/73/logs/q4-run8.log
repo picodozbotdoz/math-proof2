@@ -1,0 +1,98 @@
+=== q4-run8.log — pilot 73 Q4 fix round 7 ===
+date: 2026-11-17 | lane: A2 | app: crossmath-pilot-73 (warm) | route: doz CLI /home/doz/dozenv/bin/modal (primary)
+spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2, @telemetered | substrate: mathlib4 ff2494ea, v4.36.0-rc2
+delta vs run7: dsimp-before-rw reorder (run8); + Nat.succ_eq_add_one (run9) — same single AddCommMonoid-stuck at the sum_range_succ rw; run10 = same
+verdict (run10): C.lean OK; Q4.lean FAIL rc=1 errors=1 sorry=0; wall 61s (telemetry: max_cpu 0.71, max_mem 3648MB, 1 sample, 0 OVER)
+===
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-0A7nE9zZIcgMRTLMvjXXsI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-q4-stage-a2/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot73] staging ['C.lean', 'Q4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== C.lean
+[pilot73] C.lean: OK
+---- axioms ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Q4.lean
+[pilot73] Q4.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'_private.Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:504:12: error: typeclass instance problem is stuck
+  AddCommMonoid ?m.351
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+Q4.lean:483:12: warning: This simp argument is unused:
+  coeff_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:488:25: warning: This simp argument is unused:
+  hz1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_one, hz2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:488:30: warning: This simp argument is unused:
+  hz2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_one, hz1]
+···
+
+[pilot73] SUMMARY
+[pilot73]   C.lean: OK
+[pilot73]   Q4.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=44s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-0A7nE9zZIcgMRTLMvjXXsI

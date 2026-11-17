@@ -1,0 +1,107 @@
+=== q4-run15-green.log — pilot 73 Q4 GREEN (final) ===
+date: 2026-11-17 | lane: A2 (pilot-execution, Q4) | app: crossmath-pilot-73 (warm, Cycle-2 recipe, no volume/secret/deploy)
+route: doz CLI /home/doz/dozenv/bin/modal (PRIMARY per orchestrator ruling 2026-11-17 — warm layers live only on the doz workspace/semraker; xyz route verified live but cold, unused; per H's probe both routes, doz has the warm crossmath-pilot-73 layers)
+stage: /tmp/crossmath-q4-stage-a2 (unique-to-lane stage dir, world-readable; run_pilot.py UNTOUCHED — spec cpu=2.0/memory=4096, LEAN_NUM_THREADS=2 via CAP secret, @telemetered, olean-emission dependency order)
+substrate: mathlib4 ff2494ea5e438f8a8452db803068acd711fa0059, toolchain leanprover/lean4:v4.36.0-rc2, elan v4.2.4 image, CI oleans via lake exe cache get (8710 present)
+revision: worktree agent-03 @ 53c1548 detached; Q4.lean COMPLETED this session (was helpers-only at handoff; M0 + Q4-a/b/c + axcheck authored; header/spec unchanged from the gate memo)
+verdict: C.lean OK (frozen-layer regression GREEN); Q4.lean OK — rc=0, errors=0, sorry-warnings=0; wall 26s elaboration; telemetry 0 OVER
+axioms: all 30 printed declarations (22 Q4 + 8 C.lean) triad-only [propext, Classical.choice, Quot.sound]; 0 sorryAx — incl. heckeSeriesT_rational_of_periodicity, hecke_continuation_unconditional, sum_apply_span_eq_of_degree_le, canonical_divByMonic
+machinery delta vs Cycle-2 runs: none (same runner; import C dependency-order olen emission as wired)
+fix-lineage: runs 1-15 (44→19→11→6→5→1→1→1→1→1→2→2→0 errors); substantive rounds: +imports Div/Monic; Polynomial-namespaced coeff_coe + coe_* hom family; sum_eq_single 2-arg signature; natDegree_eq_of_degree_eq_some; Submodule.sup_eq_top_iff bridge; section-variable leak (Fintype ℂ) fixed by ring-generalizing poly_coeff_finset_sum; the Finset two-point extraction replaced by a homomorphic coeff computation (Polynomial.coe_sub/one/mul/C/X + coeff_C_mul + coeff_succ_mul_X + coeff_zero_mul_X)
+===
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-zyL0HDB0ZTjUUeqcmv0XX5
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-q4-stage-a2/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot73] staging ['C.lean', 'Q4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== C.lean
+[pilot73] C.lean: OK
+---- axioms ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Q4.lean
+[pilot73] Q4.lean: OK
+---- axioms ----
+'_private.Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:526:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'_private.Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot73] SUMMARY
+[pilot73]   C.lean: OK
+[pilot73]   Q4.lean: OK
+[tele] SUMMARY run: wall=26s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-zyL0HDB0ZTjUUeqcmv0XX5

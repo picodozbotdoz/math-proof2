@@ -1,0 +1,503 @@
+=== q4-run2.log — pilot 73 Q4 fix round 1 ===
+date: 2026-11-17 | lane: A2 | app: crossmath-pilot-73 (warm) | route: doz CLI /home/doz/dozenv/bin/modal (primary)
+spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2, @telemetered | substrate: mathlib4 ff2494ea, v4.36.0-rc2
+delta vs run1: +imports Mathlib.Algebra.Polynomial.{Div,Monic} (/ₘ notation + Monic-namespace lemmas were unimported); Polynomial.coeff_coe (was mis-attributed to PowerSeries ns); Finset.sum_eq_single lost its membership arg (signature change); natDegree_eq_of_degree_eq_some (natDegree_of_degree_eq nonexistent); zero_add vs add_zero; isCoprime_zero_left/right swap; χ.map_span' explicit polynomial arg; Submodule.mem_sup/eq_top_iff restructure of the span bridge; noncomputable psiVec/resFinset; Fin.pos→omega; le_of_lt in dif_neg
+verdict: C.lean OK; Q4.lean FAIL rc=1 errors=19 (was 44) sorry=0; wall 39s
+===
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-b0hHMssYVzzf3WuS0FggZt
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-q4-stage-a2/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot73] staging ['C.lean', 'Q4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot73] mathlib rev ff2494ea5e43
+[pilot73] oleans present: 8710
+
+=== C.lean
+[pilot73] C.lean: OK
+---- axioms ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Q4.lean
+[pilot73] Q4.lean: FAIL rc=1 errors=19 sorry=0
+---- axioms ----
+'_private.Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext,
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:102:43: error: Application type mismatch: The argument
+  h
+has type
+  n < j
+but is expected to have type
+  n ≤ j
+in the application
+  coeff_sum_monomial_eq_zero n v j h
+Q4.lean:121:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:121:35: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:123:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:127:64: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:128:4: error: No goals to be solved
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:128:4: error: No goals to be solved
+Q4.lean:139:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:141:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:143:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Q4.lean:144:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:158:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:158:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+···
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Q4.lean:229:70: error: Application type mismatch: The argument
+  hu'
+has type
+  M * u = 1
+but is expected to have type
+  1 = M * u
+in the application
+  Exists.intro u hu'
+Q4.lean:247:11: error(lean.unknownIdentifier): Unknown constant `Submodule.eq_top_iff`
+Q4.lean:248:4: error: No goals to be solved
+Q4.lean:253:74: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Q4.lean:254:5: warning: Variable name `hd1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Q4.lean:329:21: error: Application type mismatch: The argument
+  degree_eq_natDegree hMg0
+has type
+···
+Q4.lean:247:11: error(lean.unknownIdentifier): Unknown constant `Submodule.eq_top_iff`
+Q4.lean:248:4: error: No goals to be solved
+Q4.lean:253:74: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Q4.lean:254:5: warning: Variable name `hd1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Q4.lean:329:21: error: Application type mismatch: The argument
+  degree_eq_natDegree hMg0
+has type
+  (M * g).degree = ↑(M * g).natDegree
+but is expected to have type
+  (M * g).degree = ↑(M.natDegree + g.natDegree)
+in the application
+  Eq.trans hsub (degree_eq_natDegree hMg0)
+Q4.lean:369:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Q4.lean:329:21: error: Application type mismatch: The argument
+  degree_eq_natDegree hMg0
+has type
+  (M * g).degree = ↑(M * g).natDegree
+but is expected to have type
+  (M * g).degree = ↑(M.natDegree + g.natDegree)
+in the application
+  Eq.trans hsub (degree_eq_natDegree hMg0)
+Q4.lean:369:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≤ -1
+  b ≥ 0
+  a ≥ 0
+  a + b - c ≤ -1
+where
+ a := ↑(f %ₘ M).natDegree
+ b := ↑(n - M.natDegree)
+ c := ↑(M * (f /ₘ M)).natDegree
+Q4.lean:369:66: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a - 0
+in the target expression
+  0 - (f %ₘ M).coeff n = 1
+
+···
+  Eq.trans hsub (degree_eq_natDegree hMg0)
+Q4.lean:369:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≤ -1
+  b ≥ 0
+  a ≥ 0
+  a + b - c ≤ -1
+where
+ a := ↑(f %ₘ M).natDegree
+ b := ↑(n - M.natDegree)
+ c := ↑(M * (f /ₘ M)).natDegree
+Q4.lean:369:66: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a - 0
+in the target expression
+  0 - (f %ₘ M).coeff n = 1
+
+k : Type u_1
+inst✝² : Field k
+inst✝¹ : Fintype k
+inst✝ : DecidableEq k
+M : k[X]
+hM : M.Monic
+hd1 : 1 ≤ M.natDegree
+f : k[X]
+···
+ c := ↑(M * (f /ₘ M)).natDegree
+Q4.lean:369:66: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a - 0
+in the target expression
+  0 - (f %ₘ M).coeff n = 1
+
+k : Type u_1
+inst✝² : Field k
+inst✝¹ : Fintype k
+inst✝ : DecidableEq k
+M : k[X]
+hM : M.Monic
+hd1 : 1 ≤ M.natDegree
+f : k[X]
+n : ℕ
+hf : f.Monic
+hfn : f.natDegree = n
+hn : M.natDegree ≤ n
+hrn : (f %ₘ M).natDegree < M.natDegree
+hqe : (f /ₘ M).natDegree = n - M.natDegree
+hfeq : M * (f /ₘ M) + f %ₘ M = f
+hf0 : f ≠ 0
+hne : f /ₘ M ≠ 0
+hmg : (M * (f /ₘ M)).natDegree = n
+hEq : M * (f /ₘ M) = f - f %ₘ M
+⊢ 0 - (f %ₘ M).coeff n = 1
+···
+⊢ 0 - (f %ₘ M).coeff n = 1
+Q4.lean:380:2: error: Type mismatch: After simplification, term
+  h1
+ has type
+  (f /ₘ M).leadingCoeff = 1
+but is expected to have type
+  (f /ₘ M).Monic
+Q4.lean:442:8: error: `show` tactic failed, pattern
+  χ.toFun (Ideal.span {f}) = χ.toFun (Ideal.span {M * (f /ₘ M) + f %ₘ M})
+is not definitionally equal to target
+  χ.toFun (Ideal.span {f}) = ?m.509 (f /ₘ M, f %ₘ M)
+Q4.lean:453:4: error: No goals to be solved
+Q4.lean:480:6: error: unsolved goals
+case succ.zero
+L : PowerSeries ℂ
+qz : ℂ
+n : ℕ
+⊢ (AddMonoidAlgebra.coeff 1) 1 = 0
+Q4.lean:481:6: error: unsolved goals
+case succ.succ
+L : PowerSeries ℂ
+qz : ℂ
+n j'' : ℕ
+hz1 : ¬j'' + 1 + 1 = 0
+hz2 : ¬j'' + 1 + 1 = 1
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+···
+  (f /ₘ M).Monic
+Q4.lean:442:8: error: `show` tactic failed, pattern
+  χ.toFun (Ideal.span {f}) = χ.toFun (Ideal.span {M * (f /ₘ M) + f %ₘ M})
+is not definitionally equal to target
+  χ.toFun (Ideal.span {f}) = ?m.509 (f /ₘ M, f %ₘ M)
+Q4.lean:453:4: error: No goals to be solved
+Q4.lean:480:6: error: unsolved goals
+case succ.zero
+L : PowerSeries ℂ
+qz : ℂ
+n : ℕ
+⊢ (AddMonoidAlgebra.coeff 1) 1 = 0
+Q4.lean:481:6: error: unsolved goals
+case succ.succ
+L : PowerSeries ℂ
+qz : ℂ
+n j'' : ℕ
+hz1 : ¬j'' + 1 + 1 = 0
+hz2 : ¬j'' + 1 + 1 = 1
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+Q4.lean:491:51: error: Application type mismatch: The argument
+  h0
+has type
+  (0, 0) ∉ @Finset.antidiagonal ℕ instAddNat Finset.Nat.instHasAntidiagonal 0
+but is expected to have type
+  ?m.288 ∉ @Finset.antidiagonal ?m.291 ?m.285 ?m.286 (?m.288.1 + ?m.288.2)
+···
+  χ.toFun (Ideal.span {f}) = ?m.509 (f /ₘ M, f %ₘ M)
+Q4.lean:453:4: error: No goals to be solved
+Q4.lean:480:6: error: unsolved goals
+case succ.zero
+L : PowerSeries ℂ
+qz : ℂ
+n : ℕ
+⊢ (AddMonoidAlgebra.coeff 1) 1 = 0
+Q4.lean:481:6: error: unsolved goals
+case succ.succ
+L : PowerSeries ℂ
+qz : ℂ
+n j'' : ℕ
+hz1 : ¬j'' + 1 + 1 = 0
+hz2 : ¬j'' + 1 + 1 = 1
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+Q4.lean:491:51: error: Application type mismatch: The argument
+  h0
+has type
+  (0, 0) ∉ @Finset.antidiagonal ℕ instAddNat Finset.Nat.instHasAntidiagonal 0
+but is expected to have type
+  ?m.288 ∉ @Finset.antidiagonal ?m.291 ?m.285 ?m.286 (?m.288.1 + ?m.288.2)
+in the application
+  absurd (Finset.mem_antidiagonal.mpr rfl) h0
+Q4.lean:483:14: warning: This simp argument is unused:
+  hz1
+···
+Q4.lean:453:4: error: No goals to be solved
+Q4.lean:480:6: error: unsolved goals
+case succ.zero
+L : PowerSeries ℂ
+qz : ℂ
+n : ℕ
+⊢ (AddMonoidAlgebra.coeff 1) 1 = 0
+Q4.lean:481:6: error: unsolved goals
+case succ.succ
+L : PowerSeries ℂ
+qz : ℂ
+n j'' : ℕ
+hz1 : ¬j'' + 1 + 1 = 0
+hz2 : ¬j'' + 1 + 1 = 1
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+Q4.lean:491:51: error: Application type mismatch: The argument
+  h0
+has type
+  (0, 0) ∉ @Finset.antidiagonal ℕ instAddNat Finset.Nat.instHasAntidiagonal 0
+but is expected to have type
+  ?m.288 ∉ @Finset.antidiagonal ?m.291 ?m.285 ?m.286 (?m.288.1 + ?m.288.2)
+in the application
+  absurd (Finset.mem_antidiagonal.mpr rfl) h0
+Q4.lean:483:14: warning: This simp argument is unused:
+  hz1
+
+···
+⊢ (AddMonoidAlgebra.coeff 1) 1 = 0
+Q4.lean:481:6: error: unsolved goals
+case succ.succ
+L : PowerSeries ℂ
+qz : ℂ
+n j'' : ℕ
+hz1 : ¬j'' + 1 + 1 = 0
+hz2 : ¬j'' + 1 + 1 = 1
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+Q4.lean:491:51: error: Application type mismatch: The argument
+  h0
+has type
+  (0, 0) ∉ @Finset.antidiagonal ℕ instAddNat Finset.Nat.instHasAntidiagonal 0
+but is expected to have type
+  ?m.288 ∉ @Finset.antidiagonal ?m.291 ?m.285 ?m.286 (?m.288.1 + ?m.288.2)
+in the application
+  absurd (Finset.mem_antidiagonal.mpr rfl) h0
+Q4.lean:483:14: warning: This simp argument is unused:
+  hz1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hz2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:483:19: warning: This simp argument is unused:
+  hz2
+···
+⊢ (AddMonoidAlgebra.coeff 1) (j'' + 1 + 1) = 0
+Q4.lean:491:51: error: Application type mismatch: The argument
+  h0
+has type
+  (0, 0) ∉ @Finset.antidiagonal ℕ instAddNat Finset.Nat.instHasAntidiagonal 0
+but is expected to have type
+  ?m.288 ∉ @Finset.antidiagonal ?m.291 ?m.285 ?m.286 (?m.288.1 + ?m.288.2)
+in the application
+  absurd (Finset.mem_antidiagonal.mpr rfl) h0
+Q4.lean:483:14: warning: This simp argument is unused:
+  hz1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hz2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:483:19: warning: This simp argument is unused:
+  hz2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hz1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:492:12: warning: This simp argument is unused:
+  hP
+
+···
+Hint: Adding the command `deriving instance Fintype for Complex` may allow Lean to derive the missing instance.
+Q4.lean:533:2: error: unsolved goals
+c : ℕ → ℂ
+d m : ℕ
+hmd : m ≤ d
+⊢ Fintype ℂ
+Q4.lean:541:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:541:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℂ
+
+Hint: Adding the command `deriving instance Fintype for Complex` may allow Lean to derive the missing instance.
+Q4.lean:541:2: error: unsolved goals
+case neg
+c : ℕ → ℂ
+d m : ℕ
+hmd : ¬m ≤ d
+b : ℕ
+hb : b ∈ Finset.range (d + 1)
+hne : b ≠ m
+⊢ m = b → c b = 0
+
+c : ℕ → ℂ
+d m : ℕ
+···
+Hint: Adding the command `deriving instance Fintype for Complex` may allow Lean to derive the missing instance.
+Q4.lean:541:2: error: unsolved goals
+case neg
+c : ℕ → ℂ
+d m : ℕ
+hmd : ¬m ≤ d
+b : ℕ
+hb : b ∈ Finset.range (d + 1)
+hne : b ≠ m
+⊢ m = b → c b = 0
+
+c : ℕ → ℂ
+d m : ℕ
+hmd : ¬m ≤ d
+⊢ Fintype ℂ
+Q4.lean:545:36: warning: This simp argument is unused:
+  hne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_C_mul, coeff_X_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Q4.lean:566:45: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Q4.lean:575:68: error: unsolved goals
+k : Type u_1
+inst✝² : Field k
+inst✝¹ : Fintype k
+inst✝ : DecidableEq k
+M : k[X]
+hM : M.Monic
+hd1 : 1 ≤ M.natDegree
+χ : FFRayClassCharacter k (Ideal.span {M})
+n : ℕ
+hge : n ≥ M.natDegree + 1
+hexp : n - M.natDegree = n - 1 - M.natDegree + 1
+⊢ ↑(Fintype.card k ^ (n - 1 - M.natDegree)) * ↑(Fintype.card k) =
+    ↑(Fintype.card k) * ↑(Fintype.card k ^ (n - 1 - M.natDegree))
+'_private.Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot73] SUMMARY
+[pilot73]   C.lean: OK
+[pilot73]   Q4.lean: FAIL rc=1 errors=19 sorry=0
+[tele] SUMMARY run: wall=39s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-b0hHMssYVzzf3WuS0FggZt

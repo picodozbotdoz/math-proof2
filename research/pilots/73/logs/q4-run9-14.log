@@ -1,0 +1,23 @@
+=== q4-run9-14.log — pilot 73 Q4 fix rounds 8-13 (condensed verdicts; full lineage in q4-run15-green.log header) ===
+date: 2026-11-17 | lane: A2 | app: crossmath-pilot-73 (warm) | route: doz CLI /home/doz/dozenv/bin/modal (primary)
+spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2, @telemetered | substrate: mathlib4 ff2494ea, v4.36.0-rc2 | C.lean OK in every run
+--- run9 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=1 sorry=0
+Q4.lean:504:12: error: typeclass instance problem is stuck
+--- run10 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=1 sorry=0
+Q4.lean:504:12: error: typeclass instance problem is stuck
+--- run11 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=1 sorry=0
+Q4.lean:506:12: error: typeclass instance problem is stuck
+--- run12 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=1 sorry=0
+Q4.lean:505:12: error: typeclass instance problem is stuck
+--- run13 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=2 sorry=0
+Q4.lean:477:6: error(lean.unknownIdentifier): Unknown constant `PowerSeries.coe_sub`
+Q4.lean:475:69: error: unsolved goals
+--- run14 ---
+[pilot73] Q4.lean: FAIL rc=1 errors=2 sorry=0
+Q4.lean:477:26: error(lean.unknownIdentifier): Unknown constant `PowerSeries.coe_one`
+Q4.lean:475:69: error: unsolved goals
