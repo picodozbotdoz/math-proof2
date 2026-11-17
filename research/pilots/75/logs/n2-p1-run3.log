@@ -1,0 +1,915 @@
+# =====================================================================
+# PILOT 75-N2 P1 — run 3 (M1 retry 2) | 2026-11-17 | lane A5
+# Files: unchanged Pa/N2P0 + N2-P1.lean v3. Fix set vs run 2 (see
+# n2-p1-run2.log): rw-direction corrections (symm_intCast forward;
+# map_symm_map reversed at the classification goal; Dvd-orientation in
+# isUnit_of_sup — Dvd gives b = a*c); double-ascription for the
+# ZMod-intCast-of-difference (elaborator was distributing the ascription
+# into per-operand casts); span {0} = ⊥ via span_singleton_eq_bot-iff;
+# exists_mul_inv restructured (hkc extracted; unit-ness via
+# isUnit_of_mul_eq_one + mul_comm); chi_span_residue_mul DROPPED (the
+# ZMod.val algebra degenerates to .cast soup) — map_mul' now inlines a
+# residue congruence proved by simp only [ZMod.natCast_val, Nat.cast_mul,
+# Units.val_mul]; haveI (not have) for the Fact (1 < q) instances.
+# Hypotheses: H12 the ratCharOf_apply show-defeq holds; H13 simpa
+# fidelity in exists_mul_inv/sup bridges; H14 chi_span_residue's key
+# applications (unchanged from run 2 — no errors reported there).
+# Command: research/pilots/75/run_n2p1.sh
+# =====================================================================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-UV42x5k3SB1eDE6nUiYpHu
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[tele] t=60s cpu=0.92 mem=8142MB anon=0MB peak=-1MB procs=1 OVER mem
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:239:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:226:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:228:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[n2p1] N2-P1.lean: FAIL rc=1 errors=20 sorry=9
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+N2-P1.lean:99:41: error: Invalid argument name `a` for function `Ideal.span_singleton_eq_bot`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `α`: a̵α̲
+  • `x`: a̵x̲
+N2-P1.lean:106:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?I`) in this equality
+  ?I = Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+N2-P1.lean:150:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑k - 1 = ↑k - 1
+N2-P1.lean:153:80: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+···
+  • `x`: a̵x̲
+N2-P1.lean:106:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?I`) in this equality
+  ?I = Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+N2-P1.lean:150:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑k - 1 = ↑k - 1
+N2-P1.lean:153:80: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+···
+  ?I = Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+N2-P1.lean:150:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑k - 1 = ↑k - 1
+N2-P1.lean:153:80: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+···
+⊢ ↑k - 1 = ↑k - 1
+N2-P1.lean:153:80: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+h3 : ↑Rat.ringOfIntegersEquiv.symm (↑k - 1) = ↑k - 1
+⊢ ↑q = ↑q
+N2-P1.lean:176:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?a * ↑?a⁻¹
+in the target expression
+  ↑u * (↑u)⁻¹.cast = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+···
+⊢ ↑q = ↑q
+N2-P1.lean:176:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?a * ↑?a⁻¹
+in the target expression
+  ↑u * (↑u)⁻¹.cast = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ ↑u * (↑u)⁻¹.cast = 1
+N2-P1.lean:179:11: error(lean.unknownIdentifier): Unknown identifier `isUnit_of_mul_eq_one`
+N2-P1.lean:180:8: error: No goals to be solved
+N2-P1.lean:215:10: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hz ?t ?a✝` is a proof of
+  z ∈ ?t
+N2-P1.lean:238:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+···
+⊢ ↑u * (↑u)⁻¹.cast = 1
+N2-P1.lean:179:11: error(lean.unknownIdentifier): Unknown identifier `isUnit_of_mul_eq_one`
+N2-P1.lean:180:8: error: No goals to be solved
+N2-P1.lean:215:10: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hz ?t ?a✝` is a proof of
+  z ∈ ?t
+N2-P1.lean:238:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+···
+N2-P1.lean:179:11: error(lean.unknownIdentifier): Unknown identifier `isUnit_of_mul_eq_one`
+N2-P1.lean:180:8: error: No goals to be solved
+N2-P1.lean:215:10: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hz ?t ?a✝` is a proof of
+  z ∈ ?t
+N2-P1.lean:238:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+···
+N2-P1.lean:180:8: error: No goals to be solved
+N2-P1.lean:215:10: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hz ?t ?a✝` is a proof of
+  z ∈ ?t
+N2-P1.lean:238:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+···
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:255:24: error: Application type mismatch: The argument
+···
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:255:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:274:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:255:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:274:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+···
+  not_isUnit_zero h
+N2-P1.lean:274:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+hcu : IsUnit ↑c
+hcpos : 0 < c
+h1 : ↑(a * c) = ↑(b * c)
+⊢ ↑(b * c) = 1
+N2-P1.lean:282:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+···
+⊢ ↑(b * c) = 1
+N2-P1.lean:282:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+but is expected to have type
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:284:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:304:69: error: unexpected token ':='; expected ')', ',' or ':'
+N2-P1.lean:293:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:296:51: error: unsolved goals
+q : ℕ
+···
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:284:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:304:69: error: unexpected token ':='; expected ')', ',' or ':'
+N2-P1.lean:293:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:296:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:300:18: error: unsolved goals
+···
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:304:69: error: unexpected token ':='; expected ')', ',' or ':'
+N2-P1.lean:293:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:296:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:300:18: error: unsolved goals
+case hcongr
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+⊢ ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+···
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:296:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:300:18: error: unsolved goals
+case hcongr
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+⊢ ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+hcongr : ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+⊢ ↑{ val := χ (Ideal.span {↑(↑(u * v)).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ } =
+···
+⊢ 1 = 1
+N2-P1.lean:300:18: error: unsolved goals
+case hcongr
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+⊢ ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+hcongr : ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+⊢ ↑{ val := χ (Ideal.span {↑(↑(u * v)).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ } =
+    ↑({ val := χ (Ideal.span {↑(↑u).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ } *
+        { val := χ (Ideal.span {↑(↑v).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ })
+N2-P1.lean:332:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:330:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:325:75: error: unsolved goals
+case neg
+q : ℕ
+···
+        { val := χ (Ideal.span {↑(↑v).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ })
+N2-P1.lean:332:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:330:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:325:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:332:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:330:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:325:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:330:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:325:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2-P1.lean:99:41: error: Invalid argument name `a` for function `Ideal.span_singleton_eq_bot`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `α`: a̵α̲
+  • `x`: a̵x̲
+N2-P1.lean:106:6: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?I`) in this equality
+  ?I = Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+N2-P1.lean:150:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑k - 1 = ↑k - 1
+N2-P1.lean:153:80: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑(↑k - 1) = 0
+h2 : ↑q ∣ ↑k - 1
+h3 : ↑Rat.ringOfIntegersEquiv.symm (↑k - 1) = ↑k - 1
+⊢ ↑q = ↑q
+N2-P1.lean:176:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?a * ↑?a⁻¹
+in the target expression
+  ↑u * (↑u)⁻¹.cast = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ ↑u * (↑u)⁻¹.cast = 1
+N2-P1.lean:179:11: error(lean.unknownIdentifier): Unknown identifier `isUnit_of_mul_eq_one`
+N2-P1.lean:180:8: error: No goals to be solved
+N2-P1.lean:215:10: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hz ?t ?a✝` is a proof of
+  z ∈ ?t
+N2-P1.lean:238:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:242:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:244:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:255:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:274:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+hcu : IsUnit ↑c
+hcpos : 0 < c
+h1 : ↑(a * c) = ↑(b * c)
+⊢ ↑(b * c) = 1
+N2-P1.lean:282:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+but is expected to have type
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:284:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:304:69: error: unexpected token ':='; expected ')', ',' or ':'
+N2-P1.lean:293:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:296:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:300:18: error: unsolved goals
+case hcongr
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+⊢ ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+u v : (ZMod q)ˣ
+iN : NeZero q
+hcongr : ↑(↑(u * v)).val = ↑((↑u).val * (↑v).val)
+⊢ ↑{ val := χ (Ideal.span {↑(↑(u * v)).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ } =
+    ↑({ val := χ (Ideal.span {↑(↑u).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ } *
+        { val := χ (Ideal.span {↑(↑v).val}), inv := sorry, val_inv := ⋯, inv_val := ⋯ })
+N2-P1.lean:332:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:330:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:325:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: FAIL rc=1 errors=20 sorry=9
+[tele] SUMMARY run: wall=74s max_cpu=0.92 max_mem=8142MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-UV42x5k3SB1eDE6nUiYpHu
+EXIT=0

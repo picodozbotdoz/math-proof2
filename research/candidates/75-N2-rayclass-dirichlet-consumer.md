@@ -22,7 +22,10 @@ sibling this session (the AGENTS.md decl-index caveat honored — no TSV evidenc
 - **What N2 adds:** (1) the **DZDF-side dictionary** — DZDF's ideal-functional
   `RayClassCharacter ℚ m` ↔ mathlib `DirichletCharacter ℂ N`, with the Hecke-tsum =
   `DirichletCharacter.LFunction` identification (absent from every corpus at this
-  level — § Novelty); (2) the **hEχ port** — zeta23's dyadic/distinct/primitive-only ThmE
+  level — § Novelty; **billing per the A7 pre-shipping sweep: classical-known
+  mathematics (Milne, *Algebraic Number Theory* / MIT 18.785) — the dictionary is
+  FORMALIZATION-NOVEL only, never mathematical novelty**); (2) the **hEχ port** —
+  zeta23's dyadic/distinct/primitive-only ThmE
   converted to the stack's cumulative/with-multiplicity/imprimitive-inclusive
   `EpsLowerCum` binder (the two R2 §10.1 convention deltas + one named classical
   structural input, zero-infinitude, that the mini-spec flagged but did not price —
@@ -233,10 +236,25 @@ Corpus side (direct-source `rg`, run this session in the sibling trees, read-onl
    P2-3 scope flip; re-confirmed by R2's arXiv sweep 2026-11-16). Bansal–Maji
    arXiv:2507.18121 — Hardy-type INFINITUDE of on-line zeros for any number field; no
    proportion. Liu-2 arXiv:2610.26835 — half-plane nonvanishing, the C3 clock, never
-   proportions. The dictionary itself is classical (Neukirch VII §6; Washington ch. 4
-   for the cyclotomic factorization instance) — class (iv) in isolation; **the composed
-   statement (N2-d) appears nowhere**. Kuwahara-style traps: none (proportion assembly,
-   not concentration-from-gap).
+   proportions. **[A7 pre-shipping sweep, folded 2026-11-17 —
+   `qa/iter4-review/a7-n2-preshipping-sweep.md`, agent-08: two MANDATORY nearest-miss
+   rows:]** (a) **arXiv:2608.13637 Theorem B** — on-line proportions for FIXED primitive
+   Dirichlet χ, unconditional but with constants O_q non-uniform in the conductor; the
+   paper's own text states the ζ_K assembly corollary "is not made anywhere in the
+   text" — the honest comparison is hypothesis-shape-to-hypothesis-shape exactly as
+   the dossier styles DLRT: our N2-d is uniform over every abelian L/ℚ with
+   conductor-uniform constants (via the ThmE/V2 discharges), theirs is fixed-χ with
+   non-uniform constants and no assembly; neither implies the other; (b) **the D'Souza
+   simple-zeros zeta23 fork** — a conductor-aspect simple-zeros family with
+   ThmE-shaped endpoints; single-commit provenance and open-sorry hygiene caveats per
+   the sweep — registered as watch-level prior art for the P2 distinct/simple tiers
+   only, not a competitor to the with-multiplicity 2/3 family N2-d consumes. The
+   dictionary itself is classical (Neukirch VII §6; Washington ch. 4 for the
+   cyclotomic factorization instance; **A7 billing note: Milne's *Algebraic Number
+   Theory* / MIT 18.785 notes spell the ℚ dictionary out — the dictionary is
+   formalization-novel only and must NEVER be billed as mathematical novelty**) —
+   class (iv) in isolation; **the composed statement (N2-d) appears nowhere**.
+   Kuwahara-style traps: none (proportion assembly, not concentration-from-gap).
 5. **mathlib ray-class API finding (the task's explicit question):** none exists —
    `RayClassGroup`/`RayClass` are tauceti-only. The ℚ-special case IS cheap, but for a
    different reason than hoped: over ℤ every ideal is (k), so the DZDF-structure →

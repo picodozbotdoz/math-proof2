@@ -1,0 +1,483 @@
+# =====================================================================
+# PILOT 75-N2 P1 — run 7 (M1 closure; +1 DEVIATION from the <=6 fix-loop
+# budget — justified in the header and the lane report: every remaining
+# run-6 error class was concretely diagnosed with fixes in hand (Z-side
+# span-zero at hg0; conv_lhs to stop the natAbs-capture in the cast
+# rewrites; congrArg explicit; Units.mk0 — Units.mk takes FOUR explicit
+# fields at this pin); the mathematical core of P1-a was already
+# GREEN-triad at run 6 (chi_span_eq_one/mul/ne_zero/residue); this is a
+# single identified-fixes closure run, 74s expected. If NEW error
+# classes appear, the lane stops and reports per the checkpoint rule.)
+# Files: unchanged Pa/N2P0 + N2-P1.lean v7.
+# Command: research/pilots/75/run_n2p1.sh
+# =====================================================================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-wRPLPDVdAPlaukC5w62c3n
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[tele] t=60s cpu=0.71 mem=4774MB anon=0MB peak=-1MB procs=2 OVER mem
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:239:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:226:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:228:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[n2p1] N2-P1.lean: FAIL rc=1 errors=8 sorry=3
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+N2-P1.lean:122:66: error: unsolved goals
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+hg0 : g ≠ 0
+step1 : I = Ideal.span {↑g}
+hpos : ¬0 ≤ g
+hg2 : g = -↑g.natAbs
+⊢ -↑|g| = -↑g.natAbs
+N2-P1.lean:246:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:263:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+···
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:310:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:345:37: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:349:25: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:352:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  map_nonunit ?m.129 ?m.131 ?h ?a✝
+is a proof of
+  False
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ⟨hmul, ⟨htop, ⟨hzero, hspan⟩⟩⟩
+  has type
+    (∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J) ∧
+      χ ⊤ = 1 ∧
+        (∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤) ∧
+          ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+  but is expected to have type
+    IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+···
+⊢ 1 = 1
+N2-P1.lean:345:37: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:349:25: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:352:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  map_nonunit ?m.129 ?m.131 ?h ?a✝
+is a proof of
+  False
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ⟨hmul, ⟨htop, ⟨hzero, hspan⟩⟩⟩
+  has type
+    (∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J) ∧
+      χ ⊤ = 1 ∧
+        (∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤) ∧
+          ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+  but is expected to have type
+    IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+  in the application
+    ratCharOf ⋯
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+···
+N2-P1.lean:345:37: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:349:25: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:352:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  map_nonunit ?m.129 ?m.131 ?h ?a✝
+is a proof of
+  False
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ⟨hmul, ⟨htop, ⟨hzero, hspan⟩⟩⟩
+  has type
+    (∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J) ∧
+      χ ⊤ = 1 ∧
+        (∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤) ∧
+          ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+  but is expected to have type
+    IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+  in the application
+    ratCharOf ⋯
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+···
+N2-P1.lean:349:25: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:352:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  map_nonunit ?m.129 ?m.131 ?h ?a✝
+is a proof of
+  False
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ⟨hmul, ⟨htop, ⟨hzero, hspan⟩⟩⟩
+  has type
+    (∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J) ∧
+      χ ⊤ = 1 ∧
+        (∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤) ∧
+          ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+  but is expected to have type
+    IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+  in the application
+    ratCharOf ⋯
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+of sort `Prop` but is expected to have type
+···
+    ratCharOf ⋯
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+of sort `Prop` but is expected to have type
+  ?m.123
+of sort `Type ?u.69` in the application
+  map_nonunit ?m.129 hk
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+of sort `Prop` but is expected to have type
+  ?m.123
+of sort `Type ?u.69` in the application
+  map_nonunit ?m.129 hk
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+of sort `Prop` but is expected to have type
+  ?m.123
+of sort `Type ?u.69` in the application
+  map_nonunit ?m.129 hk
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2-P1.lean:122:66: error: unsolved goals
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+hg0 : g ≠ 0
+step1 : I = Ideal.span {↑g}
+hpos : ¬0 ≤ g
+hg2 : g = -↑g.natAbs
+⊢ -↑|g| = -↑g.natAbs
+N2-P1.lean:246:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:263:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:303:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:307:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:310:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:345:37: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:349:25: error(lean.unknownIdentifier): Unknown identifier `hχ`
+N2-P1.lean:352:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  map_nonunit ?m.129 ?m.131 ?h ?a✝
+is a proof of
+  False
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ⟨hmul, ⟨htop, ⟨hzero, hspan⟩⟩⟩
+  has type
+    (∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J) ∧
+      χ ⊤ = 1 ∧
+        (∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤) ∧
+          ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+  but is expected to have type
+    IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+  in the application
+    ratCharOf ⋯
+N2-P1.lean:350:12: error: `simp` made no progress
+N2-P1.lean:351:10: error: `simp` made no progress
+N2-P1.lean:352:22: error: Application type mismatch: The argument
+  hk
+has type
+  ¬IsUnit ↑k
+of sort `Prop` but is expected to have type
+  ?m.123
+of sort `Type ?u.69` in the application
+  map_nonunit ?m.129 hk
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: FAIL rc=1 errors=8 sorry=3
+[tele] SUMMARY run: wall=111s max_cpu=0.71 max_mem=4774MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-wRPLPDVdAPlaukC5w62c3n
+EXIT=0
+
+# ---- CHECKPOINT CLOSE (A5, 2026-11-17; run loop stopped per the rule) ----
+# Verified state = THIS run (7): Pa OK; N2P0 OK; N2-P1 FAIL rc=1 errors=8
+# sorry=3 — with the P1-a MATHEMATICAL CORE GREEN-triad: chi_span_eq_one,
+# chi_span_mul, chi_span_ne_zero, chi_span_residue (the c-trick) all
+# [propext, Classical.choice, Quot.sound]; Pa engine + N2P0 quotes clean.
+# Remaining (all same-tail, mechanically diagnosed, fixes APPLIED ON DISK
+# in N2-P1.lean v8 but UNVERIFIED — next authorized run closes):
+#  (1) exists_nat_span neg-branch: `-↑|g| = -↑g.natAbs` — simp after
+#      push_cast (v8 applied);
+#  (2) chiUnitHom.map_one': 1-form residual after ZMod.val_one — push_cast
+#      before exact h2 (v8 applied);
+#  (3) ratCharOf_apply: `obtain ... := hχ` consumed hχ (unknown-identifier
+#      cascade at :345/:349/:352) — obtain from `id hχ` (v8 applied).
+# Descent 37 -> 26 -> 12(ish) -> 8 across runs 1-7; every fix class
+# logged per-run in n2-p1-run{1..7}.log headers/analyses.

@@ -1,0 +1,1130 @@
+# =====================================================================
+# PILOT 75-N2 P1 — run 2 (M1 retry) | 2026-11-17 | lane A5
+# Files: unchanged Pa/N2P0 + N2-P1.lean v2 (all R1-R8 root fixes applied;
+#        see n2-p1-run1.log post-run analysis). Hypotheses: H10 the 237-281
+#        mismatches were cascades; H11 ZMod.cast shapes in exists_mul_inv/
+#        chi_span_residue survive (simpa/push_cast fidelity).
+# Command: research/pilots/75/run_n2p1.sh
+# =====================================================================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-IWOcRDX6jJxjvCmGHI4E98
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[tele] t=60s cpu=0.81 mem=8101MB anon=0MB peak=-1MB procs=2 OVER mem
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:239:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:226:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:228:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[n2p1] N2-P1.lean: FAIL rc=1 errors=26 sorry=6
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+N2-P1.lean:64:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Int.castRingHom (𝓞 ℚ)
+in the target expression
+  ↑Rat.ringOfIntegersEquiv.symm n = ↑n
+
+n : ℤ
+h : ↑Rat.ringOfIntegersEquiv.symm = Int.castRingHom (𝓞 ℚ)
+⊢ ↑Rat.ringOfIntegersEquiv.symm n = ↑n
+N2-P1.lean:98:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.span 0
+in the target expression
+  Ideal.span {0} = ⊥
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+h0 : g = 0
+⊢ Ideal.span {0} = ⊥
+N2-P1.lean:105:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+in the target expression
+  I = Ideal.span {↑g.natAbs}
+
+···
+⊢ ↑Rat.ringOfIntegersEquiv.symm n = ↑n
+N2-P1.lean:98:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.span 0
+in the target expression
+  Ideal.span {0} = ⊥
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+h0 : g = 0
+⊢ Ideal.span {0} = ⊥
+N2-P1.lean:105:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+in the target expression
+  I = Ideal.span {↑g.natAbs}
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+hg0 : g ≠ 0
+⊢ I = Ideal.span {↑g.natAbs}
+N2-P1.lean:147:84: error: Application type mismatch: The argument
+···
+⊢ Ideal.span {0} = ⊥
+N2-P1.lean:105:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+in the target expression
+  I = Ideal.span {↑g.natAbs}
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+hg0 : g ≠ 0
+⊢ I = Ideal.span {↑g.natAbs}
+N2-P1.lean:147:84: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k - 1 = 0
+but is expected to have type
+  ↑(↑k - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k - 1) q).mp h1
+N2-P1.lean:149:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+···
+⊢ I = Ideal.span {↑g.natAbs}
+N2-P1.lean:147:84: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k - 1 = 0
+but is expected to have type
+  ↑(↑k - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k - 1) q).mp h1
+N2-P1.lean:149:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑↑k - 1 = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑↑k - ↑1 = ↑k - 1
+N2-P1.lean:173:71: error: unsolved goals
+q : ℕ
+···
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k - 1) q).mp h1
+N2-P1.lean:149:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑↑k - 1 = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑↑k - ↑1 = ↑k - 1
+N2-P1.lean:173:71: error: unsolved goals
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ ↑u * (↑u)⁻¹.cast = ↑?m.65 * ↑?m.65⁻¹
+
+q : ℕ
+···
+⊢ ↑↑k - ↑1 = ↑k - 1
+N2-P1.lean:173:71: error: unsolved goals
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ ↑u * (↑u)⁻¹.cast = ↑?m.65 * ↑?m.65⁻¹
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ (ZMod q)ˣ
+N2-P1.lean:177:4: error: Type mismatch
+  Units.isUnit ?m.85
+has type
+  IsUnit ↑?m.85
+but is expected to have type
+  IsUnit (↑u)⁻¹.cast
+N2-P1.lean:190:53: error: Application type mismatch: The argument
+  h1
+has type
+···
+⊢ (ZMod q)ˣ
+N2-P1.lean:177:4: error: Type mismatch
+  Units.isUnit ?m.85
+has type
+  IsUnit ↑?m.85
+but is expected to have type
+  IsUnit (↑u)⁻¹.cast
+N2-P1.lean:190:53: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k * ↑↑c - 1 = 0
+but is expected to have type
+  ↑(↑k * ↑c - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k * ↑c - 1) q).mp h1
+N2-P1.lean:211:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑k * x
+in the target expression
+  y + z = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+h : Ideal.span {↑k} ⊔ Ideal.span {↑q} = ⊤
+iN : NeZero q
+y : 𝓞 ℚ
+···
+  IsUnit (↑u)⁻¹.cast
+N2-P1.lean:190:53: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k * ↑↑c - 1 = 0
+but is expected to have type
+  ↑(↑k * ↑c - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k * ↑c - 1) q).mp h1
+N2-P1.lean:211:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑k * x
+in the target expression
+  y + z = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+h : Ideal.span {↑k} ⊔ Ideal.span {↑q} = ⊤
+iN : NeZero q
+y : 𝓞 ℚ
+hy : y ∈ Ideal.span {↑k}
+z : 𝓞 ℚ
+hz : z ∈ Ideal.span {↑q}
+hyz : y + z = 1
+x : 𝓞 ℚ
+hx : y = ↑k * x
+···
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k * ↑c - 1) q).mp h1
+N2-P1.lean:211:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑k * x
+in the target expression
+  y + z = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+h : Ideal.span {↑k} ⊔ Ideal.span {↑q} = ⊤
+iN : NeZero q
+y : 𝓞 ℚ
+hy : y ∈ Ideal.span {↑k}
+z : 𝓞 ℚ
+hz : z ∈ Ideal.span {↑q}
+hyz : y + z = 1
+x : 𝓞 ℚ
+hx : y = ↑k * x
+w : 𝓞 ℚ
+hw : z = ↑q * w
+⊢ IsUnit ↑k
+N2-P1.lean:238:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+···
+⊢ IsUnit ↑k
+N2-P1.lean:238:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:240:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:270:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:240:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:270:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+···
+  not_isUnit_zero h
+N2-P1.lean:251:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:270:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+···
+  not_isUnit_zero h
+N2-P1.lean:270:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+hcu : IsUnit ↑c
+hcpos : 0 < c
+h1 : ↑(a * c) = ↑(b * c)
+⊢ ↑(b * c) = 1
+N2-P1.lean:278:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+···
+⊢ ↑(b * c) = 1
+N2-P1.lean:278:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+but is expected to have type
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:280:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:291:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+⊢ (x * y).cast = x.cast * y.cast
+···
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:280:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:291:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+⊢ (x * y).cast = x.cast * y.cast
+N2-P1.lean:295:4: error: Type mismatch
+  IsUnit.mul hx hy
+has type
+  IsUnit (x * y)
+but is expected to have type
+  IsUnit (x.cast * y.cast)
+···
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:291:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+⊢ (x * y).cast = x.cast * y.cast
+N2-P1.lean:295:4: error: Type mismatch
+  IsUnit.mul hx hy
+has type
+  IsUnit (x * y)
+but is expected to have type
+  IsUnit (x.cast * y.cast)
+N2-P1.lean:296:34: error: Application type mismatch: The argument
+  hu
+has type
+  IsUnit ↑(x.val * y.val)
+but is expected to have type
+  IsUnit ↑(x * y).val
+in the application
+  chi_span_residue hχ hq hres hu
+···
+⊢ (x * y).cast = x.cast * y.cast
+N2-P1.lean:295:4: error: Type mismatch
+  IsUnit.mul hx hy
+has type
+  IsUnit (x * y)
+but is expected to have type
+  IsUnit (x.cast * y.cast)
+N2-P1.lean:296:34: error: Application type mismatch: The argument
+  hu
+has type
+  IsUnit ↑(x.val * y.val)
+but is expected to have type
+  IsUnit ↑(x * y).val
+in the application
+  chi_span_residue hχ hq hres hu
+N2-P1.lean:288:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+hres : ↑(x * y).val = ↑(x.val * y.val)
+···
+  IsUnit (x.cast * y.cast)
+N2-P1.lean:296:34: error: Application type mismatch: The argument
+  hu
+has type
+  IsUnit ↑(x.val * y.val)
+but is expected to have type
+  IsUnit ↑(x * y).val
+in the application
+  chi_span_residue hχ hq hres hu
+N2-P1.lean:288:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+hres : ↑(x * y).val = ↑(x.val * y.val)
+hu : IsUnit ↑(x.val * y.val)
+⊢ χ (Ideal.span {↑(x * y).val}) = χ (Ideal.span {↑x.val}) * χ (Ideal.span {↑y.val})
+N2-P1.lean:302:13: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Units.mk` has 4 explicit field, but only 2 were provided
+N2-P1.lean:303:4: error: Application type mismatch: The argument
+  chi_span_ne_zero hχ hq ?m.38
+has type
+···
+  chi_span_residue hχ hq hres hu
+N2-P1.lean:288:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+hres : ↑(x * y).val = ↑(x.val * y.val)
+hu : IsUnit ↑(x.val * y.val)
+⊢ χ (Ideal.span {↑(x * y).val}) = χ (Ideal.span {↑x.val}) * χ (Ideal.span {↑y.val})
+N2-P1.lean:302:13: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Units.mk` has 4 explicit field, but only 2 were provided
+N2-P1.lean:303:4: error: Application type mismatch: The argument
+  chi_span_ne_zero hχ hq ?m.38
+has type
+  χ (Ideal.span {↑?m.37}) ≠ 0
+of sort `Prop` but is expected to have type
+  ℂ
+of sort `Type` in the application
+  Units.mk (χ (Ideal.span {↑(↑u).val})) ⋯
+N2-P1.lean:303:54: error: Type mismatch
+  Units.isUnit u
+has type
+···
+⊢ χ (Ideal.span {↑(x * y).val}) = χ (Ideal.span {↑x.val}) * χ (Ideal.span {↑y.val})
+N2-P1.lean:302:13: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Units.mk` has 4 explicit field, but only 2 were provided
+N2-P1.lean:303:4: error: Application type mismatch: The argument
+  chi_span_ne_zero hχ hq ?m.38
+has type
+  χ (Ideal.span {↑?m.37}) ≠ 0
+of sort `Prop` but is expected to have type
+  ℂ
+of sort `Type` in the application
+  Units.mk (χ (Ideal.span {↑(↑u).val})) ⋯
+N2-P1.lean:303:54: error: Type mismatch
+  Units.isUnit u
+has type
+  IsUnit ↑u
+but is expected to have type
+  IsUnit (ZMod.cast ?m.48)
+N2-P1.lean:308:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+···
+N2-P1.lean:302:13: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Units.mk` has 4 explicit field, but only 2 were provided
+N2-P1.lean:303:4: error: Application type mismatch: The argument
+  chi_span_ne_zero hχ hq ?m.38
+has type
+  χ (Ideal.span {↑?m.37}) ≠ 0
+of sort `Prop` but is expected to have type
+  ℂ
+of sort `Type` in the application
+  Units.mk (χ (Ideal.span {↑(↑u).val})) ⋯
+N2-P1.lean:303:54: error: Type mismatch
+  Units.isUnit u
+has type
+  IsUnit ↑u
+but is expected to have type
+  IsUnit (ZMod.cast ?m.48)
+N2-P1.lean:308:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+···
+  Units.mk (χ (Ideal.span {↑(↑u).val})) ⋯
+N2-P1.lean:303:54: error: Type mismatch
+  Units.isUnit u
+has type
+  IsUnit ↑u
+but is expected to have type
+  IsUnit (ZMod.cast ?m.48)
+N2-P1.lean:308:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+···
+  IsUnit (ZMod.cast ?m.48)
+N2-P1.lean:308:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2-P1.lean:64:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Int.castRingHom (𝓞 ℚ)
+in the target expression
+  ↑Rat.ringOfIntegersEquiv.symm n = ↑n
+
+n : ℤ
+h : ↑Rat.ringOfIntegersEquiv.symm = Int.castRingHom (𝓞 ℚ)
+⊢ ↑Rat.ringOfIntegersEquiv.symm n = ↑n
+N2-P1.lean:98:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.span 0
+in the target expression
+  Ideal.span {0} = ⊥
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+h0 : g = 0
+⊢ Ideal.span {0} = ⊥
+N2-P1.lean:105:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Ideal.map (↑Rat.ringOfIntegersEquiv.symm) (Ideal.map ↑Rat.ringOfIntegersEquiv ?I)
+in the target expression
+  I = Ideal.span {↑g.natAbs}
+
+I : Ideal (𝓞 ℚ)
+hI : I ≠ ⊥
+g : ℤ := Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgdef : g = Submodule.IsPrincipal.generator (Ideal.map (↑Rat.ringOfIntegersEquiv) I)
+hgen : Ideal.map (↑Rat.ringOfIntegersEquiv) I = Ideal.span {g}
+hg0 : g ≠ 0
+⊢ I = Ideal.span {↑g.natAbs}
+N2-P1.lean:147:84: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k - 1 = 0
+but is expected to have type
+  ↑(↑k - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k - 1) q).mp h1
+N2-P1.lean:149:29: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq0 : q ≠ 0
+k : ℕ
+hk0 : 0 < k
+hmod : ↑k = 1
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+h1 : ↑↑k - 1 = 0
+h2 : ↑q ∣ ↑k - 1
+⊢ ↑↑k - ↑1 = ↑k - 1
+N2-P1.lean:173:71: error: unsolved goals
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ ↑u * (↑u)⁻¹.cast = ↑?m.65 * ↑?m.65⁻¹
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+iN : NeZero q
+u : (ZMod q)ˣ
+hu : ↑u = ↑k
+⊢ (ZMod q)ˣ
+N2-P1.lean:177:4: error: Type mismatch
+  Units.isUnit ?m.85
+has type
+  IsUnit ↑?m.85
+but is expected to have type
+  IsUnit (↑u)⁻¹.cast
+N2-P1.lean:190:53: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑k * ↑↑c - 1 = 0
+but is expected to have type
+  ↑(↑k * ↑c - 1) = 0
+in the application
+  (ZMod.intCast_zmod_eq_zero_iff_dvd (↑k * ↑c - 1) q).mp h1
+N2-P1.lean:211:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑k * x
+in the target expression
+  y + z = 1
+
+q : ℕ
+hq0 : q ≠ 0
+k : ℕ
+h : Ideal.span {↑k} ⊔ Ideal.span {↑q} = ⊤
+iN : NeZero q
+y : 𝓞 ℚ
+hy : y ∈ Ideal.span {↑k}
+z : 𝓞 ℚ
+hz : z ∈ Ideal.span {↑q}
+hyz : y + z = 1
+x : 𝓞 ℚ
+hx : y = ↑k * x
+w : 𝓞 ℚ
+hw : z = ↑q * w
+⊢ IsUnit ↑k
+N2-P1.lean:238:55: error: Application type mismatch: The argument
+  hbot
+has type
+  Ideal.span {↑k} = ⊥
+but is expected to have type
+  Ideal.span {k} = ⊥
+in the application
+  Ideal.span_singleton_eq_bot.mp hbot
+N2-P1.lean:240:26: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:251:24: error: Application type mismatch: The argument
+  h
+has type
+  IsUnit ↑0
+but is expected to have type
+  IsUnit 0
+in the application
+  not_isUnit_zero h
+N2-P1.lean:270:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑b * ↑c
+in the target expression
+  ↑(b * c) = 1
+
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+a b : ℕ
+hab : ↑a = ↑b
+ha : IsUnit ↑a
+hq0 : q ≠ 0
+iN : NeZero q
+hb : IsUnit ↑b
+c : ℕ
+hc : ↑b * ↑c = 1
+hcu : IsUnit ↑c
+hcpos : 0 < c
+h1 : ↑(a * c) = ↑(b * c)
+⊢ ↑(b * c) = 1
+N2-P1.lean:278:4: error: Type mismatch
+  hmulx
+has type
+  1 = χ (Ideal.span {↑x}) * χ (Ideal.span {↑c})
+but is expected to have type
+  χ (Ideal.span {↑x}) * χ (Ideal.span {↑c}) = 1
+N2-P1.lean:280:41: error: Application type mismatch: The argument
+  hc
+has type
+  ↑b * ↑c = 1
+but is expected to have type
+  ↑(b * c) = 1
+in the application
+  key b (pos_of_isUnit hq hb) hc
+N2-P1.lean:291:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+⊢ (x * y).cast = x.cast * y.cast
+N2-P1.lean:295:4: error: Type mismatch
+  IsUnit.mul hx hy
+has type
+  IsUnit (x * y)
+but is expected to have type
+  IsUnit (x.cast * y.cast)
+N2-P1.lean:296:34: error: Application type mismatch: The argument
+  hu
+has type
+  IsUnit ↑(x.val * y.val)
+but is expected to have type
+  IsUnit ↑(x * y).val
+in the application
+  chi_span_residue hχ hq hres hu
+N2-P1.lean:288:85: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+x y : ZMod q
+hx : IsUnit x
+hy : IsUnit y
+hq0 : q ≠ 0
+iN : NeZero q
+hres : ↑(x * y).val = ↑(x.val * y.val)
+---- (…47 more lines) tail ----
+hq0 : q ≠ 0
+iN : NeZero q
+hres : ↑(x * y).val = ↑(x.val * y.val)
+hu : IsUnit ↑(x.val * y.val)
+⊢ χ (Ideal.span {↑(x * y).val}) = χ (Ideal.span {↑x.val}) * χ (Ideal.span {↑y.val})
+N2-P1.lean:302:13: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Units.mk` has 4 explicit field, but only 2 were provided
+N2-P1.lean:303:4: error: Application type mismatch: The argument
+  chi_span_ne_zero hχ hq ?m.38
+has type
+  χ (Ideal.span {↑?m.37}) ≠ 0
+of sort `Prop` but is expected to have type
+  ℂ
+of sort `Type` in the application
+  Units.mk (χ (Ideal.span {↑(↑u).val})) ⋯
+N2-P1.lean:303:54: error: Type mismatch
+  Units.isUnit u
+has type
+  IsUnit ↑u
+but is expected to have type
+  IsUnit (ZMod.cast ?m.48)
+N2-P1.lean:308:51: error: unsolved goals
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hχ : IsDZDFRayClassCharacterQ (Ideal.span {↑q}) χ
+hq : 1 < q
+iF : Fact (1 < q)
+⊢ 1 = 1
+N2-P1.lean:339:60: error: unexpected token '}'; expected ')', ',' or ':'
+N2-P1.lean:337:8: error: Failed to rewrite using equation theorems for `ratCharOf`
+N2-P1.lean:332:75: error: unsolved goals
+case neg
+q : ℕ
+χ : Ideal (𝓞 ℚ) → ℂ
+hq : 1 < q
+k : ℕ
+hq0 : q ≠ 0
+iN : NeZero q
+hmul : ∀ (I J : Ideal (𝓞 ℚ)), χ (I * J) = χ I * χ J
+htop : χ ⊤ = 1
+hzero : ∀ (I : Ideal (𝓞 ℚ)), χ I = 0 ↔ I = ⊥ ∨ I ⊔ Ideal.span {↑q} ≠ ⊤
+hspan : ∀ (α : 𝓞 ℚ), α ≠ 0 → α - 1 ∈ Ideal.span {↑q} → (∀ (φ : ℚ →+* ℝ), 0 < φ ↑α) → χ (Ideal.span {α}) = 1
+hk : ¬IsUnit ↑k
+⊢ χ (Ideal.span {↑k}) = (ratCharOf ⋯ hq) ↑k
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: FAIL rc=1 errors=26 sorry=6
+[tele] SUMMARY run: wall=74s max_cpu=0.81 max_mem=8101MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-IWOcRDX6jJxjvCmGHI4E98
+EXIT=0
