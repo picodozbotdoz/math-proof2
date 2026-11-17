@@ -1,0 +1,57 @@
+# LOG — pilot 22 T2a-P0 run 1 (GREEN, first elaboration attempt). 2026-11-17, lane A8.
+# Provenance (log-rescue convention; /tmp transcripts are ephemeral):
+#   charter  : orchestrator ruling 2026-11-17 — 22-T2a statement-first pilot GO, executed by A8
+#              (minutes-class per a8-22t2a-g9-recommendation.md sizing; technical-record billing;
+#              the pre-registered FB-2/PNT+ T2 rule stands — quoted verbatim in the artifact header).
+#   artifact : research/pilots/22/T2a-P0.lean (sorry-free by construction — pilot-22 house style,
+#              Prop-defs + #check pins per pilots/22/ProbeP1_PNT.lean; ZERO sorries, so no
+#              probe-convention sorry class is declared)
+#   command  : cd /tmp/crossmath-t2a-stage && /home/doz/dozenv/bin/modal run gprobe.py
+#              --dir /tmp/crossmath-t2a-stage --mode probe   (single-file stage; the probe auto-glob
+#              matches ProbeG*.lean only, so the artifact was staged under the name ProbeGT2aP0.lean —
+#              byte-identical copy, mapping recorded here)
+#   note     : a first invocation (ap-ly9PmJ6qN10tf01wqNkMZ9) exited via SystemExit('no .lean probe
+#              files found') in the LOCAL entrypoint — ZERO elaboration/container compute consumed;
+#              the run-1 verdict below is the first and only elaboration.
+#   gprobe   : first live use of the 2026-11-17 error-counter widening (": error" substring; header
+#              note in gprobe.py) — errors=0 here is genuinely 0 (rc=0 GREEN).
+#   verdict  : ** GREEN — OK rc=0 errors=0 sorry-warnings=0 ** — stmt_T2a (blueprint :285 shape),
+#              HypQRHzeta (OAI 7/8 quotation), HypStrongPNT (G9 verbatim), stmt_T2a_of_QRH all
+#              elaborate on ff2494ea; decl pins printed live: Chebyshev.psi : ℝ → ℝ,
+#              ArithmeticFunction.vonMangoldt : ArithmeticFunction ℝ, riemannZeta : ℂ → ℂ.
+#   telemetry: [tele] start spec cpu=2.0 mem=4096MB; SUMMARY wall=31s max_cpu=0.00 samples=0 OVER=0
+#              (sub-interval wall) — Modal-rule compliant.
+#   retry    : none needed (GREEN on run 1; the chartered one fix-retry is unspent).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-6zDVbgiSdyC9dYIOQVrJEL
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-t2a-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g7elab.
+├── ✓ Created Function g7.
+└── ✓ Created Function g11.
+[gprobe] staging ['ProbeGT2aP0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] oleans present: 8710
+
+=== ProbeGT2aP0.lean
+{'ProbeGT2aP0.lean': 'OK'}
+[probe] ProbeGT2aP0.lean: OK; errors=0, sorry-warnings=0
+---- output (up to 12000 chars) ----
+Chebyshev.psi : ℝ → ℝ
+ArithmeticFunction.vonMangoldt : ArithmeticFunction ℝ
+riemannZeta : ℂ → ℂ
+
+
+[probe] SUMMARY
+[probe]   ProbeGT2aP0.lean: OK
+[tele] SUMMARY probe: wall=31s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-6zDVbgiSdyC9dYIOQVrJEL

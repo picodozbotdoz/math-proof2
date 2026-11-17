@@ -1,5 +1,12 @@
 """AxiomMath donor probes on the cross-math-fronttier pin (app `crossmath-gprobe`), 2026-11-13.
 
+2026-11-17 (lane A8): the probe-mode error counter was widened from `": error:"` to
+`": error"` (plus `startswith("error")`) — Lean's `error(lean.unknownIdentifier)`-style
+diagnostics carry no `": error:"` substring, so run36 (G9 attempt 1) displayed
+`errors=0` while failing rc=1. Verdicts were unaffected (rc-based); the counter is now
+diagnostic-faithful. Verified locally against run36's RAW elaboration output (the
+filter's actual input): 1 hit new / 0 old; 0 false positives on run37's raw body.
+
 Cycle-2 lane A7: empirically verify the AxiomMath donor statements ELABORATE in our
 environment (mathlib ff2494ea, toolchain v4.36.0-rc2), and audit donor axioms. Three functions:
 
@@ -197,7 +204,7 @@ def probe(files: dict, order: list):
             results[rel] = "TIMEOUT"
             continue
         out = r.stdout + r.stderr
-        errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out.splitlines() if ": error" in l or l.startswith("error")]
         warnings = [l for l in out.splitlines()
                     if ": warning:" in l and "declaration uses" in l]
         verdict = "OK" if r.returncode == 0 else f"FAIL rc={r.returncode}"
