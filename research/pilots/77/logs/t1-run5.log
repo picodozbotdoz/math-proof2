@@ -1,0 +1,865 @@
+# pilot-77 T1 run 5 — 2026-11-17T13:10:53Z (lane A7)
+# app: crossmath-pilot-77 (ephemeral modal run; tauceti@d92acc5c own-lineage image, mathlib 1b1ccf4b, toolchain v4.36.0-rc2)
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry
+# command: research/pilots/77/run_pilot.sh T1.lean (stage /tmp/crossmath-77-t1-stage, MODAL_USER=doz)
+# physlib clock: start-tick 2026-11-17T09:42:38Z (unchanged since battery re-grep); run 5 at 13:10:53Z
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5N0ibuftoLz4jDBtrvEn8Y
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[tele] t=60s cpu=1.30 mem=2825MB anon=0MB peak=-1MB procs=2
+[pilot] T1.lean: FAIL rc=1 errors=31 sorry=0
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+T1.lean:277:48: error(lean.unknownIdentifier): Unknown constant `Matrix.mul_conjTranspose`
+T1.lean:293:34: error: Application type mismatch: The argument
+  Finset.sum_congr rfl fun i x => ?m.89
+has type
+  Finset.sum ?m.86 ?m.83 = Finset.sum ?m.86 ?m.84
+but is expected to have type
+  (fun x => v.1 x * (a.2 x + b.2 x)) = fun x => v.1 x * a.2 x + v.1 x * b.2 x
+in the application
+  congrArg Finset.univ.sum (Finset.sum_congr rfl fun i x => ?m.89)
+T1.lean:293:70: error: `ring_nf` made no progress on the goal
+T1.lean:297:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+
+Q : ℕ
+v : Hyperbolic Q
+a : ℂ
+b : Hyperbolic Q
+⊢ ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+T1.lean:296:28: warning: This simp argument is unused:
+  Prod.snd_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
+
+···
+  congrArg Finset.univ.sum (Finset.sum_congr rfl fun i x => ?m.89)
+T1.lean:293:70: error: `ring_nf` made no progress on the goal
+T1.lean:297:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+
+Q : ℕ
+v : Hyperbolic Q
+a : ℂ
+b : Hyperbolic Q
+⊢ ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+T1.lean:296:28: warning: This simp argument is unused:
+  Prod.snd_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:296:43: warning: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.snd_smul, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+T1.lean:293:70: error: `ring_nf` made no progress on the goal
+T1.lean:297:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+
+Q : ℕ
+v : Hyperbolic Q
+a : ℂ
+b : Hyperbolic Q
+⊢ ∑ i, v.1 i * (a • b).2 i = a * ∑ i, v.1 i * b.2 i
+T1.lean:296:28: warning: This simp argument is unused:
+  Prod.snd_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:296:43: warning: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.snd_smul, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:306:15: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:343:2: error: No goals to be solved
+T1.lean:357:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NoZeroDivisors (FockMatrix Q)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+T1.lean:348:27: error: unsolved goals
+Q : ℕ
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → ι → FockMatrix Q
+h : ∀ (i j : ι), f i j + f j i = 0
+h2 : ∑ i, ∑ j, f i j + ∑ i, ∑ j, f j i = 0
+h1 : ∑ i, ∑ j, f i j = ∑ i, ∑ j, f j i
+⊢ ∑ i, ∑ j, f i j = 0
+T1.lean:367:15: error: unsolved goals
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+⊢ ∑ i, (r • v).1 i • annihilator Q i + ∑ i, (r • v).2 i • creator Q i =
+    r • ∑ i, v.1 i • annihilator Q i + r • ∑ i, v.2 i • creator Q i
+T1.lean:365:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+T1.lean:348:27: error: unsolved goals
+Q : ℕ
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → ι → FockMatrix Q
+h : ∀ (i j : ι), f i j + f j i = 0
+h2 : ∑ i, ∑ j, f i j + ∑ i, ∑ j, f j i = 0
+h1 : ∑ i, ∑ j, f i j = ∑ i, ∑ j, f j i
+⊢ ∑ i, ∑ j, f i j = 0
+T1.lean:367:15: error: unsolved goals
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+⊢ ∑ i, (r • v).1 i • annihilator Q i + ∑ i, (r • v).2 i • creator Q i =
+    r • ∑ i, v.1 i • annihilator Q i + r • ∑ i, v.2 i • creator Q i
+T1.lean:365:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, AddHom.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:365:34: warning: This simp argument is unused:
+  AddHom.coe_mk
+···
+⊢ ∑ i, ∑ j, f i j = 0
+T1.lean:367:15: error: unsolved goals
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+⊢ ∑ i, (r • v).1 i • annihilator Q i + ∑ i, (r • v).2 i • creator Q i =
+    r • ∑ i, v.1 i • annihilator Q i + r • ∑ i, v.2 i • creator Q i
+T1.lean:365:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, AddHom.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:365:34: warning: This simp argument is unused:
+  AddHom.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, LinearMap.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:369:33: warning: This simp argument is unused:
+  Prod.fst_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.id_apply, Prod.snd_smul, Pi.smul_apply, Finset.sum_smul, smul_smul, smul_eq_mul, mul_smul,
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:415:52: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?s, if x = ?a then ?b x else 0
+in the target expression
+  (∑ j, if i = j then (v.1 i * v.2 j) • 1 else 0) = (v.1 i * v.2 i) • 1
+
+Q : ℕ
+v : Hyperbolic Q
+eAA : (∑ i, v.1 i • annihilator Q i) * ∑ j, v.1 j • annihilator Q j = 0
+eBB : (∑ i, v.2 i • creator Q i) * ∑ j, v.2 j • creator Q j = 0
+expand1 :
+  (∑ i, v.1 i • annihilator Q i) * ∑ j, v.2 j • creator Q j =
+    ∑ i, ∑ j, (v.1 i * v.2 j) • (annihilator Q i * creator Q j)
+expand2 :
+  (∑ j, v.2 j • creator Q j) * ∑ i, v.1 i • annihilator Q i =
+    ∑ i, ∑ j, (v.1 i * v.2 j) • (creator Q j * annihilator Q i)
+car :
+  ∀ (i j : Orbital Q),
+    (v.1 i * v.2 j) • (annihilator Q i * creator Q j) + (v.1 i * v.2 j) • (creator Q j * annihilator Q i) =
+      (v.1 i * v.2 j) • if i = j then 1 else 0
+i : Orbital Q
+this : ∀ (j : Orbital Q), ((v.1 i * v.2 j) • if i = j then 1 else 0) = if i = j then (v.1 i * v.2 j) • 1 else 0
+⊢ (∑ j, if i = j then (v.1 i * v.2 j) • 1 else 0) = (v.1 i * v.2 i) • 1
+T1.lean:423:52: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.853, ?m.855 x + ∑ x ∈ ?m.853, ?m.856 x
+in the target expression
+···
+⊢ (∑ j, if i = j then (v.1 i * v.2 j) • 1 else 0) = (v.1 i * v.2 i) • 1
+T1.lean:423:52: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.853, ?m.855 x + ∑ x ∈ ?m.853, ?m.856 x
+in the target expression
+  ∑ x,
+      (∑ j, (v.1 x * v.2 j) • (annihilator Q x * creator Q j) +
+        ∑ j, (v.1 x * v.2 j) • (creator Q j * annihilator Q x)) =
+    (∑ i, v.1 i * v.2 i) • 1
+
+Q : ℕ
+v : Hyperbolic Q
+eAA : (∑ i, v.1 i • annihilator Q i) * ∑ j, v.1 j • annihilator Q j = 0
+eBB : (∑ i, v.2 i • creator Q i) * ∑ j, v.2 j • creator Q j = 0
+expand1 :
+  (∑ i, v.1 i • annihilator Q i) * ∑ j, v.2 j • creator Q j =
+    ∑ i, ∑ j, (v.1 i * v.2 j) • (annihilator Q i * creator Q j)
+expand2 :
+  (∑ j, v.2 j • creator Q j) * ∑ i, v.1 i • annihilator Q i =
+    ∑ i, ∑ j, (v.1 i * v.2 j) • (creator Q j * annihilator Q i)
+car :
+  ∀ (i j : Orbital Q),
+    (v.1 i * v.2 j) • (annihilator Q i * creator Q j) + (v.1 i * v.2 j) • (creator Q j * annihilator Q i) =
+      (v.1 i * v.2 j) • if i = j then 1 else 0
+step : ∀ (i : Orbital Q), (∑ j, (v.1 i * v.2 j) • if i = j then 1 else 0) = (v.1 i * v.2 i) • 1
+merged :
+  ∀ (i : Orbital Q),
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:490:73: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : i ≠ j
+⊢ ∑ i_1, (hypE' Q j).1 i_1 * (hypE' Q i).2 i_1 = 0
+T1.lean:495:71: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : i ≠ j
+⊢ ∑ i_1, (hypE Q j).1 i_1 * (hypE Q i).2 i_1 = 0
+T1.lean:509:65: error: Application type mismatch: The argument
+  x
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) x
+T1.lean:508:62: error: unsolved goals
+Q : ℕ
+x y : Hyperbolic Q
+h : QuadraticMap.polar (⇑(hyperbolicForm Q)) x y = 0
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:517:65: error: Application type mismatch: The argument
+  hypE Q i
+···
+⊢ ∑ i_1, (hypE' Q j).1 i_1 * (hypE' Q i).2 i_1 = 0
+T1.lean:495:71: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : i ≠ j
+⊢ ∑ i_1, (hypE Q j).1 i_1 * (hypE Q i).2 i_1 = 0
+T1.lean:509:65: error: Application type mismatch: The argument
+  x
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) x
+T1.lean:508:62: error: unsolved goals
+Q : ℕ
+x y : Hyperbolic Q
+h : QuadraticMap.polar (⇑(hyperbolicForm Q)) x y = 0
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:517:65: error: Application type mismatch: The argument
+  hypE Q i
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+···
+⊢ ∑ i_1, (hypE Q j).1 i_1 * (hypE Q i).2 i_1 = 0
+T1.lean:509:65: error: Application type mismatch: The argument
+  x
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) x
+T1.lean:508:62: error: unsolved goals
+Q : ℕ
+x y : Hyperbolic Q
+h : QuadraticMap.polar (⇑(hyperbolicForm Q)) x y = 0
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:517:65: error: Application type mismatch: The argument
+  hypE Q i
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) (hypE Q i)
+T1.lean:516:68: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+⊢ occupationElem Q i * occupationElem Q i = occupationElem Q i
+···
+  ι_mul_ι_add_swap (hyperbolicForm Q) x
+T1.lean:508:62: error: unsolved goals
+Q : ℕ
+x y : Hyperbolic Q
+h : QuadraticMap.polar (⇑(hyperbolicForm Q)) x y = 0
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:517:65: error: Application type mismatch: The argument
+  hypE Q i
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) (hypE Q i)
+T1.lean:516:68: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+⊢ occupationElem Q i * occupationElem Q i = occupationElem Q i
+T1.lean:548:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:563:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) *
+···
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:517:65: error: Application type mismatch: The argument
+  hypE Q i
+has type
+  Hyperbolic Q
+but is expected to have type
+  QuadraticForm ℂ (Hyperbolic Q)
+in the application
+  ι_mul_ι_add_swap (hyperbolicForm Q) (hypE Q i)
+T1.lean:516:68: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+⊢ occupationElem Q i * occupationElem Q i = occupationElem Q i
+T1.lean:548:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:563:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) *
+      (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j)) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q j)
+
+Q : ℕ
+···
+  ι_mul_ι_add_swap (hyperbolicForm Q) (hypE Q i)
+T1.lean:516:68: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+⊢ occupationElem Q i * occupationElem Q i = occupationElem Q i
+T1.lean:548:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:563:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) *
+      (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j)) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q j)
+
+Q : ℕ
+i j : Orbital Q
+hij : ¬i = j
+f1 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+f2 :
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i))
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:563:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) *
+      (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j)) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q j)
+
+Q : ℕ
+i j : Orbital Q
+hij : ¬i = j
+f1 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+f2 :
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i))
+f3 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+⊢ (ι (hyperbolicForm Q)) (hypE' Q i) * -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) *
+      (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j)) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q j)
+T1.lean:565:83: error: unsolved goals
+···
+      (ι (hyperbolicForm Q)) (hypE Q j)
+T1.lean:565:83: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : ¬i = j
+f1 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+f2 :
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i))
+f3 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+⊢ -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i)) *
+      ((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i)) =
+    (ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+      ((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+T1.lean:569:47: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : ¬i = j
+f1 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+f2 :
+···
+      ((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+T1.lean:569:47: error: unsolved goals
+Q : ℕ
+i j : Orbital Q
+hij : ¬i = j
+f1 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+f2 :
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q j) =
+    -((ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i))
+f3 :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q j) =
+    -((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE Q i))
+⊢ (ι (hyperbolicForm Q)) (hypE' Q j) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q j) *
+      (ι (hyperbolicForm Q)) (hypE Q i) =
+    (ι (hyperbolicForm Q)) (hypE' Q j) *
+      ((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i))
+T1.lean:581:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, if x = i then (if x = i then 1 else 0) • annihilator Q x else 0
+in the target expression
+  ∑ i_1, (if i_1 = i then 1 else 0) • annihilator Q i_1 + ∑ i, 0 • creator Q i = annihilator Q i
+
+Q : ℕ
+i : Orbital Q
+⊢ ∑ i_1, (if i_1 = i then 1 else 0) • annihilator Q i_1 + ∑ i, 0 • creator Q i = annihilator Q i
+···
+      ((ι (hyperbolicForm Q)) (hypE Q j) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i))
+T1.lean:581:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, if x = i then (if x = i then 1 else 0) • annihilator Q x else 0
+in the target expression
+  ∑ i_1, (if i_1 = i then 1 else 0) • annihilator Q i_1 + ∑ i, 0 • creator Q i = annihilator Q i
+
+Q : ℕ
+i : Orbital Q
+⊢ ∑ i_1, (if i_1 = i then 1 else 0) • annihilator Q i_1 + ∑ i, 0 • creator Q i = annihilator Q i
+T1.lean:579:13: warning: declaration uses `sorry`
+T1.lean:580:19: warning: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE_fst, hypE_snd, Pi.zero_apply, Finset.sum_const_zero,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:580:30: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE_fst, hypE_snd, Pi.zero_apply, smul_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:580:53: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:589:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, if x = i then (if x = i then 1 else 0) • creator Q x else 0
+in the target expression
+  ∑ i, 0 • annihilator Q i + ∑ i_1, (if i_1 = i then 1 else 0) • creator Q i_1 = creator Q i
+
+Q : ℕ
+i : Orbital Q
+⊢ ∑ i, 0 • annihilator Q i + ∑ i_1, (if i_1 = i then 1 else 0) • creator Q i_1 = creator Q i
+T1.lean:587:13: warning: declaration uses `sorry`
+T1.lean:588:19: warning: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE'_fst, hypE'_snd, Pi.zero_apply,
+    Finset.sum_const_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:588:30: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE'_fst, hypE'_snd, Pi.zero_apply, smul_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:588:53: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:601:2: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 1 was provided
+T1.lean:606:2: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 1 was provided
+T1.lean:623:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:632:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+···
+T1.lean:601:2: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 1 was provided
+T1.lean:606:2: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 1 was provided
+T1.lean:623:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:632:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+···
+T1.lean:606:2: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 1 was provided
+T1.lean:623:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:632:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+···
+T1.lean:623:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:632:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+···
+T1.lean:632:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+···
+T1.lean:637:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (isoV Q) v (Sum.inr x)
+···
+T1.lean:648:12: error: Invalid argument: Variable `isoV` is not a proposition or let-declaration
+T1.lean:684:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:690:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (isoV Q) v (Sum.inr x)
+T1.lean:716:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:700:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 + ?a
+in the target expression
+  ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ ∑ a₁, (isoV Q) v (Sum.inr x) (Sum.inl a₁) * (isoV Q) v (Sum.inl a₁) (Sum.inr x) + 0 = v.1 x * v.2 x / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (isoV Q) v (Sum.inr x)
+T1.lean:716:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((isoV Q) v * (isoV Q) v) (Sum.inl ?x) (Sum.inl ?x)
+in the target expression
+  ∑ a₁, ((isoV Q) v * (isoV Q) v) (Sum.inl a₁) (Sum.inl a₁) +
+      ∑ a₂, ((isoV Q) v * (isoV Q) v) (Sum.inr a₂) (Sum.inr a₂) =
+    (hyperbolicForm Q) v
+
+Q : ℕ
+v : Hyperbolic Q
+···
+    (isoV Q) v (Sum.inr x)
+T1.lean:716:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((isoV Q) v * (isoV Q) v) (Sum.inl ?x) (Sum.inl ?x)
+in the target expression
+  ∑ a₁, ((isoV Q) v * (isoV Q) v) (Sum.inl a₁) (Sum.inl a₁) +
+      ∑ a₂, ((isoV Q) v * (isoV Q) v) (Sum.inr a₂) (Sum.inr a₂) =
+    (hyperbolicForm Q) v
+
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+einr : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inr x) (Sum.inr x) = v.1 x * v.2 x / 2
+⊢ ∑ a₁, ((isoV Q) v * (isoV Q) v) (Sum.inl a₁) (Sum.inl a₁) +
+      ∑ a₂, ((isoV Q) v * (isoV Q) v) (Sum.inr a₂) (Sum.inr a₂) =
+    (hyperbolicForm Q) v
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    ((isoV Q) v * (isoV Q) v) (Sum.inl a₁)
+T1.lean:733:4: error: typeclass instance problem is stuck
+  Decidable (?m.126 = ?m.128)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+    ((isoV Q) v * (isoV Q) v) (Sum.inl a₁)
+T1.lean:733:4: error: typeclass instance problem is stuck
+  Decidable (?m.126 = ?m.128)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+T1.lean:731:10: warning: declaration uses `sorry`
+T1.lean:731:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV, Matrix.of_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:732:53: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV, Matrix.of_apply, hypE_snd, hypE_fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:736:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:742:4: error: typeclass instance problem is stuck
+  Decidable (?m.137 = ?m.139)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+T1.lean:754:10: warning: declaration uses `sorry`
+T1.lean:755:6: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:757:6: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:763:39: error: Application type mismatch: The argument
+  Sum.inl i
+has type
+  Orbital Q ⊕ ?m.17
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:763:39: error: Application type mismatch: The argument
+  Sum.inl i
+has type
+  Orbital Q ⊕ ?m.17
+but is expected to have type
+  Type
+in the application
+  TauCeti.carOccupationElement ℂ (Sum.inl i)
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   T1.lean: FAIL rc=1 errors=31 sorry=0
+[tele] SUMMARY run: wall=102s max_cpu=1.30 max_mem=2825MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5N0ibuftoLz4jDBtrvEn8Y
