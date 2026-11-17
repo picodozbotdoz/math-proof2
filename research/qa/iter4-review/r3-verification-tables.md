@@ -1098,6 +1098,166 @@ D-tranches); full-coverage `axcheck_full.py`/`axcheck_iter4 gen` standard when
 staged; the landed C2 evidence above is the interim record. §7a's 10-tranche row
 updates D1→LANDED.
 
+### 10.18 73-Q4 — LANDED GREEN 2026-11-17 (the hRat discharge; lane A2 executing per the GO memo `pilots/73/Q4-gate-memo.md`; runner warm `crossmath-pilot-73`, doz CLI, SPEC 2cpu/4GB + telemetry + LEAN_NUM_THREADS=2, mathlib `ff2494ea`; folded + re-verified by lane A1)
+
+*(Merged 2026-11-17 by lane A1 from A2's block authored into a STALE baseline copy of
+this file in agent-03 (labeled §10.7 there) — renumbered to the live lineage as
+§10.18. Cites re-verified on agent-03 disk: verdict `q4-run15-green.log:7` + `:43`
+(Q4.lean OK rc=0/0 errors/0 sorry-warnings) with C.lean regression OK `:24`/`:101`
+in all 15 runs; **all 23 triad prints at `:45–:67`** (incl. the mangled
+`_private.Q4.0.Pilot73.*` forms); telemetry `:103` (wall 26 s, OVER=0); sha
+491af05ab4b95e76 ✓, 586 lines ✓. **DATED CORRECTION (A1, extractor-generated):** the
+block's header said "22 theorem decls — 8 public + 14 private"; the census says
+**23 decls = 14 public + 9 private** (`axcheck_iter4.py decls`), matching the 23
+in-file prints exactly — total and public/private split corrected here; the
+per-decl table below is unaffected.)*
+
+**Q4.lean (proof artifact — 586 lines incl. the in-file audit tail; 23 theorem decls
+— 14 public + 9 private — every one with a direct in-file `#print axioms`; coverage
+C1; disk sha256 491af05ab4b95e76…; GREEN run `pilots/73/logs/q4-run15-green.log`):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| **M0** `heckeSeriesT_rational_of_periodicity` (C1, the hRat discharge) | `pilots/73/Q4.lean:511–543` | PROVED-UNCONDITIONAL — `hRat` DISCHARGED for the 𝔽_q(T) probe class (modulus `span M`, `M.Monic`, `1 ≤ M.natDegree`); NO donor binders (mathlib-only) | `q4-run15-green.log:66` — `[propext, Classical.choice, Quot.sound]` | the r5 §13 M0 skeleton, upgraded with the explicit modulus fence (degenerate `span M = ⊤` modulus recorded in the header, not silently assumed); witness `P₀ = 1 − qT`, `P₁` the degree-≤-deg-M truncation, `P₀.eval 0 = 1 ≠ 0` |
+| **Q4-c** `hecke_continuation_unconditional` ((P)(i) unconditional) | `pilots/73/Q4.lean:548–559` | PROVED-UNCONDITIONAL — consumes M0's witness into C.lean's GREEN `hecke_continuation` (`hRat` binder discharged BY CONSTRUCTION); `hPur` untouched | `q4-run15-green.log:67` — triad | (P)(i) unconditional for the 𝔽_q(T) probe class — "(i) unconditional BY CONSTRUCTION at the probe, (ii) conditional everywhere" (gate memo §2.4); `hPur` stays a binder at C.lean's `hecke_window` per the §3 fence (never discharged — Weil-RH-for-Kummer-covers, prework §2.4) |
+| **Q4-a core** `sum_apply_span_eq_of_degree_le` (residue-class uniformity) | `pilots/73/Q4.lean:389–451` | PROVED-UNCONDITIONAL — level-n coefficient = `q^{n−deg M} · S` for `n ≥ deg M` | `q4-run15-green.log:62` — triad | the `q^{n−d}` uniformity via `Finset.sum_nbij'` over build ↔ canonical decomposition (`div_modByMonic_unique` supplies uniqueness) |
+| `canonical_divByMonic` / `monic_mul_add_natDegree` | `pilots/73/Q4.lean:337–375` / `:313–334` | PROVED-UNCONDITIONAL | `q4-run15-green.log:61` / `:60` — triad | the monic-quotient decomposition (Q4-a) |
+| K1 cone layer: `apply_span_singleton_congr_of_dvd_sub` (congruence-invariance), `apply_span_singleton_eq_zero_of_not_isCoprime` (vanishing), `span_sup_span_eq_top_iff` (cone bridge), `isCoprime_congr_of_dvd_sub`, `not_isUnit_of_one_le_natDegree` | `pilots/73/Q4.lean:266–305` / `:252–261` / `:233–247` / `:213–220` / `:224–230` | PROVED-UNCONDITIONAL | `q4-run15-green.log:59` / `:58` / `:57` / `:55` / `:56` — triad | K1 = the common-multiple-inverse trick; cone bridge `span f ⊔ span M = ⊤ ↔ IsCoprime f M` via `Submodule.mem_sup`/`sup_eq_top_iff` (element-level Bézout, no gcd machinery) |
+| parametrization layer: `mem_monicDegreeN_iff`, `card_monicDegreeN` (= `q^n`), `mem_resFinset_iff`, `natDegree_psiVec_lt`, `eq_psiVec_of_lt` | `pilots/73/Q4.lean:105–160` / `:146` / `:197–207` / `:169–181` / `:185–191` | PROVED-UNCONDITIONAL | `q4-run15-green.log:50–54` — triad | the faithfulness check + the count (prework R2 mitigation) |
+| series-coefficient layer: `coeff_heckeSeriesT` (= the monic sum, by `coeff_mk`), `coeff_mul_one_sub_X` (= `L_n − q·L_{n−1}`, homomorphic via the `Polynomial.coe_*` family + `coeff_C_mul`/`coeff_succ_mul_X`/`coeff_zero_mul_X`), `coeff_trunc` | `pilots/73/Q4.lean:462–467` / `:471–484` / `:488–507` | PROVED-UNCONDITIONAL | `q4-run15-green.log:63` / `:64` / `:65` — triad | Q4-b geometric assembly with `P₀ = 1 − qT` |
+| private helpers `poly_coeff_finset_sum` (ring-generalized), `finset_sum_const_eq`, `coeff_sum_monomial_eq`, `coeff_sum_monomial_eq_zero`, `coeff_monic_param` | `pilots/73/Q4.lean:51–102` | PROVED-UNCONDITIONAL | `q4-run15-green.log:45–49` — triad | the coefficient/Finset-sum commute is LOCAL (ring-generic, own `{R}` binder — the section-variable `k` cannot leak to `Fintype ℂ`) |
+
+**Substrate/pins:** mathlib `ff2494ea` / v4.36.0-rc2, `import C` sibling-olen staging
+(runner unchanged from Cycle 2). **Rosen citation status:** GTM 210 ch. 8 carried as
+PROVISIONAL pin per the gate memo §4 (C2 :127–:130 lineage; one-lookup verification
+due at the dossier-upgrade write-up — this table rows the Lean record only).
+
+**Machinery notes (the 15-run descent 44→19→11→6→5→1→1→1→1→1→1→2→2→0 errors):** the
+ported-from-nothing file needed (i) `Mathlib.Algebra.Polynomial.{Div,Monic}` imports
+(the `/ₘ` notation and the `Polynomial.Monic.*` lemmas are outside C.lean's import
+closure); (ii) pin-name deltas — `Polynomial.coeff_coe` and the ENTIRE
+`Polynomial.coe_*` coercion-hom family are `Polynomial`-namespaced (not `PowerSeries`)
+at this pin, `natDegree_eq_of_degree_eq_some` (not `natDegree_of_degree_eq`),
+`Finset.sum_eq_single` lost its membership argument, `Submodule.sup_eq_top_iff`
+explicit-pair form; (iii) a section-variable leak (`Fintype ℂ` demands) fixed by
+ring-generalizing the shared helper; (iv) the antidiagonal two-point extraction
+abandoned for a homomorphic coefficient computation. Warnings-only residue:
+deprecated `if_pos/if_neg/dif_pos/dif_neg` rewrites + unused-simp-arg linter notes
+(`q4-run15-green.log` tail). Full lineage in the log headers
+(`q4-run1..15-green.log`); telemetry 0 OVER in every run.
+
+**Verification-lane addendum (A1):** Step-B `AxPilot73_Q4` TARGETS append owed at
+sweep (Q4.lean is FINAL — the hRat discharge landed; `import C` sibling rewrite
+auto-handled by the generalized dict, AxPilot73_C present); coverage C1 stands
+(23/23 direct prints — stronger than the sweep stage's public-only surface). §7a's
+73-Q4 row resolves LANDED.
+
+### 10.19 FF-EZ2 P0 — LANDED GREEN 2026-11-17 (run 3 of ≤3; lane A3, r5 §2 S4 / §14 row 13, battery CHARTER-GO; folded + re-verified by lane A1) — PROBE-CONVENTION statement rung, never a Step-B stage
+
+*(Merged 2026-11-17 by lane A1 from A3's `pilots/ff-ez2/P0-record.md` (worktree
+agent-04, pending H's commit). Cites re-verified on agent-04 disk: verdict
+`p0-run3.log:14` ("P0.lean: OK (probe, sorry allowed)" with NO sorry suffix = 0 Lean
+sorry-warnings), SUMMARY :24–25, telemetry :26 (wall 36 s, OVER=0), RESULT block :33
+(GREEN FINAL; the 2 prose "sorry" hits in-log are the verdict label + header line),
+descent :34 (3→2→0 over runs 1–3); sha 396f7183e73b3d23 ✓, 162 LoC ✓.)*
+
+**P0.lean (PROBE-CONVENTION — 162 LoC, sha256(16) `396f7183e73b3d23`; mathlib
+`ff2494ea` / v4.36.0-rc2, mathlib-only, ZERO sorry by construction (Prop-def
+statement convention, the FF-EZ4 sibling pattern); new ephemeral app
+`crossmath-pilot-ffez2`, image block byte-identical to the ffez4/71/probe family,
+doz CLI, stage discarded. Billing: statement rung of the FF-EZ2 survivor —
+formalization-first, exclusion-guarded, NOT a discovery claim ("warm-up grade"
+mathematics). No status rows — the elaboration IS the evidence.)**
+
+**Statement surface (all elaborated; 7 `#check` anchors resolved per the RESULT
+block):** Weil-side binders (G3/G6b statement-level class, never build deps) —
+`HypFrobeniusSpectrum` (the purity/RH clause of `LeanEval/WeilConjectures.lean:185–194`
+as binder data) and `HypBaseChangePower` (the conclusion of
+`Weil.rationalFrobeniusCharpolyReverse_eq_comp_of_comp_specAlgebraMap_eq`,
+`FieldOfConstantsFrobenius.lean:163` — the base-change eigenvalue power law) +
+`baseChange` as data; combinatorial simplicity layer — `ZerosSimpleAt`, `lPolyM`
+(carried from `pilots/71/P2.lean:57`), `simpleProportion`,
+`stmt_lpoly_squarefree_iff`; the battery's binding guards IN-FILE —
+`NoRootOfUnityCollisions` (the exclusion hypothesis) and
+`stmt_maximal_violates_exclusion` (the falsity trap as NEGATION — Fuhrmann
+arXiv:alg-geom/9610023 + Tafazolian–Torres 2012 pins dated; no uniform-in-family
+statement); the survivors — `stmt_ff_ez2_base_change_density` (under purity +
+exclusion, the extension degrees with all-simple base-changed zeta have natural
+density 1) + transport form `stmt_ff_ez2_family_form` (via the Weil :163 binder) +
+the trivial wrapper `conditional_shape` (FF-EZ4/ProbeG3 precedent). Informal
+neighbors dated in-header (Bui–Florea 1605.07092 family-average; Suzuki 2610.41115
+method-neighbor, month-clock clean 2026-11-17).
+
+**STATEMENT-RUNG CORRECTION (recorded, carried per relay):** the bridge §4 sketch
+claims the unconditional per-level proportion satisfies "distinct powers ≥ distinct
+values"; **the true direction is ≤** (powering can only merge values; e.g. {1, −1}
+at m = 2). Carried corrected as `stmt_power_merge_le`; what the exclusion hypothesis
+buys is (at least) all-m simplicity, hence density exactly 1.
+
+**Guard compliance (the battery's binding list, 5/5):** exclusion/family-quantified
+shapes only; maximal-member exclusions per the dated pins; Weil side
+statement-binder only (zero donor imports, file:line cites); claims dated; falsity-trap
+design rule. Sweep treatment: Step-A row (zero tokens), never Step-B, no TARGETS.
+
+### 10.20 10-D2 — PARTIAL GREEN 2026-11-17 (canary milestone fully GREEN; ONE diagnosed statement error at fix-budget exhaustion; lane A6, orchestrator D2-GO ruling; folded + re-verified by lane A1) — plumbing billing, never novelty
+
+*(Merged 2026-11-17 by lane A1 from A6's `pilots/10/D2-record.md` (worktree agent-07,
+pending H's commit). Cites re-verified on agent-07 disk: both log provenance headers
+(`d2-run1.log:1` attempts 1–3 ending in the GREEN canary; `d2-run2.log:1` attempts
+4–6, final sha ad366b23… + the diagnosed fix), the final-state `carried_σ` clean
+prints `d2-run2.log:38/:42` — `[propext, Quot.sound]`, attempt-6 telemetry (wall
+99 s, mem 5661 MB = mmapped-olen class, OVER=1 soft). L4.lean on disk: sha
+ad366b23e9d22bb7 ✓; 3,343 lines by wc vs the record's 3,341 (2-line drift,
+header-class); **0 real sorry tokens** — the file's 4 `sorry` strings are the
+compliance-header prose lines :45/:85/:101/:143.)*
+
+**L4.lean (3,341 LoC per the record = 46-line D2 header + L3.lean verbatim 2,805 +
+Part F ~490; fix-loop ≤4 EXHAUSTED — 4 fix iterations across 6 runs, stopped per
+budget with one error remaining and its 2-line fix diagnosed. NOT final: the file on
+disk is the maximal VERIFIED state, carrying one elaboration error.)**
+
+**LANDED GREEN (the verified triad surface, attempts 3–6):**
+
+| item | status | evidence |
+|---|---|---|
+| **D2 FIRST BILL — the `Carried` instances** (eth `EncLemmas.lean:106–127` verbatim; Unit/Bool/ℕ/×/⊕/Option/List — ℤ skipped, unneeded for σ) + `carried_σ : Carried ((List Bool × ℕ) ⊕ Bool)` | GREEN — `[propext, Quot.sound]` (data-only) | `d2-run2.log:38` (repeat :42) — final state |
+| EncLemmas excerpt (wd_inl/inr, len_* family, two_le_len_list) + size_* rfl lemmas; structural fragments (eth TM/Ops: pop1/swapF/consF/unconsF + toA/toB within-lemmas); `PolyT.of`/`congr`/`of_wd` (eth PolyT.lean:62–100 verbatim); `attribute [fun_prop] Groundwork.PolyT` ACCEPTED at v4.36; eth `Closure/Basic` verbatim; `Closure/Cases` excerpt (within_branch, tagHead(+eq), sumCore, cond', sumElim — `TM.code`-qualified, root `code` ambiguous at this pin) | GREEN | canary run + attempt 4–6 verdicts (log headers) |
+| `padM'_out_polyT` (the out field, Sum-elim), `canary_init` (the init field's body, projection-free), `canary_pair` | GREEN — `by fun_prop`, triad-only | `d2-run2.log:1` header (attempt-5/6 GREEN content) |
+| L3/L2/M1 substrate regression (exists_tm_space family, Counted block, Part E) | GREEN, triad | in-run re-verification |
+
+**THE ONE REMAINING ERROR (diagnosed; 2-line fix QUEUED, not applied — budget):**
+`padM'_init_polyT`'s **statement** fails elaboration — `Enc (padM' e A').σ` synthesis:
+the `.init`/`.σ` structure projection blocks instance search even under the type
+ascription (PolyT's β binds the projection before the ascription wins; attempt 6's
+have/exact wrapper proved it statement-level, not a proof problem). Queued fix:
+state it projection-free (the already-proved `canary_init` shape) + the rfl bridge
+`padM'_init_eq : (padM' e A').init = fun x => .inl (x, 1) := rfl`; the future
+`padM'_isPolyT` consumes the pair.
+
+**ROUTE A/B OUTCOME — Route A VALIDATED, recommended:** `fun_prop` closes goals over
+the user class at v4.36 (canary_init/canary_pair/padM'_out_polyT all `by fun_prop`,
+triad); transcription churn ≈ 0 on ~490 lines (two mechanicals: eth's file-level
+`variable {α β} [Enc α] [Enc β]` is LOAD-BEARING for the Carried instance heads;
+`TM.code` qualification). **Step field = the charter call, source-measured:** the
+honest transitive closure of `step`'s numeric atoms (decide_le/log2'/mul via eth
+Nat1/Nat2/Fold) re-measured at ≈ 450–550 verbatim LoC — guard (iii) (>0.6k) formally
+exceeded on Route A, and Route B (≈ 250 LoC) is under-priced the same way (≈ 300–400
+new-LoC with real correctness burden) — **recommendation: COMPLETE ROUTE A at the
+next slot** (B has no price advantage). **D3-readiness:** `pad_bound` +
+`padded_time_absorb` are independent of the step field and can land while it pends;
+D4 needs `padM'_isPolyT`'s three fields complete.
+
+**Verification-lane addendum (A1):** (i) **intermediate-state note:** `d2-run1.log:64`
+prints `carried_σ` with `sorryAx` — that is ATTEMPT 2's in-flight proof state within
+the log, superseded; the attempt-3 GREEN canary and the final state print it clean
+`[propext, Quot.sound]` (`d2-run2.log:38/:42`). Not a violation (fix-budget
+mechanics); recorded so nobody reads :64 as the final evidence. (ii) Step-A: 0 real
+tokens (prose-only occurrences). (iii) Step-B: `AxPilot10_L4` rides the same
+AT-SWEEP protocol as L3 (the D-tranche family grows; the row lands when the family
+finalizes — the PARTIAL state here is the interim record, with the queued 2-line fix
+explicitly NOT applied). §7a's 10-tranche row updates D2→PARTIAL (canary GREEN;
+step-field charter call pending).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -1143,4 +1303,14 @@ finding recorded in the telemetry class note). Tenth batch: §10.17 10-D1 (A6's
 record from agent-07 — verdict :14, Part E 6 prints :25–:30 incl. 2 data-only, L2
 regression :16–:24; engineering/plumbing billing, C2 coverage; SPEC CORRECTION
 adjudicated — D2's bare-PolyT form FALSE under binary Enc ℕ; AxPilot10_L3 TARGETS at
-sweep per the record's own protocol).
+sweep per the record's own protocol). Eleventh batch: §10.18 73-Q4 (A2's block from
+agent-03's STALE baseline §10.7→§10.18 — all 23 triad prints :45–:67 re-verified,
+headline M0 + Q4-c at :66/:67; DATED CORRECTION: the block's "22 decls, 8 public +
+14 private" corrected to the census's 23 = 14 public + 9 private; C1; Rosen ch. 8
+provisional pin carried; AxPilot73_Q4 TARGETS at sweep). Twelfth batch: §10.19 FF-EZ2 P0 (A3's record from
+agent-04 — verdict :14, RESULT :33; probe-convention statement rung, zero-sorry by
+construction; the rung-correction ≤ vs ≥ carried) + §10.20 10-D2 PARTIAL GREEN (A6's
+record from agent-07 — canary milestone triad incl. carried_σ [propext, Quot.sound]
+at d2-run2:38/:42; ONE diagnosed statement error, 2-line fix queued; Route A
+validated + recommended; the d2-run1:64 sorryAx = attempt-2 intermediate state,
+superseded — noted so it is never read as final evidence).
