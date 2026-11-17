@@ -1,0 +1,111 @@
+# runner-fixes-wave2.patch — A8 wave-2 runner fixes (lane A8, 2026-11-17; STAGED — H applies post-wave on orchestrator signal)
+# Targets: research/pilots/zzv2-lam/run_zzv2.py + research/pilots/zeta23e/run_zeta23e.py (base = worktree agent-09 @ 53c1548 disk state;
+# zzv2 sha256(16) e202c9d694fa3e1b, zeta23e sha256(16) 6ca8279b7a96af55 — re-base if lanes touch the runners before application).
+# Fixes: (a) lake build -j 2 — caps lake job parallelism at SPEC cpu (the measured CPU-burst OVER class: zeta23e-p0-run1.log:19-25 OVER=13, run35-g11-fix.log OVER=12);
+#        (b) cache retry raised to the full iter4-donor-unblock-plan §5b budget (<=4 attempts) + DEFER-infra verdict on exhaustion (abort=defer per §8 cards 8-9; seed fallback deliberately NOT wired — porting _seed_mathlib into donor-tree runners is out of scope for a prepared patch);
+#        (c) modal_telemetry path resolution: __file__-relative first (in-repo runs), canonical absolute path as staged-run fallback (replaces the bare absolute insert; §5a gap-2 class).
+# Apply from repo root: patch -p1 < research/feasibility/probe/runner-fixes-wave2.patch
+# Verified 2026-11-17 by lane A8: dry-run clean + applies clean to fresh copies of both originals; patched files py_compile OK.
+
+--- a/research/pilots/zzv2-lam/run_zzv2.py
++++ b/research/pilots/zzv2-lam/run_zzv2.py
+@@ -34,7 +34,15 @@
+ # AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
+ # run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
+ import sys as _sys
+-_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
++from pathlib import Path as _Path
++# A8 wave-2 fix (c): resolve modal_telemetry relative to this file when run in-repo;
++# fall back to the canonical absolute path when staged to /tmp (stage dirs carry only
++# the runner + .lean files; add_local_python_source uploads the module regardless).
++for _probe_dir in (_Path(__file__).resolve().parents[2] / "feasibility" / "probe",
++                   _Path("/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")):
++    if (_probe_dir / "modal_telemetry.py").is_file():
++        _sys.path.insert(0, str(_probe_dir))
++        break
+ from modal_telemetry import SPEC, telemetered  # noqa: E402
+ CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+ 
+@@ -105,8 +113,11 @@
+     d = work / "ZetaZerosV2"
+     summary = {}
+     import time
++    # A8 wave-2 fix (b): cache retry raised to the full §5b budget (≤4 attempts);
++    # on exhaustion the verdict is DEFER-infra (abort=defer per card 8 — infra, not
++    # a donor verdict; seed fallback intentionally not wired into this runner).
+     for step, cmd, t, tries in [("update", "lake update", 1800, 1),
+-                                ("cache", "lake exe cache get", 1800, 2)]:
++                                ("cache", "lake exe cache get", 1800, 4)]:
+         rc, out = None, ""
+         for attempt in range(tries):
+             rc, out = _sh(cmd, d, t)
+@@ -119,12 +130,20 @@
+             _, rev = _sh("git -C .lake/packages/mathlib rev-parse HEAD", d, 60)
+             print(f"[zzv2] resolved mathlib {rev.strip()}", flush=True)
+         if rc != 0:
+-            summary[f"{step}"] = f"FAIL rc={rc}"
++            if step == "cache":
++                summary[step] = (f"DEFER-infra rc={rc} (artifact-cache exhausted after "
++                                 f"{tries} attempts — §5b retry protocol; abort=defer per "
++                                 f"card 8)")
++            else:
++                summary[step] = f"FAIL rc={rc}"
+             print("\n=== SUMMARY", flush=True)
+             for k, v in summary.items():
+                 print(f"{k}: {v}", flush=True)
+             return summary
+-    rc, out = _sh("lake build ZetaZeros", d, 2 * 3600)
++    # A8 wave-2 fix (a): -j 2 caps lake's job parallelism at the SPEC cpu count (lake
++    # otherwise sizes from nproc; the measured CPU-burst OVER class — zeta23e OVER=13,
++    # g11 OVER=12 — is this exact trap; zeta23e-p0-run1.log:19–25 investigation).
++    rc, out = _sh("lake build -j 2 ZetaZeros", d, 2 * 3600)
+     e = [l for l in out.splitlines() if "error:" in l]
+     done = len(re.findall(r"✔ \[\d+/\d+\]", out))
+     summary["build"] = "OK" if rc == 0 and not e else f"FAIL rc={rc} errors={len(e)}"
+--- a/research/pilots/zeta23e/run_zeta23e.py
++++ b/research/pilots/zeta23e/run_zeta23e.py
+@@ -45,7 +45,15 @@
+ # AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
+ # run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
+ import sys as _sys
+-_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
++from pathlib import Path as _Path
++# A8 wave-2 fix (c): resolve modal_telemetry relative to this file when run in-repo;
++# fall back to the canonical absolute path when staged to /tmp (stage dirs carry only
++# the runner + .lean files; add_local_python_source uploads the module regardless).
++for _probe_dir in (_Path(__file__).resolve().parents[2] / "feasibility" / "probe",
++                   _Path("/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")):
++    if (_probe_dir / "modal_telemetry.py").is_file():
++        _sys.path.insert(0, str(_probe_dir))
++        break
+ from modal_telemetry import SPEC, telemetered  # noqa: E402
+ CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+ 
+@@ -156,7 +164,10 @@
+     d = work / "lean"
+     summary = {}
+     rc, out = None, ""
+-    for attempt in range(2):  # artifact-cache outage retry
++    # A8 wave-2 fix (b): full §5b retry budget (≤4 attempts); on exhaustion the
++    # verdict is DEFER-infra (abort=defer per card 9 — infra, not a donor verdict;
++    # seed fallback intentionally not wired into this runner).
++    for attempt in range(4):  # artifact-cache outage retry (§5b protocol)
+         rc, out = _sh("lake exe cache get", d, 1800)
+         print(f"\n=== zeta23 cache (attempt {attempt + 1}): rc={rc}", flush=True)
+         if rc == 0:
+@@ -164,9 +175,13 @@
+         print(_condense(out, 4000), flush=True)
+         time.sleep(60)
+     if rc != 0:
+-        summary["cache"] = f"FAIL rc={rc}"
++        summary["cache"] = (f"DEFER-infra rc={rc} (artifact-cache exhausted after 4 "
++                            f"attempts — §5b retry protocol; abort=defer per card 9)")
+     else:
+-        rc, out = _sh(f"lake build {TARGET}", d, 2 * 3600)
++        # A8 wave-2 fix (a): -j 2 caps lake's job parallelism at the SPEC cpu count
++        # (lake otherwise sizes from nproc — the measured CPU-burst OVER class, see
++        # this run family's own zeta23e-p0-run1.log:19–25 investigation, OVER=13).
++        rc, out = _sh(f"lake build -j 2 {TARGET}", d, 2 * 3600)
+         e = [l for l in out.splitlines() if ": error" in l]
+         failed = sorted({m for m in re.findall(r"✖ \[\d+/\d+\] Building (\S+)", out)})
+         summary["build"] = ("OK" if rc == 0 and not e else
