@@ -259,3 +259,143 @@ wanted before its V4 rule failed — and its question type is unclaimed in the l
 - Novelty (1–5):
 - Significance (1–5):
 - Effort (S/M/L → 1–5):
+
+## Battery (2026-11-17)
+
+Executor: lane A3 (worktree agent-04 @ 53c1548), written/evidence work only, no Modal,
+siblings read-only. Discharges the charter gate *"no FB charter before its
+dossier-level battery"*. Inputs read this session: this dossier; fresh-bridges §3 FB-1
++ §5 yield block; week1-agenda row 4; **dossier 78 (post-P0 landscape —
+`candidates/78-truffet-substitution-refutation.md`, pilot-78 Stage-A GREEN
+2026-11-17)**; `novelty/iter4-truffet-classical-scope.md` §10.1 (the fidelity
+dictionary); G13 log (`feasibility/probe/logs-g/run39-g13-fix.log`); full read-only
+censuses of tauceti and openai-math. All [V] = verified at the cited locator this
+session.
+
+### (1) tauceti census — the zero-temperature limit object's surface (T1's consumption list)
+
+**The dossier's open `[NOVELTY-CHECK-NEEDED]` item (read `OptimalTransport/Duality/`
+in full) — EXECUTED AND RESOLVED, with a correction to this dossier's own Novelty
+section:** the directory-read claim *"its content is the entropic + `Data/Matrix/
+Scaling` duality"* was WRONG. `OptimalTransport/Duality/` (10 files, 2,624 LoC) is the
+**unregularized Kantorovich duality**: `DualFeasible` (`Duality/Basic.lean:75`),
+`kantorovichDualValue` (:147), weak duality `kantorovichDualValue_le_transportCost`
+(:219–:236), sup-characterizations `isLUB_kantorovichDualValue_continuous`
+(`Compact.lean:390`) and `_integrable` (:414), `transportCost_eq_sSup…`
+(`LowerSemicontinuous.lean:133/:183`), dual-certificate attainment
+`exists_isDualCertificate_of_continuous` (`Attainment.lean:132`, greatest-value form
+:144), and the Schachermayer–Teichmann cyclical-monotonicity characterization
+(`SchachermayerTeichmann.lean:75/:103`). The finite regime is also donor-native:
+`Finite/Duality.lean` — `finiteDualValue` (:98), weak duality (:189), **strong duality
+with attainment** `exists_cost_eq_finiteDualValue` (:564) and
+`exists_isLeast_cost_isGreatest_finiteDualValue` (:622), compactness
+`isCompact_realPlans` (:269), and the bridge `finiteDualValue_eq_kantorovichDualValue`
+(:719); `Finite/Entropic.lean:179` `entropicDualValue_eq_mul_relEntropyDual` (fixed-ε
+identification) consuming that bridge (:226).
+
+**The gap T1 fills is confirmed, not collapsed:** zero entropic tokens anywhere in
+`Duality/` (rg = 0); zero `entropicDualValue`/dual tokens in `ZeroTemperature.lean`
+and in `Entropic/Selection.lean` (rg = 0); `Finite/Duality.lean` has zero entropic
+tokens; `Finite/Entropic.lean` has no limit content. The dual value/potentials never
+meet the ε→0 limit anywhere in-tree. `Entropic/Selection.lean` (which imports
+`ZeroTemperature`, header selection story) is purely PRIMAL — 7 theorems :51–:178, no
+dual object appears. In-corpus novelty of T1a/T1b STANDS; R7's literature nearest-miss
+verdict unchanged.
+
+**Feasibility UPGRADE (material):** T1's Kantorovich value `V` and T1b's target dual
+pair are now donor-native (`kantorovichDualValue` + `isLUB_*`, or `finiteDualValue` +
+`exists_isLeast_cost_isGreatest_finiteDualValue` :622 in the finite regime) — the
+Feasibility section's plan to build `V` from the seed-9 LP-weak-duality layer is
+superseded (that layer remains a fallback). The remaining cited surface verifies
+verbatim: `entropicTransportCost` (`Entropic/Basic.lean:443`), `entropicGibbsFactor`
+(`Entropic/Duality.lean:102`), `entropicDualValue` (:294), no-gap attainment
+`exists_isCoupling_lintegral_add_mul_klDiv_eq_entropicTransportCost`
+(`SchroedingerSystem.lean:600`), `iInf_entropicTransportCost`
+(`ZeroTemperature.lean:223`), `tendsto_entropicTransportCost_nhdsGT_zero` (:240),
+`tendsto_entropicTransportCost_transportCost` (:270, `_of_continuous` :320),
+`isOptimalCoupling_of_tendsto_of_entropicTransportCost` (:504).
+
+**Graded-CAR/occupation/trace census (the queue's literal ask) — exists, and has ZERO
+intersection with the zero-temperature object:** `carOccupationElement`
+(`Algebra/Lie/GeneralLinear/CAR/Occupation.lean:70`),
+`isIdempotentElem_carOccupationElement` (:121), `commute_carOccupationElement`
+(:138); `carCasimirElement_mem_even` (`CAR/Casimir.lean:169`) and
+`carCasimirElement_eq_scalar` (:231) — both **private** (precision vs dossier 77's
+citations: private = inaccessible cross-module; a 77-side consumer needs them
+publicized or re-proved); `carLieModule_isFaithful` (`GeneralLinear/Fock.lean`,
+dossier 77 cites :167); `traceQuadraticForm` (`GeneralLinear/TraceForm.lean:177`).
+Import-edge check both directions between `Algebra.Lie.GeneralLinear.*` and
+`MeasureTheory.OptimalTransport.*`: **0 and 0** [V rg]. The CAR stack is dossier 77's
+substrate (FB-5), not a dossier-76 input — the collision test between the two FB
+dossiers' pilot surfaces is CLEAN (disjoint namespace trees, no shared imports).
+
+### (2) OAI/physlib side — what T1/T2 need as binders vs what exists
+
+- **T1 (both rungs): no binders beyond data.** No donor statement outside
+  tauceti+mathlib is consumed (Fintype types, cost, marginals, ε > 0; `V` and the
+  target pair donor-native per census (1)). No physlib content is a T1 input:
+  physlib's QuantumInfo wing (entropy/states/channels + trace-inequality stack +
+  NumberOperator calculus — the physlib-surface §6 dated correction, LIVE on master
+  2026-11-16) is potential *future-consumer* territory for entropic duality, not a
+  76-side binder source.
+- **T2: OAI substrate verified + now repo-native.** `TruffetModel.lean` cites verify
+  verbatim [V]: `eval` :33, `feasible` :36, `lower` :39, `upper` :43, `dominating`
+  :47, `lowerForm` :69, `advance` :80, `ForcedSingletonStep` :86, `initial` :93,
+  `better` :116; `finite_execution_not_optimal` (`TruffetCounterexample.lean:126`).
+  Statement-port ≈ 0 stands; no build dependency. **New since this dossier was
+  written: dossier 78's P0 landed the full procedure-layer transcription IN-REPO on
+  our pin** (`pilots/78/P0.lean`, 444 LoC, A1+A2+A2′ triad-clean, run-4 log) —
+  `paperCandidates`/`paperSelect`/`advance`/`terminal` + the separating instance now
+  exist repo-natively and are reusable by any T2 charter (no re-transcription).
+- **G13/seed-13 respect note (per A8's feed note — stands alone, not folded in):** G13
+  (`ProbeG13_PhyslibOccupation.lean`, GREEN `logs-g/run39-g13-fix.log`) is article-52's
+  `OccupationPair` layer instantiated on QUOTED physlib `CrAnFieldOp` shapes —
+  relation-layer donation FROM us; physlib is v4.35.0, DO-NOT-CONSUME as build
+  dependency (Liu-1 convention). Zero interaction with the entropic-duality
+  statement; recorded here only to close the adjacency question the battery was asked
+  to respect.
+
+### (3) The tropical substitution-rule question after dossier 78 (the dual hook, re-dated)
+
+**The zero-T limit statement (T1) does NOT intersect dossier 78's fidelity
+dictionary.** That dictionary (`novelty/iter4-truffet-classical-scope.md` §10.1,
+CLOSED on the forced-singleton class; kernel-checked as theorem A1 in
+`pilots/78/P0.lean`) maps OAI `TruffetModel` states ↔ the Truffet-2026 paper's
+procedure machinery — tropical-procedure-side objects. T1 is entropic-OT-side; the two
+rungs of FB-1 were thematically paired (both "what the ε→0 / substitution limit
+leaves open"), not mathematically joined. No shared object, no interaction [V: zero
+overlap between the census-(1) surface and dossier 78's transcription].
+
+**Where the landscape DID change is T2:** dossier 78 (article-GO, discovery-grade
+NEGATIVE) proved at procedure level — stronger than this dossier's model-level plan —
+that the paper's own run loses optimality on a two-row bounded instance which is in
+fact unbounded below (A2/A2′). Consequences: (i) 76-T2's S-class first instance (the
+separating-instance verification on the donor's numerals, Proof-strategy step 3) is
+SUPERSEDED by 78's stronger version; (ii) what remains unclaimed for 76-T2 is the
+POSITIVE criterion (both-sided-dominance sufficiency; the "unsound *precisely
+because* one-sided" characterization) — confirmed still unclaimed by dossier 78's
+hardened 2026-11-17 sweep (empty critique space; no soundness theorem in the
+Truffet/ABGJ/Butkovič lines); (iii) T2 is now SEQUENCED BEHIND 78: the criterion is
+the sound-replacement chapter of the same story, best chartered after article-78's
+care framing settles (or at 78's Stage-B decision, which may consume it).
+
+### (4) Battery verdict: **NOT-YET** (iteration-4 FB charter), remnant precisely scoped
+
+- **T1a — CHARTER-GO-able as an OPTIONAL small technical record** (knowledge-grade,
+  formalization-first billing, never article — ZZV2-λ/LP posture). Evidence: novelty
+  clean in-corpus (census (1)) and in-literature (R7 nearest-miss); feasibility
+  UPGRADED to S-class assembly by the donor-native Kantorovich duality + finite
+  strong duality + no-gap attainment (est. ≤ 0.5k LoC; the sandwich
+  `V ≤ liminf Dε ≤ limsup Dε ≤ V` consumes `SchroedingerSystem.lean:600` +
+  `Finite/Duality.lean:622`/`Duality/Compact.lean:390` verbatim). Under cap-N = 1 with
+  dossier 78 GO and 75-Pb the discovery lead, this is cycle filler at the
+  orchestrator's option, not a gap.
+- **T2 — NOT-YET (sequencing, not merit):** absorbed-adjacent to dossier 78;
+  revisit trigger = article-78 close OR a 78-Stage-B charter. The substrate is
+  repo-native (pilots/78), the question unclaimed.
+- **T1b — PARKED** (week1-agenda row 4 ruling stands: T1b NOT in scope ⇒ the CDPS
+  paywall conditional does not fire).
+- **KILL: no rung merits it** — T1a clean-and-cheap, T2 unclaimed-and-reusable,
+  T1b parked-not-dead.
+
+— battery by lane A3, 2026-11-17; the charter decision is the orchestrator's.
