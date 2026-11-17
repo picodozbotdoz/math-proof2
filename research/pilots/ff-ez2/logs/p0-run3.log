@@ -1,0 +1,35 @@
+# Provenance: bash research/pilots/ff-ez2/run_pilot.sh research/pilots/ff-ez2/P0.lean — lane A3, 2026-11-17, run 3 (fix-loop 2 of <=3: the `open Classical in` BEFORE docstring order fix at both density statements). Route/app/spec/header facts unchanged from p0-run1.log.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-oJqhRkVM8NrfVv5e350zvL
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P0.lean
+[ffez2] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+@Nodup : {α : Type u_1} → Multiset α → Prop
+@Multiset.map : {α : Type u_2} → {β : Type u_1} → (α → β) → Multiset α → Multiset β
+@dedup : {α : Type u_1} → [DecidableEq α] → Multiset α → Multiset α
+@Finset.filter : {α : Type u_1} → (p : α → Prop) → [DecidablePred p] → Finset α → Finset α
+@Finset.Ioc : {α : Type u_1} → [inst : Preorder α] → [LocallyFiniteOrder α] → α → α → Finset α
+@Squarefree : {R : Type u_1} → [Monoid R] → R → Prop
+@prod : {M : Type u_1} → [CommMonoid M] → Multiset M → M
+
+[ffez2] SUMMARY
+[ffez2]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=36s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-17T20:41:41+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-oJqhRkVM8NrfVv5e350zvL
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: GREEN — FF-EZ2-P0 FINAL. `P0.lean: OK (probe, sorry allowed)` with NO sorry suffix = 0 Lean sorry-warnings (the 2 prose "sorry" hits in this log are the verdict label + header line) — the ZERO-sorry goal achieved (FF-EZ4 pattern matched). Wall 36 s (warm layers, oleans 8710). All 7 #check anchors resolved (tail above); all defs + the binder-consumption wrapper elaborated.
+# Descent: run1 3 mechanical errors (Multiset .val -> prod-of-map spelling; noncomputable simpleProportion; classical decidability for the density filters) -> run2 2 parse errors (`open Classical in` must precede the docstring) -> run3 GREEN. Fix-loop 2 of <=3 used.
+# Runner note: the error regex counts only ": error:" — the error(lean.*) sites of run 1 were invisible to the counter (rc=1 still FAILed correctly); the documented m4b2 blind-spot class, no runner edit made (wiring minimal per charter).

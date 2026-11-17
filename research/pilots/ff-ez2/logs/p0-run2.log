@@ -1,0 +1,33 @@
+# Provenance: bash research/pilots/ff-ez2/run_pilot.sh research/pilots/ff-ez2/P0.lean — lane A3, 2026-11-17, run 2 (fix-loop 1 of <=3: the 3 mechanical fixes of run 1 — Multiset.prod spelling, noncomputable simpleProportion, open Classical for the density filters). Route/app/spec/header facts unchanged from p0-run1.log.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-qypumAl4j8miIFxDVP9YRH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.34 mem=7272MB anon=0MB peak=-1MB procs=2 OVER mem
+[ffez2] P0.lean: FAIL rc=1 errors=2
+---- error contexts ----
+@prod : {M : Type u_1} → [CommMonoid M] → Multiset M → M
+P0.lean:131:49: error: unexpected token 'open'; expected 'lemma'
+P0.lean:141:38: error: unexpected token 'open'; expected 'lemma'
+···
+P0.lean:131:49: error: unexpected token 'open'; expected 'lemma'
+P0.lean:141:38: error: unexpected token 'open'; expected 'lemma'
+···
+
+[ffez2] SUMMARY
+[ffez2]   P0.lean: FAIL rc=1 errors=2
+[tele] SUMMARY run: wall=70s max_cpu=0.34 max_mem=7272MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-qypumAl4j8miIFxDVP9YRH
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: FRICTION-FAIL rc=1 errors=2 — both parse-level: `unexpected token 'open'; expected 'lemma'` (:131, :141): a docstring followed by `open Classical in` does not parse in this position — the correct order is `open Classical in` BEFORE the docstring (the mathlib idiom). Fixed both sites; no other changes. Wall 70 s.

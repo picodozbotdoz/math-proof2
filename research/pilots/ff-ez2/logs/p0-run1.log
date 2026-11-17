@@ -1,0 +1,45 @@
+# Provenance: bash research/pilots/ff-ez2/run_pilot.sh research/pilots/ff-ez2/P0.lean — lane A3 (worktree agent-04 @ 53c1548), 2026-11-17, FF-EZ2-P0 per the CHARTER-GO ruling on the battery (bridges/function-field.md §4 FF-EZ2 "Battery (2026-11-17)").
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, workspace semraker (PRIMARY per 2026-11-17 ruling + H relay). App: crossmath-pilot-ffez2 (NEW, ephemeral; clone of ffez4's runner — image block BYTE-IDENTICAL, family layer sharing; app name + [ffez2] tags + stage name only). Stage /tmp/crossmath-ffez2-a3 (lane-unique). SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered. mathlib ff2494ea @ v4.36.0-rc2.
+# P0 = the FF-EZ2 survivor statement rung (r5 §2 S4 / §14 row 13; bridge §4 :227–298 spec): all-binder statement-first probe after the FF-EZ4 template (mathlib-only, C1 [WARM], Prop-defs, ZERO sorry by design; one trivial binder-consumption wrapper). Battery guards BINDING and declared in the file header: exclusion/family-quantified shapes only (incl. the maximal-curve trap NEGATION stmt_maximal_violates_exclusion, Fuhrmann alg-geom/9610023 + Tafazolian-Torres 2012 pins dated); Weil side statement-level only (purity binder :185-194 + base-change power-law binder FieldOfConstantsFrobenius.lean:163, never a build dep); claims dated 2026-11-17. Includes the STATEMENT-RUNG CORRECTION of the bridge sketch (distinct-powers inequality direction ≤ not ≥, stmt_power_merge_le).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-qOQre7NItpROaQ1lbZiKQS
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P0.lean
+[ffez2] P0.lean: FAIL rc=1 errors=0
+---- output tail ----
+@Nodup : {α : Type u_1} → Multiset α → Prop
+@Multiset.map : {α : Type u_2} → {β : Type u_1} → (α → β) → Multiset α → Multiset β
+@dedup : {α : Type u_1} → [DecidableEq α] → Multiset α → Multiset α
+@Finset.filter : {α : Type u_1} → (p : α → Prop) → [DecidablePred p] → Finset α → Finset α
+@Finset.Ioc : {α : Type u_1} → [inst : Preorder α] → [LocallyFiniteOrder α] → α → α → Finset α
+@Squarefree : {R : Type u_1} → [Monoid R] → R → Prop
+@prod : {M : Type u_1} → [CommMonoid M] → Multiset M → M
+P0.lean:91:19: error(lean.invalidField): Invalid field `val`: The environment does not contain `Quot.val`, so it is not possible to project the field `val` from an expression
+  baseChange A m
+of type `Quot ⇑(List.isSetoid ℂ)`
+P0.lean:99:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+P0.lean:133:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun m => ZerosSimpleAt A m
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+
+[ffez2] SUMMARY
+[ffez2]   P0.lean: FAIL rc=1 errors=0
+[tele] SUMMARY run: wall=44s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-qOQre7NItpROaQ1lbZiKQS
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: FRICTION-FAIL rc=1 errors=0-counted / 3 real error(lean.*) sites (the runner regex counts only ": error:" — the documented m4b2 blind-spot class; rc=1 correctly FAILs). Wall 44 s (oleans present 8710 — warm layers).
+# (1) P0.lean:91 invalidField `.val` on Multiset (Quot projection, no env Quot.val) — lPolyM now spelled as Multiset.prod of Multiset.map (the form 71-P2's lPoly elaborates to).
+# (2) P0.lean:99 dependsOnNoncomputable — simpleProportion divides on ℝ -> noncomputable def (the recurring m4b2/zzv2 friction class).
+# (3) P0.lean:133 synthInstanceFailed — Finset.filter over the abstract Prop ZerosSimpleAt needs classical decidability -> `open Classical in` on both density statements.
