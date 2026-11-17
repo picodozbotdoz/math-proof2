@@ -253,3 +253,138 @@ branch's prior without by itself satisfying either go-condition.
 
 — lane R7, 2026-11-16 (later session). Fetch: `arxiv.org/html/2604.06726v4`, full
 text, second engine; quotes verbatim from §7 and §8 as shown.
+
+---
+
+## §10 The elevation decision (2026-11-17, lane A7) — **ELEVATE; go-condition (i) CLOSED**
+
+*Week-1 agenda row 3, decided per its rule (STAND-DOWN unavailable per §9; the two
+go-conditions were the only gates). Evidence base this session: both PDFs pulled in full
+and read (`arxiv.org/pdf/2604.06726v4`, `arxiv.org/pdf/2603.26423v4`, 2026-11-17; all §/eq
+numbers below are the papers' own), one targeted re-render of the tropical paper's HTML
+(eq. (32) operand order — see §10.1 caveat), the sibling OAI Lean files re-read in full
+(read-only), and a numeric sanity script (feasibility/costs/infimum of the worked
+instance; scratch, not an artifact). This section supersedes the §5 checklist's "status"
+column; §5 stands as the historical scoping record.*
+
+### 10.1 Go-condition (i) — fidelity back-mapping: **CLOSED on the forced-singleton class**
+
+**The dictionary** (tropical paper 2603.26423v4 ⟷ OAI `TruffetModel.lean`; every row
+verified against both texts this session):
+
+| Paper (2603.26423v4) | OAI model | verdict |
+|---|---|---|
+| cone rows a⁺_{i,·}⊗w ≥ a⁻_{i,·}⊗w, w=(z,x,h) (20a) | `Row ⟨lhs,rhs⟩`, `feasible` = eval rhs ≤ eval lhs (`:36`) | identical (max-plus forms; O=−∞ ↔ ⊥) |
+| (24): a⁺_{i,j}≠O ∧ a⁻_{i,j}<a⁺_{i,j} ⟹ I≥(x_j,i) valid | `lower s i j`: lhs(col j)≠⊥ ∧ rhs(col j)<lhs(col j) (`:39`) | identical |
+| (32): a⁻_{i,j}≠O ∧ a⁺_{i,j}<a⁻_{i,j} ⟹ I≤(x_j,i) valid | `upper s i j`: rhs(col j)≠⊥ ∧ lhs(col j)<rhs(col j) (`:43`) | identical (operand order HTML-verified, caveat below) |
+| Def 4.1 min-/max-bounded, dominating | `lower`/`upper` existentials; `dominating s j` (`:47`) | identical (paper's set 𝕩 ↔ `remaining`) |
+| (53a) D := {x_j : I≤(x_j)≠∅ ∧ I≥(x_j)≠∅}; (53b): I≥ := I≥(𝕩∩D) if D≠∅, else I≥(𝕩) | `eligible s i j` := remaining j ∧ lower s i j ∧ ((∃k dominating s k) → dominating s j) (`:50`) | **identical as candidate sets**, term for term |
+| T := B/U (43), T-set (44), θ/θ′ (45a/b, 50a/b), argMin (47), (52) | — (absent from the model) | participates only when ≥2 candidates; **vacuous in the singleton case** (proposition below) |
+| x_{j\*} := f≥_{i\*j\*} (27a–d; §4.2.3 Case 2.2.2; §4.2.4) | `advance` with `lowerForm s i j` (`:69,:80`) | identical coefficient-wise (incl. ⊥/O at col j\*, r_{ij} at h) |
+| cost[k+1] := f_{z,i\*j\*} (56), f_{z,ij} (29) | `cost := substitute s.cost j (lowerForm…)` | identical coefficient-wise |
+| new cone via T^{k→k+1} (57)–(58); `setrowtozero` (7) | row-wise `substitute`; `cleanup` (`:76`) | identical (zero row iff a⁻_{i,·} ≤ a⁺_{i,·} pointwise) |
+| Theorem 4.2 stopping (39): A⁺_{[1,m]h} ≥ A⁻_{[1,m]h} | `stop`: ∀i rhs 2 ≤ lhs 2 (`:56`) | identical |
+| Case 1 switch (§4.2.3); Cases 0.1/0.2; Case 2.1 terminal (min z = c_h, h:=1) | `switch` (`:58`); `failure` (`:64`); terminal (no remaining ∧ stop; h=0 output) | identical (case ladder walked on both states, §10.1.2) |
+| bounded problem B (34) | `bounded` (`:53`) | identical |
+
+**Fidelity proposition (singleton case).** Let s be any state of the common class (m rows,
+remaining variables 𝕩, homogenization h) on which the paper's procedure is in Case 2.2.2
+(𝕩≠∅, ¬(39), I≥(𝕩)≠∅, not Case 1) and whose (53b)-candidate set is a singleton {(i\*,j\*)}.
+Then the paper's Theorem-4.3 selection returns Sθ≥ = {(i\*,j\*)} via the singleton branch
+(47), which equals the OAI eligible set of s, and the procedure's substitution is exactly
+`advance s i* j*`. *Proof sketch:* (53b)-set = eligible-set by the dictionary (no row uses
+arity); by (43)–(44), T := B iff f_{z,i\*j\*} ∈ hB, and either way (i\*,j\*) survives its own
+hT-filter — so T(T,I≥) = {(i\*,j\*)}; then θ = θ_{i\*} over the single row index (45a) and
+argMin(θ) = {(i\*,j\*)} is a singleton, so branch (47) applies and the (48)–(52) stage
+(requires n(argMin θ) ≥ 2) is unreachable; the θ-interval values over Rλμ — the one piece
+of the paper's machinery the model omits — never participate. ∎ (The model's extra
+hypotheses `wellFormed`/`bounded`/nonzero-cost only shrink its step class; the paper
+performs every model step.)
+
+**Worked application — the paper's own run on the OAI instance** (all numbers
+re-derived this session; feasibility/costs machine-sanity-checked):
+- Step 1 on `initial` (rows x₂ ≤ x₀⊕x₁ and 1⊗x₁⊕(−2)⊗x₂ ≤ x₀; cost z = x₀): D = {x₁}
+  (I≤(x₁,1) valid: a⁺=O < a⁻=1; I≥(x₁,0) valid: a⁺=0 > a⁻=O), so (53b) gives the
+  singleton {(0,x₁)} — which is the kernel-verified `eligible initial = {(0,1)}`
+  (`first_forced`). Paper selects (0,x₁) by (47) and substitutes x₁ := f≥_{0,1} = 0⊗h.
+- Step 2 on `middle`: D = ∅ (no uppers remain), (53b) gives I≥(𝕩) = {(1,x₀)} singleton =
+  `eligible middle = {(1,0)}` (`second_forced`); substitute x₀ := f≥_{1,0} = 1⊗h.
+- Terminal: all rows zeroed (Case 2.1), the paper asserts **min z = c_h = 1** at h:=1
+  (usual 0), backward substitution x = (1,0) — exactly the OAI `output = ![1,0,0]`,
+  `eval finalState.cost output = 1`.
+- **Refuting witness:** `better = (0,−1,0)` is feasible with z = 0 < 1 (row 0 satisfied
+  via the x₀-disjunct x₂ ≤ x₀ — NOT the x₁-disjunct the run committed to). Sharpening:
+  the instance's true infimum is **−∞** (feasible family (−N, −N−1, −N), z = −N), so the
+  procedure asserts a finite minimum on an unbounded-below instance; the witness alone
+  already refutes the asserted value.
+- **Mechanism (why the NOTA's fix did not fix it):** row 0 is the disjunction
+  (x₂ ≤ x₀) ∨ (x₂ ≤ x₁); I≥(x_j,i) (25) is one *sufficient disjunct* of row i ("the
+  j-th LHS max-term alone covers the RHS max"), Theorem 4.1's saturation is sound only
+  within that disjunct, and the substitution permanently commits the run to it. The v4
+  criteria still conjoin the disjunctions at the selection level — the exact logical
+  shape the v4 NOTA describes as the corrected "bad logical mistake".
+
+**Extraction caveat (recorded for the citation ledger).** The `pdftotext -layout` pass of
+the tropical PDF renders (32) with reversed operand order ("a⁻ < a⁺"); the arXiv HTML
+shows **a⁺_{i,j} < a⁻_{i,j}**, and Proposition 3.2's validity condition (18) (a > v_j,
+with a := a⁻_{i,j}, v := a⁺_{i,·}) confirms the mirror of (24) semantically. Under the
+corrected reading, `upper` ⟺ I≤-validity exactly as tabled. (Under the reversed reading
+the OAI row-1 upper would be invalid, D(initial) would be ∅, the candidate set would be
+the 2-element tie {(0,x₀),(0,x₁)} — both f_{z} ∈ hB with equal images [µ,+∞] — and the
+paper's selection would be an arbitrary tie-break, one branch of which (substituting
+x₀ first) finds the true minimum. The reversed reading also makes every I≤-inequality
+trivially self-satisfied, killing Def 4.1's max-boundedness and the paper's own §6.2
+usage D = {x₂}. So the HTML/Prop-3.2 reading is the paper's intended content; the
+fidelity closure rests on it.)
+
+**Scope of the closure.** The identity is proved for the singleton-candidate class —
+exactly the class `ForcedSingletonStep` defines, the counterexample lives in, and any
+forced-run instance search explores. On non-singleton states the model is silent (it
+under-determines; it cannot contradict the paper). The §4 care framing is thereby
+dischargeable for the tropical side: verbatim v4 criteria, prerequisite-satisfying
+instance (mpr (6a)–(6f), Def 4.2-bounded, h> O), case ladder walked in-procedure.
+
+### 10.2 Go-condition (ii) — classical blockers: not needed ((i) fired); status PARTIAL
+
+Recorded for the dossier's Stage-B section; no classical suboptimal run is claimed. Each
+blocker's prerequisite is instantiated **in the paper's own §9 examples**, so none is a
+structural obstruction to a classical search:
+
+- **τ ≠ [−∞,∞] (fallback to θ, cases a″–c″):** the τ-branch fires repeatedly in the
+  paper's own runs — §9.1 at k=1 (τ = [−3500λ,3500λ], case (c)); §9.2-dual at k=0,1,2
+  (case (b.U), singletons S≤ = {(3,5)},{(3,4)},{(1,1)}). Non-degenerate τ is routine on
+  small instances.
+- **(79) U-boundedness:** both §9 examples are bounded with finite optima (+3500;
+  −45/7). Bounded instances are the paper's own terrain, not an empty class.
+- **Def 5.2 strict positivity (66a–66b):** instantiated in §9.2 — D = {x₁} requires
+  I≥⁺(x₁) ≠ ∅, and f≥_{2,1} = (3/2)x₂ + (1/2)h has v = (3/2,0) ≥ 0, r = 1/2 > 0 — and
+  avoidable: §9.1 runs its τ-branch with D = ∅ (I≥⁺ enters only through the D-gate and
+  the θ-fallback). Satisfiable and bypassable: doubly non-blocking.
+
+What is NOT discharged: a worked classical instance whose verbatim-Thm-6.2 run terminates
+suboptimally. That construction is the Stage-B pilot's work (the §7/eq.-118 discarded
+upper bounds remain the located gap; note the classical max-side rows are conjunctions —
+max(a,b) ≤ c — so the classical gap is projection-soundness of the single-bound
+substitution, the mirror of the tropical disjunction commitment).
+
+### 10.3 DECISION: **ELEVATE**
+
+Go-condition (i) fired (§10.1); (ii) unnecessary and recorded PARTIAL (§10.2). Dossier
+filed as `research/candidates/78-truffet-substitution-refutation.md` (skeleton: statement
+class in two stages — Stage A the fidelity-verified tropical refutation, publishable as
+stated; Stage B the classical extension — nearest-miss table (5 rows), bridge claim,
+feasibility note (effort S–M per §6, no new mathematics for Stage A), care framing
+locked from §4, pilot proposal). Grade carried from §6: Stage A = DISCOVERY-grade
+NEGATIVE result, article-eligible under the iter-4 gate (kind NEGATIVE); Stage B, if it
+lands, = the §6 headline class. R2 re-grade at charter per S1–S4.
+
+### 10.4 Bib-cards tail
+
+§9 named no bib-card follow-ups; §10 names none. The target-of-refutation cards already
+exist (`qa/iter4-review/r7-bib-cards.md` §A gate (b) items 1–2: 2603.26423 v1–v4 dates +
+V4-pin; 2604.06726); gate (a) item 5 already holds the ABGJ/Butkovič nearest-miss line
+the dossier reuses. The (32) operand-order finding is an extraction-provenance caveat
+(§10.1), not a card. **No edit to r7-bib-cards.md this session.**
+
+— lane A7 (R7-successor), 2026-11-17. Worktree `worktrees/agent-08` @ 53c1548; no
+commits (H owns them).
