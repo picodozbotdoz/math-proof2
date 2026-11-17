@@ -89,7 +89,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | A5 | 75-N2 consumer design (discovery; R2 §10 consumer (ii)) | design note (ℚ ray-class↔Dirichlet dictionary + DZDF statement-binder + hEχ port) — NOT started at wave-2 open | spawned (queue loaded) | 2026-11-17 |
 | A6 | 32-crossing run-12 + 01-stability tranche | `research/pilots/32/` run 12 (warm app; wrapper caveat week1-agenda row 1) + 01-Rung-0 paper tranche if lane-free | spawned (queue loaded) | 2026-11-17 |
 | A7 | Truffet elevation decision | `research/novelty/iter4-truffet-classical-scope.md` §7/§9 (week1-agenda row 3) | spawned (queue loaded) | 2026-11-17 |
-| A8 | pilot-GREEN validation + donor infra | R8-pattern validation records (al3d / zzv2-lam / zeta23E) + runner kit / approval packet upkeep | spawned (queue loaded) | 2026-11-17 |
+| A8 | pilot-GREEN validation + donor infra | Week-1 validation v1 LANDED (`research/qa/iter4-review/a8-week1-validation.md`): 4 PASS / 3 PARTIAL / 0 FAIL; 75-Pb READY as discovery lead; F1–F3 record defects routed | delivered v1 (4 PASS / 3 PARTIAL / 0 FAIL; F1–F3 routed; wave-2 prep) | 2026-11-17 |
 | A9 | article-75 two-tier v2 (R1 gate) | `research/articles/75-abelian-assembly-zetaL-proportions.md` v2 (R5 §14.1 tiers; template gate; N=1 quota — week1-agenda row 9) | spawned (queue loaded) | 2026-11-17 |
 
 ## (d) Restart instructions (after outage / session loss)
