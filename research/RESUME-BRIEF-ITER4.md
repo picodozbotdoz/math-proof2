@@ -252,3 +252,96 @@ Wrap-up by the orchestrator directly (lanes unavailable). **All lane work commit
 **In flight (owner · item):** A1 — close-out gates pre-staging; A2 — 73-Q4 execution (gate memo GO; `hPur` stays a binder); A3 — ZZV2-λ P1 (stop-after-P1 ARMED); A4 — AL-P2 c/d/e (P2-d risk concentration); A5 — 75-N2 P0; A6 — 32-crossing run-12 (warm pilot-32, doz route; article-32 v2 edit armed on GREEN) + 01-stability tranche if lane-free; A7 — dossier 78 Stage-A P0; A8 — 22-T2a pilot + gprobe open-Filter fix queued; A9 — article-01 upgrade + 52/11 residuals + README/splice PENDING-CLOSEs.
 
 **Standing rules minted this wave:** file-funnel (r3-verification-tables → A1 only; REPORT-INPUTS-ITER4 → H-shepherded surgical edits — tracker header); H's CHECK-BEFORE-VERBATIM-COPY staleness guard (runbook scratch; 36 files @ `132887d`); runner-fixes-wave2.patch staged (H applies post-wave on signal); Modal routes per §Substrate baseline (doz primary for warm-layer apps, xyz for new/fallback).
+
+## SESSION END — 2026-11-17, second termination (network failure mid-session; wrapped by the orchestrator directly)
+
+The wave-2 session ran f4511af → 9dc6684 (**77 commits**). Five lane units were IN FLIGHT
+at termination; all other wave-2 charter items LANDED and are fully recorded. **Worktrees
+persist on disk** — every in-flight lane's uncommitted outputs survive at
+/home/doz/zcode-workdir/worktrees/agent-01…10; a fresh instance pulls from them (never
+recreate, never delete).
+
+### LANDED this session (highlights; full detail in the commit log + tracker)
+
+- **Verification chain §10.1–10.24 complete** (r3-verification-tables.md, A1-lineage):
+  every landed pilot/probe has a triad-clean or honest-partial row; the final-sweep is
+  pre-staged (FINAL-SWEEP-PLAN-ITER4 §7) with the Step-A classifier at a 52-token
+  re-baselined certificate; close-out gates pre-staged (qa/iter4-closeout-gates.md,
+  mid-wave checkpoint: G1/G4 PASS).
+- **Donors**: G11/G12 (OAI SiegelZeros+PiExponent) PASS triad-clean, statement-binder
+  classes RELEASED (donor map §"G11/G12 verdict"); G9 StrongPNT port≈0 on-pin (22-T2a
+  P0 GREEN run 1, T2 NOT fired); G13 physlib occupation-pair bridge standalone GREEN.
+- **Pilots GREEN this session**: 73-Q4 (hRat discharged, (P)(i) unconditional 𝔽_q(T),
+  23/23 triad, 15-run descent, handoff file completed by A2); 75-N2-P0 (15/15 triad) +
+  **N2-P1 M1 core incl. the c-trick chi_span_residue GREEN-triad** (packaging checkpointed
+  at one closure run — v8 fixes on disk in agent-06); ZZV2-λ P1 GREEN FINAL + HARD-STOP
+  executed (Landau η-port = the iteration-5 ask); 32 run-12 (crossing discharged,
+  frontier_unconditional outright); FF-EZ4 P0 + FF-EZ2 battery/P0/P1 (7/7 triad,
+  all-m simplicity + density-1; open-Classical axiom-spelling finding recorded);
+  74 T1T2T4-P0; pilot-78 Stage-A (tropical substitution refutation: A1+A2+A2′ triad —
+  the discovery carrier paper_run_not_optimal); 10-D tranche **D1/D2/D3 ALL GREEN**
+  (D2 FINAL via the Nat.log2/Nat.log lemma-not-defeq root cause; D4 → iter-5, unchartered
+  by ruling); 22-T2a P0.
+- **Statement-level FINDS (landed record)**: 74-P1's four FINDS (T1(a) per-spectrum floor
+  REFUTED with counterexample — honest marking-bound replacement designed; residue = 8
+  mechanical signature classes; completion re-chartered with verify-fire discipline,
+  NO local lean); AL-P2 find #4 (the landed binder pair was UNPROVABLE as scoped —
+  uniform-∃C/G-in-binder amendment re-GREENed; P2-c 114 decls GREEN, parked at ONE
+  dependent-motive transport lemma, paths a/b pre-written in A2-gaps.md §4); 77-T1's two
+  derived corrections (drafted T1(ii) dimensionally unsound → hyperbolic submodel of
+  rank 2(Q+1); T1(i) ill-typed → number-operator intertwining; 31 site-local residuals,
+  T1-completion + T2 re-chartered as one unit); FF-EZ2's power-merge direction correction
+  (≤ not ≥).
+- **Articles**: corpus 14/14 template-complete (zero FAIL cells, nothing forced; three
+  honest evidence disclosures); article-75 v2 (two-tier DISCOVERY-CONDITIONAL + all
+  relay fixes); **article-78 NEW (kind NEGATIVE, discovery-grade — quota NOT consumed)**;
+  01/32/30/22/71/52/11/20/72/10 upgrades; G5 dry-run PASS 14/14 (in-pass fixes);
+  splice-time box-11 checklist (9 items, 7 mandatory) in qa/iter4-review/a9-splice-readme-checklist.md.
+- **Close-out prep**: G7 token inventory (34 sites: 29 close / 5 retarget-iter-5 / 0
+  needs-ruling) + close-instrument drafts (SPLICE :71 close block + 3 stamp texts +
+  8-placeholder map) in qa/iter4-review/a2-close-summary-draft.md; REPORT §Iteration 4
+  currency-refreshed through the late landings (dbe4ba4); AGENTS-ITER4-DRAFT E1–E9
+  apply-candidate complete (user-gated); bench closed (41 CHARTER iter-5 opener, 12 DEFER);
+  FB-1/76 NOT-YET + FB-5/77 CHARTER-GO(4 conditions) batteries; dossiers 76/77 batteries +
+  dossier-78 (re-grade PASS×4, A9 input package); N2 pre-shipping sweep 3×NOVEL.
+- **Rulings minted** (all recorded in tracker/brief): quota N=1 UNSPENT (78 is NEGATIVE-
+  kind, discovery-grade, no quota); route chain (doz primary warm-layer apps, xyz new/
+  fallback); taskset rule (lake v4.36-rc2 has NO -j flag); file funnels (r3-tables →
+  verification lane only; REPORT-INPUTS H-shepherded); worktree staleness guard +
+  fast-forward exception; probe classes (zero-sorry statement rungs preferred; P0 files
+  never Step-B); D-charter line separate from M-arc; 74/77 verify-fire re-charters.
+
+### IN FLIGHT at termination (owners; worktree = agent-NN; pull, do not restart)
+
+1. **A3 (agent-04)**: FF-EZ2-P2 descope-closure — chartered (squarefree-iff guarded form
+   + optional proportion ≤3 runs), execution state unknown (may be mid-run or landed in
+   worktree only). 13 dirty files incl. pilots/ff-ez2/.
+2. **A4 (agent-05)**: AL-P2-c completion (path a: Fin.cast+Subtype plumbing) → P2-d →
+   P2-e; fresh ≤4 budget. 8 dirty files (P0/A1/A2 amended state, A2-gaps.md, logs).
+3. **A5 (agent-06)**: N2-P1 packaging closure (v8 fixes on disk, one run) → M2 → M3;
+   budgets per charter. 21 dirty files (N2-P1.lean v8, runner pair, 7 logs, record).
+4. **A7 (agent-08)**: dossier-77 correction fold + T1-completion (≤4) + T2 (≤4).
+   8 dirty files (pilots/77/ T1.lean 781-LoC verified-red, runner pair, 5 logs, record).
+5. **A8 (agent-09)**: 74-P1 completion — verify-fire discipline binding (pre-run sha
+   guard; NO local lean), fresh ≤5, amended statements per FINDS #1/#2. 15 dirty files
+   (P1.lean 685-LoC verified-red, logs, record, revised patch, reworded audit).
+   NOTE agent-09 also carries A8's earlier landed-and-committed files — commit deltas only.
+
+### RESTART instructions for the fresh instance
+
+1. Read AGENTS.md → research/RESEARCH.md §Iteration 4 → this brief (§Wave-2 status +
+   this SESSION END) → ORCHESTRATION-ITER4.md (lane table below may need a date refresh
+   only — it is current for the endgame state).
+2. `git status --porcelain` on main: expect CLEAN at 9dc6684 (verify; anything foreign
+   = reconcile against the lane table before any commit; worktrees are read-pull-only
+   for the coordinator — lanes own their files).
+3. Re-spawn lanes one-by-one per the user's standing directive (9 researchers + 1 helper,
+   sticky, worktrees agent-01…10 as mapped above); re-task the five in-flight owners
+   with their charters (quoted above — all rulings remain binding).
+4. Close act (after the five units land): apply A2's close-summary draft (SPLICE :71 fill
+   + 3 stamps) + A9's splice checklist (7 mandatory items) + final gates G1–G8 per
+   qa/iter4-closeout-gates.md on the exact closing tree; gate-run persistence table rides
+   the close commit.
+5. Standing constraints unchanged: Modal via doz CLI primary/xyz fallback (2cpu/4GB,
+   telemetry, taskset not -j), siblings read-only, no local lean builds, one-writer-per-
+   file, H-style commits with the hardened gate, worktrees persist — pull, never restart.
