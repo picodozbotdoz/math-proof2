@@ -155,3 +155,68 @@ Step A locally (seconds) → Step B one warm Modal batch via `run_axcheck.sh` (+
 and heavy-import stages in their classes) → Steps C–D ledger + sign-off → close gates
 (§5) with the close block. Blockers route to lanes; §1 re-baselines if pending files
 landed with tokens.
+
+## 7 Wave-2 addendum — pre-staged close-out inventory (lane A1, 2026-11-17; PREP ONLY)
+
+Written so the final sweep is ONE command per step when the wave-2 pilots land
+(zzv2 P1, 73-Q4, 75-N2, 78-P0, 32-M2, AL-P2 c/d/e). Baseline disk state 2026-11-17
+(worktree agent-02): classifier re-run CLEAN (17 hits / 0 unexplained, all in the four
+probe-convention P0 files — entry 1 of `logs/stepA-incremental-iter4.log`, OPENED this
+pass; the log did not exist before). Wave-2 expected Step-A certificate at close =
+**49** = 43 C2 carry-forward + 3 `al3d/P0` (:85/:123/:128) + 3 `lp/P0` (:44/:55/:97),
+plus lane-declared additions only.
+
+### 7a Per-artifact inventory (owed vs present, 2026-11-17)
+
+| artifact | state at prep | Step-A (classifier) | Step-B stage / TARGETS | sha-stamp point |
+|---|---|---|---|---|
+| zzv2-lam **P0.lean** | FINAL-GREEN `p0-run1.log` (A3; log + P0-record.md in agent-04 until H commits) — sha256(16) `ab9974f18568d0ab` | 0 tokens (verified this pass) | **NO TARGETS row, ever — probe-convention** (#check + donor prints only, no theorems; plan §0 preamble + C2 AxPilot71_P0/73_P0 precedent). RULING: §0's zzv2-row phrase "P0/P2 stages run on the donor tree" is superseded for P0 by the lane's probe classification — P0's donor-hygiene evidence of record is `p0-run1.log:151–154` (4/4 triad, §10.10) | P0 sha of record = `ab9974f18568d0ab` (disk, agent-02 2026-11-17); cross-check against the p0-run1 header stamp when H commits A3's log |
+| zzv2-lam **P1** (λ-abstract statement layer) | NOT on disk | on landing: append row to stepA-incremental log | **OWED on landing**: classify probe-vs-proof per lane report; if proof → [LAYERS] donor-tree stage on the built ZetaZerosV2 tree (`run_m4b_donor_axcheck.sh` recipe, AxPilot42_M4b precedent) + TARGETS row or donor-tree stage name | sweep-time sha in the donor-tree stage header (M4b dry-run pattern) |
+| 73-**Q4.lean** | on disk, **NOT final** (A2 mid-run; skip per queue) — sha a3c69aa53cc0453d is NOT a bytes-of-record | 0 tokens TODAY (early signal only) | **OWED on landing**: `AxPilot73_Q4` TARGETS row ([WARM]; verify Mathlib-only imports at landing); Rosen ch.-number spot-check due AT Q4 (SCAN §1c) | landing run-log header + sweep re-stage |
+| 75-**N2-P0** (A5, in flight; A1 = fold owner) | NOT on disk | on landing | **OWED on landing**: N2 shared-ℚ staging (d1/d2) + consumer file; class per §10.5's standing note — consumer elaborates in the zeta23 donor tree ⇒ **D-PIN rows** (donor-pin print source `zeta23e-p0-run1.log`), or [WARM] if N2 lands Mathlib-only as Pb did | sweep-time sha; D-PIN rows cite the donor-pin log |
+| **78-P0** | no dir | n/a | **OWED on charter+landing**: row + stage once files exist (class unknown at prep) | on landing |
+| 32 run-12 (**M2.lean**) | NOT on disk (only M1.lean + old logs) | on landing | **OWED on landing**: `AxPilot32_M2` TARGETS row ([WARM]; six lemma forms per REPORT-INPUTS §1 32-crossing row). RUNNER CAVEAT: `pilots/32/run_pilot.sh:15–16` is a STALE xyz-default wrapper — run with `MODAL_USER=doz` override (week1-agenda row 1) | landing run header (pb-run12 pattern) |
+| AL-P2 **A2.lean final state** | m1 state (P2-b landed; **c/d/e owed** — file grows or A3.lean appears) | current: 0 tokens | `AxPilotAL3D_A2` **PRESENT** (re-stage at sweep = bytes of record); if `A3.lean` appears → **OWED**: new `AxPilotAL3D_A3` row | sweep-time sha (m1 sha 91b4fba741d05771 is historical, §10.6 F1-corrected) |
+| 72-M1 **T3** | L3a FINAL (fe57d30b19d9a836; print-gap CLOSED `axcheck-l3a-run1.log`) — **mid-tranche**: L3b–d + interface owed, file GROWS | 0 tokens | `AxPilot72_M1_T3` **ADDED this pass** (staging dry-run verified: T3→AxT2→AxT1 rewrites, 9 appended prints; re-stage at sweep) | L3a sha recorded in row comment; sweep-time sha governs |
+| 75 **Pb.lean** | FINAL (pb-run11/12 + Step-B closure) | 0 tokens | `AxPilot75_Pb` **PRESENT**; Step-B full coverage **ALREADY DISCHARGED EARLY** — `pilots/75/logs/axcheck-full-run1.log` (89/89 census decls triad, sha da05c60ceb78755b). At sweep: re-stage only as drift-check; quote sweep-time counts unless sha unchanged, in which case cite the standing closure log | da05c60ceb78755b (closure, §10.8 F3 stamp); sweep re-stamp if bytes move |
+| LP L1/L2, AL3D A1 | final, swept rows current | 0 tokens | `AxPilotLP_L1/_L2`, `AxPilotAL3D_A1` **PRESENT** (drift-check class) | sweep-time |
+
+**TARGETS deltas this pass (mechanical-safe only):** + `AxPilot72_M1_T3` (the sole
+extension whose file exists at a landed-final state AND is proof-class; dry-run staged
+clean). DELIBERATELY NOT added: zzv2 P0 (probe-convention — never a Step-B stage),
+73/Q4 (in-flight, not final), and every not-yet-on-disk artifact above (rows owed on
+landing). make_axcheck72m1.py's local TARGETS already carries T3 (L3a closure,
+2026-11-17).
+
+### 7b Sweep-time command card (one command per step, wave-2-ready)
+
+1. **Step A (local, seconds):** the C2 §2 classifier verbatim over
+   `research/pilots/**/*.lean` + `research/feasibility/probe/**/*.lean`; expected =
+   49 + additions, 0 unexplained; append the verdict row to
+   `logs/stepA-incremental-iter4.log` (opened 2026-11-17, entry 1 = the 17/0 baseline).
+2. **Step B (two-part):** (i) `research/feasibility/probe/run_axcheck.sh 2>&1 | tee
+   /tmp/crossmath-axcheck-iter4.log` — the full make_axcheck TARGETS batch (C2 frozen
+   rows = drift-check; Iteration-4 rows [WARM] class; `MODAL_USER=doz` default);
+   (ii) **full-coverage custody stages** for Iteration-4 proof artifacts per plan §2
+   default 1 — `axcheck_iter4.py gen` + the pilot-75 custody-runner pattern
+   (`axcheck_run75.py` class: complete-output dump, scan-compatible verdict, sha stamp):
+   already DISCHARGED for 75_Pb (`axcheck-full-run1.log`) and 72-M1 T1/T2/T3
+   (`axcheck-l3a-run1.log`) — re-run ONLY where sweep-time sha differs; NEW for
+   whatever lands (N2/Q4/M2/A3/T3-grown). NOTE (generator split, verified 2026-11-17):
+   `make_axcheck.py:96–97` still EXCLUDES `private` theorems and captures no `lemma`s —
+   full-coverage comes from `axcheck_iter4.py gen`, which is why the two-part Step B.
+   Donor-tree stages (zzv2 P1/P2 if proof-class) via `run_m4b_donor_axcheck.sh` recipe.
+3. **Step C/D + close gates:** unchanged (§3–§5); sha256-at-sweep quotes sweep-time
+   counts over standing-log counts whenever bytes moved.
+
+### 7c Standing risk notes (wave-2)
+
+- 73/P0 line drift +2 vs the C2 enumeration (same 7 tokens) — A8-F2 class, no action,
+  recorded in stepA-incremental-iter4 entry 1.
+- The G11/G12 + LP/AL3D/ZzV2-λ/Zeta23e probe files are Step-A scope (probe-convention);
+  G12's μ(π)=2 registration ≠ endorsement language travels into any Step-C row that
+  cites it.
+- ZZV2 P0(b) UNFAVORABLE ⇒ stop-after-P1 rule ARMED (§10.10) — P2 may never land; the
+  sweep treats a stopped ladder as declared-stop, not a gap (rows for P1 only).
+
+— addendum lane A1 (R3-role successor), 2026-11-17. Supersedes nothing; §0–§6 stand.

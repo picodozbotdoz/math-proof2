@@ -1,0 +1,12 @@
+# stepA-incremental-iter4 — Iteration-4 sorry-token verdict log (per FINAL-SWEEP-PLAN-ITER4 §1; opened 2026-11-17 by lane A1)
+# Classifier = the C2 script verbatim (FINAL-SWEEP-PLAN-C2 §2: docstring-interior lines are prose, ANY /- … -/ block; comment prefixes; PROSE regex).
+# Scope of this entry: research/pilots/**/*.lean (62 files, worktree agent-02 @ post-53c1548 lane state, 2026-11-17).
+# Result: 17 real-token hits, 0 UNEXPLAINED — all inside four probe-convention P0 files:
+#   pilots/71/P0.lean x4  (:65/:90/:97/:110 — C2 carry-forward, FINAL-SWEEP-PLAN-C2 §1)
+#   pilots/73/P0.lean x7  (:40/:45/:53/:79/:87/:121/:143 — C2 carry-forward; LINE DRIFT +2 vs the C2 enumeration
+#                          :38/:43/:51/:77/:85/:119/:141, same 7 tokens, count unchanged — A8-F2 class, no action)
+#   pilots/al3d/P0.lean x3 (:85/:123/:128 — Iteration-4 addition, ALREADY the §10.6 Step-A baseline enumeration)
+#   pilots/lp/P0.lean x3   (:44/:55/:97 — Iteration-4 addition, lp probe stubs per §10.1 anchor preflight)
+# Wave-2 expected certificate at close = 43 (C2 frozen) + 3 + 3 = 49 + lane-declared additions from in-flight files.
+# Early signals: pilots/73/Q4.lean (A2 mid-run, NOT final) = 0 tokens today; pilots/zzv2-lam/P0.lean = 0 tokens.
+# Probe-side scope (feasibility/probe/**/*.lean, G-series + ProbeG9/G11/G12) NOT re-run in this entry — sweep-time scope per plan §1.
