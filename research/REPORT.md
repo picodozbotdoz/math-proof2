@@ -479,7 +479,7 @@ CLOSED at L1 `226fa08`; phase B (pilots) opened at the L2 splice `808c809`; **wa
 re-cut H + A1–A9 on 2026-11-17** after external session termination (snapshot
 `53c1548`). Canonical lane table: `ORCHESTRATION-ITER4.md`.
 
-### I4.2 Pilot outcomes (wave-2 state 2026-11-17; currency refresh by H — landed facts through `1e3fa74`)
+### I4.2 Pilot outcomes (wave-2 state 2026-11-17; currency refresh by H per A2's delta list — landed facts through `a42dc77`)
 
 | Pilot | Verdict (LANDED) | PENDING (owner) |
 |---|---|---|
@@ -489,35 +489,44 @@ re-cut H + A1–A9 on 2026-11-17** after external session termination (snapshot
 | 72-M1 | L3a GREEN; print-gap CLOSED 9/9 direct `a0c0f0e` | **L3b–d + interface theorem — post-wave** |
 | hEχ companion (zeta23E) | **GREEN first-run** — Theorem-E chain triad at the donor pin; binder swap CLEARED (§10.5) | — |
 | ZZV2-λ (technical record) | **P0 GREEN `1a0ef7e` + P1 GREEN FINAL `b7bf82e`** (10/10 triad sorry-strict incl. privates, token-sweep clean; §10.16) — **HARD-STOP EXECUTED per r5 §12a** (Landau η-port = the iteration-5 ask) | slot CLOSED |
-| 73-Q4 | Gate memo GO (`3b9b0a0`; `hPur` stays a binder); in-flight noted at A1 audit (`fa4dfba`) | **pilot execution — A2** |
-| 32-crossing (run 12) | **FINAL-GREEN `887ffd1`** (3-run descent 9→2→0; 7 forms triad; §10.11 `a2799a6`) — article-32 §5 discharged; **articles 01+32 v2 landed `061fe8f`** (README row updated; A7 hardening: both NOVEL, pitch rescope mandatory `9bcf026`) | 32 pitch-rescope edit — **A9** |
+| 73-Q4 | **FINAL-GREEN `f6c951f`** (15-run descent; run-15: 22/22 Q4 triad + 8 C.lean regression prints, 0 sorryAx, wall 26 s; §10.18 fold `8154d6d` — census 23-corrected, Rosen provisional) — **hRat discharged, (P)(i) unconditional for the 𝔽_q(T) probe class; hPur fence held** | — |
+| 32-crossing (run 12) | **FINAL-GREEN `887ffd1`** (3-run descent 9→2→0; 7 forms triad; §10.11 `a2799a6`) — article-32 §5 discharged; **articles 01+32 v2 landed `061fe8f`** (README row updated; A7 hardening: both NOVEL, pitch rescope mandatory `9bcf026`) | — (closed; pitch-rescope landed in the corpus roll-up `53d4cc0`/`2345a3a`) |
+| FF-EZ2 | **Battery CHARTER-GO `9dfcbc1`** (S-class cycle-filler; family-proportion rung HARD/deferred unchanged; debt-g pinned theorem-granular — Fuhrmann + Tafazolian–Torres) + **P0 GREEN `0b1c77e`** (guards 5/5; rung correction ≥→≤ carried as `stmt_power_merge_le`; §10.19) | **P1 — A3** (GO, S-class) |
+| 10-tranche (D) | **D1 GREEN `9a122e7`** (Part E triad + L2 regression in-run; spec correction adjudicated — two true forms, D4 supplies hv; §10.17 `1c93656`) + **D2 PARTIAL GREEN `996eb16`** (Route A validated — fun_prop @ v4.36 ≈0 churn; canary triad; 1 diagnosed stmt error, verified-red committed; guard-iii re-measure ≈450–550 LoC; §10.20) | **D2-completion (Route A) + D3 — A6** (fresh ≤4-run budget) |
 | 75-N2 | **P0 GREEN FINAL `7556153`** (15/15 Pilot75N2 triad, zero sorryAx; §10.12) + A7 pre-shipping sweep 3× NOVEL (`3e5aaef`; 2 mandatory nearest-miss adds → A5 fold) | **P1 dictionary-glue (0.3–0.5k LoC) — A5** |
 | Truffet / dossier 78 | ELEVATE `4047470` + hardened `3a62747`; **Stage-A P0 GREEN `80d21d8`** (3/3 triad incl. A2 discovery carrier + A2′; §10.13); **re-grade PASS×4 + GO `47bec92`** (rulings: S2 asymmetric-bridge ACCEPTED; NEGATIVE = discovery-grade, NO quota consumption) | **article-78 — A9 (post-30)** |
 | 22-T2a | G9 GREEN `68be1a2` ⇒ GO; **T2a-P0 GREEN `3750c48`** (HypQRHzeta+HypStrongPNT binders sorry-free; T2 NOT fired) | — (statement-only slot COMPLETE) |
-| dossier-74 | **T1T2T4-P0 GREEN `27db124`** (1 fix-retry; S1 census banked — Rényi mathlib-absent; §10.15) | **P1 — A8** (Q1 ruled shape-ii; class-indexed Bk = later extension) |
-| FF-EZ4 | **P0 GREEN `263ca5d`** (0 sorry tokens, 4-run descent; §10.14; all-binder tauceti side) | D1 wd↔cw tranche — **A6** (D1-only charter GO, plumbing billing) |
+| dossier-74 | **T1T2T4-P0 GREEN `27db124`** (1 fix-retry; S1 census banked — Rényi mathlib-absent; §10.15; Q1 ruled shape-ii) + **P1 NOT-GREEN at budget `919cc82`** — honest stop; the four FINDS stand as record (T1(a) floor REFUTED w/ counterexample; hMGF centered-form; constants-via-limit; T4 shape-(ii) refutation); §10.21 fold `1ddd755` | **P1-completion — A8** (re-chartered: ≤5 budget, verify-fire discipline, sha guard, NO local lean); dossier-74 amendment note owed |
+| FF-EZ4 | **P0 GREEN `263ca5d`** (0 sorry tokens, 4-run descent; §10.14; all-binder tauceti side) | — (statement rung complete; the D-pair landed — see 10-tranche row) |
 
 ### I4.3 Discovery-grade ledger
 
-- **article-75 two-tier v2** — landed `a6c7b13` (kind DISCOVERY-CONDITIONAL; 11/12
-  checklist); A1 pre-check: 1 blocker-at-close (closure-evidence gap) + 3 cosmetic →
-  A9 (`b8e3901`).
+- **article-75 two-tier v2** — landed `a6c7b13`; A1 pre-check blockers → A9 fixes
+  applied in the corpus roll-up.
 - **75-N2 consumer** (the cycle's strongest discovery lead) — dossier `434208e` +
-  **P0 GREEN `7556153`**; P1 in flight (A5); pre-shipping sweep 3× NOVEL (`3e5aaef`).
+  **P0 GREEN `7556153`**; pre-shipping sweep 3× NOVEL (`3e5aaef`); **P1 — A5 PENDING**.
 - **dossier 78 / article-78** (NEGATIVE kind = discovery-grade) — P0 GREEN `80d21d8` +
-  re-grade PASS×4 GO `47bec92`; **does NOT consume the N=1 quota slot (ruling)**;
-  **article-78 chartered to A9 (post-30)**.
-- **articles 01 + 32 v2** — template-complete PASS×5 `061fe8f` (compliant set
-  01/32/42/50/75); **article-30 chartered — A9**.
-- Quota: **N = 1 UNSPENT**; completion path: 32 landed, 01 Rung-0 delivered
-  (`887ffd1`), **30-Theorem A — A9 chartered**.
+  re-grade PASS×4 GO `47bec92` (rulings: S2 asymmetric-bridge ACCEPTED; **NO quota
+  consumption**); **article-78 LANDED `b98f8bc`** (self-audit PASS×9; README §A row).
+- **Article corpus v2 wave** — 01/32 `061fe8f`, 30 + 78 + relay fixes `b98f8bc`,
+  71 `9e71780` (FORM-FIRST, corpus-legacy — no quota spend), 22 `a6efbd0`
+  (TECHNICAL-RECORD; closure note relocated), roll-up `53d4cc0` (zero FAIL) →
+  **14/14 depth pass `2345a3a`** (zero PARTIAL cells; 3 honest evidence disclosures).
+- **FB batteries** — dossier-76 FB-1 **NOT-YET for iter-4 `0f465f0`** (Kantorovich
+  duality in-tree correction; T1a iter-5; T2 behind 78; T1b parked); dossier-77 FB-5
+  **CHARTER-GO `d2dc7a4`** (4 conditions binding; Casimir sub-rung dropped) —
+  **T1 — A7 PENDING**.
+- Quota: **N = 1 UNSPENT**; flow-KPI roll-up recorded (`53d4cc0`; 78 = discovery-grade
+  NEGATIVE).
 
 ### I4.4 Engineering-billed deliverables (never articles)
 
-LP layer (slot 1 COMPLETE); ZZV2-λ technical record (Lamzouri must-cited in full);
-AL-3D formalization-grade rungs (C.1–C.4 fences); 10-tranche D1–D6 (declared plumbing,
-BENCHED); Pb axcheck closure machinery (`axcheck_run75.py`, F1/F3b custody class);
-corpus compliance audit (`0b8b334` — 42/50/75 compliant; upgrade queue 32→01→30).
+LP layer (slot 1 COMPLETE); ZZV2-λ technical record COMPLETE through P1 `b7bf82e`
+(Lamzouri must-cited; hard-STOP executed); AL-3D formalization-grade rungs (C.1–C.4
+fences; P2-m1 GREEN); **10-tranche ACTIVE per the D1-ONLY ruling** — D1 GREEN `9a122e7`,
+D2 PARTIAL GREEN `996eb16` (Route A ruling + guard-iii re-measure recorded);
+FF-EZ4 statement rung `263ca5d`; Pb axcheck closure machinery; corpus compliance audit
+→ 14/14 (`2345a3a`).
 
 ### I4.5 Donor registrations (hygiene gate: on-pin `#print axioms` is proof)
 
@@ -527,11 +536,18 @@ corpus compliance audit (`0b8b334` — 42/50/75 compliant; upgrade queue 32→01
   to `PROVED-UNCONDITIONAL (donor)` (G7b/D-PIN pattern).
 - **G9 StrongPNT** — port ≈ 0 confirmed on-pin (22-T2a GO; T1 NOT fired, PNT+ stays
   DEFER). G10 Physlib refreshed-retry: **SHELF** (fire-gated on a chartered consumer).
+- **G13 physlib occupation-pair** — elaborates standalone GREEN `68be1a2`.
+- **G1 Step-A re-baseline** — 49→52 (G9×2 + G10×1 header-justified), checkpoint
+  remedy executed `d8f8356`; classifier clean 17/17 at pre-stage (`132887d`).
 
 ### I4.6 Close-out gates pointer
 
-FINAL-SWEEP-PLAN-ITER4 (§7 wave-2 addendum `132887d`; axcheck_iter4 default config —
-T9 RECORD_RE fixed, 124/124 machine-confirmed; Step-A classifier 17/17 explained) ·
-closeout-commit-plan-ITER4 STEP 1–9 · INDEX reconciled bidirectionally (drift listing
-resolved `0e5ac5b`/`3b627b5`) · REPORT fills from REPORT-INPUTS-ITER4 §1–§4 at close
-(one writer per row). **PENDING (A1): close-out gates pre-staging.**
+FINAL-SWEEP-PLAN-ITER4 (§7 wave-2 addendum + §7a Q4 row; axcheck_iter4 default config —
+T9 RECORD_RE fixed, 124/124 machine-confirmed) · closeout-commit-plan-ITER4 STEP 1–9 ·
+**iter4-closeout-gates 8-gate table `55358c3` + mid-wave checkpoint `4624328` (G1
+PASS+delta → re-baseline executed; G4 PASS)** · INDEX reconciled bidirectionally ·
+REPORT fills from REPORT-INPUTS-ITER4 §1–§4 (fully audit-reconciled `fa4dfba`) ·
+**G7 token inventory `de56e68`** (34 sites: 29 close / 5 retarget / 0 ruling) ·
+**close-instrument DRAFTS `a42dc77`** (SPLICE :71 close block + 3 stamps + 8-placeholder
+map — apply-gated, orchestrator signal). **PENDING (A1): fold-owner standby; the §10
+landings table current through §10.21.**
