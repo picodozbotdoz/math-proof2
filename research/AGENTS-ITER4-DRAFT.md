@@ -80,7 +80,7 @@ to an on-disk artifact). Backing record: `research/feasibility/iter4-donor-unblo
 
 ---
 
-*Sources backing every line: `feasibility/iter4-donor-unblock-plan.md` §5/§8;
+*Sources backing every line of E1–E4: `feasibility/iter4-donor-unblock-plan.md` §5/§8;
 `feasibility/probe/{run_probe.sh,pilots/32→run_pilot.sh}` (patched 2026-11-16);
 `feasibility/probe/{run_iter4_probe.sh,iter4_probe.py,gprobe.py,run_gprobe.sh}` and
 `ProbeG{9,10}*.lean`; R6's `ProbeG{11,12}_*.lean` headers; encore mathlib checkout
@@ -88,3 +88,76 @@ to an on-disk artifact). Backing record: `research/feasibility/iter4-donor-unblo
 LSeries/PrimesInAP.lean,LSeries/Dirichlet.lean}`); upstream raw fetch 2026-11-16
 (`PrimeNumberTheoremAnd/StrongPNT.lean`, toolchain v4.35.0); `RESUME-BRIEF-C2.md` §Protocol;
 `qa/iter4-review/r5-iteration4-backlog.md` §14.*
+
+---
+
+# Wave-2 amendments (apply at close, user-gated) — lane A1, 2026-11-17
+
+**DRAFT-FOR-REVIEW, same discipline as E1–E4: nothing here applies to AGENTS.md until
+the user approves; these five were MINTED BY USE during wave 2 (2026-11-17) and the
+wave's records are the authority cited. Terse apply-candidate text, not prose.**
+
+## Block E5 — Modal route ruling chain (2026-11-17) [append to E1's substrate bullet]
+
+- Route ruling (orchestrator, 2026-11-17, + H relay): **doz CLI PRIMARY** for
+  warm-layer apps — all shared image layers/volumes live on workspace `semraker`;
+  **xyz for new/fallback only** (`donniexyz888` is cache-less; `sudo -n -u xyz`
+  re-verified live but carries no layer history). Runners record the ruling in their
+  provenance header line. Records: `pilots/32/logs/run12-crossing-existence.log:1`,
+  `pilots/ff-ez4/logs/p0-run1.log:1`, `pilots/zzv2-lam/logs/p1-run3.log:2` ("xyz
+  fallback verified live, unused"); `RESUME-BRIEF-ITER4.md` §Substrate (env-fact
+  correction 2026-11-16/17).
+
+## Block E6 — the taskset rule [supersedes any `-j` guidance in Modal guidelines]
+
+- **lake @ v4.36.0-rc2 has NO `-j` flag**; the working CPU cap for build phases is
+  **`taskset -c 0,1 lake build …`** — supersedes the earlier "-j 2 on future build
+  runs" note (zeta23e §10.5). LEAN_NUM_THREADS=2 still caps elaboration only; the
+  lake fetch/update phases remain uncapped (their git+zstd bursts are the documented
+  OVER class when they exceed one interval — investigate, never upgrade). Records:
+  `pilots/zzv2-lam/logs/p1-run3.log:2` (the finding, run-1) and `:180` (burst
+  classification); `qa/iter4-review/r3-verification-tables.md` §10.16 telemetry
+  class note (the supersession statement).
+
+## Block E7 — file-funnel rulings [extend "Cycle-2 conventions" successor]
+
+- **`qa/iter4-review/r3-verification-tables.md` edits funnel through the verification
+  lane ONLY** — landing lanes deliver §10-format row blocks in their own pilot
+  records; the verification lane re-verifies every citation on disk, renumbers to the
+  live lineage, and folds (three wave-2 mis-appends to stale baselines/wrong files
+  were recovered this way: §10.10, §10.11, §10.16 merge-provenance notes).
+- **REPORT-INPUTS files are H-shepherded surgical hand-edits**: lanes audit and
+  deliver itemized correction lists on disk (e.g.
+  `qa/iter4-review/a1-reportinputs-corrections.md`); H applies verbatim, dated. No
+  lane edits REPORT-INPUTS-* directly.
+
+## Block E8 — worktree/staleness protocol [extend "Layout"/protocol block]
+
+- One detached worktree per lane (`worktrees/agent-NN`); **lanes never commit — they
+  report, H commits exact-file batches** (RESUME-BRIEF §Protocol 2, unchanged).
+- **Check-before-verbatim-copy**: before copying a lane's copy of a SHARED file
+  (tables, ledgers) into the lineage, H checks it against the owning lane's live
+  version — a stale-baseline copy is never pasted over the live file; the owning lane
+  takes the block, re-verifies, renumbers, folds. **Fast-forward exception**: if the
+  worktree copy is byte-identical to the live file's last-committed state plus purely
+  additive tail content, H may fast-forward the tail. (Authority: the §10.10/§10.11/
+  §10.16 recovery chain + H's commit log 2026-11-17.)
+
+## Block E9 — probe-convention classes (as actually used, wave 2) [extend G-series bullet]
+
+- **Statement rungs: zero-sorry-by-construction PREFERRED** — Prop-def convention
+  (`MasterIdentity.lean` idiom), the elaboration IS the evidence (wave-2 exemplars:
+  74-P0 "sorry class EMPTY"; 75-N2-P0 "ZERO-SORRY BY CONSTRUCTION"; ff-ez4-P0 zero
+  tokens). **Declared sorry class ONLY for donor-transcription probes** (statements
+  copied from a donor tree that cannot be imported; wave-2 exemplars: G9/G10's
+  sorry'd donor transcriptions — the 2026-11-17 G1 checkpoint's +3 re-baseline
+  class). **P0/probe files are NEVER Step-B axcheck stages and never get TARGETS
+  rows** (C2 precedent, re-affirmed by the zzv2-P0 ruling adopted at
+  FINAL-SWEEP-PLAN-ITER4 §7a + §10.10/§10.14/§10.15).
+- Records: `pilots/74/74-P0-record.md`, `pilots/75/N2-P0-record.md`,
+  `pilots/ff-ez4/P0-record.md`, `ProbeG{9,10}_*.lean` headers,
+  `qa/iter4-closeout-gates.md` §MID-WAVE CHECKPOINT (G1 delta itemization),
+  `feasibility/probe/FINAL-SWEEP-PLAN-ITER4.md` §7a.
+
+*Wave-2 amendments cite their originating records inline (per block); no separate
+footer. — lane A1, 2026-11-17.*
