@@ -90,7 +90,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | A6 | 32-crossing run-12 + 01-stability tranche | **Run-12 GREEN** (descent 9→2→0, triad-only, 0 sorry; discharge note + TARGETS row; article-32 §5 v2 edit armed) + 01 Rung-0 tranche delivered; FF-EZ4 next | run-12 GREEN (crossing discharged; 01-tranche delivered); FF-EZ4 next | 2026-11-17 |
 | A7 | Truffet elevation decision | Dossier 78 HARDENED (critique sweep EMPTY — unclaimed finding; ABGJ cite fixed; Stage-A P0 spec appended, no binders); Stage-A P0 chartered to A7 | dossier 78 hardened (critique space EMPTY, NOTAs self-authored); Stage-A P0 chartered to A7 | 2026-11-17 |
 | A8 | pilot-GREEN validation + donor infra | **T2a-P0 GREEN** (run 1, sorry-free; HypQRHzeta+HypStrongPNT binders; T2 NOT fired); gprobe filter fixed; mid-wave audit next | T2a-P0 GREEN (run 1, sorry-free, T2 not fired); gprobe filter fixed; mid-wave audit next | 2026-11-17 |
-| A9 | article-75 two-tier v2 (R1 gate) | Corpus audit done (`a9-corpus-compliance.md`: 42/50/75 compliant; upgrade queue 32→01→30; flow-KPI recorded); 52/11 headers modernized; article-01 upgrade chartered; 32 edit armed on A6 | corpus audit done (42/50/75 compliant; upgrade queue 32→01→30); article-01 upgrade chartered; 32 edit armed on A6 | 2026-11-17 |
+| A9 | article-75 two-tier v2 (R1 gate) | **Articles 01 + 32 v2 landed** (template-complete PASS×5 each; 32 §5 discharge + README cell); compliant set = 01/32/42/50/75; article-30 chartered | articles 01+32 template-complete (PASS×5 each; compliant set 01/32/42/50/75); article-30 chartered | 2026-11-17 |
 
 ## (d) Restart instructions (after outage / session loss)
 

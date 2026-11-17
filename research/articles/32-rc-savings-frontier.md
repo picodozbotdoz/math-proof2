@@ -1,13 +1,39 @@
 # The Exact Savings Frontier of the Corollary-31 Certificate Class for Thin Matrix Products
 
-*cross-math-fronttier research article 32 · 2026-11-09 · dossier
-`research/candidates/32-rc-savings-frontier.md` · Lean pilot `research/pilots/32/M1.lean` ·
-blueprint `research/pilots/32-blueprint.md`*
+*kind: DISCOVERY (new theorem — frontier function Γ(ε) and phase transition; constants
+superseded at birth, caveat carried in §6; passes the strength bar,
+`qa/iter4-review/r2-discovery-strength.md:202`) · date: 2026-11-09 (v2 2026-11-17:
+crossing-existence discharge + template upgrade) · supersedes: the v1 text of this
+same file (in place; change log below) · artifacts: `research/pilots/32/M1.lean`,
+`research/pilots/32/M2.lean`,
+`research/pilots/32/logs/run3-green.log`,
+`research/pilots/32/logs/axcheck-final.log`,
+`research/pilots/32/logs/run12-crossing-existence.log`; dossier
+`research/candidates/32-rc-savings-frontier.md`; blueprint
+`research/pilots/32-blueprint.md`*
 
-**Status: PROVED (frontier formula, uniqueness, phase transition, ceiling), kernel-verified**
-(mathlib `ff2494ea`, Lean `v4.36.0-rc2`; `[propext, Classical.choice, Quot.sound]`; no `sorry`,
-no `native_decide`, no external CAS). The existence of the crossing point (an
-intermediate-value argument) enters as a parameter; see §5.
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thm 1 (monotonicity in γ) `lnΛ_affine`, `Rc_antitone_gamma` | PROVED-UNCONDITIONAL | none (c ≥ 10, γ ≥ 0 are the statement's domain) | `pilots/32/logs/axcheck-final.log:661` and `:658` (repeats `:664`) — triad; `run3-green.log:108` |
+| Thm 2 (exact evaluation) `lnΛ_10_0`, `Rc_10_0` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:655–656`; `run3-green.log:105–106` — triad |
+| Thm 3 (monotonicity in c; donor re-proved) `lnΛ_mono`, `Rc_strictAntiOn_zero`, `Rc_lt_epsStar` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:662`, `:657`, `:665`; `run3-green.log:107–109` — triad |
+| Thm 4 (key equivalence) `lt_Rc_iff_gmax` | PROVED-UNCONDITIONAL | none | stage verdict `axcheck-final.log:618` (AxPilot32_M1 OK, 22 axiom lines, 0 sorryAx) — the declaration's individual print sits inside that stage's excerpted block; counter-only per the log-excerpt convention |
+| Thm 5, parameter form (unique crossing + frontier from a crossing) `crossing_unique`, `membership_of_lt`, `frontier_upper`, `frontier_of_crossing` | PROVED-UNCONDITIONAL | none (ε > 0 is the statement's domain) | `axcheck-final.log:667–670`; `run3-green.log:111–112` — triad |
+| Thm 5, unconditional form (crossing exists; 2026-11-17) `crossing_exists`, `frontier_unconditional`, `frontier_formula_unconditional` | PROVED-UNCONDITIONAL | none beyond scope: `0 < ε`, `ε < ε*` (see the amendment note in §5) | `run12-crossing-existence.log:60–66` (all seven M2 theorems triad; stage OK `:58`; M1 regression triad `:16–:24`) |
+| Thm 6 (phase transition and ceiling) `frontier_nonempty_iff`, `ceiling` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:671`, `:666`; `run3-green.log:113`, `:110` — triad |
+
+Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
+external CAS. **Crossing existence: proved — for every ε ∈ (0, ε*) the crossing exists,
+so the frontier formula is unconditional parametric in that range.**
+
+Change log (2026-11-17, lane A9 — v2 in place): (1) the §5 "What is not formalized"
+paragraph's first two claims are discharged by `research/pilots/32/M2.lean` (run 12
+GREEN, `run12-crossing-existence.log`) and replaced by the discharge paragraph;
+(2) dated amendment note recording the `0 < ε` binder adaptation of the formalized
+forms (not a silent absorption); (3) template upgrade: front matter with kind tag,
+per-theorem status rows in the closed vocabulary (log lines verified against disk this
+session), §6 converted to the mandatory nearest-miss table. Theorems 1–6, proofs and
+§7 unchanged.
 
 ---
 
@@ -24,7 +50,9 @@ below ε*. We determine the **entire achievable region** of this certificate cla
 crossing point c*(ε) of two explicit monotone curves, Γ(ε) = gammaOf(c*(ε), 0.9), and the
 supremum is not attained; (iv) a sharp phase transition: the achievable set is nonempty iff
 ε < ε*. Everything is verified in Lean 4 against current mathlib, independently of the
-corpus's own proofs.
+corpus's own proofs: Theorems 1–6 are PROVED-UNCONDITIONAL — including, since
+2026-11-17, the existence of the crossing for every ε ∈ (0, ε*), which makes the frontier
+formula unconditional parametric.
 
 ## 1. Introduction
 
@@ -115,30 +143,46 @@ via (c, θ), then ε < R_c(gammaOf(c, θ)) < ε* by Theorem 3. The ceiling is th
 | Theorem 4 | `lt_Rc_iff_gmax` |
 | Theorem 5 | `crossing_unique`, `membership_of_lt`, `frontier_upper`, `frontier_of_crossing` |
 | Theorem 6 | `frontier_nonempty_iff`, `ceiling` |
+| Theorem 5, unconditional form (§5 discharge, 2026-11-17) | `crossDiff_continuous`, `gmax_pos_near_ten`, `gmax_neg_far`, `crossing_exists`, `frontier_unconditional`, `frontier_formula_unconditional` (+ near-ten quantitative form `gammaOf_tendsto_ten_right`) — `research/pilots/32/M2.lean` |
 
 Axioms of every printed theorem: `[propext, Classical.choice, Quot.sound]`
-(`research/pilots/32/logs/run3-green.log`; final-sweep `logs/axcheck-final.log`). Three
-Modal runs (22 → 2 → 0 errors); run log in the blueprint.
+(`research/pilots/32/logs/run3-green.log:105–113`; final-sweep
+`logs/axcheck-final.log:618` stage OK, 22 axiom lines, 0 sorryAx; run 12
+`logs/run12-crossing-existence.log:60–66`, M1 regression triad `:16–24`).
 
-**What is not formalized.** The existence of the crossing c*(ε) for ε ∈ (0, ε*) is the
-intermediate value theorem applied to the continuous, strictly increasing function
-c ↦ gammaOf(c, 9/10) − gmax(ε, c) on (10, ∞), which is negative as c → 10⁺ (gammaOf → 0,
-gmax(ε, 10) > 0 because ε < ε*) and tends to +∞. In Lean the crossing is a parameter of
-`frontier_of_crossing`. Continuity and strict decrease of Γ and Γ(ε) → 0 as ε → ε*⁻
-follow from the implicit-function picture and are likewise paper-level. The donor's
-Corollary 31 itself (the data-structure statement) is not consumed: the pilot is the order
-and logarithm content of the frontier.
+**Crossing existence (discharged 2026-11-17, `research/pilots/32/M2.lean`).** For
+every ε ∈ (0, ε*) the crossing exists, so Theorem 5 is unconditional parametric: the
+difference c ↦ gammaOf(c, 9/10) − gmax(ε, c) is continuous on c > 10
+(`crossDiff_continuous`), negative at c = 10 + B/(2·(2·Lconst + 1/5)) with
+B = ln4/ε − 5·ln10 > 0, and positive far out since
+lnΛ c 0 ≥ 5·ln10 + (c−10)·(2·Lconst − ln(10/9))/2 (`gmax_neg_far`); the interval
+IVT (`intermediate_value_Icc`) returns c* > 10 with gammaOf(c*, 9/10) = gmax(ε, c*)
+(`crossing_exists`), unique by `crossing_unique`. `frontier_unconditional` then proves
+Ach(ε) = Ioo 0 (gammaOf c* (9/10)) outright and `frontier_formula_unconditional`
+recovers the frontier formula with no crossing hypothesis. Still paper-level: the
+ε-dependence of c* (continuity, strict decrease, Γ(ε) → 0 as ε → ε*⁻) and the donor's
+Corollary 31 data-structure statement.
 
-## 6. Relation to prior work
+**Amendment note (dated, 2026-11-17 — binder adaptation, not a silent absorption).**
+The formalized crossing-existence forms carry an explicit `0 < ε` hypothesis binder
+(`gmax_pos_near_ten`, `crossing_exists`, and `gmax_neg_far`; likewise the ε-scope of
+`frontier_unconditional`). The design's bare `ε < ε*` does not exclude ε ≤ 0, for
+which no crossing can exist (gmax < 0 < gammaOf); the positive-axis binder is the
+faithful reading of the article's ε ∈ (0, ε*) domain. No statement is weakened:
+Theorem 5 as stated in §3 already quantifies over ε > 0.
 
-- **Donor:** 3sum-apsp `Sec4_Rc_strictAntiOn` (:2319), `Sec4_Rc_zero_tendsto` (:2325),
-  `Sec4_Rc_lt_epsStar` (:2334), `Corollary_31` (:4014). We re-prove the first and third
-  independently and replace the second by the exact Theorem 2.
-- **Superseding constants.** R. Majdoddin, arXiv:2610.17420 (with its own Lean development,
-  `github.com/Majdoddin/formal-math`), extends the thin-product range to D ≤ N^0.172 with a
-  coordinatewise dichotomy; arXiv:2610.20297 improves exponents further. Our ε* ≈ 0.1204 is
-  the donor paper's anchor, not a record. Neither work states the frontier as a function of
-  ε for a certificate class.
+## 6. Novelty and nearest misses
+
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| 3sum-apsp donor: `Sec4_Rc_strictAntiOn` (`PaperStatements.lean:2319`), `Sec4_Rc_zero_tendsto` (`:2325`), `Sec4_Rc_lt_epsStar` (`:2334`), `Corollary_31` (`:4014`) | qualitative facts (R_c decreasing in c, below ε*) and the frozen-constant certificate family | ours determines the entire achievable region: exact frontier Γ(ε) via a unique crossing (Thm 5, now with existence proved), the phase transition at ε* (Thm 6), and an independent re-proof of the donor's monotonicity lemmas (Thm 3 replaces `Sec4_Rc_zero_tendsto` with the exact evaluation, Thm 2) |
+| R. Majdoddin, arXiv:2610.17420 (with its own Lean development, `github.com/Majdoddin/formal-math`) | extends the thin-product range to D ≤ N^0.172 with a coordinatewise dichotomy | constants supersede ours (ε* ≈ 0.1204 is the donor paper's anchor, not a record — the caveat carried since v1); no frontier as a function of ε for a certificate class |
+| arXiv:2610.20297 | improves the exponents further | same dichotomy: better constants, no frontier function |
+
+Scope statement. "Answered nowhere" (§1) means: no frontier-as-function-of-ε statement
+for this or the successor certificate classes appears in the corpus or the follow-up
+literature swept (`research/novelty/VERDICTS.md` §5.2(a)); the constants themselves are
+superseded at birth, and the claim is the exact frontier shape, not the constants.
 
 ## 7. Limitations and open problems
 
