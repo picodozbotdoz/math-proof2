@@ -27,7 +27,8 @@ per-theorem axiom sets preserved as evidence. Theorems, proofs, the §5 declarat
 table, and all dated records (incl. the 2026-11-14 nearest-neighbor addendum) are
 unchanged. Same-day residual pass: §6 converted to the mandatory nearest-miss table
 (same citations); the §5 retracted-blocker sentence reworded as the plain correction it
-records.
+records. Same-day depth pass: §5 gained the per-theorem verification blocks (decl
+file:line + coverage; binder inventory empty).
 
 ---
 
@@ -134,6 +135,26 @@ axcheck `research/pilots/52/logs/axcheck-final.log` (15 axiom lines, 0 sorryAx).
 mid-pilot report of a "definitional-equality blocker" stands retracted — the obstruction
 was an unreduced scalar coefficient in a hand-rolled `simp only` list, not a definitional
 one.
+
+Verification-block depth (R3 §5; 2026-11-17 depth pass — per-theorem file:line;
+the status rows in the header carry the axiom-print log lines):
+
+- Thm 1 `OccupationPair.dual_family` — `pilots/52/M1.lean:105`; no hypothesis binders
+  (duplicate-freeness and annihilation of x are the statement's data); substrate
+  mathlib `ff2494ea` / v4.36.0-rc2; honest label PROVED-UNCONDITIONAL.
+- Thm 2 `OccupationPair.annih_outside` — `M1.lean:91`; no binders (i ∉ w, a_i x = 0
+  are the statement's data); PROVED-UNCONDITIONAL.
+- Thm 3 `OccupationPair.sign_transposition` — `M1.lean:124`; no binders (i ≠ j);
+  PROVED-UNCONDITIONAL.
+- Thm 4 `OccupationPair.fermionic_create_sq` — `M1.lean:159`; statement scope: the
+  field hypothesis `1 + 1 ≠ 0` (characteristic ≠ 2) — a scope condition, not a donor
+  binder; PROVED-UNCONDITIONAL.
+- Thm 5 `fermionicPair` — `M1.lean:230` (definition, noncomputable); the six
+  `OccupationPair` fields are proved (the instance rows of the §5 table); elaborated
+  by the OK compile; triad print as in the status row.
+- Coverage: 12 theorems in the sweep stage (`axcheck-final.log:821` verdict), all
+  direct-printed triad (`:843–857`); binder inventory empty throughout — no donor
+  statement is consumed anywhere in the file.
 
 ## 6. Novelty and nearest misses
 

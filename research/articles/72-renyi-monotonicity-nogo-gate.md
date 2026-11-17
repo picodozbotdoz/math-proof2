@@ -1,8 +1,9 @@
 # A Kernel-Verified Fence for Kuwahara's Refutation of the Rényi Area Laws
 
 *kind: TECHNICAL-RECORD (TEMPLATE-iter4 §0 kept set — fence around an external
-theorem + interface layer) · date: 2026-11-16 (Iter-4 edition; byline brought to the
-template front-matter shape 2026-11-17, no content change) · supersedes: the Cycle-2
+theorem + interface layer) · date: 2026-11-16 (Iter-4 edition; 2026-11-17 passes:
+front-matter shape, status rows moved to the header, §6 verification-block depth —
+no mathematical content change) · supersedes: the Cycle-2
 text (r2-rewrite-72) · artifacts: `research/pilots/72/C-neg.lean`,
 `research/pilots/72-M1/P72M1T{1,2}.lean`, `research/pilots/72-M1/logs/`; dossier
 `research/candidates/72-area-law-inertial-defect.md`; prework
@@ -13,7 +14,23 @@ PROVED-CONDITIONAL (hKL = Kuwahara's construction, arXiv:2610.15199, as the name
 external binder, plus the negated candidate law); all axioms ⊆
 {propext, Classical.choice, Quot.sound}. Part II — interface links 1–3
 PROVED-UNCONDITIONAL; link 4 and the interface theorem are **not article claims**
-(carried to Iteration 4; spec `pilots/72-M1/L3-spec.md`). Per-theorem rows: §6.
+(carried to Iteration 4; spec `pilots/72-M1/L3-spec.md`).
+
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| N1 `renyi_antiMono` | PROVED-UNCONDITIONAL | well-formedness: p a probability vector, 0 < α ≤ β < 1 (definition of subject) | `pilots/72/logs/axcheck-run1.log:24` — triad |
+| N2a `renyi_le_log_card` | PROVED-UNCONDITIONAL | idem | `axcheck-run1.log:25` — triad |
+| N2b `renyi_le_log_rank` | PROVED-UNCONDITIONAL | Hermitian PSD, unit trace — definition of subject | `axcheck-run1.log:26` — triad |
+| N3a `renyi_area_law_nogo` | PROVED-CONDITIONAL | hKL (Kuwahara's volume-law construction, arXiv:2610.15199 — the named external binder) + hBnd + hArea (the negated candidate law); conclusion `False` | `axcheck-run1.log:27` — triad |
+| N3b `rank_area_law_nogo` | PROVED-CONDITIONAL | hKL + hMono + hBnd + hArea; conclusion `False` | `axcheck-run1.log:28` — triad |
+| link 1 `ptrace_pureState_eq_reducedDensity` | PROVED-UNCONDITIONAL | hΩ = normalization — definition of subject | `pilots/72-M1/logs/m1-axcheck-final.log:83` — triad |
+| link 2 `regionEntropy_eq_vonNeumannEntropy` | PROVED-UNCONDITIONAL | none | `m1-axcheck-final.log` — triad |
+| link 3 `boundaryCard_le_edgeBoundary` | PROVED-UNCONDITIONAL | none (constant 1; design allowed ≤ 4) | `m1-axcheck-final.log:82` — triad |
+| link 4 + `interface_areaLaw_uniformAreaLaw` | not article claims (carried to Iteration 4; spec `pilots/72-M1/L3-spec.md`) | — | — |
+
+Status rows moved to the header from §6 (template skeleton; content unchanged,
+2026-11-17 depth pass). Per-decl file:line view, the private-helper coverage row and
+the vendor layer: §6.
 
 ---
 
@@ -156,7 +173,7 @@ scope) is an asset rather than a reach. The vendor layer `P72M1T1.lean` re-state
 needed AreaLaw2D and openai statement-level definitions on our pin. Both encodings
 re-derive mathlib-only (probe G4; G5b/G5c elaborate the bridge shapes).
 
-## 6. Formal verification (per-theorem rows, closed vocabulary; from `r3-verification-tables.md` §3)
+## 6. Formal verification (per-decl view; status rows in the header; from `r3-verification-tables.md` §3)
 
 | decl | file:line | status | axioms print source |
 |---|---|---|---|
@@ -177,6 +194,22 @@ Deviations from design (carried from the v1 record): N1 is stated for
 stated as concrete-family contradictions rather than as a general "∀ f" schema;
 Kuwahara's construction is the external hypothesis `hKL`. (R3 §1.5: the `_hα`/`_hα1`
 binders are unused — N3a/N3b hold for all α; an underclaim in the safe direction.).
+
+Verification-block depth (R3 §5; 2026-11-17 depth pass):
+
+- substrate: mathlib `ff2494ea` / Lean v4.36.0-rc2 for all rows; the status rows in the
+  header carry the per-theorem log lines.
+- binder inventory: **hKL** = Kuwahara's volume-law construction (arXiv:2610.15199) —
+  the one external statement, carried as the named hypothesis binder (never imported;
+  the refutation is his, the fence ours); **hBnd, hArea** = the boundary bound and the
+  negated candidate area law — parameters of the statement class (defining what is
+  refuted); **hMono** (N3b) = the monotonicity instance of N1, discharged in-file;
+  N1/N2's probability-vector, α-range, Hermitian-PSD and normalization hypotheses are
+  definitions of subject, which is why those rows are unconditional; T2's `hΩ`
+  likewise.
+- coverage: the private-helper row above (C1: public via sweep + private via the
+  pilot-local audit, prints `axcheck-run1.log:34` etc.); T2 has one private decl (C3
+  class, sweep-covered).
 
 ## 7. Relation to prior work (attribution architecture; nearest-miss table)
 

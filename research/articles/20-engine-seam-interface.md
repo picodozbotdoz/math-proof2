@@ -1,8 +1,9 @@
 # An Interface Theorem for Zero-Proportion Engines: the zeta23 Card, λ-Families, and Multiplicity Merging
 
 *kind: TECHNICAL-RECORD (TEMPLATE-iter4 §0 kept set — conditional interface + the
-multiplicity-merging lemmas) · date: 2026-11-16 (Iter-4 edition; byline brought to
-the template front-matter shape 2026-11-17, no content change) · supersedes: the
+multiplicity-merging lemmas) · date: 2026-11-16 (Iter-4 edition; 2026-11-17 passes:
+front-matter shape, status rows moved to the header, §5 verification-block depth —
+no mathematical content change) · supersedes: the
 Cycle-2 text whose seam analysis moved out (the common-zero seam analysis formerly
 here, incl. its Theorem 5 and the `SharedMass`/`CommonZeroControl` definitions, lives
 in `research/pilots/20-seam-analysis.md`, dossier-grade) · artifacts:
@@ -16,7 +17,17 @@ engine binders; Theorem 4 (`merged_mult_of_common`) is PROVED-UNCONDITIONAL
 (configurational hypotheses only). All axioms ⊆ {propext, Classical.choice,
 Quot.sound}. Every engine input is an explicit hypothesis. The application-level
 analysis (distinct/simple zero transport, the hCZ hypothesis) is **not** claimed here;
-see the seam-analysis note. Per-theorem rows: §5.
+see the seam-analysis note.
+
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thms 1–2 `instantiate_family_A/B/C` (+ `two_thirds_of_components`) | PROVED-CONDITIONAL | Card20 (zeta23 PaperInputs card), TracesFamily, EngineStep — the engine binders; `two_thirds_of_components`: component family inputs | `pilots/20/logs/axcheck-cycle2.log:56` — triad; main-run `axcheck-final.log:436` |
+| Thm 3 `assemble_eps` / `family_merge` | PROVED-CONDITIONAL | hz, hw (component `EpsLower` inputs) / hfamz, hfamw (component λ-family proportions; NO common-zero hypothesis) | `axcheck-cycle2.log:51` — triad; `assemble_eps` main-run in-stage (C2 sweep 38 axiom-lines, 0 sorryAx) |
+| Thm 4 `merged_mult_of_common` | PROVED-UNCONDITIONAL | hz, hw configurational ("ρ is a simple zero of both") — no donor binder | `axcheck-cycle2.log:63` — triad |
+| v1 Theorem 5 (hCZ at η > 1/6) | PAPER-ONLY — seam note, not an article claim | — | none |
+
+Status rows moved to the header from §5 (template skeleton; content unchanged,
+2026-11-17 depth pass). Per-decl file:line view and the verification blocks: §5.
 
 ---
 
@@ -102,7 +113,7 @@ Add the two ε-inequalities. The factorization step is article 42-v2's counting 
 
 (The v1 Theorem 5 proof and the Discussion paragraph moved to the companion note.)
 
-## 5. Formal verification (per-theorem rows, closed vocabulary; from `r3-verification-tables.md` §4)
+## 5. Formal verification (per-decl view; status rows in the header; from `r3-verification-tables.md` §4)
 
 | decl | file:line | status | axioms print source |
 |---|---|---|---|
@@ -116,6 +127,22 @@ Add the two ε-inequalities. The factorization step is article 42-v2's counting 
 
 Coverage: C2, 28/28 public theorems / 582 LoC (the "29th" raw `^theorem` match is
 docstring prose; the v1 article's "27 theorems / 576 LoC" was stale — corrected).
+
+Verification-block depth (R3 §5; 2026-11-17 depth pass):
+
+- substrate: mathlib `ff2494ea` / Lean v4.36.0-rc2 for all rows; the status rows above
+  carry the per-theorem log lines.
+- binder inventory (the engine binders are the article's design, not donor statements
+  consumed by import): **Card20** = the zeta23 `PaperInputs`/`PaperInputsChi` card
+  transcribed as an explicit hypothesis (the engine's analytic inputs — the open core
+  by design); **TracesFamily / EngineStep** = the traces-family and step predicates,
+  likewise hypotheses; **hz, hw / hfamz, hfamw** = component proportion inputs
+  (parameters of the statement class — the seam passes them through, proves nothing
+  about them); hz/hw in Theorem 4 are configurational only (definition of subject —
+  "ρ is a simple zero of both factors"), which is why that row is unconditional.
+- honest labels: Theorems 1–3 PROVED-CONDITIONAL (the named engine/component binders);
+  Theorem 4 PROVED-UNCONDITIONAL; the v1 Theorem 5 content PAPER-ONLY and relocated to
+  the companion note (not an article claim).
 
 ## 6. Relation to prior work (nearest-miss table)
 

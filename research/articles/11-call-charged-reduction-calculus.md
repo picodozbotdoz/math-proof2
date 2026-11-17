@@ -25,7 +25,9 @@ table, theorems, proofs and all dated records are unchanged. Same-day residual p
 the two non-vocabulary "open — not attempted" placeholder rows (Thm B(i) word-RAM,
 M3 instantiation) were removed from the status table — §7's first limitation already
 states both as open; §6 converted to the mandatory nearest-miss table (same
-citations).
+citations). Same-day depth pass: §5 gained the per-theorem verification blocks
+(decl file:line + binder inventories + honest labels); the run-count/machine-time
+sentence was removed (record content, not article content).
 
 ---
 
@@ -114,7 +116,28 @@ term `r₁.comp (r₂.comp r₃)` whose bound is computed, not re-proved.
 | calculus (Design A, comparison) | `CrossMath.RedA.*` in `RedCompA.lean` |
 | axioms | all `[propext, Classical.choice, Quot.sound]` (`research/pilots/11/logs/axcheck-final.log`: RedCompA 5 lines, RedCompB 5 lines, P11T2 19 lines, 0 sorryAx) |
 
-13 warm Modal runs (≈ 35 min machine time); iteration log in the blueprint §7.
+Verification-block depth (R3 §5; 2026-11-17 depth pass — per-theorem file:line and
+binder inventories; the status rows in the header carry the print cites):
+
+- Thm 1 `CrossMath.RedB.Red.comp` — `pilots/11/RedCompB.lean:36`; no hypothesis
+  binders (the `Red` type's guard is part of the definition); substrate mathlib
+  `ff2494ea` / v4.36.0-rc2; print `pilots/11/logs/axcheck-final.log` (RedCompB stage,
+  5 axiom lines, 0 sorryAx); honest label PROVED-UNCONDITIONAL.
+- Thm 2 `CrossMath.RedB.red_of_theorem_17` — `RedCompB.lean:86`; binder inventory:
+  the donor statement `Claim.Theorem_17` as an explicit hypothesis (3sum-apsp
+  `PaperStatements.lean`; the donor reference compiled verbatim alongside as the
+  faithfulness check, `stepB-c2.log:60` triad) — a donor binder, hence conditional;
+  honest label PROVED-CONDITIONAL(Theorem_17).
+- Thm 3 `CrossMath.RedB.theorem19_of_red` — `RedCompB.lean:111`; binders:
+  `Claim.Theorem_17` + `Claim.Corollary_16` (donor parameter arithmetic ported
+  verbatim); honest label PROVED-CONDITIONAL(Theorem_17, Corollary_16).
+- Thm B(ii) `CrossMath.RedTm2.tm2_realized_composed` — `pilots/11/RedTm2.lean:392`;
+  binders: EthExistsTm, EthPoly, EthIsPoly (eth interface statements as explicit
+  hypothesis binders — the open machine-model core) + the machine/size binders of §8;
+  print `pilots/11/logs/m2-axcheck-final.log:22` — triad; honest label
+  PROVED-CONDITIONAL(EthExistsTm, EthPoly, EthIsPoly).
+- Coverage: the calculus layer's public theorems all print in the RedCompA/RedCompB
+  stages of the sweep log; the word-RAM half and M3 are open (§7), no claims carried.
 
 ## 6. Novelty and nearest misses
 
