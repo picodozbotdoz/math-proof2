@@ -334,3 +334,36 @@ kernel-only, at mathlib `ff2494ea` / v4.36.0-rc2.
   rank 2.0, explicit pilot-category slot), now upgraded to **proof-of-record** status: the
   pilot category has its first completed member, with the empirical effort data point (S/<500
   LoC) recorded for Phase-4 calibration.
+
+## Tier-2 closure record (T2b CLOSED BY UPSTREAM) — relocated 2026-11-17 from article 22 v1
+
+*(Relocated verbatim from `research/articles/22-pnt-psi-form-from-mathlib-wiener-ikehara.md`
+v1's append-only "Cycle-2 closure note" at the template-upgrade pass — the note's
+already-declared destination was this dossier; the article now carries one integrated
+§7 line instead. Lane A3, 2026-11-17. Original note follows.)*
+
+Dossier 22's Tier-2 extension target T2b — the classical-strength effective PNT
+|ψ(x) − x| ≤ C·x·exp(−c·√(log x)) from openai's classical zero-free region, whose
+hardest step (the Borel–Carathéodory log-derivative bootstrap "no corpus has in Lean")
+made it the dossier's named M-effort frontier — is now **proved by a third party**.
+A1's Cycle-2 survey find (`research/survey/axiommath-pntplus.md` §1): the upstream
+`AlexKontorovich/PrimeNumberTheoremAnd` repo @ `938912bb` proves, at upstream
+`StrongPNT.lean:2900–2905`,
+
+    theorem StrongPNT : ∃ c > 0, (ψ - id) =O[atTop] fun x ↦ x * Real.exp (-c * (Real.log x) ^ ((1:ℝ)/2))
+
+from `GenStrengthPNT LogDerivZetaBoundedAndHolo12` (the n₁ = 1 instance of a
+Borel–Carathéodory / Blaschke / Jensen chain: `ZerosBound :874`, `JBlaschkeDerivBound
+:951`, `FinalBound :1029`, `GlobalBound :1400`, `LogDerivZetaFinalBound :1536`), with
+the axiom check posted inline (`:2906–2908`): exactly `[propext, choice, Quot.sound]`.
+The AxiomMath fork of that repo — the corpus this project surveyed — **amputated**
+StrongPNT (commented placeholder at fork `StrongPNT.lean:1883–1885`), which is why the
+main-run survey recorded the statement as an open terminal point. Neither the theorem
+nor the claim is ours: this note records the closure (T2b = closed-by-upstream, cite
+upstream not us), updates the survey's terminal-point record, and retires the T2b pilot
+option. No new article is warranted — the statement was never our result.
+
+*(Post-relocation addendum, 2026-11-17, lane A3: the surviving upstream-facing
+statement-class work is T2a — the hypothesis-binder port of the upstream StrongPNT
+statement onto our pin, probe G9 GREEN at `feasibility/probe/logs-g/run37-g9-fix.log:30`
+(statement-only, two declared probe stubs). T2b remains retired.)*

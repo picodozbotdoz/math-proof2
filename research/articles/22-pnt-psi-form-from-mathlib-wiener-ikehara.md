@@ -1,120 +1,173 @@
 # The Prime Number Theorem in ψ-Form, Assembled from Mathlib's Own Wiener–Ikehara Theorem
 
-*cross-math-fronttier research article 22 · 2026-11-09 · dossier
-`research/candidates/22-quasi-rh-pnt-effective.md` · Lean pilot `research/pilots/22/` ·
-blueprint `research/pilots/22-blueprint.md`*
+*kind: TECHNICAL-RECORD (formalization/assembly record, honestly labeled — R2's relabel
+disposition, `qa/iter4-review/r2-discovery-strength.md` §"relabel" row 22: "formalization,
+honestly labeled — the template") · date: 2026-11-09 (v2 2026-11-17: template upgrade +
+closure-note relocation to dossier 22; theorems untouched) · supersedes: the v1 text of
+this same file (in place; change log below) · artifacts: `research/pilots/22/Tier1.lean`
+(290 lines, 4 theorems), `research/pilots/22/M1.lean` (68 lines, M1's first home),
+`research/pilots/22/logs/axcheck-final.log`,
+`research/pilots/22/logs/axcheck-c2-final.log`; dossier
+`research/candidates/22-quasi-rh-pnt-effective.md`; blueprint
+`research/pilots/22-blueprint.md`*
 
-**Status: PROVED, unconditional, kernel-verified** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
-`[propext, Classical.choice, Quot.sound]`; no `sorry`, no `native_decide`). **This is a
-formalization result, not new mathematics**: ψ(x) ~ x is the classical Prime Number Theorem.
-The article records how it falls out of pieces already in mathlib, which had not been
-connected.
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| M1 `exists_tendsto_riemannZeta_sub_inv` | PROVED-UNCONDITIONAL | none | `pilots/22/logs/axcheck-final.log:496` — `[propext, Classical.choice, Quot.sound]` (M1-file print `:450`); stage `axcheck-c2-final.log:3` |
+| M2 `exists_logDerivExtension` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:497` — triad; stage `axcheck-c2-final.log:5` (8 axiom lines, 0 sorryAx) |
+| M3 `exists_range_sum_vonMangoldt_le` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:498` — triad; stage `:5` |
+| M4 (PNT, ψ-form) `tendsto_psi_div_atTop` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:499` — triad; stage `:5` |
 
----
+Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
+external CAS; kernel verification only.
+
+Change log (2026-11-17, lane A3 — v2 in place, theorems untouched): (1) front matter
+and per-theorem status rows in the closed vocabulary replace the v1 house status line;
+(2) the v1 §4 prior-work prose becomes the §4 nearest-miss table; (3) the v1 §3
+verification prose (run trail, fix-cycle counts, wall-time figures) is replaced by the
+§6 formal-record table only — infrastructure narration removed per the template (the
+effort data point lives in dossier 22); (4) the v1 append-only "Cycle-2 closure note"
+(T2b closed by upstream) is RELOCATED to dossier 22, its already-declared destination —
+the article now carries one integrated line in §7 instead of an addendum; (5) the §5
+open-directions list is folded into §7 with the upstream-statement probe status added.
+No mathematical content changed: M1–M4 and all proofs are v1-verbatim.
 
 ## Abstract
 
 mathlib (checkout `ff2494ea`) contains a Wiener–Ikehara Tauberian theorem
-(`Mathlib/NumberTheory/LSeries/WienerIkehara.lean`), the identity
-L(Λ, s) = −ζ'(s)/ζ(s) on Re s > 1, non-vanishing of ζ on Re s ≥ 1, and Chebyshev's bounds —
-but no Prime Number Theorem, and the Wiener–Ikehara theorem has no consumer. We supply the
-three missing links: (M1) existence of the constant term of the Laurent expansion of ζ at
-s = 1; (M2) a continuous extension of −ζ'/ζ − 1/(s − 1) to the closed half-plane Re s ≥ 1;
-(M3) the Chebyshev-form bound Σ_{n<N} Λ(n) ≤ (log 4 + 4)·N. Feeding them to
-`WienerIkehara.tendsto_sum_range_div` gives (M4) ψ(x)/x → 1. Total new code: 358 lines, 51
-minutes wall time over 12 Modal runs.
+(`Mathlib/NumberTheory/LSeries/WienerIkehara.lean`), the identity L(Λ, s) = −ζ'(s)/ζ(s)
+on Re s > 1, non-vanishing of ζ on Re s ≥ 1, and Chebyshev's bounds — but no Prime
+Number Theorem, and the Wiener–Ikehara theorem has no consumer. We supply the three
+missing links and feed them to that theorem to prove **Theorem M4**: ψ(x)/x → 1 as
+x → ∞, where ψ(x) = Σ_{n ≤ x} Λ(n) is Chebyshev's function (M4 below; unconditional).
+The three links are **M1** existence of the
+constant term of the Laurent expansion of ζ at s = 1; **M2** a continuous extension of
+−ζ'/ζ − 1/(s − 1) to the closed half-plane Re s ≥ 1; **M3** the Chebyshev-form bound
+Σ_{n<N} Λ(n) ≤ (log 4 + 4)·N — all PROVED-UNCONDITIONAL. This is a formalization
+result, not new mathematics: ψ(x) ~ x is the classical Prime Number Theorem. The
+contribution, scoped to the surveyed corpora: the first consumer of mathlib's own
+Wiener–Ikehara theorem, at 358 lines, showing mathlib at this revision already contains
+every hard ingredient. Nearest prior work: the Isabelle proof by Eberl–Paulson and the
+Lean PrimeNumberTheoremAnd project, which we do not claim priority over.
 
-## 1. Statements
+## 1. Introduction
+
+mathlib at `ff2494ea` has all the hard analytic ingredients of the Prime Number Theorem
+but never assembles them: the Wiener–Ikehara theorem is proved with no consumer, and
+the L-series/von-Mangoldt/zero-free pieces sit unconnected in separate files. This
+article records the assembly. **Honesty.** ψ(x) ~ x is the classical Prime Number
+Theorem (Hadamard, de la Vallée Poussin 1896); the Wiener–Ikehara route is classical
+(Ikehara 1931). Nothing here is new mathematics; the record's value is the
+first-consumer fact and the small surface needed to connect mathlib's own pieces. The
+work was deliberately stopped at M4: upstream efforts were converging when this
+assembly was produced, and no priority is claimed over them (§4).
+
+## 2. Setting
 
 Let Λ be the von Mangoldt function and ψ(x) = Σ_{n ≤ x} Λ(n) (mathlib `Chebyshev.psi`).
+All work is in `research/pilots/22/Tier1.lean` (with M1's first home `M1.lean`),
+importing only Mathlib on `ff2494ea`, Lean v4.36.0-rc2.
+
+## 3. Main results
 
 **M1.** ∃ c ∈ ℂ, ζ(s) − 1/(s − 1) → c as s → 1, s ≠ 1.
 
-**M2.** ∃ G : ℂ → ℂ continuous on {Re s ≥ 1} with G(s) = −ζ'(s)/ζ(s) − 1/(s − 1) for Re s > 1.
+**M2.** ∃ G : ℂ → ℂ continuous on {Re s ≥ 1} with G(s) = −ζ'(s)/ζ(s) − 1/(s − 1) for
+Re s > 1.
 
 **M3.** ∃ C, ∀ N ∈ ℕ, Σ_{i<N} Λ(i) ≤ C·N (with C = log 4 + 4).
 
 **M4 (PNT, ψ-form).** ψ(x)/x → 1 as x → ∞.
 
-## 2. Proofs (outline, as formalized)
+## 4. Novelty and nearest misses
 
-**M1.** F(s) = (s − 1)ζ(s) is differentiable on a punctured neighbourhood of 1 and tends to
-the residue 1 (mathlib `riemannZeta_residue_one`, `RiemannZeta.lean:242`), so it extends analytically
-across s = 1 by the removable-singularity theorem; the constant term is F'(1).
+The claim, scoped: mathlib at `ff2494ea` contains no Prime Number Theorem and its
+Wiener–Ikehara theorem has no consumer; this record is the first consumer, in the
+surveyed corpora (mathlib @ `ff2494ea`; the project's Cycle-2 survey of sibling
+corpora). No priority is claimed over any row below.
+
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| Hadamard; de la Vallée Poussin (1896) — classical | the Prime Number Theorem | the mathematics itself; this record only assembles it inside mathlib |
+| S. Ikehara, J. Math. Phys. 10 (1931); N. Wiener, Ann. of Math. 33 (1932) | the Tauberian theorem carrying the route | the method's origin; mathlib's own `WienerIkehara.lean` is its formal descendant, previously unconsumed |
+| M. Eberl–L. C. Paulson, Isabelle/HOL (PsL: `Prime_Number_Theorem`) | a full formal PNT in another proof assistant | different library; mathlib's Wiener–Ikehara stays unconsumed there, and this record's point is specifically what mathlib already contains |
+| `AlexKontorovich/PrimeNumberTheoremAnd` (Lean, upstream; StrongPNT @ `938912bb`) and the IEANTN effort | PNT and stronger effective forms in Lean, outside mathlib | independent Lean routes, not consumers of mathlib's Wiener–Ikehara; the AxiomMath fork surveyed in this project amputates StrongPNT (closure record: `research/candidates/22-quasi-rh-pnt-effective.md`) |
+| mathlib PRs #41394, #44062, #43238 (Mertens/weak-PNT line, open at survey time) | incremental PNT-adjacent content in mathlib itself | not yet a PNT at `ff2494ea`; this record's M4 fills the gap at this revision without waiting for them |
+
+## 5. Proofs
+
+**M1.** F(s) = (s − 1)ζ(s) is differentiable on a punctured neighbourhood of 1 and tends
+to the residue 1 (mathlib `riemannZeta_residue_one`, `RiemannZeta.lean:242`), so it
+extends analytically across s = 1 by the removable-singularity theorem; the constant
+term is F'(1).
 
 **M2.** Let h be the analytic extension of F with h(1) = 1. On Re s ≥ 1, s ≠ 1, ζ(s) ≠ 0
-(mathlib `riemannZeta_ne_zero_of_one_le_re`), so h has no zeros on the closed half-plane and
-−ζ'/ζ − 1/(s − 1) = −h'(s)/h(s), which is continuous on Re s ≥ 1, including s = 1.
+(mathlib `riemannZeta_ne_zero_of_one_le_re`), so h has no zeros on the closed half-plane
+and −ζ'/ζ − 1/(s − 1) = −h'(s)/h(s), which is continuous on Re s ≥ 1, including s = 1.
 
 **M3.** ψ(N) ≤ (log 4 + 4)·N from `Chebyshev.psi_le_const_mul_self` (`Chebyshev.lean:485`),
 transported to range-sums by `psi_eq_sum_Icc` (`Chebyshev.lean:93`).
 
 **M4.** `WienerIkehara.tendsto_sum_range_div` (`WienerIkehara.lean:693`) applies to a
-nonnegative arithmetic function f whose L-series equals A/(s − 1) + G(s) on Re s > 1 with G
-continuous on Re s ≥ 1 and whose partial sums are O(N); with f = Λ, A = 1,
-`LSeries_vonMangoldt_eq_deriv_riemannZeta_div` (`Dirichlet.lean:439`), M2 and M3 it gives
-(1/N)Σ_{n<N} Λ(n) → 1, and the passage to real x is a floor argument. ∎
+nonnegative arithmetic function f whose L-series equals A/(s − 1) + G(s) on Re s > 1
+with G continuous on Re s ≥ 1 and whose partial sums are O(N); with f = Λ, A = 1,
+`LSeries_vonMangoldt_eq_deriv_riemannZeta_div` (`Dirichlet.lean:439`), M2 and M3 it
+gives (1/N)Σ_{n<N} Λ(n) → 1, and the passage to real x is a floor argument. ∎
 
-## 3. Formal verification
+## 6. Formal record
 
-| statement | Lean (`CrossMath.Pilot22`) |
-|---|---|
-| M1 | `exists_tendsto_riemannZeta_sub_inv` (`research/pilots/22/M1.lean`, 68 LoC; restated in Tier1) |
-| M2 | `exists_logDerivExtension` |
-| M3 | `exists_range_sum_vonMangoldt_le` |
-| M4 | `tendsto_psi_div_atTop` (`research/pilots/22/Tier1.lean`) |
-| axioms | all `[propext, Classical.choice, Quot.sound]` (`research/pilots/22/logs/axcheck-final.log`) |
+| theorem | Lean declaration | file:line | axioms | log path:line |
+|---|---|---|---|---|
+| M1 | `CrossMath.Pilot22.exists_tendsto_riemannZeta_sub_inv` | `pilots/22/Tier1.lean:40` (first home `pilots/22/M1.lean:28`) | `[propext, Classical.choice, Quot.sound]` | `pilots/22/logs/axcheck-final.log:496` (M1-file print `:450`; stage `axcheck-c2-final.log:3`) |
+| M2 | `CrossMath.Pilot22.exists_logDerivExtension` | `pilots/22/Tier1.lean:77` | `[propext, Classical.choice, Quot.sound]` | `pilots/22/logs/axcheck-final.log:497` |
+| M3 | `CrossMath.Pilot22.exists_range_sum_vonMangoldt_le` | `pilots/22/Tier1.lean:192` | `[propext, Classical.choice, Quot.sound]` | `pilots/22/logs/axcheck-final.log:498` |
+| M4 | `CrossMath.Pilot22.tendsto_psi_div_atTop` | `pilots/22/Tier1.lean:221` | `[propext, Classical.choice, Quot.sound]` | `pilots/22/logs/axcheck-final.log:499` |
 
-Run trail: `research/pilots/22/run1..12.log`; the worst milestone (M2) took six fix cycles.
-The Tier-2 statement (|ψ(x) − x| ≤ C·x^{7/8+ε}, conditional on openai's quasi-RH band and a
-Perron formula) elaborates as a statement only.
+The stage lines cover both files: `AxPilot22_M1` OK, 2 axiom lines, 0 sorryAx
+(`axcheck-c2-final.log:3`); `AxPilot22_Tier1` OK, 8 axiom lines = 4 theorems × 2 print
+blocks, 0 sorryAx (`:5`). The statement probe `pilots/22/ProbeP1_PNT.lean` carries no
+theorems and is never cited as a result.
 
-## 4. Relation to prior work
+## 7. Limitations and open problems
 
-The Prime Number Theorem is due to Hadamard and de la Vallée Poussin (1896); the
-Wiener–Ikehara route is classical (Ikehara 1931). Formal proofs exist in other systems
-(Isabelle: Eberl–Paulson; HOL Light: Harrison) and in Lean projects outside mathlib (the
-PrimeNumberTheoremAnd project; the IEANTN effort); mathlib PRs on Mertens' theorems and weak
-PNT (#41394, #44062, #43238) were open at survey time. Our contribution is narrow: the first
-consumer of mathlib's own Wiener–Ikehara, at 358 lines, establishing that mathlib at this
-revision already contains every hard ingredient of PNT. We claim no priority over the
-upstream efforts, which were converging when this pilot ran; the dossier was deliberately
-stopped at M4 for that reason.
+1. **No new mathematics.** M4 is the classical PNT; the record's content is the
+   assembly and the first-consumer fact (§4).
+2. **The quasi-RH effective form** (|ψ(x) − x| ≤ C·x^{7/8+ε}, conditional on openai's
+   quasi-RH band and a Perron formula): elaborates as a statement only; not attempted
+   as a proof here.
+3. **The classical-strength effective form** (|ψ(x) − x| ≤ C·x·exp(−c√(log x))):
+   closed by upstream — `AlexKontorovich/PrimeNumberTheoremAnd` @ `938912bb` proves
+   `StrongPNT` (upstream `StrongPNT.lean:2900–2905`, inline axiom check triad at
+   `:2906–2908`). Neither the theorem nor the claim is ours; the full closure record,
+   including the AxiomMath fork's amputation of StrongPNT, is in the closure section
+   of `research/candidates/22-quasi-rh-pnt-effective.md`.
+4. **The upstream StrongPNT statement class on our pin**: a hypothesis-binder port of
+   the upstream statement elaborates on mathlib `ff2494ea` with zero errors
+   (statement-only check with two declared stubs [probe-convention: a Lean file that
+   typechecks a statement without proving it];
+   `feasibility/probe/logs-g/run37-g9-fix.log:30`) — statement-elaboration evidence,
+   not a result of this project.
+5. **Immediate corollaries not formalized here**: M5 θ(x)/x → 1 from M4 and
+   `isBigO_psi_sub_theta_sqrt` (`Chebyshev.lean:639`); M6 π(x)·log x / x → 1 via
+   `primeCounting_eq_theta_div_log_add_integral` (`:668`) and
+   `integral_theta_div_log_sq_isBigO` (`:791`). Both are one-step records if wanted;
+   neither is claimed.
 
-## 5. Open directions (resume kit, recorded in the dossier)
+## 8. Prior work and references
 
-- M5 θ(x)/x → 1 from M4 and `isBigO_psi_sub_theta_sqrt` (`Chebyshev.lean:639`).
-- M6 π(x)·log x / x → 1 via `primeCounting_eq_theta_div_log_add_integral` (:668) and
-  `integral_theta_div_log_sq_isBigO` (:791).
-- Tier 2: effective PNT from openai-math's 7/8 quasi-RH band.
+**Literature.** J. Hadamard (1896); Ch. de la Vallée Poussin (1896). S. Ikehara,
+J. Math. Phys. 10 (1931). N. Wiener, Ann. of Math. 33 (1932). M. Eberl–L. C. Paulson,
+a formal PNT in Isabelle/HOL.
 
-## References
+**Formal corpora (surveyed).** mathlib `Mathlib/NumberTheory/LSeries/{WienerIkehara,
+Dirichlet,Nonvanishing,RiemannZeta}.lean`, `Mathlib/NumberTheory/Chebyshev.lean`
+(@ `ff2494ea`); the upstream `AlexKontorovich/PrimeNumberTheoremAnd` repository
+(`StrongPNT.lean:2900–2908` @ `938912bb`); its AxiomMath fork (StrongPNT amputated);
+the IEANTN effort; mathlib PRs #41394, #44062, #43238.
 
-- mathlib `Mathlib/NumberTheory/LSeries/{WienerIkehara,Dirichlet,Nonvanishing,RiemannZeta}.lean`,
-  `Mathlib/NumberTheory/Chebyshev.lean`.
-- S. Ikehara, J. Math. Phys. 10 (1931); N. Wiener, Ann. of Math. 33 (1932).
-
----
-
-## Cycle-2 closure note (2026-11-14, knowledge-level): dossier 22 T2b CLOSED BY UPSTREAM
-
-Dossier 22's Tier-2 extension target T2b — the classical-strength effective PNT
-|ψ(x) − x| ≤ C·x·exp(−c·√(log x)) from openai's classical zero-free region, whose
-hardest step (the Borel–Carathéodory log-derivative bootstrap "no corpus has in Lean")
-made it the dossier's named M-effort frontier — is now **proved by a third party**.
-A1's Cycle-2 survey find (`research/survey/axiommath-pntplus.md` §1): the upstream
-`AlexKontorovich/PrimeNumberTheoremAnd` repo @ `938912bb` proves, at upstream
-`StrongPNT.lean:2900–2905`,
-
-    theorem StrongPNT : ∃ c > 0, (ψ - id) =O[atTop] fun x ↦ x * Real.exp (-c * (Real.log x) ^ ((1:ℝ)/2))
-
-from `GenStrengthPNT LogDerivZetaBoundedAndHolo12` (the n₁ = 1 instance of a
-Borel–Carathéodory / Blaschke / Jensen chain: `ZerosBound :874`, `JBlaschkeDerivBound
-:951`, `FinalBound :1029`, `GlobalBound :1400`, `LogDerivZetaFinalBound :1536`), with
-the axiom check posted inline (`:2906–2908`): exactly `[propext, choice, Quot.sound]`.
-The AxiomMath fork of that repo — the corpus this project surveyed — **amputated**
-StrongPNT (commented placeholder at fork `StrongPNT.lean:1883–1885`), which is why the
-main-run survey recorded the statement as an open terminal point. Neither the theorem
-nor the claim is ours: this note records the closure (T2b = closed-by-upstream, cite
-upstream not us), updates the survey's terminal-point record, and retires the T2b pilot
-option. No new article is warranted — the statement was never our result.
+**Project artifacts.** `research/candidates/22-quasi-rh-pnt-effective.md`
+(incl. the relocated closure record and the empirical effort data point);
+blueprint `research/pilots/22-blueprint.md`; Lean `research/pilots/22/{M1,Tier1}.lean`;
+logs `research/pilots/22/logs/`; the upstream-statement probe
+`research/feasibility/probe/ProbeG9_StrongPNT.lean` +
+`research/feasibility/probe/logs-g/run37-g9-fix.log`.
