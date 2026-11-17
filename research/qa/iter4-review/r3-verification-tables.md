@@ -1047,6 +1047,57 @@ surface is the landed evidence; census check deferred to the sweep staging (10
 theorems + 5 defs claimed, no dotted/`@[simp]` per A3 — verified by enumeration in
 `P1-record.md`). §7a's zzv2-P1 "owed" row resolves LANDED (below).
 
+### 10.17 10-D1 — LANDED GREEN 2026-11-17 (run 1 GREEN of a 4-run loop; lane A6, orchestrator D1-ONLY charter ruling; folded + re-verified by lane A1) — engineering/plumbing landing, NEVER novelty
+
+*(Merged 2026-11-17 by lane A1 from A6's `pilots/10/D1-record.md` (worktree agent-07,
+pending H's commit). Cites re-verified on agent-07 disk: verdict `d1-run1.log:14`
+(L3.lean OK, rc=0/0/0), the 6 Part E axiom prints `:25–:30`, the L2-substrate
+regression prints `:16–:24`, GREEN telemetry `:50` (wall 51 s, OVER=0), full
+provenance `:1` incl. all four run URLs and the SPEC CORRECTION.)*
+
+**L3.lean (proof artifact — 2,805 LoC, sha256(16) `34534c1ca14f009e`; = 48-line D1
+header + L2.lean VERBATIM (2,625 lines, sha 845ce129…; itself M1 A–D verbatim) + Part
+E 132 new lines, namespace `Groundwork.PadC`. Billing line CHARTER-FIXED: plumbing /
+completion-value — no discovery claim; the machine-layer headline
+(`exists_tm_padded_space`, D4) stays unchartered. Substrate mathlib `ff2494ea` /
+v4.36.0-rc2, new ephemeral app `crossmath-pilot-10` (pilots/32 generic-runner clone,
+byte-identical image block — shared layers), doz CLI PRIMARY, lane-unique stage; fix
+loop 4 runs / 3 fix iterations (1→3→1→0; every error class in the log header; the
+≤3 budget exactly met). L2-substrate regression re-verified triad IN THE SAME RUN
+(`exists_tm_space` family + the `Counted` block, `:16–:24`).) Coverage class **C2**
+— the six in-file prints cover ALL Part E theorems:
+
+| decl | file:line (L3.lean Part E) | status | axioms print source | notes |
+|---|---|---|---|---|
+| `size_bools` | `pilots/10/L3.lean` (Part E) | PROVED-UNCONDITIONAL (data-only) | `d1-run1.log:25` — `[propext, Quot.sound]` | eth `Pad.lean:53` verbatim (`size x = 2·|x|+1` for `List Bool`) |
+| `size_two_pow` | idem | PROVED-UNCONDITIONAL (data-only) | `:26` — `[propext, Quot.sound]` | `size (2^k) = k + 2` via `Nat.size_pow` (eth's `Nat.log2_two_pow` name absent at this pin) |
+| `padM'_reaches` | idem | PROVED-UNCONDITIONAL | `:27` — triad | the doubling induction — eth `padM_reaches` (`Pad.lean:68–88`) verbatim shape; `Nat.log_pow` for the pin |
+| `padM'_runs` | idem | PROVED-UNCONDITIONAL | `:28` — triad | ends after `e x + 1` steps at `A' (x, 2^(e x))`, states ≤ `2|x| + e x + 4` — **strictly smaller than eth's `2|x| + 2·2^(e x) + 3` at every node** (the exponential enters only through the NUMBER of doublings, never the state) |
+| `padM'_state_poly_pair` | idem | PROVED-UNCONDITIONAL | `:29` — triad | states polynomial in `|x| + e x` (degree 2) — the honest D1-native form |
+| `padM'_state_poly` | idem | PROVED-CONDITIONAL — explicit value-polynomiality binder `hv : ∃ k, ∀ x, e x ≤ (|x|+2)^k` | `:30` — triad | the D4-consumable S-hypothesis form (`exists_tm_space` consumes `S ≤ (|x|+2)^d` per run) — see the SPEC CORRECTION |
+| (rfl lemmas) `size_bool'`/`size_list'`/`size_nat'` | idem | data-only (no status row by convention) | — (rfl; elaborated by the OK compile) | the anonymous `HasSize` instances as simp/rfl lemmas (eth Groundwork carried these; the M1 embedding does not) |
+
+**SPEC CORRECTION adjudicated by this landing (for the charter owner + D2/D4; also
+in the log header `:1` and the record):** `next-tranche-spec.md` §2 D2's
+`padM'_state_poly (he : PolyT e) : ∃ d, ∀ x, 2|x| + e x + 4 ≤ (|x|+2)^d` is **FALSE
+as written** under the substrate's binary `Enc ℕ` (`L2 :1017`): `PolyT` bounds the
+WORD of `e x`, never its value — `e x = 2^(|x|^2)` is word-polynomial,
+value-exponential, and refutes the displayed inequality. Part E lands the two TRUE
+forms (unconditional pair-form + the `hv`-conditional); **D4's assembly must supply
+`hv`** (or derive it Solver-side where `e` is value-polynomial by construction).
+Suggested spec edit owner: H / A6-with-charter. **D2 inputs untouched** (no
+`IsPolyT (padM' …)`, no `fun_prop` changes, no `Carried` transcription — the eth
+`EncLemmas.lean:106–127` gap stands; Route A/B remains where the spec left it).
+Fix-loop lessons (log header + record): close header doc-comments; monotone chains
+not `nlinarith` for `(l+2)^3`; the `Nat.pow_add` + explicit `k+4=(k+3)+1` rewrite
+idiom (pin's `Nat.pow_succ` is succ-typed).
+
+**Step-B note (per the record's close-out duties):** `AxPilot10_L3` TARGETS append
+**at sweep** per the spec's §6 protocol (NOT appended at landing — L3 grows with the
+D-tranches); full-coverage `axcheck_full.py`/`axcheck_iter4 gen` standard when
+staged; the landed C2 evidence above is the interim record. §7a's 10-tranche row
+updates D1→LANDED.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -1088,4 +1139,8 @@ ruling, adopted). Ninth batch: §10.15 74 T1T2T4-P0 (A8's record from agent-09 �
 verdict :8, stage OK :36–37; probe-convention statement rung, 0 tokens, never
 Step-B) + §10.16 ZZV2-λ P1 (A3's block from agent-04's STALE baseline, renumbered
 §10.8→§10.16 — 10/10 triad :145–:155; HARD STOP executed; taskset-not-j infra
-finding recorded in the telemetry class note).
+finding recorded in the telemetry class note). Tenth batch: §10.17 10-D1 (A6's
+record from agent-07 — verdict :14, Part E 6 prints :25–:30 incl. 2 data-only, L2
+regression :16–:24; engineering/plumbing billing, C2 coverage; SPEC CORRECTION
+adjudicated — D2's bare-PolyT form FALSE under binary Enc ℕ; AxPilot10_L3 TARGETS at
+sweep per the record's own protocol).
