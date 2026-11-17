@@ -1,0 +1,126 @@
+# Provenance: bash research/pilots/ff-ez2/run_pilot.sh research/pilots/ff-ez2/P1.lean — lane A3, 2026-11-17, P1 run 2 (fix-loop 1 of <=4: the 5 name/mechanical fixes of run 1). Route/app/spec/header facts unchanged from p1-run1.log.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-WKgi3XD8W6m9MDtGXCOG7p
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P1.lean
+[ffez2] P1.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:101:12: error: Invalid projection: Projections cannot be used on functions, and
+  hc.right
+has function type
+  ∀ x ∈ A, ∀ y ∈ A, x ≠ y → ∀ (n : ℕ), 0 < n → (x / y) ^ n ≠ 1
+P1.lean:115:20: error(lean.unknownIdentifier): Unknown constant `Multiset.Nonempty.exists`
+P1.lean:115:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.56 ∈ dedup ?m.57
+in the target expression
+  x ∈ Multiset.map (fun α => α ^ m) A.dedup
+
+A : Multiset ℂ
+a✝¹ : 0 < A.card
+m : ℕ
+a✝ : 0 < m
+x : ℂ
+hx : x ∈ Multiset.map (fun α => α ^ m) A
+⊢ x ∈ Multiset.map (fun α => α ^ m) A.dedup
+P1.lean:155:45: error(lean.unknownIdentifier): Unknown constant `Finset.card_Icc`
+P1.lean:158:17: error: mod_cast has type
+  0 < M'
+but is expected to have type
+  ¬M' = 0
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:115:20: error(lean.unknownIdentifier): Unknown constant `Multiset.Nonempty.exists`
+P1.lean:115:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.56 ∈ dedup ?m.57
+in the target expression
+  x ∈ Multiset.map (fun α => α ^ m) A.dedup
+
+A : Multiset ℂ
+a✝¹ : 0 < A.card
+m : ℕ
+a✝ : 0 < m
+x : ℂ
+hx : x ∈ Multiset.map (fun α => α ^ m) A
+⊢ x ∈ Multiset.map (fun α => α ^ m) A.dedup
+P1.lean:155:45: error(lean.unknownIdentifier): Unknown constant `Finset.card_Icc`
+P1.lean:158:17: error: mod_cast has type
+  0 < M'
+but is expected to have type
+  ¬M' = 0
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:115:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.56 ∈ dedup ?m.57
+in the target expression
+  x ∈ Multiset.map (fun α => α ^ m) A.dedup
+
+A : Multiset ℂ
+a✝¹ : 0 < A.card
+m : ℕ
+a✝ : 0 < m
+x : ℂ
+hx : x ∈ Multiset.map (fun α => α ^ m) A
+⊢ x ∈ Multiset.map (fun α => α ^ m) A.dedup
+P1.lean:155:45: error(lean.unknownIdentifier): Unknown constant `Finset.card_Icc`
+P1.lean:158:17: error: mod_cast has type
+  0 < M'
+but is expected to have type
+  ¬M' = 0
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:155:45: error(lean.unknownIdentifier): Unknown constant `Finset.card_Icc`
+P1.lean:158:17: error: mod_cast has type
+  0 < M'
+but is expected to have type
+  ¬M' = 0
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+
+[ffez2] SUMMARY
+[ffez2]   P1.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-WKgi3XD8W6m9MDtGXCOG7p
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: FRICTION-FAIL rc=1 errors=4(-counted): :101 hc.2.2 -> hc.2 (And of two, not three); :115 Multiset.Nonempty.exists unknown -> exists_mem_of_ne_zero with card-contradiction; :140 mem_dedup pattern mis-ordered -> mem_map-first restructure; :155/:158 Finset.card_Icc unknown + cast direction -> Nat.card_Ioc 0 M' (the real name, via Order/Interval/Set/Nat.lean:32) + ne-zero cast.

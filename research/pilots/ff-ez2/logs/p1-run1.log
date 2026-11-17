@@ -1,0 +1,164 @@
+# Provenance: bash research/pilots/ff-ez2/run_pilot.sh research/pilots/ff-ez2/P1.lean — lane A3, 2026-11-17, FF-EZ2-P1 per the charter GO (S-class per P0-record input; <=0.3k LoC, 2-4 warm runs; guards unchanged and binding).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, workspace semraker (PRIMARY). App crossmath-pilot-ffez2 (WARM — P0's runs). Stage /tmp/crossmath-ffez2-a3. SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered. mathlib ff2494ea @ v4.36.0-rc2.
+# P1 = PROOF ARTIFACT (sorry-strict verdict branch): proves the P0 statement surface minus ONE recorded descope (stmt_lpoly_squarefree_iff -> P2 translation-layer item; census findings in P1.lean header; includes the P0-def amendment note: false for repeated-zero spectra, guarded form governs). Proved: ratio_rootOfUnity_of_pow_eq (the collision bridge), zeros_simple_all (the honest ALL-m headline), stmt_maximal_violates_exclusion_holds (trap negation, Fuhrmann/Tafazolian-Torres pins), stmt_power_merge_le_holds (the <= correction), density_of_all + both density statements (M=1 corollaries). Full print surface (7 theorems) in-file.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-hzqmkVTf8eRVmDzIME2fV6
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P1.lean
+[ffez2] P1.lean: FAIL rc=1 errors=5 sorry=0
+---- axioms ----
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:92:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  card 0
+in the target expression
+  ∅.card ≤ 1
+
+case pos
+q : ℕ
+A : Multiset ℂ
+hs : HypFrobeniusSpectrum q A
+hc : NoRootOfUnityCollisions A
+m : ℕ
+hm : 0 < m
+b : ℂ
+hE : filter (fun a => b = a ^ m) A = ∅
+⊢ ∅.card ≤ 1
+P1.lean:96:22: error(lean.unknownIdentifier): Unknown constant `Multiset.card_pos_iff.mp`
+P1.lean:96:11: error: Tactic `rcases` failed: `x✝ : ?m.88` is not an inductive datatype
+P1.lean:118:20: error(lean.unknownIdentifier): Unknown constant `Multiset.card_pos_iff.mp`
+P1.lean:118:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:134:32: error(lean.unknownIdentifier): Unknown constant `Multiset.dedup_nodup`
+P1.lean:149:48: error: Application type mismatch: The argument
+  (Finset.mem_Ioc.mp hx).right
+has type
+  x ≤ M'
+but is expected to have type
+···
+P1.lean:96:22: error(lean.unknownIdentifier): Unknown constant `Multiset.card_pos_iff.mp`
+P1.lean:96:11: error: Tactic `rcases` failed: `x✝ : ?m.88` is not an inductive datatype
+P1.lean:118:20: error(lean.unknownIdentifier): Unknown constant `Multiset.card_pos_iff.mp`
+P1.lean:118:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:134:32: error(lean.unknownIdentifier): Unknown constant `Multiset.dedup_nodup`
+P1.lean:149:48: error: Application type mismatch: The argument
+  (Finset.mem_Ioc.mp hx).right
+has type
+  x ≤ M'
+but is expected to have type
+  0 < x
+in the application
+  hall x (Finset.mem_Ioc.mp hx).right
+P1.lean:150:15: error(lean.unknownIdentifier): Unknown constant `Finset.Ioc_zero_eq_range`
+P1.lean:147:73: error: unsolved goals
+p : ℕ → Prop
+inst✝ : DecidablePred p
+hall : ∀ (m : ℕ), 0 < m → p m
+ε : ℝ
+hε : 0 < ε
+M' : ℕ
+hM : 1 ≤ M'
+hfilter : Finset.filter p (Finset.Ioc 0 M') = Finset.Ioc 0 M'
+⊢ ↑(Finset.Ioc 0 M').card / ↑M' > 1 - ε
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:118:20: error(lean.unknownIdentifier): Unknown constant `Multiset.card_pos_iff.mp`
+P1.lean:118:9: error: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+P1.lean:134:32: error(lean.unknownIdentifier): Unknown constant `Multiset.dedup_nodup`
+P1.lean:149:48: error: Application type mismatch: The argument
+  (Finset.mem_Ioc.mp hx).right
+has type
+  x ≤ M'
+but is expected to have type
+  0 < x
+in the application
+  hall x (Finset.mem_Ioc.mp hx).right
+P1.lean:150:15: error(lean.unknownIdentifier): Unknown constant `Finset.Ioc_zero_eq_range`
+P1.lean:147:73: error: unsolved goals
+p : ℕ → Prop
+inst✝ : DecidablePred p
+hall : ∀ (m : ℕ), 0 < m → p m
+ε : ℝ
+hε : 0 < ε
+M' : ℕ
+hM : 1 ≤ M'
+hfilter : Finset.filter p (Finset.Ioc 0 M') = Finset.Ioc 0 M'
+⊢ ↑(Finset.Ioc 0 M').card / ↑M' > 1 - ε
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:134:32: error(lean.unknownIdentifier): Unknown constant `Multiset.dedup_nodup`
+P1.lean:149:48: error: Application type mismatch: The argument
+  (Finset.mem_Ioc.mp hx).right
+has type
+  x ≤ M'
+but is expected to have type
+  0 < x
+in the application
+  hall x (Finset.mem_Ioc.mp hx).right
+P1.lean:150:15: error(lean.unknownIdentifier): Unknown constant `Finset.Ioc_zero_eq_range`
+P1.lean:147:73: error: unsolved goals
+p : ℕ → Prop
+inst✝ : DecidablePred p
+hall : ∀ (m : ℕ), 0 < m → p m
+ε : ℝ
+hε : 0 < ε
+M' : ℕ
+hM : 1 ≤ M'
+hfilter : Finset.filter p (Finset.Ioc 0 M') = Finset.Ioc 0 M'
+⊢ ↑(Finset.Ioc 0 M').card / ↑M' > 1 - ε
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+P1.lean:150:15: error(lean.unknownIdentifier): Unknown constant `Finset.Ioc_zero_eq_range`
+P1.lean:147:73: error: unsolved goals
+p : ℕ → Prop
+inst✝ : DecidablePred p
+hall : ∀ (m : ℕ), 0 < m → p m
+ε : ℝ
+hε : 0 < ε
+M' : ℕ
+hM : 1 ≤ M'
+hfilter : Finset.filter p (Finset.Ioc 0 M') = Finset.Ioc 0 M'
+⊢ ↑(Finset.Ioc 0 M').card / ↑M' > 1 - ε
+'CrossMath.FFEZ2.ratio_rootOfUnity_of_pow_eq' depends on axioms: [propext, choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_maximal_violates_exclusion_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_power_merge_le_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'_private.P1.0.CrossMath.FFEZ2.density_of_all' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_base_change_density_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_ff_ez2_family_form_holds' depends on axioms: [propext, sorryAx, choice, Quot.sound]
+···
+
+[ffez2] SUMMARY
+[ffez2]   P1.lean: FAIL rc=1 errors=5 sorry=0
+[tele] SUMMARY run: wall=44s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-hzqmkVTf8eRVmDzIME2fV6
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: FRICTION-FAIL rc=1 errors=5(-counted; the error(lean.*) counter blind spot persists) — all name-resolution/mechanical:
+#   :92 card_zero vs empty-notation (-> simp [hE]); :96/:118 Multiset.card_pos_iff unknown (-> exists_mem_of_ne_zero / Nonempty.exists); :134 dedup_nodup -> nodup_dedup; :149 Finset.mem_Ioc field .1 not .2; :150 Finset.Ioc_zero_eq_range unknown (-> card via card_Ioc_eq_card_Icc_sub_one + card_Icc + omega).
+# sorryAx in prints = error-elaboration artifacts of the failing proofs (m4b-run1 precedent). NOTE: prints show bare `choice` — to verify at GREEN whether that is Classical.choice short-printed or a distinct name (token sweep at GREEN decides).
