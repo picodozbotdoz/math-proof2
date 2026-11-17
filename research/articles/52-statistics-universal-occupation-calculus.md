@@ -1,13 +1,31 @@
 # A Statistics-Universal Creation–Annihilation Calculus and the Fermionic Dual-Family Theorem
 
-*cross-math-fronttier research article 52 · 2026-11-09 · dossier
-`research/candidates/52-unified-ccr-fock-layer.md` · Lean pilot `research/pilots/52/M1.lean` ·
-blueprint `research/pilots/52-blueprint.md`*
+*kind: TECHNICAL-RECORD — axiomatization + ε-universal dual-family lemma, formal-first
+(TEMPLATE-iter4 §0 kept set) · date: 2026-11-09 (header modernized 2026-11-17) ·
+supersedes: none · artifacts: `research/pilots/52/M1.lean`,
+`research/pilots/52/logs/m1-run14-green.log`,
+`research/pilots/52/logs/axcheck-final.log`; dossier
+`research/candidates/52-unified-ccr-fock-layer.md`; blueprint
+`research/pilots/52-blueprint.md`*
 
-**Status: PROVED, unconditional, kernel-verified** (mathlib `ff2494ea`, Lean `v4.36.0-rc2`;
-`dual_family` and `sign_transposition` use only `[propext, Quot.sound]` — not even choice;
-the concrete fermionic instance uses `[propext, Classical.choice, Quot.sound]`; no `sorry`,
-no `native_decide`).
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thm 1 `OccupationPair.dual_family` (ε-universal dual family) | PROVED-UNCONDITIONAL | none beyond the `OccupationPair` definition-of-subject | `pilots/52/logs/axcheck-final.log:843` — `[propext, Quot.sound]` (not even choice) |
+| Thm 2 `OccupationPair.annih_outside` (orthogonality half) | PROVED-UNCONDITIONAL | none (as Thm 1) | `axcheck-final.log:850` — `[propext, Quot.sound]` |
+| Thm 3 `OccupationPair.sign_transposition` | PROVED-UNCONDITIONAL | none (as Thm 1) | `axcheck-final.log:844` — `[propext, Quot.sound]` |
+| Thm 4 `OccupationPair.fermionic_create_sq` (Pauli, exact form) | PROVED-UNCONDITIONAL | statement scope: `1 + 1 ≠ 0` in the field (characteristic ≠ 2) | `axcheck-final.log:856` — `[propext, Classical.choice, Quot.sound]` |
+| Thm 5 `fermionicPair` (exterior-algebra instance, 6/6 fields) | PROVED-UNCONDITIONAL | none (mathlib `ExteriorAlgebra ℂ (Fin n → ℂ)`) | `axcheck-final.log:845` — `[propext, Classical.choice, Quot.sound]` |
+
+Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`; sweep
+verdict 29/29 stages OK, 0 sorryAx (`axcheck-final.log:1`).
+
+Change log (2026-11-17, lane A9 — header modernization only, no content change): the
+byline was brought to the TEMPLATE-iter4 front matter with the kind tag of the README
+relabel (2026-11-16); the prose status line ("PROVED, unconditional, kernel-verified")
+was replaced by the per-theorem status rows above in the closed vocabulary, with the
+per-theorem axiom sets preserved as evidence. Theorems, proofs, the §5 declaration
+table, and all dated records (incl. the 2026-11-14 nearest-neighbor addendum) are
+unchanged.
 
 ---
 

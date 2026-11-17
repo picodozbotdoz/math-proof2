@@ -1,8 +1,10 @@
 # A Call-Charged Reduction Calculus for Fine-Grained Complexity, with Theorem 19 of the 3SUM/APSP Refutation as One Composition
 
-*cross-math-fronttier research article 11 · 2026-11-09 · dossier
-`research/candidates/11-z1-composable-reduction-theory.md` · Lean pilot
-`research/pilots/11/` · blueprint `research/pilots/11-blueprint.md`*
+*kind: TECHNICAL-RECORD — formal calculus for folklore composition, acceptance-tested
+on donor Theorem 19 (TEMPLATE-iter4 §0 kept set) · date: 2026-11-09 (header modernized
+2026-11-17) · supersedes: none · artifacts: `research/pilots/11/` (Lean pilots +
+logs), dossier `research/candidates/11-z1-composable-reduction-theory.md`, blueprint
+`research/pilots/11-blueprint.md`*
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
@@ -17,6 +19,11 @@ All kernel verification on mathlib `ff2494ea`, Lean v4.36.0-rc2; axioms ⊆ {pro
 Classical.choice, Quot.sound}; no `sorry`, no `native_decide`. Kind: formal calculus
 for folklore composition — technical record; the acceptance test, not the calculus,
 is the article's deliverable (relabeled 2026-11-16).
+
+Change log (2026-11-17, lane A9 — header modernization only, no content change): the
+byline was brought to the TEMPLATE-iter4 front matter with the kind tag of the README
+relabel (2026-11-16; the kind already appeared in the paragraph above). The status
+table, theorems, proofs and all dated records are unchanged.
 
 ---
 
