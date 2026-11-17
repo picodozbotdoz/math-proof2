@@ -1,0 +1,243 @@
+# provenance: raw modal run, pilot-10 D1 landing (orchestrator charter ruling 2026-11-17: 10-assembly D1-ONLY, plumbing/completion-value billing, never novelty, separate charter line, D2 Route A/B NOT pre-empted), app crossmath-pilot-10 (new ephemeral app; run_pilot.py = the pilots/32 generic runner clone, byte-identical image block = shared warm layers with the probe/pilot-32/71/ffez4 family), doz CLI route (PRIMARY per orchestrator ruling 2026-11-17) | date 2026-11-17 | producing lane: A6 | command: MODAL_USER=doz bash research/pilots/10/run_pilot.sh research/pilots/10/L3.lean (lane-unique stage /tmp/crossmath-10-d1-a6 per the preflight's 3-line fix; wrapper + runner new in pilots/10/) | files: L3.lean sha256 34534c1ca14f009e9d7231bdf866598cc3cca334afc42e73a60a6757ab844530 (2,805 LoC = 48-line D1 header + L2.lean verbatim 2,625 lines [sha 845ce129…] + Part E 132 lines new), run_pilot.py/run_pilot.sh new clones | verdict: L3.lean OK (rc=0, 0 errors, 0 sorry-warnings; in-file #print axioms on ALL substrate + Part E theorems) | Part E triad: padM'_reaches/padM'_runs/padM'_state_poly_pair/padM'_state_poly [propext, Classical.choice, Quot.sound]; size_bools/size_two_pow [propext, Quot.sound] (rfl); L2 substrate regression re-verified in the same run (exists_tm_space family + Counted block all triad) | descent: 4 runs, 3 fix iterations (1 → 3 → 1 → 0 errors): run1 = header doc-comment unterminated (authoring slip); run2 = mul_comm residue in the doubling-step simp + nlinarith cannot unfold (l+2)^3 + rw [Nat.pow_succ] over-rewriting the LHS exponent; run3 = Nat.pow_succ is succ-typed at the pin, ascription unification failed; run4 = h3 via Nat.pow_add + explicit k+4=(k+3)+1, GREEN wall=51s warm, telemetry OVER=0 | run URL (GREEN) https://modal.com/apps/semraker/main/ap-mXpa7bUll1vHaJHEzEXY96 ; run1 https://modal.com/apps/semraker/main/ap-5grHQQKBirXnp53BkvHhO0 ; run2 https://modal.com/apps/semraker/main/ap-wjEC86BbPb1pCs65g2smFv ; run3 https://modal.com/apps/semraker/main/ap-vwiykWZGVjiGVTMTkE0F63 | substrate: mathlib ff2494ea5e43, v4.36.0-rc2, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2 | SPEC CORRECTION carried: next-tranche-spec.md §2 D2's padM'_state_poly under bare PolyT e is FALSE for binary Enc ℕ (PolyT bounds the WORD of e x, not its value; e x = 2^(|x|^2) counterexample); Part E lands padM'_state_poly_pair (unconditional) + padM'_state_poly (value-polynomiality binder hv explicit — the D4-consumable form)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-mXpa7bUll1vHaJHEzEXY96
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L3.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L3.lean
+[p10] L3.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p10] SUMMARY
+[p10]   L3.lean: OK
+[tele] SUMMARY run: wall=51s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-mXpa7bUll1vHaJHEzEXY96
+
+# === DESCENT attempt 1 ===
+https://modal.com/apps/semraker/main/ap-5grhQQKBirXnp53BkvHhO0
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5grhQQKBirXnp53BkvHhO0
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L3.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L3.lean
+[p10] L3.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+L3.lean:2795:0: error: unterminated comment
+···
+
+[p10] SUMMARY
+[p10]   L3.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=15s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5grhQQKBirXnp53BkvHhO0
+
+# === DESCENT attempt 2 ===
+https://modal.com/apps/semraker/main/ap-wjEC86BbPb1pCs65g2smFv
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-wjEC86BbPb1pCs65g2smFv
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L3.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L3.lean
+[p10] L3.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+L3.lean:2734:79: error: unsolved goals
+e : List Bool → ℕ
+A' : List Bool × ℕ → Bool
+x : List Bool
+d k : ℕ
+h : k + (d + 1) = e x
+hnk : ¬e x ≤ k
+⊢ 2 * 2 ^ k = 2 ^ k * 2
+L3.lean:2772:4: error: linarith failed to find a contradiction
+e : List Bool → ℕ
+k : ℕ
+hk : ∀ (x : List Bool), e x ≤ (x.length + 2) ^ k
+x : List Bool
+hl2 : 2 ≤ x.length + 2
+hl : 0 ≤ x.length
+a✝ : (x.length + 2) ^ 3 < 2 * x.length + 4
+⊢ False
+failed
+L3.lean:2785:4: error: Type mismatch
+  Nat.mul_le_mul_right ?m.424 hl2
+has type
+  2 * ?m.424 ≤ (x.length + 2) * ?m.424
+but is expected to have type
+  2 * ((x.length + 2) ^ (k + 2) * (x.length + 2)) ≤ (x.length + 2) ^ (k + 4)
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+···
+⊢ 2 * 2 ^ k = 2 ^ k * 2
+L3.lean:2772:4: error: linarith failed to find a contradiction
+e : List Bool → ℕ
+k : ℕ
+hk : ∀ (x : List Bool), e x ≤ (x.length + 2) ^ k
+x : List Bool
+hl2 : 2 ≤ x.length + 2
+hl : 0 ≤ x.length
+a✝ : (x.length + 2) ^ 3 < 2 * x.length + 4
+⊢ False
+failed
+L3.lean:2785:4: error: Type mismatch
+  Nat.mul_le_mul_right ?m.424 hl2
+has type
+  2 * ?m.424 ≤ (x.length + 2) * ?m.424
+but is expected to have type
+  2 * ((x.length + 2) ^ (k + 2) * (x.length + 2)) ≤ (x.length + 2) ^ (k + 4)
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+failed
+L3.lean:2785:4: error: Type mismatch
+  Nat.mul_le_mul_right ?m.424 hl2
+has type
+  2 * ?m.424 ≤ (x.length + 2) * ?m.424
+but is expected to have type
+  2 * ((x.length + 2) ^ (k + 2) * (x.length + 2)) ≤ (x.length + 2) ^ (k + 4)
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L3.lean: FAIL rc=1 errors=3 sorry=0
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-wjEC86BbPb1pCs65g2smFv
+
+# === DESCENT attempt 3 ===
+https://modal.com/apps/semraker/main/ap-vwiykWZGVjiGVTMTkE0F63
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vwiykWZGVjiGVTMTkE0F63
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L3.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L3.lean
+[p10] L3.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+L3.lean:2791:6: error: Type mismatch
+  Eq.symm (Nat.pow_succ (x.length + 2) (k + 3))
+has type
+  (x.length + 2) ^ (k + 3) * (x.length + 2) = (x.length + 2) ^ (k + 3).succ
+but is expected to have type
+  (x.length + 2) ^ (k + 4) = (x.length + 2) * (x.length + 2) ^ (k + 3)
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L3.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vwiykWZGVjiGVTMTkE0F63
+
