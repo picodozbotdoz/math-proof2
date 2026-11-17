@@ -771,6 +771,61 @@ for λ near 1 needs a Landau η-port (`correctedTest`/`r_{ψ,T}` machinery,
 `pilots/zzv2-lam/P0-record.md`. P1/P2 proof rows will follow the 42-v2 M4b convention
 in §10's standing block IF/WHEN P1 lands.
 
+### 10.11 32-crossing — LANDED GREEN 2026-11-17 (run 12; lane A6, week1-agenda row 1, R2 §12.2; folded + re-verified by lane A1)
+
+*(Merged 2026-11-17 by lane A1 from A6's block authored into REPORT-INPUTS-ITER4.md in
+worktree agent-07 (wrong file per the H-shepherded ruling); content verbatim below
+except heading format + this note. Every log citation re-verified against
+`pilots/32/logs/run12-crossing-existence.log` on agent-07 disk before inclusion:
+verdict :14/:58, M1 triad :16–:24, M2 triad :60–:66, provenance header :1. M2.lean +
+the log + the discharge note are in agent-07 pending H's commit.)*
+
+**M2 (proof artifact — 675 LoC, 7 public theorems + 2 helper lemmas, coverage C2
+(in-file audit tail prints all 7 theorems); disk sha256
+`9c10fcf5d209407be79178061a60740f9181f9bc18910fc77e1480742c1c52b3e`; SELF-CONTAINED
+frozen-M1 carry — imports only Mathlib, Pb.lean precedent, byte-diff-verified vs the
+frozen `M1.lean` sha `5aad3ffa…`; needs NO sibling-import rewrite at Step-B):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `gammaOf_tendsto_ten_right` | `pilots/32/M2.lean:452` | PROVED-UNCONDITIONAL — R2 §12.2 form 1 (∀ e > 0, ∃ c > 10, gammaOf c (9/10) < e) | `pilots/32/logs/run12-crossing-existence.log:60` — triad | near-10 quantitative bound `gammaOf_le_add` (:408, log(1+u) ≤ u) |
+| `gmax_pos_near_ten` | `pilots/32/M2.lean:471` | PROVED-UNCONDITIONAL — form 2, + explicit `0 < ε` binder (recorded adaptation: bare `ε < ε*` admits ε ≤ 0 where no crossing exists; faithful to the article's ε ∈ (0, ε*)) | `…run12-crossing-existence.log:61` — triad | via `lnΛ_upper`; explicit witness 10 + B/(2·Lconst) |
+| `gmax_neg_far` | `pilots/32/M2.lean:504` | PROVED-UNCONDITIONAL — form 3 | `…:62` — triad | new MVT lower bound `lnΛ_growth` (:431): lnΛ c 0 ≥ 5·ln10 + (c−10)·κ/2, κ = 2·Lconst − ln(10/9) > 0 |
+| `crossDiff_continuous` | `pilots/32/M2.lean:538` | PROVED-UNCONDITIONAL — form 4, stated exactly as specced (no ε-sign hypothesis) | `…:63` — triad | gammaOf side via `Real.continuousOn_log` + `ContinuousOn.comp'`; gmax side via M1's `hasDerivAt_Ffun`/`lnΛ_decompose` |
+| `crossing_exists` | `pilots/32/M2.lean:582` | PROVED-UNCONDITIONAL — form 5: ∃ c > 10, IsCrossing ε c — THE §5 DISCHARGE | `…:64` — triad | IVT `intermediate_value_Icc`; near endpoint c₁ = 10 + B/(2·(2·Lconst + 1/5)) (strictness t·(Lconst+1/10) = B/4 < B/2); far endpoint = form-3 witness + t via `gmax_strictAnti` |
+| `frontier_unconditional` | `pilots/32/M2.lean:646` | PROVED-UNCONDITIONAL — form 6 (spec's `Ach` = `FrontierSet`): FrontierSet ε = Ioo 0 (gammaOf cₓ (9/10)) with NO crossing hypothesis | `…:65` — triad | both inclusions via M1's `membership_of_lt`/`frontier_upper` |
+| `frontier_formula_unconditional` | `pilots/32/M2.lean:662` | PROVED-UNCONDITIONAL — Theorem 5's sSup formula composed with M1's `frontier_of_crossing` | `…:66` — triad | makes Theorem 5 unconditional parametric (with M1's `crossing_unique` for uniqueness) |
+
+**0 sorry-warnings; telemetry OVER=0 (warm wall=45s, 2 cpu/4 GB spec, LEAN_NUM_THREADS=2).**
+**Descent:** run1 FAIL 9 errors → run2 FAIL 2 (norm_num on metavar-typed `ContinuousOn.div`
+h₀ goals — fixed by `show`-typed bodies) → run3 GREEN; all three URLs in the log header
+(the raw attempt-1/2 transcripts are preserved in the log body below the GREEN section,
+by design). **Route:** doz CLI `/home/doz/dozenv/bin/modal`, app `crossmath-pilot-32`
+(semraker workspace; PRIMARY per the 2026-11-17 orchestrator ruling + H's warm-layers
+relay). **M1 regression:** re-verified OK in the same run (:14, triad :16–:24) — the M2
+carry's source of record. **Article gate:** article-32 §5's "not formalized"
+crossing-existence sentences DISCHARGED (retired-sentence map + R1 v2 status draft at
+`pilots/32/run12-discharge-note.md`); remaining paper-level as scoped: the ε-dependence
+of c* and the donor Corollary-31 data-structure statement. Step-B registration row
+applied by A1 in `make_axcheck.py` TARGETS (`("AxPilot32_M2", PILOTS / "32/M2.lean")`,
+plain append — inert until H commits A6's batch). **Stale-wrappers row (§2)
+half-resolved:** `pilots/32/run_pilot.sh` — the xyz-default caveat was already fixed at
+this rev (doz-default + doz-CLI branch); this session made the stage dir lane-unique
+(`:14`, `/tmp/crossmath-pilot-32-a6`, H commits). `feasibility/probe/run_probe.sh`
+remains for the feasibility lane.
+
+**Verification-lane addendum (A1, 2026-11-17):** census `axcheck_iter4.py decls` over
+M2.lean = **43 decls (43 public + 0 private)** = the frozen-M1 carry + the new content;
+direct prints in-run = the 7 new theorems (M2 section) + the 9 M1 theorems (M1
+regression section, same run). **Print-coverage caveat (§10.9 class, minor):** the 2
+new helper lemmas `log4_pos` (:66) / `log10_pos` (:67) have no direct print — ⊆-triad
+by elimination (rc=0, 0 sorry-warnings; `log4_pos` consumed at :92/:97/:108/:295 inside
+carry lemmas feeding printed-triad theorems); note `make_axcheck`'s regex captures
+theorems only, so the Step-B stage will not print them either — they are covered by
+the wave-2 full-coverage pass (`axcheck_iter4.py gen` captures lemmas;
+FINAL-SWEEP-PLAN-ITER4 §7b(ii)) if 32-M2 is included there, else by this elimination
+note of record.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -795,4 +850,8 @@ triad at `p0-run1.log:151–154`). Fourth batch: §10.9's L3a print-gap CLOSED
 shortfall discharged in the same log, 93 records); axcheck_iter4 T9 primed-name
 regex fix (RECORD_RE + join openers `([^']*)`→`(.*)`) — axcheck-full-run1.log now
 scans 124 records all-triad (was 120 + 4 hand-joined), C2 sweep log 719→724 all
-triad, dated note in the tool header.*
+triad, dated note in the tool header. Fifth batch: §10.11 32-crossing (A6's block
+merged from agent-07's REPORT-INPUTS copy per the wrong-file ruling, cites
+re-verified on agent-07 disk — verdict :14/:58, triad :16–:24/:60–:66; census 43
+public decls; 2-helper-lemma print caveat noted; TARGETS row AxPilot32_M2 applied,
+inert until H commits A6's batch).*

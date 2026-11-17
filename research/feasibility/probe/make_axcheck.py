@@ -70,6 +70,7 @@ TARGETS = [
     ("AxPilot75_Pb",      PILOTS / "75/Pb.lean"),   # 75-Pb GREEN pb-run11-final 2026-11-16 (89 decls = Pa carry + E1-E6 + Pb-1/2/3; inline tails print 32 — Step-B full-coverage prints all 89); Mathlib-only, self-contained carry
     ("AxPilotAL3D_A2",    PILOTS / "al3d/A2.lean"), # AL-P2 m1 GREEN alp2-run7-m1green 2026-11-17 (2 theorems triad; 3 Equiv defs carry no status); import A1 auto-rewritten; al3d/P0 stays EXCLUDED (probe)
     ("AxPilot72_M1_T3",   PILOTS / "72-M1/P72M1T3.lean"),  # L3a GREEN l3a-run6-GREEN + print-gap CLOSED axcheck-l3a-run1 (9/9 direct triad) 2026-11-17; mid-tranche: L3b-d + interface still owed — file GROWS, re-stage at sweep (sha fe57d30b19d9 at L3a); import P72M1T2 auto-rewritten
+    ("AxPilot32_M2",      PILOTS / "32/M2.lean"),   # 32-crossing FINAL-GREEN run12-crossing-existence 2026-11-17 (lane A6; 7 new theorems triad :60-:66; self-contained frozen-M1 carry, import Mathlib only, NO rewrite needed; row from A6's run12-discharge-note §4). INERT until H commits A6's batch (M2.lean in agent-07 at prep).
 ]
 
 
