@@ -65,7 +65,7 @@ TARGETS additions land with each pilot's first GREEN (A1's ledger §10 row).
 
 | Row | Item | Discharge condition | Status |
 |---|---|---|---|
-| debts f/g/h/l | HKT pin; vdG–vdV number (DUE at FF-EZ2 dossier); tracker citation convention; Λ-absence ban | novelty lane (L6/A5-pattern) | **OPEN** |
+| debts f/g/h/l | HKT pin; vdG–vdV number (DUE at FF-EZ2 dossier; **PINNED 2026-11-17 to theorem-granular — Fuhrmann arXiv:alg-geom/9610023 + Tafazolian–Torres 2012, superseding the tables-level cite; H hand-apply per A3's battery flag**); tracker citation convention; Λ-absence ban | novelty lane (L6/A5-pattern) | **g CLOSED 2026-11-17 (FF-EZ2 battery); f/h/l OPEN** |
 | clocks | tracker (static-asset curl), Liu-2, WenrongZou, physlib pushed_at, mathlib PNT/LP PRs, AreaLaw2D challenge repo | standing; date every claim | **STANDING** |
 | stale wrappers | `pilots/32/run_pilot.sh:15–16`, `feasibility/probe/run_probe.sh:15–16` (xyz-default) | patch or `MODAL_USER=doz` at first reuse (feasibility lane) | **OPEN** |
 | cold bench | 41 (top), 12, 11-M3/word-RAM, FF-EZ2 (battery + debt g first), physlib bridge probe | lane-drain activation only | **BENCHED** |

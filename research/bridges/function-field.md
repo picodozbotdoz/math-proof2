@@ -296,6 +296,81 @@ per-family), so this is a large analytic build, not a transfer. Verdict: **WARM 
 class (unclaimed, clock ticking per Suzuki), HARD as feasibility; the base-change density
 theorem is the honest cheap deliverable.**
 
+#### Battery (2026-11-17)
+
+Executor: lane A3 (worktree agent-04 @ 53c1548; written/evidence work, no Modal; siblings
+read-only). Discharges the charter gate *"no FB charter before its dossier-level battery"* for
+FF-EZ2 — the last "behind its battery" bench item (r5-iteration4-backlog §2 S4, §14 row 13;
+the bench: 41, 12, FF-EZ2, G13 — G13 ran 2026-11-17). FF-EZ2 lives in this section (no
+separate candidates/ dossier); the battery appends here per the zone-owner convention, and
+constitutes the r5 §12c spec-doc gate's two named discriminators (A5's dossier-level re-verify
+of seed-triage row 4 + debt g pinned). Inputs read this session: this section; r5 backlog §2
+S4 / §12c / debt row g / §14 row 13; `novelty/iter4-seed-triage.md` rows 4, 6 (:59–82);
+`feasibility/ITERATION4-SCAN.md` seed 4/6; `pilots/71/{P1,P2}.lean` + logs (71-P2 GREEN);
+`pilots/ff-ez4/P0-record.md` (the sibling pattern); tauceti + axiommath/Weil read-only
+censuses; web sweeps (below, dated). All [V] = verified at the cited locator this session.
+
+**(1) Substrate census — everything the survivor statement needs is on-pin, statement-level.**
+The engine is `Weil.rationalFrobeniusCharpolyReverse_eq_comp_of_comp_specAlgebraMap_eq`
+[V — `axiommath/Weil/Weil/AlgebraicGeometry/EtaleCohomology/Trace/
+FieldOfConstantsFrobenius.lean:163`, statement-level citation only, the G3/G6b convention;
+direct import stays priced-out per G6a]: the Frobenius charpoly of a base change composes with
+`X^(finrank)` — exactly the eigenvalues-{α_i^m} fact the base-change statement runs on. The
+multiset/binder vocabulary is landed and GREEN in our own 71-P2 (`WeilData`, `lPoly`,
+`multiset_norm_sum_le` — `pilots/71/P2.lean:40/:57/:90`, article 71 v2 §6). The genus-1 trap
+instances are tauceti-native [V — `AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/
+Supersingular.lean:118/:150/:172/:188`: supersingular ⟺ trace 0 ⟺ α = ±√q, the
+eigenvalues-equal-up-to-sign mechanism]. The architectural template is the FF-EZ4 sibling
+[V — `pilots/ff-ez4/P0.lean` + `P0-record.md`, GREEN 2026-11-17: all-binder `Hyp*`
+architecture, mathlib-only, C1 [WARM], 216 LoC]. Class: C1 probe, warm runner, no donor
+builds, no new analysis — the bridge's S-effort estimate stands.
+
+**(2) Novelty re-verify at dossier level (seed-triage row 4's mark) + month-clock.** The r4 §1
+record holds: no FF proportion statements in any surveyed corpus; the family-average version
+exists informally (Bui–Florea arXiv:1605.07092, "lower bounds for the proportion of simple
+zeros" over H_{2g+1}) but the Lamzouri-constant exact-inequality version is unclaimed, and
+the cheap survivor (base-change density-1 simplicity under the exclusion hypothesis) has no
+explicit statement found (bridge's search + this battery's sweep). Month-clock sweep
+2026-11-17 [web, query class "function-field zeta simple zeros/proportions/base change",
+recency one month]: **no new occupants** — Suzuki arXiv:2610.41115 (2026-10-30) remains the
+only method-neighbor (Hilbert-space methods, no proportions); WenrongZou/TateThesis is
+number-field side (73's scope softening, unchanged). Clock clean at this date; engine-coverage
+caveat noted.
+
+**(3) Debt g — vdG–vdV theorem number: PINNED, with a granularity correction.** The falsity-trap
+citation does NOT land in vdG–vdV at theorem granularity: Zbl 0729.11066 is the *tables*
+lineage (van der Geer–van der Vlugt, "Tables for the function N(g,q)" and descendants —
+`van-der-geer.nl/tables-mathcomp21.pdf`; the vdG–vdV *curves* are the Artin–Schreier/
+linearized-polynomial family, cf. arXiv:2412.00902). The theorem-granular pins for the
+maximal-hyperelliptic trap are: **Fuhrmann, arXiv:alg-geom/9610023 "On maximal curves" (1996)**
+— maximal curves over F_{q²}, including the hyperelliptic genus bound (a hyperelliptic curve
+maximal over F_{q²} has genus ≤ (q−1)/2); **Tafazolian(-–Torres), "A family of maximal
+hyperelliptic curves" (2012)** — the family classification, with the instance theorem: for
+even q, `y² + y = x^{q+1}` (genus q/2) is maximal over F_{q²} [V abstract-level,
+ime.unicamp.br rp-2014-9], alongside the classical odd-characteristic instance
+`y² = x^q − x` (genus (q−1)/2). Dossier-level consequence (the :74–75 check): uniform
+every-curve lower bounds over a family are refuted exactly when the family contains such a
+member — over F_{r²} that happens at genus (r−1)/2 (odd r) and in the q/2-family (even r) —
+so any family statement must carry the exclusion hypothesis the design rule already mandates
+("family-averaged, family-quantified, or exclusion-based — never every curve").
+
+**(4) Battery verdict: CHARTER-GO (gate cleared; S-class cycle-filler at the orchestrator's
+option).** All named discriminators clear: row-4 re-verify done (novelty clean at dossier
+level, month-clock clean), debt g pinned (with the granularity correction above), substrate
+on-pin and pattern-templated (FF-EZ4), effort S (the bridge's estimate; r5 §2 S4 "S–M after
+battery" — the S end, since the survivor statement only needs the base-change engine + 71-P2
+vocabulary + elementary root-of-unity arguments). The spec-doc-first rule (r5 §12c) is now
+satisfiable: guards = the design rule (exclusion/family-quantified shapes only), the
+maximal-member exclusions per (3), Weil-as-binder per S12, every claim dated. The
+family-proportion rung stays HARD/deferred (zero FF explicit-formula infrastructure — this
+battery changes nothing there). If the iteration-4 queue stays full, deferral to iteration 5
+costs nothing: every pinned fact above is durable. KILL: nothing — both rungs are either
+clean-cheap or cleanly-deferred.
+
+— battery by lane A3, 2026-11-17; the charter decision is the orchestrator's. Cross-refs:
+r5-iteration4-backlog §2 S4, §12c, debt row g, §14 row 13; iter4-seed-triage rows 4/6;
+pilots/71 (P2 GREEN), pilots/ff-ez4 (P0 GREEN).
+
 ### FF-EZ3. Hecke L-functions over function fields: the Tate-thesis dictionary and the missing quasi-RH-with-1/2
 
 **Candidate statement.** Two layers.

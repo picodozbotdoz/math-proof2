@@ -72,7 +72,7 @@ strong discovery beats three new weak ones.
 | Debt | One line | Discharge |
 |---|---|---|
 | f — HKT theorem-number partial pin (`debts-register.md:15`) | book pinned (Zbl 1200.11042), chapter/theorem unpinnable open-web | cite Part-3/four-pinned-papers only until physical check |
-| g — vdG–vdV exact theorem number (`:16`) | open at theorem granularity | pin when a pilot consumes the falsity-trap citation — **due at FF-EZ2 dossier time** (maximal-family check, `iter4-seed-triage.md` :74–75) |
+| g — vdG–vdV exact theorem number (`:16`) | open at theorem granularity | pin when a pilot consumes the falsity-trap citation — **due at FF-EZ2 dossier time** (maximal-family check, `iter4-seed-triage.md` :74–75). **PINNED 2026-11-17 (FF-EZ2 battery, A3; H hand-apply): superseded to theorem-granular — Fuhrmann arXiv:alg-geom/9610023 "On maximal curves" (1996; the maximal-hyperelliptic trap) + Tafazolian–Torres 2012 (maximal over F_{q²} ⇒ genus ≤ (q−1)²/4 class) — replacing the vdG–vdV tables-level cite** |
 | h — tracker catalogue-lag caveat (`:17`) | deployed catalogue normalizes statuses; fresh push may lag | citation convention: `as_of` + commit date together (§9.5 protocol) |
 | l — Λ-gap taken externally (`:21`) | Λ ≤ 9/32 kernel-checked by DrMurphyIsIn; "Λ absent everywhere" is false | iteration-4 charter/scan must not resurrect Λ-absence claims (SCAN carries it via seed 8; charter text must too) |
 | Flags | Rosen ch.-number spot-check (due at 73-Q4); 72's α>1 Rényi re-check (due at 74 pilot); DLRT erratum propagation verify; tracker/Liu-2/mathlib-PNT/physlib standing clocks (`SCAN.md` §1c :44–67) | novelty battery, standing |
