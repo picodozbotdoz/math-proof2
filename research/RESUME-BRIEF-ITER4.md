@@ -230,3 +230,25 @@ Wrap-up by the orchestrator directly (lanes unavailable). **All lane work commit
 2. First actions: (a) read the three G11 log tails → verdict lines → route to R3 for review → update donor map; (b) verify pb-run12-auditfix.log closes the §10.4 print-gap; (c) then the week-1 drain review per agenda (elevations: Truffet go-conditions, 01-Rung-0 lane-free, N=1 quota state — 75 two-tier article is the unspent discovery lead).
 3. Then resume in-flight: run 73-Q4 (spec in the gate memo, warm crossmath-pilot-73), ZZV2-P0 (card 8, released), AL-P2-d/e (R9's decomposition in A2.lean header), and charter the 75-N2 consumer design.
 4. Standing constraints unchanged: Modal ONLY via doz CLI (2cpu/4GB, telemetry, LEAN_NUM_THREADS=2, `-j 2` on lake-build phases per the hEχ nproc note), siblings read-only, one-writer-per-file, lanes report; H-style commits with the hardened pre-commit gate.
+
+*(Restart addendum items 1–4 above: **SUPERSEDED by Wave-2 status below** — stamped 2026-11-17, H. The termination record itself is frozen history; only its restart map is superseded. Also superseded: item 4's "doz CLI only" line — see §Substrate baseline Modal-health notes for the 2026-11-17 route rulings.)*
+
+### Wave-2 status (2026-11-17, mid-wave — H; the CURRENT restart map)
+
+**Restart rule: read `research/ORCHESTRATION-ITER4.md` FIRST (canonical lane table), then this subsection, then the §(c) table.** All "in flight" items of the termination block below are landed or re-chartered:
+
+**Landed (commit · verdict):**
+- G11/G12 OAI donor-pin audits — `f4511af` — PASS triad-clean; statement-binder classes RELEASED, build-dep ban unchanged (donor map §"G11/G12 verdict"; r3-tables §10.7).
+- pb-run12 §10.4 print-gap — `f4511af` (§10.8) — closed; then **Pb full-coverage axcheck 89/89 triad, 0 sorryAx** — `bb780d4` (F1–F3 record defects closed with dated corrections; SCAN §1c corrected).
+- 72-M1 L3a print-gap — `a0c0f0e` — CLOSED (5/5 hermPart triad, 9/9 census; axcheck T9 RECORD_RE fix, 124/124 machine-confirmed).
+- ZZV2-λ **P0 GREEN** — `1a0ef7e` — 1 run, wall 681 s, donor hygiene gate 4/4 triad consumer-side; MT-frozen Landau bridge recorded ⇒ **P1 GO then hard-STOP armed** (R5 §12a).
+- G9 + G13 — `68be1a2` — GREEN (1 fix-retry each: runs 36/37, 38/39); StrongPNT port ≈ 0 on-pin ⇒ **22-T2a GO (chartered to A8; T1 NOT fired)**; physlib occupation-pair bridge elaborates standalone.
+- Truffet — `4047470` + `3a62747` — **ELEVATE** (go-condition (i) closed); dossier 78 landed + HARDENED (critique sweep EMPTY — the finding is unclaimed; Stage-A P0 spec, no binders).
+- 75-N2 consumer dossier — `434208e` — S1–S4 provisional PASS (N2-d); **P0 chartered to A5** (the cycle's strongest discovery lead).
+- article-75 v2 — `a6c7b13` — kind DISCOVERY-CONDITIONAL, two-tier, 11/12 checklist (PENDING-CLOSE: README row-75 at splice, sweep shas); quota N=1 unspent, 11/11 relabels verified.
+- A8 week-1 validation — `75266fa` — 4 PASS / 3 PARTIAL / 0 FAIL; 75-Pb READY as discovery lead. Corpus compliance audit — `0b8b334` — 42/50/75 compliant; upgrade queue 32→01→30 (article-01 upgrade chartered; 32 edit armed on A6).
+- A1 sweep pre-staging — `132887d` — FINAL-SWEEP §7 addendum, TARGETS +72_M1_T3, Step-A classifier 17/17 clean. INDEX reconciliation — `0e5ac5b` (+ `3b627b5` refresh).
+
+**In flight (owner · item):** A1 — close-out gates pre-staging; A2 — 73-Q4 execution (gate memo GO; `hPur` stays a binder); A3 — ZZV2-λ P1 (stop-after-P1 ARMED); A4 — AL-P2 c/d/e (P2-d risk concentration); A5 — 75-N2 P0; A6 — 32-crossing run-12 (warm pilot-32, doz route; article-32 v2 edit armed on GREEN) + 01-stability tranche if lane-free; A7 — dossier 78 Stage-A P0; A8 — 22-T2a pilot + gprobe open-Filter fix queued; A9 — article-01 upgrade + 52/11 residuals + README/splice PENDING-CLOSEs.
+
+**Standing rules minted this wave:** file-funnel (r3-verification-tables → A1 only; REPORT-INPUTS-ITER4 → H-shepherded surgical edits — tracker header); H's CHECK-BEFORE-VERBATIM-COPY staleness guard (runbook scratch; 36 files @ `132887d`); runner-fixes-wave2.patch staged (H applies post-wave on signal); Modal routes per §Substrate baseline (doz primary for warm-layer apps, xyz for new/fallback).
