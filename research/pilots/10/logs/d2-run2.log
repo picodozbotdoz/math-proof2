@@ -1,0 +1,405 @@
+# provenance: raw modal run, pilot-10 D2 landing TRANCHE 2 (Closure/Cases excerpt + the init/out field theorems), continuation of d2-run1.log | date 2026-11-17 | producing lane: A6 | attempts 4–6 of the D2 session (fix budget ≤4 exhausted: fixes after runs 1, 2, 4, 6; runs 3 = GREEN canary milestone, 4 = new-content tranche) | LANDED GREEN in this tranche: eth Closure/Cases excerpt (within_branch, tagHead + tagHead_eq, sumCore, cond', sumElim — TM.code-qualified: root `code` is ambiguous at this pin, Lean.Doc) and padM'_out_polyT PROVED BY fun_prop triad-only [propext, Classical.choice, Quot.sound] | FINAL STATE (attempt 6, file sha ad366b23e9d22bb710c97651e0edf98be17aca35303019db2c9bf56fd34c76b5, 3,341 LoC): ONE elaboration error remaining — padM'_init_polyT's STATEMENT: `Enc (padM' e A').σ` synthesis fails (the .init/.σ structure projection blocks instance search even with the type ascription; PolyT's β binds the projection). DIAGNOSED FIX (2 lines, NOT applied — fix budget exhausted; queued for the next run): drop the projection from the statement, state the canary shape + an rfl bridge `padM'_init_eq : (padM' e A').init = fun x => .inl (x, 1) := rfl` | descent: attempt4 = root-code ambiguity (8 errors, one class); attempt5 = the init σ-synthesis error surfaced (0 tactic errors); attempt6 = have/exact-wrapper attempt — the error is STATEMENT-level, tactic wrapper cannot reach it (same single error) | attempt 4 URL https://modal.com/apps/semraker/main/ap-Wx6EwFyCtmUraKmiEiiZi1 ; attempt 5 https://modal.com/apps/semraker/main/ap-57OOZARh9GuuXr73oorXYl ; attempt 6 https://modal.com/apps/semraker/main/ap-R9oOLpNQIWxESxkY8b8i8n | telemetry: attempt6 wall=99s warm, mem 5661MB (mmapped-olean class), OVER=1 soft
+
+# === attempt 4 ===
+https://modal.com/apps/semraker/main/ap-Wx6EwFyCtmUraKmiEiiZi1
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Wx6EwFyCtmUraKmiEiiZi1
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[tele] t=60s cpu=0.66 mem=7551MB anon=0MB peak=-1MB procs=2 OVER mem
+[p10] L4.lean: FAIL rc=1 errors=8 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [sorryAx]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+L4.lean:3261:82: error: Ambiguous term
+  code
+Possible interpretations:
+  _root_.code : Lean.Ident → Lean.Doc.VersoCodeBlock → Lean.Doc.DocM (Lean.Doc.Block Lean.ElabInline Lean.ElabBlock)
+  
+  TM.code : V → List TM.Sym
+L4.lean:3261:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+···
+  TM.code : V → List TM.Sym
+L4.lean:3261:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+hQ : ∀ (x : γ) (M A B N : List TM.Sym), Frag.Within Q (st (wd x ++ M) A B N) (q (len x)) (st (wd (g x) ++ M) A B N)
+hQl : ∀ (x : γ), len (g x) ≤ q (len x)
+M A B N : List TM.Sym
+y : β
+⊢ (TM.code ((V.bit false).cons (Enc.toV y))).length = (TM.code (Enc.toV y)).length + 3
+L4.lean:3272:82: error: Ambiguous term
+···
+⊢ (TM.code ((V.bit false).cons (Enc.toV y))).length = (TM.code (Enc.toV y)).length + 3
+L4.lean:3272:82: error: Ambiguous term
+  code
+Possible interpretations:
+  _root_.code : Lean.Ident → Lean.Doc.VersoCodeBlock → Lean.Doc.DocM (Lean.Doc.Block Lean.ElabInline Lean.ElabBlock)
+  
+  TM.code : V → List TM.Sym
+L4.lean:3272:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+···
+  TM.code : V → List TM.Sym
+L4.lean:3272:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+hQ : ∀ (x : γ) (M A B N : List TM.Sym), Frag.Within Q (st (wd x ++ M) A B N) (q (len x)) (st (wd (g x) ++ M) A B N)
+hQl : ∀ (x : γ), len (g x) ≤ q (len x)
+M A B N : List TM.Sym
+z : γ
+⊢ (TM.code ((V.bit true).cons (Enc.toV z))).length = (TM.code (Enc.toV z)).length + 3
+L4.lean:3284:82: error: Ambiguous term
+···
+⊢ (TM.code ((V.bit true).cons (Enc.toV z))).length = (TM.code (Enc.toV z)).length + 3
+L4.lean:3284:82: error: Ambiguous term
+  code
+Possible interpretations:
+  _root_.code : Lean.Ident → Lean.Doc.VersoCodeBlock → Lean.Doc.DocM (Lean.Doc.Block Lean.ElabInline Lean.ElabBlock)
+  
+  TM.code : V → List TM.Sym
+L4.lean:3284:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+···
+  TM.code : V → List TM.Sym
+L4.lean:3284:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+hQ : ∀ (x : γ) (M A B N : List TM.Sym), Frag.Within Q (st (wd x ++ M) A B N) (q (len x)) (st (wd (g x) ++ M) A B N)
+hQl : ∀ (x : γ), len (g x) ≤ q (len x)
+y : β
+⊢ (TM.code ((V.bit false).cons (Enc.toV y))).length = (TM.code (Enc.toV y)).length + 3
+L4.lean:3290:82: error: Ambiguous term
+  code
+···
+⊢ (TM.code ((V.bit false).cons (Enc.toV y))).length = (TM.code (Enc.toV y)).length + 3
+L4.lean:3290:82: error: Ambiguous term
+  code
+Possible interpretations:
+  _root_.code : Lean.Ident → Lean.Doc.VersoCodeBlock → Lean.Doc.DocM (Lean.Doc.Block Lean.ElabInline Lean.ElabBlock)
+  
+  TM.code : V → List TM.Sym
+L4.lean:3290:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+···
+  TM.code : V → List TM.Sym
+L4.lean:3290:55: error: unsolved goals
+β γ δ : Type
+inst✝² : Enc β
+inst✝¹ : Enc γ
+inst✝ : Enc δ
+f : β → δ
+g : γ → δ
+hf : PolyT f
+hg : PolyT g
+P : Fr
+t : ℕ → ℕ
+htp : PB t
+htm : Monotone t
+hP : ∀ (x : β) (M A B N : List TM.Sym), Frag.Within P (st (wd x ++ M) A B N) (t (len x)) (st (wd (f x) ++ M) A B N)
+hPl : ∀ (x : β), len (f x) ≤ t (len x)
+Q : Fr
+q : ℕ → ℕ
+hqp : PB q
+hqm : Monotone q
+hQ : ∀ (x : γ) (M A B N : List TM.Sym), Frag.Within Q (st (wd x ++ M) A B N) (q (len x)) (st (wd (g x) ++ M) A B N)
+hQl : ∀ (x : γ), len (g x) ≤ q (len x)
+z : γ
+⊢ (TM.code ((V.bit true).cons (Enc.toV z))).length = (TM.code (Enc.toV z)).length + 3
+L4.lean:3329:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc (padM' e A').σ
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=8 sorry=0
+[tele] SUMMARY run: wall=85s max_cpu=0.66 max_mem=7551MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Wx6EwFyCtmUraKmiEiiZi1
+
+# === attempt 5 ===
+https://modal.com/apps/semraker/main/ap-57OOZARh9GuuXr73oorXYl
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-57OOZARh9GuuXr73oorXYl
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[tele] t=60s cpu=0.51 mem=5661MB anon=0MB peak=-1MB procs=2 OVER mem
+[p10] L4.lean: FAIL rc=1 errors=0 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [sorryAx]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+L4.lean:3329:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc (padM' e A').σ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [sorryAx]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=0 sorry=0
+[tele] SUMMARY run: wall=99s max_cpu=0.51 max_mem=5661MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-57OOZARh9GuuXr73oorXYl
+
+# === attempt 6 ===
+https://modal.com/apps/semraker/main/ap-R9oOLpNQIWxESxkY8b8i8n
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-R9oOLpNQIWxESxkY8b8i8n
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: FAIL rc=1 errors=0 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+L4.lean:3329:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc (padM' e A').σ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=0 sorry=0
+[tele] SUMMARY run: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-R9oOLpNQIWxESxkY8b8i8n

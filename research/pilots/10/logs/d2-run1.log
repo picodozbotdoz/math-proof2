@@ -1,0 +1,230 @@
+# provenance: raw modal run, pilot-10 D2 landing TRANCHE 1 (the Route-A canary milestone + the Carried first bill), app crossmath-pilot-10, doz CLI route (PRIMARY per orchestrator ruling 2026-11-17) | date 2026-11-17 | producing lane: A6 | command: MODAL_USER=doz bash research/pilots/10/run_pilot.sh research/pilots/10/L4.lean (stage /tmp/crossmath-10-d1-a6) | charter: orchestrator D2 GO ruling (Route A/B decided by first run; amendment binding) | this log = attempts 1–3, ending in the GREEN canary milestone (attempt 3); attempts 4–6 (the Cases/fields tranche) are in d2-run2.log | GREEN content at attempt 3: Carried instances x7 + carried_σ (D2 FIRST BILL) [propext, Quot.sound]; structural fragments pop1/swapF/consF/unconsF + within-lemmas; PolyT.of/congr/of_wd; attribute [fun_prop] on the user-class PolyT ACCEPTED at v4.36 (Route A enabling step); eth Closure/Basic @[fun_prop] database verbatim; canary_init + canary_pair PROVED BY fun_prop, triad-only — ROUTE A VALIDATED | descent: attempt1 = header doc-comment unterminated (authoring slip, same class as D1 run1); attempt2 = missing section variable line [Enc α]/[Enc β] for the EncLemmas/Carried excerpt (eth's file-level variable; without it the Carried instance heads lack the Enc α parameter), duplicate fromA/fromB_within (substrate carries them, L2 :836/:843 — M1's host excerpt took them), docstring-before-attribute parse; attempt3 GREEN wall=56s warm, telemetry OVER=0, URL https://modal.com/apps/semraker/main/ap-IZiaVtgXIvSyo1DeGNQtjQ | substrate: mathlib ff2494ea5e43, v4.36.0-rc2, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+
+# === attempt 1 ===
+https://modal.com/apps/semraker/main/ap-gbNgsdR5753tXrQRQ6jRXM
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-gbNgsdR5753tXrQRQ6jRXM
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+L4.lean:3231:0: error: unterminated comment
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=8s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-gbNgsdR5753tXrQRQ6jRXM
+
+# === attempt 2 ===
+https://modal.com/apps/semraker/main/ap-dslnqy0So3yhsezkF8EGeA
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dslnqy0So3yhsezkF8EGeA
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, sorryAx, Quot.sound]
+---- error contexts ----
+L4.lean:2907:6: error(lean.unknownIdentifier): Unknown identifier `len_list`
+L4.lean:2906:52: error: unsolved goals
+α : Type
+l : List α
+⊢ 2 ≤ sorry
+L4.lean:2918:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc α
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L4.lean:2923:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc α
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L4.lean:2928:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc α
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L4.lean:2933:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Enc α
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L4.lean:2985:8: error: `Groundwork.TM.fromA_within` has already been declared
+L4.lean:2992:8: error: `Groundwork.TM.fromB_within` has already been declared
+L4.lean:3079:50: error: unexpected token 'attribute'; expected 'lemma'
+L4.lean:3142:20: warning: declaration uses `sorry`
+L4.lean:3162:4: warning: this tactic is never executed
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L4.lean:2985:8: error: `Groundwork.TM.fromA_within` has already been declared
+L4.lean:2992:8: error: `Groundwork.TM.fromB_within` has already been declared
+L4.lean:3079:50: error: unexpected token 'attribute'; expected 'lemma'
+L4.lean:3142:20: warning: declaration uses `sorry`
+L4.lean:3162:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+L4.lean:3161:4: warning: Unused tactic linter: `rw [len_pair]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3162:4: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3164:16: warning: declaration uses `sorry`
+L4.lean:3178:16: warning: declaration uses `sorry`
+L4.lean:3225:56: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Carried (List Bool × ℕ ⊕ Bool)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'Groundwork.PadC.canary_init' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, sorryAx, Quot.sound]
+···
+L4.lean:2985:8: error: `Groundwork.TM.fromA_within` has already been declared
+L4.lean:2992:8: error: `Groundwork.TM.fromB_within` has already been declared
+L4.lean:3079:50: error: unexpected token 'attribute'; expected 'lemma'
+L4.lean:3142:20: warning: declaration uses `sorry`
+L4.lean:3162:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+L4.lean:3161:4: warning: Unused tactic linter: `rw [len_pair]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3162:4: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3164:16: warning: declaration uses `sorry`
+L4.lean:3178:16: warning: declaration uses `sorry`
+L4.lean:3225:56: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Carried (List Bool × ℕ ⊕ Bool)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'Groundwork.PadC.canary_init' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, sorryAx, Quot.sound]
+···
+L4.lean:2992:8: error: `Groundwork.TM.fromB_within` has already been declared
+L4.lean:3079:50: error: unexpected token 'attribute'; expected 'lemma'
+L4.lean:3142:20: warning: declaration uses `sorry`
+L4.lean:3162:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+L4.lean:3161:4: warning: Unused tactic linter: `rw [len_pair]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3162:4: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+L4.lean:3164:16: warning: declaration uses `sorry`
+L4.lean:3178:16: warning: declaration uses `sorry`
+L4.lean:3225:56: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Carried (List Bool × ℕ ⊕ Bool)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'Groundwork.PadC.canary_init' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, sorryAx, Quot.sound]
+···
+
+[p10] SUMMARY
+[p10]   L4.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dslnqy0So3yhsezkF8EGeA
+
+# === attempt 3 ===
+https://modal.com/apps/semraker/main/ap-IZiaVtgXIvSyo1DeGNQtjQ
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-IZiaVtgXIvSyo1DeGNQtjQ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L4.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L4.lean
+[p10] L4.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+---- output tail ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+
+[p10] SUMMARY
+[p10]   L4.lean: OK
+[tele] SUMMARY run: wall=56s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-IZiaVtgXIvSyo1DeGNQtjQ
