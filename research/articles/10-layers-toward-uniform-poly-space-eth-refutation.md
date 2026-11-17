@@ -1,20 +1,37 @@
 # Toward One Machine for All k: Space-Certified Layers for a Uniform, Polynomial-Space ETH Refutation
 
-*cross-math-fronttier research article 10 (main-run dossier, Cycle-2 article) · FINAL
-(three proved layers; the assembly tranche carried to Iteration 4, by orchestrator decision
-2026-11-14) · dossier `research/candidates/10-z3-uniform-poly-space-eth-refutation.md`
-(Top-3 #2) · blueprint `research/pilots/10-blueprint.md` · Lean
-`research/pilots/10/{M1,L1,L2}.lean` · next-tranche spec `research/pilots/10/next-tranche-spec.md`*
+*kind: TECHNICAL-RECORD (TEMPLATE-iter4 §0 kept set — space-certified layers toward an
+OPEN headline; the assembly tranche is plumbing-class by charter) · date: 2026-11-09
+(template upgrade 2026-11-17) · supersedes: none (in-place template-compliance upgrade;
+theorems and proofs unchanged) · artifacts: `research/pilots/10/{M1,L1,L2,L3}.lean`,
+`research/pilots/10/logs/`, `research/pilots/10/next-tranche-spec.md`; dossier
+`research/candidates/10-z3-uniform-poly-space-eth-refutation.md` (Top-3 #2); blueprint
+`research/pilots/10-blueprint.md`*
 
-**Status: HEADLINE OPEN (not a theorem of this article). Three layers PROVED.** M1 (space-annotated host
-simulation), L1 (counter combinators agree with padded ones) and L2 (the space-certified
-countdown loop and the first value-time/word-space certificate) are kernel-verified.
-L2.lean has 2,625 lines and 151 theorems, every one with axioms ⊆
-`{propext, Classical.choice, Quot.sound}`. **The target theorem of §3, one machine for all
-k with polynomial space, is not proved.** What remains is the assembly tranche: the
-relabeling walk between two input encodings and the counter-based padding machine. It is
-specified and carried to Iteration 4. This article reports the proved layers as its
-results.
+| theorem / layer | status | hypotheses | evidence |
+|---|---|---|---|
+| **Target theorem of §3 (one machine for all k, polynomial space)** | not a theorem of this article — **HEADLINE OPEN** | — | — |
+| M1 `Groundwork.exists_tm_space` (+ `_at_time`, `_monitor`) | PROVED-UNCONDITIONAL | none beyond definition of subject (a stepped machine with `IsPolyT` instance, polynomial-size states) | `pilots/10/logs/m1-run4-final.log:14–17` — triad (verdict `:1`, stage OK `:12`); re-verified inside L2/L3 runs |
+| L1 agreement family `PaddedDescent.F.{foldC,collectC,rngC,sumFC,prodC,findC}_agree` (+ inactivity/composite) | PROVED-UNCONDITIONAL | none | `l1-run4-final.log:15–20` — ⊆ triad (`collectC_agree` prints `[propext]` only); full-coverage stage OK `:13` (27/27 ⊆ triad) |
+| L2 countdown `Counted.cdFrag_runs`, `cdLoop_runsB`, `PolyTVal`, `polyTVal_id`, `countdown_cut` | PROVED-UNCONDITIONAL | none | `l2-run5-final-green.log:19–23` — triad (verdict `:1`; full axcheck 151/151 ⊆ triad, 0 sorryAx) |
+| Assembly-tranche D1 (landed 2026-11-17, plumbing billing) `Groundwork.PadC.padM'_reaches`, `padM'_runs`, `padM'_state_poly_pair`, `padM'_state_poly` (+ size lemmas) | PROVED-UNCONDITIONAL | none beyond statement scope (`padM'_state_poly` carries the explicit value-polynomiality binder `hv` — the dated spec correction of §8) | `pilots/10/logs/d1-run1.log:25–30` — Part E triad (`padM'_state_poly` etc.) / `[propext, Quot.sound]` (size lemmas); L3.lean OK `:14` |
+
+Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
+external CAS; every printed axiom set ⊆ `{propext, Classical.choice, Quot.sound}`.
+**The target theorem of §3, one machine for all k with polynomial space, is not
+proved.** The proved layers are M1 (space-annotated host simulation), L1 (counter
+combinators agree with padded ones), L2 (the space-certified countdown loop and the
+first value-time/word-space certificate), and — as assembly-tranche progress, billed
+plumbing/completion-value, never novelty — the D1 counter padding machine (§8).
+
+Change log (2026-11-17, lane A9 — template-compliance upgrade, theorems/proofs
+untouched): byline brought to the TEMPLATE-iter4 front matter (kind TECHNICAL-RECORD,
+kept set); the prose status line replaced by per-theorem status rows in the closed
+vocabulary with the OPEN headline stated as the first row; §6 re-cited to exact log
+lines and gained the L3/Part-E row (the D1 landing of 2026-11-17, evidence
+`d1-run1.log`); §7 converted to the mandatory nearest-miss table; §8.1 updated for the
+D1 landing with its dated spec correction. The error-descent parenthesis of the v1 §6
+row was removed (record content, not article content).
 
 ---
 
@@ -180,36 +197,50 @@ bounds n(3n + 6) + 1 ≤ 16(l + nb + 1)^16 by elementary arithmetic (`bound16`, 
 
 | file | content | size | run | axioms |
 |---|---|---|---|---|
-| `pilots/10/M1.lean` | M1 (+ transcribed eth host layer) | 2,043 lines | `m1-run3-confirm-axcheck.log`, `m1-run4-final.log` | all triad |
-| `pilots/10/L1.lean` | L1 | 529 lines, 25 thms | `l1-run4-final.log` | full axcheck 27/27 ⊆ triad |
-| `pilots/10/L2.lean` | M1 verbatim + Part D (L2) | 2,625 lines, 151 thms | `l2-run5-final-green.log` (errors 12→3→1→0) | 151/151 ⊆ triad, 0 sorryAx |
+| `pilots/10/M1.lean` | M1 (+ transcribed eth host layer) | 2,043 lines | `m1-run4-final.log` (OK `:12`; prints `:14–17`), `m1-run3-confirm-axcheck.log` | all triad |
+| `pilots/10/L1.lean` | L1 | 529 lines, 25 thms | `l1-run4-final.log` (full stage OK `:13`; prints `:15–20`) | full axcheck 27/27 ⊆ triad |
+| `pilots/10/L2.lean` | M1 verbatim + Part D (L2) | 2,625 lines, 151 thms | `l2-run5-final-green.log` (verdict `:1`; Part D prints `:19–23`) | 151/151 ⊆ triad, 0 sorryAx |
+| `pilots/10/L3.lean` | L2 verbatim + Part E (tranche D1; landed 2026-11-17, plumbing billing) | 2,805 lines (= L2 verbatim + 132 new) | `d1-run1.log` (L3 OK `:14`; Part E prints `:25–30`) | Part E: four machine theorems triad; size lemmas `[propext, Quot.sound]`; L2-region regression triad `:16–24` |
 
-All three files are Cycle-2 final-sweep targets: `AxPilot10_M1`, `AxPilot10_L1` and
+All of M1/L1/L2 are Cycle-2 final-sweep targets: `AxPilot10_M1`, `AxPilot10_L1` and
 `AxPilot10_L2` are OK, with 106, 36 and 126 axiom lines respectively, and 0 sorryAx
 (`pilots/10/logs/axcheck-c2-final.log`). In L2's own audit, 31 print lines were truncated
 in the Modal log. All of them belong to the byte-identical M1 region, which M1's own
-audit covers.
+audit covers. L3 (Part E) is the Iteration-4 D1 landing; its run of record is
+`d1-run1.log` and it carries the L2 region verbatim (sha-verified at the run header),
+so the same regression coverage applies.
 
-## 7. Relation to prior work
+## 7. Novelty and nearest misses
 
-- **anthropics `eth`** (corpus `eth/proof/`): the uniform machine and time bound
-  (`MainTheorem`; `Wrap.countingBoundImpliesFailureOfETH`). Its pad mechanism
-  (`PaddedDescent/Pad.lean:93–94`, state sizes 2|x| + 2·2^{e(x)} + 3) is the space
-  obstruction that L1/L2 are built to remove.
-- **openai-math** ("The Exponential Time Hypothesis is False", 2026-10-17, rev. 10-25;
-  `SubexponentialSAT`, `SqrtLogSpace`): the per-prefix space monitor and per-k
-  poly-space counting (`sat_polynomial_space`, `Final.lean:149–182`). Its Appendix B
-  binary-budget counter is L1's nearest in-corpus relative.
-- **Literature:** classical polynomial-space #SAT algorithms run in other time regimes.
-  None reaches 2^{o(n)}, and none is formalized (dossier 10 §Novelty).
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| anthropics `eth` corpus (`eth/proof/`: `MainResults.lean:122,144–160,178–179`; `PaddedDescent/Pad.lean:93–94` | the uniform machine and the k-uniform time bound (`Wrap.countingBoundImpliesFailureOfETH`); its pad mechanism (state sizes 2\|x\| + 2·2^{e(x)} + 3) is the space obstruction | our layers remove the obstruction: counter combinators and the countdown loop replace the materialized pad; the uniform **conjunction** with polynomial space is stated in neither corpus |
+| openai-math, "The Exponential Time Hypothesis is False" (2026-10-17, rev. 10-25; `SubexponentialSAT`, `SqrtLogSpace/Final.lean:122–128,149–182`) | the per-prefix space monitor and per-k polynomial-space counting | per-k machines; the uniform-in-k half is eth's — the conjunction is the target neither proves; openai's Appendix B binary-budget counter is L1's nearest in-corpus relative |
+| classical polynomial-space #SAT algorithms (dossier 10 §Novelty sweep) | polynomial-space counting in other time regimes | none reaches the 2^{o(n)} regime and none is formalized |
+
+Scope statement. The layers are engineering toward an open headline (kind
+TECHNICAL-RECORD); no layer is billed as new mathematics, and the assembly tranche —
+including the landed D1 machine — is plumbing/completion-value by charter. The
+unclaimed object is the uniform, polynomial-space conjunction of §3 (novelty record:
+dossier 10 §Novelty, novelty grade 5 at triage).
 
 ## 8. Limitations and open problems
 
-1. **The headline is open.** Still needed (`next-tranche-spec.md`, D1–D6):
-   - the Stepped-level counter padding machine `padM'` with eth's Closure layer;
-   - the theorem `exists_tm_padded_space`, which is eth's `exists_tm_padded` plus the
-     space conjunct;
-   - the relabeling walk between the bracket encoding `wd` and the counter word `cw`.
+1. **The headline is open.** Tranche state (`next-tranche-spec.md`, D1–D6):
+   - **D1 landed 2026-11-17** (plumbing billing, never novelty): the Stepped-level
+     counter padding machine `padM'` with its run theorems and state-poly arithmetic
+     (`L3.lean` Part E; evidence `d1-run1.log:25–30`; the state bound improves eth's
+     `2|x| + 2·2^{e x} + 3` to `2|x| + e x + 4` — the exponential enters only through
+     the number of doublings, never the state). **Dated spec correction carried by the
+     landing:** the spec's `padM'_state_poly` under a bare `PolyT e` hypothesis is
+     FALSE over the substrate's binary `Enc ℕ` (`PolyT` bounds the *word* of e x, not
+     its value; e x = 2^(|x|²) is the counterexample); Part E lands
+     `padM'_state_poly_pair` (unconditional) and `padM'_state_poly` under the explicit
+     value-polynomiality binder `hv` — the D4-consumable form. D2's Route A/B decision
+     is not pre-empted.
+   - still needed: the theorem `exists_tm_padded_space`, which is eth's
+     `exists_tm_padded` plus the space conjunct; the relabeling walk between the
+     bracket encoding `wd` and the counter word `cw`.
 
    After that, the `PolyTVal` certificates for the solver pipeline's state transitions
    must be proved over L1's combinators.

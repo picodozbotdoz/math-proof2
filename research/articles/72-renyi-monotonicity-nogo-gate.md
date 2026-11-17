@@ -1,9 +1,12 @@
 # A Kernel-Verified Fence for Kuwahara's Refutation of the Rényi Area Laws
 
-*cross-math-fronttier research article 72 (Iter-4 edition) · kind: TECHNICAL-RECORD
-(TEMPLATE-iter4 §0) · dossier `research/candidates/72-area-law-inertial-defect.md` ·
-prework `research/pilots/72-prework.md` (Appendix A) · Lean `research/pilots/72/C-neg.lean`,
-`research/pilots/72-M1/P72M1T{1,2}.lean` · bridge `research/bridges/area-law.md`*
+*kind: TECHNICAL-RECORD (TEMPLATE-iter4 §0 kept set — fence around an external
+theorem + interface layer) · date: 2026-11-16 (Iter-4 edition; byline brought to the
+template front-matter shape 2026-11-17, no content change) · supersedes: the Cycle-2
+text (r2-rewrite-72) · artifacts: `research/pilots/72/C-neg.lean`,
+`research/pilots/72-M1/P72M1T{1,2}.lean`, `research/pilots/72-M1/logs/`; dossier
+`research/candidates/72-area-law-inertial-defect.md`; prework
+`research/pilots/72-prework.md` (Appendix A); bridge `research/bridges/area-law.md`*
 
 **Status: TECHNICAL-RECORD.** Part I — N1/N2a/N2b PROVED-UNCONDITIONAL; N3a/N3b
 PROVED-CONDITIONAL (hKL = Kuwahara's construction, arXiv:2610.15199, as the named

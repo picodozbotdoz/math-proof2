@@ -1,11 +1,14 @@
 # An Interface Theorem for Zero-Proportion Engines: the zeta23 Card, λ-Families, and Multiplicity Merging
 
-*cross-math-fronttier research article 20 (Iter-4 edition) · kind: TECHNICAL-RECORD
-(TEMPLATE-iter4 §0) · Lean `research/pilots/20/M1.lean` (28 public theorems, 582 LoC) ·
-blueprint `research/pilots/20-blueprint.md` · the common-zero seam analysis formerly in
-this article (incl. its Theorem 5 and the `SharedMass`/`CommonZeroControl` definitions)
-lives in `research/pilots/20-seam-analysis.md` (dossier-grade) · upstream consumers:
-articles 42-v2, 75*
+*kind: TECHNICAL-RECORD (TEMPLATE-iter4 §0 kept set — conditional interface + the
+multiplicity-merging lemmas) · date: 2026-11-16 (Iter-4 edition; byline brought to
+the template front-matter shape 2026-11-17, no content change) · supersedes: the
+Cycle-2 text whose seam analysis moved out (the common-zero seam analysis formerly
+here, incl. its Theorem 5 and the `SharedMass`/`CommonZeroControl` definitions, lives
+in `research/pilots/20-seam-analysis.md`, dossier-grade) · artifacts:
+`research/pilots/20/M1.lean` (28 public theorems, 582 LoC),
+`research/pilots/20/logs/`; blueprint `research/pilots/20-blueprint.md`; upstream
+consumers: articles 42-v2, 75*
 
 **Status: TECHNICAL-RECORD.** Theorems 1–2 (`instantiate_family_A/B/C`, λ → 1
 upgrades) and the merging facts of Theorem 3 are PROVED-CONDITIONAL on the named

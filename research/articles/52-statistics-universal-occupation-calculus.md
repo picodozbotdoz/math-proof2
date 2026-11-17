@@ -25,7 +25,9 @@ relabel (2026-11-16); the prose status line ("PROVED, unconditional, kernel-veri
 was replaced by the per-theorem status rows above in the closed vocabulary, with the
 per-theorem axiom sets preserved as evidence. Theorems, proofs, the §5 declaration
 table, and all dated records (incl. the 2026-11-14 nearest-neighbor addendum) are
-unchanged.
+unchanged. Same-day residual pass: §6 converted to the mandatory nearest-miss table
+(same citations); the §5 retracted-blocker sentence reworded as the plain correction it
+records.
 
 ---
 
@@ -128,18 +130,23 @@ c_ic_i = −c_ic_i is vacuous and c_ic_i ≠ 0 is consistent. ∎
 | Theorem 5 | `fermionicPair n : OccupationPair ℂ (Sp n) (-1) (Fin n)`, 6/6 fields proved |
 
 Final run `research/pilots/52/logs/m1-run14-green.log` (0 errors, 0 sorry); final-sweep
-axcheck `research/pilots/52/logs/axcheck-final.log` (15 axiom lines, 0 sorryAx). An interim
-"definitional-equality blocker" reported mid-pilot was retracted: it was an unreduced
-scalar coefficient in a hand-rolled `simp only` list.
+axcheck `research/pilots/52/logs/axcheck-final.log` (15 axiom lines, 0 sorryAx). A
+mid-pilot report of a "definitional-equality blocker" stands retracted — the obstruction
+was an unreduced scalar coefficient in a hand-rolled `simp only` list, not a definitional
+one.
 
-## 6. Relation to prior work
+## 6. Novelty and nearest misses
 
-Canonical (anti)commutation relations are classical (Jordan–Wigner; Bratteli–Robinson,
-vol. 2); "q-commutation" interpolations (ε = q) are classical too (Greenberg's quons,
-Bożejko–Speicher). The statistics-universal *dual-family* statement for an abstract pair,
-proved once, is absent from all four corpora (R8 round 2) and we found no literature
-statement in this form; we do not claim new physics. eth's `LemmaDual` is the *weighted*
-bosonic analogue with partition-indexed families and z_μ normalization.
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| classical CCR/CAR: Jordan–Wigner; Bratteli–Robinson, *Operator Algebras and Quantum Statistical Mechanics 2*; q-commutations (Greenberg's quons; Bożejko–Speicher) | the (anti)commutation relations and their ε = q interpolations | the relations are classical; the ε-universal dual-family statement for an abstract occupation pair, proved once without case distinction, is the axiomatization's content — no new physics claimed |
+| eth corpus `LemmaDual` (`AppHalfPiecesStatement.lean:175`) | the *weighted* bosonic analogue, partition-indexed families, z_μ normalization | the weighted layer is §7's open extension; the unweighted ε-universal form is what is proved here |
+| the four corpora (R8 round 2; `qa/iter4-review/r2-discovery-strength.md` §5 q8: no `OccupationPair` anywhere) + physlib `ExchangeSign` (dated nearest neighbor, 2026-11-13, the addendum below) | no occupation-pair layer in any corpus; physlib takes the exchange-sign layer only | the axioms remain unclaimed elsewhere; the physlib neighbor narrows the sign-exchange claims (recorded in the dated addendum below) |
+
+Scope statement. Technical-record billing (axiomatization + ε-universal lemma,
+formal-first): the contribution is the right abstraction and the ε-uniform proof, not
+difficulty; the novelty record is the main-run verdict plus the dated nearest-neighbor
+addendum below.
 
 ## 7. Limitations and open problems
 

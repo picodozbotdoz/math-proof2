@@ -12,8 +12,6 @@ logs), dossier `research/candidates/11-z1-composable-reduction-theory.md`, bluep
 | Thm 2 `RedB.red_of_theorem_17` / `Corollary_16` repackaging | PROVED-CONDITIONAL | `Claim.Theorem_17` (donor statement as binder; donor reference compiled verbatim alongside as faithfulness check — `stepB-c2.log:60` triad) | print `axcheck-final.log:389` — triad [R3 tables §5] |
 | Thm 3 acceptance: `Claim.Theorem_19_explicit M 0.00175 1` from one composition | PROVED-CONDITIONAL | `Claim.Theorem_17` + `Claim.Corollary_16` binders (donor parameter arithmetic ported verbatim) | print `axcheck-final.log:387` — triad [R3 tables §5] |
 | Thm B(ii) `tm2_realized_composed` (§8) | PROVED-CONDITIONAL | EthExistsTm, EthPoly, EthIsPoly (eth interface statements as explicit binders) + the machine/size binders of §8 | print `pilots/11/logs/m2-axcheck-final.log:22` — triad [R3 tables §5] |
-| Thm B(i) word-RAM realization | open — not attempted | — | — |
-| M3 instantiation (CH20 ∘ VW13) | open — not attempted | — | — |
 
 All kernel verification on mathlib `ff2494ea`, Lean v4.36.0-rc2; axioms ⊆ {propext,
 Classical.choice, Quot.sound}; no `sorry`, no `native_decide`. Kind: formal calculus
@@ -23,7 +21,11 @@ is the article's deliverable (relabeled 2026-11-16).
 Change log (2026-11-17, lane A9 — header modernization only, no content change): the
 byline was brought to the TEMPLATE-iter4 front matter with the kind tag of the README
 relabel (2026-11-16; the kind already appeared in the paragraph above). The status
-table, theorems, proofs and all dated records are unchanged.
+table, theorems, proofs and all dated records are unchanged. Same-day residual pass:
+the two non-vocabulary "open — not attempted" placeholder rows (Thm B(i) word-RAM,
+M3 instantiation) were removed from the status table — §7's first limitation already
+states both as open; §6 converted to the mandatory nearest-miss table (same
+citations).
 
 ---
 
@@ -114,14 +116,17 @@ term `r₁.comp (r₂.comp r₃)` whose bound is computed, not re-proved.
 
 13 warm Modal runs (≈ 35 min machine time); iteration log in the blueprint §7.
 
-## 6. Relation to prior work
+## 6. Novelty and nearest misses
 
-Reductions with "calls multiply, extras add" accounting are folklore in fine-grained
-complexity (e.g. Vassilevska Williams' surveys; Williams–Williams 2010 subcubic
-equivalences). Formal treatments of complexity in proof assistants (mathlib's `Computable`
-/ `TM2ComputableInTime` island; Coq/Isabelle complexity libraries) do not provide a
-call-charged reduction type for problem-time predicates. Within the four corpora no such
-layer exists (bridge map Z1; novelty R8: N4).
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| fine-grained folklore: Vassilevska Williams' surveys; Williams–Williams 2010 (subcubic equivalences) | "calls multiply, extras add" accounting, used informally throughout | the accounting is folklore, not a formal object; this article's contribution is the typed reduction calculus + machine acceptance test, not the accounting rule |
+| formal complexity in proof assistants: mathlib's `Computable`/`TM2ComputableInTime` island; Coq/Isabelle complexity libraries (incl. AFP `Cook_Levin/Composing.thy` — nearest formal, different shape) | machine models and time bounds | no call-charged reduction type for problem-time predicates exists in any of them |
+| the four corpora (bridge map Z1; novelty R8 grade N4) | no composition calculus in the donor corpus (direct-source query, `qa/iter4-review/r2-discovery-strength.md` §5 q10) | the calculus + the Theorem-19 acceptance test are the article's engineering contribution (technical-record billing) |
+
+Scope statement. The calculus formalizes folklore composition — the acceptance test,
+not the calculus, is the deliverable (kind TECHNICAL-RECORD; the relabel applied
+2026-11-16 records exactly this).
 
 ## 7. Limitations and open problems
 
