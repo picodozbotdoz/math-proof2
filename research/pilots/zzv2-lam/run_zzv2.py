@@ -124,7 +124,11 @@ def run(tarball: bytes, files: dict, order: list):
             for k, v in summary.items():
                 print(f"{k}: {v}", flush=True)
             return summary
-    rc, out = _sh("lake build ZetaZeros", d, 2 * 3600)
+    # CPU cap (P0-run1 telemetry finding OVER=8 + P1-run1: lake v4.36.0-rc2 has NO
+    # -j/--jobs flag — "unknown short option '-j'"; taskset hard-caps the build phase
+    # at the SPEC's 2 CPUs instead. Function-body change only — the image run_commands
+    # stay textually identical, family layer sharing preserved).
+    rc, out = _sh("taskset -c 0,1 lake build ZetaZeros", d, 2 * 3600)
     e = [l for l in out.splitlines() if "error:" in l]
     done = len(re.findall(r"✔ \[\d+/\d+\]", out))
     summary["build"] = "OK" if rc == 0 and not e else f"FAIL rc={rc} errors={len(e)}"

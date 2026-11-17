@@ -1,0 +1,35 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/P1.lean — launched by lane A3 (worktree agent-04 @ 53c1548), 2026-11-17, per the P1 GO ruling (P0 GREEN accepted).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, workspace semraker (PRIMARY per 2026-11-17 ruling + H relay; xyz verified live as fallback, not used).
+# App: crossmath-pilot-zzv2-lam (ephemeral; M4b2 recipe verbatim). SPEC cpu=2.0/mem=4096 (soft), LEAN_NUM_THREADS=2, @telemetered. BUILD-PHASE CHANGE THIS RUN: `lake build ZetaZeros -j 2` (P0-run1 telemetry finding OVER=8 cpu-only burst; function-body change only — image run_commands textually identical, layer sharing preserved).
+# P1 = ZZLam λ-abstract statement layer (r5 §12a P1; prework §1–§2 L0+L1+L2 + L4-at-binder): PROOF ARTIFACT, sorry-strict (0 sorry required); the ONE non-donor input = the explicit binder hKS : KSAsymptotic (kernelConstruction's tuple minus the frozen λ=1/2 constant identification — the P0(b) MT-frozen seam). 4 family theorems + KSAsymptotic_mono + exists_KSAsymptotic_of_half_le + 2 λ=1/2 regressions + 2 private λ-free bookkeeping copies; full print surface (10 #print axioms incl. privates) in-file.
+# BILLING: technical record — NOT a discovery, never an article; Lamzouri must-cited (donor's source for the >2/3 + three proportions; Montgomery ICF 1974; BGST-Turnage-Butterbaugh 2024 Lemma 5).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-jHbG6JLpMA3cwkT4kZ8aqo
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['P1.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.99 mem=1334MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=13.72 mem=1364MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+{'build': 'FAIL rc=1 errors=1'}
+
+=== ZetaZerosV2 build: rc=1 progress-marks=0
+error: unknown short option '-j'
+
+=== SUMMARY
+build: FAIL rc=1 errors=1
+[tele] SUMMARY run: wall=134s max_cpu=13.72 max_mem=1364MB max_anon=0MB samples=2 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-jHbG6JLpMA3cwkT4kZ8aqo
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: FRICTION-FAIL (no elaboration attempted): `lake build ZetaZeros -j 2` -> "error: unknown short option '-j'" — lake v4.36.0-rc2 has NO -j/--jobs build flag (verified against the local toolchain's `lake build --help`: no jobs option exists at all; the flag was this lane's P0-closing-note suggestion, wrong for this lake version). build FAIL rc=1; wall 134 s; telemetry wall=134s max_cpu=13.72 OVER=1 (the update/cache burst again).
+# FIX (run 2): `taskset -c 0,1 lake build ZetaZeros` — hard-caps the build phase at the SPEC's 2 CPUs (the faithful implementation of the "-j 2 on lake-build phases" instruction for a lake without the flag; taskset = util-linux, priority:required in the Debian base). Function-body change only; image run_commands textually identical (layer sharing preserved). No P1.lean change.

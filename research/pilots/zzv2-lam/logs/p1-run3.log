@@ -1,0 +1,180 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/P1.lean — lane A3 (worktree agent-04 @ 53c1548), 2026-11-17. Run 3 (fix-loop 2 of ≤4): after p1-run2's 3 mechanical errors (2x noncomputable markers on C1Lam/C2Lam; KSAsymptotic_mono destructure -> projection form). P1.lean otherwise byte-identical to run 2 (where 8/10 theorems were already triad).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, workspace semraker (PRIMARY; xyz fallback verified live, unused). App crossmath-pilot-zzv2-lam (M4b2 recipe); SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered; build phase `taskset -c 0,1 lake build ZetaZeros` (lake v4.36.0-rc2 has no -j flag; run_commands textually identical).
+# P1 = ZZLam λ-abstract statement layer (r5 §12a P1): PROOF ARTIFACT, sorry-strict; binder hKS : KSAsymptotic. BILLING: technical record, NOT a discovery, never an article; Lamzouri must-cited.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-jbP40WH2qhN13JgmtyBaWn
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['P1.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.63 mem=1203MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=5.86 mem=1386MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=180s cpu=12.73 mem=1191MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=2.59 mem=2498MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.82 mem=2726MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=2.98 mem=2416MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.34 mem=2586MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=2.93 mem=2700MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=540s cpu=5.39 mem=2949MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6586/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (5.7s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7523/7541] Built PrimeNumberTheoremAnd.ZetaBounds (13s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7645/7667] Built ZetaZeros.ZeroCount.LocalCount (5.2s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7648/7669] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.9s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7661/7681] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.5s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.9s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8160/8229] Built PrimeNumberTheoremAnd.MellinCalculus (5.5s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8175/8262] Built ZetaZeros.PairCorrelation.Truncation (7.0s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8196/8262] Built PrimeNumberTheoremAnd.MediumPNT (18s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (14s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== P1.lean
+[zzv2] P1.lean: OK
+---- axioms ----
+'ZZLam.KSAsymptotic_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.exists_KSAsymptotic_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P1.0.ZZLam.eventually_average_proportion_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P1.0.ZZLam.eventually_le_mul_of_tendsto_ratio_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_distinct_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_average_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_or_critical_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_lam_half_regression' depends on axioms: [propext, Classical.choice, Quot.sound]
+{'build': 'OK', 'P1.lean': 'OK'}
+'ZZLam.thm_distinct_lam_half_regression' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'ZZLam.KSAsymptotic_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.exists_KSAsymptotic_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P1.0.ZZLam.eventually_average_proportion_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P1.0.ZZLam.eventually_le_mul_of_tendsto_ratio_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_distinct_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_average_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_or_critical_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_simple_lam_half_regression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.thm_distinct_lam_half_regression' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== SUMMARY
+build: OK
+P1.lean: OK
+[tele] SUMMARY run: wall=582s max_cpu=12.73 max_mem=2949MB max_anon=0MB samples=9 OVER=8
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-jbP40WH2qhN13JgmtyBaWn
+
+# ==== CLOSING BLOCK (lane A3, 2026-11-17) ====
+# RESULT: GREEN — P1 FINAL. build: OK (8262 jobs, taskset-capped); P1.lean: OK (sorry-strict verdict: rc=0, 0 errors, 0 sorry — the probe exemption does NOT apply to P1). Wall 582 s.
+# FULL PRINT SURFACE (P1 audit — every top-level theorem incl. the 2 privates, 10/10): KSAsymptotic_mono, exists_KSAsymptotic_of_half_le, eventually_average_proportion_lam (private), eventually_le_mul_of_tendsto_ratio_lam (private), thm_simple_lam, thm_distinct_lam, thm_average_lam, thm_simple_or_critical_lam, thm_simple_lam_half_regression, thm_distinct_lam_half_regression — EACH exactly [propext, Classical.choice, Quot.sound] (log :145-:155; repeats :157-:166). Token-level sweep over the whole log: the only axiom identifiers anywhere are propext/Classical.choice/Quot.sound (20 occurrences each = 10 names x 2 print blocks); ZERO sorryAx, ZERO native_decide.
+# Descent: run1 friction (lake has no -j flag; no elaboration) -> run2 3 mechanical errors (2x noncomputable markers, 1 rcases flattening; 8/10 already triad) -> run3 GREEN. Fix-loop 2 of <=4 used after run1's wiring fix.
+# Telemetry: wall=582s max_cpu=12.73 OVER=8 (t=180 update/cache git+zstd burst, pre-taskset phase; build phase itself capped ~3.2-3.8 incl. python) max_mem=2949MB < 4096 (never over).
