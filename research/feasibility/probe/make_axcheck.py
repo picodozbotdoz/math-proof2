@@ -59,6 +59,16 @@ TARGETS = [
     ("AxPilot72_Cneg",    PILOTS / "72/C-neg.lean"),   # FINAL-GREEN run8 + axcheck-run1
     ("AxPilot72_M1_T1",   PILOTS / "72-M1/P72M1T1.lean"),  # FINAL-GREEN m1-run8 (vendor layer, GREEN since run 4); landed 2026-11-14
     ("AxPilot72_M1_T2",   PILOTS / "72-M1/P72M1T2.lean"),  # FINAL-GREEN m1-run8 (partial-M1, FINAL-for-tranche; L3 → iteration 4); import P72M1T1 auto-rewritten
+] + [
+    # --- Iteration-4 additions (append-only block, 2026-11-16; every C2 row above is
+    #     FROZEN history — R3 machinery upkeep per FINAL-SWEEP-PLAN-ITER4 §0 on-landing
+    #     duties; rows land as pilot files appear; probe-convention P0 files are NEVER
+    #     Step-B stages, plan §0) ---
+    ("AxPilotLP_L1",      PILOTS / "lp/L1.lean"),  # LP-P1 GREEN lp-l1-run2 2026-11-16 (2 thms, triad-only); lp/P0 EXCLUDED (probe-convention)
+    ("AxPilotLP_L2",      PILOTS / "lp/L2.lean"),  # LP-P2 GREEN lp-l2-run6 2026-11-16 (2 decls incl. 1 private, triad-only); import L1 auto-rewritten
+    ("AxPilotAL3D_A1",    PILOTS / "al3d/A1.lean"),  # AL-P1 GREEN alp1-final 2026-11-16 (22 decls; inline audit prints 20 — Step-B full-coverage prints all 22); al3d/P0 EXCLUDED (probe-convention)
+    ("AxPilot75_Pb",      PILOTS / "75/Pb.lean"),   # 75-Pb GREEN pb-run11-final 2026-11-16 (89 decls = Pa carry + E1-E6 + Pb-1/2/3; inline tails print 32 — Step-B full-coverage prints all 89); Mathlib-only, self-contained carry
+    ("AxPilotAL3D_A2",    PILOTS / "al3d/A2.lean"), # AL-P2 m1 GREEN alp2-run7-m1green 2026-11-17 (2 theorems triad; 3 Equiv defs carry no status); import A1 auto-rewritten; al3d/P0 stays EXCLUDED (probe)
 ]
 
 

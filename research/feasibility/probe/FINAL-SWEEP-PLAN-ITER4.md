@@ -31,12 +31,20 @@ and NEVER Step-B stages (C2 precedent: 71/P0, 73/P0).
 | 72-M1 L3 + interface (rank 5; lane L5) | `pilots/72-M1/P72M1T3.lean` (L3a–L3d + `interface_areaLaw_uniformAreaLaw`); stage `AxPilot72_M1_T3` | T1/T2 frozen GREEN; L3-spec on file | [WARM]; Tier-C only (Tier-B stays G5a-gated); full axcheck incl. the new stage; T1/T2 drift-check |
 | 73-Q4 `hRat` discharge (rank 6; lane L8) | `pilots/73/*` Q4 file (gated on A2's owed recommendation) | gated — decision first | [WARM]; Rosen ch.-number spot-check due AT Q4 (SCAN §1c); if gated shut, declared-drop (no stage) |
 | 22-T2a binder task (rank 9 pair; lane L8 drain-filler) | `pilots/22/*` addition (upstream StrongPNT statement binder) | no file yet | [WARM]; S-effort; FF-EZ4 probe (the pair's other half) = probe-tier, classify per lane |
+| hEχ donor-pin discharge (R5 §14 run 8 + §14.1; row added by R3 machinery-upkeep 2026-11-16 — runner staged, NOT in the seed table) | `pilots/zeta23e/*`: consumer files elaborated INSIDE the built zeta23 tree at the DONOR pin (v4.33.0-rc2 / mathlib `51e6992e`; 50-M2/g7 recipe, `run_zeta23e.py`; build target `Zeta23.ThmE.Final`) | runner only (`run_zeta23e.{py,sh}`, STAGED-NO-RUN) | **[LAYERS]-donor-pin** — the D-PIN class of `qa/iter4-review/r3-verification-tables.md` §2/§9: donor rows `PROVED-UNCONDITIONAL (donor)` + donor-pin print source; OUR consumers in that tree are D-PIN rows; on-pin consumers keep hEχ as a binder until this discharge. Donor hygiene gate = `Zeta23.ThmE.Final` chain prints ⊆ triad at the donor pin (transitive Theorem-E audit per R2 mini-spec) |
 | — conditional rows, add on landing (charter-dependent) | 74 T1+T2+T4 pilot (rank 7, dir TBD), 10 tranche D1–D4 (rank 8, `pilots/10/*`), 75 N2 (rank 10, shared file above), 11 M3 (rank 11, `pilots/11/*`) | not chartered at seed | statuses per orchestrator chartering; each lands with its own row + stage |
 
 **On-landing duties (every row):** add the stage to `make_axcheck.py` TARGETS; classify
 probe-vs-proof; Step-A token row appended to the incremental log (§1); sibling-import
 rewrites generalized from the ALL-TARGETS dict (C2 fix, verified — no new per-pair
-regexes).
+regexes). Upkeep notes (R3, 2026-11-16): (i) the lp prework's §4 warning about adding
+`L1 → AxL1` "to the regex at `make_axcheck.py:78`" is STALE — the C2 close generalized
+the rewrite to ALL TARGETS (`make_axcheck.py:95–106`), so appending the lp rows to
+TARGETS covers it with no code change; the same rewrite is available for full-coverage
+staging via `axcheck_iter4.py gen --rewrite L1=AxL1` (tested: RedTm2's
+`import P11T3` → `import AxPilot11_P11T3`, ×1, rest verbatim). (ii) TARGETS additions
+land as a clearly-marked Iteration-4 block AFTER the frozen C2 list — the C2-era rows
+and generator logic are frozen history (audit `r3-verification-integrity.md` §7).
 
 ## 1 Baseline sorry-token certificate — carry-forward + delta accounting
 

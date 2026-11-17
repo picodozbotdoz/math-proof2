@@ -10,11 +10,16 @@ F3a/F3b (wrapped-record joining; middle-excerpt ban) at the tool level.
 
 Components (subcommands; `python3 -I axcheck_iter4.py <cmd> …`, run from anywhere,
 absolute or repo-relative paths accepted):
-  gen <src.lean> <out.lean>   full-coverage stage: verbatim copy + appended
+  gen <src.lean> <out.lean> [--rewrite stem=Stage[,stem2=Stage2...]]
+      full-coverage stage: verbatim copy + appended
       `#print axioms` tail for EVERY theorem/lemma declaration — private and
       protected included (appended-tail-in-same-file pattern: private names resolve
       from the same file; C2 precedents = 72's pilot-local 11/11 audit and 75/Pa's
-      in-file 17-decl tail). Repo file untouched.
+      in-file 17-decl tail). Repo file untouched. --rewrite rewrites exact
+      `import <stem>` lines to the sibling STAGE name before appending (the C2
+      generalized sibling-import fix, `make_axcheck.py:95–106` semantics — needed
+      when the staged file imports a sibling pilot module, e.g. lp/L2 imports L1 →
+      `--rewrite L1=AxL1`; RedTm2 imports P11T3 → `--rewrite P11T3=AxPilot11_P11T3`).
   gate <src.lean>...          forbidden-token hard gate (exit 1 on any hit, outside
       comments): `axiom` declarations, `native_decide`, `unsafe` declarations,
       `implemented_by`, `@[extern]` (audit §7.1.3 — codifies R3's manual §4 scan).
@@ -60,6 +65,11 @@ against the on-disk C2 evidence (`python3 -I axcheck_iter4.py …`); measured re
      flagged TALLY-ONLY (P11T3 claims 64, RedTm2 claims 12; the whole log
      persists 8 records) — the known F1 custody case, caught as designed;
      covering artifact per audit §8 relabel item 2 = stepB-c2.log:533–586.
+  T8 gen --rewrite (added at Phase B activation, 2026-11-16): RedTm2.lean staged
+     with `--rewrite P11T3=AxPilot11_P11T3` → PASS: exactly 1 import line
+     rewritten, all other content byte-verbatim; plain `gen` regression OK.
+     Purpose: sibling-import staging for Iteration-4 consumers (lp L2 imports L1;
+     72-M1 T3 imports T1/T2) without touching frozen make_axcheck.py logic.
 
 The gen tail is APPENDED ONLY — the source file is copied verbatim; sweep-time
 staging remains the bytes of record (sha256-at-sweep per FINAL-SWEEP-PLAN-ITER4 §2.4;
@@ -142,8 +152,22 @@ def decl_census(src):
     return out
 
 
-def cmd_gen(src_path, out_path):
+def cmd_gen(src_path, out_path, rewrite_spec=None):
     src = Path(src_path).read_text()
+    rewrites = {}
+    if rewrite_spec:
+        for pair in rewrite_spec.split(","):
+            stem, _, stage = pair.partition("=")
+            stem, stage = stem.strip(), stage.strip()
+            if not stem or not stage:
+                raise SystemExit(f"--rewrite expects stem=Stage pairs, got {pair!r}")
+            rewrites[stem] = stage
+    applied = []
+    for stem, stage in rewrites.items():
+        new, n = re.subn(rf"^import {re.escape(stem)}$", f"import {stage}", src, flags=re.M)
+        if n:
+            src = new
+            applied.append(f"{stem}->{stage} ×{n}")
     decls = decl_census(src)
     names = [d[1] for d in decls]
     n_pub = sum(1 for d in decls if not d[2])
@@ -153,12 +177,15 @@ def cmd_gen(src_path, out_path):
         f"   #print axioms on ALL {len(decls)} theorem/lemma declarations\n"
         f"   ({n_pub} public + {n_priv} private/protected); repo file untouched;\n"
         f"   private names resolve from this same file (appended-tail pattern).\n"
-        f"   Custody rule: the run log must persist every record below, or be\n"
+        + (f"   Sibling-import rewrites applied: {'; '.join(applied)}.\n" if applied else "")
+        + f"   Custody rule: the run log must persist every record below, or be\n"
         f"   marked tally-only + name its covering artifact. -/\n"
     )
     tail = "\n".join(f"#print axioms {n}" for n in names)
     Path(out_path).write_text(header + src + "\n" + tail + "\n")
-    print(f"{src_path}: {len(decls)} decls ({n_pub} public + {n_priv} private) -> {out_path}")
+    rw = ("; rewrites " + ", ".join(applied)) if applied else ""
+    print(f"{src_path}: {len(decls)} decls ({n_pub} public + {n_priv} private) "
+          f"-> {out_path}{rw}")
     return len(decls)
 
 
@@ -310,8 +337,8 @@ def main(argv):
         print(__doc__)
         return 2
     cmd, args = argv[1], argv[2:]
-    if cmd == "gen" and len(args) == 2:
-        return 0 if cmd_gen(args[0], args[1]) is not None else 1
+    if cmd == "gen" and len(args) in (2, 4) and (len(args) == 2 or args[2] == "--rewrite"):
+        return 0 if cmd_gen(args[0], args[1], args[3] if len(args) == 4 else None) is not None else 1
     if cmd == "gate" and args:
         return cmd_gate(args)
     if cmd == "scan" and args:

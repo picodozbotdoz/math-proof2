@@ -406,6 +406,13 @@ and NOT an escalation trigger; `anon` growth is the investigate signal. Telemetr
 the `[tele]` lines inside each run's tee'd log (the decorator prints them at interval +
 summary). **Cache-ping marking: runs 1a (LP-P0), 8 (ZZV2-P0), 9 (hEχ)** — 1a IS the ping
 (run it FIRST); 8–9 are ping-gated (execute only if 1a's cache step was healthy).
+**[PING VERDICT 2026-11-16, R8 per §9-D: GREEN — cards 8–9 RELEASED (ZZV2-P0 → R2,
+hEχ → R5); rider: the lp image cache-get layer was a warm hit, so cards 8–9's own in-run
+update+cache steps (≤4-retry + seed fallback) are the live-service test.]**
+**[Abort-rule wording RATIFIED corpus-wide 2026-11-16: every card's stop line reads
+"2 failed runs WITHOUT a written error-class hypothesis ⇒ stop" — disciplined
+hypothesis-driven fix rounds (monotone class descent) never trip it; LP-P0's 4-run
+sequence stands as the precedent.]**
 Runner provenance: the four R5 clones were AUTHOR-AT-EXEC when this packet was written;
 all landed and were R8-validated 2026-11-16 (verdict block below) — the per-card Command
 lines now cite the landed runners; only the `.lean` artifacts are authored at execution.

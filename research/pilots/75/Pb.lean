@@ -1675,7 +1675,7 @@ theorem addFinOver_cons {z : ι → ZeroMult} (a : ι) (s : Finset ι) (ha : a �
 
 /-! ### Support identities (stated early: consumed by E4's transport) -/
 
-private theorem le_sum_mem (s : Finset ι) (f : ι → ℕ) (i : ι) (hi : i ∈ s) :
+theorem le_sum_mem (s : Finset ι) (f : ι → ℕ) (i : ι) (hi : i ∈ s) :
     f i ≤ ∑ j ∈ s, f j := by
   rw [← Finset.add_sum_erase s f hi]
   omega
@@ -1794,7 +1794,7 @@ Abstract Finset core + membership transport. -/
 
 /-- Both-column offDiag growth (F2 bridge): the offDiag sum over `insert a t` dominates
 the old sum plus the `(i, a)`- and `(a, i)`-columns (each unordered pair counted twice). -/
-private theorem offDiag_cons_ge (a : ι) (t : Finset ι) (ha : a ∉ t) (g : ι × ι → ℕ) :
+theorem offDiag_cons_ge (a : ι) (t : Finset ι) (ha : a ∉ t) (g : ι × ι → ℕ) :
     (∑ p ∈ t.offDiag, g p) + (∑ i ∈ t, g (i, a)) + ∑ i ∈ t, g (a, i)
       ≤ ∑ p ∈ (insert a t).offDiag, g p := by
   have hod : t.offDiag ⊆ (insert a t).offDiag := by
@@ -1870,7 +1870,7 @@ private theorem offDiag_cons_ge (a : ι) (t : Finset ι) (ha : a ∉ t) (g : ι 
 /-- The union inequality: a family of finsets satisfies the Bonferroni lower bound
 `∑ cards ≤ (biUnion).card + ordered-pair overlap sum`. Cons-induction; the doubled
 offDiag convention absorbs the factor 2 via `Finset.inter_comm`. -/
-private theorem bonferroni_union_le (f : ι → Finset ℂ) (s : Finset ι) :
+theorem bonferroni_union_le (f : ι → Finset ℂ) (s : Finset ι) :
     ∑ i ∈ s, (f i).card
       ≤ (s.biUnion f).card + ∑ p ∈ s.offDiag, ((f p.1 ∩ f p.2).card) := by
   induction s using Finset.cons_induction with
@@ -2278,7 +2278,14 @@ theorem zetaL_distinct_five_sixths_strip_conditional_of_negligible
 
 end PbLayer
 
--- P-b audit (expect: [propext, Classical.choice, Quot.sound] only, 0 sorryAx)
+-- P-b audit (expect: [propext, Classical.choice, Quot.sound] only, 0 sorryAx).
+-- 2026-11-17 correction (R3 §10.4 fold): the run-11 log's tail was head/tail-excerpted and
+-- omitted the three PRIVATE helpers below; this audit block now prints every P-b-layer
+-- declaration directly (public + private). The run-11 header's "EVERY declaration prints
+-- triad" was tally-only-broad; the re-run (logs/pb-run12-auditfix.log) is the complete record.
+#print axioms CrossMath.Pilot75.le_sum_mem
+#print axioms CrossMath.Pilot75.offDiag_cons_ge
+#print axioms CrossMath.Pilot75.bonferroni_union_le
 #print axioms CrossMath.Pilot75.commonStripCum_eq
 #print axioms CrossMath.Pilot75.commonStripCum_mono
 #print axioms CrossMath.Pilot75.ZeroMult.addFinOver

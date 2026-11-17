@@ -156,3 +156,30 @@ instruction; the AGENTS.md note may warrant an orchestrator-owned correction lat
 (basic cmd rc=0; modal route WORKS — client 1.6.3, profile `donniexyz888`, a DIFFERENT
 workspace from doz's `semraker` where the Cycle-2 cached images/apps live) — protocol
 unchanged (doz CLI) pending orchestrator decision.
+
+## SESSION END — 2026-11-17 (external termination: orchestrator session exceeded max duration)
+
+Wrap-up by the orchestrator directly (lanes unavailable). **All lane work committed through `9711730`; the only uncommitted items are in-flight lane outputs, preserved in the snapshot commit `see git log` (the wrap-up commit below this line).**
+
+### State at termination
+
+**LANDED + fully recorded (commit chain f8f37e6 → 9711730 on `dev/iteration4`):**
+- Review phase complete; charter spliced (L2=`808c809`); article corpus restructured + verified (census 15; 5 discovery-grade / 7 technical / 4 notes); fix batches A+B, R2 relabels, R3 pass-2 batch-1 all applied + R4-verified.
+- **Pilots GREEN: LP slot 1 COMPLETE (P0/P1/P2 triad, `bw2_ceiling_of_dual`)**; **75-Pb GREEN — the day-1 discovery milestone** (P-b + C1 5/6-arm, all four landings triad, zero donor imports; M1 design-erratum recorded); hEχ donor-pin audit GREEN (Theorem-E chain triad; **hEχ binder swap CLEARED**); AL-P0/P1/P2-m1 GREEN (three statement-level finds: projLattice/ambient-G, P1-b subset-image bound, groupStrength amendment); 72-M1 L3a GREEN. Verification tables §10.1–10.6 issued; REPORT-INPUTS-ITER4 ledger current.
+
+**IN FLIGHT at termination (files on disk, committed in the wrap-up snapshot; verdicts NOT yet known):**
+- **G11/G12** (R6 lane): three runs logged (`logs-g/run33-g11.log`, `run34-g11-retry.log`, `run35-g11-fix.log`) — read the last log's verdict line first; donor map `novelty/oai-siegelzeros-piexponent-as-donor.md` NOT yet updated with verdicts. R3 owes the G11/G12 verdict review per §9.
+- **73-Q4** (R5 lane): `pilots/73/Q4.lean` written (gate memo GO at `pilots/73/Q4-gate-memo.md`, `3b9b0a0`) — no run logs yet; pilot NOT executed.
+- **ZZV2-P0** (R2 lane): `pilots/zzv2-lam/P0.lean` written — not run.
+- **75-Pb audit-tail remediation**: `Pb.lean` modified + `logs/pb-run12-auditfix.log` (R3's §10.4 print-gap: +3 private prints; verify rc=0/triad in that log).
+- **AL-P2 c/d/e** (R9 lane): P2-d is the risk concentration (reindex-conjugation transport). No new files since `f24efa4`.
+- **75-N2 consumer design** (R2 lane, R2 §10 consumer (ii)): the ℚ ray-class↔Dirichlet dictionary + DZDF `abelianFactorization` statement-binder + hEχ port — the cycle's strongest discovery candidate, NOT started.
+
+**Uncommitted modified files in the snapshot** (owners' final state, none re-verified post-edit): dossier 76 (R6 R7-fold), iter4-donor-unblock-plan + FINAL-SWEEP-PLAN-ITER4 + make_axcheck + axcheck_iter4 + gprobe (R3/R8 machinery + zeta23e/AL TARGETS appends), truffet-classical-scope (R7 row-3 outcome B appendix — soundness CONFIRMED ABSENT; §7 gap locator), 73/run_pilot.py (Q4 wiring), r5-iteration4-backlog (§11 re-anchor + Q4 spec), week1-agenda.md (R6 — **NEW, read first at restart**).
+
+### Restart instructions (addendum to §Restart above)
+
+1. Read this brief + ORCHESTRATION-ITER4.md + week1-agenda.md (the 10-row decision agenda).
+2. First actions: (a) read the three G11 log tails → verdict lines → route to R3 for review → update donor map; (b) verify pb-run12-auditfix.log closes the §10.4 print-gap; (c) then the week-1 drain review per agenda (elevations: Truffet go-conditions, 01-Rung-0 lane-free, N=1 quota state — 75 two-tier article is the unspent discovery lead).
+3. Then resume in-flight: run 73-Q4 (spec in the gate memo, warm crossmath-pilot-73), ZZV2-P0 (card 8, released), AL-P2-d/e (R9's decomposition in A2.lean header), and charter the 75-N2 consumer design.
+4. Standing constraints unchanged: Modal ONLY via doz CLI (2cpu/4GB, telemetry, LEAN_NUM_THREADS=2, `-j 2` on lake-build phases per the hEχ nproc note), siblings read-only, one-writer-per-file, lanes report; H-style commits with the hardened pre-commit gate.

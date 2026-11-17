@@ -616,7 +616,9 @@ condition carried IN the statement), executed only if chartered.
   A/B/C — separate dossier work; (iv) Farkas/strong-duality/separation machinery — a
   design error if reached.
 - **Overrun rule:** any guard breach without GREEN ⇒ stop, diagnose note in the log dir,
-  report. Fix-round discipline as §8d.
+  report. **Descent discipline (R8-ratified wording, folded 2026-11-16): 2 failed runs
+  without a written error-class hypothesis ⇒ stop** — no fix round without the hypothesis;
+  descent measured in distinct error classes, not raw counts.
 
 ### 9d. Run plan
 
@@ -736,12 +738,18 @@ C.1 scanner exponents :103, C.2 first subvolume exponent :111, C.3 amplification
 - **AL-P0** (S–M; ≤0.45k LoC; 1–2 runs): M0.1/M0.2 + `PlanarAreaLawVar` skeleton, probe-
   convention stubs; doubles as 3D-lattice-API preflight.
 - **AL-P1** (S; ≤0.4k): the fibre-geometry core, mathlib-only — P1-a projection
-  contraction (Λ-walks project to π(Λ)-walks; `SimpleGraph.induce`/`Walk` image);
-  P1-b boundary lift (`|∂_{π(Λ)} π(A)| ≤ |∂_Λ A|` for column-closed A, injective lift);
-  P1-c row/fibre count (`|(π ⁻¹' S) ∩ Λ| ≤ h·|S|`); P1-d slab basics. **GO/NO-GO:** if
-  P1-b needs fibre-generic restatement of donor lemmas ⇒ STOP — that is B.2-FULL
-  territory; diagnose, report, and flip the rung branch to B.3 (AL-P0/P1 carry over
-  unchanged — B.3 replaces counting constants only, `al-3d-prework.md` :77–78).
+  contraction; P1-b boundary lift (`|∂_{π(Λ)} π(A)| ≤ |∂_Λ A|` for column-closed A);
+  P1-c row/fibre count (`|(π ⁻¹' S) ∩ Λ| ≤ h·|S|`); P1-d slab basics.
+  **[DATED CORRECTION 2026-11-16, post AL-P0 landing:** AL-P0 landed GREEN (R8-reviewed,
+  468 LoC, 4% overage-on-GREEN recorded) with R9's statement-level find — the
+  prework §2.5 **induced-square reading is REFUTED**; the landed encoding is
+  **`projLattice` + an ambient-graph binder**. P1-b above and the GO/NO-GO criterion
+  are re-anchored on THAT encoded form (see the AL-P0 file header) — later readers must
+  not take the prework's §2.5 `SimpleGraph.induce`/walk-image shape as the substrate.
+  **GO/NO-GO (re-anchored):** if the boundary lift at the `projLattice` encoding needs
+  fibre-generic restatement of donor lemmas ⇒ STOP — B.2-FULL territory; diagnose,
+  report, and flip the rung branch to B.3 (AL-P0/P1 carry over unchanged — B.3 replaces
+  counting constants only, `al-3d-prework.md` :77–78).]
 - **AL-P2** (M; ≤0.9k): `SlabAreaLawColumnCuts3D` under the binder, per-column
   `finFunctionFinEquiv` regrouping (`Mathlib/Algebra/BigOperators/Fin.lean:577`,
   verified on-pin), generalized Cylinder3D architecture (pattern-only, never imported).
@@ -959,7 +967,14 @@ divergence d2 — `run_zzv2.py`'s consumer verdict gained the P0 prefix-exemptio
 false-FAIL a healthy ZZV2-P0 statement probe; exemption chosen over the G11
 #check-only alternative so any P0-prefixed probe file is safe — noted in-file);
 cosmetic d1 — `al3d/run_pilot.sh`'s header now cites §14 runs 3/7 (AL-P0/AL-P1)
-instead of the LP runs. Image blocks re-diffed identical after both fixes.
+instead of the LP runs. Image blocks re-diffed identical after both fixes. **R3 LP-table folds (2026-11-16,
+record-only):** (i) LP-P0 stub count is **3**, not 4 — `grid_ceiling_of_dual` is a
+one-line application with no stub of its own (sorries at the three layer/consumer
+sites only); the Step-A incremental baseline for the lp pilot is **+3 tokens** — the
+sweep classifier must expect 3 or it flags a phantom; (ii) sha256 stamps are the
+Iteration-4 log-header default #4 from LP-P2 onward (disk shas recorded in R3's table
+and now in the lp log headers; run-time-granular stamps are a refinement if R3 wants
+them).
 
 ### §14.1 hEχ fold-in judgments (executed on signal, 2026-11-16)
 

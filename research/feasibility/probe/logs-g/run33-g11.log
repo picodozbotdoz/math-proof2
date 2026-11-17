@@ -1,0 +1,240 @@
+# run33 — G11/G12 OAI-SiegelZeros + OAI-PiExponent donor-pin audit (release 2026-11-16, orchestrator; lane R6)
+# cmd: run_gprobe.sh g11 (modal run --detach, app crossmath-gprobe fn g11; SPEC 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry on; volume crossmath-g11-tree; donor-pin v4.34.1)
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-sD4R78WBtEdU1XAt3GqDY0
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g2.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g11.
+├── ✓ Created Function g7elab.
+└── ✓ Created Function g7.
+[gprobe] OAI SiegelZeros+PiExponent closure: 1070 files, tarball 2 MB
+[tele] start g11: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=1.40 mem=1142MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=1.64 mem=1196MB anon=0MB peak=-1MB procs=3
+[tele] t=180s cpu=9.63 mem=1296MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== OAI cache: rc=0
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Attempting to download 8908 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+Decompressed 8908 file(s)
+Already decompressed 8908 file(s)
+info: /work/lean/lakefile.lean:290:0: iut: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: tate-curves-theta: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: genl: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: heights: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: pi1: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: orbicurve-cores: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: oka: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: tempered-fundamental-groups: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: elliptic-curves: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: formal-schemes: applied compatibility patch before dependency resolution
+info: /work/lean/lakefile.lean:290:0: belyi: applied compatibility patch before dependency resolution
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: mathlib: checking out revision 'd13f23b723b8a846827a245b89c10fc7d3f11612'
+info: checkdecls: cloning https://github.com/PatrickMassot/checkdecls.git
+info: checkdecls: checking out revision '3d425859e73fcfbef85b9638c2a91708ef4a22d4'
+info: doc-gen4: cloning https://github.com/leanprover/doc-gen4.git
+info: doc-gen4: checking out revision '953c8992d174b4e56955e01e101d46668c68f2bb'
+info: PrimeCert: cloning https://github.com/b-mehta/PrimeCert.git
+info: PrimeCert: checking out revision '0803c2f6bd289c09704c7d352bb8fcf770cbb9b2'
+info: LeanArchitect: cloning https://github.com/hanwenzhu/LeanArchitect.git
+info: LeanArchitect: checking out revision '468e8f58fb4ad6e6ad672a08da6d0d0531e95a97'
+info: leancert: cloning https://github.com/alerad/leancert.git
+info: leancert: checking out revision '7f91b6eb3567437f6cfac03ed279706603ee22f4'
+info: PrimeNumberTheoremAnd: cloning https://github.com/AlexKontorovich/PrimeNumberTheoremAnd.git
+info: PrimeNumberTheoremAnd: checking out revision 'c39a751132c88b6e8080b74c74023fd95b3d8be0'
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+info: gromov: cloning https://github.com/Aaron1011/gromov.git
+info: gromov: checking out revision '8db79f13cf211b570e3116301d91379fbc01cf3e'
+info: TauCeti: cloning https://github.com/TauCetiProject/TauCeti.git
+info: TauCeti: checking out revision '3bed7e37f3c504a99e8c07e9f309540812a7aa90'
+info: SphereEversion: cloning https://github.com/leanprover-community/sphere-eversion.git
+info: SphereEversion: checking out revision '9c53f91e2a281199163ecea04dc4976cb79e2076'
+info: schoenflies-lean: cloning https://github.com/alonamaloh/schoenflies-lean
+info: schoenflies-lean: checking out revision '05a43d29cde026618777db3d4e4316204ccca237'
+info: ClassFieldTheory: cloning https://github.com/n-yamaguchi-0729/ClassFieldTheory.git
+info: ClassFieldTheory: checking out revision '2eb22d6485af45f29c5219de6c49f196a61c4f49'
+info: AINTLIB: cloning https://github.com/CBirkbeck/AINTLIB.git
+info: AINTLIB: checking out revision '160e446617a2168c34c95bbe7a76c4105b392434'
+info: AbsorptionCutoff: cloning https://github.com/BennyAvelin/AbsorptionCutoff.git
+info: AbsorptionCutoff: checking out revision '41c45c6d72e979419e46224bb7b4be5cee31f2b5'
+info: StrongPNT: cloning https://github.com/math-inc/strongpnt.git
+info: StrongPNT: checking out revision '2f5835c322314f55f1026ec2f139d704b7c45c69'
+info: carleson: cloning https://github.com/fpvandoorn/carleson.git
+info: carleson: checking out revision '306ae5b29300771aece1aa39f0a939183cc59486'
+info: rellich-kondrachov: cloning https://github.com/abenenson/rellich-kondrachov.git
+info: rellich-kondrachov: checking out revision '70f85d4c1bf99c6e7d61e8be4daa6f3664d08d23'
+info: Zeta3Irrational: cloning https://github.com/ahhwuhu/zeta_3_irrational.git
+info: Zeta3Irrational: checking out revision 'e8785315a01c8fbcddaa0fc03b3c8b29a61bc1f1'
+info: fixed-point-theorems: cloning https://github.com/harfe/fixed-point-theorems-lean4.git
+info: fixed-point-theorems: checking out revision '770940ddf9878cf61952ed53d910b92bca841838'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+info: p
+[g11] patch fixed-point-theorems: applied
+[g11] patch PrimeNumberTheoremAnd: applied
+[g11] patch Zeta3Irrational: applied
+[g11] patch rellich-kondrachov: applied
+[g11] patch carleson: applied
+[g11] patch StrongPNT: applied
+[g11] patch AbsorptionCutoff: applied
+[g11] patch AINTLIB: applied
+[g11] patch ClassFieldTheory: applied
+[g11] patch schoenflies-lean: applied
+[g11] patch SphereEversion: applied
+[g11] patch gromov: applied
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+✖ [1/103] Running OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+error: no such file or directory (error code: 2)
+  file: /work/lean/OAI/NumberTheory/SiegelZeros/Conclusions/Theory.lean
+[tele] t=240s cpu=5.25 mem=2144MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=2.67 mem=1715MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=360s cpu=2.47 mem=1875MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=2.20 mem=1255MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=2.19 mem=1608MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=2.17 mem=1640MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=600s cpu=2.09 mem=1283MB anon=0MB peak=-1MB procs=4
+[451s] ✔ [9023/9028] Built OAI.NumberTheory.PiExponent.Approximation.WeightErrorMargin (6.1s)
+[tele] t=660s cpu=2.12 mem=1269MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=720s cpu=2.15 mem=1729MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=780s cpu=2.18 mem=1701MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=840s cpu=2.35 mem=1231MB anon=0MB peak=-1MB procs=4 OVER cpu
+[676s] ✔ [9123/9129] Built OAI.NumberTheory.PiExponent.Analysis.HilbertSeries (3.0s)
+[tele] t=900s cpu=2.09 mem=1269MB anon=0MB peak=-1MB procs=3
+[tele] t=960s cpu=2.17 mem=1480MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1020s cpu=2.06 mem=1689MB anon=0MB peak=-1MB procs=4
+[848s] ✔ [9223/9233] Built OAI.NumberTheory.PiExponent.LocalAlgebra.RegularSequenceDualExactness (3.4s)
+[tele] t=1080s cpu=2.10 mem=1525MB anon=0MB peak=-1MB procs=4
+[tele] t=1140s cpu=2.14 mem=2594MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1200s cpu=2.23 mem=3325MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1260s cpu=2.06 mem=1442MB anon=0MB peak=-1MB procs=4
+[tele] t=1320s cpu=2.12 mem=1714MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1380s cpu=2.59 mem=1936MB anon=0MB peak=-1MB procs=4 OVER cpu
+[1225s] ✔ [9323/9329] Built OAI.NumberTheory.PiExponent.Jets.CompactLogJetIdeal (8.5s)
+[tele] t=1440s cpu=2.15 mem=1453MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1500s cpu=2.21 mem=1273MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1560s cpu=2.17 mem=1313MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1620s cpu=2.32 mem=1268MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1680s cpu=2.09 mem=1452MB anon=0MB peak=-1MB procs=4
+[tele] t=1740s cpu=2.13 mem=1953MB anon=0MB peak=-1MB procs=4 OVER cpu
+[1591s] ✔ [9423/9427] Built OAI.NumberTheory.PiExponent.Cohomology.ProjectiveFramedCech (9.3s)
+[tele] t=1800s cpu=2.08 mem=1732MB anon=0MB peak=-1MB procs=4
+[tele] t=1860s cpu=2.14 mem=1675MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1920s cpu=2.16 mem=1687MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=1980s cpu=2.06 mem=1279MB anon=0MB peak=-1MB procs=4
+[tele] t=2040s cpu=2.05 mem=1689MB anon=0MB peak=-1MB procs=4
+[tele] t=2100s cpu=2.08 mem=1539MB anon=0MB peak=-1MB procs=4
+[1913s] ✔ [9523/9527] Built OAI.NumberTheory.PiExponent.Cohomology.EulerSupportDimension (5.3s)
+[tele] t=2160s cpu=2.06 mem=1713MB anon=0MB peak=-1MB procs=3
+[tele] t=2220s cpu=2.03 mem=1881MB anon=0MB peak=-1MB procs=4
+[tele] t=2280s cpu=2.01 mem=1292MB anon=0MB peak=-1MB procs=4
+[tele] t=2340s cpu=2.02 mem=1730MB anon=0MB peak=-1MB procs=4
+[tele] t=2400s cpu=2.18 mem=1470MB anon=0MB peak=-1MB procs=4 OVER cpu
+[2254s] ✔ [9623/9633] Built OAI.NumberTheory.PiExponent.Geometry.CurveModelGenericPoint (5.8s)
+[tele] t=2460s cpu=2.18 mem=1705MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=2520s cpu=2.12 mem=1293MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=2580s cpu=2.08 mem=1237MB anon=0MB peak=-1MB procs=3
+[tele] t=2640s cpu=2.03 mem=1455MB anon=0MB peak=-1MB procs=4
+[tele] t=2700s cpu=2.02 mem=1730MB anon=0MB peak=-1MB procs=4
+[tele] t=2760s cpu=2.04 mem=1713MB anon=0MB peak=-1MB procs=4
+[2616s] ✔ [9723/9739] Built OAI.NumberTheory.PiExponent.Cohomology.ReesCechInjectivity (6.7s)
+[tele] t=2820s cpu=2.27 mem=1410MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=2880s cpu=2.19 mem=1465MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=2940s cpu=2.10 mem=1868MB anon=0MB peak=-1MB procs=4
+[tele] t=3000s cpu=2.10 mem=1264MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=3060s cpu=1.85 mem=1430MB anon=0MB peak=-1MB procs=3
+Some required targets logged failures:
+- OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+error: build failed
+[tele] t=3120s cpu=0.11 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3180s cpu=0.07 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3240s cpu=0.05 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3300s cpu=0.06 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3360s cpu=0.06 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3420s cpu=0.07 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3480s cpu=0.04 mem=68MB anon=0MB peak=-1MB procs=2
+[tele] t=3540s cpu=0.04 mem=68MB anon=0MB peak=-1MB procs=2
+[g11] persisted tree to volume: rc=0
+{'patches': '12/12 applied: fixed-point-theorems,PrimeNumberTheoremAnd,Zeta3Irrational,rellich-kondrachov,carleson,StrongPNT,AbsorptionCutoff,AINTLIB,ClassFieldTheory,schoenflies-lean,SphereEversion,gromov', 'build': 'FAIL rc=1 errors=2 failed_modules=0'}
+
+=== OAI build: FAIL rc=1 errors=2 failed_modules=0; 869/9793 jobs; failed: []
+warning: PrimeNumberTheoremAnd: repository '/work/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/work/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/work/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/work/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/work/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/work/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/work/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/work/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/work/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/work/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/work/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/work/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/work/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/work/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/work/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/work/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/work/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/work/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/work/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/work/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/work/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/work/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/work/lean/.lake/packages/fixed-point-theorems' has local changes
+✖ [1/103] Running OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+error: no such file or directory (error code: 2)
+  file: /work/lean/OAI/NumberTheory/SiegelZeros/Conclusions/Theory.lean
+Some required targets logged failures:
+- OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+error: build failed
+
+=== SUMMARY
+patches: 12/12 applied: fixed-point-theorems,PrimeNumberTheoremAnd,Zeta3Irrational,rellich-kondrachov,carleson,StrongPNT,AbsorptionCutoff,AINTLIB,ClassFieldTheory,schoenflies-lean,SphereEversion,gromov
+build: FAIL rc=1 errors=2 failed_modules=0
+[tele] SUMMARY g11: wall=3587s max_cpu=9.63 max_mem=3325MB max_anon=0MB samples=59 OVER=29
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-sD4R78WBtEdU1XAt3GqDY0

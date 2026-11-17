@@ -81,14 +81,18 @@ def run(files: dict, order: list):
     results = {}
     for rel in order:
         print(f"\n=== {rel}", flush=True)
+        # Sibling imports (import C from Q4.lean) need dependency-order olean emission
+        # into the LEAN_PATH-visible build dir (the lp-runner / axcheck_full pattern).
+        stem = rel[:-len(".lean")] if rel.endswith(".lean") else rel
         try:
-            r = sh(["lake", "env", "lean", rel], timeout=2400)
+            r = sh(["lake", "env", "lean", "-o",
+                    f".lake/build/lib/lean/{stem}.olean", rel], timeout=2400)
         except subprocess.TimeoutExpired:
             print(f"[pilot73] TIMEOUT elaborating {rel}", flush=True)
             results[rel] = "TIMEOUT"
             continue
         out = r.stdout + r.stderr
-        errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out.splitlines() if ": error" in l or l.startswith("error")]  # widened to error(<code>) forms (R8-d2)
         sorry = [l for l in out.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]

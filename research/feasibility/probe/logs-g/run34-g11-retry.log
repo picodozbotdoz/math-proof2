@@ -1,0 +1,21 @@
+# run34 — G11/G12 RETRY (volume-resume; run33 postmortem: sibling-FS flake dropped Conclusions/Theorem.lean from run33's tarball — recovered via git cat-file, closure mirrored to /tmp/r6-g11-mirror, G11_ROOT override added)
+# cmd: G11_ROOT=/tmp/r6-g11-mirror run_gprobe.sh g11 (restores crossmath-g11-tree snapshot; only the SiegelZeros side should compile)
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-SmeubdbDVk6GpZl2ltU79e
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-gprobe-stage/gprobe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Created Function probe.
+├── ✓ Created Function g2.
+├── ✓ Created Function g1b.
+├── ✓ Created Function g5a.
+├── ✓ Created Function g6a.
+├── ✓ Created Function g11.
+├── ✓ Created Function g7elab.
+└── ✓ Created Function g7.
+[gprobe] OAI SiegelZeros+PiExponent closure: 870 files, tarball 2 MB
+[tele] start g11: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.55 mem=64MB anon=0MB peak=-1MB procs=2
+[g11] restored persisted tree from volume: rc=0
+[tele] t=120s cpu=0.99 mem=1049MB anon=0MB peak=-1MB procs=2

@@ -192,3 +192,64 @@ a 5-minute first action either way.
 
 — lane R7, A5-LIT-WATCH battery item 1, 2026-11-16. Standing watches resume (QR-D
 race clock, area-law line, LP-formalization world; on-call novelty batteries).
+
+---
+
+## §9 Appendix (2026-11-16, later session) — the §§6.3–9 re-pull: **OUTCOME B — soundness theorem CONFIRMED ABSENT**
+
+*Week-1 agenda row 3's first action, executed. The full v4 text was obtained via a
+second fetch engine (complete §1–§9 + references; the earlier truncation inside
+Theorem 6.2 is resolved — §8 of this note's fetch-caveat is hereby discharged).
+What follows is the section inventory and the two decisive quotes.*
+
+**Inventory, §6.3 to end (every result listed — there are no others):**
+
+- **§6.3 "The substitution procedure at step k itself"** — case enumeration only:
+  Case 0 (h = 0, or Ū false → unbounded/fail), Case 1 (𝕩⁺ ≠ ∅), Case 2.1 (Theorem
+  6.1 applies → stop), Case 2.2 (Prop 6.6 + Theorem 6.2, "Else pmrp fails").
+  **Zero theorems/propositions/lemmas.**
+- **§6.4 "The new characteristics elements of the pmrp after substitution computed
+  in O(mn²)"** — the update recipe only: eq. (112) ℒ^[k+1] := ℒ^[k] ∪ {x_{j\*} =
+  f_{i\*j\*}(x,h)}; eq. (113) cost^[k+1] := f_{z,i\*j\*}; the transition matrix
+  T^{k→k+1} (eq. 115), the correction τ^[k+1] (eq. 116), the new cone Ā^[k+1] :=
+  Ā^[k]·T^{k→k+1} + τ^[k+1] (eq. 117). **Zero theorems — no feasibility-
+  preservation and no optimum-preservation statement anywhere.**
+- **§7 "Fourier-Motzkin elimination method vs substitution method"** — discussion;
+  contains the **gap locator, verbatim**: the method substitutes x_{j\*} keeping
+  ONE upper bound f^≤_{i\*j\*} "for one i\* ∈ {i′₁,…,i′_{n̄}}" and claims this
+  "generates n̲ × (1−1) = 0 additional inequalities w.r.t the set of lower bounds.
+  In other words no additional inequality is required to eliminate the substituable
+  variable x_{j\*}" — contrasted with Fourier–Motzkin's n̲×(n̄−1). **The discarded
+  n̄−1 upper bounds are never shown redundant** (that would need the kept bound to
+  dominate them on the feasible set — proved nowhere). This is the classical
+  residue of the very disjunction-mistake the v4 NOTA admits, and it is exactly the
+  single-bound elimination shape the OAI tropical counterexample refutes.
+- **§8 "Conclusion"** — complexity accounting only: O(2mn²) + O(mn³) + O(n), plus
+  the dual-side O(2m²n + m³n + m) (eq. (120)), followed by: **"The main Theorem
+  2.1 of the paper is now proved and also its Corollary 2.1."** I.e., the "proof"
+  of the strongly-polynomial-LP theorem (and thereby of the Smale-9th corollary) is
+  complexity arithmetic; correctness of the substitution is never established as a
+  theorem. The only correctness-flavored results in the entire paper remain
+  Theorems 5.1/5.2 (per-step greatest-element bounds for (z, x_j) on the two-row
+  cone C(i)), Proposition 6.7 (nested reachable cost intervals), and Theorem 6.1
+  (iff-stopping condition at the CURRENT cone) — none connects the substituted
+  problem's optimum to the original's.
+- **§9 "Numerical examples"** — two worked examples (positive maximum z = 3500;
+  negative maximum z = −45/7 via the dual switch). No results.
+- **References lineage confirmed**: [17]/[19] = arXiv:2603.26423 (the tropical
+  twin), [18] = ROADEF 2026 talk "About an Attempt to Solve Linear Programming by
+  Substitution", [15] = Schewe (parity/mean-payoff → LP reduction; the motivation
+  for strong polynomiality mattering), [16] = Smale.
+
+**Verdict (row-3 first action, Outcome B).** The per-step soundness theorem is
+**CONFIRMED ABSENT** from the full v4 text. The STAND-DOWN condition of agenda row
+3 ("blockers hold AND §§6.4–9 contain a soundness theorem") **cannot fire**. The
+elevation's two go-conditions ((i) fidelity back-mapping closes, or (ii) the three
+classical blockers shown not to block some instance family) are now the only gates.
+New evidence registered: §7's "0 additional inequalities" paragraph is a precise
+locator for the classical gap — the same unjustified single-upper-bound elimination
+the OAI counterexample refutes in the tropical twin — which strengthens the ELEVATE
+branch's prior without by itself satisfying either go-condition.
+
+— lane R7, 2026-11-16 (later session). Fetch: `arxiv.org/html/2604.06726v4`, full
+text, second engine; quotes verbatim from §7 and §8 as shown.

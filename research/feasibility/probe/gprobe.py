@@ -588,7 +588,7 @@ def g11(tarball: bytes, probes: dict):
       restore-snapshot-or-tarball → elan v4.34.1 → `lake exe cache get` → the donor's own
       12-dep post_update patch tier (git-apply-check preflight, same labels as g7 —
       gprobe.py g7 docstring records why run19-style skipping breaks the build) →
-      `lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theory
+      `lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theorem
              OAI.NumberTheory.PiExponent.Main` → snapshot-save → `_g7_elab` the probes
       (ProbeG11_OAI_SiegelZeros.lean / ProbeG12_OAI_PiExponent.lean: #check signatures +
       #print axioms of the headlines, delegation roots, and the PiExponent binder
@@ -600,7 +600,7 @@ def g11(tarball: bytes, probes: dict):
     3/4), NOT a silent resource bump. Closure-membership risk: if any import escapes the
     two subtrees, the build fails with a module-not-found on a named OAI.* path — the fix
     is widening the tarball member list, nothing else."""
-    import io, os, pathlib, tarfile
+    import io, os, pathlib, re, tarfile
 
     work = pathlib.Path("/work")
     work.mkdir()
@@ -646,7 +646,7 @@ def g11(tarball: bytes, probes: dict):
                 applied.append(label)
         summary["patches"] = f"{len(applied)}/12 applied: {','.join(applied)}"
         rc, out = _sh_stream(
-            "lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theory "
+            "lake build OAI.NumberTheory.SiegelZeros.Conclusions.Theorem "
             "OAI.NumberTheory.PiExponent.Main", d, 76000)
         rc_s, _ = _sh(
             f"tar cf {G11_SNAP}.tmp -C {work} lean && mv {G11_SNAP}.tmp {G11_SNAP}",
@@ -784,8 +784,14 @@ def main(dir: str = "./probes", mode: str = "probe", root: str = "",
         # g7's import-BFS from BOTH seed targets; tarball adds lakefile/manifest/toolchain/
         # patches like g7. Elaborates ProbeG11 + ProbeG12 (both #check/#print-axioms only).
         # Long build → run under `modal run --detach` (run_gprobe.sh g11 does this).
-        import io, tarfile
-        root = pathlib.Path("/home/doz/zcode-workdir/openai-math/lean")
+        # G11_ROOT override (2026-11-17, run33 postmortem): the sibling checkout's
+        # Conclusions/Theorem.lean inode is INTERMITTENTLY ENOENT at open() (dirent fine,
+        # git clean) — run33's tarball was built in a bad window and Modal saw the file
+        # missing. Retry protocol: mirror the closure to stable storage with per-file
+        # retries (see run34 log header) and point G11_ROOT at the mirror.
+        import io, os, tarfile
+        root = pathlib.Path(os.environ.get(
+            "G11_ROOT", "/home/doz/zcode-workdir/openai-math/lean"))
 
         def to_path(mod):
             if not mod.startswith("OAI."):
