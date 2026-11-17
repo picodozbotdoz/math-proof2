@@ -40,14 +40,21 @@ to an on-disk artifact). Backing record: `research/feasibility/iter4-donor-unblo
 
 ## Block E2 — [extend the G-series bullet in "Cycle-2 conventions" (or its Iteration-4 successor):]
 
-- G-series staged (2026-11-16, ALL approval-gated, none run): **G9**
+- G-series staged (2026-11-16, ALL approval-gated, none run)
+  *[SUPERSEDED 2026-11-17, wave-2 events: G9 RAN — elaborated 0 errors (REPORT-INPUTS-ITER4
+  §1 22-T2a row; its 2 probe-stub sorries are the G1 checkpoint's +3 re-baseline class
+  with G10's 1); G11/G12 RAN — PASS triad-clean, statement-binder class RELEASED
+  (`logs-g/run35-g11-fix.log`; §10.7 + donor-map §"G11/G12 verdict"); G10 remains
+  SHELF/unrun as designed]*: **G9**
   `ProbeG9_StrongPNT.lean` (R8) — upstream StrongPNT binder transcription, mathlib-only,
   rides the `run_gprobe.sh probe` auto-glob; **G10** `ProbeG10_PhyslibRefresh.lean` (R8)
   — physlib-refresh shelf-probe, in-tree via the new `g10` mode, skip-set-excluded from
   probe mode; **G11/G12** `ProbeG11_OAI_SiegelZeros.lean` /
   `ProbeG12_OAI_PiExponent.lean` (lane R6) — OAI donor-pin probes (G7b precedent),
   skip-set-excluded, **their runner modes are owed by R6** (g7-style; until wired they
-  must not ride any batch). Numbering coordination: G9/G10 = R8, G11/G12 = R6.
+  must not ride any batch) *[SUPERSEDED 2026-11-17: the `g11` mode IS wired —
+  `run_gprobe.sh g11` + `gprobe.py`, volume `crossmath-g11-tree`; runs 33–35 executed]*.
+  Numbering coordination: G9/G10 = R8, G11/G12 = R6.
 
 ## Block E3 — [amend the `PrimeNumberTheoremAnd` watchlist bullet in "Sibling resources":]
 
@@ -75,8 +82,11 @@ to an on-disk artifact). Backing record: `research/feasibility/iter4-donor-unblo
   π-exponent; R6's G11/G12) pass through the SAME gate as ZetaZerosV2/G7b did — on-pin
   `#print axioms` of the consumed chain at the donor's own pin is the proof; comparator
   configs/READMEs are claims. G11/G12's audit verdicts ARE the gate records; no
-  consumption of either donor before its verdict line lands. Same rule for any future
-  built donor (hEχ/zeta23 Theorem-E included — see R8 §8 card 9's abort condition).
+  consumption of either donor before its verdict line lands
+  *[discharged 2026-11-17: both verdicts LANDED PASS — consumption gate open at the
+  statement-binder class (run35; §10.7; build-dependency ban stands)]*. Same rule for
+  any future built donor (hEχ/zeta23 Theorem-E included — see R8 §8 card 9's abort
+  condition).
 
 ---
 
