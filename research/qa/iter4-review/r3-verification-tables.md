@@ -826,6 +826,63 @@ the wave-2 full-coverage pass (`axcheck_iter4.py gen` captures lemmas;
 FINAL-SWEEP-PLAN-ITER4 §7b(ii)) if 32-M2 is included there, else by this elimination
 note of record.
 
+### 10.12 75-N2 P0 — LANDED GREEN 2026-11-17 (run 4; lane A5; folded + re-verified by lane A1)
+
+*(Merged 2026-11-17 by lane A1 from A5's block at `pilots/75/N2-P0-record.md`
+(worktree agent-06, pending H's commit; the block self-describes as "§10.10-format" —
+authored against stale numbering, folded here as §10.12). Every cite re-verified
+against `pilots/75/logs/n2-p0-run4.log` on agent-06 disk: verdict block :175–183 +
+A5's in-log close-out :185–196, 15/15 Pilot75N2 triad prints :83–97 (repeats :159+),
+Pa heritage block :32–48, telemetry :178.)*
+
+**Run summary:** 4 runs (at the ~4-run fix-loop budget), descent 8→1(hidden)→1→0 —
+run1 FAIL 8 errors (H7 missing `[NeZero q]` root — `DirichletCharacter.LFunction`
+demands it, `DirichletContinuation.lean:50`; H8 `noncomputable` marks); run2 FAIL with
+1 HIDDEN error (runner filter missed the `: error(code):` message form); run3
+diagnostic FAIL 1 error (`Complex.analyticOnNhd` dot-chain misresolution → explicit
+`DifferentiableOn.analyticAt`, `CauchyIntegral.lean:723`); **run4 GREEN — rc=0,
+errors=0, sorry=0** (`n2-p0-run4.log:185–187`). Telemetry: wall 67 s, max_cpu 0.72
+(spec 2.0), max_mem 2720 MB (spec 4096), OVER=0 — within AGENTS §Modal defaults
+(:178). Route: doz CLI, app `crossmath-pilot-75` (shared bake), stage
+`/tmp/crossmath-n2p0-stage/`, runner `run_n2p0.py` (pilot-11 dependency-order olen
+pattern: `Pa.lean → Pa.olean` on LEAN_PATH, then `N2-P0.lean` with `import Pa`).
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed` | `pilots/75/N2-P0.lean:219` | PROVED-CONDITIONAL (statement rung; engine application) | `n2-p0-run4.log:97` (repeat :173-region) — triad `[propext, Classical.choice, Quot.sound]`, 0 sorryAx | the N2-d landing at P0 honesty level; binders: hne, hN, hLχ, hK/hL, hntopK/hntopL/hntopψ, hAbFacQ, hfinK/hfinL/hfinψ, hAK (ζ-column slot, P3), hEχcum (Dirichlet column, P2) |
+| `ThmEDyadic` | `N2-P0.lean:102` | statement-port (zeta23 `thmE_A₀` conclusion, EnclOK implication form) | `:88` — triad | donor chain audited GREEN at the zeta23 pin (`pilots/zeta23e/logs/zeta23e-p0-run1.log`, §10.5) |
+| `IsNontrivialZeroL`/`zeroMultL`/`zerosInL`/`NcountL`/`N0starL` | `N2-P0.lean:83–95` | transcription defs (zeta23 `Challenge.lean:92–108` verbatim shapes) | `:83–87` — triad | `[NeZero q]` section parity with the donor; `noncomputable` for `analyticOrderAt` |
+| `IsDZDFRayClassCharacterQ`/`IsDZDFPrincipalQ`/`DZDFAbelianFactorizationQ` | `N2-P0.lean:115–147` | DZDF statement-binders (quoted, NEVER imported; G1b fence) | `:89–91` — triad | verbatim-field quotes at K = ℚ (`DedekindZetaChallenge.lean:14–20/:26–28`; `AbelianRayCharacterFactorization.lean:62–73`) |
+| `HasQDirichletDictionary` | `N2-P0.lean:152` | P1 discharge target (N2-a) | `:92` — triad | dictionary + Hecke-tsum = `LFunction` identification + principality transfer |
+| `DirichletFactorizationTransferQ` | `N2-P0.lean:166` | P1 discharge target (factorization transfer) | `:93` — triad | DZDF-Hecke form ⇒ Dirichlet-`LFunction` form + `1 < q i ∧ ψ i ≠ 1` |
+| `HasEulerStripImmunity` | `N2-P0.lean:181` | P2 discharge target (N2-b, pair form) | `:94` — triad | imprimitive vs primitive-associate strip multiplicities |
+| `CountsUnbounded` | `N2-P0.lean:189` | classical structural binder (hUnb; Titchmarsh §5.8/Davenport ch. 9) | `:95` — triad | needed only for dyadic→cumulative absorption |
+| `ThmEDyadicToCumulative` | `N2-P0.lean:201` | P2 discharge target (N2-c port schema, primitive level) | `:96` — triad | composes with immunity for imprimitive components |
+| (engine) `zetaL_assembly_landed` + 16 heritage | `Pa.lean` (frozen, GREEN run6) | PROVED (heritage carry) | `n2-p0-run4.log` Pa block :32–48 — triad | recompiled clean in-run via the sibling-import route |
+
+**Hygiene class (file header): STATEMENT RUNG, ZERO-SORRY BY CONSTRUCTION** — no
+probe-header sorry class used; the only proof is one engine application plus mathlib
+one-liners. 277 LoC; `import Mathlib` + `import Pa` only. **Design deltas vs the
+dossier's P0 spec** (recorded for P1, verbatim in `N2-P0-record.md`): (1) abstract
+component family `Lχ` + `hLχ`/`hN` binders (per-index `[NeZero (q i)]` not synthable
+for a dependent family — Lean 4 elaboration constraint, priced ~0 at P1); (2) port
+schema stated at the primitive level + pair-form immunity (same content, cleaner
+elaboration); (3) the transfer additionally delivers `hN`. **P1 recommendation: GO**
+(risks removed at ~zero cost; remaining P1 = the dossier's priced glue ≈0.3–0.5k LoC;
+friction watch = `𝓞 ℚ ↔ ℤ` ideal transport + the `LSeries` wrapper, the dossier's
+F5(i)/(ii)).
+
+**Verification-lane addendum (A1, 2026-11-17):** coverage class **C1 confirmed** —
+every declaration of the file (15 = 1 theorem + 14 defs/props; `axcheck_iter4 decls`
+counts the theorem only, defs carry no status rows by convention but print axioms)
+has a direct triad print in-log, zero sorryAx; the log's own custody is complete
+(A5's broadened-filter runner — the run2 hidden-error lesson is recorded in the
+close-out). **Step-B note:** no make_axcheck TARGETS row yet, deliberately — this is
+a STATEMENT RUNG of a ladder with P1 GO recorded (the file/family grows); the row
+lands at N2-final per FINAL-SWEEP-PLAN-ITER4 §7a's 75-N2 entry, which now resolves to
+the **[WARM] branch** (Mathlib-only + sibling `import Pa` ⇒ Pa rewrite, AxPilot75_Pa
+already in TARGETS), NOT the donor-tree D-PIN branch.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -854,4 +911,7 @@ triad, dated note in the tool header. Fifth batch: §10.11 32-crossing (A6's blo
 merged from agent-07's REPORT-INPUTS copy per the wrong-file ruling, cites
 re-verified on agent-07 disk — verdict :14/:58, triad :16–:24/:60–:66; census 43
 public decls; 2-helper-lemma print caveat noted; TARGETS row AxPilot32_M2 applied,
-inert until H commits A6's batch).*
+inert until H commits A6's batch). Sixth batch: §10.12 75-N2 P0 (A5's block from
+agent-06's N2-P0-record.md, cites re-verified on disk — 15/15 triad :83–97, close-out
+:185–196; C1 confirmed; [WARM]-branch resolution noted; TARGETS row deliberately
+deferred to N2-final, P1 GO).*
