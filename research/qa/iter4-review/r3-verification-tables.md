@@ -586,6 +586,24 @@ the previously printed ":75,113,118" matched no log — A8 validation F2, correc
 2026-11-17; the current :85/:123/:128 form is disk-read, unstamped by any run —
 it rides the db5e1cc8 P0 sha printed above, disk-verified unchanged 2026-11-17).
 
+**AMENDMENT (find #4), dated 2026-11-17 — SUPERSEDES the find-#3 state above:**
+the find-#3 amended binder pair was **UNPROVABLE as scoped**: its `∃C` sat inside
+`∀Λ' hU` (per-domain constant) and `∀G ≤ planarLattice` was prefixed OUTSIDE the
+binder; the honest form is the **uniform `∃C`** (one C serves every subgraph G,
+every domain — `P0.lean:443/:480`) **with G moved inside the binder**, and
+`SlabAreaLawColumnCuts3D`'s hypothesis returns to the prework §2.3 outer shape
+(statement-level correction, A4's find #4; recorded in the `P0.lean`/`A2.lean`
+headers — `A2.lean:37`). **Re-GREEN as probe, run 8:**
+`pilots/al3d/logs/alp2-run8-substrate.log` (agent-05, H committing) — verdict `:12`
+"P0 OK (probe, sorry ×3 expected), A1 OK, A2 OK. wall=75 s, cpu=0.72, mem=3899 MB",
+the three expected sorries at `P0.lean:104/:142/:147` (log `:39–:41`), the
+why-forced note at `:14–:16`. **State changes:** P0 sha `52c5b9f77344e0ed`
+(supersedes db5e1cc8; disk-verified); the stub enumeration drifts again —
+**`pilots/al3d/P0.lean:104,142,147`** (count 3 unchanged; the certificate's al3d/P0
+line cites superseded — drift note appended to `stepA-incremental-iter4.log`). The
+find-#3 groupStrength mechanism is untouched by #4 (the correction is to the binder
+SCOPING, not the instantiation).
+
 **Runner pin-findings (substrate notes, per instruction):** (i) putting the repo ROOT
 on `LEAN_PATH` lets the Mathlib source tree hijack olean resolution — restaged under
 `repo/AL3D` per the pilot-11 precedent; (ii) `lake env printenv LEAN_PATH` returned
@@ -1329,6 +1347,54 @@ the resume lane mechanically confirms at the re-charter if it matters. (ii) Step
 route to the dossier/triage records, not the verification tables' status rows. §7a's
 74 row: P0 GREEN (§10.15) + P1 NOT-GREEN-at-budget with re-charter pending.
 
+### 10.22 75-N2 P1 — M1 CHECKPOINT: core GREEN-triad, packaging PENDING-closure (lane A5, orchestrator P1 GO 2026-11-17; folded + re-verified by lane A1) — honest checkpoint row, NOT final
+
+*(Merged 2026-11-17 by lane A1 from A5's `pilots/75/N2-P1-record.md` (worktree
+agent-06, pending H's commit). Cites re-verified on agent-06 disk: the +1-deviation
+justification header `n2-p1-run7.log:2–:10`, run-7 verdict `:172` (FAIL rc=1
+errors=8 sorry=3), the four core triad prints `:175–:178` (repeats `:328–:331`),
+the three packaging sorryAx-cascade prints `:174/:179/:180`, the Pa/P0 heritage
+blocks `:27+`; v8-on-disk sha `3102b2eb63c46b37`, 368 LoC, **0 real sorry tokens**
+(3 prose strings: hygiene header ×2 + audit-tail comment — the record's "zero sorry
+written" claim verified at file level; the run's `sorry=3` = the cascade artifact
+class on the failing packaging decls).)*
+
+**N2-P1.lean (CHECKPOINT, not final — run loop stopped at 7 = the ≤6 budget + ONE
+documented closure deviation, justified in-log: every run-6 error class concretely
+diagnosed with fixes in hand, the mathematical core already GREEN-triad at run 6;
+run 7 = the single identified-fixes closure attempt, 74 s. Descent 37→26→12→8
+errors; walls ~74 s, max_cpu ≈ 0.9/2.0, OVER only on the known mapped-olen class.
+Three mechanical fixes applied on disk in v8 — UNVERIFIED; one closure run PENDING
+authorization. M2 (P1-b L-series identification) and M3 (P1-c/d) deferred, sequenced
+after M1 GREEN.)**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `chi_span_eq_one` | `pilots/75/N2-P1.lean:139` | PROVED-UNCONDITIONAL | `n2-p1-run7.log:175` (repeat :328) — `[propext, Classical.choice, Quot.sound]` | the DZDF `map_span'` field over ℚ (total positivity automatic for positive naturals) |
+| `chi_span_mul` | `N2-P1.lean:166` | PROVED-UNCONDITIONAL | `:176` (repeat :329) — triad | DZDF `map_mul'` on principal spans (`Ideal.span_mul_span` route) |
+| `chi_span_ne_zero` | `N2-P1.lean:249` | PROVED-UNCONDITIONAL | `:177` (repeat :330) — triad | DZDF `eq_zero_iff'` forward direction via the sup bridge; `1 < q` scope |
+| `chi_span_residue` | `N2-P1.lean:286` | PROVED-UNCONDITIONAL | `:178` (repeat :331) — triad | **the c-trick** (residue independence): χ(a)χ(c) = χ(ac) = 1 = χ(bc) = χ(b)χ(c) with χ(c) ≠ 0 — the dictionary's mathematical core, the well-definedness of DZDF characters on ray classes of ℚ |
+| `exists_nat_span` | `N2-P1.lean:77` | IN-PROGRESS — checkpoint; v8 fix on disk UNVERIFIED | run 7: sorryAx (1 residual cast-site, cascade class) `:174` | ℚ ideal classification: `Rat.ringOfIntegersEquiv` + ℤ-PID `Ideal.span_singleton_generator`; sign via `conv_lhs` natAbs rewrites |
+| `ratCharOf` / `ratCharOf_apply` | `N2-P1.lean:294`/`:337` | IN-PROGRESS — checkpoint; v8 fix on disk UNVERIFIED | run 7: sorryAx (scope-cascade) `:179/:180` | dictionary character via `MulChar.ofUnitHom`; value dictionary incl. k = 0 at 1 < q |
+| (engine, frozen) `Pa.lean` + (P0 quotes) `N2-P0.lean` | — | PROVED-HERITAGE | run 7 blocks — triad (Pa `:29+`; P0 15/15 per §10.12) | recompiled clean each run via the dep-order route |
+
+**Engineering record (the error-class ledger for the closure run + M2/M3 sizing,
+per-run in the logs):** `RingHom.ext_int` explicit args; `symm_intCast` application
+form; binop-ascription distribution (double-ascribe inner products); Dvd-witness
+orientation; **`ZMod.natCast_zmod_val`** is the val-recast identity at this pin
+(`Data/ZMod/Basic.lean:205`); `Units.mk` takes 4 explicit fields (use `Units.mk0`);
+`isUnit_of_mul_eq_one`/`Int.abs_of_nonneg` absent (root forms); `ZMod.val_one`/
+`ZMod.nontrivial` are `Fact (1 < q)`-governed; `rw [ratCharOf]` lacks equation
+lemmas for the noncomputable def (use `show`).
+
+**Verification-lane addendum (A1):** honest-checkpoint classifications — the three
+IN-PROGRESS rows' sorryAx prints are elaboration-cascade artifacts on failing decls
+(the known class; the v8 file carries no sorry); the +1 deviation is documented
+in-log with the stop-rule respected (no NEW error class appeared without a stop).
+No Step-B row yet (not final); the row updates to FINAL when the authorized closure
+run lands (v8 → GREEN expected on the diagnosed classes). §7a's 75-N2 entry:
+P0 LANDED (§10.12) + P1 M1-checkpoint (this row).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -1389,4 +1455,11 @@ superseded — noted so it is never read as final evidence). Thirteenth batch:
 62→60→57→50→46→46 rc=1, zero forced gaps; the four FINDS as record incl. the T1(a)
 refutation; the 8-class mechanical residue map; the run-6 process disclosure; the
 re-charter recommendation; 0 real tokens on disk, runs-1–3 counters classified
-superseded).
+superseded). Fourteenth batch: §10.6 find-#4 AMENDMENT note (A4's statement-level
+binder-scoping correction — uniform ∃C + G-inside-binder, unprovable-as-scoped
+find-#3 pair superseded; re-GREEN as probe run 8 `alp2-run8-substrate.log:12`;
+P0 sha 52c5b9f77344e0ed; stub lines drift :85/:123/:128→:104/:142/:147,
+stepA entry 3) + §10.22 75-N2 P1 M1 CHECKPOINT (A5's record from agent-06 — core
+4/4 triad `n2-p1-run7.log:175–:178` incl. the c-trick; packaging 3 IN-PROGRESS
+with v8 fixes on disk UNVERIFIED; the +1 closure deviation documented; honest
+checkpoint, not final).

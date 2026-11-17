@@ -26,3 +26,10 @@
 # All other buckets verified exact at the checkpoint (9 main-run + 23 C2 G-series + 4 x 71/P0 +
 #   7 x 73/P0 with the +2 line drift noted in entry 1); every wave-2 landed pilot file = 0 tokens.
 # G11/G12/ProbeG13 probe files: 0 tokens (checked in the same run).
+
+# --- ENTRY 3 — LINE-DRIFT NOTE, al3d/P0 (lane A1, 2026-11-17, from the §10.6 find-#4 amendment fold) ---
+# A4's find #4 amended pilots/al3d/P0.lean (statement-level binder-scoping correction; uniform EXISTSC + G-inside-binder;
+#   re-GREEN as probe run 8 — alp2-run8-substrate.log :12, verdict "P0 OK (probe, sorry x3 expected), A1 OK, A2 OK").
+# The 3 stub tokens persist (count unchanged) but drift :85/:123/:128 -> :104/:142/:147 (log :39-:41); P0 sha
+#   52c5b9f77344e0ed supersedes db5e1cc8. Certificate count UNCHANGED at 52; only the al3d/P0 line cites move.
+#   Sweep-time classifier confirms by count + fresh lines.
