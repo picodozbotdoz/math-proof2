@@ -1,9 +1,12 @@
-# D2 record — pilot-10 Closure layer, Route A: VALIDATED; landing = tranche 1+2 GREEN
-modulo ONE diagnosed statement error at fix-budget exhaustion
+# D2 record — pilot-10 Closure layer, Route A: **FINAL GREEN** (closed 2026-11-17)
 
-**Verdict: PARTIAL GREEN, 2026-11-17** (charter: orchestrator D2-GO ruling; plumbing
-billing; fix-loop ≤4 — 4 fix iterations used across 6 runs, stopped per budget with
-one error remaining and its 2-line fix diagnosed). Evidence:
+**Verdict (FINAL, closure ruling 2026-11-17): GREEN — `L4.lean` OK, rc=0, 0 errors,
+0 sorry-warnings; `padM'_isPolyT` = [propext, Classical.choice, Quot.sound].**
+Evidence: `logs/d2-run4.log` (the two closure runs; the diagnosed one-token fix took
+two tokens on the same line — `(n := f x)` for the implicit binder AND dropping
+`.symm` — the second disclosed as one run beyond the ruling's "single run").
+Final file sha `4ae0d643…` (4,195 LoC). Earlier history (partial-GREEN stops,
+canary milestone, both at-budget verified-red stops) preserved below verbatim. Evidence:
 `research/pilots/10/logs/d2-run1.log` (attempts 1–3: the GREEN **Route-A canary
 milestone** — attempt 3 fully GREEN, wall=56 s warm) and
 `research/pilots/10/logs/d2-run2.log` (attempts 4–6: the Cases/fields tranche —

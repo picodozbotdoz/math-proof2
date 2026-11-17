@@ -1,0 +1,84 @@
+# provenance: raw modal run, pilot-10 D3 landing (pad_bound + padded_time_absorb, eth Pad.lean:98–109 verbatim; charter ruling 2026-11-17 D3 GO, own budget ≤4) | date 2026-11-17 | producing lane: A6 | command: MODAL_USER=doz bash research/pilots/10/run_pilot.sh research/pilots/10/L5.lean | file: L5.lean sha256 da398f2170288acb169bad481e93e9690ae5af6d44fde7e1f98187806c77b334 (4,248 LoC = 16-line D3 header + L4.lean VERBATIM 4,195 [sha 4ae0d643…, D2 FINAL GREEN] + Part H 37 lines) | **VERDICT: L5.lean OK FIRST RUN — D3 GREEN** (rc=0, 0 errors, 0 sorry-warnings) | triad: Groundwork.PadC.pad_bound and Groundwork.PadC.padded_time_absorb both [propext, Classical.choice, Quot.sound] | one pin-adjustment (recorded in header + Part H): eth's Nat.pow_le_pow_right exponent-mono call → pow_le_pow_right' (the pin's Unbundled name, the Part-E-precedent form) | descent: none (1/4 of the budget used) | run URL https://modal.com/apps/semraker/main/ap-MMaPkeIZdSMMUKkXI6xPZJ | substrate: mathlib ff2494ea5e43, v4.36.0-rc2, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2, warm
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-MMaPkeIZdSMMUKkXI6xPZJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['L5.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== L5.lean
+[tele] t=60s cpu=0.93 mem=8460MB anon=0MB peak=-1MB procs=2 OVER mem
+[p10] L5.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+L5.lean:3575:16: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+L5.lean:3806:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+L5.lean:4027:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p10] SUMMARY
+[p10]   L5.lean: OK
+[tele] SUMMARY run: wall=65s max_cpu=0.93 max_mem=8460MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-MMaPkeIZdSMMUKkXI6xPZJ
