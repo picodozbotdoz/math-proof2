@@ -479,33 +479,38 @@ CLOSED at L1 `226fa08`; phase B (pilots) opened at the L2 splice `808c809`; **wa
 re-cut H + A1–A9 on 2026-11-17** after external session termination (snapshot
 `53c1548`). Canonical lane table: `ORCHESTRATION-ITER4.md`.
 
-### I4.2 Pilot outcomes (wave-2 state 2026-11-17)
+### I4.2 Pilot outcomes (wave-2 state 2026-11-17; currency refresh by H — landed facts through `1e3fa74`)
 
 | Pilot | Verdict (LANDED) | PENDING (owner) |
 |---|---|---|
 | 75-Pb (day-1 top-billed) | **FINAL-GREEN** — all four landings triad, 0 sorryAx, zero donor imports (pb-run11-final); §10.4 print-gap closed; **full-coverage axcheck 89/89 triad** `bb780d4` | — |
 | LP layer + 02-core (slot 1) | **FINAL-GREEN** end-to-end — `lp_weak_duality` + `bw2_ceiling_of_dual` triad (§10.1/10.2) | — |
-| AL-3D (B.2 staged) | P0/P1 GREEN (§10.3); P2-m1 GREEN (§10.6; axcheck F1 corrected) | **P2 c/d/e — A4** (P2-d reindex-conjugation = risk concentration) |
-| 72-M1 | L3a GREEN; print-gap CLOSED 9/9 direct `a0c0f0e` (`axcheck-l3a-run1.log`) | **L3b–d + interface theorem — OPEN (post-wave)** |
+| AL-3D (B.2 staged) | P0/P1 GREEN (§10.3); P2-m1 GREEN (§10.6; F1 sha corrected) | **P2 c/d/e — A4** (P2-d reindex-conjugation = risk concentration) |
+| 72-M1 | L3a GREEN; print-gap CLOSED 9/9 direct `a0c0f0e` | **L3b–d + interface theorem — post-wave** |
 | hEχ companion (zeta23E) | **GREEN first-run** — Theorem-E chain triad at the donor pin; binder swap CLEARED (§10.5) | — |
-| ZZV2-λ (technical record) | **P0 GREEN** `1a0ef7e` — 4/4 triad consumer-side; MT-frozen Landau bridge recorded | **P1 — A3** (GO; hard-STOP-after-P1 ARMED, R5 §12a) |
-| 73-Q4 | Gate memo GO (`3b9b0a0`; `hPur` stays a binder) | **pilot execution — A2** |
-| 32-crossing (run 12) | — | **run 12 on warm pilot-32 — A6** (article-32 §5 v2 edit armed on GREEN) |
-| 75-N2 | Dossier LANDED `434208e` (S1–S4 provisional PASS N2-d) | **P0 — A5** |
-| Truffet / dossier 78 | ELEVATE `4047470` + hardened `3a62747` (critique sweep EMPTY) | **Stage-A P0 — A7** |
-| 22-T2a | G9 GREEN `68be1a2` (StrongPNT port ≈ 0 on-pin) ⇒ GO | **pilot — A8** (T1 NOT fired) |
+| ZZV2-λ (technical record) | **P0 GREEN `1a0ef7e` + P1 GREEN FINAL `b7bf82e`** (10/10 triad sorry-strict incl. privates, token-sweep clean; §10.16) — **HARD-STOP EXECUTED per r5 §12a** (Landau η-port = the iteration-5 ask) | slot CLOSED |
+| 73-Q4 | Gate memo GO (`3b9b0a0`; `hPur` stays a binder); in-flight noted at A1 audit (`fa4dfba`) | **pilot execution — A2** |
+| 32-crossing (run 12) | **FINAL-GREEN `887ffd1`** (3-run descent 9→2→0; 7 forms triad; §10.11 `a2799a6`) — article-32 §5 discharged; **articles 01+32 v2 landed `061fe8f`** (README row updated; A7 hardening: both NOVEL, pitch rescope mandatory `9bcf026`) | 32 pitch-rescope edit — **A9** |
+| 75-N2 | **P0 GREEN FINAL `7556153`** (15/15 Pilot75N2 triad, zero sorryAx; §10.12) + A7 pre-shipping sweep 3× NOVEL (`3e5aaef`; 2 mandatory nearest-miss adds → A5 fold) | **P1 dictionary-glue (0.3–0.5k LoC) — A5** |
+| Truffet / dossier 78 | ELEVATE `4047470` + hardened `3a62747`; **Stage-A P0 GREEN `80d21d8`** (3/3 triad incl. A2 discovery carrier + A2′; §10.13); **re-grade PASS×4 + GO `47bec92`** (rulings: S2 asymmetric-bridge ACCEPTED; NEGATIVE = discovery-grade, NO quota consumption) | **article-78 — A9 (post-30)** |
+| 22-T2a | G9 GREEN `68be1a2` ⇒ GO; **T2a-P0 GREEN `3750c48`** (HypQRHzeta+HypStrongPNT binders sorry-free; T2 NOT fired) | — (statement-only slot COMPLETE) |
+| dossier-74 | **T1T2T4-P0 GREEN `27db124`** (1 fix-retry; S1 census banked — Rényi mathlib-absent; §10.15) | **P1 — A8** (Q1 ruled shape-ii; class-indexed Bk = later extension) |
+| FF-EZ4 | **P0 GREEN `263ca5d`** (0 sorry tokens, 4-run descent; §10.14; all-binder tauceti side) | D1 wd↔cw tranche — **A6** (D1-only charter GO, plumbing billing) |
 
 ### I4.3 Discovery-grade ledger
 
 - **article-75 two-tier v2** — landed `a6c7b13` (kind DISCOVERY-CONDITIONAL; 11/12
-  checklist). **PENDING (A9):** splice state — README row-75, sweep shas, 52/11
-  residuals, article-01 upgrade chartered.
-- **75-N2 consumer** (the cycle's strongest discovery lead) — design dossier landed
-  (`434208e`). **PENDING (A5): P0.**
-- **dossier 78** (NEGATIVE kind, DISCOVERY-grade) — elevated + cite-hardened. **PENDING
-  (A7): Stage-A P0.**
-- Quota: **N = 1 UNSPENT** (`a9-quota-casualties.md`); completion-path candidates
-  (01-stability / 32-crossing / 30-Theorem A) not yet chartered — week-1 drain review.
+  checklist); A1 pre-check: 1 blocker-at-close (closure-evidence gap) + 3 cosmetic →
+  A9 (`b8e3901`).
+- **75-N2 consumer** (the cycle's strongest discovery lead) — dossier `434208e` +
+  **P0 GREEN `7556153`**; P1 in flight (A5); pre-shipping sweep 3× NOVEL (`3e5aaef`).
+- **dossier 78 / article-78** (NEGATIVE kind = discovery-grade) — P0 GREEN `80d21d8` +
+  re-grade PASS×4 GO `47bec92`; **does NOT consume the N=1 quota slot (ruling)**;
+  **article-78 chartered to A9 (post-30)**.
+- **articles 01 + 32 v2** — template-complete PASS×5 `061fe8f` (compliant set
+  01/32/42/50/75); **article-30 chartered — A9**.
+- Quota: **N = 1 UNSPENT**; completion path: 32 landed, 01 Rung-0 delivered
+  (`887ffd1`), **30-Theorem A — A9 chartered**.
 
 ### I4.4 Engineering-billed deliverables (never articles)
 
