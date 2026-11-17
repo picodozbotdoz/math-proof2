@@ -1,0 +1,324 @@
+# =====================================================================
+# PILOT 75-N2 P0 — run 1 | 2026-11-17 | lane A5 (orchestrator P0 GO)
+# Files: Pa.lean (1,557 LoC, GREEN run6-final, FROZEN carry as engine)
+#        N2-P0.lean (251 LoC, NEW this run — statement rung, zero-sorry)
+# Runner: run_n2p0.py (app crossmath-pilot-75, pilot-11 dep-order olean
+#         pattern: Pa.lean -> Pa.olean on LEAN_PATH, then N2-P0.lean)
+# Substrate: mathlib ff2494ea @ v4.36.0-rc2, elan 4.2.4, CI oleans
+# Resources: SPEC cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2, telemetry on
+# CLI: doz /home/doz/dozenv/bin/modal (client 1.6.2)
+# Pre-registered error-class hypotheses (continuation policy):
+#  H1 DifferentiableOn.analyticOnNhd name/shape; H2 finsum-notation form;
+#  H3 (alpha : Q) coercion in the DZDF quote; H4 import Pa LEAN_PATH;
+#  H5 Differentiable.differentiableOn implicit s; H6 .LFunction dot-notation.
+# Command: research/pilots/75/run_n2p0.sh
+# =====================================================================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-EnRLZLuyH3ml7lziZDnWDZ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p0-stage/run_n2p0.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p0] mathlib rev ff2494ea5e43
+[n2p0] oleans present: 8710
+[n2p0] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p0] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P0.lean
+[n2p0] N2-P0.lean: FAIL rc=1 errors=8 sorry=0
+---- axioms ----
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+N2-P0.lean:70:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'analyticOrderAt', which is 'noncomputable'
+N2-P0.lean:73:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℂ
+in the application
+  IsNontrivialZeroL χ
+N2-P0.lean:76:47: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  zerosInL χ
+N2-P0.lean:76:66: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℂ
+in the application
+  zeroMultL χ
+N2-P0.lean:79:41: error: Application type mismatch: The argument
+···
+  IsNontrivialZeroL χ
+N2-P0.lean:76:47: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  zerosInL χ
+N2-P0.lean:76:66: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℂ
+in the application
+  zeroMultL χ
+N2-P0.lean:79:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  zerosInL χ
+N2-P0.lean:79:56: error(lean.invalidField): Invalid field notation: Type of
+···
+  zerosInL χ
+N2-P0.lean:76:66: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℂ
+in the application
+  zeroMultL χ
+N2-P0.lean:79:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  zerosInL χ
+N2-P0.lean:79:56: error(lean.invalidField): Invalid field notation: Type of
+  ρ
+is not known; cannot resolve field `re`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AEMeasurable.re`
+  • `Complex.re`
+  • `Measurable.re`
+  • `QuadraticAlgebra.re`
+···
+  zeroMultL χ
+N2-P0.lean:79:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  zerosInL χ
+N2-P0.lean:79:56: error(lean.invalidField): Invalid field notation: Type of
+  ρ
+is not known; cannot resolve field `re`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AEMeasurable.re`
+  • `Complex.re`
+  • `Measurable.re`
+  • `QuadraticAlgebra.re`
+  • `QuaternionAlgebra.re`
+  • `RCLike.re`
+  • `TendstoUniformly.re`
+  • `TendstoUniformlyOn.re`
+  • `UpperHalfPlane.re`
+  • `Zsqrtd.re`
+  • `Complex.UnitClosedDisc.re`
+  • `Complex.UnitDisc.re`
+···
+  • `MeasureTheory.MemLp.re`
+N2-P0.lean:89:29: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  NcountL χ
+N2-P0.lean:89:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  N0starL χ
+N2-P0.lean:119:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2-P0.lean:139:63: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+···
+  NcountL χ
+N2-P0.lean:89:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ q
+but is expected to have type
+  ℝ
+in the application
+  N0starL χ
+N2-P0.lean:119:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2-P0.lean:139:63: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:154:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:163:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero ψ.conductor
+
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:181:29: error: Application type mismatch: The argument
+  ψ.primitiveCharacter
+has type
+  DirichletCharacter ℂ ψ.conductor
+but is expected to have type
+  ℝ
+in the application
+  NcountL ψ.primitiveCharacter
+N2-P0.lean:182:18: error: Application type mismatch: The argument
+  ψ.primitiveCharacter
+has type
+  DirichletCharacter ℂ ψ.conductor
+but is expected to have type
+  ℝ
+in the application
+  N0starL ψ.primitiveCharacter
+N2-P0.lean:203:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:204:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:206:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+···
+  NcountL ψ.primitiveCharacter
+N2-P0.lean:182:18: error: Application type mismatch: The argument
+  ψ.primitiveCharacter
+has type
+  DirichletCharacter ℂ ψ.conductor
+but is expected to have type
+  ℝ
+in the application
+  N0starL ψ.primitiveCharacter
+N2-P0.lean:203:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:204:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:206:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:208:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NeZero (q i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+N2-P0.lean:211:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+···
+
+[n2p0] SUMMARY
+[n2p0]   Pa.lean: OK
+[n2p0]   N2-P0.lean: FAIL rc=1 errors=8 sorry=0
+[tele] SUMMARY run: wall=42s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-EnRLZLuyH3ml7lziZDnWDZ
+EXIT=0
+
+# ---- POST-RUN ANALYSIS (A5, 2026-11-17) ----
+# Verdict: Pa.lean OK (sibling-import route GREEN — H4 cleared). N2-P0.lean FAIL
+# rc=1 errors=8 sorry=0 (the sorryAx in the axioms print is error-cascade). Wall 42s.
+# Root causes (the run-1 hypotheses H1-H6 were all WRONG; actual classes):
+#  H7 [ROOT] missing [NeZero q] in the transcription section — LFunction requires
+#     `variable {N : ℕ} [NeZero N]` (DirichletContinuation.lean:50, verified): every
+#     `.LFunction` in defs AND in the landing signature fails instance search
+#     (errors at :203/:204/:206/:208/:211 + cascade type-mismatches at :73/:76/:79).
+#  H8 zeroMultL depends on analyticOrderAt (noncomputable) — needs `noncomputable def`
+#     (error :70:4 dependsOnNoncomputable).
+#  H9 primitiveCharacter references (HasEulerStripImmunity, ThmEDyadicToCumulative)
+#     would drag a NeZero-conductor instance demand — restructured to pair-form /
+#     primitive-level schemas before hitting it (pre-emptive).
+# Fix set for run 2: [NeZero q] in the section; noncomputable marks; landing restated
+# over abstract Lχ : Fin n → ℂ → ℂ with hN : ∀ i, NeZero (q i) + @-passed
+# identification hLχ (instance search never runs on the family); dictionary
+# transfer Props use @-passed LFunction; port schema stated at the primitive level.
