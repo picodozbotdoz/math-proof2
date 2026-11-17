@@ -1,0 +1,114 @@
+# pilot-78 P0 run 2 — 2026-11-17T11:40:27Z (lane A7)
+# app: crossmath-pilot-78 (ephemeral modal run; image layers textually-identical to crossmath-probe/pilot-32)
+# substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain leanprover/lean4:v4.36.0-rc2, elan v4.2.4
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (SPEC defaults)
+# command: research/pilots/78/run_pilot.sh P0.lean (stage /tmp/crossmath-78-stage, MODAL_USER=doz)
+# modal run URL in transcript tail; /tmp raw captured same session
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-NS5DQABWCdtp8UozTuIJyB
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-78-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== P0.lean
+[pilot] P0.lean: FAIL rc=1 errors=3 sorry=0
+---- axioms ----
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:372:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+  hex
+has type
+  ∃ p, paperCandidates s = {p}
+but is expected to have type
+  ∃ a, _a = {a}
+in the application
+  hex.choose
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+s : State
+i : RowIndex
+j : Var
+_hcase : case222 s
+hsing : paperCandidates s = {(i, j)}
+hex : ∃ p, paperCandidates s = {p}
+⊢ hex.choose ∈ paperCandidates s
+P0.lean:373:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+···
+⊢ hex.choose ∈ paperCandidates s
+P0.lean:373:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+  hex
+has type
+  ∃ p, paperCandidates s = {p}
+but is expected to have type
+  ∃ a, _a = {a}
+in the application
+  hex.choose
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+s : State
+i : RowIndex
+j : Var
+_hcase : case222 s
+hsing : paperCandidates s = {(i, j)}
+hex : ∃ p, paperCandidates s = {p}
+hmem : hex.choose ∈ paperCandidates s
+⊢ some hex.choose = some (i, j)
+P0.lean:429:41: error: linarith failed to find a contradiction
+r : ℝ
+···
+⊢ some hex.choose = some (i, j)
+P0.lean:429:41: error: linarith failed to find a contradiction
+r : ℝ
+a✝ : 0 + (r - 1) < (fun x1 x2 => x1 + x2) (-2) ((![r - 2, r - 1] ∘ Fin.succ) 0)
+⊢ False
+failed
+P0.lean:419:28: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.vecHead,
+    Matrix.vecTail, bot_add_coeff, coe_add_coeff, coe_zero_coeff, max_bot_left_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:426:43: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.vecHead,
+    Matrix.vecTail, bot_add_coeff, coe_add_coeff, coe_zero_coeff, coe_one_coeff, max_bot_left_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:432:64: warning: This simp argument is unused:
+  Matrix.vecHead
+
+Hint: Omit it from the simp argument list.
+···
+
+[pilot] SUMMARY
+[pilot]   P0.lean: FAIL rc=1 errors=3 sorry=0
+[tele] SUMMARY run: wall=34s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-NS5DQABWCdtp8UozTuIJyB

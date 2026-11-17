@@ -1,0 +1,63 @@
+# pilot-78 P0 run 4 — 2026-11-17T11:40:27Z (lane A7)
+# app: crossmath-pilot-78 (ephemeral modal run; image layers textually-identical to crossmath-probe/pilot-32)
+# substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain leanprover/lean4:v4.36.0-rc2, elan v4.2.4
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (SPEC defaults)
+# command: research/pilots/78/run_pilot.sh P0.lean (stage /tmp/crossmath-78-stage, MODAL_USER=doz)
+# modal run URL in transcript tail; /tmp raw captured same session
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-DpxS87td6RAdFzLcxzoexe
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-78-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== P0.lean
+[pilot] P0.lean: OK
+---- axioms ----
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+P0.lean:335:69: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:335:79: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:374:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:433:6: warning: This simp argument is unused:
+  max_bot_left_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons,
+    Matrix.tail_cons, bot_add_coeff, coe_add_coeff, coe_zero_coeff, max_bot_right_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   P0.lean: OK
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-DpxS87td6RAdFzLcxzoexe

@@ -1,0 +1,297 @@
+# pilot-78 P0 run 1 — 2026-11-17T11:40:27Z (lane A7)
+# app: crossmath-pilot-78 (ephemeral modal run; image layers textually-identical to crossmath-probe/pilot-32)
+# substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain leanprover/lean4:v4.36.0-rc2, elan v4.2.4
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (SPEC defaults)
+# command: research/pilots/78/run_pilot.sh P0.lean (stage /tmp/crossmath-78-stage, MODAL_USER=doz)
+# modal run URL in transcript tail; /tmp raw captured same session
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-xooFtVJek9hM7nAjaoxxN2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-78-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.89 mem=8363MB anon=0MB peak=-1MB procs=2 OVER mem
+[pilot] P0.lean: FAIL rc=1 errors=11 sorry=0
+---- axioms ----
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+P0.lean:114:67: error: unexpected token 'open'; expected 'lemma'
+P0.lean:126:4: error(lean.unknownIdentifier): Unknown identifier `stop`
+P0.lean:126:15: error(lean.unknownIdentifier): Unknown identifier `switch`
+P0.lean:126:28: error: Function expected at
+  failure
+but this term has type
+  ?m.7 ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  s
+P0.lean:130:63: error: unexpected token 'open'; expected 'lemma'
+P0.lean:221:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Neg Coeff
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:221:70: error: unsolved goals
+⊢ sorry () = ↑(-2)
+P0.lean:288:8: warning: This simp argument is unused:
+  terminal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [stop, finalState, nullForm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:315:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+···
+P0.lean:126:15: error(lean.unknownIdentifier): Unknown identifier `switch`
+P0.lean:126:28: error: Function expected at
+  failure
+but this term has type
+  ?m.7 ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  s
+P0.lean:130:63: error: unexpected token 'open'; expected 'lemma'
+P0.lean:221:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Neg Coeff
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:221:70: error: unsolved goals
+⊢ sorry () = ↑(-2)
+P0.lean:288:8: warning: This simp argument is unused:
+  terminal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [stop, finalState, nullForm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:315:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+···
+  s
+P0.lean:130:63: error: unexpected token 'open'; expected 'lemma'
+P0.lean:221:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Neg Coeff
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:221:70: error: unsolved goals
+⊢ sorry () = ↑(-2)
+P0.lean:288:8: warning: This simp argument is unused:
+  terminal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [stop, finalState, nullForm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:315:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P0.lean:323:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:221:70: error: unsolved goals
+⊢ sorry () = ↑(-2)
+P0.lean:288:8: warning: This simp argument is unused:
+  terminal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [stop, finalState, nullForm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:315:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P0.lean:323:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:326:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+P0.lean:326:69: warning: This simp argument is unused:
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:341:51: error: unsolved goals
+case refine_2
+⊢ ¬sorry ()
+
+case refine_3
+⊢ ¬sorry ()
+
+case refine_4
+⊢ ¬sorry ()
+P0.lean:350:49: error: unsolved goals
+case refine_2
+⊢ ¬sorry ()
+
+case refine_3
+⊢ ¬sorry ()
+
+case refine_4
+⊢ ¬sorry ()
+P0.lean:371:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:373:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+···
+⊢ ¬sorry ()
+P0.lean:350:49: error: unsolved goals
+case refine_2
+⊢ ¬sorry ()
+
+case refine_3
+⊢ ¬sorry ()
+
+case refine_4
+⊢ ¬sorry ()
+P0.lean:371:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:373:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+  hex
+has type
+  ∃ p, paperCandidates s = {p}
+but is expected to have type
+  ∃ a, _a = {a}
+in the application
+  hex.choose
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+···
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:373:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+  hex
+has type
+  ∃ p, paperCandidates s = {p}
+but is expected to have type
+  ∃ a, _a = {a}
+in the application
+  hex.choose
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+s : State
+i : RowIndex
+j : Var
+_hcase : case222 s
+hsing : paperCandidates s = {(i, j)}
+hex : ∃ p, paperCandidates s = {p}
+⊢ hex.choose ∈ paperCandidates s
+P0.lean:374:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+···
+⊢ hex.choose ∈ paperCandidates s
+P0.lean:374:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => hex.choose ∈ _a
+Error: Application type mismatch: The argument
+  hex
+has type
+  ∃ p, paperCandidates s = {p}
+but is expected to have type
+  ∃ a, _a = {a}
+in the application
+  hex.choose
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+s : State
+i : RowIndex
+j : Var
+_hcase : case222 s
+hsing : paperCandidates s = {(i, j)}
+hex : ∃ p, paperCandidates s = {p}
+hmem : hex.choose ∈ paperCandidates s
+⊢ some hex.choose = some (i, j)
+P0.lean:423:35: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Neg Coeff
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:436:10: error: Function expected at
+  WithBot.coe_lt_coe
+but this term has type
+  ↑?m.496 < ↑?m.497 ↔ ?m.496 < ?m.497
+
+Note: Expected a function because this term is being applied to the argument
+  (by linarith)
+P0.lean:420:28: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.vecHead,
+    Matrix.vecTail, bot_add_coeff, coe_add_coeff, coe_zero_coeff, max_bot_left_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:433:64: warning: This simp argument is unused:
+  Matrix.vecHead
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.vecTail, bot_add_coeff, coe_add_coeff,
+    coe_zero_coeff, max_bot_left_coeff, max_bot_right_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:434:6: warning: This simp argument is unused:
+  Matrix.vecTail
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:438:0: error: Unexpected name `Truffet78` after `end`: The current section is unnamed
+
+Hint: Delete the name `Truffet78` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵T̵r̵u̵f̵f̵e̵t̵7̵8̵
+P0.lean:439:0: error: Unexpected name `CrossMath` after `end`: The current section is unnamed
+
+Hint: Delete the name `CrossMath` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵C̵r̵o̵s̵s̵M̵a̵t̵h̵
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  end ̵T̵r̵u̵f̵f̵e̵t̵7̵8̵
+P0.lean:439:0: error: Unexpected name `CrossMath` after `end`: The current section is unnamed
+
+Hint: Delete the name `CrossMath` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵C̵r̵o̵s̵s̵M̵a̵t̵h̵
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   P0.lean: FAIL rc=1 errors=11 sorry=0
+[tele] SUMMARY run: wall=64s max_cpu=0.89 max_mem=8363MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-xooFtVJek9hM7nAjaoxxN2

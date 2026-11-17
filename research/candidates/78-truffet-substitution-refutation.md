@@ -141,6 +141,15 @@ exhibited instance.
 
 ## Stage-A P0 spec (appended 2026-11-17, lane A7; for whichever lane is chartered — NO Lean authored yet)
 
+**[EXECUTED — P0 GREEN 2026-11-17, lane A7** (chartered same day by the orchestrator):
+`research/pilots/78/P0.lean` + `P0-record.md`; 4 runs, 0 sorry, all three theorems
+triad-clean. One spec correction: A2′'s inequality direction (below, §(a)). **]**
+
+*(a) correction, applied at execution:* the A2′ signature drafted below as
+`(r : Coeff) < eval initial.cost w` had the inequality reversed; the proved statement is
+`eval initial.cost w < (r : Coeff)` (unbounded *below*). The signature block below is
+kept verbatim as the drafted spec; the executed statement governs.
+
 ### (a) Statement list — signatures only (pilot vocabulary; OAI-verbatim substrate)
 
 One file `pilots/78/P0.lean`, `import Mathlib`, namespace `CrossMath.Truffet78`.
@@ -259,6 +268,111 @@ pilot header.
 - **P0 exit:** A1 (two states) + A2 GREEN, axcheck triad-clean → article-eligibility
   review per the iter-4 gate; A2′ is P1-optional; Stage B (classical transcription +
   search) charters only after Stage A GREEN, per the dossier's feasibility note.
+
+## S1–S4 re-grade (post-P0; lane A7, 2026-11-17)
+
+*The flagged next gate action after P0 GREEN (`pilots/78/P0-record.md`), executed against
+R2's four-point strength bar as typeset in RESEARCH.md §Iteration 4 quality gate.
+Evidence base: P0.lean (444 LoC) + run logs 1–4 + the hardened 6-row nearest-miss table
+above + the empty-critique-space sweep (2026-11-16 R7 / 2026-11-17 A7).*
+
+**S1 — statement-level novelty with named nearest-miss: PASS** (with the layer-delta
+named). The NEGATIVE statement — "the v4 substitution procedure of arXiv:2603.26423,
+transcribed verbatim ((53b) gate, Thm-4.3 singleton selection (47), §4.2.4 update, §4.2.3
+case ladder), terminates suboptimally on a Def-4.2-bounded two-row instance, and asserts
+a finite minimum on an unbounded-below instance" — is absent from every named neighbor:
+(a) **vs the OAI theorem** (`finite_execution_not_optimal`): that statement is
+model-level ("the *modeled* criteria force a suboptimal run"); ours is procedure-level —
+it names the paper's own machinery, and the promotion content is A1, itself a new
+theorem (every singleton-candidate Case-2.2.2 state selects its unique pair via (47),
+no interval arithmetic participating). A2 is not a corollary of the OAI theorem: without
+A1 the run is not the paper's. (b) **vs the Butkovič line**: duality theorems and
+systems-elimination (1984) carry no method-soundness claim to negate — nothing to
+overlap. (c) **vs ABGJ**: pivoting mechanics without a rule-soundness criterion; no
+counterexample-to-another's-method statement. (d) **vs the Truffet line itself**: the
+author's v4 NOTA claims the disjunction fix "does not question the general principle";
+no soundness theorem, counterexample, or third-party critique exists (S2 citations of
+both papers empty 2026-11-16/17; web sweeps clean — the empty-critique-space
+confirmation is now hard evidence, not absence-of-reading). A2′'s failure mode (finite
+minimum asserted on an unbounded-below instance) is new even relative to the corpus
+theorem, which only exhibits a beating point.
+
+**S2 — essential bridge, not provable from one side: PASS** (asymmetry noted for R2's
+final ruling). The bridge is openai-math (the state substrate + counterexample machinery,
+re-implemented statement-level) × the external 2026 preprint (the procedure under
+refutation), with the fidelity dictionary as the join. The P0 landing *strengthens* the
+claim: the bridge's load-bearing lemma (A1) is now kernel-checked on our pin, so the
+join is verified rather than argued — the paper side alone cannot even state the
+counterexample (it asserts correctness), and the corpus side alone refutes only its own
+abstraction. Honest note: this is a corpus × external-preprint bridge, not an
+inter-corpus one (no mathlib/tauceti/anthropics content beyond ambient substrate); R2
+should confirm the asymmetric reading of "multi-corpus" for NEGATIVE-kind refutations —
+the project's discovery pattern (corpus engine, external target) supports it, but the
+confirmation belongs to the bar's owner.
+
+**S3 — non-trivial proof content or surprising statement: PASS (limb (b) decisively;
+limb (a) contributing).** Limb (b): a 2026 method — whose classical sibling stakes
+Smale's 9th problem — is refuted by its own two-step forced run on a 2×3 instance, with
+the failure mode including a finite minimum asserted on an unbounded-below problem, and
+with the v4 NOTA's "does not question the general principle" shown false at the
+I≥-selection level. That is a surprising statement by any reading. Limb (a): the proof
+content is 444 LoC — the procedure layer (candidates/selection/case-ladder/terminal),
+six pin-proofed private cast/max helpers, the singleton-uniqueness argument (A1), the
+witness family with coe-affine comparisons (A2′), and the ported run lemmas; elementary
+in tactic difficulty (norm_num/finite-case/linarith) by design — the depth is in the
+dictionary and the singleton-case insight. Against the corollary-level exclusion rule:
+A1 is a standalone new theorem, and A2 consumes it; neither is a relabeling of the
+corpus theorem.
+
+**S4 — discharge/billing discipline: PASS.** Kind NEGATIVE declared at filing; binder
+inventory empty (no donor statements consumed, no EnclOK-class binders, no donor-pin
+concerns — verified by construction and by the in-file axiom surface). Article status
+rows (closed four-string vocabulary): **A1 / A2 / A2′ = PROVED-UNCONDITIONAL** (kernel-
+verified on pin `ff2494ea`; triad-only `#print axioms` in `pilots/78/logs/p0-run4.log`).
+No open-headline tranche, no certified numerics (all symbolic), no infrastructure
+narration in the article. Mandatory limitations for the draft: (1) the A2′
+spec-direction correction (drafted reversed, executed corrected — article carries the
+corrected statement only, correction history stays in the record); (2) Stage B (the
+classical sibling) out of scope; (3) A1's scope is the forced-singleton class — the
+tie-stages (48)–(52) are deliberately not transcribed (not reached on the exhibited
+run; the transcription defines only branch (47), justified *by* A1 — this scopes but
+does not weaken the refutation, since both steps of the exhibited run are
+singleton-forced, leaving the procedure no choice); (4) the (32) operand-order
+extraction caveat (HTML + Prop 3.2 cross-check); (5) the scope boundary rows — this
+refutes the substitution *rule*, not tropical LP duality (Butkovič) nor tropical
+pivoting (ABGJ); (6) attribution discipline — the model-level theorem is the corpus's;
+the procedure-level promotion (A1+A2+A2′) is this project's.
+
+## GO/NO-GO: **GO** for article-78 drafting
+
+All four bar points pass; the two flagged items for the orchestrator/R2 at charter:
+(a) the S2 asymmetric-bridge reading, (b) the N=1 article-kind quota interaction
+(week1-agenda row 9 — whether any week-1 GREEN consumed the slot is the orchestrator's
+ruling). Neither blocks drafting; both belong in the charter note.
+
+### Input package for A9
+
+1. **Statements**: the three theorems verbatim from `pilots/78/P0.lean`
+   (`CrossMath.Truffet78.paperSelect_forced_singleton` :365,
+   `paper_run_not_optimal` :383, `instance_unbounded_below` :405) + the NEGATIVE
+   headline formulation (S1 above) + the instance spelling (rows x₂ ≤ x₀⊕x₁ and
+   1⊗x₁⊕(−2)⊗x₂ ≤ x₀, cost x₀, witness (0,−1,0) vs output (1,0,0)).
+2. **Verification blocks per R3 §5**: file `pilots/78/P0.lean` sha256-at-sweep;
+   extractor-generated counts from the GREEN run (3 public theorems, 0 sorry,
+   decl-level counts from `logs/p0-run4.log`); binder inventory = empty; the
+   `#print axioms` triad outputs (three lines, run-4 log); run table (4 runs, walls
+   64/34/40/53 s, warm layers shared with crossmath-probe/pilot-32); Modal provenance
+   (app `crossmath-pilot-78`, mathlib `ff2494ea`, `v4.36.0-rc2`, spec 2 CPU/4 GB,
+   LEAN_NUM_THREADS=2, telemetry summary lines incl. the documented run-1
+   mapped-olean OVER artifact).
+3. **Nearest-miss table**: the hardened 6-row table above, with URLs + access dates.
+4. **Limitations**: the six S4 items verbatim.
+5. **Novelty-support block**: the empty-critique-space evidence (S2 API `/citations`
+   empty for both papers, 2026-11-16/17; web-sweep query shapes; the v4-NOTA
+   authorship/scope/timeline pins: ROADEF Feb 2026 → HAL notes 2026-03-03 → arXiv v1 →
+   v4 2026-08-29).
+
+— re-grade by lane A7, 2026-11-17; the charter gate is the orchestrator's.
 
 — filed by lane A7, 2026-11-17, from `research/novelty/iter4-truffet-classical-scope.md`
 §10 (ELEVATE; go-condition (i)). Spec appended same day from the coordinator's queue

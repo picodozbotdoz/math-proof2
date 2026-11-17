@@ -1,0 +1,59 @@
+# pilot-78 P0 run 3 — 2026-11-17T11:40:27Z (lane A7)
+# app: crossmath-pilot-78 (ephemeral modal run; image layers textually-identical to crossmath-probe/pilot-32)
+# substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain leanprover/lean4:v4.36.0-rc2, elan v4.2.4
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (SPEC defaults)
+# command: research/pilots/78/run_pilot.sh P0.lean (stage /tmp/crossmath-78-stage, MODAL_USER=doz)
+# modal run URL in transcript tail; /tmp raw captured same session
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-eCGgQaeRDoiOtHvAl9Ixlh
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-78-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== P0.lean
+[pilot] P0.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:428:41: error: linarith failed to find a contradiction
+r : ℝ
+a✝ : 0 + (r - 1) < (fun x1 x2 => x1 + x2) (-2) (Matrix.vecHead (Matrix.vecTail ![r - 2, r - 1]))
+⊢ False
+failed
+P0.lean:418:28: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, bot_add_coeff, coe_add_coeff,
+    coe_zero_coeff, max_bot_left_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:425:43: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, bot_add_coeff, coe_add_coeff,
+    coe_zero_coeff, coe_one_coeff, max_bot_left_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+P0.lean:433:26: warning: This simp argument is unused:
+  max_bot_right_coeff
+
+Hint: Omit it from the simp argument list.
+···
+
+[pilot] SUMMARY
+[pilot]   P0.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=40s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-eCGgQaeRDoiOtHvAl9Ixlh
