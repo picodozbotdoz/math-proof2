@@ -11,7 +11,7 @@
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
-STAGE=/tmp/crossmath-pilot-stage
+STAGE=/tmp/crossmath-pilot-32-a6
 MODAL_USER=${MODAL_USER:-doz}
 
 rm -rf "$STAGE"; mkdir -p "$STAGE"

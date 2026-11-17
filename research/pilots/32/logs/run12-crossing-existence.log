@@ -1,0 +1,539 @@
+# provenance: raw modal run 12 (iteration-4 week-1 row 1; R2 §12.2 32-crossing discharge), app crossmath-pilot-32, doz CLI route (PRIMARY per orchestrator ruling 2026-11-17 + H's relay: warm layers live on the doz workspace semraker; xyz route verified live but NOT used) | date 2026-11-17 | producing lane: A6 | command: MODAL_USER=doz bash research/pilots/32/run_pilot.sh research/pilots/32/M1.lean research/pilots/32/M2.lean (stage /tmp/crossmath-pilot-32-a6; run_pilot.sh:14 stage dir made lane-unique this session, was /tmp/crossmath-pilot-stage) | files: M1.lean sha256 5aad3ffa54be467921f57d150f0aecfab6d3904a2c2d320fb367cf513517b32e (unchanged, regression), M2.lean sha256 9c10fcf5d209407be79178061a60740f9181f9bc18910fc77e1480742c1c52b3e, 675 LoC | verdict: M1.lean OK + M2.lean OK (rc=0, 0 errors, 0 sorry-warnings), axioms triad-only [propext, Classical.choice, Quot.sound] for all 7 printed M2 theorems + all 9 M1 theorems | descent: 3 runs — attempt1 FAIL 9 err (raw log preserved below), attempt2 FAIL 2 err (norm_num on metavar goals), attempt3 GREEN wall=45s warm, telemetry OVER=0 | run URL https://modal.com/apps/semraker/main/ap-nIcL1aicwp5tHgX0LlYY1n (attempt 3); attempt1 https://modal.com/apps/semraker/main/ap-hF1hZUaNbOpuo79GOsq6mE; attempt2 https://modal.com/apps/semraker/main/ap-1LTE3IatUHIi5Y1mGerAi7 | substrate: mathlib ff2494ea5e43, toolchain v4.36.0-rc2, 8710 oleans, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-nIcL1aicwp5tHgX0LlYY1n
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-32-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['M1.lean', 'M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M1.lean
+[pilot] M1.lean: OK
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+M1.lean:184:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+M1.lean:168:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:169:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:184:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:367:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M1.lean:471:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== M2.lean
+[pilot] M2.lean: OK
+---- axioms ----
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M2.lean:318:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M2.lean:464:8: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M2.lean:484:4: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M2.lean:523:4: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M2.lean:538:65: warning: Variable name `hle` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hle
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   M1.lean: OK
+[pilot]   M2.lean: OK
+[tele] SUMMARY run: wall=45s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-nIcL1aicwp5tHgX0LlYY1n
+
+# === DESCENT attempt 2 (2 errors: norm_num on metavar-typed h0 goals) ===
+# url https://modal.com/apps/semraker/main/ap-1LTE3IatUHIi5Y1mGerAi7
+
+# === DESCENT attempt 1 (9 errors; full context in-file below) ===
+# url https://modal.com/apps/semraker/main/ap-hF1hZUaNbOpuo79GOsq6mE
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-1LTE3IatUHIi5Y1mGerAi7
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-32-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['M1.lean', 'M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M1.lean
+[tele] t=60s cpu=0.25 mem=3383MB anon=0MB peak=-1MB procs=2
+[tele] t=120s cpu=0.15 mem=7282MB anon=0MB peak=-1MB procs=2 OVER mem
+[pilot] M1.lean: OK
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+M1.lean:184:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+M1.lean:168:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:169:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:184:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:367:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M1.lean:471:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== M2.lean
+[pilot] M2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M2.lean:552:18: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+x✝¹ : ℝ
+x✝ : x✝¹ ∈ Icc c₁ c₂
+⊢ ¬{ cauchy := 9 } = 0
+M2.lean:566:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+hfrac : ContinuousOn (fun c => (c - 1) / 9) (Icc c₁ c₂)
+hlogc : ContinuousOn (fun c => Real.log ((c - 1) / 9)) (Icc c₁ c₂)
+hgamma : ContinuousOn (fun c => gammaOf c (9 / 10)) (Icc c₁ c₂)
+hF : ContinuousOn Ffun (Icc c₁ c₂)
+x✝¹ : ℝ
+x✝ : x✝¹ ∈ Icc c₁ c₂
+⊢ ¬{ cauchy := 2 } = 0
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+⊢ ¬{ cauchy := 9 } = 0
+M2.lean:566:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+hfrac : ContinuousOn (fun c => (c - 1) / 9) (Icc c₁ c₂)
+hlogc : ContinuousOn (fun c => Real.log ((c - 1) / 9)) (Icc c₁ c₂)
+hgamma : ContinuousOn (fun c => gammaOf c (9 / 10)) (Icc c₁ c₂)
+hF : ContinuousOn Ffun (Icc c₁ c₂)
+x✝¹ : ℝ
+x✝ : x✝¹ ∈ Icc c₁ c₂
+⊢ ¬{ cauchy := 2 } = 0
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   M1.lean: OK
+[pilot]   M2.lean: FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=152s max_cpu=0.25 max_mem=7282MB max_anon=0MB samples=2 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-1LTE3IatUHIi5Y1mGerAi7
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-hF1hZUaNbOpuo79GOsq6bE
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-32-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['M1.lean', 'M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] mathlib rev ff2494ea5e43
+[pilot] oleans present: 8710
+
+=== M1.lean
+[tele] t=60s cpu=0.56 mem=5263MB anon=0MB peak=-1MB procs=2 OVER mem
+[pilot] M1.lean: OK
+---- axioms ----
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+M1.lean:184:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+M1.lean:168:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:169:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:184:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+M1.lean:367:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M1.lean:471:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== M2.lean
+[pilot] M2.lean: FAIL rc=1 errors=9 sorry=0
+---- axioms ----
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+M2.lean:447:2: error: Type mismatch
+  hsum
+has type
+  (c - 10) * Lconst + (c - 10) * -Real.log (10 / 9) / 2 ≤ (c - 10) * Lconst + (Ffun c - Ffun 10) / 2
+but is expected to have type
+  lnΛ 10 0 + ((c - 10) * Lconst + (c - 10) * -Real.log (10 / 9) / 2) ≤
+    lnΛ 10 0 + (c - 10) * Lconst + (Ffun c - Ffun 10) / 2
+M2.lean:456:38: error: linarith failed to find a contradiction
+e : ℝ
+he : e > 0
+h : gammaOf (10 + e * Real.log 4 / 2) (9 / 10) ≤ e * Real.log 4 / 2 / (10 * Real.log 4)
+hL4ne : Real.log 4 ≠ 0
+a✝ : 10 + e * Real.log 4 / 2 ≤ 10
+⊢ False
+failed
+M2.lean:486:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  c
+in the target expression
+  10 ≤ ?m.311
+
+ε : ℝ
+hε : 0 < ε
+hlt : ε < Real.log 4 / (5 * Real.log 10)
+h5 : 0 < 5 * Real.log 10
+hlt' : ε * (5 * Real.log 10) < Real.log 4
+···
+    lnΛ 10 0 + (c - 10) * Lconst + (Ffun c - Ffun 10) / 2
+M2.lean:456:38: error: linarith failed to find a contradiction
+e : ℝ
+he : e > 0
+h : gammaOf (10 + e * Real.log 4 / 2) (9 / 10) ≤ e * Real.log 4 / 2 / (10 * Real.log 4)
+hL4ne : Real.log 4 ≠ 0
+a✝ : 10 + e * Real.log 4 / 2 ≤ 10
+⊢ False
+failed
+M2.lean:486:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  c
+in the target expression
+  10 ≤ ?m.311
+
+ε : ℝ
+hε : 0 < ε
+hlt : ε < Real.log 4 / (5 * Real.log 10)
+h5 : 0 < 5 * Real.log 10
+hlt' : ε * (5 * Real.log 10) < Real.log 4
+hden : 5 * Real.log 10 < Real.log 4 / ε
+Δ : ℝ := (Real.log 4 / ε - 5 * Real.log 10) / (2 * Lconst)
+hΔdef : Δ = (Real.log 4 / ε - 5 * Real.log 10) / (2 * Lconst)
+hΔpos : 0 < Δ
+hDL : Δ * Lconst = (Real.log 4 / ε - 5 * Real.log 10) / 2
+c : ℝ := 10 + Δ
+hcn : c = 10 + Δ
+···
+failed
+M2.lean:486:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  c
+in the target expression
+  10 ≤ ?m.311
+
+ε : ℝ
+hε : 0 < ε
+hlt : ε < Real.log 4 / (5 * Real.log 10)
+h5 : 0 < 5 * Real.log 10
+hlt' : ε * (5 * Real.log 10) < Real.log 4
+hden : 5 * Real.log 10 < Real.log 4 / ε
+Δ : ℝ := (Real.log 4 / ε - 5 * Real.log 10) / (2 * Lconst)
+hΔdef : Δ = (Real.log 4 / ε - 5 * Real.log 10) / (2 * Lconst)
+hΔpos : 0 < Δ
+hDL : Δ * Lconst = (Real.log 4 / ε - 5 * Real.log 10) / 2
+c : ℝ := 10 + Δ
+hcn : c = 10 + Δ
+hc10 : 10 < c
+⊢ 10 ≤ ?m.311
+M2.lean:528:2: error: linarith failed to find a contradiction
+ε : ℝ
+hε : 0 < ε
+hκpos : 0 < 2 * Lconst - Real.log (10 / 9)
+hκne : 2 * Lconst - Real.log (10 / 9) ≠ 0
+hX : 0 < Real.log 4 / ε + 1
+···
+⊢ 10 ≤ ?m.311
+M2.lean:528:2: error: linarith failed to find a contradiction
+ε : ℝ
+hε : 0 < ε
+hκpos : 0 < 2 * Lconst - Real.log (10 / 9)
+hκne : 2 * Lconst - Real.log (10 / 9) ≠ 0
+hX : 0 < Real.log 4 / ε + 1
+c : ℝ := 10 + 2 * (Real.log 4 / ε + 1) / (2 * Lconst - Real.log (10 / 9))
+hcdef : c = 10 + 2 * (Real.log 4 / ε + 1) / (2 * Lconst - Real.log (10 / 9))
+hκhalf : 0 < 2 * (Real.log 4 / ε + 1) / (2 * Lconst - Real.log (10 / 9))
+hc10 : 10 < c
+hgrow : 5 * Real.log 10 + (Real.log 4 / ε + 1) ≤ lnΛ c 0
+hterm : (c - 10) * (2 * Lconst - Real.log (10 / 9)) / 2 = Real.log 4 / ε + 1
+hzero : 0 * Real.log 4 = 0
+a✝ : 0 ≤ Real.log 4 / ε - lnΛ c 0
+⊢ False
+failed
+M2.lean:549:6: error: Type mismatch
+  fun x x_1 => ?m.216
+has type
+  (x : 9 = 0) → (x_1 : ?m.217 x) → ?m.218 x x_1
+but is expected to have type
+  9 ≠ 0
+M2.lean:549:18: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+···
+failed
+M2.lean:549:6: error: Type mismatch
+  fun x x_1 => ?m.216
+has type
+  (x : 9 = 0) → (x_1 : ?m.217 x) → ?m.218 x x_1
+but is expected to have type
+  9 ≠ 0
+M2.lean:549:18: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+x : 9 = 0
+x✝ : ?m.217 x
+⊢ ?m.218 x x✝
+M2.lean:563:33: error: Type mismatch
+  fun x x_1 => ?m.506
+has type
+  (x : 2 = 0) → (x_1 : ?m.507 x) → ?m.508 x x_1
+but is expected to have type
+  2 ≠ 0
+M2.lean:563:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+···
+  9 ≠ 0
+M2.lean:549:18: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+x : 9 = 0
+x✝ : ?m.217 x
+⊢ ?m.218 x x✝
+M2.lean:563:33: error: Type mismatch
+  fun x x_1 => ?m.506
+has type
+  (x : 2 = 0) → (x_1 : ?m.507 x) → ?m.508 x x_1
+but is expected to have type
+  2 ≠ 0
+M2.lean:563:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+hfrac : ContinuousOn (fun c => (c - 1) / 9) (Icc c₁ c₂)
+hlogc : ContinuousOn (fun c => Real.log ((c - 1) / 9)) (Icc c₁ c₂)
+hgamma : ContinuousOn (fun c => gammaOf c (9 / 10)) (Icc c₁ c₂)
+hF : ContinuousOn Ffun (Icc c₁ c₂)
+···
+⊢ ?m.218 x x✝
+M2.lean:563:33: error: Type mismatch
+  fun x x_1 => ?m.506
+has type
+  (x : 2 = 0) → (x_1 : ?m.507 x) → ?m.508 x x_1
+but is expected to have type
+  2 ≠ 0
+M2.lean:563:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+hfrac : ContinuousOn (fun c => (c - 1) / 9) (Icc c₁ c₂)
+hlogc : ContinuousOn (fun c => Real.log ((c - 1) / 9)) (Icc c₁ c₂)
+hgamma : ContinuousOn (fun c => gammaOf c (9 / 10)) (Icc c₁ c₂)
+hF : ContinuousOn Ffun (Icc c₁ c₂)
+x : 2 = 0
+x✝ : ?m.507 x
+⊢ ?m.508 x x✝
+M2.lean:631:26: error(lean.unknownIdentifier): Unknown constant `Set.mem_image.mp`
+M2.lean:631:9: error: Tactic `rcases` failed: `x✝ : ?m.1528` is not an inductive datatype
+M2.lean:650:58: error(lean.unknownIdentifier): Unknown identifier `hy`
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  2 ≠ 0
+M2.lean:563:45: error: unsolved goals
+ε c₁ c₂ : ℝ
+h₁ : 10 < c₁
+hle : c₁ ≤ c₂
+hgt : ∀ x ∈ Icc c₁ c₂, 10 < x
+hmaps : MapsTo (fun c => (c - 1) / 9) (Icc c₁ c₂) {0}ᶜ
+hfrac : ContinuousOn (fun c => (c - 1) / 9) (Icc c₁ c₂)
+hlogc : ContinuousOn (fun c => Real.log ((c - 1) / 9)) (Icc c₁ c₂)
+hgamma : ContinuousOn (fun c => gammaOf c (9 / 10)) (Icc c₁ c₂)
+hF : ContinuousOn Ffun (Icc c₁ c₂)
+x : 2 = 0
+x✝ : ?m.507 x
+⊢ ?m.508 x x✝
+M2.lean:631:26: error(lean.unknownIdentifier): Unknown constant `Set.mem_image.mp`
+M2.lean:631:9: error: Tactic `rcases` failed: `x✝ : ?m.1528` is not an inductive datatype
+M2.lean:650:58: error(lean.unknownIdentifier): Unknown identifier `hy`
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+M2.lean:631:26: error(lean.unknownIdentifier): Unknown constant `Set.mem_image.mp`
+M2.lean:631:9: error: Tactic `rcases` failed: `x✝ : ?m.1528` is not an inductive datatype
+M2.lean:650:58: error(lean.unknownIdentifier): Unknown identifier `hy`
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   M1.lean: OK
+[pilot]   M2.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=91s max_cpu=0.56 max_mem=5263MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-hF1hZUaNbOpuo79GOsq6bE
