@@ -1,0 +1,677 @@
+# provenance: raw modal run, FF-EZ4 P0 statement-first probe (iteration-4 week-1 relay; r5 backlog §3 rank 9 / §14 row 9 — the FF-EZ4 + 22-T2a task-slot pair, FF-EZ4 half; G6b route: tauceti objects as binders, Weil side = G3-validated LeanEval statement), app crossmath-pilot-ffez4 (new ephemeral app, BYTE-IDENTICAL image block to pilots/71/run_pilot.py — shared warm layers with the probe/axbump/pilot-32/71 family; probe-convention verdict logic cloned), doz CLI route (PRIMARY per orchestrator ruling 2026-11-17) | date 2026-11-17 | producing lane: A6 | command: MODAL_USER=doz bash research/pilots/ff-ez4/run_pilot.sh research/pilots/ff-ez4/P0.lean (stage /tmp/crossmath-pilot-ffez4-a6) | files: P0.lean sha256 b34f0f709484d94901c3b642c92e414f6c6bc77ad9f61640f6c7248de9e41b63 (216 LoC final), run_pilot.py sha256 758526cd…, run_pilot.sh (doz wrapper) | verdict: P0.lean OK (probe class; rc=0, 0 errors, 0 sorry-warnings, ZERO sorry tokens in file — Prop-def convention, MasterIdentity idiom) | descent: 4 runs, 3 fix iterations (15 err → 8 → 3 → 0): run1 = universe-fixed `Type` binders + wrong PowerSeries C/X idiom for pin; run2 = `Type*` still rigid for CommRingCat.ofHom (universe-monomorphic) + docstring-before-set_option parse; run3 = G3-verbatim `Type _` + drop set_option; uninferrable F at body-only-F applications (HypTaucetiCounts N a etc.) → explicit (F := F); run4 GREEN wall=76s warm, telemetry OVER=1 (mem 6146MB = mmapped-olean RSS class, inherent per AGENTS.md; cpu 0.71) | run URL (GREEN) https://modal.com/apps/semraker/main/ap-8ueIPsp98vWCqBSqn7akdP | substrate: mathlib ff2494ea5e43, v4.36.0-rc2, 8710 oleans, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-8ueIPsp98vWCqBSqn7akdP
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-ffez4-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez4] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez4] mathlib rev ff2494ea5e43
+[ffez4] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.71 mem=6146MB anon=0MB peak=-1MB procs=2 OVER mem
+[ffez4] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+@WeierstrassCurve.IsElliptic : {R : Type u_1} → [CommRing R] → WeierstrassCurve R → Prop
+@IsProper : {X Y : Scheme} → (X ⟶ Y) → Prop
+@GeometricallyIrreducible : {X Y : Scheme} → (X ⟶ Y) → Prop
+SmoothOfRelativeDimension : ℕ → {X Y : Scheme} → (X ⟶ Y) → Prop
+@Over : {T : Type u_2} → [Category.{u_1, u_2} T] → T → Type (max u_2 u_1)
+Spec : CommRingCat → Scheme
+PowerSeries.exp : (A : Type u_1) → [inst : Ring A] → [Algebra ℚ A] → PowerSeries A
+@PowerSeries.subst : {R : Type u_1} →
+  [inst : CommRing R] →
+    {τ : Type u_2} →
+      {S : Type u_3} → [inst_1 : CommRing S] → [Algebra R S] → MvPowerSeries τ S → PowerSeries R → MvPowerSeries τ S
+@PowerSeries.mk : {R : Type u_1} → (ℕ → R) → PowerSeries R
+@PowerSeries.C : {R : Type u_1} → [inst : Semiring R] → R →+* PowerSeries R
+@PowerSeries.X : {R : Type u_1} → [Semiring R] → PowerSeries R
+
+[ffez4] SUMMARY
+[ffez4]   P0.lean: OK (probe, sorry allowed)
+[tele] SUMMARY run: wall=76s max_cpu=0.71 max_mem=6146MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-8ueIPsp98vWCqBSqn7akdP
+
+# === DESCENT attempt 1 ===
+https://modal.com/apps/semraker/main/ap-ATh0spHNZSK6H0lSu36hJV
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ATh0spHNZSK6H0lSu36hJV
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-ffez4-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez4] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez4] mathlib rev ff2494ea5e43
+[ffez4] oleans present: 8710
+
+=== P0.lean
+[ffez4] P0.lean: FAIL rc=1 errors=15
+---- error contexts ----
+@PowerSeries.X : {R : Type u_1} → [Semiring R] → PowerSeries R
+P0.lean:88:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+but is expected to have type
+  RingHom.{u_1, u_1} F (?m.133 L)
+in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:108:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+but is expected to have type
+  RingHom.{u_1, u_1} F (?m.62 L)
+in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:134:22: error: Application type mismatch: The argument
+  a
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ a
+P0.lean:134:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:108:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+but is expected to have type
+  RingHom.{u_1, u_1} F (?m.62 L)
+in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:134:22: error: Application type mismatch: The argument
+  a
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ a
+P0.lean:134:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:134:40: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:134:22: error: Application type mismatch: The argument
+  a
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ a
+P0.lean:134:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:134:40: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:135:22: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:134:40: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:135:22: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ q
+P0.lean:135:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:135:41: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+···
+  PowerSeries.X ℚ
+P0.lean:135:22: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ q
+P0.lean:135:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:135:41: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:133:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instSemiring', which is 'noncomputable'
+P0.lean:139:21: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:135:41: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:133:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instSemiring', which is 'noncomputable'
+P0.lean:139:21: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:139:47: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ q
+···
+P0.lean:133:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instSemiring', which is 'noncomputable'
+P0.lean:139:21: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:139:47: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ q
+P0.lean:139:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:139:65: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+···
+  PowerSeries.X ℚ
+P0.lean:139:47: error: Application type mismatch: The argument
+  q
+has type
+  ℚ
+but is expected to have type
+  Unit →₀ ℕ
+in the application
+  PowerSeries.C ℚ q
+P0.lean:139:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:139:65: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:138:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instMul', which is 'noncomputable'
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+P0.lean:139:65: error: Application type mismatch: The argument
+  ℚ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Unit →₀ ℕ
+of sort `Type` in the application
+  PowerSeries.X ℚ
+P0.lean:138:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instMul', which is 'noncomputable'
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+but is expected to have type
+  RingHom.{u_1, u_1} F (?m.30 L)
+in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+P0.lean:138:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'MvPowerSeries.instMul', which is 'noncomputable'
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, 0} F L
+but is expected to have type
+  RingHom.{u_1, u_1} F (?m.30 L)
+in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+
+[ffez4] SUMMARY
+[ffez4]   P0.lean: FAIL rc=1 errors=15
+[tele] SUMMARY run: wall=39s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ATh0spHNZSK6H0lSu36hJV
+
+# === DESCENT attempt 2 ===
+https://modal.com/apps/semraker/main/ap-LNthCGgFBe3uxdzU93K3Aq
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-LNthCGgFBe3uxdzU93K3Aq
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-ffez4-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez4] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez4] mathlib rev ff2494ea5e43
+[ffez4] oleans present: 8710
+
+=== P0.lean
+[ffez4] P0.lean: FAIL rc=1 errors=8
+---- error contexts ----
+@PowerSeries.X : {R : Type u_1} → [Semiring R] → PowerSeries R
+P0.lean:88:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.133 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:108:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.62 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.30 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:108:54: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.62 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.30 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:158:58: error: Application type mismatch: The argument
+  algebraMap F L
+has type
+  RingHom.{u_1, u_2} F L
+of sort `Type (max u_1 u_2)` but is expected to have type
+  RingHom.{u_1, u_1} F (?m.30 L)
+of sort `Type u_1` in the application
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+···
+  CommRingCat.ofHom (algebraMap F L)
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+P0.lean:166:15: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+P0.lean:181:54: error: unexpected token 'set_option'; expected 'lemma'
+P0.lean:186:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:202:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:209:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+
+[ffez4] SUMMARY
+[ffez4]   P0.lean: FAIL rc=1 errors=8
+[tele] SUMMARY run: wall=47s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-LNthCGgFBe3uxdzU93K3Aq
+
+# === DESCENT attempt 3 ===
+https://modal.com/apps/semraker/main/ap-gNIZcxQ1VrkEu9Wj0vA8Ey
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-gNIZcxQ1VrkEu9Wj0vA8Ey
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot-ffez4-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez4] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez4] mathlib rev ff2494ea5e43
+[ffez4] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.59 mem=7153MB anon=0MB peak=-1MB procs=2 OVER mem
+[ffez4] P0.lean: FAIL rc=1 errors=3
+---- error contexts ----
+@PowerSeries.X : {R : Type u_1} → [Semiring R] → PowerSeries R
+P0.lean:184:2: error: typeclass instance problem is stuck
+  Field ?m.6
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:200:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:207:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:200:47: error: typeclass instance problem is stuck
+  Field ?m.11
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:207:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+P0.lean:207:4: error: typeclass instance problem is stuck
+  Field ?m.12
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+···
+
+[ffez4] SUMMARY
+[ffez4]   P0.lean: FAIL rc=1 errors=3
+[tele] SUMMARY run: wall=72s max_cpu=0.59 max_mem=7153MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-gNIZcxQ1VrkEu9Wj0vA8Ey
+
