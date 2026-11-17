@@ -90,7 +90,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | A6 | 32-crossing run-12 + 01-stability tranche | `research/pilots/32/` run 12 (warm app; wrapper caveat week1-agenda row 1) + 01-Rung-0 paper tranche if lane-free | spawned (queue loaded) | 2026-11-17 |
 | A7 | Truffet elevation decision | **ELEVATED** — §10 decision record (go-condition (i) CLOSED, forced-singleton class); dossier 78 landed (`research/candidates/78-truffet-substitution-refutation.md`, kind NEGATIVE); prior-art hardening in flight | ELEVATED — dossier 78 landed (kind NEGATIVE, Stage A/B); prior-art hardening in flight | 2026-11-17 |
 | A8 | pilot-GREEN validation + donor infra | Week-1 validation v1 LANDED (`research/qa/iter4-review/a8-week1-validation.md`): 4 PASS / 3 PARTIAL / 0 FAIL; 75-Pb READY as discovery lead; F1–F3 record defects routed | delivered v1 (4 PASS / 3 PARTIAL / 0 FAIL; F1–F3 routed; wave-2 prep) | 2026-11-17 |
-| A9 | article-75 two-tier v2 (R1 gate) | `research/articles/75-abelian-assembly-zetaL-proportions.md` v2 (R5 §14.1 tiers; template gate; N=1 quota — week1-agenda row 9) | spawned (queue loaded) | 2026-11-17 |
+| A9 | article-75 two-tier v2 (R1 gate) | Article-75 v2 LANDED (`research/articles/75-abelian-assembly-zetaL-proportions.md`, kind DISCOVERY-CONDITIONAL, 11/12 checklist; PENDING-CLOSE: README row-75 at splice, sweep shas) + quota note (N=1 unspent; 11/11 relabels verified) | article-75 v2 drafted (kind DISCOVERY-CONDITIONAL; 11/12 checklist; PENDING-CLOSE: README row-75 at splice, sweep shas); 52/11 residuals + corpus audit next | 2026-11-17 |
 
 ## (d) Restart instructions (after outage / session loss)
 
