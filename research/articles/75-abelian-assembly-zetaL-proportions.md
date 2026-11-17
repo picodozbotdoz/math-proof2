@@ -48,6 +48,14 @@ listed the 5/6 arm as "carried". This revision, in place:
 6. The 5/6 arm's design erratum (E4) and the first final log's print-coverage gap are
    recorded in §7 with their dated corrections.
 7. Section order fixed to the template skeleton.
+8. **A1 pre-check applied (2026-11-17, `qa/iter4-review/a1-75v2-precheck.md` F1–F4):**
+   §6 preamble now carries the Step-B full-coverage closure
+   (`pilots/75/logs/axcheck-full-run1.log` — 89/89 census declarations direct-print
+   triad, 0 sorryAx, 124-record official scan, source sha `da05c60ceb78755b`), with
+   the census split corrected to 82 public + 7 private at the closure bytes (79 + 10
+   at the run-11 bytes), the closure bytes named so the run-12 re-print columns bind
+   to `da05c60c` (not the run-11 `b9ad8816`), closure cites added to the C/D/E/E′
+   rows, and the honest labels upper-cased to the closed vocabulary.
 
 ## Abstract
 
@@ -359,15 +367,20 @@ Per-theorem verification blocks (binder inventories, coverage, substrate) follow
 
 Substrate for all rows except the donor row: mathlib `ff2494ea` @ Lean v4.36.0-rc2,
 `import Mathlib` only. Extractor-generated counts per the verification-tables census
-(`qa/iter4-review/r3-verification-tables.md` §10.4): `Pb.lean` 89 declarations (79
-public + 10 private at the audited bytes; the three named helpers of §5.3 were exposed
-public at the 2026-11-17 audit fix, count unchanged), `Pa.lean` carried verbatim inside
-it (1,557 lines; 68 declarations = 65 public + 3 private, per the same census);
-`Pb.lean` 2,302 LoC at the audit-fix run header (2,303 lines by `wc -l` on the
-2026-11-17 tree — final-newline convention). sha256 of the audited `Pb.lean` bytes:
-`b9ad881689927936…` (16-hex prefix, census §10.4); **sha256 at the final sweep [the
-close-out re-verification pass that hash-stamps the staged files] of the current
-bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
+(`qa/iter4-review/r3-verification-tables.md` §10.4): `Pb.lean` 89 declarations (82
+public + 7 private at the closure bytes; 79 + 10 at the run-11 bytes, before the three
+helpers of §5.3 were exposed), `Pa.lean` carried verbatim inside it (1,557 lines; 68
+declarations = 65 public + 3 private, per the same census); `Pb.lean` 2,302 LoC at the
+audit-fix run header (2,303 lines by `wc -l` on the 2026-11-17 tree — final-newline
+convention). Bytes of record: the run-11 audit's sha256(16) is `b9ad881689927936`
+(census §10.4); the run-12 re-print columns below and the closure log cite the
+current/closure bytes, sha256(16) `da05c60ceb78755b`. **Step-B full-coverage closure
+(2026-11-17, `pilots/75/logs/axcheck-full-run1.log`): all 89 census declarations
+direct-print exactly `[propext, Classical.choice, Quot.sound]`, 0 `sorryAx`, official
+scan 124 records all-triad, at source sha `da05c60ceb78755b`** — the per-row evidence
+below is complete at the closure bytes, with the run-11/12 prints as the per-theorem
+pointers. sha256 at the final sweep [the close-out re-verification pass that
+hash-stamps the staged files]: PENDING-CLOSE — owner H; `Pa.lean`/`P0.lean` likewise.
 
 ### Verification: Theorem A — `CrossMath.Pilot75.zetaL_assembly_landed`
 - file: `research/pilots/75/Pa.lean:1473–1518` (carried verbatim in `Pb.lean`)
@@ -383,7 +396,7 @@ bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
   `run6-final.log:31` — `[propext, Classical.choice, Quot.sound]`; re-print
   `pb-run12-auditfix.log:33`; coverage: 17 of 17 in-file audit declarations printed
   (heritage 3 + public 11 + private 3), `run6-final.log:6`
-- honest label: PROVED-conditional(hK, hF, hntopK, hntopF, hAbFac, hfinK, hfinL, hfinF,
+- honest label: PROVED-CONDITIONAL(hK, hF, hntopK, hntopF, hAbFac, hfinK, hfinL, hfinF,
   hcK, hcF, hAK, hAF)
 
 ### Verification: Theorem B — `CrossMath.Pilot75.zetaL_two_thirds_conditional`
@@ -394,7 +407,7 @@ bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
   the donor pin (see the Dirichlet-column row below), kept as a binder on our pin
 - evidence: elaboration `run6-final.log:6`; axioms `run6-final.log:32` — triad;
   re-print `pb-run12-auditfix.log:34`; coverage as Theorem A
-- honest label: PROVED-conditional(structural set + hCert + hK673 + hAF)
+- honest label: PROVED-CONDITIONAL(structural set + hCert + hK673 + hAF)
 
 ### Verification: Theorem C — `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed`
 - file: `research/pilots/75/Pb.lean:2144–2186`
@@ -403,8 +416,9 @@ bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
   supplied by thmE_C₀, whose 3/4 is weaker than the 5/6 slot)
 - evidence: elaboration `pb-run11-final.log:4` (GREEN rc=0, 0 errors, 0 sorry) with the
   complete direct-print re-record `pb-run12-auditfix.log:2` (GREEN re-confirmed);
-  axioms `pb-run11-final.log:50` and `pb-run12-auditfix.log:52` — triad
-- honest label: PROVED-conditional(structural set + hAKd + hAFd)
+  axioms `pb-run11-final.log:50` and `pb-run12-auditfix.log:52` — triad; closure
+  direct-print `axcheck-full-run1.log` (all-89 record)
+- honest label: PROVED-CONDITIONAL(structural set + hAKd + hAFd)
 
 ### Verification: Theorem D — `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible`
 - file: `research/pilots/75/Pb.lean:2191–2223`
@@ -413,16 +427,18 @@ bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
   it not provable today); stated in the summed form, discharge-equivalent to the per-pair
   form (`Pb.lean` file-header design remark, `:41–45`)
 - evidence: axioms `pb-run11-final.log:51` (wrapped) and `pb-run12-auditfix.log:53` —
-  triad; elaboration as Theorem C
-- honest label: PROVED-conditional(structural set + hAKd + hAFd + hCZStripFam)
+  triad; elaboration as Theorem C; closure direct-print `axcheck-full-run1.log`
+  (all-89 record)
+- honest label: PROVED-CONDITIONAL(structural set + hAKd + hAFd + hCZStripFam)
 
 ### Verification: Theorems E/E′ — `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional(_of_negligible)`
 - file: `research/pilots/75/Pb.lean:2229–2277`
 - binder inventory: as Theorems C/D with hCert + hK839 (Knausgård 1645064/1960733 slot,
   `Pb.lean:935`) for the ζ_K column; hAFd at 5/6; hCZStripFam in E′ only
 - evidence: axioms `pb-run11-final.log:52–53` (wrapped) and `pb-run12-auditfix.log:54–55`
-  — triad; elaboration as Theorem C
-- honest label: PROVED-conditional(structural set + hCert + hK839 + hAFd(+hCZStripFam))
+  — triad; elaboration as Theorem C; closure direct-print `axcheck-full-run1.log`
+  (all-89 record)
+- honest label: PROVED-CONDITIONAL(structural set + hCert + hK839 + hAFd(+hCZStripFam))
 
 ### Verification: Dirichlet-column input — `Zeta23.ThmE.thmE_A₀` (donor)
 - file: zeta23 `Zeta23/ThmE/Final.lean:93–96` (donor tree, read-only sibling); donor
@@ -445,7 +461,7 @@ bytes: PENDING-CLOSE — owner H**; `Pa.lean`/`P0.lean` likewise.
   `thmE_A₀`, now audited at the donor pin — discharge pending the port glue)
 - evidence: axioms `pilots/42/logs/m4b2-axcheck-run1.log:139` — triad; substrate
   mathlib `ff2494ea` / v4.36.0-rc2
-- honest label: PROVED-conditional(H + hEχ)
+- honest label: PROVED-CONDITIONAL(H + hEχ)
 
 ## 7. Limitations and open problems
 
@@ -531,7 +547,7 @@ verification tables `research/qa/iter4-review/r3-verification-tables.md` §§6-r
 | 7 | no section contradicts another; no addendum | PASS — one versioned v2; §0 change log records history; §3.3/§7 agree on what is not proved |
 | 8 | formal record table-only; no infrastructure narration | PASS — §6 opens with the §6-format table and adds the per-theorem verification blocks (R3 §5 format; charter-mandated); the coverage corrections in §7.5 are stated as record facts, not run histories; error-descent numbers of v1 removed |
 | 9 | internal vocabulary ≤ 3 glosses | PASS — "donor" appears only as the substrate qualifier sanctioned by the template; no dossier/pilot IDs in body prose (paths only in §6/§8 evidence cells, where they are citations) |
-| 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; re-verify at splice |
+| 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; plus A1's pre-check pass (all rows verified against the record chain; closure log `axcheck-full-run1.log` added per F1); re-verify at splice |
 | 11 | README row updated in the same commit | **PENDING — owner H**: the `articles/README.md` row 75 must move to the v2 wording (two tiers; Dirichlet-column discharge audited; N2 still carried) in the splice commit |
 | 12 | superseded files marked; edit-state claims git-checked | PASS — v1 superseded in place by this file (§0); no claim about another article's edit state is made beyond cited record paths |
 

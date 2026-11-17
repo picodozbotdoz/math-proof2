@@ -2,12 +2,14 @@
 
 Lane A9 (articles editorial/gate). Scope: every article of the restructured corpus
 against `research/articles/TEMPLATE-iter4.md`'s hard rules, at the worktree @ 53c1548
-tree **including this session's edits** (article 75 v2; 52/11 header modernizations;
-the orchestrator-GO'd article-01 template upgrade; article-32 v2 on A6's run-12
-discharge relay — the 01/32 rows and the tally reflect the upgraded files).
+tree **including this session's edits** (article 75 v2 + A1 pass; 52/11 header
+modernizations; the 01/32/30 template upgrades with their A1/A7 post-landing passes;
+article-32 v2 on A6's run-12 discharge relay; the article-78 draft — the
+01/30/32/75/78 rows and the tally reflect the current files).
 Cells were read from the files this session; every verdict carries file:line evidence.
 
-**Rows = 15**: the 13 live article files in `research/articles/` + the 2 relocated
+**Rows = 16**: the 14 live article files in `research/articles/` (13 restructured +
+the 2026-11-17 article-78 draft) + the 2 relocated
 items the README tracks (21, 73), which are no longer articles and whose rows record
 that fact only (cells n/a).
 
@@ -36,7 +38,8 @@ that fact only (cells n/a).
 | 11 | `11-call-charged-reduction-calculus.md` | PASS `:3–6` (2026-11-17 header pass) | PARTIAL `:9–16` closed strings, but `:15–16` "open — not attempted" rows outside the vocabulary | FAIL `:117` §6 prose | PARTIAL `:9–14` status-row prints + `:106` §5 decl table; no R3 §5 blocks | PASS |
 | 20 | `20-engine-seam-interface.md` | PARTIAL `:3–4` kind mid-byline ("· kind: TECHNICAL-RECORD …"), not front matter | PARTIAL `:102–110` closed-vocab rows at §5, not header position | PASS `:117–123` 4-row table (zeta23 / Alpöge–Furman / 42-v2+75 / moved-to-note) | PARTIAL `:102–110` rows w/ log lines; no binder inventories | PASS |
 | 22 | `22-pnt-psi-form-from-mathlib-wiener-ikehara.md` | FAIL `:3–5` | FAIL `:7–10` house line (with the honest "formalization result" framing) | FAIL `:72` §4 prose | PARTIAL `:58–66` | PASS — but `:99` carries an append-only "Cycle-2 closure note" section (template: revise, never append; README already flags it as destined for dossier 22) |
-| 30 | `30-boson-operators-second-difference-closed-form.md` | FAIL `:3–5` | FAIL `:8–11` house line (PAPER-ONLY moment-identity split embedded in prose) | FAIL `:164` §6 prose | PARTIAL `:144–161` | PASS |
+| 30 | `30-boson-operators-second-difference-closed-form.md` | PASS `:3–8` (2026-11-17 upgrade: kind DISCOVERY, own-conjecture caveat) | PASS `:14–22` 7 rows, closed strings — the kernel-checked vs PAPER-ONLY moment-identity split now at row level (Cor 5 PAPER-ONLY, instances PROVED-UNCONDITIONAL) | PASS `:188–202` 3-row table + scope statement | PASS `:167–186` §5 run-of-record cites (`run3-green.log:12/:14–26/:60/:62–69`, sweep `:505–506/:561–562`) | PASS |
+| 78 | `78-truffet-substitution-refutation.md` | PASS `:3–10` (drafted 2026-11-17 through the template; kind NEGATIVE, discovery-grade per ruling) | PASS `:11–17` 3 rows PROVED-UNCONDITIONAL, binder inventory empty | PASS `:142–186` 6-row table + empty-critique-space support block | PASS `:188–228` §6 table + R3-§5 blocks, run-4 cites verified on disk (agent-08) | PASS (run counts/walls stay in the pilot record) |
 | 32 | `32-rc-savings-frontier.md` | PASS `:3–13` (v2 2026-11-17: kind DISCOVERY + discharge) | PASS `:15–23` 7 rows, closed strings, run-12/sweep cites verified on disk (Thm 4's print counter-only, disclosed in-row) | PASS `:174–185` 3-row table + scope statement | PASS `:136–172` §5 table + discharge paragraph + amendment note; per-theorem log lines | PASS (v1's error-descent line removed at v2) |
 | 42 | `42-quadratic-dedekind-zeta-zero-proportions.md` | PASS `:3–8` (v2, R1 rewrite) | PASS `:10–16` 5 rows, closed strings, verbatim binders | PASS `:130–144` 5 rows + scope paragraph | PASS `:174–190` §6 table, per-theorem lines | PASS (one ledger-pointer sentence, permitted) |
 | 50 | `50-zero-free-regions-cannot-move-certificate-constants.md` | PASS `:3–8` (v2, R1 rewrite) | PASS `:10–17` incl. "at donor pin" qualifier | PASS `:158` §8 table | PASS `:129` §6 + status-row evidence cells | PASS (self-check `:176`) |
@@ -47,18 +50,18 @@ that fact only (cells n/a).
 | (21) | relocated: `pilots/21-quartic-window-certificate.md` (dossier-02 case study) | n/a — not an article since the 2026-11-16 demotion (README §C) | n/a | n/a | n/a | n/a |
 | (73) | relocated: `candidates/73-function-field-hecke-tate.md` outcome record | n/a — not an article since the 2026-11-16 demotion (README §C); re-article condition = runbook-file branch 2 | n/a | n/a | n/a | n/a |
 
-## Tally (13 live articles; updated 2026-11-17 after the article-01 and article-32 upgrades)
+## Tally (14 live articles; updated 2026-11-17 after the 01/32/30 upgrades + the 78 draft)
 
 | rule | PASS | PARTIAL | FAIL |
 |---|---|---|---|
-| kind tag | 7 (01, 11, 32, 42, 50, 52, 75) | 2 (20, 72) | 4 (10, 22, 30, 71) |
-| status rows (closed vocabulary) | 6 (01, 32, 42, 50, 52, 75) | 3 (11, 20, 72) | 4 (10, 22, 30, 71) |
-| novelty table ≥ 2 rows | 7 (01, 20, 32, 42, 50, 72, 75) | 0 | 6 (10, 11, 22, 30, 52, 71) |
-| verification blocks | 5 (01, 32, 42, 50, 75) | 8 (all others) | 0 |
-| no infra narration | 12 | 1 (52) | 0 |
+| kind tag | 9 (01, 11, 30, 32, 42, 50, 52, 75, 78) | 2 (20, 72) | 3 (10, 22, 71) |
+| status rows (closed vocabulary) | 8 (01, 30, 32, 42, 50, 52, 75, 78) | 3 (11, 20, 72) | 3 (10, 22, 71) |
+| novelty table ≥ 2 rows | 9 (01, 20, 30, 32, 42, 50, 72, 75, 78) | 0 | 5 (10, 11, 22, 52, 71) |
+| verification blocks | 7 (01, 30, 32, 42, 50, 75, 78) | 7 (11, 20, 22, 10, 52, 71, 72) | 0 |
+| no infra narration | 13 | 1 (52) | 0 |
 
-Fully compliant (5/5 PASS): **01, 32, 42, 50, 75**. Non-compliant on ≥ 3 rules: **10,
-22, 30, 71** — Cycle-2 originals never touched by the R1/R2 rewrite sets.
+Fully compliant (5/5 PASS): **01, 30, 32, 42, 50, 75, 78**. Non-compliant on ≥ 3
+rules: **10, 22, 71** — Cycle-2 originals never touched by the R1/R2 rewrite sets.
 
 ## Ranked v2-upgrade queue (feed for orchestrator slotting)
 
@@ -66,34 +69,33 @@ Ranked by (a) discovery-grade exposure (§A rows face external readers and the K
 first), (b) gap count/severity, (c) whether an edit is already chartered. Effort
 classes are edit-session sizes, not Lean work.
 
-1. **30 — per-theorem status split the README already bills.** The kernel-checked
-   (refutation, closed form) vs PAPER-ONLY (general moment identities) split exists
-   in the README row and the prose status line but not in per-theorem rows; §6 prose
-   → table. Discovery-grade §A. Effort S–M.
-2. **71 — small header pass, high rule-severity.** The "PROVED, FINAL." pattern is the
+1. **71 — small header pass, high rule-severity.** The "PROVED, FINAL." pattern is the
    R1 audit's named example of an unparseable status line; kind = FORMALIZATION-FIRST
    (forced-correction class — the statement correction is its earned article status).
    Header/status-rows edit only. Effort S.
-3. **22 — header pass + closure-note relocation.** Kind tag + status rows; the
+2. **22 — header pass + closure-note relocation.** Kind tag + status rows; the
    `:99` append-only closure note moves to dossier 22 (its already-declared
    destination) so the file stops carrying an addendum. Effort S.
-4. **10 — header pass.** Kind tag (TECHNICAL-RECORD, kept) + status rows from §4's
+3. **10 — header pass.** Kind tag (TECHNICAL-RECORD, kept) + status rows from §4's
    proved-layers content; the OPEN-leading status line becomes row form. Effort S.
-5. **Residual batch (11, 20, 52, 72)** — 11: convert the two "open — not attempted"
+4. **Residual batch (11, 20, 52, 72)** — 11: convert the two "open — not attempted"
    rows to the vocabulary (or move them to §7 limitations); 11/52: novelty tables from
    the §6 prose; 20/72: front-matter shape for the kind tag. Effort S each,
    batchable in one session. None is externally load-bearing.
 
-Done this cycle: 42 (R1), 50 (R1), 75 (A9), 52+11 headers (A9, 2026-11-17),
-**01 full template upgrade (A9, 2026-11-17 — orchestrator GO; all five cells PASS)**,
-**32 v2 (A9, 2026-11-17 — run-12 crossing-existence discharge + template upgrade;
-all five cells PASS)**.
+Done this cycle: 42 (R1), 50 (R1), 75 (A9; + A1 pre-check F1–F4 pass), 52+11 headers
+(A9, 2026-11-17), **01 full template upgrade (A9 — orchestrator GO; + A1 F01-1 and A7
+companion-PDF passes)**, **32 v2 (A9 — run-12 crossing-existence discharge + template
+upgrade; + A1 F32-1/F32-2 and A7 pitch-rescope passes)**, **30 template upgrade (A9 —
+orchestrator GO)**, **78 drafted through the template (A9 — orchestrator GO; kind
+NEGATIVE, discovery-grade per ruling)**.
 
 ## Discovery-grade ratio projection (two-strike rule)
 
 - **Flow (the rule's wording — "shipped articles each cycle"):** every
-  currently-chartered iteration-4 article shipment is a discovery-grade upgrade
-  (75 v2, 32 v2, 01 done; 30's completion optional per R2 §9's list), and the N=1
+  currently-chartered iteration-4 article shipment is a discovery-grade upgrade or
+  draft (75 v2, 32 v2, 01, 30 done; **78 NEW — kind NEGATIVE, ruled discovery-grade
+  and explicitly NOT touching the N=1 quota**), and the N=1
   non-discovery quota is UNSPENT (`a9-quota-casualties.md` row 9).
   On every chartered plan the cycle's shipped set is 100% discovery-grade — the
   ≥-half KPI is satisfied with margin. No chartered item can flip this: LP/AL-3D/
@@ -106,7 +108,9 @@ all five cells PASS)**.
 - **Recommendation for H at close:** report both numbers, with the flow reading (the
   rule's own) as the binding one; keep the stock ratio as the corpus-health line.
 
-— Lane A9, 2026-11-17. One-writer scope: this file + `articles/75-…md` (v2) +
-`articles/52-…md` and `articles/11-…md` (header modernizations) + `articles/01-…md`
-(orchestrator-GO'd template upgrade) + `articles/32-…md` (v2: the A6 run-12
-crossing-existence discharge, relayed same day) this session. No commits (H commits).
+— Lane A9, 2026-11-17. One-writer scope: this file + `articles/75-…md` (v2 + the A1
+F1–F4 pass) + `articles/52-…md` and `articles/11-…md` (header modernizations) +
+`articles/01-…md` (template upgrade + A1/A7 passes) + `articles/32-…md` (v2 discharge
++ template upgrade + A1/A7 passes) + `articles/30-…md` (template upgrade) +
+`articles/78-…md` (new draft) + the README §A row-78 draft (H lands it) this session.
+No commits (H commits).

@@ -17,7 +17,7 @@ same file (in place; change log below) · artifacts: `research/pilots/32/M1.lean
 | Thm 1 (monotonicity in γ) `lnΛ_affine`, `Rc_antitone_gamma` | PROVED-UNCONDITIONAL | none (c ≥ 10, γ ≥ 0 are the statement's domain) | `pilots/32/logs/axcheck-final.log:661` and `:658` (repeats `:664`) — triad; `run3-green.log:108` |
 | Thm 2 (exact evaluation) `lnΛ_10_0`, `Rc_10_0` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:655–656`; `run3-green.log:105–106` — triad |
 | Thm 3 (monotonicity in c; donor re-proved) `lnΛ_mono`, `Rc_strictAntiOn_zero`, `Rc_lt_epsStar` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:662`, `:657`, `:665`; `run3-green.log:107–109` — triad |
-| Thm 4 (key equivalence) `lt_Rc_iff_gmax` | PROVED-UNCONDITIONAL | none | stage verdict `axcheck-final.log:618` (AxPilot32_M1 OK, 22 axiom lines, 0 sorryAx) — the declaration's individual print sits inside that stage's excerpted block; counter-only per the log-excerpt convention |
+| Thm 4 (key equivalence) `lt_Rc_iff_gmax` | PROVED-UNCONDITIONAL | none | stage verdict `axcheck-final.log:618` (AxPilot32_M1 OK, 22 axiom lines, 0 sorryAx) — verdict-level cite: the stage section persists 16 of 22 records (12 distinct + tail dupes; excerpt class), and this lemma declaration is elaboration-clean with no direct print yet; the wave-2 full-coverage re-run is the print of record |
 | Thm 5, parameter form (unique crossing + frontier from a crossing) `crossing_unique`, `membership_of_lt`, `frontier_upper`, `frontier_of_crossing` | PROVED-UNCONDITIONAL | none (ε > 0 is the statement's domain) | `axcheck-final.log:667–670`; `run3-green.log:111–112` — triad |
 | Thm 5, unconditional form (crossing exists; 2026-11-17) `crossing_exists`, `frontier_unconditional`, `frontier_formula_unconditional` | PROVED-UNCONDITIONAL | none beyond scope: `0 < ε`, `ε < ε*` (see the amendment note in §5) | `run12-crossing-existence.log:60–66` (all seven M2 theorems triad; stage OK `:58`; M1 regression triad `:16–:24`) |
 | Thm 6 (phase transition and ceiling) `frontier_nonempty_iff`, `ceiling` | PROVED-UNCONDITIONAL | none | `axcheck-final.log:671`, `:666`; `run3-green.log:113`, `:110` — triad |
@@ -33,7 +33,15 @@ GREEN, `run12-crossing-existence.log`) and replaced by the discharge paragraph;
 forms (not a silent absorption); (3) template upgrade: front matter with kind tag,
 per-theorem status rows in the closed vocabulary (log lines verified against disk this
 session), §6 converted to the mandatory nearest-miss table. Theorems 1–6, proofs and
-§7 unchanged.
+§7 unchanged. Same-day post-landing passes: (4) A1 pre-check
+`qa/iter4-review/a1-3x01v2-precheck.md` applied — the lemma-coverage note added to §5
+(seven lemma decls elaboration-clean, direct prints owed at the wave-2 full-coverage
+pass) and the `axcheck-final.log:618` cite qualified as verdict-level (the stage
+section persists 16 of 22 records, excerpt class); (5) A7 prior-art hardening
+`a7-32-01-priorart-hardening.md` applied — the pitch rescoped to "first exact
+achievable-frontier theorem for a data-structure certificate class" and the five owed
+citations added (Majdoddin App. A technique barriers, Tomar v4 thresholds,
+Karingula–Lovett, Saha–Ye, AVW's ε*₁₀ naming).
 
 ---
 
@@ -52,7 +60,10 @@ supremum is not attained; (iv) a sharp phase transition: the achievable set is n
 ε < ε*. Everything is verified in Lean 4 against current mathlib, independently of the
 corpus's own proofs: Theorems 1–6 are PROVED-UNCONDITIONAL — including, since
 2026-11-17, the existence of the crossing for every ε ∈ (0, ε*), which makes the frontier
-formula unconditional parametric.
+formula unconditional parametric. The claim, scoped: the first **exact
+achievable-frontier theorem for a data-structure certificate class** — the follow-up
+literature proves technique barriers and threshold systematizations, not frontiers
+(§6).
 
 ## 1. Introduction
 
@@ -60,8 +71,10 @@ Corollary 31 of the 3sum-apsp paper (`PaperStatements.lean:4014`) is stated as a
 certificates indexed by (c, θ). Downstream uses pick one certificate. The natural question
 — *what is the best savings exponent this family can certify at a given range D ≤ N^ε, and
 for which ε does it certify anything at all?* — is answered nowhere in the corpus or the
-follow-up literature, which states frozen constants and dichotomies
-(`research/novelty/VERDICTS.md` §5.2(a)). We answer it exactly for the certificate class as
+follow-up literature, which states frozen constants, dichotomies, threshold
+systematizations and technique barriers, but no exact achievable frontier for the class
+(`research/novelty/VERDICTS.md` §5.2(a); the follow-up sweep of §6). We answer it exactly
+for the certificate class as
 stated.
 
 ## 2. Definitions (transcribed from `3sum-apsp/PaperStatements.lean`)
@@ -147,8 +160,17 @@ via (c, θ), then ε < R_c(gammaOf(c, θ)) < ε* by Theorem 3. The ceiling is th
 
 Axioms of every printed theorem: `[propext, Classical.choice, Quot.sound]`
 (`research/pilots/32/logs/run3-green.log:105–113`; final-sweep
-`logs/axcheck-final.log:618` stage OK, 22 axiom lines, 0 sorryAx; run 12
+`logs/axcheck-final.log:618` stage OK, 22 axiom lines, 0 sorryAx — verdict-level: the
+section persists 16 of 22 records, excerpt class; run 12
 `logs/run12-crossing-existence.log:60–66`, M1 regression triad `:16–24`).
+
+Lemma-level declarations (coverage note, 2026-11-17): the lemma names in the table
+above (`lnΛ_pos_gamma`, `lnΛ_decompose`, `hasDerivAt_Ffun`, `Ffun_mvt`, `kappa_pos`,
+`lnΛ_upper`, `lt_Rc_iff_gmax`) are elaboration-clean (rc=0, 0 sorry) with their triad
+status resting on consumption inside printed theorems — every print surface in the
+record chain is theorem-only, so these have no direct axiom print yet; direct prints
+are owed at the wave-2 full-coverage pass (32-M1 is staged in the sweep plan's
+full-coverage list; the lemma-aware generator captures them).
 
 **Crossing existence (discharged 2026-11-17, `research/pilots/32/M2.lean`).** For
 every ε ∈ (0, ε*) the crossing exists, so Theorem 5 is unconditional parametric: the
@@ -176,12 +198,19 @@ Theorem 5 as stated in §3 already quantifies over ε > 0.
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
 | 3sum-apsp donor: `Sec4_Rc_strictAntiOn` (`PaperStatements.lean:2319`), `Sec4_Rc_zero_tendsto` (`:2325`), `Sec4_Rc_lt_epsStar` (`:2334`), `Corollary_31` (`:4014`) | qualitative facts (R_c decreasing in c, below ε*) and the frozen-constant certificate family | ours determines the entire achievable region: exact frontier Γ(ε) via a unique crossing (Thm 5, now with existence proved), the phase transition at ε* (Thm 6), and an independent re-proof of the donor's monotonicity lemmas (Thm 3 replaces `Sec4_Rc_zero_tendsto` with the exact evaluation, Thm 2) |
-| R. Majdoddin, arXiv:2610.17420 (with its own Lean development, `github.com/Majdoddin/formal-math`) | extends the thin-product range to D ≤ N^0.172 with a coordinatewise dichotomy | constants supersede ours (ε* ≈ 0.1204 is the donor paper's anchor, not a record — the caveat carried since v1); no frontier as a function of ε for a certificate class |
-| arXiv:2610.20297 | improves the exponents further | same dichotomy: better constants, no frontier function |
+| R. Majdoddin, arXiv:2610.17420 (v1 2026-10-12; with its own Lean development, `github.com/Majdoddin/formal-math`), incl. Appendix A | extends the thin-product range to ε < ln4/(5 ln5) ≈ 0.172 with a coordinatewise dichotomy, and proves **technique barriers** (border-rank/shape exclusions for base identities) | constants supersede ours (ε* ≈ 0.1204 is the donor paper's anchor, not a record — the caveat carried since v1); the barriers are technique-level, with no data-structure-class optimality and no frontier as a function of ε |
+| Tomar, *Which Fine-Grained Lower Bounds Survive the Refutation of 3SUM and APSP?*, v4 2026-10-27 (`mefyi.com/papers/survive-3sum-apsp/survive-3sum-apsp.pdf`) | systematizes the thresholds: closed-form analysis-range formula ε*_R = 2 ln q0/(R ln R), quoting ε*₁₀ = ln4/(5 ln 10) = 0.1204 — and is explicit that such limits "limit the closed-form analysis, not the method" (its subject: which conditional lower bounds survive) | a threshold systematization, not an achievable frontier: no Γ(ε), no crossing/uniqueness shape, no non-attainment; our ε* phase transition is the exact version of what it quotes as an analysis limit |
+| Karingula–Lovett, arXiv:2610.15663 / ECCC TR26-247 (2026-10-11) | a simplified proof with weaker exponents | no optimality claim (abstract-verified); no frontier |
+| Saha–Ye, arXiv:2610.20297 (2026-10-14) | a faster (min,+) algorithm, Õ(N^2.9964) | algorithmic improvement, no frontier claim |
+| Alman–Vassilevska Williams, arXiv:2610.06783v1 (the donor paper; class anchor) | the refutation itself; names ε*₁₀ (Thm 24/25 region: "all three fail … for every τ < 0.1204") | the anchor constant's home; no frontier function for the certificate class |
 
-Scope statement. "Answered nowhere" (§1) means: no frontier-as-function-of-ε statement
-for this or the successor certificate classes appears in the corpus or the follow-up
-literature swept (`research/novelty/VERDICTS.md` §5.2(a)); the constants themselves are
+Scope statement. The claim is the **first exact achievable-frontier theorem for a
+data-structure certificate class** — an exact Γ(ε) with unique crossing and phase
+transition. It is not a barrier claim (Majdoddin proves technique barriers) and not a
+threshold systematization (Tomar v4); no frontier-as-function-of-ε statement for this
+or the successor certificate classes appears in the corpus or the follow-up literature
+swept (`research/novelty/VERDICTS.md` §5.2(a); prior-art hardening 2026-11-17,
+`qa/iter4-review/a7-32-01-priorart-hardening.md`); the constants themselves are
 superseded at birth, and the claim is the exact frontier shape, not the constants.
 
 ## 7. Limitations and open problems
@@ -195,4 +224,12 @@ superseded at birth, and the claim is the exact frontier shape, not the constant
 ## References
 
 - anthropics_formal-math, `3sum-apsp/PaperStatements.lean` (lines cited above).
-- R. Majdoddin, arXiv:2610.17420 (2026) and `github.com/Majdoddin/formal-math`; arXiv:2610.20297.
+- R. Majdoddin, arXiv:2610.17420 (2026) and `github.com/Majdoddin/formal-math`.
+- Tomar, *Which Fine-Grained Lower Bounds Survive the Refutation of 3SUM and APSP?*, v4
+  2026-10-27, `mefyi.com/papers/survive-3sum-apsp/survive-3sum-apsp.pdf`.
+- Karingula–Lovett, arXiv:2610.15663 / ECCC TR26-247 (2026).
+- Saha–Ye, arXiv:2610.20297 (2026).
+- Alman–Vassilevska Williams, arXiv:2610.06783v1 (2026) — the donor paper; the ε*₁₀
+  naming (Thm 24/25 region).
+- Prior-art hardening record: `research/qa/iter4-review/a7-32-01-priorart-hardening.md`
+  (all sources accessed 2026-11-17).

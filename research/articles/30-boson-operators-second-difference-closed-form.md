@@ -1,14 +1,37 @@
 # The ETH-Appendix Operators Q_s Are Second Differences of Number Operators: Refutation of a Project-Formulated Parseval Conjecture and a Closed Form at h = 1
 
-*cross-math-fronttier research article 30 · 2026-11-09 · dossier
-`research/candidates/30-hall-parseval-boson-identification.md` · Lean pilot
-`research/pilots/30-falsify-TheoremB-h1.lean`, `research/pilots/30/ClosedForm.lean` ·
-outcome note `research/pilots/30-note.md`*
+*kind: DISCOVERY (new closed form about a corpus-internal operator family + refutation of
+a conjecture formulated in this project — the "whose conjecture" caveat carried per the
+strength bar, `qa/iter4-review/r2-discovery-strength.md:68`) · date: 2026-11-09 (template
+upgrade 2026-11-17) · supersedes: none (in-place template-compliance upgrade; theorems
+and proofs unchanged) · artifacts: `research/pilots/30-falsify-TheoremB-h1.lean`,
+`research/pilots/30/ClosedForm.lean`,
+`research/pilots/30/logs/run3-green.log`,
+`research/pilots/30/logs/axcheck-final.log`; dossier
+`research/candidates/30-hall-parseval-boson-identification.md`; outcome note
+`research/pilots/30-note.md`*
 
-**Status: PROVED (refutation + closed form), kernel-verified** (mathlib `ff2494ea`, Lean
-`v4.36.0-rc2`; all theorems `[propext, Classical.choice, Quot.sound]` or fewer; no `sorry`,
-no `native_decide`, no external CAS). The general moment identities of §4.3 are paper
-proofs from the kernel-checked closed form, with kernel-checked instances.
+| theorem | status | hypotheses | evidence |
+|---|---|---|---|
+| Thm 1 (refutation of the conjectured B2) `TheoremB2_refuted_h1` + witnesses `B2_idempotence_fails`, `B2_annihilation_fails`, `B2_parseval_fails` | PROVED-UNCONDITIONAL | none (the h = 1, a = b = t₁ instance is the statement's data) | `pilots/30/logs/run3-green.log:23` (witnesses `:20–22`) — triad; sweep stage `axcheck-final.log:562` (25 axiom lines, 0 sorryAx) |
+| Lemma 2 (number-operator form) `Pilot30.nab_nab` | PROVED-UNCONDITIONAL | none | `run3-green.log:62` — triad; sweep `axcheck-final.log:506` |
+| Thm 3 (closed form) `Pilot30.Qh1_closed`, `Pilot30.Qh1_closed_form` | PROVED-UNCONDITIONAL | none | `run3-green.log:64–65` — triad |
+| Cor 4 (spectral form; commutativity) `Pilot30.Num_monomial`, `Qh1_monomial`, `Qh1_comm_monomial`, spot value `Qh1_zero_t1sq` | PROVED-UNCONDITIONAL | none | `run3-green.log:66–69` — triad |
+| scalar part (second difference of x ↦ x⁺) `Pilot30.scalar_second_diff` | PROVED-UNCONDITIONAL | none | `run3-green.log:63` — `[propext, Quot.sound]` (not even choice) |
+| Cor 5 (moment identities), full generality | PAPER-ONLY | — (paper proofs, §4.3, from the kernel-checked closed form) | instances kernel-checked: `moment1_V1`, `moment2_V1`, `moment2_V2_t2` — `run3-green.log:24–26` — triad |
+| faithfulness checks (LemmaQ (a)/(c) instances on V₀/V₁/V₂, pairings) `LemmaQc_V0`, `LemmaQc_V1`, `LemmaQa_V1`, `LemmaQc_V2_t2`, `pairing_h1`, `pairing_h2_check` | PROVED-UNCONDITIONAL | none (support layer) | `run3-green.log:14–19` — triad |
+
+Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
+external CAS (run header `run3-green.log:1`: both files OK, 0 errors, 0
+sorry-warnings, axioms standard-only; sweep `axcheck-final.log:506/:562`, 0 sorryAx).
+
+Change log (2026-11-17, lane A9 — template-compliance upgrade, theorems/proofs
+untouched): byline brought to the TEMPLATE-iter4 front matter (kind DISCOVERY with the
+own-conjecture caveat); the prose status line replaced by per-theorem status rows in
+the closed vocabulary, making the kernel-checked vs PAPER-ONLY split of the moment
+identities explicit at row level (the README already bills this split); §5 gained its
+log-line cites; §6 converted to the mandatory nearest-miss table with the same
+citations.
 
 ---
 
@@ -156,23 +179,27 @@ family* of commuting number-operator combinations, not a family of projectors.
 Two models are used. The falsification file works in `MvPolynomial (Fin 7) ℚ` (t_k = X(k−1);
 faithful for labels |k| ≤ 7, and only |k| ≤ 4 occur). `ClosedForm.lean` uses
 `MvPolynomial ℕ ℚ` with t_k = X k, which is eth's `MvPolynomial ℕ+ ℚ` up to the embedding
-ℕ₊ ↪ ℕ (X 0 is never touched), so Theorem 3 is faithful for all labels. Run logs:
-`pilots/30/logs/run{1,2,3-green}.log`; the final-sweep axcheck log is
-`pilots/30/logs/axcheck-final.log`. Corollary 5 in full generality is **not** formalized
-(finite-window telescoping); its instances are.
+ℕ₊ ↪ ℕ (X 0 is never touched), so Theorem 3 is faithful for all labels. Run of record
+`pilots/30/logs/run3-green.log` (both files OK `:12`/`:60`; prints `:14–26` falsify layer,
+`:62–69` closed-form layer); final-sweep axcheck `pilots/30/logs/axcheck-final.log`
+(stages `:505–506` ClosedForm OK, `:561–562` falsify OK, both 0 sorryAx). Corollary 5 in
+full generality is **not** formalized (finite-window telescoping); its instances are.
 
-## 6. Relation to prior work
+## 6. Novelty and nearest misses
 
-- **eth corpus** proves LemmaQ (a)–(c) and the dual-family lemma for general h; it contains
-  no closed form and no moment identity beyond (c).
-- **Vertex operators and Hall–Littlewood functions** (N. Jing 1991; Macdonald, *Symmetric
-  Functions and Hall Polynomials*, I §5; Kac–Raina) are the classical setting in which ∇_{±k}
-  are the boson modes p_k and k ∂/∂p_k. The number operators N_k and the Euler operator are
-  standard; we found no statement of the Q_s family or its second-difference structure
-  (novelty rounds R8, `research/novelty/VERDICTS.md` row 30, COLD risk tier).
-- The h = 2 check (`pairing_h2_check`) re-confirms the generalized-binomial sign mechanism
-  behind dossier 30's Theorem A (pairing = ω-twisted Hall inner product), which remains a
-  separate, unformalized claim.
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| eth corpus: `AppHalfPiecesStatement.lean` (∇ :89–90, display (48) :149–154, `LemmaQ` (a)–(c)) | the three operator lemmas and the dual-family lemma for general h; no closed form, no moment identity beyond (c) (direct-source query: no closed/number-operator/second-difference content in the donor, `qa/iter4-review/r2-discovery-strength.md` §5 q7) | ours: the exact closed form (Thm 3), the spectral form and commutativity (Cor 4), the moment identities (Cor 5), and the refutation of the conjectured Parseval strengthening (Thm 1) |
+| N. Jing, *Vertex operators and Hall–Littlewood symmetric functions*, Adv. Math. 87 (1991); Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd ed., Ch. I §5; Kac–Raina (1987) | the classical boson layer: ∇_{±k} as the modes p_k and k ∂/∂p_k; number operators N_k and the Euler operator are standard | the classical layers are consumed, not claimed; no statement of the Q_s family or its second-difference structure found in that literature or any corpus (novelty record: `research/novelty/VERDICTS.md` row 30 — NEW-SUPPORTED, classical anchors verified) |
+| dossier 30's Theorem A (this project, unformalized) | the pairing = ω-twisted Hall inner product identification | separate claim, not treated here; the h = 2 check (`pairing_h2_check`) only re-confirms the sign mechanism behind it |
+
+Scope statement. The refuted conjecture (B2) was **formulated in this project** — the
+refutation is a disconfirmation of our own conjecture, not of any literature claim; the
+discovery billed is the closed form and the structure it reveals (R2's grading: "the
+closed form is a real new theorem about a corpus-internal operator family"). "No
+statement of the Q_s family found" means: not in the eth corpus (direct-source query
+above) and not in the vertex-operator literature swept (novelty rounds; VERDICTS row
+30, COLD risk tier).
 
 ## 7. Limitations and open problems
 

@@ -90,7 +90,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | A6 | 32-crossing run-12 + 01-stability tranche | Run-12 + FF-EZ4 done; **D1 GREEN** (Part E triad; spec correction adjudicated-accepted — two true forms, D4 supplies hv); D2 chartered | D1 GREEN (Part E triad; spec correction adjudicated); D2 chartered (Route A/B by first run) | 2026-11-17 |
 | A7 | Truffet elevation decision | 30 + clock done; **FB-5/77 battery CHARTER-GO** (4 conditions binding: C+ billing never discovery; Casimir sub-rung dropped; physlib clock start+end; effort per feasibility-minus-dropped); **T1 chartered to A7** | FB-5 battery CHARTER-GO (4 conditions binding; Casimir sub-rung dropped); T1 to A7 | 2026-11-17 |
 | A8 | pilot-GREEN validation + donor infra | Mid-wave audit LANDED (4P/2PART, none blocking); **74-P0 GREEN** (1 fix-retry; T1T2T4 rung); P1 GO chartered — Q1 ruled shape-ii (class-indexed Bk = later extension) | 74-P0 GREEN (1 fix-retry); 74-P1 GO chartered (Q1 ruled shape-ii) | 2026-11-17 |
-| A9 | article-75 two-tier v2 (R1 gate) | **Articles 01 + 32 v2 landed** (template-complete PASS×5 each; 32 §5 discharge + README cell); compliant set = 01/32/42/50/75; article-30 chartered | articles 01+32 template-complete (PASS×5 each; compliant set 01/32/42/50/75); article-30 chartered | 2026-11-17 |
+| A9 | article-75 two-tier v2 (R1 gate) | **Mega-batch: article-30 v2 + 78 NEW (kind NEGATIVE) + 75/32/01 relay fixes** — compliant set 01/30/32/42/50/71/75/78; README row-78 landed by H; article-10 + residuals next | articles 30/78 template-complete; all relay fixes applied; article-10 + residuals next | 2026-11-17 |
 
 ## (d) Restart instructions (after outage / session loss)
 
