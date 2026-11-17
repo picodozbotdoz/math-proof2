@@ -174,7 +174,7 @@ plus lane-declared additions only.
 | zzv2-lam **P1** (λ-abstract statement layer) | NOT on disk | on landing: append row to stepA-incremental log | **OWED on landing**: classify probe-vs-proof per lane report; if proof → [LAYERS] donor-tree stage on the built ZetaZerosV2 tree (`run_m4b_donor_axcheck.sh` recipe, AxPilot42_M4b precedent) + TARGETS row or donor-tree stage name | sweep-time sha in the donor-tree stage header (M4b dry-run pattern) |
 | 73-**Q4.lean** | on disk, **NOT final** (A2 mid-run; skip per queue) — sha a3c69aa53cc0453d is NOT a bytes-of-record | 0 tokens TODAY (early signal only) | **OWED on landing**: `AxPilot73_Q4` TARGETS row ([WARM]; verify Mathlib-only imports at landing); Rosen ch.-number spot-check due AT Q4 (SCAN §1c) | landing run-log header + sweep re-stage |
 | 75-**N2-P0** (A5, in flight; A1 = fold owner) | NOT on disk *(RESOLVED 2026-11-17: **N2-P0 LANDED GREEN** — `n2-p0-run4.log`, 15/15 Pilot75N2 decls triad, §10.12; **[WARM] branch fired**: Mathlib-only + sibling `import Pa` (Pa rewrite, AxPilot75_Pa in TARGETS), NOT donor-tree D-PIN; P1 GO recorded, file/family grows — TARGETS row at N2-final; record + log in agent-06 pending H commit)* | on landing | **OWED on landing**: N2 shared-ℚ staging (d1/d2) + consumer file; class per §10.5's standing note — consumer elaborates in the zeta23 donor tree ⇒ **D-PIN rows** (donor-pin print source `zeta23e-p0-run1.log`), or [WARM] if N2 lands Mathlib-only as Pb did | sweep-time sha; D-PIN rows cite the donor-pin log |
-| **78-P0** | no dir | n/a | **OWED on charter+landing**: row + stage once files exist (class unknown at prep) | on landing |
+| **78-P0** | no dir *(RESOLVED 2026-11-17: **Stage-A P0 LANDED GREEN** — `p0-run4.log`, 3/3 public theorems triad, §10.13; proof artifact 444 LoC, sha d94d115e3d8d08d7; census 3 public + 23 private lemmas — privates elimination-noted, full-coverage prints when Stage B charters; record + log in agent-08 pending H commit; TARGETS row deferred with the Stage-B family)* | n/a | **OWED on charter+landing**: row + stage once files exist (class unknown at prep) | on landing |
 | 32 run-12 (**M2.lean**) | NOT on disk (only M1.lean + old logs) | on landing | **OWED on landing**: `AxPilot32_M2` TARGETS row ([WARM]; six lemma forms per REPORT-INPUTS §1 32-crossing row). RUNNER CAVEAT: `pilots/32/run_pilot.sh:15–16` is a STALE xyz-default wrapper — run with `MODAL_USER=doz` override (week1-agenda row 1) | landing run header (pb-run12 pattern) |
 | AL-P2 **A2.lean final state** | m1 state (P2-b landed; **c/d/e owed** — file grows or A3.lean appears) | current: 0 tokens | `AxPilotAL3D_A2` **PRESENT** (re-stage at sweep = bytes of record); if `A3.lean` appears → **OWED**: new `AxPilotAL3D_A3` row | sweep-time sha (m1 sha 91b4fba741d05771 is historical, §10.6 F1-corrected) |
 | 72-M1 **T3** | L3a FINAL (fe57d30b19d9a836; print-gap CLOSED `axcheck-l3a-run1.log`) — **mid-tranche**: L3b–d + interface owed, file GROWS | 0 tokens | `AxPilot72_M1_T3` **ADDED this pass** (staging dry-run verified: T3→AxT2→AxT1 rewrites, 9 appended prints; re-stage at sweep) | L3a sha recorded in row comment; sweep-time sha governs |
@@ -204,7 +204,12 @@ landing). make_axcheck72m1.py's local TARGETS already carries T3 (L3a closure,
    (`axcheck-l3a-run1.log`) — re-run ONLY where sweep-time sha differs; NEW for
    whatever lands (N2/Q4/A3/T3-grown) **+ 32-M2** (the 2 helper lemmas
    `log4_pos`/`log10_pos` get direct prints there — §10.11's print caveat closes
-   at that pass). NOTE (generator split, verified 2026-11-17):
+   at that pass) **+ 32-M1** (added 2026-11-17 at the 32-v2 article pre-check:
+   M1's 28 lemmas — incl. the article-§5-named `lnΛ_pos_gamma`, `lnΛ_decompose`,
+   `hasDerivAt_Ffun`, `Ffun_mvt`, `kappa_pos`, `lnΛ_upper`, `lt_Rc_iff_gmax` —
+   were never in any print surface: in-file tails and C2 stages are theorem-only,
+   and the C2 rescue stage persisted 16 of its 22 lines; the full-coverage stage
+   closes both at sweep). NOTE (generator split, verified 2026-11-17):
    `make_axcheck.py:96–97` still EXCLUDES `private` theorems and captures no `lemma`s —
    full-coverage comes from `axcheck_iter4.py gen`, which is why the two-part Step B.
    Donor-tree stages (zzv2 P1/P2 if proof-class) via `run_m4b_donor_axcheck.sh` recipe.

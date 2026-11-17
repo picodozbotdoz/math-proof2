@@ -883,6 +883,84 @@ lands at N2-final per FINAL-SWEEP-PLAN-ITER4 §7a's 75-N2 entry, which now resol
 the **[WARM] branch** (Mathlib-only + sibling `import Pa` ⇒ Pa rewrite, AxPilot75_Pa
 already in TARGETS), NOT the donor-tree D-PIN branch.
 
+### 10.13 78 Truffet Stage-A P0 — LANDED GREEN 2026-11-17 (run 4; lane A7, dossier-78 Stage-A; folded + re-verified by lane A1)
+
+*(Merged 2026-11-17 by lane A1 from A7's `pilots/78/P0-record.md` (worktree agent-08,
+pending H's commit). Cites re-verified on agent-08 disk: verdict `p0-run4.log:20` +
+SUMMARY :57–58, the 3 triad prints :22–24 (repeats :53–55), telemetry :59.)*
+
+**P0.lean (proof artifact — 444 LoC, sha256(16) `d94d115e3d8d08d7`; `import Mathlib`
+only, the OAI tree neither imported nor built — statement-level re-implementation of
+the paper's procedure; fix loop 4 runs 11→3→1→0 errors, walls 64/34/40/53 s ≈ 3.2 min
+total; run-1 telemetry OVER=1 = the documented mmapped-Mathlib-olen artifact
+(8363 MB mem, max_cpu 0.89 under spec; AGENTS §Modal measured facts), runs 2–4
+sub-interval (samples=0); app `crossmath-pilot-78`, image textually-identical to
+crossmath-probe/pilot-32 — no layer rebuild):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `CrossMath.Truffet78.paperSelect_forced_singleton` (A1) | `pilots/78/P0.lean` | PROVED-UNCONDITIONAL | `p0-run4.log:22` (repeat :53) — `[propext, Classical.choice, Quot.sound]` | fidelity, singleton case: the paper's Theorem-4.3 selection returns the (53b)-singleton via branch (47); θ-intervals/T-T′ filters/tie-stages never engage (`dif_pos` + singleton uniqueness) |
+| `CrossMath.Truffet78.paper_run_not_optimal` (A2 — the DISCOVERY carrier) | idem | PROVED-UNCONDITIONAL | `:23` (repeat :54) — triad | the paper's procedure (verbatim transcription, §10.1 dictionary) run on the Def-4.2-bounded two-row instance: terminates in the success branch asserting `min z = 1` at `(1,0,0)` while `(0,−1,0)` is feasible at cost 0 — failure is OPTIMALITY, not bookkeeping (cost evals check: `eval initial.cost output = 1`) |
+| `CrossMath.Truffet78.instance_unbounded_below` (A2′ sharpening) | idem | PROVED-UNCONDITIONAL | `:24` (repeat :55) — triad | ∀ r : ℝ a feasible point of cost < r exists (witness `(r−1, r−2, r−1)`) — the procedure asserts a finite minimum on an unbounded-below instance. **Spec-signature correction recorded:** the dossier spec's A2′ inequality was reversed (unbounded-above); the proved form is `eval initial.cost w < (r : Coeff)` — dossier corrected by this record |
+
+**Class: NEGATIVE-kind discovery candidate** (procedure-level refutation of Truffet
+arXiv:2603.26423 v4's §2.3 optimality claim, promoting the OAI model-level
+counterexample `finite_execution_not_optimal` to procedure level; nearest-miss table
+of 6 source-checked rows in the dossier incl. Truffet v4 classical sibling
+arXiv:2604.06726 = the Stage-B target). **Verification-lane addendum (A1):** census
+`axcheck_iter4 decls` = **26 decls = 3 public theorems + 23 private lemmas** — the
+in-file audit surface prints the FULL public triad surface (3/3, as the coordinator's
+class note says); the 23 private lemmas are unprinted (⊆-triad by elimination: rc=0,
+0 sorry, 0 sorryAx in-log; each folds into the printed theorems per the record's
+hygiene note). If Stage B charters, the §7b(ii) full-coverage pass covers 78's files
+then; TARGETS row deferred with it (family grows). 0 sorry tokens at the 2026-11-17
+Step-A pass (proof artifact, no probe header).
+
+### 10.14 FF-EZ4 P0 — LANDED GREEN 2026-11-17 (run 1 GREEN of a 4-run loop; lane A6, r5 rank 9 / §14 row 9 FF-half; folded + re-verified by lane A1) — PROBE-CONVENTION, Step-A only, NEVER a Step-B stage, NO TARGETS row
+
+*(Merged 2026-11-17 by lane A1 from A6's `pilots/ff-ez4/P0-record.md` (worktree
+agent-07, pending H's commit). Cites re-verified on agent-07 disk: verdict
+`p0-run1.log:15` + SUMMARY :32–33, telemetry :34, provenance header :1, the 11
+API-anchor signatures in the GREEN output tail :16–30.)*
+
+**P0.lean (PROBE-CONVENTION statement rung — 216 LoC, sha256(16) `b34f0f709484d949`;
+Prop-def convention, `MasterIdentity.lean` idiom, ZERO `sorry` tokens; "not a proof
+artifact" declared in-header; the elaboration IS the evidence — no status rows below.
+Fix loop 4 runs, 3 fix iterations, 15→8→3→0 errors (universe-rigid `Type`/`Type*`
+binders → G3-verbatim `Type _`; PowerSeries C/X idiom; docstring-before-set_option
+parse; explicit `(F := F)` at body-only-F applications) — lessons in the log header
+for the P1 charter. Substrate: mathlib `ff2494ea` / v4.36.0-rc2, warm family (new
+ephemeral app `crossmath-pilot-ffez4`, BYTE-IDENTICAL image block to pilots/71 —
+shared layers), doz CLI; wall 76 s, telemetry OVER=1 = the inherent mmapped-olen
+class (mem 6146 MB, cpu 0.71 under spec).)**
+
+**Content (statement architecture; tauceti/projModel/toEllipticCurveGeom NEVER
+imported — every tauceti object is a binder pinned by its defining equation, the
+EnclOK/ProbeE discipline; G6b route as specced):** 13 defs + 1 proved wrapper
+(`conditional_shape`, binder-consumption, ProbeG3 precedent) — Weil side =
+`HypWeilConjectures`/`WeilBody1`/`stmt_leanEval_d1_iff` (verbatim G3 carry,
+specialized d := 1); genus-1 family `genus1A`/`HypWeilGenus1`/`stmt_leanEval_to_genus1`;
+tauceti count bookkeeping `tracePowSum`/`HypTaucetiCounts` (N m = q^m + 1 − s_m(a),
+binder restatement of `Frobenius/PowTrace` + `Zeta.lean:153`); rational normal form
+`zetaNum`/`zetaDen`/`HypTaucetiZetaRat` (ζ·(1−T)(1−qT) = 1−aT+qT², from
+`zetaFunction_eq_mul_inv` `Zeta.lean:203`); `HypTaucetiZetaDef` (ζ = exp.subst (mk
+fun n => N n / n), `Zeta.lean:161`); **`HypTransport` — the G6b projModel count
+transport as opaque binder, THE P0 headline slot**; headline
+`stmt_ff_ez4_identification`/`stmt_ff_ez4` (both defining systems ⟹ zeta data agree:
+α+β = a, αβ = q, N m = q^m+1−(α^m+β^m), ζ = rational form); restatements
+`stmt_ff_ez4_rh_g1` (`Zeta.lean:244`), `stmt_ff_ez4_hasse_g1` (`HasseBound.lean:44`,
+`frobeniusTrace_sq_le_four_mul_card`); bridges `stmt_ff_ez4_norm_from_hasse` (FF-EZ1(iii)
+at g = 1) + `stmt_ff_ez4_rh_transfer` (tauceti↔Weil RH). 11 mathlib-API `#check`
+anchors elaborated (WeierstrassCurve.IsElliptic, Scheme IsProper/
+GeometricallyIrreducible/SmoothOfRelativeDimension/Over/Spec, PowerSeries
+exp/subst/mk/C/X — signatures in the log tail :16–30). **No gate fired** (rank-9
+standing task-slot; the pair's other half 22-T2a/G9 separately GREEN; G6b's Stacks
+alternative DEAD, tauceti route designed).
+
+**Sweep treatment (per the record's own ruling, adopted):** Step-A classifier row
+(zero tokens today); NO Step-B stage ever; P1 (if chartered) classifies per its lane
+report.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -914,4 +992,10 @@ public decls; 2-helper-lemma print caveat noted; TARGETS row AxPilot32_M2 applie
 inert until H commits A6's batch). Sixth batch: §10.12 75-N2 P0 (A5's block from
 agent-06's N2-P0-record.md, cites re-verified on disk — 15/15 triad :83–97, close-out
 :185–196; C1 confirmed; [WARM]-branch resolution noted; TARGETS row deliberately
-deferred to N2-final, P1 GO).*
+deferred to N2-final, P1 GO). Seventh batch: §10.13 78 Truffet Stage-A P0 (A7's
+record from agent-08, cites re-verified — 3/3 public triad `p0-run4.log:22–24`;
+census 3 public + 23 private lemmas, elimination-noted; NEGATIVE-kind discovery
+candidate; Stage-B/TARGETS deferred with the family). Eighth batch: §10.14 FF-EZ4 P0
+(A6's record from agent-07, cites re-verified — verdict :15, telemetry :34; PROBE-
+CONVENTION class, Step-A only, never a Step-B stage, no TARGETS — the record's own
+ruling, adopted).
