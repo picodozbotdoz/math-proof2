@@ -38,29 +38,26 @@ row was removed (record content, not article content).
 ## Abstract
 
 Two 2026 formal corpora refute the Exponential Time Hypothesis (ETH) from opposite
-sides.
-- The anthropics `eth` corpus proves a *k-uniform* refutation: one Turing machine and one
-  constant C count the solutions of every k-CNF in 2^{C·min(km/√log m, k²n·loglog n/√log n)}
-  steps. But its assembly materializes an exponentially long pad, so space tracks time.
-- openai-math's SubexponentialSAT proves polynomial space per execution prefix, but with a
-  machine chosen *per k*.
+sides: the anthropics `eth` corpus proves a *k-uniform* refutation (one machine and
+constant, every k-CNF, the paper's bound) but its assembly materializes an
+exponentially long pad, so space tracks time; openai-math's SubexponentialSAT proves
+polynomial space per prefix, but with a machine per k. The
+conjunction — uniform in k, the min-route time bound, and polynomial space — is stated
+in neither corpus; each lacks the other's half. Three layers are proved in Lean,
+all PROVED-UNCONDITIONAL:
 
-The conjunction (uniform in k, the min-route time bound, *and* polynomial space) is
-stated in neither corpus, and each corpus lacks the other's half by construction. We
-prove three layers of it in Lean:
+- **(M1)** A space-annotated host simulation: every polynomial-time stepped machine
+  with polynomial-size states runs on eth's host TM2 in eth's time *and* polynomial
+  stack space (openai's monitor form included).
+- **(L1)** Counter combinators: binary-countdown versions of eth's pad-driven
+  fold/sum/product/cap/find combinators agree with the originals at every pad length
+  (uncut semantics when inactive).
+- **(L2)** A countdown loop on a ⌈log₂ n⌉-bit counter: time polynomial in the *value*
+  n, space in the *word* of n — replacing eth's exponential pad by a logarithmic
+  counter — with the `PolyTVal` discipline and certificate `polyTVal_id`.
 
-- **(M1)** A space-annotated host simulation. Every polynomial-time "stepped" machine
-  with polynomial-size states runs on eth's host TM2 machine in eth's time *and* in
-  polynomial stack space at every prefix. This includes openai's monitor form.
-- **(L1)** Counter combinators. Binary-countdown versions of eth's pad-driven fold, sum,
-  product, cap and find combinators agree with the originals at every pad length, and
-  give the uncut semantics when inactive.
-- **(L2)** A countdown loop on a ⌈log₂ n⌉-bit counter. Its run time is polynomial in the
-  *value* n, while its space is polynomial in the *word* (bit length) of n. It comes with
-  the certificate discipline `PolyTVal` and a first certificate, `polyTVal_id`.
-
-L2's value-time/word-space separation is the mechanism that replaces eth's exponential
-pad by a logarithmic-size counter.
+The uniform-polynomial-space target is **not proved** (headline open); of the assembly
+tranche, the D1 counter padding machine has landed (plumbing billing; §8).
 
 ## 1. Introduction
 

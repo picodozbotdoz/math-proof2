@@ -28,7 +28,9 @@ table, and all dated records (incl. the 2026-11-14 nearest-neighbor addendum) ar
 unchanged. Same-day residual pass: §6 converted to the mandatory nearest-miss table
 (same citations); the §5 retracted-blocker sentence reworded as the plain correction it
 records. Same-day depth pass: §5 gained the per-theorem verification blocks (decl
-file:line + coverage; binder inventory empty).
+file:line + coverage; binder inventory empty); the trailing dated nearest-neighbor
+addendum was folded into §6's third row (revise-not-append, per the template's §9
+rule 7) with a tombstone note left at its former position.
 
 ---
 
@@ -162,7 +164,7 @@ the status rows in the header carry the axiom-print log lines):
 |---|---|---|
 | classical CCR/CAR: Jordan–Wigner; Bratteli–Robinson, *Operator Algebras and Quantum Statistical Mechanics 2*; q-commutations (Greenberg's quons; Bożejko–Speicher) | the (anti)commutation relations and their ε = q interpolations | the relations are classical; the ε-universal dual-family statement for an abstract occupation pair, proved once without case distinction, is the axiomatization's content — no new physics claimed |
 | eth corpus `LemmaDual` (`AppHalfPiecesStatement.lean:175`) | the *weighted* bosonic analogue, partition-indexed families, z_μ normalization | the weighted layer is §7's open extension; the unweighted ε-universal form is what is proved here |
-| the four corpora (R8 round 2; `qa/iter4-review/r2-discovery-strength.md` §5 q8: no `OccupationPair` anywhere) + physlib `ExchangeSign` (dated nearest neighbor, 2026-11-13, the addendum below) | no occupation-pair layer in any corpus; physlib takes the exchange-sign layer only | the axioms remain unclaimed elsewhere; the physlib neighbor narrows the sign-exchange claims (recorded in the dated addendum below) |
+| the four corpora (R8 round 2; `qa/iter4-review/r2-discovery-strength.md` §5 q8: no `OccupationPair` anywhere) + physlib `ExchangeSign` (dated nearest neighbor, recorded 2026-11-13 per A5's Cycle-2 novelty sign-off) | no occupation-pair layer in any corpus; physlib takes the exchange-sign layer only: `ExchangeSign` lives in **leanprover-community/physlib** (the HEPLean successor — NOT the Physlib package vendored inside AxiomMath/AreaLaw2D that the G5a probe concerns) and **postdates this article's 2026-11-09 publication**; theorems unaffected — any new statistics-universal ε-sign framing without differentiation is dead, the occupation-pair axioms remain unclaimed elsewhere (full record: `novelty/physlib-surface.md` §3.4) |
 
 Scope statement. Technical-record billing (axiomatization + ε-universal lemma,
 formal-first): the contribution is the right abstraction and the ε-uniform proof, not
@@ -190,17 +192,7 @@ addendum below.
 
 ---
 
-## Nearest-neighbor addendum (2026-11-14, dated — per A5's Cycle-2 novelty sign-off)
-
-Post-publication development: **physlib's `ExchangeSign` post-dates this article's
-2026-11-09 publication** and is now a nearest-neighbor declaration for the
-statistics-universal occupation calculus's sign-exchange layer. Status: **theorems
-stand** — no claim here is affected (the calculus's universality statements remain
-unclaimed elsewhere); the novelty record gains one dated nearest neighbor, recorded so
-future sweeps do not mistake priority. Precision (A5 delta re-check 2026-11-14, per `novelty/physlib-surface.md` §3.4's
-name-collision trap): `ExchangeSign` lives in **leanprover-community/physlib** (the
-HEPLean successor) — for which NO G5a staging exists or is planned; **G5a concerns a
-DIFFERENT Physlib**, the package vendored inside AxiomMath/AreaLaw2D. Per §3.1:
-physlib TAKES the exchange-sign layer (any new statistics-universal ε-sign framing
-without differentiation is dead) but does NOT touch the occupation-pair layer —
-article 52's axioms remain ours-and-unclaimed-by-others.
+*(The 2026-11-14 dated nearest-neighbor addendum that formerly stood here — physlib's
+`ExchangeSign`, postdating the 2026-11-09 publication; theorems unaffected — was folded
+into §6's third table row at the 2026-11-17 depth pass; the full record remains at
+`novelty/physlib-surface.md` §3.4.)*

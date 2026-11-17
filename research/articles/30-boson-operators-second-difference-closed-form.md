@@ -37,23 +37,23 @@ citations.
 
 ## Abstract
 
-The appendix "half pieces" of the anthropics ETH-refutation corpus builds, on the
-polynomial ring V = ℚ[t₁, t₂, …], vertex-operator–like mode operators a[r] and from them a
-family Q_s(a, b) (display (48)) satisfying three lemmas: factor exchange, support
-|s| ≤ E + h on the weight-E space, and the resolution of the identity
-Σ_s Q_s(a,b) = (a[−h]b)·Id. A natural conjecture formulated in this project — that the
-normalized Q_s are mutually orthogonal idempotents satisfying a Parseval identity — is
-**false**: at h = 1, a = b = t₁, on V₁ = ℚ·t₁ the Q_s act by the scalars (1, −2, 3, −2, 1). We
-explain the failure with an exact closed form. At h = 1 every summand of Q_s is a product
-∇_x∇_{−x}, which we show equals x⁺·Id + |x|·N_{|x|} with N_k = t_k ∂/∂t_k. Consequently
+The appendix "half pieces" of the anthropics ETH-refutation corpus builds mode
+operators a[r] and from them a family Q_s(a, b) (display (48)) satisfying three lemmas:
+factor exchange, support |s| ≤ E + h on the weight-E space, and the resolution of the
+identity Σ_s Q_s(a,b) = (a[−h]b)·Id. A natural conjecture formulated in this project —
+that the normalized Q_s are mutually orthogonal idempotents satisfying a Parseval
+identity — is **false**: at h = 1, a = b = t₁ the Q_s act by the scalars
+(1, −2, 3, −2, 1). We explain the failure with an exact closed form: at h = 1 every
+summand of Q_s is a product ∇_x∇_{−x} = x⁺·Id + |x|·N_{|x|} with N_k = t_k ∂/∂t_k, so
 
   Q_s(t₁,t₁) = [s=0]·Id + |s−1|·N_{|s−1|} − 2|s|·N_{|s|} + |s+1|·N_{|s+1|},
 
-so the Q_s are simultaneously diagonal on monomials with eigenvalues δ_{s0} + Δ²ψ_m(s), a
-discrete second difference of the "occupation profile" ψ_m(j) = |j|·m_{|j|}. Summation by
-parts then yields the identities that *do* hold: Σ_s Q_s = Id, Σ_s s·Q_s = 0 and
-**Σ_s s²·Q_s = 4·E·Id on V_E** (four times the Euler operator). The refutation, the closed
-form, the spectral form and commutativity are verified in Lean 4.
+the Q_s are simultaneously diagonal on monomials with eigenvalues δ_{s0} + Δ²ψ_m(s), a
+discrete second difference of the "occupation profile" ψ_m(j) = |j|·m_{|j|}. Summation
+by parts yields the identities that *do* hold: Σ_s Q_s = Id, Σ_s s·Q_s = 0,
+**Σ_s s²·Q_s = 4·E·Id on V_E**. The refutation, closed form, spectral form and
+commutativity are verified in Lean 4; the general moment identities are paper proofs
+with kernel-checked instances.
 
 ## 1. Introduction
 

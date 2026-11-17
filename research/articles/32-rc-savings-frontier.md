@@ -47,23 +47,21 @@ Karingula–Lovett, Saha–Ye, AVW's ε*₁₀ naming).
 
 ## Abstract
 
-The anthropics `3sum-apsp` corpus formalizes a data-structure theorem (Corollary 31): for a
-width parameter c > 10 and a density parameter θ ∈ (0, 0.9), products of thin matrices with
-D ≤ N^ε admit polylog-savings data structures with savings exponent γ = gammaOf(c, θ),
-valid whenever ε < R_c(γ) = ln 4 / ln Λ(c, γ). The paper records the threshold
-ε* = ln 4/(5 ln 10) ≈ 0.1204 and the qualitative facts that R_c decreases in c and stays
-below ε*. We determine the **entire achievable region** of this certificate class. With
-Γ(ε) := sup{γ > 0 achievable at range ε}, we prove: (i) R_c is strictly decreasing in γ;
-(ii) ln Λ(10, 0) = 5 ln 10 exactly, so R_10(0) = ε*; (iii) the frontier is given by a unique
-crossing point c*(ε) of two explicit monotone curves, Γ(ε) = gammaOf(c*(ε), 0.9), and the
-supremum is not attained; (iv) a sharp phase transition: the achievable set is nonempty iff
-ε < ε*. Everything is verified in Lean 4 against current mathlib, independently of the
-corpus's own proofs: Theorems 1–6 are PROVED-UNCONDITIONAL — including, since
-2026-11-17, the existence of the crossing for every ε ∈ (0, ε*), which makes the frontier
-formula unconditional parametric. The claim, scoped: the first **exact
-achievable-frontier theorem for a data-structure certificate class** — the follow-up
-literature proves technique barriers and threshold systematizations, not frontiers
-(§6).
+The anthropics `3sum-apsp` corpus formalizes a theorem (Corollary 31): for
+width c > 10 and density θ ∈ (0, 0.9), thin-matrix products with D ≤ N^ε admit
+polylog-savings data structures valid whenever ε < R_c(γ) = ln 4 / ln Λ(c, γ), γ the
+savings exponent. The paper records the threshold ε* = ln 4/(5 ln 10) ≈ 0.1204 and the
+qualitative facts: R_c decreases in c, below ε*. We determine the **entire
+achievable region** of this certificate class. With Γ(ε) := sup{γ > 0 achievable at
+range ε}, we prove: (i) R_c is strictly decreasing in γ; (ii) ln Λ(10, 0) = 5 ln 10
+exactly, so R_10(0) = ε*; (iii) Γ(ε) = gammaOf(c*(ε), 0.9) for a unique crossing point
+c*(ε) of two explicit monotone curves, the supremum not attained; (iv) a sharp phase
+transition: the achievable set is nonempty iff ε < ε*. Theorems 1–6 are
+PROVED-UNCONDITIONAL in Lean 4 against current mathlib, independently of the corpus —
+including, since 2026-11-17, crossing existence for every ε ∈ (0, ε*), making the
+frontier formula unconditional parametric. Scoped claim: the first exact
+achievable-frontier theorem for a data-structure certificate class — the follow-up
+literature proves barriers and thresholds, not frontiers (§6).
 
 ## 1. Introduction
 
