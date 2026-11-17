@@ -461,3 +461,72 @@ needed. New QA surfaces: `qa/{tauceti,openai-math}-spotcheck.md` (legacy-survey 
 place), `qa/donor-probes-spotcheck.md` (Q7), `qa/cycle2-qa-plan.md` Parts 1–7 cumulative
 0 WRONG (Part 7 = DLRT-erratum propagation sweep; 3 residuals relayed for qualifier
 fixes).
+
+## Iteration 4 addendum (opened 2026-11-16; pre-staged 2026-11-17 for close-out fill-in — H)
+
+Skeleton per the Cycle-2 precedent (this section fills from
+`qa/REPORT-INPUTS-ITER4.md` §1–§4 at close). LANDED cells carry commit shas
+(wave-2 status block, `RESUME-BRIEF-ITER4.md`); every PENDING cell names its owner
+lane. No verdict is filled that has not landed.
+
+### I4.1 Context and charter
+
+Opened 2026-11-16 on `dev/iteration4` (cut at `b1ea051` = the Cycle-2 close commit).
+Charter: `RESEARCH.md` §Iteration 4 (R9 splice v2 + R5 resolutions) — discovery bar
+RAISED (R2's S1–S4 strength bar + the TEMPLATE-iter4 article gate at **cap-N = 1
+FINAL**; ≥ half of shipped articles discovery-grade). Phase A (nine-lane review)
+CLOSED at L1 `226fa08`; phase B (pilots) opened at the L2 splice `808c809`; **wave 2
+re-cut H + A1–A9 on 2026-11-17** after external session termination (snapshot
+`53c1548`). Canonical lane table: `ORCHESTRATION-ITER4.md`.
+
+### I4.2 Pilot outcomes (wave-2 state 2026-11-17)
+
+| Pilot | Verdict (LANDED) | PENDING (owner) |
+|---|---|---|
+| 75-Pb (day-1 top-billed) | **FINAL-GREEN** — all four landings triad, 0 sorryAx, zero donor imports (pb-run11-final); §10.4 print-gap closed; **full-coverage axcheck 89/89 triad** `bb780d4` | — |
+| LP layer + 02-core (slot 1) | **FINAL-GREEN** end-to-end — `lp_weak_duality` + `bw2_ceiling_of_dual` triad (§10.1/10.2) | — |
+| AL-3D (B.2 staged) | P0/P1 GREEN (§10.3); P2-m1 GREEN (§10.6; axcheck F1 corrected) | **P2 c/d/e — A4** (P2-d reindex-conjugation = risk concentration) |
+| 72-M1 | L3a GREEN; print-gap CLOSED 9/9 direct `a0c0f0e` (`axcheck-l3a-run1.log`) | **L3b–d + interface theorem — OPEN (post-wave)** |
+| hEχ companion (zeta23E) | **GREEN first-run** — Theorem-E chain triad at the donor pin; binder swap CLEARED (§10.5) | — |
+| ZZV2-λ (technical record) | **P0 GREEN** `1a0ef7e` — 4/4 triad consumer-side; MT-frozen Landau bridge recorded | **P1 — A3** (GO; hard-STOP-after-P1 ARMED, R5 §12a) |
+| 73-Q4 | Gate memo GO (`3b9b0a0`; `hPur` stays a binder) | **pilot execution — A2** |
+| 32-crossing (run 12) | — | **run 12 on warm pilot-32 — A6** (article-32 §5 v2 edit armed on GREEN) |
+| 75-N2 | Dossier LANDED `434208e` (S1–S4 provisional PASS N2-d) | **P0 — A5** |
+| Truffet / dossier 78 | ELEVATE `4047470` + hardened `3a62747` (critique sweep EMPTY) | **Stage-A P0 — A7** |
+| 22-T2a | G9 GREEN `68be1a2` (StrongPNT port ≈ 0 on-pin) ⇒ GO | **pilot — A8** (T1 NOT fired) |
+
+### I4.3 Discovery-grade ledger
+
+- **article-75 two-tier v2** — landed `a6c7b13` (kind DISCOVERY-CONDITIONAL; 11/12
+  checklist). **PENDING (A9):** splice state — README row-75, sweep shas, 52/11
+  residuals, article-01 upgrade chartered.
+- **75-N2 consumer** (the cycle's strongest discovery lead) — design dossier landed
+  (`434208e`). **PENDING (A5): P0.**
+- **dossier 78** (NEGATIVE kind, DISCOVERY-grade) — elevated + cite-hardened. **PENDING
+  (A7): Stage-A P0.**
+- Quota: **N = 1 UNSPENT** (`a9-quota-casualties.md`); completion-path candidates
+  (01-stability / 32-crossing / 30-Theorem A) not yet chartered — week-1 drain review.
+
+### I4.4 Engineering-billed deliverables (never articles)
+
+LP layer (slot 1 COMPLETE); ZZV2-λ technical record (Lamzouri must-cited in full);
+AL-3D formalization-grade rungs (C.1–C.4 fences); 10-tranche D1–D6 (declared plumbing,
+BENCHED); Pb axcheck closure machinery (`axcheck_run75.py`, F1/F3b custody class);
+corpus compliance audit (`0b8b334` — 42/50/75 compliant; upgrade queue 32→01→30).
+
+### I4.5 Donor registrations (hygiene gate: on-pin `#print axioms` is proof)
+
+- **G11/G12 — OAI SiegelZeros + PiExponent: PASS triad-clean** (`f4511af`; run35) —
+  statement-binder classes **RELEASED**; build-dependency ban unchanged (v4.34.1 pin).
+- **hEχ / zeta23 Theorem-E chain** — triad at the donor pin; the χ-column discharges
+  to `PROVED-UNCONDITIONAL (donor)` (G7b/D-PIN pattern).
+- **G9 StrongPNT** — port ≈ 0 confirmed on-pin (22-T2a GO; T1 NOT fired, PNT+ stays
+  DEFER). G10 Physlib refreshed-retry: **SHELF** (fire-gated on a chartered consumer).
+
+### I4.6 Close-out gates pointer
+
+FINAL-SWEEP-PLAN-ITER4 (§7 wave-2 addendum `132887d`; axcheck_iter4 default config —
+T9 RECORD_RE fixed, 124/124 machine-confirmed; Step-A classifier 17/17 explained) ·
+closeout-commit-plan-ITER4 STEP 1–9 · INDEX reconciled bidirectionally (drift listing
+resolved `0e5ac5b`/`3b627b5`) · REPORT fills from REPORT-INPUTS-ITER4 §1–§4 at close
+(one writer per row). **PENDING (A1): close-out gates pre-staging.**
