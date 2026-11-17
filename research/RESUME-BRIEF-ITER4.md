@@ -63,12 +63,11 @@ charter TYPESET at L2) + this brief + `research/ORCHESTRATION-ITER4.md`.
    completion (on signal):** (1) census verification first (articles end-state per the
    runbook); (2) stage the FULL swap-in changeset deliberately (R1 leaves everything
    worktree-only); (3) ONE serialized commit carrying the incident notes above.
-6. **SUPERSEDED 2026-11-17 (orchestrator ruling: user directive makes xyz PRIMARY —
-   route-test note in §Substrate baseline "Modal health" below):** xyz route
-   `sudo -n -u xyz /home/xyz/xyzenv/bin/modal` is LIVE (client 1.6.3, workspace
-   `donniexyz888`); doz CLI `/home/doz/dozenv/bin/modal` (1.6.2, `semraker`) is the
-   verified fallback and holds the warm Cycle-2/Iter-4 caches. NEVER local lake/lean
-   builds. `AGENTS.md` § Modal usage guidelines is
+6. **SUPERSEDED 2026-11-17 (two orchestrator rulings — see the §Substrate baseline
+   "Modal health" notes below for the full chain):** xyz primary per user directive,
+   then same-day route-optimization — doz CLI primary this wave for apps with warm
+   semraker layers; xyz verified-LIVE for brand-new apps and as fallback. NEVER local
+   lake/lean builds. `AGENTS.md` § Modal usage guidelines is
    mandatory: defaults cpu=2.0/memory=4096, telemetry in every run,
    `LEAN_NUM_THREADS=2`, overrun ⇒ investigate-not-upgrade (more resources only with
    explicit per-run user approval), long builds (> ~40 min) as cached image layers,
@@ -192,6 +191,18 @@ Operational caveats (matter for warm runs):
    `app list`.
 3. AGENTS.md § Modal usage guidelines unchanged and route-agnostic: cpu=2.0/mem=4096,
    telemetry every run, LEAN_NUM_THREADS=2, overrun ⇒ investigate-not-upgrade.
+
+**2026-11-17 route-optimization ruling (orchestrator, from the probe above; refines the
+xyz-primary ruling for THIS wave's runs).** PRIMARY route = **doz CLI**
+`/home/doz/dozenv/bin/modal` for every app that already has warm layers on `semraker`
+(`crossmath-pilot-73`, `crossmath-pilot-32`, the al3d pilot app, `crossmath-pilot-zeta23E`,
+the g-probe apps) — probe evidence: caveat 1 (workspaces are DISTINCT; those layer
+caches/volumes are invisible on `donniexyz888`, so the xyz route would cold-rebuild the
+whole lineage per app) plus caveat 2 (the xyz workspace carries concurrent foreign
+workloads today). The xyz route stays verified-LIVE (client 1.6.3, `donniexyz888`) as
+FALLBACK and as PRIMARY for brand-new apps with no semraker lineage. Both routes remain
+under the AGENTS.md § Modal usage guidelines (2 CPU / 4 GB, telemetry,
+LEAN_NUM_THREADS=2).
 
 ## SESSION END — 2026-11-17 (external termination: orchestrator session exceeded max duration)
 
