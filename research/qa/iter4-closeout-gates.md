@@ -229,7 +229,9 @@ VIOLATION-UNEXPLAINED, but they are **unrecorded in
 baseline and predates their sweep into scope). **Remedy (owner: the G9/G10 lane,
 R8-successor): append entry 2 to the incremental log re-baselining the certificate
 49 → 52** (plan §1's "any file landing WITH tokens re-baselines the certificate
-before Step B" — orchestrator-visible, not silent). All wave-2 landed pilots check
+before Step B" — orchestrator-visible, not silent). ***EXECUTED 2026-11-17 (lane A1,
+coordinator-authorized self-service): entry 2 appended to
+`stepA-incremental-iter4.log` — certificate now 52.*** All wave-2 landed pilots check
 0 tokens as expected: 73/Q4 ✓, zzv2-P0 ✓, N2-P0 ✓, M2.lean ✓, 78-P0 ✓, ff-ez4-P0 ✓,
 74-P0 (1 `sorry` string = header prose) ✓.
 

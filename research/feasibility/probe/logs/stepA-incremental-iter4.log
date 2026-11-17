@@ -10,3 +10,19 @@
 # Wave-2 expected certificate at close = 43 (C2 frozen) + 3 + 3 = 49 + lane-declared additions from in-flight files.
 # Early signals: pilots/73/Q4.lean (A2 mid-run, NOT final) = 0 tokens today; pilots/zzv2-lam/P0.lean = 0 tokens.
 # Probe-side scope (feasibility/probe/**/*.lean, G-series + ProbeG9/G11/G12) NOT re-run in this entry — sweep-time scope per plan §1.
+
+# --- ENTRY 2 — G1 RE-BASELINE 49 -> 52 (lane A1, 2026-11-17; self-service, coordinator-authorized) ---
+# Trigger: the MID-WAVE CHECKPOINT G1 run (research/qa/iter4-closeout-gates.md §MID-WAVE CHECKPOINT,
+#   main @ 47bec92, 93 files incl. the probe scope) found 52 real tokens vs the 49 expectation.
+# Delta +3 = the probe-scope files that landed 2026-11-16 AFTER the C2 certificate froze and were
+#   absent from entry 1's pilots-only baseline:
+#   feasibility/probe/ProbeG9_StrongPNT.lean:51,:67  (2 tokens — upstream StrongPNT conclusion + its binder form)
+#   feasibility/probe/ProbeG10_PhyslibRefresh.lean:96 (1 token — the SHELF areaLaw_to_corollary stub)
+# Classification: HEADER-JUSTIFIED probe-convention donor-transcription stubs (both files carry the
+#   "Statement elaboration probe — not a proof artifact" header, staged 2026-11-16 by lane R8) —
+#   NOT violations; re-baselined here per FINAL-SWEEP-PLAN-ITER4 §1 ("any file landing WITH tokens
+#   re-baselines the certificate before Step B"), orchestrator-visible by this entry, never silent.
+# Certificate now: 52 tokens = 43 C2 carry-forward + 3 al3d/P0 + 3 lp/P0 + 3 (G9 x2, G10 x1).
+# All other buckets verified exact at the checkpoint (9 main-run + 23 C2 G-series + 4 x 71/P0 +
+#   7 x 73/P0 with the +2 line drift noted in entry 1); every wave-2 landed pilot file = 0 tokens.
+# G11/G12/ProbeG13 probe files: 0 tokens (checked in the same run).
