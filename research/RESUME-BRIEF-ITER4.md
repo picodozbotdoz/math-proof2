@@ -82,7 +82,7 @@ A-lanes per row. Full assignments/current tasks live in ORCHESTRATION-ITER4.md.
 | Lane | Assignment | Deliverable path | Status | Last update |
 |---|---|---|---|---|
 | H | helper/infra (branch, commits, probes, tracker) | `research/ORCHESTRATION-ITER4.md` + this brief; 2026-11-17 Modal route ruling test recorded (xyz primary, LIVE) | active | 2026-11-17 |
-| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | `research/novelty/oai-siegelzeros-piexponent-as-donor.md` + §1c clocks; `research/pilots/75/logs/pb-run12-auditfix.log` check vs §10.4 | spawned (queue loaded) | 2026-11-17 |
+| A1 | verification integrity (G11/G12 verdicts + pb print-gap; inherits R3 §9) | G11/G12 verdicts LANDED: PASS triad-clean → statement-binder classes RELEASED (`research/novelty/oai-siegelzeros-piexponent-as-donor.md`; r3-tables §10.7); pb §10.4 print-gap CLOSED (§10.8) | delivered (G11/G12 RELEASED; pb remainder routed) | 2026-11-17 |
 | A2 | 73-Q4 execution | `research/pilots/73/Q4.lean` (gate memo GO at `Q4-gate-memo.md`, `3b9b0a0`) | spawned (queue loaded) | 2026-11-17 |
 | A3 | ZZV2-λ P0 execution | `research/pilots/zzv2-lam/P0.lean` (card 8, released; hard STOP rule R5 §12) | spawned (queue loaded) | 2026-11-17 |
 | A4 | AL-P2 c/d/e milestones | `research/pilots/al3d/A2.lean` (P2-d risk concentration; C.1–C.4 fence) | spawned (queue loaded) | 2026-11-17 |

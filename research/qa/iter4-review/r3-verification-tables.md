@@ -590,6 +590,68 @@ sharing preserved, `alp2-run7-m1green.log:2–5`).
 concentration** (per the lane/coordinator — the tables will carry the flag when it
 lands).
 
+### 10.7 G11/G12 — OAI SiegelZeros + PiExponent donor-pin audits — LANDED GREEN 2026-11-17 (probes lane R6, runs 33–35; verdict review + rows lane A1 = this lane's successor)
+
+**Run: run35 (the fix run) — log `feasibility/probe/logs-g/run35-g11-fix.log`, Modal app
+`crossmath-gprobe` fn g11, volume-resume from the run33 snapshot; verdict SUMMARY :271–276
+(build OK; `ProbeG11_OAI_SiegelZeros.lean: OK sorry-warnings=0`; `ProbeG12_OAI_PiExponent.lean:
+OK sorry-warnings=0`). NOT elaboration-only — per-theorem `#print axioms` triad output is
+in the log for all nine audited decls. Substrate D-PIN: donor's own tree at v4.34.1 /
+mathlib `d13f23b7` (closure 1,070 files, cache rc=0, build `OK; 201/9993 jobs; failed: []`
+:161; "patches 0/12" = already applied by run33's 12/12, :97–108). Attempt history: run33
+FAIL rc=1 (wiring typo `Conclusions.Theory` → nonexistent file, `run33-g11.log:131–133`/
+`:190–192`); run34 early death (log ends t=120 s, no verdict); root cause + fix in
+`run35-g11-fix.log:1–2`. Telemetry within guidelines: SPEC 2.0 cpu/4096 MB (:18); wall
+1713 s, max_cpu 2.54, max_mem 1600 MB, OVER=12 (:276) — the §10.5 soft-limit build-phase
+burst class (well under zeta23e's 8.98 precedent); no escalation. Full verdict block +
+release ruling: `novelty/oai-siegelzeros-piexponent-as-donor.md` §"G11/G12 verdict".**
+
+| decl (all donor) | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap` | donor `OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:11–21` | PROVED-UNCONDITIONAL (donor) | `run35-g11-fix.log:198–200` — `[propext, Classical.choice, Quot.sound]` | the G11 headline; `#check` shape :189–197 matches the map's §(a) quote verbatim — the `hLS` binder surface |
+| `OAI.SiegelZeros.SiegelZerosAwei.W50.uniform_exclusion_of_local_isolated_bezout` | donor `Intersection/BezoutBoundary.lean:13` | PROVED-UNCONDITIONAL (donor) | `:201–203` — triad | delegation root 1 (G7b convention) |
+| `OAI.SiegelZeros.WeightedTorusJets.W22.localIsolatedBezout_of_actual_regular_selection` | donor `Intersection/IsolatedBezoutFromRegularSelection.lean:346` | PROVED-UNCONDITIONAL (donor) | `:204–206` — triad | delegation root 2 |
+| `OAI.PiExponent.pi_eventual_lower_bound` | donor `OAI/NumberTheory/PiExponent/Main.lean:9` | PROVED-UNCONDITIONAL (donor) | `:240` — triad | G12 headline; `hμπ` binder surface |
+| `OAI.PiExponent.pi_irrationalityExponent_eq_two` | donor `Main.lean:17` | PROVED-UNCONDITIONAL (donor) | `:241` — triad | μ(π) = 2 — **registration ≠ endorsement** (§9(iv)): audit shows a triad-clean proof tree, nothing about the preprint's truth |
+| `OAI.PiExponent.flint_hills_summable` | donor `Main.lean:29` | PROVED-UNCONDITIONAL (donor) | `:242` — triad | Flint–Hills corollary |
+| `OAI.PiExponent.main` | donor `Main.lean:19` | PROVED-UNCONDITIONAL (donor) | `:243` — triad | the pair assembly |
+| `OAI.PiExponent.piEventualLowerBound_of_globalInterpolation` | donor `Approximation/InterpolationConsequence.lean:11` | PROVED-UNCONDITIONAL (donor) | `:244` — triad | the generic interface — whole conclusion layer dischargeable from the one `GlobalInterpolationStatement` binder (`hGeo` surface) |
+| `OAI.PiExponent.LiteralAnalytic.analyticAggregate` | donor `Analysis/AnalyticAggregate.lean:96` | PROVED-UNCONDITIONAL (donor) | `:245` — triad | the π-specific analytic leaf consumed inside the interface |
+
+**Donor hygiene gate: PASS** — headline + delegation roots + interface all triad-only,
+0 sorryAx, 0 sorry-warnings, at the donor pin from the consumer side (§9(iii)).
+**Statement-binder class RELEASED 2026-11-17** (orchestrator pre-authorization, condition
+met). Stands: build-dependency ban (v4.34.1 ≠ ff2494ea; Liu-1 convention); full-tree sweep
+only if a consumer lands; **un-audited surface**: `pi_integer_eventual_lower_bound`
+(`Main.lean:13`) + the two sibling interface lemmas (`InterpolationConsequence.lean:18/:25`)
+— print before any direct consumption of those names.
+
+### 10.8 75-Pb pb-run12 auditfix — §10.4 print-gap closure — LANDED 2026-11-17 (fix lane A3; verification this lane)
+
+**Run: pb-run12-auditfix — log `pilots/75/logs/pb-run12-auditfix.log`, app
+`crossmath-pilot-75`-pattern runner, rc=0 (:94), `Pb.lean: OK` (:19, SUMMARY :89), wall
+25 s, OVER=0 (:90). Fix per §10.4's fold-at-next-touch: the three relay-named private
+helpers EXPOSED (private dropped) and printed by public name; dated correction note in
+the file audit block (`Pb.lean:2281–2288`). Run-11's verdict stands unchanged (the §10.4
+rows already record the elimination argument); this run supersedes it as the direct-print
+evidence source for the three helpers.**
+
+**Verdict: the §10.4 print-gap as defined (the three private helpers with "no direct
+print anywhere") is CLOSED. Remainder recorded honestly (same F-class as §10.4's own
+finding, narrower):**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `CrossMath.Pilot75.le_sum_mem` | `pilots/75/Pb.lean:1678` (now public) | PROVED-UNCONDITIONAL | `pb-run12-auditfix.log:38` (repeat :63) — `[propext, Classical.choice, Quot.sound]` | was §10.4's gap decl 1 — direct print now in-log |
+| `CrossMath.Pilot75.offDiag_cons_ge` | `:1797` (now public) | PROVED-UNCONDITIONAL | `:39` (repeat :64) — triad | gap decl 2 — closed |
+| `CrossMath.Pilot75.bonferroni_union_le` | `:1873` (now public) | PROVED-UNCONDITIONAL | `:40` (repeat :65) — triad | gap decl 3 — closed; the E4 corrected-invariant root |
+| REMAINDER (4 P-b-layer private decls, unprinted by name): `ZeroMult.eq_of_mult` (:1596), `not_mem_supp_zeroMult` (:1613), `supp_zeroMult_inter_empty` (:1616), `inter_supp_zeroMult_empty` (:1622) | `Pb.lean:1596–1626` | ⊆-triad by elimination: rc=0 + 0 sorry-warnings (:19) + each consumed inside a printed-triad theorem (:1672 `addFinOver_cons`, :1770/:1773 `commonStripCum_addFinOver_le`, :2107–:2114 `assemble_eps_defect_strip_cum_fin`) | none direct — the gap class §10.4 names, at 4 decls | the audit-block note's "prints every P-b-layer declaration directly (public + private)" (`Pb.lean:2282–2285`) and the log header's "complete direct-print audit over the whole P-b layer" (:5) are therefore tally-only-broad — flag for the lane's next touch: either +4 prints or reword to "every P-b-layer theorem named in §10.4" |
+
+**File-wide direct-print standing after run12: 35 of 89 census decls (was 32; +3). The
+54-decl remainder (50 heritage Pa-layer + the 4 above) keeps its §10.4 assignment:
+Step-B full-coverage axcheck prints all 89 (generator-verified) — unchanged, still
+pending at close-out. LoC note: log header says 2,302 (F5 drift class, header-carried).**
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -598,4 +660,8 @@ marked by stage verdicts; LoC/theorem-count drifts are tabulated there (§4 F4/F
 Lane R3, 2026-11-16. Updated same day: §9 appended (G11/G12 pattern), tool
 implementation `feasibility/probe/axcheck_iter4.py` (audit §7) landed with acceptance
 results in its header; §10 appended at Phase B activation (L2=808c809) with lane
-conventions pre-fixed for 75-Pb / LP / AL-3D / ZZV2-λ / zeta23e.*
+conventions pre-fixed for 75-Pb / LP / AL-3D / ZZV2-λ / zeta23e.
+Updated 2026-11-17 by lane A1 (R3-role successor): §10.7 (G11/G12 donor-pin audit
+verdicts, run35) + §10.8 (pb-run12 §10.4 print-gap closure, with the 4-decl remainder);
+donor-map verdict block at `novelty/oai-siegelzeros-piexponent-as-donor.md`
+§"G11/G12 verdict".*
