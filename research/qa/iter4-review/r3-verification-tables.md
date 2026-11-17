@@ -443,7 +443,9 @@ the ℤ-interval-bounded form used is `Finset.card_biUnion_le_card_mul`
 `Arealaw.trace_ptrace`); the 2 shape checks (:460 `slab_column_cuts_shape`, :466
 `planar_var_shape`) are sorry-free trivial re-exports validating the
 binder-consumption forms (EnclOK/ProbeE precedent; "never cited as content",
-P0.lean:26). **Step-A incremental baseline: +3 tokens (`pilots/al3d/P0.lean:75,113,118`).**
+P0.lean:26). **Step-A incremental baseline: +3 tokens (`pilots/al3d/P0.lean:73,111,116`
+— `alp0-run2.log:25–27`; corrected 2026-11-17, A8 validation F2: the previously
+printed `:75,113,118` matched no persisted log).**
 Descent: alp0-run1 (2 error classes — SimpleGraph field idioms) → run2 OK. Arealaw
 entropy core carried VERBATIM from green probe `ProbeG4_AreaLaw.lean` (G5a boundary:
 zero donor imports, zero Physlib). Disk sha256 4f1195463a31335f….
@@ -550,7 +552,9 @@ class; its on-pin statements keep the binder per §9(ii).
 ### 10.6 AL-P2 milestone 1 — LANDED GREEN 2026-11-17 (lane A4; P2-a amendment + P2-b)
 
 **A2.lean (proof artifact — 109 LoC on disk (log header says "~150" — drift noted);
-2 public theorem decls + 5 defs; sha256 3e88be59d8625fdc6…; `import A1` sibling
+2 public theorem decls + 5 defs; sha256 91b4fba741d05771… *(corrected 2026-11-17,
+A8 validation F1: the sha pair below was transposed vs disk; disk-verified
+A1 = 3e88be59d8625fdc, A2 = 91b4fba741d05771)*; `import A1` sibling
 staging via the TARGETS auto-rewrite — verified; TARGETS row `AxPilotAL3D_A2`
 appended. Verdict: A2.lean OK, sorry-strict; A1.lean OK in the same run
 (`pilots/al3d/logs/alp2-run7-m1green.log:6`). Content-error descent 3→1→1→0 over
@@ -565,7 +569,8 @@ runs 5–7; runs 1–4 were the import-mechanism build (below).**
 **A1 remediation (the §10.3 coverage finding, CLOSED by the lane):** A1.lean gained
 the +2 audit lines (`A1.lean:415–416`, `domainEDistG_of_mem`/`domainEDist3D_of_mem`)
 — A1 is now **C1** (22/22 printed; both records triad in-log at
-`alp2-run7-m1green.log:50–51`). A1's sha changed accordingly (91b4fba741d05771…);
+`alp2-run7-m1green.log:50–51`). A1's sha changed accordingly (3e88be59d8625fdc6…
+— A8 F1 correction 2026-11-17, transposed above);
 content change = the 2 print lines only.
 
 **P0 amendment (find #3) + re-GREEN:** `alp0-run3.log:1–5` — new def
@@ -576,7 +581,10 @@ recorded as header find #3; the frozen layer is otherwise untouched); the range 
 preserved by P1-a's projection contraction. Re-GREEN as probe. P0 sha
 db5e1cc8307a1a7e…; the 3 stubs shifted lines (:85/:123/:128 — count unchanged);
 **Step-A baseline enumeration update: `pilots/al3d/P0.lean:85,123,128`** (was
-:75,113,118).
+:73,111,116 per the persisted logs `alp0-run2.log:25–27` / `alp0-run3.log:16–18`;
+the previously printed ":75,113,118" matched no log — A8 validation F2, corrected
+2026-11-17; the current :85/:123/:128 form is disk-read, unstamped by any run —
+it rides the db5e1cc8 P0 sha printed above, disk-verified unchanged 2026-11-17).
 
 **Runner pin-findings (substrate notes, per instruction):** (i) putting the repo ROOT
 on `LEAN_PATH` lets the Mathlib source tree hijack olean resolution — restaged under
@@ -652,6 +660,102 @@ finding, narrower):**
 Step-B full-coverage axcheck prints all 89 (generator-verified) — unchanged, still
 pending at close-out. LoC note: log header says 2,302 (F5 drift class, header-carried).**
 
+**Step-B full-coverage closure — LANDED PASS 2026-11-17 (this lane; supersedes the
+pending line above).** Run `axcheck-full-run1` — log `pilots/75/logs/axcheck-full-run1.log`,
+app `crossmath-pilot-75-axb` (doz CLI; SPEC 2 cpu/4 GB + LEAN_NUM_THREADS=2; wall 45 s,
+OVER=0, 0 telemetry samples — wall < the 60 s interval, elaboration minutes-class).
+Stage = `axcheck_iter4.py gen` output: verbatim Pb.lean + appended `#print axioms` tail
+on ALL census decls; source of record Pb.lean post-run-12 **sha256(16)
+`da05c60ceb78755b`** (A8 F3 stamp; full `da05c60ceb78755b64be…`), stage sha256(16)
+`dadc6ff131e93eb4` stamped in-log (:11); census re-run at staging: **89 decls = 82
+public + 7 private** (reconciles §10.4's run-11 79+10 with the three run-12 exposures);
+forbidden-token gate OK (0 hits). **Verdict: PASS — every census declaration prints
+exactly `[propext, Classical.choice, Quot.sound]`, 0 sorryAx, 0 errors.** Official
+`axcheck_iter4.py scan`: 120 records, 120 × triad, 0 sorryAx, custody OK (verdict
+`:218` claims 120, log persists 120). **Tool blind spot, quantified and hand-covered:**
+4 more records — the primed-name prints `analyticAt_finset_prod'` /
+`analyticOrderAt_finset_prod'` (in-file :47/:50 + appended :165/:168) — escape the
+scan's and runner's `'([^']*)'` opener regex (a name ending in a prime breaks the
+quote pairing); phrase-joined by hand from the persisted log: all **124** records
+triad-only. Distinct printed names 90 = the 89 census decls + `ZeroMult.addFinOver`
+(def, in-file print; no status row by convention). **Remainders CLOSED:** the 4 E0
+privates direct-print triad (mangled-name records `ZeroMult.eq_of_mult` :182,
+`not_mem_supp_zeroMult` :186, `supp_zeroMult_inter_empty` :189,
+`inter_supp_zeroMult_empty` :192); §10.4's "57 of 89 no direct print" and §10.8's
+4-decl file-wide shortfall are discharged — **direct-print coverage 89/89 census decls**;
+run-11/12's elimination arguments are superseded by direct prints for every decl.
+Machinery (pilot-75-local, pilot-10 precedent untouched): `pilots/75/axcheck_run75.py`
+(F1/F3b custody runner — complete-output dump, scan-compatible verdict line, sha
+stamping) + `pilots/75/run_axcheck75.sh`. Tool follow-up queued: fix the primed-name
+opener in axcheck_iter4's RECORD_RE at next tool touch.
+
+### 10.9 72-M1 L3a — LANDED GREEN 2026-11-16 (row owed since landing; added 2026-11-17 on A8 week-1 validation; lane R4-as-A8 executing, verification this lane)
+
+**Run: `l3a-run6-GREEN.log`** — T1+T2 re-OK + **T3 OK, 0 errors, 0 sorry-warnings**
+(header :1; `[p11]` verdict rows :15/:48 and T3's); P72M1T3.lean v4, sha256(16)
+`fe57d30b19d9a836` (header :1 stamps fe57d30b19d9; disk-verified unchanged
+2026-11-17); descent 12→7→6→1→0 errors over runs 1–6 (header); app `crossmath-probe`
+warm-image reuse, doz CLI, SPEC 2 cpu/4 GB + LEAN_NUM_THREADS=2. The hermPart block
+is L3a of the L3-spec (`pilots/72-M1/L3-spec.md` §2); L3b–d + the interface theorem
+remain OPEN (REPORT-INPUTS-ITER4 §1 72-M1 row).
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `CrossMath.Pilot72.M1.hermPart_isHermitian` | `pilots/72-M1/P72M1T3.lean:70` | PROVED-UNCONDITIONAL (data-only) | `l3a-run6-GREEN.log:59` (repeat :120) — `[propext, Classical.choice, Quot.sound]` | the hermiticity fixed point |
+| `CrossMath.Pilot72.M1.opNorm_hermPart_le` | `:78` | PROVED-UNCONDITIONAL | `:60` (repeat :121) — triad | contraction bound feeding the interface theorem's norm side |
+| `CrossMath.Pilot72.M1.supportedOn_hermPart` | `:91` | PROVED-UNCONDITIONAL | `:61` (repeat :122) — triad | support preservation |
+| `CrossMath.Pilot72.M1.hamiltonian_hermPart` | `:128` | PROVED-UNCONDITIONAL — hH : `∀ v, (hv v).IsHermitian` (hypothesis of subject) | `:62` (repeat :123) — triad | the L3a headline assembly |
+| PRINT-GAP (5 of 9 T3 theorems, no direct print): `hermPart_smul` (:40), `hermPart_eq_self` (:43), `hermPart_add` (:51), `hermPart_zero` (:57), `hermPart_sum` (:60) | `P72M1T3.lean:40–66` | ⊆-triad by elimination: rc=0 + 0 sorry-warnings + every one consumed inside a printed-triad theorem (`hermPart_smul` at :46/:53/:73; `hermPart_zero` :65, `hermPart_add` :66 — inside the printed block; `hermPart_sum` :132–:133, `hermPart_add` :135, `hermPart_eq_self` :136 — inside `hamiltonian_hermPart` :128) | none direct — prints owed | the log header's "ALL FOUR L3a theorems" is accurate for the four it prints but NOT file-complete (census: 9 public theorems, `axcheck_iter4.py decls` 2026-11-17); tally-narrow, not tally-broad |
+
+**Queued (print-gap):** close the 5-print gap at the next axcheck pass —
+`axcheck_iter4.py gen` on P72M1T3.lean staged through the pilot-75 custody-runner
+pattern (minutes-class, SPEC), alongside the already-owed `make_axcheck72m1.py`
+TARGETS extension with T3 (REPORT-INPUTS-ITER4 §1 72-M1 row). No new information
+expected (elimination already covers), custody completion only.
+
+### 10.10 ZZV2-λ P0 — LANDED GREEN 2026-11-17 (lane A3; r5 §12a rung 1, probe-convention rows only — P0(b) UNFAVORABLE ⇒ stop-after-P1 rule ARMED)
+
+*(Merged 2026-11-17 by lane A1 from A3's block authored against a stale baseline of
+this file — renumbered §10.7 → §10.10 to fit the live numbering; internal
+cross-references checked (the "42-v2 M4b convention above" = §10's standing ZZV2-λ
+bullet, unchanged); every log citation re-verified against
+`pilots/zzv2-lam/logs/p0-run1.log` in A3's worktree agent-04 before inclusion.)*
+
+**P0.lean (statement-facts probe — NOT a proof artifact; #check/@ + donor `#print axioms`
+only, no sorry, no proof attempts; 39 LoC; elaborated INSIDE the built ZetaZerosV2 tree
+per the M4b2 recipe — tarball V2+PNT+ (siblings read-only), PNT+ lakefile path-redirect,
+`lake update` → mathlib `ff2494ea…`, `lake exe cache get`, `lake build ZetaZeros`,
+consumer `lake env lean`. Verdict `p0-run1.log:149`: `P0.lean: OK (probe, sorry allowed)`
+with NO sorry suffix (= 0 sorry-warnings), 0 errors — all 16 `#check`s of the λ-generic
+surface elaborate verbatim on-pin. Build OK (`:144`, 8,262 jobs — the V2 PNT+ path);
+wall 681 s (C3 class planned 1–2 h; warm family layers + soft-limit burst). Route: doz
+CLI / semraker (primary per 2026-11-17 ruling + H relay); telemetry `[tele] SUMMARY`
+`:190` wall=681s max_cpu=11.14 OVER=8 cpu-only, mem max 2960 MB — investigation note
+in the log closing block (`:196–197`; `-j 2` substrate note for future build runs —
+the §10.5 lake-`nproc` burst class, max_cpu 11.14 at the BUILD phase, memory within
+spec at 2960/4096 MB). Run 1 of ≤2 — no fix-and-rerun needed.)**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `ZetaZeros.simpleOnLineCount_lower` | donor `Zeta/Zeta/Transfer.lean:126` | PROVED-UNCONDITIONAL (donor) | `pilots/zzv2-lam/logs/p0-run1.log:151` (repeat :182) — `[propext, Classical.choice, Quot.sound]` | P0(a) pin: binders `{lam T : ℝ} {eta : ℝ → ℝ}` + `hT : 1 < T`, `hzeros`, `hη : IsAdmissible lam eta` — NO numeric λ-range; λ enters only via `IsAdmissible`'s support clause (`Definitions.lean:92`) |
+| `ZetaZeros.distinctZeroCount_lower` | donor `Zeta/Zeta/Transfer.lean:151` | PROVED-UNCONDITIONAL (donor) | `:152` (repeat :183) — triad | P0(a) pin: same binder shape; `3/2·N − Re(KS)/2 ≤ distinctZeroCount` |
+| `ZetaZeros.unweightedKernelSum_cutoffTest_tendsto` | donor `Zeta/Kernel.lean:600` | PROVED-UNCONDITIONAL (donor) | `:153` (repeat :184) — triad | P0(b) pin — **THE FREEZE**: proved only at `η = cutoffTest ψ` (`Zeta/Defs.lean:111` = `ψ·√f₀/√A_ψ`), `ψ : IsCutoff delta`, `0 < delta < 1/4`; base `f₀ = extremalTest` (`:76`) hard-coded; NO scaling-covariance lemma in-tree ⇒ kernel-sum asymptotic unreachable at λ-scaled kernels |
+| `ZetaZeros.pairCorrelationFormula` | donor `PairCorrelation/FromLandau.lean:52` | PROVED-UNCONDITIONAL (donor) | `:154` (repeat :185) — triad | P0(b) pin: the pair-correlation INPUT layer is η-generic + unconditional (`∀ f, IsPairTestFunction f`, `Zeta/Inputs.lean:55`) — the freeze is the BRIDGE, not the input |
+
+**Probe-convention notes (no consumer status rows — P0 has no theorems; the 12 further
+`#check`s elaborate rc=0, signatures pinned in `P0-record.md`):** P0(c) pin — the
+functional's definition sites for L1: `unweightedKernelSum` (`Zeta/Kernel.lean:191`),
+transfer functionals inline (`Zeta/Transfer.lean:126/:151`, A-form
+`Zeta/TransferBounds.lean:63`), asymptotic value `pairMainTerm` (`Zeta/Defs.lean:48`) at
+`cutoffSelfConv` (`:120`); terminal constants frozen at λ=1
+(`Numeric/MontgomeryTaylor.lean:39/:45/:50`). **P1 GO / hard STOP after P1 GREEN**
+(r5 §12a STOP rule + prework §5, applied on this evidence): P1 binder-shaped
+(`hKS_lam` one explicit binder) is unaffected by the freeze — GO; P2 binder discharge
+for λ near 1 needs a Landau η-port (`correctedTest`/`r_{ψ,T}` machinery,
+`Zeta/Defs.lean:126`+, at scaled kernels) = charter decision. Diagnose-note =
+`pilots/zzv2-lam/P0-record.md`. P1/P2 proof rows will follow the 42-v2 M4b convention
+in §10's standing block IF/WHEN P1 lands.
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -664,4 +768,11 @@ conventions pre-fixed for 75-Pb / LP / AL-3D / ZZV2-λ / zeta23e.
 Updated 2026-11-17 by lane A1 (R3-role successor): §10.7 (G11/G12 donor-pin audit
 verdicts, run35) + §10.8 (pb-run12 §10.4 print-gap closure, with the 4-decl remainder);
 donor-map verdict block at `novelty/oai-siegelzeros-piexponent-as-donor.md`
-§"G11/G12 verdict".*
+§"G11/G12 verdict". Same day, second batch: §10.8 Step-B full-coverage closure
+(`axcheck-full-run1` — 89/89 census decls direct-print triad; F3 sha stamped) +
+§10.9 (72-M1 L3a row owed since landing, with the 5-of-9 print-gap caveat + queue
+note) + A8 week-1 validation folds F1 (§10.6 A1/A2 sha transpose, disk-verified) and
+F2 (§10.3/§10.6 stub-line citations corrected to the persisted logs' :73/:111/:116).
+Third batch: §10.10 ZZV2-λ P0 (A3's block merged from the agent-04 stale-baseline
+copy, renumbered §10.7→§10.10, log citations re-verified there — 4/4 donor rows
+triad at `p0-run1.log:151–154`).*

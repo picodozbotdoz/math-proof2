@@ -56,10 +56,25 @@ in 1b has a live gate — they are cold inventory.
   (only the HTML shell is JS-rendered); no browser pass needed.
 - **DLRT erratum propagation** — CLAIMS-REGISTER row 42 + rows 42/75 nearest-miss text
   (H to apply; verify done at close-out).
-- **A7 G-series unfinished**: G7b (run19, no verdict), G5a (run20 hit artifact-cache fail;
-  boundary already measured: Physlib @ `a50684a1` + md4lean @ `31907cc1`, statement layer
-  imports `Region.{State,TraceDistance}` → Physlib), G6a (run21 mid-fetch; priced earlier:
-  StacksFrontier closure 59,173 jobs, hours-scale, drift-unbounded — `axiommath-donor-probes.md` §G6a).
+- **A7 G-series status** *(corrected 2026-11-17, lane A1 — the earlier "G7b (run19, no
+  verdict)" note was stale)*: **G7b PASS 2026-11-14** — run31 built all layers; verdict at
+  run32: `logs-g/run32-g7-elab.log` (both headlines + both delegation roots triad-clean
+  `[propext, Classical.choice, Quot.sound]` — `axiommath-donor-probes.md` §G7b and verdict
+  table :31; the run19-FAIL … run28-cancelled attempt history is recorded there). Still
+  open: G5a (run20 hit artifact-cache fail; boundary already measured: Physlib @
+  `a50684a1` + md4lean @ `31907cc1`, statement layer imports `Region.{State,TraceDistance}`
+  → Physlib), G6a (run21 mid-fetch; priced earlier: StacksFrontier closure 59,173 jobs,
+  hours-scale, drift-unbounded — `axiommath-donor-probes.md` §G6a).
+- **OAI donor registrations (G11/G12) — AUDITED PASS 2026-11-17** (probes lane R6, runs
+  33–35; verdict review + release lane A1): `OAI/NumberTheory/SiegelZeros/` and
+  `OAI/NumberTheory/PiExponent/` donor-pin axiom audits triad-clean (run35 —
+  `logs-g/run35-g11-fix.log:198–206` G11 headline + both delegation roots; `:240–245`
+  G12's six audited decls; verdict block `novelty/oai-siegelzeros-piexponent-as-donor.md`
+  §"G11/G12 verdict"). **Statement-binder class RELEASED**; build-dependency ban stands
+  (donor pin v4.34.1 ≠ our ff2494ea). Clock residue: the un-audited G12 surface
+  (`pi_integer_eventual_lower_bound` `Main.lean:13`; sibling interface lemmas
+  `InterpolationConsequence.lean:18/:25`) must print before any direct consumption of
+  those names.
 - **Clocks to date claims against** (`novelty/round-4.md` §8): Liu-2 B♭ = 0.8748866 uniform
   (Lean in progress); Chang–Wang 2611.00924 conditional 0.87446205769 (conditional-only);
   Ji 2611.16665 599/600 ζ_{Q(i)}; WenrongZou/TateThesis (number-field Tate, may land within
