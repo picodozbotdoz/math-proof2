@@ -272,9 +272,9 @@ private theorem annihilator_adjoint_anticommute (Q : ℕ) (i j : Orbital Q) :
 private theorem creator_anticommute (Q : ℕ) (i j : Orbital Q) :
     creator Q i * creator Q j + creator Q j * creator Q i = 0 := by
   have h1 : creator Q i * creator Q j = (annihilator Q j * annihilator Q i)ᴴ := by
-    rw [creator_eq_adjoint, creator_eq_adjoint, Matrix.mul_conjTranspose]
+    rw [creator_eq_adjoint, creator_eq_adjoint, Matrix.conjTranspose_mul]
   have h2 : creator Q j * creator Q i = (annihilator Q i * annihilator Q j)ᴴ := by
-    rw [creator_eq_adjoint, creator_eq_adjoint, Matrix.mul_conjTranspose]
+    rw [creator_eq_adjoint, creator_eq_adjoint, Matrix.conjTranspose_mul]
   rw [h1, h2, ← Matrix.conjTranspose_add, annihilator_anticommute Q j i,
     Matrix.conjTranspose_zero]
 
@@ -290,23 +290,28 @@ def pairBilin (Q : ℕ) : Hyperbolic Q →ₗ[ℂ] Hyperbolic Q →ₗ[ℂ] ℂ 
                  intros a b
                  simp only [Prod.snd_add, Pi.add_apply]
                  rw [← Finset.sum_add_distrib]
-                 exact congrArg _ (Finset.sum_congr rfl fun i _ => by ring)
+                 exact Finset.sum_congr rfl fun i _ => by ring
                map_smul' := by
-                 intros a b
-                 simp only [Prod.snd_smul, Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
-                 rw [← Finset.mul_sum]
-                 exact congrArg _ (Finset.sum_congr rfl fun i _ => by ring) }
+                 intros r b
+                 have h2 : (r • b).2 = r • b.2 := rfl
+                 simp only [h2, Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
+                 rw [Finset.mul_sum]
+                 exact Finset.sum_congr rfl fun i _ => by ring }
   map_add' := by
     intros v w
-    simp only [Prod.snd_add, Pi.add_apply, LinearMap.coe_mk, AddHom.coe_mk]
+    ext u
+    simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.add_apply,
+      Prod.fst_add, Prod.snd_add, Pi.add_apply]
     rw [← Finset.sum_add_distrib]
-    exact congrArg _ (Finset.sum_congr rfl fun i _ => by ring)
+    exact Finset.sum_congr rfl fun i _ => by ring
   map_smul' := by
     intros r v
-    simp only [Prod.snd_smul, Pi.smul_apply, RingHom.id_apply, smul_eq_mul,
-      LinearMap.coe_mk, AddHom.coe_mk]
-    rw [← Finset.mul_sum]
-    exact congrArg _ (Finset.sum_congr rfl fun i _ => by ring)
+    ext u
+    have h1 : (r • v).1 = r • v.1 := rfl
+    simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.smul_apply,
+      RingHom.id_apply, h1, Pi.smul_apply, smul_eq_mul]
+    rw [Finset.mul_sum]
+    exact Finset.sum_congr rfl fun i _ => by ring
 
 /-- The hyperbolic quadratic form `qV (c, d) = ∑ i, c i * d i` — the restriction
 shape of `TauCeti.traceQuadraticForm` along `isoV` (`traceQuadraticForm_isoV`). -/
@@ -340,7 +345,6 @@ private theorem fock_smul_cross {Q : ℕ} (x y : ℂ) (A B : FockMatrix Q) :
       (x * A a k) * (y * B k b) = (x * y) * (A a k * B k b) := fun k => by ring
   simp only [Matrix.mul_apply, Matrix.smul_apply, smul_eq_mul]
   rw [Finset.sum_congr rfl (fun k _ => h k), ← Finset.mul_sum]
-  rfl
 
 /-- Sum-antisymmetrization over the Fock matrix ring. -/
 private theorem sum_pair_antisymm (Q : ℕ) {ι : Type*} [Fintype ι] [DecidableEq ι]
@@ -354,7 +358,14 @@ private theorem sum_pair_antisymm (Q : ℕ) {ι : Type*} [Fintype ι] [Decidable
       Finset.sum_congr rfl (fun i _ => Finset.sum_congr rfl (fun j _ => h i j))]
     simp
   have h1 : ∑ i, ∑ j, f i j = ∑ i, ∑ j, f j i := Finset.sum_comm
-  exact add_self_eq_zero.mp (h1.symm ▸ h2)
+  rw [← h1] at h2
+  have h5 : (2 : ℂ)⁻¹ • ((∑ i, ∑ j, f i j) + ∑ i, ∑ j, f i j) = 0 := by
+    rw [h2, smul_zero]
+  rw [smul_add, ← add_smul] at h5
+  have hscalar : (2 : ℂ)⁻¹ + (2 : ℂ)⁻¹ = 1 := by
+    rw [← two_mul, mul_inv_cancel₀ two_ne_zero]
+  rw [hscalar, one_smul] at h5
+  exact h5
 
 /-- The Fock-side linearization of the hyperbolic basis. -/
 def toFock (Q : ℕ) : Hyperbolic Q →ₗ[ℂ] FockMatrix Q where
@@ -366,9 +377,10 @@ def toFock (Q : ℕ) : Hyperbolic Q →ₗ[ℂ] FockMatrix Q where
     rw [add_add_add_comm]
   map_smul' := by
     intros r v
-    simp only [RingHom.id_apply, Prod.fst_smul, Prod.snd_smul, Pi.smul_apply,
-      Finset.sum_smul, smul_smul, smul_eq_mul, mul_smul, smul_add,
-      LinearMap.coe_mk, AddHom.coe_mk]
+    have h1 : (r • v).1 = r • v.1 := rfl
+    have h2 : (r • v).2 = r • v.2 := rfl
+    simp only [h1, h2, RingHom.id_apply, Pi.smul_apply, smul_eq_mul, smul_add,
+      Finset.smul_sum, smul_smul]
 
 /-- The Clifford condition on `toFock` — the ported CAR in quadratic form. -/
 theorem toFock_mul_self (Q : ℕ) (v : Hyperbolic Q) :
@@ -409,20 +421,20 @@ theorem toFock_mul_self (Q : ℕ) (v : Hyperbolic Q) :
         ∑ j, (v.1 i * v.2 j) • (if i = j then (1 : FockMatrix Q) else 0)
           = (v.1 i * v.2 i) • 1 := by
       intro i
-      have : ∀ j : Orbital Q, (v.1 i * v.2 j) • (if i = j then (1 : FockMatrix Q) else 0)
-          = if i = j then (v.1 i * v.2 j) • 1 else 0 := by
+      have hpush : ∀ j : Orbital Q,
+          (v.1 i * v.2 j) • (if i = j then (1 : FockMatrix Q) else 0)
+            = if i = j then (v.1 i * v.2 j) • 1 else 0 := by
         intro j; by_cases h : i = j <;> simp [h]
-      rw [Finset.sum_congr rfl (fun j _ => this j), Finset.sum_ite_eq',
-        if_pos (Finset.mem_univ i), smul_one]
+      rw [Finset.sum_congr rfl (fun j _ => hpush j),
+        Finset.sum_ite_eq_of_mem _ _ _ (Finset.mem_univ i)]
     have merged : ∀ i : Orbital Q,
         ∑ j, (v.1 i * v.2 j) • (annihilator Q i * creator Q j)
           + ∑ j, (v.1 i * v.2 j) • (creator Q j * annihilator Q i)
-          = ∑ j, (v.1 i * v.2 j) • (if i = j then 1 else 0) := fun i => by
-      rw [← Finset.sum_add_distrib]
-      exact Finset.sum_congr rfl fun j _ => car i j
-    rw [expand1, expand2, ← Finset.sum_add_distrib, ← Finset.sum_add_distrib,
-      Finset.sum_congr rfl (fun i _ => merged i),
-      Finset.sum_congr rfl (fun i _ => step i), Finset.sum_smul]
+          = (v.1 i * v.2 i) • 1 := by
+      intro i
+      rw [← Finset.sum_add_distrib, Finset.sum_congr rfl (fun j _ => car i j), step i]
+    rw [expand1, expand2, ← Finset.sum_add_distrib,
+      Finset.sum_congr rfl (fun i _ => merged i), Finset.sum_smul]
   simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk]
   rw [mul_add, add_mul, add_mul, eAA, eBB, zero_add, add_zero, add_comm, eAB,
     hyperbolicForm_apply]
@@ -488,13 +500,13 @@ private theorem polar_hypE (Q : ℕ) (i j : Orbital Q) :
 
 private theorem polar_hypE'_hypE' (Q : ℕ) (i j : Orbital Q) (hij : i ≠ j) :
     QuadraticMap.polar (hyperbolicForm Q) (hypE' Q i) (hypE' Q j) = 0 := by
-  rw [polar_hyperbolicForm, hypE'_fst, hypE'_snd]
-  simp
+  rw [polar_hyperbolicForm]
+  simp [hypE'_fst, hypE'_snd]
 
 private theorem polar_hypE_hypE (Q : ℕ) (i j : Orbital Q) (hij : i ≠ j) :
     QuadraticMap.polar (hyperbolicForm Q) (hypE Q i) (hypE Q j) = 0 := by
-  rw [polar_hyperbolicForm, hypE_fst, hypE_snd]
-  simp
+  rw [polar_hyperbolicForm]
+  simp [hypE_fst, hypE_snd]
 
 /-- The abstract occupation element at mode `i` — tauceti's
 `carOccupationElement` shape at a hyperbolic pair. -/
@@ -506,88 +518,88 @@ private theorem iota_anti_comm {Q : ℕ} (x y : Hyperbolic Q)
     (h : QuadraticMap.polar (hyperbolicForm Q) x y = 0) :
     ι (hyperbolicForm Q) x * ι (hyperbolicForm Q) y
       = -(ι (hyperbolicForm Q) y * ι (hyperbolicForm Q) x) := by
-  have h2 := CliffordAlgebra.ι_mul_ι_add_swap (hyperbolicForm Q) x y
-  rw [h, map_zero, add_zero] at h2
-  exact (eq_of_add_eq_zero_left h2).symm
+  have h2 := CliffordAlgebra.ι_mul_ι_add_swap (Q := hyperbolicForm Q) x y
+  rw [h, map_zero] at h2
+  exact eq_neg_of_add_eq_zero_left h2
 
 /-- The occupation elements are idempotent — the `CAR/Occupation.lean:121` shape,
 proved from the Clifford relation alone. -/
 theorem occupationElem_mul_self (Q : ℕ) (i : Orbital Q) :
     occupationElem Q i * occupationElem Q i = occupationElem Q i := by
-  have hs := CliffordAlgebra.ι_mul_ι_add_swap (hyperbolicForm Q) (hypE Q i) (hypE' Q i)
+  have hs := CliffordAlgebra.ι_mul_ι_add_swap (Q := hyperbolicForm Q) (hypE Q i) (hypE' Q i)
   rw [polar_hypE Q i i, if_pos rfl, map_one] at hs
   have hswap : ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE' Q i)
       = 1 - occupationElem Q i := by
     rw [occupationElem, eq_sub_iff_add_eq, ← hs]
-  calc occupationElem Q i * occupationElem Q i
-      = ι (hyperbolicForm Q) (hypE' Q i)
-          * (ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE' Q i))
-          * ι (hyperbolicForm Q) (hypE Q i) := by
-        rw [← mul_assoc, ← mul_assoc]
-    _ = ι (hyperbolicForm Q) (hypE' Q i) * (1 - occupationElem Q i)
-          * ι (hyperbolicForm Q) (hypE Q i) := by rw [hswap]
-    _ = occupationElem Q i
-          - ι (hyperbolicForm Q) (hypE' Q i) * (ι (hyperbolicForm Q) (hypE' Q i)
-              * (ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE Q i))) := by
-        rw [sub_mul, sub_mul, mul_sub, occupationElem]
-    _ = occupationElem Q i - 0 := by
-        congr 1
-        rw [← mul_assoc, ← mul_assoc, ← mul_assoc,
-          ← CliffordAlgebra.ι_sq_scalar (hyperbolicForm Q) (hypE' Q i),
-          ← CliffordAlgebra.ι_sq_scalar (hyperbolicForm Q) (hypE Q i),
-          hyperbolicForm_hypE', hyperbolicForm_hypE, map_zero, zero_mul, mul_zero]
-    _ = occupationElem Q i := sub_zero
+  show ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE Q i)
+      * (ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE Q i))
+    = ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE Q i)
+  rw [← mul_assoc,
+    mul_assoc (ι (hyperbolicForm Q) (hypE' Q i)) (ι (hyperbolicForm Q) (hypE Q i))
+      (ι (hyperbolicForm Q) (hypE' Q i)),
+    hswap, mul_sub, mul_one, sub_mul, occupationElem, ← mul_assoc, mul_assoc,
+    CliffordAlgebra.ι_sq_scalar (hyperbolicForm Q) (hypE' Q i),
+    CliffordAlgebra.ι_sq_scalar (hyperbolicForm Q) (hypE Q i),
+    hyperbolicForm_hypE', hyperbolicForm_hypE, map_zero, zero_mul, sub_zero]
 
-/-- The occupation elements pairwise commute — the `CAR/Occupation.lean:138` shape. -/
+/-- The occupation elements pairwise commute — the `CAR/Occupation.lean:138` shape,
+proved via mathlib's `CliffordAlgebra.mul_ι_mul_ι_mul_comm` (both pairings are
+orthogonal for `i ≠ j`, so the polar terms vanish and the middle swap costs exactly
+the two anticommutation signs). -/
 theorem commute_occupationElem (Q : ℕ) (i j : Orbital Q) :
     Commute (occupationElem Q i) (occupationElem Q j) := by
   by_cases hij : i = j
   · subst j; exact Commute.refl _
-  have f1 : ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE' Q j)
-      = -(ι (hyperbolicForm Q) (hypE' Q j) * ι (hyperbolicForm Q) (hypE Q i)) :=
-    iota_anti_comm _ _ (by rw [polar_hypE Q i j, if_neg hij])
+  have p1 : QuadraticMap.polar (hyperbolicForm Q) (hypE Q i) (hypE' Q j) = 0 := by
+    rw [polar_hypE Q i j, if_neg hij]
+  have p4 : QuadraticMap.polar (hyperbolicForm Q) (hypE Q j) (hypE' Q i) = 0 := by
+    rw [polar_hypE Q j i, if_neg (Ne.symm hij)]
   have f2 : ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE' Q j)
       = -(ι (hyperbolicForm Q) (hypE' Q j) * ι (hyperbolicForm Q) (hypE' Q i)) :=
     iota_anti_comm _ _ (polar_hypE'_hypE' Q i j hij)
   have f3 : ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE Q j)
       = -(ι (hyperbolicForm Q) (hypE Q j) * ι (hyperbolicForm Q) (hypE Q i)) :=
     iota_anti_comm _ _ (polar_hypE_hypE Q i j hij)
-  show occupationElem Q i * occupationElem Q j = occupationElem Q j * occupationElem Q i
-  calc occupationElem Q i * occupationElem Q j
-      = ι (hyperbolicForm Q) (hypE' Q i)
-          * (ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE' Q j))
-          * ι (hyperbolicForm Q) (hypE Q j) := by
-        rw [occupationElem, occupationElem, ← mul_assoc, ← mul_assoc]
-    _ = -(ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE' Q j))
-          * (ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE Q j)) := by
-        rw [f1, ← mul_assoc, ← mul_assoc, ← neg_mul]
-    _ = (ι (hyperbolicForm Q) (hypE' Q j) * ι (hyperbolicForm Q) (hypE' Q i))
+  have eL := CliffordAlgebra.mul_ι_mul_ι_mul_comm
+    (Q := hyperbolicForm Q) (x := ι (hyperbolicForm Q) (hypE' Q i))
+    (a := hypE Q i) (b := hypE' Q j) (y := ι (hyperbolicForm Q) (hypE Q j))
+  have eR := CliffordAlgebra.mul_ι_mul_ι_mul_comm
+    (Q := hyperbolicForm Q) (x := ι (hyperbolicForm Q) (hypE' Q j))
+    (a := hypE Q j) (b := hypE' Q i) (y := ι (hyperbolicForm Q) (hypE Q i))
+  rw [p1, map_zero, zero_mul, zero_sub] at eL
+  rw [p4, map_zero, zero_mul, zero_sub] at eR
+  have bridge : (ι (hyperbolicForm Q) (hypE' Q i) * ι (hyperbolicForm Q) (hypE' Q j))
+      * (ι (hyperbolicForm Q) (hypE Q i) * ι (hyperbolicForm Q) (hypE Q j))
+      = (ι (hyperbolicForm Q) (hypE' Q j) * ι (hyperbolicForm Q) (hypE' Q i))
           * (ι (hyperbolicForm Q) (hypE Q j) * ι (hyperbolicForm Q) (hypE Q i)) := by
-        rw [f2, f3, neg_mul_neg]
-    _ = ι (hyperbolicForm Q) (hypE' Q j)
-          * (ι (hyperbolicForm Q) (hypE Q j) * ι (hyperbolicForm Q) (hypE' Q i))
-          * ι (hyperbolicForm Q) (hypE Q i) := by
-        rw [mul_assoc, mul_assoc, ← mul_assoc, ← mul_assoc]
-    _ = occupationElem Q j * occupationElem Q i := by
-        rw [occupationElem, occupationElem, ← mul_assoc, ← mul_assoc]
+    rw [f2, f3, neg_mul_neg]
+  show occupationElem Q i * occupationElem Q j = occupationElem Q j * occupationElem Q i
+  rw [occupationElem, occupationElem, eL, eR, bridge]
 
 /-! ## §5 The transports to the Fock side -/
+
+/-- Diagonal-smul sum: only the `i`-term of `∑ k, δ_{k i} • f k` survives. -/
+private theorem sum_delta_smul {Q : ℕ} (f : Orbital Q → FockMatrix Q) (i : Orbital Q) :
+    ∑ k, (if k = i then (1 : ℂ) else 0) • f k = f i := by
+  have hpush : ∀ k : Orbital Q,
+      (if k = i then (1 : ℂ) else 0) • f k = if k = i then f k else 0 := by
+    intro k; by_cases h : k = i <;> simp [h]
+  rw [Finset.sum_congr rfl (fun k _ => hpush k),
+    Finset.sum_ite_eq_of_mem' _ _ _ (Finset.mem_univ i)]
 
 theorem fockDictionary_apply_hypE (Q : ℕ) (i : Orbital Q) :
     fockDictionary Q (ι (hyperbolicForm Q) (hypE Q i)) = annihilator Q i := by
   rw [fockDictionary, CliffordAlgebra.lift_ι_apply]
   simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE_fst, hypE_snd,
-    Pi.zero_apply, smul_zero, Finset.sum_const_zero, add_zero]
-  rw [Finset.sum_ite_eq' (Finset.univ) i (fun k => (if k = i then (1 : ℂ) else 0)
-      • annihilator Q k), if_pos (Finset.mem_univ i), one_smul]
+    Pi.zero_apply, zero_smul, Finset.sum_const_zero, add_zero]
+  exact sum_delta_smul (fun k => annihilator Q k) i
 
 theorem fockDictionary_apply_hypE' (Q : ℕ) (i : Orbital Q) :
     fockDictionary Q (ι (hyperbolicForm Q) (hypE' Q i)) = creator Q i := by
   rw [fockDictionary, CliffordAlgebra.lift_ι_apply]
   simp only [toFock, LinearMap.coe_mk, AddHom.coe_mk, hypE'_fst, hypE'_snd,
-    Pi.zero_apply, smul_zero, Finset.sum_const_zero, zero_add]
-  rw [Finset.sum_ite_eq' (Finset.univ) i (fun k => (if k = i then (1 : ℂ) else 0)
-      • creator Q k), if_pos (Finset.mem_univ i), one_smul]
+    Pi.zero_apply, zero_smul, Finset.sum_const_zero, zero_add]
+  exact sum_delta_smul (fun k => creator Q k) i
 
 /-- The transported number operator: the dictionary intertwines the abstract
 occupation elements with `creator * annihilator` (the diagonal number operator of
@@ -598,12 +610,14 @@ theorem dictionary_numberOp (Q : ℕ) (i : Orbital Q) :
 
 theorem dictionary_idempotent (Q : ℕ) (i : Orbital Q) :
     IsIdempotentElem (fockDictionary Q (occupationElem Q i)) :=
-  ⟨by rw [← map_mul, occupationElem_mul_self]⟩
+  (map_mul (fockDictionary Q) _ _).symm.trans (congrArg _ (occupationElem_mul_self Q i))
 
 theorem dictionary_commute (Q : ℕ) (i j : Orbital Q) :
     Commute (fockDictionary Q (occupationElem Q i))
       (fockDictionary Q (occupationElem Q j)) :=
-  ⟨by rw [← map_mul, ← map_mul, commute_occupationElem]⟩
+  ((map_mul (fockDictionary Q) _ _).symm.trans
+    (congrArg (fockDictionary Q) (commute_occupationElem Q i j).eq)).trans
+    (map_mul (fockDictionary Q) _ _)
 
 /-! ## §6 The element-level dictionary to tauceti's declaration -/
 
@@ -620,32 +634,42 @@ def isoV (Q : ℕ) :
     intros v w
     ext a b
     cases a <;> cases b
-    · simp [isoV, Matrix.of_apply, Matrix.add_apply]
-    · by_cases h : _ = _
-      · simp only [isoV, Matrix.of_apply, Matrix.add_apply, h, Prod.snd_add]
-        field_simp
-      · simp [isoV, Matrix.of_apply, Matrix.add_apply, h]
-    · by_cases h : _ = _
-      · simp only [isoV, Matrix.of_apply, Matrix.add_apply, h, Prod.fst_add]
-        field_simp
-      · simp [isoV, Matrix.of_apply, Matrix.add_apply, h]
-    · simp [isoV, Matrix.of_apply, Matrix.add_apply]
+    · simp [Matrix.of_apply, Matrix.add_apply]
+    · next x y =>
+        by_cases h : x = y
+        · simp [Matrix.of_apply, Matrix.add_apply, h, Prod.snd_add, Pi.add_apply, add_div]
+        · simp [Matrix.of_apply, Matrix.add_apply, h]
+    · next x y =>
+        by_cases h : x = y
+        · simp [Matrix.of_apply, Matrix.add_apply, h, Prod.fst_add, Pi.add_apply]
+        · simp [Matrix.of_apply, Matrix.add_apply, h]
+    · simp [Matrix.of_apply, Matrix.add_apply]
   map_smul' := by
     intros r v
     ext a b
     cases a <;> cases b
-    · simp [isoV, Matrix.of_apply, Matrix.smul_apply]
-    · by_cases h : _ = _
-      · simp only [isoV, Matrix.of_apply, Matrix.smul_apply, h, Prod.snd_smul,
-          RingHom.id_apply, smul_eq_mul]
-        field_simp
-      · simp [isoV, Matrix.of_apply, Matrix.smul_apply, h]
-    · by_cases h : _ = _
-      · simp only [isoV, Matrix.of_apply, Matrix.smul_apply, h, Prod.fst_smul,
-          RingHom.id_apply, smul_eq_mul]
-        field_simp
-      · simp [isoV, Matrix.of_apply, Matrix.smul_apply, h]
-    · simp [isoV, Matrix.of_apply, Matrix.smul_apply]
+    · simp [Matrix.of_apply, Matrix.smul_apply]
+    · next x y =>
+        by_cases h : x = y
+        · have hv : (r • v).2 = r • v.2 := rfl
+          simp [Matrix.of_apply, Matrix.smul_apply, h, hv, Pi.smul_apply,
+            RingHom.id_apply, smul_eq_mul, mul_div_assoc]
+        · simp [Matrix.of_apply, Matrix.smul_apply, h]
+    · next x y =>
+        by_cases h : x = y
+        · have hv : (r • v).1 = r • v.1 := rfl
+          simp [Matrix.of_apply, Matrix.smul_apply, h, hv, Pi.smul_apply,
+            RingHom.id_apply, smul_eq_mul]
+        · simp [Matrix.of_apply, Matrix.smul_apply, h]
+    · simp [Matrix.of_apply, Matrix.smul_apply]
+
+/-- The definitional unfold of `isoV` at one entry. -/
+private theorem isoV_apply (Q : ℕ) (v : Hyperbolic Q) (a b : Orbital Q ⊕ Orbital Q) :
+    isoV Q v a b =
+      match a, b with
+      | Sum.inl x, Sum.inr y => if x = y then v.2 y / 2 else 0
+      | Sum.inr x, Sum.inl y => if x = y then v.1 y else 0
+      | _, _ => 0 := rfl
 
 private theorem isoV_inl_inr (Q : ℕ) (v : Hyperbolic Q) (x y : Orbital Q) :
     isoV Q v (Sum.inl x) (Sum.inr y) = if x = y then v.2 y / 2 else 0 := rfl
@@ -680,14 +704,12 @@ theorem traceQuadraticForm_isoV (Q : ℕ) (v : Hyperbolic Q) :
         = if z = x then v.2 x * v.1 x / 2 else 0 := by
       intro z
       rw [isoV_inl_inr, isoV_inr_inl]
-      by_cases hxz : x = z <;> by_cases hzx : z = x <;>
-        simp [hxz, hzx] <;> ring
-    have hsum : ∑ z : Orbital Q, isoV Q v (Sum.inl x) (Sum.inr z)
-        * isoV Q v (Sum.inr z) (Sum.inl x)
-        = ∑ z : Orbital Q, if z = x then v.2 x * v.1 x / 2 else 0 :=
-      Finset.sum_congr rfl fun z _ => inner z
-    rw [hsum, Finset.sum_ite_eq' (Finset.univ) x (fun _ => v.2 x * v.1 x / 2),
-      if_pos (Finset.mem_univ x)]
+      by_cases h : z = x
+      · simp only [h, eq_self_iff_true, if_true]
+        ring
+      · simp only [h, not_false_eq_true, if_false, zero_div, mul_zero]
+    rw [Finset.sum_congr rfl fun z _ => inner z,
+      Finset.sum_ite_eq_of_mem' _ _ _ (Finset.mem_univ x)]
     ring
   have einr : ∀ x : Orbital Q, (isoV Q v * isoV Q v) (Sum.inr x) (Sum.inr x)
       = v.1 x * v.2 x / 2 := by
@@ -697,26 +719,31 @@ theorem traceQuadraticForm_isoV (Q : ℕ) (v : Hyperbolic Q) :
         * isoV Q v (Sum.inr z) (Sum.inr x) = 0 := by
       refine Finset.sum_eq_zero fun z _ => ?_
       rw [isoV_zero_inr_inr, zero_mul]
-    rw [hR, zero_add]
+    rw [hR, add_zero]
     have inner : ∀ z : Orbital Q, isoV Q v (Sum.inr x) (Sum.inl z)
         * isoV Q v (Sum.inl z) (Sum.inr x)
         = if z = x then v.1 x * v.2 x / 2 else 0 := by
       intro z
       rw [isoV_inr_inl, isoV_inl_inr]
-      by_cases hxz : x = z <;> by_cases hzx : z = x <;>
-        simp [hxz, hzx] <;> ring
-    have hsum : ∑ z : Orbital Q, isoV Q v (Sum.inr x) (Sum.inl z)
-        * isoV Q v (Sum.inl z) (Sum.inr x)
-        = ∑ z : Orbital Q, if z = x then v.1 x * v.2 x / 2 else 0 :=
-      Finset.sum_congr rfl fun z _ => inner z
-    rw [hsum, Finset.sum_ite_eq' (Finset.univ) x (fun _ => v.1 x * v.2 x / 2),
-      if_pos (Finset.mem_univ x)]
+      by_cases h : z = x
+      · simp only [h, eq_self_iff_true, if_true]
+        ring
+      · simp only [h, not_false_eq_true, if_false, zero_mul, mul_zero]
+    rw [Finset.sum_congr rfl fun z _ => inner z,
+      Finset.sum_ite_eq_of_mem' _ _ _ (Finset.mem_univ x)]
   rw [TauCeti.traceQuadraticForm_apply]
-  show (∑ a : Orbital Q ⊕ Orbital Q, (isoV Q v * isoV Q v) a a) = _
-  rw [Fintype.sum_sum_type, einl, einr, Finset.sum_add_distrib, hyperbolicForm_apply]
-  apply congrArg _ (Finset.sum_congr rfl)
-  intro x _
-  ring
+  show (∑ a : Orbital Q ⊕ Orbital Q, (isoV Q v * isoV Q v) a a) = hyperbolicForm Q v
+  calc (∑ a : Orbital Q ⊕ Orbital Q, (isoV Q v * isoV Q v) a a)
+      = (∑ x : Orbital Q, (isoV Q v * isoV Q v) (Sum.inl x) (Sum.inl x))
+          + ∑ x : Orbital Q, (isoV Q v * isoV Q v) (Sum.inr x) (Sum.inr x) := by
+        rw [Fintype.sum_sum_type]
+    _ = (∑ x : Orbital Q, v.1 x * v.2 x / 2) + ∑ x : Orbital Q, v.1 x * v.2 x / 2 := by
+        congr 1
+        · exact Finset.sum_congr rfl fun x _ => einl x
+        · exact Finset.sum_congr rfl fun x _ => einr x
+    _ = hyperbolicForm Q v := by
+        rw [hyperbolicForm_apply, ← Finset.sum_add_distrib]
+        exact Finset.sum_congr rfl fun x _ => by ring
 
 /-- The isometry into tauceti's form. -/
 def isoQ (Q : ℕ) :
@@ -724,47 +751,56 @@ def isoQ (Q : ℕ) :
       (TauCeti.traceQuadraticForm ℂ (Orbital Q ⊕ Orbital Q)) :=
   ⟨isoV Q, traceQuadraticForm_isoV Q⟩
 
+private theorem isoQ_apply (Q : ℕ) (v : Hyperbolic Q) : isoQ Q v = isoV Q v := rfl
+
 private theorem isoV_hypE (Q : ℕ) (i : Orbital Q) :
     isoV Q (hypE Q i) = Matrix.single (Sum.inr i) (Sum.inl i) 1 := by
   ext a b
-  cases a <;> cases b
-  · simp [isoV, Matrix.of_apply, hypE_snd, Matrix.single_apply]
-  · simp [isoV, Matrix.of_apply, hypE_snd, hypE_fst, Matrix.single_apply]
-  · by_cases h : _ = _
-    · simp [isoV, Matrix.of_apply, hypE_snd, hypE_fst, Matrix.single_apply, h]
-    · simp [isoV, Matrix.of_apply, hypE_snd, hypE_fst, Matrix.single_apply, h]
-  · simp [isoV, Matrix.of_apply, hypE_snd, Matrix.single_apply]
+  match a, b with
+  | Sum.inl x, Sum.inl y => simp [isoV_apply, Matrix.single_apply]
+  | Sum.inl x, Sum.inr y => simp [isoV_apply, hypE_snd, Matrix.single_apply]
+  | Sum.inr x, Sum.inl y =>
+      by_cases hxy : x = y
+      · by_cases hyi : y = i
+        · simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hyi]
+        · have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
+          simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hyi, hni]
+      · have hni : ¬ (x = i ∧ y = i) := fun hc => hxy (hc.1.trans hc.2.symm)
+        simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hni]
+  | Sum.inr x, Sum.inr y => simp [isoV_apply, Matrix.single_apply]
 
 private theorem isoV_hypE' (Q : ℕ) (i : Orbital Q) :
     isoV Q (hypE' Q i) = (2 : ℂ)⁻¹ • Matrix.single (Sum.inl i) (Sum.inr i) 1 := by
   ext a b
-  cases a <;> cases b
-  · by_cases h : _ = _
-    · simp only [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-        smul_eq_mul, Matrix.single_apply, h, Pi.zero_apply, zero_mul, mul_zero]
-      field_simp
-    · simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-        Matrix.single_apply, h]
-  · by_cases h : _ = _
-    · simp only [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-        smul_eq_mul, Matrix.single_apply, h, Pi.zero_apply, zero_mul, mul_zero]
-      field_simp
-    · simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-        Matrix.single_apply, h]
-  · simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-      Matrix.single_apply]
-  · simp [isoV, Matrix.of_apply, hypE'_fst, hypE'_snd, Matrix.smul_apply,
-      Matrix.single_apply]
+  match a, b with
+  | Sum.inl x, Sum.inl y =>
+      simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+  | Sum.inl x, Sum.inr y =>
+      by_cases hxy : x = y
+      · by_cases hyi : y = i
+        · simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
+            hxy, hyi]
+        · have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
+          simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
+            hxy, hyi, hni]
+      · have hni : ¬ (x = i ∧ y = i) := fun hc => hxy (hc.1.trans hc.2.symm)
+        simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
+          hxy, hni]
+  | Sum.inr x, Sum.inl y =>
+      simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+  | Sum.inr x, Sum.inr y =>
+      simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
 
 /-- The element-level dictionary: the abstract occupation elements ARE tauceti's
 `carOccupationElement` at the hyperbolic matrix-unit pairs, along `isoV`. -/
 theorem map_iso_occupationElem (Q : ℕ) (i : Orbital Q) :
     CliffordAlgebra.map (isoQ Q) (occupationElem Q i)
-      = TauCeti.carOccupationElement ℂ (Sum.inl i) (Sum.inr i) := by
+      = TauCeti.carOccupationElement (K := ℂ) (Sum.inl i) (Sum.inr i) := by
   rw [occupationElem, map_mul, CliffordAlgebra.map_apply_ι,
-    CliffordAlgebra.map_apply_ι, isoV_hypE, isoV_hypE', LinearMap.map_smul]
-  unfold TauCeti.carOccupationElement TauCeti.carGenerator
-  rw [smul_mul_assoc]
+    CliffordAlgebra.map_apply_ι, isoQ_apply, isoQ_apply, isoV_hypE, isoV_hypE',
+    LinearMap.map_smul]
+  rw [TauCeti.carOccupationElement_def, TauCeti.carGenerator_def,
+    TauCeti.carGenerator_def, smul_mul_assoc]
 
 end
 end CrossMath.Pilot77

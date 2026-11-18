@@ -81,6 +81,94 @@ annihilator Q j`; (ii) Φ is injective on the even subalgebra (faithfulness tran
 lies in the image of the even part, and the induced card-grading statement re-derives
 `hamiltonian_entry_eq_zero` (Model.lean:138).
 
+**[T1 AMENDED 2026-11-17 (lane A7, at execution — the pilot's first two derived
+corrections; full account in `pilots/77/T1.lean` header + `pilots/77/T1-record.md`).**
+The drafted T1 above is replaced by the corrected shape:
+1. *(ii) is dimensionally unsound and DROPPED.* No unital algebra hom
+   `CliffordAlgebra (TauCeti.traceQuadraticForm ℂ N) →ₐ FockMatrix Q` exists once
+   `N * N > 2 * (Q + 1)`: the trace form is nondegenerate
+   (`TauCeti.traceQuadraticForm_nondegenerate`), so over ℂ that Clifford algebra is
+   simple of dimension `2 ^ (N * N)`, exceeding `FockMatrix Q`'s `2 ^ (2 * (Q + 1))`.
+   The drafted "injectivity via dimension count `2^{Q+1} = #Occupation Q`" conflated the
+   Fock space with its endomorphism algebra. **Corrected statement:** the dictionary
+   lives on the hyperbolic submodel `V := (Orbital Q → ℂ) × (Orbital Q → ℂ)` of rank
+   `2 * (Q + 1)` with `qV (c, d) = ∑ i, c i * d i` — the restriction shape of the trace
+   form along an isotropic-pair embedding `isoV` into `Matrix (Sum (Orbital Q)
+   (Orbital Q))` — and `Φ := CliffordAlgebra.lift ⟨toFock, …⟩` with
+   `Φ (ι (e i)) = annihilator Q i`, `Φ (ι (e' i)) = creator Q i`.
+2. *(i) is algebraically ill-typed as drafted.* tauceti's `carOccupationElement i j`
+   are idempotent (off-diagonal) and mutually commuting (`CAR/Occupation.lean:121/:138`);
+   the drafted images `annihilator† * annihilator` are neither — no hom sends a
+   commuting family to a noncommuting one. **Corrected statement:** Φ intertwines the
+   hyperbolic occupation elements `o i := ι (e' i) * ι (e i)` — which satisfy the same
+   idempotent/commuting algebra in `Cl(qV)` — with the **number operators**
+   `creator Q i * annihilator Q i` (diagonal: `creator_mul_annihilator`); the
+   element-level dictionary to tauceti's own declaration is
+   `CliffordAlgebra.map isoQ (o i) = TauCeti.carOccupationElement ℂ (.inl i) (.inr i)`
+   (theorem-level transport of tauceti's :121/:138 along `map` would need injectivity
+of `CliffordAlgebra.map` on the generated subalgebra — mathlib-absent; recorded as
+  the T1-extension condition). (iii) moves to T2's parity/card-block delivery.
+
+**[T1/T2 EXECUTION UPDATE 2026-11-18 (lane A7, the re-chartered T1-completion + T2
+unit; runs 6–9, logs `pilots/77/logs/t1t2-run{6..9}.log`).]**
+- *Residual map reconciled:* the 31 site-local residuals of run 5 are burned down
+  to **7** (run 8, the best state; the run-9 fix attempt for those 7 regressed and
+  was reverted — the tree carries the run-8 state). Remaining 7, all site-local,
+  all root-caused: (1)–(2) `pairBilin`'s two OUTER field proofs — `ext` on the
+  nested `Hyperbolic Q →ₗ[ℂ] Hyperbolic Q →ₗ[ℂ] ℂ` structure decomposes into
+  `∘ₗ LinearMap.inl/LinearMap.single` canonical form (the ext-chain sabotage; fix:
+  a hand-rolled `LinearMap.ext` avoiding Pi-ext), (3)–(7) the two undecided-ite
+  cases of `isoV_hypE`/`isoV_hypE'` — full `simp` with a `¬(x = i ∧ y = i)`
+  hypothesis leaves proof-obligation side goals (`i = x → ¬ i = y`-shaped); fix:
+  pre-split per variable. **Zero mathematical failures** — every statement
+  elaborates; the two derived corrections above held through all four runs.
+  T1 NOT-GREEN at budget (the honest-stop precedent of run 5 stands).
+- *T2 DELIVERED at 7/8 triad-clean:* `isParityBlock_iff_sum_parityProj` (the
+  mod-2 regrading decomposition), `isParityBlock_of_isDegreeBlock` (the
+  coarsening), `isDegreeBlock_sum`/`isParityBlock_sum`, and all three Laughlin
+  instance theorems — `pairHamiltonian_isDegreeBlock`,
+  `pairHamiltonian_entry_eq_zero` (the donor's `Model.lean:138` re-derived at the
+  abstract coefficient shape), `pairHamiltonian_isParityBlock` (the parity-sector
+  corollary) — verify **[propext, Classical.choice, Quot.sound]**, triad-only,
+  0 sorryAx. One theorem tainted: `isDegreeBlock_iff_sum_blockProj` carries
+  sorryAx via an elaboration error the runner's error filter missed (rc=1 with
+  errors=0; the error sits in the unprinted output region). T2's tauceti-SetLike
+  instantiation through Φ remains the recorded T2-extension condition (scope note
+  in `pilots/77/T2.lean`'s header).
+- *Durable API finds (the substrate-pin gotchas, for any follow-up):* `rw` fixes
+  metavariables at the first match (per-instance rewrites need `simp` with the
+  lemma, not `rw`); `rw [← h]`-style pattern fixes apply to `Finset.sum_add_distrib`
+  (`∑ (f+g) = ∑ f + ∑ g` on this pin) and `Finset.mul_sum`; the pin has NO
+  `Prod.fst_smul`/`Prod.snd_smul` simp lemmas (use `have : (r • v).1 = r • v.1 := rfl`);
+  matrix rings lack `NoZeroDivisors` (halve via `two_smul`/`inv` scalars instead of
+  `add_self_eq_zero`); `eq_neg_of_add_eq_zero_right` solves for the RIGHT summand
+  on this pin; `Nat.mod_two_lt` is `Nat.mod_lt _ two_pos` here; omega cannot see
+  `Finset.card ≥ 1` from `j ∈ s` (pass `Finset.card_pos`); `Matrix.single` terms
+  from `unfold` of tauceti defs carry `Classical.decEq` instances that differ from
+  statement-elaborated ones (use the `_def` theorems, or bridge by `ext`+`simp`).
+- **NOVELTY EVENT — the physlib clock FIRED PARTIALLY (condition (iii)):** master
+  ticked 2026-11-17T09:42:38Z → 2026-11-18T08:24:23Z (→ 13:00:37Z end-tick) and the
+  push LANDED a creation/annihilation wing: `Physlib/QFT/PerturbationTheory/`
+  (54 files, Tooby-Smith) — `CrAnFieldOp` (the type layer), `FieldOpFreeAlgebra`
+  (the FREE algebra on CrAn ops with a supercommutator), and **`WickAlgebra`**
+  (`FieldOpFreeAlgebra` quotiented by the ideal making two creation ops, two
+  annihilation ops, and mixed-statistics pairs super-commute, with central
+  super-commutators). Verdict: **the equal-statistics HALF of the CAR relations
+  now exists on physlib master** (for fermions: a² = 0, aa' = −a'a, in
+  supercommutator-quotient form at a general field specification) — the battery's
+  standing trigger "a physlib CAR landing" has PARTIALLY fired, and T1's
+  CAR-relations-transport sub-content (the idempotent/commuting occupation
+  algebra reproved from Clifford relations) drops to formalization-parity AGAINST
+  THAT LAYER. What remains clean in both corpora: the DICTIONARY core — no
+  Clifford algebra of a quadratic form anywhere in the new wing, no {a, a†}
+  mixed relation (the Wick design keeps create/annihilate super-commutators
+  central = the contractions), no finite Fock-matrix model, no tauceti connection.
+  T1's novelty claim must be read as the *dictionary* (hyperbolic-Clifford ↔ Fock
+  matrices ↔ tauceti `carOccupationElement`) only; the seed-13 "no CrAnFieldOp"
+  gap has also CLOSED (watchlist note for the coordinator). Billing unchanged
+  (C+ substrate-bridge); the standing clock condition stays LIVE for any
+  follow-up.
+
 **T2 (grading ↔ blocks, general lemma, new-in-both-corpora).** For any subalgebra A of a
 matrix algebra on `Finset ι`-indexed basis with the card-grading
 `A = ⨁_n A_n`, `A_n = {M : ∀ A B, card A ≠ card B → M A B = 0}`: an element M commutes
@@ -194,6 +282,12 @@ account" claim is made: the donor's representation theory is the spin-sector SU�
   §1(d)).
 
 ## Proof-strategy sketch
+
+**[SUPERSEDED IN PART 2026-11-17/18 — items 1's injectivity route and 3's spectrum
+rung are retired; see the T1 AMENDED block above and the T1/T2 EXECUTION UPDATE
+below. The executed strategy is that of `pilots/77/T1.lean` (hyperbolic submodel,
+`CliffordAlgebra.lift` dictionary, number-operator intertwining) and
+`pilots/77/T2.lean` (entry-level graded ↔ blocks lemmas + the Laughlin instance).]**
 
 1. T1: build Φ on generators; relations: the OAI CAR theorems (`FermionOperators.lean:95,
    102, 156, 190`) match tauceti's generator relations verbatim (sign cocycle

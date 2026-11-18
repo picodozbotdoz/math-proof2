@@ -81,9 +81,15 @@ TARGETS = [
     ("AxPilotFFEZ2_P2",   PILOTS / "ff-ez2/P2.lean"),  # FF-EZ2-P2 FINAL-GREEN p2-run2 2026-11-18 (2/≤3 fix-loop; sorry-strict OK, 9/9 triad-only incl. 5 private, 0 sorryAx; telemetry mem OVER=1 = documented mmapped-olean class) — the descope-closure rung, PROOF-CLASS per runbook Step 8; Mathlib-only import (no ordering constraint); ff-ez2 P0/P1 STAY probe-convention (statement-class); sha256(16) 24926ac4cbbcdd50; chartered-row append at landing (A3 unit 1 of 5)
     ("AxPilot75_N2P1",    PILOTS / "75/N2-P1.lean"),  # 75-N2-P1 FINAL (M1 closure + M2) GREEN-triad n2-p1-run15 2026-11-18 (rc=0, 0 errors, 0 sorry tokens; **8/8 file triad** incl. M1 7/7 + the M2 heart `heckeTsum_eq_ratCharOf_LFunction` at :448 = dictionary components (i)+(ii) kernel-verified; sha256(16) 2e5217010e46ad0d; verify-fire sha headers runs 9–15); M3 deferred honestly → iteration-5 (GO rec). STEP-B DEPENDENCY-CLOSURE NOTE (A1, sweep-time): this file `import N2P0` — the runner's hyphen workaround (byte-identical N2-P0.lean copy staged as N2P0.lean per run_n2p1.py:5–9); the rewrite map does NOT catch the hyphenless name, and N2-P0 (→ `import Pa`, auto-rewrites to AxPilot75_Pa) has no row per the single-row instruction — the sweep must stage the Pa+N2P0 closure (runner ORDER pattern) or extend the map; sorted name AxPilot75_N2P1 sits after AxPilot75_Pb harmlessly (Mathlib+N2P0 only)
     ("AxPilot74_P1",      PILOTS / "74/P1.lean"),   # 74-P1 COMPLETION GREEN run 5/5 2026-11-18 (verify-fire held: SHA-GUARD TRAIL runs 1–5, run 5 fired sha256(16) 6ddbda11d5da4f35 = the final artifact; descent 29→10→10→4→0, zero sorry every run): **7/7 public theorems triad-only** (t1a_floor, t1b, t1b_window, t1c, cert_pad, Bk_le_Bk_succ, t4_floor_ceiling), 0 sorryAx; Mathlib-only import (no ordering constraint); ephemeral app crossmath-pilot-74p1 (73-clone warm-layer-shared recipe, doz route; one maxHeartbeats fix recorded); amended statements per the 4 FINDS, 8+1 signature classes (dossier amendment landed same batch)
-    # --- remaining one-unit final — PLACEHOLDER (row appended on the unit's
-    #     landing commit per close-act runbook §3 Step 8): ---
-    # AxPilot77_T1 (pilots/77/T1.lean on disk, in flight; T2 file TBD) (A7)
+    # --- 77 unit closed 2026-11-18 (A7, the last wave-3 blocker) — RULING: NO AxPilot77_T1
+    #     row this iteration (the 74-precedent: rows land for GREEN finals; honest-stop
+    #     files stay Step-A classifier-covered). State of record: T1-completion NOT-GREEN
+    #     at budget (31→7 residuals honest stop, ZERO math failures, run-8 state carried,
+    #     sha 3e6b50641990af9b, 817 LoC); T2 fresh file 7/8 triad-clean (the three
+    #     Laughlin-instance theorems incl. pairHamiltonian_isParityBlock; ONE tainted
+    #     decl `isDegreeBlock_iff_sum_blockProj` carries sorryAx via a filter-missed
+    #     elaboration error — errors=0 but rc=1, the A4-run11 blind-spot class; T2 sha
+    #     55107d0c6768fe34, 272 LoC). Step-B scope for 77 = NONE (classifier-only). ---
 ]
 
 

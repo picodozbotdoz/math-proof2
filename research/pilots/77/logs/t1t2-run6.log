@@ -1,0 +1,827 @@
+# pilot-77 T1+T2 run 6 — 2026-11-18T12:4xZ (lane A7, resumed session)
+# app: crossmath-pilot-77 (ephemeral modal run; tauceti@d92acc5c own-lineage image, mathlib 1b1ccf4b, toolchain v4.36.0-rc2)
+# spec: cpu=2.0 mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry
+# command: research/pilots/77/run_pilot.sh T1.lean T2.lean (stage /tmp/crossmath-77-t1-stage, MODAL_USER=doz)
+# physlib clock start-tick for this run: pushed_at = 2026-11-18T08:24:23Z (TICKED vs battery 2026-11-17T09:42:38Z — novelty event, see dossier note)
+# telemetry: wall=68s max_cpu=1.65 max_mem=2720MB samples=1 OVER=0
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-na5I4Ra145ApECh8AjFB9l
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean', 'T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[pilot] T1.lean: FAIL rc=1 errors=23 sorry=0
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:298:55: error: unsolved goals
+Q : ℕ
+v : Hyperbolic Q
+r : ℂ
+b : Hyperbolic Q
+i : Orbital Q
+x✝ : i ∈ Finset.univ
+⊢ v.1 i * (r • b).2 i = v.1 i * r * b.2 i
+T1.lean:296:28: warning: This simp argument is unused:
+  Prod.snd_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.smul_apply, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:296:43: warning: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.snd_smul, RingHom.id_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:306:15: warning: This simp argument is unused:
+  Prod.snd_smul
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:359:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?r + ?s) • ?x
+in the target expression
+  2⁻¹ • (∑ i, ∑ j, f i j + ∑ i, ∑ j, f i j) = 0
+
+Q : ℕ
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+f : ι → ι → FockMatrix Q
+h : ∀ (i j : ι), f i j + f j i = 0
+h2 : ∑ i, ∑ j, f i j + ∑ i, ∑ j, f i j = 0
+h1 : ∑ i, ∑ j, f i j = ∑ i, ∑ j, f j i
+h5 : 2⁻¹ • (∑ i, ∑ j, f i j + ∑ i, ∑ j, f i j) = 0
+⊢ ∑ i, ∑ j, f i j = 0
+T1.lean:373:15: error: unsolved goals
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+⊢ ∑ i, (r • v).1 i • annihilator Q i + ∑ i, (r • v).2 i • creator Q i =
+    r • (∑ i, v.1 i • annihilator Q i + ∑ i, v.2 i • creator Q i)
+T1.lean:371:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+···
+⊢ ∑ i, ∑ j, f i j = 0
+T1.lean:373:15: error: unsolved goals
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+⊢ ∑ i, (r • v).1 i • annihilator Q i + ∑ i, (r • v).2 i • creator Q i =
+    r • (∑ i, v.1 i • annihilator Q i + ∑ i, v.2 i • creator Q i)
+T1.lean:371:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, AddHom.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:371:34: warning: This simp argument is unused:
+  AddHom.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, LinearMap.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:375:33: warning: This simp argument is unused:
+  Prod.fst_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.id_apply, Prod.snd_smul, Pi.smul_apply, smul_eq_mul, smul_smul, Finset.smul_sum]
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+T1.lean:515:19: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a + 0
+in the target expression
+  (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y + (ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x = 0
+
+Q : ℕ
+x y : Hyperbolic Q
+h : QuadraticMap.polar (⇑(hyperbolicForm Q)) x y = 0
+h2 : (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y + (ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x = 0
+⊢ (ι (hyperbolicForm Q)) x * (ι (hyperbolicForm Q)) y = -((ι (hyperbolicForm Q)) y * (ι (hyperbolicForm Q)) x)
+T1.lean:523:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:544:30: error: Type mismatch
+  sub_zero
+has type
+  ∀ (a : ?m.210), a - 0 = a
+but is expected to have type
+  occupationElem Q i - 0 = occupationElem Q i
+T1.lean:531:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  occupationElem Q i * occupationElem Q i =
+    (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:544:30: error: Type mismatch
+  sub_zero
+has type
+  ∀ (a : ?m.210), a - 0 = a
+but is expected to have type
+  occupationElem Q i - 0 = occupationElem Q i
+T1.lean:531:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  occupationElem Q i * occupationElem Q i =
+    (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i)
+
+Q : ℕ
+i : Orbital Q
+hs :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) +
+      (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    1
+hswap : (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) = 1 - occupationElem Q i
+⊢ occupationElem Q i * occupationElem Q i =
+    (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i)
+T1.lean:537:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a - ?b) * ?c
+···
+  occupationElem Q i - 0 = occupationElem Q i
+T1.lean:531:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  occupationElem Q i * occupationElem Q i =
+    (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i)
+
+Q : ℕ
+i : Orbital Q
+hs :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) +
+      (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    1
+hswap : (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) = 1 - occupationElem Q i
+⊢ occupationElem Q i * occupationElem Q i =
+    (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i)
+T1.lean:537:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a - ?b) * ?c
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (1 - occupationElem Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    occupationElem Q i -
+      (ι (hyperbolicForm Q)) (hypE' Q i) *
+        ((ι (hyperbolicForm Q)) (hypE' Q i) * ((ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q i)))
+
+···
+      (ι (hyperbolicForm Q)) (hypE Q i)
+T1.lean:537:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a - ?b) * ?c
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (1 - occupationElem Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    occupationElem Q i -
+      (ι (hyperbolicForm Q)) (hypE' Q i) *
+        ((ι (hyperbolicForm Q)) (hypE' Q i) * ((ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q i)))
+
+Q : ℕ
+i : Orbital Q
+hs :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) +
+      (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    1
+hswap : (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) = 1 - occupationElem Q i
+⊢ (ι (hyperbolicForm Q)) (hypE' Q i) * (1 - occupationElem Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    occupationElem Q i -
+      (ι (hyperbolicForm Q)) (hypE' Q i) *
+        ((ι (hyperbolicForm Q)) (hypE' Q i) * ((ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q i)))
+T1.lean:540:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i) =
+    0
+···
+        ((ι (hyperbolicForm Q)) (hypE' Q i) * ((ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE Q i)))
+T1.lean:540:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i) =
+    0
+
+case e_a
+Q : ℕ
+i : Orbital Q
+hs :
+  (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) +
+      (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) =
+    1
+hswap : (ι (hyperbolicForm Q)) (hypE Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) = 1 - occupationElem Q i
+⊢ (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE' Q i) * (ι (hyperbolicForm Q)) (hypE Q i) *
+      (ι (hyperbolicForm Q)) (hypE Q i) =
+    0
+T1.lean:555:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:557:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+···
+T1.lean:601:13: warning: declaration uses `sorry`
+T1.lean:619:47: error: Application type mismatch: The argument
+  Commute.eq (commute_occupationElem Q i j)
+has type
+  occupationElem Q i * occupationElem Q j = occupationElem Q j * occupationElem Q i
+but is expected to have type
+  (fockDictionary Q) (occupationElem Q i * occupationElem Q j) =
+    (fockDictionary Q) (occupationElem Q j * occupationElem Q i)
+in the application
+  Eq.trans (Eq.symm (map_mul (fockDictionary Q) (occupationElem Q i) (occupationElem Q j)))
+    (Commute.eq (commute_occupationElem Q i j))
+T1.lean:638:6: error: typeclass instance problem is stuck
+  Decidable (?m.214 = ?m.216)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+T1.lean:703:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+···
+    (Commute.eq (commute_occupationElem Q i j))
+T1.lean:638:6: error: typeclass instance problem is stuck
+  Decidable (?m.214 = ?m.216)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+T1.lean:703:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:702:6: error: unsolved goals
+case pos
+Q : ℕ
+v : Hyperbolic Q
+x : Orbital Q
+hL : ∑ z, (isoV Q) v (Sum.inl x) (Sum.inl z) * (isoV Q) v (Sum.inl z) (Sum.inl x) = 0
+⊢ (v.2 x * if True then v.1 x else 0) * (1 / 2) = if True then v.2 x * v.1 x * (1 / 2) else 0
+T1.lean:705:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:702:6: error: unsolved goals
+case pos
+Q : ℕ
+v : Hyperbolic Q
+x : Orbital Q
+hL : ∑ z, (isoV Q) v (Sum.inl x) (Sum.inl z) * (isoV Q) v (Sum.inl z) (Sum.inl x) = 0
+⊢ (v.2 x * if True then v.1 x else 0) * (1 / 2) = if True then v.2 x * v.1 x * (1 / 2) else 0
+T1.lean:705:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:705:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:705:6: error: unsolved goals
+case neg
+Q : ℕ
+v : Hyperbolic Q
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:705:6: error: unsolved goals
+case neg
+Q : ℕ
+v : Hyperbolic Q
+x : Orbital Q
+hL : ∑ z, (isoV Q) v (Sum.inl x) (Sum.inl z) * (isoV Q) v (Sum.inl z) (Sum.inl x) = 0
+z : Orbital Q
+h : ¬z = x
+⊢ 0 = if z = x then v.2 x * v.1 x * (1 / 2) else 0
+T1.lean:726:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:725:6: error: unsolved goals
+case pos
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:725:6: error: unsolved goals
+case pos
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+⊢ (v.1 x * if True then v.2 x * (1 / 2) else 0) = if True then v.1 x * v.2 x * (1 / 2) else 0
+T1.lean:728:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:728:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:728:6: error: unsolved goals
+case neg
+Q : ℕ
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+T1.lean:728:6: error: unsolved goals
+case neg
+Q : ℕ
+v : Hyperbolic Q
+einl : ∀ (x : Orbital Q), ((isoV Q) v * (isoV Q) v) (Sum.inl x) (Sum.inl x) = v.1 x * v.2 x / 2
+x : Orbital Q
+hR : ∑ z, (isoV Q) v (Sum.inr x) (Sum.inr z) * (isoV Q) v (Sum.inr z) (Sum.inr x) = 0
+z : Orbital Q
+h : ¬z = x
+⊢ 0 = if z = x then v.1 x * v.2 x * (1 / 2) else 0
+T1.lean:765:26: error: Invalid projection: Type of
+  hc
+is not known; cannot resolve projection `2`
+T1.lean:764:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+⊢ ¬i = y
+T1.lean:767:24: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:766:6: error: unsolved goals
+case neg
+···
+⊢ 0 = if z = x then v.1 x * v.2 x * (1 / 2) else 0
+T1.lean:765:26: error: Invalid projection: Type of
+  hc
+is not known; cannot resolve projection `2`
+T1.lean:764:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+⊢ ¬i = y
+T1.lean:767:24: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:766:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:758:46: warning: This simp argument is unused:
+  hypE_snd
+
+Hint: Omit it from the simp argument list.
+···
+is not known; cannot resolve projection `2`
+T1.lean:764:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+⊢ ¬i = y
+T1.lean:767:24: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:766:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:758:46: warning: This simp argument is unused:
+  hypE_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+⊢ ¬i = y
+T1.lean:767:24: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:766:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:758:46: warning: This simp argument is unused:
+  hypE_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:758:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:759:56: warning: This simp argument is unused:
+  Matrix.single_apply
+···
+T1.lean:767:24: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:766:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:758:46: warning: This simp argument is unused:
+  hypE_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:758:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:759:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:782:36: error: Invalid projection: Type of
+  hc
+is not known; cannot resolve projection `2`
+T1.lean:781:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+⊢ ¬i = y
+T1.lean:784:29: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:783:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:775:24: warning: This simp argument is unused:
+  hypE'_fst
+
+Hint: Omit it from the simp argument list.
+···
+is not known; cannot resolve projection `2`
+T1.lean:781:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+⊢ ¬i = y
+T1.lean:784:29: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:783:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:775:24: warning: This simp argument is unused:
+  hypE'_fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+⊢ ¬i = y
+T1.lean:784:29: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:783:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:775:24: warning: This simp argument is unused:
+  hypE'_fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:775:54: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_fst, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:779:58: warning: This simp argument is unused:
+  Matrix.single_apply
+···
+T1.lean:784:29: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+T1.lean:783:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+⊢ i = x → ¬i = y
+T1.lean:775:24: warning: This simp argument is unused:
+  hypE'_fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:775:54: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_fst, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:779:58: warning: This simp argument is unused:
+  Matrix.single_apply
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:794:73: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+⊢ 2⁻¹ •
+      ((ι (TauCeti.traceQuadraticForm ℂ (Orbital Q ⊕ Orbital Q))) (Matrix.single (Sum.inl i) (Sum.inr i) 1) *
+        (ι (TauCeti.traceQuadraticForm ℂ (Orbital Q ⊕ Orbital Q))) (Matrix.single (Sum.inr i) (Sum.inl i) 1)) =
+    2⁻¹ •
+      ((ι (TauCeti.traceQuadraticForm ℂ (Orbital Q ⊕ Orbital Q))) (Matrix.single (Sum.inl i) (Sum.inr i) 1) *
+        (ι (TauCeti.traceQuadraticForm ℂ (Orbital Q ⊕ Orbital Q))) (Matrix.single (Sum.inr i) (Sum.inl i) 1))
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== T2.lean
+[tele] t=60s cpu=1.65 mem=2720MB anon=0MB peak=-1MB procs=2
+[pilot] T2.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:95:42: error: Application type mismatch: The argument
+  hc.right
+has type
+  deg b = n
+but is expected to have type
+  n = deg b
+in the application
+  Eq.trans hc.left hc.right
+T2.lean:111:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:112:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:115:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:117:42: error(lean.unknownIdentifier): Unknown constant `Nat.mod_two_lt`
+T2.lean:122:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:122:42: error: Application type mismatch: The argument
+  hc.right
+has type
+  deg c % 2 = b
+but is expected to have type
+  b = deg c % 2
+in the application
+  Eq.trans hc.left hc.right
+T2.lean:125:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:130:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isDegreeBlock_sum`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:138:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_sum`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:169:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 0
+where
+ a := ↑(Finset.card X)
+T2.lean:188:44: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 * ?a
+in the target expression
+  annihilator Q j X D * 0 = 0
+
+case pos
+Q : ℕ
+i j : Orbital Q
+X Y : Occupation Q
+h : Finset.card X + 2 ≠ Finset.card Y
+D : Occupation Q
+x✝ : D ∈ Finset.univ
+h1 : Finset.card X + 1 = Finset.card D
+h2 : Finset.card D + 1 ≠ Finset.card Y
+⊢ annihilator Q j X D * 0 = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    annihilator Q j X
+···
+ a := ↑(Finset.card X)
+T2.lean:188:44: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  0 * ?a
+in the target expression
+  annihilator Q j X D * 0 = 0
+
+case pos
+Q : ℕ
+i j : Orbital Q
+X Y : Occupation Q
+h : Finset.card X + 2 ≠ Finset.card Y
+D : Occupation Q
+x✝ : D ∈ Finset.univ
+h1 : Finset.card X + 1 = Finset.card D
+h2 : Finset.card D + 1 ≠ Finset.card Y
+⊢ annihilator Q j X D * 0 = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    annihilator Q j X
+T2.lean:199:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:202:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:201:2: error: unsolved goals
+case neg
+Q : ℕ
+c : Orbital Q → Orbital Q → ℂ
+X Y : Occupation Q
+h : Finset.card X + 2 ≠ Finset.card Y
+i : Orbital Q
+x✝¹ : i ∈ Finset.univ
+j : Orbital Q
+x✝ : j ∈ Finset.univ
+hij : ¬i < j
+⊢ 0 X Y = 0
+T2.lean:219:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?Mᴴ ?j ?i
+in the target expression
+  ∑ j, (pairOp Q c)ᴴ A j * pairOp Q c j B = 0
+
+Q : ℕ
+c : Orbital Q → Orbital Q → ℂ
+A B : Occupation Q
+hAB : (fun A => Finset.card A) A ≠ (fun A => Finset.card A) B
+⊢ ∑ j, (pairOp Q c)ᴴ A j * pairOp Q c j B = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+···
+⊢ 0 X Y = 0
+T2.lean:219:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?Mᴴ ?j ?i
+in the target expression
+  ∑ j, (pairOp Q c)ᴴ A j * pairOp Q c j B = 0
+
+Q : ℕ
+c : Orbital Q → Orbital Q → ℂ
+A B : Occupation Q
+hAB : (fun A => Finset.card A) A ≠ (fun A => Finset.card A) B
+⊢ ∑ j, (pairOp Q c)ᴴ A j * pairOp Q c j B = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    (pairOp Q c)ᴴ A
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   T1.lean: FAIL rc=1 errors=23 sorry=0
+[pilot]   T2.lean: FAIL rc=1 errors=6 sorry=0
+[tele] SUMMARY run: wall=68s max_cpu=1.65 max_mem=2720MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-na5I4Ra145ApECh8AjFB9l

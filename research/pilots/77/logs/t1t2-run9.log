@@ -1,0 +1,510 @@
+# pilot-77 T1+T2 run 9 — 2026-11-18 (lane A7, resumed session; FINAL run of the <=4 budget)
+# app: crossmath-pilot-77 (ephemeral modal run; tauceti@d92acc5c own-lineage image, mathlib 1b1ccf4b, toolchain v4.36.0-rc2)
+# command: research/pilots/77/run_pilot.sh T1.lean T2.lean (stage /tmp/crossmath-77-t1-stage, MODAL_USER=doz)
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-iwyctKKdeaAID578jfYguz
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean', 'T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[pilot] T1.lean: FAIL rc=1 errors=16 sorry=0
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:303:29: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:303:52: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:303:74: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:29: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+···
+  i
+T1.lean:303:52: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:303:74: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:29: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:70: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+···
+  i
+T1.lean:303:74: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:29: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:70: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:332:13: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+···
+  i
+T1.lean:310:29: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:310:70: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:332:13: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:376:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+···
+  i
+T1.lean:310:70: error: Function expected at
+  u.isLt
+but this term has type
+  ↑u < Q + 1
+
+Note: Expected a function because this term is being applied to the argument
+  i
+T1.lean:332:13: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:376:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, AddHom.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:376:34: warning: This simp argument is unused:
+  AddHom.coe_mk
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:767:54: error: Application type mismatch: The argument
+  Eq.symm hxi
+has type
+  i = x
+but is expected to have type
+  y = ?m.128
+in the application
+  Eq.trans h (Eq.symm hxi)
+T1.lean:767:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : x = i
+hyi : ¬y = i
+hxy : ¬x = y
+⊢ ¬i = y
+T1.lean:770:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+···
+  Eq.trans h (Eq.symm hxi)
+T1.lean:767:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : x = i
+hyi : ¬y = i
+hxy : ¬x = y
+⊢ ¬i = y
+T1.lean:770:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+  Eq.trans h (Eq.symm hyi)
+T1.lean:770:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+···
+⊢ ¬i = y
+T1.lean:770:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+  Eq.trans h (Eq.symm hyi)
+T1.lean:770:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : y = i
+hxy : ¬x = y
+⊢ ¬i = x
+T1.lean:772:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+···
+  Eq.trans h (Eq.symm hyi)
+T1.lean:770:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : y = i
+hxy : ¬x = y
+⊢ ¬i = x
+T1.lean:772:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : ¬y = i
+⊢ i = x → ¬i = y
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+···
+⊢ ¬i = x
+T1.lean:772:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : ¬y = i
+⊢ i = x → ¬i = y
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:766:38: warning: This simp argument is unused:
+  Matrix.single_apply
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:787:54: error: Application type mismatch: The argument
+  Eq.symm hxi
+has type
+  i = x
+but is expected to have type
+  y = ?m.139
+in the application
+  Eq.trans h (Eq.symm hxi)
+T1.lean:787:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : x = i
+hyi : ¬y = i
+hxy : ¬x = y
+⊢ ¬i = y
+T1.lean:791:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+···
+  Eq.trans h (Eq.symm hxi)
+T1.lean:787:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : x = i
+hyi : ¬y = i
+hxy : ¬x = y
+⊢ ¬i = y
+T1.lean:791:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+  Eq.trans h (Eq.symm hyi)
+T1.lean:791:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+···
+⊢ ¬i = y
+T1.lean:791:54: error: Application type mismatch: The argument
+  Eq.symm hyi
+has type
+  i = y
+but is expected to have type
+  y = i
+in the application
+  Eq.trans h (Eq.symm hyi)
+T1.lean:791:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : y = i
+hxy : ¬x = y
+⊢ ¬i = x
+T1.lean:794:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+···
+  Eq.trans h (Eq.symm hyi)
+T1.lean:791:8: error: unsolved goals
+case pos
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : y = i
+hxy : ¬x = y
+⊢ ¬i = x
+T1.lean:794:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : ¬y = i
+⊢ i = x → ¬i = y
+T1.lean:796:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+···
+⊢ ¬i = x
+T1.lean:794:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxi : ¬x = i
+hyi : ¬y = i
+⊢ i = x → ¬i = y
+T1.lean:796:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+T1.lean:780:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:58: warning: This simp argument is unused:
+  Matrix.single_apply
+
+···
+⊢ i = x → ¬i = y
+T1.lean:796:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+T1.lean:780:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:58: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_snd, Matrix.smul_apply, hxi, hyi, hxy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:786:22: warning: This simp argument is unused:
+  hxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply, hxi, hyi]
+···
+
+=== T2.lean
+[pilot] T2.lean: FAIL rc=1 errors=0 sorry=0
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:167:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:173:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:202:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:205:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   T1.lean: FAIL rc=1 errors=16 sorry=0
+[pilot]   T2.lean: FAIL rc=1 errors=0 sorry=0
+[tele] SUMMARY run: wall=57s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-iwyctKKdeaAID578jfYguz

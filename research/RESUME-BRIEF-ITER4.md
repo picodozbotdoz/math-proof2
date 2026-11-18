@@ -374,7 +374,12 @@ owed).** **Unit 3 of 5 (2026-11-18, later): A4 AL-P2 honest stop** — P2-c clos
 VERIFIED (run13 GREEN, sha `509f2368`), P2-d partial parked at find #5, P2-e →
 canonical z-rank rebuild re-charter. **Unit 4 of 5 (2026-11-18, later): A8 74-P1
 completion GREEN** (run 5/5, 7/7 public theorems triad, verify-fire sha-guard trail
-held; dossier amendment w/ 4 FINDS + 9 signature classes). Remaining: **A7 only**.
+held; dossier amendment w/ 4 FINDS + 9 signature classes). **Unit 5 of 5 (2026-11-18,
+later): A7 77 unit DOWN — the LAST BLOCKER** (T1-completion NOT-GREEN honest 31→7,
+zero math failures; T2 7/8 triad w/ one filter-missed tainted decl; dossier fold
+complete; physlib clock partial-fired; ruling: no AxPilot77_T1 row). **ALL FIVE
+WAVE-3 UNITS LANDED.** Remaining before the close act: A1's final folds (§10.30–32 +
+census refresh), then the GO.
 
 ### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
 

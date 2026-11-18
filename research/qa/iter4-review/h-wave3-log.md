@@ -756,3 +756,29 @@ routing.
   the insufficient two-atom hVarLB construction, recycled constructively; warm
   74p1 runner plan; ≤5+≤5 milestones; iter-5 front-load). INDEX row staged
   same-commit; tracker A8 row → lineage complete / standby.
+
+## 2026-11-18 — LANDING: A7 77 unit DOWN — the LAST wave-3 blocker, 5 of 5 (H batch)
+
+- Pulled from worktree agent-08 as ONE exact-file batch: `candidates/77-*.md`
+  (fold complete; FF-verified) + `pilots/77/T1.lean` (817 LoC run-8 state, sha256(16)
+  `3e6b50641990af9b`) + **`T2.lean` NEW** (272 LoC, sha256(16) `55107d0c6768fe34`) +
+  `T1-record.md` (the completion-unit record) + `logs/t1t2-run{6..9}.log` (4 NEW).
+  Runner pair + t1-run1–5 logs byte-identical to main (staged as no-ops).
+  Out-of-batch worktree files verified EQUAL (novelty ×2, candidates/78,
+  pilots/78, a7-* reviews) — nothing else pulled.
+- Verdicts per record: **T1-completion NOT-GREEN at budget — honest stop at 31→7
+  residuals, ZERO math failures** (run-8 state carried; run 9's last-7 fix attempt
+  regressed and was reverted); **T2 7/8 triad-clean** (three Laughlin-instance
+  theorems incl. `pairHamiltonian_isParityBlock`; the ONE tainted decl
+  `isDegreeBlock_iff_sum_blockProj` carries sorryAx via a filter-missed elaboration
+  error — errors=0 but rc=1, the same blind-spot class A4's run11 exposed and the
+  al3d runner fix addresses; the 77 runner pair predates the fix). **Physlib clock
+  PARTIAL-FIRED** (WickAlgebra = equal-statistics CAR half; dictionary core clean
+  both corpora; billing C+ unchanged; seed-13 gap closed).
+- **RULING applied: NO AxPilot77_T1 TARGETS row this iteration** (74-precedent —
+  rows land for GREEN finals; honest-stop files stay Step-A classifier-covered);
+  the last placeholder converted to the dated note (T1/T2 shas + the tainted decl
+  named). py_compile rc=0; 57 rows, no dups, ZERO placeholders remain.
+- Tracker A7 → landed; brief scoreboard → **ALL FIVE WAVE-3 UNITS LANDED**.
+- Close-act posture per instruction: standby for A1's final folds (§10.30–32 +
+  census refresh), then Phase-1 assembly mechanics on the orchestrator's GO.

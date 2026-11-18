@@ -1,0 +1,266 @@
+# pilot-77 T1+T2 run 8 — 2026-11-18 (lane A7, resumed session)
+# app: crossmath-pilot-77 (ephemeral modal run; tauceti@d92acc5c own-lineage image, mathlib 1b1ccf4b, toolchain v4.36.0-rc2)
+# command: research/pilots/77/run_pilot.sh T1.lean T2.lean (stage /tmp/crossmath-77-t1-stage, MODAL_USER=doz)
+# telemetry: wall=107s max_cpu=1.30 max_mem=3653MB samples=1 OVER=0
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-umPL6o82x7UPUnVugCBYh8
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean', 'T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[tele] t=60s cpu=1.30 mem=3653MB anon=0MB peak=-1MB procs=2
+[pilot] T1.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:305:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.200, ?m.202 x + ∑ x ∈ ?m.200, ?m.203 x
+in the target expression
+  (({ toFun := fun w_1 => ∑ x, (v.1 x + w.1 x) * w_1.2 x, map_add' := ⋯, map_smul' := ⋯ } ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1 =
+    ((({ toFun := fun w => ∑ i, v.1 i * w.2 i, map_add' := ⋯, map_smul' := ⋯ } +
+            { toFun := fun w_1 => ∑ i, w.1 i * w_1.2 i, map_add' := ⋯, map_smul' := ⋯ }) ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1
+
+case hl
+Q : ℕ
+v w : Hyperbolic Q
+u : Orbital Q
+⊢ (({ toFun := fun w_1 => ∑ x, (v.1 x + w.1 x) * w_1.2 x, map_add' := ⋯, map_smul' := ⋯ } ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1 =
+    ((({ toFun := fun w => ∑ i, v.1 i * w.2 i, map_add' := ⋯, map_smul' := ⋯ } +
+            { toFun := fun w_1 => ∑ i, w.1 i * w_1.2 i, map_add' := ⋯, map_smul' := ⋯ }) ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+···
+      1
+T1.lean:313:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ∑ i ∈ ?s, ?f i
+in the target expression
+  (({ toFun := fun w => ∑ x, r * v.1 x * w.2 x, map_add' := ⋯, map_smul' := ⋯ } ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1 =
+    (((r • { toFun := fun w => ∑ i, v.1 i * w.2 i, map_add' := ⋯, map_smul' := ⋯ }) ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1
+
+case hl
+Q : ℕ
+r : ℂ
+v : Hyperbolic Q
+u : Orbital Q
+h1 : (r • v).1 = r • v.1
+⊢ (({ toFun := fun w => ∑ x, r * v.1 x * w.2 x, map_add' := ⋯, map_smul' := ⋯ } ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+      1 =
+    (((r • { toFun := fun w => ∑ i, v.1 i * w.2 i, map_add' := ⋯, map_smul' := ⋯ }) ∘ₗ
+          LinearMap.inl ℂ (Orbital Q → ℂ) (Orbital Q → ℂ)) ∘ₗ
+        LinearMap.single ℂ (fun i => ℂ) u)
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:766:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+hni : ¬(x = i ∧ y = i)
+⊢ ¬i = y
+T1.lean:768:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+hni : ¬(x = i ∧ y = i)
+⊢ i = x → ¬i = y
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+···
+⊢ ¬i = y
+T1.lean:768:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+hni : ¬(x = i ∧ y = i)
+⊢ i = x → ¬i = y
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:765:38: warning: This simp argument is unused:
+  Matrix.single_apply
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:783:8: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : x = y
+hyi : ¬y = i
+hni : ¬(x = i ∧ y = i)
+⊢ ¬i = y
+T1.lean:786:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+hni : ¬(x = i ∧ y = i)
+⊢ i = x → ¬i = y
+T1.lean:789:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+···
+⊢ ¬i = y
+T1.lean:786:6: error: unsolved goals
+case neg
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+hxy : ¬x = y
+hni : ¬(x = i ∧ y = i)
+⊢ i = x → ¬i = y
+T1.lean:789:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+T1.lean:777:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:58: warning: This simp argument is unused:
+  Matrix.single_apply
+
+···
+⊢ i = x → ¬i = y
+T1.lean:789:25: error: unsolved goals
+Q : ℕ
+i : Orbital Q
+a b : Orbital Q ⊕ Orbital Q
+x y : Orbital Q
+⊢ x = y → (hypE' Q i).1 y = 0
+T1.lean:777:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:58: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_snd, Matrix.smul_apply, hxy, hyi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:22: warning: This simp argument is unused:
+  hni
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply, hxy, hyi]
+···
+
+=== T2.lean
+[pilot] T2.lean: FAIL rc=1 errors=1 sorry=0
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:171:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 0
+where
+ a := ↑(Finset.card X)
+T2.lean:172:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:201:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:204:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[pilot] SUMMARY
+[pilot]   T1.lean: FAIL rc=1 errors=7 sorry=0
+[pilot]   T2.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=107s max_cpu=1.30 max_mem=3653MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-umPL6o82x7UPUnVugCBYh8
