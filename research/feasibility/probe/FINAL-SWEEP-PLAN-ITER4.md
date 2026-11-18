@@ -32,7 +32,7 @@ and NEVER Step-B stages (C2 precedent: 71/P0, 73/P0).
 | 73-Q4 `hRat` discharge (rank 6; lane L8) | `pilots/73/*` Q4 file (gated on A2's owed recommendation) | gated — decision first | [WARM]; Rosen ch.-number spot-check due AT Q4 (SCAN §1c); if gated shut, declared-drop (no stage) |
 | 22-T2a binder task (rank 9 pair; lane L8 drain-filler) | `pilots/22/*` addition (upstream StrongPNT statement binder) | no file yet | [WARM]; S-effort; FF-EZ4 probe (the pair's other half) = probe-tier, classify per lane |
 | hEχ donor-pin discharge (R5 §14 run 8 + §14.1; row added by R3 machinery-upkeep 2026-11-16 — runner staged, NOT in the seed table) | `pilots/zeta23e/*`: consumer files elaborated INSIDE the built zeta23 tree at the DONOR pin (v4.33.0-rc2 / mathlib `51e6992e`; 50-M2/g7 recipe, `run_zeta23e.py`; build target `Zeta23.ThmE.Final`) | runner only (`run_zeta23e.{py,sh}`, STAGED-NO-RUN) | **[LAYERS]-donor-pin** — the D-PIN class of `qa/iter4-review/r3-verification-tables.md` §2/§9: donor rows `PROVED-UNCONDITIONAL (donor)` + donor-pin print source; OUR consumers in that tree are D-PIN rows; on-pin consumers keep hEχ as a binder until this discharge. Donor hygiene gate = `Zeta23.ThmE.Final` chain prints ⊆ triad at the donor pin (transitive Theorem-E audit per R2 mini-spec) |
-| — conditional rows, add on landing (charter-dependent) | 74 T1+T2+T4 pilot (rank 7, dir TBD) *(74-P0 statement rung LANDED GREEN 2026-11-17, §10.15 — probe-convention, no stage)*, 10 tranche D1–D4 (rank 8, `pilots/10/*`) *(D1 LANDED GREEN 2026-11-17, §10.17 — `L3.lean` 2,805 LoC, Part E C2-covered 6/6; `AxPilot10_L3` TARGETS append AT SWEEP per the spec §6 protocol — L3 grows with the D-tranches)*, 75 N2 (rank 10) *(N2-P0 statement rung LANDED GREEN, §10.12; [WARM]+Pa-rewrite branch)*, 11 M3 (rank 11, `pilots/11/*`) | not chartered at seed | statuses per orchestrator chartering; each lands with its own row + stage |
+| — conditional rows, add on landing (charter-dependent) | 74 T1+T2+T4 pilot (rank 7, dir TBD) *(74-P0 statement rung LANDED GREEN 2026-11-17, §10.15 — probe-convention, no stage)*, 10 tranche D1–D4 (rank 8, `pilots/10/*`) *(D1 LANDED GREEN 2026-11-17, §10.17 — `L3.lean` 2,805 LoC, Part E C2-covered 6/6; `AxPilot10_L3` TARGETS append AT SWEEP per the spec §6 protocol — L3 grows with the D-tranches **[SUPERSEDED 2026-11-18, orchestrator ruling: single tranche-final anchor `AxPilot10_L5` (`pilots/10/L5.lean`) — L5 embeds L4/L3 verbatim, one row covers the tranche's final theorem state; L3/L4 remain §10 historical citations. Reconciliation §7d]*)*, 75 N2 (rank 10) *(N2-P0 statement rung LANDED GREEN, §10.12; [WARM]+Pa-rewrite branch)*, 11 M3 (rank 11, `pilots/11/*`) | not chartered at seed | statuses per orchestrator chartering; each lands with its own row + stage |
 
 **On-landing duties (every row):** add the stage to `make_axcheck.py` TARGETS; classify
 probe-vs-proof; Step-A token row appended to the incremental log (§1); sibling-import
@@ -227,3 +227,29 @@ landing). make_axcheck72m1.py's local TARGETS already carries T3 (L3a closure,
   sweep treats a stopped ladder as declared-stop, not a gap (rows for P1 only).
 
 — addendum lane A1 (R3-role successor), 2026-11-17. Supersedes nothing; §0–§6 stand.
+
+### 7d Wave-2 tail landings — inventory update (lane A1, 2026-11-18; PREP ONLY, append-only)
+
+Folds the six §10-covered landings that reached main AFTER §7a was written (commits
+`68be1a2`, `3750c48`, `0677eae`+`9dc6684`, `570f3e9`, `c536994` — rows §10.24–§10.27
+of `qa/iter4-review/r3-verification-tables.md`; main was at `c67d64e` at this
+writing). §7a's rows stand; this block is the delta the sweep executor adds:
+
+| artifact (landing commit) | Step-A (verified 2026-11-18 dry run) | Step-B at sweep |
+|---|---|---|
+| `pilots/10/L4.lean` (D2 FINAL, `9dc6684`; sha `4ae0d6435e351128`, 4,195 LoC) | 0 real tokens (header prose only) | **NO separate stage — folded into the single `AxPilot10_L5` anchor (orchestrator ruling 2026-11-18): L5 embeds L4 verbatim, so the one full-coverage custody stage covers the tranche's final theorem state; L4 is a §10 historical citation (§10.26)** |
+| `pilots/10/L5.lean` (D3, `9dc6684`; sha `da398f2170288acb`, 4,248 LoC) | 0 real tokens | **THE tranche-final TARGETS row: single `AxPilot10_L5`** (orchestrator ruling 2026-11-18 — H applying in `make_axcheck.py`; supersedes the §0/§10.17 `AxPilot10_L3`-at-sweep phrasing and §10.20(iii)'s `AxPilot10_L4`); embeds L4+L3 verbatim, Part H 37 lines is the new surface — `pad_bound`/`padded_time_absorb` triad `d3-run1.log:44/:45`; full-coverage custody pattern (`axcheck_iter4.py gen` + pilot-75 runner class) |
+| `pilots/22/T2a-P0.lean` (`3750c48`; sha `1b3d117662eb6cc8`, 99 LoC) | 0 tokens (3 prose strings :4/:6/:12) | NO stage — statement rung, probe-convention class (§10.25) |
+| `probe/ProbeG9_StrongPNT.lean` (`68be1a2`; sha `c1f93388d2308073`) / `probe/ProbeG13_PhyslibOccupation.lean` (`68be1a2`; sha `66b9416f0cd6a50a`) | G9 = the 2 certificate tokens `:51/:67` (entry 2); G13 = 0 | NO stages — G-series probes are Step-A scope only |
+| `pilots/ff-ez2/P1.lean` (`570f3e9`; sha `9d8a7b1981faabce`, 186 LoC) | 0 real tokens (1 prose string :3) | proof artifact — `AxPilotFFEZ2_P1` **fires at sweep: the family is FINAL** (P2 landed GREEN 2026-11-18, §10.28 — the P0→P1→P2 charter fully closed); 7/7 in-file triad surface is the landed evidence (§10.23) |
+| `pilots/ff-ez2/P2.lean` (landed on main 2026-11-18; sha `24926ac4cbbcdd50`, 207 LoC) | 0 real tokens (1 prose string :3) — verified in the 2026-11-18 fold pass (post-dates the morning dry run) | **NEW full-coverage custody stage `AxPilotFFEZ2_P2`** — 9/9 triad full-spelling `p2-run2.log:42–:50` (4 public + 5 private); mathlib-only, zero donor imports (import check DISCHARGED, §10.28) |
+| `pilots/77/T1.lean` (`c536994`; sha `f365c4c52b970d27`, 781 LoC) | 0 real tokens (1 prose string :11) | NO stage — verified-red NOT-GREEN artifact (31 site-local residuals); stage only if/when the re-chartered T1-completion lands GREEN (§10.27) |
+
+Also recorded here: **stepA-incremental ENTRY 4** (2026-11-18) — wave-3 dry run
+confirms certificate **52 exact** on main (`c67d64e`, 104 files, bucket tally exact),
+zero new tokens from the tail landings; and the ENTRY-3 line-cite correction:
+al3d/P0's 3 tokens sit at `:106/:144/:149` in the committed bytes at sha
+`52c5b9f77344e0ed` (entry 3 + the run-8 log header cite `:104/:142/:147` — staged-bytes
+drift, count unchanged; A8-F2 class). Sweep-time G1 is count-bound; unaffected.
+
+— 7d lane A1, 2026-11-18. Append-only; §0–§6 + §7a–§7c stand.

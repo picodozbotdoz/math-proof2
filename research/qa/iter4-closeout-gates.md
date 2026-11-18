@@ -257,3 +257,43 @@ final run). Corroboration: A8's independent mid-wave audit
 
 — checkpoint lane A1, 2026-11-17, main @ 47bec92. G2/G3/G5–G7 NOT run (not yet
 unblocked; see the summary table).
+
+## APPENDIX — wave-3 gate readiness matrix (lane A1, 2026-11-18; main @ `c67d64e`; PREP ONLY — no gate executed herein)
+
+Re-assessment of every close-out gate against the CURRENT main tree (post-`2f90dcc`:
+wave-3 commits `effabf7`/`66a8085`/`c67d64e` are H-infra only, no pilot landings).
+The §G1–§G8 command cards above stand except where corrected here. The five wave-3
+in-flight units (A3 FF-EZ2-P2, A4 AL-P2-c/d/e, A5 N2-P1 closure+M2/M3, A7 77-T1/T2,
+A8 74-P1 completion) are the only remaining fold/verification obligations; their §10
+final folds route to A1 (sticky) as they land.
+
+| gate | state @ 2026-11-18 | blocked-on (in-flight unit named) | close-time command/artifact |
+|---|---|---|---|
+| G1 sorry-token | **READY — certificate 52 CONFIRMED** (dry run 2026-11-18, main @ c67d64e, 104 files: 52 hits, bucket tally exact, 0 unexplained; `stepA-incremental-iter4.log` ENTRY 4) | only the five in-flight units' files, IF any lands WITH tokens (re-baseline entry before Step B, plan §1) | §G1 classifier verbatim; PASS = 52 + declared in-flight additions, 0 unexplained. Correction of record (ENTRY 4): al3d/P0 tokens at `:106/:144/:149` in the committed sha `52c5b9f7` (entry 3's `:104/:142/:147` = staged-bytes drift, count unchanged — gate is count-bound) |
+| G2 axcheck | **PARTIAL READY** — machinery live; 3 TARGETS rows already present (`AxPilot72_M1_T3`, `AxPilot32_M2`, `AxPilot73_Q4`); part (ii) DISCHARGED EARLY for 75_Pb (`axcheck-full-run1.log` 89/89) + 72-M1 T1/T2/T3 (`axcheck-l3a-run1.log`) | part (i): H's `AxPilot10_L5` single-anchor row (orchestrator ruling 2026-11-18 — supersedes the L3/L4 phrasing; my reconciliation at FINAL-SWEEP §0/§7d + r3-tables §10.26). part (ii) owed stages: zzv2 P1 donor-tree (landed final — [LAYERS] M4b recipe, executor = sweep); 32-M1 + 32-M2 full-coverage (§7b); ff-ez2 P1 rides family finalization (**A3 FF-EZ2-P2 in flight**); 75-N2 final (**A5 in flight**); AL-P2 A2-final/A3 (**A4 in flight**); 74-P1 (**A8 in flight** — stage only if completion lands GREEN; verified-red has none); 77 (**A7 in flight**, same class) | (i) `run_axcheck.sh 2>&1 | tee /tmp/crossmath-axcheck-iter4.log` + provenance-rescue; (ii) `axcheck_iter4.py gen` + custody-runner per §G2, donor-tree via `run_m4b_donor_axcheck.sh`; PASS per stage = `OK; axiom-lines=N, sorryAx-lines=0`, records ⊆ triad |
+| G3 INDEX | **BLOCKED-ON H** (unchanged) | H's pre-close drift list + the exact closing tree (INDEX is H's file). comm dry-run 2026-11-18: 232 delta lines — known classes dominate (candidates/* individually unlisted = directory-covered; INDEX `.log`/`logs/` rows = column-2-only by the command's file extension set; wave-2/3 new files incl. `h-wave3-log.md`, `a2-close-act-runbook.md`, runners, records) | §G3 `comm -3` both directions on the closing tree; PASS = only directory-covered/grouped entries remain, every new row dated + source-cited |
+| G4 dates | **READY — dry PASS today** (2026-11-18: future-date grep `2026-11-19+`/`2026-12-`/`2027-` = **0 hits**; compounds = **0 hits**; the mid-wave meta-hit `a8-midwave-audit.md:80` ("2026-11-18+") self-resolved with the date rollover) | none (re-run on the closing tree at close-commit time by construction) | §G4 two greps verbatim |
+| G5 template | **PARTIAL — corpus READY (A9 compliance 14/14 + G5 dry-run PASS @ `37a2637`), pre-staged command STALE (corrected below)**; shipped-set declaration is a close act | the close-time shipped-set declaration (orchestrator) + splice checklist §B sweep-sha stamps (7 mandatory H-owned items, `a9-splice-readme-checklist.md`) | **CORRECTED command (dated 2026-11-18):** the §G5 grep patterns false-FAIL — `^## 1\. Front matter` is a TEMPLATE fill section no shipped article carries as a heading, and the corpus has TWO live layouts (legacy `## 5. Formal verification`/`## 6. Novelty and nearest misses` — 01/32-class; template `## 4. Novelty and nearest misses`/`## 6. Formal record` — 22/75/78-class). Close-time per article: (a) kind declaration in the header block; (b) a novelty/nearest-miss section (`## 4` OR `## 6`); (c) a formal-record/verification section (`## 5` OR `## 6`); (d) `## 7. Limitations*`; (e) TEMPLATE-iter4 §9 box-run with evidence cites (the binding instrument — A9's compliance table + per-article self-audit blocks are the worked record) |
+| G6 two-strike | **BLOCKED-ON the §3 close fill** (unchanged in kind) | the §3 accounting fill (shipped set + N=1 quota ruling recorded + R1-gate note) at close — `REPORT-INPUTS-ITER4` is H-shepherded | §G6 scoped reads; binding FLOW reading pre-computed by A9 (`a9-corpus-compliance.md` §discovery-ratio: 100% discovery-grade on every chartered shipment plan — 75 v2 DISCOVERY-CONDITIONAL, 32 v2, 01, 30, 78 NEGATIVE-kind discovery-grade NOT consuming N=1; N=1 UNSPENT); report stock (38%) as the corpus-health line only |
+| G7 annotations + stamps | **READY-PARTIAL with the CORRECTED CENSUS** — A2 re-verification (`a2-close-act-runbook.md` §8, 2026-11-18, main @ `66a8085`): **46 sites = 40 CLOSE / 6 RETARGET-ITER-5 / 0 NEEDS-RULING** (recorded 34 = 29/5/0 + 12 missed pre-existing sites = 11 close + 1 retarget; anchor drift SCAN FF-EZ2 `:90`→`:105`; the new retarget site = `pilots/72-M1/L3-spec.md:187`, L3b–d + interface open) | the close-block annotation dispositions themselves (orchestrator) — cite runbook §8, do NOT re-derive | G7(a): `grep -L "SUPERSEDED\|SELECTED" …` — all four staging files unstamped today (re-verified 2026-11-18); stamps ride their consuming decisions in the close commit. G7(b): gate grep = **30 in-scope lines** (re-counted 2026-11-18, exact), fully covered = 26 recorded + 4 delta (SCAN:5, DRAFT:59, DRAFT:100, SPLICE:28); close block quotes: "40/46 in-cycle, 6 retargeted, 0 unrulled (corrected census, a2-close-act-runbook.md §8)" |
+| G8 persistence | skeleton stands (empty by design) | fills as G1–G7 execute | per-gate table (gate/command/raw result/verdict/date/commit) committed WITH the close block; `OVERRIDDEN — <reason> — <owner>` or fixed-and-rerun, never "passed by inspection" |
+
+**Standing corrections this appendix makes to the pre-staged text above (all dated,
+none silent):** (1) G5's grep pattern set (this appendix's corrected command); (2) G7's
+census basis (34→46 per runbook §8); (3) the mid-wave G4 meta-hit disposition
+(self-resolved 2026-11-18 — the a8 wording need not change unless the final gate run
+re-flags it); (4) G2's 10-tranche stage phrasing → single `AxPilot10_L5` anchor
+(orchestrator ruling 2026-11-18). Everything else in the pre-staged table stands.
+
+**LATE UPDATE (same day, post-appendix):** FF-EZ2-P2 landed GREEN on main mid-pass
+(the first of the five in-flight units) — folded as §10.28 (r3-tables); classifier
+re-run WITH `P2.lean` in scope: 105 files, **52 hits — the certificate stands on the
+post-P2 tree** (P2 = 1 prose string, 0 real tokens; ENTRY 4 addendum). G1/G2 exposure
+shrinks accordingly: the ff-ez2 family is FINAL ⇒ `AxPilotFFEZ2_P1/_P2` custody
+stages fire at sweep (FINAL-SWEEP §7d updated in the same pass); remaining in-flight
+folds owed: AL-P2 c/d/e (A4), N2-P1 closure + M2/M3 (A5), 77-T1/T2 (A7), 74-P1
+completion (A8).
+
+— appendix lane A1, 2026-11-18, main @ c67d64e (+ P2 landing), worktree agent-02. No
+gate executed herein; PREP ONLY per the file's execution trigger (orchestrator close
+signal).

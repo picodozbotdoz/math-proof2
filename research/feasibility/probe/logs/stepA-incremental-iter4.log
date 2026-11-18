@@ -33,3 +33,23 @@
 # The 3 stub tokens persist (count unchanged) but drift :85/:123/:128 -> :104/:142/:147 (log :39-:41); P0 sha
 #   52c5b9f77344e0ed supersedes db5e1cc8. Certificate count UNCHANGED at 52; only the al3d/P0 line cites move.
 #   Sweep-time classifier confirms by count + fresh lines.
+
+# --- ENTRY 4 — WAVE-3 DRY-RUN: certificate 52 CONFIRMED on main @ c67d64e + ENTRY-3 LINE-CITE CORRECTION (lane A1, 2026-11-18) ---
+# Dry run (task: Step-A re-baseline check; classifier verbatim, full scope pilots+probe, 104 files):
+#   TOTAL REAL-TOKEN HITS = 52 — EXACT match with the re-baselined certificate (entry 2).
+#   Bucket tally all exact: 9 main-run probes (B1x3 :51/:60/:67, B2 :26, C1 :14, D x4 :57/:70/:78/:92)
+#   + 26 probe-side (C2 G-series 23: G1x4, G2, G3, G4x4, G5a, G5bx6, G5cx4, G7x2; + G9 x2 :51/:67, G10 :96)
+#   + 4 x 71/P0 (:65/:90/:97/:110) + 7 x 73/P0 (:40/:45/:53/:79/:87/:121/:143) + 3 x al3d/P0 + 3 x lp/P0 (:44/:55/:97).
+# ZERO new tokens from the wave-2 tail landings: 22/T2a-P0 (3 prose strings :4/:6/:12), 77/T1.lean
+#   (1 prose string :11), 10/L4.lean + 10/L5.lean (header prose only), ff-ez2/P1.lean (1 prose string :3),
+#   ProbeG13 (0 by design) — all classifier-clean.
+# ENTRY-3 LINE-CITE CORRECTION (A8-F2 class, count unchanged): entry 3 and the alp2-run8 log header
+#   both cite the al3d/P0 stub tokens at :104/:142/:147, but the COMMITTED file at the named sha
+#   52c5b9f77344e0ed (main @ f9d0007, byte-identical in worktree agent-05) carries them at
+#   :106/:144/:149 (direct grep + this run). The +2 drift is between the run-8 staged bytes and the
+#   committed bytes; the COUNT (3) and the sha are correct, so the certificate stands at 52 — only
+#   the al3d/P0 line cites of record move to :106/:144/:149. Sweep-time G1 PASS criterion unaffected
+#   (count-bound); this entry is the correction of record.
+# ENTRY 4 addendum (same day, post-fold): FF-EZ2-P2 landed on main mid-pass (§10.28) —
+#   re-run WITH P2.lean in scope: 105 files, 52 hits (P2 = 1 prose string :3, 0 real tokens).
+#   Certificate 52 stands on the post-P2 tree.

@@ -1395,6 +1395,245 @@ No Step-B row yet (not final); the row updates to FINAL when the authorized clos
 run lands (v8 → GREEN expected on the diagnosed classes). §7a's 75-N2 entry:
 P0 LANDED (§10.12) + P1 M1-checkpoint (this row).
 
+### 10.23 FF-EZ2 P1 — LANDED GREEN 2026-11-17 (run 4 of ≤4; lane A3, charter GO, S-class; folded + re-verified by lane A1) — proof rung of the FF-EZ2 survivor
+
+*(Merged 2026-11-17 by lane A1 from A3's `pilots/ff-ez2/P1-record.md`; drafted against
+the agent-04 worktree copy, re-verified 2026-11-18 against the MAIN tree where the
+record + logs + artifact LANDED at `570f3e9`: verdict `p1-run4.log:15` (P1.lean OK,
+sorry-strict, rc=0/0/0), the 7 triad prints `:17–:23` (repeats `:43–:49`), telemetry
+`:14` (mem 8003 MB = mapped-olen class, cpu 0.58); main-disk sha `9d8a7b1981faabce` ✓,
+186 LoC ✓; the log's two `sorry` strings (`:59/:61`) are the RESULT/NOTE summary prose,
+zero sorryAx in the axiom prints.)*
+
+**P1.lean (proof artifact — 186 LoC ≤ 0.3k guard; sha256(16) `9d8a7b1981faabce`;
+mathlib `ff2494ea` / v4.36.0-rc2, `import Mathlib` ONLY (zero donor imports); warm
+app `crossmath-pilot-ffez2`, doz CLI/semraker, walls 44/43/53/66 s over 4 runs,
+13 mechanical name fixes runs 1–3, ZERO mathematical content changes after
+authoring. Full print surface **7/7 triad-only** incl. both private/helper forms.
+**AXIOM-SPELLING NOTE (verified by A3 this session, carried per relay):** the log
+prints `[propext, choice, Quot.sound]` — the bare `choice` is `Classical.choice`
+relativized by the file's `open Classical` (reproduced with the v4.36.0-rc2 core
+toolchain: `open Classical; #print axioms Classical.em` prints exactly this shape;
+without the open, `Classical.choice`). Same axiom, display spelling — NOT a
+non-triad set. Token-level log sweep: only propext/choice/Quot.sound, zero sorryAx,
+zero native_decide.)**
+
+| decl | file:line | status | axioms print source | notes |
+|---|---|---|---|---|
+| `ratio_rootOfUnity_of_pow_eq` | `pilots/ff-ez2/P1.lean` | PROVED-UNCONDITIONAL | `p1-run4.log:17` (repeat :43) — triad | the collision bridge: `x ^ m = y ^ m`, `y ≠ 0` ⇒ `(x / y) ^ m = 1` |
+| **`zeros_simple_all` (the honest ALL-m headline)** | idem | PROVED-UNCONDITIONAL — purity + the exclusion hypothesis ⇒ `ZerosSimpleAt A m` for EVERY `m ≥ 1` | `:18` (repeat :44) — triad | `nodup_iff_count_le_one` + `Multiset.count_map`; each value's fiber nodup and singleton-dominated, the bridge supplies the contradiction |
+| `stmt_maximal_violates_exclusion_holds` | idem | PROVED-UNCONDITIONAL | `:19` — triad | the trap negation: an all-equal spectrum of size ≥ 2 (maximal-curve shape; Fuhrmann alg-geom/9610023 + Tafazolian–Torres 2012 pins, dated) violates the exclusion |
+| `stmt_power_merge_le_holds` | idem | PROVED-UNCONDITIONAL | `:20` — triad | the statement-rung correction's carrier (§10.19's ≤ direction): powered dedup ≤ mapped source dedup |
+| `density_of_all` (private) | idem | PROVED-UNCONDITIONAL | `:21` — triad | the density mechanism (`filter_eq_self`, `Nat.card_Ioc`, `div_self`) — discharges BOTH headline forms |
+| `stmt_ff_ez2_base_change_density_holds` | idem | PROVED-UNCONDITIONAL — M = 1 (the filtered set is everything) | `:22` — triad | the bridge §4 candidate headline, proved |
+| `stmt_ff_ez2_family_form_holds` | idem | PROVED-UNCONDITIONAL — via `HypBaseChangePower` (the Weil :163 binder) | `:23` — triad | the transport form, proved |
+
+**Recorded descope (ONE item, to P2):** `stmt_lpoly_squarefree_iff` (the zeta-side
+`Squarefree` packaging) NOT proved at P1 — deferred to P2 as its own
+translation-layer item, with the census findings in P1.lean's header:
+`separable_prod_X_sub_C_iff'` (`FieldTheory/Separable.lean:316`) does not transfer
+to multiset products without a cons-step needing a `separable_mul`-class API absent
+on this pin; the roots route needs `nodup_roots_iff_of_splits` + the IsAlgClosed
+splits invocation. The def also carries the amendment note: the P0 form is FALSE
+for repeated-zero spectra (`A = {0, 0}`: numerator the unit `1`); the guarded form
+(`0 ∉ baseChange A m` — implied by purity) governs when P2 picks it up.
+**Guard compliance 5/5** (unchanged through P1). **Step-B note:** proof-artifact
+class; the family grows (P2 descope pending) — `AxPilotFFEZ2_P1` TARGETS row rides
+the at-sweep protocol with the family's finalization; the 7/7 in-file surface is
+the landed evidence.
+
+### 10.24 G9 + G13 — StrongPNT preflight + physlib occupation-pair bridge probes — LANDED GREEN 2026-11-17 (runs 36/37 + 38/39, one fix-retry each; lane A8 per R9 §6f, verdict review + row lane A1) — probe-convention, Step-A only, never Step-B stages
+
+*(Folded 2026-11-18 by lane A1 from the MAIN tree (`68be1a2`): records live in
+`qa/iter4-review/a8-22t2a-g9-recommendation.md` §1/§2 + the four persisted logs. Cites
+re-verified on main disk: run36 FAIL `run36-g9.log:8` (rc=1,
+`error(lean.unknownIdentifier)` `atTop` at :51:35 — the spelling class the §14 row-10
+card anticipated), run37 GREEN `run37-g9-fix.log` verdict header `:6` + stage OK
+`:30` (repeat `:37`) ("OK; errors=0, sorry-warnings=2"); run38 FAIL
+`run38-g13.log:5` (rc=1 errors=1, Type mismatch at :107:69), run39 GREEN
+`run39-g13-fix.log` verdict header `:4` + stage OK `:31` (repeat `:38`)
+("OK; errors=0, sorry-warnings=0", `Module.End` anchor printed).
+Main-file shas re-hashed this pass: `ProbeG9_StrongPNT.lean` = `c1f93388d2308073`
+(72 LoC, carries the `open Filter` fix :39–:42 landed `68be1a2` — H's dated correction
+note at `T2a-P0-record.md:77–83` discharges the record's stale "main still lacks the
+fix" fold-note), `ProbeG13_PhyslibOccupation.lean` = `66b9416f0cd6a50a` (142 LoC).)*
+
+| probe | verdict | tokens (Step-A) | notes |
+|---|---|---|---|
+| **G9** StrongPNT donor-statement port (`HypStrongPNT` binder + explicit-`M` asymptotic wrapper + trivial `conditional_shape` consumer) | **GREEN** run 37 (1 fix-retry: `open Filter`); statement-port ≈ 0 CONFIRMED on ff2494ea ⇒ 22-T2a GO (§10.25) | **2** declared probe-class sorries — MAIN file `:51/:67` (= the re-baselined certificate, `iter4-closeout-gates.md` §Mid-wave; the run-37 staged copy printed them at `:48/:63`, +3 header-line drift, A8-F2 class); warm `crossmath-gprobe` doz CLI, wall 29 s, OVER=0 | ψ-object validated by rg in the encore checkout (`Chebyshev.lean:70/:74`, `VonMangoldt.lean:66`, `Pow ℝ ℝ` `Real.lean:37` — the a8 file's PASS table) |
+| **G13** physlib occupation-pair bridge (seed-13 statement + article-52 axiom-layer quotation `M1.lean:37–46` shapes + `CrAnTag`/`normalOrderMirror`/`CrAnFieldOpMirror` mirrors) | **GREEN** run 39 (1 fix-retry: Type-0-uniform σ mirror); elaborates STANDALONE on ff2494ea | **0** — fully sorry-free by design (Prop-defs + trivial binder-consumer) | wall 77 s, OVER=1 mem = the inherent mmapped-olen class (anon flat; AGENTS §5), recorded not escalated; physlib direct route stays DROPPED/fire-gated (R8 verdict) — this is the statement-tier evidence only |
+
+**Standing notes:** both probes are `logs-g/` G-series rows (G-numbers 36–39 continue
+the run counter); donor maps unaffected (no new donor class — StrongPNT stays
+UNREGISTERED external prior art pending T1/T2/T3, RESEARCH.md §Iteration 4);
+Step-B: NO stages ever (probe-convention); the G9 tokens are already inside the
+52-token certificate via the mid-wave re-baseline (`d8f8356`), G13 adds none.
+
+### 10.25 22-T2a P0 — LANDED GREEN 2026-11-17 (run 1, no retry spent; lane A8, orchestrator statement-first GO; folded + re-verified by lane A1) — statement rung, sorry-free by construction, never a Step-B stage
+
+*(Folded 2026-11-18 by lane A1 from the MAIN tree (`3750c48`): record
+`pilots/22/T2a-P0-record.md` + `logs/t2a-p0-run1.log`. Cites re-verified on main disk:
+verdict header `:18` (GREEN — OK rc=0 errors=0 sorry-warnings=0), stage OK `:45`,
+SUMMARY `:53–:55` (wall 31 s at the tele-summary :55, OVER=0, sub-interval wall —
+Modal-rule compliant), decl pins printed live `:47–:49` (`Chebyshev.psi`,
+`ArithmeticFunction.vonMangoldt`, `riemannZeta`); artifact sha `1b3d117662eb6cc8`,
+99 LoC; the file's 3 `sorry` strings
+(`:4/:6/:12`) are header prose — ZERO tokens, classifier-confirmed. Staging note: the
+gprobe auto-glob matches `ProbeG*.lean` only, so the artifact staged as
+`ProbeGT2aP0.lean`, byte-identical — mapping recorded in the log header :9–:12; the
+pre-charter invocation `ap-ly9Pm…` was a zero-compute local SystemExit, not a run.)*
+
+**T2a-P0.lean (statement layer — four Prop-defs + three live decl pins, pilot-22
+house style per `ProbeP1_PNT.lean`):** `HypQRHzeta` (the Liu-1-verbatim quotation of
+`OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` — on mathlib's own `riemannZeta`,
+verbatim-on-pin), `HypStrongPNT` (G9's binder, verbatim), `stmt_T2a` (blueprint :285
+shape: ∀ ε > 0, ∃ C : ℝ, ∀ x ≥ 2, |ψ x − x| ≤ C · x^(7/8+ε)), and
+`stmt_T2a_of_QRH : HypQRHzeta → stmt_T2a` (the conditional P1 target). All elaborate
+on ff2494ea; no donor imports (binders only — the Liu-1 convention).
+
+**Billing + rule state:** technical-record tier (minutes-class; never discovery
+billing — r3 §7 relabel, r5 backlog :349); **the pre-registered FB-2/PNT+ T2 rule is
+NOT fired** (antecedent = an FB-2 PNT-AP pilot, not this ψ-error statement tranche) —
+PNT+ stays UNREGISTERED, T1/T3 unfired. P1 (the explicit-formula proof) = L-grade,
+iteration-5-or-explicit-charter question; machinery candidates recorded side-by-side in
+the record (upstream ψ-engine as binder / mathlib `WienerIkehara` + pilot-22 M2 layer /
+pilot-50 G7b binder discipline). Step-B: NO stage (zero-sorry statement rung;
+probe-convention class); Step-A: 0 tokens.
+
+### 10.26 10-D2 FINAL GREEN + 10-D3 GREEN — D-tranche D1/D2/D3 COMPLETE, D4 → iteration-5 (lane A6, charter rulings D2-completion GO + D3 GO, 2026-11-17; folded + re-verified by lane A1) — plumbing billing, never novelty; SUPERSEDES §10.20's PARTIAL verdict
+
+*(Folded 2026-11-18 by lane A1 from the MAIN tree (`0677eae` + `9dc6684`): records
+`pilots/10/D2-record.md` (FINAL header + COMPLETION BLOCK) + `D3-record.md`; logs
+`logs/d2-run3.log` (completion attempts 1–5), `logs/d2-run4.log` (the two closure
+runs), `logs/d3-run1.log`. Cites re-verified on main disk: d2-run4 header `:1`
+(VERDICT: D2 FULLY GREEN; the diagnosed one-token fix took TWO tokens on the same
+line — `(n := f x)` + dropping `.symm` — disclosed as one run beyond the ruling's
+"single run"), closure-run-1 intermediate `:14` (FAIL rc=1 errors=1) with
+`padM'_isPolyT [propext, sorryAx, …]` at `:42/:56` = the run-12 `.symm`-residual
+INTERMEDIATE state, superseded — never read as final evidence (§10.20's d2-run1:64
+precedent), closure-run-2 GREEN `:82/:144` with the headline
+`padM'_isPolyT [propext, Classical.choice, Quot.sound]` at `:110/:141`; d3-run1
+verdict `:15` (L5.lean OK FIRST RUN — rc=0, 0 errors, 0 sorry-warnings), triad prints
+`:44/:45` (repeats `:75/:76`), telemetry `:80` (wall 65 s, OVER=1 mem = mmapped-olen
+class). Final shas re-hashed this pass: `L4.lean` = `4ae0d6435e351128` (4,195 LoC),
+`L5.lean` = `da398f2170288acb` (4,248 LoC = 16-line D3 header + L4 verbatim + Part H
+37 lines).)*
+
+**D2 FINAL (L4.lean, run 13 of the descent):** the FULL Closure subset for the counter
+machine GREEN — headline `Groundwork.PadC.padM'_isPolyT` triad (all three fields: init
+via `padM'_init_polyT` [triad] + `padM'_init_eq` rfl-bridge `[propext, Quot.sound]`;
+step via the fun_prop database fed by `decide_le`/`log2log'`/`mul`; out via
+`padM'_out_polyT` [triad]); new surface printed triad incl. `canary_init`,
+`canary_pair`, `carried_σ [propext, Quot.sound]`, `PolyT.decide_le/log2'/mul`,
+`foldl_add`, `foldr`; + Part E/D substrate re-verified. **Root-cause finding (recorded,
+the completion's mathematical content):** `Nat.log2` is only LEMMA-equal to `Nat.log 2`
+at this pin (`Nat.log2_eq_log_two`, `Log.lean:308`), NOT defeq — the cause of the
+step-field defeq failures; D2 statements must branch on `Nat.log 2` with the
+lemma-level `log2log'` bridge in the fun_prop database. Route A (fun_prop over the
+user class) fully validated — 0 churn on ~500 verbatim lines (eth Closure/Fold +
+Nat1/Nat1b/Nat2 numeric layer all landed GREEN in d2-run3, one-token-out state
+`425db76c…` disclosed in-log).
+
+**D3 (L5.lean, run 1 of ≤4):** `Groundwork.PadC.pad_bound` (eth `Pad.lean:98–109`
+VERBATIM — the host bound is polynomial in `l + 2^e + 1`) and
+`Groundwork.PadC.padded_time_absorb` (the spec's §2 D3: our middle factor `(l+1)^c` is
+smaller, so the bound absorbs with eth's own final constant `q := c·4^(c+1) + (c+1)`)
+— both `[propext, Classical.choice, Quot.sound]`; one pin-adjustment
+(`Nat.pow_le_pow_right` → `pow_le_pow_right'`, the Part-E-precedent Unbundled name).
+
+**Tranche state:** D1 (§10.17) + D2 FINAL + D3 = **D-tranche complete for iteration 4**;
+D4 (`exists_tm_padded_space` — all inputs now exist) UNCHARTERED → iteration-5 M-arc
+decision (orchestrator ruling at wrap; value-polynomiality binder `hv` supply is the
+charter owner's question). §10.20's PARTIAL verdict and its "queued 2-line fix NOT
+applied" state are SUPERSEDED by this row (the queued fix landed, transformed into the
+two-token closure disclosed above). Step-B: **single tranche-final TARGETS anchor
+`AxPilot10_L5` (`pilots/10/L5.lean`) — orchestrator ruling 2026-11-18** (L5 embeds
+L4/L3 verbatim ⇒ one full-coverage custody stage covers the tranche's final theorem
+state; H applying the row in `make_axcheck.py`; supersedes §10.17's and §10.20(iii)'s
+at-sweep phrasings — L3/L4 remain this table's historical citations; reconciliation
+note at FINAL-SWEEP-PLAN-ITER4 §0/§7d); Step-A: 0 real tokens on L4/L5 (header prose
+only — classifier-confirmed this pass).
+
+### 10.27 77-T1 — NOT-GREEN, honest stop at the 5-run budget (lane A7, 2026-11-17; folded + re-verified by lane A1) — the two derived T1-statement corrections stand as record; residue site-local; T1-completion + T2 re-chartered as ONE unit
+
+*(Folded 2026-11-18 by lane A1 from the MAIN tree (`c536994`): record
+`pilots/77/T1-record.md` + `T1.lean` + five logs. Cites re-verified on main disk: the
+runs table (record :100–:107 — errors 50→39→37→38→**31**, walls 73–102 s, run-1 wall
+incl. the tauceti lineage build), the two corrections (record :21–:39),
+`annihilator_square`/`annihilator_anticommute` GREEN runs 2–5 (record :46), the clock
+block (record :79–:85 — physlib `pushed_at` = 2026-11-17T09:42:38Z at BOTH ticks,
+charter condition (iii) held), the substrate line (record :16–:19 — tauceti own-lineage
+image builds: clone `d92acc5c` → manifest mathlib `1b1ccf4b` cache-hit → `lake build`
+of the two GeneralLinear modules); `T1.lean` sha `f365c4c52b970d27`, 781 LoC — **0
+real sorry tokens** (the single `sorry` string at `:11` is header prose "zero `sorry`";
+the run logs' sorryAx lines are error-sorry artifacts of failed proofs, superseded
+class — §10.20/:64 and §10.21 precedents).)*
+
+**What the NOT-GREEN establishes (all standing independent of GREEN):**
+
+1. **Correction 1 — drafted T1(ii) dimensionally unsound:** no unital
+   `CliffordAlgebra (TauCeti.traceQuadraticForm ℂ N) →ₐ FockMatrix Q` hom past
+   `N * N > 2 * (Q + 1)` (trace form nondegenerate ⇒ Cl is simple of dim `2^(N·N)` vs
+   `FockMatrix Q`'s `2^(2(Q+1))`); the even-subalgebra injectivity claim conflated Fock
+   space with its endomorphism algebra. The executed dictionary lives on the hyperbolic
+   submodel `V` of rank `2 * (Q + 1)`.
+2. **Correction 2 — drafted T1(i) ill-typed:** tauceti's `carOccupationElement i j`
+   are idempotent + mutually commuting (`CAR/Occupation.lean:121/:138`); the drafted
+   images `annihilator† * annihilator` are neither — the corrected dictionary
+   intertwines hyperbolic occupation elements with the NUMBER OPERATORS
+   `creator * annihilator` (diagonal, idempotent, commuting — `creator_mul_annihilator`).
+3. **Substrate line fully proven** (tauceti donor-tree class — elaboration INSIDE the
+   tauceti own-lineage image at manifest mathlib `1b1ccf4b`, not ff2494ea; the
+   `zeta23e` D-PIN row pattern, §10.5); math closed (`annihilator_anticommute` GREEN
+   runs 2–5); 31 residuals all proof-mechanics (one name fix `Matrix.mul_conjTranspose`
+   → `conjTranspose_mul`; pairBilin/toFock field finishes; eAB sum gymnastics; polar
+   trio ite-sum orientations; `fockDictionary` lift arity) — the work list for the
+   re-chartered unit.
+4. **Clock stable both ticks** — the T1 novelty condition held throughout.
+
+**Re-charter (recorded at wrap):** T1-completion (~1–2 runs, relaxed budget) + T2 as
+ONE unit, the residue census as its work list; the two corrections fold into dossier
+77's T1 statement (honest narrowing: hyperbolic submodel, number-operator images).
+**In flight (wave-3, agent-08) — this row is the LANDED baseline, not the unit's
+final state.** Step-B: no stage until the unit lands GREEN (verified-red artifact);
+Step-A: 0 real tokens.
+
+### 10.28 FF-EZ2 P2 — LANDED GREEN 2026-11-18 (run 2 of ≤3; lane A3 descope-closure charter; folded + re-verified by lane A1) — the P0→P1→P2 charter FULLY CLOSED; formalization-first, never discovery billing
+
+*(Folded 2026-11-18 by lane A1 from the MAIN tree (record `pilots/ff-ez2/P2-record.md`
++ logs `p2-run1/p2-run2.log`, byte-identical in worktree agent-04): verdict
+`p2-run2.log:19` (P2.lean OK, sorry-strict, rc=0, 0 errors, 0 Lean sorry-warnings), the
+9/9 triad prints `:42–:50` (repeats `:52–:60`) — 4 public + 5 private, each
+`[propext, Classical.choice, Quot.sound]` in the FULL spelling; telemetry `:39/:64`
+(wall 70 s, cpu 0.56, mem 7641 MB OVER=1 = the inherent mmapped-olen class with the
+in-log §3 investigation note :12–:16 — recorded, not escalated); run 1 FAIL rc=1
+errors=2 both in the `hroots` step (`p2-run1.log:12`, rewrite/application-type at
+`:26/:37`), one fix-retry. Artifact sha `24926ac4cbbcdd50` ✓, 207 LoC ✓ (≤0.3k
+guard); the file's single `sorry` string (`:3`) is header prose — 0 real tokens,
+classifier-verified. Mathlib-only imports, self-contained P0-def carry, ZERO donor
+imports — the §7a Mathlib-only-imports check DISCHARGED.)*
+
+**P2.lean (the P1 descope, closed):** headline
+`stmt_lpoly_squarefree_iff_holds` — the GUARDED squarefree-iff
+`0 ∉ baseChange A m → (Squarefree (lPolyM A m) ↔ ZerosSimpleAt A m)` for all A, m
+(the unguarded P0 form is false per the P1 amendment; the guard governs exactly as
+§10.23 prescribed; route = the roots bypass of the
+`separable_prod_X_sub_C_iff'` blocker: `roots_multiset_prod` + `bind_map`);
+`zeros_simple_iff_squarefree_of_purity` (the purity-guarded equivalence);
+`guard_of_purity`; the optional proportion rung `stmt_simple_proportion_le_holds`
+(unconditional ≤ 1, landed in-budget); privates `factor_ne_zero`, `roots_one_sub`,
+`inv_injective`, `nodup_map_inv`, `nodup_of_map_inv`. **Axiom-spelling closure
+(charter item 5):** the P1 open-Classical display finding did NOT recur — P2 needs no
+classical decidability, prints the full `Classical.choice` spelling; §10.23's
+characterization stands.
+
+**Family state: FF-EZ2 P0 (§10.19) → P1 (§10.23) → P2 (this row) — charter FULLY
+CLOSED; no open descopes.** Step-B: family final ⇒ the at-sweep protocol FIRES —
+full-coverage custody stages for `P1.lean` + `P2.lean` (`AxPilotFFEZ2_P1/_P2`,
+§7d-updated); Step-A: 0 tokens both files. Billing: technical-record tier (battery
+"warm-up grade" verdict stands — nothing discovery-grade); debt g already CLOSED at
+the battery (REPORT-INPUTS §2).
+
 —
 
 *Sources: all log lines above were read directly in the R3 audit
@@ -1462,4 +1701,32 @@ P0 sha 52c5b9f77344e0ed; stub lines drift :85/:123/:128→:104/:142/:147,
 stepA entry 3) + §10.22 75-N2 P1 M1 CHECKPOINT (A5's record from agent-06 — core
 4/4 triad `n2-p1-run7.log:175–:178` incl. the c-trick; packaging 3 IN-PROGRESS
 with v8 fixes on disk UNVERIFIED; the +1 closure deviation documented; honest
-checkpoint, not final).
+checkpoint, not final). Fifteenth batch: §10.23 FF-EZ2 P1 GREEN (A3's record from
+agent-04 — 7/7 triad `p1-run4.log:17–:23` incl. `zeros_simple_all` + both density
+statements; the open-Classical axiom-SPELLING note carried — `choice` =
+`Classical.choice` relativized, same axiom, display spelling; the
+squarefree-packaging descope to P2 recorded). Sixteenth batch (2026-11-18, wave-3
+restart): §10.23's provenance re-based to the MAIN tree (record landed `570f3e9`;
+repeats range-corrected `:43–:49`; the log's 2 sorry strings = RESULT/NOTE prose) +
+the five rows the terminated session's wrap left unfolded, all folded from MAIN
+records per the file-funnel ruling (A3's stale agent-04 copy is NOT a source):
+§10.24 G9+G13 (runs 36–39; G9's 2 declared sorries = the certificate's re-baselined
+`:51/:67`, main-file sha c1f93388d2308073 with the `open Filter` fix landed 68be1a2 —
+H's dated correction at T2a-P0-record.md:77–:83 discharges the stale fold-note);
+§10.25 22-T2a P0 (run 1 GREEN, 0 tokens, T2-NOT-FIRED declaration carried, sha
+1b3d117662eb6cc8); §10.26 10-D2 FINAL + 10-D3 (d2-run4 two-token closure disclosed;
+run-12 intermediate sorryAx marked superseded; L4 sha 4ae0d6435e351128 / L5 sha
+da398f2170288acb; SUPERSEDES §10.20's PARTIAL verdict; D4 → iter-5); §10.27 77-T1
+NOT-GREEN honest stop (the two derived T1 corrections as record; tauceti
+donor-tree substrate line at manifest mathlib 1b1ccf4b; 0 real tokens; T1-completion
++ T2 re-chartered, in flight agent-08). Fold-audit scope f4511af..2f90dcc swept —
+every landed pilot/probe in the range now has a §10 row; the five wave-3 in-flight
+units (A3 FF-EZ2-P2, A4 AL-P2-c/d/e, A5 N2-P1 closure+M2/M3, A7 77-T1/T2, A8 74-P1
+completion) deliberately NOT folded (not landed). Seventeenth batch (2026-11-18, fold
+relay #4): §10.28 FF-EZ2 P2 GREEN (A3's record, main-tree verified — run 2 of ≤3,
+9/9 triad full-spelling incl. the guarded squarefree-iff headline + the optional
+proportion rung; P0→P1→P2 charter FULLY CLOSED; the at-sweep custody stages
+AxPilotFFEZ2_P1/_P2 now fire — §7d updated in the same pass). §10.26's Step-B note
+RECONCILED to the orchestrator's single-anchor ruling (AxPilot10_L5) with the FINAL-
+SWEEP §0/§7d reconciliation notes. Remaining in-flight folds owed: AL-P2 c/d/e (A4),
+N2-P1 closure + M2/M3 (A5), 77-T1/T2 (A7), 74-P1 completion (A8).

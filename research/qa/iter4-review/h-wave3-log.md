@@ -357,3 +357,19 @@ routing.
 - Close-act readiness note: Step 3's [PENDING-TALLY]/[PENDING-N-TABLES]/
   [PENDING-VERDICT-COUNTS] fills are now scaffold-driven (A1 folds MULTI/
   NO-MACHINE-CENSUS flags manually BEFORE numbers are quoted, per the runbook).
+
+## 2026-11-18 — LANDING part 1: A1 verification pass (H batch)
+
+- Pulled from worktree agent-02 as ONE exact-file batch (4 files, all A1-ONLY funnel
+  surfaces): `r3-verification-tables.md` (§10.23 finalize + §10.24–§10.28 + changelog
+  batches 16–17; 268 added lines) + `qa/iter4-closeout-gates.md` (wave-3 readiness
+  appendix incl. the corrected G5 check; +40 pure-addition) +
+  `feasibility/probe/FINAL-SWEEP-PLAN-ITER4.md` (§7d wave-2-tail inventory update +
+  the AxPilot10_L5 ruling supersession notes folded by A1) +
+  `feasibility/probe/logs/stepA-incremental-iter4.log` (ENTRY 4 + P2 addendum; +20
+  pure-append). Sync verified before copy: wt copies carry current-main landmarks
+  (§10.22, ENTRY 3); the two main-only diff lines are A1's intentional replacements
+  (ruling fold + reconciliation text) — clean fast-forward, no foreign content loss.
+- Classifier state per ENTRY 4: **52 exact** (the re-baselined certificate holds; P2
+  addendum appends FF-EZ2-P2's declared sorry-token count = 0 new tokens, run
+  sorry-strict).
