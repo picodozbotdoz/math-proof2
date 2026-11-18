@@ -192,3 +192,24 @@ arrives: commit from the manifest + the report's file list; no improvisation.**
 Manifest refresh rule: recompute at each landing batch (dirty lists move fast once lanes
 resume); the LANDED-NOOP sets shrink the pull to exactly the reported payload + funnel
 routing.
+
+## 2026-11-18 — LANDING: A2 close-act runbook + draft refresh (H batch)
+
+- Pulled from worktree agent-03 as ONE exact-file batch: NEW
+  `qa/iter4-review/a2-close-act-runbook.md` (300 LoC, 20 steps / 5 phases, PREP-ONLY /
+  apply-gated) + MODIFIED `qa/iter4-review/a2-close-summary-draft.md` (A2's surgical
+  refresh: 6 placeholder-drift fixes + dated REFRESH RECORD). Fast-forward exception
+  verified before copy: main's last touch `a42dc77` = A2's own landing; diff = only
+  A2's own edits (census sentence re-quoted, §C rows 4–7 source-drift folds, MOOT note
+  on [SUBTITLE-FINAL]). INDEX row staged same-commit (new research/ file). Tracker A2
+  row refreshed in the same commit.
+- `a2-g7-token-inventory.md` NOT pulled — byte-identical to main (`f53091cd…`), the
+  frozen record confirmed untouched by design.
+- **G7 correction recorded (A2's finding, relayed to A1 for the gates file):** census
+  corrected **34 → 46 sites (40 close / 6 retarget-iter-5 / 0 needs-ruling)** — 12
+  pre-existing missed sites (present since `de56e68`) + 1 anchor drift (SCAN FF-EZ2
+  :90 → :105); new retarget-iter-5 site = L3-spec:187 (L3b–d + interface open).
+- Infra note (mid-write race): agent-03's two files were being written at first probe
+  (draft transiently absent between `status` and hash); re-verified stable at 19:58,
+  byte-compared post-copy (BOTH-IDENTICAL). Lesson applied: hash → copy → `cmp` in one
+  pass for fresh-mtime landings.

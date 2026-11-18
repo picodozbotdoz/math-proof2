@@ -26,7 +26,7 @@ G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator 
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (branch, commits, tracker) | wave-3 open stamp; substrate notary re-verify; standing commit duty | active | 2026-11-18 |
 | A1 | agent-02 | verification integrity | pre-close folds (§10 rows for the five in-flight units as they land) | re-tasked | 2026-11-18 |
-| A2 | agent-03 | bench/close-out | close-act dry-run runbook + G7 token inventory re-check | re-tasked | 2026-11-18 |
+| A2 | agent-03 | bench/close-out | close-act runbook LANDED (`a2-close-act-runbook.md`, 20 steps/5 phases, apply-gated) + close-summary draft refreshed; G7 census corrected 34→46 (40 close / 6 retarget / 0 needs-ruling; A1 relayed for gates file); close-support standby | close-support standby | 2026-11-18 |
 | A3 | agent-04 | FF-EZ2 + articles 71/22 | FF-EZ2-P2 descope-closure (guarded squarefree-iff + optional proportion, ≤3 runs) | in-flight (resumed) | 2026-11-18 |
 | A4 | agent-05 | AL-3D P2 | AL-P2-c completion (path a: Fin.cast+Subtype plumbing) → P2-d → P2-e (fresh ≤4) | in-flight (resumed) | 2026-11-18 |
 | A5 | agent-06 | 75-N2 consumer | N2-P1 packaging closure (v8 on disk, one closure run) → M2 → M3 | in-flight (resumed) | 2026-11-18 |
