@@ -496,7 +496,7 @@ Bar: `qa/iter4-review/r2-discovery-strength.md` §4.
   quoted (contradicted by zeta23e P0's GREEN in-tree elaboration — low risk), or a
   uniform-over-L informal prior appearing (monitored at article time).
 
-## Milestone status (A5, updated 2026-11-18 — runs 9–15 of the wave-3 session)
+## Milestone status (A5, updated 2026-11-18 post-M3 — runs 9–19)
 
 - **P0 GREEN** (15/15 triad, `pilots/75/logs/n2-p0-run4.log`; unchanged).
 - **P1 M1 GREEN-triad 7/7** — the full P1-a dictionary layer:
@@ -510,16 +510,29 @@ Bar: `qa/iter4-review/r2-discovery-strength.md` §4.
   run 15 (`logs/n2-p1-run15.log`, sha 2e5217010e46…; 8/8 file decls triad-clean,
   0 sorry). **Components (i) and (ii) of `HasQDirichletDictionary`
   (`N2-P0.lean:152`) are now kernel-verified theorems.**
-- **M3 deferred** (honest budget accounting in `pilots/75/N2-P1-record.md`):
-  principality transfer (iii), q = 1 degeneracy, the identity-theorem
-  extension, the composed transfer — specced (§Proof-strategy steps 1(iii)/3),
-  priced ≈0.15–0.25k LoC, not started. P2/P3 recommendations unchanged (GO).
+- **P1 M3 GREEN-triad 6/6 — P1 COMPLETE** (re-task session, runs 16–19,
+  `logs/n2-p1-run19.log`, sha ca1089e2a0c1…; 14/14 file decls triad-clean,
+  0 sorry): `ratCharOf_eq_one_iff` (principality transfer, N2-a(iii)),
+  `isPrincipal_of_modulus_one` (q = 1 degeneracy), `identity_theorem_extension`
+  (the DZDF EntireAbelianQuotient pattern on our pin — half-plane → ℂ∖{1}),
+  **`hasQDirichletDictionary` (N2-a DISCHARGED: the full dictionary Prop is a
+  kernel-verified theorem)**, `factorization_identity_extension` (the
+  `hAbFacQ : ∀ s ≠ 1` bridge the engine consumes),
+  `dirichletFactorizationTransfer` (the composed transfer, corrected shape).
+- **STATEMENT FIND (find-#4 precedent class): `DirichletFactorizationTransferQ`
+  (`N2-P0.lean:166`) as literally stated is NOT provable** — it omits the
+  nonprincipality hypothesis (`∀ i, ¬IsDZDFPrincipalQ (m i) (χ i)`) while
+  asserting `ψ i ≠ 1` in the conclusion; a principal family with fK ≠ 0 on the
+  half-plane refutes it (coefficient comparison). M3-e carries `hnp` explicit
+  and lands GREEN-triad; the one-line N2-P0 amendment is owed at the next
+  P0-touching commit (P0's elaboration ledger unaffected). Recorded in-decl
+  (`N2-P1.lean:641`), in the P1 record, and here.
 - Billing note (unchanged by the landings): the dictionary remains
   FORMALIZATION-novel only (classical per Milne; the A7 pre-shipping sweep's
   two mandatory nearest-miss rows stand); the discovery claim rests on the
-  composed N2-d statement, which awaits M3 + P2 + P3. The S1–S4 self-assessment
-  "what hardens it" item (ii) is now PARTIALLY satisfied (P1 M1+M2 triad-only;
-  P1-M3/P2/P3 pending).
+  composed N2-d statement, which now awaits ONLY P2 (hEχ port) + P3 (V2 ζ-column
+  landing). The S1–S4 self-assessment "what hardens it" item (ii) is now
+  substantially satisfied for the P1 layer (14/14 triad-only; P2/P3 pending).
 
 
 

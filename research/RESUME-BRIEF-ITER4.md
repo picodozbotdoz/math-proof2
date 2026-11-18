@@ -367,7 +367,10 @@ signal after the five units land. **Landing progress: FF-EZ2-P2 GREEN (A3/agent-
 A5 N2 closure→M2/M3, A7 77-T1+T2, A8 74-P1). **Unit 2 of 5 down (2026-11-18, later):
 N2-P1 closure + M2 GREEN-triad** — `heckeTsum_eq_ratCharOf_LFunction` kernel-verified
 (8/8 file triad, run 15, sha `2e521701`); M3 deferred honestly → iter-5 (GO rec).
-Remaining: A4, A7, A8.
+**Superseded same day: M3 GREEN-triad (run 19: 14/14 decls, sha `ca1089e2`) — N2-P1
+COMPLETE; `hasQDirichletDictionary` kernel-verified = N2-a DISCHARGED; FIND: the P0
+:166 transfer statement omits the ¬IsDZDFPrincipalQ antecedent (one-line P0 amendment
+owed).** Remaining: A4, A7, A8.
 
 ### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
 

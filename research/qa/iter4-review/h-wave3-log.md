@@ -643,3 +643,24 @@ routing.
   (residual `sorry` strings are doc/prose — classifier-absorbed; A1's ENTRY-5
   per-line read stands). Recorded here per the entry's instruction.
 - Tracker A1 row refreshed. Three slots left (A4/A7/A8).
+
+## 2026-11-18 — LANDING: A5 N2 M3 GREEN — P1 COMPLETE (supersedes §10.29 state; H batch)
+
+- Pulled from worktree agent-06 as ONE exact-file batch: `pilots/75/N2-P1.lean` v19
+  (**sha256(16) `ca1089e2a0c122c4`**; 713 LoC by `wc -l` — the report's "707" is a
+  content-line count; sha is the bytes-of-record authority) + `N2-P1-record.md`
+  (rewritten: FIND + 19-run ledger + P2/P3 recs) + `logs/n2-p1-run{16..19}.log`
+  (4 verify-fire logs; **M3 in 4 runs, 2 under budget**) + dossier milestone-status
+  (**N2-d awaits only P2+P3**). Run-19 verdict verified: **rc=0, 0 errors, 0 sorry
+  tokens; 14/14 file declarations triad** incl. the six M3 theorems —
+  `hasQDirichletDictionary` (:610, **N2-a DISCHARGED**, full dictionary Prop
+  kernel-verified) + `dirichletFactorizationTransfer` (:651, composed transfer,
+  explicit hnp).
+- **STATEMENT FIND (find-#4 precedent class) now on record:** `N2-P0.lean:166`'s
+  `DirichletFactorizationTransferQ` NOT provable as stated (omits the
+  ¬IsDZDFPrincipalQ antecedent; principal-family counterexample by coefficient
+  comparison) — recorded in-decl (:641), record, dossier; **one-line P0 amendment
+  owed = A5's next unit.**
+- TARGETS row UNCHANGED per instruction (same path; A1's next fold carries the new
+  sha — the in-row sha `2e521701` is now historical). INDEX row added; tracker A5
+  row + brief scoreboard supersession note.

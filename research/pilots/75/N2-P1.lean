@@ -89,6 +89,31 @@ ofBijective projection), never at rw-reducible level; the final bridge uses
 `LSeries.term_def₀` + the definitional `LSeries`-unfold at `exact`, avoiding
 any convergence-side work (tsum reindexing along an Equiv is unconditional).
 
+RUN-16 NOTE (M3 append, 2026-11-18 — orchestrator re-task, fresh ≤6-run
+budget): the M3 block (P1-c/d) per dossier §Proof-strategy steps 1(iii)/3:
+principality transfer (`ratCharOf_eq_one_iff` — via `MulChar.ext` +
+`MulChar.one_apply_coe`, sup-bridge and `Units.ne_zero`, all in-file/pinned);
+q = 1 degeneracy (`isPrincipal_of_modulus_one` — `Unique (ZMod 1)` instance,
+ZMod/Defs.lean:153); the identity-theorem extension
+(`identity_theorem_extension`) — the DONOR'S VERBATIM PATTERN from
+`DedekindZetaZeroFree/…/EntireAbelianQuotient.lean:34-49`, itself elaborated
+on our pin: `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq` (Analysis/
+Analytic/Uniqueness.lean:224, six-arg form) with
+`isConnected_compl_singleton_of_one_lt_rank` (Analysis/Normed/Module/
+Connected.lean:126) + `Complex.rank_real_complex` and seed z₀ = 2; the
+composed dictionary (`hasQDirichletDictionary` — N2-a discharged);
+the composed extension (`factorization_identity_extension` — products of
+entire LFunctions via `Differentiable.fun_finsetProd` +
+`DirichletCharacter.differentiable_LFunction`, P0's own call shape);
+and the composed transfer (`dirichletFactorizationTransfer` — `choose`
+over the family + `Finset.prod_congr` + the q=1-forced-triviality via
+`ZMod.val_lt`+omega, NO dependent transport). STATEMENT-FIND (find-#4
+precedent class, recorded in-decl + dossier + record): N2-P0's
+`DirichletFactorizationTransferQ` as literally stated is NOT provable —
+missing the nonprincipality hypothesis (counterexample class: principal
+family, fK nonzero on the half-plane); M3-e carries `hnp` explicit and the
+P0 amendment is owed.
+
 mathlib pin ff2494ea @ v4.36.0-rc2.
 -/
 import N2P0
@@ -491,6 +516,182 @@ theorem heckeTsum_eq_ratCharOf_LFunction
         rw [← hLS, ← ZMod.LFunction_eq_LSeries (ratCharOf hχ hq) hs]
         rfl
 
+/-! ### M3 (P1-c/d) — principality transfer, the q = 1 degeneracy, the
+identity-theorem extension, the composed transfer -/
+
+/-- Cast-zero transport for the ℚ ideal layer (used at `span {↑k} ≠ ⊥`). -/
+private theorem natCast_eq_zero_iff {k : ℕ} : ((k : ℕ) : 𝓞 ℚ) = 0 ↔ k = 0 := by
+  constructor
+  · intro h
+    have h2 : (Rat.ringOfIntegersEquiv : 𝓞 ℚ →+* ℤ) ((k : ℕ) : 𝓞 ℚ) = 0 := by
+      rw [h, map_zero]
+    rw [map_natCast] at h2
+    omega
+  · intro h
+    rw [h, Nat.cast_zero]
+
+/-- **M3-a (P1-c, principality transfer)** — dictionary component (iii): the
+DZDF character is trivial on the coprime cone iff the Dirichlet character it
+induces is trivial (so DZDF nonprincipality delivers the `ψ ≠ 1` that the
+engine's entireness input needs). -/
+theorem ratCharOf_eq_one_iff (hχ : IsDZDFRayClassCharacterQ (Ideal.span {(q : 𝓞 ℚ)}) χ)
+    (hq : 1 < q) :
+    IsDZDFPrincipalQ (Ideal.span {(q : 𝓞 ℚ)}) χ ↔ ratCharOf hχ hq = 1 := by
+  have hq0 : q ≠ 0 := by omega
+  have iN : NeZero q := ⟨hq0⟩
+  haveI iF : Fact (1 < q) := ⟨hq⟩
+  constructor
+  · intro hpr
+    refine MulChar.ext fun u => ?_
+    have huv : ratCharOf hχ hq ((u : ZMod q))
+        = χ (Ideal.span {(((u : ZMod q).val : ℕ) : 𝓞 ℚ)}) := by
+      show (MulChar.ofUnitHom (chiUnitHom hχ hq)) ((u : ZMod q)) = _
+      rw [MulChar.ofUnitHom_coe]
+      rfl
+    have hvne : ((u : ZMod q).val : ℕ) ≠ 0 := by
+      intro h0
+      refine Units.ne_zero u ?_
+      have hcoe : ((u : ZMod q)) = (((u : ZMod q).val : ℕ) : ZMod q) :=
+        (ZMod.natCast_zmod_val (u : ZMod q)).symm
+      rw [hcoe, h0, Nat.cast_zero]
+    have hne : Ideal.span {(((u : ZMod q).val : ℕ) : 𝓞 ℚ)} ≠ ⊥ := fun hbot =>
+      hvne (natCast_eq_zero_iff.mp
+        ((Ideal.span_singleton_eq_bot (α := 𝓞 ℚ) (x := ((u : ZMod q).val : ℕ))).mp hbot))
+    have hsup : Ideal.span {(((u : ZMod q).val : ℕ) : 𝓞 ℚ)} ⊔ Ideal.span {(q : 𝓞 ℚ)} = ⊤ := by
+      refine sup_eq_top_of_isUnit hq0 ?_
+      rw [ZMod.natCast_zmod_val]
+      exact Units.isUnit u
+    rw [huv, hpr _ hne hsup, MulChar.one_apply_coe]
+  · intro h1 I hI hsup
+    obtain ⟨k, hk0, hk⟩ := exists_nat_span hI
+    rw [hk, ratCharOf_apply hχ hq k, h1]
+    rw [hk] at hsup
+    have hu : IsUnit (((k : ℕ) : ZMod q)) := isUnit_of_sup_eq_top hq0 hsup
+    rw [← hu.unit_spec, MulChar.one_apply_coe]
+
+/-- **M3-b (P1-c, the q = 1 degeneracy)** — at the modulus (1) of 𝓞 ℚ every
+DZDF ray-class character is already principal (`ZMod 1` is a subsingleton:
+every k satisfies k ≡ 1 mod 1, so `chi_span_eq_one` fires unconditionally).
+This is what forces q > 1 in any nonprincipal factorization family. -/
+theorem isPrincipal_of_modulus_one (hχ : IsDZDFRayClassCharacterQ
+    (Ideal.span {((1 : ℕ) : 𝓞 ℚ)}) χ) :
+    IsDZDFPrincipalQ (Ideal.span {((1 : ℕ) : 𝓞 ℚ)}) χ := by
+  intro I hI _
+  obtain ⟨k, hk0, hk⟩ := exists_nat_span hI
+  rw [hk]
+  exact chi_span_eq_one hχ one_ne_zero hk0 (Subsingleton.elim _ _)
+
+/-- **M3-c (P1-c, the identity-theorem extension)** — the DZDF
+`EntireAbelianQuotient.lean:34–49` pattern: two functions differentiable on
+ℂ∖{1} that agree on the half-plane ℜs > 1 agree everywhere off {1} (the
+punctured plane is connected — `isConnected_compl_singleton_of_one_lt_rank` —
+and the agreement spreads from the seed point z₀ = 2 via
+`AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`). -/
+theorem identity_theorem_extension {f g : ℂ → ℂ}
+    (hf : DifferentiableOn ℂ f ({1}ᶜ : Set ℂ)) (hg : DifferentiableOn ℂ g ({1}ᶜ : Set ℂ))
+    (hEq : ∀ s : ℂ, 1 < s.re → f s = g s) : ∀ s : ℂ, s ≠ 1 → f s = g s := by
+  have hmain : Set.EqOn f g ({1}ᶜ : Set ℂ) :=
+    AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq (𝕜 := ℂ)
+      (hf.analyticOnNhd isOpen_compl_singleton)
+      (hg.analyticOnNhd isOpen_compl_singleton)
+      ((isConnected_compl_singleton_of_one_lt_rank
+        (by rw [Complex.rank_real_complex]; norm_num) (1 : ℂ)).isPreconnected)
+      (z₀ := (2 : ℂ))
+      (by simp)
+      (Filter.eventually_of_mem
+        ((Complex.continuous_re.isOpen_preimage (Set.Ioi 1) isOpen_Ioi).mem_nhds
+          (by simp : 1 < (2 : ℂ).re)) fun s hs => hEq s hs)
+  exact fun s hs => hmain (by simpa using hs)
+
+/-- **M3-d (P1-c, the composed dictionary)** — the N2-a dictionary Prop is
+discharged at every `1 < q`: `HasQDirichletDictionary` holds with the
+canonical ψ := ratCharOf (components (i) `ratCharOf_apply`, (ii)
+`heckeTsum_eq_ratCharOf_LFunction`, (iii) `ratCharOf_eq_one_iff`). -/
+theorem hasQDirichletDictionary (hχ : IsDZDFRayClassCharacterQ (Ideal.span {(q : 𝓞 ℚ)}) χ)
+    (hq : 1 < q) : HasQDirichletDictionary (Ideal.span {(q : 𝓞 ℚ)}) χ :=
+  ⟨q, by omega, rfl, ratCharOf hχ hq,
+    ratCharOf_apply hχ hq,
+    fun s hs => heckeTsum_eq_ratCharOf_LFunction hχ hq hs,
+    ratCharOf_eq_one_iff hχ hq⟩
+
+/-- **M3-c2 (P1-c, the composed identity extension)** — M3-c applied to the
+factorization identity: with every component nontrivial (hence entire), the
+half-plane factorization `fL = (∏ LFunction) * fK` extends to all of ℂ∖{1} —
+exactly the `hAbFacQ` binder shape the P0/engine layer consumes. -/
+theorem factorization_identity_extension {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ}
+    {ψ : (i : Fin n) → DirichletCharacter ℂ (q i)} (hN : ∀ i, NeZero (q i))
+    (hne : ∀ i, ψ i ≠ 1)
+    (hK : ∀ ρ : ℂ, ρ ≠ 1 → AnalyticAt ℂ fK ρ) (hL : ∀ ρ : ℂ, ρ ≠ 1 → AnalyticAt ℂ fL ρ)
+    (hfac : ∀ s : ℂ, 1 < s.re →
+      fL s = (∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) * fK s) :
+    ∀ s : ℂ, s ≠ 1 →
+      fL s = (∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) * fK s := by
+  have hg : Differentiable ℂ
+      (fun s => ∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) :=
+    Differentiable.fun_finsetProd (u := (Finset.univ : Finset (Fin n))) fun i _ =>
+      @DirichletCharacter.differentiable_LFunction (q i) (hN i) (ψ i) (hne i)
+  exact identity_theorem_extension
+    (fun ρ hρ => (hL ρ hρ).differentiableAt.differentiableWithinAt)
+    (fun ρ hρ =>
+      ((hg.differentiableAt (x := ρ)).mul ((hK ρ hρ).differentiableAt)).differentiableWithinAt)
+    hfac
+
+/-- **M3-e (P1-d, the composed factorization transfer)** — the dictionary
+converts the Hecke-form factorization into the Dirichlet-LFunction form with
+the nonprincipality scope `1 < q i ∧ ψ i ≠ 1`.
+
+STATEMENT-FIND (recorded for the P0 amendment; the find-#4 precedent class):
+`N2-P0.lean`'s `DirichletFactorizationTransferQ` as literally stated is NOT
+provable — its hypothesis list omits the nonprincipality input. For a
+principal family (e.g. the trivial character at modulus (2), fK := ζ-side,
+fL := Hecke·fK nonzero on the half-plane) the conclusion's `ψ i ≠ 1` would
+force `LFunction (ψ ≠ 1) = principal-Hecke` on ℜs > 1, contradicting
+coefficient comparison; the DZDF factorization's own `∀ i, ¬IsDZDFPrincipalQ`
+is the intended input and appears here as an explicit hypothesis `hnp`. -/
+theorem dirichletFactorizationTransfer {fK fL : ℂ → ℂ} {n : ℕ}
+    {m : Fin n → Ideal (𝓞 ℚ)} {χ : (i : Fin n) → Ideal (𝓞 ℚ) → ℂ}
+    (hdic : ∀ i, HasQDirichletDictionary (m i) (χ i))
+    (hnp : ∀ i, ¬ IsDZDFPrincipalQ (m i) (χ i))
+    (hfac : ∀ s : ℂ, 1 < s.re →
+      fL s = (∏ i, ∑' I : Ideal (𝓞 ℚ), χ i I * (Ideal.absNorm I : ℂ) ^ (-s)) * fK s) :
+    ∃ (q : Fin n → ℕ) (hN : ∀ i, NeZero (q i)) (ψ : (i : Fin n) → DirichletCharacter ℂ (q i)),
+      (∀ i, 1 < q i ∧ ψ i ≠ 1) ∧
+      ∀ s : ℂ, 1 < s.re →
+        fL s = (∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) * fK s := by
+  choose q hq hm ψ hval hLS hpr using hdic
+  have hN : ∀ i, NeZero (q i) := fun i => ⟨hq i⟩
+  refine ⟨q, hN, ψ, fun i => ?_, fun s hs => ?_⟩
+  · refine ⟨?_, fun h => hnp i ((hpr i).mpr h)⟩
+    rcases Nat.lt_or_ge 1 (q i) with h | h
+    · exact h
+    · exfalso
+      have hqi := hq i
+      have hq1 : q i = 1 := by omega
+      haveI iN' : NeZero (q i) := ⟨hq i⟩
+      have hzsub : ∀ x y : ZMod (q i), x = y := by
+        intro x y
+        have hx : x = ((x.val : ℕ) : ZMod (q i)) := (ZMod.natCast_zmod_val x).symm
+        have hy : y = ((y.val : ℕ) : ZMod (q i)) := (ZMod.natCast_zmod_val y).symm
+        rw [hx, hy]
+        have h1 : x.val = 0 := by
+          have hv := ZMod.val_lt x
+          omega
+        have h2 : y.val = 0 := by
+          have hv := ZMod.val_lt y
+          omega
+        rw [h1, h2]
+      have hψ1 : ψ i = 1 := by
+        refine MulChar.ext fun u => ?_
+        have hz : ((u : ZMod (q i))) = 1 := hzsub _ _
+        have hl : ψ i ((u : ZMod (q i))) = ψ i 1 := by rw [hz]
+        rw [hl, map_one (ψ i), MulChar.one_apply_coe]
+      exact hnp i ((hpr i).mpr hψ1)
+  · rw [hfac s hs]
+    have hprod : (∏ i : Fin n, ∑' I : Ideal (𝓞 ℚ), χ i I * (Ideal.absNorm I : ℂ) ^ (-s))
+        = ∏ i : Fin n, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s :=
+      Finset.prod_congr rfl fun i _ => hLS i s hs
+    rw [hprod]
+
 end Dictionary
 
 -- audit (expect: [propext, Classical.choice, Quot.sound] only; 0 sorryAx)
@@ -502,5 +703,11 @@ end Dictionary
 #print axioms CrossMath.Pilot75N2.ratCharOf
 #print axioms CrossMath.Pilot75N2.ratCharOf_apply
 #print axioms CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction
+#print axioms CrossMath.Pilot75N2.ratCharOf_eq_one_iff
+#print axioms CrossMath.Pilot75N2.isPrincipal_of_modulus_one
+#print axioms CrossMath.Pilot75N2.identity_theorem_extension
+#print axioms CrossMath.Pilot75N2.hasQDirichletDictionary
+#print axioms CrossMath.Pilot75N2.factorization_identity_extension
+#print axioms CrossMath.Pilot75N2.dirichletFactorizationTransfer
 
 end CrossMath.Pilot75N2
