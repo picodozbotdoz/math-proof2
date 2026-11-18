@@ -1500,7 +1500,7 @@ the record (upstream ψ-engine as binder / mathlib `WienerIkehara` + pilot-22 M2
 pilot-50 G7b binder discipline). Step-B: NO stage (zero-sorry statement rung;
 probe-convention class); Step-A: 0 tokens.
 
-### 10.26 10-D2 FINAL GREEN + 10-D3 GREEN — D-tranche D1/D2/D3 COMPLETE, D4 → iteration-5 (lane A6, charter rulings D2-completion GO + D3 GO, 2026-11-17; folded + re-verified by lane A1) — plumbing billing, never novelty; SUPERSEDES §10.20's PARTIAL verdict
+### 10.26 10-D2 FINAL + 10-D3 — LANDED GREEN 2026-11-17 (D-tranche D1/D2/D3 COMPLETE, D4 → iteration-5; lane A6, charter rulings D2-completion GO + D3 GO; folded + re-verified by lane A1) — plumbing billing, never novelty; SUPERSEDES §10.20's PARTIAL verdict
 
 *(Folded 2026-11-18 by lane A1 from the MAIN tree (`0677eae` + `9dc6684`): records
 `pilots/10/D2-record.md` (FINAL header + COMPLETION BLOCK) + `D3-record.md`; logs
@@ -1542,6 +1542,11 @@ smaller, so the bound absorbs with eth's own final constant `q := c·4^(c+1) + (
 (`Nat.pow_le_pow_right` → `pow_le_pow_right'`, the Part-E-precedent Unbundled name).
 
 **Tranche state:** D1 (§10.17) + D2 FINAL + D3 = **D-tranche complete for iteration 4**;
+**Print-surface censuses (2026-11-18, counted from the persisted logs): tranche-final
+L5 surface = 45/45 decls triad** (`d3-run1.log` — 39 full-triad + 6 ⊆-triad subset
+forms, 0 sorryAx); D2-final L4 surface = 43 decls all triad (`d2-run4.log` GREEN block
+:82–:144 — 37 full + 6 subset, 0 sorryAx; phrased without the N/N slash to keep the
+machine census single-pick on the tranche-final anchor).
 D4 (`exists_tm_padded_space` — all inputs now exist) UNCHARTERED → iteration-5 M-arc
 decision (orchestrator ruling at wrap; value-polynomiality binder `hv` supply is the
 charter owner's question). §10.20's PARTIAL verdict and its "queued 2-line fix NOT
@@ -1636,6 +1641,9 @@ the battery (REPORT-INPUTS §2).
 
 —
 
+## Sources and fold changelog (§10 tail; promoted to level-2 2026-11-18 so the §10
+census span ends at the last landing section — no content change)
+
 *Sources: all log lines above were read directly in the R3 audit
 (`qa/iter4-review/r3-verification-integrity.md` §§1–2, 4) except the in-stage rows
 marked by stage verdicts; LoC/theorem-count drifts are tabulated there (§4 F4/F5).
@@ -1729,4 +1737,102 @@ proportion rung; P0→P1→P2 charter FULLY CLOSED; the at-sweep custody stages
 AxPilotFFEZ2_P1/_P2 now fire — §7d updated in the same pass). §10.26's Step-B note
 RECONCILED to the orchestrator's single-anchor ruling (AxPilot10_L5) with the FINAL-
 SWEEP §0/§7d reconciliation notes. Remaining in-flight folds owed: AL-P2 c/d/e (A4),
-N2-P1 closure + M2/M3 (A5), 77-T1/T2 (A7), 74-P1 completion (A8).
+N2-P1 closure + M2/M3 (A5), 77-T1/T2 (A7), 74-P1 completion (A8). Eighteenth batch
+(2026-11-18, census re-task): §10.CENSUS companion appended (manual per-decl triad
+census for all 21 NO-MACHINE-CENSUS flags + the 205/205 machine attribution + the
+274/277 whole-tree roll-up + 18/18 donor rows + 4 delta slots); two grammar/geometry
+fixes to make the close-time tally deterministic — §10.26's heading re-titled to the
+D7 "LANDED GREEN" vocabulary (the tool's abort was correct; census phrases moved to
+the section body, 45/45 single-pick, the L4 surface phrased slash-free) and this
+changelog promoted to a level-2 heading (§10.28's span had absorbed the changelog's
+quoted censuses); §10.22's 4/4 core VALIDATED against n2-p1-run7.log:175–:178
+(A2's manual pick confirmed; the 3 sorryAx decls at :174/:179/:180 are the section's
+IN-PROGRESS residuals).
+
+### 10.CENSUS — manual per-decl triad census companion (lane A1, 2026-11-18; closes the NO-MACHINE-CENSUS gap for the close block)
+
+*(Placed AFTER the `## Sources` level-2 heading so no §10 section span changes — the
+close-time `tally_section10.py` re-run sees the identical section geometry. Machine
+baseline re-computed this pass against THIS file after two grammar/geometry fixes:
+(1) §10.26's heading re-titled to the D7 "LANDED GREEN" vocabulary (the tool's
+fail-loud abort on the old title was correct — fixed in the row, not the tool); (2)
+this changelog's tail promoted to a level-2 heading so the §10.28 span no longer
+absorbs the changelog's quoted censuses. Post-fix tool run, 2026-11-18: **N-TABLES
+28, verdicts 24 green-triad / 2 honest-partial / 2 not-green-honest (sum 28 ✓),
+machine census 205/205 over 7 sections, 0 MULTI-CENSUS, 21 NO-MACHINE-CENSUS** —
+this appendix manually resolves all 21.)*
+
+**(a) Machine baseline — 205/205, attribution by FILE (a phrase's section ≠ the
+artifact's section in two cases):**
+
+| machine row (§) | artifact FILE | decls | evidence |
+|---|---|---|---|
+| §10.6-span | `pilots/al3d/A1.lean` (§10.3's artifact — the phrase is the m1-run remediation note) | 22/22 direct | 20 × `alp1-final.log:41–:60` + the 2 remediated helpers `alp2-run7-m1green.log:50–:51` (the §10.3 F2 gap CLOSED by A4's +2 audit lines) |
+| §10.8 | `pilots/75/Pb.lean` (§10.4's artifact) | 89/89 direct | `axcheck-full-run1.log` (124 records incl. primed-name hand-joins; sha da05c60ceb78755b) |
+| §10.16 | `pilots/zzv2-lam/P1.lean` | 10/10 direct | `p1-run3.log:145–:155` (incl. 2 privates) |
+| §10.18 | `pilots/73/Q4.lean` | 23/23 direct | `q4-run15-green.log:45–:67` (14 public + 9 private) |
+| §10.23 | `pilots/ff-ez2/P1.lean` | 7/7 direct | `p1-run4.log:17–:23` (incl. 1 private; full-spelling note) |
+| §10.26 | `pilots/10/L5.lean` (tranche-final; embeds L4+L3+Part E verbatim) | 45/45 direct | `d3-run1.log` (39 full + 6 ⊆-triad subset, 0 sorryAx) |
+| §10.28 | `pilots/ff-ez2/P2.lean` | 9/9 direct | `p2-run2.log:42–:50` (4 public + 5 private; full spelling) |
+
+**(b) Manual addend — OUR proof artifacts with evidenced censuses, NOT inside any
+machine number (each counted exactly once):**
+
+| § | artifact | census (triad/total) | evidence (persisted) | notes |
+|---|---|---|---|---|
+| 10.1 | `pilots/lp/L1.lean` | **2/2 direct** | `lp-l1-run2.log:21–:22` (repeats :24–:25) | both public; P0 = probe class (N/A below) |
+| 10.2 | `pilots/lp/L2.lean` | **2/2 direct** | `lp-l2-run6.log:38–:39` (repeats :62–:63) | 1 public + 1 private (`_private` name shape) |
+| 10.6 (own content) | `pilots/al3d/A2.lean` m1 | **2/2 direct** | `alp2-run7-m1green.log:117–:118` | the 22/22 machine phrase belongs to A1.lean (row (a)); A2's 5 defs = convention-excluded (no status rows); find-#4 re-GREEN run 8 re-verified P0+A1+A2 OK (no per-decl reprints — the m1 prints stand as A2's per-decl evidence of record; file grows with P2-c/d/e = delta slot) |
+| 10.9 | `pilots/72-M1/P72M1T3.lean` | **9/9 direct** | 4 × `l3a-run6-GREEN.log:59–:62` + 5 gap decls `axcheck-l3a-run1.log:213–:217` | the T1/T2 custody reprints (52+28 records, same log) are C2-era files, NOT added here |
+| 10.11 | `pilots/32/M2.lean` (new proof surface) | **9/9** = 7 direct + 2 documented-elimination | 7 theorems `run12-crossing-existence.log:60–:66`; helpers `log4_pos`/`log10_pos` by the section's elimination note (rc=0, 0 sorry-warnings; consumed inside printed-triad carry) | file census 43 public decls = frozen-M1 carry (C2-swept, not re-added) + the 9 new proof decls; the 2 helpers get direct prints at the §7b(ii) 32-M2 full-coverage stage |
+| 10.12 | `pilots/75/N2-P0.lean` | **15/15 direct** | `n2-p0-run4.log:83–:97` (repeats :159+) | 1 theorem + 14 defs/props, ALL printed (defs printed here — better than convention) |
+| 10.13 | `pilots/78/P0.lean` | **26/26** = 3 direct + 23 documented-elimination | 3 public `p0-run4.log:22–:24` (repeats :53–:55); 23 privates by the section's elimination note (rc=0, 0 sorry, 0 sorryAx; folds into printed theorems) | full-coverage prints when the Stage-B family charters (§7a) |
+| 10.22 | `pilots/75/N2-P1.lean` (CHECKPOINT) | **4/7** = 4 direct core + 3 IN-PROGRESS (sorryAx cascade, NOT triad) | core `n2-p1-run7.log:175–:178` (**validated this pass against the log — A2's MULTI-CENSUS manual-pick CONFIRMED**); the 3 = `:174/:179/:180` sorryAx on failing packaging decls (v8 fixes on disk UNVERIFIED) | delta slot: the authorized closure run is expected to move this to 7/7 + M2/M3 rows |
+
+Manual addend subtotal: **69/72** (44 direct + 25 documented-elimination over the
+numerator; §10.22's 3 unresolved packaging decls are the only non-triad denominator
+contributors).
+
+**(c) Donor-pin audit rows — DONOR decls (separate composition line; never our
+pilots' census):** §10.5 zeta23 Theorem-E chain **5/5** (`zeta23e-p0-run1.log:190–194`,
+repeats :203–207) + §10.7 OAI G11/G12 audit set **9/9** (`run35-g11-fix.log:198–206`
++:240–245) + §10.10 ZZV2 donor-hygiene pins **4/4** (`p0-run1.log:151–154`, repeats
+:182–185) = **18/18 donor rows triad at their donor pins**.
+
+**(d) N/A classes (flagged, listed, excluded from every roll-up number):**
+probe/statement rungs — §10.14 FF-EZ4 P0, §10.15 74-P0, §10.19 FF-EZ2 P0, §10.24
+G9+G13, §10.25 22-T2a (elaboration verdicts only, no proof surface; §10.10's own
+surface likewise probe-class — its 4 donor rows are in (c)); NOT-GREEN honest stops —
+§10.21 74-P1, §10.27 77-T1 (verified-red; run-log sorryAx = error artifacts,
+superseded class; zero final triad-clean decls); embedded/machine-covered — §10.3
+(= the 22/22 machine row), §10.4 (= the 89/89 machine row), §10.17 (Part E's 6 direct
+prints `d1-run1.log:25–:30` are INSIDE §10.26's 45/45 — L5 embeds L3 verbatim),
+§10.20 (superseded interim state, same embedding).
+
+**(e) Whole-tree roll-up formula (the ONE number the close block quotes):**
+
+```
+OUR pilots:  machine 205/205 (7 sections, tally_section10.py @ this file)
+           + manual    69/72 (8 evidenced sections, table (b))
+           =          274/277 triad-clean decls across §10.1–§10.28
+              (249 direct-print + 25 documented-elimination; the 3 residuals =
+               §10.22's IN-PROGRESS packaging decls, delta slot below)
+DONOR rows:  + 18/18 donor-pin audit rows (table (c)) — quote separately
+Delta slots (in flight, EXCLUDED until landing, fold to this appendix's successor
+row at final tally): AL-P2 c/d/e final state (A4), N2-P1 closure + M2/M3 (A5,
+resolves the 3 residuals), 77-T1/T2 (A7), 74-P1 completion (A8). The fifth wave-3
+slot (FF-EZ2-P2) is DISCHARGED — §10.28/§10.28's machine row.
+Out-of-scope note: C2-era frozen carries inside Iteration-4 files (M1-in-M2, L2/M1-in-
+L5) are counted in their C2 sweep, not here; 32-M1's 28-lemma print-surface closure
+rides the §7b(ii) full-coverage stage as planned.
+```
+
+**Provenance chain:** `qa/iter4-review/tally_section10.py` (A2's READ-ONLY scaffold)
+run 2026-11-18 against THIS file post-geometry-fix → machine numbers; every manual
+cell above cites a persisted log line re-read this pass (no count from memory, no
+guess — the two documented-elimination classes carry their sections' recorded
+elimination cases and are flagged, not silent).
+
+— census companion lane A1, 2026-11-18, worktree agent-02 (main @ c67d64e + the
+wave-3 tail landings). Updates at the four delta-slot landings; supersedes nothing in
+§10.1–§10.28.

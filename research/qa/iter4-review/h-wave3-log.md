@@ -480,3 +480,18 @@ routing.
   R1-era landing; delta = pure append, 0 main-only lines; 2 G_q display
   mis-prints, corrected form pinned in `Polynomial ℤ` per the P0 pre-charter §1.3).
   INDEX row staged same-commit; tracker A6 row refreshed (iter-5 prep COMPLETE).
+
+## 2026-11-18 — LANDING: A1 §10.CENSUS companion (H batch)
+
+- Pulled from worktree agent-02: `r3-verification-tables.md` advanced (+108 wt-only
+  lines: **§10.CENSUS companion appendix** — manual per-decl triad census for all 21
+  NO-MACHINE-CENSUS flags; **whole-tree 274/277 triad-clean = 205/205 machine +
+  69/72 manual** (44 direct + 25 documented-elimination); **18/18 donor rows triad
+  at their donor pins**; two grammar fixes: §10.26 re-title + changelog-heading
+  promotion; **4 delta slots armed** for the in-flight unit finals). The two
+  main-only diff lines verified as A1's intentional edits (the re-title + the
+  folds-owed line replaced by the companion's provenance block). FF-clean.
+- **Scope note:** the instruction's other three paths (iter4-closeout-gates.md,
+  FINAL-SWEEP-PLAN-ITER4.md, stepA-incremental-iter4.log) verified **byte-identical
+  to main** — their advancement was already landed inside `6e2d2f2`; staged as
+  no-ops, nothing rode. Tracker A1 row refreshed (active, 4 slots).
