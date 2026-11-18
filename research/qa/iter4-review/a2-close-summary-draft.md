@@ -55,13 +55,15 @@ the `---` separator at `:59`.** Text as drafted:
 > remainder **[PENDING-75-N2/N3]**) and **78 NEGATIVE** (a discovery-grade negative
 > result: **[PENDING-78-LOCATOR]** — record + table row + log anchors as landed).
 > The N2-d endpoint state at close: **[PENDING-N2-D]**. Retargeted to Iteration 5
-> (from `qa/iter4-review/a2-g7-token-inventory.md` §2 — the 5 RETARGET items):
+> (from `qa/iter4-review/a2-g7-token-inventory.md` §2 + the 2026-11-18 corrected
+> census, `a2-close-act-runbook.md` §8 — the RETARGET items):
 > seed-1's AL-3D novelty residuals (OAI family-265 rg + third-party formal activity
 > on the 3D layer) and the phase-3 battery remainder (AL-3D/ZZV2 sub-items) —
 > carrier L6/`novelty/round-5*`; the mathlib LP/PNT PR clock (`lp-duality-bridge.md:68`)
 > — carrier the L6 standing clock; the 10-tranche D1–D6 proposal
 > (`pilots/10/next-tranche-spec.md:3`, `pilots/10-blueprint.md:187`) — carrier the
-> tranche charter decision. The staging set is superseded by this typeset charter
+> tranche charter decision; the 72-M1 L3-spec §8 header (`pilots/72-M1/L3-spec.md:187`)
+> — rides the L3b–d carry in [PENDING-INFLIGHT-SET]. The staging set is superseded by this typeset charter
 > (stamps on `ITERATION4-SCAN/-SEED-DOSSIERS/-CHARTER-DRAFT`, below); the token
 > census closed 40/46 in-cycle, 6 retargeted, 0 unrulled
 > (`a2-g7-token-inventory.md`, corrected census 2026-11-18 per
@@ -90,7 +92,7 @@ for the token dispositions. Retained as the historical input record."
 
 | file | anchor (insert as a new line immediately below) | stamp |
 |---|---|---|
-| `feasibility/ITERATION4-SCAN.md` | `:1` (the `# ITERATION4-SCAN — groundwork inputs…` title line) | `> SUPERSEDED [DATE-CLOSED] — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary [DATE-CLOSED]. Token dispositions: qa/iter4-review/a2-g7-token-inventory.md (8 [TRIAGE-DECISION] rows, all closed in-cycle).` |
+| `feasibility/ITERATION4-SCAN.md` | `:1` (the `# ITERATION4-SCAN — groundwork inputs…` title line) | `> SUPERSEDED [DATE-CLOSED] — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary [DATE-CLOSED]. Token dispositions: qa/iter4-review/a2-g7-token-inventory.md (9 live [TRIAGE-DECISION] rows per the 2026-11-18 corrected census — a2-close-act-runbook.md §8; all closed in-cycle).` |
 | `feasibility/ITERATION4-SEED-DOSSIERS.md` | `:1` (the `# ITERATION4-SEED-DOSSIERS — pre-dossiers…` title line) | `> SUPERSEDED [DATE-CLOSED] — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary [DATE-CLOSED]. A5 folds already inline (:53/:123/:187); the :56 novelty residual retargets to Iteration 5 (L6/round-5) per a2-g7-token-inventory.md.` |
 | `feasibility/ITERATION4-CHARTER-DRAFT.md` | `:1` (the `# ITERATION4-CHARTER-DRAFT — skeleton…` title line) | `> SUPERSEDED [DATE-CLOSED] — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary [DATE-CLOSED]. [G7b]/[SWEEP]/[A5-SEED-TRIAGE] already show in-place resolutions at :6; [TRIAGE-DECISION] family closes with the close block per a2-g7-token-inventory.md.` |
 

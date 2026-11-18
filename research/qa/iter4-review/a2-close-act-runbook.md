@@ -1,6 +1,10 @@
 # A2 — ITERATION-4 CLOSE-ACT RUNBOOK (ordered execution plan; PREP ONLY)
 
-Lane A2 (bench/close-out), 2026-11-18. Companion to — and sequencing layer over — three
+Lane A2 (bench/close-out), 2026-11-18. **Phase-1 steps REHEARSED 2026-11-18** against
+main @ `c67d64e` — staging copies + the mechanical apply script live at
+`research/qa/iter4-review/rehearsal/` (worktree scratch, never commit); the pre-flight
+defect list is `research/qa/iter4-review/a2-close-rehearsal-report.md`. Companion to —
+and sequencing layer over — three
 instrument files that own the content: **A1's gates** `research/qa/iter4-closeout-gates.md`
 (G1–G8 commands + G8 persistence table; read-only for A2), **A9's checklist**
 `research/qa/iter4-review/a9-splice-readme-checklist.md` (9 items, 7 mandatory, all
@@ -83,7 +87,7 @@ Step 3 (H). **The 8-placeholder map** (each row: placeholder → source artifact
 | 5 | `[PENDING-INFLIGHT-SET]` | `qa/REPORT-INPUTS-ITER4.md` §1/§2 OPEN rows at close (expected carries: 72-M1 L3b–d + interface, 22-T2a OPEN-CONDITIONAL, 74-T3 OPEN-GATED, 10-tranche D4–D6 (ruled iter-5), G10 SHELF, 11-M3 benched, debts f/h/l) + any five-unit honest-stops | H from ledger (H-shepherded file) |
 | 6 | `[PENDING-75-N2/N3]` | ledger row 75-N2/N3 + §10.22→final state after A5's closure/M2/M3 verdicts | H from A5 report |
 | 7 | `[PENDING-78-LOCATOR]` | **resolvable since 2026-11-17**: §10.13 (`r3-verification-tables.md` :904) + `pilots/78/P0.lean` (sha d94d115e3d8d08d7) + `pilots/78/logs/p0-run4.log` + `articles/78-truffet-substitution-refutation.md` + `articles/README.md:23` | H, mechanical |
-| 8 | `[PENDING-N2-D]` | the N2-d endpoint sentence: A5's final M-state + article-75's carried-tier text (§8) + ledger row 75-N2/N3 | orchestrator from A5/A9 |
+| 8 | `[PENDING-N2-D]` | the N2-d endpoint sentence: A5's final M-state + ledger row 75-N2/N3 + article-75's only N2 anchor = the :551 box-11 row (the §8-at-:510 "Prior work" locator in earlier drafts was WRONG — rehearsal 2026-11-18) + `articles/README.md` row-75 N2 tail | orchestrator from A5/A9 |
 
 Step 4 (H). **Three supersession stamps** — exact texts + anchors = draft §B table, all
 three under `research/feasibility/`: `ITERATION4-SCAN.md:1`, `ITERATION4-SEED-DOSSIERS.md:1`,
@@ -91,13 +95,13 @@ three under `research/feasibility/`: `ITERATION4-SCAN.md:1`, `ITERATION4-SEED-DO
 CHARTER-SPLICE itself is NOT stamped (it is the close instrument; kit sections below its
 `---` stay as H's branch-mechanics record).
 
-Step 5 (H, decision-point default YES). **RESEARCH.md §Iteration 4 close-out record** —
-append the same close block (RESEARCH.md's own voice) at the end of
-`research/RESEARCH.md` §Iteration 4 (after the Close-out protocol paragraph, :195).
-Precedent: §Cycle 2's close-out record at `RESEARCH.md:41–47`. The draft anchors the
-block in the SPLICE file (instrument completeness); the live record belongs in
-RESEARCH.md per the C2 pattern. Default: BOTH (splice = instrument, RESEARCH = record).
-RESEARCH.md is orchestrator-owned — this step rides the orchestrator's fire.
+Step 5 (H). **RESEARCH.md §Iteration 4 close-out record — ORCHESTRATOR-RATIFIED
+2026-11-18 (post-drafting): execute BOTH** (splice-file instrument + `RESEARCH.md`
+live record; C2 precedent `RESEARCH.md:41–47`; no further decision needed). Append
+the same close block (RESEARCH.md voice) at the end of `research/RESEARCH.md`
+§Iteration 4 — the section is the file's last (:195 = close-out protocol item 5);
+insert as `**Close-out record ([DATE-CLOSED]):** …` after :195. REHEARSED 2026-11-18:
+anchor + append verified mechanically (`rehearsal/RESEARCH.md`; report §R5).
 
 Step 6 (H). **A9 checklist items 1–5 staged** (`articles/README.md` edits — exact cells
 per `a9-splice-readme-checklist.md` §A): item 1 row-10 D1–D3 wording; item 2 row-75
@@ -226,6 +230,19 @@ staging; the hardened pre-commit gate; concurrency probe logged):
 
 Commit message: `Iter4: CLOSE — iteration-4 cycle close (splice fill + stamps + G8 gates table + box-11)`.
 AGENTS-ITER4-DRAFT E1–E9 stays OUT of K (user-gated apply — separate decision, separate commit if approved).
+
+**K-LIST AMENDMENTS (proposed 2026-11-18 at the Phase-1 rehearsal, report-only —
+`a2-close-rehearsal-report.md` §R6; H/orchestrator adopt-or-override at fire time):**
+per close-out protocol rule 5 (staging supersession — "when a staged block is spliced
+or decided, the staging file gets its superseded/selected stamp in the same commit"),
+FIVE close-act staging instruments are missing from the K-list above:
+17. `research/qa/iter4-review/a2-close-summary-draft.md` — APPLIED stamp (its Parts A+B land in K)
+18. `research/qa/iter4-review/a9-splice-readme-checklist.md` — APPLIED stamp (A9 lineage)
+19. `research/qa/iter4-review/a2-g7-token-inventory.md` — SUPERSEDED-BY-CLOSE-BLOCK stamp (its census is quoted in K)
+20. `research/qa/iter4-review/a2-close-act-runbook.md` — EXECUTED stamp (this file)
+21. `research/qa/iter4-review/a2-close-rehearsal-report.md` — RECORDED stamp (pre-flight defect list)
+The `rehearsal/` staging directory itself stays worktree scratch (never commit — the
+`wave2-commit-runbook.md` precedent, h-wave3-log 2026-11-18 disposition 1).
 
 Step 20 (H). **Post-K checks**: `git status --porcelain` CLEAN; G4 re-grep on the
 committed tree (future-date fix-forward if anything surfaced — small exact-file commit,

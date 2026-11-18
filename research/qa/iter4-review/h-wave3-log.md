@@ -277,3 +277,25 @@ routing.
   pulled: `qa/REPORT-INPUTS-ITER4.md` (H-SHEPHERDED funnel — A6 did not report it) and
   `pilots/10/L4.lean` + `pilots/ff-ez4/` (lane-local state vs main; flagged for any
   future A6 pull — 3-way merge, not verbatim).
+
+## 2026-11-18 — LANDING: A2 close-act Phase-1 rehearsal (H batch)
+
+- Pulled from worktree agent-03 as ONE exact-file batch: NEW
+  `qa/iter4-review/a2-close-rehearsal-report.md` (D1–D6 defect list, 0 blockers,
+  3 waits-on-lane; §R5 mechanical verifications; §R6 K-list 5-row amendment) +
+  MODIFIED `a2-close-act-runbook.md` (rehearsal header + Step-5 ORCHESTRATOR-RATIFIED
+  both-record + placeholder-map row-8 D3 locator fix + K-amendment rows 17–21) +
+  MODIFIED `a2-close-summary-draft.md` (D2 fix: retarget 6 + L3-spec carrier
+  enumerated; D4 fix: SCAN stamp 9 live rows). All three verified as A2's own edits
+  descending from its landed versions (FF exception; main's last touches were H's
+  verbatim copies of A2's files). INDEX row staged same-commit; tracker A2 row
+  refreshed. The `rehearsal/` staging dir NOT pulled (never-commit by design).
+- **Caveat recorded: the rehearsal ran against main @ `c67d64e` — it PREDATES the
+  Step-B TARGETS pre-stage (`862d8d0`).** The runbook's §3 "AxPilot10_L3 re-anchor
+  (L3.lean grew with D1–D3)" text is unchanged by the rehearsal deltas and remains
+  factually wrong on disk; my STOPPED-comment adjudication (L3 frozen since D1; the
+  anchoring decision) is NOT addressed by D1–D6. Open item for A2/orchestrator:
+  the AxPilot10 anchoring ruling + the make_axcheck.py row append on that ruling.
+- Waits-on-lane relayed by the report (for tracker visibility): A9 — item-1 wording
+  + article-10 status-table D2-FINAL/D3 staleness; A1 — the D2-FINAL/D3 §10 fold
+  (data on main, no unit dependency); A9/orchestrator — D6 qualifier.
