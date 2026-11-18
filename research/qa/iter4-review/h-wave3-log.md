@@ -586,3 +586,26 @@ routing.
   close-support standby.
 - Wave-3 remaining: the four blocker landings (A4/A5/A7/A8), each triggering the
   fold/commit chain (§10.29–32 delta slot + TARGETS placeholder row + tracker).
+
+## 2026-11-18 — LANDING: A5 N2-P1 closure + M2 GREEN, wave-3 unit 2 of 5 (H batch)
+
+- Pulled from worktree agent-06 as ONE exact-file batch: `pilots/75/N2-P1.lean` v15
+  (506 LoC, **sha256(16) `2e5217010e46ad0d`** — matches run-15's verify-fire sha
+  header) + `N2-P1-record.md` FINAL (milestone table, 15-run ledger, M3/P2/P3 GO
+  recommendations) + `logs/n2-p1-run{9..15}.log` (7 logs, sha-headed) +
+  `candidates/75-N2-rayclass-dirichlet-consumer.md` (milestone-status block;
+  FF-verified vs `dd299ef` = A5's own landing). Verdict per record + run-15 log:
+  **rc=0, 0 errors, 0 sorry tokens; 8/8 file triad = M1 7/7 closed + the M2 heart
+  `heckeTsum_eq_ratCharOf_LFunction` (:448) — `HasQDirichletDictionary`
+  components (i)+(ii) kernel-verified. M3 deferred honestly → iteration-5**
+  (spec precise; GO rec; P2 hEχ-port + P3 V2 ζ-column GO unchanged).
+- Same commit: `AxPilot75_N2P1` TARGETS row landed from its placeholder
+  (py_compile rc=0; 56 rows, no dups). **Step-B dependency-closure note filed for
+  A1 (in-row + here):** N2-P1.lean `import N2P0` is the runner's hyphen workaround
+  (byte-identical N2-P0.lean copy staged as N2P0.lean, `run_n2p1.py:5–9`); the
+  rewrite map cannot catch the hyphenless name and N2-P0 has no row (single-row
+  instruction) — the sweep must stage the Pa+N2P0 closure (runner ORDER pattern
+  `Pa → N2P0 → N2-P1`) or extend the rewrite map. `import Pa` inside N2-P0
+  auto-rewrites to AxPilot75_Pa once staged.
+- INDEX row added; tracker A5 → landed; brief scoreboard → 2 of 5 (remaining A4,
+  A7, A8).

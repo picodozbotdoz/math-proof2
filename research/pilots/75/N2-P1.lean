@@ -40,6 +40,55 @@ dot-on-constant); `Units.isUnit`; `(Ideal.eq_top_iff_one _)`/`(Submodule.mem_sup
 with parens; `ZMod.val_one`/`ZMod.nontrivial` are `Fact (1 < q)`-instance-governed
 (haveI : Fact (1 < q)); `not_isUnit_zero` for the zero-corner.
 
+RUN-9 NOTE (v9 fix pass, 2026-11-18 — the ONE post-closure diagnostic+fix+rerun
+of the P1 charter; run 8 = the closure run, verdict 5 errors / 2 sorryAx with
+exists_nat_span GREEN-triad, so M1 stands at 5/7): two persistent error classes
+fixed, root causes read at the sibling mathlib source. (a) `⊢ 1 = 1` unsolved
+(v7:310, v8:311): the hmod argument `((1 : ℕ) : ZMod q) = 1` proved by
+`by push_cast` hits an OfNat-instance diamond — push_cast's closing rfl runs at
+reducible transparency and cannot see the two `1`s defeq (Nat.cast_one's RHS-1
+vs the binder's RHS-1, different instance paths, both printing as `1`). Fix:
+`rw [ZMod.val_one]` (Fact (1 < q)-governed, `haveI iF := ⟨hq⟩`) then
+`exact chi_span_eq_one … (Nat.cast_one)` — a TERM (default-transparency
+unification), not a simp/rfl-at-reducible closer. The interim
+`rw [chi_span_residue … (by …)]` form was also metavar-unsafe (its by-blocks
+elaborate against unassigned ?a ?b) — removed. (b) `rw [MulChar.map_nonunit _ hk]`
+(v7:352, v8:354 — "hk expected of sort Type"): rw's argument elaboration with the
+`_` for χ fails before matching. Fix: χ explicit + `Eq.trans`-refine (defeq
+unification, no pattern matching): `refine Eq.trans ?_ (MulChar.map_nonunit
+(ratCharOf hχ hq) hk).symm`. Signatures verified at
+`NumberTheory/MulChar/Basic.lean:130` (map_nonunit), `Data/Nat/Cast/Defs.lean:96`
+(Nat.cast_one), `Data/ZMod/Basic.lean:640` (val_one), `Algebra/Group/Units/
+Defs.lean:503` (IsUnit.unit_spec — used by the run-8-era then-branch rewrite,
+`hk.unit`/`hk.unit_spec` + `MulChar.ofUnitHom_coe` at MulChar/Basic.lean:180).
+RUN-9 VERDICT: descent 5→1; ratCharOf GREEN-triad (6/7). The one survivor
+(hcoe, "motive is not type correct"): `rw [← hk.unit_spec]` abstracts ↑k inside
+hk.unit's own elaboration (`@IsUnit.unit … ↑k hk`) — a DEPENDENT rewrite,
+structurally impossible unscoped. v10 fix (on disk, to be verified by the M2
+run): `conv_lhs => rw [← hk.unit_spec]` (the conv focus contains no `hk`),
+then `exact MulChar.ofUnitHom_coe (chiUnitHom hχ hq) hk.unit` (default-
+transparency defeq closes the coe chains; no rfl-at-reducible).
+
+RUN-10 NOTE (M2 append + v10 verification ride-along, 2026-11-18): the M2 block
+(P1-b, L-series identification) is appended per the dossier §Proof-strategy
+step 2, with the v10 conv_lhs fix above verified by THIS run's audit block (the
+7 M1 decls ride every elaboration). M2 API, all read at the sibling source this
+session: `Ideal.absNorm_span_natCast` (RingTheory/Ideal/Norm/AbsNorm.lean:514,
+`n ^ finrank ℤ S`), `NumberField.RingOfIntegers.rank` (NumberField/Basic.lean:415,
+finrank ℤ (𝓞 K) = finrank ℚ K), `Module.finrank_self`, `Equiv.ofBijective`,
+`Equiv.tsum_eq` (to_additive of `tprod_eq`, InfiniteSum/Basic.lean:558),
+`tsum_congr` (to_additive of `tprod_congr`, :464), `LSeries.term_def₀`
+(NumberTheory/LSeries/Basic.lean:81 — for `f 0 = 0` the summand IS
+`f n * (n : ℂ) ^ (-s)`), `ZMod.LFunction_eq_LSeries` (NumberTheory/LSeries/ZMod.lean:94,
+`1 < re s`-gated), `DirichletCharacter.LFunction` = `ZMod.LFunction` by def
+(DirichletContinuation.lean:60). Design choices: the reindex is stated through
+the EXPLICIT un-beta'd redex `(fun I => …) (he k)` (step-1 of the calc) so
+`Equiv.tsum_eq`'s instantiation typechecks syntactically; the absNorm collapse
+happens behind a full-form `show` (default-transparency defeq through the
+ofBijective projection), never at rw-reducible level; the final bridge uses
+`LSeries.term_def₀` + the definitional `LSeries`-unfold at `exact`, avoiding
+any convergence-side work (tsum reindexing along an Equiv is unconditional).
+
 mathlib pin ff2494ea @ v4.36.0-rc2.
 -/
 import N2P0
@@ -305,14 +354,12 @@ private noncomputable def chiUnitHom (hχ : IsDZDFRayClassCharacterQ
       rw [ZMod.natCast_zmod_val]
       exact Units.isUnit u))
   map_one' := by
+    have iN : NeZero q := ⟨by omega⟩
     haveI iF : Fact (1 < q) := ⟨hq⟩
     apply Units.ext
-    have h2 : χ (Ideal.span {(((1 : ℕ) : 𝓞 ℚ))}) = 1 :=
-      chi_span_eq_one hχ (by omega) (by norm_num) (by push_cast)
-    show χ (Ideal.span {((((1 : ZMod q).val : ℕ) : 𝓞 ℚ))}) = (1 : ℂ)
+    show χ (Ideal.span {(↑(((1 : ZMod q).val) : ℕ) : 𝓞 ℚ)}) = (1 : ℂ)
     rw [ZMod.val_one]
-    push_cast
-    exact h2
+    exact chi_span_eq_one hχ (by omega) (by norm_num) (Nat.cast_one)
   map_mul' u v := by
     have iN : NeZero q := ⟨by omega⟩
     apply Units.ext
@@ -343,16 +390,106 @@ theorem ratCharOf_apply (hχ : IsDZDFRayClassCharacterQ (Ideal.span {(q : 𝓞 �
   have iN : NeZero q := ⟨hq0⟩
   obtain ⟨hmul, htop, hzero, hspan⟩ := id hχ
   by_cases hk : IsUnit (((k : ZMod q)))
-  · show χ (Ideal.span {(((k : ℕ) : 𝓞 ℚ))}) =
-      (MulChar.ofUnitHom (chiUnitHom hχ hq)) ((k : ZMod q))
-    rw [← hk.unit_spec, MulChar.ofUnitHom_coe]
-    show χ (Ideal.span {(((k : ℕ) : 𝓞 ℚ))}) =
-      χ (Ideal.span {(↑((hk.unit : ZMod q).val) : 𝓞 ℚ)})
-    rw [chi_span_residue hχ hq
-        (by simp only [ZMod.natCast_zmod_val]; exact hk.unit_spec)
-      (by simp only [ZMod.natCast_zmod_val]; exact Units.isUnit hk.unit)]
-  · rw [map_nonunit _ hk]
+  · have hcoe : ratCharOf hχ hq ((k : ZMod q))
+        = χ (Ideal.span {(↑(((hk.unit : ZMod q).val) : ℕ) : 𝓞 ℚ)}) := by
+      show (MulChar.ofUnitHom (chiUnitHom hχ hq)) ((k : ZMod q)) = _
+      conv_lhs => rw [← hk.unit_spec]
+      exact MulChar.ofUnitHom_coe (chiUnitHom hχ hq) hk.unit
+    have hres : χ (Ideal.span {(↑(((hk.unit : ZMod q).val) : ℕ) : 𝓞 ℚ)})
+        = χ (Ideal.span {(((k : ℕ) : 𝓞 ℚ))}) := by
+      refine chi_span_residue hχ hq ?_ ?_
+      · rw [ZMod.natCast_zmod_val]; exact hk.unit_spec
+      · rw [ZMod.natCast_zmod_val]; exact Units.isUnit hk.unit
+    rw [hcoe, hres]
+  · refine Eq.trans ?_ (MulChar.map_nonunit (ratCharOf hχ hq) hk).symm
     exact (hzero _).mpr (Or.inr (fun hsup => hk (isUnit_of_sup_eq_top hq0 hsup)))
+
+/-! ### M2 (P1-b) — the L-series identification
+
+The Hecke tsum of the DZDF-quoted character over the ideals of 𝓞 ℚ reindexes along
+the bijection `k ↦ span {k}` (every ideal of 𝓞 ℚ is principal-positive, M1's
+`exists_nat_span` + the zero corner), collapses via `absNorm (span {k}) = k`
+(rank one), reads through the value dictionary (`ratCharOf_apply`), and lands on
+`LSeries.term_def₀` (the `f 0 = 0` spelling) = `LSeries` = `ZMod.LFunction` =
+`DirichletCharacter.LFunction`. -/
+
+/-- The ℤ-rank of 𝓞 ℚ is one (`NumberField.RingOfIntegers.rank` at K = ℚ). -/
+private theorem finrank_rat_one : Module.finrank ℤ (𝓞 ℚ) = 1 := by
+  rw [NumberField.RingOfIntegers.rank, Module.finrank_self]
+
+/-- The absNorm dictionary on principal spans: the absolute norm of the ideal
+generated by a natural is the natural itself (rank one: `k ^ 1 = k`). -/
+private theorem absNorm_span_nat (k : ℕ) :
+    Ideal.absNorm (Ideal.span {((k : ℕ) : 𝓞 ℚ)}) = k := by
+  rw [Ideal.absNorm_span_natCast, finrank_rat_one, pow_one]
+
+/-- The span map is surjective onto the ideals of 𝓞 ℚ (M1's classification plus
+the zero corner `span {0} = ⊥`). -/
+private theorem surj_span : ∀ I : Ideal (𝓞 ℚ), ∃ k : ℕ,
+    Ideal.span {((k : ℕ) : 𝓞 ℚ)} = I := by
+  intro I
+  by_cases hI : I = ⊥
+  · refine ⟨0, ?_⟩
+    rw [hI]
+    exact (Ideal.span_singleton_eq_bot (α := 𝓞 ℚ) (x := ((0 : ℕ) : 𝓞 ℚ))).mpr
+      (by rw [Nat.cast_zero])
+  · obtain ⟨k, -, hk⟩ := exists_nat_span hI
+    exact ⟨k, hk.symm⟩
+
+-- (maxHeartbeats raised 3× for the theorem below: the statement's L-function
+-- import closure plus the four-step calc exhausted the 200k default at runs
+-- 10–12 — elaboration budget only, no proof semantics.)
+set_option maxHeartbeats 600000 in
+/-- **M2 (P1-b): the L-series identification** — the DZDF Hecke tsum over the ideals
+of 𝓞 ℚ equals the mathlib Dirichlet L-function of the dictionary character on the
+half-plane ℜs > 1. This is the second component of `HasQDirichletDictionary`
+(`N2-P0.lean`): the factorization donor's Hecke series, read through the value
+dictionary, IS the mathlib L-function. -/
+theorem heckeTsum_eq_ratCharOf_LFunction
+    (hχ : IsDZDFRayClassCharacterQ (Ideal.span {(q : 𝓞 ℚ)}) χ) (hq : 1 < q)
+    {s : ℂ} (hs : 1 < s.re) :
+    ∑' I : Ideal (𝓞 ℚ), χ I * (Ideal.absNorm I : ℂ) ^ (-s)
+      = @DirichletCharacter.LFunction q ⟨by omega⟩ (ratCharOf hχ hq) s := by
+  have hq0 : q ≠ 0 := by omega
+  have iN : NeZero q := ⟨hq0⟩
+  obtain ⟨hmul, htop, hzero, hspan⟩ := id hχ
+  have hbot : Ideal.span {(((0 : ℕ) : 𝓞 ℚ))} = ⊥ :=
+    (Ideal.span_singleton_eq_bot (α := 𝓞 ℚ) (x := ((0 : ℕ) : 𝓞 ℚ))).mpr
+      (by rw [Nat.cast_zero])
+  -- the ideals of 𝓞 ℚ are exactly the spans of naturals: a bijection ℕ ≃ Ideal (𝓞 ℚ)
+  -- (`let`, not `have`: the per-k reindex needs the definition transparent)
+  let he : ℕ ≃ Ideal (𝓞 ℚ) :=
+    Equiv.ofBijective (fun k : ℕ => Ideal.span {((k : ℕ) : 𝓞 ℚ)})
+      ⟨fun k k' h => by
+        have h2 := congrArg Ideal.absNorm h
+        rw [absNorm_span_nat, absNorm_span_nat] at h2
+        exact h2,
+      surj_span⟩
+  calc ∑' I : Ideal (𝓞 ℚ), χ I * (Ideal.absNorm I : ℂ) ^ (-s)
+      = ∑' k : ℕ, (fun I : Ideal (𝓞 ℚ) => χ I * (Ideal.absNorm I : ℂ) ^ (-s)) (he k) :=
+        (Equiv.tsum_eq he (fun I : Ideal (𝓞 ℚ) => χ I * (Ideal.absNorm I : ℂ) ^ (-s))).symm
+    _ = ∑' k : ℕ, χ (Ideal.span {((k : ℕ) : 𝓞 ℚ)}) * ((k : ℕ) : ℂ) ^ (-s) :=
+        tsum_congr fun k => by
+          show χ (Ideal.span {((k : ℕ) : 𝓞 ℚ)})
+              * ((Ideal.absNorm (Ideal.span {((k : ℕ) : 𝓞 ℚ)}) : ℂ)) ^ (-s)
+              = χ (Ideal.span {((k : ℕ) : 𝓞 ℚ)}) * ((k : ℕ) : ℂ) ^ (-s)
+          rw [absNorm_span_nat]
+    _ = ∑' k : ℕ, ratCharOf hχ hq ((k : ZMod q)) * ((k : ℕ) : ℂ) ^ (-s) :=
+        tsum_congr fun k => by rw [ratCharOf_apply hχ hq k]
+    _ = @DirichletCharacter.LFunction q ⟨by omega⟩ (ratCharOf hχ hq) s := by
+        have hf0 : (fun n : ℕ => ratCharOf hχ hq ((n : ZMod q))) 0 = 0 := by
+          show ratCharOf hχ hq ((0 : ℕ) : ZMod q) = 0
+          rw [← ratCharOf_apply hχ hq 0, hbot]
+          exact (hzero ⊥).mpr (Or.inl rfl)
+        have hLS : LSeries (fun n : ℕ => ratCharOf hχ hq ((n : ZMod q))) s
+            = ∑' k : ℕ, ratCharOf hχ hq ((k : ZMod q)) * ((k : ℕ) : ℂ) ^ (-s) := by
+          rw [show LSeries (fun n : ℕ => ratCharOf hχ hq ((n : ZMod q))) s
+              = ∑' n : ℕ, LSeries.term (fun n : ℕ => ratCharOf hχ hq ((n : ZMod q))) s n
+              from rfl]
+          exact tsum_congr fun k =>
+            @LSeries.term_def₀ (fun n : ℕ => ratCharOf hχ hq ((n : ZMod q))) hf0 s k
+        rw [← hLS, ← ZMod.LFunction_eq_LSeries (ratCharOf hχ hq) hs]
+        rfl
 
 end Dictionary
 
@@ -364,5 +501,6 @@ end Dictionary
 #print axioms CrossMath.Pilot75N2.chi_span_residue
 #print axioms CrossMath.Pilot75N2.ratCharOf
 #print axioms CrossMath.Pilot75N2.ratCharOf_apply
+#print axioms CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction
 
 end CrossMath.Pilot75N2

@@ -79,12 +79,12 @@ TARGETS = [
     # --- Five-unit proof-class finals — PLACEHOLDERS ONLY (rows appended on each unit's
     #     LANDING commit per close-act runbook §3 Step 8; expected stage names): ---
     ("AxPilotFFEZ2_P2",   PILOTS / "ff-ez2/P2.lean"),  # FF-EZ2-P2 FINAL-GREEN p2-run2 2026-11-18 (2/≤3 fix-loop; sorry-strict OK, 9/9 triad-only incl. 5 private, 0 sorryAx; telemetry mem OVER=1 = documented mmapped-olean class) — the descope-closure rung, PROOF-CLASS per runbook Step 8; Mathlib-only import (no ordering constraint); ff-ez2 P0/P1 STAY probe-convention (statement-class); sha256(16) 24926ac4cbbcdd50; chartered-row append at landing (A3 unit 1 of 5)
-    # --- remaining four-unit finals — PLACEHOLDERS (rows appended on each unit's
+    ("AxPilot75_N2P1",    PILOTS / "75/N2-P1.lean"),  # 75-N2-P1 FINAL (M1 closure + M2) GREEN-triad n2-p1-run15 2026-11-18 (rc=0, 0 errors, 0 sorry tokens; **8/8 file triad** incl. M1 7/7 + the M2 heart `heckeTsum_eq_ratCharOf_LFunction` at :448 = dictionary components (i)+(ii) kernel-verified; sha256(16) 2e5217010e46ad0d; verify-fire sha headers runs 9–15); M3 deferred honestly → iteration-5 (GO rec). STEP-B DEPENDENCY-CLOSURE NOTE (A1, sweep-time): this file `import N2P0` — the runner's hyphen workaround (byte-identical N2-P0.lean copy staged as N2P0.lean per run_n2p1.py:5–9); the rewrite map does NOT catch the hyphenless name, and N2-P0 (→ `import Pa`, auto-rewrites to AxPilot75_Pa) has no row per the single-row instruction — the sweep must stage the Pa+N2P0 closure (runner ORDER pattern) or extend the map; sorted name AxPilot75_N2P1 sits after AxPilot75_Pb harmlessly (Mathlib+N2P0 only)
+    # --- remaining three-unit finals — PLACEHOLDERS (rows appended on each unit's
     #     landing commit per close-act runbook §3 Step 8): ---
     # AxPilotAL3D_A2 re-stage at sweep = bytes of record (row above) OR new AxPilotAL3D_A3 row if pilots/al3d/A3.lean appears (A4)
     # AxPilot77_T1 (pilots/77/T1.lean on disk, in flight; T2 file TBD) (A7)
     # AxPilot74_P1 (pilots/74/P1.lean on disk, in flight; verify-fire discipline) (A8)
-    # AxPilot75_N2P1 final (pilots/75/N2-P1.lean on disk, in flight) + M2/M3 final files TBD (A5)
 ]
 
 

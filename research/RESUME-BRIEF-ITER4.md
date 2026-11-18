@@ -364,7 +364,10 @@ one-writer-per-file, H commits only. H's wave-3 lane log:
 `research/qa/iter4-review/h-wave3-log.md`. Close act (task 4) armed on orchestrator
 signal after the five units land. **Landing progress: FF-EZ2-P2 GREEN (A3/agent-04)
 2026-11-18 — unit 1 of 5 down; FF-EZ2 charter fully closed** (remaining: A4 AL-P2-c/d/e,
-A5 N2 closure→M2/M3, A7 77-T1+T2, A8 74-P1).
+A5 N2 closure→M2/M3, A7 77-T1+T2, A8 74-P1). **Unit 2 of 5 down (2026-11-18, later):
+N2-P1 closure + M2 GREEN-triad** — `heckeTsum_eq_ratCharOf_LFunction` kernel-verified
+(8/8 file triad, run 15, sha `2e521701`); M3 deferred honestly → iter-5 (GO rec).
+Remaining: A4, A7, A8.
 
 ### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
 
