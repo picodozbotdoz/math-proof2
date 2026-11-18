@@ -58,7 +58,7 @@ the other n̄ − 1 discarded, "0 additional inequalities", redundancy proved no
 
 **The prior counterexample and what was missing.** The openai-math corpus contains a
 kernel-checked counterexample: `OAI.TruffetV4Counterexample.finite_execution_not_optimal`
-(`TruffetCounterexample.lean:126`, sibling tree) proves that the *modeled* eligibility
+(`TruffetCounterexample.lean:118`, sibling tree) proves that the *modeled* eligibility
 criteria — an abstraction of the paper's selection rule — force a suboptimal run. A
 model-level statement does not touch the paper: the paper's defenders could reply that
 the model omits whatever rescues the procedure. What was missing is the promotion from
@@ -143,7 +143,7 @@ disjunct of row 0, and the optimum in the other disjunct is lost.
 
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
-| `OAI.TruffetV4Counterexample.finite_execution_not_optimal` (openai-math corpus, kernel-checked, `TruffetCounterexample.lean:126`) | the model-level statement: the *modeled* criteria force a suboptimal run | the fidelity bridge (A1) promotes it to the paper's own procedure: model-level → procedure-level is the discovery; without A1 the run is not the paper's |
+| `OAI.TruffetV4Counterexample.finite_execution_not_optimal` (openai-math corpus, kernel-checked, `TruffetCounterexample.lean:118`) | the model-level statement: the *modeled* criteria force a suboptimal run | the fidelity bridge (A1) promotes it to the paper's own procedure: model-level → procedure-level is the discovery; without A1 the run is not the paper's |
 | Truffet, arXiv:2603.26423 v4 (2026-08-29; HAL hal-05556396), §2.3, Thms 4.1–4.3 | the target of the refutation: claims Thm 4.2 "ensures the optimality of the result"; proves per-disjunct saturation and interval maximality; the v4 NOTA corrects the minimization disjunction and claims the principle unharmed | our exhibited run refutes the optimality claim on the paper's own singleton path with prerequisites satisfied; the NOTA's correction is shown incomplete at the I≥-selection level |
 | Truffet, arXiv:2604.06726 v4 (v1 2026-04-08; HAL hal-05583720; ROADEF 2026 talk Feb 2026; companion note hal-05534872, 2026-03-03), §§6.3–9 | the classical sibling: same single-bound elimination (§7 eq. (118)); Thm 2.1 (strongly-poly general LP) and Cor 2.1 (Smale's 9th) by complexity accounting alone, no soundness theorem | not refuted here (Stage B, out of scope); it is the stakes-context: the tropical failure mode is exhibited on the shared elimination step |
 | Allamigeon–Benchimol–Gaubert–Joswik, "Tropicalizing the simplex algorithm", arXiv:1308.0454; SIAM J. Discrete Math. 29(2):751–795, 2015, DOI 10.1137/130936464 | tropical simplex: pivoting mechanics, one step in O(n(m+n)); no rule-soundness criterion | scope boundary: this article refutes Truffet's substitution rule, not tropical pivoting or tropical LP |
@@ -278,7 +278,7 @@ re-grade § and the hardened nearest-miss table with access dates); scoping note
 `research/novelty/iter4-truffet-classical-scope.md` (§9 Outcome B — the classical
 soundness gap; §10.1 — the fidelity dictionary and the worked run); the openai-math
 sibling files `OAI/Optimization/Tropical/TruffetModel.lean:33–116` and
-`TruffetCounterexample.lean:126` (read-only).
+`TruffetCounterexample.lean:118` (read-only).
 
 ---
 
@@ -291,6 +291,10 @@ quota); all three status rows, the six-row nearest-miss table, the six mandatory
 limitations, and the R3-§5 verification blocks trace to that package and to
 `pilots/78/P0.lean` / `logs/p0-run4.log` on disk. README row drafted in the same
 session (H lands it).
+
+2026-11-18 (lane A9, claims audit): one locator correction, three sites (§1, §4 row 1,
+§8) — the OAI sibling cite `TruffetCounterexample.lean:126` → `:118` (the theorem's
+keyword line). Audit record: `qa/iter4-review/a9-claims-audit-iter4.md`.
 
 ## Shipping-gate self-audit (TEMPLATE-iter4 §9) — lane A9, 2026-11-17
 

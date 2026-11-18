@@ -396,3 +396,18 @@ routing.
   the runner-fixes-wave2.patch ADJUDICATED-NO-APPLICATION note (2026-11-18 H verdict).
 - Item 9 (close-time) SKIPPED per instruction. Tracker A1 row refreshed (active/folds).
   All edits dated + attributed in-row per the funnel convention.
+
+## 2026-11-18 — LANDING: A9 claims audit (H batch)
+
+- Pulled from worktree agent-10 as ONE exact-file batch (6 files): NEW
+  `qa/iter4-review/a9-claims-audit-iter4.md` (213 claim-checks, 4 locator defects
+  FIXED, orchestrator defect list empty) + DELTAS `a9-splice-readme-checklist.md`
+  (D.0 corrected — item-1 one-tranche-stale; D.1+D6 folded; D.1-bis pre-stage;
+  D.2 both-branch complete) + articles 10 (D2/D3 relay fold per A2's rehearsal D5:
+  status-table rows, abstract tranche sentence, §6/§7/§8.1, dated change log),
+  30 (`r2-discovery-strength.md:68`→`:69` byline cite), 42 (`M4a.lean:821`→`:820`,
+  `:833`→`:837` def-keyword locators + change log), 78
+  (`TruffetCounterexample.lean:126`→`:118` ×3 sibling-cite). All verified as A9's
+  own edits on current-main text (FF-eligible; hash→copy→cmp). INDEX row staged
+  same-commit; tracker A9 row refreshed. Other agent-10 dirty entries remain
+  landed-no-ops (cmp EQUAL at last check) or A9's in-place worktree copies.

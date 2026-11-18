@@ -15,6 +15,8 @@ theorems and proofs unchanged) · artifacts: `research/pilots/10/{M1,L1,L2,L3}.l
 | L1 agreement family `PaddedDescent.F.{foldC,collectC,rngC,sumFC,prodC,findC}_agree` (+ inactivity/composite) | PROVED-UNCONDITIONAL | none | `l1-run4-final.log:15–20` — ⊆ triad (`collectC_agree` prints `[propext]` only); full-coverage stage OK `:13` (27/27 ⊆ triad) |
 | L2 countdown `Counted.cdFrag_runs`, `cdLoop_runsB`, `PolyTVal`, `polyTVal_id`, `countdown_cut` | PROVED-UNCONDITIONAL | none | `l2-run5-final-green.log:19–23` — triad (verdict `:1`; full axcheck 151/151 ⊆ triad, 0 sorryAx) |
 | Assembly-tranche D1 (landed 2026-11-17, plumbing billing) `Groundwork.PadC.padM'_reaches`, `padM'_runs`, `padM'_state_poly_pair`, `padM'_state_poly` (+ size lemmas) | PROVED-UNCONDITIONAL | none beyond statement scope (`padM'_state_poly` carries the explicit value-polynomiality binder `hv` — the dated spec correction of §8) | `pilots/10/logs/d1-run1.log:25–30` — Part E triad (`padM'_state_poly` etc.) / `[propext, Quot.sound]` (size lemmas); L3.lean OK `:14` |
+| Assembly-tranche D2 (landed 2026-11-17 FINAL, plumbing billing) `Groundwork.PadC.padM'_isPolyT` — the Closure field of the counter machine (init via `padM'_init_polyT` + `padM'_init_eq`, out via `padM'_out_polyT`; new surface `canary_init`, `canary_pair`, `carried_σ`, `decide_le`, `log2'`, `mul`, `foldl_add`, `foldr`) | PROVED-UNCONDITIONAL | none | `pilots/10/logs/d2-run4.log:110` (repeat `:141`) — triad at the closure run (verdict `:1`, "D2 FULLY GREEN"; L4.lean sha `4ae0d643…`, 4,195 LoC); `padM'_init_eq` prints `[propext, Quot.sound]`; the run-12 `sorryAx` lines are the disclosed pre-fix attempt, superseded in-log by closure run 2 |
+| Assembly-tranche D3 (landed 2026-11-17, plumbing billing) `Groundwork.PadC.pad_bound`, `padded_time_absorb` (eth `Pad.lean:98–109` verbatim, one pin-adjustment: `pow_le_pow_right'`) | PROVED-UNCONDITIONAL | none | `pilots/10/logs/d3-run1.log:44–45` — triad, first-run GREEN (verdict `:1`; L5.lean = 16-line D3 header + L4 verbatim + Part H, sha `da398f21…`) |
 
 Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
 external CAS; every printed axiom set ⊆ `{propext, Classical.choice, Quot.sound}`.
@@ -22,7 +24,8 @@ external CAS; every printed axiom set ⊆ `{propext, Classical.choice, Quot.soun
 proved.** The proved layers are M1 (space-annotated host simulation), L1 (counter
 combinators agree with padded ones), L2 (the space-certified countdown loop and the
 first value-time/word-space certificate), and — as assembly-tranche progress, billed
-plumbing/completion-value, never novelty — the D1 counter padding machine (§8).
+plumbing/completion-value, never novelty — the D1 counter padding machine with its D2
+polyT closure and the D3 pad bound (§8).
 
 Change log (2026-11-17, lane A9 — template-compliance upgrade, theorems/proofs
 untouched): byline brought to the TEMPLATE-iter4 front matter (kind TECHNICAL-RECORD,
@@ -32,6 +35,14 @@ lines and gained the L3/Part-E row (the D1 landing of 2026-11-17, evidence
 `d1-run1.log`); §7 converted to the mandatory nearest-miss table; §8.1 updated for the
 D1 landing with its dated spec correction. The error-descent parenthesis of the v1 §6
 row was removed (record content, not article content).
+
+Change log (2026-11-18, lane A9 — D2/D3 fold per the A2 close-rehearsal relay, defect
+D5): the header status table, abstract tranche sentence, §6 file table + prose, §7
+scope statement and the §8.1 tranche bullets extended for the D2 FINAL and D3 landings
+of 2026-11-17 (`d2-run4.log`, `d3-run1.log`; commit `9dc6684` lineage) and the D4 →
+Iteration 5 orchestrator ruling; the stale "D2's Route A/B decision is not pre-empted"
+sentence superseded in place. Theorems and proofs unchanged; billing unchanged
+(plumbing, never novelty).
 
 ---
 
@@ -57,7 +68,9 @@ all PROVED-UNCONDITIONAL:
   counter — with the `PolyTVal` discipline and certificate `polyTVal_id`.
 
 The uniform-polynomial-space target is **not proved** (headline open); of the assembly
-tranche, the D1 counter padding machine has landed (plumbing billing; §8).
+tranche, D1–D3 have landed — the D1 counter padding machine, its D2 polyT closure and
+the D3 pad bound with time absorption (plumbing billing; §8); D4–D6 carried, D4 to
+Iteration 5 by orchestrator ruling.
 
 ## 1. Introduction
 
@@ -198,6 +211,8 @@ bounds n(3n + 6) + 1 ≤ 16(l + nb + 1)^16 by elementary arithmetic (`bound16`, 
 | `pilots/10/L1.lean` | L1 | 529 lines, 25 thms | `l1-run4-final.log` (full stage OK `:13`; prints `:15–20`) | full axcheck 27/27 ⊆ triad |
 | `pilots/10/L2.lean` | M1 verbatim + Part D (L2) | 2,625 lines, 151 thms | `l2-run5-final-green.log` (verdict `:1`; Part D prints `:19–23`) | 151/151 ⊆ triad, 0 sorryAx |
 | `pilots/10/L3.lean` | L2 verbatim + Part E (tranche D1; landed 2026-11-17, plumbing billing) | 2,805 lines (= L2 verbatim + 132 new) | `d1-run1.log` (L3 OK `:14`; Part E prints `:25–30`) | Part E: four machine theorems triad; size lemmas `[propext, Quot.sound]`; L2-region regression triad `:16–24` |
+| `pilots/10/L4.lean` | L3 verbatim + the polyT-closure layer (tranche D2 FINAL; landed 2026-11-17) | 4,195 lines (sha `4ae0d643…`) | `d2-run4.log` (verdict `:1`; `padM'_isPolyT` `:110`/`:141`) | new surface triad; `padM'_init_eq` `[propext, Quot.sound]`; run-12 section's `sorryAx` lines superseded by closure run 2 |
+| `pilots/10/L5.lean` | 16-line D3 header + L4 verbatim + Part H (tranche D3; landed 2026-11-17) | 4,248 lines (sha `da398f21…`) | `d3-run1.log` (verdict `:1`; prints `:44–45`) | `pad_bound`/`padded_time_absorb` triad; L4-region regression triad |
 
 All of M1/L1/L2 are Cycle-2 final-sweep targets: `AxPilot10_M1`, `AxPilot10_L1` and
 `AxPilot10_L2` are OK, with 106, 36 and 126 axiom lines respectively, and 0 sorryAx
@@ -205,7 +220,10 @@ All of M1/L1/L2 are Cycle-2 final-sweep targets: `AxPilot10_M1`, `AxPilot10_L1` 
 in the Modal log. All of them belong to the byte-identical M1 region, which M1's own
 audit covers. L3 (Part E) is the Iteration-4 D1 landing; its run of record is
 `d1-run1.log` and it carries the L2 region verbatim (sha-verified at the run header),
-so the same regression coverage applies.
+so the same regression coverage applies. L4 (D2 FINAL, `d2-run4.log`, sha `4ae0d643…`)
+and L5 (D3, `d3-run1.log`, sha `da398f21…` = 16-line header + L4 verbatim + Part H)
+extend the same verbatim-carry pattern; their runs of record carry the shas at the
+headers.
 
 ## 7. Novelty and nearest misses
 
@@ -217,7 +235,7 @@ so the same regression coverage applies.
 
 Scope statement. The layers are engineering toward an open headline (kind
 TECHNICAL-RECORD); no layer is billed as new mathematics, and the assembly tranche —
-including the landed D1 machine — is plumbing/completion-value by charter. The
+including the landed D1–D3 layers — is plumbing/completion-value by charter. The
 unclaimed object is the uniform, polynomial-space conjunction of §3 (novelty record:
 dossier 10 §Novelty, novelty grade 5 at triage).
 
@@ -233,8 +251,20 @@ dossier 10 §Novelty, novelty grade 5 at triage).
      FALSE over the substrate's binary `Enc ℕ` (`PolyT` bounds the *word* of e x, not
      its value; e x = 2^(|x|²) is the counterexample); Part E lands
      `padM'_state_poly_pair` (unconditional) and `padM'_state_poly` under the explicit
-     value-polynomiality binder `hv` — the D4-consumable form. D2's Route A/B decision
-     is not pre-empted.
+     value-polynomiality binder `hv` — the D4-consumable form. (D2's Route A/B
+     decision, open when this bullet was written, is settled by the D2 landing below.)
+   - **D2 landed 2026-11-17 FINAL** (plumbing billing): the polyT closure of the
+     counter machine — `padM'_isPolyT` over all three Closure fields (`L4.lean`;
+     evidence `d2-run4.log:110`/`:141`, triad at closure run 2; the run-12 `sorryAx`
+     lines are the disclosed pre-fix attempt; sha `4ae0d643…`). The root cause of the
+     earlier budget-stop was the `Nat.log2`/`Nat.log` lemma-not-defeq gap, closed by
+     the two-token log2log' bridge.
+   - **D3 landed 2026-11-17** (plumbing billing): the pad bound and time absorption —
+     `pad_bound` + `padded_time_absorb`, eth `Pad.lean:98–109` verbatim modulo one
+     pin-adjustment (`pow_le_pow_right'`; `L5.lean`; evidence `d3-run1.log:44–45`,
+     first-run GREEN; sha `da398f21…`).
+   - **D4–D6 carried** — D4 to Iteration 5 by orchestrator ruling (2026-11-17);
+     D5–D6 unchanged.
    - still needed: the theorem `exists_tm_padded_space`, which is eth's
      `exists_tm_padded` plus the space conjunct; the relabeling walk between the
      bracket encoding `wd` and the counter word `cw`.

@@ -47,6 +47,11 @@ abstracts — the in-repo 2026-11-09 record's "0.67354" was a rounding slip; R7 
 superseded only as
 a consumption route.
 
+2026-11-18 (lane A9, claims audit): two §6 locator corrections — `distinctCountCum`
+`M4a.lean:821` → `:820` and `EpsLowerDistinctStripCum` `:833` → `:837` (def keyword
+lines; the old `:833` pointed at `EpsLowerCum`). Audit record:
+`qa/iter4-review/a9-claims-audit-iter4.md`.
+
 ## 1. Introduction
 
 Lower bounds for the proportion of zeros of ζ on the critical line go back to Selberg,
@@ -175,7 +180,7 @@ multiplicity for each factor, both open). hCZStrip is conjecture-grade
 
 | theorem / artifact | declaration | file | axioms | evidence |
 |---|---|---|---|---|
-| strip-distinct vocabulary | `distinctCountCum` (`M4a.lean:821`), `EpsLowerDistinctStripCum` (`:833`), `commonStripCum`, `assemble_eps_defect_strip_cum` (`:1023`; binders hz, hw = the two component distinct-proportion inputs) | `research/pilots/42/M4a.lean` (1,194 lines, 54 public theorems) | ⊆ triad | prints `m4-axcheck-run1.log:58–68` (`assemble_eps_defect_strip_cum` at `:68`); `m4-run2.log:2` GREEN; sweep `42/logs/axcheck-c2-final.log:7` — AxPilot42_M4a OK, 57 axiom-lines, 0 sorryAx; C2 coverage (54/54 public) [R3 §1.2; tables §1] |
+| strip-distinct vocabulary | `distinctCountCum` (`M4a.lean:820`), `EpsLowerDistinctStripCum` (`:837`), `commonStripCum`, `assemble_eps_defect_strip_cum` (`:1023`; binders hz, hw = the two component distinct-proportion inputs) | `research/pilots/42/M4a.lean` (1,194 lines, 54 public theorems) | ⊆ triad | prints `m4-axcheck-run1.log:58–68` (`assemble_eps_defect_strip_cum` at `:68`); `m4-run2.log:2` GREEN; sweep `42/logs/axcheck-c2-final.log:7` — AxPilot42_M4a OK, 57 axiom-lines, 0 sorryAx; C2 coverage (54/54 public) [R3 §1.2; tables §1] |
 | ζ-column discharge | `epsLowerCum_zeta_of_V2d4` (`M4b.lean:1404`), `epsLowerDistinctStripCum_zeta_of_V2d5` (`:1439`) — own binders hntopζ, hfinζ, hV2d4/hV2d5, discharged at the landings by the imported endpoints | `research/pilots/42/M4b.lean` | ⊆ triad | prints `m4b2-axcheck-run1.log:211` and `:212` [tables §1] |
 | Thm 1 | `zetaK_two_thirds_landed_of_V2` (`M4b.lean:1479`) | `research/pilots/42/M4b.lean` (1,571 lines; 70 theorem declarations on disk — the v1 articles' "68" was an undercount, R3 §4 F4) | ⊆ triad | `m4b2-axcheck-run1.log:139` [tables §1] |
 | Thm 2 | `zetaK_distinct_five_sixths_strip_landed_of_V2` (`:1497`) | idem | ⊆ triad | `m4b2-axcheck-run1.log:140` (wrapped); donor-tree verdict of record `axcheck-c2-final.log:8` [tables §1] |

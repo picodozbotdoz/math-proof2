@@ -61,12 +61,16 @@ activates, delivered into the agent-10 worktree for H to pull.
 
 ## D.0 State correction — what the 2026-11-17 items already discharged (verified on main @ 2f90dcc)
 
-- **Item 1 (row 10) — LANDED at `37a2637`** (commit message: "README rows 10/75
-  synced"). §C row 10 now reads exactly:
-  `M1/L1/L2 + tranche D1 PROVED-UNCONDITIONAL as layers (D1 plumbing, landed 2026-11-17); **headline OPEN**; D2–D6 carried`
-  — no further edit. D1's article rows landed earlier (`2345a3a`/`53d4cc0` lineage),
-  i.e. the row followed the article by a later commit the same day; that ordering is
-  the drift the dry-run flagged and its closure is recorded here, honestly.
+- **Item 1 (row 10) — LANDED at `37a2637`, then found ONE-TRANCHE STALE by A2's close
+  rehearsal (defect D5, 2026-11-18)**: the `37a2637` wording ("D2–D6 carried") predates
+  the D2 FINAL + D3 landings (`9dc6684`, 2026-11-17). The close-time edit is now
+  **D.1-bis** below (A2's staged D1–D3 wording, ratified by A9 against the records:
+  `d2-run4.log` / `d3-run1.log` verified on main this session). Article-10's header
+  table carries the D2/D3 rows as of the A9 worktree (2026-11-18 relay fold), so row
+  and article agree again at the D1–D3 state. D1's article rows landed earlier
+  (`2345a3a`/`53d4cc0` lineage), i.e. the row followed the article by a later commit
+  the same day; that ordering is the drift the dry-run flagged and its closure is
+  recorded here, honestly.
 - **Item 2 (row 75 two-tier wording) — LANDED at `37a2637`** (one commit after the
   `a6c7b13` article v2 landing; same honest note). The cell is byte-verified against
   the article's own header table this session. What REMAINS for row 75 at close is
@@ -95,24 +99,137 @@ ruling) · **7 technical records & formalizations** · **4 notes/certificates (1
 a branch decision)** + 3 relocated notes — down from 17 article files for both cycles.
 ```
 
+**D6 ruling folded (orchestrator, relayed 2026-11-18):** the "(1 pending a branch
+decision)" qualifier resolves with A5's landing — **branch-landed** (M2/M3 land the N2
+conditions) ⇒ DROP the qualifier and adjust counts per D.2's branch-landed wording
+(the replacement line then reads `**4 notes/certificates**`; re-count from the
+`a9-corpus-compliance.md` roll-up if the landing moves any row between sections);
+**branch-carried** ⇒ KEEP the qualifier verbatim (A2's rehearsal copy kept it — correct
+pre-landing behavior). No third branch.
+
+## D.1-bis Row 10 D1–D3 wording (supersedes the landed `37a2637` cell per A2's
+rehearsal defect D5) — `README.md:45`, §C row 10
+
+Current exact status cell (verified at `2f90dcc`):
+
+```
+M1/L1/L2 + tranche D1 PROVED-UNCONDITIONAL as layers (D1 plumbing, landed 2026-11-17); **headline OPEN**; D2–D6 carried
+```
+
+Replace with (A2's staged rehearsal wording, `agent-03 …/rehearsal/apply_rehearsal.py:93`,
+record-ratified by A9 — `d2-run4.log:110/:141` triad at closure run 2, sha `4ae0d643…`;
+`d3-run1.log:44–45` triad first-run, sha `da398f21…`):
+
+```
+M1/L1/L2 + tranche D1–D3 PROVED-UNCONDITIONAL as layers (D1 = the counter padding machine, `d1-run1.log:25–30`; D2 FINAL via `padM'_isPolyT`, `d2-run4.log` sha `4ae0d643…`, ruling out the §10.20 budget-stop; D3 first-run GREEN, `d3-run1.log` — plumbing billing, landed 2026-11-17; **headline OPEN**; D4–D6 carried (D4 → Iteration 5 by orchestrator ruling))
+```
+
 Source of truth: `a9-corpus-compliance.md` close-out roll-up (stock line: 6 of 14
 live; flow line: quota N=1 UNSPENT). No other token of the sentence changes.
 
-## D.2 Row 75 N2-conditional refresh (the C-section watch, made exact) — `README.md:22`
+## D.2 Row 75 N2-conditional — BOTH BRANCHES pre-written (pick-one on A5's landing report; 2026-11-18)
 
-Current exact status-cell tail (verified):
+Current exact status-cell tail (`README.md:22`, verified at `2f90dcc`):
 
 ```
 …binder swap cleared); ℚ-instantiation (N2) IN FLIGHT (P0 + P1-core GREEN) |
 ```
 
-- **Branch carried (A5's N2 not landed by close — expected per the slot ledger):**
-  NO edit; the cell stands; the close summary cites N2 as carried.
-- **Branch landed (N2 GREEN before close):** A9 drafts the replacement tail on A5's
-  landing report and stages it here + in article-75's §3.3/§7 tier rows (same-commit,
-  A9 the writer). Skeleton (fills in brackets from the landing report):
-  `…binder swap cleared); ℚ-instantiation (N2) PROVED-UNCONDITIONAL at ℚ [<theorem names>, <n>/<n> triad, <run log cites>; M2/M3 <verdicts>] |`
-  with the tier-1 supersession wording matching the article's own status table.
+Article-75 anchor points (byte-verified at `2f90dcc`; the ONLY article sites that
+track N2 state — abstract sentence, §3.3 piece-(i) paragraph, §7.2 item):
+
+- Abstract (`75-…md:68–71`): `…named glue remains before\nζ_L itself is unconditional at ℚ.`
+- §3.3 (`75-…md:261–270`): the "**What remains for an unconditional ζ_L ≥ 2/3 at ℚ
+  (not proved here).** Two named pieces: (i) … absent from every surveyed corpus;
+  (ii) …" paragraph.
+- §7.2 (`75-…md:472–477`): "The unconditional-at-ℚ theorem is not proved here. … Until
+  that glue lands, Theorem B over ℚ keeps its binders; …"
+
+Slot convention: `[S1]`…`[S4]` are transcription slots filled VERBATIM from A5's
+landing report (its one-line verdict block) — picking a branch and copying the slots
+is the entire close-time action; nothing is drafted.
+
+### Branch CARRIED (M2/M3 unlanded at close — the expected branch per the slot ledger)
+
+1. README cell — replace the tail with:
+
+   ```
+   …binder swap cleared); ℚ-instantiation (N2) carried to Iteration 5 (P0 15/15 +
+   P1-core GREEN-triad; [S1: A5's final P1 state sentence, verbatim from its closeout
+   report, or "packaging closure not run"] — M2/M3 unlanded at close) |
+   ```
+
+2. Article-75: **NO edit** (all three anchors stay true: the glue is named, not
+   claimed; "absent from every surveyed corpus" is an external-corpus claim and the
+   in-flight N2 build does not falsify it; the pre-shipping 3×NOVEL sweep's two
+   mandatory nearest-miss adds live in the N2 dossier `candidates/75-N2-…md`, not in
+   this article).
+3. D.1 counts line: KEEP the "(1 pending a branch decision)" qualifier verbatim (D6).
+
+### Branch LANDED (A5's M2/M3 land the N2 conditions)
+
+1. README cell — replace the tail with:
+
+   ```
+   …binder swap cleared); ℚ-instantiation (N2) P1 COMPLETE — the ℚ ray-class ↔
+   Dirichlet dictionary kernel-verified in-repo ([S2: dictionary/L-series theorem
+   names], [S3: n/n triad + run-log cites from the closure run]); remaining glue to an
+   unconditional ζ_L at ℚ: the hEχ port + the V2 ζ-column landing |
+   ```
+
+   (If A5's report also lands P2/P3 — full unconditional-at-ℚ — use instead:
+   `…ℚ-instantiation (N2) LANDED: ζ_L ≥ 2/3 unconditional at ℚ ([S2], [S3], landing
+   theorem [S4: name + log cite]) |`, and see edit 5.)
+
+2. Article-75 §3.3, piece (i) — replace the paragraph's opening through "absent from
+   every surveyed corpus;" with:
+
+   ```
+   **What remains for an unconditional ζ_L ≥ 2/3 at ℚ (not proved here).** Two named
+   pieces: (i) the ℚ ray-class ↔ Dirichlet-character dictionary with L-series
+   identification (including imprimitivity) — kernel-verified in-repo this cycle
+   (75-N2 P1 complete: [S2], evidence [S3]; external corpora remain without it);
+   ```
+
+   (the "(ii) hAbFac …" sentence and the paragraph's closing sentences stand).
+
+3. Article-75 §7.2 — replace "the ℚ ray-class ↔
+   Dirichlet dictionary with L-series identification and imprimitivity handling
+   (absent from every surveyed corpus), and the factorization binder for K = ℚ." with:
+
+   ```
+   the ℚ ray-class ↔
+   Dirichlet dictionary with L-series identification and imprimitivity handling
+   (kernel-verified in-repo this cycle: 75-N2 P1, [S2]/[S3]), and the factorization
+   binder for K = ℚ plus the port/landing glue.
+   ```
+
+4. Article-75 abstract — replace "named glue remains before
+   ζ_L itself is unconditional at ℚ." with:
+
+   ```
+   the dictionary glue is now kernel-verified (75-N2), and the remaining named glue is
+   the factorization binder and the port to an unconditional ζ_L at ℚ.
+   ```
+
+5. **Conditional (P2/P3 also landed — full unconditional):** article-75's header
+   status table gains one row (insert after the Dirichlet-column row, same shape):
+
+   ```
+   | ℚ-instantiation landing [S4: theorem name] (`[S2 file:line]`) | PROVED-UNCONDITIONAL | [S4: structural binders per the landing statement, verbatim] | [S3: triad print log:line] |
+   ```
+
+   and the README §A row-75 kind cell gains "tier-1 ℚ landing 2026-11-<dd>" — a
+   one-clause append, nothing else. D.1's qualifier drops (D6).
+
+6. Branch-landed rides ONE commit with D.3/D.4 (box 11); A9 stages the article-75
+   edits in the agent-10 worktree on A5's report and H pulls — same mechanism as this
+   addendum's other blocks.
+
+**Slot registry (from A5's landing report):** [S1] final P1-state sentence; [S2]
+dictionary/L-series theorem names (+file:line if the landing names them); [S3] the
+closure run's triad count + log-path:line; [S4] landing-theorem name + log cite
+(full-landing case only).
 
 ## D.3 Row 78 draft-marker drop (completes item 3) — `README.md:23`
 
@@ -264,3 +381,12 @@ only) + the agent-10 worktree `articles/README.md` synced to main `2f90dcc` cont
 14/14 unchanged since the G5 dry-run (`git diff 37a2637 2f90dcc -- research/articles/`
 empty; mechanical re-check re-measured this session). No commits (H commits).
 Close-support standby continues.
+
+*Second pass, 2026-11-18 (claims-audit re-task + A2/orchestrator relay):* D.0's
+row-10 bullet corrected for the rehearsal D5 one-tranche staleness; D.1 gained the
+D6 branch rule; D.1-bis added (A2's staged D1–D3 row-10 wording, record-ratified);
+D.2 completed both-branch (slot-registry form). Worktree article edits this pass:
+`articles/10-…md` (D2/D3 relay fold), `articles/30-…md` (:69), `articles/42-…md`
+(:820/:837), `articles/78-…md` (:118 ×3) — see `a9-claims-audit-iter4.md` for the
+per-defect evidence. The 75/78 close-time cells of D.4 were NOT double-applied
+(PENDING-CLOSE stands). No commits (H commits).

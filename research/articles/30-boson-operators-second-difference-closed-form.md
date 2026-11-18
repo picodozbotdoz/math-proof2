@@ -2,7 +2,7 @@
 
 *kind: DISCOVERY (new closed form about a corpus-internal operator family + refutation of
 a conjecture formulated in this project — the "whose conjecture" caveat carried per the
-strength bar, `qa/iter4-review/r2-discovery-strength.md:68`) · date: 2026-11-09 (template
+strength bar, `qa/iter4-review/r2-discovery-strength.md:69`) · date: 2026-11-09 (template
 upgrade 2026-11-17) · supersedes: none (in-place template-compliance upgrade; theorems
 and proofs unchanged) · artifacts: `research/pilots/30-falsify-TheoremB-h1.lean`,
 `research/pilots/30/ClosedForm.lean`,
@@ -32,6 +32,11 @@ the closed vocabulary, making the kernel-checked vs PAPER-ONLY split of the mome
 identities explicit at row level (the README already bills this split); §5 gained its
 log-line cites; §6 converted to the mandatory nearest-miss table with the same
 citations.
+
+Change log (2026-11-18, lane A9 — claims audit): one locator correction — the byline's
+strength-bar cite `r2-discovery-strength.md:68` → `:69` (:68 is the 01 row; the
+"whose conjecture" caveat is the 30 row). Audit record:
+`qa/iter4-review/a9-claims-audit-iter4.md`.
 
 ---
 
