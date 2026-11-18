@@ -495,3 +495,17 @@ routing.
   FINAL-SWEEP-PLAN-ITER4.md, stepA-incremental-iter4.log) verified **byte-identical
   to main** — their advancement was already landed inside `6e2d2f2`; staged as
   no-ops, nothing rode. Tracker A1 row refreshed (active, 4 slots).
+
+## 2026-11-18 — LANDING: A9 claims-audit extension (H batch)
+
+- Pulled from worktree agent-10 as ONE exact-file batch (2 files):
+  `qa/iter4-review/a9-claims-audit-iter4.md` §Extension (+153 lines, pure append:
+  the 8 non-discovery articles audited same-methodology — **cumulative 423 checks,
+  6 defects total, 5 FIXED** [article-52's 294→292 LoC measurement the one
+  in-batch edit] — **A71-1 STAGED for A3 routing**: the Weil donor path-segment
+  missing at 4 sites in article-71, A3-owned, audited read-only) +
+  `articles/52-statistics-universal-occupation-calculus.md` (§5 LoC 294→292 + dated
+  change-log line; FF-verified — main's last touch `37a2637` = A9's own landing,
+  the single main-only line is the corrected cell). Tracker A9 row refreshed.
+- Relay: A71-1 awaits orchestrator routing to A3 (not H's to apply — article-71 is
+  A3-owned).

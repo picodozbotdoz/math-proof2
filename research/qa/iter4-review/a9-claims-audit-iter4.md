@@ -195,3 +195,156 @@ units (A3/A4/A5/A7/A8 own no article file in this audit's scope).
 — Lane A9 (wave 3, second pass), 2026-11-18. Source of truth: main `2f90dcc` +
 read-only siblings; no Modal; no commits (H commits). Companion: the splice-checklist
 wave-3 addendum (D.0 corrected, D.1 + D6 rule, D.1-bis, D.2 both-branch).
+
+---
+
+# §Extension — the 8 non-discovery articles (same methodology; 2026-11-18)
+
+Scope check first: the README/index split is **§A discovery-grade = 01, 30, 32, 42, 75,
+78** (audited above) and **non-discovery = §B technical/notes 11, 20, 22, 50, 52, 71,
+72 + article 10** (listed in §C for low billing but KEEPS article status) — 8 files,
+matching the re-task list. Article-10's header D2/D3 rows were relay-folded this
+session and are excluded here (already record-ratified at fold time); everything else
+audited. **Ownership note:** 22 and 71 are lane A3's files (lane table: "FF-EZ2 +
+articles 71/22") — audited read-only; the one defect found there is staged for
+coordination, not edited.
+
+**Extension verdict: 210 claim-checks, 8 articles — 6 PASS, 2 with locator defects
+(one FIXED in-worktree, one staged for A3 coordination). Cumulative audit total: 423
+claim-checks over the full 14-article corpus, 6 defects (5 fixed, 1 staged).**
+
+| article | checks | defects | class |
+|---|---|---|---|
+| 10 | 29 | 0 | PASS (remaining claims; D2/D3 rows pre-ratified) |
+| 11 | 20 | 0 | PASS |
+| 20 | 22 | 0 | PASS (one optional-polish note) |
+| 22 | 26 | 0 | PASS (A3-owned, clean) |
+| 50 | 30 | 0 | PASS |
+| 52 | 17 | 1 | LoC measurement — FIXED |
+| 71 | 32 | 1 (4 sites) | donor path prefix — STAGED for A3 |
+| 72 | 34 | 0 | PASS (one judgment-call note) |
+
+## Article 10 — PASS (remaining claims; 0 defects)
+
+M1/L1/L2 rows verified: `m1-run4-final.log` :12 stage OK / :14–17 the four
+`exists_tm*` prints; `l1-run4-final.log` :13 full-stage OK + :15–20 the six agreement
+prints (incl. `collectC_agree` = `[propext]` only, as claimed) + the log's own
+"27/27 theorems ⊆ triad, 0 sorryAx" header verdict; `l2-run5-final-green.log` :1
+verdict "BOTH OK … **151 non-private theorems** = 134 M1-region + 17 Part D … 0
+sorryAx" + :19–23 the five Part-D prints; C2 sweep `axcheck-c2-final.log` stage lines
+M1/L1/L2 = 106/36/126 axiom-lines — all three exactly as the article's §6 states.
+File census: M1 2,043 / L1 529 (25 line-start theorems) / L2 2,625 (151 public
+theorems = 126 line-start + @\[simp\]-prefixed; the axcheck_iter4 T3 census "177 = 151
+public + 26 private" reconciles). Declarations: `SpaceWithinTM` `M1.lean:1402`, `cw`
+`L2.lean:2115` — exact. Donor cites: eth `MainResults.lean:122` (`ETHIsFalse`),
+`:178` (`TM2ComputableAux Bool Bool`), `Pad.lean:93–94` (`padM_runs` with the
+2|x|+2·2^{e x}+3 bound), `F/Prog.lean:144/:148` (`expand`/`descend`), `Machine/Host.lean`;
+oai `SqrtLogSpace/Final.lean:122–128` (prefix-steps monitor), `:149–182`
+(`sat_polynomial_space` span) — all exact.
+
+## Article 11 — PASS (0 defects)
+
+`RedCompB.lean:36/:86/:111`, `RedTm2.lean:392` exact; `axcheck-final.log` P11T2 stage
+:46 (19 axiom lines), RedCompA :365 (5), RedCompB section prints :386 (Red.comp),
+:387 (theorem19_of_red), :389 (red_of_theorem_17) — the header-row cites :386/:387/:389
+all exact; `m2-axcheck-final.log:22` (`tm2_realized_composed` triad) ✓;
+`stepB-c2.log:60` = the donor reference `ThreeSumApsp.Theorem19.
+explicit_of_theorem_17_corollary_16` triad (the faithfulness check) ✓. Donor cites:
+`TimeClaims/Sec3/Definitions.lean:54–58` (the Calls convention), `Theorem_17`
+(`PaperStatements.lean:1551`), `Corollary_16` (`:3869`), the ported
+`choice_corollary_26`/`total_corollary_26` (`P11T2.lean:255/:267`) ✓.
+
+## Article 20 — PASS (0 defects; one optional polish)
+
+All five §5 locators exact (`M1.lean:437/:188/:525/:534/:513`); cycle2 prints :51/:56/:63
+triad; main-run :432/:436/:433/:446. The "C2 sweep 38 axiom-lines, 0 sorryAx" claim
+verified against `axcheck-c2-final.log:3` and `stepB-c2.log:657/:1488` (**38** — the
+C2-final sweep; the 36s in `axcheck-final.log:905` and `axcheck-cycle2.log:1` are the
+main-run and the intermediate A8 stage — no contradiction, the article cites the
+final). Coverage: 582 LoC, 28 public theorems (27 line-start + 1 @\[simp\]) ✓, and the
+"29th raw match is docstring prose" note matches the cycle2 log's own extractor note.
+*Optional polish (NOT a defect): `Pilot20.assemble_eps` has a direct triad print at
+`m1-cycle2-green.log:57`; the article's stage-level cell could cite it at close if
+desired — the current cell is accurate as written (disclosed stage-evidence class).*
+
+## Article 22 — PASS (0 defects; A3-owned, clean)
+
+Tier1.lean 290 lines / 4 theorems, M1.lean 68 (= the abstract's "358 lines" total);
+decl locators :40/:77/:192/:221 + M1.lean:28 exact; `axcheck-final.log:496–499` the
+four triad prints + :450 the M1-file print; `axcheck-c2-final.log:3/:5` stage lines
+(2 and 8 axiom-lines); `run37-g9-fix.log:30` the statement-probe OK; ProbeG9 file
+present. All eight mathlib cites exact in the encore checkout: `RiemannZeta.lean:242`
+(`riemannZeta_residue_one`), `Chebyshev.lean:485/:93/:639/:668/:791`,
+`WienerIkehara.lean:693` (`tendsto_sum_range_div`), `Dirichlet.lean:439`. The byline's
+R2 cite verified: `r2-discovery-strength.md:497` — the RELABEL row with the exact
+quoted phrase.
+
+## Article 50 — PASS (0 defects)
+
+R1.lean 180 lines on disk (the article's own "v1 said 178 — drift" note is the honest
+record); all ten declaration locators exact (R1 :93/:96/:87/:99/:161/:154; M1 :44/:75/:85;
+Dirichlet :40); `run32-g7-elab.log` :44 probe OK, :48/:51 donor headlines, :52–55
+delegation roots, :137 R1 OK, :138–141 the four landing prints, :144–145 donor
+headlines — every cited line exact; project-pin prints `axcheck-final.log:810–811/:815/
+:817–818` and sweep stages (Dirichlet 2 / M1 4 axiom-lines) ✓. Part-I zeta23 source
+cites all exact: `ThmD/Functional.lean:40/:53`, `Window.lean:45`, `Defs.lean:120/:140`,
+`Hypotheses.lean:147`, `Final.lean:79/:119`, `ChallengeDeps.lean:107`.
+
+## Article 52 — 1 defect, FIXED
+
+All five header-row print cites exact (`axcheck-final.log:843` dual_family
+`[propext, Quot.sound]`, :844, :845 fermionicPair triad, :850, :856 fermionic_create_sq
+triad); stage line :821 "15 axiom-lines, 0 sorryAx" ✓; mathlib `Contraction.lean`
+:123/:176/:198 exact; eth `AppHalfPiecesStatement.lean:175` (`LemmaDual`) ✓;
+m1-run14-green Pilot52_M1 OK ✓.
+
+**DEFECT A52-1 (FIXED, worktree):** §5's table says `M1.lean` "294 LoC"; the file is
+**292** lines and unchanged since the first commit (`0e0ae4d`; no LoC in the run log —
+a drafting slip). Fixed 294→292 + dated change-log line.
+
+## Article 71 — 1 defect (4 sites), STAGED for A3 (read-only audit per lane ownership)
+
+All 11 formal-record locators exact (P2.lean :186/:213/:229/:112/:149/:68/:74/:80/:90/
+:99/:167); `p2-run6.log:14–24` all eleven prints; `axcheck-c2-final.log:3/:4` (P1 14 /
+P2 22 axiom-lines); file census 131/282 lines, 11 theorems ✓; donor cites verified at
+their true locations: `weil_conjectures` at `WeilConjectures.lean:185–194` (line cites
+exact), `WeilRiemannHypothesisForm.lean:206/:212–213`, DZDF `Main.lean:9`
+(`dedekindZeta_ne_zero`), tauceti `HasseBound.lean:44` (`frobeniusTrace_sq_le_four_mul_card`)
++ `Frobenius/Zeta.lean`; novelty rows (round-4 §1/§6.1/§6.3, P2-11) on disk.
+
+**DEFECT A71-1 (STAGED — A3's file):** the Weil donor path is cited as
+`LeanEval/WeilConjectures.lean` (§2 uses `axiommath/Weil/LeanEval/WeilConjectures.lean`)
+in **4 sites** (header row W1, §2 :84, §4 table row, §8 references) — the file's actual
+path is `axiommath/Weil/`**`Weil/LeanEval/`**`WeilConjectures.lean` (repo root → inner
+`Weil/` package dir; only one WeilConjectures.lean exists in the tree). Exact fix per
+site: insert `Weil/` before `LeanEval/`. Unambiguous, but 71 is lane A3's assigned
+file — the fix is staged here for A3 (or an orchestrator-authorized A9 touch), not
+raced.
+
+## Article 72 — PASS (0 defects; one judgment-call note)
+
+All five C-neg locators exact (:188/:231/:282/:344/:354); `axcheck-run1.log:24–28` the
+five N-prints, :34 a private `nogo_core` print (the coverage row's cite) ✓; M1 links:
+`P72M1T2.lean:303/:330/:164` exact, `m1-axcheck-final.log:82/:83/:84` triad; vendor
+layer `P72M1T1.lean` 702 lines / sweep 52 axiom-lines, T2 28 ✓; `C-neg.lean:52` =
+`noncomputable def renyi` ✓. Donor cites exact: oai `PEPSFilters/Basic.lean:74`
+(`FullSystemGap`) and `:135` (`UniformAreaLaw`); AreaLaw2D `Transfer.lean:361`
+(`areaLaw`), `PartialTrace.lean:25` (`ptrace`), `State.lean:75/:198`. r7-bib-cards §C.2
+(Kuwahara card) and the no-card statuses for Rényi/Beck–Schlögl as stated; L3-spec.md
+present. *Judgment call (PASS): the row-level "link 4 + interface theorem carried"
+is coarser than the record (the L3a sub-link landed GREEN with its print-gap closed at
+`a0c0f0e`; L3b–d + the interface theorem remain owed) — the dry-run judged the row
+consistent and no false statement is made (link 4 is incomplete); recording the
+granularity note here rather than flagging a defect.*
+
+## Extension defect list for the orchestrator
+
+1. **A71-1 (A3-owned, exact fix staged above):** `Weil/` path-segment missing at 4
+   sites of `articles/71-splane-zeta-curve-dictionary.md`. Route: A3 applies (one
+   sed-class edit), or authorizes A9 to touch 71 in the close batch.
+2. No other ambiguous or owned defects. The D.2/D.5 in-flight activations (A5/A7)
+   remain the only live article-touching dependencies.
+
+— Lane A9 (wave 3, third pass — §extension), 2026-11-18. Source of truth: main
+`2f90dcc` + read-only siblings; zero Modal; no commits (H commits). Worktree deltas
+this pass: `articles/52-…md` (292 fix + change-log line) and this file's §extension.

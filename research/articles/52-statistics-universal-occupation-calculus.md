@@ -32,6 +32,10 @@ file:line + coverage; binder inventory empty); the trailing dated nearest-neighb
 addendum was folded into §6's third row (revise-not-append, per the template's §9
 rule 7) with a tombstone note left at its former position.
 
+Change log (2026-11-18, lane A9 — claims audit): one measurement correction — §5's
+`M1.lean` line count 294 → 292 (`wc -l`; file unchanged since `0e0ae4d`). Audit
+record: `qa/iter4-review/a9-claims-audit-iter4.md` §extension.
+
 ---
 
 ## Abstract
@@ -121,7 +125,7 @@ c_ic_i = −c_ic_i is vacuous and c_ic_i ≠ 0 is consistent. ∎
 
 ## 5. Formal verification
 
-| statement | Lean (`CrossMath.Pilot52`, `research/pilots/52/M1.lean`, 294 LoC) |
+| statement | Lean (`CrossMath.Pilot52`, `research/pilots/52/M1.lean`, 292 LoC) |
 |---|---|
 | definition | `OccupationPair`, `OccupationPair.cW`, `.aW` |
 | slides | `cW_append`, `cW_swap_pair`, `slide_ne`, `slide_self` |
