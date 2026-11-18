@@ -294,6 +294,17 @@ stages fire at sweep (FINAL-SWEEP §7d updated in the same pass); remaining in-f
 folds owed: AL-P2 c/d/e (A4), N2-P1 closure + M2/M3 (A5), 77-T1/T2 (A7), 74-P1
 completion (A8).
 
+**LATE UPDATE 2 (same day, §10.29):** 75-N2 P1 FINAL landed (M1 closure + M2 GREEN,
+8/8 file-wide triad, run 15; M3 → iter-5 declared) — folded as §10.29, superseding
+the §10.22 checkpoint. G2 exposure: `AxPilot75_N2` stage owed at sweep **with H's
+closure-staging finding** (`import N2P0` = the runner's hyphen workaround — stage the
+Pa → N2P0 → N2-P1 closure per `run_n2p1.py:49` ORDER, or extend the rewrite map;
+`h-wave3-log.md:604–:608`, §10.29 Step-B note, §7d row). G1: the final N2-P1.lean
+(sha 2e5217010e46ad0d, 506 LoC) checked 0 real tokens on agent-06 disk (ENTRY 5
+addendum; re-verify at H-commit). Census roll-up restated: **machine 213/213 +
+manual 65/65 = 278/278, ZERO residuals** (§10.CENSUS (e)). Remaining in-flight
+folds: AL-P2 c/d/e (A4), 77-T1/T2 (A7), 74-P1 completion (A8).
+
 — appendix lane A1, 2026-11-18, main @ c67d64e (+ P2 landing), worktree agent-02. No
 gate executed herein; PREP ONLY per the file's execution trigger (orchestrator close
 signal).

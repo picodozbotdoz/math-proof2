@@ -623,3 +623,23 @@ routing.
 - **Stale-claim resolution:** A9's report lists the §extension audit + article-52
   fix as uncommitted — cmp-verified BOTH byte-identical to main (landed at
   `0184baa`); no pull. Tracker A9 row refreshed.
+
+## 2026-11-18 — LANDING: A1 §10.29 N2-P1 FINAL fold + re-verify-at-commit executed (H batch)
+
+- Pulled from worktree agent-02 as ONE exact-file batch (4 files):
+  `r3-verification-tables.md` (§10.29 N2-P1 FINAL — the 8/8 line-verified triad,
+  15-run ledger + visibility-gap correction, three owed notes; **census roll-up
+  278/278 triad-clean, ZERO residuals**; the 16 main-only lines = A1's intentional
+  checkpoint→FINAL replacements incl. the §10.22 row and the appendix roll-up
+  text) + `iter4-closeout-gates.md` (LATE UPDATE 2) + `FINAL-SWEEP-PLAN-ITER4.md`
+  (§7d N2-final row + **Pa→N2P0→N2-P1 closure staging** — the hyphen-workaround
+  note I filed at the A5 landing is now sweep-plan-recorded) +
+  `stepA-incremental-iter4.log` (ENTRY 5).
+- **ENTRY 5's re-verify-at-commit duty EXECUTED by H on the committed bytes:**
+  sha256(16) `2e5217010e46ad0d` (unmoved since `dc3cd6c`; working tree =
+  committed bytes, git status clean on the file) + G1 classifier verbatim from
+  `iter4-closeout-gates.md` scoped per spec: **certificate total = 52 REAL-TOKEN
+  lines (exact, the re-baselined number); N2-P1.lean contributes 0 real tokens**
+  (residual `sorry` strings are doc/prose — classifier-absorbed; A1's ENTRY-5
+  per-line read stands). Recorded here per the entry's instruction.
+- Tracker A1 row refreshed. Three slots left (A4/A7/A8).

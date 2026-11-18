@@ -53,3 +53,7 @@
 # ENTRY 4 addendum (same day, post-fold): FF-EZ2-P2 landed on main mid-pass (§10.28) —
 #   re-run WITH P2.lean in scope: 105 files, 52 hits (P2 = 1 prose string :3, 0 real tokens).
 #   Certificate 52 stands on the post-P2 tree.
+# ENTRY 5 addendum (2026-11-18, N2-P1 FINAL pre-commit check): the final N2-P1.lean
+#   (M1 closure + M2; sha 2e5217010e46ad0d, 506 LoC, §10.29) read on agent-06 disk:
+#   4 `sorry` strings (:11/:13/:44/:496) ALL header/audit prose — 0 real tokens.
+#   Pending H's commit of the A5 batch; re-hash + re-classify at commit if bytes move.
