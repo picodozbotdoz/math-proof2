@@ -264,3 +264,16 @@ routing.
   r3-verification-tables.md — read-only references for this adjudication.
 - Commit-message deviation, declared: the suggested "3 known appends" text would
   miscount (2 landed + 1 STOPPED) — accuracy per the close-out date-discipline rule.
+
+## 2026-11-18 — LANDING: A6 iteration-5 charter candidate (H batch)
+
+- Pulled from worktree agent-07 as ONE exact file: NEW
+  `qa/iter4-review/a6-iter5-charter-candidate.md` (467 LoC, §0–§6: 16-row obligation
+  inventory, ten ranked leads, debt rungs, charter skeleton, bench coherence audit —
+  41 CHARTER = pilot name not row count, FF-EZ2 bench row superseded — novelty scan,
+  open questions). INDEX row staged same-commit; tracker A6 row refreshed (delivered).
+- Scope check per instruction ("everything else equals main"): 21 of agent-07's other
+  dirty entries cmp-EQUAL main; TWO out-of-scope deltas remain worktree-side, NOT
+  pulled: `qa/REPORT-INPUTS-ITER4.md` (H-SHEPHERDED funnel — A6 did not report it) and
+  `pilots/10/L4.lean` + `pilots/ff-ez4/` (lane-local state vs main; flagged for any
+  future A6 pull — 3-way merge, not verbatim).

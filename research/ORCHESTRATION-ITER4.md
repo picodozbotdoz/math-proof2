@@ -30,7 +30,7 @@ G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator 
 | A3 | agent-04 | FF-EZ2 + articles 71/22 | FF-EZ2-P2 descope-closure (guarded squarefree-iff + optional proportion, ≤3 runs) | in-flight (resumed) | 2026-11-18 |
 | A4 | agent-05 | AL-3D P2 | AL-P2-c completion (path a: Fin.cast+Subtype plumbing) → P2-d → P2-e (fresh ≤4) | in-flight (resumed) | 2026-11-18 |
 | A5 | agent-06 | 75-N2 consumer | N2-P1 packaging closure (v8 on disk, one closure run) → M2 → M3 | in-flight (resumed) | 2026-11-18 |
-| A6 | agent-07 | iteration-5 prep | iteration-5 charter candidate prep | re-tasked | 2026-11-18 |
+| A6 | agent-07 | iteration-5 prep | iter-5 charter candidate LANDED (`a6-iter5-charter-candidate.md`: 16-row inventory, 10 ranked leads, debt rungs, charter skeleton, bench coherence audit [41 CHARTER = pilot name, not row count; FF-EZ2 bench row superseded], novelty scan, open questions); orchestrator owns the typeset charter | delivered | 2026-11-18 |
 | A7 | agent-08 | 78 + 77 + prior-art | dossier-77 fold + T1-completion (≤4) + T2 (≤4) as ONE unit | in-flight (resumed) | 2026-11-18 |
 | A8 | agent-09 | 74 + validation | 74-P1 completion (verify-fire discipline: pre-run sha guard, NO local lean, ≤5) | in-flight (resumed) | 2026-11-18 |
 | A9 | agent-10 | articles editorial | splice-checklist wave-3 addendum LANDED (§D.0–D.5: PENDING-CLOSE pre-stage — README header-counts edit pre-written, sweep-shas mechanism resolved incl. article-75 "P0.lean" = pilots/zeta23e/P0.lean disambiguation, in-flight exposure map); close-support standby | close-support standby | 2026-11-18 |
