@@ -338,3 +338,22 @@ routing.
 - Comparator note (recorded after the P2 sha cross-check): landing reports quote
   **sha256(16)** of the artifact (`sha256sum | cut -c1-16`), NOT git blob hashes —
   use sha256sum when verifying reported bytes-of-record.
+
+## 2026-11-18 — LANDING: A2 tally-scaffold re-home + D7 ruling fold (H batch)
+
+- Pulled from worktree agent-03 as ONE exact-file batch (4 files): NEW
+  `qa/iter4-review/tally_section10.py` (110 LoC — the close-time Step-3 dependency,
+  re-homed out of never-commit `rehearsal/`; READ-ONLY on A1's r3-tables; defaults to
+  the MAIN-tree copy; fail-loud grammar) + MODIFIED `a2-close-act-runbook.md`
+  (Step-3/row-4 pointer to the scaffold) + MODIFIED `a2-close-rehearsal-report.md`
+  (addendum: procedure / dry-run / delta-slots / D7-RULED) + MODIFIED
+  `a2-close-summary-draft.md` ([PENDING-VERDICT-COUNTS] sentence now the §10 PILOT
+  vocabulary). All FF-verified (A2's own edits descending from its landed versions);
+  py_compile rc=0 on BOTH the worktree and main copies. `rehearsal/` NOT pulled.
+- **D7 ruling recorded:** the close block's verdict-count sentence quotes the §10
+  pilot vocabulary (GREEN-triad / honest-partial / NOT-GREEN-honest,
+  machine-computable by the scaffold); the PROVED-* article vocabulary stays in A9's
+  roll-up / REPORT §I4. INDEX row staged same-commit; tracker A2 row refreshed.
+- Close-act readiness note: Step 3's [PENDING-TALLY]/[PENDING-N-TABLES]/
+  [PENDING-VERDICT-COUNTS] fills are now scaffold-driven (A1 folds MULTI/
+  NO-MACHINE-CENSUS flags manually BEFORE numbers are quoted, per the runbook).

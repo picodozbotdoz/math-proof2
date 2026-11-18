@@ -141,3 +141,85 @@ Plus 3 by-design waits (not defects): [N2-FINAL-STATE]/[PENDING-75-N2/N3]/
 
 — end report (A2, 2026-11-18; rehearsal bases = main @ `c67d64e`, byte-verified;
 nothing applied to any tree file; H pulls the report + runbook + refreshed draft).
+
+---
+
+## ADDENDUM — [PENDING-TALLY]/[PENDING-N-TABLES] computation scaffold (A2, 2026-11-18)
+
+### A. The procedure
+
+`research/qa/iter4-review/tally_section10.py` (sibling to apply_rehearsal.py —
+RE-HOMED out of `rehearsal/` 2026-11-18 per orchestrator instruction, since the
+runbook's close-time Step 3 depends on it and `rehearsal/` is never-commit;
+READ-ONLY on A1's `r3-verification-tables.md`; defaults to the MAIN-tree copy, never
+the worktree base; re-run from the new location verified exit 0):
+
+```
+python3 -I research/qa/iter4-review/tally_section10.py [path]
+```
+
+Grammar: §10 is split at `## 10. Iteration-4 landings`; sections = `### 10.N`
+headings. **Verdict classes come from the heading text** (ordered: `NOT-GREEN` →
+not-green-honest; `M1 CHECKPOINT` / `PARTIAL GREEN` → honest-partial; `LANDED GREEN` /
+`LANDED` → green-triad; anything else → hard FAIL). **Fail-loud guarantees:** §10
+numbering must be contiguous 1..N (else abort); unknown verdict heading → abort with
+the offending line; census N/N phrases are strict-regex and are **never
+first-matched** — a section span containing several (recap blocks quote other
+sections' censuses) flags MULTI-CENSUS for manual pick, absent flags
+NO-MACHINE-CENSUS; totals sum ONLY unambiguous single-census sections. Subclasses
+recorded for close-time eyeballing: probe-convention, remediation row, audit row,
+engineering/plumbing billing, hard-stop executed, heading-variant "LANDED" (ledger
+FINAL-GREEN; spot-check).
+
+### B. Dry-run output — main @ `c67d64e`, §10 = §10.1–§10.22 (PROVISIONAL until A1's final fold)
+
+- **N-TABLES = 22** (§10.1–§10.22).
+- **Verdict counts: GREEN-triad = 19 · honest-partial = 2 (10.20 D2 budget-stop
+  PARTIAL; 10.22 N2-P1 M1 CHECKPOINT) · NOT-GREEN-honest = 1 (10.21 74-P1)** — sum 22 ✓.
+- **Machine triad census: 144/144** over the 4 unambiguous sections (10.6 = 22/22,
+  10.8 = 89/89, 10.16 = 10/10, 10.18 = 23/23); **10.22 = MULTI-CENSUS
+  [10/10,15/15,3/3,4/4,89/89]** — its own census is the **4/4** (`n2-p1-run7.log:175–178`
+  incl. the c-trick); the other four are its recap block cross-referencing
+  §10.16/§10.12/§10.13/§10.8. 16 further sections are NO-MACHINE-CENSUS (their
+  per-decl `triad` table cells predate the N/N-phrase convention) — manual fold by A1
+  if a full-tree census number is wanted in the close block; otherwise quote
+  "144/144 machine + per-decl tables".
+
+### C. Fill-in-the-blanks delta slots (close-time expectation; verdict templates per the charters)
+
+| slot | unit (owner) | primary template | alternate | counter bumps | census slot |
+|---|---|---|---|---|---|
+| §10.23 | 10-D2 FINAL (A1 fold; data ON MAIN: `d2-run4.log`, L5.lean sha `4ae0d643…`) | LANDED GREEN (`padM'_isPolyT` triad; supersedes §10.20 PARTIAL — keep 10.20 as the honest descent record) | in-place §10.20 retitle | green+1, partial stays-as-history (or partial−1 if reclassified) | D2-final decl census |
+| §10.24 | 10-D3 (A1 fold; `d3-run1.log`) | LANDED GREEN first-run | — | green+1 | D3 census |
+| §10.25 | FF-EZ2-P2 descope-closure (A3) | LANDED GREEN (guarded squarefree-iff governs; optional proportion ≤3 runs) | honest-partial parked (guarded GREEN; unguarded → Iteration 5) | green+1 or partial+1 | P2 decl census |
+| §10.26 | AL-P2-c completion (path a) + P2-d/e (A4) | LANDED GREEN (A2.lean final state or A3.lean; §10.6 row extends) | honest-partial (d/e budget-stop) | green+1 or partial+1 | final-state census |
+| §10.27 | 75-N2-P1 packaging closure + M2 + M3 (A5) | LANDED GREEN (§10.22 checkpoint resolves final; M2/M3 as rows or folded) — MULTI-CENSUS flag clears when the recap block lands its own final census | honest-partial (M-arc stop) | green+1..2, partial−1 (checkpoint resolves) | N2-final census (4/4 grows) |
+| §10.28 | 77 T1-completion + T2 as ONE unit (A7) | LANDED GREEN (corrected T1: hyperbolic submodel + number-operator intertwining) | NOT-GREEN-honest re-stop (§10.21 class precedent) | green+1 or notgreen+1 | T1/T2 census |
+| §10.29 | 74-P1 completion, verify-fire ≤5 (A8) | LANDED GREEN (amended statements per FINDS: marking-bound floor, centered hMGF, 8 signature classes) | NOT-GREEN-honest re-stop (§10.21 stands final as-is) | green+1 or no change | P1 census |
+
+N at close ∈ **[26, 29]** by fold granularity (22 + 1–2 A1 fold rows + 3–5 unit rows;
+A5 may extend §10.22 in place). The close-time re-run reads the actual state — the
+slots above are expectations, not commitments; any unit landing with a verdict
+OUTSIDE its two templates → the tally aborts loudly and the row goes back to the lane.
+
+### D. New defect found while scaffolding
+
+**D7 (report-only, orchestrator wording call):** the draft close-block's
+[VERDICT-COUNTS] sentence is written in the ARTICLE status vocabulary
+(PROVED-UNCONDITIONAL / PROVED-CONDITIONAL / CERTIFIED-NUMERIC / PAPER-ONLY), but the
+table it cites (§10) carries ROW verdicts in the PILOT vocabulary
+(GREEN-triad / honest-partial / NOT-GREEN-honest). Recommended: the close block quotes
+the §10 vocabulary (source-consistent, machine-computable by this scaffold); the
+article-vocabulary census belongs to A9's compliance roll-up / REPORT §I4 (per-article
+status tables), not the close block. **RULED 2026-11-18 (orchestrator): RECOMMENDATION
+ADOPTED** — the close-block sentence quotes the §10 PILOT vocabulary (machine-computable
+by `tally_section10.py`); the ARTICLE vocabulary stays in A9's roll-up and REPORT §I4.
+Consequential edit owed at close (H, mechanical): the draft close-block sentence
+"N × PROVED-UNCONDITIONAL / M × PROVED-CONDITIONAL / C × CERTIFIED-NUMERIC / P ×
+PAPER-ONLY" → "G × GREEN-triad / P × honest-partial / N × NOT-GREEN-honest" (numbers
+from the scaffold's close-time re-run).
+
+— end addendum (A2, 2026-11-18; scaffold re-homed at
+`research/qa/iter4-review/tally_section10.py` (re-run exit 0); numbers provisional
+until A1's D2/D3 fold + the five-unit landings; close-time re-run is the number of
+record).

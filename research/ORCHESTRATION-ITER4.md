@@ -26,7 +26,7 @@ G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator 
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (branch, commits, tracker) | wave-3 open stamp; substrate notary re-verify; standing commit duty | active | 2026-11-18 |
 | A1 | agent-02 | verification integrity | pre-close folds (§10 rows for the five in-flight units as they land) | re-tasked | 2026-11-18 |
-| A2 | agent-03 | bench/close-out | close-act runbook LANDED + Phase-1 REHEARSED (`a2-close-rehearsal-report.md`: D1–D6, 0 blockers, 3 waits-on-lane → A9 wording/A1 D2-FINAL+D3 fold/A9-or-orchestrator D6; Step-5 ORCHESTRATOR-RATIFIED both-record; K-list 5-row amendment pending adopt-or-override at fire); close-support standby | close-support standby | 2026-11-18 |
+| A2 | agent-03 | bench/close-out | rehearsal + addendum complete: tally scaffold re-homed (`tally_section10.py`, close-time Step-3 dependency, py_compile rc=0) + **D7 RULED** (close block quotes §10 PILOT vocabulary; PROVED-* stays in A9 roll-up/REPORT §I4); K-list amendment pending adopt-or-override at fire; close-support standby | close-support standby | 2026-11-18 |
 | A3 | agent-04 | FF-EZ2 + articles 71/22 | **FF-EZ2-P2 GREEN — charter FULLY CLOSED** (wave-3 unit 1 of 5 landed: 9/9 triad incl. 5 private, 0 sorryAx, run 2/≤3; AxPilotFFEZ2_P2 TARGETS row appended at landing); optional-proportion add-on unspent by ruling default | landed | 2026-11-18 |
 | A4 | agent-05 | AL-3D P2 | AL-P2-c completion (path a: Fin.cast+Subtype plumbing) → P2-d → P2-e (fresh ≤4) | in-flight (resumed) | 2026-11-18 |
 | A5 | agent-06 | 75-N2 consumer | N2-P1 packaging closure (v8 on disk, one closure run) → M2 → M3 | in-flight (resumed) | 2026-11-18 |

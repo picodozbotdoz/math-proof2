@@ -43,9 +43,11 @@ the `---` separator at `:59`.** Text as drafted:
 > Iteration 4 closed [DATE-CLOSED] (orchestrator). Final state: the wave's pilot
 > slots resolved as recorded in `qa/iter4-review/r3-verification-tables.md` §10
 > (landings §10.1–§10.N at close: **[PENDING-TALLY]** — tables landed
-> **[PENDING-N-TABLES]**; row verdicts **[PENDING-VERDICT-COUNTS]** = N ×
-> PROVED-UNCONDITIONAL / M × PROVED-CONDITIONAL / C × CERTIFIED-NUMERIC / P ×
-> PAPER-ONLY, every landed row triad-only `[propext, Classical.choice, Quot.sound]`,
+> **[PENDING-N-TABLES]**; row verdicts **[PENDING-VERDICT-COUNTS]** = G × GREEN-triad /
+> P × honest-partial / N × NOT-GREEN-honest [D7 RULING 2026-11-18: the §10 pilot
+> vocabulary, machine-computable by `qa/iter4-review/tally_section10.py`; the ARTICLE
+> vocabulary stays in A9's roll-up / REPORT §I4],
+> every landed row triad-only `[propext, Classical.choice, Quot.sound]`,
 > 0 sorryAx, per the table's own log:line citations; coverage classes C1/C2 per audit
 > F2). Still in flight at close, carried with owners: **[PENDING-INFLIGHT-SET]**.
 > The knowledge-level article quota (cap-N = 1 FINAL) is **UNSPENT** — the wave's
