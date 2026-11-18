@@ -4094,7 +4094,7 @@ private theorem foldl_succ_eq {β : Type} (l : List β) (n : ℕ) :
 pin (`Nat.log2_eq_log_two`, Log.lean:308) — this bridge feeds the fun_prop database. -/
 @[fun_prop] theorem log2log' {f : α → ℕ} (hf : PolyT f) :
     PolyT (fun x => Nat.log 2 (f x)) :=
-  (log2' hf).congr fun x => (Nat.log2_eq_log_two (n := f x)).symm
+  (log2' hf).congr fun x => Nat.log2_eq_log_two (n := f x)
 
 end Groundwork.PolyT
 

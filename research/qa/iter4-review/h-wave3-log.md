@@ -411,3 +411,23 @@ routing.
   own edits on current-main text (FF-eligible; hash→copy→cmp). INDEX row staged
   same-commit; tracker A9 row refreshed. Other agent-10 dirty entries remain
   landed-no-ops (cmp EQUAL at last check) or A9's in-place worktree copies.
+
+## 2026-11-18 — DEFECT FIX: L4.lean landing artifact restored (H, per A6 report + orchestrator instruction)
+
+- **Defect:** main's `pilots/10/L4.lean` carried the run-12 near-miss (sha256(16)
+  `69a990bb…`, the `.symm` residual at :4097 — one of the two diagnosed tokens
+  missing) while `d2-run4.log` declares the run-13 GREEN artifact the final file
+  (sha256(16) `4ae0d643…`, full sha `4ae0d6435e351128bdde50c9e88bcc9df783a9ae23fdfb7f
+  1f5a739219a27b7d`) and L5.lean's verbatim-embedding header already cites
+  `4ae0d643…`. Root: the wave-2 wrap-up commit (`9dc6684`) took the intermediate
+  state. This was the agent-07 `L4.lean` REAL-DIFF flagged at the A6 charter pull
+  (h-wave3-log A6 landing entry) and correctly NOT pulled then.
+- **Fix:** worktree copy (sha-verified `4ae0d643` BEFORE, main-side AFTER, cmp
+  byte-identical) copied over main's L4.lean; one-line diff = the `.symm` drop.
+  Standalone-L4-only defect — L5.lean (the Step-B anchor per the AxPilot10_L5
+  ruling) was already correct and embeds L4 verbatim.
+- **Step-A certificate: UNAFFECTED** (the classifier is count-bound; `.symm` is not
+  a classifier token — ENTRY counts stand). **Flagged to A1 anyway** (verification
+  lane): §10.26's D2-FINAL row cites d2-run4.log (authoritative, unchanged); the
+  restored artifact matches that log; no §10 edit needed unless A1 chooses a
+  one-line note. Tracker A1 relayed via this log entry.
