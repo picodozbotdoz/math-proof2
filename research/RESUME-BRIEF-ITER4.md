@@ -436,3 +436,73 @@ report comparator). Hardened pre-commit gate on every commit; file funnels stand
 LEAN_NUM_THREADS=2, taskset not -j). Close act = orchestrator signal after the four
 remaining units land (runbook 20 steps + A9 checklist 7 mandatory H-owned items +
 gates G1–G8 on the exact closing tree).
+
+## SESSION END — wave-3 wrap (2026-11-18, H; user-directed snapshot convention)
+
+Wrap commits W1 `8c1c544` (close-act Phase-1 assembly pre-landed + the Step-8 sweep
+rescued: 53 OK / 5 staging-class FAILs with in-log taxonomy + fix plan) and W2
+`0382e16` (A6 charter outcome-refresh + A2's filled close instruments) precede this
+block; W3 = the commit carrying it.
+
+### (a) State at wrap
+
+- **All five wave-3 units landed + folded** (§10.1–§10.32 complete): FF-EZ2 charter
+  closed; AL-P2 honest stop with P2-c 100% CLOSED (run13); N2 P1 COMPLETE
+  (M1+M2+M3, run-19 14/14) with P2-a PAUSED-at-close; 74-P1 completion GREEN
+  (verify-fire held, 7/7 triad); 77 honest stop (T1 31→7, T2 7/8).
+- **Close-time basis: whole-tree 385/386 triad-clean decls** (226/226 machine over
+  9 sections + 159/160 manual per §10.CENSUS(e); the ONE residual = 77-T2's
+  filter-blind-spot tainted decl → iter-5) **+ 18/18 donor rows** at their donor pins.
+- **Close act interrupted POST-Step-8**: Step-7 classifier certificate **52 exact**
+  on the closing tree (sweep-time entry in the stepA log); Step-B(i) full-TARGETS
+  sweep fired (58 stages, wall 514 s, doz/semraker) — **53 OK / 5 FAIL, ALL five
+  dispositioned as STAGING defects, not artifact defects** (taxonomy + fix plan in
+  `feasibility/probe/logs/axcheck-iter4-close-run1.log`'s provenance header).
+- **Phase-1 assembly IS on main** (W1 pre-landing; RULING: supersedes the single-K
+  flow — K becomes the CLOSE-COMPLETION commit; **[DATE-CLOSED] amends to the date
+  K actually fires**; the 2026-11-18 ruling governed only a same-day K).
+- 53+ wave-3 commits through W2; tree CLEAN at each boundary.
+
+### (b) NEXT-INSTANCE SEQUENCE (numbered; execute in order)
+
+1. Read: `AGENTS.md` → `research/RESEARCH.md` (§Iteration 4 + its close-out record)
+   → this section → `research/ORCHESTRATION-ITER4.md` (lane table) →
+   `research/qa/iter4-review/h-wave3-log.md` (the wave-3 manuscript).
+2. Verify tree CLEAN at the W3 wrap sha (this commit; `git status --porcelain` empty;
+   anything foreign = reconcile against the lane table before any commit).
+3. **Execute the close residue**: (i) fix the 5 staging defects per W1's taxonomy
+   (make_axcheck.py: compile-only dep stages — AxPilotAL3D_P0 class; olean ordering
+   for cross-stage chains Pa→N2P0; stage N2-P1 from the RUN-19 COMMITTED bytes
+   `git show 3ad896b:research/pilots/75/N2-P1.lean`; M4b donor routing); (ii) subset
+   re-fire of ONLY the failed stages (warm app, doz CLI); (iii) runbook Steps 9–12
+   (Step-B(ii) custody stages incl. the run-19-bytes N2-P1; D.4 sha stamps — the
+   bytes-unchanged branch pre-verified for Pa/Pb/zeta23e-P0/78-P0; VERIFICATION-LEDGER
+   §10 + Step D; Batch-S evidence commits).
+4. **Gates G1–G8** on the exact closing tree per `qa/iter4-closeout-gates.md`
+   (G5 uses a9-g5-dryrun 14/14 as the authoritative pass — the runbook's literal
+   heading patterns are stale vs shipped naming; G7's count 31 = 30 + stamps-note,
+   disposition in h-wave3-log; G4's gates-file self-cite = whitelist class); G8
+   persistence table filled.
+5. **CLOSE-COMPLETION commit K**: the runbook K-list (16 files + K-rows 17–21 stamps)
+   MINUS the W1-pre-landed files (SPLICE, RESEARCH.md, stamps ×3, TRIAGE pair,
+   README, stepA log, make_axcheck) — i.e. the gates file (G8 fill), REPORT-INPUTS §3,
+   REPORT.md §I4, INDEX (G3 both-directions fresh), STATUS closed block (orchestrator
+   signal), tracker/brief/log, articles 75/78 sha stamps (D.4 verbatim), the five
+   instrument stamps (rows 17–21), + Batch-S stragglers. **[DATE-CLOSED] = K's actual
+   date** (dated-correction note in the stamps/close block if ≠ 2026-11-18).
+6. **Iteration 5 opens**: orchestrator rules DECISION-1/3/4 (DECISION-2/5 already
+   ruled: Option A / resolved-by-battery) + typesets from
+   `qa/iter4-review/a6-iter5-charter-draft.md` §8 (the final-outcome refresh);
+   day-1 fires are STAGED: 41-P0 (`pilots/41/P0.lean`, unfired candidate), the
+   η-pin-probe (`pilots/zzv2-lam/eta-pin-probe.lean`, unfired), N2-P2 run 22 (per the
+   resume note in `pilots/75/N2-P1-record.md` — fixes-on-disk unfired, sha
+   `ecd44c6a…`).
+
+### (c) Standing constraints — unchanged
+
+Modal routes (doz CLI primary for warm-layer apps; xyz new/fallback; 2 cpu / 4 GB,
+telemetry every run, LEAN_NUM_THREADS=2, taskset not -j); file funnels
+(r3-verification-tables → A1 only; REPORT-INPUTS → H-shepherded); one-writer-per-file;
+lanes never commit (H commits, exact-file, hardened gate); worktrees persist — pull,
+never restart; siblings read-only; no local lake/lean; dates from decision rows or
+`git show -s --format=%cs`, never memory.

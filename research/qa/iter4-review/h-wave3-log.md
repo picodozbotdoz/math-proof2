@@ -861,3 +861,17 @@ routing.
   stale-baseline A1-ONLY copy); `rehearsal/` scratch (never-commit); the
   pilots/12 + pilots/41 worktree entries (behind-main, not ahead — main carries
   the landed files).
+
+## 2026-11-18 — SESSION WRAP W3: restart map + lane table wrapped (H)
+
+- Appended "SESSION END — wave-3 wrap (2026-11-18)" to `RESUME-BRIEF-ITER4.md`:
+  (a) state (5/5 units landed+folded; basis 385/386 + 18/18 donor; close act
+  interrupted post-Step-8 with cert 52 exact + the 53/5 sweep dispositioned);
+  (b) the numbered NEXT-INSTANCE SEQUENCE (read order → tree-clean verify at the
+  W3 sha → close residue: 5 staging-defect fixes → subset re-fire → Steps 9–12 →
+  gates G1–G8 → CLOSE-COMPLETION commit K [K-list minus W1-pre-landed;
+  DATE-CLOSED = K's actual date] → iter-5 open: DECISION-1/3/4 + typeset from the
+  charter draft §8 → day-1 fires staged [41-P0, η-pin-probe, N2-P2 run 22]);
+  (c) standing constraints unchanged. Tracker: all 10 lane rows → wrapped/standby
+  with per-lane next tasks keyed to the sequence. This commit closes the wave-3
+  session.
