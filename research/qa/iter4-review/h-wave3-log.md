@@ -99,3 +99,96 @@ intersections with ACTIVE wave-3 deliverables:
   external-doc/ (gitignored), sibling repos (read-only), worktree scratch.
 - Date discipline: dates from decision-log rows or commits, never memory.
 - Concurrency probe at each batch close: `ps -eo comm --no-headers | grep -cx zcode-cli`.
+
+## 2026-11-18 — standing-duty re-task batch (runner-patch adjudication, route health, pull manifests)
+
+### 1. runner-fixes-wave2.patch adjudication (signal received; verdict: NO application commit)
+
+Input copies: untracked `worktrees/agent-09/research/feasibility/probe/runner-fixes-wave2.patch`
+vs tracked main `research/feasibility/probe/runner-fixes-wave2.patch` (last touched `919cc82`,
+the taskset revision) — **byte-identical** (diff clean). Dry-run `patch -p1` against main
+`66a8085`, hunk-by-hunk:
+
+| Target | Fix | Verdict |
+|---|---|---|
+| zzv2-lam/run_zzv2.py | (a) taskset build cap | **LANDED** — hunk #3 FAILED dry-run because main already carries `taskset -c 0,1 lake build ZetaZeros` (`run_zzv2.py:131`, A3's 6-line lane edit ridden with the P1-GREEN commit; SUPERSEDED-BY in form: lane edit without the patch's comment block) |
+| zzv2-lam/run_zzv2.py | (b) cache retry ≤4 + DEFER-infra | **STILL-UNAPPLIED** (hunk applies clean) |
+| zzv2-lam/run_zzv2.py | (c) modal_telemetry __file__-relative path | **STILL-UNAPPLIED** (applies clean) |
+| zeta23e/run_zeta23e.py | (a)+(b)+(c) | **STILL-UNAPPLIED** (all three apply clean; file unchanged since patch base — current sha16 `e202c9d694fa3e1b`) |
+
+Decision per the re-task's own test (still-unapplied AND still needed by THIS wave's
+runners): **nothing qualifies — no residual application commit.** The patch's two targets
+are not in the wave-3 in-flight lineage: zzv2-lam is hard-stopped for iteration 4 (Landau
+η-port = the recorded iteration-5 ask), zeta23e's hEχ companion landed in wave 2. The
+residual (zzv2 b/c + zeta23e a/b/c) stays available in the tracked patch for iteration-5
+donor-tree builds — re-adjudicate before that use (zzv2's base has moved: sha16
+`6e7e4be80ccb5204` post-taskset-landing; also note the patch header's two base-sha labels
+appear transposed — current zeta23e matches the header's "zzv2" sha; harmless, dry-run is
+authoritative). Untracked agent-09 copy = duplicate of main's tracked copy; remains
+worktree scratch.
+
+Service note (so nobody panics at "0 taskset refs"): none of the wave-3 runners
+(ff-ez2, al3d, n2p1, 77) carries taskset — correct by design. The taskset rule targets
+donor-tree `lake build` phases (lake sizes parallelism from nproc=18); the wave-3 family
+are staged-file elaboration runners (`lake env lean` per file), CPU-capped via the
+`LEAN_NUM_THREADS=2` CAP secret, which all four carry. pilots/74 has no runner on main;
+A8's verify-fire helper `stage_and_fire.sh` is in its worktree (see manifest).
+
+### 2. Modal route health probe (read-only, both routes) — BOTH LIVE
+
+- **doz** `/home/doz/dozenv/bin/modal`: client 1.6.2, `app list` EMPTY (clean — no
+  running apps, no leftovers). Primary route for warm-layer apps (semraker), per ruling.
+- **xyz** `sudo -n -u xyz /home/xyz/xyzenv/bin/modal` (via bash -lc): client 1.6.3,
+  authenticated, `app list` returns 5 FOREIGN apps — `indo-check-onnx2`, `indo-check-onnx`,
+  `indo-evaluate`, `indo-test-suite`, `indo-export-onnx` — all stopped / 0 tasks, created
+  2026-11-18 18:15–18:35 +08. Same foreign-workload class as caveat 2 (workspace shared);
+  **zero crossmath-* rows on either route**, zero name collisions. No route breakage for
+  the verification lanes; fallback route verified LIVE.
+
+### 3. Landing-commit readiness drill — pull manifests (computed vs main `66a8085`)
+
+Method: per dirty worktree file, hash vs main HEAD → LANDED-NOOP (identical; pull = no-op)
+/ DELTA (content differs) / NEW (absent on main); directory verdicts resolved by recursive
+diff (the hash-classified "delta" dirs ff-ez2/, zzv2-lam/logs/, pilots/77/, pilots/78/ are
+all IDENTICAL to main — no wave-3 work on disk there yet). **When a landing report
+arrives: commit from the manifest + the report's file list; no improvisation.**
+
+- **A3 / agent-04 (FF-EZ2-P2):** true deltas = FUNNEL EXCEPTIONS ONLY —
+  `qa/REPORT-INPUTS-ITER4.md` (H-SHEPHERDED: worktree copy diverged, 10 main-only vs 9
+  worktree-only lines; A3 reports content, H applies surgically, never copy) and
+  `qa/iter4-review/r3-verification-tables.md` (A1-ONLY funnel: worktree copy is the known
+  stale-baseline copy, 815 main-only vs 20 worktree-only lines — the 20 are the
+  never-committed stale §10 content, already superseded by A1's centralized rows; do not
+  pull). Expected P2 payload when it exists: `pilots/ff-ez2/P2.lean` + `P2-record.md` +
+  `logs/p2-run*.log` (none on disk yet). Everything else in the worktree = landed no-ops
+  (articles 22/71, bridges, candidates 22/76, zzv2 family).
+- **A4 / agent-05 (AL-P2-c/d/e):** one true delta — `pilots/al3d/A2.lean` (142 diff
+  lines; P2-c completion in progress). Fast-forward-exception ELIGIBLE (main's last touch
+  `f9d0007` = A4's own landing; verify the diff shows only A4's own edits, then verbatim).
+  Expect new `logs/alp2c-run24+*.log` / P2-d runs; `A2-gaps.md` + run8/run23 logs +
+  P0/A1/runners = landed no-ops.
+- **A5 / agent-06 (N2-P1 closure → M2/M3):** true deltas — `pilots/75/N2-P1.lean`
+  (37 diff lines beyond the v8 checkpoint; FF-eligible, last touch `dd299ef` = A5's own)
+  + NEW `logs/n2-p1-run8.log` (360 lines, COMPLETE — the authorized M1-closure run,
+  provenance-headed, terminal `EXIT=0`, semraker/`ap-54p4F9WBmVHcjQcf0Os2R3` = doz route
+  compliant; verdict/triad counts belong to A5's landing report, not this manifest).
+  Expect the report to claim closure + M2/M3 progression; all other N2 files = landed
+  no-ops.
+- **A7 / agent-08 (dossier-77 fold + T1-completion + T2):** one true delta —
+  `candidates/77-car-occupation-dictionary-laughlin.md` (29 diff lines; fold in progress;
+  FF-eligible, last touch `d2dc7a4` = A7's own battery landing). Expect `pilots/77/`
+  T1-completion runs (`logs/t1-run6+*.log`, T1.lean evolution beyond the 781-LoC
+  verified-red state) + T2 files when reached; `pilots/78/`, truffet-scope, prior-art,
+  a7-* reviews = landed no-ops.
+- **A8 / agent-09 (74-P1 completion, verify-fire):** true deltas — `pilots/74/P1.lean`
+  (216 diff lines beyond the landed verified-red `170520aa…` state) + NEW
+  `pilots/74/stage_and_fire.sh` (34-LoC sha-guard stage+fire helper enforcing the
+  fix-batch→verify-applied→fire discipline; H never executes it — lane tooling) +
+  `pilots/22/T2a-P0-record.md` **BEHIND-MAIN** (worktree copy lacks H's dated
+  2026-11-17 correction block that main carries at :74–83: if A8 edits it, a 3-WAY MERGE
+  is mandatory — a verbatim copy would delete H's correction). Expect `logs/p1-run7+*.log`
+  + `74-P1-record.md` updates; G-probe/probe-lean/a8-* files = landed no-ops.
+
+Manifest refresh rule: recompute at each landing batch (dirty lists move fast once lanes
+resume); the LANDED-NOOP sets shrink the pull to exactly the reported payload + funnel
+routing.
