@@ -365,3 +365,59 @@ one-writer-per-file, H commits only. H's wave-3 lane log:
 signal after the five units land. **Landing progress: FF-EZ2-P2 GREEN (A3/agent-04)
 2026-11-18 — unit 1 of 5 down; FF-EZ2 charter fully closed** (remaining: A4 AL-P2-c/d/e,
 A5 N2 closure→M2/M3, A7 77-T1+T2, A8 74-P1).
+
+### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
+
+**(a) Scoreboard.** Unit 1 of 5 landed: **FF-EZ2-P2 GREEN, charter fully closed**
+(`80136b2`; 9/9 triad incl. 5 private, 0 sorryAx, run 2/≤3; §10.28; `AxPilotFFEZ2_P2`
+TARGETS row landed). In flight (worktree map; pull, never restart): **A4/agent-05**
+AL-P2-c completion (path a) → P2-d → P2-e (`al3d/A2.lean` delta, FF-eligible);
+**A5/agent-06** N2-P1 packaging closure → M2 → M3 (closure run 8 fired, EXIT=0 on disk —
+verdict belongs to A5's report); **A7/agent-08** dossier-77 fold + T1-completion + T2
+as ONE unit (≤4+≤4); **A8/agent-09** 74-P1 completion, verify-fire discipline
+(`stage_and_fire.sh` sha guard; `22/T2a-P0-record.md` worktree copy is BEHIND-MAIN —
+3-way merge mandatory if touched). Pull manifests + staleness guard:
+`qa/iter4-review/h-wave3-log.md` (2026-11-18 entries).
+
+**(b) Instrument chain (commit · state).** Close-act runbook (20 steps/5 phases) +
+Phase-1 rehearsal (D1–D6, 0 blockers, 3 waits-on-lane: A9 wording / A1 D2-FINAL+D3
+fold / A9-or-orchestrator D6) + refreshed close-summary draft — `6b6bab5`, `f19bd86`;
+tally scaffold `tally_section10.py` + D7 fold — `8b058ee`; Step-B TARGETS pre-stage
+(`AxPilot73_Q4`, `AxPilot78_P0`, `AxPilotFFEZ2_P2` rows landed; 4 unit-final
+placeholders) + **AxPilot10_L5 single-row ruling** — `862d8d0`, `32cc7e3`, `80136b2`;
+A9 splice-checklist wave-3 addendum (§D.0–D.5, PENDING-CLOSE pre-stage) — `34af9c2`;
+A9 claims audit (213 checks, 4 locator fixes, 6/6 discovery articles) — `3ca0110`;
+A1 verification pass (§10.23 finalize + §10.24–§10.28; gates G1–G8 readiness matrix,
+G5 check corrected; classifier ENTRY 4 = 52 exact) — `6e2d2f2`; REPORT-INPUTS §1/§2
+delta items 1–8 H-applied — `048cac9`; **L4.lean run-13 GREEN artifact restored**
+(sha256(16) `4ae0d643`; one-token `.symm` defect; L5 unaffected; flagged to A1) —
+`e165fd1`.
+
+**(c) Rulings minted this wave.** Step-5 **BOTH close-records** (RESEARCH.md live
+append + splice instrument; orchestrator-ratified, C2 precedent). **D6 branch rule**
+(the item-4 "(1 pending a branch decision)" qualifier: A9/orchestrator confirm at
+close). **AxPilot10_L5 single anchor** (L5 embeds L4/L3 verbatim; one row = full
+tranche coverage; L3/L4 stay §10 historical citations). **D7 pilot vocabulary** (the
+close block's verdict-count sentence quotes §10's GREEN-triad / honest-partial /
+NOT-GREEN-honest, machine-computable by the scaffold; PROVED-* article vocabulary
+stays in A9's roll-up / REPORT §I4).
+
+**(d) Iteration-5 front-load.** Charter candidate `a6-iter5-charter-candidate.md`
+(16-row inventory, 10 ranked leads) — `87d7caa`; §5a **NS-1 lit-sweep verdict
+COVERED — lead KILLED** (honeycomb name-collision; the donor-registration note
+survives) + 41-P0 precharter (copy-paste-ready; 2 dossier-41 G_q display errata) —
+`7fe38e8`; Landau η-port precharter (private-chain finding; honest 6–10-run budget;
+billing options A/B/C) — `a117762`; pin-probe staging in flight.
+
+**(e) Restart rule (fresh instance, mid-wave-3).** Same as wave-2's: worktrees persist
+at `/home/doz/zcode-workdir/worktrees/agent-01…10` (detached @ `53c1548`) — **pull,
+never restart**. Read order: AGENTS.md → RESEARCH.md §Iteration 4 → this brief (this
+subsection) → ORCHESTRATION-ITER4.md (canonical lane table) → h-wave3-log.md
+(manuscript: pull manifests, staleness guard — regenerate
+`git diff --name-only 53c1548..HEAD | sort` after every H batch; sha256(16) is the
+report comparator). Hardened pre-commit gate on every commit; file funnels stand
+(r3-tables → A1 only; REPORT-INPUTS → H-shepherded); Modal routes verified LIVE
+2026-11-18 (doz primary for warm-layer apps, xyz new/fallback; 2cpu/4GB, telemetry,
+LEAN_NUM_THREADS=2, taskset not -j). Close act = orchestrator signal after the four
+remaining units land (runbook 20 steps + A9 checklist 7 mandatory H-owned items +
+gates G1–G8 on the exact closing tree).

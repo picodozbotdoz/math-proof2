@@ -456,3 +456,14 @@ routing.
   same-commit; tracker A3 row refreshed.
 - Discrepancy note (per coordinator): A3's report still lists the 4 ff-ez2 P2 files
   as pending — they are NOT (committed at `80136b2`); no action.
+
+## 2026-11-18 — brief mid-wave status refresh (H, crash resilience)
+
+- Appended "Wave-3 status (2026-11-18, mid-wave)" subsection to
+  `RESUME-BRIEF-ITER4.md` (after the Wave-3 open note): (a) scoreboard (unit 1/5 +
+  four in-flight with worktree map and manifest pointers); (b) instrument chain with
+  commit shas `6b6bab5`→`e165fd1`; (c) four rulings minted this wave (Step-5
+  both-records, D6 branch rule, AxPilot10_L5, D7); (d) iter-5 front-load (NS-1
+  KILLED, 41-P0, η-port, pin-probe in flight); (e) restart rule (pull never restart;
+  read order; comparators; funnels; routes; close-act trigger). Tracker cells
+  already current from the riding refreshes — brief-only commit.
