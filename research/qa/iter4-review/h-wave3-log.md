@@ -524,3 +524,22 @@ routing.
 - **Tally-script note:** A2's "tally_section10.py still owed the pull" is STALE —
   cmp verified worktree == main byte-identical (landed at `8b058ee`); no pull.
   Tracker A2 row refreshed.
+
+## 2026-11-18 — LANDING: A6 round-5 battery + DECISION-2 RULING recorded (H batch)
+
+- Pulled from worktree agent-07 as ONE exact file: `a6-iter5-charter-draft.md`
+  (219 → 315 lines; §round-5-battery inserted — the η-port discovery-layer novelty
+  battery, zero Modal, corpus greps + external abstract-level reads; DECISION
+  register rows 2/5 updated by A6 to "determining battery DELIVERED / decision
+  open" + "partially executed"). The 3 main-only lines = A6's own register-row
+  edits (FF-clean).
+- **ORCHESTRATOR RULING RECORDED (this commit's message + this entry):
+  [DECISION-2] = Option A — record-billed, quota-free** — per the battery's
+  consequence line: Option A is the battery-consistent DEFAULT (every component
+  below the S1 bar as informal mathematics; the port's value = formal de-freezing
+  infrastructure) and it **CLOSES the G7-retarget ZZV2 residual**
+  (`a2-g7-token-inventory.md:65` — the formal battery now exists). Option B NOT
+  supported (S1 fails all components); Option C's fire-condition (ii) false
+  pending optional full-text pass. A6's register row 2 stays as-written (one-writer
+  rule); the ruling binds via this record — the typeset pass folds it.
+- Tracker A6 row refreshed.

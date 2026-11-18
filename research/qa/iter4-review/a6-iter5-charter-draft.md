@@ -196,7 +196,85 @@ over-reserve). Lane topology: H + A-lanes, queue-loaded, sticky. Close-out: the
 Iteration-4 adopted protocol (scoped final gates, gate-run persistence, INDEX
 reconciliation as a close gate, date discipline, staging-file supersession stamps).
 
-## §6 DECISION-slot register (the asks, consolidated — all orchestrator)
+## §round-5-battery — the η-port discovery-layer novelty battery (executed 2026-11-18, lane A6; the [DECISION-2] determining input; scoped to the η-port layer ONLY — the AL-3D sub-item residual and the canonical `novelty/round-5*` record remain the L6-carrier's; this section is the input)
+
+**Scope battery'd (A3 precharter §1.3–§1.4):** (i) the scaled closed form
+`c_λ = ρ²·c₀ + (1−ρ²)·Q(0)`, ρ = 2λ, with its change-of-variables derivation; (ii) the
+`correctedTest` definition-level divergence (the (2λ)² coefficient class); (iii) the
+consumer payoff pair (full-domain `exists_KSAsymptotic_of_pos` + the no-numerics
+strict-improvement corollary). Zero Modal; corpus greps + external abstract-level reads.
+
+### Evidence
+
+**Corpus side (formal):** double-confirmed A3's census — `axiommath/ZetaZerosV2/ZetaZeros/`
+has NO dilation/scaling/covariance content (grep `dilate|scal.*covari|covari` = 0 hits
+over the tree; `Zeta/Kernel.lean` carries 44 `private` decls — the frozen 14-lemma chain
+among them); the donor's transfer layer is λ-generic only in its HYPOTHESES
+(`Zeta/Transfer.lean:126/:151`), never in a computed constant; our own `P1.lean`
+deliberately guessed NO closed form in λ (P1-record "Constants … inline at the
+endpoints, NO closed form in `lam` guessed"). Corpus-collision NONE stands
+(`novelty/iter4-seed-triage.md` row 2; survey §2(c): no other corpus exposes the family).
+
+**Informal side (nearest-miss = Lamzouri + the framework literature):**
+- **Lamzouri, arXiv:2609.02882** (v2, 2026-09-08; the donor README's source): abstract
+  read — ">2/3 … simple and on the critical line", ≥83.62% distinct, NEW ≥88.76%
+  simple-or-on-line, average ≥83.62%; method = "a single Hilbert space inequality" +
+  Montgomery pair correlation in the unconditional BGS-TB form. **No test-function
+  scaling, no λ-parameter, no dilation content, no parameter-dependent formulas** (the
+  paper's constants are frozen endpoints).
+- **Baluyot–Goldston–Suriajaya–Turnage-Butterbaugh, arXiv:2306.04799** (Acta Arith.,
+  published 2024-04-22; the P1-record's Lemma-5 pair-correlation input): abstract read —
+  unconditional Montgomery-type theorem; applications conditional on a thin box
+  |β−1/2| < 1/(2 log T) or a zero-density hypothesis. **No test-function-support
+  parameterization, no scaling/covariance content.**
+- **BGS-TB, arXiv:2501.14545** ("Pair Correlation … I", v3 2026-09-01, under review):
+  generalization axis = horizontal distribution + box width b/log T (b = 0.3185 ⇒ 2/3
+  simple-and-on-line, conditional). **A different axis entirely; no λ-window scaling
+  formulas.**
+- **Classical framework status (the honesty core):** support-parameterized test
+  functions ARE the standard Montgomery framework (ICM 1974) — narrower-support =
+  weaker-hypothesis is folklore, and the change-of-variables behavior of an integral
+  functional under dilation of its test function is routine-calculus content every
+  practitioner can derive on demand. Nobody publishes it as a lemma because nobody
+  needs it as one; the informal λ-family over ALL supports is trivially available
+  (nothing stops dilation in the informal world).
+
+### Verdicts (per component; NOVEL / PARTIALLY-COVERED / COVERED)
+
+| component | verdict | one-line reason |
+|---|---|---|
+| (i) scaled closed form `c_λ = ρ²c₀ + (1−ρ²)Q(0)` | **PARTIALLY-COVERED** | the underlying dilation idea is classical-framework folklore (routine change of variables); the exact identity is stated nowhere checked (corpus no; Lamzouri no; BGS-TB ×2 no) — but as mathematics it is lemma/exercise-grade |
+| (ii) `correctedTest` (2λ)² divergence | **PARTIALLY-COVERED** | formally novel-as-stated (no covariance lemma exists in ANY corpus — the P0(b) pin; the de-freezing move's value is real) but mathematically a calculus observation on a definition; externally nobody parameterizes the corrected test at all |
+| (iii-a) full-domain `exists_KSAsymptotic_of_pos` | **COVERED** (informally) | the informal family over all supports is trivially available classically; the content is entirely FORMAL (de-freezing the donor's MT-frozen bridge) |
+| (iii-b) strict-improvement corollary | **PARTIALLY-COVERED** | unpublished as stated (no parameter formulas anywhere checked); a one-line sign observation (Q ≥ 0, Q ≢ 0 ⇒ Q(0) < pairMainTerm Q); the improvement DIRECTION may be implicit in the classical optimization folklore — A3 §1.4(b)'s open flag stays open, though abstract-level evidence is uniformly negative |
+
+**Caveat (honest limitation):** abstract-level reads for the three papers above (the two
+BGS-TB papers develop their test-function machinery internally; full texts not swept for
+a λ-window lemma inside those sections). A full-text pass is warranted ONLY if the
+orchestrator still wants [DECISION-2] Option B/C after this battery — say so and it runs
+(one lane-hour, no Modal).
+
+### Consequences for [DECISION-2] (one line each — A6 informs, orchestrator decides)
+
+- **Option A (pure technical record): battery-consistent DEFAULT.** Every component
+  grades below the S1 bar as informal mathematics (folklore-change-of-variables +
+  calculus observation + corollary-grade sign argument); the port's genuine value is
+  formal de-freezing infrastructure — exactly Option A's billing. This battery also
+  CLOSES the G7-retarget ZZV2 residual (`a2-g7-token-inventory.md:65`: "Lamzouri
+  must-cite framing exists but the formal battery does not" — it now does, here).
+- **Option B (discovery-billed covariance layer): NOT SUPPORTED.** S1 fails on all
+  three components — nearest-miss is Lamzouri's own framework + classical folklore,
+  and R2's bar says corollary-level lemmas never pass S1; firing B would repeat the
+  Cycle-2 "discovery headline on donor content" failure mode the iteration-4 bar was
+  raised to prevent.
+- **Option C (split: record + conditional corollary slot): condition (ii) evaluates
+  FALSE on this battery.** The only piece with any statement-level novelty is
+  (iii-b), graded corollary-grade with an unresolved folklore-direction flag; if the
+  orchestrator still wants the C slot held, it should be held at R2-strength
+  re-review-at-landing (fire only if that re-review — with the optional full-text
+  pass — upgrades (iii-b) above S1), and NOT pre-chartered as article-shaped.
+
+
 
 | # | decision | options / determining input |
 |---|---|---|
@@ -208,12 +286,30 @@ reconciliation as a close gate, date discipline, staging-file supersession stamp
 | 5 | round-5 novelty battery timing | iteration-5 first act vs pre-close; determines [DECISION-2]; carries the residual batteries + the (H)-phase novelty check |
 | 6 | bench conversions | 12-P0 and/or 11-M3 to chartered slots vs drain-activation rule (audit: both coherent as-is; 12-P0 is the cheaper conversion) |
 
+## §6 DECISION-slot register (the asks, consolidated — all orchestrator)
+
+| # | decision | options / determining input |
+|---|---|---|
+| 0 | typeset timing vs the close act (five in-flight units) | before (conditional wording) / after (resolved) — recommend (input) after |
+| 1 | the N=1 quota occupant | FB-2 / FB-4 / η-port-Option-C corollary / unspent; default spend-only-if-executed; after round-5 + wave-1 landings |
+| 2 | η-port billing | A3's §5 Options A / B / C; **the determining battery is DELIVERED — §round-5-battery above: Option A battery-consistent default; Option B NOT supported (S1 fails all components); Option C's fire-condition (ii) evaluates false pending optional full-text pass + R2 re-review** — decision open |
+| 3 | quota mechanics | confirm: the cap is per-cycle (fresh N=1 in iteration 5; iter-4's unspent status is not a carry-over) AND FB-2 / FB-4 / the Option-C corollary compete for the SAME single slot (draft reading per `RESEARCH.md:89–92` + R2's FB re-grades) |
+| 4 | 41's (H) phase | own slot+milestone budget vs wave-tail conditional (preflight's two-phase scope) |
+| 5 | round-5 novelty battery timing | **partially executed: the η-port scope is delivered (§round-5-battery); still open = the AL-3D sub-item residual + the canonical `novelty/round-5*` record + the optional BGS-TB/Lamzouri full-text pass (warranted only if Option B/C survives)** |
+| 6 | bench conversions | 12-P0 and/or 11-M3 to chartered slots vs drain-activation rule (audit: both coherent as-is; 12-P0 is the cheaper conversion) |
+
 ## §7 Files (cross-references for the typeset pass)
 
 Payloads: `qa/iter4-review/a6-iter5-charter-candidate.md` (ranked leads + audits + §5a
 NS-1 sweep), `qa/iter4-review/a6-41-p0-precharter.md` (Lead 2),
 `pilots/zzv2-lam/eta-port-precharter.md` (Lead 3). Erratum stamped this session
 (worktree copy, uncommitted for H): `candidates/41-q-deformed-eight-square-temperley-lieb.md`
-(the two G_q display errata, dated block, prose untouched).
+(the two G_q display errata, dated block, prose untouched). **§round-5-battery appended
+2026-11-18 (re-task): the η-port discovery-layer battery — verdicts per component
+(closed form PARTIALLY-COVERED / divergence PARTIALLY-COVERED / full-domain COVERED-
+informally / strict-improvement corollary PARTIALLY-COVERED), citations = Lamzouri
+arXiv:2609.02882 v2 + BGS-TB arXiv:2306.04799 + arXiv:2501.14545 (abstract-level) +
+corpus greps; consequence lines for [DECISION-2] A/B/C in the battery §.**
 
-— lane A6 (worktree agent-07), 2026-11-18. Drafted against main @ `a117762`.
+— lane A6 (worktree agent-07), 2026-11-18. Drafted against main @ `a117762`; battery
+pass 2026-11-18 (same session).
