@@ -445,3 +445,14 @@ routing.
   bridge" was a name-collision artifact; survives as a donor-registration note;
   + consistency edits). FF-verified (A6's own append on its landed file).
   INDEX row staged same-commit; tracker A6 row refreshed (delivered).
+
+## 2026-11-18 — LANDING: A3 Landau η-port pre-charter (H batch)
+
+- Pulled from worktree agent-04 as ONE exact file: NEW
+  `pilots/zzv2-lam/eta-port-precharter.md` (376 LoC, codebase-level pre-charter for
+  the recorded iteration-5 ask: statement sketches vs actual P1.lean identifiers,
+  private-chain finding, binder/donor census, runner plan, honest 6–10-run budget,
+  billing options A/B/C; paperwork only — no Modal, no new .lean). INDEX row staged
+  same-commit; tracker A3 row refreshed.
+- Discrepancy note (per coordinator): A3's report still lists the 4 ff-ez2 P2 files
+  as pending — they are NOT (committed at `80136b2`); no action.
