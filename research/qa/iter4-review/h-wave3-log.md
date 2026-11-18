@@ -609,3 +609,17 @@ routing.
   auto-rewrites to AxPilot75_Pa once staged.
 - INDEX row added; tracker A5 → landed; brief scoreboard → 2 of 5 (remaining A4,
   A7, A8).
+
+## 2026-11-18 — LANDING: A9 branch-stamp pass (H batch)
+
+- Pulled from worktree agent-10 as ONE exact file:
+  `a9-splice-readme-checklist.md` third pass (+51 changed lines): **D.2 BRANCH
+  DECISION STAMP — branch CARRIED** (orchestrator, from A5's landing: M2 GREEN /
+  M3-P2-P3 deferred-to-iter-5; run-15 citations incl. sha `2e521701` and the
+  8/8-triad quote); **[S1] finalized** (the pre-write's "M2/M3 unlanded" tail
+  corrected to the M2-landed state); D.1/D6 keep-qualifier stamp; **D.5 A5-edge
+  RESOLVED branch-carried**; third-pass provenance block. Close-time edits now
+  fully mechanical per A9.
+- **Stale-claim resolution:** A9's report lists the §extension audit + article-52
+  fix as uncommitted — cmp-verified BOTH byte-identical to main (landed at
+  `0184baa`); no pull. Tracker A9 row refreshed.
