@@ -389,11 +389,24 @@ class) per §7a's 75-Pb row before stamping.
   "dossier-only items 02, 03, 12, 31, 40, 41, 51, 60, 74 remain proposals without
   articles"; 77's Truffet work lives in dossiers/pilots). A8's 74-FINDS and A7's
   77-corrections therefore CANNOT touch an article file directly.
-- **A7 (agent-08)** is the one live edge: dossier-77 fold + T1-completion + T2.
-  Article-78 cites dossier/scoping claims ("dossier/scoping cites traced to the
-  input package", `78-…md:308`); if A7's corrections move any Truffet scoping claim
-  the article cites, article-78 needs an editorial sync — A9 executes it on A7's
-  landing report (worktree edit, H pulls; box-11 same-commit via D.3's commit).
+- **A7 (agent-08)**: **RESOLVED 2026-11-18, fifth pass — trigger NOT met; article-78
+  UNCHANGED (zero cells touched).** The landing (`43d55bb`: T1 NOT-GREEN honest
+  31→7, zero math failures, corrected statements held; T2 7/8 triad-clean incl. the
+  three Laughlin-instance theorems, one tainted decl `isDegreeBlock_iff_sum_blockProj`
+  carrying sorryAx via a filter-missed elaboration error; physlib clock PARTIAL-FIRED)
+  lives entirely in the CAR/Laughlin thread — `pilots/77/T1-record.md` §COMPLETION
+  UNIT + `T2.lean` + dossier-77 §T1/T2 EXECUTION UPDATE — none of which article-78
+  cites. Verified against the landed fold: `iter4-truffet-classical-scope.md` §9/§10.1
+  (the article's two cite targets) and `candidates/78-…md` (the S1–S4 re-grade cite)
+  are byte-identical to the state the claims audit verified; no Truffet scoping claim
+  moved. *Preemptive check on the physlib novelty event:* article 52 is the only other
+  corpus article the WickAlgebra landing could neighbor — the record's own scope
+  ("still ABSENT there: the {a, a†} mixed relation (Wick keeps it central), any
+  Clifford/quadratic-form content, any finite Fock-matrix model"; "the dictionary core
+  stays clean in both corpora") leaves 52's occupation-pair axiomatization (whose
+  `ac_self` mixed relation is constitutive) unclaimed there; the dated `ExchangeSign`
+  nearest-neighbor row stays accurate — no article-52 edit either. D.5 is now FULLY
+  RESOLVED; splice-time execution only.
 - **A5 (agent-06)**: **RESOLVED branch-carried (2026-11-18 stamp, D.2; fourth-pass
   refresh)** — P1 COMPLETE (M1+M2+M3 GREEN-triad at run 19, 14/14 triad,
   `hasQDirichletDictionary` kernel-verified) but P2/P3 deferred to Iteration 5;
@@ -434,3 +447,12 @@ GREEN after the third-pass stamp — P1 COMPLETE (run 19, 14/14 triad incl.
 P0-local, no article exposure). Branch decision UNCHANGED (carried — P2/P3 deferred).
 Stamp citation + [S1] cell tail + D.5's Iter-5 residual refreshed to the M3-landed
 state; close-time edits remain mechanical. Checklist-only; no commits (H commits).*
+
+*Fifth pass, 2026-11-18 (D.5 A7-edge activation — the last one):* A7's landing read
+from the authoritative state (main `43d55bb` = dossier fold + T1/T2 records; verified
+worktree-vs-main byte-identity of every Truffet-side file the article cites). Outcome:
+**trigger not met — zero article cells touched**; D.5's A7 bullet carries the full
+resolution evidence incl. the preemptive article-52/physlib check. All D.5 edges
+closed (A5 branch-carried, A7 no-movement); the checklist is now splice-time
+execution only (rows 10/75/78, counts line with qualifier verbatim, sweep shas, D.3
+marker drop). Checklist-only; no commits (H commits).*

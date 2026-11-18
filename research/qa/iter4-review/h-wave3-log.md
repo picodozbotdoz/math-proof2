@@ -802,3 +802,17 @@ routing.
   paused-state tokens lane-declared per the ENTRY convention (same class as the
   verified-red snapshot precedents).
 - Tracker A5 → paused-at-close. Standing by for the close-act GO.
+
+## 2026-11-18 — LANDING: A9 fifth pass — D.5 fully resolved (H batch)
+
+- Pulled from worktree agent-10 as ONE exact file:
+  `a9-splice-readme-checklist.md` fifth pass: **D.5 A7-edge RESOLVED — trigger NOT
+  met** (the 77 unit's T1/T2/dossier moves touched neither of article-78's cite
+  targets nor the S1–S4 re-grade cite; the preemptive physlib-novelty-event check
+  leaves article-52's occupation-pair axiomatization and nearest-neighbor row
+  accurate — no edit); **zero article cells — the no-op IS the verified outcome**;
+  fifth-pass provenance. Checklist now splice-time-only.
+- Scope note: agent-10's worktree copies of articles/22 and /71 diverge from main —
+  verified as A3-OWNED stale copies (main moved via A3's landings incl. the A71-1
+  fix `c7a3089`; A9 audited read-only per the ownership rule) — NOT pulled, not
+  A9's to edit. Tracker A9 row refreshed.
