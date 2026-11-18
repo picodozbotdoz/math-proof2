@@ -42,21 +42,36 @@ the `---` separator at `:59`.** Text as drafted:
 
 > Iteration 4 closed [DATE-CLOSED] (orchestrator). Final state: the wave's pilot
 > slots resolved as recorded in `qa/iter4-review/r3-verification-tables.md` §10
-> (landings §10.1–§10.N at close: **[PENDING-TALLY]** — tables landed
-> **[PENDING-N-TABLES]**; row verdicts **[PENDING-VERDICT-COUNTS]** = G × GREEN-triad /
-> P × honest-partial / N × NOT-GREEN-honest [D7 RULING 2026-11-18: the §10 pilot
+> (landings §10.1–§10.32: 32 tables; row verdicts = 26 × GREEN-triad / 3 ×
+> honest-partial / 3 × NOT-GREEN-honest [D7 RULING 2026-11-18: the §10 pilot
 > vocabulary, machine-computable by `qa/iter4-review/tally_section10.py`; the ARTICLE
-> vocabulary stays in A9's roll-up / REPORT §I4],
-> every landed row triad-only `[propext, Classical.choice, Quot.sound]`,
-> 0 sorryAx, per the table's own log:line citations; coverage classes C1/C2 per audit
-> F2). Still in flight at close, carried with owners: **[PENDING-INFLIGHT-SET]**.
+> vocabulary stays in A9's roll-up / REPORT §I4]; whole-tree **385/386 triad-clean
+> decls** — machine 226/226 + manual 159/160 per §10.CENSUS(e), the close-time basis;
+> the ONE residual = 77-T2's runner-filter-tainted decl, carried to Iteration 5 —
+> plus **18/18 donor rows** at their donor pins, quoted separately; 0 sorryAx in any
+> landed proof artifact, per the table's own log:line citations; coverage classes
+> C1/C2 per audit F2). Nothing in flight at close — all five wave-3 units landed
+> (delta slots NONE per §10.CENSUS); carried to Iteration 5 with owners:
+> 72-M1 L3b–d + the interface theorem; 22-T2a (conditional); 74-T3 (gated);
+> 10-tranche D4–D6 (D4 ruled); N2-P2 PAUSED-at-close (2/6 runs, name-resolution
+> errors only, the 14/14 core untouched — iter-5 lead-1 payload); AL-P2 P2-d parked
+> at FIND #5 + P2-e rebuild re-charter; the 77-T2 residual decl; the A3 Landau
+> η-port precharter; the A8 74-P2 precharter; G10 SHELF; 11-M3; debts f/h/l.
 > The knowledge-level article quota (cap-N = 1 FINAL) is **UNSPENT** — the wave's
 > record outputs are dossier/pilot records and verification tables, not N-class
 > articles. Discovery ledger: **75 landed two-tier** (P-b entry + 5/6 strip-distinct
-> arm FINAL-GREEN, two-tier conditionality in the title/abstract per S4(b); N2/N3
-> remainder **[PENDING-75-N2/N3]**) and **78 NEGATIVE** (a discovery-grade negative
-> result: **[PENDING-78-LOCATOR]** — record + table row + log anchors as landed).
-> The N2-d endpoint state at close: **[PENDING-N2-D]**. Retargeted to Iteration 5
+> arm FINAL-GREEN, two-tier conditionality in the title/abstract per S4(b); N2
+> remainder: **P1 COMPLETE 14/14** — M1 closure + M2 GREEN incl. the dictionary
+> heart `heckeTsum_eq_ratCharOf_LFunction`/`hasQDirichletDictionary` (§10.29) — with
+> **M3 deferred** and **P2 PAUSED-at-close** (2/6 runs, name-resolution errors only,
+> the 14/14 core untouched; the iter-5 lead-1 payload); the P0-transfer `hnp` erratum
+> applied; N3 unstarted/carried) and **78 NEGATIVE** (a discovery-grade negative
+> result: verification table §10.13, `pilots/78/P0.lean` sha256-16 `d94d115e3d8d08d7`
+> (sweep re-stamp governs), `pilots/78/logs/p0-run4.log`,
+> `articles/78-truffet-substitution-refutation.md`, README row 78).
+> The N2-d endpoint at close: **the ℚ ray-class↔Dirichlet dictionary's heart
+> kernel-verified** (`hasQDirichletDictionary`); the unconditional-at-ℚ instantiation
+> beyond it carries to Iteration 5 with the paused P2 rung. Retargeted to Iteration 5
 > (from `qa/iter4-review/a2-g7-token-inventory.md` §2 + the 2026-11-18 corrected
 > census, `a2-close-act-runbook.md` §8 — the RETARGET items):
 > seed-1's AL-3D novelty residuals (OAI family-265 rg + third-party formal activity
@@ -65,7 +80,7 @@ the `---` separator at `:59`.** Text as drafted:
 > — carrier the L6 standing clock; the 10-tranche D1–D6 proposal
 > (`pilots/10/next-tranche-spec.md:3`, `pilots/10-blueprint.md:187`) — carrier the
 > tranche charter decision; the 72-M1 L3-spec §8 header (`pilots/72-M1/L3-spec.md:187`)
-> — rides the L3b–d carry in [PENDING-INFLIGHT-SET]. The staging set is superseded by this typeset charter
+> — rides the L3b–d carry named in the carried set above. The staging set is superseded by this typeset charter
 > (stamps on `ITERATION4-SCAN/-SEED-DOSSIERS/-CHARTER-DRAFT`, below); the token
 > census closed 40/46 in-cycle, 6 retargeted, 0 unrulled
 > (`a2-g7-token-inventory.md`, corrected census 2026-11-18 per

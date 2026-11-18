@@ -282,3 +282,112 @@ back to the lane. After all four land: re-run the tool + A1's appendix-successor
 — end addendum v2 (A2, 2026-11-18; reconciliation against A1's basis: N=28 ✓ 24/2/2 ✓
 205/205/7 ✓ 0 MULTI ✓ 21 flags ✓ — zero defects; close-time re-run is the number of
 record).
+
+---
+
+## PRE-GO VERIFICATION (A2, 2026-11-18 @ main `6216e2a` — A1's final folds + census
+refresh + H's A7 batch still pending; this block is the GO-time starting state)
+
+### G-a. Rehearsal staging currency — ALL SIX BASES CURRENT
+
+`git diff --stat c67d64e..HEAD` over the six staged sources (SPLICE, SCAN,
+SEED-DOSSIERS, CHARTER-DRAFT, RESEARCH.md, articles/README.md) = **0 lines** — the
+apply-script's assertion bases are exact; a full re-apply after re-copy ran clean
+(all 8 edit steps OK). (The earlier "DRIFTED" cmp scare compared main against the
+rehearsal's EDITED outputs — self-inflicted, resolved.)
+
+### G-b. Tally on A1's last committed fold — CLEAN, basis moved again (v3 seeds)
+
+`tally_section10.py` @ `6216e2a`: **N=29 (§10.29 = 75-N2 P1 FINAL, LANDED GREEN,
+8/8 machine), verdicts 25/2/2, machine 213/213 over 8 sections, 0 MULTI-CENSUS, 21
+flags**. §10.CENSUS(e) was RESTATED at the §10.29 landing — **the roll-up of record
+is now 278/278 ZERO residuals** (machine 213/213 + manual 65/65; 253 direct + 25
+documented-elimination) **+ 18/18 donor rows**, superseding the 274/277 interim my
+§B2 quoted. Remaining folds owed by A1 (pre-GO): AL-P2 c/d/e final-state row (A4
+landed as honest stop, `0e771ab`/`136c935`; §10.6 :615 still says "rows follow their
+verdicts") + 74-P1 completion row (A8 landed GREEN run 5/5, `086e7fd`; §10.21 still
+the wave-2 stop). Only **A7 (77 T1/T2) is truly in flight**. N at GO ∈ [30,32];
+G/P/N seeds at GO = 25/2/2 + the A4/A8/A7 fold outcomes.
+
+### G-c. Map-source drift found (D8–D10) and dispositioned
+
+- **D8 (fixed): my rehearsal row-10 staged wording mis-attributed L4.lean's sha
+  `4ae0d643…` to the D2 log** — corrected in apply_rehearsal.py to the article-10
+  header's own citations (:17–:19): D2 = `d2-run4.log:110`, L4.lean `4ae0d643…`;
+  D3 = `d3-run1.log:44–45`, L5.lean `da398f21…`. Re-apply re-proved. NOTE: the
+  article-10 header NOW carries all three tranche rows — the original D5
+  source-parity gap is CLOSED on main.
+- **D9 (anchors moved): article-78's A9-item-7 anchors drifted** with the claims-audit
+  extension (`0184baa`): box-11 row 11 `:309 → :313`; tail sha-stamp `:312 → :316`;
+  `:201` stable. Article-75's `:383/:551/:554` ALL stable. GO-time A9 edits use the
+  current line numbers.
+- **D10 (supersession): A9's checklist gained a WAVE-3 ADDENDUM** (D-series:
+  copy-paste-exact PENDING-CLOSE blocks; "supersedes the A-section framing of items
+  1–3 per D.0"; D.2 = P1-complete wording M1+M2+M3 GREEN 14/14, branch carried;
+  D.5 = A5 edge resolved). Phase-1 assembly at GO stages the README/article edits
+  from the D-SERIES blocks, not from my rehearsal's item-1–4 staging (mine remains
+  the structural dry-run; where both exist, D-series wording wins — A9 is writer of
+  record).
+
+### G-d. Placeholders now fillable at GO (source-quoted, on main)
+
+- `[PENDING-75-N2/N3]` / `[PENDING-N2-D]` ← §10.29 FINAL (P1 COMPLETE 14/14 incl.
+  the dictionary heart `heckeTsum_eq_ratCharOf_LFunction`/`hasQDirichletDictionary`;
+  M2 GREEN 8/8; M3 DEFERRED→Iteration-5; FIND: P0 transfer missing `hnp` amendment
+  owed — `dc3cd6c`/`3ad896b`/`d77bb20`).
+- README row-75 N2 tail `[N2-FINAL-STATE]` ← same (M3-deferred wording per A9 D.2).
+- `[PENDING-78-LOCATOR]` ← unchanged fills (verified again).
+- Still token at GO: `[DATE-CLOSED]`; `[PENDING-TALLY]`/`[PENDING-N-TABLES]`/
+  `[PENDING-VERDICT-COUNTS]` (A1's final folds + A7); `[PENDING-INFLIGHT-SET]`
+  (A7 + carries); the roll-up citation quotes §10.CENSUS(e)'s GO-time restatement.
+
+### G-e. K-list — 21/21 files exist on main (`c67d64e`→`6216e2a` changed only
+content, no K-file added/removed; the K-17–21 amendment stands).
+
+**VERDICT: READY.** Zero blocking defects; D8 fixed, D9/D10 recorded for GO-time
+use; tally clean on the last committed fold; staging bases current and re-proved.
+GO fires on A1's census refresh + H's A7 batch per the orchestrator.
+
+— end pre-GO block (A2, 2026-11-18; next write = the GO-time execution log).
+
+---
+
+## GO-TIME FILL SHEET (A2, 2026-11-18 — GO fired; H executing Part 1)
+
+**Basis pre-verification (the GO-stated final basis, tool-run against A1's worktree
+copy — commit pending in H's Part 1):** `tally_section10.py` on agent-02's
+`r3-verification-tables.md` → **N=32 (§10.30 AL-P2 honest-stop, §10.31 74-P1
+COMPLETION GREEN, §10.32 77-T1/T2 NOT-GREEN-at-budget), verdicts 26/3/3 (sum ✓),
+machine 226/226 over 9 sections, 0 MULTI-CENSUS, 23 NO-MACHINE-CENSUS flags
+(manual-table covered)** — reconciles EXACTLY with A1's §10.CENSUS restatement:
+machine 226/226 + manual 159/160 = **whole-tree 385/386** (226+159=385 ✓,
+226+160=386 ✓; the ONE residual = 77-T2's runner-filter-tainted decl → Iteration 5),
+**+ 18/18 donor rows**, **delta slots NONE**. ANOMALY DISPOSITION (surfaced, not a
+defect): A1's folds were UNCOMMITTED at GO (main `041f4ea` still reads N=29/25/2/2/
+213/213) — sequencing constraint: **the fill-time tally re-run on the COMMITTED tree
+happens AFTER H commits A1's r3-verification-tables.md**; the numbers above are
+pre-verified identical. SCAN.md in agent-02 = identical to main (no stamp-anchor
+drift; the agent-02 "M" status is vs its 53c1548 base).
+
+**Fill state (applied to the draft close block this pass — source-quoted):** all
+placeholders FILLED except **[DATE-CLOSED]** (orchestrator): N=32; 26/3/3 per D7
+vocabulary; 385/386 whole-tree + 18/18 donor (§10.CENSUS(e) final restatement); the
+"every landed row triad-only" sentence corrected to the honest 385/386-with-residual
+form (the old sentence was FALSE for 77-T2's tainted decl); carried-to-iter-5 set
+enumerated (nothing in flight — delta slots NONE; carries: 72-M1 L3b–d+interface,
+22-T2a, 74-T3, 10-D4–D6, N2-P2 paused-at-close, AL-P2 P2-d FIND#5 park + P2-e
+rebuild, 77-T2 residual, A3 η-port precharter, A8 74-P2 precharter, G10, 11-M3,
+debts f/h/l); 75-N2/N3 = P1 COMPLETE 14/14 + M2 GREEN, M3 deferred, P2 paused, hnp
+erratum applied, N3 carried; 78-locator five anchors; N2-d = dictionary heart
+kernel-verified, instantiation beyond carries.
+
+**Remaining A2 duties at Phase 2/3 (per activation):** (i) fill-time tally re-run on
+the COMMITTED closing tree (after H's A1-fold commit) — quote its numbers in K;
+(ii) MULTI/NO-CENSUS manual-fold verification: the 23 flags ↔ §10.CENSUS table (b)
+manual rows 159/160 — every flag covered, the one residual attributed; (iii) gates
+split per the runbook owner column (my support: G4 date grep + G7 staging-file
+greps re-run on the closing tree — the four staging files unchanged since my §8
+sweep, gate grep still 30 lines); (iv) anomalies surface to the orchestrator
+unpatched.
+
+— end GO fill sheet (A2, 2026-11-18; Phase-1 assembly support active alongside H).

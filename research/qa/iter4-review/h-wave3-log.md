@@ -843,3 +843,21 @@ routing.
   actually fires** — the 2026-11-18 ruling governs only a same-day K; honesty of
   the record over the earlier ruling (the stamps/close block carry a
   dated-correction note at K time if the date moves).
+
+## 2026-11-18 — SESSION WRAP W2: worktree real deltas landed (H batch)
+
+- Pulled as ONE exact-file batch (3 files): agent-07
+  `a6-iter5-charter-draft.md` (338→424 lines: the final-outcome refresh §8 +
+  register updates + the day-1 inventory) + agent-03 `a2-close-summary-draft.md`
+  (**the FILLED close block** — placeholders → 32 tables / 26×G / 3×P / 3×N;
+  whole-tree 385/386 = 226/226 machine + 159/160 manual per §10.CENSUS(e); 18/18
+  donor rows; matches the W1-pre-landed SPLICE/RESEARCH.md close block) +
+  `a2-close-rehearsal-report.md` (the PRE-GO VERIFICATION block: all six staging
+  bases current at `6216e2a`, re-apply clean; the GO-time fill sheet; D8 fix;
+  D9/D10). All FF-verified lane content.
+- Dispositions (left in place, not pulled): dossier-41 cmp-EQUAL (landed
+  `6e8ab32`); REPORT-INPUTS-ITER4 diverged copies in BOTH worktrees
+  (H-shepherded funnel, unreported); agent-03 r3-verification-tables (the known
+  stale-baseline A1-ONLY copy); `rehearsal/` scratch (never-commit); the
+  pilots/12 + pilots/41 worktree entries (behind-main, not ahead — main carries
+  the landed files).

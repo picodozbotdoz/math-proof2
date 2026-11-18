@@ -297,24 +297,12 @@ dated amendment lands in the η-port precharter via H; this battery folds it.
   slightly friendlier (the correctedTest transcription simplifies — donor form
   verbatim), though the 14-lemma private-chain re-proof cost stands unchanged.
 
-
-
-| # | decision | options / determining input |
-|---|---|---|
-| 0 | typeset timing vs the close act (five in-flight units) | before (conditional wording) / after (resolved) — recommend (input) after |
-| 1 | the N=1 quota occupant | FB-2 / FB-4 / η-port-Option-C corollary / unspent; default spend-only-if-executed; after round-5 + wave-1 landings |
-| 2 | η-port billing | A3's §5 Options A / B / C; determining input = the round-5 battery ([DECISION-5]) |
-| 3 | quota mechanics | confirm: the cap is per-cycle (fresh N=1 in iteration 5; iter-4's unspent status is not a carry-over) AND FB-2 / FB-4 / the Option-C corollary compete for the SAME single slot (draft reading per `RESEARCH.md:89–92` + R2's FB re-grades) |
-| 4 | 41's (H) phase | own slot+milestone budget vs wave-tail conditional (preflight's two-phase scope) |
-| 5 | round-5 novelty battery timing | iteration-5 first act vs pre-close; determines [DECISION-2]; carries the residual batteries + the (H)-phase novelty check |
-| 6 | bench conversions | 12-P0 and/or 11-M3 to chartered slots vs drain-activation rule (audit: both coherent as-is; 12-P0 is the cheaper conversion) |
-
 ## §6 DECISION-slot register (the asks, consolidated — all orchestrator)
 
 | # | decision | options / determining input |
 |---|---|---|
-| 0 | typeset timing vs the close act (five in-flight units) | before (conditional wording) / after (resolved) — recommend (input) after |
-| 1 | the N=1 quota occupant | FB-2 / FB-4 / η-port-Option-C corollary / unspent; default spend-only-if-executed; after round-5 + wave-1 landings |
+| 0 | typeset timing vs the close act (five in-flight units) | **resolved-by-outcome 2026-11-18: branch-CARRIED, N2-d unproven at close, quota unspent** (A9 D.2 stamp `ccaaf94`; fourth pass `166f23c`; D.5 resolved `041f4ea`) — the typeset uses resolved wording; the only carried branch is N2's (P1 COMPLETE / P2 paused with 2 runs remaining of ≤6 — §8.1) |
+| 1 | the N=1 quota occupant | **context updated at close (§8.4): the contest is FB-2 vs FB-4 vs unspent — no new competitor** (the η-port Option-C competitor is dead per DECISION-2 = A + the battery; 74-P2 and the AL-rebuild are discovery-shaped ENGINEERING precharter payloads, not quota occupants unless the orchestrator rules otherwise); default spend-only-if-executed; ruling OPEN |
 | 2 | η-port billing | **RULED 2026-11-18 (orchestrator): Option A — record-billed, quota-free.** Per the §round-5-battery consequence line, verbatim: "**Option A (pure technical record): battery-consistent DEFAULT.** Every component grades below the S1 bar as informal mathematics (folklore-change-of-variables + calculus observation + corollary-grade sign argument); the port's genuine value is formal de-freezing infrastructure — exactly Option A's billing. This battery also CLOSES the G7-retarget ZZV2 residual (`a2-g7-token-inventory.md:65`: 'Lamzouri must-cite framing exists but the formal battery does not' — it now does, here)." Options B (unsupported) and C (condition (ii) false) stand rejected by the same battery |
 | 3 | quota mechanics | confirm: the cap is per-cycle (fresh N=1 in iteration 5; iter-4's unspent status is not a carry-over) AND FB-2 / FB-4 / the Option-C corollary compete for the SAME single slot (draft reading per `RESEARCH.md:89–92` + R2's FB re-grades) — **note post-ruling: the η-port Option-C competitor is OUT (DECISION-2 = A), the slot contest is now FB-2 vs FB-4 vs unspent** |
 | 4 | 41's (H) phase | own slot+milestone budget vs wave-tail conditional (preflight's two-phase scope) |
@@ -334,5 +322,103 @@ informally / strict-improvement corollary PARTIALLY-COVERED), citations = Lamzou
 arXiv:2609.02882 v2 + BGS-TB arXiv:2306.04799 + arXiv:2501.14545 (abstract-level) +
 corpus greps; consequence lines for [DECISION-2] A/B/C in the battery §.**
 
+## §8 FINAL-OUTCOME REFRESH (close act, 2026-11-18 — read as the authoritative delta over §2–§5; all five wave-3 units landed or honestly recorded on main through `041f4ea`)
+
+### 8.1 Lead 1 (N2) — final outcome: P1 COMPLETE, P2 paused at the close hard-stop, P3 one gate away
+
+- **P1 COMPLETE — M1+M2+M3 GREEN-triad at run 19** (`pilots/75/N2-P1-record.md:126`
+  end-stamp; commit `3ad896b`): M2's `heckeTsum_eq_ratCharOf_LFunction` — the
+  dictionary heart (`dc3cd6c`, 8/8 triad) — and M3's `hasQDirichletDictionary`
+  (14/14 triad) kernel-verified; the §10.29 roll-up records **278/278 triad-clean,
+  ZERO residuals** (`d77bb20`).
+- **The FIND, recorded + applied**: P0's transfer was missing the `hnp` antecedent
+  (`3ad896b`) — the P0 hnp erratum is APPLIED (dated erratum block at
+  `pilots/75/N2-P0.lean:161`; amended file elaborates OK in runs 20–21; the 15/15
+  ledger stands as history — `N2-P1-record.md:134`).
+- **P2 PAUSED-at-close**: P2-a (`windowFinite_LFunction`) in flight at runs 20–21
+  (10→8 errors, ALL name-resolution class; the 14/14 triad core untouched); three
+  certain fixes applied on disk UNFIRED per the hard-stop rule; parked at post-fix
+  sha `ecd44c6a…` (`N2-P1-record.md:132–150`). **The resume note IS the iter-5
+  lead-1 payload (committed `02a5d71`): fire run 22 as the first action; 2 runs
+  remain of the P2 ≤6 budget.** P2-b (strip immunity) / P2-c (port) not started —
+  API facts pinned (`DirichletCharacter.LSeries_changeLevel`
+  EulerProduct/DirichletLSeries.lean:173; `changeLevel_injective` Basic.lean:79;
+  `LSeries_ne_zero_of_one_lt_re` Dirichlet.lean:233, `N2-P1-record.md:136`).
+- **P3 (V2 ζ-column + the composed `zetaL_rat_two_thirds_landed` landing): GO and
+  blocked ONLY on P2-c** (`N2-P1-record.md:121–124` — the M4b import pattern settled;
+  `factorization_identity_extension` (run 19) supplies the exact `hAbFacQ` bridge).
+  **N2-d (the unconditional-at-ℚ composed landing) is UNPROVEN at close** — hence
+  DECISION-0's branch-carried record.
+
+### 8.2 Debt rungs — the wave-3 landings (add to §4's list; each carries its own precharter)
+
+- **AL-3D find-#5 rebuild precharter LANDED** (`pilots/al3d/rebuild-precharter.md`,
+  commit `cfedd3d`; baseline: P2-c closed 100% GREEN runs 9–13, run-13 sha
+  `509f2368` — `136c935`/`0e771ab`; P2-d partial + find #5 parked → the canonical
+  z-rank re-charter). Copy-paste-ready, M0–M3 ladder, **total 12–18 runs ≈ 3–4
+  lane-sessions** (rebuild-precharter §4); fences carried (no AreaLaw3D content,
+  `PlanarAreaLawVar` binder not discharged, full `SlabAreaLaw3D` hard-stopped).
+- **74-P2 precharter LANDED** (`pilots/74/P2-precharter.md`, commit `6216e2a`):
+  the **two-atom hVarLB insufficiency find** + FIND-#1's family recycled
+  constructively; budget ≤5+≤5. Context: **74-P1 completion GREEN** (run 5/5, 7/7
+  triad, verify-fire discipline held — `086e7fd`) with the dossier amendment (4
+  FINDS + 9 signature classes).
+- **77 residuals — iter-5 items** (commit `43d55bb`): T1 NOT-GREEN honest (31→7
+  residuals, ZERO math failures — "the mathematics is closed, only the pin's exact
+  API shapes remain", `pilots/77/T1-record.md` §Residual census); **T2 DELIVERED at
+  7/8 triad-clean** (`isParityBlock_iff_sum_parityProj` the surviving headline,
+  dossier 77 :126) with **one tainted decl** — `isDegreeBlock_iff_sum_blockProj`
+  carries `sorryAx` via an elaboration error the runner's error filter missed
+  (rc=1, errors=0; dossier 77 :133, `T1-record.md:40`) — **and the 77-runner
+  filter fix** (make_axcheck.py corrected in `43d55bb`). A7's own recommendation:
+  re-charter T1-completion + T2 as ONE follow-up pilot, residual census = the work
+  list (`T1-record.md` §T2-readiness); the two dossier corrections fold into
+  dossier 77's T1 statement.
+- **N2P0-sweep staging note** (recorded `d77bb20`; spec at
+  `feasibility/probe/FINAL-SWEEP-PLAN-ITER4.md:247`): the `import N2P0`
+  hyphen-workaround closure — stage the Pa → N2P0 → N2-P1 closure in the runner's
+  ORDER pattern (`run_n2p1.py:49`) or extend the rewrite map; `AxPilot75_N2` at
+  sweep, 14/14 triad file-wide (`n2-p1-run19.log:183–:198`).
+
+### 8.3 The physlib novelty event (WickAlgebra) — FB-5/77 conditions + seed-13
+
+**The clock FIRED PARTIALLY — a novelty event** (`pilots/77/T1-record.md:45–56`):
+physlib master ticked 2026-11-17→2026-11-18 and landed
+`Physlib/QFT/PerturbationTheory/` (54 files, Tooby-Smith): `CrAnFieldOp` +
+`FieldOpFreeAlgebra` + **`WickAlgebra`** (the free CrAn algebra quotiented by
+same-statistics super-commutation). Consequences:
+- **The equal-statistics HALF of CAR now exists on physlib** (a² = 0, aa′ = −a′a,
+  supercommutator form); still absent there: the {a,a†} mixed relation, any
+  Clifford/quadratic-form content, any finite Fock-matrix model, any tauceti
+  connection. **T1's CAR-transport sub-content drops to formalization-parity
+  against that layer; the dictionary core stays clean in both corpora.**
+- For FB-5/77's CHARTER-GO conditions: condition (iii) (the clock rides the pilot)
+  is the one that FIRED — exactly as designed; condition (i)'s C+ billing cap is
+  now MORE binding for the transport sub-rung (formalization-parity content never
+  bills above C+); the follow-up re-charter (8.2) must re-run T1's differentiation
+  against the Wick layer.
+- **Seed-13 note**: the "no CrAnFieldOp path exists at all" gap is CLOSED
+  (`T1-record.md:56`) — `physlib-surface.md` §2/§6 wing data is stale again; the
+  S13 pilot's differentiation gates re-run against the new layer before any
+  charter.
+
+### 8.4 DECISION-0/1 register updates — recorded in §6 (rulings stay open/closed as stated there)
+
+DECISION-0 resolved-by-outcome (branch-CARRIED, N2-d unproven at close, quota
+unspent — stamps `ccaaf94`/`166f23c`/`041f4ea`); DECISION-1's contest narrowed to
+**FB-2 vs FB-4 vs unspent** (no new competitor; Option C dead per DECISION-2 = A;
+74-P2/AL-rebuild are engineering payloads unless ruled otherwise).
+
+### 8.5 Iter-5 day-1 fire-ready inventory (all staged on main, unfired)
+
+| opener | state | payload |
+|---|---|---|
+| **41-P0** | staged, candidate-unfired (`f5cfe5e`) | `pilots/41/P0.lean` (190 LoC, self-consistency passed; firing instruction in-file; warm `crossmath-probe`, doz CLI, 1–2 runs) |
+| **η-pin-probe** | staged, record-billed per DECISION-2 = A (`c7a3089`; firing-paragraph precision + runner-compat 4/4 PASS `c359f48`) | `pilots/zzv2-lam/eta-pin-probe.lean` (319 LoC, unfired; κ=1 correction folded in the precharter) |
+| **N2-P2 resume** | run 22 next (first action; parked sha `ecd44c6a`, 2 runs remain of ≤6) | the resume note at `pilots/75/N2-P1-record.md:139–150` (three certain fixes on disk; two residual classes named) |
+
+— end refresh.
+
 — lane A6 (worktree agent-07), 2026-11-18. Drafted against main @ `a117762`; battery
-pass 2026-11-18 (same session).
+pass 2026-11-18 (same session); final-outcome refresh 2026-11-18 against main @
+`041f4ea` (close act).
