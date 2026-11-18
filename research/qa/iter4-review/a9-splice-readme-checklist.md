@@ -132,24 +132,25 @@ live; flow line: quota N=1 UNSPENT). No other token of the sentence changes.
 ## D.2 Row 75 N2-conditional — BOTH BRANCHES pre-written (pick-one on A5's landing report; 2026-11-18)
 
 > **BRANCH DECISION STAMP — branch CARRIED (orchestrator, from A5's landing,
-> 2026-11-18).** M2 landed GREEN but M3/P2/P3 are deferred-to-Iter-5 — the composed
-> N2-d conditions are NOT met at close. Citation: `pilots/75/logs/n2-p1-run15.log`
-> (A5, 2026-11-18; agent-06 worktree, pending H commit) — "N2-P1.lean OK — rc=0,
-> 0 errors, 0 sorry tokens; **8/8 declarations triad-clean**", M2 =
-> `heckeTsum_eq_ratCharOf_LFunction` (component (ii) of `HasQDirichletDictionary`,
-> the L-series identification; M1's seven incl. the c-trick `chi_span_residue`;
-> sha `2e5217010e46…`, M2 descent 6 runs r10–r15); and the "M3 deferral note
-> (honest budget accounting)" + updated P2/P3 recommendation in
-> `pilots/75/N2-P1-record.md` (2026-11-18: "M1+M2 GREEN-triad at run 15"; M3 NOT
-> started, specced for Iter-5; P2/P3 GO unchanged). Consequences, now purely
+> 2026-11-18; amended fourth pass same day: M3 landed after the original stamp —
+> wording refreshed to the P1-complete state, DECISION UNCHANGED).** M1+M2+M3 landed
+> GREEN (P1 COMPLETE) but P2/P3 are deferred-to-Iter-5 — the composed N2-d conditions
+> are NOT met at close. Citation: `pilots/75/logs/n2-p1-run19.log` (A5, 2026-11-18;
+> agent-06 worktree, pending H commit) — "M3 GREEN — P1 COMPLETE … N2-P1.lean OK —
+> rc=0, 0 errors, 0 sorry tokens; **14/14 file declarations triad-clean**" (M1 (7)
+> incl. the c-trick `chi_span_residue`; M2 (1) `heckeTsum_eq_ratCharOf_LFunction`;
+> M3 (6) incl. `hasQDirichletDictionary` — N2-a DISCHARGED — and
+> `dirichletFactorizationTransfer`; sha `ca1089e2a0c1…`, 4 M3 runs r16–r19 within
+> the fresh ≤6 budget); and `pilots/75/N2-P1-record.md` (2026-11-18: "P1 COMPLETE —
+> M1+M2+M3 GREEN-triad at run 19"; P2/P3 GO unchanged; a P0 `hnp` amendment owed —
+> the FIND does not touch article-75). Consequences, now purely
 > mechanical: **(a)** the README cell edit = the Branch-CARRIED form below, slot
-> [S1] FILLED (M2 landed, so the pre-write's "M2/M3 unlanded" tail is corrected in
-> the final cell); **(b)** article-75 = NO edit (all three anchors stay true —
-> §3.3's "absent from every surveyed corpus" is an external-corpus claim; the glue
-> remains named, not claimed); **(c)** D.1's counts line KEEPS the
+> [S1] FILLED at the M3-landed state; **(b)** article-75 = NO edit (all three anchors
+> stay true — §3.3's "absent from every surveyed corpus" is an external-corpus claim;
+> the glue remains named, not claimed); **(c)** D.1's counts line KEEPS the
 > "(1 pending a branch decision)" qualifier verbatim (D6's keep-branch); **(d)** the
-> close summary cites N2 as carried with the M1+M2-GREEN state. The edits apply at
-> close per this checklist's timing; nothing was applied at stamp time.
+> close summary cites N2 as carried with the P1-complete (M1+M2+M3 GREEN) state. The
+> edits apply at close per this checklist's timing; nothing was applied at stamp time.
 
 Current exact status-cell tail (`README.md:22`, verified at `2f90dcc`):
 
@@ -174,14 +175,12 @@ is the entire close-time action; nothing is drafted.
 ### Branch CARRIED (M2/M3 unlanded at close — the expected branch per the slot ledger)
 
 1. README cell — replace the tail with (**FINAL, slot [S1] filled by the 2026-11-18
-   branch stamp above — M2 landed GREEN, so the tail reads M1+M2 rather than the
-   pre-write's "M2/M3 unlanded"**):
+   branch stamp, fourth-pass refresh to the M3-landed state**):
 
    ```
    …binder swap cleared); ℚ-instantiation (N2) carried to Iteration 5 (P0 15/15 triad;
-   P1 M1+M2 GREEN-triad at run 15 — 8/8 decls incl. the L-series identification
-   `heckeTsum_eq_ratCharOf_LFunction`; M3 + the hEχ port + the V2 landing deferred, A5's
-   budget note 2026-11-18) |
+   P1 M1+M2+M3 GREEN-triad at run 19 — 14/14 decls incl. hasQDirichletDictionary; P2 hEχ
+   port + P3 V2 landing deferred, A5's budget note 2026-11-18) |
    ```
 
 2. Article-75: **NO edit** (all three anchors stay true: the glue is named, not
@@ -395,12 +394,13 @@ class) per §7a's 75-Pb row before stamping.
   input package", `78-…md:308`); if A7's corrections move any Truffet scoping claim
   the article cites, article-78 needs an editorial sync — A9 executes it on A7's
   landing report (worktree edit, H pulls; box-11 same-commit via D.3's commit).
-- **A5 (agent-06)**: **RESOLVED branch-carried (2026-11-18 stamp, D.2)** — M2 landed
-  GREEN (run 15, 8/8 triad) but M3/P2/P3 deferred to Iteration 5; outcome: the
-  README row-75 cell takes D.2's filled branch-carried text at close, article-75 gets
-  NO edit, D.1 keeps the qualifier verbatim. The only residual A5-side article
-  exposure for Iter-5: the M3/P2/P3 landings would activate the D.2 branch-landed
-  wording there.
+- **A5 (agent-06)**: **RESOLVED branch-carried (2026-11-18 stamp, D.2; fourth-pass
+  refresh)** — P1 COMPLETE (M1+M2+M3 GREEN-triad at run 19, 14/14 triad,
+  `hasQDirichletDictionary` kernel-verified) but P2/P3 deferred to Iteration 5;
+  outcome: the README row-75 cell takes D.2's filled branch-carried text at close,
+  article-75 gets NO edit (the P0 `hnp` FIND does not touch it), D.1 keeps the
+  qualifier verbatim. The only residual A5-side article exposure for Iter-5: a P2/P3
+  landing would activate the D.2 branch-landed wording there.
 - **A3/A4/A8 residue**: no article exposure (FF-EZ2/AL-P2/74-P1 are engineering
   deliverables; the checklist C-section clearance of 2026-11-17 stands).
 
@@ -427,3 +427,10 @@ reads M1+M2 GREEN, correcting the pre-write's "M2/M3 unlanded"); D.1/D6 resolved
 keep-branch (qualifier verbatim, no count adjustment); D.5's A5 edge marked
 resolved branch-carried. Checklist-only change; no article or README edits at stamp
 time (close-time timing per the checklist). No commits (H commits).*
+
+*Fourth pass, 2026-11-18 (stamp wording refresh, relay):* A5's re-task landed M3
+GREEN after the third-pass stamp — P1 COMPLETE (run 19, 14/14 triad incl.
+`hasQDirichletDictionary`, N2-a discharged; 4 M3 runs r16–r19; the P0 `hnp` FIND is
+P0-local, no article exposure). Branch decision UNCHANGED (carried — P2/P3 deferred).
+Stamp citation + [S1] cell tail + D.5's Iter-5 residual refreshed to the M3-landed
+state; close-time edits remain mechanical. Checklist-only; no commits (H commits).*

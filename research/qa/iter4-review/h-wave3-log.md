@@ -691,3 +691,15 @@ routing.
   at the §10.30 fold.
 - NO TARGETS row (A2.lean not final — lands with the rebuild). INDEX row added;
   tracker A4 row + scoreboard 3 of 5.
+
+## 2026-11-18 — LANDING: A9 checklist fourth pass (H batch)
+
+- Pulled from worktree agent-10 as ONE exact file:
+  `a9-splice-readme-checklist.md` fourth pass (+61 changed lines): **D.2 stamp
+  refreshed to the P1-complete state, DECISION UNCHANGED (branch carried)** —
+  M1+M2+M3 GREEN at run 19 quoted with the 14/14-triad / sha `ca1089e2` / r16–r19
+  citations + the P0 `hnp` amendment note; **[S1] cell refreshed** (14/14/run-19);
+  **D.5 residual narrowed to P2+P3 only**; fourth-pass provenance block.
+- cmp-guards as before: the §extension audit + article-52 are byte-identical to
+  main (landed `0184baa`) — A9's pull-list claim stale again, no pull. Tracker
+  A9 row refreshed.
