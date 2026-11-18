@@ -299,3 +299,19 @@ routing.
 - Waits-on-lane relayed by the report (for tracker visibility): A9 — item-1 wording
   + article-10 status-table D2-FINAL/D3 staleness; A1 — the D2-FINAL/D3 §10 fold
   (data on main, no unit dependency); A9/orchestrator — D6 qualifier.
+
+## 2026-11-18 — ORCHESTRATOR RULING applied: AxPilot10_L5 single-row append (H)
+
+- The STOPPED `AxPilot10_L3` re-anchor ambiguity (h-wave3-log, TARGETS pre-stage
+  entry) is RESOLVED by orchestrator ruling: **single row `("AxPilot10_L5",
+  pilots/10/L5.lean)`** — L5 embeds L4/L3 verbatim ⇒ full D-tranche theorem coverage
+  at least compile cost; L3/L4 keep §10 citations as historical rungs; the sweep audits
+  FINAL state = L5. STOPPED comment block REPLACED by the row + dated ruling note
+  (rationale in-file). Syntax re-verified: py_compile rc=0; module-load assertions OK
+  (source exists; no 'AxPilot10_L3' row remains; 54 rows total, no dups; sorted
+  neighbors AxPilot10_L2 < AxPilot10_L5 < AxPilot10_M1; Mathlib-only import ⇒ no
+  dependency-ordering constraint).
+- Residual note for A2's next touch: the runbook §3 Step-8 line still reads
+  "`AxPilot10_L3` re-anchor (L3.lean grew with D1–D3)" — A2-owned text, left untouched
+  by H (one-writer rule); the ruling note in make_axcheck.py + this entry are the
+  record until A2 folds it.
