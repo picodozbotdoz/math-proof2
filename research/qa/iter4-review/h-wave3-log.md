@@ -213,3 +213,22 @@ routing.
   (draft transiently absent between `status` and hash); re-verified stable at 19:58,
   byte-compared post-copy (BOTH-IDENTICAL). Lesson applied: hash → copy → `cmp` in one
   pass for fresh-mtime landings.
+
+## 2026-11-18 — LANDING: A9 splice-checklist wave-3 addendum (H batch)
+
+- Pulled from worktree agent-10 as ONE exact file:
+  `qa/iter4-review/a9-splice-readme-checklist.md` (49 → 266 lines — the §D.0–D.5
+  wave-3 addendum appended). Fast-forward exception verified: main's last touch
+  `87187fa` = A9's own landing; diff = pure append of A9's addendum. No INDEX row
+  (existing file). Tracker A9 row refreshed in the same commit.
+- Addendum content of record: D.0 state correction (items 1/2 LANDED at `37a2637`,
+  item 3 HALF-LANDED with D.3 the remaining exact edit); D.1–D.5 = the PENDING-CLOSE
+  pre-stage (README header-counts edit pre-written; sweep-shas mechanism resolved,
+  incl. the article-75 "P0.lean" = `pilots/zeta23e/P0.lean` disambiguation; in-flight
+  exposure map for the five wave-3 units). H applies the addendum blocks at the close
+  commit per box-11; A9 stays writer of record for D.2/D.5-activated article edits.
+- Verified per the coordinator's note: everything else in agent-10 is byte-identical
+  to main (cmp 14/14 EQUAL) — no other pull. Infra correction recorded: my first
+  hash-probe loop double-prefixed paths under `git -C agent-10` (bogus "DIFFERS"
+  output); re-verified with `cmp` — the manifest method note now prefers cmp for
+  equality checks.

@@ -33,4 +33,4 @@ G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator 
 | A6 | agent-07 | iteration-5 prep | iteration-5 charter candidate prep | re-tasked | 2026-11-18 |
 | A7 | agent-08 | 78 + 77 + prior-art | dossier-77 fold + T1-completion (≤4) + T2 (≤4) as ONE unit | in-flight (resumed) | 2026-11-18 |
 | A8 | agent-09 | 74 + validation | 74-P1 completion (verify-fire discipline: pre-run sha guard, NO local lean, ≤5) | in-flight (resumed) | 2026-11-18 |
-| A9 | agent-10 | articles editorial | close-support (splice checklist, README PENDING-CLOSEs) | re-tasked | 2026-11-18 |
+| A9 | agent-10 | articles editorial | splice-checklist wave-3 addendum LANDED (§D.0–D.5: PENDING-CLOSE pre-stage — README header-counts edit pre-written, sweep-shas mechanism resolved incl. article-75 "P0.lean" = pilots/zeta23e/P0.lean disambiguation, in-flight exposure map); close-support standby | close-support standby | 2026-11-18 |
