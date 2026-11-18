@@ -703,3 +703,21 @@ routing.
 - cmp-guards as before: the §extension audit + article-52 are byte-identical to
   main (landed `0184baa`) — A9's pull-list claim stale again, no pull. Tracker
   A9 row refreshed.
+
+## 2026-11-18 — LANDING: A4 closure-stamp + AxPilotAL3D_A2 row finalized (H batch)
+
+- Pulled from worktree agent-05 as ONE exact-file batch (2 files): `A2.lean`
+  (header-only stamp: P2-c **CLOSED 100%** + CLOSURE TAIL replacing the PENDING-NOTE;
+  exactly 2 hunks, :13–14 and :29–41 — the elaborated proof content is byte-identical
+  to the run13-verified artifact, guard `509f2368…` pre=post; the stamp moved the
+  final-tree sha to `6a5ed5553bb62c55`, documented in the tail itself) +
+  `A2-gaps.md` (§6 VERIFIED flip + runner-filter blind-spot record + **§7 §10-ready
+  verdict block** for A1's funnel lift, incl. the suggested TARGETS row). cmp-guard:
+  the run13 log is already committed (`0e771ab`) — no pull.
+- Same commit: the `AxPilotAL3D_A2` TARGETS row finalized in place (existing row's
+  comment → FINAL-for-iteration-4 state; the A4 placeholder line discharged; block
+  header now "remaining two-unit finals"). py_compile rc=0; 56 rows, no dups;
+  sorted AxPilotAL3D_A1 < AxPilotAL3D_A2 (import chain respected); stage order per
+  §7 = P0 (probe, first) → A1 → A2.
+- Tracker A4 row → unit complete. **A4's wave-3 unit lands CLOSED at P2-c 100%;
+  P2-d find-#5 park + P2-e = the recorded iteration-5 rebuild.**

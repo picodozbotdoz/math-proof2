@@ -126,11 +126,14 @@ the same rebuild (its partial-trace commutation has the identical per-column str
   (`": error("` — paren, not colon) — two runs read `errors=0` while carrying real
   errors; the run-11 addition of tail-200 output printing is the compensating
   diagnostic. Fix the filter when the runner is next touched.
-- **`l2_opNorm_extendId_le` instance-plumbing (the P2-c closer):** the L2-operator-Norm
-  scoped instance for `Matrix (Reg loc T) (Reg loc T) 𝕜` needs the pi-Fintype
-  `[∀ i, Fintype (loc i)]` in scope; the post-park rewrite had dropped it from the
-  section variables — restored on disk 2026-11-18 (UNVERIFIED; one run closes P2-c,
-  expected to flip `projInteraction_norm_le` + `isAdmissible_projInteraction` to triad).
+- **`l2_opNorm_extendId_le` instance-plumbing (the P2-c closer — VERIFIED, run 13):** the
+  L2-operator-Norm scoped instance for `Matrix (Reg loc T) (Reg loc T) 𝕜` needs the
+  pi-Fintype `[∀ i, Fintype (loc i)]` in scope; the post-park rewrite had dropped it from
+  the section variables — restored 2026-11-18 and VERIFIED by run 13
+  (`logs/alp2-run13-p2c-closureverify.log`, verify-fire sha-guard 509f2368… pre = post):
+  A2.lean OK, rc=0, 0 errors (open or hidden), 0 sorry, full-coverage audit triad-only —
+  `l2_opNorm_extendId_le`, `projInteraction_norm_le`, `isAdmissible_projInteraction` all
+  flipped to triad. P2-c closed at 100%.
 - `Matrix.PosSemidef.submatrix` fails `PartialOrder 𝕜` instance synthesis in an
   `[RCLike 𝕜]` section on this pin — inline mathlib's own anonymous-constructor proof
   shape (`mapDomain` of the Finsupp quadratic form) instead (hasGlobalGap_submatrix).
@@ -151,3 +154,38 @@ the same rebuild (its partial-trace commutation has the identical per-column str
 - `Matrix.one_apply` must be fully qualified in `simp` sets here (bare `one_apply`
   resolves elsewhere and is reported "unused").
 - P0's `Arealaw` defs live under `[DecidableEq σ]`; consumers must re-declare it.
+
+## 7. §10-READY VERDICT BLOCK (for the r3-verification-tables funnel — A1 lifts; lane A4 does not edit r3-tables per the file-funnel ruling)
+
+**Pilot:** AL-P2 (app `crossmath-pilot-al3d`, mathlib `ff2494ea`, v4.36.0-rc2, doz route).
+**Milestone P2-c — GREEN (closed 100%):** the column regrouping chapter of the B.2
+rung-stone. Content: the variable-height per-region regrouping `colEquivVar` (equiv-
+composition: `heightCasts ∘ (regEquivOfEq (projF_fibre)).symm ∘ (regReindexEquiv
+(fibre Λ X')).symm` — the run-23 choice-transport park discharged by construction,
+neither pre-written path a/b), the projected interaction `projInteraction` with all three
+admissibility clauses (`projInteraction_isHermitian`, `projInteraction_eq_zero`,
+`projInteraction_norm_le` at `groupStrength h R J`), and the P2-c MAIN
+`isAdmissible_projInteraction : IsAdmissibleVar (projLattice Λ) (projF Λ) R
+(groupStrength h R J) (colCard Λ) (projInteraction Λ q Φ)` — over the four mathlib-only
+support layers I–IV. **Evidence:** run 13 (`research/pilots/al3d/logs/
+alp2-run13-p2c-closureverify.log`, verify-fire sha-guard 509f2368… pre = post):
+P0.lean OK (probe, sorry ×3 probe-convention), A1.lean OK, **A2.lean OK rc=0** —
+0 errors (open or hidden), 0 sorry, full-coverage inline `#print axioms` audit
+TRIAD-ONLY (propext/Classical.choice/Quot.sound), every audited decl including the
+former stragglers `l2_opNorm_extendId_le`/`projInteraction_norm_le`/
+`isAdmissible_projInteraction`. Descent runs 9–12 logged same directory (run 12
+isolated the one-line instance fix; runs 10/12 exposed the runner's
+`error(lean.synthInstanceFailed)` filter blind spot — §6).
+**Milestone P2-d — PARTIAL GREEN + honest park (statement-level find #5):** GREEN-triad
+generic submatrix-conjugation transports (`vecMulVec_submatrix`, `hasGlobalGap_submatrix`,
+`mulVec_eq_smul_submatrix`, `star_dotProduct_comp`) + entrywise/plumbing layer
+(`regReindexEquiv_apply` rfl, `regReindexEquiv_comp_colEquivVar`, `fibre_subset`,
+`sdiff_fibre_eq`). The extend-relabel swap and the Hamiltonian identification are NOT
+provable as scoped: the restriction-compat workhorse reduces to comparing equivFin-
+encodings of the same column through different classical Fintype instances (Λ vs fibre
+level) — every rewrite route dies on dependent motives, no mathlib equivFin-congruence;
+the donor's canonical z-rank enumeration is the re-charter (§5) — **iter-5 material**.
+**Milestone P2-e — NOT attempted** (rides the same rebuild; §5).
+**Suggested axcheck TARGETS row (H applies; placeholder name per re-task):**
+`AxPilotAL3D_A2` → stage `research/pilots/al3d/` files `P0.lean A1.lean A2.lean`
+(P0 first — probe; full-coverage inline audit already triad-only in run 13).

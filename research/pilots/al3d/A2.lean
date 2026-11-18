@@ -10,8 +10,8 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   instantiated at `groupStrength h R J := 2 ^ (h * (2*R+1)^2) * max J 1` (P0.lean, new
   def + header note; frozen layer untouched). Range R preserved by P1-a contraction.
 - P2-b (DONE, m1 GREEN): `colSigmaEquiv` + `regReindexEquiv` + `colCard_le_h`.
-- P2-c (CLOSED MODULO ONE LINE, 2026-11-18, runs 9–12 — all mathematical content GREEN-triad;
-  see the PENDING-NOTE at this bullet's end): the
+- P2-c (CLOSED 100%, 2026-11-18, runs 9–13 — A2.lean OK, full-coverage audit triad-clean;
+  run 13 `logs/alp2-run13-p2c-closureverify.log`): the
   projected interaction `Ψ := projInteraction` (grouping Φ-terms by exact projection via
   `projFib`; support clause via the P1-a diameter contraction `image_projF_mem_supportsG`;
   strength via the fibre bound `card_projFib_le` + the planar packing
@@ -26,16 +26,19 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   proved; the pointwise-action defs `colEquivVarToFun/InvFun` are kept as documentation
   of the donor's entrywise action only (NOT the composite's underlying functions). The
   `Eq.rec`-motive motif of run 23's park is gone from the proof obligations entirely.
-  PENDING-NOTE (unverified on-disk fix, next session's FIRST action = one run): runs 10/12
-  reported `errors=0` through a RUNNER-FILTER BLIND SPOT (`error(lean.synthInstanceFailed)`
-  lines do not match the `": error:"` filter — recorded in A2-gaps §6); the real residual
-  was `l2_opNorm_extendId_le`'s statement failing to synthesize `Norm (Matrix (Reg loc T)
-  (Reg loc T) 𝕜)` — the previous session's post-park rewrite dropped `[∀ i, Fintype (loc i)]`
-  from the section variables (that decl was NEVER green: absent from runs 7/23/9–12 audits),
-  cascading `sorryAx` into `projInteraction_norm_le`/`isAdmissible_projInteraction` via
-  `unknown identifier`. The one-line fix (the `[∀ i, Fintype (loc i)]` binder, restored
-  above at the L2OpNorm section's `variable` line) is APPLIED on disk but UNVERIFIED —
-  the 4-run unit budget was spent identifying it (run 12's tail-200 diagnostics).
+  CLOSURE TAIL (runs 10–13): runs 10/12 reported `errors=0` through a RUNNER-FILTER BLIND
+  SPOT (`error(lean.synthInstanceFailed)` lines do not match the `": error:"` filter —
+  recorded in A2-gaps §6); the real residual was `l2_opNorm_extendId_le`'s statement
+  failing to synthesize `Norm (Matrix (Reg loc T) (Reg loc T) 𝕜)` — the previous session's
+  post-park rewrite had dropped `[∀ i, Fintype (loc i)]` from the section variables (that
+  decl was NEVER green: absent from runs 7/23/9–12 audits), cascading `sorryAx` into
+  `projInteraction_norm_le`/`isAdmissible_projInteraction` via `unknown identifier`. The
+  one-line fix (the binder, restored at the L2OpNorm section's `variable` line) was
+  VERIFIED by run 13 (`logs/alp2-run13-p2c-closureverify.log`, verify-fire sha-guard
+  509f2368… pre = post): A2.lean OK, rc=0, 0 errors (open or hidden), 0 sorry, and the
+  FULL-COVERAGE inline audit is triad-only (propext/Classical.choice/Quot.sound) — every
+  audited decl including `l2_opNorm_extendId_le`, `projInteraction_norm_le`,
+  `isAdmissible_projInteraction`. P2-c is closed at 100%.
 - P2-d (PARTIAL, PARKED 2026-11-18 with a PRECISE BLOCKER — statement-level find #5): the
   generic submatrix-conjugation transports (eigenvector `mulVec_eq_smul_submatrix`, gap
   `hasGlobalGap_submatrix`, unit norm `star_dotProduct_comp`, projector `vecMulVec_submatrix`)
