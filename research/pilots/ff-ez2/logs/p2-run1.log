@@ -1,0 +1,64 @@
+# FF-EZ2 P2 run 1 — Modal run log (persisted 2026-11-18, lane A3)
+# Provenance: app crossmath-pilot-ffez2 (ephemeral modal run, doz CLI
+#   /home/doz/dozenv/bin/modal, route doz/semraker; image lineage ffez4/71/probe family,
+#   mathlib ff2494ea5e438f8a8452db803068acd711fa0059, toolchain v4.36.0-rc2).
+# Run id: ap-3cvBYiTv1Sui03j8CJNKse. Wall 41 s (warm layers).
+# SPEC per AGENTS.md § Modal usage guidelines: cpu=2.0, memory=4096 (soft),
+#   LEAN_NUM_THREADS=2 (CAP secret), @telemetered decorator active.
+# Telemetry SUMMARY: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+#   (zero samples recorded by the decorator this run — 41 s wall is under the 60 s
+#   TELE_INTERVAL, so no sample fired; minutes-class as expected, nothing to investigate).
+# Artifact: research/pilots/ff-ez2/P2.lean as authored (pre-fix), 226 LoC.
+# Verdict: FAIL rc=1 errors=2 sorry=0 — both errors in the `hroots` step:
+#   Multiset.bind_singleton's explicit args are (s, f) in section-variable order;
+#   the lambda was elaborated against `s : Multiset`. Error recovery (unproven `have`)
+#   inserted sorryAx into the two downstream theorems ONLY (hroots carrier).
+#   7/9 theorems already triad-clean this run: guard_of_purity,
+#   stmt_simple_proportion_le_holds + 5 privates.
+# Fix applied post-run: hbind `have` with expected-type-driven elaboration + rw ← hbind.
+
+=== transcript (tail; captured from run output) ===
+
+'_private.P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+P2.lean:152:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Multiset.map ?f ?m.107
+in the target expression
+  ((baseChange A m).bind fun a => (1 - C a * X).roots) = Multiset.map (fun β => β⁻¹) (baseChange A m)
+
+A : Multiset ℂ
+m : ℕ
+h0 : 0 ∉ baseChange A m
+hmem : 0 ∉ Multiset.map (fun β => 1 - C β * X) (baseChange A m)
+hfne : lPolyM A m ≠ 0
+⊢ ((baseChange A m).bind fun a => (1 - C a * X).roots) = Multiset.map (fun β => β⁻¹) (baseChange A m)
+P2.lean:152:32: error: Application type mismatch: The argument
+  fun β => β⁻¹
+has type
+  ℂ → ℂ
+but is expected to have type
+  Multiset ?m.103
+in the application
+  bind_singleton fun β => β⁻¹
+'CrossMath.FFEZ2.guard_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_lpoly_squarefree_iff_holds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_iff_squarefree_of_purity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.FFEZ2.stmt_simple_proportion_le_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.factor_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.roots_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ffez2] SUMMARY
+[ffez2]   P2.lean: FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-18T20:05:45+0800 Timed out waiting for final app logs.
+✓ App completed. View run at
+https://modal.com/apps/semraker/main/ap-3cvBYiTv1Sui03j8CJNKse

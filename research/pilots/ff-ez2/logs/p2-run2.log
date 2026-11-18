@@ -1,0 +1,68 @@
+# FF-EZ2 P2 run 2 — Modal run log (persisted 2026-11-18, lane A3) — GREEN
+# Provenance: app crossmath-pilot-ffez2 (ephemeral modal run, doz CLI
+#   /home/doz/dozenv/bin/modal, route doz/semraker — PRIMARY per the 2026-11-17 ruling,
+#   warm-layer app of this pilot's own lineage; image mathlib
+#   ff2494ea5e438f8a8452db803068acd711fa0059, toolchain v4.36.0-rc2, 8710 oleans present).
+# Run id: ap-whLVzO59yfom77UjbrPP58. Wall 70 s. Fix-loop run 2 of ≤3 (charter budget
+#   "≤3 Modal runs"; 2 used).
+# SPEC per AGENTS.md § Modal usage guidelines: cpu=2.0, memory=4096 (soft),
+#   LEAN_NUM_THREADS=2 (CAP secret), @telemetered decorator active.
+# Telemetry: 1 sample (t=60s cpu=0.56 mem=7641MB anon=0MB procs=2, flagged OVER mem;
+#   SUMMARY wall=70s max_cpu=0.56 max_mem=7641MB OVER=1).
+#   INVESTIGATION (guideline §3, recorded — not an upgrade request): the mem figure is
+#   MemTotal−MemAvailable incl. memory-mapped Mathlib .olean pages (AGENTS.md §5
+#   measured facts: ≈5–6 GB inherent for Mathlib-importing modules; this run imports
+#   `Mathlib` wholesale per the pilot convention). Same class as P0 run-2 (7272 MB,
+#   recorded there). cpu max 0.56 ≪ 2.0, procs=2 (lean + lake), single-file
+#   elaboration, minutes-class wall, warm layers reused — nothing wrong-sized; the
+#   overage is the documented inherent mmapped-RSS class, no code change warranted.
+# Verdict: P2.lean: OK (sorry-strict branch: rc=0, 0 errors, 0 Lean sorry-warnings).
+#   Full print surface 9/9 triad-only, FULL spelling (no `open Classical` in P2):
+#   4 public + 5 private theorems each [propext, Classical.choice, Quot.sound];
+#   zero sorryAx, zero native_decide. The P1 open-Classical spelling finding did NOT
+#   recur (by design — P2 has no classical decidability needs).
+
+=== transcript (captured from run output) ===
+
+✓ Initialized. View run at
+https://modal.com/apps/semraker/main/ap-whLVzO59yfom77UjbrPP58
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-ffez2-a3/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[ffez2] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[ffez2] mathlib rev ff2494ea5e43
+[ffez2] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=0.56 mem=7641MB anon=0MB peak=-1MB procs=2 OVER mem
+[ffez2] P2.lean: OK
+---- axioms ----
+'CrossMath.FFEZ2.guard_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_lpoly_squarefree_iff_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_iff_squarefree_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_simple_proportion_le_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.factor_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.roots_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'CrossMath.FFEZ2.guard_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_lpoly_squarefree_iff_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_iff_squarefree_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_simple_proportion_le_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.factor_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.roots_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ffez2] SUMMARY
+[ffez2]   P2.lean: OK
+[tele] SUMMARY run: wall=70s max_cpu=0.56 max_mem=7641MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-18T20:10:15+0800 Timed out waiting for final app logs.
+✓ App completed. View run at
+https://modal.com/apps/semraker/main/ap-whLVzO59yfom77UjbrPP58

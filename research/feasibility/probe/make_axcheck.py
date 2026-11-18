@@ -78,10 +78,12 @@ TARGETS = [
     ("AxPilot10_L5",      PILOTS / "10/L5.lean"),   # 10-D-tranche FINAL (orchestrator ruling 2026-11-18: SINGLE row — L5.lean embeds L4/L3 VERBATIM, full D1–D3 theorem coverage at least compile cost; L3/L4 keep §10 citations as historical rungs; the sweep audits FINAL state = L5); D3 GREEN d3-run1 2026-11-17 (L5 = D3 header + L4 verbatim [D2 FINAL, sha 4ae0d643…] + Part H); Mathlib-only import; sorted after AxPilot10_L2
     # --- Five-unit proof-class finals — PLACEHOLDERS ONLY (rows appended on each unit's
     #     LANDING commit per close-act runbook §3 Step 8; expected stage names): ---
+    ("AxPilotFFEZ2_P2",   PILOTS / "ff-ez2/P2.lean"),  # FF-EZ2-P2 FINAL-GREEN p2-run2 2026-11-18 (2/≤3 fix-loop; sorry-strict OK, 9/9 triad-only incl. 5 private, 0 sorryAx; telemetry mem OVER=1 = documented mmapped-olean class) — the descope-closure rung, PROOF-CLASS per runbook Step 8; Mathlib-only import (no ordering constraint); ff-ez2 P0/P1 STAY probe-convention (statement-class); sha256(16) 24926ac4cbbcdd50; chartered-row append at landing (A3 unit 1 of 5)
+    # --- remaining four-unit finals — PLACEHOLDERS (rows appended on each unit's
+    #     landing commit per close-act runbook §3 Step 8): ---
     # AxPilotAL3D_A2 re-stage at sweep = bytes of record (row above) OR new AxPilotAL3D_A3 row if pilots/al3d/A3.lean appears (A4)
     # AxPilot77_T1 (pilots/77/T1.lean on disk, in flight; T2 file TBD) (A7)
     # AxPilot74_P1 (pilots/74/P1.lean on disk, in flight; verify-fire discipline) (A8)
-    # AxPilotFFEZ2_P2 (pilots/ff-ez2/P2.lean TBD; ff-ez2 P0/P1 stay probe-convention if statement-class) (A3)
     # AxPilot75_N2P1 final (pilots/75/N2-P1.lean on disk, in flight) + M2/M3 final files TBD (A5)
 ]
 

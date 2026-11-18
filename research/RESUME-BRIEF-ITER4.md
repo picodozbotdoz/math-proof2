@@ -362,4 +362,6 @@ close-support). Standing rules unchanged: hardened pre-commit gate (brief §(b)5
 funnels, Modal route chain (doz primary for warm-layer apps, xyz new/fallback),
 one-writer-per-file, H commits only. H's wave-3 lane log:
 `research/qa/iter4-review/h-wave3-log.md`. Close act (task 4) armed on orchestrator
-signal after the five units land.
+signal after the five units land. **Landing progress: FF-EZ2-P2 GREEN (A3/agent-04)
+2026-11-18 — unit 1 of 5 down; FF-EZ2 charter fully closed** (remaining: A4 AL-P2-c/d/e,
+A5 N2 closure→M2/M3, A7 77-T1+T2, A8 74-P1).

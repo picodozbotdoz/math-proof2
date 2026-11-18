@@ -315,3 +315,26 @@ routing.
   "`AxPilot10_L3` re-anchor (L3.lean grew with D1–D3)" — A2-owned text, left untouched
   by H (one-writer rule); the ruling note in make_axcheck.py + this entry are the
   record until A2 folds it.
+
+## 2026-11-18 — LANDING: A3 FF-EZ2-P2 GREEN, wave-3 unit 1 of 5 (H batch)
+
+- Pulled from worktree agent-04, exactly 4 files: `pilots/ff-ez2/P2.lean` (207 LoC,
+  **sha256(16) `24926ac4cbbcdd50`** — matches report + record), `P2-record.md`,
+  `logs/p2-run1.log` (41 s FAIL), `logs/p2-run2.log` (70 s GREEN, `P2.lean: OK`
+  sorry-strict, app ap-whLVzO59yfom77UjbrPP58 doz/semraker). Verdict per record:
+  **GREEN run 2 of ≤3; 9/9 triad-only incl. 5 private; 0 sorryAx**; telemetry mem
+  OVER=1 (max_mem 7,641 MB) = the documented mmapped-olean class, investigation in
+  log. **FF-EZ2 P0→P1→P2 charter FULLY CLOSED.** Hash→copy→cmp discipline; routing
+  list honored (r3-tables/REPORT-INPUTS worktree copies differ = discard-side, NOT
+  pulled; articles/candidates/bridges/zzv2 spot-verified byte-identical to main).
+- Same commit: `AxPilotFFEZ2_P2` TARGETS row appended (placeholder → row per the
+  close-act runbook Step 8 chartered-at-landing mechanism; proof-class; `import
+  Mathlib` only ⇒ no ordering constraint; P0/P1 stay probe-convention).
+  py_compile rc=0; assertions OK (55 rows, no dups, source exists). Four unit-final
+  placeholders remain (A4/A7/A8/A5).
+- INDEX row added (pilot granularity: P2.lean + record + 2 logs, one row); tracker
+  A3 row → landed; brief Wave-3 open note carries the landing-progress line (brief
+  lane table remains tracker-mirrored per the wave-3 structure).
+- Comparator note (recorded after the P2 sha cross-check): landing reports quote
+  **sha256(16)** of the artifact (`sha256sum | cut -c1-16`), NOT git blob hashes —
+  use sha256sum when verifying reported bytes-of-record.
