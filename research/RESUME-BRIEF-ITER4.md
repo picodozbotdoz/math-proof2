@@ -372,7 +372,9 @@ COMPLETE; `hasQDirichletDictionary` kernel-verified = N2-a DISCHARGED; FIND: the
 :166 transfer statement omits the ¬IsDZDFPrincipalQ antecedent (one-line P0 amendment
 owed).** **Unit 3 of 5 (2026-11-18, later): A4 AL-P2 honest stop** — P2-c closure
 VERIFIED (run13 GREEN, sha `509f2368`), P2-d partial parked at find #5, P2-e →
-canonical z-rank rebuild re-charter. Remaining: A7, A8.
+canonical z-rank rebuild re-charter. **Unit 4 of 5 (2026-11-18, later): A8 74-P1
+completion GREEN** (run 5/5, 7/7 public theorems triad, verify-fire sha-guard trail
+held; dossier amendment w/ 4 FINDS + 9 signature classes). Remaining: **A7 only**.
 
 ### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
 

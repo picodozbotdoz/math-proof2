@@ -1,4 +1,54 @@
-# 74-P1 record — STOP at fix-loop budget, NOT-GREEN (lane A8, 2026-11-17)
+# 74-P1 record — COMPLETION GREEN at run 5/5 (lane A8, 2026-11-18)
+
+**Verdict (one line):** 74-P1 **GREEN** — `pilots/74/logs/p1-completion-runs1-5.log` run 5:
+OK rc=0, errors=0, **sorry-warnings=0**, wall 30 s; the full-coverage `#print axioms` tail
+reports every one of the seven public theorems
+(`t1a_floor`, `t1b`, `t1b_window`, `t1c`, `cert_pad`, `Bk_le_Bk_succ`, `t4_floor_ceiling`)
+**triad-only** — `[propext, Classical.choice, Quot.sound]`, **0 sorryAx**. The re-charter's
+fresh ≤5-run budget was used in full (5/5 fired, all sha-guarded, zero sorry at every run);
+the error descent over the completion series was 29 → 10 → 10 → 4 → 0 (against the
+2026-11-17 stop at 46).
+
+**Artifact:** `P1.lean` (770 LoC, final sha256(16) `6ddbda11d5da4f35`) — the four FINDS'
+amended statements, all now kernel-verified:
+- **T1a′ (`t1a_floor`)** — the marking bound `Var ≤ (1−ε)·W² + ε·Mdev²` (FIND #1's
+  corrected per-spectrum statement; the dossier's √-floor as staged is refuted and
+  re-recorded in the dossier's §Iteration-4 amendment).
+- **T1b + T1b_window (`t1b`, `t1b_window`)** — subgaussian variance
+  `Var ≤ 32(e^{1/4}−1)σ²` and window `W ≤ σ(2·log(2/ε)+1/2)` (FIND #3's explicit
+  window-edge constants).
+- **T1c (`t1c`)** — the MarginalTails class instance:
+  `Var ≤ 8192(e^{e/2}−1)(1+θ)B` and `W ≤ 32√((1+θ)B)(log(2/ε)+e/2)` (FIND #2's centered
+  mgfBound carries the class; FIND #3's constants).
+- **T2 (`cert_pad`, `Bk_le_Bk_succ`)** — zero-padding injection + guarded ceiling
+  monotonicity `B_k ≤ B_{k+1}` (the padA def is the injection; nonempty + bounded-above
+  guards).
+- **T4′ (`t4_floor_ceiling`)** — the corrected floor+ceiling PAIR on the class family
+  under `hClass`/`hVarLB` (FIND #4; Q1 shape (ii); the o(√B) tightness stays P2-class).
+
+**Route + discipline trail:** runner `pilots/74/run_p1.py` (app `crossmath-pilot-74p1`,
+pilot-73 clone — textually identical image recipe, warm layers shared with the
+gprobe/pilot-73 lineage; FULL error output, the fix-loop requirement). Fired via
+`stage_and_fire.sh` with the sha guard: staged shas recorded BEFORE each fire
+(2a11b1ed → 4b3b22e9 → a5a6d0cd → 8f05abd9 → 6ddbda11), never edited between record and
+fire. doz CLI, SPEC cpu=2.0/mem=4096, LEAN_NUM_THREADS=2, telemetry every run
+(walls 267/144/466/52/30 s; OVER flags mem-class only — mmapped-olean accounting,
+anon=0 throughout; no escalation requested or needed). One code-side elaboration-budget
+change: `maxHeartbeats` 2M → 8M (in-file option) to clear `pair_tail_bound`'s whnf
+blowups — recorded in the log header; SPEC resources unchanged (guideline 3:
+investigate-not-upgrade — the investigation outcome is in the log).
+
+**The completion's mechanical classes (all foreseen by the 2026-11-17 taxonomy, below):
+the record's 8-class list was confirmed almost verbatim — notably class 7 (`lt_of_not_le`
+absent → `not_le.mp`) and class 1/2 (Finset min'/Real sInf arities) — plus the
+projection-notation gap family (`.le`/`.symm` dotted forms unresolvable at this pin:
+`LT.lt.le` absent → `le_of_lt`; `Finset.sum_mul.symm` parses as one qualified name → rw
+forms), `Finset.sum_mul`'s direction, `le_add_of_nonneg_left/right` swapped, and
+`Real.exp_log` taking the positivity proof. Full list in the log header.**
+
+---
+
+## Frozen history — the 2026-11-17 stop (NOT-GREEN at the original 6-run budget)
 
 **Verdict (one line):** 74-P1 **NOT-GREEN at budget** — six runs (initial + 5
 fix-retries, the charter ceiling), error descent 62→60→57→50→46→46, rc=1 throughout,
@@ -10,7 +60,7 @@ of mine — the final fix batch aborted on a script assert BEFORE writing and I 
 without verifying, so run 6 elaborated a file byte-identical to run 5; owned here,
 not a Lean finding).
 
-**Artifact:** `P1.lean` (sha256(16) `170520aa2fd5509d`) — the four FINDS are real
+**Artifact (at the stop):** `P1.lean` (sha256(16) `170520aa2fd5509d`) — the four FINDS are real
 mathematics and stand regardless of elaboration state:
 - **FIND #1 (refutation):** the dossier's T1(a) per-spectrum floor
   √((1−ε)/ε·Var) ≤ W_ε is FALSE — counterexample verified numerically (p₀ = 1−δ, n
@@ -28,51 +78,23 @@ mathematics and stand regardless of elaboration state:
   #1 family (Var ≥ κB realizable with W = o(√B) along subfamilies) — the tightness
   statement is inherently class-level = shape (i) = P2, consistent with the Q1 ruling.
 
-**Remaining-error taxonomy (the resume map; ~8 classes, all API-signature drift vs
-mathlib v4.36.0-rc2, each with the leading fix hypothesis):**
-1. `Finset.le_max'` / `Finset.le_min'` / `Finset.min'_mem` arities — three runs'
-   diagnostics triangulate to the `(s, a, m ∈ s)` shape (nonempty implicit); my last
-   (unwritten) batch had `le_max' _ _ hmem`.
-2. `Real.sInf` API — `Real.sInf_le`/`Real.le_sInf`/`Set.mem_lowerBounds` were
-   "unknown" ONLY in the parse-cascade (runs 1–3); restored in the final batch
-   (`Real.le_sInf (wset_nonempty …) (Set.mem_lowerBounds.mpr …)`); the isGLB-field
-   projections were the wrong route.
-3. `Finset.sum_add_sum_compl` arg order `(s, t, f)` (not `(f, s, t)`).
-4. `Finset.sum_subset` subset arg must be APPLIED (`Finset.subset_univ (supp p)`,
-   not the ∀-form).
-5. Ring-grouping discipline: `4 * (p i * e)` vs `(4 * p i) * e` are syntactically
-   distinct for `rw` — uniform grouping through hE/hDist/hInner (fixed in the final
-   batch for one of two occurrences — the assert that aborted it).
-6. `Finset.sum_filter_add_sum_filter_not` arg order `(s, p, f)` + summands swapped
-   vs my statement (fixed via `linarith [h]`).
-7. `by_cases` negative branch gives `¬(0 ≤ x)` — needs `not_le.mp` (or push_neg),
-   not `lt_of_not_le` (unknown at this pin).
-8. Heartbeat blowups (2M) in the two heaviest proofs once cascades stack —
-   precompute the final algebra chains (also in the aborted batch) instead of bare
-   `nlinarith`.
-Root cause, honestly stated: authoring ~600 LoC of real-analysis Lean against a pin
-I cannot elaborate locally — the probe route is batch-only (no interactive
-error-fix loop), so each signature guess costs a full run. The math itself is
-verified by the analysis above; the remaining distance is mechanical.
+**Remaining-error taxonomy at the stop (the resume map; ~8 classes, all API-signature
+drift vs mathlib v4.36.0-rc2 — each CONFIRMED by the completion, see above):**
+1. `Finset.le_max'` / `Finset.le_min'` / `Finset.min'_mem` arities.
+2. `Real.sInf` API (`Real.le_sInf` carries a ≤0 side condition; `Real.sInf_nonneg`
+   is the right form).
+3. `Finset.sum_add_sum_compl` arg order.
+4. `Finset.sum_subset` subset arg application.
+5. Ring-grouping syntactic discipline for `rw`.
+6. `Finset.sum_filter_add_sum_filter_not` arg order + summands.
+7. `by_cases` negative branch `¬(0 ≤ x)` → `not_le.mp` (not `lt_of_not_le` — unknown
+   at this pin).
+8. Heartbeat blowups in the two heaviest proofs (resolved code-side: 8M in-file cap).
 
-**Decomposition state (core-prep §1):** P1-a (marking floor) — proof designed, not
-elaborated; P1-b (subG var + window) — pair-bound lemmas designed (explicit
-constants), not elaborated; P1-c — instantiation designed (window match
-1/(2·16√((1+θ)B)) = δ exact; constants 8192(e^{e/2}−1)(1+θ)B etc.); P1-d (cert_pad +
-Bk monotonicity) — written, not elaborated; P1-e (t4 assembly) — written as the
-honest floor+ceiling pair.
-
+**Decomposition state (core-prep §1):** all of P1-a..P1-e are now GREEN (above).
 **T3 unchartered** (unchanged); **Q1 ruling recorded** in the artifact header (shape
 (ii) governs; class-indexed Bk = P2).
 
-**Recommendation to the orchestrator:** re-charter P1 with a fresh ≤5 budget AND one
-of (a) a local `lake env lean` loop (the encore checkout + a stage dir — the
-substrate for it exists on this machine), or (b) two-batch remote discipline
-(fix-batch → verify-script-applied → fire). Expected distance to GREEN: the 8
-classes above, all one-line-to-ten-line fixes; I estimate 2–3 interactive-loop
-iterations. The FINDS and the P0 statement layer are unaffected and stand as
-landed record (74-P0 GREEN, `74-P0-record.md`).
-
-— lane A8, 2026-11-17. H commits; A1 folds. Related: `T2a-P0-record.md` (the
-taskset finding's origin is A3's P1, acknowledged in the revised
-`runner-fixes-wave2.patch` header).
+— lane A8, 2026-11-17 (stop) / 2026-11-18 (completion GREEN). H commits; A1 folds the
+§10 row. Related: `74-P0-record.md` (P0 GREEN, runs 1–2, 2026-11-17);
+`research/candidates/74-surprisal-moment-hierarchy-ceilings.md` §Iteration-4 amendment.

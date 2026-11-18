@@ -721,3 +721,25 @@ routing.
   §7 = P0 (probe, first) → A1 → A2.
 - Tracker A4 row → unit complete. **A4's wave-3 unit lands CLOSED at P2-c 100%;
   P2-d find-#5 park + P2-e = the recorded iteration-5 rebuild.**
+
+## 2026-11-18 — LANDING: A8 74-P1 completion GREEN, wave-3 unit 4 of 5 (H batch)
+
+- Pulled from worktree agent-09 as ONE exact-file batch: `pilots/74/P1.lean`
+  (770 LoC, **sha256(16) `6ddbda11d5da4f35`** — run 5's SHA-GUARD TRAIL fired exactly
+  this artifact) + `74-P1-record.md` (GREEN verdict; 11–17 verified-red history
+  preserved) + `run_p1.py` + `stage_and_fire.sh` (NEW runner + sha-guard fire
+  discipline) + `logs/p1-completion-runs1-5.log` (the guarded trail: runs 1–5
+  29→10→10→4→0 errors, zero sorry every run, budget 5/5) +
+  `candidates/74-surprisal-moment-hierarchy-ceilings.md` (the amendment: all 4
+  FINDS + corrected statements + 8+1 signature classes). **7/7 public theorems
+  triad-only** (t1a_floor, t1b, t1b_window, t1c, cert_pad, Bk_le_Bk_succ,
+  t4_floor_ceiling), 0 sorryAx; app `crossmath-pilot-74p1` (73-clone warm-layer
+  recipe, doz route); one code-side maxHeartbeats fix recorded; OVER flags
+  mem-class only.
+- Same commit: `AxPilot74_P1` TARGETS row landed from its placeholder (proof-class;
+  Mathlib-only import; py_compile rc=0; 57 rows, no dups). **One placeholder
+  remains: AxPilot77_T1 (A7 — the last unit).** INDEX row added; tracker A8 row +
+  brief scoreboard → 4 of 5.
+- Worktree residue (not in batch): `pilots/22/T2a-P0-record.md` remains the known
+  BEHIND-MAIN delta (3-way-merge flag stands); P2-precharter.md queued behind A4's
+  paperwork per the coordinator's ordering.

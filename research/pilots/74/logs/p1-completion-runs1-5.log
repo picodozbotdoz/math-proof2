@@ -1,0 +1,1638 @@
+# LOG — pilot 74 P1-COMPLETION runs 1–5 (GREEN at run 5; the re-chartered fix-loop, budget 5/5 used).
+# Provenance: 2026-11-18, lane A8 (orchestrator re-charter: verify-fire discipline, fresh <=5 budget,
+#   pre-run sha guard binding, NO local lean — all elaboration on Modal).
+#   artifact : research/pilots/74/P1.lean (zero-sorry proof artifact; statements amended per
+#              FINDS #1-#4, header carries the full fix-batch record)
+#   runner   : research/pilots/74/run_p1.py (app crossmath-pilot-74p1; pilot-73 clone — textually
+#              identical image recipe so the gprobe/pilot-73 warm layers are shared; FULL error
+#              output, the fix-loop need runs 1-6 of the previous session were partially blind at
+#              the gprobe 12k cap). Fired via stage_and_fire.sh (sha guard). Route: doz CLI
+#              /home/doz/dozenv/bin/modal (2026-11-17 route ruling), profile semraker.
+#   SPEC     : cpu=2.0 / mem=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), no build phase
+#              (lake env lean elaboration only — taskset rule N/A). Telemetry in every run.
+#   SHA-GUARD TRAIL (staged sha256(16) recorded BEFORE each fire; no edit between record and fire):
+#     run 1 fired sha 2a11b1edc0cc4be7 (758 LoC at fire 1) -> FAIL rc=1 errors=29 sorry=0  wall 267s  OVER=4 (mem-class, mmapped oleans; anon=0)
+#     (final artifact: 770 LoC, sha 6ddbda11d5da4f35)
+#     run 2 fired sha 4b3b22e9cc48c8a3             -> FAIL rc=1 errors=10 sorry=0  wall 144s  OVER=2 (mem-class)
+#     run 3 fired sha a5a6d0cd8a265803             -> FAIL rc=1 errors=10 sorry=0  wall 466s  OVER=7 (mem-class; incl. 8M-heartbeat rerun of pair_tail_bound)
+#     run 4 fired sha 8f05abd9e1dd8c19             -> FAIL rc=1 errors=4  sorry=0  wall  52s  OVER=0
+#     run 5 fired sha 6ddbda11d5da4f35             -> GREEN: OK rc=0, errors=0, sorry-warnings=0; wall 30s OVER=0
+#   DESCENT LEDGER (errors): 29 -> 10 -> 10 -> 4 -> 0. Descent vs the 2026-11-17 stop (46): every
+#     remaining class was mechanical, exactly as the 74-P1-record taxonomy predicted; the batch-2..5
+#     fixes (all verified against the encore-mathlib@ff2494ea source tree before firing): Finset.sum_mul
+#     direction at this pin; single_le_sum (hf, hi) + the f-named-arg; dev p j arg omission; Mdev_nonneg
+#     empty-case via sSup_empty; massTail_antitone ascription; min'_le (s, x, mem) + mem_image.mpr layer;
+#     the .le/.symm projection-notation gaps (LT.lt.le absent, Eq.symm unresolvable on Pi-typed lemmas,
+#     Finset.sum_mul.symm parsed as one name) -> le_of_lt / explicit Eq applications / rw forms;
+#     le_add_of_nonneg_left/right SWAPPED at this pin; lt_of_not_le absent -> not_le.mp (the record's
+#     class 7, verbatim); Real.exp_log takes the positivity proof (not ne'); Real.exp_add rewrite
+#     directions; hL double-instantiation; hDist missing <- mul_sum; field_simp closure behavior
+#     (closes alone at hut; leaves ring goals at hq/hScale/hvδ/hT); maxHeartbeats 2M -> 8M for the
+#     pair_tail_bound whnf blowups (code-side elaboration budget, NOT a resource change; run-3 lesson:
+#     8M eliminated the whnf timeouts with SPEC unchanged); padA datum-defeq rfl placement; cert_pad
+#     key rfl. Plus the 9-line \' identifier corruption repair (batch 1) and ~30 signature fixes
+#     verified before run 1.
+#   TRIAD (run 5, #print axioms — all seven public theorems): every one of
+#     t1a_floor, t1b, t1b_window, t1c, cert_pad, Bk_le_Bk_succ, t4_floor_ceiling
+#     depends on axioms: [propext, Classical.choice, Quot.sound] — the triad ONLY, 0 sorryAx.
+#   VERDICT: 74-P1 GREEN. The completion used the ENTIRE fresh budget (5/5); zero sorry at every run.
+
+==================== RUN 1 (raw, trimmed of upload preamble) ====================
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P1.lean
+[tele] t=60s cpu=1.00 mem=8369MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=120s cpu=0.98 mem=8523MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=180s cpu=0.98 mem=8657MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=240s cpu=0.98 mem=8803MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P1.lean': 'FAIL rc=1 errors=29 sorry=0'}
+[p74p1] P1.lean: FAIL rc=1 errors=29 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts (29 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:161:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) * ?a
+in the target expression
+  ∑ i ∈ supp p, p i * S p ^ 2 = S p ^ 2
+
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+hexp : ∀ i ∈ supp p, p i * dev p i ^ 2 = p i * surprisal p i ^ 2 - (2 * S p * (p i * surprisal p i) - p i * S p ^ 2)
+hMS : 2 * S p * ∑ i ∈ supp p, p i * surprisal p i = ∑ i ∈ supp p, 2 * S p * (p i * surprisal p i)
+h1' : ∑ i ∈ supp p, 2 * S p * (p i * surprisal p i) = 2 * S p * S p
+⊢ ∑ i ∈ supp p, p i * S p ^ 2 = S p ^ 2
+P1.lean:176:30: error: Type mismatch
+  ∑ j ∈ supp p, |dev ?m.84|
+has type
+  ?m.82 → ℝ
+but is expected to have type
+  ℝ
+P1.lean:178:81: error: Application type mismatch: The argument
+  hi
+has type
+  i ∈ supp p
+but is expected to have type
+···
+⊢ ∑ i ∈ supp p, p i * S p ^ 2 = S p ^ 2
+P1.lean:176:30: error: Type mismatch
+  ∑ j ∈ supp p, |dev ?m.84|
+has type
+  ?m.82 → ℝ
+but is expected to have type
+  ℝ
+P1.lean:178:81: error: Application type mismatch: The argument
+  hi
+has type
+  i ∈ supp p
+but is expected to have type
+  ?m.115 ∈ ?m.105
+in the application
+  Finset.single_le_sum (fun j x => abs_nonneg (dev j)) hi
+P1.lean:192:22: error: Application type mismatch: The argument
+  hne
+has type
+  ¬(supp p).Nonempty
+but is expected to have type
+  i ∉ supp p
+in the application
+  absurd hi hne
+P1.lean:197:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.massTail_eq_supp`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+···
+  ℝ
+P1.lean:178:81: error: Application type mismatch: The argument
+  hi
+has type
+  i ∈ supp p
+but is expected to have type
+  ?m.115 ∈ ?m.105
+in the application
+  Finset.single_le_sum (fun j x => abs_nonneg (dev j)) hi
+P1.lean:192:22: error: Application type mismatch: The argument
+  hne
+has type
+  ¬(supp p).Nonempty
+but is expected to have type
+  i ∉ supp p
+in the application
+  absurd hi hne
+P1.lean:197:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.massTail_eq_supp`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:215:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.massTail_antitone`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+···
+  Finset.single_le_sum (fun j x => abs_nonneg (dev j)) hi
+P1.lean:192:22: error: Application type mismatch: The argument
+  hne
+has type
+  ¬(supp p).Nonempty
+but is expected to have type
+  i ∉ supp p
+in the application
+  absurd hi hne
+P1.lean:197:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.massTail_eq_supp`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:215:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.massTail_antitone`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:233:8: warning: automatically included section variable(s) unused in theorem `_private.P1.0.CrossMath.Pilot74P1.mem_Wset`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:279:6: error: linarith failed to find a contradiction
+case h2
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 ≤ ε
+hF : {i ∈ supp p | W p ε < |dev p i|} = ∅
+h0 : massTail p (W p ε) = 0
+hle : massTail p (massTail p (W p ε)) ≤ massTail p (massTail p (W p ε))
+hnn : 0 ≤ massTail p (W p ε + 1)
+a✝ : massTail p (W p ε) < massTail p (W p ε + 1)
+⊢ False
+failed
+P1.lean:294:33: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:304:29: error: Application type mismatch: The argument
+  h
+has type
+  i ∈ supp p ∧ W p ε < |dev p i|
+but is expected to have type
+  i ∈ {i ∈ supp p | W p ε < |dev p i|}
+in the application
+  hmin i h
+···
+failed
+P1.lean:294:33: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:304:29: error: Application type mismatch: The argument
+  h
+has type
+  i ∈ supp p ∧ W p ε < |dev p i|
+but is expected to have type
+  i ∈ {i ∈ supp p | W p ε < |dev p i|}
+in the application
+  hmin i h
+P1.lean:312:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:313:83: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hε
+of type `0 < ε ∨ 0 = ε`
+P1.lean:336:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (?x + ?y)
+in the target expression
+  rexp (t / 2) * rexp (t / 2) = rexp t
+
+x t : ℝ
+···
+P1.lean:294:33: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:304:29: error: Application type mismatch: The argument
+  h
+has type
+  i ∈ supp p ∧ W p ε < |dev p i|
+but is expected to have type
+  i ∈ {i ∈ supp p | W p ε < |dev p i|}
+in the application
+  hmin i h
+P1.lean:312:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:313:83: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hε
+of type `0 < ε ∨ 0 = ε`
+P1.lean:336:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (?x + ?y)
+in the target expression
+  rexp (t / 2) * rexp (t / 2) = rexp t
+
+x t : ℝ
+ht : 0 ≤ t
+···
+```
+P1.lean:313:83: error(lean.invalidField): Invalid field `le`: The environment does not contain `Or.le`, so it is not possible to project the field `le` from an expression
+  hε
+of type `0 < ε ∨ 0 = ε`
+P1.lean:336:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (?x + ?y)
+in the target expression
+  rexp (t / 2) * rexp (t / 2) = rexp t
+
+x t : ℝ
+ht : 0 ≤ t
+h0 : t / 2 + 1 ≤ rexp (t / 2)
+h1 : 1 + t / 2 ≤ rexp (t / 2)
+h2 : 0 ≤ 1 + t / 2
+hcore : (1 + t / 2) * (1 + t / 2) ≤ rexp (t / 2) * rexp (t / 2)
+e1 : (1 + t / 2) ^ 2 = (1 + t / 2) * (1 + t / 2)
+⊢ rexp (t / 2) * rexp (t / 2) = rexp t
+P1.lean:372:78: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+v u₀ : ℝ
+hp : IsSpectrum p
+hu₀ : 0 < u₀
+hplus : ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+···
+of type `0 < ε ∨ 0 = ε`
+P1.lean:336:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (?x + ?y)
+in the target expression
+  rexp (t / 2) * rexp (t / 2) = rexp t
+
+x t : ℝ
+ht : 0 ≤ t
+h0 : t / 2 + 1 ≤ rexp (t / 2)
+h1 : 1 + t / 2 ≤ rexp (t / 2)
+h2 : 0 ≤ 1 + t / 2
+hcore : (1 + t / 2) * (1 + t / 2) ≤ rexp (t / 2) * rexp (t / 2)
+e1 : (1 + t / 2) ^ 2 = (1 + t / 2) * (1 + t / 2)
+⊢ rexp (t / 2) * rexp (t / 2) = rexp t
+P1.lean:372:78: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+v u₀ : ℝ
+hp : IsSpectrum p
+hu₀ : 0 < u₀
+hplus : ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hpt : ∀ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 ≤ p i * (4 * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2))
+hsum : ∑ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 = u₀ ^ 2 * varK p
+···
+⊢ rexp (t / 2) * rexp (t / 2) = rexp t
+P1.lean:372:78: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+v u₀ : ℝ
+hp : IsSpectrum p
+hu₀ : 0 < u₀
+hplus : ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hpt : ∀ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 ≤ p i * (4 * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2))
+hsum : ∑ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 = u₀ ^ 2 * varK p
+h1 : u₀ ^ 2 * varK p ≤ ∑ i ∈ supp p, p i * (4 * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2))
+hE :
+  ∀ i ∈ supp p,
+    p i * (4 * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2)) =
+      4 * (p i * rexp (u₀ * dev p i)) + (4 * (p i * rexp (-(u₀ * dev p i))) - 8 * p i)
+⊢ ∑ x ∈ supp p, 4 * (p x * rexp (u₀ * dev p x)) + ∑ x ∈ supp p, (4 * (p x * rexp (-(u₀ * dev p x))) - 8 * p x) =
+    4 * ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) + ∑ i ∈ supp p, (4 * (p i * rexp (-(u₀ * dev p i))) - 8 * p i)
+P1.lean:409:38: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:404:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+···
+    4 * ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) + ∑ i ∈ supp p, (4 * (p i * rexp (-(u₀ * dev p i))) - 8 * p i)
+P1.lean:409:38: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:404:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:389:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:494:14: error: don't know how to synthesize implicit argument `p`
+  @sum_split ι inst✝¹ inst✝ ?m.208 (W p ε) fun i => p i
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:404:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:389:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:494:14: error: don't know how to synthesize implicit argument `p`
+  @sum_split ι inst✝¹ inst✝ ?m.208 (W p ε) fun i => p i
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hW0 : 0 ≤ W p ε
+hWM : W p ε ≤ Mdev p
+hmass : massTail p (W p ε) ≤ ε
+hmassSupp : ∑ i ∈ supp p with W p ε < |dev p i|, p i ≤ ε
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:389:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:494:14: error: don't know how to synthesize implicit argument `p`
+  @sum_split ι inst✝¹ inst✝ ?m.208 (W p ε) fun i => p i
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hW0 : 0 ≤ W p ε
+hWM : W p ε ≤ Mdev p
+hmass : massTail p (W p ε) ≤ ε
+hmassSupp : ∑ i ∈ supp p with W p ε < |dev p i|, p i ≤ ε
+⊢ ι → ℝ
+P1.lean:494:7: error: failed to infer `have` declaration type
+P1.lean:479:57: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:494:14: error: don't know how to synthesize implicit argument `p`
+  @sum_split ι inst✝¹ inst✝ ?m.208 (W p ε) fun i => p i
+context:
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hW0 : 0 ≤ W p ε
+hWM : W p ε ≤ Mdev p
+hmass : massTail p (W p ε) ≤ ε
+hmassSupp : ∑ i ∈ supp p with W p ε < |dev p i|, p i ≤ ε
+⊢ ι → ℝ
+P1.lean:494:7: error: failed to infer `have` declaration type
+P1.lean:479:57: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+···
+⊢ ι → ℝ
+P1.lean:494:7: error: failed to infer `have` declaration type
+P1.lean:479:57: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hW0 : 0 ≤ W p ε
+hWM : W p ε ≤ Mdev p
+hmass : massTail p (W p ε) ≤ ε
+hmassSupp : ∑ i ∈ supp p with W p ε < |dev p i|, p i ≤ ε
+⊢ varK p ≤ (1 - ε) * W p ε ^ 2 + ε * Mdev p ^ 2
+P1.lean:566:38: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ : ℝ
+hσ : 0 < σ
+h : subG p σ
+hu0 : 0 < 1 / (2 * σ)
+···
+P1.lean:494:7: error: failed to infer `have` declaration type
+P1.lean:479:57: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hW0 : 0 ≤ W p ε
+hWM : W p ε ≤ Mdev p
+hmass : massTail p (W p ε) ≤ ε
+hmassSupp : ∑ i ∈ supp p with W p ε < |dev p i|, p i ≤ ε
+⊢ varK p ≤ (1 - ε) * W p ε ^ 2 + ε * Mdev p ^ 2
+P1.lean:566:38: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ : ℝ
+hσ : 0 < σ
+h : subG p σ
+hu0 : 0 < 1 / (2 * σ)
+hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ)
+···
+⊢ varK p ≤ (1 - ε) * W p ε ^ 2 + ε * Mdev p ^ 2
+P1.lean:566:38: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ : ℝ
+hσ : 0 < σ
+h : subG p σ
+hu0 : 0 < 1 / (2 * σ)
+hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ)
+hWin' : |(-(1 / (2 * σ)))| ≤ 1 / (2 * σ)
+hplus : ∑ i ∈ supp p, p i * rexp (1 / (2 * σ) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-(1 / (2 * σ)) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+h1 : (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2) - 1)
+hσ2 : σ ^ 2 ≠ 0
+⊢ 32 * (rexp (1 / 4) - 1) = 2 ^ 2 * (rexp (1 / 4) - 1) * 8
+P1.lean:572:4: error: Type mismatch
+  h1
+has type
+  (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2) - 1)
+but is expected to have type
+  (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (1 / 4) - 1)
+P1.lean:589:32: error: unsolved goals
+ι : Type u_1
+···
+⊢ 32 * (rexp (1 / 4) - 1) = 2 ^ 2 * (rexp (1 / 4) - 1) * 8
+P1.lean:572:4: error: Type mismatch
+  h1
+has type
+  (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2) - 1)
+but is expected to have type
+  (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (1 / 4) - 1)
+P1.lean:589:32: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ ε : ℝ
+hσ : 0 < σ
+h : subG p σ
+hε : 0 < ε
+hε' : ε < 1
+hu0 : 0 < 1 / (2 * σ)
+hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ)
+hWin' : |(-(1 / (2 * σ)))| ≤ 1 / (2 * σ)
+hplus : ∑ i ∈ supp p, p i * rexp (1 / (2 * σ) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-(1 / (2 * σ)) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hlog : log (2 / ε) = log 2 - log ε
+⊢ ε < 2
+P1.lean:577:50: error: unsolved goals
+···
+  (1 / (2 * σ)) ^ 2 * varK p ≤ 8 * (rexp (1 / 4) - 1)
+P1.lean:589:32: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ ε : ℝ
+hσ : 0 < σ
+h : subG p σ
+hε : 0 < ε
+hε' : ε < 1
+hu0 : 0 < 1 / (2 * σ)
+hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ)
+hWin' : |(-(1 / (2 * σ)))| ≤ 1 / (2 * σ)
+hplus : ∑ i ∈ supp p, p i * rexp (1 / (2 * σ) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-(1 / (2 * σ)) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hlog : log (2 / ε) = log 2 - log ε
+⊢ ε < 2
+P1.lean:577:50: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ ε : ℝ
+···
+⊢ ε < 2
+P1.lean:577:50: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+σ ε : ℝ
+hσ : 0 < σ
+h : subG p σ
+hε : 0 < ε
+hε' : ε < 1
+hu0 : 0 < 1 / (2 * σ)
+hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ)
+hWin' : |(-(1 / (2 * σ)))| ≤ 1 / (2 * σ)
+hplus : ∑ i ∈ supp p, p i * rexp (1 / (2 * σ) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-(1 / (2 * σ)) * dev p i) ≤ rexp (σ ^ 2 * (1 / (2 * σ)) ^ 2)
+hlog : log (2 / ε) = log 2 - log ε
+hLt : 1 < 2 / ε
+⊢ W p ε ≤ σ * (2 * log (2 / ε) + 1 / 2)
+P1.lean:590:6: error: unexpected identifier; expected command
+P1.lean:630:59: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+···
+⊢ W p ε ≤ σ * (2 * log (2 / ε) + 1 / 2)
+P1.lean:590:6: error: unexpected identifier; expected command
+P1.lean:630:59: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+v : ℝ := 512 * rexp 1 * θ * B
+hmgf : mgfBound p v δ
+hv : v = 512 * rexp 1 * θ * B
+hδ0 : 0 < δ
+hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B)
+···
+P1.lean:590:6: error: unexpected identifier; expected command
+P1.lean:630:59: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+v : ℝ := 512 * rexp 1 * θ * B
+hmgf : mgfBound p v δ
+hv : v = 512 * rexp 1 * θ * B
+hδ0 : 0 < δ
+hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B)
+hBne : B ≠ 0
+···
+⊢ 512 * 2 = 1024
+P1.lean:641:25: error: Type mismatch
+  abs_of_nonneg (LT.lt.le hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:653:49: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+···
+  |δ| ≤ δ
+P1.lean:653:49: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+v : ℝ := 512 * rexp 1 * θ * B
+hmgf : mgfBound p v δ
+hv : v = 512 * rexp 1 * θ * B
+hδ0 : 0 < δ
+hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B)
+hBne : B ≠ 0
+···
+⊢ 8192 * (rexp (rexp 1 / 2) - 1) = 1024 * (rexp (rexp 1 / 2) - 1) * 8
+P1.lean:662:58: error: Application type mismatch: The argument
+  hchain
+has type
+  δ ^ 2 * varK p ≤ δ ^ 2 * (8192 * (1 + θ) * B * (rexp (rexp 1 / 2) - 1))
+but is expected to have type
+  δ ^ 2 * varK p ≤ δ ^ 2 * (8192 * (rexp (rexp 1 / 2) - 1) * (1 + θ) * B)
+in the application
+  (mul_le_mul_iff_of_pos_left (pow_pos hδ0 2)).mp hchain
+P1.lean:665:34: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+···
+  (mul_le_mul_iff_of_pos_left (pow_pos hδ0 2)).mp hchain
+P1.lean:665:34: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+v : ℝ := 512 * rexp 1 * θ * B
+hmgf : mgfBound p v δ
+hv : v = 512 * rexp 1 * θ * B
+hδ0 : 0 < δ
+hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B)
+hBne : B ≠ 0
+···
+⊢ ε < 2
+P1.lean:663:2: error: unsolved goals
+case right
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+θ B : ℝ
+hθ : 0 < θ
+hB : 1 ≤ B
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+hp' : IsSpectrum p
+hB' : 1 ≤ B
+hBpos : 0 < B
+h1p : 0 < 1 + θ
+hs : 0 < √((1 + θ) * B)
+δ : ℝ := 1 / (32 * √((1 + θ) * B))
+hδ : δ = 1 / (32 * √((1 + θ) * B))
+v : ℝ := 512 * rexp 1 * θ * B
+hmgf : mgfBound p v δ
+hv : v = 512 * rexp 1 * θ * B
+hδ0 : 0 < δ
+hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B)
+···
+⊢ W p ε ≤ 32 * √((1 + θ) * B) * (log (2 / ε) + rexp 1 / 2)
+P1.lean:666:6: error: unexpected identifier; expected command
+P1.lean:692:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:695:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:701:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:709:43: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+F : (ι → ℝ) → ℝ
+k : ℕ
+c₀ : ℝ
+a : Fin k → ℝ
+h : CertValid F k c₀ a
+q : ι → ℝ
+···
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:709:43: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+F : (ι → ℝ) → ℝ
+k : ℕ
+c₀ : ℝ
+a : Fin k → ℝ
+h : CertValid F k c₀ a
+q : ι → ℝ
+hq : IsSpectrum q
+j : Fin k
+x✝ : j ∈ Finset.univ
+⊢ a j * datum q (k + 1) j.castSucc = a j * datum q k j
+P1.lean:735:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p74p1] SUMMARY
+[p74p1]   P1.lean: FAIL rc=1 errors=29 sorry=0
+[tele] SUMMARY run: wall=267s max_cpu=1.00 max_mem=8803MB max_anon=0MB samples=4 OVER=4
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-O4bxFabDhX1BZJlYo8YHjr
+
+==================== RUN 2 (raw, trimmed of upload preamble) ====================
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P1.lean
+[tele] t=60s cpu=0.81 mem=8427MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=120s cpu=0.98 mem=8748MB anon=0MB peak=-1MB procs=2 OVER mem
+[p74p1] P1.lean: FAIL rc=1 errors=10 sorry=0
+{'P1.lean': 'FAIL rc=1 errors=10 sorry=0'}
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound, t1b_window]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound, t1c]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound, t1c]
+---- error contexts (10 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:295:33: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:313:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:350:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:410:38: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:405:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:390:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:410:38: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:405:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:390:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:526:30: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:405:72: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:390:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:526:30: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:390:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (2000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:526:30: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+P1.lean:526:30: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+···
+P1.lean:526:30: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:714:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+···
+P1.lean:532:31: error(lean.unknownIdentifier): Unknown constant `Finset.sum_mul.symm`
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:714:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+···
+P1.lean:581:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:651:25: error: Type mismatch
+  abs_of_nonneg (le_of_lt hδ0)
+has type
+  |δ| = δ
+but is expected to have type
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:714:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+···
+  |δ| ≤ δ
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:714:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:746:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+···
+P1.lean:682:6: error: No goals to be solved
+P1.lean:615:8: error: (kernel) unknown constant '_private.P1.0.CrossMath.Pilot74P1.pair_tail_bound'
+P1.lean:703:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:706:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:712:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:714:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:746:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+···
+
+[p74p1] SUMMARY
+[p74p1]   P1.lean: FAIL rc=1 errors=10 sorry=0
+[tele] SUMMARY run: wall=144s max_cpu=0.98 max_mem=8748MB max_anon=0MB samples=2 OVER=2
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-CVwZLjTVoL5tcUdrnesx8J
+
+==================== RUN 3 (raw, trimmed of upload preamble) ====================
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P1.lean
+[tele] t=60s cpu=0.69 mem=8165MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=120s cpu=1.15 mem=8520MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=180s cpu=0.98 mem=8682MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=240s cpu=0.98 mem=8848MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=300s cpu=0.98 mem=9028MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=360s cpu=0.98 mem=9170MB anon=0MB peak=-1MB procs=2 OVER mem
+[tele] t=420s cpu=0.98 mem=9314MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P1.lean': 'FAIL rc=1 errors=10 sorry=0'}
+[p74p1] P1.lean: FAIL rc=1 errors=10 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts (10 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:295:32: error: Type mismatch
+  |dev p i| - W p ε
+has type
+  ℝ
+but is expected to have type
+  Finset ?m.351
+P1.lean:296:12: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:314:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:351:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:411:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_left (exp_nonneg ?m.380)
+has type
+  ?m.375 ≤ rexp ?m.380 + ?m.375
+but is expected to have type
+···
+  Finset ?m.351
+P1.lean:296:12: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+P1.lean:314:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:351:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:411:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_left (exp_nonneg ?m.380)
+has type
+  ?m.375 ≤ rexp ?m.380 + ?m.375
+but is expected to have type
+  rexp (u₀ * dev p i) ≤ rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i))
+in the application
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_left (exp_nonneg ?m.380))
+P1.lean:412:71: error: Application type mismatch: The argument
+  h
+has type
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:411:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_left (exp_nonneg ?m.380)
+has type
+  ?m.375 ≤ rexp ?m.380 + ?m.375
+but is expected to have type
+  rexp (u₀ * dev p i) ≤ rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i))
+in the application
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_left (exp_nonneg ?m.380))
+P1.lean:412:71: error: Application type mismatch: The argument
+  h
+has type
+  ¬0 ≤ dev p i
+but is expected to have type
+  dev p i < 0
+in the application
+  abs_of_neg h
+P1.lean:414:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_right (exp_nonneg ?m.426)
+has type
+  ?m.421 ≤ ?m.421 + rexp ?m.426
+but is expected to have type
+  rexp (-(u₀ * dev p i)) ≤ rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i))
+in the application
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_right (exp_nonneg ?m.426))
+P1.lean:456:35: error: Application type mismatch: The argument
+···
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_left (exp_nonneg ?m.380))
+P1.lean:412:71: error: Application type mismatch: The argument
+  h
+has type
+  ¬0 ≤ dev p i
+but is expected to have type
+  dev p i < 0
+in the application
+  abs_of_neg h
+P1.lean:414:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_right (exp_nonneg ?m.426)
+has type
+  ?m.421 ≤ ?m.421 + rexp ?m.426
+but is expected to have type
+  rexp (-(u₀ * dev p i)) ≤ rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i))
+in the application
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_right (exp_nonneg ?m.426))
+P1.lean:456:35: error: Application type mismatch: The argument
+  LT.lt.ne' hε
+has type
+  ε ≠ 0
+but is expected to have type
+  0 < ε
+in the application
+  exp_log (LT.lt.ne' hε)
+P1.lean:527:47: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+···
+  abs_of_neg h
+P1.lean:414:38: error: Application type mismatch: The argument
+  le_add_of_nonneg_right (exp_nonneg ?m.426)
+has type
+  ?m.421 ≤ ?m.421 + rexp ?m.426
+but is expected to have type
+  rexp (-(u₀ * dev p i)) ≤ rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i))
+in the application
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_right (exp_nonneg ?m.426))
+P1.lean:456:35: error: Application type mismatch: The argument
+  LT.lt.ne' hε
+has type
+  ε ≠ 0
+but is expected to have type
+  0 < ε
+in the application
+  exp_log (LT.lt.ne' hε)
+P1.lean:527:47: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.995) (f : ?m.995 → ?m.996) (a : ?m.996), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:533:48: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.1169) (f : ?m.1169 → ?m.1170) (a : ?m.1170), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:683:6: error: No goals to be solved
+···
+  mul_le_mul_of_nonneg_left (le_add_of_nonneg_right (exp_nonneg ?m.426))
+P1.lean:456:35: error: Application type mismatch: The argument
+  LT.lt.ne' hε
+has type
+  ε ≠ 0
+but is expected to have type
+  0 < ε
+in the application
+  exp_log (LT.lt.ne' hε)
+P1.lean:527:47: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.995) (f : ?m.995 → ?m.996) (a : ?m.996), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:533:48: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.1169) (f : ?m.1169 → ?m.1170) (a : ?m.1170), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:683:6: error: No goals to be solved
+P1.lean:704:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:707:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+···
+  exp_log (LT.lt.ne' hε)
+P1.lean:527:47: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.995) (f : ?m.995 → ?m.996) (a : ?m.996), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:533:48: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.1169) (f : ?m.1169 → ?m.1170) (a : ?m.1170), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:683:6: error: No goals to be solved
+P1.lean:704:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:707:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:721:43: error: unsolved goals
+ι : Type u_1
+···
+  ∀ (s : Finset ?m.995) (f : ?m.995 → ?m.996) (a : ?m.996), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:533:48: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  Finset.sum_mul
+of type
+  ∀ (s : Finset ?m.1169) (f : ?m.1169 → ?m.1170) (a : ?m.1170), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:683:6: error: No goals to be solved
+P1.lean:704:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:707:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:721:43: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+F : (ι → ℝ) → ℝ
+k : ℕ
+···
+  ∀ (s : Finset ?m.1169) (f : ?m.1169 → ?m.1170) (a : ?m.1170), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+P1.lean:683:6: error: No goals to be solved
+P1.lean:704:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:707:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:721:43: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+F : (ι → ℝ) → ℝ
+k : ℕ
+c₀ : ℝ
+a : Fin k → ℝ
+h : CertValid F k c₀ a
+q : ι → ℝ
+···
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:721:43: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+F : (ι → ℝ) → ℝ
+k : ℕ
+c₀ : ℝ
+a : Fin k → ℝ
+h : CertValid F k c₀ a
+q : ι → ℝ
+hq : IsSpectrum q
+j : Fin k
+x✝ : j ∈ Finset.univ
+⊢ a j * datum q (k + 1) j.castSucc = a j * datum q k j
+P1.lean:747:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p74p1] SUMMARY
+[p74p1]   P1.lean: FAIL rc=1 errors=10 sorry=0
+[tele] SUMMARY run: wall=466s max_cpu=1.15 max_mem=9314MB max_anon=0MB samples=7 OVER=7
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-IgwS58bVjuruTZjNGsoPbW
+
+==================== RUN 4 (raw, trimmed of upload preamble) ====================
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P1.lean
+{'P1.lean': 'FAIL rc=1 errors=4 sorry=0'}
+[p74p1] P1.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts (4 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:296:12: error: Invalid `⟨...⟩` notation: The expected type
+  Quot.lift (fun l => |dev p i| - W p ε ∈ l) ⋯ (Finset.val ?m.353)
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+P1.lean:314:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+P1.lean:351:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:413:24: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+P1.lean:481:72: warning: Variable name `hε'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:413:24: error(lean.unknownIdentifier): Unknown identifier `lt_of_not_le`
+P1.lean:481:72: warning: Variable name `hε'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:684:6: error: No goals to be solved
+P1.lean:705:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:708:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:704:37: error: unsolved goals
+k : ℕ
+a : Fin k → ℝ
+j : Fin k
+hlt : ↑j.castSucc < k
+⊢ a ⟨↑j.castSucc, hlt⟩ = a j
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P1.lean:684:6: error: No goals to be solved
+P1.lean:705:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:708:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:704:37: error: unsolved goals
+k : ℕ
+a : Fin k → ℝ
+j : Fin k
+hlt : ↑j.castSucc < k
+⊢ a ⟨↑j.castSucc, hlt⟩ = a j
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:715:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+···
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:704:37: error: unsolved goals
+k : ℕ
+a : Fin k → ℝ
+j : Fin k
+hlt : ↑j.castSucc < k
+⊢ a ⟨↑j.castSucc, hlt⟩ = a j
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:715:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:747:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[p74p1] SUMMARY
+[p74p1]   P1.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=52s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-iI1EVRrQW6nOU8sYNDSXZp
+
+==================== RUN 5 (raw, trimmed of upload preamble) ====================
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P1.lean
+{'P1.lean': 'OK'}
+[p74p1] P1.lean: OK
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+P1.lean:707:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P1.lean:713:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P1.lean:715:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+P1.lean:747:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p74p1] SUMMARY
+[p74p1]   P1.lean: OK
+[tele] SUMMARY run: wall=30s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-W38MCNW2QBS3JSJyhkm8Wo

@@ -44,10 +44,27 @@ operator-Jensen step — the census cites (tauceti OperatorJensen.lean :64/:124
 importable on our pin; physlib HayataGroup wing citation-only) stand for any P2 route.
 
 Full-coverage audit tail at file end (every public theorem).
+
+COMPLETION FIX-BATCH (lane A8, 2026-11-18; the re-chartered P1-completion, fresh ≤5-run
+budget, verify-fire discipline). Applied against the never-fired 21:13 local state (715
+LoC): 30+ API-signature corrections, each verified against the pin's source tree
+(encore-mathlib @ ff2494ea = the exact Modal image rev) BEFORE firing — the run-6 lesson
+(never fire an unverified batch). Corrections include: `Finset.single_le_sum` arg order
+(hf, hi); `Real.le_sInf` → `Real.sInf_nonneg` (the pin's `Real.le_sInf` takes a ≤0
+side condition); `Real.csSup_le`/`Real.le_csSup` → the generic `csSup_le`/`le_csSup`
+(ℝ is a ConditionallyCompleteLattice instance at this pin; the Real.* aliases are gone);
+`Finset.min'_mem`/`min'_le` arity (no type tag; (s, mem)/(x, mem)); `Real.mul_self_sqrt`
+→ `Real.sq_sqrt` under `mul_pow`; `rw` with ≤-hypotheses replaced by linarith finishes;
+`Real.exp_add` rewrite directions; `positivity` calls on opaque atoms replaced by
+explicit `mul_pos`/`one_div_pos`/`pow_pos`/`nlinarith` (positivity does not read
+context); `Fin.eta`/beta-redex routes replaced by a named `padA` def; `set`-local `δ`/`v`
+unfolded via their `with hδ/hv` equations (`unfold` fails on locals; field_simp does not
+zeta-unfold); and the literal `\'` identifier-escape corruption (9 lines, from the
+aborted 21:13 python batch) repaired to `'`.
 -/
 import Mathlib
 
-set_option maxHeartbeats 2000000
+set_option maxHeartbeats 8000000
 
 open Real
 
@@ -76,10 +93,7 @@ noncomputable def W (p : ι → ℝ) (ε : ℝ) : ℝ :=
   sInf {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε}
 
 noncomputable def Mdev (p : ι → ℝ) : ℝ :=
-  if h : (supp p).Nonempty then
-    Finset.max' ((supp p).image (fun i => abs (dev p i)))
-      (Finset.Nonempty.image h (fun i => abs (dev p i)))
-  else 0
+  sSup {r : ℝ | ∃ i ∈ supp p, r = abs (dev p i)}
 
 /-- Centered two-sided windowed-MGF bound with variance proxy `v` (FIND #2's form). -/
 def mgfBound (p : ι → ℝ) (v δ : ℝ) : Prop :=
@@ -122,7 +136,9 @@ private lemma supp_sum_eq_one {p : ι → ℝ} (hp : IsSpectrum p) : ∑ i ∈ s
 private lemma supp_sum_K_eq_S {p : ι → ℝ} (hp : IsSpectrum p) :
     ∑ i ∈ supp p, p i * surprisal p i = S p := by
   have hEq : ∀ i ∈ supp p, p i * surprisal p i = Real.negMulLog (p i) := by
-    intro i _; simp only [surprisal, Real.negMulLog]; ring
+    intro i _
+    show p i * (-Real.log (p i)) = -(p i) * Real.log (p i)
+    ring
   have h0 : ∀ i ∉ supp p, Real.negMulLog (p i) = 0 := by
     intro i hi; rw [p_zero_of_notsupp hp hi]; simp
   have hcongr : ∑ i ∈ supp p, p i * surprisal p i
@@ -136,11 +152,13 @@ private lemma varK_eq {p : ι → ℝ} (hp : IsSpectrum p) :
       = p i * surprisal p i ^ 2
         - (2 * S p * (p i * surprisal p i) - p i * (S p) ^ 2) := by
     intro i _; simp only [dev]; ring
+  have hMS : 2 * S p * ∑ i ∈ supp p, p i * surprisal p i
+      = ∑ i ∈ supp p, 2 * S p * (p i * surprisal p i) := by
+    simp only [Finset.mul_sum]
   have h1' : ∑ i ∈ supp p, 2 * S p * (p i * surprisal p i) = 2 * S p * S p := by
-    rw [← Finset.mul_sum, supp_sum_K_eq_S hp]
+    rw [← hMS, supp_sum_K_eq_S hp]
   have h2' : ∑ i ∈ supp p, p i * (S p) ^ 2 = (S p) ^ 2 := by
-    rw [← Finset.sum_mul, supp_sum_eq_one hp]
-    exact mul_one _
+    rw [← Finset.sum_mul, supp_sum_eq_one hp, one_mul]
   have hMid : ∑ i ∈ supp p, (p i * surprisal p i ^ 2
       - (2 * S p * (p i * surprisal p i) - p i * (S p) ^ 2))
       = (∑ i ∈ supp p, p i * surprisal p i ^ 2) - (2 * S p * S p - (S p) ^ 2) := by
@@ -150,22 +168,31 @@ private lemma varK_eq {p : ι → ℝ} (hp : IsSpectrum p) :
   rw [Finset.sum_congr rfl (fun i hi => hexp i hi), hMid]
   ring
 
-private lemma dev_le_Mdev {p : ι → ℝ} {i : ι} (hi : i ∈ supp p) : |dev p i| ≤ Mdev p := by
-  have hne : (supp p).Nonempty := ⟨i, hi⟩
-  have hmem : abs (dev p i) ∈ (supp p).image (fun i => abs (dev p i)) :=
-    Finset.mem_image_of_mem _ hi
-  rw [Mdev, dif_pos hne]
-  exact Finset.le_max' _ (Finset.Nonempty.image hne (fun i => abs (dev p i))) hmem
+private lemma Mdev_bddAbove (p : ι → ℝ) :
+    BddAbove {r : ℝ | ∃ i ∈ supp p, r = abs (dev p i)} :=
+  ⟨∑ i ∈ supp p, abs (dev p i) + 1, by
+    intro r hr
+    obtain ⟨i, hi, rfl⟩ := hr
+    have h1 : abs (dev p i) ≤ ∑ j ∈ supp p, abs (dev p j) :=
+      -- pin v4.36-rc2 signature: `single_le_sum (hf : ∀ i ∈ s, 0 ≤ f i) (h : a ∈ s)`
+      Finset.single_le_sum (f := fun j => abs (dev p j)) (fun j _ => abs_nonneg _) hi
+    linarith⟩
+
+private lemma dev_le_Mdev {p : ι → ℝ} {i : ι} (hi : i ∈ supp p) : |dev p i| ≤ Mdev p :=
+  le_csSup (Mdev_bddAbove p) ⟨i, hi, rfl⟩
 
 private lemma Mdev_nonneg (p : ι → ℝ) : 0 ≤ Mdev p := by
-  rw [Mdev]
-  split
-  · next h =>
-      obtain ⟨i, hi⟩ := h
-      exact le_trans (Finset.le_max' _
-        (Finset.Nonempty.image h (fun i => abs (dev p i)))
-        (Finset.mem_image_of_mem _ hi)) (abs_nonneg _)
-  · exact le_refl (0 : ℝ)
+  by_cases hne : (supp p).Nonempty
+  · obtain ⟨i, hi⟩ := hne
+    exact le_trans (abs_nonneg (dev p i))
+      (le_csSup (Mdev_bddAbove p) ⟨i, hi, rfl⟩)
+  · have hsub : {r : ℝ | ∃ i ∈ supp p, r = abs (dev p i)} ⊆ (∅ : Set ℝ) := by
+      intro r hr
+      obtain ⟨i, hi, _⟩ := hr
+      exact (hne ⟨i, hi⟩).elim
+    have hempty : {r : ℝ | ∃ i ∈ supp p, r = abs (dev p i)} = ∅ :=
+      Set.subset_empty_iff.mp hsub
+    rw [Mdev, hempty, Real.sSup_empty]
 
 private lemma massTail_eq_supp {p : ι → ℝ} (hp : IsSpectrum p) (w : ℝ) :
     massTail p w = ∑ i ∈ (supp p).filter (fun i => w < |dev p i|), p i := by
@@ -173,35 +200,42 @@ private lemma massTail_eq_supp {p : ι → ℝ} (hp : IsSpectrum p) (w : ℝ) :
       Finset.univ.filter (fun i => w < |dev p i|) := by
     intro i hi
     exact Finset.mem_filter.mpr ⟨Finset.mem_univ i, (Finset.mem_filter.mp hi).2⟩
-  exact (Finset.sum_subset hsub (fun i _ hi => p_zero_of_notsupp hp hi)).symm
-
-private lemma sum_le_sum_sub {s t : Finset ι} (f : ι → ℝ) (h : s ⊆ t)
-    (hf : ∀ i ∈ t, 0 ≤ f i) : ∑ i ∈ s, f i ≤ ∑ i ∈ t, f i := by
-  have hEq := Finset.sum_add_sum_compl f s t
-  have hnn : 0 ≤ ∑ i ∈ t \ s, f i :=
-    Finset.sum_nonneg (fun i hi => hf i (Finset.mem_sdiff.mp hi).1)
-  rw [← hEq]
-  linarith
+  have hzero : ∀ i ∈ Finset.univ.filter (fun i => w < |dev p i|),
+      i ∉ (supp p).filter (fun i => w < |dev p i|) → p i = 0 := by
+    intro i hiT hiS
+    by_contra hp0
+    have hpos : 0 < p i := by
+      have hle := hp.1 i
+      have hne : p i ≠ 0 := hp0
+      exact lt_of_le_of_ne hle (Ne.symm hne)
+    exact hiS (Finset.mem_filter.mpr
+      ⟨Finset.mem_filter.mpr ⟨Finset.mem_univ i, hpos⟩, (Finset.mem_filter.mp hiT).2⟩)
+  exact (Finset.sum_subset hsub hzero).symm
 
 private lemma massTail_antitone {p : ι → ℝ} (hp : IsSpectrum p) {w₁ w₂ : ℝ}
-    (h : w₁ ≤ w₂) : massTail p w₂ ≤ massTail p w₁ := by
-  have hsub : Finset.univ.filter (fun i => w₂ < |dev p i|)
-      ⊆ Finset.univ.filter (fun i => w₁ < |dev p i|) := by
+    (h : w₁ ≤ w₂) : massTail p w₂ ≤ massTail p w₁ :=
+  Finset.sum_le_sum_of_subset_of_nonneg (by
     intro i hi
     exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp hi).1,
-      lt_of_le_of_lt h (Finset.mem_filter.mp hi).2⟩
-  exact sum_le_sum_sub (fun i => p i) hsub (fun i _ => hp.1 i)
+      lt_of_le_of_lt h (Finset.mem_filter.mp hi).2⟩) (fun i _ _ => hp.1 i)
 
 private lemma massTail_zero_of_big {p : ι → ℝ} (hp : IsSpectrum p) :
     massTail p (Mdev p + 1) = 0 := by
   rw [massTail_eq_supp hp]
   have hF : (supp p).filter (fun i => Mdev p + 1 < |dev p i|) = ∅ := by
     rw [Finset.filter_eq_empty_iff]
-    intro i hi
-    have hle := dev_le_Mdev (Finset.mem_filter.mp hi).1
-    have hlt := (Finset.mem_filter.mp hi).2
+    -- `filter_eq_empty_iff` at this pin: ∀ ⦃x⦄, x ∈ s → ¬p x  (so hi : i ∈ supp p)
+    intro i hi hlt
+    have hle : |dev p i| ≤ Mdev p := dev_le_Mdev hi
     linarith
-  rw [hF]; simp
+  rw [hF, Finset.sum_empty]
+
+private lemma mem_Wset {p : ι → ℝ} {ε w : ℝ} :
+    w ∈ {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε} ↔ 0 ≤ w ∧ massTail p w ≤ ε := Iff.rfl
+
+private lemma wset_bddBelow {p : ι → ℝ} {ε : ℝ} :
+    BddBelow {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε} :=
+  ⟨0, fun w hw => (mem_Wset.mp hw).1⟩
 
 private lemma wset_nonempty {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (hε : 0 ≤ ε) :
     {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε}.Nonempty := by
@@ -211,15 +245,11 @@ private lemma wset_nonempty {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (hε
 
 private lemma W_nonneg {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (hε : 0 ≤ ε) :
     0 ≤ W p ε := by
-  have hg := Real.isGLB_sInf
-    (⟨0, fun _ hw => hw.1⟩ : BddBelow {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε})
-  exact hg.2 (fun _ hw => hw.1)
+  exact Real.sInf_nonneg (fun _ hw => (mem_Wset.mp hw).1)
 
 private lemma W_le_of_mem {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (hε : 0 ≤ ε) {w : ℝ}
     (hw : 0 ≤ w ∧ massTail p w ≤ ε) : W p ε ≤ w := by
-  have hg := Real.isGLB_sInf
-    (⟨0, fun _ hw => hw.1⟩ : BddBelow {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε})
-  exact hg.1 hw
+  exact csInf_le (wset_bddBelow) hw
 
 private lemma sum_split {p : ι → ℝ} (w : ℝ) (f : ι → ℝ) :
     ∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ w), f i
@@ -229,7 +259,6 @@ private lemma sum_split {p : ι → ℝ} (w : ℝ) (f : ι → ℝ) :
       = (supp p).filter (fun i => |dev p i| ≤ w) := by
     ext i
     simp only [Finset.mem_filter, Finset.mem_univ, true_and, not_lt]
-    exact ⟨fun h => h, fun h => h⟩
   rw [hEq] at h
   linarith [h]
 
@@ -242,46 +271,49 @@ private lemma massTail_at_W_le {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (
   classical
   have hstab : ∃ δ' : ℝ, 0 < δ' ∧ massTail p (W p ε + δ') = massTail p (W p ε) := by
     by_cases hF : (supp p).filter (fun i => W p ε < |dev p i|) = ∅
-    · refine ⟨1, by positivity, ?_⟩
+    · refine ⟨1, by norm_num, ?_⟩
       have h0 : massTail p (W p ε) = 0 := by
-        rw [massTail_eq_supp hp, hF]; simp
-      have hle := massTail_antitone hp (by linarith)
+        rw [massTail_eq_supp hp, hF, Finset.sum_empty]
+      have hle : massTail p (W p ε + 1) ≤ massTail p (W p ε) :=
+        massTail_antitone hp (by linarith)
       have hnn := massTail_nonneg hp (W p ε + 1)
       linarith
     · have hFne : ((supp p).filter (fun i => W p ε < |dev p i|)).Nonempty :=
         Finset.nonempty_iff_ne_empty.mpr hF
-      set G := (supp p).filter (fun i => W p ε < |dev p i|) with hG
-      have hGimg := Finset.Nonempty.image hFne (fun i => |dev p i| - W p ε)
-      set m := (G.image (fun i => |dev p i| - W p ε)).min' hGimg with hm
-      have hmp : 0 < m := by
-        obtain ⟨i, hiG, rfl⟩ := Finset.min'_mem
-          (G.image (fun i => |dev p i| - W p ε)) hGimg
-        exact sub_pos.mpr (Finset.mem_filter.mp hiG).2
-      refine ⟨m / 2, by positivity, ?_⟩
-      have hmin : ∀ i ∈ G, m ≤ |dev p i| - W p ε := fun i hi =>
-        Finset.le_min' (G.image (fun i => |dev p i| - W p ε)) hGimg ⟨i, hi, rfl⟩
-      have hff : (supp p).filter (fun i => W p ε + m / 2 < |dev p i|) = G := by
-        apply Finset.ext
-        intro i
+      have hGimg : (((supp p).filter (fun i => W p ε < |dev p i|)).image
+          (fun i => |dev p i| - W p ε)).Nonempty :=
+        Finset.Nonempty.image hFne (fun i => |dev p i| - W p ε)
+      obtain ⟨m, hmp, hmin⟩ : ∃ m : ℝ, 0 < m ∧ ∀ i : ι, i ∈ supp p → W p ε < |dev p i| →
+          m ≤ |dev p i| - W p ε := by
+        refine ⟨((supp p).filter (fun i => W p ε < |dev p i|)).image
+            (fun i => |dev p i| - W p ε) |>.min' hGimg, ?_, ?_⟩
+        · obtain ⟨i, hiG, hi⟩ := Finset.mem_image.mp
+            (Finset.min'_mem _ hGimg)
+          rw [← hi]
+          exact sub_pos.mpr (Finset.mem_filter.mp hiG).2
+        · intro i hi hiW
+          exact Finset.min'_le _ (|dev p i| - W p ε)
+            (Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨hi, hiW⟩, rfl⟩)
+      refine ⟨m / 2, by linarith, ?_⟩
+      have hff : (supp p).filter (fun i => W p ε + m / 2 < |dev p i|)
+          = (supp p).filter (fun i => W p ε < |dev p i|) := by
+        ext i
+        simp only [Finset.mem_filter]
         constructor
         · intro h
-          have hlt := (Finset.mem_filter.mp h).2
-          exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp h).1, by
-            have := (Finset.mem_filter.mp h).1
-            simp only [Finset.mem_filter, Finset.mem_univ, true_and] at h ⊢
-            linarith⟩
+          exact ⟨h.1, by linarith [hmp]⟩
         · intro h
-          have hle := hmin i h
-          have hlt := (Finset.mem_filter.mp h).2
-          exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp h).1, by linarith⟩
-      rw [massTail_eq_supp hp, massTail_eq_supp hp, hff, hG]
+          have hle := hmin i h.1 h.2
+          have hlt := h.2
+          refine ⟨h.1, ?_⟩
+          linarith
+      rw [massTail_eq_supp hp, massTail_eq_supp hp, hff]
   obtain ⟨δ', hδ', hEq⟩ := hstab
   obtain ⟨s, hs, hs_lt⟩ : ∃ s ∈ {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε}, s < W p ε + δ' := by
     by_contra hcon
     push_neg at hcon
-    have hg := Real.isGLB_sInf
-      (⟨0, fun _ hw => hw.1⟩ : BddBelow {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε})
-    have := hg.2 (fun _ hx => hcon _ hx)
+    have hSne : {w : ℝ | 0 ≤ w ∧ massTail p w ≤ ε}.Nonempty := wset_nonempty hp hε
+    have hle : W p ε + δ' ≤ W p ε := le_csInf hSne (fun x hx => hcon x hx)
     linarith
   have h1 := massTail_antitone hp (le_of_lt hs_lt)
   rw [hEq] at h1
@@ -301,10 +333,9 @@ private lemma exp_pair_bound (x : ℝ) :
       have hneg : 0 ≤ Real.exp (t / 2) - (1 + t / 2) := by linarith
       nlinarith [mul_nonneg hneg hpos, h1]
     have e1 : (1 + t / 2) ^ 2 = (1 + t / 2) * (1 + t / 2) := by ring
-    have e2 : (Real.exp (t / 2)) ^ 2 = Real.exp (t / 2) * Real.exp (t / 2) := by ring
     calc (1 + t / 2) ^ 2 ≤ Real.exp (t / 2) * Real.exp (t / 2) := by
-          rw [e1, e2]; exact hcore
-      _ = Real.exp t := by rw [← Real.exp_add]; ring
+          rw [e1]; exact hcore
+      _ = Real.exp t := by rw [← Real.exp_add]; congr 1; ring
   have habs := hkey |x| (abs_nonneg x)
   have hsq : x ^ 2 = |x| ^ 2 := (sq_abs x).symm
   have hpair : Real.exp |x| + Real.exp (-|x|) = Real.exp x + Real.exp (-x) := by
@@ -340,8 +371,8 @@ private lemma pair_var_bound {p : ι → ℝ} {v u₀ : ℝ} (hp : IsSpectrum p)
   have hDist : ∑ i ∈ supp p, p i * (4 * (Real.exp (u₀ * dev p i)
         + Real.exp (-(u₀ * dev p i)) - 2))
       = 4 * ∑ i ∈ supp p, p i * Real.exp (u₀ * dev p i)
-        + ∑ i ∈ supp p, (4 * p i * Real.exp (-(u₀ * dev p i)) - 8 * p i) := by
-    rw [Finset.sum_congr rfl hE, Finset.sum_add_distrib]
+        + ∑ i ∈ supp p, (4 * (p i * Real.exp (-(u₀ * dev p i))) - 8 * p i) := by
+    rw [Finset.sum_congr rfl hE, Finset.sum_add_distrib, ← Finset.mul_sum]
   rw [hDist] at h1
   have hInner : ∑ i ∈ supp p, (4 * (p i * Real.exp (-(u₀ * dev p i))) - 8 * p i)
       = 4 * ∑ i ∈ supp p, p i * Real.exp (-(u₀ * dev p i))
@@ -352,14 +383,17 @@ private lemma pair_var_bound {p : ι → ℝ} {v u₀ : ℝ} (hp : IsSpectrum p)
       = ∑ i ∈ supp p, p i * Real.exp (-(u₀ * dev p i)) :=
     Finset.sum_congr rfl (fun i _ => by rw [← neg_mul])
   rw [hconv2] at hminus
-  nlinarith [h1, hplus, hminus, Real.exp_nonneg (v * u₀ ^ 2)]
+  have hE2 : 4 * ∑ i ∈ supp p, p i * Real.exp (u₀ * dev p i)
+      + (4 * ∑ i ∈ supp p, p i * Real.exp (-(u₀ * dev p i)) - 8)
+      ≤ 8 * Real.exp (v * u₀ ^ 2) - 8 := by nlinarith [hplus, hminus]
+  nlinarith [h1, hE2]
 
 private lemma pair_tail_bound {p : ι → ℝ} {v u₀ t ε : ℝ} (hp : IsSpectrum p)
     (hu₀ : 0 < u₀) (hε : 0 < ε)
     (hplus : ∑ i ∈ supp p, p i * Real.exp (u₀ * dev p i) ≤ Real.exp (v * u₀ ^ 2))
     (hminus : ∑ i ∈ supp p, p i * Real.exp (-u₀ * dev p i) ≤ Real.exp (v * u₀ ^ 2))
     (ht : Real.log 2 + v * u₀ ^ 2 ≤ Real.log ε + u₀ * t) : massTail p t ≤ ε := by
-  have hu0 : 0 ≤ u₀ := hu₀.le
+  have hu0 : 0 ≤ u₀ := le_of_lt hu₀
   have hMem : ∀ i ∈ (supp p).filter (fun i => t < |dev p i|),
       p i ≤ p i * Real.exp (u₀ * (|dev p i| - t)) := by
     intro i hi
@@ -374,10 +408,11 @@ private lemma pair_tail_bound {p : ι → ℝ} {v u₀ t ε : ℝ} (hp : IsSpect
     by_cases h : 0 ≤ dev p i
     · have hrw : u₀ * |dev p i| = u₀ * dev p i := by rw [abs_of_nonneg h]
       rw [hrw]
-      exact mul_le_mul_of_nonneg_left (le_add_of_nonneg_left (Real.exp_nonneg _)) (hp.1 i)
-    · have hrw : u₀ * |dev p i| = -(u₀ * dev p i) := by rw [abs_of_neg h]; ring
-      rw [hrw]
       exact mul_le_mul_of_nonneg_left (le_add_of_nonneg_right (Real.exp_nonneg _)) (hp.1 i)
+    · have hrw : u₀ * |dev p i| = -(u₀ * dev p i) := by
+        rw [abs_of_neg (not_le.mp h)]; ring
+      rw [hrw]
+      exact mul_le_mul_of_nonneg_left (le_add_of_nonneg_left (Real.exp_nonneg _)) (hp.1 i)
   have hsub : (supp p).filter (fun i => t < |dev p i|) ⊆ supp p :=
     Finset.filter_subset _ _
   have hstep1 : massTail p t ≤ ∑ i ∈ supp p, p i * Real.exp (u₀ * (|dev p i| - t)) := by
@@ -386,8 +421,8 @@ private lemma pair_tail_bound {p : ι → ℝ} {v u₀ t ε : ℝ} (hp : IsSpect
         ≤ ∑ i ∈ (supp p).filter (fun i => t < |dev p i|),
             p i * Real.exp (u₀ * (|dev p i| - t)) := Finset.sum_le_sum hMem
       _ ≤ ∑ i ∈ supp p, p i * Real.exp (u₀ * (|dev p i| - t)) :=
-          sum_le_sum_sub (fun i => p i * Real.exp (u₀ * (|dev p i| - t))) hsub
-            (fun i _ => mul_nonneg (hp.1 i) (Real.exp_nonneg _))
+          Finset.sum_le_sum_of_subset_of_nonneg hsub
+            (fun i _ _ => mul_nonneg (hp.1 i) (Real.exp_nonneg _))
   have hterm : ∀ i ∈ supp p, p i * Real.exp (u₀ * (|dev p i| - t))
       = Real.exp (-(u₀ * t)) * (p i * Real.exp (u₀ * |dev p i|)) := by
     intro i _
@@ -418,18 +453,25 @@ private lemma pair_tail_bound {p : ι → ℝ} {v u₀ t ε : ℝ} (hp : IsSpect
         + Real.exp (v * u₀ ^ 2)) ≤ ε := by
     have hL : Real.exp (Real.log 2 + v * u₀ ^ 2) ≤ Real.exp (Real.log ε + u₀ * t) :=
       Real.exp_le_exp.mpr ht
-    rw [Real.exp_add, Real.exp_log (by norm_num : (2 : ℝ) ≠ 0)] at hL
-    have hStep : 2 * Real.exp (v * u₀ ^ 2) * Real.exp (-(u₀ * t))
-        ≤ ε * Real.exp (u₀ * t) * Real.exp (-(u₀ * t)) :=
-      mul_le_mul_of_nonneg_right hL (Real.exp_nonneg _)
+    rw [Real.exp_add, Real.exp_log (by norm_num : (0 : ℝ) < 2)] at hL
+    rw [Real.exp_add, Real.exp_log hε] at hL
+    -- hL : 2 * exp (v * u₀²) ≤ ε * exp (u₀ * t)
     have hOne : Real.exp (u₀ * t) * Real.exp (-(u₀ * t)) = 1 := by
       rw [← Real.exp_add]; simp
+    have hStep2 : 2 * Real.exp (v * u₀ ^ 2) * Real.exp (-(u₀ * t)) ≤ ε := by
+      have hM := mul_le_mul_of_nonneg_right hL (Real.exp_nonneg (-(u₀ * t)))
+      have hAssoc : ε * Real.exp (u₀ * t) * Real.exp (-(u₀ * t))
+          = ε * (Real.exp (u₀ * t) * Real.exp (-(u₀ * t))) := mul_assoc _ _ _
+      rwa [hAssoc, hOne, mul_one] at hM
     have hEq2 : Real.exp (-(u₀ * t)) * (Real.exp (v * u₀ ^ 2)
         + Real.exp (v * u₀ ^ 2)) = 2 * Real.exp (v * u₀ ^ 2) * Real.exp (-(u₀ * t)) := by
       ring
     rw [hEq2]
-    nlinarith [hStep, hOne, hε]
-  exact hstep1.trans (hstep2 ▸ hstep3.trans hfinal)
+    exact hStep2
+  calc massTail p t
+      ≤ ∑ i ∈ supp p, p i * Real.exp (u₀ * (|dev p i| - t)) := hstep1
+    _ = Real.exp (-(u₀ * t)) * ∑ i ∈ supp p, p i * Real.exp (u₀ * |dev p i|) := hstep2
+    _ ≤ ε := hstep3.trans hfinal
 
 /-! ## T1a′ — the marking floor (FIND #1's corrected statement) -/
 
@@ -438,67 +480,83 @@ private lemma pair_tail_bound {p : ι → ℝ} {v u₀ t ε : ℝ} (hp : IsSpect
 is FALSE per-spectrum; FIND #1). -/
 theorem t1a_floor {p : ι → ℝ} (hp : IsSpectrum p) {ε : ℝ} (hε : 0 < ε) (hε' : ε < 1) :
     varK p ≤ (1 - ε) * (W p ε) ^ 2 + ε * (Mdev p) ^ 2 := by
-  have hW0 := W_nonneg hp hε.le
+  have hW0 := W_nonneg hp (le_of_lt hε)
   have hWM : W p ε ≤ Mdev p := by
-    refine W_le_of_mem hp hε.le ⟨Mdev_nonneg p, ?_⟩
+    refine W_le_of_mem hp (le_of_lt hε) ⟨Mdev_nonneg p, ?_⟩
     rw [massTail_eq_supp hp]
     have hF : (supp p).filter (fun i => Mdev p < |dev p i|) = ∅ := by
       rw [Finset.filter_eq_empty_iff]
-      intro i hi
-      have hle := dev_le_Mdev (Finset.mem_filter.mp hi).1
-      have hlt := (Finset.mem_filter.mp hi).2
+      intro i hi hlt
+      have hle : |dev p i| ≤ Mdev p := dev_le_Mdev hi
       linarith
-    rw [hF]; simp; exact hε.le
-  have hmass := massTail_at_W_le hp hε.le
+    rw [hF, Finset.sum_empty]
+    exact le_of_lt hε
+  have hmass := massTail_at_W_le hp (le_of_lt hε)
   have hmassSupp : ∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i ≤ ε := by
     rw [← massTail_eq_supp hp]; exact hmass
-  have hAB := sum_split (W p ε) (fun i => p i)
+  have hAB := sum_split (p := p) (W p ε) (fun i => p i)
   rw [supp_sum_eq_one hp] at hAB
+  have hSplit := sum_split (p := p) (W p ε) (fun i => p i * (dev p i) ^ 2)
+  rw [varK_eq hp, ← hSplit]
+  set An := ∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i with hAn
+  set Bn := ∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i with hBn
   have hboundA : ∀ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε),
       p i * (dev p i) ^ 2 ≤ p i * (W p ε) ^ 2 := by
     intro i hi
     have h1 : |dev p i| ≤ W p ε := (Finset.mem_filter.mp hi).2
-    have h2 : |dev p i| * |dev p i| ≤ W p ε * W p ε :=
-      mul_le_mul h1 h1 (abs_nonneg _) hW0
-    have h3 : (dev p i) ^ 2 = |dev p i| * |dev p i| := by rw [sq_abs]
-    rw [h3]
+    have h2 : (dev p i) ^ 2 ≤ (W p ε) ^ 2 := by
+      have h4 : |dev p i| * |dev p i| ≤ (W p ε) * (W p ε) :=
+        mul_le_mul h1 h1 (abs_nonneg _) hW0
+      have h5 : |dev p i| ^ 2 ≤ (W p ε) ^ 2 := by nlinarith [h4]
+      rwa [sq_abs] at h5
     exact mul_le_mul_of_nonneg_left h2 (hp.1 i)
   have hboundB : ∀ i ∈ (supp p).filter (fun i => W p ε < |dev p i|),
       p i * (dev p i) ^ 2 ≤ p i * (Mdev p) ^ 2 := by
     intro i hi
     have h1 : |dev p i| ≤ Mdev p := dev_le_Mdev (Finset.mem_filter.mp hi).1
-    have h2 : |dev p i| * |dev p i| ≤ Mdev p * Mdev p :=
-      mul_le_mul h1 h1 (abs_nonneg _) (Mdev_nonneg p)
-    have h3 : (dev p i) ^ 2 = |dev p i| * |dev p i| := by rw [sq_abs]
-    rw [h3]
+    have h2 : (dev p i) ^ 2 ≤ (Mdev p) ^ 2 := by
+      have h4 : |dev p i| * |dev p i| ≤ (Mdev p) * (Mdev p) :=
+        mul_le_mul h1 h1 (abs_nonneg _) (Mdev_nonneg p)
+      have h5 : |dev p i| ^ 2 ≤ (Mdev p) ^ 2 := by nlinarith [h4]
+      rwa [sq_abs] at h5
     exact mul_le_mul_of_nonneg_left h2 (hp.1 i)
   have hA1 : ∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i * (dev p i) ^ 2
-      ≤ (∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i) * (W p ε) ^ 2 := by
+      ≤ An * (W p ε) ^ 2 := by
     calc ∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i * (dev p i) ^ 2
         ≤ ∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i * (W p ε) ^ 2 :=
           Finset.sum_le_sum hboundA
-      _ = (∑ i ∈ (supp p).filter (fun i => |dev p i| ≤ W p ε), p i) * (W p ε) ^ 2 := by
-          rw [Finset.mul_sum]
-          exact Finset.sum_congr rfl (fun i _ => by ring)
+      _ = An * (W p ε) ^ 2 := by rw [← Finset.sum_mul]
   have hB1 : ∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i * (dev p i) ^ 2
-      ≤ (∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i) * (Mdev p) ^ 2 := by
+      ≤ Bn * (Mdev p) ^ 2 := by
     calc ∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i * (dev p i) ^ 2
         ≤ ∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i * (Mdev p) ^ 2 :=
           Finset.sum_le_sum hboundB
-      _ = (∑ i ∈ (supp p).filter (fun i => W p ε < |dev p i|), p i) * (Mdev p) ^ 2 := by
-          rw [Finset.mul_sum]
-          exact Finset.sum_congr rfl (fun i _ => by ring)
-  have hSplit := sum_split (W p ε) (fun i => p i * (dev p i) ^ 2)
-  rw [varK_eq hp, ← hSplit]
-  have hWM2 : (W p ε) ^ 2 ≤ (Mdev p) ^ 2 := mul_le_mul hWM hWM hW0 (Mdev_nonneg p)
-  nlinarith [hAB, hA1, hB1, hWM2, hmassSupp]
+      _ = Bn * (Mdev p) ^ 2 := by rw [← Finset.sum_mul]
+  have hWM2 : (W p ε) ^ 2 ≤ (Mdev p) ^ 2 := by
+    have h1 : Mdev p * W p ε ≤ Mdev p * Mdev p :=
+      mul_le_mul_of_nonneg_left hWM (Mdev_nonneg p)
+    have h2 : W p ε * W p ε ≤ Mdev p * W p ε :=
+      mul_le_mul_of_nonneg_right hWM hW0
+    nlinarith [h1, h2]
+  have hDiffNN : 0 ≤ (Mdev p) ^ 2 - (W p ε) ^ 2 := by linarith [hWM2]
+  have hmono : Bn * ((Mdev p) ^ 2 - (W p ε) ^ 2)
+      ≤ ε * ((Mdev p) ^ 2 - (W p ε) ^ 2) :=
+    mul_le_mul_of_nonneg_right hmassSupp hDiffNN
+  -- deterministic assembly (monomial-linear in An·W², Bn·M², Bn·W², Bn·M²-style atoms)
+  have hWsqr : (0:ℝ) ≤ (W p ε) ^ 2 := sq_nonneg _
+  have h7 : An * (W p ε) ^ 2 = (1 - Bn) * (W p ε) ^ 2 := by nlinarith [hAB, hWsqr]
+  have h8 : (1 - Bn) * (W p ε) ^ 2 + Bn * (Mdev p) ^ 2
+      = (W p ε) ^ 2 + Bn * ((Mdev p) ^ 2 - (W p ε) ^ 2) := by ring
+  have h10 : (1 - ε) * (W p ε) ^ 2 + ε * (Mdev p) ^ 2
+      = (W p ε) ^ 2 + ε * ((Mdev p) ^ 2 - (W p ε) ^ 2) := by ring
+  linarith [hA1, hB1, h7, h8, hmono, h10]
 
 /-! ## T1b — subgaussian variance and window (explicit constants, FIND #3) -/
 
 theorem t1b {p : ι → ℝ} (hp : IsSpectrum p) {σ : ℝ} (hσ : 0 < σ) (h : subG p σ) :
     varK p ≤ 32 * (Real.exp (1 / 4) - 1) * σ ^ 2 := by
-  have hu0 : 0 < 1 / (2 * σ) := by positivity
-  have hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ) := abs_of_nonneg hu0.le
+  have hu0 : 0 < 1 / (2 * σ) := one_div_pos.2 (mul_pos (by norm_num) hσ)
+  have hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ) := by rw [abs_of_nonneg (le_of_lt hu0)]
   have hWin' : |-(1 / (2 * σ))| ≤ 1 / (2 * σ) := by rw [abs_neg]; exact hWin
   have hplus := h (1 / (2 * σ)) hWin
   have hminus : ∑ i ∈ supp p, p i * Real.exp (-(1 / (2 * σ)) * dev p i)
@@ -506,17 +564,27 @@ theorem t1b {p : ι → ℝ} (hp : IsSpectrum p) {σ : ℝ} (hσ : 0 < σ) (h : 
     have hb := h (-(1 / (2 * σ))) hWin'
     have hsq : (-(1 / (2 * σ))) ^ 2 = (1 / (2 * σ)) ^ 2 := by ring
     rwa [hsq] at hb
+  have hq : σ ^ 2 * (1 / (2 * σ)) ^ 2 = 1 / 4 := by
+    field_simp
+    ring
   have h1 := pair_var_bound hp hu0 hplus hminus
-  have hq : σ ^ 2 * (1 / (2 * σ)) ^ 2 = 1 / 4 := by field_simp
-  have hu2 : (1 / (2 * σ)) ^ 2 = 1 / (4 * σ ^ 2) := by field_simp; ring
-  have hσ2 : 0 < σ ^ 2 := by positivity
-  nlinarith [h1, hq, hu2]
+  rw [hq] at h1
+  have hScale : (1 / (2 * σ)) ^ 2 * (32 * (Real.exp (1 / 4) - 1) * σ ^ 2)
+      = 8 * (Real.exp (1 / 4) - 1) := by
+    have hσ2 : σ ^ 2 ≠ 0 := pow_ne_zero 2 (ne_of_gt hσ)
+    field_simp
+    ring
+  have hchain : (1 / (2 * σ)) ^ 2 * varK p
+      ≤ (1 / (2 * σ)) ^ 2 * (32 * (Real.exp (1 / 4) - 1) * σ ^ 2) := by
+    rw [hScale]
+    exact h1
+  exact (mul_le_mul_iff_of_pos_left (pow_pos hu0 2)).mp hchain
 
 theorem t1b_window {p : ι → ℝ} (hp : IsSpectrum p) {σ ε : ℝ} (hσ : 0 < σ)
     (h : subG p σ) (hε : 0 < ε) (hε' : ε < 1) :
     W p ε ≤ σ * (2 * Real.log (2 / ε) + 1 / 2) := by
-  have hu0 : 0 < 1 / (2 * σ) := by positivity
-  have hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ) := abs_of_nonneg hu0.le
+  have hu0 : 0 < 1 / (2 * σ) := one_div_pos.2 (mul_pos (by norm_num) hσ)
+  have hWin : |1 / (2 * σ)| ≤ 1 / (2 * σ) := by rw [abs_of_nonneg (le_of_lt hu0)]
   have hWin' : |-(1 / (2 * σ))| ≤ 1 / (2 * σ) := by rw [abs_neg]; exact hWin
   have hplus := h (1 / (2 * σ)) hWin
   have hminus : ∑ i ∈ supp p, p i * Real.exp (-(1 / (2 * σ)) * dev p i)
@@ -526,16 +594,23 @@ theorem t1b_window {p : ι → ℝ} (hp : IsSpectrum p) {σ ε : ℝ} (hσ : 0 <
     rwa [hsq] at hb
   have hlog : Real.log (2 / ε) = Real.log 2 - Real.log ε :=
     Real.log_div (by norm_num) hε.ne'
-  have hLt : (1 : ℝ) < 2 / ε := by rwa [one_lt_div hε]
+  have hLt : (1 : ℝ) < 2 / ε := by rw [one_lt_div hε]; linarith
   have hlogpos : 0 < Real.log (2 / ε) := Real.log_pos hLt
   have ht : Real.log 2 + σ ^ 2 * (1 / (2 * σ)) ^ 2
       ≤ Real.log ε + (1 / (2 * σ)) * (σ * (2 * Real.log (2 / ε) + 1 / 2)) := by
-    have hq : σ ^ 2 * (1 / (2 * σ)) ^ 2 = 1 / 4 := by field_simp
+    have hq : σ ^ 2 * (1 / (2 * σ)) ^ 2 = 1 / 4 := by
+      field_simp
+      ring
     have hut : (1 / (2 * σ)) * (σ * (2 * Real.log (2 / ε) + 1 / 2))
-        = Real.log (2 / ε) + 1 / 4 := by field_simp; ring
+        = Real.log (2 / ε) + 1 / 4 := by
+      field_simp
+      ring
     rw [hq, hut, hlog]
     linarith
-  exact W_le_of_mem hp hε.le ⟨by positivity, pair_tail_bound hp hu0 hε hplus hminus ht⟩
+  have hnn : 0 ≤ σ * (2 * Real.log (2 / ε) + 1 / 2) := by
+    have h2 : (0:ℝ) ≤ 2 * Real.log (2 / ε) + 1 / 2 := by linarith
+    exact mul_nonneg (le_of_lt hσ) h2
+  exact W_le_of_mem hp (le_of_lt hε) ⟨hnn, pair_tail_bound hp hu0 hε hplus hminus ht⟩
 
 /-! ## T1c — the class instance at MarginalTails' constant (FIND #3 constants) -/
 
@@ -546,32 +621,36 @@ theorem t1c {p : ι → ℝ} (hp : IsSpectrum p) {θ B : ℝ} (hθ : 0 < θ) (hB
   obtain ⟨hp', hB', hmgf⟩ := hC
   have hBpos : 0 < B := lt_of_lt_of_le (by norm_num) hB
   have h1p : 0 < 1 + θ := by linarith
-  have hs : 0 < Real.sqrt ((1 + θ) * B) := Real.sqrt_pos.mpr (by positivity)
+  have hs : 0 < Real.sqrt ((1 + θ) * B) :=
+    Real.sqrt_pos.mpr (by nlinarith [hθ, hBpos])
   set δ := 1 / (32 * Real.sqrt ((1 + θ) * B)) with hδ
   set v := 512 * Real.exp 1 * θ * B with hv
-  have hδ0 : 0 < δ := by positivity
+  have hδ0 : 0 < δ := by
+    rw [hδ]
+    exact one_div_pos.2 (mul_pos (by norm_num) hs)
   have hδ2 : δ ^ 2 = 1 / (1024 * (1 + θ) * B) := by
-    have hs0 : (0 : ℝ) ≤ (1 + θ) * B := by positivity
+    have hs0 : (0:ℝ) ≤ (1 + θ) * B := mul_nonneg (le_of_lt h1p) (le_of_lt hBpos)
     have hsq : (32 * Real.sqrt ((1 + θ) * B)) ^ 2 = 1024 * ((1 + θ) * B) := by
-      rw [mul_pow, Real.mul_self_sqrt hs0]
+      rw [mul_pow, Real.sq_sqrt hs0]
       norm_num
-    unfold δ
+    rw [hδ]
     rw [div_pow, hsq, one_pow]
+    ring
   have hBne : B ≠ 0 := ne_of_gt hBpos
   have h1pne : 1 + θ ≠ 0 := ne_of_gt h1p
   have hvδ : v * δ ^ 2 = Real.exp 1 * θ / (2 * (1 + θ)) := by
-    rw [hδ2]
+    rw [hδ2, hv]
     field_simp
     ring
   have hvδle : v * δ ^ 2 ≤ Real.exp 1 / 2 := by
     have h2 : θ / (2 * (1 + θ)) ≤ 1 / 2 := by
-      rw [div_le_iff (by positivity : (0 : ℝ) < 2 * (1 + θ))]
+      rw [div_le_iff₀ (mul_pos (by norm_num) h1p)]
       linarith
     calc v * δ ^ 2 = Real.exp 1 * θ / (2 * (1 + θ)) := hvδ
       _ = Real.exp 1 * (θ / (2 * (1 + θ))) := by ring
       _ ≤ Real.exp 1 * (1 / 2) := mul_le_mul_of_nonneg_left h2 (Real.exp_nonneg _)
       _ = Real.exp 1 / 2 := by ring
-  have hWin : |δ| ≤ δ := abs_of_nonneg hδ0.le
+  have hWin : |δ| ≤ δ := le_of_eq (abs_of_nonneg (le_of_lt hδ0))
   have hWin' : |-δ| ≤ δ := by rw [abs_neg]; exact hWin
   have hplus := hmgf δ hWin
   have hminus : ∑ i ∈ supp p, p i * Real.exp (-δ * dev p i) ≤ Real.exp (v * δ ^ 2) := by
@@ -582,54 +661,66 @@ theorem t1c {p : ι → ℝ} (hp : IsSpectrum p) {θ B : ℝ} (hθ : 0 < θ) (hB
   · have h1 := pair_var_bound hp hδ0 hplus hminus
     have hExp : Real.exp (v * δ ^ 2) ≤ Real.exp (Real.exp 1 / 2) :=
       Real.exp_le_exp.mpr hvδle
-    have hmul : δ ^ 2 * (1024 * (1 + θ) * B) = 1 := by
+    have hT : δ ^ 2 * (8192 * (Real.exp (Real.exp 1 / 2) - 1) * (1 + θ) * B)
+        = 8 * (Real.exp (Real.exp 1 / 2) - 1) := by
       rw [hδ2]
       field_simp
-    have hT : δ ^ 2 * (8192 * (1 + θ) * B * (Real.exp (Real.exp 1 / 2) - 1))
-        = 8 * (Real.exp (Real.exp 1 / 2) - 1) := by
-      linear_combination 8 * (Real.exp (Real.exp 1 / 2) - 1) * hmul
-    nlinarith [h1, hT, hExp, mul_nonneg hδ0.le (by positivity)]
+      ring
+    have hchain : δ ^ 2 * varK p
+        ≤ δ ^ 2 * (8192 * (Real.exp (Real.exp 1 / 2) - 1) * (1 + θ) * B) := by
+      rw [hT]
+      have hExp2 : Real.exp (v * δ ^ 2) - 1 ≤ Real.exp (Real.exp 1 / 2) - 1 :=
+        sub_le_sub_right hExp _
+      linarith [h1, hExp2]
+    exact (mul_le_mul_iff_of_pos_left (pow_pos hδ0 2)).mp hchain
   · have hlog : Real.log (2 / ε) = Real.log 2 - Real.log ε :=
       Real.log_div (by norm_num) hε.ne'
-    have hLt : (1 : ℝ) < 2 / ε := by rwa [one_lt_div hε]
+    have hLt : (1 : ℝ) < 2 / ε := by rw [one_lt_div hε]; linarith
     have hlogpos : 0 < Real.log (2 / ε) := Real.log_pos hLt
     have hut : δ * (32 * Real.sqrt ((1 + θ) * B) * (Real.log (2 / ε) + Real.exp 1 / 2))
         = Real.log (2 / ε) + Real.exp 1 / 2 := by
       rw [hδ]
       field_simp
-      ring
     have ht : Real.log 2 + v * δ ^ 2 ≤ Real.log ε + δ *
         (32 * Real.sqrt ((1 + θ) * B) * (Real.log (2 / ε) + Real.exp 1 / 2)) := by
-      rw [hut, hlog, hvδle]
-      linarith
+      rw [hut, hlog]
+      linarith [hvδle]
     have htnn : 0 ≤ 32 * Real.sqrt ((1 + θ) * B) * (Real.log (2 / ε) + Real.exp 1 / 2) := by
-      have h1 : 0 ≤ 32 * Real.sqrt ((1 + θ) * B) := by positivity
-      have h2 : 0 ≤ Real.log (2 / ε) + Real.exp 1 / 2 := by
-        have := Real.exp_nonneg 1
-        linarith [hlogpos]
+      have h1 : (0:ℝ) ≤ 32 * Real.sqrt ((1 + θ) * B) := mul_nonneg (by norm_num) (le_of_lt hs)
+      have h2 : (0:ℝ) ≤ Real.log (2 / ε) + Real.exp 1 / 2 := by
+        have hE1 : (0:ℝ) ≤ Real.exp 1 := Real.exp_nonneg 1
+        linarith
       exact mul_nonneg h1 h2
-    exact W_le_of_mem hp hε.le ⟨htnn, pair_tail_bound hp hδ0 hε hplus hminus ht⟩
+    exact W_le_of_mem hp (le_of_lt hε) ⟨htnn, pair_tail_bound hp hδ0 hε hplus hminus ht⟩
 
 /-! ## T2 — certificate padding and ceiling monotonicity -/
 
+/-- The zero-padding injection (T2's map): `a ∘ castLE`, zero on the new coordinate. -/
+noncomputable def padA {k : ℕ} (a : Fin k → ℝ) : Fin (k + 1) → ℝ :=
+  fun j => if hj : ((j : ℕ) < k) then a ⟨(j : ℕ), hj⟩ else 0
+
+private lemma padA_castSucc {k : ℕ} (a : Fin k → ℝ) (j : Fin k) :
+    padA a (Fin.castSucc j) = a j := by
+  have hlt : ((Fin.castSucc (j : Fin k) : Fin (k + 1)) : ℕ) < k := by simpa using j.isLt
+  show (if hj : ((Fin.castSucc (j : Fin k) : Fin (k + 1)) : ℕ) < k
+      then a ⟨((Fin.castSucc (j : Fin k) : Fin (k + 1)) : ℕ), hj⟩ else 0) = a j
+  rw [dif_pos hlt]
+  rfl
+
+private lemma padA_last {k : ℕ} (a : Fin k → ℝ) : padA a (Fin.last k) = 0 := by
+  show (if hj : (((Fin.last k : Fin (k + 1)) : ℕ) < k)
+      then a ⟨((Fin.last k : Fin (k + 1)) : ℕ), hj⟩ else 0) = 0
+  rw [dif_neg (by simp)]
+
 theorem cert_pad {F : (ι → ℝ) → ℝ} {k : ℕ} {c₀ : ℝ} {a : Fin k → ℝ}
-    (h : CertValid F k c₀ a) : ∃ a\' : Fin (k + 1) → ℝ, CertValid F (k + 1) c₀ a\' := by
-  refine ⟨fun j => if hj : ((j : ℕ) < k) then a ⟨(j : ℕ), hj⟩ else 0, fun q hq => ?_⟩
-  have hlast : (if hj : (((Fin.last k : Fin (k + 1)) : ℕ) < k)
-      then a ⟨((Fin.last k : Fin (k + 1)) : ℕ), hj⟩ else 0) = 0 := by
-    rw [dif_neg (by simp)]
-  rw [Finset.sum_univ_castSucc, hlast, zero_mul, add_zero]
-  have hcoe : ∀ j : Fin k, (fun (j : Fin (k + 1)) =>
-      (if hj : ((j : ℕ) < k) then a ⟨(j : ℕ), hj⟩ else 0) * datum q (k + 1) j)
-      (Fin.castSucc j) = a j * datum q k j := by
-    intro j
-    have hlt : ((Fin.castSucc j : Fin (k + 1)) : ℕ) < k := by
-      simpa using j.isLt
-    rw [dif_pos hlt]
-    congr 1
-    · exact Fin.eta _ _
-    · rfl
-  rw [Finset.sum_congr rfl (fun j _ => hcoe j)]
+    (h : CertValid F k c₀ a) : ∃ a' : Fin (k + 1) → ℝ, CertValid F (k + 1) c₀ a' := by
+  refine ⟨padA a, fun q hq => ?_⟩
+  have key : ∑ j : Fin (k + 1), padA a j * datum q (k + 1) j
+      = ∑ j : Fin k, a j * datum q k j := by
+    rw [Fin.sum_univ_castSucc, padA_last, zero_mul, add_zero]
+    exact Finset.sum_congr rfl (fun j _ => by rw [padA_castSucc]; rfl)
+  show c₀ + ∑ j : Fin (k + 1), padA a j * datum q (k + 1) j ≤ F q
+  rw [key]
   exact h q hq
 
 /-- **T2 (ceiling monotonicity, guarded form).** `B_k(F) ≤ B_{k+1}(F)` whenever the
@@ -639,17 +730,11 @@ theorem Bk_le_Bk_succ {F : (ι → ℝ) → ℝ} {k : ℕ}
     (hne : {c₀ : ℝ | ∃ a : Fin k → ℝ, CertValid F k c₀ a}.Nonempty)
     (hB : BddAbove {c₀ : ℝ | ∃ a : Fin (k + 1) → ℝ, CertValid F (k + 1) c₀ a}) :
     Bk F k ≤ Bk F (k + 1) := by
-  have hkB : BddAbove {c₀ : ℝ | ∃ a : Fin k → ℝ, CertValid F k c₀ a} := by
-    obtain ⟨m, hm⟩ := hB
-    refine ⟨m, fun x hx => ?_⟩
-    obtain ⟨a, ha⟩ := hx
-    obtain ⟨a\', ha\'⟩ := cert_pad ha
-    exact hm _ ⟨a\', ha\'⟩
-  refine Real.csSup_le hne hkB ?_
+  refine csSup_le hne ?_
   intro x hx
   obtain ⟨a, ha⟩ := hx
-  obtain ⟨a\', ha\'⟩ := cert_pad ha
-  exact Real.le_csSup hB ⟨a\', ha\'⟩
+  obtain ⟨a', ha'⟩ := cert_pad ha
+  exact le_csSup hB ⟨a', ha'⟩
 
 /-! ## T4 — the corrected floor + subgaussian ceiling on the class family (FIND #4) -/
 
@@ -660,17 +745,17 @@ hypothesis the dossier's tightness reading needs; the o(√B) clause itself is
 class-level = shape (i) = P2, FIND #4): the corrected floor and the explicit ceiling
 both hold at every scale. -/
 theorem t4_floor_ceiling {P : ℝ → ι → ℝ} {θ κ ε : ℝ} (hθ : 0 < θ) (hκ : 0 < κ)
-    (hε : 0 < ε) (hε\' : ε < 1)
+    (hε : 0 < ε) (hε' : ε < 1)
     (hClass : ∀ B : ℝ, 1 ≤ B → InSubGClass (P B) θ B)
     (hVarLB : ∀ B : ℝ, 1 ≤ B → κ * B ≤ varK (P B)) (B : ℝ) (hB : 1 ≤ B) :
     κ * B - ε * (Mdev (P B)) ^ 2 ≤ (1 - ε) * (W (P B) ε) ^ 2 ∧
       W (P B) ε ≤ 32 * Real.sqrt ((1 + θ) * B) * (Real.log (2 / ε) + Real.exp 1 / 2) := by
-  obtain ⟨hpB, hB\', hmgf⟩ := hClass B hB
+  obtain ⟨hpB, hB', hmgf⟩ := hClass B hB
   constructor
-  · have hfloor := t1a_floor hpB hε hε\'
+  · have hfloor := t1a_floor hpB hε hε'
     have hLB := hVarLB B hB
     linarith
-  · exact (t1c hpB hθ hB ⟨hpB, hB\', hmgf⟩ hε hε\').2
+  · exact (t1c hpB hθ hB ⟨hpB, hB', hmgf⟩ hε hε').2
 
 /-! ## Full-coverage audit tail (expect the triad only, 0 sorryAx) -/
 

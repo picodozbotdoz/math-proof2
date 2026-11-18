@@ -78,7 +78,10 @@ functionals (Kuwahara arXiv:2610.15199 no-go; round-4 §2 decisive datum — the
 gate is now LANDED: pilot-72 `C-neg.lean` GREEN + triad-only axcheck, 2026-11-14; see
 pilot-72 prework Appendix A execution outcome).
 
-**Theorem T1 (moment–window floor AND subgaussian ceiling — unconditional) [HYPOTHESIS].**
+**Theorem T1 (moment–window floor AND subgaussian ceiling — unconditional) [HYPOTHESIS —
+(a) as stated below REFUTED per-spectrum 2026-11-17 (FIND #1) and (b)'s hypothesis form
+corrected (FIND #2); see the §Iteration-4 amendment for the corrected statements now
+carried by the pilot].**
 For every spectrum `p` and `ε ∈ (0,1)`:
 (a) *floor:* `√((1-ε)/ε * Var_p(K)) ≤ W_ε(p)`, where `Var_p(K) = E[K²] - S²` (Cantelli over the
 finite spectral measure);
@@ -108,7 +111,10 @@ ceiling `B_k(F) = min {∑_λ F(q_λ) : convex combinations λ with barycenter-e
 — computable, `decide`-checkable at small `N` (the zeta23 `LawN256_check` pattern; dossier-02
 Theorem E / surviving-core item 1: mathlib has no LP duality, cone-separation route only).
 
-**Theorem T4 (method-barrier corollary; consumer = C.3) [HYPOTHESIS, binder form].**
+**Theorem T4 (method-barrier corollary; consumer = C.3) [HYPOTHESIS, binder form — the
+per-spectrum tightness reading refuted 2026-11-17 (FIND #4); Q1 resolved to shape (ii),
+the tightness clause is class-level = shape (i) = a P2-class extension; see the
+§Iteration-4 amendment].**
 Under `hMGF` (as in T1c) and `hB : (#crossing terms) ≤ 𝓑` (`𝓑 = 1 + ∑_{i crossing} log² (e d_i)`
 dominates the crossing count, Statements.lean:480–481), for every `ε`:
 `B₁(W_ε) ≥ √((1-ε)/ε * Var_p(K))` on the hMGF-class is achieved and no 2-moment certificate can
@@ -307,3 +313,87 @@ purity/effective-rank family boundary is now a checkable Lean theorem, not edito
 row-74 u≠1 glue note applied to §Precise statement (m_u caveat + T3 side condition) this
 session. T1–T4 of this dossier remain [HYPOTHESIS] — unexecuted, per the conditional-core
 honesty header.
+
+## Iteration-4 amendment (lane A8, 2026-11-18) — P0 GREEN; four FINDS; corrected statements
+
+Supersedes the "T1–T4 remain [HYPOTHESIS]" line above for T1/T2/T4 (T3 stays unchartered
+— the LP layer, cost-shared with dossier 02). Evidence: 74-P0 GREEN
+(`research/pilots/74/74-P0-record.md`, statement rung elaborated on mathlib ff2494ea,
+runs 1–2, 2026-11-17); P1 proof core `research/pilots/74/P1.lean` (the four FINDS are
+recorded in its header); the honest elaboration status is in
+`research/pilots/74/74-P1-record.md`. The FINDS (the [HYPOTHESIS] tags above earned their
+keep — one was FALSE as staged):
+
+- **FIND #1 — T1(a) REFUTED as a per-spectrum statement (the refutation is itself a
+  dossier deliverable).** Counterexample family: one atom at `1−δ`, `n` atoms at `δ/n`
+  (δ = 0.01, n = 10⁶): `S ≈ 0.194`, `E[K²] ≈ 3.394`, so `Var ≈ 3.36`; the heavy atom
+  sits ≈ 0.184 from S, and at `ε = δ` the small atoms carry total mass exactly ε, so
+  `W_{0.01} ≈ 0.184` — while the claimed floor `√((1−ε)/ε·Var) = √(99·3.36) ≈ 18.2`.
+  The inequality direction was inverted at the per-spectrum level: Cantelli over the
+  finite spectral measure yields the per-spectrum **upper** bound
+  `W_ε ≤ √((1−ε)/ε·Var)` (consistent with the family: 0.184 ≤ 18.2), never the floor.
+  **Corrected statement (T1a′, the marking bound, carried by P1's `t1a_floor`):**
+  `Var_p(K) ≤ (1−ε)·W_ε(p)² + ε·Mdev(p)²` for every spectrum, where
+  `Mdev(p) := max{|K i − S p| : p i > 0}` (max deviation). The √-floor *achieved*
+  reading survives only class-level (extremal spectra) = shape (i) = a P2-class
+  extension.
+- **FIND #2 — hMGF transcription degenerate; corrected to the CENTERED form.** The
+  dossier's T1(b)/T1c hypothesis "log m_u(p) ≤ u·S p + σ²u², ∀|u| ≤ δ" (verbatim first
+  clause of `OpenAI.MarginalTails`) is degenerate at u < 0: at u = −t it reads
+  log m_{−t} ≤ −t·S + σ²t², and since log m_u ≥ (1−u)·S? — concretely it forces
+  `2t·S ≤ σ²t²` for all small t, failing whenever S > 0. The faithful reading of
+  MarginalTails' intent (and of its in-file use) is the centered two-sided windowed-MGF
+  bound: `∑_{p i>0} p i · e^{u(K i − S p)} ≤ e^{v u²}` for `|u| ≤ δ` (P1's `mgfBound`;
+  the class instance `InSubGClass` carries proxy `512·e·θ·B`, window
+  `1/(32√((1+θ)B))`).
+- **FIND #3 — sharp constants need a limit argument; explicit window-edge constants
+  proved instead.** The dossier's exact `2σ²` / `1024 = 2·512` variance constants
+  require `log m_u / u² → Var/2` at u → 0 (a limit argument, P2 refinement). The
+  elementary route proves Θ-shapes with explicit one-shot constants at the window edge
+  u₀: `u₀²·Var ≤ 8(e^{v u₀²} − 1)` and `W ≤ (log(2/ε) + v u₀²)/u₀` (P1's
+  `pair_var_bound` / `pair_tail_bound`); at subG's `u₀ = 1/(2σ)`:
+  `Var ≤ 32(e^{1/4} − 1)σ²` and `W ≤ σ·(2·log(2/ε) + 1/2)`; at MarginalTails' class
+  instance: `Var ≤ 8192(e^{e/2} − 1)(1+θ)B` and
+  `W ≤ 32√((1+θ)B)·(log(2/ε) + e/2)` — the dossier's Θ(σ²)/Θ(log(1/ε)) and
+  Θ(√(ϑ𝓑))·log(1/ε) shapes confirmed.
+- **FIND #4 — T4's per-spectrum `o(√𝓑)` tightness clause refuted at shape (ii); Q1
+  resolved.** The same family as FIND #1 realizes `Var ≥ κB` with `W_ε = o(√B)` along
+  subfamilies (heavy atom at distance `W ≈ const` from S, mass structure varying),
+  so "no 2-moment certificate can certify `W_ε = o(√𝓑)`" is false per-spectrum. **Q1
+  resolved to shape (ii)** (74-P0-record §GO input): P1's T4 is the honest corrected
+  floor + explicit ceiling PAIR on a class family (P1's `t4_floor_ceiling`: under
+  `hClass : ∀ B ≥ 1, InSubGClass (P B) θ B` and the inventoried binder
+  `hVarLB : ∀ B ≥ 1, κB ≤ Var(P B)`:
+  `κB − ε·Mdev(P B)² ≤ (1−ε)·W_ε(P B)²` and
+  `W_ε(P B) ≤ 32√((1+θ)B)(log(2/ε) + e/2)`); the `o(√B)` tightness negation is
+  inherently class-level (shape (i), a class-indexed `B_k` variant) = P2.
+- **T2 unchanged in content, guarded in form** (P1's `cert_pad` + `Bk_le_Bk_succ`):
+  the zero-padding injection `padA` preserves certificate validity, so
+  `B_k(F) ≤ B_{k+1}(F)` whenever the k-certificate set is nonempty and the (k+1)-set is
+  bounded above (ceilings are only meaningful then).
+
+**Residue structure (the honest P1 elaboration ledger; see 74-P1-record.md for the run
+descent 62→46, runs 1–6, zero sorry throughout).** The remaining distance to a GREEN
+P1 at the 2026-11-17 stop was 8 mechanical API-signature classes against mathlib
+v4.36.0-rc2 (no mathematical content): (1) `Finset.le_max'/le_min'/min'_mem` arities;
+(2) `Real.sInf`-family shapes (`Real.le_sInf` carries a `a ≤ 0` side condition at this
+pin; `Real.sInf_nonneg` is the right form); (3) `Finset.sum_add_sum_compl` arg order;
+(4) `Finset.sum_subset` subset arg application; (5) ring-grouping syntactic discipline
+(`4*(p i * e)` vs `(4*p i)*e` for `rw`); (6) `sum_filter_add_sum_filter_not` arg order
++ summands; (7) `by_cases` negative-branch `¬(0 ≤ x)` handling (`not_le.mp`, not
+`lt_of_not_le`); (8) heartbeat blowups in the two heaviest proofs (precompute the final
+algebra chains). The 2026-11-18 completion batch (this lane) verifies each signature
+against the pin's source tree before firing and additionally repairs the `\'`
+identifier corruption left by the aborted 21:13 batch — the classes above are ALL
+one-line-to-ten-line fixes; the math is settled by the P0/P1 statements above.
+
+**Status lines (updated at the completion, 2026-11-18):** T1a′/T1b/T1b_window/T1c/T2/T4′
+are **GREEN** — `research/pilots/74/P1.lean` (770 LoC) elaborates rc=0 with zero sorry
+and every public theorem triad-only (`[propext, Classical.choice, Quot.sound]`, 0
+sorryAx) — the completion used the full re-chartered 5-run budget, error descent
+29→10→10→4→0 against the 2026-11-17 stop at 46 (`research/pilots/74/logs/
+p1-completion-runs1-5.log`); the residue-8-class prediction above was confirmed almost
+verbatim. T3: UNCHARTERED (LP layer, iteration door open per dossier-02 cost-share);
+sharp constants + class-level floor/tightness: P2-class extensions. Row-7 scope rules
+unchanged (mathlib-absent wording; physlib must-cites stand; tauceti/physlib
+proof-engine citations recorded in P1's header).
