@@ -305,6 +305,41 @@ addendum; re-verify at H-commit). Census roll-up restated: **machine 213/213 +
 manual 65/65 = 278/278, ZERO residuals** (§10.CENSUS (e)). Remaining in-flight
 folds: AL-P2 c/d/e (A4), 77-T1/T2 (A7), 74-P1 completion (A8).
 
+**LATE UPDATE 3 (same day, §10.29 run-19 amendment):** A5's re-task completed M3 in
+the same file — §10.29 amended to the run-19 state (14/14 file-wide triad, sha
+`ca1089e2a0c122c4`, six M3 theorems incl. `hasQDirichletDictionary` = N2-a
+DISCHARGED; the N2-P0 `hnp` FIND folded as a dated amendment — P0 one-liner owed at
+the next P0-touching commit, elaboration ledger unaffected). G1: run-19 bytes 0 real
+tokens (ENTRY 6). Census roll-up: **machine 219/219 + manual 65/65 = 284/284, ZERO
+residuals** (§10.CENSUS (e), tally-verified). Remaining in-flight folds: AL-P2 c/d/e
+(A4), 77-T1/T2 (A7), 74-P1 completion (A8).
+
+**LATE UPDATE 4 (same day, §10.30 + §10.31):** AL-P2 c/d/e honest stop folded (P2-c
+CLOSED at run 13 — 63/63 direct at the verify-fire bytes; P2-d PARTIAL GREEN parked
+at find #5; P2-e → rebuild re-charter; the "114 decls" header claim corrected as
+intent-not-state) and 74-P1 COMPLETION GREEN folded (7/7 publics + 24 privates elim;
+supersedes §10.21). G1: both files 0 real tokens (ENTRY 7). G2 exposure: new
+`AxPilot74_P1` custody stage; `AxPilotAL3D_A2` sha-at-sweep (file grows with the
+rebuild); the al3d runner error-filter process find carried to §7d standing notes.
+Census roll-up: **machine 226/226 + manual 152/152 = 378/378, ZERO residuals**
+(§10.CENSUS (e), tally-verified: N=31, verdicts 26/3/2, 0 MULTI). Remaining
+in-flight fold: **77-T1/T2 (A7) only — the last wave-3 unit.**
+
+**LATE UPDATE 5 — FINAL CLOSE BASIS (§10.32 + the N2-P2 PAUSED addendum, 2026-11-18):**
+the LAST wave-3 unit folded: §10.32 77 honest stop (T1 31→7 site-local, zero
+mathematical failures; T2 seven-of-eight triad, one tainted by the runner
+filter blind spot; physlib WickAlgebra NOVELTY EVENT; no 77 TARGETS row per the
+74-precedent ruling). §10.29 carries the PAUSED-AT-CLOSE addendum (N2-P2 2/6,
+name-resolution only, the 14/14 core untouched; the P2-a block =
+in-flight-unverified, token-treated; the hnp erratum APPLIED at `02a5d71` — the
+owed one-liner DISCHARGED). **Close-time census basis (tool-verified): N=32,
+verdicts 26 GREEN-triad / 3 honest-partial / 3 NOT-GREEN-honest, machine 226/226
+over 9 sections, manual 159/160 — whole-tree 385/386; the ONE residual = 77-T2's
+tainted decl (iter-5). Delta slots: NONE — wave 3 complete.** G1 basis: ENTRY 8
+(certificate 52, all honest-stop files classifier-clean). **This appendix's gate
+matrix + the §10.CENSUS roll-up are the close-act inputs; the final gate run still
+executes on the exact closing tree per G8.**
+
 — appendix lane A1, 2026-11-18, main @ c67d64e (+ P2 landing), worktree agent-02. No
 gate executed herein; PREP ONLY per the file's execution trigger (orchestrator close
 signal).

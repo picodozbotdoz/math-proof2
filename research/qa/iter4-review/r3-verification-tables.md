@@ -1639,10 +1639,11 @@ full-coverage custody stages for `P1.lean` + `P2.lean` (`AxPilotFFEZ2_P1/_P2`,
 "warm-up grade" verdict stands — nothing discovery-grade); debt g already CLOSED at
 the battery (REPORT-INPUTS §2).
 
-### 10.29 75-N2 P1 FINAL (M1 closure + M2) — LANDED GREEN 2026-11-18 (run 15; lane A5, the 15-run ledger; folded + re-verified by lane A1) — SUPERSEDES §10.22's checkpoint verdict (4/7 → final); M3 DEFERRED honest → iteration-5 lead-1 continuation
+### 10.29 75-N2 P1 FINAL (M1 closure + M2 + M3) — LANDED GREEN 2026-11-18 (runs 15 + 19; lane A5, the 19-run ledger; folded + re-verified by lane A1) — SUPERSEDES §10.22's checkpoint verdict (4/7 → final); the interim M3-DEFERRED note superseded by the same-day run-19 AMENDMENT block below
 
-**Census: file-wide 8/8 decls triad** (the M1 seven + the M2 theorem; print lines
-below). *(Folded 2026-11-18 by lane A1 from A5's `pilots/75/N2-P1-record.md` + logs
+**Census: file-wide 14/14 decls triad** (the M1 seven + the M2 theorem + the six M3
+theorems; print lines below). *(Folded 2026-11-18 by lane A1 from A5's
+`pilots/75/N2-P1-record.md` + logs
 `n2-p1-run8..15.log` (worktree agent-06, pending H's commit — cites re-verified on
 agent-06 disk this pass). Run-15 verdict `n2-p1-run15.log:7` (N2-P1.lean OK — rc=0,
 0 errors, 0 sorry tokens) + SUMMARY `:236`/telemetry `:237` (wall 69 s, cpu 0.94,
@@ -1695,6 +1696,64 @@ principality transfer via ℤ-prime-ideal factorization, q = 1 degeneracy, half-
 ℂ∖{1} identity-theorem extension, composed transfer; spec in dossier
 §Proof-strategy 1(iii)/3, ≈0.15–0.25k LoC; **GO recommendation recorded — the
 iteration-5 lead-1 continuation** (unchartered at close, like D4; NOT a residual).
+**[SUPERSEDED same-day by the AMENDMENT below — M3 LANDED at run 19.]**
+
+**AMENDMENT (2026-11-18, run-19 state — M3 EXECUTED on the fresh ≤6 budget; A5's
+re-task completed in the same file):** final artifact `N2-P1.lean` sha
+`ca1089e2a0c122c4` (supersedes 2e5217010e46ad0d), **713 LoC on disk** (the relay's
+"707" = header-count drift, F5 class), **0 real sorry tokens** (4 prose strings
+:11/:13/:44/:697). Verdict `n2-p1-run19.log:5–:6`: OK, rc=0, 0 errors, 0 sorry
+tokens, **14/14 file declarations triad-clean** — the six M3 theorems verified
+line-by-line this pass at `:193–:198` (repeats `:256+`), each exactly
+`[propext, Classical.choice, Quot.sound]`: `ratCharOf_eq_one_iff` (:537,
+principality transfer — `MulChar.ext` + `one_apply_coe`, sup-bridge +
+`Units.ne_zero`), `isPrincipal_of_modulus_one` (:576, q = 1 degeneracy via
+`Unique (ZMod 1)`), `identity_theorem_extension` (:590 — the donor's
+EntireAbelianQuotient pattern landed ON-PIN: `AnalyticOnNhd.
+eqOn_of_preconnected_of_eventuallyEq` + `isConnected_compl_singleton_of_one_lt_rank`,
+seed z₀ = 2), `hasQDirichletDictionary` (:610 — **N2-a DISCHARGED**),
+`factorization_identity_extension` (:621, the hAbFacQ ∀s ≠ 1 engine bridge —
+products of entire LFunctions), `dirichletFactorizationTransfer` (:651, the composed
+transfer with `hnp` explicit — the corrected shape, see the FIND). Heritage
+re-verified in-run (Pa block + the fifteen N2-P0 decls, all triad).
+
+**Ledger 16–19 (M3, fresh ≤6 budget; all M2-descent classes held, zero
+recurrences):** run 16 first elaboration — 6 errors (missing `Fact (1 < q)`
+instance; the donor's `(z₀ := 2)` named argument dropped;
+`Differentiable.differentiableAt`'s implicit point; omega's ∀-instantiation limit);
+run 17 — 1 error (unit-vs-element metavariable `rw` in `hvne`); run 18 — 1 error
+(`.symm` direction); **run 19 GREEN** (wall per log; mem-OVER flags on runs 11–19 =
+the AGENTS §Modal-5 mapped-olen artifact, cpu ≤ 1.02/2.0 throughout).
+
+**THE FIND (find-#4 precedent class; recorded in-decl at `N2-P1.lean:641` + dossier
++ record §STATEMENT FIND; folds as this dated note):** **`N2-P0.lean:166`'s
+`DirichletFactorizationTransferQ` as literally stated is NOT provable** — its
+hypothesis list omits the nonprincipality input (`∀ i, ¬ IsDZDFPrincipalQ (m i)
+(χ i)`) while its conclusion asserts `ψ i ≠ 1`; a principal family (trivial
+character at modulus 2, fK the ζ-side continuation, fL := Hecke·fK) satisfies every
+stated hypothesis and would force `LFunction (ψ ≠ 1) =` principal-Hecke on ℜs > 1,
+refuted by coefficient comparison; the degenerate fK = 0 case shows the shape is not
+uniformly refutable — wrong as a target. The DZDF factorization's own
+`∀ i, ¬IsDZDFPrincipalQ` is the intended input; M3-e carries it as the explicit
+`hnp` and discharges the corrected shape GREEN-triad. **Owed:** the N2-P0 one-line
+amendment (add `hnp` to the Prop + record note) at the P0 owner's next
+P0-touching commit; **P0's fifteen-decl elaboration ledger unaffected** (statement
+elaboration does not certify provability — the §10.12 row stands as an elaboration
+record with this dated provability caveat). **[DISCHARGED same-day (`02a5d71`): the
+hnp erratum APPLIED at `N2-P0.lean:161` (dated); the ledger stands.]**
+
+**PAUSED-AT-CLOSE ADDENDUM (2026-11-18, `02a5d71` — A5's hard-stop state):** N2 **P2
+PAUSED at 2/6 runs**: run 20 (10 errors, all name-resolution in the new P2-a block —
+AnalyticAt namespace, IsBounded renames, the pair-map route, closed-preimage) → run
+21 (8 errors; three further classes diagnosed — the
+DifferentiableAt→AnalyticAt bridge, the AnalyticOnNhd prefix,
+`IsClosed.preimage` at `Topology/Continuous.lean:188`); **the verified 14/14-triad
+core (run 19) and the amended N2P0 module elaborate error-free in BOTH runs; zero
+sorry tokens anywhere**; three fixes applied post-run-21 UNFIRED (disk sha
+`ecd44c6a…`; resume note with line numbers in the record = the iter-5 lead-1
+payload). **Census basis: §10.29's FINAL number remains run-19's 14/14 — the P2-a
+block is IN-FLIGHT-UNVERIFIED content** (H commits it as the PAUSED record); the
+sweep/classifier treat that block by tokens, never as part of the verified surface.
 
 **Step-B (H's mechanics finding folded, `h-wave3-log.md:604–:608`):** family final at
 M1+M2 ⇒ the §7a "row lands at N2-final" rule FIRES — but `N2-P1.lean`'s
@@ -1704,10 +1763,169 @@ rewrite map cannot catch the hyphenless name, and `N2-P0` carries no TARGETS row
 under the single-row instruction — so the sweep must stage the **Pa → N2P0 → N2-P1
 closure** (the runner's ORDER pattern, `run_n2p1.py:49`; `import Pa` auto-rewrites
 once staged, `AxPilot75_Pa` already in TARGETS) or extend the rewrite map.
-`AxPilot75_N2` = the N2-P1.lean row; §7d updated with the closure instruction.
-Step-A: 0 tokens (this pass, agent-06 disk; re-verify at H-commit). Billing: M2 =
-the dictionary's identification layer, technical-record; the discovery-grade content
-is the dictionary itself (dossier 75-N2, S1–S4).
+`AxPilot75_N2` = the N2-P1.lean row; §7d updated with the closure instruction
+(**staging sha = the run-19 bytes `ca1089e2a0c122c4`** — the sweep stages current
+disk, not the run-15 interim). Step-A: 0 tokens (run-19 file, ENTRY 6). Billing:
+M2+M3 = the dictionary's identification + transfer layers, technical-record; the
+discovery-grade content is the dictionary itself (dossier 75-N2, S1–S4).
+
+### 10.30 AL-P2 c/d/e — HONEST STOP: P2-c CLOSED 100% (run 13), P2-d PARTIAL GREEN parked at FIND #5, P2-e → rebuild re-charter (lane A4, 2026-11-18; folded + re-verified by lane A1; the correction relay's state — supersedes the "one run owed" interim) — resolves §10.6's pending-P2 line
+
+*(Folded 2026-11-18 by lane A1 from A4's `pilots/al3d/` state + `A2-gaps.md` §4–§5 +
+the run logs (worktree agent-05, pending H's commit; cites re-verified on agent-05
+disk this pass). **Run 13 — the closure-verification unit (verify-fire discipline,
+fresh ≤2 budget): `alp2-run13-p2c-closureverify.log`** — pre-fire sha guard
+`509f2368…` recorded before launch and matching the tested bytes; verdict A2.lean OK
+rc=0, 0 errors (open or hidden), 0 sorry (`:189`/`:522`), **0 sorryAx anywhere in
+the log; every axiom print exact triad** — **63 distinct A2 decls** (my count = the
+file's 63-line audit tail), A1 re-verified in the same run (88 prints); OVER=0, wall
+97 s, telemetry Modal-rule compliant.)*
+
+**(a) P2-c CLOSED — the equiv-composition closure:** `colEquivVar` lands via
+EQUIV-COMPOSITION — `heightCasts ∘ (regEquivOfEq projF_fibre).symm ∘ (regReindexEquiv
+(fibre Λ X')).symm` — with **both transport lemmas deleted outright** (the §10.6-era
+"parked at colEquivVar_left" residual dissolves: no transport lemma to prove). The
+last error chain: run-9/10's `projInteraction_norm_le` + `isAdmissible_projInteraction`
+sorryAx root-caused to `l2_opNorm_extendId_le`'s `[∀ i, Fintype (loc i)]` instance
+restoration; run 12's one-line fix (`mul_nonneg (pow_nonneg …) (le_trans zero_le_one
+(le_max_right J 1))` after the positivity-form and cast-form mismatches), **run 13
+the applied-fix verification GREEN**. Disk state: `A2.lean` 993 LoC, 3 `sorry`
+strings all header prose (:8/:34/:38); sha at H-commit = A4's PENDING-note stamp
+atop the run-13 bytes (one-writer; the stamp is prose-only — decl surface unchanged).
+
+**(b) P2-d PARTIAL GREEN — 8 new theorems triad (runs 10–12):**
+`vecMulVec_submatrix`, `hasGlobalGap_submatrix` (+ the INLINE
+`PosSemidef.submatrix` re-derivation — mathlib's lemma fails `PartialOrder 𝕜`
+synthesis in RCLike sections on-pin), `mulVec_eq_smul_submatrix`,
+`star_dotProduct_comp`, `regReindexEquiv_apply`, `regReindexEquiv_comp_colEquivVar`,
+`fibre_subset`, `sdiff_fibre_eq`. **PARKED at FIND #5** (A2-gaps §5): the
+equivFin-instance mismatch between `col Λ u` and `col (fibre Λ X') u` encodings —
+propositionally equal, distinct terms; every rewrite route dies on dependent
+motives; mathlib has no `Fintype.equivFin`-congruence lemma. **Re-charter = the
+canonical z-rank enumeration rebuild** of the P2-b bodies riding
+`col_inj_on_z`/`col_heights`, statements unchanged.
+
+**(c) P2-e NOT attempted** — identical per-column structure, rides the rebuild.
+**(d) Ledger + the RECOVERY finding:** runs 9–12 (walls 45/76/75/48 s) + run 13;
+the dead instance's on-disk colEquivVar draft had TWO fatal elaboration errors —
+**the run-23-era "114 decls triad" header claim was intent, not state** (corrected
+in the file header :34; runs 10+ are the verified state; the honest verified census
+is the 63-decl surface above). **(e) Process find (carried to the sweep plan,
+§7d-note):** the runner error filter missed `error(lean.synthInstanceFailed)` /
+`unknownIdentifier` formats — runs 10/12 read errors=0 with real errors; the
+tail-200 diagnostic added compensates; flagged INDEX-side by H.
+
+**Step-B:** `AxPilotAL3D_A2` (already in TARGETS) stages at sweep — sha-at-sweep
+governs (the file grows with the rebuild re-charter; the §10.30 verified surface is
+the run-13 bytes). Step-A: 0 real tokens (header prose only). Billing:
+formalization-grade B.2-staged; never a headline (§10 conventions).
+
+### 10.31 74-P1 COMPLETION — LANDED GREEN 2026-11-18 (run 5 of 5; lane A8, the verify-fire re-charter; folded + re-verified by lane A1) — SUPERSEDES §10.21's honest-stop verdict (the stop stays as history); the AMENDED statements are the verified ones
+
+**Census: 7/7 public theorems triad** (+ 24 private lemmas by the documented
+elimination class — prints at the sweep's full-coverage stage; lines below).
+*(Folded 2026-11-18 by lane A1 from A8's `pilots/74/74-P1-record.md` + the combined
+log `logs/p1-completion-runs1-5.log` (worktree agent-09, pending H's commit; cites
+re-verified on agent-09 disk this pass). Run-5 verdict header `:19` (GREEN: OK
+rc=0, errors=0, sorry-warnings=0; wall 30 s, OVER=0; fired sha `6ddbda11d5da4f35` =
+the disk file, 770 LoC ✓) + the run-5 raw block (`:1585+`): **all seven public
+theorems verified line-by-line — `t1a_floor`, `t1b`, `t1b_window`, `t1c`,
+`cert_pad`, `Bk_le_Bk_succ`, `t4_floor_ceiling`, each exactly
+`[propext, Classical.choice, Quot.sound]`** (printed in both the axioms section and
+the file's audit tail; 0 sorryAx in the run-5 block; the combined log's earlier
+sorryAx prints at :53–:59/:838+ are runs 1–4 INTERMEDIATE states, superseded —
+never read as final evidence. The 24 `private lemma`s have no direct print:
+⊆-triad by the documented elimination class (rc=0, zero sorry-warnings); the
+§7b(ii) full-coverage stage prints them at sweep.)*
+
+**The completion (fresh ≤5 budget, ALL verify-fire disciplines held):** descent
+29→10→10→4→0 errors over runs 1–5 (sha-guard trail `2a11b1ed`/`4b3b22e9`/
+`a5a6d0cd`/`8f05abd9`/`6ddbda11`, recorded BEFORE each fire, no edit between record
+and fire; walls 267/144/466/52/30 s; zero sorry at every run; ephemeral
+`crossmath-pilot-74p1`, doz route, pilot-73-clone warm-layer-shared recipe, FULL
+error output — the previous session's runs 1–6 were partially blind at the gprobe
+12k cap; OVER flags = mem-class mmapped-olen, anon=0; one code-side
+`maxHeartbeats` 2M→8M fix recorded). NO local lean anywhere.
+
+**(a) The AMENDED statements per FINDS #1/#2 are the verified ones** — the marking
+bound T1a′, centered `mgfBound`, window-edge constants, T4′ floor+ceiling; the
+refuted original forms stay cited at §10.21. **(b) The signature-class record:** all
+8 taxonomy classes confirmed + a 9th family (dotted-projection gaps at ff2494ea:
+`LT.lt.le` absent → `le_of_lt`; `.symm` unresolvable on Pi-typed lemmas → `rw`
+forms; `Finset.sum_mul` direction; `le_add_of_nonneg_left/right` swapped;
+`Real.exp_log` positivity-proof arg; `min'_le` triple; a 9-line identifier
+corruption from the aborted batch — every fix verified against the encore-mathlib
+source). **(c) Dossier-74 amendment section landed** (all 4 FINDS with
+counterexample numbers: p₀ = 1−δ, n atoms δ/n ⇒ Var ≈ 3.36, W₀.₀₁ ≈ 0.184 vs the
+claimed ≈ 18.2 floor; Cantelli's true direction = per-spectrum UPPER bound).
+
+**Step-B:** proof artifact final ⇒ `AxPilot74_P1`-class custody stage at sweep
+(full-coverage prints the 24 privates); Step-A: 0 real tokens (2 prose strings).
+Billing: the honest marking-bound replacement class — engineering/technical record,
+the FINDS are the discovery-grade content (§10.21 + dossier 74).
+
+### 10.32 77 T1-completion + T2 — NOT-GREEN at budget, the FINAL wave-3 unit: T1 31→7 site-local residuals with ZERO mathematical failures; T2 delivered 7-of-8 top-level theorems triad-clean (one tainted by the runner's filter blind spot) (lane A7, 2026-11-18; folded + re-verified by lane A1) — supersedes §10.27's interim census; dossier-77 fold complete; physlib NOVELTY EVENT recorded
+
+*(Folded 2026-11-18 by lane A1 from A7's `pilots/77/T1-record.md` §COMPLETION UNIT +
+`logs/t1t2-run{6..9}.log` (worktree agent-08, pending H's commit; cites re-verified
+on agent-08 disk this pass: run-8 verdict `:19/:221` — T1 FAIL rc=1 errors=7, T2
+FAIL rc=1 errors=1, the omega residual; run-9 `:17/:462` — T1 regressed to 16,
+REVERTED; T2 rc=1 **errors=0** = the filter-missed error; T2's print block
+`:464–:471`: the seven named theorems each exactly
+`[propext, Classical.choice, Quot.sound]`, the tainted `isDegreeBlock_iff_sum_
+blockProj` wrapping at `:464`; disk T1.lean 817 LoC sha `3e6b50641990af9b` (the
+run-8-carrying tree), T2.lean 272 LoC sha `55107d0c6768fe34`; both files carry one
+prose `sorry` string each — 0 real tokens.)*
+
+**T1-completion: NOT GREEN at budget — descent 31→23→13→7 over runs 6–8 (run 8 =
+the best state and what the tree carries; the run-9 attempt at the last 7 regressed
+to 16 and was REVERTED).** Walls 57–107 s, warm `crossmath-pilot-77` lineage,
+tauceti@d92acc5c own-lineage image (manifest mathlib `1b1ccf4b`), doz route; run-6's
+one OVER = the mapped-olen class. **Zero mathematical failures across all four
+runs:** the corrected statements (hyperbolic submodel rank 2(Q+1), number-operator
+intertwining) elaborated exactly as designed; `occupationElem_mul_self` +
+`commute_occupationElem` (via `CliffordAlgebra.mul_ι_mul_ι_mul_comm`),
+`traceQuadraticForm_isoV`, `fockDictionary_apply_hypE/hypE'`, and
+`dictionary_numberOp/idempotent/commute` all verify, and
+`map_iso_occupationElem` — the element-level dictionary to tauceti's own
+declaration — CLOSED in run 8 (the `Matrix.single` instance bridge goes through
+tauceti's `_def` theorems, not `unfold`). The run-8 log's sorryAx prints on this
+chain are the CASCADE class (transitive through the 7 residuals — the
+superseded-print convention, §10.20/:64 precedent); the per-decl state of record is
+the §COMPLETION census. **The 7 remaining residuals, all site-local and
+root-caused:** `pairBilin`'s two outer field proofs (→ the `∘ₗ inl/single`
+canonical form) + the five undecided-ite side goals in `isoV_hypE`/`isoV_hypE'`.
+
+**T2: 7 of 8 top-level theorems TRIAD-CLEAN, 0 sorryAx on those prints**
+(line-by-line, run-9 block): `isParityBlock_iff_sum_parityProj` (the mod-2
+regrading decomposition), `isParityBlock_of_isDegreeBlock` (the coarsening), both
+sum-closure lemmas, `pairHamiltonian_isDegreeBlock`,
+`pairHamiltonian_entry_eq_zero` (**the donor `Model.lean:138` re-derived at the
+abstract coefficient shape**), `pairHamiltonian_isParityBlock`. **ONE tainted:
+`isDegreeBlock_iff_sum_blockProj`** (the `⨁_n` decomposition iff) carries sorryAx
+via an elaboration error the runner's error filter missed (rc=1, errors=0 — the
+error text sits in the unprinted output region; most likely in the
+`rw [Matrix.sum_apply, Finset.sum_eq_single (deg a)]` block) — **the SAME
+blind-spot class A4's al3d tail-200 fix closes; the 77 runner still carries the old
+filter = an iter-5 item.** T2's tauceti-SetLike instantiation through Φ stays the
+recorded extension condition (scope honesty note in the header).
+
+**NOVELTY EVENT (physlib clock, condition (iii) — FIRED PARTIALLY):** master ticked
+`2026-11-17T09:42:38Z → 2026-11-18T08:24:23Z → 13:00:37Z` (end-tick) and landed
+`Physlib/QFT/PerturbationTheory/` (54 files, Tooby-Smith): `CrAnFieldOp` +
+`FieldOpFreeAlgebra` + **`WickAlgebra`** — the equal-statistics super-commutation
+HALF of CAR now exists on physlib; still ABSENT there: the {a, a†} mixed relation
+(Wick keeps it central), any Clifford/quadratic-form content, any finite
+Fock-matrix model, any tauceti connection — **the dictionary core stays CLEAN in
+both corpora; billing C+ unchanged; seed-13's "no CrAnFieldOp" gap CLOSED.** T1's
+CAR-transport sub-content drops to formalization-parity vs that layer (full note in
+dossier 77 §T1/T2 EXECUTION UPDATE).
+
+**Dossier fold COMPLETE** (A7): the two derived corrections + the residual-map
+reconciliation 31→7 + the T2 delivery state + the retired dimension-count route
+superseded. **RULING (relay (e)): NO 77 TARGETS row** — 74-precedent, the
+honest-stop files stay classifier-covered (Step-A only). Step-A: 0 real tokens both
+files.
 
 —
 
@@ -1826,7 +2044,16 @@ M3 DEFERRED honest → iter-5 lead-1; H's N2P0 hyphen-workaround closure-staging
 finding folded into the Step-B note); SUPERSEDES §10.22 (its 4/7 checkpoint row now
 historical); §10.CENSUS restated — machine 213/213 over 8 sections (§10.29 = 8/8),
 manual 65/65, whole-tree 278/278 ZERO residuals, donor 18/18, delta slots now
-A4/A7/A8.
+A4/A7/A8. Twentieth batch (2026-11-18, §10.29 AMENDMENT at d77bb20+): run-19 state —
+M3 EXECUTED on the fresh ≤6 budget (ledger 16–19, all M2-descent classes held, zero
+recurrences), six M3 theorems triad-verified line-by-line (n2-p1-run19.log:193–:198;
+14/14 file-wide; sha ca1089e2a0c122c4, 713 LoC disk); the interim M3-DEFERRED note
+superseded in place; **the FIND folded** (N2-P0.lean:166 DirichletFactorizationTransferQ
+NOT provable as stated — omits ¬IsDZDFPrincipalQ; principal-family coefficient
+refutation; M3-e carries hnp explicit; P0 one-line amendment owed at next
+P0-touching commit; the §10.12 elaboration ledger unaffected with the dated
+provability caveat); census → machine 219/219 (§10.29 = 14/14), whole-tree 284/284
+ZERO residuals; §7d staging sha updated to the run-19 bytes.
 
 ### 10.CENSUS — manual per-decl triad census companion (lane A1, 2026-11-18; closes the NO-MACHINE-CENSUS gap for the close block)
 
@@ -1843,7 +2070,13 @@ this appendix manually resolves all 21. SAME-DAY UPDATE at the §10.29 landing
 (N2-P1 FINAL): N-TABLES 29, verdicts 25/2/2 (sum 29 ✓), machine census **213/213
 over 8 sections** (+ the §10.29 row below), 0 MULTI-CENSUS, 21 NO-MACHINE-CENSUS —
 §10.22's flag now resolves as SUPERSEDED-BY-§10.29; the roll-up (e) is restated
-below it.)*
+below it. SECOND same-day update at the run-19 M3 amendment: §10.29's census is now
+**14/14** (machine **219/219 over 8 sections**), roll-up (e) restated again below.
+THIRD same-day update at the §10.30 + §10.31 landings: N=31, verdicts 26/3/2, machine
+**226/226 over 9 sections** (§10.31 = 7/7 publics; §10.30 manual 63/63), roll-up (e)
+restated below. FINAL close-time basis at §10.32 (the last wave-3 fold): N=32,
+verdicts 26/3/3 (tool-verified), machine 226/226 unchanged, manual 159/160 — whole-tree **385/386**,
+the one residual named.)*
 
 **(a) Machine baseline — 205/205, attribution by FILE (a phrase's section ≠ the
 artifact's section in two cases):**
@@ -1857,7 +2090,8 @@ artifact's section in two cases):**
 | §10.23 | `pilots/ff-ez2/P1.lean` | 7/7 direct | `p1-run4.log:17–:23` (incl. 1 private; full-spelling note) |
 | §10.26 | `pilots/10/L5.lean` (tranche-final; embeds L4+L3+Part E verbatim) | 45/45 direct | `d3-run1.log` (39 full + 6 ⊆-triad subset, 0 sorryAx) |
 | §10.28 | `pilots/ff-ez2/P2.lean` | 9/9 direct | `p2-run2.log:42–:50` (4 public + 5 private; full spelling) |
-| §10.29 | `pilots/75/N2-P1.lean` FINAL (M1 closure + M2; landed 2026-11-18) | 8/8 direct | `n2-p1-run15.log:183–:190` (repeats :224–:231; sha 2e5217010e46ad0d, 506 LoC; the §10.22 residuals cleared; heritage Pa + N2-P0 blocks re-verified in-run :37–:53/:87–:101) |
+| §10.29 | `pilots/75/N2-P1.lean` FINAL (M1 closure + M2 + M3; runs 15+19, landed 2026-11-18) | 14/14 direct | `n2-p1-run19.log:183–:198` (repeats :256+; sha ca1089e2a0c122c4, 713 LoC — the run-15 interim 8/8 superseded by the same-day M3 amendment; heritage Pa + N2-P0 blocks re-verified in-run) |
+| §10.31 | `pilots/74/P1.lean` COMPLETION (run 5/5, landed 2026-11-18) | 7/7 direct (publics) | `p1-completion-runs1-5.log` run-5 block `:1585+` (sha 6ddbda11d5da4f35 = disk, 770 LoC; the combined log's earlier sorryAx = runs 1–4 intermediates, superseded; the 24 privates counted in table (b)) |
 
 **(b) Manual addend — OUR proof artifacts with evidenced censuses, NOT inside any
 machine number (each counted exactly once):**
@@ -1871,10 +2105,14 @@ machine number (each counted exactly once):**
 | 10.11 | `pilots/32/M2.lean` (new proof surface) | **9/9** = 7 direct + 2 documented-elimination | 7 theorems `run12-crossing-existence.log:60–:66`; helpers `log4_pos`/`log10_pos` by the section's elimination note (rc=0, 0 sorry-warnings; consumed inside printed-triad carry) | file census 43 public decls = frozen-M1 carry (C2-swept, not re-added) + the 9 new proof decls; the 2 helpers get direct prints at the §7b(ii) 32-M2 full-coverage stage |
 | 10.12 | `pilots/75/N2-P0.lean` | **15/15 direct** | `n2-p0-run4.log:83–:97` (repeats :159+) | 1 theorem + 14 defs/props, ALL printed (defs printed here — better than convention) |
 | 10.13 | `pilots/78/P0.lean` | **26/26** = 3 direct + 23 documented-elimination | 3 public `p0-run4.log:22–:24` (repeats :53–:55); 23 privates by the section's elimination note (rc=0, 0 sorry, 0 sorryAx; folds into printed theorems) | full-coverage prints when the Stage-B family charters (§7a) |
-| 10.22 | `pilots/75/N2-P1.lean` (CHECKPOINT) | **SUPERSEDED-BY-§10.29** (was 4/7 = 4 direct core + 3 sorryAx IN-PROGRESS at run 7; the 3 residuals cleared at run 15 — final 8/8 in machine row §10.29) | historical: core `n2-p1-run7.log:175–:178` (validated this pass — A2's manual pick CONFIRMED); the 3 were `:174/:179/:180` sorryAx on failing packaging decls | excluded from the roll-up (the file's decls are counted ONCE, at §10.29's final state) |
+| 10.22 | `pilots/75/N2-P1.lean` (CHECKPOINT) | **SUPERSEDED-BY-§10.29** (was 4/7 = 4 direct core + 3 sorryAx IN-PROGRESS at run 7; the 3 residuals cleared at run 15 — final 14/14 in machine row §10.29) | historical: core `n2-p1-run7.log:175–:178` (validated this pass — A2's manual pick CONFIRMED); the 3 were `:174/:179/:180` sorryAx on failing packaging decls | excluded from the roll-up (the file's decls are counted ONCE, at §10.29's final state) |
+| 10.30 | `pilots/al3d/A2.lean` (AL-P2 c/d/e honest stop; P2-c CLOSED at run 13) | **63/63 direct** (the honest verified surface — the run-23-era "114 decls" header claim was intent, not state; RECOVERY finding folded) | `alp2-run13-p2c-closureverify.log` — pre-fire sha `509f2368…`, A2.lean OK rc=0, 0 sorryAx, 63 distinct decls = the file's 63-line audit tail, all exact triad; A1 re-verified in-run (88 prints) | file GROWS with the P2-e rebuild re-charter (find #5) — sha-at-sweep governs (`AxPilotAL3D_A2` in TARGETS); counted at the run-13 verified bytes |
+| 10.31-privates | `pilots/74/P1.lean` — the 24 `private lemma`s | **24/24 documented-elimination** | rc=0 + 0 sorry-warnings at run 5 (`p1-completion-runs1-5.log:19/:1585+`); the file's audit tail prints the 7 publics (machine row §10.31); privates direct-print at the sweep full-coverage stage | §10.13-class elimination, flagged not silent |
+| 10.32-T2 | `pilots/77/T2.lean` (the FINAL wave-3 unit, honest stop) | **7/8 direct** — 7 triad-clean + 1 TAINTED (`isDegreeBlock_iff_sum_blockProj`, sorryAx via the filter-missed elaboration error) | `t1t2-run9.log:464–:471` (seven exact-triad prints verified line-by-line; the tainted one wraps at :464) | the tree carries run-8 for T1 (NOT-GREEN class, no census of its own — §10.27 convention); T2's tainted decl = **the one whole-tree residual**, an iter-5 item (filter fix + the one decl) |
 
-Manual addend subtotal: **65/65** (40 direct + 25 documented-elimination; §10.22's
-former 4/7 row superseded by the §10.29 machine row — the file's decls count once).
+Manual addend subtotal: **159/160** (110 direct + 49 documented-elimination; the
+§10.22 former 4/7 row superseded by §10.29's machine row; §10.30 = 63 direct;
+§10.31-privates = 24 elim; §10.32-T2 = 7 direct of 8).
 
 **(c) Donor-pin audit rows — DONOR decls (separate composition line; never our
 pilots' census):** §10.5 zeta23 Theorem-E chain **5/5** (`zeta23e-p0-run1.log:190–194`,
@@ -1885,26 +2123,35 @@ repeats :203–207) + §10.7 OAI G11/G12 audit set **9/9** (`run35-g11-fix.log:1
 **(d) N/A classes (flagged, listed, excluded from every roll-up number):**
 probe/statement rungs — §10.14 FF-EZ4 P0, §10.15 74-P0, §10.19 FF-EZ2 P0, §10.24
 G9+G13, §10.25 22-T2a (elaboration verdicts only, no proof surface; §10.10's own
-surface likewise probe-class — its 4 donor rows are in (c)); NOT-GREEN honest stops —
-§10.21 74-P1, §10.27 77-T1 (verified-red; run-log sorryAx = error artifacts,
-superseded class; zero final triad-clean decls); embedded/machine-covered — §10.3
-(= the 22/22 machine row), §10.4 (= the 89/89 machine row), §10.17 (Part E's 6 direct
-prints `d1-run1.log:25–:30` are INSIDE §10.26's 45/45 — L5 embeds L3 verbatim),
-§10.20 (superseded interim state, same embedding).
+surface likewise probe-class — its 4 donor rows are in (c)); honest stops — §10.21
+74-P1 (**superseded-BY-§10.31**: the file's decls count once, at §10.31's
+completion state), §10.27 77-T1 (verified-red; run-log sorryAx = error artifacts,
+superseded class; zero final triad-clean decls — §10.30's resolve pending A7);
+embedded/machine-covered — §10.3 (= the 22/22 machine row), §10.4 (= the 89/89
+machine row), §10.17 (Part E's 6 direct prints `d1-run1.log:25–:30` are INSIDE
+§10.26's 45/45 — L5 embeds L3 verbatim), §10.20 (superseded interim state, same
+embedding), §10.22 (superseded by §10.29, table (b) note).
 
-**(e) Whole-tree roll-up formula (the ONE number the close block quotes; RESTATED at
-the §10.29 landing — supersedes the same-day 274/277 interim):**
+**(e) Whole-tree roll-up formula — the FINAL close-time basis (RESTATED at §10.32,
+the last wave-3 fold; supersedes the same-day 378/378 interim):**
 
 ```
-OUR pilots:  machine 213/213 (8 sections, tally_section10.py @ this file, §10.29 in)
-           + manual    65/65 (7 evidenced sections, table (b); §10.22 superseded)
-           =          278/278 triad-clean decls across §10.1–§10.29 — ZERO residuals
-              (253 direct-print + 25 documented-elimination)
+OUR pilots:  machine 226/226 (9 sections, tally_section10.py @ this file,
+                              §10.29 = 14/14, §10.31 = 7/7 publics)
+           + manual    159/160 (§10.32-T2's 7-of-8 incl. the ONE tainted decl;
+                                 §10.30's 63/63 direct; §10.31's 24 privates elim;
+                                 prior 65/65)
+           =          385/386 triad-clean decls across §10.1–§10.32
+              (336 direct-print + 49 documented-elimination; the ONE residual =
+               77-T2's isDegreeBlock_iff_sum_blockProj, sorryAx via the runner's
+               filter blind spot — iter-5 item, §10.32)
 DONOR rows:  + 18/18 donor-pin audit rows (table (c)) — quote separately
-Delta slots (in flight, EXCLUDED until landing, update this appendix at each fold):
-AL-P2 c/d/e final state (A4), 77-T1/T2 (A7), 74-P1 completion (A8). DISCHARGED this
-wave: FF-EZ2-P2 (§10.28) and 75-N2 P1 FINAL (§10.29 — M3 is a DECLARED iteration-5
-continuation, unchartered like D4, NOT a residual).
+Delta slots: NONE — wave 3 COMPLETE (all five in-flight units folded: §10.28
+FF-EZ2-P2, §10.29 N2-P1 FINAL+M3, §10.30 AL-P2, §10.31 74-P1, §10.32 77).
+Iter-5 carriers recorded (NOT residuals): N2-P2 PAUSED-at-close (2/6, name-resolution
+only, the 14/14 core untouched — §10.29 addendum); AL-P2 P2-e rebuild re-charter;
+the 77 filter fix + tainted decl; M3-adjacent P0 hnp erratum DISCHARGED (applied
+`02a5d71`); A2.lean's prose stamp.
 Out-of-scope note: C2-era frozen carries inside Iteration-4 files (M1-in-M2, L2/M1-in-
 L5) are counted in their C2 sweep, not here; 32-M1's 28-lemma print-surface closure
 rides the §7b(ii) full-coverage stage as planned.
@@ -1919,3 +2166,25 @@ elimination cases and are flagged, not silent).
 — census companion lane A1, 2026-11-18, worktree agent-02 (main @ c67d64e + the
 wave-3 tail landings). Updates at the four delta-slot landings; supersedes nothing in
 §10.1–§10.28.
+
+*Changelog tail (batch 21, 2026-11-18, same-day triple): the run-19 §10.29 AMENDMENT
+(20th batch above) followed by §10.30 AL-P2 c/d/e honest stop (P2-c CLOSED at run 13
+— the correction relay's state, pre-fire sha 509f2368, 63/63 direct; P2-d PARTIAL
+GREEN parked at find #5; P2-e → rebuild re-charter; the RECOVERY finding — the
+"114 decls" header claim was intent not state; the runner error-filter process find
+carried to §7d) + §10.31 74-P1 COMPLETION GREEN (run 5/5, sha-guard trail, 7/7
+publics line-verified + 24 privates elim; supersedes §10.21; amended statements per
+FINDS #1/#2 verified; the 9-family signature-class record; dossier-74 amendment
+landed). Census: machine 226/226 over 9 sections, manual 152/152, whole-tree
+378/378 ZERO residuals; delta slot remaining: 77-T1/T2 (A7) only.*
+
+*Changelog tail (batch 22, 2026-11-18 — the FINAL wave-3 fold): §10.32 77
+T1-completion + T2 honest stop (T1 31→7 site-local, zero mathematical failures,
+run-8 tree, run-9 reverted; T2 seven-of-eight triad verified line-by-line at
+`t1t2-run9.log:464–:471` with the one tainted decl = the filter-blind-spot class;
+the physlib WickAlgebra NOVELTY EVENT + the no-TARGETS ruling carried; supersedes
+§10.27's interim census) + the §10.29 PAUSED-AT-CLOSE addendum (N2-P2 at 2/6,
+name-resolution only, the 14/14 core untouched, P2-a block = in-flight-unverified;
+the hnp erratum DISCHARGED as applied at 02a5d71). Census close-time basis: N=32,
+verdicts 26/3/3, machine 226/226 over 9 sections, manual 159/160, whole-tree
+385/386 — the one residual = 77-T2's tainted decl (iter-5). Delta slots: NONE.*

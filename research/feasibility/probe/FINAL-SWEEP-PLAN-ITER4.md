@@ -244,7 +244,9 @@ writing). §7a's rows stand; this block is the delta the sweep executor adds:
 | `pilots/ff-ez2/P1.lean` (`570f3e9`; sha `9d8a7b1981faabce`, 186 LoC) | 0 real tokens (1 prose string :3) | proof artifact — `AxPilotFFEZ2_P1` **fires at sweep: the family is FINAL** (P2 landed GREEN 2026-11-18, §10.28 — the P0→P1→P2 charter fully closed); 7/7 in-file triad surface is the landed evidence (§10.23) |
 | `pilots/ff-ez2/P2.lean` (landed on main 2026-11-18; sha `24926ac4cbbcdd50`, 207 LoC) | 0 real tokens (1 prose string :3) — verified in the 2026-11-18 fold pass (post-dates the morning dry run) | **NEW full-coverage custody stage `AxPilotFFEZ2_P2`** — 9/9 triad full-spelling `p2-run2.log:42–:50` (4 public + 5 private); mathlib-only, zero donor imports (import check DISCHARGED, §10.28) |
 | `pilots/77/T1.lean` (`c536994`; sha `f365c4c52b970d27`, 781 LoC) | 0 real tokens (1 prose string :11) | NO stage — verified-red NOT-GREEN artifact (31 site-local residuals); stage only if/when the re-chartered T1-completion lands GREEN (§10.27) |
-| `pilots/75/N2-P1.lean` FINAL (M1 closure + M2 GREEN 8/8, landed 2026-11-18 via agent-06, §10.29; sha `2e5217010e46ad0d`, 506 LoC; M3 → iter-5) | 0 real tokens (4 prose strings :11/:13/:44/:496 — verified on agent-06 disk; re-verify at H-commit) | **`AxPilot75_N2` at sweep — with H's closure-staging finding (`h-wave3-log.md:604–:608`): `import N2P0` (:94) is the runner's hyphen workaround (byte-identical N2-P0.lean copy staged as module `N2P0`, `run_n2p1.py:5–9`); the rewrite map cannot catch the hyphenless name and N2-P0 has no row (single-row instruction) ⇒ stage the Pa → N2P0 → N2-P1 CLOSURE in the runner's ORDER pattern (`run_n2p1.py:49`) or extend the rewrite map; `import Pa` auto-rewrites once staged (`AxPilot75_Pa` in TARGETS). 8/8 triad file-wide `n2-p1-run15.log:183–:190`** |
+| `pilots/75/N2-P1.lean` FINAL (M1 closure + M2 + M3 — runs 15+19, landed 2026-11-18 via agent-06, §10.29 amended; sha `ca1089e2a0c122c4`, 713 LoC; staging sha = these run-19 bytes) | 0 real tokens (4 prose strings :11/:13/:44/:697 — verified on agent-06 disk; re-verify at H-commit) | **`AxPilot75_N2` at sweep — with H's closure-staging finding (`h-wave3-log.md:604–:608`): `import N2P0` is the runner's hyphen workaround (byte-identical N2-P0.lean copy staged as module `N2P0`, `run_n2p1.py:5–9`); the rewrite map cannot catch the hyphenless name and N2-P0 has no row (single-row instruction) ⇒ stage the Pa → N2P0 → N2-P1 CLOSURE in the runner's ORDER pattern (`run_n2p1.py:49`) or extend the rewrite map; `import Pa` auto-rewrites once staged (`AxPilot75_Pa` in TARGETS). 14/14 triad file-wide `n2-p1-run19.log:183–:198`** |
+| `pilots/al3d/A2.lean` (AL-P2 c/d/e honest stop, §10.30; run-13 verified bytes sha `509f2368…`, disk 993 LoC pending A4's prose stamp) | 0 real tokens (3 prose strings :8/:34/:38) | `AxPilotAL3D_A2` (already in TARGETS) — **sha-at-sweep governs: the file GROWS with the P2-e rebuild re-charter (find #5)**; the §10.30 verified surface = 63 decls all exact triad at run 13 (`alp2-run13-p2c-closureverify.log`, 0 sorryAx; A1 re-verified in-run) |
+| `pilots/74/P1.lean` COMPLETION (§10.31, run 5/5; sha `6ddbda11d5da4f35` = disk, 770 LoC) | 0 real tokens (2 prose strings) | **NEW custody stage `AxPilot74_P1`** — 7/7 publics direct triad in the run-5 block (`p1-completion-runs1-5.log:1585+`); the full-coverage stage prints the 24 privates (§7b(ii) class); the combined log's earlier sorryAx = runs 1–4 intermediates, superseded |
 
 Also recorded here: **stepA-incremental ENTRY 4** (2026-11-18) — wave-3 dry run
 confirms certificate **52 exact** on main (`c67d64e`, 104 files, bucket tally exact),
@@ -254,3 +256,10 @@ al3d/P0's 3 tokens sit at `:106/:144/:149` in the committed bytes at sha
 drift, count unchanged; A8-F2 class). Sweep-time G1 is count-bound; unaffected.
 
 — 7d lane A1, 2026-11-18. Append-only; §0–§6 + §7a–§7c stand.
+
+**§7d standing process note (added 2026-11-18 from §10.30's fold):** the al3d runner
+error filter misses `error(lean.synthInstanceFailed)` / `unknownIdentifier` message
+formats — runs read errors=0 with real errors present; A4's tail-200 diagnostic
+compensates. Sweep-time rule: treat any "OK" verdict whose log shows a
+synthInstanceFailed/unknownIdentifier line as FAIL pending re-read; H flagged it
+INDEX-side too.

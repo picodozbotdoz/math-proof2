@@ -57,3 +57,21 @@
 #   (M1 closure + M2; sha 2e5217010e46ad0d, 506 LoC, §10.29) read on agent-06 disk:
 #   4 `sorry` strings (:11/:13/:44/:496) ALL header/audit prose — 0 real tokens.
 #   Pending H's commit of the A5 batch; re-hash + re-classify at commit if bytes move.
+# --- ENTRY 6 — N2-P1 run-19 FINAL supersession (lane A1, 2026-11-18) ---
+#   Supersedes ENTRY 5's interim: the file grew to the M3 state — sha ca1089e2a0c122c4,
+#   713 LoC; the 4 `sorry` strings (:11/:13/:44/:697) remain header/audit prose —
+#   0 real tokens at the run-19 bytes (verified on agent-06 disk; re-hash at H-commit).
+#   Certificate unchanged: 52 (no new files since ENTRY 4's addendum).
+# --- ENTRY 7 — same-day landing checks, two files (lane A1, 2026-11-18) ---
+#   pilots/al3d/A2.lean (§10.30 state, agent-05 disk): 3 `sorry` strings (:8/:34/:38)
+#     all header prose — 0 real tokens (run-13 verified bytes 509f2368…; the PENDING-note
+#     stamp edit pending by A4 is prose-only — re-hash at H-commit).
+#   pilots/74/P1.lean (§10.31 COMPLETION, agent-09 disk, sha 6ddbda11d5da4f35 = run-5
+#     fired sha): 2 `sorry` strings (:3/:760-class header/audit prose) — 0 real tokens.
+#   Certificate unchanged: 52.
+# --- ENTRY 8 — FINAL wave-3 landing check: pilot-77 (lane A1, 2026-11-18) ---
+#   T1.lean (817 LoC, sha 3e6b50641990af9b) + T2.lean (272 LoC, sha 55107d0c6768fe34):
+#   one prose `sorry` string each (T1 :11 hygiene header; T2 :44 hygiene header) —
+#   0 real tokens. No 77 TARGETS row (74-precedent ruling, §10.32).
+#   Certificate stands at 52 — ALL five wave-3 units + every honest-stop file are
+#   classifier-clean (0 unexplained). Basis for the close-time G1 run.
