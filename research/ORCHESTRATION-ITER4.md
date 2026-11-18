@@ -14,15 +14,23 @@ edits funnel through A1 ONLY (single writer; renumber/merge centralized — A3's
 copy was never committed); `qa/REPORT-INPUTS-ITER4.md` is H-SHEPHERDED (lanes report; H applies
 surgical §-level hand-edits on lane reports, noted in the commit).
 
-| Lane | Role | Current task | Status | Last update |
-|---|---|---|---|---|
-| H | helper/infra (branch, commits, tracker) | committed through 9dc6684 (77-commit session); interrupted batch recovered at wrap | wrap-recovered | 2026-11-17 |
-| A1 | verification integrity (folds, gates) | §10.1–10.24 landed; awaiting final folds (AL-P2, N2-P1, 74-comp, 77-comp) | standby | 2026-11-17 |
-| A2 | bench/close-out | G7 inventory + close drafts done; close-support standby | standby | 2026-11-17 |
-| A3 | FF-EZ2 + articles 71/22 | FF-EZ2-P2 descope-closure chartered (in flight at termination) | in-flight | 2026-11-17 |
-| A4 | AL-3D P2 | find #4 landed; P2-c completion (path a) -> d/e re-chartered (in flight) | in-flight | 2026-11-17 |
-| A5 | 75-N2 consumer | c-trick GREEN-triad; P1 closure + M2/M3 chartered (in flight) | in-flight | 2026-11-17 |
-| A6 | 10-D tranche | D1/D2/D3 ALL GREEN; D4 -> iter-5; close-support standby | done | 2026-11-17 |
-| A7 | 78 + 77 + prior-art | 78 article landed; dossier-77 fold + T1-completion + T2 chartered (in flight) | in-flight | 2026-11-17 |
-| A8 | 74 + validation | 74-P1 honest stop (4 FINDS); completion re-chartered verify-fire (in flight) | in-flight | 2026-11-17 |
-| A9 | articles editorial | corpus 14/14 + G5 dry-run PASS + splice checklist done; close-support standby | standby | 2026-11-17 |
+**PHASE-B WAVE 3 opened 2026-11-18** (post-restart after the second network-failure
+termination; session-end snapshot #2 `2f90dcc`; lane worktrees all detached @ `53c1548` —
+pull from them, never restart). Lane map re-cut by the orchestrator: the five in-flight
+units RESUMED from their worktrees (A3/agent-04, A4/agent-05, A5/agent-06, A7/agent-08,
+A8/agent-09); new duties for A1/A2/A6/A9. Close act armed on orchestrator signal after
+the five units land (A2's runbook + A9's splice checklist 7 mandatory items + final gates
+G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator fires).
+
+| Lane | Worktree | Role | Current task | Status | Last update |
+|---|---|---|---|---|---|
+| H | (main) | helper/infra (branch, commits, tracker) | wave-3 open stamp; substrate notary re-verify; standing commit duty | active | 2026-11-18 |
+| A1 | agent-02 | verification integrity | pre-close folds (§10 rows for the five in-flight units as they land) | re-tasked | 2026-11-18 |
+| A2 | agent-03 | bench/close-out | close-act dry-run runbook + G7 token inventory re-check | re-tasked | 2026-11-18 |
+| A3 | agent-04 | FF-EZ2 + articles 71/22 | FF-EZ2-P2 descope-closure (guarded squarefree-iff + optional proportion, ≤3 runs) | in-flight (resumed) | 2026-11-18 |
+| A4 | agent-05 | AL-3D P2 | AL-P2-c completion (path a: Fin.cast+Subtype plumbing) → P2-d → P2-e (fresh ≤4) | in-flight (resumed) | 2026-11-18 |
+| A5 | agent-06 | 75-N2 consumer | N2-P1 packaging closure (v8 on disk, one closure run) → M2 → M3 | in-flight (resumed) | 2026-11-18 |
+| A6 | agent-07 | iteration-5 prep | iteration-5 charter candidate prep | re-tasked | 2026-11-18 |
+| A7 | agent-08 | 78 + 77 + prior-art | dossier-77 fold + T1-completion (≤4) + T2 (≤4) as ONE unit | in-flight (resumed) | 2026-11-18 |
+| A8 | agent-09 | 74 + validation | 74-P1 completion (verify-fire discipline: pre-run sha guard, NO local lean, ≤5) | in-flight (resumed) | 2026-11-18 |
+| A9 | agent-10 | articles editorial | close-support (splice checklist, README PENDING-CLOSEs) | re-tasked | 2026-11-18 |

@@ -345,3 +345,21 @@ recreate, never delete).
 5. Standing constraints unchanged: Modal via doz CLI primary/xyz fallback (2cpu/4GB,
    telemetry, taskset not -j), siblings read-only, no local lean builds, one-writer-per-
    file, H-style commits with the hardened gate, worktrees persist — pull, never restart.
+
+## Wave-3 open (2026-11-18, H — post-restart stamp)
+
+Session restarted 2026-11-18 after the second network-failure termination (the SESSION END
+block above is frozen history). Lane map re-cut by the orchestrator — canonical table:
+`research/ORCHESTRATION-ITER4.md` (wave-3 header); the §(c) wave-2 rows above are
+superseded by it for wave 3. Five in-flight units RESUMED from their worktrees
+(pull, never restart): A3→agent-04 (FF-EZ2-P2 descope-closure), A4→agent-05 (AL-P2-c
+path a → P2-d → P2-e), A5→agent-06 (N2-P1 packaging closure → M2 → M3), A7→agent-08
+(dossier-77 fold + T1-completion + T2 as one unit), A8→agent-09 (74-P1 completion,
+verify-fire discipline). New duties: A1→agent-02 (verification integrity / pre-close
+folds), A2→agent-03 (close-act dry-run runbook + G7 token inventory re-check),
+A6→agent-07 (iteration-5 charter candidate prep), A9→agent-10 (articles editorial
+close-support). Standing rules unchanged: hardened pre-commit gate (brief §(b)5), file
+funnels, Modal route chain (doz primary for warm-layer apps, xyz new/fallback),
+one-writer-per-file, H commits only. H's wave-3 lane log:
+`research/qa/iter4-review/h-wave3-log.md`. Close act (task 4) armed on orchestrator
+signal after the five units land.
