@@ -373,3 +373,26 @@ routing.
 - Classifier state per ENTRY 4: **52 exact** (the re-baselined certificate holds; P2
   addendum appends FF-EZ2-P2's declared sorry-token count = 0 new tokens, run
   sorry-strict).
+
+## 2026-11-18 — LANDING part 2: REPORT-INPUTS-ITER4 shepherd (A1 delta items 1–8, H hand-apply)
+
+- Item 1: §1 rows 22-T2a + G9 → **FINAL-GREEN** (G9 runs 36/37 §10.24; 22-T2a P0 run 1
+  no-retry §10.25; T1/T2/T3 unfired, PNT+ stays DEFER).
+- Item 2: 10-tranche row → D1/D2/D3 ALL FINAL-GREEN (D2 FINAL §10.26 superseding
+  §10.20 PARTIAL; D3 §10.26); D4 UNCHARTERED → iteration-5 M-arc; AxPilot10_L5
+  single-row Step-B anchor (orchestrator ruling 2026-11-18) recorded in-row.
+- Item 3: 75-N2/N3 row → M1-CHECKPOINT state (§10.22 honest checkpoint; c-trick core
+  GREEN-triad; closure owed; M2/M3 chartered, A5 in flight).
+- Item 4: AL-3D-2 row → find #4 landed + P2-c parked (114 decls GREEN, colEquivVar_left
+  transport; A2-gaps.md; §10.6; path a re-chartered).
+- Item 5: NEW §1 row 74-P1 (P0 GREEN §10.15 + P1 NOT-GREEN honest 4 FINDS §10.21 +
+  verify-fire completion re-chartered, A8 in flight).
+- Item 6: NEW rows 77 (T1 NOT-GREEN honest, corrections stand, T1+T2 one unit),
+  FF-EZ2 (CHARTER FULLY CLOSED: P0+P1+P2 GREEN), FF-EZ4-P0 (GREEN, probe-convention),
+  78-Stage-A (GREEN, NEGATIVE-kind, quota not consumed).
+- Item 7: 73-Q4 evidence cell stale cite "§10.18-to-come" → "§10.18 (folded +
+  re-verified)".
+- Item 8: §2 debts row — g CLOSED stands (Fuhrmann + Tafazolian–Torres pin); appended
+  the runner-fixes-wave2.patch ADJUDICATED-NO-APPLICATION note (2026-11-18 H verdict).
+- Item 9 (close-time) SKIPPED per instruction. Tracker A1 row refreshed (active/folds).
+  All edits dated + attributed in-row per the funnel convention.
