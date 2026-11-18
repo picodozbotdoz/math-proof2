@@ -420,6 +420,103 @@ border-determinantal ↔ border-rank unification, honest grade C
 
 ---
 
+## 5a. §NS-1 lit sweep (executed 2026-11-18, wave-3 re-task; supersedes §5's NS-1 entry)
+
+The mandatory lit-sweep gate for NS-1 ran this wave. **Verdict: COVERED — NS-1 is KILLED
+as a discovery-grade lead** (the model is donor-owned in-corpus with its own
+formalization, and the "zero-counting bridge" was a name-collision artifact). Full
+evidence below. What survives is a *donor-registration note* (§5a.4), not a candidate.
+
+### 5a.1 The "unfound source paper" is FOUND — it is in our own corpus
+
+- `openai-math/preprints/` holds a **nine-preprint honeycomb-SAW cluster, all dated
+  September 26, 2026**, including the four companions of the comparator:
+  `Critical-strip-crossing-mass-on-the-honeycomb-lattice-September-26-2026/main.pdf`
+  (the CriticalStripMass source),
+  `Polynomial-vacuum-representations-and-bridge-mass-for-honeycomb-walks-…`,
+  `Renewal-and-changes-of-law-for-critical-honeycomb-walks-…`,
+  `Critical-honeycomb-chords-with-prescribed-boundary-endpoints-…` (plus five more:
+  Cap-selected-amplitudes, Cylinder-amplitudes, Mass-and-covering-exponents,
+  Radial-transfer-estimates, Signed-cylinder-propagation).
+- The corpus's own scope doc: `openai-math/lean/docs/237.md` — "The three-quarter
+  exponent for honeycomb self-avoiding walk" — maps the comparator family
+  (`ComparatorChallenges/{CriticalStripMass,HoneycombBridgeFiniteness,
+  HoneycombFreeEnergy,HoneycombBridgeMassSupport}.lean`) to the papers and states what
+  the linked formalization proves: strip sums finite, the **exact arch–bridge balance
+  identity**, moment-increment comparison, bridge-mass monotonicity, crossing mass
+  ≍ N^{−1/4}, displacement moment ≍ N^{3/4} — i.e. **every component of the
+  comparator's `CriticalStripMass` prop**.
+- There is also a **large PROVED tree** (comparator carries the only `sorry`):
+  `openai-math/lean/OAI/Combinatorics/Honeycomb/` (FiniteCylinder, PolygonMoment),
+  `…/HoneycombCorridor/` (~44 modules incl. BridgeFiniteness, StripDecay),
+  `…/HoneycombBridges/`, `…/HoneycombChords/` (~100 modules), `OAI/Probability/
+  Honeycomb/` — same in-corpus donor class as SiegelZeros/PiExponent (v4.34.1 pin,
+  statement-binder-only per the G11/G12 registration pattern).
+
+### 5a.2 "Critical strip" is a geometry term, not the ζ critical strip
+
+Read at source (`/tmp` extraction of the four companion PDFs, 2026-11-18): the model is
+self-avoiding paths on the honeycomb lattice at the critical weight
+ρ = cos(3π/8) = 1/√(2+√2) (the inverse Duminil-Copin–Smirnov connective constant,
+Ann. Math. 175 (2012) 1653–1665), crossing a strip of N triangular bands; "arches"
+return to the bottom boundary, "bridges" reach the top. **Zero number-theory content**:
+`grep -ci 'zeta|Riemann|L-function|Dirichlet'` = 0 for the strip-crossing, vacuum and
+renewal papers; the chords paper's single "Riemann" hit (:1189) is "Riemann equation
+locally in frequency" — a differential-equation phrase in its Laplace/resolvent
+analysis, not ζ. R6's bridge framing ("bridge potential vs ZZV2 zero-counting /
+tauceti orbit zeta", `iter4-fresh-bridges.md:76–77`) was an artifact of the comparator's
+name plus the then-unfound source; it does not survive contact with the papers.
+
+### 5a.3 External prior art on the bridge idea: NONE (and none possible without a mechanism)
+
+- Searched (2026-11-18): "self-avoiding walk lattice model Riemann zeta zeros critical
+  strip connection analogy"; "strip-crossing mass / bridge mass honeycomb −1/4 moment
+  3/4". **No work connects SAW strip-crossing mass (or arch/bridge decompositions) to
+  L-function zero-counting.** The only "physics analogy for ζ zeros" literature is a
+  different model class: França–LeClair-style electrostatic analogies
+  (arXiv:1407.4358, "A theory for the zeros of Riemann ζ and other L", 2014) and
+  Bétermin's off-critical zeros of lattice energies (arXiv:2307.06002, 2023) — nearest
+  misses by theme only, no SAW content, no citation obligation beyond this note.
+- The model's own theorem family has a genuine informal lineage (the paper's related
+  work, PDF pp.2–3): Duminil-Copin–Smirnov 2012 (critical point; strip bounds 1/N and
+  1 leaving the power open); **Beaton–Bousquet-Mélou–de Gier–Duminil-Copin–Guttmann,
+  surface adsorption, Theorem 10 (the N^{−1/4} crossing-mass decay)**; Glazman–
+  Manolescu (shorter proof, logarithmic-bound variant, rhombic-deformation
+  invariance); Krachun–Panagiotis (polynomial upper bound B_N ≤ 100·N^{−10} +
+  quantitative subballisticity). The OAI papers' increment: uniform multiplicative
+  constants + the 3/4 moment law. External coverage of the cluster exists (public
+  reporting on "the hidden 3/4 law", 2026-11) — the cluster is *known recent math*.
+- **No dictionary candidate statement exists to prove or refute.** The 78-precedent
+  (refutation-as-discovery) does not apply: 78 refuted a stated substitution rule; here
+  there is no bridge conjecture in any corpus or paper — only a name collision. Under
+  the raised discovery bar (R2 S1: statement-level novelty with a named nearest-miss),
+  NS-1 cannot charter.
+
+### 5a.4 What survives (replacement posture)
+
+1. **Donor-registration note (G-series candidate, SHELVED):** the Sept-2026 honeycomb
+   SAW cluster (9 preprints + the ~150-module proved tree) is unregistered in our donor
+   maps — a new G11/G12-pattern registration target (statement-binder class, v4.34.1,
+   on-pin triad check before any consumption). No consumer exists today; same posture
+   as G10: SHELF, fire-gated on a chartered consumer. Candidate future consumers (all
+   speculative, none chartered): a hypothetical SAW↔explicit-formula interface, or the
+   renewal/cylinder-amplitude machinery if the FB-2 explicit-L ever needs Tauberian
+   side-inputs — noted, NOT a recommendation.
+2. **§5 ranking correction (dated):** the NS-1 entry in §5 above is superseded by this
+   sweep — remove NS-1 from the iter-5 discovery-candidate list; the novelty-scan
+   survivors are NS-2 (PSD-rank ladder, engineering-plus) and NS-3 (physlib↔AL first
+   contact, sequenced behind S13).
+3. **Stale-note flag (report-only; the file is R6's):**
+   `novelty/iter4-fresh-bridges.md:74–78` ("the model's link to actual L-functions
+   exists only in the (unfound) source paper") is now FALSE twice over — the source is
+   found and it has no L-function link. The owning lane/orchestrator should stamp the
+   correction; this appendix is the evidence record.
+
+— sweep executed 2026-11-18 (lane A6): corpus reads (preprint PDFs, doc 237, comparator
++ proved tree listing) + two external web searches; no Modal runs.
+
+---
+
 ## 6. Open questions for the orchestrator (§d)
 
 - **Q1 — in-flight resolution timing.** The five wave-3 units (A3 FF-EZ2-P2, A4
@@ -442,7 +539,8 @@ border-determinantal ↔ border-rank unification, honest grade C
 - **Q5 — round-5 novelty battery.** Does `novelty/round-5*` run before the iter-4
   close (it would let the 3 NOVELTY-CHECK retargets close in-cycle per
   `a2-g7-token-inventory.md` §2 note (i)) or as iteration 5's first act? It is also
-  the natural carrier for Q3's battery and the NS-1 citation hunt.
+  the natural carrier for Q3's battery. (The NS-1 citation hunt it would have carried
+  was executed 2026-11-18 — §5a below: NS-1 KILLED, verdict COVERED.)
 - **Q6 — 41's (H) phase.** Does the octonion–TL host-theorem phase (tauceti direct
   dependency build, +1–3k LoC — the NEW-graded differentiator) get its own iter-5
   slot/milestone budget, or stay the wave-tail conditional per the preflight's
@@ -457,7 +555,8 @@ border-determinantal ↔ border-rank unification, honest grade C
 
 | file | action |
 |---|---|
-| `research/qa/iter4-review/a6-iter5-charter-candidate.md` | **NEW — this deliverable** (the iteration-5 charter candidate: §1 ranked leads, §2 debt rungs, §3 skeleton, §4 bench audit, §5 novelty scan, §6 questions) |
+| `research/qa/iter4-review/a6-iter5-charter-candidate.md` | **NEW — this deliverable** (the iteration-5 charter candidate: §1 ranked leads, §2 debt rungs, §3 skeleton, §4 bench audit, §5 novelty scan, **§5a NS-1 lit sweep — appended 2026-11-18 re-task: verdict COVERED, NS-1 killed, donor-registration note instead**, §6 questions) |
+| `research/qa/iter4-review/a6-41-p0-precharter.md` | **NEW (wave-3 re-task)** — pilot-41 P0 pre-charter spec: copy-paste-ready statement set + donor/binder inventory + runner plan + gates |
 
 No other file was touched. The bench files were NOT edited (ownership check in §4:
 no unowned bench file — REPORT-INPUTS-ITER4 is H-shepherded, r5-backlog is a closed

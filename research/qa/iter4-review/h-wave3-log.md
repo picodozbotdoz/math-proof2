@@ -431,3 +431,17 @@ routing.
   lane): §10.26's D2-FINAL row cites d2-run4.log (authoritative, unchanged); the
   restored artifact matches that log; no §10 edit needed unless A1 chooses a
   one-line note. Tracker A1 relayed via this log entry.
+
+## 2026-11-18 — LANDING: A6 41-P0 precharter + NS-1 lit-sweep verdict (H batch)
+
+- Pulled from worktree agent-07 as ONE exact-file batch (2 files): NEW
+  `qa/iter4-review/a6-41-p0-precharter.md` (302 LoC — pilot-41 P0 spec:
+  statement set, donor/binder inventory incl. the EnclOK binder for (H), runner
+  plan, budget, gates, descope ladder; **2 dossier-41 G_q display errata found**
+  at-source) + MODIFIED `a6-iter5-charter-candidate.md` (§5a NS-1 lit-sweep:
+  **verdict COVERED — the lead is KILLED as discovery-grade** — the model is
+  donor-owned in-corpus (openai-math nine-preprint honeycomb cluster + the PROVED
+  `OAI/Combinatorics/Honeycomb*` trees + docs/237.md mapping); the "zero-counting
+  bridge" was a name-collision artifact; survives as a donor-registration note;
+  + consistency edits). FF-verified (A6's own append on its landed file).
+  INDEX row staged same-commit; tracker A6 row refreshed (delivered).
