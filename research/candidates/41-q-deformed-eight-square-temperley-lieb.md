@@ -80,6 +80,32 @@ Proof sketch step 1] hold: (P1) `Q1 ≡ Q2 (mod 2)` where `Q2 := phiQ p q′ + p
 (P2) the τ-difference is odd. Under (P1)+(P2), identity (M) is an algebraic identity in ℤ[q±]
 (no number theory); its q = 1 fiber recovers `Eight.signs` by (B) and `1 − q = 0`.
 
+**[ERRATUM 2026-11-18, lane A6 — two display mis-prints in the G_q block above; the
+corrected form is the one the dossier's own Proof sketch step 2 algebra computes, and the
+one the pilot consumes. Surrounding prose untouched.]**
+
+1. The geometric-sum **summand is `q^j` (positive), not `(−q)^j`** as the display's last
+   factor mis-prints. Sketch step 2: `F_q = (−1)^{Q1}(−q)^{τmin}·(1 + (−q)^{2k+1})`, and
+   since `2k+1` is odd, `1 + (−q)^{2k+1} = 1 − q^{2k+1} = (1−q)·Σ_{j≤2k} q^j` — the
+   alternating sum does not factor `(1−q)`; the positive one does. (Note the display was
+   ALSO right by accident in one degenerate reading: if the summand were `(−q)^j`, the
+   factorization would give `(1+q)`, not `(1−q)`.)
+2. The **gap identity is `2k+1 = |τ₁ − τ₂| = gapOdd − 2·τmin`**, where
+   `gapOdd := (τ p q + τ p′ q′) + (τ p q′ + τ p′ q)` — NOT `gapOdd − 1` (i.e. `k` is not
+   `(τ₁+τ₂)/2`); the two agree only when `τmin = 0`. Since `τ₁ + τ₂ = 2·τmin + |τ₁−τ₂|`,
+   the sketch's `τmin`-factoring requires the `− 2·τmin` form.
+
+Corrected display (authoritative for the pilot; per the P0 pre-charter
+`qa/iter4-review/a6-41-p0-precharter.md` §1.3 `Gq` def, where it is pinned in
+`Polynomial ℤ` — all exponents nonneg, no Laurent needed):
+
+```
+G_q p q p' q' := (−1)^(Q1) · (−q)^(τmin) · Σ_{j=0}^{2k} q^j,   2k+1 = gapOdd − 2·τmin,
+  gapOdd := (τ p q + τ p′ q′) + (τ p q′ + τ p′ q)   [= |τ₁−τ₂| + 2·τmin]
+```
+
+— end erratum.
+
 **Nondegeneracy (N) [HYPOTHESIS, spot-checkable].** There exists a parallelogram quadruple with
 `G_q ≠ 0` in ℤ[q±] (equivalently: the alternation fails for a specific q ≠ 1, e.g. q = 2).
 Then: *the Graves alternation holds for all quadruples at parameter q iff q = 1* — the

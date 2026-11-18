@@ -467,3 +467,16 @@ routing.
   KILLED, 41-P0, η-port, pin-probe in flight); (e) restart rule (pull never restart;
   read order; comparators; funnels; routes; close-act trigger). Tracker cells
   already current from the riding refreshes — brief-only commit.
+
+## 2026-11-18 — LANDING: A6 iter-5 charter typeset-draft v1 (H batch)
+
+- Pulled from worktree agent-07 as ONE exact-file batch (2 files): NEW
+  `qa/iter4-review/a6-iter5-charter-draft.md` (219 LoC, typeset-draft v1 against
+  main @ `a117762`; **7 [DECISION-n] slots marked, never pre-decided** — register
+  §6: DECISION-0 close-act coupling [A5/A7 outcomes], -1 quota, -2 η-port billing
+  A/B/C, -3 watchlist reading, -4 (H) slot budget, + the remaining per §6) +
+  MODIFIED `candidates/41-q-deformed-eight-square-temperley-lieb.md` (**+26-line
+  dated ERRATUM block ONLY** — FF-verified: main's last touch `0e0ae4d` = the
+  R1-era landing; delta = pure append, 0 main-only lines; 2 G_q display
+  mis-prints, corrected form pinned in `Polynomial ℤ` per the P0 pre-charter §1.3).
+  INDEX row staged same-commit; tracker A6 row refreshed (iter-5 prep COMPLETE).
