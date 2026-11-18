@@ -10,24 +10,53 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   instantiated at `groupStrength h R J := 2 ^ (h * (2*R+1)^2) * max J 1` (P0.lean, new
   def + header note; frozen layer untouched). Range R preserved by P1-a contraction.
 - P2-b (DONE, m1 GREEN): `colSigmaEquiv` + `regReindexEquiv` + `colCard_le_h`.
-- P2-c (THIS MILESTONE — PARKED at ONE lemma, 2026-11-17, `logs/alp2c-run23-parked.log` +
-  `A2-gaps.md` §4): the projected interaction `Ψ := projInteraction` (grouping
-  Φ-terms by exact projection via `projFib`; support clause via the P1-a diameter
-  contraction `image_projF_mem_supportsG`; strength via the fibre bound
-  `card_projFib_le` + the planar packing `card_le_of_mem_supportsG` at any
-  `G ≤ planarLattice`) and `IsAdmissibleVar` at `(R, groupStrength h R J)`. Carries
-  four mathlib-only support layers (glue/extendId calculus; L2-operator-norm
-  relabelling/padding; spectral entropy relabelling; planar support packing — see
-  `A2-gaps.md`). STATE AT PARK: 114 decls triad-clean incl. all four support layers and
-  every projInteraction clause's PROOF; the single failing decl is `colEquivVar_left`'s
-  per-index composite transport (a `Fintype.equivFin`-choice transport along
-  `proj site = u` — TRUE; every direct rw/simp fails on dependent motives), whose
-  error-recovery cascades 4 downstream audit-marks. `colEquivVar_right` is GREEN.
-  Resolution paths pre-written in `A2-gaps.md` §4(a)/(b).
-- P2-d (next): eigenvector/gap transport through the reindexing (Loewner/norm
-  transport — the donor's relabelling step): `colEquivVar` commutes with `glue`, the
-  extend-relabel swap, `hamiltonianVar Λ' (colCard·) Ψ = H.submatrix e e`, eigenvector
-  and `HasGlobalGap` under submatrix-conjugation.
+- P2-c (CLOSED MODULO ONE LINE, 2026-11-18, runs 9–12 — all mathematical content GREEN-triad;
+  see the PENDING-NOTE at this bullet's end): the
+  projected interaction `Ψ := projInteraction` (grouping Φ-terms by exact projection via
+  `projFib`; support clause via the P1-a diameter contraction `image_projF_mem_supportsG`;
+  strength via the fibre bound `card_projFib_le` + the planar packing
+  `card_le_of_mem_supportsG` at any `G ≤ planarLattice`) and `IsAdmissibleVar` at
+  `(R, groupStrength h R J)`. Four mathlib-only support layers (glue/extendId calculus;
+  L2-operator-norm relabelling/padding; spectral entropy relabelling; planar support
+  packing — `A2-gaps.md`). PARK RESOLUTION (`A2-gaps.md` §4 — neither pre-written path
+  a/b but a third, EQUIV-COMPOSITION): `colEquivVar` is defined as
+  `heightCasts ∘ (regEquivOfEq (projF_fibre)).symm ∘ (regReindexEquiv (fibre Λ X')).symm`
+  — every component is an Equiv by construction, so BOTH roundtrips are inherited and the
+  per-index choice transport (`Fintype.equivFin` along `proj site = u`) never has to be
+  proved; the pointwise-action defs `colEquivVarToFun/InvFun` are kept as documentation
+  of the donor's entrywise action only (NOT the composite's underlying functions). The
+  `Eq.rec`-motive motif of run 23's park is gone from the proof obligations entirely.
+  PENDING-NOTE (unverified on-disk fix, next session's FIRST action = one run): runs 10/12
+  reported `errors=0` through a RUNNER-FILTER BLIND SPOT (`error(lean.synthInstanceFailed)`
+  lines do not match the `": error:"` filter — recorded in A2-gaps §6); the real residual
+  was `l2_opNorm_extendId_le`'s statement failing to synthesize `Norm (Matrix (Reg loc T)
+  (Reg loc T) 𝕜)` — the previous session's post-park rewrite dropped `[∀ i, Fintype (loc i)]`
+  from the section variables (that decl was NEVER green: absent from runs 7/23/9–12 audits),
+  cascading `sorryAx` into `projInteraction_norm_le`/`isAdmissible_projInteraction` via
+  `unknown identifier`. The one-line fix (the `[∀ i, Fintype (loc i)]` binder, restored
+  above at the L2OpNorm section's `variable` line) is APPLIED on disk but UNVERIFIED —
+  the 4-run unit budget was spent identifying it (run 12's tail-200 diagnostics).
+- P2-d (PARTIAL, PARKED 2026-11-18 with a PRECISE BLOCKER — statement-level find #5): the
+  generic submatrix-conjugation transports (eigenvector `mulVec_eq_smul_submatrix`, gap
+  `hasGlobalGap_submatrix`, unit norm `star_dotProduct_comp`, projector `vecMulVec_submatrix`)
+  and the entrywise/plumbing layer (`regReindexEquiv_apply` — the `toFun` side is
+  rfl-transparent; `regReindexEquiv_comp_colEquivVar` — the roundtrip collapse;
+  `fibre_subset`, `sdiff_fibre_eq`) are GREEN-triad (runs 10–12). THE EXTEND-RELABEL SWAP
+  AND THE `hamiltonianVar Λ' (colCard·) Ψ = H.submatrix e e` IDENTIFICATION ARE NOT
+  PROVABLE AS SCOPED with the current regrouping: their workhorse (the restriction-compat
+  lemma `colEquivVar (restr hX' (e x)) = restr hbig x`) reduces per-site to comparing
+  `colRegEquiv`-encodings of the SAME column enumerated through DIFFERENT classical
+  `Fintype.equivFin` instances (`col Λ u` vs `col (fibre Λ X') u` — propositionally equal
+  Finsets, `col_fibre_eq`, but not definitionally equal terms, hence distinct instance
+  arguments and unrelated classical enumeration values) — every rewriting route dies on
+  dependent motives (the same family as the P2-c park, now at the Λ-vs-fibre level), and
+  mathlib provides no `equivFin`-congruence lemma to discharge the residual. THE DONOR'S
+  OWN ROUTE is
+  the choice-free CANONICAL column enumeration (A2-gaps §4(b): z-rank via A1's
+  `col_inj_on_z`/`col_heights`, the donor's `⟨x.2.2⟩` height index) — under canonical
+  enumerations the two columns' encodings agree BY CONSTRUCTION and the swap goes through.
+  That requires rebuilding P2-b's `colRegEquiv`/`regReindexEquiv` (and re-verifying P2-b/c
+  against them) — sized and chartered as the NEXT unit (find #5 recorded in A2-gaps §5).
 - P2-e: the entropy identification for column-closed cuts (whole columns = single
   sites) + the final assembly of `SlabAreaLawColumnCuts3D` via P1-b's boundary lift.
 
@@ -360,8 +389,8 @@ theorem l2_opNorm_kronecker_one_le [DecidableEq p] (A : Matrix m n 𝕜) :
   simpa [kronecker_one_mulVec_apply] using
     Matrix.l2_opNorm_mulVec A ((EuclideanSpace.equiv n 𝕜).symm fun j => x.ofLp (j, b))
 
-variable {σ : Type*} [DecidableEq σ] {loc : σ → Type*} [∀ i, DecidableEq (loc i)]
-  {S T : Finset σ}
+variable {σ : Type*} [DecidableEq σ] {loc : σ → Type*} [∀ i, Fintype (loc i)]
+  [∀ i, DecidableEq (loc i)] {S T : Finset σ}
 
 /-- `extendId` is the Kronecker product with the identity, transported along `glueEquiv`
 (pattern: vendored `Region/PartialTrace.lean:230`). -/
@@ -626,43 +655,56 @@ noncomputable def colEquivVarInvFun (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) 
     finFunctionFinEquiv (m := q) (n := colCard Λ (u : ℤ × ℤ))
       fun i => g (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
 
-theorem colEquivVar_left (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ))
-    (f : ∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) :
-    colEquivVarInvFun Λ q X' (colEquivVarToFun Λ q X' f) = f := by
-  funext u
-  have hval : ∀ i : Fin (colCard Λ (u : ℤ × ℤ)),
-      colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
-        = (finFunctionFinEquiv (m := q)).symm (f u) i := by
-    intro i
-    have hcol : proj (((colToFin Λ (u : ℤ × ℤ)).symm i : ℤ × ℤ × ℤ)) = (u : ℤ × ℤ) :=
-      (Finset.mem_filter.1 ((colToFin Λ (u : ℤ × ℤ)).symm i).2).2
-    show colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)
-        = (finFunctionFinEquiv (m := q)).symm (f u) i
-    simp [colEquivVarToFun, colIdxOf, colSiteOf, hcol]
-  show (finFunctionFinEquiv (m := q) (n := colCard Λ (u : ℤ × ℤ)))
-      (fun i => colEquivVarToFun Λ q X' f (colSiteOf Λ (u : ℤ × ℤ) u.2 i)) = f u
-  rw [funext hval]
-  exact Equiv.apply_symm_apply _ _
+theorem projF_fibre (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} (hX' : X' ⊆ projF Λ) :
+    projF (fibre Λ X') = X' := by
+  ext u
+  simp only [projF, Finset.mem_image, fibre, Finset.mem_filter]
+  constructor
+  · rintro ⟨y, ⟨-, hy⟩, rfl⟩
+    exact hy
+  · intro hu
+    obtain ⟨y, hyΛ, rfl⟩ := mem_projF (hX' hu)
+    exact ⟨y, ⟨hyΛ, hu⟩, rfl⟩
 
-theorem colEquivVar_right (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ))
-    (g : ∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) :
-    colEquivVarToFun Λ q X' (colEquivVarInvFun Λ q X' g) = g := by
-  funext x
-  show (finFunctionFinEquiv (m := q) (n := colCard Λ (proj (x : ℤ × ℤ × ℤ)))).symm
-      (finFunctionFinEquiv (m := q) (n := colCard Λ (proj (x : ℤ × ℤ × ℤ)))
-        (fun i => g (colSiteOf Λ (proj (x : ℤ × ℤ × ℤ))
-          (Finset.mem_filter.1 x.2).2 i)))
-      (colIdxOf Λ x) = g x
-  rw [Equiv.symm_apply_apply]
-  simp only [colSiteOf, colIdxOf, Equiv.symm_apply_apply]
+/-- The fibre's columns are `Λ`'s columns (`u ∈ X'` suffices; no `X' ⊆ projF Λ` needed). -/
+theorem col_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} {u : ℤ × ℤ}
+    (hu : u ∈ X') : col (fibre Λ X') u = col Λ u := by
+  ext y
+  simp only [col, fibre, Finset.mem_filter]
+  constructor
+  · rintro ⟨⟨hyΛ, -⟩, hyu⟩
+    exact ⟨hyΛ, hyu⟩
+  · rintro ⟨hyΛ, hyu⟩
+    exact ⟨⟨hyΛ, by rw [hyu]; exact hu⟩, hyu⟩
 
-noncomputable def colEquivVar (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ)) :
+theorem colCard_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} {u : ℤ × ℤ}
+    (hu : u ∈ X') : colCard (fibre Λ X') u = colCard Λ u := by
+  rw [colCard_eq_card, colCard_eq_card]
+  exact congrArg Finset.card (col_fibre_eq Λ hu)
+
+/-- Height-cast along a column-cardinality equality (roundtrips free: `Equiv.cast`). -/
+noncomputable def heightCastEquiv (q : ℕ) {a b : ℕ} (h : a = b) : Fin (q ^ a) ≃ Fin (q ^ b) :=
+  Equiv.cast (congrArg (fun n => Fin (q ^ n)) h)
+
+/-- **The per-region regrouping equivalence** (the donor's `colEquiv`, `Cylinder3D.lean:78`,
+at variable heights), built as an EQUIV-COMPOSITION — P2-b's `regReindexEquiv` instantiated
+at the fibre region, transported along `projF_fibre` (index, via `regEquivOfEq` whose
+`restr`-based action is proof-irrelevant-transparent) and `colCard_fibre_eq` (heights,
+via `heightCastEquiv`) — so both roundtrips are INHERITED from the components and no
+per-index choice transport is ever owed (run 23's park, `A2-gaps.md` §4, resolved
+2026-11-18: the earlier draft's `Equiv.piCongrLeft'` misapplied `regEquivOfEq` at base
+level; the `.symm` of this composite is what P2-d's relabelling consumes). The
+pointwise-action functions `colEquivVarToFun`/`colEquivVarInvFun` above document the
+donor's entrywise action and are NOT this composite's underlying functions. -/
+noncomputable def colEquivVar (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) (X' : Finset (ℤ × ℤ))
+    (hX' : X' ⊆ projF Λ) :
     (∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) ≃
-      (∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) where
-  toFun := colEquivVarToFun Λ q X'
-  invFun := colEquivVarInvFun Λ q X'
-  left_inv := colEquivVar_left Λ q X'
-  right_inv := colEquivVar_right Λ q X'
+      (∀ x : ↥((fibre Λ X' : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) :=
+  ((Equiv.piCongrRight fun u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)) =>
+        heightCastEquiv q (colCard_fibre_eq Λ u.2).symm).trans
+      (regEquivOfEq (loc := fun u : ℤ × ℤ => Fin (q ^ colCard (fibre Λ X') u))
+          (projF_fibre Λ hX')).symm).trans
+    (regReindexEquiv (Λ := fibre Λ X') q).symm
 
 /-- The projected (grouped) interaction: on the planar support `X'`, the `Φ`-terms with
 column set `X'`, extended to the fibre region and relabelled to variable-height planar
@@ -672,17 +714,20 @@ noncomputable def projInteraction (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) {�
       Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
     (X' : Finset (ℤ × ℤ)) :
     Matrix (Reg (fun u => Fin (q ^ colCard Λ u)) X') (Reg (fun u => Fin (q ^ colCard Λ u)) X') 𝕜 :=
-  (∑ X ∈ projFib Λ X',
-      if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0).submatrix
-    (colEquivVar Λ q X') (colEquivVar Λ q X')
+  if hX' : X' ⊆ projF Λ then
+    (∑ X ∈ projFib Λ X',
+        if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0).submatrix
+      (colEquivVar Λ q X' hX') (colEquivVar Λ q X' hX')
+  else 0
 
 /-- The projected interaction is Hermitian. -/
 theorem projInteraction_isHermitian {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
     {J : ℝ} {R : ℕ}
     (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
       Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
-    (hΦ : IsAdmissible3D Λ R J Φ) (X' : Finset (ℤ × ℤ)) :
+    (hΦ : IsAdmissible3D Λ R J Φ) {X' : Finset (ℤ × ℤ)} (hX' : X' ⊆ projF Λ) :
     (projInteraction Λ q Φ X').IsHermitian := by
+  rw [projInteraction, dif_pos hX']
   have hsum : (∑ X ∈ projFib Λ X',
       if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0).IsHermitian :=
     (isSelfAdjoint_sum _ fun X hX => by
@@ -691,7 +736,6 @@ theorem projInteraction_isHermitian {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) 
         exact (isHermitian_extendId _ (hΦ X (mem_projFib.1 hX).1).1).isSelfAdjoint
       · rw [dif_neg hXf]
         exact IsSelfAdjoint.zero _).isHermitian
-  rw [projInteraction]
   exact Matrix.IsHermitian.submatrix hsum _
 
 /-- 3D admissible supports project to `G`-admissible supports (P1-a's diameter
@@ -711,8 +755,9 @@ theorem projInteraction_eq_zero {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {�
     (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
       Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
     (hΦ : IsAdmissible3D Λ R J Φ) {X' : Finset (ℤ × ℤ)}
-    (hs : X' ∉ supportsG (projLattice Λ) (projF Λ) R) :
+    (hX' : X' ⊆ projF Λ) (hs : X' ∉ supportsG (projLattice Λ) (projF Λ) R) :
     projInteraction Λ q Φ X' = 0 := by
+  rw [projInteraction, dif_pos hX']
   have hzero : ∀ X ∈ projFib Λ X',
       (if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0) = 0 := by
     intro X hX
@@ -720,7 +765,7 @@ theorem projInteraction_eq_zero {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {�
     have hΦ0 : Φ X = 0 := (hΦ X hXΛ).2.2 fun hXs =>
       hs (by rw [← (mem_projFib.1 hX).2]; exact image_projF_mem_supportsG hXΛ hXs)
     rw [dif_pos (subset_fibre_of_mem_projFib hX), hΦ0, extendId_zero]
-  rw [projInteraction, Finset.sum_congr rfl hzero, Finset.sum_const_zero]
+  rw [Finset.sum_congr rfl hzero, Finset.sum_const_zero]
   rfl
 
 /-- The projected interaction's strength is the grouped bound `2 ^ (h (2R+1)²) max J 1`
@@ -729,11 +774,11 @@ theorem projInteraction_norm_le (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)}
     (hΛ : IsSlabDomain3D h Λ) (q : ℕ) {𝕜 : Type*} [RCLike 𝕜] {J : ℝ}
     (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
       Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
-    (hΦ : IsAdmissible3D Λ R J Φ) (X' : Finset (ℤ × ℤ)) :
+    (hΦ : IsAdmissible3D Λ R J Φ) {X' : Finset (ℤ × ℤ)} (hX' : X' ⊆ projF Λ) :
     ‖projInteraction Λ q Φ X'‖ ≤ groupStrength h R J := by
   have hJ : 0 ≤ J := (norm_nonneg _).trans (hΦ ∅ (Finset.empty_subset _)).2.1
   by_cases hs : X' ∈ supportsG (projLattice Λ) (projF Λ) R
-  · rw [projInteraction, l2_opNorm_submatrix]
+  · rw [projInteraction, dif_pos hX', l2_opNorm_submatrix]
     have hterm : ∀ X ∈ projFib Λ X',
         ‖(if hX : X ⊆ fibre Λ X' then extendId hX (Φ X) else 0)‖ ≤ J := by
       intro X hX
@@ -754,8 +799,8 @@ theorem projInteraction_norm_le (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)}
       _ ≤ 2 ^ (h * (2 * R + 1) ^ 2) * max J 1 :=
         mul_le_mul hcard (le_max_left J 1) hJ (by positivity)
       _ = groupStrength h R J := by rw [groupStrength, mul_comm]
-  · rw [projInteraction_eq_zero q Φ hΦ hs, norm_zero, groupStrength]
-    positivity
+  · rw [projInteraction_eq_zero q Φ hΦ hX' hs, norm_zero, groupStrength]
+    exact mul_nonneg (pow_nonneg (by norm_num) _) (le_trans zero_le_one (le_max_right J 1))
 
 /-- **P2-c MAIN**: the projected interaction is `(R, groupStrength h R J)`-admissible at
 `G := projLattice Λ`, heights `colCard Λ ·` — the planar binder's admissibility side. -/
@@ -766,9 +811,117 @@ theorem isAdmissible_projInteraction (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ
     (hΦ : IsAdmissible3D Λ R J Φ) :
     IsAdmissibleVar (projLattice Λ) (projF Λ) R (groupStrength h R J) (colCard Λ)
       (projInteraction Λ q Φ) :=
-  fun X' _ => ⟨projInteraction_isHermitian q Φ hΦ X',
-    projInteraction_norm_le h R hΛ q Φ hΦ X',
-    fun hs => projInteraction_eq_zero q Φ hΦ hs⟩
+  fun X' hX' => ⟨projInteraction_isHermitian q Φ hΦ hX',
+    projInteraction_norm_le h R hΛ q Φ hΦ hX',
+    fun hs => projInteraction_eq_zero q Φ hΦ hX' hs⟩
+
+/-! ## P2-d — transport through the reindexing (generic layer + entrywise API)
+
+The donor's relabelling step, part 1: eigenvector, spectral gap and unit norm transport
+along submatrix-conjugation by an equivalence (donor `Cylinder3D.lean` relabelling
+chapter; mathlib-only). Entrywise API discipline: everything reducible is stated on the
+`toFun` side of `regReindexEquiv` (rfl-transparent); the `Fintype.equivFin` choice
+transports that parked P2-c (run 23) live only on the `.symm` side, which is NEVER
+unwrapped — `.symm` values are pinned by roundtrips (`Equiv.symm_apply_apply`). -/
+
+section P2d
+
+open scoped MatrixOrder
+
+variable {𝕜 : Type*} [RCLike 𝕜] {ι ι' : Type*} [Fintype ι] [Fintype ι']
+  [DecidableEq ι] [DecidableEq ι']
+
+/-- Submatrix-conjugation of a pure projector is the projector of the relabelled
+factors (entrywise). -/
+theorem vecMulVec_submatrix (v w : ι → 𝕜) (e : ι' ≃ ι) :
+    (vecMulVec v w).submatrix e e = vecMulVec (v ∘ e) (w ∘ e) := by
+  ext i j
+  rfl
+
+/-- The spectral-gap inequality transports along submatrix-conjugation (the donor's
+relabelling step, gap side; the Loewner difference conjugates entrywise). -/
+theorem hasGlobalGap_submatrix {H : Matrix ι ι 𝕜} {Ω : ι → 𝕜} {E₀ Δ : ℝ}
+    (h : HasGlobalGap H Ω E₀ Δ) (e : ι' ≃ ι) :
+    HasGlobalGap (H.submatrix e e) (Ω ∘ e) E₀ Δ := by
+  unfold HasGlobalGap at h ⊢
+  rw [Matrix.le_iff] at h ⊢
+  have key : (H.submatrix e e - (E₀ : 𝕜) • 1 - (Δ : 𝕜) • (1 - vecMulVec (Ω ∘ e) (star (Ω ∘ e)))) =
+      (H - (E₀ : 𝕜) • 1 - (Δ : 𝕜) • (1 - vecMulVec Ω (star Ω))).submatrix e e := by
+    ext i j
+    simp [Matrix.submatrix_apply, Matrix.one_apply, Matrix.smul_apply,
+      Matrix.sub_apply, Pi.star_apply, Matrix.vecMulVec_apply, e.apply_eq_iff_eq]
+  rw [key]
+  -- the conjugated Loewner difference is PosSemidef because the original is. Stated via
+  -- the anonymous constructor against the (already-elaborated) goal — the
+  -- `Matrix.PosSemidef.submatrix` shortcut failed `PartialOrder 𝕜` instance synthesis
+  -- in this RCLike-section context (run 9, A2.lean:827), so mathlib's own proof shape is
+  -- re-derived inline (PosDef.lean:83–86: `mapDomain` of the quadratic form).
+  exact ⟨h.1.submatrix e, fun x => by
+    simpa [Finsupp.sum_mapDomain_index, add_mul, mul_add] using h.2 (x.mapDomain e)⟩
+
+/-- The eigen-equation transports along submatrix-conjugation (the donor's relabelling
+step, eigenvector side). -/
+theorem mulVec_eq_smul_submatrix {H : Matrix ι ι 𝕜} {Ω : ι → 𝕜} {E₀ : ℝ}
+    (h : H *ᵥ Ω = (E₀ : 𝕜) • Ω) (e : ι' ≃ ι) :
+    H.submatrix e e *ᵥ (Ω ∘ e) = (E₀ : 𝕜) • (Ω ∘ e) := by
+  have hcomp : (Ω ∘ e) ∘ e.symm = Ω := funext fun i => by simp
+  rw [Matrix.submatrix_mulVec_equiv H (Ω ∘ e) e e, hcomp, h]
+  funext i
+  simp [Algebra.smul_def, smul_eq_mul]
+
+/-- Unit norm transports along a reindexing (dot-product side; the dotProduct
+reindex lemmas live at ROOT namespace on this pin, not under `Matrix`). -/
+theorem star_dotProduct_comp {Ω : ι → 𝕜} (hΩ : star Ω ⬝ᵥ Ω = 1) (e : ι' ≃ ι) :
+    star (Ω ∘ e) ⬝ᵥ (Ω ∘ e) = 1 := by
+  have hstar : star (Ω ∘ e) = (star Ω) ∘ e := funext fun _ => rfl
+  have hcomp : (Ω ∘ e) ∘ e.symm = Ω := funext fun i => by simp
+  rw [hstar, ← dotProduct_comp_equiv_symm (u := star Ω) (x := Ω ∘ e) e, hcomp, hΩ]
+
+end P2d
+
+/-! ### P2-d entrywise API (toFun side) and fibre/complement plumbing -/
+
+/-- The regrouping's action on a configuration, column by column — the `toFun` side is
+rfl-transparent (every component application reduces: `Equiv.trans`, `piCongrLeft'`,
+`piCurry`, `piCongrRight`, `colSigmaEquiv.invFun` all whnf-reduce on application). -/
+theorem regReindexEquiv_apply (Λ : Finset (ℤ × ℤ × ℤ)) {q : ℕ}
+    (w : ∀ a : ↥((Λ : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q)
+    (u : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ))) :
+    regReindexEquiv (Λ := Λ) q w u =
+      colRegEquiv (u : ℤ × ℤ)
+        (fun s : ↥((col Λ (u : ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) =>
+          w ⟨(s : ℤ × ℤ × ℤ), col_subset Λ (u : ℤ × ℤ) s.2⟩) := rfl
+
+/-- Conjugating the fibre regrouping by the whole-domain regrouping collapses to the
+height/index casts (roundtrip form: the `.symm` choice transports cancel against
+`regReindexEquiv`, leaving the cast/`regEquivOfEq` tail — the P2-d swap's key). -/
+theorem regReindexEquiv_comp_colEquivVar (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ)
+    {X' : Finset (ℤ × ℤ)} (hX' : X' ⊆ projF Λ)
+    (v : ∀ u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)), Fin (q ^ colCard Λ (u : ℤ × ℤ))) :
+    regReindexEquiv (Λ := fibre Λ X') q (colEquivVar Λ q X' hX' v) =
+      (regEquivOfEq (loc := fun u : ℤ × ℤ => Fin (q ^ colCard (fibre Λ X') u))
+          (projF_fibre Λ hX')).symm
+        ((Equiv.piCongrRight fun u : ↥((X' : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)) =>
+            heightCastEquiv q (colCard_fibre_eq Λ u.2).symm) v) := by
+  simp [colEquivVar, Equiv.trans_apply, Equiv.apply_symm_apply]
+
+/-- The fibre is a subregion of the domain. -/
+theorem fibre_subset (Λ : Finset (ℤ × ℤ × ℤ)) (S : Finset (ℤ × ℤ)) :
+    fibre Λ S ⊆ Λ :=
+  Finset.filter_subset _ _
+
+/-- Off a planar region, the complement of the fibre is the fibre of the complement
+(the complement's column decomposition; feeds the P2-d swap's off-region clause —
+every `Λ`-site's projection is in `projF Λ`, so the two filters agree). -/
+theorem sdiff_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) (X' : Finset (ℤ × ℤ)) :
+    Λ \ fibre Λ X' = fibre Λ (projF Λ \ X') := by
+  ext x
+  by_cases hxΛ : x ∈ Λ
+  · have hP : proj x ∈ projF Λ := Finset.mem_image_of_mem proj hxΛ
+    by_cases hxX : proj x ∈ X'
+    · simp [Finset.mem_sdiff, fibre, Finset.mem_filter, hxΛ, hP, hxX]
+    · simp [Finset.mem_sdiff, fibre, Finset.mem_filter, hxΛ, hP, hxX]
+  · simp [Finset.mem_sdiff, fibre, Finset.mem_filter, hxΛ]
 
 /-! ## P2-c audit (inline full-coverage; every new top-level theorem). -/
 
@@ -817,12 +970,21 @@ theorem isAdmissible_projInteraction (h R : ℕ) {Λ : Finset (ℤ × ℤ × ℤ
 #print axioms OpenAI.AL3D.mem_projFib
 #print axioms OpenAI.AL3D.subset_fibre_of_mem_projFib
 #print axioms OpenAI.AL3D.card_projFib_le
-#print axioms OpenAI.AL3D.colEquivVar_left
-#print axioms OpenAI.AL3D.colEquivVar_right
+#print axioms OpenAI.AL3D.projF_fibre
+#print axioms OpenAI.AL3D.col_fibre_eq
+#print axioms OpenAI.AL3D.colCard_fibre_eq
 #print axioms OpenAI.AL3D.projInteraction_isHermitian
 #print axioms OpenAI.AL3D.image_projF_mem_supportsG
 #print axioms OpenAI.AL3D.projInteraction_eq_zero
 #print axioms OpenAI.AL3D.projInteraction_norm_le
 #print axioms OpenAI.AL3D.isAdmissible_projInteraction
+#print axioms OpenAI.AL3D.vecMulVec_submatrix
+#print axioms OpenAI.AL3D.hasGlobalGap_submatrix
+#print axioms OpenAI.AL3D.mulVec_eq_smul_submatrix
+#print axioms OpenAI.AL3D.star_dotProduct_comp
+#print axioms OpenAI.AL3D.regReindexEquiv_apply
+#print axioms OpenAI.AL3D.regReindexEquiv_comp_colEquivVar
+#print axioms OpenAI.AL3D.fibre_subset
+#print axioms OpenAI.AL3D.sdiff_fibre_eq
 
 end OpenAI.AL3D

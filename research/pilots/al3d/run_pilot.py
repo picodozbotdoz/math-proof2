@@ -160,7 +160,7 @@ def run(files: dict, order: list):
                 shown += 1
         elif out.strip():
             print("---- output tail ----", flush=True)
-            print("\n".join(lines[-30:]), flush=True)
+            print("\n".join(lines[-200:]), flush=True)
 
     print("\n[al3d] SUMMARY", flush=True)
     for rel, v in results.items():

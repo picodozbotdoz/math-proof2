@@ -1,0 +1,432 @@
+# alp2-run9 — P2-c CLOSURE + P2-d generic layer (wave 3 restart, lane A4)
+# Provenance: 2026-11-18, lane A4 (restarted session, fresh ≤4-run budget, run 1/4). Route:
+# doz CLI /home/doz/dozenv/bin/modal (PRIMARY per charter; warm crossmath-pilot-al3d layers).
+# App crossmath-pilot-al3d; files P0.lean + A1.lean (unchanged from run-8 state) + A2.lean:
+# (1) PARK RESOLUTION A2-gaps.md §4 — colEquivVar redefined as EQUIV-COMPOSITION
+# heightCasts ∘ (regEquivOfEq (projF_fibre)).symm ∘ (regReindexEquiv (fibre Λ X')).symm —
+# replaces the previous session's unverified piCongrLeft'-of-regEquivOfEq draft (type error:
+# piCongrLeft' wants a base-space equiv; regEquivOfEq is a pi-type equiv) — both roundtrips
+# now inherited, the parked colEquivVar_left choice-transport is discharged BY CONSTRUCTION,
+# colEquivVar_left/right theorems deleted (never re-owed); (2) NEW P2-d generic layer:
+# vecMulVec_submatrix, hasGlobalGap_submatrix, mulVec_eq_smul_submatrix, star_dotProduct_comp
+# + entrywise toFun API regReindexEquiv_apply (rfl) + regReindexEquiv_comp_colEquivVar +
+# fibre_subset + sdiff_fibre_eq. Audit +9 theorems. Header/gap-ledger updated.
+# Command: bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/P0.lean research/pilots/al3d/A1.lean research/pilots/al3d/A2.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-iFVGXonvZu3Bno5nwR27je
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-a4-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['P0.lean', 'A1.lean', 'A2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+[al3d] LEAN_PATH base: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P0.lean
+[al3d] P0.lean: OK (probe, sorry allowed)
+---- output tail ----
+P0.lean:104:8: warning: declaration uses `sorry`
+P0.lean:142:8: warning: declaration uses `sorry`
+P0.lean:147:8: warning: declaration uses `sorry`
+P0.lean:104:8: warning: declaration uses `sorry`
+P0.lean:142:8: warning: declaration uses `sorry`
+P0.lean:147:8: warning: declaration uses `sorry`
+
+=== A1.lean
+[al3d] A1.lean: OK
+---- axioms ----
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.walk_induce_length' depends on axioms: [propext, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDistG_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDist3D_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.int_covBy_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.cubic_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_le_plan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.walk_induce_length' depends on axioms: [propext, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDistG_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDist3D_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.int_covBy_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.cubic_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_le_plan' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A1.lean:336:21: warning: This simp argument is unused:
+  Prod.ext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [proj, h2, h3]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.walk_induce_length' depends on axioms: [propext, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDistG_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDist3D_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.int_covBy_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.cubic_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_le_plan' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== A2.lean
+[al3d] A2.lean: FAIL rc=1 errors=9 sorry=0
+---- axioms ----
+'OpenAI.AL3D.colCard_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_apply_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.isHermitian_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_comp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_le_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_id_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_sq_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.kronecker_one_mulVec_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_kronecker_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_eq_kronecker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_multiset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_of_multiset_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.trace_cfc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edist_induce_le_of_adj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_max_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_one_of_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_length_of_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.exists_walk_length_le_iff_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_of_domainEDistG_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDiamG_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_supportsG_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_Icc_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_eq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_sub_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_le_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_fibre_of_mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_projFib_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projF_fibre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_isHermitian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.image_projF_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_eq_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.isAdmissible_projInteraction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.vecMulVec_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.hasGlobalGap_submatrix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mulVec_eq_smul_submatrix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.star_dotProduct_comp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.regReindexEquiv_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.sdiff_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+A2.lean:680:21: error: Application type mismatch: The argument
+  fibre Λ X'
+has type
+  Finset (ℤ × ℤ × ℤ)
+but is expected to have type
+  ℕ
+in the application
+  regReindexEquiv (fibre Λ X')
+A2.lean:679:6: error: Application type mismatch: The argument
+  (regEquivOfEq ⋯).symm
+has type
+  Reg ?m.28 X' ≃ Reg ?m.28 (projF (fibre Λ X'))
+but is expected to have type
+  ((a : ↑↑X') → Fin (q ^ colCard (fibre Λ X') ↑a)) ≃ ?m.36
+in the application
+  (Equiv.piCongrRight fun u => heightCastEquiv q ⋯).trans (regEquivOfEq ⋯).symm
+A2.lean:703:23: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+A2.lean:708:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+A2.lean:710:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+···
+  regReindexEquiv (fibre Λ X')
+A2.lean:679:6: error: Application type mismatch: The argument
+  (regEquivOfEq ⋯).symm
+has type
+  Reg ?m.28 X' ≃ Reg ?m.28 (projF (fibre Λ X'))
+but is expected to have type
+  ((a : ↑↑X') → Fin (q ^ colCard (fibre Λ X') ↑a)) ≃ ?m.36
+in the application
+  (Equiv.piCongrRight fun u => heightCastEquiv q ⋯).trans (regEquivOfEq ⋯).symm
+A2.lean:703:23: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+A2.lean:708:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+A2.lean:710:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+A2.lean:733:23: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+A2.lean:740:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+···
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+A2.lean:775:36: error: Application type mismatch: The argument
+  hX'
+has type
+  X' ⊆ projF Λ
+but is expected to have type
+  IsAdmissible3D ?m.415 ?m.419 ?m.418 Φ
+in the application
+  @projInteraction_eq_zero ?m.415 q 𝕜 ?m.417 ?m.418 ?m.419 Φ hX'
+A2.lean:789:42: error: Application type mismatch: The argument
+  hX'
+has type
+  X' ⊆ projF Λ
+but is expected to have type
+  IsAdmissible3D ?m.29 ?m.33 ?m.32 Φ
+in the application
+  @projInteraction_eq_zero ?m.29 q 𝕜 ?m.31 ?m.32 ?m.33 Φ hX'
+A2.lean:809:0: warning: automatically included section variable(s) unused in theorem `OpenAI.AL3D.vecMulVec_submatrix`:
+  [Fintype ι]
+  [Fintype ι']
+  [DecidableEq ι]
+  [DecidableEq ι']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype ι'] [DecidableEq ι] [DecidableEq ι'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+···
+  @projInteraction_eq_zero ?m.415 q 𝕜 ?m.417 ?m.418 ?m.419 Φ hX'
+A2.lean:789:42: error: Application type mismatch: The argument
+  hX'
+has type
+  X' ⊆ projF Λ
+but is expected to have type
+  IsAdmissible3D ?m.29 ?m.33 ?m.32 Φ
+in the application
+  @projInteraction_eq_zero ?m.29 q 𝕜 ?m.31 ?m.32 ?m.33 Φ hX'
+A2.lean:809:0: warning: automatically included section variable(s) unused in theorem `OpenAI.AL3D.vecMulVec_submatrix`:
+  [Fintype ι]
+  [Fintype ι']
+  [DecidableEq ι]
+  [DecidableEq ι']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype ι'] [DecidableEq ι] [DecidableEq ι'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+A2.lean:827:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder 𝕜
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+A2.lean:824:71: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+A2.lean:833:55: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+ι : Type u_2
+ι' : Type u_3
+inst✝³ : Fintype ι
+inst✝² : Fintype ι'
+inst✝¹ : DecidableEq ι
+inst✝ : DecidableEq ι'
+H : Matrix ι ι 𝕜
+Ω : ι → 𝕜
+E₀ : ℝ
+h : H *ᵥ Ω = ↑E₀ • Ω
+e : ι' ≃ ι
+hcomp : (Ω ∘ ⇑e) ∘ ⇑e.symm = Ω
+i : ι'
+⊢ E₀ • Ω (e i) = ↑E₀ * Ω (e i)
+A2.lean:844:15: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct_comp_equiv_symm`
+A2.lean:841:35: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+ι : Type u_2
+ι' : Type u_3
+inst✝³ : Fintype ι
+inst✝² : Fintype ι'
+···
+A2.lean:844:15: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct_comp_equiv_symm`
+A2.lean:841:35: error: unsolved goals
+𝕜 : Type u_1
+inst✝⁴ : RCLike 𝕜
+ι : Type u_2
+ι' : Type u_3
+inst✝³ : Fintype ι
+inst✝² : Fintype ι'
+inst✝¹ : DecidableEq ι
+inst✝ : DecidableEq ι'
+Ω : ι → 𝕜
+hΩ : star Ω ⬝ᵥ Ω = 1
+e : ι' ≃ ι
+hstar : star (Ω ∘ ⇑e) = star Ω ∘ ⇑e
+hcomp : (Ω ∘ ⇑e) ∘ ⇑e.symm = Ω
+⊢ star Ω ∘ ⇑e ⬝ᵥ Ω ∘ ⇑e = 1
+A2.lean:856:20: error: Application type mismatch: The argument
+  Λ
+has type
+  Finset (ℤ × ℤ × ℤ)
+but is expected to have type
+  ℕ
+in the application
+  regReindexEquiv Λ
+A2.lean:867:20: error: Application type mismatch: The argument
+  fibre Λ X'
+···
+⊢ star Ω ∘ ⇑e ⬝ᵥ Ω ∘ ⇑e = 1
+A2.lean:856:20: error: Application type mismatch: The argument
+  Λ
+has type
+  Finset (ℤ × ℤ × ℤ)
+but is expected to have type
+  ℕ
+in the application
+  regReindexEquiv Λ
+A2.lean:867:20: error: Application type mismatch: The argument
+  fibre Λ X'
+has type
+  Finset (ℤ × ℤ × ℤ)
+but is expected to have type
+  ℕ
+in the application
+  regReindexEquiv (fibre Λ X')
+A2.lean:869:8: error: Application type mismatch: The argument
+  (Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v
+has type
+  (a : ↑↑X') → Fin (q ^ colCard (fibre Λ X') ↑a)
+but is expected to have type
+  Reg ?m.13 X'
+in the application
+  (regEquivOfEq ⋯).symm ((Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v)
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+  regReindexEquiv Λ
+A2.lean:867:20: error: Application type mismatch: The argument
+  fibre Λ X'
+has type
+  Finset (ℤ × ℤ × ℤ)
+but is expected to have type
+  ℕ
+in the application
+  regReindexEquiv (fibre Λ X')
+A2.lean:869:8: error: Application type mismatch: The argument
+  (Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v
+has type
+  (a : ↑↑X') → Fin (q ^ colCard (fibre Λ X') ↑a)
+but is expected to have type
+  Reg ?m.13 X'
+in the application
+  (regEquivOfEq ⋯).symm ((Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v)
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+  regReindexEquiv (fibre Λ X')
+A2.lean:869:8: error: Application type mismatch: The argument
+  (Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v
+has type
+  (a : ↑↑X') → Fin (q ^ colCard (fibre Λ X') ↑a)
+but is expected to have type
+  Reg ?m.13 X'
+in the application
+  (regEquivOfEq ⋯).symm ((Equiv.piCongrRight fun u => heightCastEquiv q ⋯) v)
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_apply_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.isHermitian_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_comp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_le_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_id_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+[al3d] SUMMARY
+[al3d]   P0.lean: OK (probe, sorry allowed)
+[al3d]   A1.lean: OK
+[al3d]   A2.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=45s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-iFVGXonvZu3Bno5nwR27je

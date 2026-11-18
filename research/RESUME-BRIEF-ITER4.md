@@ -370,7 +370,9 @@ N2-P1 closure + M2 GREEN-triad** — `heckeTsum_eq_ratCharOf_LFunction` kernel-v
 **Superseded same day: M3 GREEN-triad (run 19: 14/14 decls, sha `ca1089e2`) — N2-P1
 COMPLETE; `hasQDirichletDictionary` kernel-verified = N2-a DISCHARGED; FIND: the P0
 :166 transfer statement omits the ¬IsDZDFPrincipalQ antecedent (one-line P0 amendment
-owed).** Remaining: A4, A7, A8.
+owed).** **Unit 3 of 5 (2026-11-18, later): A4 AL-P2 honest stop** — P2-c closure
+VERIFIED (run13 GREEN, sha `509f2368`), P2-d partial parked at find #5, P2-e →
+canonical z-rank rebuild re-charter. Remaining: A7, A8.
 
 ### Wave-3 status (2026-11-18, mid-wave — H; crash-resilience refresh)
 

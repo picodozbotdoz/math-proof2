@@ -45,36 +45,104 @@ NOT a gap (present in mathlib, cited): Loewner-transport — `Matrix.le_iff`
 (`Mathlib/LinearAlgebra/Matrix/Hermitian.lean:102`) — the P2-d gap-transport rides these
 directly (donor `Cylinder3D.lean:415` pattern).
 
-## 4. equivFin-choice transport (PARKED obstruction at `colEquivVar_left`, 2026-11-17)
+## 4. equivFin-choice transport (RESOLVED 2026-11-18, run 9 — neither path a/b; see below)
 
 Not a mathlib gap but the pilot's own transport obstruction — the P2-d "reindex-conjugation"
-risk materializing at P2-c (recorded per the r5 §11d overrun rule).
+risk materializing at P2-c (recorded per the r5 §11d overrun rule). **RESOLVED by
+restructuring, not by proving**: `colEquivVar` is now an EQUIV-COMPOSITION
+`heightCasts ∘ (regEquivOfEq (projF_fibre Λ hX')).symm ∘ (regReindexEquiv (fibre Λ X') q).symm`
+(A2.lean, run 9) — every component is an Equiv by construction, so both roundtrips are
+inherited and the per-index choice transport (`Fintype.equivFin` along `proj site = u`) is
+never owed; `colEquivVar_left`/`colEquivVar_right` are deleted outright. The previous
+session's on-disk draft (piCongrLeft' applied to `regEquivOfEq`) was a type error —
+`Equiv.piCongrLeft'` wants a BASE-space equiv, `regEquivOfEq` is a pi-type equiv — never
+elaborated (termination hit before any run). The pointwise defs `colEquivVarToFun`/
+`colEquivVarInvFun` remain as documentation of the donor's entrywise action only.
+Discipline for P2-d: the `.symm` side (where the equivFin choice transports live) is never
+unwrapped; values are pinned by roundtrips (`Equiv.apply_symm_apply`) and the `toFun` side
+is rfl-transparent (`regReindexEquiv_apply`).
 
-The per-region regrouping `colEquivVar` uses the column enumeration
-`colToFin Λ u := Fintype.equivFin ↥(col Λ u)`, whose value depends on the (classical)
-`Fintype` instance, so `colToFin Λ (proj site)` and `colToFin Λ u` are only propositionally
-equal along `proj site = u` (site-membership in the column filter). The remaining P2-c goal
-(`A2.lean:628`, run 23) is the per-index composite transport
+Historical record of the park (2026-11-17, run 23, `logs/alp2c-run23-parked.log`): the
+per-region regrouping used the column enumeration `colToFin Λ u := Fintype.equivFin ↥(col Λ u)`,
+whose value depends on the (classical) `Fintype` instance, so `colToFin Λ (proj site)` and
+`colToFin Λ u` were only propositionally equal along `proj site = u`; the failing goal was
+the per-index composite transport
+`colEquivVarToFun f (colSiteOf Λ u hu i) = finFunctionFinEquiv.symm (f u) i`, whose index
+side lived at `Fin (colCard Λ (proj site))` and target at `Fin (colCard Λ u)`. Every direct
+`rw`/`simp only [hcol]` failed on motive-incorrectness. Pre-written paths (a) `Fin.cast` +
+Subtype-cast plumbing and (b) choice-free height-rank enumeration were both superseded by
+the composition fix (which is strictly cheaper: zero transport lemmas).
 
-    colEquivVarToFun f (colSiteOf Λ u hu i) = finFunctionFinEquiv.symm (f u) i
+## 5. P2-d PARK (2026-11-18, runs 10/11): equivFin choice-dependence at the Λ-vs-fibre level — STATEMENT-LEVEL FIND #5
 
-whose index side lives at `Fin (colCard Λ (proj site))` and target at `Fin (colCard Λ u)`.
-Every direct `rw`/`simp only [hcol]` fails on motive-incorrectness (the membership proofs'
-types mention `proj site`; `simp` silently skips the lemma — "unused simp argument" in
-`alp2c-run23-parked.log`). `right_inv` (the other roundtrip) is GREEN via
-`Equiv.symm_apply_apply`.
+**Landed (GREEN-triad, runs 10–12):** the P2-d generic layer — `vecMulVec_submatrix`,
+`hasGlobalGap_submatrix` (note: `Matrix.PosSemidef.submatrix` fails `PartialOrder 𝕜`
+synthesis in an `[RCLike 𝕜]` section on this pin — mathlib's own anonymous-constructor
+proof shape is inlined instead), `mulVec_eq_smul_submatrix`, `star_dotProduct_comp`
+(the dotProduct reindex lemmas are ROOT-namespace on this pin, not `Matrix.`), the
+`toFun`-side entrywise API `regReindexEquiv_apply` (rfl — every component application
+reduces), the roundtrip collapse `regReindexEquiv_comp_colEquivVar`, `fibre_subset`,
+`sdiff_fibre_eq`.
 
-Candidate resolutions (next session):
-(a) explicit `Fin.cast` + Subtype-cast plumbing — state `hc : colCard Λ (proj site) =
-colCard Λ u` (provable: `colCard_eq_card` + `Finset.filter_congr'`), cast `i`, and close
-with `Equiv.apply_symm_apply` modulo a `Subtype.ext rfl` argument-cast — ~30–60 lines of
-`Eq.rec`-level care;
-(b) a choice-free height-rank enumeration (donor-style canonical index): rank
-`x ↦ (col Λ u).filter (·.2.2 < x.2.2) |>.card` with inverses via `Finset.min'` — heavier
-(needs A1's `col_inj_on_z` order facts) but definitional-transparent.
+**Parked with precise blocker:** the extend-relabel swap and the Hamiltonian
+identification `hamiltonianVar (projF Λ) (colCard Λ) Ψ = (hamiltonian3D Λ Φ).submatrix ē ē`
+(ē := `(regReindexEquiv Λ q).symm`). Their workhorse is the restriction-compat lemma
 
-## 5. Minor pin-level API notes (for the record)
+    colEquivVar Λ q X' hX' (restr hX' (regReindexEquiv Λ q x)) = restr (fibre_subset Λ X') x
 
+which reduces (via `regReindexEquiv_comp_colEquivVar` + `regReindexEquiv_apply`, both
+GREEN) per-site `u` to comparing
+
+    heightCast (colRegEquiv (Λ := Λ) ū (x |col Λ ū))  =  colRegEquiv (Λ := fibre Λ X') ū (x |col (fibre Λ X') ū)
+
+The two columns are propositionally equal (`col_fibre_eq`, GREEN) but distinct TERMS, so
+the two `colRegEquiv`s carry distinct `Fintype ↥(col · ū)`-instance arguments and hence
+unrelated `Fintype.equivFin`-enumeration values. The height cast bridges the card
+(defeq-transparently eliminated by `cases` at variable cardinalities), but NOTHING
+bridges the enumeration values: every `rw`/`simp` route into the goal dies on dependent
+motives (the cast's opaque proof obstructs `kabstract` — same family as the §4 park),
+and mathlib has no `Fintype.equivFin`-congruence lemma
+(`Fintype.equivFin`-of-instance-prop-equal-types) to discharge the residual. The
+comparison is not provable by the available rewriting techniques; its provability in
+principle would require an equivFin-congruence property mathlib does not provide.
+
+**The donor's own route (and the re-charter):** the donor never faces this because its
+column enumeration is the CANONICAL z-index (`⟨x.2.2⟩`-height, `Cylinder3D.lean`
+architecture) — choice-free. Under canonical enumerations (A2-gaps §4(b): rank
+`x ↦ (col Λ u).filter (·.2.2 < x.2.2) |>.card`, bijection inverses via A1's
+`col_inj_on_z` + `col_heights`), `col Λ u` and `col (fibre Λ X') u` enumerate IDENTICALLY
+(both by z-rank) and the swap's per-site comparison closes by construction. Cost: rebuild
+P2-b's `colRegEquiv`/`regReindexEquiv`/`colToFin` on the canonical enumeration and
+re-verify the P2-b/P2-c layers against them (the GREEN statements are unchanged; only
+the equiv-bodies move) — sized as the next unit's first milestone. P2-e (entropy
+identification for column-closed cuts + final `SlabAreaLawColumnCuts3D` assembly) rides
+the same rebuild (its partial-trace commutation has the identical per-column structure).
+
+## 6. Minor pin-level API notes (for the record)
+
+- **Runner-filter blind spot (found 2026-11-18, runs 10/12):** `run_pilot.py`'s error
+  filter (`": error:" in l or l.startswith("error:")`) does NOT match Lean's
+  `error(lean.synthInstanceFailed)` / `error(lean.unknownIdentifier)` line format
+  (`": error("` — paren, not colon) — two runs read `errors=0` while carrying real
+  errors; the run-11 addition of tail-200 output printing is the compensating
+  diagnostic. Fix the filter when the runner is next touched.
+- **`l2_opNorm_extendId_le` instance-plumbing (the P2-c closer):** the L2-operator-Norm
+  scoped instance for `Matrix (Reg loc T) (Reg loc T) 𝕜` needs the pi-Fintype
+  `[∀ i, Fintype (loc i)]` in scope; the post-park rewrite had dropped it from the
+  section variables — restored on disk 2026-11-18 (UNVERIFIED; one run closes P2-c,
+  expected to flip `projInteraction_norm_le` + `isAdmissible_projInteraction` to triad).
+- `Matrix.PosSemidef.submatrix` fails `PartialOrder 𝕜` instance synthesis in an
+  `[RCLike 𝕜]` section on this pin — inline mathlib's own anonymous-constructor proof
+  shape (`mapDomain` of the Finsupp quadratic form) instead (hasGlobalGap_submatrix).
+- The dotProduct reindex lemmas (`dotProduct_comp_equiv_symm`,
+  `comp_equiv_symm_dotProduct`) are ROOT-namespace on this pin, not `Matrix.`.
+- `regReindexEquiv`'s `Λ` is implicit and `q` the first EXPLICIT argument — write
+  `regReindexEquiv (Λ := …) q`; the positional `regReindexEquiv (fibre Λ X') q` puts the
+  Finset in `q`'s slot (two sessions' drafts died on this).
+- `regEquivOfEq` applied against a spelled pi-type needs `loc` EXPLICIT (e.g.
+  `regEquivOfEq (loc := fun u => Fin (q ^ colCard (fibre Λ X') u)) …`) — leaving `loc`
+  implicit makes Lean try higher-order pattern unification of `Reg ?loc X'` against
+  the spelled type and fail (run 9, A2.lean:679).
 - `Finset.sum_eq_zero` on this pin is a plain implication (not an iff) — use
   `Finset.sum_congr rfl h` + `Finset.sum_const_zero`.
 - `SimpleGraph.Hom` is an abbreviation for `RelHom` (`Maps.lean:291`), whose second

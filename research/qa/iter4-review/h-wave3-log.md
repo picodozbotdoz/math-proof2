@@ -664,3 +664,30 @@ routing.
 - TARGETS row UNCHANGED per instruction (same path; A1's next fold carries the new
   sha — the in-row sha `2e521701` is now historical). INDEX row added; tracker A5
   row + brief scoreboard supersession note.
+
+## 2026-11-18 — LANDING: A4 AL-P2 c/d/e honest stop — unit 3 of 5 (H batch)
+
+- Pulled from worktree agent-05 as ONE exact-file batch: `pilots/al3d/A2.lean`
+  (990 LoC, sha256(16) `509f23684ab9d0fa`) + `A2-gaps.md` (§5: find #5 ledger) +
+  `run_pilot.py` (tail-200 diagnostic) + **5 new logs** `alp2-run{9..13}-*.log` +
+  carried `P0.lean`/`A1.lean`/`run_pilot.sh`/run8-substrate/run23-parked (all
+  byte-identical to main — staged as no-ops, lineage completeness per instruction).
+- **DISCREPANCY RESOLVED IN A4's FAVOR — commit message deviates from the
+  suggestion, declared:** the report's "P2-c … one run owed" predates run13:
+  `alp2-run13-p2c-closureverify.log` IS the owed run and it FIRED GREEN (A2.lean
+  OK, full triad print tail, telemetry OVER=0, wall 97 s, doz route; verify-fire
+  pre-fire sha guard `509f23684ab9d0fa…` = the committed bytes). The instruction
+  listed 4 logs {9–12}; disk carries 5 through run13 — all included. A2.lean's
+  in-file PENDING-NOTE ("unverified fix, next session's first action") is
+  stale-by-verification (A4 stamps it in the follow-up unit; one-writer rule).
+- State landed: **P2-c closure VERIFIED**; **P2-d PARTIAL GREEN parked at find #5**
+  (equivFin-instance mismatch Λ-vs-fibre; re-charter = canonical z-rank enumeration
+  rebuild, A2-gaps §5); **P2-e not attempted** (rides the rebuild); 4/4 unit budget
+  + the closure-verify run.
+- **PROCESS FIND flagged for final-sweep runner hygiene (per instruction):** the
+  runner's error filter misses `error(lean.synthInstanceFailed)` / `unknownIdentifier`
+  formats — runs read errors=0 while carrying real errors (run11/rc=1-sorryAx class);
+  the tail-200 diagnostic is the compensation; A1 should note it in the sweep plan
+  at the §10.30 fold.
+- NO TARGETS row (A2.lean not final — lands with the rebuild). INDEX row added;
+  tracker A4 row + scoreboard 3 of 5.
