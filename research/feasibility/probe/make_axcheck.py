@@ -71,6 +71,25 @@ TARGETS = [
     ("AxPilotAL3D_A2",    PILOTS / "al3d/A2.lean"), # AL-P2 m1 GREEN alp2-run7-m1green 2026-11-17 (2 theorems triad; 3 Equiv defs carry no status); import A1 auto-rewritten; al3d/P0 stays EXCLUDED (probe)
     ("AxPilot72_M1_T3",   PILOTS / "72-M1/P72M1T3.lean"),  # L3a GREEN l3a-run6-GREEN + print-gap CLOSED axcheck-l3a-run1 (9/9 direct triad) 2026-11-17; mid-tranche: L3b-d + interface still owed — file GROWS, re-stage at sweep (sha fe57d30b19d9 at L3a); import P72M1T2 auto-rewritten
     ("AxPilot32_M2",      PILOTS / "32/M2.lean"),   # 32-crossing FINAL-GREEN run12-crossing-existence 2026-11-17 (lane A6; 7 new theorems triad :60-:66; self-contained frozen-M1 carry, import Mathlib only, NO rewrite needed; row from A6's run12-discharge-note §4). INERT until H commits A6's batch (M2.lean in agent-07 at prep).
+    # --- Step-B(i) TARGETS pre-stage (H, 2026-11-18, per close-act runbook §3 Step 8;
+    #     landing-independent rows only) ---
+    ("AxPilot73_Q4",      PILOTS / "73/Q4.lean"),   # 73-Q4 FINAL-GREEN q4-run15-green 2026-11-17 (hRat discharged, (P)(i) unconditional; ALL decls triad per §10.18 + 8 C.lean frozen-layer regression prints); `import C` auto-rewritten to AxPilot73_C (sorted order C < Q4 respects the dependency); other imports Mathlib-only — the sweep-plan :175 "verify Mathlib-only imports at landing" check DISCHARGED at pre-stage
+    ("AxPilot78_P0",      PILOTS / "78/P0.lean"),   # 78 Stage-A refutation, PROOF-CLASS (A1+A2+A2′ PROVED-UNCONDITIONAL triad, p0-run4 2026-11-17 — article-78's carrier; runbook §3 Step 8 lists it explicitly; A9 checklist :147 "deferred Stage-B family" branch REGISTERED here); `import Mathlib` only; Step-B(i) prints the 3 PUBLIC theorems — the private census (23) belongs to Step-B(ii) axcheck_iter4 custody staging
+    # --- STOPPED at pre-stage (H, 2026-11-18): the runbook §3 `AxPilot10_L3` re-anchor
+    #     ("L3.lean grew with D1–D3") CONFLICTS with disk: the 10-tranche executed the
+    #     file-per-rung embedding pattern — L3.lean (2,805 LoC) FROZEN since D1 (`9a122e7`);
+    #     D2 grew L4.lean (4,195 LoC, `0677eae`); D3 grew L5.lean (4,248 LoC, `9dc6684`) =
+    #     the tranche-final file embedding L4/L3 verbatim; ALL three import Mathlib only.
+    #     Anchoring decision (single `AxPilot10_L5` row vs L3+L5 rows vs the literal
+    #     AxPilot10_L3 name pointed at L5.lean) = A2's rehearsal call; ambiguity recorded
+    #     in h-wave3-log 2026-11-18; row(s) appended on that decision. ---
+    # --- Five-unit proof-class finals — PLACEHOLDERS ONLY (rows appended on each unit's
+    #     LANDING commit per close-act runbook §3 Step 8; expected stage names): ---
+    # AxPilotAL3D_A2 re-stage at sweep = bytes of record (row above) OR new AxPilotAL3D_A3 row if pilots/al3d/A3.lean appears (A4)
+    # AxPilot77_T1 (pilots/77/T1.lean on disk, in flight; T2 file TBD) (A7)
+    # AxPilot74_P1 (pilots/74/P1.lean on disk, in flight; verify-fire discipline) (A8)
+    # AxPilotFFEZ2_P2 (pilots/ff-ez2/P2.lean TBD; ff-ez2 P0/P1 stay probe-convention if statement-class) (A3)
+    # AxPilot75_N2P1 final (pilots/75/N2-P1.lean on disk, in flight) + M2/M3 final files TBD (A5)
 ]
 
 

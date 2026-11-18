@@ -232,3 +232,35 @@ routing.
   hash-probe loop double-prefixed paths under `git -C agent-10` (bogus "DIFFERS"
   output); re-verified with `cmp` — the manifest method note now prefers cmp for
   equality checks.
+
+## 2026-11-18 — Step-B TARGETS pre-stage (H, per close-act runbook §3 Step 8)
+
+- **Pre-staged 2 of the 3 named appends** in `feasibility/probe/make_axcheck.py`
+  (Iteration-4 block):
+  - `("AxPilot73_Q4", 73/Q4.lean)` — FINAL-GREEN q4-run15-green; `import C`
+    auto-rewrites to AxPilot73_C; sorted order C < Q4 verified (dependency-respecting);
+    other imports Mathlib-only — discharges the sweep-plan :175 "verify Mathlib-only
+    imports at landing" check.
+  - `("AxPilot78_P0", 78/P0.lean)` — proof-class Stage-A refutation (runbook-listed;
+    NOT probe-convention; A9 checklist :147 deferred-Stage-B branch registered);
+    Mathlib-only; Step-B(i) prints 3 public theorems, private census (23) → Step-B(ii).
+- **STOPPED: the `AxPilot10_L3` re-anchor (runbook §3 ambiguity, per re-task rule 3).**
+  The runbook text "L3.lean grew with D1–D3" conflicts with disk: the 10-tranche executed
+  the file-per-rung embedding pattern — L3.lean (2,805 LoC) frozen since D1 (`9a122e7`);
+  D2 grew L4.lean (4,195 LoC, `0677eae`); D3 grew L5.lean (4,248 LoC, `9dc6684`) =
+  tranche-final embedding L4/L3 verbatim; all three import Mathlib only. Anchoring
+  options for A2's rehearsal: (a) single `AxPilot10_L5` row (full D1–D3 stack);
+  (b) `AxPilot10_L3` + `AxPilot10_L5` rows (keeps the sweep-plan :35 promised name);
+  (c) literal name `AxPilot10_L3` pointed at L5.lean (discouraged — name/file mismatch).
+  Recorded in-file as a STOPPED comment block; row(s) appended on A2's decision.
+- Five-unit proof-class finals left as DOCUMENTED PLACEHOLDER comments (expected stage
+  names: AxPilotAL3D_A2-re-stage-or-AxPilotAL3D_A3; AxPilot77_T1; AxPilot74_P1;
+  AxPilotFFEZ2_P2; AxPilot75_N2P1 + M2/M3 TBD) — rows land on each unit's landing
+  commit per the runbook.
+- Syntax verify: `python3 -m py_compile` **rc=0**; module-load assertions OK (both new
+  sources exist, no duplicate stage names, 53 rows total, sorted-order neighbors
+  AxPilot73_C < AxPilot73_Q4 < AxPilot75_Pa). No lean, no Modal (as instructed).
+- Not touched (A1 live on classifier dry-run): FINAL-SWEEP-PLAN-ITER4.md,
+  r3-verification-tables.md — read-only references for this adjudication.
+- Commit-message deviation, declared: the suggested "3 known appends" text would
+  miscount (2 landed + 1 STOPPED) — accuracy per the close-out date-discipline rule.
