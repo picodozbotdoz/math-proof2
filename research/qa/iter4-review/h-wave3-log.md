@@ -570,3 +570,19 @@ routing.
   per A3 (sorry-strict routing, log convention, preflight names, warm-app stage
   pattern). wt sha256(16) `afa0c06c514ef74b`. Tracker A3 row → close-support
   standby.
+
+## 2026-11-18 — LANDING: A6 iter-5 prep complete (H batch)
+
+- Pulled from worktree agent-07 as ONE exact-file batch (2 files): DELTA
+  `a6-iter5-charter-draft.md` (338 lines — §6 register stamps: **DECISION-2 RULED
+  Option A verbatim** [the ruling I recorded at `5b2c9ee` now carried in A6's own
+  register] + **DECISION-5 RESOLVED-BY-BATTERY** for the η-port scope; §round-5-
+  battery dated CORRECTION: component (ii) PARTIALLY-COVERED → **COVERED** per
+  A3's κ=1 staging amendment — Option A unaffected/strengthened) + NEW
+  `pilots/41/P0.lean` (190-LoC **STAGED CANDIDATE, UNFIRED** statement rung:
+  post-erratum G_q in `Polynomial ℤ`, HostTransport binder, Prop-valued zero-sorry
+  defs — the 2 sorry hits verified convention prose; extracted verbatim from the
+  pre-charter §1). INDEX row staged same-commit; tracker A6 row → prep COMPLETE /
+  close-support standby.
+- Wave-3 remaining: the four blocker landings (A4/A5/A7/A8), each triggering the
+  fold/commit chain (§10.29–32 delta slot + TARGETS placeholder row + tracker).

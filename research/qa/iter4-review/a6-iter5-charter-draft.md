@@ -274,6 +274,29 @@ orchestrator still wants [DECISION-2] Option B/C after this battery — say so a
   re-review-at-landing (fire only if that re-review — with the optional full-text
   pass — upgrades (iii-b) above S1), and NOT pre-chartered as article-shaped.
 
+### CORRECTION — 2026-11-18 (post-ruling; A3's staging amendment, relayed same day)
+
+**Component (ii)'s premise is AMENDED — the (2λ)² coefficient-divergence claim is
+WRONG.** A3's staging found the pairWeight cancellation `4/(4−z²)` family-independent
+(at `z = rescaledDiff`, `π²z²/log²T = −(ρ−ρ′)²/4` exactly, cancelling for κ = 1
+regardless of kernel family), so **`correctedTestLam` keeps the donor's
+`1/(4 log²T)` coefficient VERBATIM — there is no definition-level divergence.** The
+dated amendment lands in the η-port precharter via H; this battery folds it.
+
+- **Verdict update (component ii): PARTIALLY-COVERED → COVERED.** With no divergence,
+  the "scaled corrected test" is a pure re-instantiation of the donor's definition at
+  the scaled family — arguably WEAKER as novelty than the battery's original grading
+  (the original "formally novel-as-stated" credit is retracted with the premise).
+  Still not S1-passing — now a fortiori.
+- The battery's other components are unaffected: (i) the scaled closed form remains
+  the port's one covariance-identity lemma (PARTIALLY-COVERED, exercise-grade);
+  (iii-a)/(iii-b) unchanged.
+- **DECISION-2 (RULED 2026-11-18: Option A) is UNAFFECTED — indeed STRENGTHENED**: the
+  port is now even more clearly re-instantiation infrastructure over the donor's
+  frozen machinery, reinforcing record-billing; the port's honest cost note is also
+  slightly friendlier (the correctedTest transcription simplifies — donor form
+  verbatim), though the 14-lemma private-chain re-proof cost stands unchanged.
+
 
 
 | # | decision | options / determining input |
@@ -292,10 +315,10 @@ orchestrator still wants [DECISION-2] Option B/C after this battery — say so a
 |---|---|---|
 | 0 | typeset timing vs the close act (five in-flight units) | before (conditional wording) / after (resolved) — recommend (input) after |
 | 1 | the N=1 quota occupant | FB-2 / FB-4 / η-port-Option-C corollary / unspent; default spend-only-if-executed; after round-5 + wave-1 landings |
-| 2 | η-port billing | A3's §5 Options A / B / C; **the determining battery is DELIVERED — §round-5-battery above: Option A battery-consistent default; Option B NOT supported (S1 fails all components); Option C's fire-condition (ii) evaluates false pending optional full-text pass + R2 re-review** — decision open |
-| 3 | quota mechanics | confirm: the cap is per-cycle (fresh N=1 in iteration 5; iter-4's unspent status is not a carry-over) AND FB-2 / FB-4 / the Option-C corollary compete for the SAME single slot (draft reading per `RESEARCH.md:89–92` + R2's FB re-grades) |
+| 2 | η-port billing | **RULED 2026-11-18 (orchestrator): Option A — record-billed, quota-free.** Per the §round-5-battery consequence line, verbatim: "**Option A (pure technical record): battery-consistent DEFAULT.** Every component grades below the S1 bar as informal mathematics (folklore-change-of-variables + calculus observation + corollary-grade sign argument); the port's genuine value is formal de-freezing infrastructure — exactly Option A's billing. This battery also CLOSES the G7-retarget ZZV2 residual (`a2-g7-token-inventory.md:65`: 'Lamzouri must-cite framing exists but the formal battery does not' — it now does, here)." Options B (unsupported) and C (condition (ii) false) stand rejected by the same battery |
+| 3 | quota mechanics | confirm: the cap is per-cycle (fresh N=1 in iteration 5; iter-4's unspent status is not a carry-over) AND FB-2 / FB-4 / the Option-C corollary compete for the SAME single slot (draft reading per `RESEARCH.md:89–92` + R2's FB re-grades) — **note post-ruling: the η-port Option-C competitor is OUT (DECISION-2 = A), the slot contest is now FB-2 vs FB-4 vs unspent** |
 | 4 | 41's (H) phase | own slot+milestone budget vs wave-tail conditional (preflight's two-phase scope) |
-| 5 | round-5 novelty battery timing | **partially executed: the η-port scope is delivered (§round-5-battery); still open = the AL-3D sub-item residual + the canonical `novelty/round-5*` record + the optional BGS-TB/Lamzouri full-text pass (warranted only if Option B/C survives)** |
+| 5 | round-5 novelty battery timing | **RESOLVED-BY-BATTERY 2026-11-18 for the η-port scope**: the determining input is delivered (§round-5-battery) and consumed by the DECISION-2 ruling. Still open, unaffected: the AL-3D sub-item residual + the canonical `novelty/round-5*` record + the optional BGS-TB/Lamzouri full-text pass (now warranted only if a future consumer challenges the ruling) |
 | 6 | bench conversions | 12-P0 and/or 11-M3 to chartered slots vs drain-activation rule (audit: both coherent as-is; 12-P0 is the cheaper conversion) |
 
 ## §7 Files (cross-references for the typeset pass)
