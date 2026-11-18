@@ -13,7 +13,7 @@ P2), `research/pilots/71/logs/p2-run6.log`,
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
-| W1 `curve_zeta_ne_zero` | PROVED-CONDITIONAL | binder `W : WeilData F X 1` (the Weil-conjecture data, transcribed from AxiomMath `Weil`'s statement `LeanEval/WeilConjectures.lean:185–194`; **not discharged** — §7.1); data: curve class stack, `1 < #F`; window `1/2 < Re s`; pole exclusion `1 − #F · #F^{−s} ≠ 0` | `pilots/71/logs/p2-run6.log:17` — `[propext, Classical.choice, Quot.sound]`; final sweep `axcheck-c2-final.log:4` (22 axiom lines, 0 sorryAx) |
+| W1 `curve_zeta_ne_zero` | PROVED-CONDITIONAL | binder `W : WeilData F X 1` (the Weil-conjecture data, transcribed from AxiomMath `Weil`'s statement `Weil/LeanEval/WeilConjectures.lean:185–194`; **not discharged** — §7.1); data: curve class stack, `1 < #F`; window `1/2 < Re s`; pole exclusion `1 − #F · #F^{−s} ≠ 0` | `pilots/71/logs/p2-run6.log:17` — `[propext, Classical.choice, Quot.sound]`; final sweep `axcheck-c2-final.log:4` (22 axiom lines, 0 sorryAx) |
 | W2 `curve_zero_re_eq_half` | PROVED-CONDITIONAL | same binder `W`; hypothesis `P₁(#F^{−s}) = 0` | `p2-run6.log:18` — triad; sweep `axcheck-c2-final.log:4` |
 | HW `hasse_weil_point_count` | PROVED-CONDITIONAL | same binder `W`; extension `[E:F] = m ≥ 1` | `p2-run6.log:19` — triad; sweep `axcheck-c2-final.log:4` |
 | Core 1 `re_eq_half_of_norm_mul` | PROVED-UNCONDITIONAL | none beyond premises (`1 < q`, `‖α‖ = √q`, `‖α‖·‖q^{−s}‖ = 1`) | `p2-run6.log:14` — triad |
@@ -31,6 +31,14 @@ table only — infrastructure narration removed per the template; (4) references
 into literature and project artifacts; (5) the §3 Remark's process clause ("caught at
 p2-run1/2") rephrased without run identifiers. No mathematical content changed: W1,
 W2, HW, both Core lemmas and all proofs are v1-verbatim.
+
+Change log (2026-11-18, lane A3 — defect A71-1 fix, staged by A9's §extension audit
+`qa/iter4-review/a9-claims-audit-iter4.md:315`): the Weil donor file path corrected at
+4 sites (header row W1, §2, §4 nearest-miss table, §8 references) — `LeanEval/
+WeilConjectures.lean` → `Weil/LeanEval/WeilConjectures.lean` (repo root → inner `Weil/`
+package dir; the `:185–194` line cites were already correct at the true path, and the
+§2 `LeanEval.AlgebraicGeometry.*` namespace cite is a name, not a path — untouched).
+Citation fix only; zero mathematical or verification content changed.
 
 ## Abstract
 
@@ -81,7 +89,7 @@ Everything is in `research/pilots/71/P2.lean`. It imports only Mathlib, on mathl
   scheme-theoretic notions.
 - **Weil data.** `WeilData F X d` is a structure transcribing the existential content of
   `LeanEval.AlgebraicGeometry.WeilConjectures.weil_conjectures`
-  (`axiommath/Weil/LeanEval/WeilConjectures.lean:185–194`). It has eigenvalue multisets
+  (`axiommath/Weil/Weil/LeanEval/WeilConjectures.lean:185–194`). It has eigenvalue multisets
   A i ⊆ ℂ (i ≤ 2d), with fields:
   - `zero`: A 0 = {1};
   - `duality`: A(2d − i) = q^d / A i;
@@ -148,7 +156,7 @@ rows are the works that could have contained it.
 
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
-| AxiomMath `Weil`, `WeilRiemannHypothesisForm.lean:206, 212–213` and `LeanEval/WeilConjectures.lean:185–194` (formal) | all four Weil conjectures for curves, in the T-variable, unconditionally | no s-plane object anywhere in the tree; W1/W2/HW are s-plane statements that consume the conjectures as a hypothesis structure (`WeilData`), not T-variable identities |
+| AxiomMath `Weil`, `WeilRiemannHypothesisForm.lean:206, 212–213` and `Weil/LeanEval/WeilConjectures.lean:185–194` (formal) | all four Weil conjectures for curves, in the T-variable, unconditionally | no s-plane object anywhere in the tree; W1/W2/HW are s-plane statements that consume the conjectures as a hypothesis structure (`WeilData`), not T-variable identities |
 | tauceti `Frobenius/Zeta.lean`, `HasseBound.lean:44` (formal, our pin) | the zeta function of an elliptic curve and the genus-1 Hasse bound, T-variable | genus 1 only and T-variable; HW covers every genus via `WeilData`, and the s-plane dictionary is absent |
 | AxiomMath DedekindZetaZeroFree, `Main.lean:9` (formal) | ζ_K(s) ≠ 0 for Re s > 31/32, every number field K (Cureton–Thorner) | the number-field side of the same shape; W1 is its function-field analogue at the optimal constant 1/2 — with the pole clause corrected (§3 Remark), which the number-field shape got wrong here |
 | J. Suzuki, arXiv:2610.41115 (informal, 2026) | Hilbert-space methods for function-field zetas | a method neighbour on the informal side; no s-plane dictionary, no formalization, no zero-window statement |
@@ -233,7 +241,7 @@ Giulietti–Hirschfeld–Korchmáros–Torres (Zbl 1218.11064); Hirschfeld–Kor
 *Algebraic Curves over a Finite Field* (2008), Part 3.
 
 **Formal corpora (surveyed).** AxiomMath `Weil` — `WeilRiemannHypothesisForm.lean:206,
-212–213`, `LeanEval/WeilConjectures.lean:185–194`. AxiomMath DedekindZetaZeroFree —
+212–213`, `Weil/LeanEval/WeilConjectures.lean:185–194`. AxiomMath DedekindZetaZeroFree —
 `Main.lean:9`. tauceti — `Frobenius/Zeta.lean`, `HasseBound.lean:44`.
 
 **Project artifacts.** Dossier `research/candidates/71-function-field-splane-dictionary.md`;

@@ -12,6 +12,31 @@ typesets the real charter.
 
 ---
 
+## AMENDMENT (2026-11-18, probe-staging session — corrects §1.3(iv) and revises §2.2/§2.3/§2.4)
+
+Reading the donor's own four Fourier/identity statements
+(`fourierC_iteratedDeriv_two_cutoffSelfConv`, `fourierC_correctedTest`,
+`correctedTest_weight_cancel`, `unweightedKernelSum_cutoffTest_eq_pairCorrelationSum`,
+`Zeta/Kernel.lean` :540±–:575±-area, statements mirrored verbatim into
+`eta-pin-probe.lean`) corrects this pre-charter's §1.3(iv): **the corrected-test
+coefficient does NOT scale by (2λ)² — it stays the donor's `1/(4 log²T)`.** The weight
+cancellation is family-INDEPENDENT: `fourierC_correctedTest` gives the factor
+`1 + π²z²/log²T`, and at `z = rescaledDiff T ρ ρ' = i(ρ−ρ')·log T/(2π)` one has
+`π²z²/log²T = −(ρ−ρ')²/4` exactly, so `(1 − (ρ−ρ')²/4) · 4/(4−(ρ−ρ')²) = 1` cancels
+`pairWeight` for ANY kernel family at κ = 1. The Fourier/derivative identities behind
+it (`fourierC(Q'') = (2πiz)²·fourierC(Q)`, `fourierC(f⋆f) = fourierC(f)²`) are
+family-free modulo regularity. Consequences: (a) §1.3(iv)'s `correctedTestLam` is the
+donor's `correctedTest` shape VERBATIM at `Q_λ` (staged so in `eta-pin-probe.lean`);
+(b) §2.2's genuine-content tier shrinks — the exact-identity layer is family-generic
+modulo the regularity/support analogues, so §2.3 risk 1 (coefficient-sensitivity)
+largely dissolves; (c) §2.4's budget band shifts down: 5–8 runs plausible, 6–10 still
+the safe charter number, ceiling 12 unchanged (the identity-layer restructuring
+scenario is mostly off the table; the remaining tail is the covariance/normalisation
+web + admissibility). The staged probe file carries the corrected shapes and a
+statement of each mirrored lemma at the scaled family.
+
+---
+
 ## 0. The one-paragraph problem statement
 
 P1 proved the λ-family transfer theorems conditional on ONE binder,
@@ -328,7 +353,13 @@ telemetry + LEAN_NUM_THREADS=2 all in place.
 
 ---
 
-## 5. Billing-ruling OPTIONS (A6's Q3; orchestrator decides; no recommendation forced)
+## 5. Billing-ruling OPTIONS (A6's Q3) — **RULED 2026-11-18: Option A, record-billed, quota-free**
+
+**Ruling stamp (coordinator relay, 2026-11-18): DECISION-2 = Option A** — the η-port
+ships as the ZZV2-λ technical-record continuation, quota-free; round-5 battery verdict:
+all η-port components PARTIALLY-COVERED/COVERED informally (Lamzouri + framework
+literature), corpus-collision NONE stands formally. Options B/C below are retained as
+the historical option analysis; they are CLOSED by this ruling.
 
 - **Option A — pure technical record (quota-free).** The η-port ships as the ZZV2-λ
   technical-record continuation (P1-record billing header extended; never an article).

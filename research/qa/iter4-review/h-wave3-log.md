@@ -543,3 +543,21 @@ routing.
   pending optional full-text pass. A6's register row 2 stays as-written (one-writer
   rule); the ruling binds via this record — the typeset pass folds it.
 - Tracker A6 row refreshed.
+
+## 2026-11-18 — LANDING: A3 η-pin-probe staging + A71-1 fix (H batch)
+
+- Pulled from worktree agent-04 as ONE exact-file batch (3 files): NEW
+  `pilots/zzv2-lam/eta-pin-probe.lean` (319 LoC **STAGED CANDIDATE, NOT FIRED** —
+  probe-convention header; 16-rung Prop-valued statement ladder, donor's four
+  Fourier/identity statements mirrored verbatim; extended 7-name triad surface;
+  SORRY-STRICT verdict branch by design; **zero sorry tokens** — the 5 text hits
+  verified as convention prose) + AMENDED `eta-port-precharter.md` (dated κ=1
+  AMENDMENT: corrected-test coefficient stays the donor's `1/(4 log²T)` — the
+  (2λ)² scaling claim corrected; pairWeight cancellation family-independent
+  (`(1−(ρ−ρ′)²/4)·4/(4−(ρ−ρ′)²) = 1`); budget band 5–8 plausible, 6–10 stays the
+  charter number; risk 1 dissolved) + EDITED `articles/71-splane-zeta-curve-
+  dictionary.md` (**defect A71-1 FIXED** — the A9-staged Weil donor path
+  `LeanEval/WeilConjectures.lean` → `Weil/LeanEval/WeilConjectures.lean` at 4
+  sites: W1 row, §2, §4 nearest-miss table, §8; dated change-log; citation-only,
+  zero math/verification content changed). INDEX row staged same-commit; tracker
+  A3 row refreshed. **The A9→A3 A71-1 relay is now DISCHARGED.**
