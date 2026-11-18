@@ -54,7 +54,8 @@ Lead 3; pre-charter §5 billing options open). Informal content Lamzouri's
 FIRING INSTRUCTION (one paragraph, per pre-charter §4 Phase 1): when the iter-5
 charter fires the pin probe, run it on the WARM lineage as-is — stage this file
 (`research/pilots/zzv2-lam/run_zzv2.sh eta-pin-probe.lean`, which copies it with the
-runner to a world-readable /tmp stage) against the unchanged app
+runner to the world-readable stage `/tmp/crossmath-zzv2-lam-stage`) against the
+unchanged app
 `crossmath-pilot-zzv2-lam` via the doz CLI (`/home/doz/dozenv/bin/modal`, primary
 per the 2026-11-17 route ruling; the runner tars the two sibling repos, redirects
 the PNT+ dep, `lake update` + `lake exe cache get`, then `taskset -c 0,1 lake build

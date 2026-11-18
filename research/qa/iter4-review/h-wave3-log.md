@@ -561,3 +561,12 @@ routing.
   sites: W1 row, §2, §4 nearest-miss table, §8; dated change-log; citation-only,
   zero math/verification content changed). INDEX row staged same-commit; tracker
   A3 row refreshed. **The A9→A3 A71-1 relay is now DISCHARGED.**
+
+## 2026-11-18 — RE-PULL: A3 eta-pin-probe firing-paragraph precision (H batch)
+
+- `pilots/zzv2-lam/eta-pin-probe.lean` re-pulled post-`c7a3089`: one-line precision
+  edit in the firing paragraph (exact stage-dir name `/tmp/crossmath-zzv2-lam-stage`
+  stated; was generic "a world-readable /tmp stage"); runner-compat check 4/4 PASS
+  per A3 (sorry-strict routing, log convention, preflight names, warm-app stage
+  pattern). wt sha256(16) `afa0c06c514ef74b`. Tracker A3 row → close-support
+  standby.
