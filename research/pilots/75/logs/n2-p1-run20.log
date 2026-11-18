@@ -1,0 +1,559 @@
+# PILOT 75-N2 — run 20 (P2-a first) — header in run-21 log; sha ead5309f…; 10 errors (name-resolution classes, diagnosed in run-21 header)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pqlVunTQpDDz6rrC74iDnj
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[tele] t=60s cpu=0.91 mem=8113MB anon=0MB peak=-1MB procs=2 OVER mem
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:252:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:239:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:241:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[n2p1] N2-P1.lean: FAIL rc=1 errors=10 sorry=2
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:722:9: error(lean.unknownIdentifier): Unknown identifier `eventually_eq_zero_or_eventually_ne_zero`
+N2-P1.lean:722:86: error: Tactic `rcases` failed: `x✝ : ?m.32` is not an inductive datatype
+N2-P1.lean:763:7: error: unknown tactic
+N2-P1.lean:743:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ZMod.LFunction (⇑χ) 2
+in the target expression
+  DirichletCharacter.LFunction χ 2 ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+h1 : ZMod.LFunction (⇑χ) 2 = LSeries (fun x => χ ↑x) 2
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+···
+N2-P1.lean:722:9: error(lean.unknownIdentifier): Unknown identifier `eventually_eq_zero_or_eventually_ne_zero`
+N2-P1.lean:722:86: error: Tactic `rcases` failed: `x✝ : ?m.32` is not an inductive datatype
+N2-P1.lean:763:7: error: unknown tactic
+N2-P1.lean:743:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ZMod.LFunction (⇑χ) 2
+in the target expression
+  DirichletCharacter.LFunction χ 2 ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+h1 : ZMod.LFunction (⇑χ) 2 = LSeries (fun x => χ ↑x) 2
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+···
+N2-P1.lean:722:86: error: Tactic `rcases` failed: `x✝ : ?m.32` is not an inductive datatype
+N2-P1.lean:763:7: error: unknown tactic
+N2-P1.lean:743:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ZMod.LFunction (⇑χ) 2
+in the target expression
+  DirichletCharacter.LFunction χ 2 ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+h1 : ZMod.LFunction (⇑χ) 2 = LSeries (fun x => χ ↑x) 2
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+···
+N2-P1.lean:763:7: error: unknown tactic
+N2-P1.lean:743:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ZMod.LFunction (⇑χ) 2
+in the target expression
+  DirichletCharacter.LFunction χ 2 ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+h1 : ZMod.LFunction (⇑χ) 2 = LSeries (fun x => χ ↑x) 2
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+···
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2-P1.lean:335:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:352:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:392:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:397:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:556:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:684:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:722:9: error(lean.unknownIdentifier): Unknown identifier `eventually_eq_zero_or_eventually_ne_zero`
+N2-P1.lean:722:86: error: Tactic `rcases` failed: `x✝ : ?m.32` is not an inductive datatype
+N2-P1.lean:763:7: error: unknown tactic
+N2-P1.lean:743:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ZMod.LFunction (⇑χ) 2
+in the target expression
+  DirichletCharacter.LFunction χ 2 ≠ 0
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+h1 : ZMod.LFunction (⇑χ) 2 = LSeries (fun x => χ ↑x) 2
+⊢ DirichletCharacter.LFunction χ 2 ≠ 0
+N2-P1.lean:747:18: error(lean.invalidField): Invalid field `isClosed_preimage`: The environment does not contain `Continuous.isClosed_preimage`, so it is not possible to project the field `isClosed_preimage` from an expression
+  Differentiable.continuous hL
+of type
+  Continuous (DirichletCharacter.LFunction χ)
+N2-P1.lean:751:12: error(lean.unknownIdentifier): Unknown constant `Continuous.prod_mk`
+N2-P1.lean:753:10: error: No goals to be solved
+N2-P1.lean:755:14: error(lean.unknownIdentifier): Unknown identifier `Metric.Bounded`
+N2-P1.lean:756:8: error(lean.unknownIdentifier): Unknown identifier `Metric.bounded_iff`
+N2-P1.lean:739:57: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hne : χ ≠ 1
+hL : Differentiable ℂ (DirichletCharacter.LFunction χ)
+hne2 : DirichletCharacter.LFunction χ 2 ≠ 0
+hdisc : IsDiscrete {ρ | DirichletCharacter.LFunction χ ρ = 0}
+hclosed : IsClosed {ρ | DirichletCharacter.LFunction χ ρ = 0}
+T₁ T₂ : ℝ
+B : Set ℂ := {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBdef : B = {ρ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂}
+hBcl : IsClosed B
+hBbd : sorry
+⊢ (supp (multOf (DirichletCharacter.LFunction χ)) ∩ stripWindow T₁ T₂).Finite
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: FAIL rc=1 errors=10 sorry=2
+[tele] SUMMARY run: wall=77s max_cpu=0.91 max_mem=8113MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pqlVunTQpDDz6rrC74iDnj
+EXIT=0

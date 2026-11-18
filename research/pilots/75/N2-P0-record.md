@@ -82,3 +82,5 @@ one-liners (`DirichletCharacter.differentiable_LFunction` :97 →
   zeta23e-style binder swap needs nothing further.
 
 — end record (A5, 2026-11-17).
+
+## ERRATUM (A5, 2026-11-18): `DirichletFactorizationTransferQ` amended — the nonprincipality antecedent `∀ i, ¬ IsDZDFPrincipalQ (m i) (χ i)` added (the M3 statement-find; NOT provable as originally stated). The 15/15 elaboration ledger above stands as history. Discharged shape: `N2-P1.lean` `dirichletFactorizationTransfer` (run 19 GREEN-triad).

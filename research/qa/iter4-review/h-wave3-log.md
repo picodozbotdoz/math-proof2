@@ -782,3 +782,23 @@ routing.
 - Tracker A7 → landed; brief scoreboard → **ALL FIVE WAVE-3 UNITS LANDED**.
 - Close-act posture per instruction: standby for A1's final folds (§10.30–32 +
   census refresh), then Phase-1 assembly mechanics on the orchestrator's GO.
+
+## 2026-11-18 — LANDING: A5 N2 P2 PAUSED-at-close (H batch, wave-2 snapshot convention + 77 precedent)
+
+- Pulled from worktree agent-06 as ONE exact-file batch: `N2-P0.lean` (the dated
+  hnp erratum APPLIED at :161 — the FIND's one-line amendment, DONE) +
+  `N2-P0-record.md` (erratum note; 15/15 ledger = history) + `N2-P1.lean` (run-21
+  state + three post-run-21 UNFIRED fixes; sha trail `ead5309f` → `d4efc4ff`
+  [r21 fired] → `ecd44c6a1344f029` on-disk, 802 LoC) + `N2-P1-record.md` (the
+  NEXT-INSTANCE RESUME NOTE w/ line numbers = the iter-5 lead-1 payload spec) +
+  `logs/n2-p1-run{20,21}.log` + the dossier delta.
+- State of record: **P2-a in flight, paused at 2/6 runs** — runs 20–21 (10→8
+  errors, ALL name-resolution class, all in the P2-a block; run 21 rc=1 errors=8
+  sorry=1); **the 14/14 triad core below :720 untouched and error-free**; §10.29
+  FINAL stands at run-19 (A1's fold notes the paused status).
+- **Classifier implication flagged for A1's final fold/Step-A:** the on-disk
+  N2-P1.lean now carries the in-flight P2-a block incl. real sorry/elaboration
+  content beyond the run-19 FINAL state — the sweep-time certificate needs the
+  paused-state tokens lane-declared per the ENTRY convention (same class as the
+  verified-red snapshot precedents).
+- Tracker A5 → paused-at-close. Standing by for the close-act GO.

@@ -114,6 +114,20 @@ missing the nonprincipality hypothesis (counterexample class: principal
 family, fK nonzero on the half-plane); M3-e carries `hnp` explicit and the
 P0 amendment is owed.
 
+RUN-20 NOTE (P2-a + the N2-P0 erratum riding, 2026-11-18 — re-task): the
+window-finiteness layer of the hEχ port: `windowFinite_LFunction` (χ ≠ 1 ⇒
+WindowFinite (multOf χ.LFunction)) — the ThmEDyadicToCumulative schema's
+WindowFinite input becomes a theorem. Route: entireness
+(differentiable_LFunction) + nonvanishing at s₀ = 2
+(LSeries_ne_zero_of_one_lt_re, NumberTheory/LSeries/Dirichlet.lean:233) ⇒
+discrete zero set (eventually_eq_zero_or_eventually_ne_zero,
+Analysis/Analytic/IsolatedZeros.lean:112; the global-zero case killed by
+eqOn_zero_of_preconnected_of_frequently_eq_zero + one nonzero point) ⇒ closed
+(continuity) ⇒ finite on compact boxes (the ZetaZeros.lean:68 idiom:
+IsCompact.finite + IsDiscrete.mono). RIDING: N2-P0.lean amended (erratum at
+:161 — the nonprincipality antecedent restored to DirichletFactorizationTransferQ;
+the M3 statement-find); the amended P0 file elaborates in this run.
+
 mathlib pin ff2494ea @ v4.36.0-rc2.
 -/
 import N2P0
@@ -692,6 +706,80 @@ theorem dirichletFactorizationTransfer {fK fL : ℂ → ℂ} {n : ℕ}
       Finset.prod_congr rfl fun i _ => hLS i s hs
     rw [hprod]
 
+/-! ### P2-a (window finiteness for Dirichlet L-functions)
+
+The port's WindowFinite input, PROVED: an entire not-identically-zero function
+has a discrete zero set (per-point isolation via
+`eventually_eq_zero_or_eventually_ne_zero`; global eventual-zero excluded by the
+identity theorem + one nonzero point — supplied by
+`DirichletCharacter.LSeries_ne_zero_of_one_lt_re` at s₀ = 2), closed
+(continuity), hence finite on compact boxes (the ZetaZeros.lean:68 idiom). -/
+
+private theorem isDiscrete_zeroSet {f : ℂ → ℂ} (hd : Differentiable ℂ f)
+    (hne : ∃ s : ℂ, f s ≠ 0) : IsDiscrete {ρ | f ρ = 0} := by
+  rw [isDiscrete_iff_nhdsNE]
+  intro x hx
+  rcases AnalyticAt.eventually_eq_zero_or_eventually_ne_zero ((hd.differentiableAt (x := x)).analyticAt) with h0 | hne0
+  · exfalso
+    obtain ⟨s₀, hs₀⟩ := hne
+    have hzero : Set.EqOn f 0 (univ : Set ℂ) :=
+      AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero hd.analyticOnNhd
+        isPreconnected_univ (mem_univ x)
+        (h0.filter_mono nhdsWithin_le_nhds)
+    exact hs₀ (by simpa using hzero (mem_univ s₀))
+  · have hempty : {z | f z ≠ 0} ∩ {ρ | f ρ = 0} = ∅ := by
+      ext z; simp [Classical.em]
+    exact Filter.disjoint_iff.mpr ⟨{z | f z ≠ 0}, hne0, subset_rfl,
+      by simpa using hempty⟩
+
+/-- **P2-a**: for a nontrivial Dirichlet character, `multOf χ.LFunction` has
+finite strip windows — the WindowFinite input of the hEχ port
+(ThmEDyadicToCumulative schema, `N2-P0.lean:201`), now a theorem. -/
+theorem windowFinite_LFunction {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N}
+    (hne : χ ≠ 1) : WindowFinite (multOf χ.LFunction) := by
+  have hL : Differentiable ℂ χ.LFunction := DirichletCharacter.differentiable_LFunction hne
+  have hne2 : χ.LFunction (2 : ℂ) ≠ 0 := by
+    show ZMod.LFunction (χ : ZMod N → ℂ) 2 ≠ 0
+    rw [ZMod.LFunction_eq_LSeries (χ : ZMod N → ℂ) (by norm_num : 1 < (2 : ℂ).re)]
+    exact DirichletCharacter.LSeries_ne_zero_of_one_lt_re χ (by norm_num)
+  have hdisc : IsDiscrete {ρ | χ.LFunction ρ = 0} := isDiscrete_zeroSet hL ⟨2, hne2⟩
+  have hclosed : IsClosed {ρ | χ.LFunction ρ = 0} :=
+    IsClosed.preimage hL.continuous isClosed_singleton
+  intro T₁ T₂
+  set B : Set ℂ := {ρ : ℂ | 0 ≤ ρ.re ∧ ρ.re ≤ 1 ∧ T₁ ≤ ρ.im ∧ ρ.im ≤ T₂} with hBdef
+  have hBcl : IsClosed B := by
+    have hre : IsClosed {ρ : ℂ | ρ.re ∈ Set.Icc 0 1} :=
+      IsClosed.preimage Complex.continuous_re isClosed_Icc
+    him : IsClosed {ρ : ℂ | ρ.im ∈ Set.Icc T₁ T₂} :=
+      IsClosed.preimage Complex.continuous_im isClosed_Icc
+    have hBeq : B = {ρ : ℂ | ρ.re ∈ Set.Icc 0 1} ∩ {ρ : ℂ | ρ.im ∈ Set.Icc T₁ T₂} := by
+      ext ρ; simp [hBdef, Set.mem_Icc]
+    rw [hBeq]
+    exact hre.inter him
+  have hBbd : IsBounded B := by
+    rw [isBounded_iff_subset_closedBall (0 : ℂ)]
+    refine ⟨2 + |T₁| + |T₂|, fun ρ hρ => ?_⟩
+    have hT1 : 0 ≤ |T₁| := abs_nonneg _
+    have hT2 : 0 ≤ |T₂| := abs_nonneg _
+    have h1 : |ρ| ^ 2 ≤ (2 + |T₁| + |T₂|) ^ 2 := by
+      have habs : |ρ| ^ 2 = ρ.re ^ 2 + ρ.im ^ 2 := by
+        have := Complex.sq_abs ρ
+        simpa using this
+      have hre : |ρ.re| ≤ 1 := abs_le.mpr ⟨by linarith, by linarith⟩
+      have him : |ρ.im| ≤ |T₁| + |T₂| := abs_le.mpr ⟨by linarith, by linarith⟩
+      rw [habs]
+      nlinarith [hre, him]
+    simp only [mem_closedBall, dist_zero_right, Complex.norm_eq_abs]
+    exact abs_le_of_sq_le_sq h1 (by positivity)
+  have hBcp : IsCompact B := isCompact_iff_isClosed_bounded.mpr ⟨hBcl, hBbd⟩
+  have hfin : (B ∩ {ρ | χ.LFunction ρ = 0}).Finite :=
+    (hBcp.inter_right hclosed).finite (hdisc.mono Set.inter_subset_right)
+  refine Set.Finite.subset hfin ?_
+  intro ρ hρ
+  have hzero : χ.LFunction ρ = 0 :=
+    apply_eq_zero_of_analyticOrderNatAt_ne_zero hρ.1
+  refine ⟨⟨⟨by exact le_of_lt hρ.2.1, hρ.2.2.1⟩, hρ.2.2.2⟩, hzero⟩
+
 end Dictionary
 
 -- audit (expect: [propext, Classical.choice, Quot.sound] only; 0 sorryAx)
@@ -709,5 +797,6 @@ end Dictionary
 #print axioms CrossMath.Pilot75N2.hasQDirichletDictionary
 #print axioms CrossMath.Pilot75N2.factorization_identity_extension
 #print axioms CrossMath.Pilot75N2.dirichletFactorizationTransfer
+#print axioms CrossMath.Pilot75N2.windowFinite_LFunction
 
 end CrossMath.Pilot75N2

@@ -162,9 +162,22 @@ def HasQDirichletDictionary (m : Ideal (𝓞 ℚ)) (χ : Ideal (𝓞 ℚ) → �
 factorization (Hecke-series form, ℜs > 1) into the Dirichlet-LFunction form the engine
 consumes, delivering the nonprincipality scope `1 < q i ∧ ψ i ≠ 1`. The half-plane →
 ℂ∖{1} identity-theorem extension (the DZDF `EntireAbelianQuotient.lean:34-49` pattern)
-is part of P1's proof, not of this shape. -/
+is part of P1's proof, not of this shape.
+
+ERRATUM (A5, 2026-11-18 — the M3 statement-find, recorded at `N2-P1.lean:641` +
+`N2-P1-record.md` §STATEMENT FIND): the original statement of this Prop omitted
+the nonprincipality antecedent `∀ i, ¬ IsDZDFPrincipalQ (m i) (χ i)` while
+asserting `ψ i ≠ 1` in the conclusion — NOT provable as stated (a principal
+family with fK ≠ 0 on the half-plane refutes it by coefficient comparison;
+the degenerate fK = 0 case blocks uniform refutation too). The antecedent is
+the DZDF factorization's own input and is restored here; the amended shape is
+discharged GREEN-triad as `dirichletFactorizationTransfer` (run 19,
+`logs/n2-p1-run19.log`). The pre-amendment elaboration ledger (15/15 at
+`logs/n2-p0-run4.log`) stands as history — statement elaboration never
+certified provability. -/
 def DirichletFactorizationTransferQ (fK fL : ℂ → ℂ) (n : ℕ)
     (m : Fin n → Ideal (𝓞 ℚ)) (χ : (i : Fin n) → Ideal (𝓞 ℚ) → ℂ) : Prop :=
+  (∀ i, ¬ IsDZDFPrincipalQ (m i) (χ i)) →
   (∀ i, HasQDirichletDictionary (m i) (χ i)) →
     (∀ s : ℂ, 1 < s.re →
       fL s = (∏ i : Fin n, ∑' I : Ideal (𝓞 ℚ), χ i I * (Ideal.absNorm I : ℂ) ^ (-s)) * fK s) →

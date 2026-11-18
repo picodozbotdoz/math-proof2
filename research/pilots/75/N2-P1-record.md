@@ -127,3 +127,24 @@ identity-theorem extension is now a one-shot reusable pattern
   `DirichletFactorizationTransferQ`.
 
 — end record (A5, 2026-11-18; P1 COMPLETE — M1+M2+M3 GREEN-triad at run 19).
+
+
+## P2 state at the close-act hard stop (A5, 2026-11-18)
+
+- **Riding item DONE**: the N2-P0 erratum applied (`DirichletFactorizationTransferQ` + the `hnp` antecedent, dated erratum block at `N2-P0.lean:161`; P0-record note added; the amended file elaborates OK in runs 20–21; ledger 15/15 stands as history).
+- **P2-a (windowFinite_LFunction) IN FLIGHT**: first elaborations runs 20–21 (10 → 8 errors, all in the P2-a block; the 14/14 triad state below line 720 is untouched and error-free). Four name-resolution classes fixed at run 21 (namespace AnalyticAt; Continuous.preimage_isClosed; IsBounded/isBounded_iff_subset_closedBall; two-preimage closedness). Remaining 8 errors: see `logs/n2-p1-run21.log` header + error list. 4 of the ≤6 P2 runs spent; parked at sha d4efc4ff… per the hard-stop rule.
+- **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the dossier §Proof-strategy steps 4–5; the P2-b API facts pinned this session: `DirichletCharacter.LSeries_changeLevel` (EulerProduct/DirichletLSeries.lean:173, exact form recorded above), `changeLevel_injective` (Basic.lean:79), `LSeries_ne_zero_of_one_lt_re` (Dirichlet.lean:233). P3 readiness: `factorization_identity_extension` (run 19) supplies the engine-input bridge; P3 is blocked only on P2-c.
+
+
+## NEXT-INSTANCE RESUME NOTE (post-hard-stop disk state, sha ecd44c6a…)
+
+Three certain fixes applied on disk AFTER run 21 (no run fired, per the hard-stop
+rule): (1) `.analyticAt` bridge on the isolation lemma's argument
+(`DifferentiableAt → AnalyticAt`); (2) `AnalyticOnNhd.` namespace prefix on
+`eqOn_zero_of_preconnected_of_frequently_eq_zero`; (3) the closed-preimage lemma
+is `IsClosed.preimage (hf : Continuous f) (h : IsClosed t)` (Topology/Continuous.lean:188).
+Run-21's two remaining classes beyond these: the `hne2` show/rw bridge
+(`ZMod.LFunction (⇑χ) 2`-form vs the LSeries lemma's shape — expected one-line
+adjustment) and the hBbd/hBcl tactic hunks (750:28 unsolved + 753 unknown-tactic —
+the `ext ρ; simp [hBdef, Set.mem_Icc]` set-identity hunk). Fire run 22 on this
+sha as the next instance's first action; 2 runs remain of the P2 ≤6 budget.

@@ -527,6 +527,7 @@ Bar: `qa/iter4-review/r2-discovery-strength.md` §4.
   and lands GREEN-triad; the one-line N2-P0 amendment is owed at the next
   P0-touching commit (P0's elaboration ledger unaffected). Recorded in-decl
   (`N2-P1.lean:641`), in the P1 record, and here.
+- **P2 opened at the close-act hard stop (2026-11-18)**: the N2-P0 erratum APPLIED (hnp restored to DirichletFactorizationTransferQ, dated block at `N2-P0.lean:161`); P2-a (`windowFinite_LFunction`) in flight — runs 20–21 fired (10→8 errors, all name-resolution classes in the new block; the 14/14 triad core untouched and error-free; three more certain fixes applied on disk post-run-21: `.analyticAt` bridge, `AnalyticOnNhd.` prefix, `IsClosed.preimage`); P2-b/P2-c not started, spec current. Full state + next-step error list: `pilots/75/N2-P1-record.md` §P2 state.
 - Billing note (unchanged by the landings): the dictionary remains
   FORMALIZATION-novel only (classical per Milne; the A7 pre-shipping sweep's
   two mandatory nearest-miss rows stand); the discovery claim rests on the
