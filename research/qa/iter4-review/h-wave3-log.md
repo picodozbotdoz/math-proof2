@@ -748,3 +748,11 @@ routing.
 
 - Pulled from worktree agent-05 as ONE exact-file batch (3 files):
   `run_pilot.py` (the **error-filter fix**: `_LEAN_ERROR_RE = re.compile(r"(?:^|: )error[:(]")` — now catches Lean's parenthesized-code forms `error(lean.synthInstanceFailed)` / `unknownIdentifier` / `maxRecDepth`; paper-trace-proven vs run12's false-0 case, no regressions on run11 — discharges the PROCESS FIND flagged at the A4 honest-stop landing) + NEW `rebuild-precharter.md` (121 LoC: the find-#5 canonical z-rank rebuild spec, M0–M3 milestones, 12–18-run budget, iter-5 copy-paste-ready) + `A2-gaps.md` (§5 consolidation pointer + the stale "runs 10/11" → "runs 10–12" fix). INDEX row staged same-commit; tracker A4 row → lineage complete / standby.
+
+## 2026-11-18 — LANDING: A8 74-P2 precharter (H batch)
+
+- Pulled from worktree agent-09 as ONE exact file: NEW `pilots/74/P2-precharter.md`
+  (142 LoC — sharp-constant statement set; the FIND-#1 n-atom family correction to
+  the insufficient two-atom hVarLB construction, recycled constructively; warm
+  74p1 runner plan; ≤5+≤5 milestones; iter-5 front-load). INDEX row staged
+  same-commit; tracker A8 row → lineage complete / standby.
