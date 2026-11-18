@@ -743,3 +743,8 @@ routing.
 - Worktree residue (not in batch): `pilots/22/T2a-P0-record.md` remains the known
   BEHIND-MAIN delta (3-way-merge flag stands); P2-precharter.md queued behind A4's
   paperwork per the coordinator's ordering.
+
+## 2026-11-18 — LANDING: A4 paperwork batch — runner error-filter fix + rebuild precharter (H batch)
+
+- Pulled from worktree agent-05 as ONE exact-file batch (3 files):
+  `run_pilot.py` (the **error-filter fix**: `_LEAN_ERROR_RE = re.compile(r"(?:^|: )error[:(]")` — now catches Lean's parenthesized-code forms `error(lean.synthInstanceFailed)` / `unknownIdentifier` / `maxRecDepth`; paper-trace-proven vs run12's false-0 case, no regressions on run11 — discharges the PROCESS FIND flagged at the A4 honest-stop landing) + NEW `rebuild-precharter.md` (121 LoC: the find-#5 canonical z-rank rebuild spec, M0–M3 milestones, 12–18-run budget, iter-5 copy-paste-ready) + `A2-gaps.md` (§5 consolidation pointer + the stale "runs 10/11" → "runs 10–12" fix). INDEX row staged same-commit; tracker A4 row → lineage complete / standby.

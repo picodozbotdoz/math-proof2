@@ -73,7 +73,11 @@ side lived at `Fin (colCard Λ (proj site))` and target at `Fin (colCard Λ u)`.
 Subtype-cast plumbing and (b) choice-free height-rank enumeration were both superseded by
 the composition fix (which is strictly cheaper: zero transport lemmas).
 
-## 5. P2-d PARK (2026-11-18, runs 10/11): equivFin choice-dependence at the Λ-vs-fibre level — STATEMENT-LEVEL FIND #5
+## 5. P2-d PARK (2026-11-18, runs 10–12): equivFin choice-dependence at the Λ-vs-fibre level — STATEMENT-LEVEL FIND #5
+
+*(Iter-5 front-load: this section is consolidated, with scope/re-verify plan/budget/
+fences, into `research/pilots/al3d/rebuild-precharter.md` — copy-paste-ready for the
+iter-5 typeset; the section below remains the in-situ record.)*
 
 **Landed (GREEN-triad, runs 10–12):** the P2-d generic layer — `vecMulVec_submatrix`,
 `hasGlobalGap_submatrix` (note: `Matrix.PosSemidef.submatrix` fails `PartialOrder 𝕜`

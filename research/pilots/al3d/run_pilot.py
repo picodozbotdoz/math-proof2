@@ -33,6 +33,7 @@ files whose name starts with `P0` (statement probes).
 """
 
 import modal
+import re
 
 # AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
 # run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
@@ -40,6 +41,16 @@ import sys as _sys
 _sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
 from modal_telemetry import SPEC, telemetered  # noqa: E402
 CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+
+# Lean-4 error-line matcher (filter fix, 2026-11-18 — lane A4 process find from the
+# runs 10/12 "errors=0" false-negatives): Lean emits BOTH `file:line:col: error: msg`
+# and the parenthesized-code form `file:line:col: error(lean.synthInstanceFailed): msg`
+# (also error(lean.unknownIdentifier), error(lean.maxRecDepth), …), plus rare
+# position-less `error: msg` lines. The old substring filter `": error:" in l` missed
+# the paren form entirely — two runs read errors=0 while carrying real errors. The
+# anchored pattern below requires `error` preceded by line-start or ": " and followed
+# by ":" or "(", so prose inside warning hints (e.g. "Hint: … error …") does not match.
+_LEAN_ERROR_RE = re.compile(r"(?:^|: )error[:(]")
 
 
 app = modal.App("crossmath-pilot-al3d")
@@ -128,7 +139,7 @@ def run(files: dict, order: list):
             results[rel] = "TIMEOUT"
             continue
         out = r.stdout + r.stderr
-        errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out.splitlines() if _LEAN_ERROR_RE.search(l)]
         sorry = [l for l in out.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]
