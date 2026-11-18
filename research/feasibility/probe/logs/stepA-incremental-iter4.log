@@ -75,3 +75,10 @@
 #   0 real tokens. No 77 TARGETS row (74-precedent ruling, §10.32).
 #   Certificate stands at 52 — ALL five wave-3 units + every honest-stop file are
 #   classifier-clean (0 unexplained). Basis for the close-time G1 run.
+# --- SWEEP-TIME ENTRY (close act, H, 2026-11-18) — Step 7 of the final sweep, executed
+#     on the CLOSING TREE (Phase-1 edits on disk, post-dd6686f HEAD): certificate
+#     **52 EXACT** — composition 43 C2 carry-forward + 3 al3d/P0 (:106/:144/:149) +
+#     3 lp/P0 (:44/:55/:97) + 2 ProbeG9 (:51/:67) + 1 ProbeG10 (:96); ZERO
+#     unexplained hits (the N2-P1 paused-state bytes add no real tokens — ENTRY 6's
+#     supersession holds). Command = the G1 classifier verbatim (gates :33–56).
+#     G1 verdict: PASS (sweep-time, closing tree).

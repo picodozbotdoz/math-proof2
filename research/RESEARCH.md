@@ -193,3 +193,49 @@ and source-cited; stale-status rows rewritten in the same pass). (4) **Date disc
 before the close commit the tree greps clean of future and split-mind dates.
 (5) **Staging-file supersession** — when a staged block is spliced or decided, the
 staging file gets its superseded/selected stamp in the same commit.
+
+**Close-out record (2026-11-18).** Iteration 4 closed 2026-11-18 (orchestrator).
+Final state: the wave's pilot slots resolved as recorded in
+`qa/iter4-review/r3-verification-tables.md` §10 (landings §10.1–§10.32 at close:
+tables N = 32 — 26 GREEN-triad / 3 honest-partial / 3 NOT-GREEN-honest [D7 RULING
+2026-11-18: the §10 pilot vocabulary, machine-computed by
+`qa/iter4-review/tally_section10.py`, reconciled exactly with A1's basis; the
+ARTICLE vocabulary stays in A9's roll-up / REPORT §I4], every landed row
+triad-only `[propext, Classical.choice, Quot.sound]`, 0 sorryAx, per the table's
+own log:line citations; coverage classes C1/C2 per audit F2; whole-tree roll-up
+385/386 triad-clean decls — 226/226 machine over 9 sections + the manual folds
+per the §10.CENSUS companion — the one residual = 77-T2's filter-blind-spot
+tainted decl, → Iteration 5 — plus 18/18 donor rows triad at their donor pins).
+Still in flight at close, carried with owners: 72-M1 L3b–d + the interface
+theorem (L3-spec §8 carrier); 22-T2a conditional remainder (T1/T2/T3 unfired;
+PNT+ watch stays DEFER); 74-T3 (OPEN-GATED); 10-tranche D4–D6 (D4 ruled
+Iteration 5); N2 P2-a paused-at-close (2/6 runs, all name-resolution residuals,
+fixes-on-disk unfired — the resume note is Iteration 5's lead-1 payload) + P3
+(V2 ζ-column landing, GO); AL-P2 P2-d find-#5 park + P2-e (canonical z-rank
+rebuild re-charter); 77 T1's 7 site-local residuals + T2's one tainted decl;
+G10 SHELF; 11-M3 benched; debts f/h/l. The knowledge-level article quota (cap-N =
+1 FINAL) is UNSPENT — the wave's record outputs are dossier/pilot records and
+verification tables, not N-class articles. Discovery ledger: 75 landed two-tier
+(P-b entry + 5/6 strip-distinct arm FINAL-GREEN, two-tier conditionality in the
+title/abstract per S4(b); N2/N3 remainder: P1 COMPLETE — M1+M2+M3 GREEN-triad at
+run 19, 14/14, `hasQDirichletDictionary` = N2-a discharged; P2-a PAUSED-at-close;
+P3 unstarted-GO; N3 untouched — carried to Iteration 5 as lead-1) and 78 NEGATIVE
+(a discovery-grade negative result: §10.13 + `pilots/78/P0.lean` (sha256(16)
+`d94d115e3d8d08d7`) + `pilots/78/logs/p0-run4.log` +
+`articles/78-truffet-substitution-refutation.md` + README row 78). The N2-d
+endpoint state at close: the ℚ dictionary's mathematical heart is
+kernel-verified end-to-end (M1 span/character lemmas + M2
+`heckeTsum_eq_ratCharOf_LFunction` + M3
+`hasQDirichletDictionary`/`dirichletFactorizationTransfer`); the endpoint's
+remainder = the P2 analytic window (paused, fixes-on-disk) + the P3 V2 ζ-column
+landing — carried to Iteration 5 (A5's resume note w/ line numbers);
+article-75's N2 anchor stays the :551 box-11 row, consistent with README
+row-75's N2 tail. Retargeted to Iteration 5 (the corrected-census RETARGET
+items: seed-1's AL-3D novelty residuals + the phase-3 battery remainder —
+carrier L6/`novelty/round-5*`; the mathlib LP/PNT PR clock — carrier the L6
+standing clock; the 10-tranche D1–D6 proposal — carrier the tranche charter
+decision; the 72-M1 L3-spec §8 header — rides the L3b–d carry). The staging set
+is superseded by the typeset charter (stamps on
+`ITERATION4-SCAN/-SEED-DOSSIERS/-CHARTER-DRAFT`); the token census closed 40/46
+in-cycle, 6 retargeted, 0 unrulled (corrected census 2026-11-18 per
+`a2-close-act-runbook.md` §8).

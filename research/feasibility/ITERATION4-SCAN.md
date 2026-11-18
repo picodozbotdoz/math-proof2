@@ -1,4 +1,6 @@
 # ITERATION4-SCAN — groundwork inputs for the next research cycle (after Cycle-2 close)
+> SUPERSEDED 2026-11-18 — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary 2026-11-18. Token dispositions: qa/iter4-review/a2-g7-token-inventory.md (9 live [TRIAGE-DECISION] rows per the 2026-11-18 corrected census — a2-close-act-runbook.md §8; all closed in-cycle).
+
 
 Lane A1, 2026-11-14 (post-outage relaunch). **Inputs only — the orchestrator charters the
 next cycle; this scan assembles and cites, it does not decide.** Statuses are as of this

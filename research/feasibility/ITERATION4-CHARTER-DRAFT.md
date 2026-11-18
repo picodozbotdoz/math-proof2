@@ -1,4 +1,6 @@
 # ITERATION4-CHARTER-DRAFT — skeleton for the §Iteration 4 addendum to research/RESEARCH.md
+> SUPERSEDED 2026-11-18 — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary 2026-11-18. [G7b]/[SWEEP]/[A5-SEED-TRIAGE] already show in-place resolutions at :6; [TRIAGE-DECISION] family closes with the close block per a2-g7-token-inventory.md.
+
 
 Lane A1, 2026-11-14; **consistency pass 2026-11-14 (post-triage, post-landings)**.
 **Draft only — the orchestrator typesets and decides; everything

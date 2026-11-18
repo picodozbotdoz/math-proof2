@@ -382,9 +382,11 @@ so. (n8) Liu's B_new is independently tracked at the exact algebraic (1507−2�
 formal report); 22-T2a (small, upstream-statement binder); 72-M1's carried L3 +
 interface theorem (continuation spec verbatim in the m1-run8-GREEN.log header; A8
 formalizing next); the LP-duality layer + AL-3D + ZZV2 λ-family seed
-slots per ITERATION4-CHARTER-DRAFT (all [A5-SEED-TRIAGE]/[TRIAGE-DECISION] — next-cycle
-decisions, not this close-out's). Iteration-4 chartering itself waits on the close-out
-chain ([SWEEP] gates the §Iteration 4 addendum typeset — CHARTER-DRAFT:100).
+slots RESOLVED at the Iteration-4 close (2026-11-18) — the typeset charter governs
+(`feasibility/ITERATION4-CHARTER-SPLICE.md` + its close block); token dispositions per
+`qa/iter4-review/a2-g7-token-inventory.md` (corrected census: 40/46 closed in-cycle,
+6 retargeted to Iteration 5, 0 unrulled). The [SWEEP] gate resolved at the Cycle-2
+close; the §Iteration 4 charter was typeset at L2 (`808c809`).
 
 **Deferred/hold (no rank change):** 74 (unassigned → Iteration-4); 71-(S) ensemble
 objective and 72-P2 purity route stay flagged [HYPOTHESIS] objectives, not slots; 51/21

@@ -816,3 +816,30 @@ routing.
   verified as A3-OWNED stale copies (main moved via A3's landings incl. the A71-1
   fix `c7a3089`; A9 audited read-only per the ownership rule) — NOT pulled, not
   A9's to edit. Tracker A9 row refreshed.
+
+## 2026-11-18 — SESSION WRAP W1: close-act Phase-1 assembly pre-landed + sweep rescued (H)
+
+- **Step-8 sweep RESCUED** from the ephemeral /tmp tee to
+  `feasibility/probe/logs/axcheck-iter4-close-run1.log` (2,167 lines; provenance
+  header: app ap-dMExpQumipi0TE7AnHM4Rx, semraker/doz, fired 2026-11-18, wall
+  514 s, telemetry max_cpu=1.87/max_mem=8,388 MB [mmapped-olean class, anon=0]/
+  OVER=5 soft). **Verdict: 58 stages — 53 OK (all "N axiom-lines, 0 sorryAx",
+  triad-only) / 5 FAIL, dispositioned IN-LOG as STAGING defects, not artifact
+  defects** (AL3D A1/A2 compile-only-P0 dep gap; N2P0 Pa-olean ordering; N2P1
+  cascade + paused-content → stage from run-19 committed bytes per A1's flag;
+  M4b donor-module search path). Fix plan for the next instance recorded in the
+  same header (make_axcheck staging amendments + failed-stages-only subset
+  re-fire, warm app).
+- **Phase-1 assembly pre-landed at wrap** (the 10 close-edit files committed):
+  SPLICE :14/:71 fills + close block, the three supersession stamps, the
+  RESEARCH.md close-out record (both-form), TRIAGE pair pointer rows, README
+  D.1/D.1-bis/D.2-carried/D.3, the sweep-time stepA entry (certificate 52 exact
+  on the closing tree), make_axcheck.py (N2P0 closure row + EXTRA_REWRITES,
+  py_compile rc=0).
+- **RULING RECORDED (orchestrator, at wrap): pre-landing at wrap SUPERSEDES the
+  single-K flow.** Commit K becomes the **CLOSE-COMPLETION commit** (gates fill +
+  G8 persistence + Batch-S evidence + any delta stamps), carrying the K-list
+  files MINUS the W1-pre-landed ones. **[DATE-CLOSED] amends to the date K
+  actually fires** — the 2026-11-18 ruling governs only a same-day K; honesty of
+  the record over the earlier ruling (the stamps/close block carry a
+  dated-correction note at K time if the date moves).

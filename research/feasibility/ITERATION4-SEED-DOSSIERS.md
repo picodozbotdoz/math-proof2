@@ -1,4 +1,6 @@
 # ITERATION4-SEED-DOSSIERS — pre-dossiers for the top iteration-4 seeds (lane A1, 2026-11-14)
+> SUPERSEDED 2026-11-18 — superseded by the typeset charter at L2; see CHARTER-SPLICE close-summary 2026-11-18. A5 folds already inline (:53/:123/:187); the :56 novelty residual retargets to Iteration 5 (L6/round-5) per a2-g7-token-inventory.md.
+
 
 Phase-3-lite assembly from `feasibility/ITERATION4-SCAN.md` §2, deepened with donor-file
 reads this session. **Pre-dossiers, not dossier-final**: every seed carries
