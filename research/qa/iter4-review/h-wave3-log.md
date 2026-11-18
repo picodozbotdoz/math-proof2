@@ -509,3 +509,18 @@ routing.
   the single main-only line is the corrected cell). Tracker A9 row refreshed.
 - Relay: A71-1 awaits orchestrator routing to A3 (not H's to apply — article-71 is
   A3-owned).
+
+## 2026-11-18 — LANDING: A2 tally v2 reconciliation (H batch)
+
+- Pulled from worktree agent-03 as ONE exact-file batch (2 files):
+  `a2-close-rehearsal-report.md` (§B2/§C2 v2 — supersedes §B/§C v1 with the dated
+  stamp; tool re-run vs A1's §10.CENSUS basis reconciles EXACTLY: N-TABLES=28,
+  G/P/N seeds **24/2/2 confirmed**, 205/205 machine over 7 sections, 0 MULTI,
+  21 flags resolved; **four delta slots §10.29–§10.32 mapped per unit outcome** —
+  N∈[29,32] at close; whole-tree citation source = A1's §10.CENSUS(e) roll-up
+  formula `r3-verification-tables.md:1815–1820`) + `a2-close-act-runbook.md`
+  (Step-3 row 4 → v2 basis). The 3+1 main-only lines are A2's intentional v1→v2
+  replacements (supersession stamps per close-out protocol rule 5).
+- **Tally-script note:** A2's "tally_section10.py still owed the pull" is STALE —
+  cmp verified worktree == main byte-identical (landed at `8b058ee`); no pull.
+  Tracker A2 row refreshed.

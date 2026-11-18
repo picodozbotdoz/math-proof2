@@ -219,7 +219,66 @@ Consequential edit owed at close (H, mechanical): the draft close-block sentence
 PAPER-ONLY" → "G × GREEN-triad / P × honest-partial / N × NOT-GREEN-honest" (numbers
 from the scaffold's close-time re-run).
 
-— end addendum (A2, 2026-11-18; scaffold re-homed at
-`research/qa/iter4-review/tally_section10.py` (re-run exit 0); numbers provisional
-until A1's D2/D3 fold + the five-unit landings; close-time re-run is the number of
+— end addendum v1 (A2, 2026-11-18; scaffold re-homed at
+`research/qa/iter4-review/tally_section10.py`; **§B/§C v1 above SUPERSEDED by §B2/§C2
+below after A1's §10.CENSUS landing**).
+
+### B2 — DRY-RUN v2 (2026-11-18, post A1's §10.CENSUS + grammar fixes; the CURRENT basis)
+
+A1 landed `§10.CENSUS` (`r3-verification-tables.md:1752`, placed AFTER the `##
+Sources` level-2 heading at :1644 so the tool's section geometry is unchanged) + two
+fixes: §10.26 re-titled to LANDED-GREEN grammar (the tool's fail-loud abort on the old
+title was CORRECT — A1 fixed the row, not the tool, and says so at :1758), and the
+changelog promoted to level-2 so §10.28's span no longer absorbs quoted censuses.
+Tool re-run against the updated main file reconciles EXACTLY with A1's stated basis —
+**zero defects, no tool patch needed**:
+
+- **N-TABLES = 28** (§10.1–§10.28; new: 10.23 FF-EZ2-P1 7/7, 10.24 G9+G13, 10.25
+  22-T2a P0, 10.26 10-D2 FINAL + 10-D3 45/45, 10.27 77-T1 honest stop, 10.28 FF-EZ2-P2
+  9/9 — A3's unit LANDED GREEN 2026-11-18, removed from the delta slots).
+- **Verdicts 24 green-triad / 2 honest-partial (10.20 superseded-partial history,
+  10.22 N2-P1 checkpoint) / 2 not-green-honest (10.21 74-P1, 10.27 77-T1)** — sum 28 ✓.
+- **Machine census 205/205 over 7 sections** (22+89+10+23+7+45+9), **0 MULTI-CENSUS**
+  (the §10.22 v1 MULTI flag is RESOLVED: A1 validated our 4/4 manual pick against
+  `n2-p1-run7.log:175–:178` and refined it to **4/7** — the 3 sorryAx packaging decls
+  are IN-PROGRESS, the only non-triad denominator contributors tree-wide),
+  **21 NO-MACHINE-CENSUS flags all resolved manually** by §10.CENSUS tables (a)–(d).
+- **[PENDING-VERDICT-COUNTS] G/P/N seeds = 24/2/2 CONFIRMED** (cross-check requested:
+  passes; the close block fills G/P/N from the close-time re-run, seeded at 24/2/2).
+
+**Whole-tree roll-up — the ONE number the close block quotes** (A1's §10.CENSUS(e)
+formula, `r3-verification-tables.md:1815–1820`, verbatim):
+
+```
+OUR pilots:  machine 205/205 (7 sections, tally_section10.py @ this file)
+           + manual    69/72 (8 evidenced sections, table (b))
+           =          274/277 triad-clean decls across §10.1–§10.28
+              (249 direct-print + 25 documented-elimination; the 3 residuals =
+               §10.22's IN-PROGRESS packaging decls, delta slot below)
+DONOR rows:  + 18/18 donor-pin audit rows (table (c)) — quote separately
+```
+
+Close-block citation shape: "274/277 triad-clean decls (machine 205/205 + manual
+69/72; the 3 residuals = N2-P1 packaging IN-PROGRESS, delta slot) + 18/18 donor rows
+at their donor pins, quoted separately" — numbers refreshed by the close-time re-run +
+A1's appendix-successor row. N/A classes (probe rungs, honest stops, embedded/
+machine-covered) are excluded from every roll-up number per §10.CENSUS(d) — do not
+re-add them.
+
+### C2 — Delta slots v2 (supersedes §C v1; base 28, FOUR slots)
+
+| slot | unit (owner) | primary template | alternate | counter bumps | census slot |
+|---|---|---|---|---|---|
+| §10.29 | AL-P2-c completion (path a) + P2-d/e (A4) | LANDED GREEN (A2.lean final or A3.lean; §10.6 row extends) | honest-partial (d/e budget-stop) | green+1 or partial+1 | final-state census → appendix successor |
+| §10.30 | 75-N2-P1 closure + M2 + M3 (A5) | LANDED GREEN (§10.22 checkpoint resolves: 4/7 → 7/7; M2/M3 rows or folded) | honest-partial (M-arc stop — the 3 residuals then stand in the roll-up) | green+1..2, partial−1 (checkpoint resolves) | 10.22 → 7/7; roll-up 274/277 → 277/277 expected |
+| §10.31 | 77 T1-completion + T2 as ONE unit (A7) | LANDED GREEN (corrected T1; §10.27's stop stands as history) | NOT-GREEN-honest re-stop (§10.27 stands final) | green+1 or no change (10.27 already not-green) | T1/T2 census |
+| §10.32 | 74-P1 completion, verify-fire ≤5 (A8) | LANDED GREEN (amended statements per FINDS) | NOT-GREEN-honest re-stop (§10.21 stands final) | green+1 or no change | P1 census |
+
+N at close ∈ **[29, 32]** (28 + up to 4 rows; A5 may extend §10.22 in place → 29).
+Any verdict outside a unit's two templates → the tally aborts loudly; the row goes
+back to the lane. After all four land: re-run the tool + A1's appendix-successor row
+→ fill [PENDING-N-TABLES], [PENDING-TALLY], G/P/N, and the roll-up citation.
+
+— end addendum v2 (A2, 2026-11-18; reconciliation against A1's basis: N=28 ✓ 24/2/2 ✓
+205/205/7 ✓ 0 MULTI ✓ 21 flags ✓ — zero defects; close-time re-run is the number of
 record).
