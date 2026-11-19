@@ -1,0 +1,63 @@
+# stepA-incremental-iter5 — Iteration-5 sorry-token verdict log (lane R1, opened 2026-11-19)
+# Lineage: stepA-incremental-c2.log → stepA-incremental-iter4.log (closed at K = b2f2c18
+# with the sweep-time 52-exact certificate). Same conventions: classifier = the C2 §2 /
+# gates §G1 script VERBATIM (docstring interiors prose; PROSE regex; comment prefixes);
+# an entry per landing; any REAL-TOKEN outside declared entries = VIOLATION-UNEXPLAINED
+# → route verbatim to the owning lane before Step B.
+#
+# ENTRY 1 (R1, 2026-11-19) — POST-OPENING BASELINE (opening commit e309edd).
+# Command = gates §G1 classifier verbatim; scope research/pilots/**/*.lean +
+# research/feasibility/probe/**/*.lean; run in worktree agent-02 synced to e309edd
+# (post-K tree; K = b2f2c18 verified carrying R1's 8 close-residue files at the
+# reported shas, 8/8 MATCH).
+# RESULT: **52 REAL-TOKEN hits over 110 files — EXACTLY the iter-4 carry-forward
+# certificate, ZERO new tokens** (composition identical to the closing certificate:
+# 43 C2 carry-forward [9 main-run + 23 G-series + 4 pilots/71/P0 + 7 pilots/73/P0]
+# + 3 al3d/P0 :106/:144/:149 + 3 lp/P0 :44/:55/:97 + 2 ProbeG9 :51/:67
+# + 1 ProbeG10 :96). G1-verdict-class: PASS — baseline re-established for iter-5.
+#
+# ENTRY 2 (R1, 2026-11-19) — day-1 landing entries (the five .lean deltas the opening
+# commit pulled; classifier zero-delta vs ENTRY 1 recorded per file):
+#   pilots/10/M-arc.lean — NEW, 4,327 LoC, sha 7addcf0029ea06e7, 322 decls (281 pub +
+#     41 priv; = 28-line header + L5.lean VERBATIM [da398f21, D3 GREEN] + Part M 51
+#     lines). R3's "6 prose-header hits only" CONFIRMED: 6 `sorry` mentions, ALL in
+#     /- … -/ docstring prose — 0 REAL-TOKEN. Class: PROOF artifact (M-arc GREEN r2,
+#     marc-run1.log, rc=0/0/0, wall 65 s, OVER=1 soft mmapped class, max_cpu 0.96);
+#     Step-B row AxPilot10_MArc per FINAL-SWEEP-PLAN-ITER5 §0 (single-anchor
+#     recommendation, embed condition VERIFIED this pass).
+#   pilots/41/P0.lean — MODIFIED (190→202 LoC; run-1 codegen fix `noncomputable def
+#     Gq`), sha b177acdbf0346bf1, 1 public decl (`Pilot41.phi_parts`, definitional
+#     rfl). 0 REAL-TOKEN (unchanged from candidate). Class: STATEMENT RUNG — probe
+#     conventions apply (R4's record: elaboration verdict, never a proof claim);
+#     Step-B treatment per FINAL-SWEEP-ITER5 §0 (row on landing-report confirmation;
+#     never a headline). GREEN run 2 (p0-run2.log, ap-aVPWsYZdxVvzKx5GqaYOlb, 65 s).
+#   pilots/al3d/A2.lean — MODIFIED (993→1,145 LoC), sha b84270b639166680, 73 decls
+#     (63 carry + 10 new M0-rebuild publics, 0 private). 0 REAL-TOKEN. Class: PROOF
+#     artifact — the iter-4 close-time A2 records (sha 6a5ed555…, AxFC custody 126
+#     records) are now HISTORICAL for this file; the M0-rebuild bytes of record are
+#     verified by alp2-m0-run3-fixround1.log (GREEN r3, sorry-strict, rc=0, 0 errors,
+#     wall 86 s, OVER=0; crossmath-pilot-al3d, doz CLI). At iter-5 sweep
+#     AxPilotAL3D_A2 re-stages at THESE bytes (sha-at-sweep governs; the close-time
+#     citation does NOT carry over — bytes moved).
+#   pilots/liu-bnew/P0.lean — NEW, 168 LoC, sha 20ac66718a932e6c, 2 public decls (the
+#     bridge theorems; everything else Prop-valued defs + #check). 0 REAL-TOKEN.
+#     Class: STATEMENT-LEVEL donor port (Liu-1 convention: binders only, never a
+#     build dep) — PROBE-CONVENTION, NEVER a Step-B stage (FINAL-SWEEP-ITER5 §0
+#     cites the §7a zzv2-P0 ruling class + the ff-ez2-P1 class-correction lesson;
+#     class re-checked against the file's own header/census this pass: header says
+#     statement-port, census 2 decls, in-run #print axioms exists anyway — GREEN r2
+#     p0-run2.log, wall 42 s, OVER=0, both bridges triad-clean in-run; run 1's 2
+#     errors = the dependsOnNoncomputable substrate class, fixed by `noncomputable
+#     def` per the h-wave4 standing note — first application recorded).
+#   pilots/zzv2-lam/eta-pin-probe.lean — MODIFIED (320→322 LoC), sha
+#     cadc838d220455a7, 1 public decl. 0 REAL-TOKEN. Class: PROBE-CONVENTION (η-pin
+#     infrastructure probe, record-billed quota-free per DECISION-2 Option A) —
+#     Step-A scope ONLY, never a Step-B stage (pre-ruled). GREEN r2 COMPLETE
+#     (eta-pin-probe-run2.log, ap-rMawIAp2A8xPdQhUrs9443): sorry-strict OK, donor
+#     hygiene 7/7 triad-only on-pin, OVER-cpu investigation delivered by R5.
+#
+# PENDING ENTRIES (append on landing): 41/Core.lean (when R4 reports); N2-P1 run-24
+# bytes (when R6 reports — NOTE: N2-P2 runs 22-23 to budget, .lean in flight per the
+# opening commit; when new N2 bytes land, make_axcheck's GIT_BYTES_OVERRIDES for
+# AxPilot75_N2P1 updates per FINAL-SWEEP-PLAN-ITER5 §0's rule); 74-P2 (R3); AL M0
+# further legs (R8); round-6 artifacts (R9).

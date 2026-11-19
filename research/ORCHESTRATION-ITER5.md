@@ -11,7 +11,7 @@ batches, hardened gate); file funnels + Modal rules per the launch brief §(b).
 | Lane | Worktree | Role | Current unit | Status | Last update |
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (sole committer) | steady-state pull-per-REPORT batches + INDEX rows; standby to confirm R2's G8 cell flips when they land; telemetry watch | active | 2026-11-19 |
-| R1 | agent-02 | iter-5 verification | classifier baseline + the iteration-5 sweep-plan + §11 | active | 2026-11-19 |
+| R1 | agent-02 | iter-5 verification | unit-2 LANDED (sweep-plan-ITER5 + stepA-iter5 baseline log, reported shas); **§11 append HELD** — worktree restructured past the reported sha mid-pull (h-wave4-log batch-2 entry); next report supersedes | active | 2026-11-19 |
 | R2 | agent-03 | 72-M1 + gates tail | 72-M1 L3b–d active; **G8 flips owed** (G2(ii) → PASS 5/5 run2-subset; G3 → PASS closed in K's INDEX) — the gates file's last two conditional cells | active | 2026-11-19 |
 | R3 | agent-07 | 74-P2 | active (post M-arc GREEN r2) | active | 2026-11-19 |
 | R4 | agent-08 | 41-core | defect finding: corrected identity — decides pending | active | 2026-11-19 |
@@ -19,7 +19,7 @@ batches, hardened gate); file funnels + Modal rules per the launch brief §(b).
 | R6 | agent-06 | 75-N2 P2/P3 | **P2-a CLOSED GREEN at run 26** (final-grant fire-once; 15/15 triad, sha `ce6719c8…`); P3 skeleton staged (same unit); next reports ride follow-ups | active | 2026-11-19 |
 | R7 | agent-10 | 77 unit + editorial | the 77 T1/T2 follow-up unit (post Liu-P0 GREEN) | active | 2026-11-19 |
 | R8 | agent-05 | AL rebuild | M0 leg GREEN r3; **M1 active** | active | 2026-11-19 |
-| R9 | agent-09 | novelty | rounds 5–6 landed (worktree-side, pull per report); clocks + the 74-P2 pre-gate in flight | active | 2026-11-19 |
+| R9 | agent-09 | novelty | **rounds 5–6 LANDED on main** (batch-2, shas 6/6); clocks + the 74-P2 pre-gate in flight | active | 2026-11-19 |
 
 Standing: R9's erratum-2 divergence record + the dependsOnNoncomputable substrate
 rule + the telemetry-watch notes live in `qa/iter4-review/h-wave4-log.md` (H's

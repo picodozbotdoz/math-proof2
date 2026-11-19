@@ -511,6 +511,26 @@ H confirms and pulls them when they land (that closes the gates file completely)
 execution tracker; ITER4 tracker frozen at the close with the pointer). INDEX row
 rides this commit.
 
+## 2026-11-19 — iter-5 steady state, batch 2 (H): R1 unit-2 + R9 rounds 5–6
+
+- **R1 unit-2:** `FINAL-SWEEP-PLAN-ITER5.md` + `stepA-incremental-iter5.log`
+  pulled at their reported shas (`3d7915c9…`/`62f4f7f9…`). The sweep-plan came
+  as a **sha-PROVEN byte-prefix**: R1 is live-appending §2a/§2b event-prep
+  drafts past the reported state; the reported state is a byte-prefix of the
+  worktree file, boundary found by newline-prefix hashing and VERIFIED against
+  the reported sha (L=10,680 B, ends at line 96) — the drafts stay worktree-side
+  (report-governed). **HELD: `r3-verification-tables.md` §11** — the worktree
+  file restructured past the reported sha `2103e774…` mid-pull (2,365 → 2,287
+  lines between two probes; the reported state is neither current bytes nor any
+  byte-prefix — full newline-prefix scan, zero hits). Main's copy restored to
+  HEAD (`203a0336…`, K's state); **R1's next report supersedes** (the
+  coordinator's own rule); no unreported bytes committed.
+- **R9 rounds 5–6:** six novelty files pulled, all six reported shas verified
+  at copy time (round-5 + the round-6 battery ×5). Verdicts of record in the
+  INDEX row (41 NEW-narrow RE-CONFIRMED; 77-Wick KEEPS T1-core/T2/T3-Frobenius;
+  N2-P3 NOVEL-AS-STATED; AL-3D residuals sub-item CLOSED-NEGATIVE; the
+  errata-check carrying the erratum-1-CONFIRMED / erratum-2-REFINED record).
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over
