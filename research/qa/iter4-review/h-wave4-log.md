@@ -447,11 +447,11 @@ h-wave4-log.md (this entry). [K-SHA] recorded in the post-K note appended after
 the commit (self-reference resolved post-hoc, the "this commit" convention).
 
 **K = `b2f2c18` (full `b2f2c187c5aa2ff5499ce702932bdbb52315f281`), tree CLEAN
-after. Post-K re-greps: G4 future-date (2026-11-20) EMPTY; G4 compounds 0; G7(a)
-`grep -L SUPERSEDED\|SELECTED` over the four staging files EMPTY; G7(b) 31 lines =
-the G8 table's 31/31 dispositioned. R2's K-time interrupt duty PINGED (via the
-orchestrator): flip G2(ii) → PASS (5/5 run2-subset; 58/58 total) and G3 → PASS
-((A1)+(B1) closed in K's INDEX).**
+after. Post-K re-greps: G4 future-date (the T+1 literal) EMPTY; G4 compounds 0;
+G7(a) `grep -L SUPERSEDED\|SELECTED` over the four staging files EMPTY; G7(b) 31
+lines = the G8 table's 31/31 dispositioned. R2's K-time interrupt duty PINGED (via
+the orchestrator): flip G2(ii) → PASS (5/5 run2-subset; 58/58 total) and G3 →
+PASS ((A1)+(B1) closed in K's INDEX).**
 
 ## 2026-11-19 — THE ITERATION-5 OPENING COMMIT (H; executed immediately post-K per the orchestrator's instruction)
 
