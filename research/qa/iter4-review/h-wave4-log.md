@@ -1020,3 +1020,25 @@ counts 7→8 (8 discovery-grade: 01, 30, 32, 41, 41H, 42, 75, 78) + the INDEX ro
 **KPI for the close summary: discovery share 8/16 = exactly 50% — the ≥half bar
 PASSES at equality; TWO discovery shipments this cycle (41 DISCOVERY + 41H
 NEGATIVE-kind); quota still UNSPENT.**
+
+## 2026-11-19 — iter-5 steady state, batch S (H): R5's unit-4 — the precharter amendment (2)
+
+- **R5's unit-4 landed:** the precharter **AMENDMENT (2) applied in-file** (the
+  dated block appended to `eta-port-precharter.md` per the κ=1 convention; the
+  standalone record `eta-port-precharter-amendment.md` `ca2470c2…`) — the
+  (ii-c)/(iii) FALSITY (the a⁴ factor entered twice), the corrected (ii-c′)/(iii′)
+  forms, the strict-improvement **threshold ρ ∈ (Q(0)/c₀, 1]**, the **donor
+  public-layer discovery**, the re-priced 11–13 ledger. Plus `eta-r2-record.md`
+  `6a31d4e9…` + the port plan v2 `b03123e1…` + the 2 logs. **`eta-r2.lean`
+  `38bb8463…` + `eta-r3.lean` `ed0c0612…` HELD** (fold-once; the pair
+  confirmation in flight). R5 → the parked-pair fire + R5/R6 rungs.
+
+### STANDING LESSON #3 (R5's, relayed by the orchestrator): silently-missed replaces
+
+**Exact-text drift can make a replace silently miss** (the anchor moved; the edit
+lands nowhere; the run proceeds on the un-edited file). **Rule:
+ASSERTION-GUARDED REPLACES bind on all lanes henceforth** — every programmatic
+text edit asserts its anchor count (== 1) before replacing, exactly as H's splice
+flips do; a failed assert stops the fire rather than shipping an un-edited file.
+(Third runner-hygiene-family lesson; joins the `: error(` filter class and the
+fused-iff suppression bisect rule.)

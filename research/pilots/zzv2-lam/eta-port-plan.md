@@ -55,11 +55,9 @@ Stop-loss: precharter §2.4 ceiling 12–13 runs total for the port.
   action: the confirmation run** (expected strict-OK 6/6 triad → R1 exits GREEN,
   R2 proceeds).
 
-- **R2 — admissibility + pair-test tier. GATED-RED at the unit-3 budget** (2 runs,
-  21→16 errors, ALL mechanical — full catalogues in `logs/eta-r2-run{1,2}.log`;
-  lemma C's body validated the transport architecture). Fix batch parked UNFIRED,
-  parked sha256(16) `36c593f7d9cff455` — **next unit's first action: its
-  confirmation run** (expected strict-OK 4/4 triad). TWO SESSION FINDINGS folded
+- **R2 — admissibility + pair-test tier. GATED-RED after 4 runs** (21→16→15→10,
+  ALL mechanical, zero math defects; the run-4 decoding: the recurring whnf-timeout
+  was an Eq.symm-direction cascade). Fix-batch-5 parked `38bb8463fe7af1bc`. TWO SESSION FINDINGS folded
   (full statement in `eta-r2-record.md`): (1) **the (ii-c)/(iii) factor FINDING**
   — the probe's `Q_λ = dilateTo lam Q` and `c_λ = ρ²c₀ + (1−ρ²)Q(0)` are FALSE as
   stated; true forms `Q_λ = (2λ)⁻¹ • dilateTo lam Q` and (at supp Q ⊆ [−1,1],
@@ -122,12 +120,13 @@ Stop-loss: precharter §2.4 ceiling 12–13 runs total for the port.
 
 ## Run-budget mapping (precharter §2.4: 6–10 port runs, ceiling 12–13)
 
-R1 → **GREEN at 3 runs** (2 fix + 1 confirm; exit met 6/6 triad) · R2 → **2 fix
-runs spent, GATED-RED, confirmation parked** (`36c593f7d9cff455`; next unit's
-first action) · R3 → 1 · R4 → 1 (possibly +1 fix) · R5+R6 → 1–2 (κ=1 keeps the
-identity layer donor-verbatim; re-census vs the public layer first) · R7 → 1
-(+fix tail) · R8 → 1. Port ledger: **6 of 6–10 spent**; the ceiling (12–13)
-absorbs the R2 confirmation; the public-layer discovery keeps the band honest.
+R1 → **GREEN at 3 runs** · R2 → **4 runs, GATED-RED 10-residual, fix-batch-5
+parked `38bb8463fe7af1bc`** · R3 → **first fire DONE (8 mechanical errors, same
+classes + intervalIntegral HO-patterns; fix-batch parked `ed0c061218a2d739`)** ·
+R4 → RESORBED into R3 · R5+R6 → 1–2 (κ=1; re-census vs the public layer first) ·
+R7 → 1 (+fix tail) · R8 → 1. Port ledger: **8 of 6–10 spent** (ceiling 12–13);
+the multi-file-per-run pattern (two verdicts per Modal run, first executed at the
+R2+R3 joint fire) halves the per-verdict cost from here.
 Each run persists `logs/eta-r<n>-run<m>.log` with provenance header + criterion
 quote + verdict (the pin-probe log convention).
 

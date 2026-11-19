@@ -6,14 +6,18 @@
 
 ## Verdict
 
-**GATED-RED — R2 spent the unit-3 run budget (2 runs) at 16 errors (from 21),
-ALL MECHANICAL, zero math defects; the complete understood fix batch is parked on
-disk UNFIRED (N2-P2 precedent), parked sha256(16) `36c593f7d9cff455` — the next
-unit's first action is its confirmation run.** Runs: `logs/eta-r2-run1.log`
-(`ap-0H1tcEeMapxdXH3m68KuoX`, 21 errors, catalogue in-log), `logs/eta-r2-run2.log`
-(`ap-ahpK6Q36bfqCxZqwucrYW4`, 16 errors). build OK both (mathlib `ff2494ea`
-in-container). Port ledger: **6 of 6–10 runs spent** (R1: 2 fix + 1 confirm; R2: 2
-fix; unit-3's confirmation consumed the 6th).
+**GATED-RED after FOUR runs (21 → 16 → 15 → 10 errors; unit-3's 2 + unit-4's
+confirmation attempt + the unit-4 joint fire with eta-r3) — every error across the
+whole history is MECHANICAL, zero math defects; fix-batch-5 parked on disk
+UNFIRED (assertion-guarded), parked sha256(16) `38bb8463fe7af1bc`.** Runs:
+`logs/eta-r2-run1.log` (21), `logs/eta-r2-run2.log` (16), `logs/eta-r2-run3.log`
+(15), `logs/eta-r2-run4-eta-r3-run1.log` (10, jointly with eta-r3). The run-4
+decoding: the recurring :160 whnf-timeout was a CASCADE of a backwards `Eq.symm`
+(congrFun puts h's LHS first) — never a rewrite defect; the remaining classes are
+HO-pattern rw (provide f explicitly), one paren, and cascade residuals — all in
+the parked batch. Port ledger: **8 of 6–10 runs spent** (ceiling 12–13; the
+multi-file-per-run pattern — two verdicts per Modal run, first executed at run 4 —
+improves the loop economics for the remaining rungs).
 
 **Validated despite GATED:** lemma **C** (`cutoffSelfConvLam_isPairTestFunction`)
 elaborated its four clauses from the transport architecture (lemma A + the donor's
@@ -76,13 +80,14 @@ max_mem 2923 MB < 4096, OVER=6 pre-taskset. Standing confined pattern; no findin
 
 ## Next step (next unit)
 
-1. **Fire the parked `eta-r2.lean` @ `36c593f7d9cff455`** (first action; expected
-   strict-OK 4/4 triad — every fix is mechanical with no math content).
-2. On GREEN: R2 exits; proceed R3 (λ=1/2 functional regression + corrected
-   (ii-c)/(iii) with the TRUE factor forms per the FINDING above).
-3. Budget note: 6 of 6–10 spent; the honest ceiling (12–13) has room for the R2
-   confirmation + R3–R8 at ≤1 run per rung average — the public-layer discovery
-   is what keeps the band honest.
+1. **Fire the parked pair TOGETHER** (one Modal run, two verdicts): `eta-r2.lean`
+   @ `38bb8463fe7af1bc` + `eta-r3.lean` @ `ed0c061218a2d739` — expected R2
+   strict-OK 4/4 triad and R3 strict-OK 2/2 (every parked fix is mechanical; the
+   eta-r3 first-fire catalogue is in the run-4 log).
+2. On GREEN: R2 + R3 exit; proceed R5+R6 (Fourier/identity layer, κ=1
+   donor-verbatim, re-censused vs the public layer), then R7/R8.
+3. Budget note: 8 of 6–10 spent (ceiling 12–13); the multi-file pattern halves the
+   per-verdict cost from here.
 
 — lane R5 (A3 lineage), 2026-11-19 (worktree agent-04 @ e3d984b; REPORT ONLY — H
 commits post-K)
