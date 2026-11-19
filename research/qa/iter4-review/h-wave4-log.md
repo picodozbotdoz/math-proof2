@@ -856,6 +856,21 @@ rides this commit.
   executed; sweep-plan guard → `4425be89`; make_axcheck `00236246…`;
   ENTRY 12): R1 → **live-events standby (6 pending: M2-b · P3-complete ·
   41H-T2 · eta-r2/3 · P2-c-close · L3-final)**.
+
+## 2026-11-19 — iter-5 steady state, batch K (H): R3 run-18 re-park — the salvo standby
+
+- **R3's run-18 RE-PARK landed** (4/4 shas verified): `P2.lean`
+  `7393c98d…` (the new park, superseding run-17's `4425be89…` — the
+  reported-park landings track the reported states; the fold-once
+  discipline governs R1's TABLE folds) + `p2c-run18.log` `cc948083…` +
+  `P2-record.md` `8bc7ac41…` + **the charter updated by R3 itself**
+  (`a9b295ad…`: item 2 — 2 fixes DONE, one word named).
+- Verdict of record: **NOT-GREEN re-parked per the no-loop terms;
+  prediction = ONE-WORD GREEN at the next salvo.**
+- **ORCHESTRATOR NOTE recorded (tracker + INDEX): the next salvo = item 1
+  (N2 P2-b, on R6's drain) + item 2b (P2-c one-word, same firing round);
+  R1's P2-c §11 fold HOLDS until the salvo's outcome** (fold once at the
+  TRUE closing state — avoid double-fold). R3 → salvo standby.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

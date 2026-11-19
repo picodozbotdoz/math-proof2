@@ -1,4 +1,4 @@
-# P2 record — pilot-74: G2 GREEN (sharp constants) + G3 PASS + P2-c at the unit-5 PARK (adjudicated nonneg BkClass applied; FIRE-ONCE run cleared t4_not_littleO + the arg-shape/neg_neg classes; 2 mechanical sites remain — the wave-close set)
+# P2 record — pilot-74: G2 GREEN (sharp constants) + G3 PASS + P2-c at the unit-7 RE-PARK (charter item 2 fired: both fixes cleared; the run-17 site misattribution corrected — ONE one-word residue: h4's first-chain bare field_simp branch) (adjudicated nonneg BkClass applied; FIRE-ONCE run cleared t4_not_littleO + the arg-shape/neg_neg classes; 2 mechanical sites remain — the wave-close set)
 
 **Verdict: G2 GREEN at run 11, 2026-11-19** (iteration-5 charter debt rung 74-P2,
 recharter to R3, orchestrator 2026-11-19: DAY-1-CLASS, hold-all-commits; precharter
@@ -151,12 +151,23 @@ run-11 raw log), `logs/p2-runs1-11.log` (G2 series, sha `d061f77c…`),
 run + park-state header, sha `de047c7a…`), `dossier-74-amendment-p2c.md` (the dated
 amendment draft for H), `stage_and_fire_p2.sh`, this record. P1.lean unchanged.
 
-## Next pointer (wave-close set)
+## Unit-7 addendum (charter item 2 FIRED, 2026-11-19): NOT-GREEN — RE-PARKED with a corrected one-word diagnosis
 
-ONE wave-close run applying the two parked fixes closes `famN_inClass` and with it
-the full P2-c tightness set GREEN (family-on-parabola + θ₀ membership +
-floor-achieved + not-littleO + the adjudicated BkClass). Then: the dossier-74
-amendment fold (draft ready), the §10 row, and the R9 nearest-miss table at article
-time.
+The wave-close run (`logs/p2c-run18.log`; staged sha `7393c98d…`, diff-verified =
+exactly the two predicted hunks on the `4425be89` base) fired per the charter:
+**NOT-GREEN at 1 real site + 13 cascade; RE-PARKED per the charter's own no-loop
+terms.** Both applied fixes WORKED (hy2 restatement clean; hmul ascription-drop
+cleared run-17's mismatch). **The charter-anticipated finding: the run-17 taxonomy
+MISATTRIBUTED one site** — the `:1384/:1385` unsolved goal was never hy2's
+nlinarith (hy2 was already fine); it is hθe's h4-computation, whose `first`-chain's
+bare `field_simp` branch SUCCEEDS while leaving `⊢ 512 * 2 = 1024` unclosed, so the
+chain never reaches its own `(field_simp; norm_num)` branch. **The corrected
+one-word fix for the NEXT one-fire: DELETE the bare `field_simp` branch from h4's
+first-chain** (every remaining branch ends in an arithmetic closer). Expected
+verdict on that fire: GREEN — h4 ⇒ hθe ⇒ hfinal2 ⇒ the hsum chain ⇒ `famN_inClass`
+closes, joining floor-achieved + not-littleO + the adjudicated BkClass = the full
+tightness set. Park sha `7393c98d…` (supersedes `4425be89`; G2 state of record
+`49b808f3` preserved in `logs/p2-runs1-11.log`). Prediction class unchanged:
+ONE line-class residue, one word in kind.
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-19.

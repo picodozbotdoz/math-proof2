@@ -1344,8 +1344,9 @@ theorem famN_inClass (n : ℕ) (hn : Real.exp 1 ≤ (n : ℝ))
     set y := |u * ((1 / 2) * L)| with hydef
     have hynn : (0:ℝ) ≤ y := abs_nonneg _
     have hy2 : y ^ 2 ≤ 1 / 2 := by
-      have hyy : y * y ≤ (1 / 64) * (1 / 64) :=
-        mul_le_mul hy1 hy1 hynn (by norm_num)
+      have hyy : y ^ 2 ≤ (1 / 64) * (1 / 64) := by
+        rw [pow_two]
+        exact mul_le_mul hy1 hy1 hynn (by norm_num)
       nlinarith [hyy]
     have hn0 : ((n : ℝ)) ≠ 0 := by
       exact_mod_cast (show n ≠ 0 by omega)
@@ -1389,8 +1390,7 @@ theorem famN_inClass (n : ℕ) (hn : Real.exp 1 ≤ (n : ℝ))
           | norm_num
         rw [h4] at h3
         linarith
-      have hmul : (1 / 2) * (u ^ 2 * L ^ 2) ≤ 512 * Real.exp 1 * θ * (u ^ 2 * L ^ 2) :=
-        mul_le_mul_of_nonneg_left hθe (mul_nonneg (sq_nonneg u) (sq_nonneg L))
+      have hmul := mul_le_mul_of_nonneg_left hθe (mul_nonneg (sq_nonneg u) (sq_nonneg L))
       nlinarith [hmul, mul_nonneg (sq_nonneg u) (sq_nonneg L)]
     have hexpchain : 1 + 2 * y ^ 2 ≤ Real.exp (512 * Real.exp 1 * θ * L ^ 2 * u ^ 2) := by
       have h1 : 2 * y ^ 2 + 1 ≤ Real.exp (2 * y ^ 2) := Real.add_one_le_exp (2 * y ^ 2)

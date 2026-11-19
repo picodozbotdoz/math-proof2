@@ -43,16 +43,20 @@ riders in §8. **Total predicted spend if all items fire: 10–16 runs across 5 
 - **Staged sha:** `P2.lean` at the park `4425be898768fdb0` (worktree agent-07; the
   adjudicated nonneg-`BkClass` def + run-17's cleared classes already in). The
   G2-GREEN state of record `49b808f3` stays preserved in `logs/p2-runs1-11.log`.
-- **The run:** ONE run (`stage_and_fire_p2.sh 18`; sha-guard sidecar active). The
-  TWO parked fixes (from `logs/p2c-run17.log`'s header, fixes in hand):
-  1. `hy2` — restate `hyy` in `y ^ 2 ≤ (1/64) ^ 2` form (or feed the
-     `show y * y = y ^ 2` explicitly): the nlinarith atom-shape `y^2` vs `y*y`.
-  2. `hmul` — DROP the type ascription: `have hmul := mul_le_mul_of_nonneg_left hθe
-     (mul_nonneg (sq_nonneg u) (sq_nonneg L))` (the lemma's own output shape
-     `u^2*L^2*(1/2) ≤ u^2*L^2*(512*e*θ)` needs no flip).
-- **Expected verdict:** **GREEN** — run 17 closed everything else: `t4_not_littleO`
-  fully closed, both arg-shape sites, the neg_neg class, and the adjudicated
-  `BkClass` elaborates. Residue at 17 was exactly these 2 sites + 13 print-cascade.
+- **[FIRED 2026-11-19, run 18 — NOT-GREEN, RE-PARKED one word short. Both fixes
+  cleared; the run-17 taxonomy misattributed one site: the real remaining residue
+  is hθe's h4 `first`-chain (the bare `field_simp` branch leaves `512 * 2 = 1024`
+  unclosed — the chain never reaches its `(field_simp; norm_num)` branch). The
+  corrected one-fire: DELETE that bare branch. Park sha `7393c98d…`.]**
+- **The run:** ONE run (`stage_and_fire_p2.sh`; sha-guard sidecar active). The
+  parked fixes at the CURRENT park `7393c98d…`:
+  1. DONE at run 18 — `hy2` restated in `y ^ 2` form (clean).
+  2. DONE at run 18 — `hmul` ascription dropped (cleared).
+  3. THE REMAINING ONE: h4's `first`-chain — delete the bare `field_simp` branch
+     (every branch must end in an arithmetic closer).
+- **Expected verdict:** **GREEN** — everything else is closed: `t4_not_littleO`
+  fully closed, both arg-shape sites, the neg_neg class, hy2, hmul, and the
+  adjudicated `BkClass` all elaborate.
 - **The fold that follows:** R1's ENTRY fold (74-P2-c CLOSED: the full tightness set
   — family-on-parabola + θ₀ = 1/(1024·e) membership + floor-achieved + not-littleO
   + the adjudicated nonneg-BkClass); the dossier-74 amendment draft
