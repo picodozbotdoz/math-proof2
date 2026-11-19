@@ -1384,7 +1384,6 @@ theorem famN_inClass (n : ℕ) (hn : Real.exp 1 ≤ (n : ℝ))
           mul_le_mul_of_nonneg_right hθ (by positivity)
         have h4 : (1:ℝ) / (1024 * Real.exp 1) * (512 * Real.exp 1) = 1 / 2 := by
           first
-          | field_simp
           | (field_simp; ring)
           | (field_simp; norm_num)
           | norm_num

@@ -1,4 +1,4 @@
-# P2 record — pilot-74: G2 GREEN (sharp constants) + G3 PASS + P2-c at the unit-7 RE-PARK (charter item 2 fired: both fixes cleared; the run-17 site misattribution corrected — ONE one-word residue: h4's first-chain bare field_simp branch) (adjudicated nonneg BkClass applied; FIRE-ONCE run cleared t4_not_littleO + the arg-shape/neg_neg classes; 2 mechanical sites remain — the wave-close set)
+# P2 record — pilot-74: G2 GREEN (sharp constants) + G3 PASS + P2-c at the unit-8 FINAL PARK (run 19: ZERO body errors, all Part P2 declarations elaborate kernel-clean 0 sorry; sole rc=1 cause = the audit tail's namespace placement, authoring-class; triad audit PENDING the tail move) (adjudicated nonneg BkClass applied; FIRE-ONCE run cleared t4_not_littleO + the arg-shape/neg_neg classes; 2 mechanical sites remain — the wave-close set)
 
 **Verdict: G2 GREEN at run 11, 2026-11-19** (iteration-5 charter debt rung 74-P2,
 recharter to R3, orchestrator 2026-11-19: DAY-1-CLASS, hold-all-commits; precharter
@@ -169,5 +169,25 @@ closes, joining floor-achieved + not-littleO + the adjudicated BkClass = the ful
 tightness set. Park sha `7393c98d…` (supersedes `4425be89`; G2 state of record
 `49b808f3` preserved in `logs/p2-runs1-11.log`). Prediction class unchanged:
 ONE line-class residue, one word in kind.
+
+## Unit-8 FINAL ENTRY (salvo item 2b, the one-word FIRE-ONCE, 2026-11-19): the mathematics is COMPLETE at the elaboration level — FINAL PARK, findings only
+
+Run 19 (`logs/p2c-run19.log`; staged sha `531a9eb7…`, diff = exactly one deleted
+line): the h4 fix WORKED. **Zero body errors; sorry=0. Every Part P2 declaration —
+`mgfBound_var_sharp`, `t1c_sharp`, `famN_spectrum`, `famN_varK`, `famN_W`,
+`famN_Mdev`, `famN_inClass`, `t4_floor_achieved`, `t4_not_littleO`,
+`CertValidClass`/`BkClass` — elaborates kernel-clean.** The file's 13 errors are
+ALL the audit tail (1477–1489), whose namespace placement REGRESSED at unit 4 (the
+prints sit after `end CrossMath.Pilot74P1` — the exact run-10/11 class, re-entered
+by the p2c body's own end+tail block). **HONEST audit status: the Part P2 triad
+status is UNVERIFIED (the prints never resolved); the claim of record is
+elaboration-clean + 0 sorry, NOT a proof/axiom claim.** The completion for any
+future fire (NOT fired per the FIRE-ONCE terms): move `end
+CrossMath.Pilot74P1` after the 13 lines (or qualify them) — rc=0 expected and the
+full-coverage audit then executes. Park sha `531a9eb7…` (G2 state of record
+`49b808f3` preserved in `logs/p2-runs1-11.log`). **The §10/record row for the
+fold: 74-P2 = G2 GREEN (triad-verified, run 11) + G3 PASS + P2-c
+elaboration-complete/final-parked (audit pending the tail move; zero mathematical
+defects in 19 runs).**
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-19.

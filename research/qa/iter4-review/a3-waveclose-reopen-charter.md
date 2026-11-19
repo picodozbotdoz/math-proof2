@@ -43,11 +43,15 @@ riders in §8. **Total predicted spend if all items fire: 10–16 runs across 5 
 - **Staged sha:** `P2.lean` at the park `4425be898768fdb0` (worktree agent-07; the
   adjudicated nonneg-`BkClass` def + run-17's cleared classes already in). The
   G2-GREEN state of record `49b808f3` stays preserved in `logs/p2-runs1-11.log`.
-- **[FIRED 2026-11-19, run 18 — NOT-GREEN, RE-PARKED one word short. Both fixes
-  cleared; the run-17 taxonomy misattributed one site: the real remaining residue
-  is hθe's h4 `first`-chain (the bare `field_simp` branch leaves `512 * 2 = 1024`
-  unclosed — the chain never reaches its `(field_simp; norm_num)` branch). The
-  corrected one-fire: DELETE that bare branch. Park sha `7393c98d…`.]**
+- **[FIRED TWICE 2026-11-19 — run 18 (re-parked, one site misattribution
+  corrected) then run 19 (salvo item 2b, the one-word FIRE-ONCE): the h4 fix
+  WORKED — ZERO body errors, every Part P2 declaration elaborates kernel-clean
+  0 sorry. FINAL PARK per the terms: the sole rc=1 cause is the audit tail's
+  namespace placement (my unit-4 authoring regression of the run-10/11 class) —
+  the completion for any future fire is moving `end` after the 13 prints, which
+  also releases the PENDING triad audit. Park sha `531a9eb7…`. Status of record:
+  G2 GREEN (triad-verified run 11) + G3 PASS + P2-c elaboration-complete,
+  audit-pending — zero mathematical defects in 19 runs.]**
 - **The run:** ONE run (`stage_and_fire_p2.sh`; sha-guard sidecar active). The
   parked fixes at the CURRENT park `7393c98d…`:
   1. DONE at run 18 — `hy2` restated in `y ^ 2` form (clean).

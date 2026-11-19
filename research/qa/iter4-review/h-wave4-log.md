@@ -926,6 +926,21 @@ certificates only). Companion of the dependsOnNoncomputable note above.
   REPORT-INPUTS-ITER5's §I5 paste-ready delta + the iter5-closeout-gates
   skeleton. Executes at iter-5 close on the orchestrator's signal. R2 →
   close-support standby.
+
+## 2026-11-19 — iter-5 steady state, batch O (H): R3's item-2b FINAL + close-checklist item 13
+
+- **R3's ITEM-2b FINAL landed** (4/4 shas verified): `P2.lean` `531a9eb7…`
+  (the FINAL park, superseding the run-18 re-park) + run-19 log +
+  `P2-record.md` `aaf521b8…` + the charter `40eee946…` (item 2 CLOSED —
+  two-fire history + audit-pending). Verdict of record:
+  **elaboration-COMPLETE — 0 sorry across 19 runs; rc=1 = the audit-tail
+  namespace placement alone.**
+- **CLOSE-CHECKLIST ITEM 13 ADDED to the skeleton** (orchestrator
+  addition, H-applied, dated + attributed in-file): the P2-c audit-tail
+  move + ONE audit fire at wave-close (verification-machinery class; R3
+  executes on the close signal). **R1's P2-c fold RELEASES at this
+  final-parked row** (the audit-pending note included). R3 → close-support
+  standby.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

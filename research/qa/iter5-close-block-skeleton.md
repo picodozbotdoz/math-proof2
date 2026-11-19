@@ -117,6 +117,13 @@ conversion per DECISION-6); 74-T3 (OPEN-GATED); debts f/h/l; stale wrappers;
     first).
 12. `[ANY-LATER-RULINGS]` / `[ANY-LATER-CARRIES]` / `[CLOSE-ACT-NOTE]` — from the
     wave's final batches.
+13. **[P2-C AUDIT-TAIL]** *(orchestrator addition, 2026-11-19 — H applies per
+    relay)* — the P2-c audit-tail move + ONE audit fire at wave-close
+    (verification-machinery class; **R3 executes on the orchestrator's close
+    signal**; the final park `531a9eb7…` is elaboration-complete 0-sorry/19 runs,
+    rc=1 = the audit-tail namespace placement alone — the audit-pending note rides
+    R1's §11 row).
 
 — pre-staged lane R2 (close-support lineage), 2026-11-19, main @ `22d688b`, worktree
 agent-03. PREP ONLY; no instrument executed herein; H pulls at the close signal.
+[Checklist item 13 added 2026-11-19 by H per the orchestrator's item-2b relay.]

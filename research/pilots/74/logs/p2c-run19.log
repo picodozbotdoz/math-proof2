@@ -1,0 +1,150 @@
+# provenance: raw modal run, pilot-74 P2-c ONE-WORD COMPLETION FIRE (salvo item 2b, FIRE-ONCE; the h4 first-chain's bare `field_simp` branch deleted on the parked base 7393c98d1b4d3c91) | date 2026-11-19 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/74/stage_and_fire_p2.sh 19 | staged sha 531a9eb70f9871ba (diff vs base = exactly ONE deleted line, verified before firing) | **VERDICT: NOT-GREEN at rc=1 — FINAL PARK per the FIRE-ONCE terms. THE FINDING IS DECISIVE: the one-word fix WORKED — run 19 has ZERO body errors; every Part P2 declaration (mgfBound_var_sharp, t1c_sharp, famN_spectrum/varK/W/Mdev/inClass, t4_floor_achieved, t4_not_littleO, CertValidClass/BkClass) ELABORATES CLEAN, sorry=0. The file's 13 errors are ALL the audit tail (lines 1477–1489) — whose namespace placement REGRESSED at unit 4's assembly: the prints sit AFTER `end CrossMath.Pilot74P1` (outside the namespace), the exact class fixed at run 10→11 for G2, re-introduced by the p2c body's own `end`+tail block. Each `#print axioms mgfBound_var_sharp` resolves against the ROOT namespace and fails.** | EVIDENCE the bodies are clean: (a) zero error lines outside 1477–1489 (the elaborator printed body errors in every prior run — 58/41/30/25/18/15/14 — and none remain); (b) sorry-warnings=0; (c) P1's own 7-print audit tail (inside ITS namespace) prints triad-clean as always | **AUDIT STATUS — HONEST: the Part P2 theorems' TRIAD status is UNVERIFIED (the axiom prints never resolved). Claim of record: all bodies elaborate kernel-clean with 0 sorry; the full-coverage axiom audit is PENDING the tail fix.** | the completion (for any future fire — NOT fired here per the terms): move `end CrossMath.Pilot74P1` to AFTER the 13 print/check lines (or fully qualify them `CrossMath.Pilot74P1.*`) — then rc=0 expected AND the full-coverage audit executes | telemetry: wall 54 s, samples=0, within SPEC | park sha 531a9eb70f9871ba (supersedes 7393c98d; G2 state of record 49b808f3 preserved in logs/p2-runs1-11.log) | residue prediction chain ENDS here per the grant: the mathematics is complete at the elaboration level; the sole blocker is a 14-line placement move, authoring-class, zero mathematical content
+
+==================== RUN 19 (salvo item 2b, one-word FIRE-ONCE) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dBN0JYINB35YvVuXFJodOV
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=13 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=13 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (13 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+P2.lean:1477:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1477:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=13 sorry=0
+[tele] SUMMARY run: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dBN0JYINB35YvVuXFJodOV
