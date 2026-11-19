@@ -1,4 +1,5 @@
 Research objective. Conduct a deep, comparative study of four corpora — mathlib (encore-mathlib/repo/mathlib4), tauceti, openai-math, and anthropics_formal-math — and identify bridge points between them: places where results, structures, or techniques from different corpora meet, partially overlap, or point at each other without connecting. From those bridges, propose candidate new theorems — statements not present in any corpus or the classical literature — that become true, natural, or provable precisely because of the combination.
+Once discoveries are complete, write a complete, separate research article for each discovery (theorems, proofs, context), one per file. Do not combine discoveries.
 
 Phase 1 — Deep survey (per corpus). For each project, map:
 
