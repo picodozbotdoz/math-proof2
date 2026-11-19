@@ -1,4 +1,4 @@
-# P2 record — pilot-74 G2 GREEN (sharp constants, route 1.5) + G3 PASS + P2-c executed to a 5/5-budget honest stop (18 mechanical residuals, one-run close predicted)
+# P2 record — pilot-74: G2 GREEN (sharp constants) + G3 PASS + P2-c at the unit-5 PARK (adjudicated nonneg BkClass applied; FIRE-ONCE run cleared t4_not_littleO + the arg-shape/neg_neg classes; 2 mechanical sites remain — the wave-close set)
 
 **Verdict: G2 GREEN at run 11, 2026-11-19** (iteration-5 charter debt rung 74-P2,
 recharter to R3, orchestrator 2026-11-19: DAY-1-CLASS, hold-all-commits; precharter
@@ -113,12 +113,50 @@ the G2-GREEN artifact of record is the run-11 file state (sha `49b808f3…`, pre
 in the run-11 raw log); the current P2.lean carries it plus the in-descent P2-c —
 at commit time H may prefer to record both shas in the §10 row.
 
-## Next pointer
+## Unit-5 addendum (adjudication + FIRE-ONCE completion run, 2026-11-19)
 
-ONE run to close P2-c on a re-charter (the four fix classes); then the dossier-74
-§Iteration-4 amendment folds (P2-a/b GREEN status lines + the BkClass degeneracy
-finding + the θ₀ threshold finding), and the R9 pre-gate nearest-miss table at
-article time. The t4_not_littleO context makes it the highest-confidence single
-run in the project.
+**ADJUDICATION APPLIED:** `CertValidClass`/`BkClass` in P2.lean now carry the
+NONNEG-coefficient variant `(∀ j, 0 ≤ a j) ∧ …` — the corrected definition of
+record (the 78-class correction pattern), with the degeneracy finding + adjudication
+recorded in-file. The dated dossier-74 amendment block is drafted for H at
+`research/pilots/74/dossier-74-amendment-p2c.md` (P2-a/b GREEN status lines, FINDING
+#5 = the BkClass degeneracy + adjudicated correction, FINDING #6 = the explicit
+membership threshold θ₀ = 1/(1024·e), and the T4 shape-(i) tightness set at its
+honest proof-status).
+
+**Run 17 (FIRE-ONCE grant): NOT-GREEN — PARKED with the wave-close set per the
+grant's terms.** 15 errors = 2 real sites + 13 print-cascade (descent 18 → 15;
+zero sorry). CLEARED at run 17: `t4_not_littleO` (fully closed — the redundant-
+rewrite class), both `one_div_le_one_div_of_le` arg-shape sites, the `neg_neg`
+class; the adjudicated `BkClass` def elaborates. The TWO parked sites (both in
+`famN_inClass`'s final chain, fixes in hand — full statement in
+`logs/p2c-run17.log`'s provenance header): (1) `hy2`'s nlinarith (atom-shape
+`y^2` vs `y*y` — restate `hyy` in `y ^ 2 ≤ (1/64)^2` form or feed the `show`); (2)
+`hmul`'s type ascription (drop it — the lemma's own output shape
+`u^2*L^2*(1/2) ≤ u^2*L^2*(512*e*θ)` needs no flip). PREDICTION: the wave-close
+run's residue is exactly these two lines.
+
+**Discipline exemplar (noted per the grant):** the run-15 sha-guard REFUSAL — a
+mis-batched fix (python assert aborted pre-write) produced a byte-identical staged
+file and the guard refused the fire, wasting no Modal run; the batch was re-applied
+with verified anchors before firing. This is the verify-fire discipline working as
+designed.
+
+## Files at the park (H commits post-K)
+
+`research/pilots/74/P2.lean` (sha `4425be89…` at the park — supersedes the unit-4
+`199f06ba…`; the G2-GREEN state of record `49b808f3…` remains preserved in the
+run-11 raw log), `logs/p2-runs1-11.log` (G2 series, sha `d061f77c…`),
+`logs/p2c-runs12-16.log` (sha `d4be9a19…`), `logs/p2c-run17.log` (the FIRE-ONCE
+run + park-state header, sha `de047c7a…`), `dossier-74-amendment-p2c.md` (the dated
+amendment draft for H), `stage_and_fire_p2.sh`, this record. P1.lean unchanged.
+
+## Next pointer (wave-close set)
+
+ONE wave-close run applying the two parked fixes closes `famN_inClass` and with it
+the full P2-c tightness set GREEN (family-on-parabola + θ₀ membership +
+floor-achieved + not-littleO + the adjudicated BkClass). Then: the dossier-74
+amendment fold (draft ready), the §10 row, and the R9 nearest-miss table at article
+time.
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-19.

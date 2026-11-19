@@ -2459,3 +2459,14 @@ UNCHANGED 52+0 (A2's M2-b parks are disk-sorry-free — the honest label is the 
 sorryAx state + unfired fixes, per D7 recorded on the row, not a token). H's board 74-P2
 line was ALREADY corrected at batch-D (`efcabc4` board rows 14/16 show unit-8 landed incl.
 the 74-P2 fold) — nothing to correct on my side.*
+
+**72-M1 L3 — WAVE-CLOSE honest-partial-FINAL (R2 W2-4, landed H batch-G @ 53b7278;
+folded R1 unit 10, 2026-11-19; `P72M1T3.lean` v13 `dcda3133b1ffbd16`, 1,048 LoC,
+44 decls all public):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 72-M1 L3(b–d+interface) (R2) | `pilots/72-M1/P72M1T3.lean` `dcda3133b1ffbd16` | runs 1–13 over 3 grants (the ≤2 FINAL-ROUND grant = runs 12–13; `logs/l3bd-stop-note.md` + `L3-record.md`; the l3-run logs + run 12's flips recorded there) | **honest-partial-FINAL per D7 — TRIAD-CLEAN: `toGrid_star_dotProduct_self` (L3b), `submatrix_mulVec_ec`, `eig_toGrid`, `hasGlobalGap_of_fullSystemGap` (L3c), `edgeBoundary_le_boundaryCard` + T2's `boundaryCard_le_edgeBoundary` (BOTH directions); contaminated tail: `isAdmissible_ΦL` / `hamiltonian_gridDom_eq` / `interface_areaLaw_uniformAreaLaw`; ZERO math defects; ZERO sorry tokens on disk** (classifier 0 real — the contamination is sorryAx-at-last-fire, not disk tokens) | Run 12 flipped L3c + the boundary lemma (the Loewner gap transfer, the quadratic-form/reality assembly, both boundary-comparability directions kernel-clean); run 13 rotated the remaining orientation (submatrix_mulVec_ec, eig_toGrid, L3c, edgeBoundary + all T1/T2/L3a regressions OK). **§FINAL-ROUND next-wave charter pointer: the hQ-tail is a one-word `Finset.mul_sum` fix; + hmul rw-order, hN e1-pullout, hamiltonian-step1 set-avoidance — est. 1–2 rounds.** Sweep: AxPilot72_M1_T3 guard = `dcda3133` (the closing bytes); **the sweep verdict class STAYS honest-partial until the next wave's GREEN flips it** (re-stage + custody re-run then) |
+
+*Fold note (R1, 2026-11-19): bytes verified on main @ 53b7278; certificate UNCHANGED
+52+0 (0 real tokens — consistent with H's "zero sorry tokens" board line).*

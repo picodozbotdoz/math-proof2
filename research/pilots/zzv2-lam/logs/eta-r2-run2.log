@@ -1,0 +1,582 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-r2.lean — lane R5 (A3 lineage), 2026-11-19. η-port rung R2, run 2 of ≤2 — the unit-3 budget's LAST run (confirmation + R2×2 = 3 of 3). The run-1 fix batch (catalogue in eta-r2-run1.log) applied before firing.
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker; app crossmath-pilot-zzv2-lam; SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered; taskset build. Run URL: https://modal.com/apps/semraker/main/ap-ahpK6Q36bfqCxZqwucrYW4
+# FIRED SHA: sha256(16) = 07ddf409d5d119dd
+# VERDICT: FAIL rc=1 errors=16 sorry=0 (down from 21) — GATED-RED at the unit budget. ALL MECHANICAL again; NO math defect. Lemma C (cutoffSelfConvLam_isPairTestFunction) came back TRIAD-CLEAN modulo the hQ cascade (its own body completed — the :475 axioms print shows it without sorryAx from its own code). Lemma A still fails on ONE site (the :160 whnf timeout — the Pi-power defeq unification; fix = restate cutoffTestLamSq_eq in the applied form, no cutoffTestSq) which cascades unknown-constant errors into D. Remaining classes: div-iff direction flips at the hxe/harg sites (→ term-application form (div_le_iff₀ hρ).mpr / (le_div_iff₀ hρ).mpr — rw-pattern-immune); equation-lemma rw for extremalTest failing at one site (→ explicit hETeq via unfold+if_pos); hDiv needs .measurable in comp; D's .const_smul _ typeclass-stuck (→ show-form + contDiff_const.mul).
+# PARKED FIX: the complete understood fix batch applied on disk UNFIRED per budget discipline (N2-P2 precedent) — parked sha256(16) 36c593f7d9cff455. The confirmation run is the NEXT unit's first action (expected strict-OK; no math content in any fix).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ahpK6Q36bfqCxZqwucrYW4
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-r2.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=3.11 mem=1398MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=120s cpu=11.77 mem=246MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=180s cpu=3.27 mem=1738MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=240s cpu=3.10 mem=2445MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.05 mem=2787MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=4.45 mem=2923MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6586/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (4.1s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7523/7541] Built PrimeNumberTheoremAnd.ZetaBounds (9.3s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7645/7669] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.4s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7652/7677] Built ZetaZeros.ZeroCount.LocalCount (4.1s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7659/7681] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (1.8s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7939] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (2.5s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8160/8211] Built PrimeNumberTheoremAnd.MellinCalculus (3.8s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8176/8262] Built ZetaZeros.PairCorrelation.Truncation (4.6s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8196/8262] Built PrimeNumberTheoremAnd.MediumPNT (12s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (9.5s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-r2.lean
+{'build': 'OK', 'eta-r2.lean': 'FAIL rc=1 errors=16 sorry=0'}
+[zzv2] eta-r2.lean: FAIL rc=1 errors=16 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+---- error contexts ----
+eta-r2.lean:160:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r2.lean:232:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+eta-r2.lean:265:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.407 ≤ ?m.408 / (2 * lam)
+in the target expression
+  |x| / (2 * lam) ≤ 1 / 2
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hρ : 0 < 2 * lam
+hzero : ∀ x ∉ Set.Icc (-lam) lam, dilateTo lam psi x ^ 2 * extremalLam lam x = 0
+hDiv : Continuous fun x => x / (2 * lam)
+x : ℝ
+hx : x ∈ Set.Icc (-lam) lam
+hx' : |x| ≤ lam
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+eta-r2.lean:265:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.407 ≤ ?m.408 / (2 * lam)
+in the target expression
+  |x| / (2 * lam) ≤ 1 / 2
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hρ : 0 < 2 * lam
+hzero : ∀ x ∉ Set.Icc (-lam) lam, dilateTo lam psi x ^ 2 * extremalLam lam x = 0
+hDiv : Continuous fun x => x / (2 * lam)
+x : ℝ
+hx : x ∈ Set.Icc (-lam) lam
+hx' : |x| ≤ lam
+⊢ |x| / (2 * lam) ≤ 1 / 2
+eta-r2.lean:284:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.738 ≤ ?m.739 / (2 * lam)
+in the target expression
+  |x| / (2 * lam) ≤ 1 / 2
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+···
+⊢ |x| / (2 * lam) ≤ 1 / 2
+eta-r2.lean:284:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.738 ≤ ?m.739 / (2 * lam)
+in the target expression
+  |x| / (2 * lam) ≤ 1 / 2
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hρ : 0 < 2 * lam
+hzero : ∀ x ∉ Set.Icc (-lam) lam, dilateTo lam psi x ^ 2 * extremalLam lam x = 0
+hDiv : Continuous fun x => x / (2 * lam)
+hmaps : Set.MapsTo (fun x => x / (2 * lam)) (Set.Icc (-lam) lam) (Set.Icc (-(1 / 2)) (1 / 2))
+hG : ContinuousOn (fun y => psi y ^ 2 * (Real.cos (√2 * y) / (√2 * Real.sin (1 / √2)))) (Set.Icc (-(1 / 2)) (1 / 2))
+hcomp :
+  ContinuousOn (fun x => psi (x / (2 * lam)) ^ 2 * (Real.cos (√2 * (x / (2 * lam))) / (√2 * Real.sin (1 / √2))))
+    (Set.Icc (-lam) lam)
+x : ℝ
+hx : x ∈ Set.Icc (-lam) lam
+hx' : |x| ≤ lam
+⊢ |x| / (2 * lam) ≤ 1 / 2
+eta-r2.lean:288:8: error: Failed to rewrite using equation theorems for `extremalTest`
+eta-r2.lean:298:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.82 / (2 * lam) ≤ ?m.81
+···
+⊢ |x| / (2 * lam) ≤ 1 / 2
+eta-r2.lean:288:8: error: Failed to rewrite using equation theorems for `extremalTest`
+eta-r2.lean:298:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.82 / (2 * lam) ≤ ?m.81
+in the target expression
+  1 / 2 ≤ |x| / (2 * lam)
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+x : ℝ
+hx : lam ≤ |x|
+hρ : 0 < 2 * lam
+⊢ 1 / 2 ≤ |x| / (2 * lam)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r2.lean:312:43: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+···
+eta-r2.lean:288:8: error: Failed to rewrite using equation theorems for `extremalTest`
+eta-r2.lean:298:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.82 / (2 * lam) ≤ ?m.81
+in the target expression
+  1 / 2 ≤ |x| / (2 * lam)
+
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+x : ℝ
+hx : lam ≤ |x|
+hρ : 0 < 2 * lam
+⊢ 1 / 2 ≤ |x| / (2 * lam)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r2.lean:312:43: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r2.lean:312:43: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+x : ℝ
+hAlam : 0 < cutoffNormaliserLam lam psi
+hET : 0 ≤ extremalTest (x / (2 * lam))
+⊢ psi (x * lam⁻¹ * (1 / 2)) ^ 2 * √(extremalTest (x * lam⁻¹ * (1 / 2))) ^ 2 * cutoffNormaliserLam lam psi =
+    psi (x * lam⁻¹ * (1 / 2)) ^ 2 * √(cutoffNormaliserLam lam psi) ^ 2 * extremalTest (x * lam⁻¹ * (1 / 2))
+eta-r2.lean:342:40: error: Application type mismatch: The argument
+  hDiv
+has type
+  Continuous fun x => x / (2 * lam)
+but is expected to have type
+  Measurable ?m.196
+in the application
+  Measurable.comp extremalTest_measurable hDiv
+eta-r2.lean:369:15: error(lean.unknownIdentifier): Unknown identifier `integral_div_const`
+eta-r2.lean:424:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+···
+    psi (x * lam⁻¹ * (1 / 2)) ^ 2 * √(cutoffNormaliserLam lam psi) ^ 2 * extremalTest (x * lam⁻¹ * (1 / 2))
+eta-r2.lean:342:40: error: Application type mismatch: The argument
+  hDiv
+has type
+  Continuous fun x => x / (2 * lam)
+but is expected to have type
+  Measurable ?m.196
+in the application
+  Measurable.comp extremalTest_measurable hDiv
+eta-r2.lean:369:15: error(lean.unknownIdentifier): Unknown identifier `integral_div_const`
+eta-r2.lean:424:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+···
+  Measurable.comp extremalTest_measurable hDiv
+eta-r2.lean:369:15: error(lean.unknownIdentifier): Unknown identifier `integral_div_const`
+eta-r2.lean:424:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+heps1 : min eps0 (1 / 2) < 1
+h1 : 2 * lam * (1 - min eps0 (1 / 2)) ≤ 1 - min eps0 (1 / 2)
+a✝ : 1 ≤ 1 - min eps0 (1 / 2)
+⊢ False
+failed
+···
+eta-r2.lean:369:15: error(lean.unknownIdentifier): Unknown identifier `integral_div_const`
+eta-r2.lean:424:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+heps1 : min eps0 (1 / 2) < 1
+h1 : 2 * lam * (1 - min eps0 (1 / 2)) ≤ 1 - min eps0 (1 / 2)
+a✝ : 1 ≤ 1 - min eps0 (1 / 2)
+⊢ False
+failed
+eta-r2.lean:460:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+failed
+eta-r2.lean:460:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |x / (2 * lam)|
+in the target expression
+  |(2 * lam)⁻¹ * (cutoffSelfConv psi (x / (2 * lam)) - cutoffSelfConv psi 0)| ≤ ↑C / (2 * lam) / (2 * lam) * |x|
+
+case refine_3
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+heps1 : min eps0 (1 / 2) < 1
+···
+⊢ |(2 * lam)⁻¹ * (cutoffSelfConv psi (x / (2 * lam)) - cutoffSelfConv psi 0)| ≤ ↑C / (2 * lam) / (2 * lam) * |x|
+eta-r2.lean:380:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+eta-r2.lean:489:10: error: typeclass instance problem is stuck
+  ContinuousConstSMul ?m.181 ℝ
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and fourth type arguments to `ContinuousConstSMul` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+eta-r2.lean:512:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+···
+eta-r2.lean:380:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+eta-r2.lean:489:10: error: typeclass instance problem is stuck
+  ContinuousConstSMul ?m.181 ℝ
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and fourth type arguments to `ContinuousConstSMul` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+eta-r2.lean:512:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+···
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+eta-r2.lean:512:45: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+h2 : 2 * lam * (1 - min eps0 (1 / 2)) ≤ 1 - min eps0 (1 / 2)
+a✝ : 1 ≤ 1 - min eps0 (1 / 2)
+⊢ False
+failed
+eta-r2.lean:555:55: error: linarith failed to find a contradiction
+lam : ℝ
+···
+failed
+eta-r2.lean:555:55: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hQlamzero2 : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → cutoffSelfConvLam lam psi y = 0
+h2zero_open : ∀ (x : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) < |x| → iteratedDeriv 2 (cutoffSelfConvLam lam psi) x = 0
+x : ℝ
+hx : x ∈ Function.support (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+···
+failed
+eta-r2.lean:585:53: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos✝ : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hQlamzero2 : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → cutoffSelfConvLam lam psi y = 0
+h2zero_open : ∀ (x : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) < |x| → iteratedDeriv 2 (cutoffSelfConvLam lam psi) x = 0
+h2supp : HasCompactSupport (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+x : ℝ
+···
+failed
+eta-r2.lean:475:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' does not depend on any axioms
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cutoffSelfConvLam_isPairTestFunction]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction]
+···
+
+=== SUMMARY
+build: OK
+eta-r2.lean: FAIL rc=1 errors=16 sorry=0
+[tele] SUMMARY run: wall=407s max_cpu=11.77 max_mem=2923MB max_anon=0MB samples=6 OVER=6
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ahpK6Q36bfqCxZqwucrYW4
+RC=0
+
+=== CLOSING VERDICT BLOCK (R5, 2026-11-19) ===
+VERDICT run 2 (unit-final): eta-r2.lean FAIL rc=1 errors=16 sorry=0 — GATED-RED. build OK. Progress: 21 → 16 errors; both runs 100% mechanical; the corrected-dilate transport ARCHITECTURE is validated by C's body completing.
+- STANDING BLOCKER (single site): cutoffTestLamSq_eq's whnf timeout at :160 — the rw's auto-rfl tried to unify `(cutoffTest psi y)^2` with `cutoffTestSq psi y` through the noncomputable Pi-power delta and hit the 200k-heartbeat limit; A failed ⇒ unknown-constant cascade into D and the #print surface. Parked fix: restate in the applied form (no cutoffTestSq) + hint/Gx adjusted.
+- C (cutoffSelfConvLam_isPairTestFunction): its four clauses' proofs ELABORATED (axioms print at :475 shows no sorryAx of its own) — the transport architecture (lemma A + public frozen layer) works modulo A.
+- B (cutoffTestLam_isAdmissible): sorryAx via cutoffTestLamSq_eq' (:312/:424 — field_simp residue; parked fix = div_pow/mul_pow/sq_sqrt chain).
+- TELEMETRY: wall=407 s; max_mem 2923 MB < 4096; max_cpu 11.77, OVER=6 pre-taskset confined.
+- BUDGET: unit-3 SPENT (3 of 3: R1-confirm + R2×2). Port ledger: 6 of 6–10 (R1: 2 fix + 1 confirm; R2: 2 fix). R2 remains GATED — next unit: fire parked 36c593f7d9cff455 first action.

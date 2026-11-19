@@ -793,6 +793,32 @@ rides this commit.
 - **R1's L3 fold is NOW executable** at the closing state (the
   honest-partial-final row + the triad additions + the next-wave charter
   pointer). R2 → mid-wave REPORT delta prep (tracker).
+
+## 2026-11-19 — iter-5 steady state, batch H (H): R3 run-17 parked + R5 rung-1 FINAL/rung-2 + R1 unit-10 (the L3 fold)
+
+- **R3's run-17 PARKED closing state (the P2 fold-once landing):**
+  `P2.lean` `4425be89…` (the adjudicated BkClass-nonneg + run-17 final
+  bytes) + record `2ee68bc0…` + `p2c-run17.log` `de047c7a…`. Verdict:
+  **NOT-GREEN at fire-once → PARKED** (`t4_not_littleO` CLOSED; the 2-line
+  `famN_inClass` residue predicted for the wave-close run; tightness set
+  3-of-4 closed). The G2-GREEN `49b808f3` state of record preserved
+  log-cited. **The dossier-74 amendment APPLIED** (the dated block below
+  the FINDS record: P2-a/b GREEN sharp constants; FINDING #5 + the
+  adjudicated correction; FINDING #6 θ₀; the T4 tightness set). R3 →
+  wave-close re-open charter draft.
+- **R5's unit-3:** `eta-r1-record.md` **FINAL-GREEN** (`c4332b55…`) + the
+  run-3 confirmation log `9b2db9ae…` (6/6 triad — R1's eta-r1 fold queues)
+  + rung-2 record `7d9c8d25…` + r2-run1/2 logs + the **AMENDED port plan**
+  `94f7f0d0…` (supersedes batch-D's copy; carries **the FINDING: probe
+  (ii-c)/(iii) false-as-stated → corrected forms + threshold domain; the
+  donor public-layer discovery**). `eta-r2.lean` `36c593f7…` HELD
+  (fold-once; the confirmation fire in flight). R5 → confirmation + rung 3
+  + the precharter amendment (next report).
+- **R1's unit-10:** r3-tables `97763c96…` — **the L3 fold EXECUTED at the
+  closing state** (the honest-partial-FINAL row + the next-wave charter
+  pointer verbatim) + sweep-plan `c83709bc…` (guard → `dcda3133`) +
+  make_axcheck `71e79ac3…` + stepA ENTRY 10. R1 → event-standby (4
+  pending: M2-b · P3-complete · 41H-T2 · eta-confirm).
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

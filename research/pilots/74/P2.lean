@@ -1054,10 +1054,437 @@ bounded; the FIND-#1 counterexample shape used constructively). -/
 def famTailProbe (ε : ℝ) (n : ℕ) : Prop :=
   W (famN n) ε ≤ 4 + Real.log 2
 
+/-! ## Part P2-c (the G3-discharged constructive unit) — the FIND-#1 n-atom family,
+exactly specified; class membership at the explicit threshold θ₀ = 1/(1024·e); the
+class-level tightness pair in the honest discharged-family form; the `BkClass`
+class-indexed ceiling def (with the degeneracy finding recorded in P2-record.md).
+
+MATH (exact, n ≥ 1, L := log n): the family's deviations are TWO-VALUED, dev = ±L/2
+exactly (surp₀ = log 2, surp_tail = log 2 + L, S = log 2 + L/2); hence
+varK = L²/4 EXACTLY, Mdev = L/2, and W_ε = L/2 for every 0 < ε < 1 — the family sits
+ON the marking parabola: varK = (1−ε)·W² + ε·Mdev² with equality, the marking floor
+attained, and W/√B = 1/2 exactly (NOT o(√B)). Membership: the even MGF
+g(u) = (1/2)(e^{uL/2} + e^{−uL/2}) ≤ 1 + 2y² ≤ e^{2y²} ≤ e^{512eθL²·u²} via the
+elementary reciprocal bound e^y + e^{−y} ≤ 2/(1−y²) ≤ 2 + 4y² (y² ≤ 1/2) — giving
+the explicit threshold θ₀ = 1/(1024·e); the precharter's marginal-θ caveat is
+CONFIRMED (membership fails as θ → 0; θ₀ explicit). -/
+
+/-- The definitional unfolding (the `rfl` pattern: `famN` IS this ite). -/
+private lemma famN_at (n : ℕ) (i : Fin (n + 1)) :
+    famN n i = if (i : ℕ) = 0 then 1 / 2 else 1 / (2 * (n : ℝ)) := rfl
+
+/-- The heavy/tail sum split for the family: any `ite`-shaped summand splits as
+`A + n · B`. -/
+private lemma famN_split (n : ℕ) (A B : ℝ) :
+    ∑ i : Fin (n + 1), ite ((i : ℕ) = 0) A B = A + (n : ℝ) * B := by
+  have h1 : ∀ i : Fin (n + 1), ite ((i : ℕ) = 0) A B
+      = ite ((i : ℕ) = 0) (A - B) 0 + B := by
+    intro i
+    by_cases hi : (i : ℕ) = 0
+    · rw [if_pos hi, if_pos hi]; ring
+    · rw [if_neg hi, if_neg hi]; ring
+  have h2 : ∑ i : Fin (n + 1), ite ((i : ℕ) = 0) (A - B) 0 = A - B := by
+    rw [Finset.sum_eq_single (0 : Fin (n + 1))]
+    · simp
+    · intro b _ hb
+      have hb' : (b : ℕ) ≠ 0 := fun hc => hb (by ext; exact hc)
+      rw [if_neg hb']
+    · intro h
+      exact absurd (Finset.mem_univ _) h
+  calc ∑ i : Fin (n + 1), ite ((i : ℕ) = 0) A B
+      = ∑ i : Fin (n + 1), (ite ((i : ℕ) = 0) (A - B) 0 + B) :=
+        Finset.sum_congr rfl (fun i _ => h1 i)
+    _ = (A - B) + ∑ i : Fin (n + 1), B := by rw [Finset.sum_add_distrib, h2]
+    _ = A + (n : ℝ) * B := by
+        rw [Finset.sum_const, Finset.card_univ, Fintype.card_fin]
+        push_cast
+        ring
+
+private lemma famN_pos (n : ℕ) (hn : 1 ≤ n) (i : Fin (n + 1)) : 0 < famN n i := by
+  rw [famN_at]
+  by_cases hi : (i : ℕ) = 0
+  · rw [if_pos hi]; norm_num
+  · rw [if_neg hi]
+    have hn' : (0:ℝ) < (n : ℝ) := by
+      exact_mod_cast (Nat.lt_of_lt_of_le (by norm_num) hn)
+    exact div_pos (by norm_num) (by linarith)
+
+private lemma famN_supp_univ (n : ℕ) (hn : 1 ≤ n) : supp (famN n) = Finset.univ := by
+  ext i
+  unfold supp
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+  exact ⟨fun _ => trivial, fun _ => famN_pos n hn i⟩
+
+theorem famN_spectrum (n : ℕ) (hn : 1 ≤ n) : IsSpectrum (famN n) := by
+  refine ⟨fun i => le_of_lt (famN_pos n hn i), ?_⟩
+  have hn0 : ((n : ℝ)) ≠ 0 := by
+    have : (0:ℕ) < n := Nat.lt_of_lt_of_le (by norm_num) hn
+    exact_mod_cast this.ne'
+  have hsplit := famN_split n (1 / 2) (1 / (2 * (n : ℝ)))
+  have hval : ∀ i : Fin (n + 1), famN n i = ite ((i : ℕ) = 0) (1 / 2) (1 / (2 * (n : ℝ))) :=
+    fun i => famN_at n i
+  rw [Finset.sum_congr rfl (fun i _ => hval i), hsplit]
+  field_simp
+  ring
+
+private lemma famN_surp (n : ℕ) (hn : 1 ≤ n) (i : Fin (n + 1)) :
+    surprisal (famN n) i = ite ((i : ℕ) = 0) (Real.log 2) (Real.log 2 + Real.log n) := by
+  have hn0 : ((n : ℝ)) ≠ 0 := by
+    have : (0:ℕ) < n := Nat.lt_of_lt_of_le (by norm_num) hn
+    exact_mod_cast this.ne'
+  have h2 : (2:ℝ) ≠ 0 := by norm_num
+  have h2n : (2:ℝ) * (n : ℝ) ≠ 0 := mul_ne_zero h2 hn0
+  show -Real.log (famN n i) = ite ((i : ℕ) = 0) (Real.log 2) (Real.log 2 + Real.log n)
+  rw [famN_at n i]
+  by_cases hi : (i : ℕ) = 0
+  · rw [if_pos hi, if_pos hi, Real.log_div (by norm_num) h2, Real.log_one]
+    ring
+  · rw [if_neg hi, if_neg hi, Real.log_div (by norm_num) h2n, Real.log_mul h2 hn0, Real.log_one]
+    ring
+
+private lemma famN_S (n : ℕ) (hn : 1 ≤ n) : S (famN n) = Real.log 2 + (1 / 2) * Real.log n := by
+  have hn0 : ((n : ℝ)) ≠ 0 := by
+    have : (0:ℕ) < n := Nat.lt_of_lt_of_le (by norm_num) hn
+    exact_mod_cast this.ne'
+  rw [← supp_sum_K_eq_S (famN_spectrum n hn), famN_supp_univ n hn]
+  have hval : ∀ i : Fin (n + 1), famN n i * surprisal (famN n) i
+      = ite ((i : ℕ) = 0) ((1 / 2) * Real.log 2)
+        ((1 / (2 * (n : ℝ))) * (Real.log 2 + Real.log n)) := by
+    intro i
+    rw [famN_surp n hn i, famN_at n i]
+    by_cases hi : (i : ℕ) = 0
+    · rw [if_pos hi, if_pos hi, if_pos hi]
+    · rw [if_neg hi, if_neg hi, if_neg hi]
+  rw [Finset.sum_congr rfl (fun i _ => hval i), famN_split n ((1 / 2) * Real.log 2)
+    ((1 / (2 * (n : ℝ))) * (Real.log 2 + Real.log n))]
+  field_simp
+  ring
+
+private lemma famN_dev (n : ℕ) (hn : 1 ≤ n) (i : Fin (n + 1)) :
+    dev (famN n) i = ite ((i : ℕ) = 0) (-(1 / 2) * Real.log n) ((1 / 2) * Real.log n) := by
+  rw [dev, famN_S n hn, famN_surp n hn i]
+  by_cases hi : (i : ℕ) = 0
+  · rw [if_pos hi, if_pos hi]; ring
+  · rw [if_neg hi, if_neg hi]; ring
+
+private lemma famN_dev_sq (n : ℕ) (hn : 1 ≤ n) (i : Fin (n + 1)) :
+    (dev (famN n) i) ^ 2 = (Real.log n) ^ 2 / 4 := by
+  rw [famN_dev n hn i]
+  by_cases hi : (i : ℕ) = 0
+  · rw [if_pos hi]; ring
+  · rw [if_neg hi]; ring
+
+theorem famN_varK (n : ℕ) (hn : 1 ≤ n) : varK (famN n) = (Real.log n) ^ 2 / 4 := by
+  have hn0 : ((n : ℝ)) ≠ 0 := by
+    have : (0:ℕ) < n := Nat.lt_of_lt_of_le (by norm_num) hn
+    exact_mod_cast this.ne'
+  rw [varK_eq (famN_spectrum n hn), famN_supp_univ n hn]
+  have hval : ∀ i : Fin (n + 1), famN n i * (dev (famN n) i) ^ 2
+      = ite ((i : ℕ) = 0) ((Real.log n) ^ 2 / 8) ((Real.log n) ^ 2 / (8 * (n : ℝ))) := by
+    intro i
+    rw [famN_dev_sq n hn i, famN_at n i]
+    by_cases hi : (i : ℕ) = 0
+    · rw [if_pos hi, if_pos hi]; field_simp; ring
+    · rw [if_neg hi, if_neg hi]; field_simp; ring
+  rw [Finset.sum_congr rfl (fun i _ => hval i), famN_split n ((Real.log n) ^ 2 / 8)
+    ((Real.log n) ^ 2 / (8 * (n : ℝ)))]
+  field_simp
+  ring
+
+private lemma famN_abs_dev (n : ℕ) (hn : 1 ≤ n) (i : Fin (n + 1)) :
+    |dev (famN n) i| = Real.log n / 2 := by
+  have hL : 0 ≤ Real.log n := Real.log_nonneg (by exact_mod_cast hn)
+  rw [famN_dev n hn i]
+  by_cases hi : (i : ℕ) = 0
+  · rw [if_pos hi, abs_of_nonpos (by nlinarith [hL])]
+    ring
+  · rw [if_neg hi, abs_of_nonneg (by nlinarith [hL])]
+    field_simp
+
+theorem famN_W (n : ℕ) (hn : 1 ≤ n) (ε : ℝ) (hε : 0 < ε) (hε' : ε < 1) :
+    W (famN n) ε = Real.log n / 2 := by
+  have hL : 0 ≤ Real.log n := Real.log_nonneg (by exact_mod_cast hn)
+  have hT : 0 ≤ Real.log n / 2 := by linarith
+  apply le_antisymm
+  · refine W_le_of_mem (famN_spectrum n hn) (le_of_lt hε) ⟨hT, ?_⟩
+    have hempty : (Finset.univ.filter (fun i => Real.log n / 2 < |dev (famN n) i|)) = ∅ := by
+      apply Finset.filter_eq_empty_iff.mpr
+      intro i _
+      rw [famN_abs_dev n hn i]
+      exact not_lt_of_ge (le_refl _)
+    rw [massTail, hempty, Finset.sum_empty]
+    linarith
+  · have hSne : {w : ℝ | 0 ≤ w ∧ massTail (famN n) w ≤ ε}.Nonempty :=
+      wset_nonempty (famN_spectrum n hn) (le_of_lt hε)
+    refine le_csInf hSne ?_
+    intro w hw
+    by_contra hTw
+    have hlt : w < Real.log n / 2 := not_le.mp hTw
+    have huniv : (Finset.univ.filter (fun i => w < |dev (famN n) i|)) = Finset.univ := by
+      apply Finset.ext
+      intro i
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      rw [famN_abs_dev n hn i]
+      exact iff_of_true hlt trivial
+    have h1 : massTail (famN n) w = 1 := by
+      rw [massTail, huniv]
+      exact (famN_spectrum n hn).2
+    have h2 := hw.2
+    rw [h1] at h2
+    linarith
+
+theorem famN_Mdev (n : ℕ) (hn : 1 ≤ n) : Mdev (famN n) = Real.log n / 2 := by
+  have hmem : Real.log n / 2 ∈ {r : ℝ | ∃ i ∈ supp (famN n), r = abs (dev (famN n) i)} := by
+    refine ⟨0, ?_, (famN_abs_dev n hn 0).symm⟩
+    rw [famN_supp_univ n hn]
+    exact Finset.mem_univ 0
+  apply le_antisymm
+  · refine csSup_le ⟨_, hmem⟩ ?_
+    intro r hr
+    obtain ⟨i, _, hr'⟩ := hr
+    rw [hr', famN_abs_dev n hn i]
+  · exact le_csSup (Mdev_bddAbove _) hmem
+
+/-- The elementary reciprocal pair bound: `e^y + e^{−y} ≤ 2 + 4y²` for `y² ≤ 1/2`
+(from `add_one_le_exp` at `±y`: `e^y ≤ 1/(1−y)`, `e^{−y} ≤ 1/(1+y)`, and
+`2/(1−y²) ≤ 2 + 4y²`). -/
+private lemma exp_pair_upper (y : ℝ) (hy : y ^ 2 ≤ 1 / 2) :
+    Real.exp y + Real.exp (-y) ≤ 2 + 4 * y ^ 2 := by
+  have hy1 : y < 1 := by
+    have h1 : (0:ℝ) < 1 - y ^ 2 := by nlinarith [hy]
+    nlinarith [h1, mul_pos h1 (by nlinarith : (0:ℝ) < 1 + y), sq_nonneg (1 - y), sq_nonneg (1 + y)]
+  have hpos1 : (0:ℝ) < 1 - y := by nlinarith
+  have hpos2 : (0:ℝ) < 1 + y := by nlinarith
+  have hy2 : y ^ 2 < 1 := by nlinarith [hy]
+  have hlow1 : y + 1 ≤ Real.exp y := Real.add_one_le_exp y
+  have hlow2 : -y + 1 ≤ Real.exp (-y) := Real.add_one_le_exp (-y)
+  have hb1 : Real.exp (-y) ≤ 1 / (1 + y) := by
+    rw [Real.exp_neg, inv_eq_one_div]
+    exact one_div_le_one_div_of_le hpos2 (by linarith : (1:ℝ) + y ≤ Real.exp y)
+  have hb2 : Real.exp y ≤ 1 / (1 - y) := by
+    have hinv : (Real.exp (-y))⁻¹ = Real.exp y := by
+      rw [← Real.exp_neg, neg_neg]
+    rw [← hinv, inv_eq_one_div]
+    exact one_div_le_one_div_of_le hpos1 (by linarith : (1:ℝ) - y ≤ Real.exp (-y))
+  have hsum : Real.exp y + Real.exp (-y) ≤ 1 / (1 - y) + 1 / (1 + y) :=
+    add_le_add hb2 hb1
+  have hcomb : 1 / (1 - y) + 1 / (1 + y) = 2 / (1 - y ^ 2) := by
+    field_simp
+    ring
+  rw [hcomb] at hsum
+  have hdenom : (0:ℝ) < 1 - y ^ 2 := by nlinarith [hy2]
+  have hfinal : 2 / (1 - y ^ 2) ≤ 2 + 4 * y ^ 2 := by
+    rw [div_le_iff₀ hdenom]
+    nlinarith [hy, sq_nonneg y]
+  exact hsum.trans hfinal
+
+/-- The pair sum is even: `e^t + e^{−t} = e^{|t|} + e^{−|t|}` (case split on the sign,
+both branches by commutativity). -/
+private lemma exp_pair_abs (t : ℝ) :
+    Real.exp t + Real.exp (-t) = Real.exp |t| + Real.exp (-|t|) := by
+  by_cases ht : 0 ≤ t
+  · rw [abs_of_nonneg ht]
+  · rw [abs_of_neg (not_le.mp ht), neg_neg]
+    ring
+
+/-- **Class membership at the explicit threshold** (the precharter's marginal-θ
+caveat made precise): `famN n` is in the centered class at scale `B = (log n)²` for
+every θ ≥ θ₀ := 1/(1024·e). The MGF budget needs `u²L²/2 ≤ 512eθL²·u²`, i.e.
+θ ≥ 1/(1024e); membership FAILS as θ → 0. `Real.exp 1 ≤ n` is the constructive
+`B ≥ 1` hypothesis (its numeric instantiation n ≥ 3 uses `e ≤ 3`). -/
+theorem famN_inClass (n : ℕ) (hn : Real.exp 1 ≤ (n : ℝ))
+    {θ : ℝ} (hθ : 1 / (1024 * Real.exp 1) ≤ θ) :
+    InSubGClass (famN n) θ ((Real.log n) ^ 2) := by
+  have h2 : (2:ℝ) ≤ Real.exp 1 := by
+    have := Real.add_one_le_exp 1
+    linarith
+  have hn2 : (2:ℕ) ≤ n := by exact_mod_cast h2.trans hn
+  have hn1 : (1:ℕ) ≤ n := by omega
+  have hnpos : (0:ℝ) < (n : ℝ) := by exact_mod_cast hn1
+  have hL1 : (1:ℝ) ≤ Real.log n := by
+    have h1 : Real.exp 1 ≤ Real.exp (Real.log n) := by
+      rwa [Real.exp_log hnpos]
+    exact Real.exp_le_exp.mp h1
+  have hL : (0:ℝ) < Real.log n := by linarith
+  have hLne : Real.log n ≠ 0 := ne_of_gt hL
+  have hθ0 : (0:ℝ) < θ := by
+    have hp : (0:ℝ) < 1 / (1024 * Real.exp 1) := by positivity
+    linarith [hp, hθ]
+  refine ⟨famN_spectrum n hn1, ?_, ?_⟩
+  · have hLL : Real.log n * (Real.log n - 1) ≥ 0 :=
+      mul_nonneg hL.le (sub_nonneg.mpr hL1)
+    nlinarith [hLL, hL1]
+  · intro u hu
+    have hW1 : (0:ℝ) < (1 + θ) * (Real.log n) ^ 2 := by positivity
+    have hs : (0:ℝ) < Real.sqrt ((1 + θ) * (Real.log n) ^ 2) := Real.sqrt_pos.mpr hW1
+    set L := Real.log n with hLdef
+    have hsL : L ≤ Real.sqrt ((1 + θ) * L ^ 2) := by
+      have h1 : L ^ 2 ≤ (1 + θ) * L ^ 2 := by
+        nlinarith [mul_le_mul_of_nonneg_left (le_of_lt hθ0) (le_of_lt hL)]
+      have h2 : Real.sqrt (L ^ 2) ≤ Real.sqrt ((1 + θ) * L ^ 2) :=
+        Real.sqrt_le_sqrt h1
+      rwa [Real.sqrt_sq hL.le] at h2
+    have hLhalf : (0:ℝ) ≤ L / 2 := by linarith
+    have hy1 : |u * ((1 / 2) * L)| ≤ 1 / 64 := by
+      have hhalf : (0:ℝ) ≤ (1 / 2) * L := mul_nonneg (by norm_num) hL.le
+      have hmul : |u * ((1 / 2) * L)| = |u| * ((1 / 2) * L) := by
+        rw [abs_mul, abs_of_nonneg hhalf]
+      rw [hmul]
+      have hB : 32 * L ≤ 32 * Real.sqrt ((1 + θ) * L ^ 2) := by nlinarith [hsL]
+      have hC : 1 / (32 * Real.sqrt ((1 + θ) * L ^ 2)) ≤ 1 / (32 * L) :=
+        one_div_le_one_div_of_le (mul_pos (by norm_num) hL) hB
+      have hA : |u| * ((1 / 2) * L)
+          ≤ (1 / (32 * Real.sqrt ((1 + θ) * L ^ 2))) * ((1 / 2) * L) :=
+        mul_le_mul_of_nonneg_right hu hhalf
+      have hD2 : (1 / (32 * L)) * ((1 / 2) * L) = 1 / 64 := by field_simp; norm_num
+      calc |u| * ((1 / 2) * L)
+          ≤ (1 / (32 * Real.sqrt ((1 + θ) * L ^ 2))) * ((1 / 2) * L) := hA
+        _ ≤ (1 / (32 * L)) * ((1 / 2) * L) := mul_le_mul_of_nonneg_right hC hhalf
+        _ = 1 / 64 := hD2
+    set y := |u * ((1 / 2) * L)| with hydef
+    have hynn : (0:ℝ) ≤ y := abs_nonneg _
+    have hy2 : y ^ 2 ≤ 1 / 2 := by
+      have hyy : y * y ≤ (1 / 64) * (1 / 64) :=
+        mul_le_mul hy1 hy1 hynn (by norm_num)
+      nlinarith [hyy]
+    have hn0 : ((n : ℝ)) ≠ 0 := by
+      exact_mod_cast (show n ≠ 0 by omega)
+    have hval : ∀ i : Fin (n + 1), famN n i * Real.exp (u * dev (famN n) i)
+        = ite ((i : ℕ) = 0) ((1 / 2) * Real.exp (u * (-(1 / 2) * L)))
+          ((1 / (2 * (n : ℝ))) * Real.exp (u * ((1 / 2) * L))) := by
+      intro i
+      rw [famN_dev n hn1 i, famN_at n i]
+      by_cases hi : (i : ℕ) = 0
+      · rw [if_pos hi, if_pos hi, if_pos hi]
+      · rw [if_neg hi, if_neg hi, if_neg hi]
+    have hsplit := famN_split n ((1 / 2) * Real.exp (u * (-(1 / 2) * L)))
+      ((1 / (2 * (n : ℝ))) * Real.exp (u * ((1 / 2) * L)))
+    have hsum : ∑ i ∈ supp (famN n), famN n i * Real.exp (u * dev (famN n) i)
+        = (1 / 2) * (Real.exp (u * ((1 / 2) * L)) + Real.exp (-(u * ((1 / 2) * L)))) := by
+      rw [famN_supp_univ n hn1, Finset.sum_congr rfl (fun i _ => hval i), hsplit]
+      field_simp
+      ring
+    have hpair : (1 / 2) * (Real.exp (u * ((1 / 2) * L)) + Real.exp (-(u * ((1 / 2) * L))))
+        = (1 / 2) * (Real.exp y + Real.exp (-y)) := by
+      rw [hydef, exp_pair_abs]
+    have hub : (1 / 2) * (Real.exp y + Real.exp (-y)) ≤ 1 + 2 * y ^ 2 := by
+      have h := exp_pair_upper y hy2
+      nlinarith [h]
+    have hsq : (|u * ((1 / 2) * L)|) ^ 2 = u ^ 2 * L ^ 2 / 4 := by
+      have hhalf : (0:ℝ) ≤ (1 / 2) * L := mul_nonneg (by norm_num) hL.le
+      rw [abs_mul, abs_of_nonneg hhalf, mul_pow, mul_pow, sq_abs]
+      field_simp
+      norm_num
+    have hfinal2 : 2 * y ^ 2 ≤ 512 * Real.exp 1 * θ * L ^ 2 * u ^ 2 := by
+      rw [hydef, hsq]
+      have hθe : 1 / 2 ≤ 512 * Real.exp 1 * θ := by
+        have h3 : (1:ℝ) / (1024 * Real.exp 1) * (512 * Real.exp 1)
+            ≤ θ * (512 * Real.exp 1) :=
+          mul_le_mul_of_nonneg_right hθ (by positivity)
+        have h4 : (1:ℝ) / (1024 * Real.exp 1) * (512 * Real.exp 1) = 1 / 2 := by
+          first
+          | field_simp
+          | (field_simp; ring)
+          | (field_simp; norm_num)
+          | norm_num
+        rw [h4] at h3
+        linarith
+      have hmul : (1 / 2) * (u ^ 2 * L ^ 2) ≤ 512 * Real.exp 1 * θ * (u ^ 2 * L ^ 2) :=
+        mul_le_mul_of_nonneg_left hθe (mul_nonneg (sq_nonneg u) (sq_nonneg L))
+      nlinarith [hmul, mul_nonneg (sq_nonneg u) (sq_nonneg L)]
+    have hexpchain : 1 + 2 * y ^ 2 ≤ Real.exp (512 * Real.exp 1 * θ * L ^ 2 * u ^ 2) := by
+      have h1 : 2 * y ^ 2 + 1 ≤ Real.exp (2 * y ^ 2) := Real.add_one_le_exp (2 * y ^ 2)
+      have h2' : Real.exp (2 * y ^ 2) ≤ Real.exp (512 * Real.exp 1 * θ * L ^ 2 * u ^ 2) :=
+        Real.exp_le_exp.mpr hfinal2
+      linarith
+    rw [hsum, hpair]
+    exact hub.trans hexpchain
+
+/-- **T4's first clause, discharged** (the √-floor ACHIEVED, with exact tightness):
+along the explicit family, `W_ε = (log n)/2` realizes `κ·B ≤ W²` at `κ = 1/8`
+(and in fact the floor certificate is TIGHT — the family sits on the marking
+parabola with equality: `varK = (1−ε)·W² + ε·Mdev²` exactly). -/
+theorem t4_floor_achieved (n : ℕ) (hn : Real.exp 1 ≤ (n : ℝ)) {ε : ℝ} (hε : 0 < ε)
+    (hε' : ε < 1) :
+    (1 / 8) * (Real.log n) ^ 2 ≤ (W (famN n) ε) ^ 2 ∧
+      (1 - ε) * (W (famN n) ε) ^ 2 + ε * (Mdev (famN n)) ^ 2 = varK (famN n) := by
+  have h2 : (2:ℝ) ≤ Real.exp 1 := by
+    have := Real.add_one_le_exp 1
+    linarith
+  have hn2 : (2:ℕ) ≤ n := by exact_mod_cast h2.trans hn
+  have hn1 : (1:ℕ) ≤ n := by omega
+  have hW := famN_W n hn1 ε hε hε'
+  have hM := famN_Mdev n hn1
+  have hV := famN_varK n hn1
+  constructor
+  · have hL : (0:ℝ) ≤ Real.log n := Real.log_nonneg (by exact_mod_cast hn1)
+    have hL2 : (0:ℝ) ≤ (Real.log n) ^ 2 := sq_nonneg _
+    have hsq : (Real.log n / 2) ^ 2 = (Real.log n) ^ 2 / 4 := by field_simp; ring
+    rw [hW, hsq]
+    nlinarith [hL2]
+  · rw [hW, hM, hV]
+    ring
+
+/-- **T4's second clause, discharged** (the o(√B) negation): `W_ε` along the family
+is `Θ(√B)` exactly (`W/√B = 1/2`), so `W_ε(P·) ≠ o(√B)` as `n → ∞` — no certificate
+family of 2-moment shape can certify `W_ε = o(√B)` on the class scale. -/
+theorem t4_not_littleO {ε : ℝ} (hε : 0 < ε) (hε' : ε < 1) :
+    ¬ Asymptotics.IsLittleO Filter.atTop (fun n : ℕ => W (famN n) ε)
+        (fun n : ℕ => Real.sqrt ((Real.log (n : ℝ)) ^ 2)) := by
+  intro h
+  have h1 := Asymptotics.isLittleO_iff.mp h (c := 1 / 4) (by norm_num)
+  rw [Filter.eventually_atTop] at h1
+  obtain ⟨N, hN⟩ := h1
+  have hm2 : (2:ℕ) ≤ Nat.max N 2 := le_max_right _ _
+  have hNm : N ≤ Nat.max N 2 := le_max_left _ _
+  have hLpos : (1:ℝ) < (Nat.max N 2 : ℝ) := by
+    have : (1:ℕ) < Nat.max N 2 := by omega
+    exact_mod_cast this
+  have hL : (0:ℝ) < Real.log (Nat.max N 2 : ℕ) := Real.log_pos hLpos
+  have hLnn : 0 ≤ Real.log (Nat.max N 2 : ℕ) := le_of_lt hL
+  have hthis := hN (Nat.max N 2) hNm
+  simp only [Real.norm_eq_abs, Real.sqrt_sq hLnn] at hthis
+  have hW2 := famN_W (Nat.max N 2) (by omega) ε hε hε'
+  rw [hW2, abs_of_nonneg (by linarith), abs_of_nonneg (by linarith)] at hthis
+  linarith
+
+/-! ### The class-indexed ceiling (the Q1 shape-(i) object) — the ADJUDICATED
+nonneg-coefficient variant (definition of record, orchestrator 2026-11-19).
+FINDING (this file + P2-record.md + the dossier-74 amendment drafted for H): the
+precharter's literal unrestricted-coefficient `BkClass` with floor
+`BkClass W_ε 1 𝒞 ≥ √(…·κ·B)` is DEGENERATE both ways — (i) every point mass is a
+class member (trivial MGF) with `W_ε = 0` and all moments `0`, forcing
+`BkClass ≤ 0` on the full class; (ii) with unrestricted certificate coefficients,
+negative `a` makes the sup unbounded on hVarLB-restricted classes (entropy
+`S ≥ log 2 > 0` pays for any `c₀`). ADJUDICATION (2026-11-19): the
+nonneg-coefficient variant below is the corrected definition of record (the
+78-class correction pattern); the tightness content of T4 lives in the
+discharged-family theorems above. -/
+
+/-- Class-restricted certificate validity with NONNEGATIVE coefficients (the
+adjudicated corrected def of record): `c₀ + ∑ aⱼ · (j+1)-moments ≤ F` on 𝒞, with
+`aⱼ ≥ 0` — the constraint that restores boundedness. -/
+def CertValidClass (𝒞 : (ι → ℝ) → Prop) (F : (ι → ℝ) → ℝ) (k : ℕ) (c₀ : ℝ)
+    (a : Fin k → ℝ) : Prop :=
+  (∀ j, 0 ≤ a j) ∧ ∀ q : ι → ℝ, 𝒞 q → c₀ + ∑ j, a j * datum q k j ≤ F q
+
+/-- The class-indexed ceiling (Q1's shape-(i) object) — nonneg-coefficient variant,
+the adjudicated definition of record (2026-11-19). -/
+noncomputable def BkClass (𝒞 : (ι → ℝ) → Prop) (F : (ι → ℝ) → ℝ) (k : ℕ) : ℝ :=
+  sSup {c₀ : ℝ | ∃ a : Fin k → ℝ, CertValidClass 𝒞 F k c₀ a}
+
+end CrossMath.Pilot74P1
+
 #print axioms mgfBound_var_sharp
 #print axioms t1c_sharp
+#print axioms famN_spectrum
+#print axioms famN_varK
+#print axioms famN_W
+#print axioms famN_Mdev
+#print axioms famN_inClass
+#print axioms t4_floor_achieved
+#print axioms t4_not_littleO
 #check @famClassMemProbe
 #check @famVarLBProbe
 #check @famTailProbe
-
-end CrossMath.Pilot74P1
+#check @BkClass

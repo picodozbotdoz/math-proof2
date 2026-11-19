@@ -193,10 +193,4 @@ STANDS, the statements' status moves):**
   P1 class: publics + privates direct-printed); verdict cell GREEN-triad/honest-partial
   per report; billing: the two-atom hVarLB insufficiency FIND-#1 recycle (precharter
   `6216e2a`) — engineering or discovery per the charter ruling at landing.
-- **72-M1 L3(b–d + interface) (R2):** §11 row stub — `P72M1T3.lean` GROWS (L3a sha
-  `fe57d30b…` = the standing citation; sha-at-sweep governs on growth): Step-B(i)
-  re-stage + custody re-run where the sha moved; the interface theorem
-  (`interface_areaLaw_uniformAreaLaw`) is the row's headline decl; verdict cell
-  GREEN-triad/honest-partial per report. *(Prep note: the re-task's "M1" token is
-  read as 72-M1's T3-file growth; if a different M1 was meant, the stub re-titles
-  without structural change — correction note then, not silent.)*
+- **72-M1 L3(b–d + interface) (R2) — WAVE-CLOSE FOLDED (R1 unit 10, H batch-G): HONEST-PARTIAL-FINAL.** `P72M1T3.lean` v13 `dcda3133b1ffbd16` (1,048 LoC, 44 decls; 13 runs / 3 grants — the ≤2 FINAL-ROUND grant fired as runs 12–13). TRIAD at close: `toGrid_star_dotProduct_self` (L3b) + `submatrix_mulVec_ec` + `eig_toGrid` + `hasGlobalGap_of_fullSystemGap` (L3c) + `edgeBoundary_le_boundaryCard` with T2's `boundaryCard_le_edgeBoundary` — both directions; T1/T2/L3a regressions held throughout. CONTAMINATED TAIL: `isAdmissible_ΦL` / `hamiltonian_gridDom_eq` / `interface_areaLaw_uniformAreaLaw`. ZERO math defects; ZERO sorry tokens on disk (classifier 0 real). **The T3 row's sweep GUARD = dcda3133 (the closing bytes); the sweep verdict class STAYS honest-partial until the next wave's GREEN** — the §FINAL-ROUND next-wave charter pointer: one-word `Finset.mul_sum` hQ-tail fix, hmul rw-order, hN e1-pullout, hamiltonian-step1 set-avoidance; est. 1–2 rounds (`logs/l3bd-stop-note.md`). At that GREEN: re-stage + custody re-run, verdict flips GREEN-triad.

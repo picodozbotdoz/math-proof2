@@ -151,3 +151,15 @@
 # ne_top` BOTH GREEN FIRST SHOT (`logs/n2-p3-run3.log`, triad) + P3-a `windowFinite_family`
 # banked. NOT P3-complete (the composed `zetaL_rat_two_thirds_landed` unlanded) —
 # Step-B row + chain wiring (N2P0/N2P1 rewrites, order Pa→N2P0→N2P1→P3) at its GREEN.
+#
+# ENTRY 10 (R1, 2026-11-19 — the L3 wave-close fold) — P72M1T3.lean MOVED to v13
+# `dcda3133b1ffbd16` (1,048 LoC, 44 decls all public; H batch-G, the fold-once closing
+# state after the HELD v11). One-file §G1 scope: **0 REAL-TOKEN hits** (1 prose mention)
+# — H's "zero sorry tokens" board line confirmed at token level. State: honest-partial-
+# FINAL (triad: L3b toGrid_star_dotProduct_self + submatrix_mulVec_ec + eig_toGrid +
+# L3c hasGlobalGap_of_fullSystemGap + BOTH boundary directions; contaminated tail
+# isAdmissible_ΦL / hamiltonian_gridDom_eq / interface_areaLaw_uniformAreaLaw; 13 runs /
+# 3 grants; zero math defects — the contamination is sorryAx-at-last-fire, NOT disk
+# tokens). Sweep guard AxPilot72_M1_T3 = dcda3133; verdict class honest-partial until
+# the next wave's FINAL-ROUND GREEN (Finset.mul_sum one-word hQ-tail + 3 named fixes,
+# est. 1–2 rounds). Certificate UNCHANGED 52+0.

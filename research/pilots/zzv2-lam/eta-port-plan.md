@@ -55,14 +55,21 @@ Stop-loss: precharter §2.4 ceiling 12–13 runs total for the port.
   action: the confirmation run** (expected strict-OK 6/6 triad → R1 exits GREEN,
   R2 proceeds).
 
-- **R2 — admissibility + pair-test tier (transport-clean slice).** Prove
-  `stmt_cutoffTestLam_isAdmissible` (port of the private `cutoffTest_isAdmissible`,
-  `Kernel.lean:237` — support clause closes at `lam ≤ |x|`, Fourier normalisation
-  `fourierC (η²) 0 = 1` by construction), `stmt_cutoffSelfConvLam_isPairTestFunction`,
-  `stmt_iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction` (private
-  `cutoffSelfConv_isPairTestFunction`-class ports; windows only widen the
-  `Inputs.lean:40` margin: supp Q_λ ⊆ [−2λ, 2λ] ⊂ (−1,1)). Exit: three lemmas
-  proved, triad-only.
+- **R2 — admissibility + pair-test tier. GATED-RED at the unit-3 budget** (2 runs,
+  21→16 errors, ALL mechanical — full catalogues in `logs/eta-r2-run{1,2}.log`;
+  lemma C's body validated the transport architecture). Fix batch parked UNFIRED,
+  parked sha256(16) `36c593f7d9cff455` — **next unit's first action: its
+  confirmation run** (expected strict-OK 4/4 triad). TWO SESSION FINDINGS folded
+  (full statement in `eta-r2-record.md`): (1) **the (ii-c)/(iii) factor FINDING**
+  — the probe's `Q_λ = dilateTo lam Q` and `c_λ = ρ²c₀ + (1−ρ²)Q(0)` are FALSE as
+  stated; true forms `Q_λ = (2λ)⁻¹ • dilateTo lam Q` and (at supp Q ⊆ [−1,1],
+  ρ ≤ 1) `pairMainTerm Q_λ = ρ·c₀ + (1/ρ − ρ)·Q(0)`; the strict-improvement
+  domain becomes the THRESHOLD ρ ∈ (Q(0)/c₀, 1] — R3/R4/R8 statements amended
+  accordingly. (2) **the public-layer discovery** — the donor's frozen-family
+  facts are PUBLIC in `Zeta/Basic.lean` + `Zeta/CutoffSelfConv.lean` (the
+  Kernel.lean privates are duplicates); the pair-test tier transports via lemma A
+  + publics, and R5–R7 must re-census their assumed-private lists against that
+  layer before re-proving anything.
 
 - **R3 — λ = 1/2 regression FIRST (precharter risk-2 mitigation).** Prove
   `stmt_cutoffSelfConvLam_eq_dilate` (ii-c) and `stmt_eta_regression_half`
@@ -115,13 +122,14 @@ Stop-loss: precharter §2.4 ceiling 12–13 runs total for the port.
 
 ## Run-budget mapping (precharter §2.4: 6–10 port runs, ceiling 12–13)
 
-R1 → **2 SPENT (GATED-RED 5/6, confirmation pending — see the R1 entry)** · R2 → 1
-(+the R1 confirmation run as the next unit's first action) · R3 → 1 · R4 → 1
-(possibly +1 fix) · R5+R6 → 1–2 (κ=1 keeps the identity layer donor-verbatim) ·
-R7 → 1 (+fix tail) · R8 → 1. First-GREEN expected run 4–6; the κ=1 amendment keeps
-5–8 plausible, 6–10 the charter band (2 spent; the R1 overrun of the 1–2
-R1+R2 block is absorbed by the band). Each run persists `logs/eta-r<n>-run<m>.log`
-with provenance header + criterion quote + verdict (the pin-probe log convention).
+R1 → **GREEN at 3 runs** (2 fix + 1 confirm; exit met 6/6 triad) · R2 → **2 fix
+runs spent, GATED-RED, confirmation parked** (`36c593f7d9cff455`; next unit's
+first action) · R3 → 1 · R4 → 1 (possibly +1 fix) · R5+R6 → 1–2 (κ=1 keeps the
+identity layer donor-verbatim; re-census vs the public layer first) · R7 → 1
+(+fix tail) · R8 → 1. Port ledger: **6 of 6–10 spent**; the ceiling (12–13)
+absorbs the R2 confirmation; the public-layer discovery keeps the band honest.
+Each run persists `logs/eta-r<n>-run<m>.log` with provenance header + criterion
+quote + verdict (the pin-probe log convention).
 
 ## Risk register (carried; precharter §2.3, post-amendment states)
 
