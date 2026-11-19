@@ -917,6 +917,15 @@ certificates only). Companion of the dependsOnNoncomputable note above.
   zero math defects; the L3d superstructure kernel-clean end-to-end.**
 - R2 → close-block skeleton prep. R1's L3 fold-UPDATE at v16 queues with
   the salvo folds.
+
+## 2026-11-19 — iter-5 steady state, batch N (H): R2 unit-8 — the close instrument set COMPLETE
+
+- **The close-block skeleton landed** (`qa/iter5-close-block-skeleton.md`
+  `883aad67…`, PREP-ONLY): Instruments A+B + the 12-item fill checklist.
+  **The close instrument set is now COMPLETE** — skeleton +
+  REPORT-INPUTS-ITER5's §I5 paste-ready delta + the iter5-closeout-gates
+  skeleton. Executes at iter-5 close on the orchestrator's signal. R2 →
+  close-support standby.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
