@@ -11,6 +11,19 @@
   non-tracial dictionary landing; the naive trace reading is REFUTED (tranche-1
   traciality obstruction, axiom-lean). If no dictionary lands, this stub closes empty
   and 41 remains single-discovery.
+- **Plan section (per the tranche-2 GO ruling; still NO content claims):**
+  - **First-class finding #1 (tranche 1, LANDED, axiom-lean):** the TRACIALITY
+    OBSTRUCTION — no Markov/Hecke-trace-per-word realization of σ_q exists
+    (`H1.lean`: `tracial_realizability_refuted` [propext, Quot.sound]; witness
+    σ_q(100,110) = 1 ≠ −1 = σ_q(110,100), kernel decide). Any eventual article's
+    dictionary must be non-tracial (tangle/Kauffman-bracket evaluations).
+  - **First-class finding #2 (tranche 2, certificates LANDED [propext]; derivation
+    open at the run cap — see `pilots/41/H-record.md` tranche-2 addendum):** the RANK
+    OBSTRUCTION — the σ-table at q = −1 is the full-rank Walsh table of the invertible
+    form phiQ mod 2 (orthogonal rows + basis expansion, both decide-certified), so NO
+    5-dimensional (TL₃, Catalan₃) linear-functional realization exists; the (H)
+    dictionary needs ≥ 4 strands (TL₄, dim 14). Together the two findings close the
+    dossier's 3-strand [HYPOTHESIS] negative and re-scope (H) to n ≥ 4.
 - **Claim discipline (locked, inherited):** any eventual headline is
   sign-rule/parallelogram-defect-shaped; NEVER "first q-deformation of a composition
   algebra" (Benkart–Pérez-Izquierdo 1998, arXiv:math/9801141, owns the q-composition

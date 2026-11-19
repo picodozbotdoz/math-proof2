@@ -1,0 +1,1246 @@
+# =====================================================================
+# PILOT 75-N2 P2-c — run 2 (primitive core, second elaboration; grant
+# run 2 of ≤3) | lane R6 unit 8, 2026-11-19. PRE-RUN SHA GUARD: run-1
+# input was 047331fcff23a6a0-1; the full r1 fix set (names + shapes + chain
+# restructure — see the n2-p2c-run1.log footer) brings the file to
+# 047331fcff23a6a0. N2-P1.lean stays parked 396d8710d9084388. Expected: major
+# descent; residuals in the epsLowerCum arithmetic.
+# Spec/command unchanged (run_n2p2c.sh, doz CLI, warm app
+# crossmath-pilot-75, 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry).
+# =====================================================================
+047331fcff23a6a01738045d03c9eea9d05e91e82d44fd5799a19e1e4ceadfbc  N2-P2c.lean
+396d8710d9084388f69011acc93e96d2d69c3141e83746b78a830456c6375cef  N2-P1.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-LhUqmKUuh3G1DlbVIxwFle
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p2c-stage/run_n2p2c.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p2c] mathlib rev ff2494ea5e43
+[n2p2c] oleans present: 8710
+[n2p2c] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p2c] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[n2p2c] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:252:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:239:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:241:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P1.lean
+[n2p2c] N2P1.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.lFunction_not_eventually_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.eulerStripImmunity_changeLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P1.lean:335:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:352:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:392:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:397:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:556:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:684:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:732:19: warning: This simp argument is unused:
+  Classical.em
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P1.lean:759:24: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P1.lean:882:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+N2P1.lean:882:63: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.lFunction_not_eventually_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.eulerStripImmunity_changeLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P2c.lean
+[tele] t=60s cpu=0.98 mem=4838MB anon=0MB peak=-1MB procs=2 OVER mem
+[n2p2c] N2P2c.lean: FAIL rc=1 errors=26 sorry=9
+---- axioms ----
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:89:4: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+N2P2c.lean:114:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:118:44: error: Application type mismatch: The argument
+  hle
+has type
+  T₁ ≤ ρ.im
+but is expected to have type
+  ρ.im ≤ T₁
+in the application
+  ⟨him1, hle⟩
+N2P2c.lean:119:38: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < T₁
+but is expected to have type
+  T₁ < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:126:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+···
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:118:44: error: Application type mismatch: The argument
+  hle
+has type
+  T₁ ≤ ρ.im
+but is expected to have type
+  ρ.im ≤ T₁
+in the application
+  ⟨him1, hle⟩
+N2P2c.lean:119:38: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < T₁
+but is expected to have type
+  T₁ < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:126:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:128:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+···
+  ⟨him1, hle⟩
+N2P2c.lean:119:38: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < T₁
+but is expected to have type
+  T₁ < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:126:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:128:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ 0 < ρ.im ∧ ρ.im ≤ T₁) ∧
+      ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ T₁ < ρ.im ∧ ρ.im ≤ T₂ ↔
+    False
+N2P2c.lean:137:4: error: Type mismatch
+  Iff.rfl
+···
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:128:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ 0 < ρ.im ∧ ρ.im ≤ T₁) ∧
+      ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ T₁ < ρ.im ∧ ρ.im ≤ T₂ ↔
+    False
+N2P2c.lean:137:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.275 ↔ ?m.275
+but is expected to have type
+  ρ ∈ supp z.mult ∩ stripWindow 0 T₁ ∨ ρ ∈ supp z.mult ∩ stripWindow T₁ T₂ ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:141:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+···
+    False
+N2P2c.lean:137:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.275 ↔ ?m.275
+but is expected to have type
+  ρ ∈ supp z.mult ∩ stripWindow 0 T₁ ∨ ρ ∈ supp z.mult ∩ stripWindow T₁ T₂ ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:141:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+···
+  ρ ∈ supp z.mult ∩ stripWindow 0 T₁ ∨ ρ ∈ supp z.mult ∩ stripWindow T₁ T₂ ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:141:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+···
+N2P2c.lean:141:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+···
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+···
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+hdisjF : Disjoint hfA.toFinset hfB.toFinset
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    z.windowFinite T₁
+N2P2c.lean:127:6: warning: This simp argument is unused:
+  not_and
+
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P2c.lean:150:10: error(lean.unknownIdentifier): Unknown constant `Nat.le_intro`
+N2P2c.lean:157:84: error: Application type mismatch: The argument
+  h0
+has type
+  S < 0
+but is expected to have type
+  ?m.77 < ρ.im
+in the application
+  lt_of_le_of_lt (le_of_lt ?m.86) h0
+N2P2c.lean:159:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 z S
+has type
+  (supp z.mult ∩ stripWindow 0 S).Finite
+but is expected to have type
+  _a.Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+z : ZeroMult
+···
+N2P2c.lean:150:10: error(lean.unknownIdentifier): Unknown constant `Nat.le_intro`
+N2P2c.lean:157:84: error: Application type mismatch: The argument
+  h0
+has type
+  S < 0
+but is expected to have type
+  ?m.77 < ρ.im
+in the application
+  lt_of_le_of_lt (le_of_lt ?m.86) h0
+N2P2c.lean:159:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 z S
+has type
+  (supp z.mult ∩ stripWindow 0 S).Finite
+but is expected to have type
+  _a.Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+z : ZeroMult
+S T : ℝ
+···
+  lt_of_le_of_lt (le_of_lt ?m.86) h0
+N2P2c.lean:159:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 z S
+has type
+  (supp z.mult ∩ stripWindow 0 S).Finite
+but is expected to have type
+  _a.Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+z : ZeroMult
+S T : ℝ
+h : S ≤ T
+h0 : S < 0
+hS : supp z.mult ∩ stripWindow 0 S = ∅
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+N2P2c.lean:175:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+···
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:179:37: error: Application type mismatch: The argument
+  hle
+has type
+  S ≤ ρ.im
+but is expected to have type
+  ρ.im ≤ S
+in the application
+  ⟨him1, hle⟩
+N2P2c.lean:180:31: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < S
+but is expected to have type
+  S < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:188:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:190:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+···
+  ⟨him1, hle⟩
+N2P2c.lean:180:31: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < S
+but is expected to have type
+  S < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:188:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:190:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ 0 < ρ.im ∧ ρ.im ≤ S) ∧ ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ S < ρ.im ∧ ρ.im ≤ 2 * S ↔
+    False
+N2P2c.lean:200:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.292 ↔ ?m.292
+···
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:190:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ 0 < ρ.im ∧ ρ.im ≤ S) ∧ ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ S < ρ.im ∧ ρ.im ≤ 2 * S ↔
+    False
+N2P2c.lean:200:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.292 ↔ ?m.292
+but is expected to have type
+  ρ ∈ supp z.mult ∩ lineWindow 0 S ∨ ρ ∈ supp z.mult ∩ lineWindow S (2 * S) ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:204:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+···
+    False
+N2P2c.lean:200:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.292 ↔ ?m.292
+but is expected to have type
+  ρ ∈ supp z.mult ∩ lineWindow 0 S ∨ ρ ∈ supp z.mult ∩ lineWindow S (2 * S) ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:204:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+···
+  ρ ∈ supp z.mult ∩ lineWindow 0 S ∨ ρ ∈ supp z.mult ∩ lineWindow S (2 * S) ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:204:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+···
+N2P2c.lean:204:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+···
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+···
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+hdisjF : Disjoint hfA.toFinset hfB.toFinset
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+N2P2c.lean:189:6: warning: This simp argument is unused:
+  not_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lineWindow, Set.mem_inter_iff, Set.mem_setOf_eq, Set.mem_empty_iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P2c.lean:225:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z.countCum (T / 2 ^ (K + 1)) + z.count (T / 2 ^ (K + 1))
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P2c.lean:225:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z.countCum (T / 2 ^ (K + 1)) + z.count (T / 2 ^ (K + 1))
+in the target expression
+  z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1)) =
+    z.countCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.count (T / 2 ^ (j + 1))
+
+case succ
+z : ZeroMult
+K : ℕ
+ih : ∀ {T : ℝ}, 0 < T → z.countCum T = z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1))
+T : ℝ
+hT : 0 < T
+hpp : 0 < 2 ^ (K + 1)
+hS : 0 < T / 2 ^ (K + 1)
+hrw : 2 * (T / 2 ^ (K + 1)) = T / 2 ^ K
+hs : z.countCum (T / 2 ^ K) = z.countCum (T / 2 ^ (K + 1)) + z.count (T / 2 ^ (K + 1))
+ih' : z.countCum T = z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1))
+⊢ z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1)) =
+    z.countCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.count (T / 2 ^ (j + 1))
+N2P2c.lean:242:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z.countOnCum (T / 2 ^ (K + 1)) + z.countOn (T / 2 ^ (K + 1))
+in the target expression
+  z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1)) =
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+
+···
+    z.countCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.count (T / 2 ^ (j + 1))
+N2P2c.lean:242:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z.countOnCum (T / 2 ^ (K + 1)) + z.countOn (T / 2 ^ (K + 1))
+in the target expression
+  z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1)) =
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+
+case succ
+z : ZeroMult
+K : ℕ
+ih : ∀ {T : ℝ}, 0 < T → z.countOnCum T = z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1))
+T : ℝ
+hT : 0 < T
+hpp : 0 < 2 ^ (K + 1)
+hS : 0 < T / 2 ^ (K + 1)
+hrw : 2 * (T / 2 ^ (K + 1)) = T / 2 ^ K
+hs : z.countOnCum (T / 2 ^ K) = z.countOnCum (T / 2 ^ (K + 1)) + z.countOn (T / 2 ^ (K + 1))
+ih' : z.countOnCum T = z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1))
+⊢ z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1)) =
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+N2P2c.lean:265:21: error: Application type mismatch: The argument
+  fun x => M₀ * ↑N₀ / (ε / 2) < x
+has type
+  ℝ → Prop
+of sort `Type` but is expected to have type
+  ∀ᶠ (y : ℝ) in atTop, ?m.179 y
+···
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+N2P2c.lean:265:21: error: Application type mismatch: The argument
+  fun x => M₀ * ↑N₀ / (ε / 2) < x
+has type
+  ℝ → Prop
+of sort `Type` but is expected to have type
+  ∀ᶠ (y : ℝ) in atTop, ?m.179 y
+of sort `Prop` in the application
+  Tendsto.eventually hUnb fun x => M₀ * ↑N₀ / (ε / 2) < x
+N2P2c.lean:273:52: error(lean.unknownIdentifier): Unknown constant `Nat.lt_two_pow`
+N2P2c.lean:275:8: error(lean.unknownIdentifier): Unknown identifier `div_lt_iff`
+N2P2c.lean:277:9: error: Tactic `rcases` failed: `h✝ : Quot.lift
+  (fun a₁ =>
+    Quotient.lift ((fun x1 x2 => x1 < x2) a₁) ⋯
+      (Quotient.map₂ (fun x1 x2 => x1 ⊔ x2) ⋯ T₁.cauchy 1 * (npowRec (Nat.find hex) 2).cauchy))
+  ⋯ T.cauchy` is not an inductive datatype
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+  Tendsto.eventually hUnb fun x => M₀ * ↑N₀ / (ε / 2) < x
+N2P2c.lean:273:52: error(lean.unknownIdentifier): Unknown constant `Nat.lt_two_pow`
+N2P2c.lean:275:8: error(lean.unknownIdentifier): Unknown identifier `div_lt_iff`
+N2P2c.lean:277:9: error: Tactic `rcases` failed: `h✝ : Quot.lift
+  (fun a₁ =>
+    Quotient.lift ((fun x1 x2 => x1 < x2) a₁) ⋯
+      (Quotient.map₂ (fun x1 x2 => x1 ⊔ x2) ⋯ T₁.cauchy 1 * (npowRec (Nat.find hex) 2).cauchy))
+  ⋯ T.cauchy` is not an inductive datatype
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2P2c.lean:273:52: error(lean.unknownIdentifier): Unknown constant `Nat.lt_two_pow`
+N2P2c.lean:275:8: error(lean.unknownIdentifier): Unknown identifier `div_lt_iff`
+N2P2c.lean:277:9: error: Tactic `rcases` failed: `h✝ : Quot.lift
+  (fun a₁ =>
+    Quotient.lift ((fun x1 x2 => x1 < x2) a₁) ⋯
+      (Quotient.map₂ (fun x1 x2 => x1 ⊔ x2) ⋯ T₁.cauchy 1 * (npowRec (Nat.find hex) 2).cauchy))
+  ⋯ T.cauchy` is not an inductive datatype
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2P2c.lean:275:8: error(lean.unknownIdentifier): Unknown identifier `div_lt_iff`
+N2P2c.lean:277:9: error: Tactic `rcases` failed: `h✝ : Quot.lift
+  (fun a₁ =>
+    Quotient.lift ((fun x1 x2 => x1 < x2) a₁) ⋯
+      (Quotient.map₂ (fun x1 x2 => x1 ⊔ x2) ⋯ T₁.cauchy 1 * (npowRec (Nat.find hex) 2).cauchy))
+  ⋯ T.cauchy` is not an inductive datatype
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2P2c.lean:65:57: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:89:4: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mpr`
+N2P2c.lean:114:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:118:44: error: Application type mismatch: The argument
+  hle
+has type
+  T₁ ≤ ρ.im
+but is expected to have type
+  ρ.im ≤ T₁
+in the application
+  ⟨him1, hle⟩
+N2P2c.lean:119:38: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < T₁
+but is expected to have type
+  T₁ < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:126:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:128:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ 0 < ρ.im ∧ ρ.im ≤ T₁) ∧
+      ρ ∈ supp z.mult ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ T₁ < ρ.im ∧ ρ.im ≤ T₂ ↔
+    False
+N2P2c.lean:137:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.275 ↔ ?m.275
+but is expected to have type
+  ρ ∈ supp z.mult ∩ stripWindow 0 T₁ ∨ ρ ∈ supp z.mult ∩ stripWindow T₁ T₂ ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:141:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:142:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:139:52: error: unsolved goals
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:144:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+T₁ T₂ : ℝ
+h0 : 0 ≤ T₁
+h : T₁ ≤ T₂
+hset : supp z.mult ∩ stripWindow 0 T₂ = supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂
+hdisj : supp z.mult ∩ stripWindow 0 T₁ ∩ (supp z.mult ∩ stripWindow T₁ T₂) = ∅
+hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite
+hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfinU : (supp z.mult ∩ stripWindow 0 T₁ ∪ supp z.mult ∩ stripWindow T₁ T₂).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+hdisjF : Disjoint hfA.toFinset hfB.toFinset
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    z.windowFinite T₁
+N2P2c.lean:127:6: warning: This simp argument is unused:
+  not_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [stripWindow, Set.mem_inter_iff, Set.mem_setOf_eq, Set.mem_empty_iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P2c.lean:150:10: error(lean.unknownIdentifier): Unknown constant `Nat.le_intro`
+N2P2c.lean:157:84: error: Application type mismatch: The argument
+  h0
+has type
+  S < 0
+but is expected to have type
+  ?m.77 < ρ.im
+in the application
+  lt_of_le_of_lt (le_of_lt ?m.86) h0
+N2P2c.lean:159:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+Error: Application type mismatch: The argument
+  ZeroMult.countCum._proof_1 z S
+has type
+  (supp z.mult ∩ stripWindow 0 S).Finite
+but is expected to have type
+  _a.Finite
+in the application
+  ⋯.toFinset
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+z : ZeroMult
+S T : ℝ
+h : S ≤ T
+h0 : S < 0
+hS : supp z.mult ∩ stripWindow 0 S = ∅
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = 0
+N2P2c.lean:175:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:179:37: error: Application type mismatch: The argument
+  hle
+has type
+  S ≤ ρ.im
+but is expected to have type
+  ρ.im ≤ S
+in the application
+  ⟨him1, hle⟩
+N2P2c.lean:180:31: error: Application type mismatch: The argument
+  hlt
+has type
+  ρ.im < S
+but is expected to have type
+  S < ρ.im
+in the application
+  And.intro hlt
+N2P2c.lean:188:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:190:11: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+ρ : ℂ
+⊢ (ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ 0 < ρ.im ∧ ρ.im ≤ S) ∧ ρ ∈ supp z.mult ∧ ρ.re = 1 / 2 ∧ S < ρ.im ∧ ρ.im ≤ 2 * S ↔
+    False
+N2P2c.lean:200:4: error: Type mismatch
+  Iff.rfl
+has type
+  ?m.292 ↔ ?m.292
+but is expected to have type
+  ρ ∈ supp z.mult ∩ lineWindow 0 S ∨ ρ ∈ supp z.mult ∩ lineWindow S (2 * S) ↔ ρ ∈ hfA.toFinset ∪ hfB.toFinset
+N2P2c.lean:204:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:205:21: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+N2P2c.lean:202:52: error: unsolved goals
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+a : ℂ
+ha : a ∈ hfA.toFinset
+hb : a ∈ hfB.toFinset
+⊢ False
+N2P2c.lean:207:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  hfinU.toFinset
+in the target expression
+  ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+
+z : ZeroMult
+S : ℝ
+hS : 0 < S
+hset : supp z.mult ∩ lineWindow 0 (2 * S) = supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)
+hdisj : supp z.mult ∩ lineWindow 0 S ∩ (supp z.mult ∩ lineWindow S (2 * S)) = ∅
+hfA : (supp z.mult ∩ lineWindow 0 S).Finite
+hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfinU : (supp z.mult ∩ lineWindow 0 S ∪ supp z.mult ∩ lineWindow S (2 * S)).Finite
+hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset
+hdisjF : Disjoint hfA.toFinset hfB.toFinset
+⊢ ∑ ρ ∈ ⋯.toFinset, z.mult ρ = ∑ ρ ∈ ⋯.toFinset, z.mult ρ + ∑ ρ ∈ ⋯.toFinset, z.mult ρ
+N2P2c.lean:189:6: warning: This simp argument is unused:
+  not_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lineWindow, Set.mem_inter_iff, Set.mem_setOf_eq, Set.mem_empty_iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+---- (…64 more lines) tail ----
+hrw : 2 * (T / 2 ^ (K + 1)) = T / 2 ^ K
+hs : z.countCum (T / 2 ^ K) = z.countCum (T / 2 ^ (K + 1)) + z.count (T / 2 ^ (K + 1))
+ih' : z.countCum T = z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1))
+⊢ z.countCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.count (T / 2 ^ (j + 1)) =
+    z.countCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.count (T / 2 ^ (j + 1))
+N2P2c.lean:242:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  z.countOnCum (T / 2 ^ (K + 1)) + z.countOn (T / 2 ^ (K + 1))
+in the target expression
+  z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1)) =
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+
+case succ
+z : ZeroMult
+K : ℕ
+ih : ∀ {T : ℝ}, 0 < T → z.countOnCum T = z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1))
+T : ℝ
+hT : 0 < T
+hpp : 0 < 2 ^ (K + 1)
+hS : 0 < T / 2 ^ (K + 1)
+hrw : 2 * (T / 2 ^ (K + 1)) = T / 2 ^ K
+hs : z.countOnCum (T / 2 ^ K) = z.countOnCum (T / 2 ^ (K + 1)) + z.countOn (T / 2 ^ (K + 1))
+ih' : z.countOnCum T = z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1))
+⊢ z.countOnCum (T / 2 ^ K) + ∑ j ∈ Finset.range K, z.countOn (T / 2 ^ (j + 1)) =
+    z.countOnCum (T / 2 ^ (K + 1)) + ∑ j ∈ Finset.range (K + 1), z.countOn (T / 2 ^ (j + 1))
+N2P2c.lean:265:21: error: Application type mismatch: The argument
+  fun x => M₀ * ↑N₀ / (ε / 2) < x
+has type
+  ℝ → Prop
+of sort `Type` but is expected to have type
+  ∀ᶠ (y : ℝ) in atTop, ?m.179 y
+of sort `Prop` in the application
+  Tendsto.eventually hUnb fun x => M₀ * ↑N₀ / (ε / 2) < x
+N2P2c.lean:273:52: error(lean.unknownIdentifier): Unknown constant `Nat.lt_two_pow`
+N2P2c.lean:275:8: error(lean.unknownIdentifier): Unknown identifier `div_lt_iff`
+N2P2c.lean:277:9: error: Tactic `rcases` failed: `h✝ : Quot.lift
+  (fun a₁ =>
+    Quotient.lift ((fun x1 x2 => x1 < x2) a₁) ⋯
+      (Quotient.map₂ (fun x1 x2 => x1 ⊔ x2) ⋯ T₁.cauchy 1 * (npowRec (Nat.find hex) 2).cauchy))
+  ⋯ T.cauchy` is not an inductive datatype
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p2c] SUMMARY
+[n2p2c]   Pa.lean: OK
+[n2p2c]   N2P0.lean: OK
+[n2p2c]   N2P1.lean: OK
+[n2p2c]   N2P2c.lean: FAIL rc=1 errors=26 sorry=9
+[tele] SUMMARY run: wall=66s max_cpu=0.98 max_mem=4838MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-LhUqmKUuh3G1DlbVIxwFle
+
+# ==== POST-RUN VERDICT (R6 unit 8, 2026-11-19) ====
+# N2P2c.lean: FAIL rc=1 errors=26 — descent 37→26. Remaining classes
+# ALL diagnosed from contexts: (a) membership projections need the
+# inter/stripWindow unfold at hρ FIRST (simp only [Set.mem_inter_iff,
+# stripWindow, Set.mem_setOf_eq] at hρ — raw .2.2.x on set-membership
+# is not a projection); (b) hfu → full simp [hset] (the Finset-union
+# side needs Finset.mem_union; Iff.rfl missed); (c) Set.Finite.
+# mem_toFinset.mp UNKNOWN IN TERM POSITION but fine in simp only —
+# all term uses moved to tactic position; (d) Nat.le_intro → omega
+# with the split equation; (e) the chains' rw [<- hs] was BACKWARD
+# (goal shows post-ih' state; rw [hs] forward + sum_range_succ +
+# omega); (f) split' ascription + explicit unfold ZeroMult.count;
+# (g) epsLowerCum: Nat.lt_two_pow ABSENT on pin — self-contained
+# induction (hkey: m+1 <= 2^(m+1)) + div_lt_iff₀/lt_div_iff₀
+# (GroupWithZero/Basic.lean:1157/:1474); the K-cases restructured to
+# a dependent match (obtain-from-Nat.find_spec was wrong — it is not
+# an existential). All applied. Grant run 3 of ≤3 (LAST) fires next.

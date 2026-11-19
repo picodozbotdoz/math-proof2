@@ -79,4 +79,39 @@ suffices. Tranche-2 charter decision belongs to the orchestrator.
 - `research/articles/41H-tl-realizability-transport.md` — stub (own-file bookkeeping;
   NO content claims until landing)
 
-— lane R4, 2026-11-19.
+## Tranche 2 (unit 5, same promotion ruling): PARTIAL — certificates GREEN, cap-stop invoked
+
+**Verdict: the two WALSH CERTIFICATES are GREEN and axiom-lean; the lifting chain +
+no-go theorem are open at the run cap.** Fired history (8 h2 runs; cumulative 10/10
+runs — the cap): v1 Matrix/det design (det-decide kernel-stuck) → v2 explicit-inverse
+(ℚ-division stall) → v3/v4 division-free over ℚ (isolated: `Matrix.mul`/`Finset.sum`
+do not whnf under decide) → v5 over ℤ after the **`Rat.add` extern-opacity discovery**
+(even `0 + 0` at ℚ stalls — no ℚ-arithmetic decide is possible on this toolchain;
+retro-explains all stalls) → v5b/c fix passes. Final state (h2-run8, file sha16
+`ab8da9e12feb44c7`):
+
+- **LANDED (audit, run 8): `sigmaOrth` [propext] and `sigmaExpand_basis` [propext]** —
+  the σ-table at q = −1 has orthogonal rows (⟨r_p, r_p'⟩ = 8·δ) and the basis-expansion
+  8·e_{b₀} = Σ_p ⟨r_p, e_{b₀}⟩ r_p, both kernel-decide-certified over ℤ. These two
+  facts ARE the rank-8 discovery core: the specialized table is nonsingular.
+- **OPEN: `sigmaExpand` (the linearity lifting) and `rank_obstruction_nogo`** — the
+  remaining 9 errors are one-word normalization classes (visible in the transcripts:
+  e.g. `0 + lsum …` needing `zero_add` where `add_zero` was written; evec-unfold
+  directions) — NO mathematical content at risk. STOP-at-cap per the ruling;
+  re-charter cost: ~4 word-level fixes + 1 confirm run.
+
+Mathematical statement of the tranche-2 finding (as designed; derivation pending the
+re-charter): at q = −1 the σ-table is the Walsh/character table of the invertible
+form phiQ mod 2 — full rank 8 — while any 5-dimensional (TL₃) linear-functional
+realization factors as C·Φ·Cᵀ with rank ≤ 5, contradiction. Consequence: the (H)
+dictionary needs ≥ 4 strands (TL₄, dim 14); the dossier's 3-strand [HYPOTHESIS] is
+closed negative. LoC at cap: H1 455 + H2 350 = 805 of the 1455 cumulative cap ✓;
+runs at cap: 10/10 ✗ (STOP invoked).
+
+Elaboration discoveries (recorded in-file + logs): `Rat.add`/`Rat.div` are
+extern-opaque to the kernel on v4.36.0-rc2 (decide must avoid ALL ℚ arithmetic —
+integer certificates only); `Matrix.mul`/`Finset.sum`/`Matrix.det` do not whnf under
+decide at this scale (literal-list foldrs do); the ᵀ postfix attaches only to bare
+identifiers.
+
+— lane R4, 2026-11-19 (tranche-2 addendum).

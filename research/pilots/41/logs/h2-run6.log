@@ -1,0 +1,107 @@
+# Provenance: 2026-11-19, lane R4 (unit 5: (H) tranche 2, h2 run 6 of 8).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Substrate: mathlib4 ff2494ea..., v4.36.0-rc2.
+# Fired content: H2.lean v5 (rewritten over Z, 334 LoC)
+# NOT-GREEN 16 err — but **sigmaOrth GREEN [propext]** (the orthogonality certificate, decide-certified over Z). Residues: bridge binder shadowing, free-var decide (blocks8_mem), core-lemma arity drift (mem_cons_self), `c * 0` not-rfl.
+# Modal run: https://modal.com/apps/semraker/main/ap-SjDO6vg4SpsLEmwj2io3lg
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-SjDO6vg4SpsLEmwj2io3lg
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[probe] H2.lean: FAIL rc=1; errors=16, sorry-warnings=0, other-warnings=3
+---- output head ----
+H2.lean:95:4: error: No goals to be solved
+H2.lean:100:11: error: Tactic `rfl` failed: The left-hand side
+  c * lsum [] F
+is not definitionally equal to the right-hand side
+  lsum [] fun b => c * F b
+
+case nil
+α : Type u_1
+c : ℤ
+F : α → ℤ
+⊢ c * lsum [] F = lsum [] fun b => c * F b
+H2.lean:101:59: error: No goals to be solved
+H2.lean:173:32: error: Application type mismatch: The argument
+  b
+has type
+  Block
+but is expected to have type
+  Bool
+in the application
+  sigmaExpand_basis_raw a b
+H2.lean:173:36: error(lean.unknownIdentifier): Unknown identifier `d`
+H2.lean:173:38: error(lean.unknownIdentifier): Unknown identifier `e`
+H2.lean:173:40: error(lean.unknownIdentifier): Unknown identifier `f`
+H2.lean:177:52: error: Expected type must not contain free variables
+  b ∈ blocks8
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+H2.lean:186:44: error: Function expected at
+  List.mem_cons_self
+but this term has type
+  ?m.34 ∈ ?m.34 :: ?m.35
+
+Note: Expected a function because this term is being applied to the argument
+  _
+H2.lean:187:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+H2.lean:187:19: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if h = b then ?m.47 else ?m.48
+in the target expression
+  (v h * evec h b + lsum t fun b0 => v b0 * evec b0 b) = 0
+
+case cons
+v : Block → ℤ
+b h : Block
+t : List Block
+ih : b ∉ t → (lsum t fun b0 => v b0 * evec b0 b) = 0
+hnot : b ∉ h :: t
+hh : h ≠ b
+⊢ (v h * evec h b + lsum t fun b0 => v b0 * evec b0 b) = 0
+H2.lean:195:45: error: Application type mismatch: The argument
+  List.not_mem_nil ?m.42
+has type
+  False
+but is expected to have type
+  b ∉ []
+in the application
+  absurd hmem (List.not_mem_nil ?m.42)
+H2.lean:195:63: error: Application type mismatch: The argument
+---- (…79 more lines) tail ----
+  lsum_congr blocks8 (fun p' => sigmaRow p p' * v p')
+    (fun p' => (lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j) * v p') (hreal p)
+H2.lean:278:13: error: unsolved goals
+C : Block → Fin 5 → ℤ
+Φ : Fin 5 → Fin 5 → ℤ
+v : Block → ℤ
+hv : v ≠ 0
+hdep : ∀ (j : Fin 5), (lsum blocks8 fun p => C p j * v p) = 0
+hreal : ∀ (p p' : Block), sigmaRow p p' = lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j
+hcon : ∀ (p : Block), (lsum blocks8 fun p' => sigmaRow p p' * v p') = 0
+⊢ False
+'Pilot41H2.sigmaOrth' depends on axioms: [propext]
+'Pilot41H2.sigmaExpand_basis' depends on axioms: [propext, sorryAx]
+'Pilot41H2.sigmaExpand' depends on axioms: [propext, sorryAx]
+'Pilot41H2.rank_obstruction_nogo' depends on axioms: [propext, sorryAx]
+
+[probe] SUMMARY
+[probe]   H2.lean: FAIL (16 errors)
+[tele] SUMMARY probe: wall=31s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-SjDO6vg4SpsLEmwj2io3lg

@@ -1,0 +1,56 @@
+# Provenance: 2026-11-19, lane R4 (unit 5: (H) tranche 2, h2 run 3 of 8).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Substrate: mathlib4 ff2494ea..., v4.36.0-rc2.
+# Fired content: H2.lean v3 (division-free orthogonality M*M^T = 8*1 over Q, 149 LoC)
+# NOT-GREEN 5 err: raw-decide stuck INSIDE Matrix.mul/Foldr (parse errors upstream had hidden it); `(expr)ᵀ` class; `(Matrix.isUnit_iff_isUnit_det).mp` needs explicit matrix arg.
+# Modal run: https://modal.com/apps/semraker/main/ap-p3QhmoAmNybDhLEttDyNdsHwc
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-p3QhmoAmNybDhLEttDyNwH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[probe] H2.lean: FAIL rc=1; errors=5, sorry-warnings=0, other-warnings=3
+---- output head ----
+H2.lean:75:46: error: unexpected token 'ᵀ'; expected ')', ',' or ':'
+H2.lean:82:45: error: unexpected token 'ᵀ'; expected ':=', 'where' or '|'
+H2.lean:82:4: error: Type mismatch
+  sigmaTableMinusOne * sigmaTableMinusOne
+has type
+  Matrix Block Block ℚ
+but is expected to have type
+  Prop
+H2.lean:90:73: error: unexpected token 'ᵀ'; expected command
+H2.lean:93:8: warning: declaration uses `sorry`
+H2.lean:96:33: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+H2.lean:96:33: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+H2.lean:100:34: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  Matrix.isUnit_iff_isUnit_det
+of type
+  ∀ (A : Matrix ?m.10 ?m.10 ?m.11), IsUnit A ↔ IsUnit A.det
+H2.lean:117:42: error: unexpected token 'ᵀ'; expected ')'
+'Pilot41H2.sigmaOrth' does not depend on any axioms
+'Pilot41H2.sigmaTableMinusOne_mul_sigmaInv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H2.sigmaTableMinusOne_det_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+H2.lean:147:14: error(lean.unknownIdentifier): Unknown constant `rank_obstruction_nogo`
+
+[probe] SUMMARY
+[probe]   H2.lean: FAIL (5 errors)
+[tele] SUMMARY probe: wall=40s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-p3QhmoAmNybDhLEttDyNwH

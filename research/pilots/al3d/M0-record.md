@@ -243,6 +243,36 @@ an untruncated channel or splits the guard out).**
   `alp2-m2c-run1-identification.log`, `alp2-m2c-run2-fixround1.log`,
   `alp2-m2c-run3-fixround2.log` (walls 36–78 s, telemetry OVER=0).
 
+## Unit 8 (2026-11-19) — M2-c assembly at TWO one-line residuals; the guard's invisible-sorryAx mystery isolated (3 fires)
+
+**First-action untruncated re-read (done):** the raw-output tail-200 was confirmed as
+the hiding mechanism (linter volume), and `set_option linter.all false` was added
+file-wide as the diagnostic workaround — **yet the guard+swap STILL show sorryAx with
+ZERO visible errors and every audited dependency triad-GREEN** (3 consecutive runs).
+This is NOT a math defect on visible evidence — it is an elaboration phenomenon the
+logs cannot see. **Recorded next action: an isolated bisect** (split `regReindexEquiv_compl_iff`
+into its two iff-directions as separate lemmas, or `#print axioms` placed immediately
+after the decl) — one diagnostic fire, not a repair fire.
+
+**M2-c assembly — run descent 5→4→4 error-lines, TWO one-line residuals at stop
+(both pre-written, both mechanical):**
+1. `sum_submatrix`'s insert-case: `⊢ DecidableEq ι` — the theorem's binders lack
+   `[DecidableEq ι]` (needed by `Finset.sum_insert`). FIX: add the binder.
+2. `key`'s tail `exact Finset.sum_congr …` at :1475 — **the rw-chain now CLOSES the
+   whole goal** (run 6: the bridge consumed cleanly once its f-instantiation carried
+   the `.submatrix`; only the dead tactic remains). FIX: delete the two lines.
+**En route fixes (run 4→6):** map_sum has no `F`-param on this pin (named ι/M/N/G);
+`Finset.induction` is hypothesis-form — `induction … using Finset.induction_on with |
+empty | @insert` works; explicit `rfl` needed after the curried `submatrix_add`; the
+key-bridge's `f` must carry the `.submatrix`; `← sum_projFib_extendId` needs Φ
+explicit (unresolved-Φ metas break the pattern).
+**If the two fixes land, `hamiltonianVar_eq_submatrix` is expected GREEN** — the swap
+and guard remain its only other dependencies (still the invisible-sorryAx pair).
+- **Gate HELD all three fires** (85-line core byte-identical; growth only). A2.lean
+  sha256(16) at unit-8 stop: `b186f960ba7ffc3a` (P0/A1 frozen). Logs:
+  `alp2-m2c-run4-unit8.log`, `alp2-m2c-run5-unit8b.log`, `alp2-m2c-run6-unit8c.log`
+  (walls 42–75 s, telemetry OVER=0).
+
 ## 1. Audit result — run-13's triad audit REPRODUCED (GREEN)
 
 **One Modal run fired** (this M0 is NOT audit-only — the precharter prices M0's

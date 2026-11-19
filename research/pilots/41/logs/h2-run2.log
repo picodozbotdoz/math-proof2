@@ -1,0 +1,81 @@
+# Provenance: 2026-11-19, lane R4 (unit 5: (H) tranche 2, h2 run 2 of 8).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Substrate: mathlib4 ff2494ea..., v4.36.0-rc2.
+# Fired content: H2.lean v2 (explicit-inverse design, 139 LoC)
+# NOT-GREEN 5 err: det-decide still stuck (Rat.div extern-opaque suspicion); `sigmaInvᵀ`/`(expr)ᵀ` parse class; Matrix.isUnit_iff_isUnit_det.mp dot-resolution.
+# Modal run: https://modal.com/apps/semraker/main/ap-xi4q09BUQ4Pd3asBncLzBo
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-xi4q09BUQ4Pd3asBncLzBo
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[probe] H2.lean: FAIL rc=1; errors=4, sorry-warnings=0, other-warnings=0
+---- output head ----
+H2.lean:68:32: error: Application type mismatch: The argument
+  -1
+has type
+  ℤˣ
+but is expected to have type
+  ℚˣ
+in the application
+  sigmaQ (-1)
+H2.lean:72:42: error: Application type mismatch: The argument
+  -1
+has type
+  ℤˣ
+but is expected to have type
+  ℚˣ
+in the application
+  sigmaQ (-1)
+H2.lean:78:2: error: Tactic `decide` failed to reduce
+  @decide (∀ (a b c d e f : Bool), (sigmaTableMinusOne * sigmaInv) (a, b, c) (d, e, f) = 1 (a, b, c) (d, e, f))
+    (Bool.instDecidableForallOfDecidablePred fun a =>
+      ∀ (b c d e f : Bool), (sigmaTableMinusOne * sigmaInv) (a, b, c) (d, e, f) = 1 (a, b, c) (d, e, f))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `instDecidableEqProd`, `instDecidableEqRat`, `Bool.decEq`, `Bool.instDecidableForallOfDecidablePred`, `Int.decEq`, `Int.instDecidableEq`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (((fun i => (fun j => sigmaTableMinusOne (true, true, true) j) i * (fun j => sigmaInv j (true, true, true)) i)
+            (true, true, true)).add
+        (List.foldr (fun x1 x2 => x1 + x2) 0
+          (List.map
+            (fun i => (fun j => sigmaTableMinusOne (true, true, true) j) i * (fun j => sigmaInv j (true, true, true)) i)
+            ((List.map (Prod.mk true)
+                  ((List.map (Prod.mk true) [false]).append (List.map (Prod.mk false) [true, false] ++ []))).append
+              (List.map (Prod.mk false)
+                  (List.map (Prod.mk true) [true, false] ++ (List.map (Prod.mk false) [true, false] ++ [])) ++
+                []))))).num,
+    ↑1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+H2.lean:91:9: error(lean.unknownIdentifier): Unknown constant `Matrix.isUnit_iff_isUnit_det.mp`
+H2.lean:108:42: error: unexpected token 'ᵀ'; expected ')'
+'Pilot41H2.sigmaTableMinusOne_mul_sigmaInv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H2.sigmaTableMinusOne_det_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+H2.lean:137:14: error(lean.unknownIdentifier): Unknown constant `rank_obstruction_nogo`
+
+[probe] SUMMARY
+[probe]   H2.lean: FAIL (4 errors)
+[tele] SUMMARY probe: wall=47s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-xi4q09BUQ4Pd3asBncLzBo

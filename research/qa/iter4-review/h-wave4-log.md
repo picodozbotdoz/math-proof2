@@ -871,6 +871,39 @@ rides this commit.
   (N2 P2-b, on R6's drain) + item 2b (P2-c one-word, same firing round);
   R1's P2-c §11 fold HOLDS until the salvo's outcome** (fold once at the
   TRUE closing state — avoid double-fold). R3 → salvo standby.
+
+## 2026-11-19 — iter-5 steady state, batch L (H): R4 tranche-2 cap-stop + R6 unit-8 (THE SALVO FIRED) + R8 unit-8
+
+- **R4's tranche-2 cap-stop landed:** H-record `382be04a…` + h2-run1–8 +
+  the 41H stub updated (`733043b9…`, the plan section grows — traciality +
+  rank obstructions; STILL ZERO CLAIMS). Verdict: **certificates GREEN**
+  (`sigmaOrth` + `sigmaExpand_basis`, both [propext]; **the σ-table
+  full-rank 8 = the 3-strand death knell**); derivation open on ~4
+  word-fixes at the 10/10 cap; **re-charter GRANTED** — R4 executing the
+  completion + a tranche-3 scope note. **`H2.lean` `ab8da9e1…` HELD**
+  (drifted to `b2f90045…` mid-pull — the completion live; fold-once).
+- **R6's unit-8 landed (THE SALVO FIRED — items 1 + 2b + the P2-c
+  confirm live on R6/R3):** `N2-P2c.lean` `da4c8d3f…` (parked w/ pillar
+  triad; R1's fold at the salvo outcome) + `N2-P3V2-smoke.lean`
+  `fa3704b1…` + **the V2 build GREEN** (`n2-p3v2-build1.log`:
+  `simple_proportion_d4` ON-PIN TRIAD; **the OVER-cpu samples
+  dispositioned as the AUTHORIZED lake-build subprocess class — the
+  m4b2/G2 recipe precedent**) + p2c runs 1–3 + the runner pairs
+  (py_compile ×3 rc=0) + record/dossier deltas. **P3-d unblocked, firing
+  on either GREEN.**
+- **R8's unit-8 landed:** record `3808ef96…` + 3 m2c logs. Verdict:
+  **honest stop at cap; the guard/swap invisible-sorryAx ISOLATED (bisect
+  designed, not guessed); M2-c at 2 one-liners with the keystone expected
+  GREEN.** `A2.lean` `b186f960…` HELD (fold-once, unit 9 live). R8 →
+  M2-c close + the guard bisect.
+
+### STANDING SUBSTRATE NOTE #2 (R4's finding, relayed by the orchestrator): Rat extern-opacity
+
+**`Rat.add` AND `Rat.div` are extern-opaque to the kernel on
+v4.36.0-rc2 — NO ℚ-arithmetic `decide` is possible; integer certificates
+only.** This retro-explains every ℚ-decide stall on this pin. **Rule:
+never attempt `decide` over ℚ on this pin** (integer/reduction-based
+certificates only). Companion of the dependsOnNoncomputable note above.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

@@ -200,6 +200,23 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   needs ONLY: P2-b-confirm (transitive, for the imprimitive hEχ
   composition) + P2-c + P3-d (V2 substrate). Wall 64s, cpu 1.00/2.0, one
   mapped-olean OVER.
+- Unit 8 (2026-11-19, R6; two parallel tracks): **(b) THE V2 SUBSTRATE
+  BUILT GREEN** (`logs/n2-p3v2-build1.log`: build OK + smoke OK, wall 507s;
+  **the d4 endpoint's ON-PIN AXIOM PRINT BANKED** — `ZetaZeros.
+  simple_proportion_d4` triad-clean, full statement confirmed; PNT+
+  redirect + lake-update resolved mathlib ff2494ea per the m4b2/G2
+  precedent; runner pair `run_n2p3v2.{sh,py}` + `N2-P3V2-smoke.lean`
+  ready for P3-d). **(a) P2-c primitive core opened in a NEW file
+  `N2-P2c.lean`** (keeps N2-P1 frozen at the parked sha; runner pair
+  `run_n2p2c.{sh,py}`): runs 1–3 (grant 3/3 spent) 37→26→14 errors —
+  **`multOf_supp_iff` + `count_eq_ncountL` (the count-identification
+  layer, the port's first pillar) ALREADY TRIAD-CLEAN**; the 14 residuals
+  all name-resolution/tactic-shape with certain fixes applied on disk
+  (parked sha da4c8d3f…; the le_or_gt disjunct-order swap, the
+  dependent-rewrite dodge via Finset.sum_eq_zero, Tendsto.eventually's
+  pullback form, the find-equation carry-through, term-vs-tactic
+  mem_toFinset). Zero math defects; the bridge/chain architecture is
+  validated by the green pillars. Walls 60–90s, no over-flags.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -402,9 +419,15 @@ critical path to the landing: P2-b-confirm (1 run) → P2-c → P3-e.]**
 
 **[Unit-7 update: P3-b + P3-c EXECUTED AND GREEN — one first-shot run
 (n2-p3-run3): `abFacQ_of_factorization` + `analyticOrderAt_lFunction_ne_top`
-+ the `windowFinite_family` axiom print, all triad, 0 sorry. Remaining to
-the landing: P2-b-confirm → P2-c (⇒ hEχ) + P3-d (V2 substrate, holds until
-scheduled) → P3-e assembly + N3 axcheck.]**
++ the `windowFinite_family` axiom print, all triad, 0 sorry.]**
+
+**[Unit-8 update: (b) the V2 substrate BUILT GREEN + the d4 on-pin axiom
+print banked (P3-d unblocked: fire per N2-P3-plan.md rung 3 on
+`run_n2p3v2.{sh,py}`); (a) P2-c opened in the new N2-P2c.lean — grant 3/3
+spent at 14 residuals, the count-identification pillar (`multOf_supp_iff` +
+`count_eq_ncountL`) ALREADY TRIAD, all residual fixes parked on disk
+(sha da4c8d3f…). Remaining to the landing: P2-b-confirm (1 run) + P2-c
+confirm (1 run expected) → P3-e assembly + N3 axcheck; P3-d any time.]**
 
 **Wave-5 posture: P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
 P2-b HARD-STOPPED at 2-residual depth by the ruling** (runs 27–30:

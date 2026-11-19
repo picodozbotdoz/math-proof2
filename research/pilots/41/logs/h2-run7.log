@@ -1,0 +1,108 @@
+# Provenance: 2026-11-19, lane R4 (unit 5: (H) tranche 2, h2 run 7 of 8).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Substrate: mathlib4 ff2494ea..., v4.36.0-rc2.
+# Fired content: H2.lean v5b (fix pass, 342 LoC)
+# NOT-GREEN 8 err — **sigmaExpand_basis GREEN [propext]** (both Walsh certificates landed). Residues: evec-unfold direction in lsum_evec lemmas; if_pos/if_neg on folded evec; hcon first-congr product-form; sigmaExpand chain steps.
+# Modal run: https://modal.com/apps/semraker/main/ap-U7DYEpYcryceC6AwEkjmlK
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-U7DYEpYcryceC6AwEkjmlK
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[tele] t=60s cpu=0.82 mem=8183MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] H2.lean: FAIL rc=1; errors=8, sorry-warnings=0, other-warnings=3
+---- output head ----
+H2.lean:191:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+H2.lean:191:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if h = b then ?m.46 else ?m.47
+in the target expression
+  List.foldr (fun b_1 acc => (v b_1 * if b = b_1 then 1 else 0) + acc) 0 (h :: t) = 0
+
+case cons
+v : Block → ℤ
+b h : Block
+t : List Block
+ih : b ∉ t → List.foldr (fun b_1 acc => (v b_1 * if b = b_1 then 1 else 0) + acc) 0 t = 0
+hnot : b ∉ h :: t
+hh : h ≠ b
+⊢ List.foldr (fun b_1 acc => (v b_1 * if b = b_1 then 1 else 0) + acc) 0 (h :: t) = 0
+H2.lean:206:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+H2.lean:206:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if ?m.113 = ?m.113 then ?m.115 else ?m.116
+in the target expression
+  (v h * evec h h + lsum t fun b0 => v b0 * evec b0 h) = v h
+
+case pos
+v : Block → ℤ
+h : Block
+t : List Block
+hnotin : h ∉ t
+hndt : t.Nodup
+ih : h ∈ t → t.Nodup → (lsum t fun b0 => v b0 * evec b0 h) = v h
+hmem : h ∈ h :: t
+⊢ (v h * evec h h + lsum t fun b0 => v b0 * evec b0 h) = v h
+H2.lean:208:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+H2.lean:208:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if h = b then ?m.125 else ?m.126
+in the target expression
+  (v h * evec h b + lsum t fun b0 => v b0 * evec b0 b) = v b
+
+case neg
+v : Block → ℤ
+b h : Block
+t : List Block
+ih : b ∈ t → t.Nodup → (lsum t fun b0 => v b0 * evec b0 b) = v b
+hmem : b ∈ h :: t
+hnotin : h ∉ t
+hndt : t.Nodup
+hh : ¬h = b
+⊢ (v h * evec h b + lsum t fun b0 => v b0 * evec b0 b) = v b
+H2.lean:225:97: error: unsolved goals
+v : Block → ℤ
+b p : Block
+⊢ (lsum blocks8 fun a => lsum blocks8 fun b => sigmaRow p b * (v a * evec a b)) =
+    lsum blocks8 fun b0 => v b0 * lsum blocks8 fun p' => sigmaRow p p' * evec b0 p'
+H2.lean:242:14: error: Type mismatch
+---- (…29 more lines) tail ----
+  lsum_congr blocks8 (fun p' => sigmaRow p p' * v p')
+    (fun p' => (lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j) * v p') (hreal p)
+H2.lean:286:13: error: unsolved goals
+C : Block → Fin 5 → ℤ
+Φ : Fin 5 → Fin 5 → ℤ
+v : Block → ℤ
+hv : v ≠ 0
+hdep : ∀ (j : Fin 5), (lsum blocks8 fun p => C p j * v p) = 0
+hreal : ∀ (p p' : Block), sigmaRow p p' = lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j
+hcon : ∀ (p : Block), (lsum blocks8 fun p' => sigmaRow p p' * v p') = 0
+⊢ False
+'Pilot41H2.sigmaOrth' depends on axioms: [propext]
+'Pilot41H2.sigmaExpand_basis' depends on axioms: [propext]
+'Pilot41H2.sigmaExpand' depends on axioms: [propext, sorryAx]
+'Pilot41H2.rank_obstruction_nogo' depends on axioms: [propext, sorryAx]
+
+[probe] SUMMARY
+[probe]   H2.lean: FAIL (8 errors)
+[tele] SUMMARY probe: wall=63s max_cpu=0.82 max_mem=8183MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-U7DYEpYcryceC6AwEkjmlK

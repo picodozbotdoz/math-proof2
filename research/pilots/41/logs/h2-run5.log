@@ -1,0 +1,107 @@
+# Provenance: 2026-11-19, lane R4 (unit 5: (H) tranche 2, h2 run 5 of 8).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Substrate: mathlib4 ff2494ea..., v4.36.0-rc2.
+# Fired content: H2.lean v4 (self-contained lsum/foldr design over Q, 326 LoC)
+# NOT-GREEN 21 err — SMOKING GUN: `lsum [] F + lsum [] G` not rfl — `0 + 0` at Q does not reduce: **Rat.add is extern-opaque to the kernel on this toolchain** — ALL Q-arithmetic decides are impossible (retro-explains every stall since h2-run2). Plus cons-case paren classes.
+# Modal run: https://modal.com/apps/semraker/main/ap-tc8x0KGxXtNjIiDRCbcKLZ
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-tc8x0KGxXtNjIiDRCbcKLZ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[probe] H2.lean: FAIL rc=1; errors=21, sorry-warnings=0, other-warnings=3
+---- output head ----
+H2.lean:90:11: error: Tactic `rfl` failed: The left-hand side
+  lsum [] F + lsum [] G
+is not definitionally equal to the right-hand side
+  lsum [] fun b => F b + G b
+
+case nil
+α : Type u_1
+F G : α → ℚ
+⊢ lsum [] F + lsum [] G = lsum [] fun b => F b + G b
+H2.lean:91:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  lsum t F + lsum t G
+in the target expression
+  F b + lsum t F + (G b + lsum t G) = F b + G b + lsum t fun b => F b + G b
+
+case cons
+α : Type u_1
+F G : α → ℚ
+b : α
+t : List α
+ih : lsum t F + lsum t G = lsum t fun b => F b + G b
+⊢ F b + lsum t F + (G b + lsum t G) = F b + G b + lsum t fun b => F b + G b
+H2.lean:96:11: error: Tactic `rfl` failed: The left-hand side
+  c * lsum [] F
+is not definitionally equal to the right-hand side
+  lsum [] fun b => c * F b
+
+case nil
+α : Type u_1
+c : ℚ
+F : α → ℚ
+⊢ c * lsum [] F = lsum [] fun b => c * F b
+H2.lean:97:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  c * lsum t F
+in the target expression
+  c * (F b + lsum t F) = c * F b + lsum t fun b => c * F b
+
+case cons
+α : Type u_1
+c : ℚ
+F : α → ℚ
+b : α
+t : List α
+ih : c * lsum t F = lsum t fun b => c * F b
+⊢ c * (F b + lsum t F) = c * F b + lsum t fun b => c * F b
+H2.lean:108:8: error: unsolved goals
+case nil
+α : Type u_1
+β : Type u_2
+M : List β
+F : α → β → ℚ
+⊢ 0 = lsum [] fun a => lsum M fun b => F a b
+H2.lean:122:8: error: unsolved goals
+case nil
+α : Type u_1
+β : Type u_2
+M : List β
+F : α → β → ℚ
+v : β → ℚ
+⊢ 0 = lsum [] fun a => lsum M fun b => F a b * v b
+H2.lean:145:2: error: Tactic `decide` failed to reduce
+---- (…186 more lines) tail ----
+  lsum_congr blocks8 (fun p' => sigmaRow p p' * v p')
+    (fun p' => (lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j) * v p') (hreal p)
+H2.lean:272:13: error: unsolved goals
+C : Block → Fin 5 → ℚ
+Φ : Fin 5 → Fin 5 → ℚ
+v : Block → ℚ
+hv : v ≠ 0
+hdep : ∀ (j : Fin 5), (lsum blocks8 fun p => C p j * v p) = 0
+hreal : ∀ (p p' : Block), sigmaRow p p' = lsum idx5 fun i => lsum idx5 fun j => C p i * Φ i j * C p' j
+hcon : ∀ (p : Block), (lsum blocks8 fun p' => sigmaRow p p' * v p') = 0
+⊢ False
+'Pilot41H2.sigmaOrth' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H2.sigmaExpand_basis' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H2.sigmaExpand' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H2.rank_obstruction_nogo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H2.lean: FAIL (21 errors)
+[tele] SUMMARY probe: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-tc8x0KGxXtNjIiDRCbcKLZ
