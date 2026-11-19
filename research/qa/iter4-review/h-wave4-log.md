@@ -978,6 +978,14 @@ certificates only). Companion of the dependsOnNoncomputable note above.
   the 41H article's novelty-section source. Ship-gate: R9 ✅ · R2's 41H
   pass DISPATCHED (against N3) · R7's draft in flight → the splice on
   completion. R9 → standby.
+
+## 2026-11-19 — iter-5 steady state, batch R (H): R2's 41H pass — the ship gate one step from the splice signal
+
+- **R2's 41H S1–S4 pass landed** (`r2-41h-s1s4-pass.md` `ace8bd28…`):
+  **4/4 PASS, independently verified against the landed bytes**; the
+  locked wording + scope-fence riders ride the future splice commit.
+- **41H ship gate: R9 ✅ · R2 ✅ — only R7's draft remains → the
+  orchestrator's splice signal.** R2 → close-support standby.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
