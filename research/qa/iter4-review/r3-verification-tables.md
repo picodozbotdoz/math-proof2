@@ -2436,3 +2436,26 @@ rows live at H's batch-6 commit; tree-wide ENTRY fires then.*
 *Fold note (R1, 2026-11-19): bytes verified at R8's worktree-of-record (agent-05);
 certificate impact NONE (0 new tokens — the parked pair carries no literal sorry on
 disk). Tree-wide re-run fires at H's batch-7 commit.*
+
+**AL M2-a CLOSURE + M2-b state (R8 unit-6, landed H batch-B; folded R1 unit 9, 2026-11-19;
+A2 bytes `9706196c5f5ff593`, 1,431 LoC, 83 decls = 82 pub + 1 priv — the unit-8
+honest-partial row CONVERTS):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| AL-M2-a (R8) | `pilots/al3d/A2.lean` @ `9706196c` | the batch-B landing fire (M2 completion; the unit-8 fixes-on-disk pair certified) | **CLOSED GREEN 4/4 — `colEquivVar_restr_apply` + `powerset_eq_biUnion_projFib` + `projFib_pairwise_disjoint` + `sum_projFib_extendId` ALL triad** (the two structural halves + the two former one-liner residuals, their pre-written fixes certified) | The unit-8 unfired-class resolution: fixes fired, both clean. Guard RE-BIND: `7db88f34` → **`9706196c`** (last-verified committed @ batch-B) |
+| AL-M2-b (R8) | same file (`regReindexEquiv_compl_iff` :1267, `colEquivVar_swap` :1337) | last fire = the M2-a completion run (both printed sorryAx there) | **honest-partial per D7 — 2 sorryAx-parked-at-last-fire decls, fixes-on-disk-UNFIRED; no live claim until the M2-b fire** | `colEquivVar_swap` CONSUMES the parked iff (:1351) — the swap's sorryAx is transitive through it; both fixes pre-written on disk. **Disk is SORRY-FREE** (classifier 0 real tokens — the sorryAx state is the last-fire record, not disk tokens; certificate unchanged 52+0). The A2 sweep verdict stays honest-partial until M2-b's fire |
+
+**N2-P3 — three-theorem GREEN state (R6 units 4–5, landed H batches 9+B; folded R1 unit 9;
+`N2-P3.lean` `f9bd28c5f8f7c3d2`, 242 LoC, 3 public decls — the §11.2 SKELETON row
+CONVERTS to the fired state):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 75-N2 P3 (R6) | `pilots/75/N2-P3.lean` `f9bd28c5f8f7c3d2` (grew from banked P3-a `fda6652636cddd8f`) | `logs/n2-p3-run3.log` (P3-b/c **BOTH GREEN FIRST SHOT**; P3-a banked at n2-p3-run{1,2}) | **GREEN-triad, three theorems: P3-a `windowFinite_family` + P3-b `abFacQ_of_factorization` (AbFacQOfFactorization discharged) + P3-c `analyticOrderAt_lFunction_ne_top` (the engine's hntopψ slot)** — all `[propext, Classical.choice, Quot.sound]` | **NOT yet P3-complete: the composed headline `zetaL_rat_two_thirds_landed` has not landed** — the skeleton rule holds, TARGETS row enters at its GREEN with chain wiring (`import N2P0`+`import N2P1` hyphenless → stage-scoped rewrites to AxPilot75_N2P0/AxPilot75_N2P1, the N2P1 row staging the override-pinned run-26 bytes; order Pa→N2P0→N2P1→P3). Classifier: 0 real tokens (ENTRY 9) |
+
+*Fold note (R1, 2026-11-19): both files' bytes verified on main @ efcabc4; certificate
+UNCHANGED 52+0 (A2's M2-b parks are disk-sorry-free — the honest label is the last-fire
+sorryAx state + unfired fixes, per D7 recorded on the row, not a token). H's board 74-P2
+line was ALREADY corrected at batch-D (`efcabc4` board rows 14/16 show unit-8 landed incl.
+the 74-P2 fold) — nothing to correct on my side.*

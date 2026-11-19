@@ -765,6 +765,19 @@ rides this commit.
   follows); the .lean lands ONCE at its closing state. **The G2-GREEN state
   of record `49b808f33ba897cc` stays preserved on main** (verified at pull;
   log-cited) — R1's funnel folds P2-c at run 17's outcome.
+
+## 2026-11-19 — iter-5 steady state, batch F (H): R1 unit-9 — the event-standby state
+
+- **R1's unit-9 landed** (4/4 shas verified, no drift — R1 paused): r3-tables
+  `7d5f2945…` (the §11 rows: **M2-a CLOSED 4/4; M2-b honest-partial in the
+  D7 vocabulary; the P3 three-theorem GREEN state**) + sweep-plan
+  `7246bd04…` + make_axcheck `7056d020…` (py_compile rc=0) + the stepA log
+  `a32ddbdf…` (**ENTRIES 8+9; certificate 52+0 unchanged**; 9 entries total).
+- **R1 → EVENT-STANDBY** (tracker): 5 pending folds — L3-final · M2-b-fire ·
+  P3-complete-fire · 41H-T2 · eta-confirm — each fold-once at its closing
+  state. (Process note: H's recurring INDEX replace-not-append slip on the
+  gates-row anchor occurred again and was again caught+restored pre-commit —
+  anchor switched to avoid recurrence.)
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

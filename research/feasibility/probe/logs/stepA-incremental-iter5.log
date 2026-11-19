@@ -134,3 +134,20 @@
 # RUN-status fact recorded on the §11.2 honest-partial row, not a token). M1's GREEN
 # (4 runs, completion-grant class) + M2-a 2/4 recorded there; AxPilotAL3D_A2 sweep
 # guard moved to 7db88f34 (last-verified committed bytes @ batch-7).
+#
+# ENTRY 8 (R1, 2026-11-19 — AL M2-a closure fold) — A2.lean MOVED to `9706196c5f5ff593`
+# (1,431 LoC, 83 decls = 82+1; H batch-B). One-file §G1 scope: **0 REAL-TOKEN** (disk
+# sorry-free). **M2-a CLOSED 4/4** (colEquivVar_restr_apply + powerset_eq_biUnion_projFib
+# + projFib_pairwise_disjoint + sum_projFib_extendId all triad — unit-8's unfired pair
+# certified). **M2-b honest-partial rides: `regReindexEquiv_compl_iff` (:1267) +
+# `colEquivVar_swap` (:1337, consuming the iff at :1351) are sorryAx-parked-at-last-fire
+# with fixes-on-disk-UNFIRED — the sorryAx is the last-fire record, NOT disk tokens**
+# (certificate unchanged; the honest label lives on the §11.2 D7 row). Sweep guard
+# re-bound 7db88f34 → 9706196c.
+#
+# ENTRY 9 (R1, 2026-11-19 — N2-P3 fold) — N2-P3.lean MOVED to `f9bd28c5f8f7c3d2`
+# (242 LoC, 3 public decls; from banked P3-a `fda66526`). One-file §G1 scope: **0
+# REAL-TOKEN.** State: P3-b `abFacQ_of_factorization` + P3-c `analyticOrderAt_lFunction_
+# ne_top` BOTH GREEN FIRST SHOT (`logs/n2-p3-run3.log`, triad) + P3-a `windowFinite_family`
+# banked. NOT P3-complete (the composed `zetaL_rat_two_thirds_landed` unlanded) —
+# Step-B row + chain wiring (N2P0/N2P1 rewrites, order Pa→N2P0→N2P1→P3) at its GREEN.
