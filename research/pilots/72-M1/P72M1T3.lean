@@ -318,14 +318,14 @@ theorem hasGlobalGap_of_fullSystemGap {L q : ℕ} (H : Operator L q) (Ω : State
             Finset.sum_congr rfl fun c _ => Finset.sum_congr rfl fun d _ => by ring
     rw [hR]
     simp only [dotProduct, Matrix.mulVec, Matrix.submatrix_apply]
-    exact Finset.sum_congr rfl fun i _ => Finset.sum_mul _ _ _
+    exact Finset.sum_congr rfl fun i _ => Finset.mul_sum _ _ _
   have hN : star x ⬝ᵥ (vecMulVec Ω' (star Ω') *ᵥ x)
       = ((‖(inner ℂ Ω ψ : ℂ)‖ ^ 2 : ℝ) : ℂ) := by
     have hmul : ∀ c : Reg (Qudits q) (gridDom L),
         (vecMulVec Ω' (star Ω') *ᵥ x) c = Ω' c * (star Ω' ⬝ᵥ x) := by
       intro c
-      rw [Matrix.mulVec, dotProduct, Matrix.vecMulVec_apply, ← mul_assoc,
-        ← Finset.sum_mul]
+      simp only [Matrix.mulVec, dotProduct, Matrix.vecMulVec_apply, Finset.mul_sum,
+        mul_assoc]
     have hin : (inner ℂ Ω ψ : ℂ) = star Ω' ⬝ᵥ x := by
       rw [show (inner ℂ Ω ψ : ℂ) = WithLp.ofLp ψ ⬝ᵥ star (WithLp.ofLp Ω) from EuclideanSpace.inner_eq_star_dotProduct Ω ψ]
       have h4 : ∀ g : Configuration L q, u g = x (ec.symm g) := fun g => rfl
@@ -342,14 +342,14 @@ theorem hasGlobalGap_of_fullSystemGap {L q : ℕ} (H : Operator L q) (Ω : State
         = (∑ c : Reg (Qudits q) (gridDom L), star (x c) * Ω' c) * (star Ω' ⬝ᵥ x) := by
           have e1 : ∀ c : Reg (Qudits q) (gridDom L),
               star (x c) * (vecMulVec Ω' (star Ω') *ᵥ x) c
-                = star (x c) * Ω' c * (star Ω' ⬝ᵥ x) := fun c => by rw [hmul c]
+                = star (x c) * Ω' c * (star Ω' ⬝ᵥ x) := fun c => by rw [hmul c, ← mul_assoc]
           show ∑ c : Reg (Qudits q) (gridDom L),
               star (x c) * (vecMulVec Ω' (star Ω') *ᵥ x) c = _
           rw [Finset.sum_congr rfl fun c _ => e1 c, ← Finset.sum_mul]
       _ = star (star Ω' ⬝ᵥ x) * (star Ω' ⬝ᵥ x) := by
           congr 1
           simp only [dotProduct, star_sum]
-          exact Finset.sum_congr rfl fun c _ => by rw [star_mul, star_star]
+          exact Finset.sum_congr rfl fun c _ => by simp [star_mul, star_star]
       _ = ↑(Complex.normSq (star Ω' ⬝ᵥ x)) := by
           rw [RCLike.star_def, Complex.normSq_eq_conj_mul_self]
       _ = ((‖(inner ℂ Ω ψ : ℂ)‖ ^ 2 : ℝ) : ℂ) := by
@@ -357,15 +357,16 @@ theorem hasGlobalGap_of_fullSystemGap {L q : ℕ} (H : Operator L q) (Ω : State
   -- reality of the Hermitian form
   have hstarH : ∀ i j : Configuration L q, star (H i j) = H j i := by
     intro i j
-    rw [← hH, Matrix.conjTranspose_apply, star_star]
+    rw [show star (H i j) = Hᴴ j i from by rw [Matrix.conjTranspose_apply], hH]
   have hreal : (inner ℂ ψ (asMap H ψ) : ℂ).im = 0 := by
     have hform : (inner ℂ ψ (asMap H ψ) : ℂ)
         = ∑ g : Configuration L q, ∑ g' : Configuration L q, H g g' * u g' * star (u g) := by
       rw [show (inner ℂ ψ (asMap H ψ) : ℂ) = WithLp.ofLp (asMap H ψ) ⬝ᵥ star (WithLp.ofLp ψ) from
           EuclideanSpace.inner_eq_star_dotProduct ψ (asMap H ψ)]
       rw [show WithLp.ofLp (asMap H ψ) = H *ᵥ u from ofLp_toEuclideanCLM H ψ]
-      rfl
-    have hz : (inner ℂ ψ (asMap H ψ) : ℂ) = Complex.conj (inner ℂ ψ (asMap H ψ) : ℂ) := by
+      show ∑ g : Configuration L q, (∑ g' : Configuration L q, H g g' * u g') * star (u g) = _
+      exact Finset.sum_congr rfl fun g _ => Finset.sum_mul _ _ _
+    have hz : (inner ℂ ψ (asMap H ψ) : ℂ) = star (inner ℂ ψ (asMap H ψ) : ℂ) := by
       rw [hform]
       have h1 : star (∑ g : Configuration L q, ∑ g' : Configuration L q,
           H g g' * u g' * star (u g))
@@ -387,8 +388,8 @@ theorem hasGlobalGap_of_fullSystemGap {L q : ℕ} (H : Operator L q) (Ω : State
         simp [Fintype.sum_prod_type']
       rw [h1, h2, h3]
     have hcontra : (inner ℂ ψ (asMap H ψ) : ℂ).im = -((inner ℂ ψ (asMap H ψ) : ℂ).im) := by
-      rw [← hz]
-      simp [Complex.im_conj]
+      rw [hz]
+      simp [RCLike.star_def, Complex.im_conj]
     linarith
   -- assemble
   have hexp : star x ⬝ᵥ ((H.submatrix ec ec - (E₀ : ℂ) • 1
@@ -834,23 +835,17 @@ theorem hamiltonian_gridDom_eq {L q : ℕ} [NeZero q] (hv : Vertex L → Operato
       = (hermPart (hv v)).submatrix (configEquiv L q) (configEquiv L q) := by
     intro v
     obtain ⟨a, ha⟩ := hV v
-    have e1 : (Finset.mem_powerset.1 (Finset.mem_powerset.2 image_subset_gridDom :
-        iotaLimg ({v} : Finset (Vertex L)) ∈ ps))
-        = image_subset_gridDom (L := L) (A := ({v} : Finset (Vertex L))) :=
-      proof_irrel _ _
-    show extendId (Finset.mem_powerset.1 _) (ΦL hv he _) = _
-    rw [e1, ΦL_vertex, ← ha, extendId_comp_eq]
+    show extendId (image_subset_gridDom (L := L) (A := ({v} : Finset (Vertex L))))
+        (ΦL hv he (iotaLimg ({v} : Finset (Vertex L)))) = _
+    rw [ΦL_vertex, ← ha, extendId_comp_eq]
   have hFe : ∀ e : Edge L, F ⟨iotaLimg (EdgeSites e),
       Finset.mem_powerset.2 image_subset_gridDom⟩
       = (hermPart (he e)).submatrix (configEquiv L q) (configEquiv L q) := by
     intro e
     obtain ⟨a, ha⟩ := hE e
-    have e1 : (Finset.mem_powerset.1 (Finset.mem_powerset.2 image_subset_gridDom :
-        iotaLimg (EdgeSites e) ∈ ps))
-        = image_subset_gridDom (L := L) (A := EdgeSites e) :=
-      proof_irrel _ _
-    show extendId (Finset.mem_powerset.1 _) (ΦL hv he _) = _
-    rw [e1, ΦL_edge, ← ha, extendId_comp_eq]
+    show extendId (image_subset_gridDom (L := L) (A := EdgeSites e))
+        (ΦL hv he (iotaLimg (EdgeSites e))) = _
+    rw [ΦL_edge, ← ha, extendId_comp_eq]
   -- disjointness of the two image families
   have hdisj : ∀ X : {X : Finset (ℤ × ℤ) // X ∈ ps}, (X : Finset (ℤ × ℤ)) ∈ Vimg →
       (X : Finset (ℤ × ℤ)) ∈ Eimg → False := by
@@ -923,8 +918,11 @@ theorem hamiltonian_gridDom_eq {L q : ℕ} [NeZero q] (hv : Vertex L → Operato
       rw [Finset.sum_congr rfl fun v _ => hFv v,
         Finset.sum_congr rfl fun e _ => hFe e]
   calc OpenAI.hamiltonian (gridDom L) (ΦL hv he)
-      = ∑ X ∈ U, F X := by
-        rw [hU, hps, hF, OpenAI.hamiltonian, Finset.sum_attach]
+      = ∑ X : {X : Finset (ℤ × ℤ) // X ∈ (gridDom L).powerset},
+          extendId (Finset.mem_powerset.1 X.2) (ΦL hv he X) := by
+        rw [OpenAI.hamiltonian]
+        simp only [Finset.sum_attach]
+    _ = ∑ X ∈ U, F X := rfl
     _ = (∑ v : Vertex L, (hermPart (hv v)).submatrix (configEquiv L q) (configEquiv L q))
         + ∑ e : Edge L, (hermPart (he e)).submatrix (configEquiv L q) (configEquiv L q) :=
         key

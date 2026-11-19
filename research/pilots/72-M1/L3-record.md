@@ -5,6 +5,23 @@ Lane R2 (close-out gates → W2-4 re-task), 2026-11-19. Spec: `pilots/72-M1/L3-s
 post-K continuation fire (iteration 5 wave 1; day-1-class: prepared + fired, ALL
 commits held for H post-K landing).
 
+## CHARTER-ITEM-3 AMENDMENT (2026-11-19 late): the re-open charter's FINAL ROUND fired
+## (runs 14–16, ≤3 cap) — isAdmissible + the transport identity now TRIAD-CLEAN; the
+## ladder closes NOT-GREEN at cap (the hz-reality block + attach-bridge forms remain;
+## 3-item next-wave fix list in the stop-note §CHARTER-ITEM-3 RECORD; no further grants)
+
+Run 14 flipped `isAdmissible_ΦL` AND `hamiltonian_gridDom_eq` to triad-clean (the
+`Finset.mul_sum` vs `sum_mul` direction-pair decoded — the two scalar sides are
+different lemmas at this pin). Runs 15–16 narrowed the residual to the hreal/hz
+reality block (reopened by the conj→star restate; its inner sum-conversions are the
+same class as the solved hQ pattern) and the attach-bridge. Final clean set: L3b,
+submatrix_mulVec_ec, eig_toGrid, edgeBoundary_le_boundaryCard, isAdmissible_ΦL,
+hamiltonian_gridDom_eq + all T1/T2/L3a. Contaminated: hasGlobalGap (hz-block),
+interface (inherits). 16 runs, four grant rounds, zero math defects, T1/T2 clean
+throughout. W2-4 stays HONEST-PARTIAL — deeper than at wave-4 open (the L3d
+superstructure is now kernel-clean end-to-end; only the L3c-reality packaging and
+one bridge conversion remain).
+
 ## FINAL-ROUND AMENDMENT (2026-11-19 night): the ≤2-run final grant fired (runs 12–13) —
 ## L3c + boundary lemmas now TRIAD-CLEAN; ladder still NOT-GREEN at wave close (final
 ## honest stop; 4 named mechanical fixes charter the next wave — `logs/l3bd-stop-note.md`
@@ -47,7 +64,7 @@ Descent 47 → 48(parse) → 39 → 15 → 9 → 9 → 9 → 8 error-lines acros
 regression OK in every run (0 errors, 0 sorry-warnings); ZERO mathematical defects —
 every failure class is a name/elaboration-shape issue. STOP per §7's budget guard:
 `logs/l3bd-stop-note.md` (descent table + the 3 residual classes + the next-instance
-fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..13}.log`,
+fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..16}.log`,
 provenance headers in each (substrate mathlib `ff2494ea` v4.36.0-rc2, doz CLI, SPEC
 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry in every tail; OVER-class = mmapped-olean
 mem-burst only — investigate-not-upgrade, no upgrade requested or needed).

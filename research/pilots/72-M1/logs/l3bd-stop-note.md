@@ -137,3 +137,45 @@ Next wave's continuation charters from here: apply the four named fixes, fire, e
 
 — final-round R2, 2026-11-19. Run-index final: runs 1–13, v1–v13
 (v13 sha256(16) at the run-13 header).
+
+
+---
+
+## CHARTER-ITEM-3 RECORD (lane R2, 2026-11-19 late — the re-open charter's L3 FINAL
+## ROUND; ≤3 runs; NOT-GREEN at cap; the honest stop stands as next-wave input)
+
+Fired runs 14–16 (v14 `dcda3133`-successor → v16):
+
+- **run 14 (v14):** the `Finset.mul_sum`-direction family decoded and applied (hQ-tail
+  LEFT-scalar vs hN-step1 RIGHT-scalar — the two directions are different lemmas at this
+  pin). **`isAdmissible_ΦL` + `hamiltonian_gridDom_eq` went TRIAD-CLEAN** — the entire
+  L3d machinery (ΦL, compression norms, the transport identity, the powerset sum-split)
+  now closes kernel-clean. Residual moved to the hreal/hz block + the hmul/bridge forms.
+- **run 15 (v15):** hstarH direction, hform-mirror, sum_attach-as-exact — errors
+  narrowed to the hz-star manipulations, hFv/hFe placeholder-synthesis, bridge.
+- **run 16 (v16, CAP):** hstarH/hform/hz-head closed; residuals: the hz-block's inner
+  sum-manipulations (:374–:387 — star_sum/prodComm/product-sum conversions, unsolved
+  not failed — forms close to the hQ-class already solved), hFe's ΦL_edge-rw (:848),
+  the attach-bridge (:924 — simp-no-progress on `Finset.sum_attach`, the third form
+  tried; the attach↔type-sum coercion-dependency remains the one stubborn spot).
+
+**Final triad-clean set (run 16):** `toGrid_star_dotProduct_self` (L3b),
+`submatrix_mulVec_ec`, `eig_toGrid`, `edgeBoundary_le_boundaryCard`,
+**`isAdmissible_ΦL`, `hamiltonian_gridDom_eq`** + every T1/T2/L3a declaration.
+**Contaminated at cap:** `hasGlobalGap_of_fullSystemGap` (the hreal/hz reality block —
+regression-note: CLEAN at run-12, re-opened by the hz-conj→star restate's inner
+manipulations) and `interface_areaLaw_uniformAreaLaw` (inherits both).
+16 runs total across four grant rounds; T1/T2 regression OK in ALL; zero mathematical
+defects in 16 runs — the reality-block and attach-bridge forms are the same
+elaboration-class as everything already closed.
+
+**Next-wave fix list (3 items, forms displayed in run-16's errors):** (1) the hz-block's
+h1/h2/h3 sum-conversions — mirror the SOLVED hQ/prodComm pattern with per-side
+`Finset.sum_congr rfl` + explicit `mul_sum`/`sum_mul` directions; (2) hFe's show —
+use the run-14-passing hFv-form verbatim (the EdgeSites-variant diverged in the
+canonical-proof placement); (3) the attach-bridge — fourth form to try:
+`Finset.sum_attach (s := (gridDom L).powerset)` explicit, or restate `key`'s U/F
+over the attach-type directly (no conversion step at all).
+
+— charter-item-3 R2, 2026-11-19. Run-index final: runs 1–16, v1–v16
+(v16 sha in the run-16 header). NO further grants this wave per the charter.

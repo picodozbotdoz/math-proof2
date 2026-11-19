@@ -904,6 +904,19 @@ v4.36.0-rc2 — NO ℚ-arithmetic `decide` is possible; integer certificates
 only.** This retro-explains every ℚ-decide stall on this pin. **Rule:
 never attempt `decide` over ℚ on this pin** (integer/reduction-based
 certificates only). Companion of the dependsOnNoncomputable note above.
+
+## 2026-11-19 — iter-5 steady state, batch M (H): R2's charter-item-3 FINAL — the v16 closing
+
+- **The v16 fold-once closing landing** (3 named shas verified, no drift):
+  `P72M1T3.lean` v16 `aed63101…` — **materially deeper than v13**:
+  `isAdmissible_ΦL` + `hamiltonian_gridDom_eq` now TRIAD; contaminated:
+  `hasGlobalGap` (reopened by the conj→star restate — the regression note
+  recorded) + interface. Runs 14–16 + the stop-note `d562b2b4…`
+  (§CHARTER-ITEM-3 + the 3-item next-wave list) + L3-record `bc26418c…`.
+- Verdict of record: **W2-4 honest-partial FINAL — 16 runs / 4 rounds,
+  zero math defects; the L3d superstructure kernel-clean end-to-end.**
+- R2 → close-block skeleton prep. R1's L3 fold-UPDATE at v16 queues with
+  the salvo folds.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
