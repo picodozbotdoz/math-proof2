@@ -319,3 +319,81 @@ by text-match) · the five instrument stamps (rows 17–21) · **SPLICE SELECTED
 one-line stamp (§K-STAMPS item 0)** · the two [DATE-CLOSED] patches (K-PREP 2) ·
 Batch-S stragglers (R1's subset re-fire log rescue + Steps 9–12 evidence +
 VERIFICATION-LEDGER §10 + Step D).
+
+## 2026-11-19 — item 3b: K DRY-RUNS (H; scratch clone at e3d984b, removed after; main untouched)
+
+Scratch-clone basis validated first: all 9 K-target files byte-identical
+e3d984b ↔ current master (articles 75/78, SPLICE, RESEARCH.md, the five stamp
+targets) — the dry-run results transfer to the K-time tree for everything except
+R1's still-pending residue files.
+
+**(1) D.4 anchors — 6/6 UNIQUE-OK against e3d984b article bytes** (the A9
+checklist §D.4 pre-written blocks, bytes-unchanged branch): 75:382–383 sha-preamble
+/ 75:551 box-11 / 75:554–556 PENDING-CLOSE tail / 78:199–201 file cell /
+78:309 box-11 / 78:312–313 tail — each matches EXACTLY ONCE. **The +4 line drift
+on article 78 is line-number-only; text-match is immune — no anchor ambiguity.**
+R7's arriving blocks carry resolved `<close-date>` + sweep-confirmed shas; the
+expected values are on record (Pa `d61eb0485a6ff672`, Pb `da05c60ceb78755b`,
+zeta23e-P0 `986f1ce879786f33`, 78-P0 `d94d115e3d8d08d7`); any anchor count ≠ 1 at
+K time ⇒ STOP, route to R7, never hand-merge.
+
+**(2) [DATE-CLOSED] patches — both APPLY-CLEAN** (old-count=1 each; placeholder
+substitution + re-read verified in the clone). Execute at K with [K-DATE] = the
+K commit's calendar date.
+
+**(3) §K-STAMPS items 0–5 — all 6 targets clean for the one-line insert:** every
+target has title=line 1, blank=line 2, stamp keyword ABSENT from the top 6 lines
+(matches the three W1 SUPERSEDED stamps' placement at :2). **Date dependency
+flagged:** R2's stamp texts hard-code 2026-11-19 (items 1–5) and 2026-11-18
+(item 0 — the W1/L2 record fact, stays) per the §K-STAMPS preamble "dates = K's
+fire date"; if K fires on a later date, substitute the fire date in items 1–5
+before inserting.
+
+**(4) README (verify-only, NOT a K edit):** the counts line landed at W1
+(`articles/README.md:3` "FINAL, orchestrator-ratified 2026-11-18: 6
+discovery-grade" — date KEEPS 11-18 per the orchestrator ruling); the D.3 row-78
+draft-marker drop also already executed (row :24 tail clean).
+
+### K EXECUTION SCRIPT (H; mechanical playback; fires ONLY on the orchestrator's explicit K signal)
+
+- **K0.** Pre-checks: R1 landed report in hand (staging fixes + subset re-fire 5/5
+  + Steps 9–12); Batch-S evidence commits done; `git status --porcelain` CLEAN;
+  record K-BASE sha; concurrency probe.
+- **K1.** Pull R2's pair from agent-03 (hash → copy → cmp): gates file
+  (`94c9e14a88fe845a`) + stepA log (`2ec00eeb3d114f8d`) — re-verify shas; if
+  moved, the K signal carries the updated shas.
+- **K2.** Pull R1's close-residue files per its report (expected:
+  `make_axcheck.py` staging fixes — dependency-ordered emission + stem-collision
+  fix; `axcheck-iter4-close-run2-subset.log` (5/5); Step-B(ii) custody logs;
+  `VERIFICATION-LEDGER.md` §10 + Step D; any r3-tables final fold — A1-funnel
+  copy from agent-02).
+- **K3.** Insert the six one-line stamps under each target's title (§K-STAMPS
+  items 0–5 verbatim; date rule above; dry-run placement verified).
+- **K4.** Apply the two [DATE-CLOSED] patches (K-PREP 2) with [K-DATE] = today.
+- **K5.** Apply R7's six D.4 blocks BY TEXT-MATCH into articles 75/78
+  (`<close-date>` → K-DATE); anchor-count check before each replace (expect 1).
+- **K6.** Append the STATUS.md Iteration-4 CLOSED block (K-PREP 1 pre-draft;
+  resolve [K-DATE], [R1-SUBSET-REFIRE-RESULTS] from R1's report; no
+  self-referential sha — "this commit").
+- **K7.** REPORT-INPUTS §3 fill (H-shepherded): shipped set, N=1 UNSPENT,
+  DECISION-1 ruled 2026-11-19 line.
+- **K8.** REPORT.md §I4 final currency + the G6 KPI line.
+- **K9.** INDEX.md: G3 both-directions fresh (`comm -3` per §G3) + close (A1)
+  `pilots/32/run_pilot.py` row + (B1) `runner-fixes-wave2.patch` stale-row fix.
+- **K10.** Verify-only: README counts line + D.3 (both W1-landed; no edits).
+- **K11.** Tracker + brief + h-wave3-log + h-wave4-log: close-out refresh
+  (iteration CLOSED at K; lane rows → wrapped-at-close).
+- **K12.** Hardened gate: `git status --porcelain`; stage EXACTLY the K file
+  list; `git diff --cached --stat`; foreign-staged check must be EMPTY.
+- **K13.** Commit `Iter4 close: CLOSE-COMPLETION K — <summary>`; record K sha +
+  date (= [DATE-CLOSED] everywhere).
+- **K14.** Post-K: tree CLEAN; G4 re-grep on the committed tree; G7(a) re-grep
+  (grep -L SUPERSEDED\|SELECTED over the four staging files = EMPTY);
+  h-wave4-log K-entry; standby for the iteration-5 opening commit (checklist
+  above).
+
+**OPEN lane items (recorded per orchestrator; owners hold disposition, no H
+action):** (i) R5's η-pin-probe run-1 FAIL-mechanical (one `lean.dependsOnNoncomputable`
+at :108 `dilateTo`; fix applied, run 2 owed) — R5 owns; (ii) the OVER-cpu 5.70
+sample on the same run (soft-limit burst @t=120 s) — investigation line owed in
+R5's reported record per AGENTS §Modal 3. Orchestrator chases both at R5's report.

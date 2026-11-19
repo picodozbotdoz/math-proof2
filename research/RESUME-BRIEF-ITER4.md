@@ -538,4 +538,9 @@ placeholders, §10 machine counts); (2) the two [DATE-CLOSED] amendment patches
 (3) the iteration-5 opening-commit assembly checklist (8 ordered steps). Day-1
 fires observed landing worktree-side (η-pin-probe, N2-P2 run 22, 41-P0 runs 1–2 rc=0
 at run 2, AL M0 regression) — telemetry pass 1: all route/SPEC-compliant, three
-note-only items recorded.
+note-only items recorded. K DRY-RUNS (item 3b, scratch clone at e3d984b, main
+untouched): D.4 anchors 6/6 UNIQUE (text-match immune to the +4 drift), both
+[DATE-CLOSED] patches APPLY-CLEAN, §K-STAMPS 0–5 placement verified (title/blank/
+keyword-absent; items 1–5 dates substitute K's fire date if ≠ 2026-11-19); the
+14-step K execution script + the R5 OPEN lane items (η-pin run-1 FAIL-mechanical +
+OVER-cpu sample, R5-owned) are staged in `h-wave4-log.md`.
