@@ -393,7 +393,9 @@ the R2 re-run entry appended this pass, worktree-side for H to pull).
   `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log` (R1; in flight at this
   writing — not duplicated here per the no-double-fire instruction). **G2 final verdict
   row: "58/58 stages OK, all triad-clean" once R1's log shows 5/5**; any residue routes
-  to R1 before K. [PENDING-R1 at press time — update this row, not the run1 record.]
+  to R1 before K. [RESOLVED 2026-11-19: R1's `axcheck-iter4-close-run2-subset.log` landed
+  in K `b2f2c18` — 6/6 OK, 0 sorryAx; final verdict recorded in the §G8 row: 58/58 stages
+  OK, all triad-clean. This closes G2 completely.]
 
 ## G3 — INDEX reconciliation, both directions (drift list for H; H owns the INDEX commit)
 
@@ -522,8 +524,8 @@ all-dispositioned → **G7 PASS at K**.
 |---|---|---|---|---|---|
 | G1 sorry-token | §G1 classifier verbatim (this file :33–56) | 52 REAL-TOKEN hits / 108 files, bucket tally exact, 0 unexplained; `.lean` scope identical dd6686f→e3d984b; log: `feasibility/probe/logs/stepA-incremental-iter4.log` ENTRY 8 + sweep-time entry + R2 re-run entry | **PASS** (certificate 52 exact) | 2026-11-19 | K |
 | G2 axcheck (i) batch | `run_axcheck.sh` (Step 8) | 58 stages: 53 OK (triad-only, 0 sorryAx) / 5 FAIL = staging defects, taxonomy in-log; log: `feasibility/probe/logs/axcheck-iter4-close-run1.log` | **PASS** (staging-defect class; artifacts unaffected) | 2026-11-18 (H) | W1 `8c1c544` |
-| G2 axcheck (ii) subset re-fire | failed-stages-only re-fire (R1, warm app) | 5 stages: **[PENDING-R1]** — log: `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log` | **PASS once 5/5** → "58/58 stages OK, all triad-clean" | 2026-11-19 | K (log rescue) |
-| G3 INDEX | §G3 `comm -3` both directions | 238 delta = 1 genuine gap (`pilots/32/run_pilot.py`) + 1 stale-status (`runner-fixes-wave2.patch` row) + directory-covered/grouped/extension classes; drift list = §G3 CLOSE (A)–(E) above | **PASS after H's INDEX commit closes (A1)+(B1)** | 2026-11-19 | K (INDEX) |
+| G2 axcheck (ii) subset re-fire | failed-stages-only re-fire (R1, warm app; fired 6 stages = 5 FAILs minus M4b-citation-class + dep-closures AxPilotAL3D_P0/AxPilot75_Pa) | **6/6 stages OK, 0 sorryAx** (AL3D_A1 44, A2 126, 75_N2P0 16, 75_N2P1 27 axiom-lines all triad; 42_M4b = citation-class, stepB-c2-m4b-donor.log of record); log: `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log` | **PASS 2026-11-19 — 58/58 stages OK, all triad-clean** | 2026-11-19 | K `b2f2c18` |
+| G3 INDEX | §G3 `comm -3` both directions | 238 delta = 1 genuine gap (`pilots/32/run_pilot.py`) + 1 stale-status (`runner-fixes-wave2.patch` row) + directory-covered/grouped/extension classes; drift list = §G3 CLOSE (A)–(E) above | **PASS 2026-11-19 — (A1)+(B1) closed in K's INDEX commit `b2f2c18`; comm = 237 = R2's pre-computed 238 minus the closed gap; stale-status rewritten same-commit** | 2026-11-19 | K `b2f2c18` |
 | G4 dates | §G4 two greps verbatim | tomorrow-literal EMPTY; compounds EMPTY; broader sweep 1 hit = gates-file self-cite (:275) — whitelist class, pre-ruled | **PASS** (final re-run at K-assembly) | 2026-11-19 | K |
 | G5 template | corrected §G5 (appendix 2026-11-18) + §9 box-run | AUTHORITATIVE: `a9-g5-dryrun.md` 14/14 (2026-11-17); K-time mechanical sweep: 14/14 carry kind/novelty/verification/limitations (3 layouts verified); box 11 drift rows (10, 75) landed, 78 ratified | **PASS** (runbook literal patterns STALE — dated note §G5 above) | 2026-11-19 | K |
 | G6 two-strike | §G6 scoped reads + §3 fill | flow: new-article class 100% discovery-grade (75 v2, 32, 01, 30, 78); N=1 UNSPENT (DECISION-1 ruled 2026-11-19: spend-only-if-executed; contest FB-2 vs FB-4 vs unspent = iter-5); stock 6/14 ≈ 43% health-line | **PASS** (≥-half KPI met with margin; quota UNSPENT) | 2026-11-19 | K (REPORT §I4 + REPORT-INPUTS §3) |
@@ -568,3 +570,27 @@ chicken-and-egg):
 — close-act gate run lane R2 (gates-owner), 2026-11-19, main @ e3d984b (worktree
 agent-03, forwarded). G2(ii) and G3 completion conditions named in-table; G4/G8
 re-fire at K-assembly. No gate passed by inspection; no OVERRIDDEN cell.
+
+## K-TIME CLOSURE — 2026-11-19 (lane R2; K = `b2f2c18`, fired 19:25 +08; the last two open G8 cells)
+
+- **G2(ii) FLIPPED TO PASS**: R1's subset re-fire
+  (`feasibility/probe/logs/axcheck-iter4-close-run2-subset.log`, app
+  ap-j76M5pBFvem1VTu7QBohXM, wall 130 s, telemetry in-header, 6 stages = the 5 run1
+  FAILs minus the M4b-citation-class + the dependency-closure stages AxPilotAL3D_P0 /
+  AxPilot75_Pa) — **6/6 OK, every stage "N axiom-lines, 0 sorryAx", records ⊆ triad**;
+  with run1's 53 OK + the M4b citation-class ⇒ **58/58 stages, all triad-clean**.
+- **G3 FLIPPED TO PASS**: K's INDEX commit closed the drift list's only genuine gap
+  (`research/pilots/32/run_pilot.py` folded into the 32-row) and rewrote the
+  `runner-fixes-wave2.patch` stale-status in the same pass — comm now = 237 = the
+  pre-computed 238 minus the closed gap; every remaining delta line is
+  directory-covered/grouped/extension-class.
+- **K-time G4 FINAL RE-RUN (R2, 2026-11-19)**: verbatim §G4 greps on the EXACT closing
+  tree `b2f2c18` (`git grep` at the sha): tomorrow-literal → **EMPTY**; compound dates
+  → **EMPTY**. Re-run on post-K main (iter-5 batches landed, `c74ac33`-class): both
+  greps **EMPTY** — corroborates H's post-K re-greps. [DATE-CLOSED] = 2026-11-19 as
+  committed (the dated-correction note was not needed — K fired on the 19th).
+- **Gates file status after this block: ALL EIGHT GATES PASS; no open cells; no
+  OVERRIDDEN entries.** Iteration-4 close-out gates COMPLETE.
+
+— K-time closure lane R2 (gates-owner), 2026-11-19. H pulls this file for the post-K
+gates-completion commit (worktree agent-03; the G8 table + this block are the delta).

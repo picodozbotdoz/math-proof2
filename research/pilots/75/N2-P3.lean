@@ -11,12 +11,15 @@ authorizing this skeleton in the same unit. Executes dossier
 6-final), N2-P0.lean (statement rung, 15/15), N2-P1.lean (dictionary + transfer
 + window finiteness, runs 19/26).
 
-HYGIENE CLASS: STATEMENT RUNG, ZERO-SORRY BY CONSTRUCTION (the P0/N2P0
-precedent). No probe-header sorry class: every mathematical obligation below is
-an explicit named hypothesis binder of a Prop or a named Prop (the P3 discharge
-targets). The ONLY proof in this file is one application of the just-landed
-P2-a theorem (`windowFinite_LFunction`, run 26 triad) at the dependent-family
-level — GREEN-by-composition, not a proof artifact.
+HYGIENE CLASS: STATEMENT RUNG + EXECUTION RUNGS, ZERO-SORRY BY CONSTRUCTION
+(the P0/N2P0 precedent). No probe-header sorry class: every mathematical
+obligation is an explicit named hypothesis binder of a Prop or a named Prop.
+Unit 7 (R6, 2026-11-19) added the first two execution proofs — P3-b
+(`abFacQ_of_factorization`, the two-GREEN-theorem P1 chain) and P3-c
+(`analyticOrderAt_lFunction_ne_top`, entireness + the run-30-triad helper) —
+each a pure application chain over kernel-verified pieces, plus the P2-a
+payoff `windowFinite_family` (one application at the dependent-family
+level). GREEN-by-composition, not proof artifacts.
 
 STAGING (the N2P0 precedent; runner note): this module imports `N2P1` — the
 repo file `N2-P1.lean` must be staged under the module name `N2P1.lean`
@@ -93,6 +96,20 @@ def AbFacQOfFactorization (fK fL : ℂ → ℂ) (n : ℕ)
       ∀ s : ℂ, s ≠ 1 →
         fL s = (∏ i : Fin n, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) * fK s
 
+/-- **P3-b (unit 7)** — the hAbFacQ bridge DISCHARGED: the two-theorem P1
+chain applied. `dirichletFactorizationTransfer` (run 19) converts the DZDF
+Hecke-side factorization + dictionary + nonprincipality into the Dirichlet
+family with the `1 < q i ∧ ψ i ≠ 1` scope; `factorization_identity_extension`
+(run 19) extends the identity from ℜs > 1 to ℂ∖{1}. Pure application chain —
+no new mathematics. -/
+theorem abFacQ_of_factorization (fK fL : ℂ → ℂ) (n : ℕ)
+    (m : Fin n → Ideal (𝓞 ℚ)) (χ : (i : Fin n) → Ideal (𝓞 ℚ) → ℂ) :
+    AbFacQOfFactorization fK fL n m χ := by
+  intro hnp hdic hfac hK hL
+  obtain ⟨q, hN, ψ, hscope, hhpDir⟩ := dirichletFactorizationTransfer hdic hnp hfac
+  exact ⟨q, hN, ψ, hscope,
+    factorization_identity_extension hN (fun i => (hscope i).2) hK hL hhpDir⟩
+
 /-! ### P2-a payoff — the landing's component-window-finiteness slot, discharged
 
 The one proof of this file: P2-a (run 26) closes the `hfinψ` slot of
@@ -106,6 +123,18 @@ theorem windowFinite_family {n : ℕ} {q : Fin n → ℕ} (hN : ∀ i, NeZero (q
     (ψ : (i : Fin n) → DirichletCharacter ℂ (q i)) (hne : ∀ i, ψ i ≠ 1) :
     ∀ i, WindowFinite (multOf (@DirichletCharacter.LFunction (q i) (hN i) (ψ i))) :=
   fun i => @windowFinite_LFunction (q i) (hN i) (ψ i) (hne i)
+
+/-- **P3-c (unit 7)** — the engine's component `hntopψ` slot DISCHARGED:
+entireness plays no role here beyond the helper's own proof — the
+run-30-triad `lFunction_not_eventually_zero` plus the root-level
+`analyticOrderAt_eq_top` iff (Order.lean:77; the r30-verified reference
+form — NOT dot-notation, see the record's Exists-whnf trap) give
+`analyticOrderAt ≠ ⊤` at every point for a nontrivial character's
+L-function. -/
+theorem analyticOrderAt_lFunction_ne_top {N : ℕ} [NeZero N]
+    {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) (ρ : ℂ) :
+    analyticOrderAt χ.LFunction ρ ≠ ⊤ := fun h =>
+  lFunction_not_eventually_zero hχ ρ (analyticOrderAt_eq_top.mp h)
 
 /-! ### P3-d — the V2 ζ-column (the M4b pattern, statement form)
 
@@ -205,9 +234,9 @@ def ZetaLRatTwoThirdsOfDZDF (fK fL : ℂ → ℂ) (n : ℕ)
 #check @CrossMath.Pilot75N2.ZetaLRatTwoThirdsOfDZDF
 #check @CrossMath.Pilot75N2.ComponentEpsCum
 
--- P3-a audit expectation: windowFinite_family's #print axioms must be triad
--- (it is windowFinite_LFunction + the LFunction instances); uncommented at the
--- P3-a run once the runner exists:
--- #print axioms CrossMath.Pilot75N2.windowFinite_family
+-- P3-a/unit-7 audit (expect triad only, 0 sorryAx):
+#print axioms CrossMath.Pilot75N2.windowFinite_family
+#print axioms CrossMath.Pilot75N2.abFacQ_of_factorization
+#print axioms CrossMath.Pilot75N2.analyticOrderAt_lFunction_ne_top
 
 end CrossMath.Pilot75N2

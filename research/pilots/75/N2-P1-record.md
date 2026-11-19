@@ -188,6 +188,18 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   Both fixed on disk post-r30 — parked sha 396d8710…, expected next-run
   GREEN 17/17. P3-a STAYS BANKED GREEN; P2-c NOT opened (was conditional
   on r30 green); no P3 staging. Wall 64s, cpu 0.89/2.0, OVER=0.
+- n2-p3-run3 (2026-11-19, R6 unit 7, the unblocked P3-b + P3-c rungs per
+  `N2-P3-plan.md`; N2-P1 guarded at the parked 396d8710 — NOT re-opened;
+  only its already-triad helper consumed): **OK FIRST SHOT — P3-b AND P3-c
+  BOTH GREEN** (`logs/n2-p3-run3.log`): `abFacQ_of_factorization` (the
+  hAbFacQ bridge — the two-theorem P1 chain applied) and
+  `analyticOrderAt_lFunction_ne_top` (the engine's hntopψ slot), plus
+  `windowFinite_family`'s first formal axiom print — **all three
+  triad-clean, 0 sorry**; 1 of the ≤4 unit-7 runs spent. N2-P3.lean sha at
+  firing f9bd28c5… . Per the plan's binder table, the P3-e assembly now
+  needs ONLY: P2-b-confirm (transitive, for the imprimitive hEχ
+  composition) + P2-c + P3-d (V2 substrate). Wall 64s, cpu 1.00/2.0, one
+  mapped-olean OVER.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -387,6 +399,12 @@ exits, budgets, binder-discharge inventory, risks, and the P2-c interleave
 analysis: P3-b/P3-c/P3-d are NOT P2-c-dependent and can run while P2-b
 parks; only P3-e's assembly waits on P2-c ⇒ transitively P2-b). The
 critical path to the landing: P2-b-confirm (1 run) → P2-c → P3-e.]**
+
+**[Unit-7 update: P3-b + P3-c EXECUTED AND GREEN — one first-shot run
+(n2-p3-run3): `abFacQ_of_factorization` + `analyticOrderAt_lFunction_ne_top`
++ the `windowFinite_family` axiom print, all triad, 0 sorry. Remaining to
+the landing: P2-b-confirm → P2-c (⇒ hEχ) + P3-d (V2 substrate, holds until
+scheduled) → P3-e assembly + N3 axcheck.]**
 
 **Wave-5 posture: P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
 P2-b HARD-STOPPED at 2-residual depth by the ruling** (runs 27–30:

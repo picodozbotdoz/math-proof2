@@ -161,6 +161,50 @@ per-fibre factorization (`sum_projFib_extendId`, attach-form both sides,
   (loc := fun u => Fin (q ^ colCard Λ u)) hX' (M.submatrix (colEquivVar Λ q X' hX')²)`
   with ē := `(regReindexEquiv (Λ := Λ) q).symm`.
 
+## M2 unit-6 — M2-a CLOSED 4/4 GREEN; the guard-bridge + swap parked at 2 classified residuals (2026-11-19; honest stop at the unit's 3-run cap)
+
+**M2-a is now COMPLETE: all four of `colEquivVar_restr_apply`,
+`powerset_eq_biUnion_projFib`, `projFib_pairwise_disjoint`, `sum_projFib_extendId`
+GREEN-triad** (the two pre-written one-liners landed first try in m2-run4's byteset:
+the `.symm` orientation and the `unfold Function.onFun` prefix).
+
+**New this unit (authored, not yet GREEN):**
+- `regReindexEquiv_compl_iff` — the GUARD BRIDGE (planar-off-X' agreement iff
+  3D-off-fibre agreement), designed the donor's way: per-column through the GREEN
+  toFun-transparency (`colRegEquiv` injectivity forward, `congrArg` backward) — NO
+  `Eq.rec`, no complement-transport. Statement elaborates (after naming the loc on
+  both planar restrs — the class's 4th recurrence).
+- `colEquivVar_swap` — the SWAP proper, entrywise (`extendId`'s guard is NON-dependent
+  `ite` on this pin — `if_pos/if_neg`, not `dif_pos/dif_neg`); consumes the guard.
+- **Run history (3 fires = the unit cap):** m2-run3 (4 error-lines: the guard's
+  statement loc-metavar + the swap's dif/ite confusion) → m2-run4 (26 error-lines =
+  the guard's PROOF first-checked: roundtrip `symm_apply_apply`/`apply_symm_apply`
+  direction + the iff-branches swapped; dominated by cascade) → m2-run5 (3 error-lines
+  = 2 root residuals, below). Descent 4→26→3.
+- **Parked residuals (both one-line, fixes pre-written):**
+  1. `:1312` the hwu-step: the planar-restr index element passed as a NESTED Subtype
+     `⟨⟨proj x, huP⟩, mem⟩` — the index of `↥(projF Λ \ X')` is FLAT. FIX:
+     `congrFun h ⟨proj (x : ℤ × ℤ × ℤ), Finset.mem_sdiff.2 ⟨huP, hxu⟩⟩` (the
+     `w`-membership rides `Finset.sdiff_subset` inside the restrict₂-unfold, met by
+     `simpa`).
+  2. `:1325` the injectivity-step's bare `rw [← regReindexEquiv_apply]` cannot match
+     through the elaborated membership-proofs. FIX: construct the two colRegEquiv-eqs
+     EXPLICITLY — `have e1 : colRegEquiv … (fun s => ēw ⟨↑s, col_subset …⟩) =
+     w ⟨proj x, huP⟩ := by rw [← regReindexEquiv_apply (Λ := Λ) q (ēw)
+     ⟨proj x, huP⟩, hw]` (and `e2` for `w'`), then
+     `exact e1.trans (hwu.trans e2.symm)`.
+- `colEquivVar_swap`'s own proof is UNTESTED (cascade-sorried through the guard); its
+  if_pos/if_neg + ē-form-L1 route stands as designed.
+- **The Hamiltonian identification was NOT started** (the unit cap went to the
+  guard/swap descent). It is the M2-c continuation: submatrix-sum distribution +
+  the attach-level partition regroup + `sum_projFib_extendId` + the swap +
+  projInteraction-unfold.
+- **Gate HELD all three runs:** the 85-line core byte-identical; all prior new lines
+  unchanged (16 triad); growth = the 2 M2-b lines (currently sorryAx-parked).
+- A2.lean sha256(16) at the unit-6 stop: `9706196c5f5ff593` (P0/A1 frozen-unchanged).
+  Logs: `alp2-m2-run3-guard-swap.log`, `alp2-m2-run4-fixround2.log`,
+  `alp2-m2-run5-fixround3.log` (walls 71–78 s, telemetry OVER=0).
+
 ## 1. Audit result — run-13's triad audit REPRODUCED (GREEN)
 
 **One Modal run fired** (this M0 is NOT audit-only — the precharter prices M0's

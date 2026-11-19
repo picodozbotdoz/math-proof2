@@ -73,6 +73,15 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   byte-identical to the equivFin era (only def BODIES moved — M0-record §2 manifest);
   regression = run-13's 275-line audit identity re-verified on the rebuilt tree
   (`logs/alp2-m0-run2-rebuild.log`).
+- M1 (COMPLETED GREEN 2026-11-19, lane R8 — completion grant run 4; see `M0-record.md` §M1):
+  the RESTRICTION-COMP WORKHORSE `colEquivVar_restr` — `colEquivVar Λ q X' hX' (restr hX'
+  (regReindexEquiv (Λ := Λ) q x)) = restr (fibre_subset Λ X') x` — PROVED triad-only over
+  the GREEN congruence class (`colToFin_symm_fibre`, `colRegEquiv_fibre_apply`, private
+  `heightCast_finFunctionFinEquiv`); NO `Eq.rec` anywhere — find #5's obstruction fully
+  discharged at M1. The M2-a rung (`colEquivVar_restr_apply` ē-form feed, the powerset
+  partition `powerset_eq_biUnion_projFib` + `projFib_pairwise_disjoint`, and the
+  per-fibre factorization `sum_projFib_extendId`) lands beside it; the swap proper and
+  the Hamiltonian identification are the M2-b continuation.
 
 STATEMENT-LEVEL FIND #4 (at P2-e assembly planning, 2026-11-17; amended P0, re-GREEN as
 probe in `logs/alp2-run8-substrate.log`): the landed `PlanarAreaLawVar` quantified
@@ -1077,6 +1086,273 @@ theorem sdiff_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) (X' : Finset (ℤ × �
     · simp [Finset.mem_sdiff, fibre, Finset.mem_filter, hxΛ, hP, hxX]
   · simp [Finset.mem_sdiff, fibre, Finset.mem_filter, hxΛ]
 
+/-! ## P2-d M1 — the restriction-compat workhorse (the find-#5 un-park; 2026-11-19)
+
+The P2-d swap's workhorse (`rebuild-precharter.md` §1, statement verbatim): the column
+regrouping COMMUTES with restriction to the fibre. The find-#5 obstruction (two
+classical `Fintype.equivFin` instances for the propositionally equal columns
+`col Λ u` / `col (fibre Λ X') u` enumerating unrelated) is gone by construction: the
+canonical enumeration's per-index sites agree by RANK-PINNING, and the digit-encoding's
+height-cast congruence is closed at variable level (no `Eq.rec` on complex terms
+anywhere — the one unavoidable `Fin`-cast is handled by `subst` at variable level). -/
+
+/-- Digit-cast congruence of the column encoding (variable-level; closed by `subst`,
+so no `Eq.rec` on complex terms). -/
+private theorem heightCast_finFunctionFinEquiv {q m n : ℕ} (h : m = n) (f : Fin m → Fin q) :
+    heightCastEquiv q h (finFunctionFinEquiv f) =
+      finFunctionFinEquiv (fun j : Fin n => f (Fin.cast h.symm j)) := by
+  subst h
+  rfl
+
+/-- KEY (site-level agreement): the canonical enumeration's inverse legs agree along
+the fibre restriction — the site at index `j` of the fibre's column IS the site at
+index `Fin.cast h j` of the ambient column (rank-pinned via `colToFin_symm_rank` +
+`colZRank_fibre` + `colZRank_inj`). -/
+theorem colToFin_symm_fibre (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} {u : ℤ × ℤ}
+    (hu : u ∈ X') (h : colCard (fibre Λ X') u = colCard Λ u)
+    (j : Fin (colCard (fibre Λ X') u)) :
+    ((colToFin Λ u).symm (Fin.cast h j) : ℤ × ℤ × ℤ) =
+      ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) := by
+  have h1 : ((colToFin Λ u).symm (Fin.cast h j) : ℤ × ℤ × ℤ) ∈ col Λ u :=
+    ((colToFin Λ u).symm (Fin.cast h j)).2
+  have h2 : ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) ∈ col (fibre Λ X') u :=
+    ((colToFin (fibre Λ X') u).symm j).2
+  have h2' : ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) ∈ col Λ u := by
+    -- membership transport WITHOUT rewriting the Finset (dependent-motive hazard):
+    -- unfold both columns to their filter forms instead.
+    simp only [col, fibre, Finset.mem_filter] at h2 ⊢
+    exact ⟨h2.1.1, h2.2⟩
+  have r1 : colZRank Λ u ((colToFin Λ u).symm (Fin.cast h j) : ℤ × ℤ × ℤ) =
+      (Fin.cast h j : Fin (colCard Λ u)).val := colToFin_symm_rank Λ u _
+  have r2 : colZRank (fibre Λ X') u ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) =
+      (j : Fin (colCard (fibre Λ X') u)).val := colToFin_symm_rank _ _ _
+  refine colZRank_inj Λ u h1 h2' ?_
+  rw [r1, ← colZRank_fibre Λ hu ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ), r2]
+  rfl
+
+/-- ENCODING CONGRUENCE (M1's column core): ambient- and fibre-encodings of
+raw-site-agreeing column configurations are equal through the height cast. -/
+theorem colRegEquiv_fibre_apply {Λ : Finset (ℤ × ℤ × ℤ)} {X' : Finset (ℤ × ℤ)} {q : ℕ}
+    {u : ℤ × ℤ} (hu : u ∈ X')
+    (F : ∀ s : ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q)
+    (G : ∀ t : ↥((col (fibre Λ X') u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q)
+    (hFG : ∀ s : ℤ × ℤ × ℤ, ∀ hs : s ∈ col Λ u, ∀ hs' : s ∈ col (fibre Λ X') u,
+      F ⟨s, hs⟩ = G ⟨s, hs'⟩) :
+    heightCastEquiv q (colCard_fibre_eq Λ hu).symm (colRegEquiv (Λ := Λ) u F) =
+      colRegEquiv (Λ := fibre Λ X') u G := by
+  have rF : colRegEquiv (Λ := Λ) u F =
+      finFunctionFinEquiv (fun i : Fin (colCard Λ u) => F ((colToFin Λ u).symm i)) := rfl
+  have rG : colRegEquiv (Λ := fibre Λ X') u G =
+      finFunctionFinEquiv (fun j : Fin (colCard (fibre Λ X') u) =>
+        G ((colToFin (fibre Λ X') u).symm j)) := rfl
+  rw [rF, rG, heightCast_finFunctionFinEquiv]
+  refine congrArg finFunctionFinEquiv ?_
+  funext j
+  have hs' : ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) ∈ col (fibre Λ X') u :=
+    ((colToFin (fibre Λ X') u).symm j).2
+  have hs : ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) ∈ col Λ u := by
+    -- filter-unfold transport (no Finset rewrite — dependent-motive hazard)
+    simp only [col, fibre, Finset.mem_filter] at hs' ⊢
+    exact ⟨hs'.1.1, hs'.2⟩
+  have hsite : ((colToFin Λ u).symm
+          (Fin.cast (colCard_fibre_eq Λ hu).symm.symm j) : ℤ × ℤ × ℤ) =
+      ((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ) :=
+    colToFin_symm_fibre Λ hu (colCard_fibre_eq Λ hu).symm.symm j
+  have hF : (colToFin Λ u).symm (Fin.cast (colCard_fibre_eq Λ hu).symm.symm j)
+      = ⟨((colToFin (fibre Λ X') u).symm j : ℤ × ℤ × ℤ), hs⟩ :=
+    Subtype.ext hsite
+  rw [hF]
+  exact hFG _ hs hs'
+
+/-- **M1 MAIN — the restriction-compat workhorse** (the find-#5 un-park;
+`rebuild-precharter.md` §1 statement verbatim): the column regrouping commutes with
+restriction to the fibre. The proof transforms by the fibre regrouping's injectivity
+(the `regReindexEquiv_comp_colEquivVar` roundtrip collapse), then closes per-column by
+the encoding congruence `colRegEquiv_fibre_apply` — the raw-site agreement hypothesis
+discharges by proof-irrelevance (`rfl`), since both configurations read the same
+ambient `x` at the same raw site. -/
+theorem colEquivVar_restr (Λ : Finset (ℤ × ℤ × ℤ)) (q : ℕ) {X' : Finset (ℤ × ℤ)}
+    (hX' : X' ⊆ projF Λ)
+    (x : ∀ a : ↥((Λ : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)),
+      Qudits3D q (a : ℤ × ℤ × ℤ)) :
+    colEquivVar Λ q X' hX'
+        (restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) hX'
+          (regReindexEquiv (Λ := Λ) q x)) =
+      restr (fibre_subset Λ X') x := by
+  refine (regReindexEquiv (Λ := fibre Λ X') q).injective ?_
+  rw [regReindexEquiv_comp_colEquivVar]
+  funext u
+  have huX : (u : ℤ × ℤ) ∈ X' := by
+    -- no Finset-rewrite (dependent-motive hazard): destructure through the image
+    obtain ⟨y, hyfib, hyu⟩ := Finset.mem_image.1 u.2
+    have hy := (Finset.mem_filter.1 hyfib).2
+    rw [← hyu]; exact hy
+  simp only [regEquivOfEq_symm_apply, restr, Finset.restrict₂_def,
+    Equiv.piCongrRight_apply, regReindexEquiv_apply]
+  exact colRegEquiv_fibre_apply huX _ _ (fun _ _ _ => rfl)
+
+/-! ## P2-d M2-a — the powerset partition + per-fibre extendId factorization (2026-11-19)
+
+First bankable rung of M2 (`rebuild-precharter.md` §3): the regrouping of
+`Λ.powerset` into its `projFib`-fibres (disjoint; every subset's fibre is read off its
+column projection) and the factorization of each fibre's `extendId`-sum through the
+fibre region — the two structural halves of the Hamiltonian identification. The swap
+proper (extend-relabel at the glue level) is the designed M2-b rung; its derived feed
+`colEquivVar_restr_apply` (the workhorse's ē-form) lands here. -/
+
+/-- The workhorse in `ē`-form (the swap's feed): the whole-domain regrouping's inverse
+`ē := (regReindexEquiv Λ q).symm`, restricted to the fibre, IS the column regrouping
+applied to the planar restriction. -/
+theorem colEquivVar_restr_apply {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
+    (hX' : X' ⊆ projF Λ)
+    (w : ∀ v : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)),
+      Fin (q ^ colCard Λ (v : ℤ × ℤ))) :
+    restr (fibre_subset Λ X')
+        ((regReindexEquiv (Λ := Λ) q).symm w) =
+      colEquivVar Λ q X' hX'
+        (restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) hX' w) := by
+  have h := (colEquivVar_restr Λ q hX'
+    ((regReindexEquiv (Λ := Λ) q).symm w)).symm
+  rwa [Equiv.apply_symm_apply] at h
+
+/-- `Λ.powerset` is the disjoint union of the `projFib`-fibres over the planar
+powerset (every subset of `Λ` lands in the fibre of its own column projection). -/
+theorem powerset_eq_biUnion_projFib (Λ : Finset (ℤ × ℤ × ℤ)) :
+    Λ.powerset = (projF Λ).powerset.biUnion (projFib Λ) := by
+  ext X
+  simp only [Finset.mem_powerset, Finset.mem_biUnion, mem_projFib]
+  constructor
+  · intro hX
+    exact ⟨X.image proj, Finset.image_subset_image hX, hX, rfl⟩
+  · rintro ⟨-, -, hXΛ, -⟩
+    exact hXΛ
+
+theorem projFib_pairwise_disjoint (Λ : Finset (ℤ × ℤ × ℤ)) :
+    Set.PairwiseDisjoint ((projF Λ).powerset : Set (Finset (ℤ × ℤ))) (projFib Λ) := by
+  rintro X₁ h₁ X₂ h₂ hne
+  unfold Function.onFun
+  rw [Finset.disjoint_right]
+  intro X hX hX2
+  have e1 := (mem_projFib.1 hX).2
+  have e2 := (mem_projFib.1 hX2).2
+  exact hne (e2.symm.trans e1)
+
+/-- PER-FIBRE FACTORIZATION: each `projFib`-fibre's `extendId`-sum (as in
+`hamiltonian3D`) factors through the fibre region — `extendId` along `X ⊆ Λ` is
+`extendId` along the fibre after `extendId` along `X ⊆ fibre` (via `extendId_extendId`,
+the two subset-proofs proof-irrelevantly equal), and `extendId_sum` pulls the
+region-extension out of the sum. -/
+theorem sum_projFib_extendId {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    {X' : Finset (ℤ × ℤ)} :
+    ∑ X ∈ (projFib Λ X').attach,
+        extendId ((mem_projFib.1 X.2).1) (Φ X.1) =
+      extendId (fibre_subset Λ X')
+        (∑ X ∈ (projFib Λ X').attach,
+          extendId (subset_fibre_of_mem_projFib X.2) (Φ X.1)) := by
+  rw [extendId_sum]
+  exact Finset.sum_congr rfl fun X _ => by rw [extendId_extendId]
+
+/-! ## P2-d M2-b — the guard bridge + the extend-relabel swap (2026-11-19)
+
+The swap's guards (the `extendId` off-diagonal conditions on the two sides) are bridged
+PER-SITE through the GREEN toFun-side transparency: planar agreement off `X'` iff 3D
+agreement off the fibre, column by column (`colRegEquiv` injectivity forward,
+`congrArg` backward; the column decomposition of `Λ \ fibre Λ X'`). No `Eq.rec`, no
+complement-`Eq.rec`-transport, no `sdiff`-bridge — the donor's own route. -/
+
+/-- GUARD BRIDGE: agreement off `X'` on the planar side iff agreement off the fibre on
+the 3D side, under the whole-domain regrouping. -/
+theorem regReindexEquiv_compl_iff {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
+    (w w' : ∀ v : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)),
+      Fin (q ^ colCard Λ (v : ℤ × ℤ))) :
+    restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w) =
+      restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w') ↔
+    restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w =
+      restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w' := by
+  have hw : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w) = w :=
+    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w
+  have hw' : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w') = w' :=
+    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w'
+  constructor
+  · -- 3D agreement → planar agreement (congrArg direction)
+    intro h
+    funext u
+    have huP : (u : ℤ × ℤ) ∈ projF Λ := (Finset.mem_sdiff.1 u.2).1
+    have huX : (u : ℤ × ℤ) ∉ X' := (Finset.mem_sdiff.1 u.2).2
+    -- the 3D agreement spreads over the whole column of u
+    have hcol : ∀ a : ℤ × ℤ × ℤ, ∀ ha : a ∈ col Λ (u : ℤ × ℤ),
+        (regReindexEquiv (Λ := Λ) q).symm w ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ =
+        (regReindexEquiv (Λ := Λ) q).symm w' ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ := by
+      intro a ha
+      have haΛ : a ∈ Λ := (Finset.mem_filter.1 ha).1
+      have haf : a ∉ fibre Λ X' := fun hcon =>
+        huX ((Finset.mem_filter.1 hcon).2.trans (Finset.mem_filter.1 ha).2.symm)
+      have := congrFun h ⟨a, Finset.mem_sdiff.2 ⟨haΛ, haf⟩⟩
+      simpa [restr, Finset.restrict₂_def] using this
+    show w ⟨(u : ℤ × ℤ), huP⟩ = w' ⟨(u : ℤ × ℤ), huP⟩
+    rw [← hw, ← hw', regReindexEquiv_apply, regReindexEquiv_apply]
+    exact congrArg _ (funext fun s => hcol _ s.2)
+  · -- planar agreement → 3D agreement, column by column (colRegEquiv injective)
+    intro h
+    funext x
+    have hxΛ : (x : ℤ × ℤ × ℤ) ∈ Λ := (Finset.mem_sdiff.1 x.2).1
+    have hxf : (x : ℤ × ℤ × ℤ) ∉ fibre Λ X' := (Finset.mem_sdiff.1 x.2).2
+    have hxu : proj (x : ℤ × ℤ × ℤ) ∉ X' := fun hcon =>
+      hxf (Finset.mem_filter.2 ⟨hxΛ, hcon⟩)
+    have huP : proj (x : ℤ × ℤ × ℤ) ∈ projF Λ := Finset.mem_image_of_mem proj hxΛ
+    -- the planar agreement at proj x (an element of projF Λ \ X')
+    have hwu : w ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ =
+        w' ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ := by
+      have := congrFun h ⟨⟨proj (x : ℤ × ℤ × ℤ), huP⟩,
+        Finset.mem_sdiff.2 ⟨huP, hxu⟩⟩
+      simpa [restr, Finset.restrict₂_def] using this
+    -- through the toFun-side transparency and injectivity: the columns agree
+    have hcol : (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+            Set (ℤ × ℤ × ℤ)) =>
+          (regReindexEquiv (Λ := Λ) q).symm w ⟨(s : ℤ × ℤ × ℤ),
+            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) =
+        (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+            Set (ℤ × ℤ × ℤ)) =>
+          (regReindexEquiv (Λ := Λ) q).symm w' ⟨(s : ℤ × ℤ × ℤ),
+            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) := by
+      refine (colRegEquiv (Λ := Λ) (q := q) (u := proj (x : ℤ × ℤ × ℤ))).injective ?_
+      rw [← regReindexEquiv_apply, ← regReindexEquiv_apply, ← hw, ← hw']
+      exact hwu
+    -- x sits in that column
+    have hxcol : (x : ℤ × ℤ × ℤ) ∈ col Λ (proj (x : ℤ × ℤ × ℤ)) :=
+      Finset.mem_filter.2 ⟨hxΛ, rfl⟩
+    simpa [restr, Finset.restrict₂_def] using congrFun hcol ⟨(x : ℤ × ℤ × ℤ), hxcol⟩
+
+/-- **M2 SWAP (extend-relabel):** extending a fibre-indexed matrix to `Λ` by the
+identity and relabelling by the whole-domain regrouping equals relabelling by the
+column regrouping and extending on the planar side by the identity. Entrywise via
+`extendId`'s definition; the guards bridge by `regReindexEquiv_compl_iff`, the inner
+values by the workhorse's `ē`-form `colEquivVar_restr_apply`. -/
+theorem colEquivVar_swap {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
+    {𝕜 : Type*} [RCLike 𝕜] (hX' : X' ⊆ projF Λ)
+    (M : Matrix (Reg (OpenAI.Qudits3D q) (fibre Λ X'))
+        (Reg (OpenAI.Qudits3D q) (fibre Λ X')) 𝕜) :
+    (extendId (fibre_subset Λ X') M).submatrix
+        ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) =
+      extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) hX'
+        (M.submatrix (colEquivVar Λ q X' hX') (colEquivVar Λ q X' hX')) := by
+  ext w w'
+  simp only [Matrix.submatrix_apply, extendId, Matrix.of_apply]
+  by_cases hg : restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+      ((regReindexEquiv (Λ := Λ) q).symm w) =
+      restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w')
+  · rw [if_pos hg, if_pos ((regReindexEquiv_compl_iff (Λ := Λ) q w w').1 hg)]
+    rw [colEquivVar_restr_apply, colEquivVar_restr_apply]
+  · rw [if_neg hg, if_neg (fun hcon => hg
+      ((regReindexEquiv_compl_iff (Λ := Λ) q w w').2 hcon))]
+
 /-! ## P2-c audit (inline full-coverage; every new top-level theorem). -/
 
 #print axioms Arealaw.restr_glue
@@ -1141,5 +1417,15 @@ theorem sdiff_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) (X' : Finset (ℤ × �
 #print axioms OpenAI.AL3D.fibre_subset
 #print axioms OpenAI.AL3D.sdiff_fibre_eq
 #print axioms OpenAI.AL3D.colZRank_fibre
+#print axioms OpenAI.AL3D.colToFin_symm_fibre
+#print axioms OpenAI.AL3D.colRegEquiv_fibre_apply
+#print axioms OpenAI.AL3D.colEquivVar_restr
+#print axioms OpenAI.AL3D.heightCast_finFunctionFinEquiv
+#print axioms OpenAI.AL3D.colEquivVar_restr_apply
+#print axioms OpenAI.AL3D.powerset_eq_biUnion_projFib
+#print axioms OpenAI.AL3D.projFib_pairwise_disjoint
+#print axioms OpenAI.AL3D.sum_projFib_extendId
+#print axioms OpenAI.AL3D.regReindexEquiv_compl_iff
+#print axioms OpenAI.AL3D.colEquivVar_swap
 
 end OpenAI.AL3D

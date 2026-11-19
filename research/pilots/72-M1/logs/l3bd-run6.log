@@ -1,0 +1,257 @@
+# l3bd-run6 — fix round 5: sum_congr rfl-arg (equality-signature), adj_split show-forced disjuncts, final submatrix assembly forward-rw | 2026-11-19T12:02:55Z | descent: 39 -> 15 -> 9 error-lines (3 sites) -> ? | source: P72M1T3.lean v6 (sha256 64bdf3782f5d32f1)
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-iB5GXRz5EkjonlLK9uq06k
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-pilot72m1-stage/pilot72m1_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function pilot.
+[p11] staging 3 file(s): ['P72M1T1.lean', 'P72M1T2.lean', 'P72M1T3.lean']
+[tele] start pilot: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P72M1T1.lean
+[tele] t=60s cpu=0.90 mem=8174MB anon=0MB peak=-1MB procs=2 OVER mem
+[p11] P72M1T1.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+P72M1T1.lean:70:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:79:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T1.lean:128:44: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T1.lean:132:44: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+OpenAI.AreaLaw : (𝕜 : Type u_1) → [RCLike 𝕜] → ℕ → ℕ → ℝ → ℝ → Prop
+OAI.PolynomialPEPS.PinnedEntropy.UniformAreaLaw : Prop
+'Arealaw.trace_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.posSemidef_ptrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.PolynomialPEPS.PinnedEntropy.reducedDensity_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T2.lean
+[p11] P72M1T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'CrossMath.Pilot72.M1.boundaryCard_le_edgeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.ptrace_pureState_eq_reducedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.regionEntropy_eq_vonNeumannEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P72M1T3.lean
+[tele] t=120s cpu=1.33 mem=8235MB anon=0MB peak=-1MB procs=2 OVER mem
+[p11] P72M1T3.lean: FAIL rc=1; errors=56, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.Pilot72.M1.toGrid_star_dotProduct_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.edgeBoundary_le_boundaryCard' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hasGlobalGap_of_fullSystemGap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.isAdmissible_ΦL' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.hamiltonian_gridDom_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.eig_toGrid' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.Pilot72.M1.interface_areaLaw_uniformAreaLaw' depends on axioms: [propext,
+---- output head ----
+P72M1T3.lean:105:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:105:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:109:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:109:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:116:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:116:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:116:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:118:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:118:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:118:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:125:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:125:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P72M1T3.lean:127:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:127:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P72M1T3.lean:184:18: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑v.1 + 1 = ↑↑w.1
+but is expected to have type
+  ↑v.1 + 1 = ↑w.1
+in the application
+  And.intro h1
+P72M1T3.lean:184:39: error: Application type mismatch: The argument
+  h2
+has type
+  ↑↑v.2 = ↑↑w.2
+but is expected to have type
+  ↑v.2 = ↑w.2
+in the application
+  fin_eq_of_val_eq h2
+P72M1T3.lean:183:20: error: Type mismatch
+  this
+has type
+  ↑v.1 + 1 = ↑w.1 ∧ v.2 = w.2
+but is expected to have type
+  ForwardAdjacent v w
+P72M1T3.lean:186:18: error: Application type mismatch: The argument
+  h1
+has type
+  ↑↑w.1 + 1 = ↑↑v.1
+but is expected to have type
+  ↑w.1 + 1 = ↑v.1
+in the application
+  And.intro h1
+P72M1T3.lean:186:39: error: Application type mismatch: The argument
+  Eq.symm h2
+has type
+  ↑↑w.2 = ↑↑v.2
+but is expected to have type
+  ↑w.2 = ↑v.2
+in the application
+  fin_eq_of_val_eq (Eq.symm h2)
+P72M1T3.lean:185:20: error: Type mismatch
+  this
+has type
+  ↑w.1 + 1 = ↑v.1 ∧ w.2 = v.2
+but is expected to have type
+  ForwardAdjacent v w
+P72M1T3.lean:190:36: error: Application type mismatch: The argument
+  h2
+has type
+  ↑↑v.1 = ↑↑w.1
+but is expected to have type
+  ↑v.1 = ↑w.1
+in the application
+  fin_eq_of_val_eq h2
+P72M1T3.lean:189:20: error: Type mismatch
+  this
+has type
+  v.1 = w.1 ∧ ↑v.2 + 1 = ↑w.2
+but is expected to have type
+  ForwardAdjacent w v
+P72M1T3.lean:192:36: error: Application type mismatch: The argument
+  Eq.symm h2
+has type
+  ↑↑w.1 = ↑↑v.1
+but is expected to have type
+  ↑w.1 = ↑v.1
+---- (…901 more lines) tail ----
+hF : F = fun X => extendId ⋯ (ΦL hv he ↑X)
+hPV : ∀ X ∈ U, ↑X ∈ Vimg → ∃ v, ↑X = iotaLimg {v}
+hPE : ∀ X ∈ U, ↑X ∈ Eimg → ∃ e, ↑X = iotaLimg (EdgeSites e)
+hF0 : ∀ X ∈ U, ↑X ∉ Vimg → ↑X ∉ Eimg → F X = 0
+hFv : ∀ (v : Vertex L), F ⟨iotaLimg {v}, ⋯⟩ = submatrix (hermPart (hv v)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+hFe : ∀ (e : Edge L), F ⟨iotaLimg (EdgeSites e), ⋯⟩ = submatrix (hermPart (he e)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+hdisj : ∀ (X : ↥ps), ↑X ∈ Vimg → ↑X ∈ Eimg → False
+key :
+  ∑ X ∈ U, F X =
+    ∑ v, submatrix (hermPart (hv v)) ⇑(configEquiv L q) ⇑(configEquiv L q) +
+      ∑ e, submatrix (hermPart (he e)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+⊢ ∑ X ∈ (gridDom L).powerset.attach, extendId ⋯ (ΦL hv he ↑X) = ∑ X ∈ U, F X
+P72M1T3.lean:916:49: error: unsolved goals
+L q : ℕ
+inst✝ : NeZero q
+hv : Vertex L → Operator L q
+he : Edge L → Operator L q
+hV : ∀ (v : Vertex L), ∃ a, hermPart (hv v) = liftLocal {v} a
+hE : ∀ (e : Edge L), ∃ a, hermPart (he e) = liftLocal (EdgeSites e) a
+ps : Finset (Finset (ℤ × ℤ)) := (gridDom L).powerset
+hps : ps = (gridDom L).powerset
+Vimg : Finset (Finset (ℤ × ℤ)) := Finset.image (fun v => iotaLimg {v}) Finset.univ
+hVimg : Vimg = Finset.image (fun v => iotaLimg {v}) Finset.univ
+Eimg : Finset (Finset (ℤ × ℤ)) := Finset.image (fun e => iotaLimg (EdgeSites e)) Finset.univ
+hEimg : Eimg = Finset.image (fun e => iotaLimg (EdgeSites e)) Finset.univ
+U : Finset ↥ps := Finset.univ
+hU : U = Finset.univ
+F : ↥ps → Matrix (Reg (Qudits q) (gridDom L)) (Reg (Qudits q) (gridDom L)) ℂ := fun X => extendId ⋯ (ΦL hv he ↑X)
+hF : F = fun X => extendId ⋯ (ΦL hv he ↑X)
+hPV : ∀ X ∈ U, ↑X ∈ Vimg → ∃ v, ↑X = iotaLimg {v}
+hPE : ∀ X ∈ U, ↑X ∈ Eimg → ∃ e, ↑X = iotaLimg (EdgeSites e)
+hF0 : ∀ X ∈ U, ↑X ∉ Vimg → ↑X ∉ Eimg → F X = 0
+hFv : ∀ (v : Vertex L), F ⟨iotaLimg {v}, ⋯⟩ = submatrix (hermPart (hv v)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+hFe : ∀ (e : Edge L), F ⟨iotaLimg (EdgeSites e), ⋯⟩ = submatrix (hermPart (he e)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+hdisj : ∀ (X : ↥ps), ↑X ∈ Vimg → ↑X ∈ Eimg → False
+key :
+  ∑ X ∈ U, F X =
+    ∑ v, submatrix (hermPart (hv v)) ⇑(configEquiv L q) ⇑(configEquiv L q) +
+      ∑ e, submatrix (hermPart (he e)) ⇑(configEquiv L q) ⇑(configEquiv L q)
+⊢ (∑ i, hermPart (hv i)).submatrix ⇑(configEquiv L q) ⇑(configEquiv L q) +
+      (∑ i, hermPart (he i)).submatrix ⇑(configEquiv L q) ⇑(configEquiv L q) =
+    (submatrix (∑ v, hermPart (hv v)) + submatrix (∑ e, hermPart (he e))) ⇑(configEquiv L q) ⇑(configEquiv L q)
+P72M1T3.lean:963:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CrossMath.Pilot72.M1.toGrid_star_dotProduct_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.edgeBoundary_le_boundaryCard' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.hasGlobalGap_of_fullSystemGap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.isAdmissible_ΦL' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.hamiltonian_gridDom_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.eig_toGrid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot72.M1.interface_areaLaw_uniformAreaLaw' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+
+[p11] SUMMARY
+[p11]   P72M1T1.lean: OK
+[p11]   P72M1T2.lean: OK
+[p11]   P72M1T3.lean: FAIL (56 errors)
+[tele] SUMMARY pilot: wall=136s max_cpu=1.33 max_mem=8235MB max_anon=0MB samples=2 OVER=2
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-iB5GXRz5EkjonlLK9uq06k

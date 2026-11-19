@@ -696,6 +696,32 @@ rides this commit.
   residuals fixed-on-disk-unfired — the parked hoist; **resume = a single
   confirmation run on a FRESH ruling**); P2-c not opened (conditional); P3-a
   GREEN banked. Tracker: R6 → P3-plan drafting.
+
+## 2026-11-19 — THE ARTICLE-41 SPLICE (H; commit `cb87a67`) + batch-B
+
+- **SPLICE = `cb87a67`** per `a7-41-splice-package.md` on the orchestrator's
+  signal (ship gate COMPLETE: R7 draft-final `f068d9ae` + R9 battery FINAL
+  `c24b62e5` + R2's S1–S4 4/4, the pass file riding the commit). All item-4
+  flips applied in-commit, every anchor count-verified 1/1: DRAFT-note block
+  deleted; §4 refreshed from the battery §LANDING L1 (8 rows incl. the
+  EMPTY-at-landing class row) + the L2 sharpened headline + the **S3 mandatory
+  honesty sentence** ("elementary proof, nonelementary statement"); abstract
+  finalized (192 words); §6 committed-bytes stamps (Core on-disk `733b4a2d` @
+  `35bd210`, fired `921bc43c`; P0 `b177acdb`); §9 box-11 SATISFIED + the
+  final-state rows; artifacts line → the committed state; §7 hold resolved.
+  README (from MAIN): counts 6→7 discovery-grade (the 2026-11-18 ratification
+  date → 2026-11-19 per the package's dated-correction convention) + row-41
+  inserted in numeric order. INDEX row per the package §3.
+- **Batch-B:** the **iter-4 gates file COMPLETE** (`1abf1e72…`, 8/8 PASS —
+  the G2(ii)/G3 flips landed, G2(ii) = 6/6 subset stages) + R2's **L3b–d
+  honest-partial 8/8** set (P72M1T3.lean zero-sorry-tokens + 8 logs +
+  stop-note + L3-record; the mechanical-blocked residue recorded) + R6's
+  **P3-b/c GREEN** (`f9bd28c5…`; abFacQ + analyticOrderAt both triad;
+  N2-P1.lean stays parked-side) + R8's **M2 unit-6** (`A2.lean` `9706196c…`
+  LANDED as ruled — M2-a CLOSED 4/4 with the 2 sorryAx-parked M2-b decls
+  honestly carried, the M-ladder convention; the sweep guard re-binds at
+  this commit). R1's funnel owes: the L3 fold + the M2-a closure + the P3-b/c
+  entry.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
