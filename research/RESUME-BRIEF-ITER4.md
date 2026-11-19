@@ -527,3 +527,15 @@ day-1-class, holds commits). Day-1 fires staged: 41-P0, the η-pin-probe (a zzv2
 pilot run observed in flight on doz/semraker 2026-11-19 18:29 +08), N2-P2 run 22 per
 the resume note. Standing constraints unchanged (routes, funnels, one-writer,
 H-only commits, hardened gate, worktrees persist — pull, never restart).
+
+Wave-4 addenda (2026-11-19, H): the agent-02 anomaly is CLOSED (R1's own
+deliberate force-forward, pre-verified zero-loss — the 3 differing files were
+strict subsets of main; disposition + the staging root-cause standing notes in
+`h-wave4-log.md`). K-PREP drafted and staged in `h-wave4-log.md`: (1) the
+STATUS.md Iteration-4 CLOSED block pre-draft (C2-structure mirror, [K-DATE]/[K-SHA]
+placeholders, §10 machine counts); (2) the two [DATE-CLOSED] amendment patches
+(SPLICE :59 + RESEARCH.md :198, old-strings verified unique; date-only fill at K);
+(3) the iteration-5 opening-commit assembly checklist (8 ordered steps). Day-1
+fires observed landing worktree-side (η-pin-probe, N2-P2 run 22, 41-P0 runs 1–2 rc=0
+at run 2, AL M0 regression) — telemetry pass 1: all route/SPEC-compliant, three
+note-only items recorded.

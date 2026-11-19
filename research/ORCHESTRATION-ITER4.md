@@ -35,7 +35,7 @@ G1–G8 + G8 fill, then the CLOSE-COMPLETION commit K **on orchestrator signal o
 
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|
-| H | (main) | helper/infra (branch, commits, tracker) | WRAPPED: wave-3 complete — 53+ commits; close act pre-landed (W1 `8c1c544`) + instruments (W2 `0382e16`); restart map = brief §Session-end-wave-3-wrap | wrapped | 2026-11-18 |
+| H | (main) | helper/infra (branch, commits, tracker) | ACTIVE wave-4: worktrees forwarded to e3d984b + anomaly CLOSED (R1 self-clean, zero-loss verified); Modal routes LIVE; iter-5 splice approval recorded; K-PREP drafted (STATUS closed-block pre-draft + [DATE-CLOSED] patches + opening-commit checklist — `qa/iter4-review/h-wave4-log.md`); K-assembly standby on R1/R2/R7 reports — **K fires ONLY on orchestrator signal** | active | 2026-11-19 |
 | A1 | agent-02 | verification integrity | WRAPPED: §10.1–10.32 + §10.CENSUS complete (385/386 basis); next = the close residue per the restart map (staging-defect fixes + subset re-fire + Steps 9–12 + G8 fill) | wrapped (close residue next) | 2026-11-18 |
 | A2 | agent-03 | bench/close-out | WRAPPED: filled close block + PRE-GO verification landed (W2 `0382e16`); K-rows 17–21 ADOPTED via the W1 pre-landing ruling; next = K-time stamps per the restart map | wrapped (K-time stamps next) | 2026-11-18 |
 | A3 | agent-04 | FF-EZ2 + articles 71/22 | WRAPPED: FF-EZ2 charter closed + η-port precharter (κ=1) + η-pin-probe STAGED (unfired — iter-5 day-1 fire) + A71-1 fixed | wrapped (iter-5 day-1 staged) | 2026-11-18 |

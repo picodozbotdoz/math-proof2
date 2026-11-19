@@ -103,7 +103,8 @@ def probe(files: dict, order: list):
             continue
         out = r.stdout + r.stderr
         errors = [l for l in out.splitlines()
-                  if ": error:" in l or l.startswith("error:")]
+                  if ": error:" in l or l.startswith("error:")
+                  or ": error(" in l or l.startswith("error(")]
         warnings = [l for l in out.splitlines()
                     if ": warning:" in l and "declaration uses 'sorry'" in l]
         other_warn = [l for l in out.splitlines()
