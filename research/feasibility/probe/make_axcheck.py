@@ -91,7 +91,7 @@ TARGETS = [
     #     LANDING commit per close-act runbook §3 Step 8; expected stage names): ---
     ("AxPilotFFEZ2_P2",   PILOTS / "ff-ez2/P2.lean"),  # FF-EZ2-P2 FINAL-GREEN p2-run2 2026-11-18 (2/≤3 fix-loop; sorry-strict OK, 9/9 triad-only incl. 5 private, 0 sorryAx; telemetry mem OVER=1 = documented mmapped-olean class) — the descope-closure rung, PROOF-CLASS per runbook Step 8; Mathlib-only import (no ordering constraint); ff-ez2 P0 stays probe-convention (statement-class); sha256(16) 24926ac4cbbcdd50; chartered-row append at landing (A3 unit 1 of 5). DATED CORRECTION (R1 2026-11-19): the 2026-11-18 clause "P1 STAY probe-convention" was WRONG — P1.lean is PROOF-CLASS (own header "PROOF ARTIFACT"; 7 decls = 6 public + 1 private; §7d's "AxPilotFFEZ2_P1 fires at sweep") and needs Step-B coverage; discharged via the BYTES-UNCHANGED CITATION branch (Pb/D.4 precedent) instead of a new stage: verdict of record = p1-run4.log (sorry-strict OK, FULL print surface 7/7 incl. `_private…density_of_all`, every record [propext, choice, Quot.sound] — `choice` = Classical.choice relativized by `open Classical`, log header note verified; bytes 9d8a7b1981faabce unchanged since 570f3e9 2026-11-17)
     ("AxPilot75_N2P0",    PILOTS / "75/N2-P0.lean"),  # 75-N2-P0 GREEN 15/15 triad n2-p0-run4 2026-11-17 (§10.12) — CLOSURE ROW added at the close-act sweep (2026-11-18) per FINAL-SWEEP-PLAN-ITER4 §7d's rewrite-map option: N2-P1 stages with the hyphenless `import N2P0` (the runner workaround), so the chain Pa → N2P0 → N2-P1 must resolve inside the stage; this row + EXTRA_REWRITES below do it; `import Pa` auto-rewrites to AxPilot75_Pa. ORDER CORRECTION (close-residue fix 2, R1 2026-11-19): the 2026-11-18 comment "sorted AxPilot75_Pa < AxPilot75_N2P0 respects the chain" was FALSE — 'N'(0x4E) < 'P'(0x50), so sorted-name order compiles N2P0 BEFORE Pa (run1's exact failure mode); dependency order now comes from the emitted order.txt (TARGETS list order, Pa is a C2-block row preceding every Iteration-4 row). Post-erratum bytes sha 1cf5cbe217c68564 (02a5d71 hnp erratum; the 14/14 core untouched — n2-p1-run20/21 chains compiled it GREEN)
-    ("AxPilot75_N2P1",    PILOTS / "75/N2-P1.lean"),  # 75-N2-P1 FINAL (M1 closure + M2 + M3) GREEN-triad n2-p1-run19 2026-11-18 (rc=0, 0 errors, 0 sorry tokens; **14/14 file triad** incl. M1 7/7, M2 `heckeTsum_eq_ratCharOf_LFunction`, M3 `hasQDirichletDictionary` = N2-a DISCHARGED + `dirichletFactorizationTransfer`); run-15 bytes sha 2e5217010e46ad0d (verify-fire), run-19 FINAL sha ca1089e2a0c122c4 (§10.29). CLOSE-RESIDUE STAGING RULE (fix 3, A1 pre-registered flag, §10.29 addendum): the STAGED BYTES ARE THE RUN-19 COMMITTED BYTES `git show 3ad896b:research/pilots/75/N2-P1.lean` (GIT_BYTES_OVERRIDES below; sha-guarded ca1089e2a0c122c4) — current-HEAD bytes carry the PAUSED P2-a block (§10.29 addendum; ecd44c6a… unfired fixes-on-disk) and must NEVER be the staged bytes. Compatibility with the post-erratum N2P0 dep verified: the run-19 theorem `dirichletFactorizationTransfer` states the corrected hnp shape INLINE (own binder, :654) and consumes only P0 defs the 02a5d71 erratum did not touch (it changed `DirichletFactorizationTransferQ`'s def alone, which N2-P1 references only in docstring prose :112/:644); Mathlib+N2P0 imports only
+    ("AxPilot75_N2P1",    PILOTS / "75/N2-P1.lean"),  # 75-N2-P1 (M1 closure + M2 + M3) GREEN-triad n2-p1-run19 2026-11-18 (14/14 file triad; §10.29) + **P2-a GREEN at run 26 (2026-11-19, R6 unit 3): `windowFinite_LFunction` (N2-P1.lean:738) PROVED-UNCONDITIONAL, 15/15 file decls triad, 0 sorry, 0 sorryAx** — `logs/n2-p1-run26.log`, wall 68 s, OVER=0; loop r20→r26 = 10→8→3→4*→11*→1→0 (* = failed-have unmaskings), zero math defects, argument unchanged since run 22; fired bytes = ff8b99e-committed sha ce6719c8af450eaa (820 LoC). STAGING: GIT_BYTES_OVERRIDES below pins the RUN-26 VERIFIED bytes (SUPERSEDES the run-19 pin ca1089e2 at the 2026-11-19 unit-4 fold — the iter-4 close basis stands as history); override tracks last-verified committed bytes, drops at sweep iff HEAD is then the verified state (N2-P3 work in flight). Census at ce6719c8: 27 decls = 14 public + 13 private (the 15/15 audit = the file's own print surface; privates direct-printed at sweep custody); Mathlib+N2P0 imports only
     ("AxPilot74_P1",      PILOTS / "74/P1.lean"),   # 74-P1 COMPLETION GREEN run 5/5 2026-11-18 (verify-fire held: SHA-GUARD TRAIL runs 1–5, run 5 fired sha256(16) 6ddbda11d5da4f35 = the final artifact; descent 29→10→10→4→0, zero sorry every run): **7/7 public theorems triad-only** (t1a_floor, t1b, t1b_window, t1c, cert_pad, Bk_le_Bk_succ, t4_floor_ceiling), 0 sorryAx; Mathlib-only import (no ordering constraint); ephemeral app crossmath-pilot-74p1 (73-clone warm-layer-shared recipe, doz route; one maxHeartbeats fix recorded); amended statements per the 4 FINDS, 8+1 signature classes (dossier amendment landed same batch)
     # --- 77 unit closed 2026-11-18 (A7, the last wave-3 blocker) — RULING: NO AxPilot77_T1
     #     row this iteration (the 74-precedent: rows land for GREEN finals; honest-stop
@@ -102,6 +102,17 @@ TARGETS = [
     #     decl `isDegreeBlock_iff_sum_blockProj` carries sorryAx via a filter-missed
     #     elaboration error — errors=0 but rc=1, the A4-run11 blind-spot class; T2 sha
     #     55107d0c6768fe34, 272 LoC). Step-B scope for 77 = NONE (classifier-only). ---
+    #     **SUPERSEDED 2026-11-19 (R1 unit-5 fold): the iter-5 follow-up unit landed BOTH
+    #     GREEN (R7, worktree agent-10; T1 run 11 8/8, T2 run 12 8/8 incl. the formerly
+    #     tainted decl = the whole-tree 385/386 residual DISCHARGED) — the GREEN-completions
+    #     condition of FINAL-SWEEP-PLAN-ITER5 §0's 77 slot is MET; the two rows below
+    #     activate. Honest-stop history stands (the iter-4 rows above are CLOSED HISTORY).**
+] + [
+    # --- Iteration-5 additions (append-only block, opened 2026-11-19 by R1 unit 5;
+    #     every row above is frozen history — the FINAL-SWEEP-ITER4 §0 on-landing
+    #     duties apply here; probe-convention P0 files are NEVER Step-B stages) ---
+    ("AxPilot77_T1",      PILOTS / "77/T1.lean"),   # 77 T1-COMPLETION GREEN run 11 (R7 iter-5 follow-up; logs/t1t2-run11.log): 8/8 top-level theorems triad-only incl. `map_iso_occupationElem` FIRST-CLEAN (element-level dictionary to tauceti's own `carOccupationElement`); burn-down 31→7→0 COMPLETE; sorry-strict rc=0, 0 errors, 0 sorry. GREEN bytes sha 70d7e9f75e705303 (840 LoC; census 52 = 12 pub + 40 priv — AxFC custody at sweep prints all). **DONOR-PIN CLASS — plain-batch FAIL BY DESIGN** (the M4b precedent): `import TauCeti.Algebra.Lie.GeneralLinear.{TraceForm,CAR.Occupation}` resolves only in the 77 runner's tauceti-pinned tree (tauceti @ d92acc5c, its own manifest mathlib 1b1ccf4b — the zeta23E own-lineage pattern), NEVER on the ff2494ea plain substrate; **verdict of record = the donor-pin run log**. Sweep-time guard: stage only if main bytes == 70d7e9f75e705303 (route to R7 otherwise). The runner's widened `: error(` filter (run_pilot.py @1434e832e889a1cb) = the SECOND instance of the 43d55bb filter-blind-spot class — cross-ref: this file's widened counters note (close residue 2026-11-19) + FINAL-SWEEP-PLAN-ITER4 §7d
+    ("AxPilot77_T2",      PILOTS / "77/T2.lean"),   # 77 T2 GREEN run 12 (R7; logs/t2-run12.log): **8/8 top-level theorems triad-only incl. the FORMERLY-TAINTED `isDegreeBlock_iff_sum_blockProj`** (:82) — the whole-tree census's 1-of-386 residual DISCHARGED (iter-4 close basis 385/386 superseded by a 386/386-equivalent state on this landing; close-block pointer SPLICE:71 / RESEARCH.md:209 / STATUS:830). Root cause of the taint: `error(lean.synthInstanceFailed): failed to synthesize Fintype κ` — the drafted iff statement was ill-typed without **[Fintype κ]** (the statement-strengthening finding; only the iff gains the binder — the four other section theorems + three instances theorems signature-unchanged), missed by the old `": error:"`-only runner filter. GREEN bytes sha e70baf22d9ae220e (281 LoC; census 12 = 8 pub + 4 priv). **[WARM] class — Mathlib-only imports** (tauceti-SetLike stays a recorded extension condition, never imported): plain-batch stage fires normally; sweep-time guard: main bytes == e70baf22d9ae220e (route otherwise)
 ]
 
 
@@ -166,11 +177,20 @@ def main(outdir, only=None):
     COMPILE_ONLY = {"AxPilotAL3D_P0"}
     # GIT_BYTES_OVERRIDES (close-residue fix 3, A1 pre-registered flag §10.29
     # addendum): stages whose bytes of record are a COMMITTED REV, not HEAD —
-    # N2-P1's HEAD bytes carry the paused P2-a block (unfired fixes-on-disk) and
-    # must not be staged; the run-19 FINAL bytes are the close basis.
+    # N2-P1's HEAD bytes carried the paused P2-a block (unfired fixes-on-disk) and
+    # must not be staged; the run-19 FINAL bytes were the close basis.
+    # SUPERSEDED 2026-11-19 (R1 unit-4 fold, per the orchestrator re-task): the
+    # override now pins the RUN-26 VERIFIED P2-a STATE — ff8b99e-committed bytes
+    # sha ce6719c8af450eaa (P2-a `windowFinite_LFunction` GREEN, 15/15 triad,
+    # `logs/n2-p1-run26.log`; run-19 pin ca1089e2 is historical). OVERRIDE RULE
+    # (amended same fold, FINAL-SWEEP-PLAN-ITER5 §0): the override TRACKS the last
+    # verified committed bytes and moves forward at each verified landing (never to
+    # an unverified HEAD); it DROPS at sweep time iff the then-HEAD bytes are
+    # themselves the last run's verified bytes (active-pilot protection — N2-P3
+    # work is in flight and may touch this file again).
     GIT_BYTES_OVERRIDES = {
-        "AxPilot75_N2P1": ("3ad896b", "research/pilots/75/N2-P1.lean",
-                           "ca1089e2a0c122c4"),  # expected sha256(16); fail loud on drift
+        "AxPilot75_N2P1": ("ff8b99e", "research/pilots/75/N2-P1.lean",
+                           "ce6719c8af450eaa"),  # expected sha256(16); fail loud on drift
     }
     REPO = PILOTS.parents[1]
     selected = [(name, path) for name, path in TARGETS if not only or name in only]

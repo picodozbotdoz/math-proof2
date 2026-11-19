@@ -11,7 +11,7 @@ batches, hardened gate); file funnels + Modal rules per the launch brief §(b).
 | Lane | Worktree | Role | Current unit | Status | Last update |
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (sole committer) | steady-state pull-per-REPORT batches + INDEX rows; standby to confirm R2's G8 cell flips when they land; telemetry watch | active | 2026-11-19 |
-| R1 | agent-02 | iter-5 verification | unit-2 LANDED (sweep-plan-ITER5 + stepA-iter5 baseline log, reported shas); **§11 append HELD** — worktree restructured past the reported sha mid-pull (h-wave4-log batch-2 entry); next report supersedes | active | 2026-11-19 |
+| R1 | agent-02 | iter-5 verification | units 4+5 LANDED (batch-5: the §11 RESTRUCTURE = the deliberate fold, batch-2 hold RESOLVED; sweep-plan complete state; make_axcheck; stepA entries 1–3, certificate EXACT 52) — **ENTRY 4 (the 77-commit c74ac33) still OWED** | active | 2026-11-19 |
 | R2 | agent-03 | 72-M1 + gates tail | 72-M1 L3b–d active; **G8 flips owed** (G2(ii) → PASS 5/5 run2-subset; G3 → PASS closed in K's INDEX) — the gates file's last two conditional cells | active | 2026-11-19 |
 | R3 | agent-07 | 74-P2 | active (post M-arc GREEN r2) | active | 2026-11-19 |
 | R4 | agent-08 | 41-core | defect finding: corrected identity — decides pending | active | 2026-11-19 |

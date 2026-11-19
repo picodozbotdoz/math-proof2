@@ -464,7 +464,8 @@ START from this artifact. Standing clocks (`qa/REPORT-INPUTS-ITER4.md:69`): trac
 Liu-2, WenrongZou, physlib pushed_at + wing sweep, mathlib PNT/LP PRs, AreaLaw2D
 challenge repo, QR-D race consumers (Bhargava–Vemulapalli arXiv:2611.09031;
 Baldwin–Sivek arXiv:2611.06705; Cao–Gao–Huang–Nie arXiv:2610.37179; Frei–Sofos–Widmer
-arXiv:2610.18491; Walsh arXiv:2610.40439). Debts f/h/l open (HKT theorem-number
+arXiv:2610.18491; Chang–Wang arXiv:2611.00924 (Hecke zero-free, added
+2026-11-19); Walsh arXiv:2610.40439). Debts f/h/l open (HKT theorem-number
 partial pin; tracker as_of convention; the Λ-absence ban); debt g closed 2026-11-17.
 Donor registration: the Sept-2026 honeycomb-SAW cluster (9 OAI preprints +
 ~150-module proved tree, `OAI/Combinatorics/Honeycomb*`) is unregistered —

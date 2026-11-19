@@ -2285,3 +2285,116 @@ git-show-3ad896b sha-guarded) + Step-B(ii) custody 9/9 (axb-close-iter4-run1.log
 disposition) + M4b/ff-ez2-P1 citation corrections + D.4 stamps re-verified 4/4 +
 VERIFICATION-LEDGER §10 + Step D. Whole-tree basis unchanged: 385/386 (the residual =
 77-T2 tainted decl, iter-5).*
+
+## §11 — Iteration-5 verification tables (lane R1, opened 2026-11-19 post-K; rows land/extend on formal reports)
+
+Section conventions carry from §10 (extractor-generated counts only; sha256(16) at-sweep/run;
+verdicts from persisted logs with provenance headers, never memory; Step-A per
+`feasibility/probe/logs/stepA-incremental-iter5.log`; sweep plan =
+`feasibility/probe/FINAL-SWEEP-PLAN-ITER5.md`). Baseline: ENTRY 1 = 52 carry-forward exact,
+0 unexplained, 0 new tokens on the post-opening tree (e309edd); re-confirmed 52-exact over
+111 files post-ff8b99e (N2-P1 run-26 bytes + P3 skeleton add 0 tokens).
+
+*(Process note, R1 2026-11-19: this §11 block was first written at e309edd and extended at
+unit 3, then inadvertently wiped from the working tree by `git checkout -f ff8b99e` (the -f
+flag discards local tracked-file modifications; prior syncs were safe only because their
+edits were already committed in K). Reconstructed verbatim from the lane's session records
+this same day — content identical to the reported shas 2103e774/6ebb1ee4 lineage, with the
+unit-4 N2 live fold applied directly. Correction recorded, not silent; the sync procedure
+from here on is checkout-only-when-clean.)*
+
+### 11.1 Day-1 GREENs (opening commit e309edd, 2026-11-19)
+
+| slot | file (sha256(16), LoC, census) | run of record (log, wall, telemetry) | verdict | Step-B treatment (plan §0) |
+|---|---|---|---|---|
+| 10 M-arc (R3) | `pilots/10/M-arc.lean` `7addcf0029ea06e7`, 4,327 LoC, 322 decls (281+41 priv; = header + **L5 verbatim** `da398f21` + Part M 51) | `logs/marc-run1.log` GREEN **r2** (65 s, max_cpu 0.96, OVER=1 soft = mmapped class) | GREEN — rc=0, 0 errors, 0 sorry-warnings; billing: plumbing/completion-value, never novelty (orchestrator DAY-1-CLASS + hv SUPPLIED-AS-BINDER rulings) | **AxPilot10_MArc single-anchor row RECOMMENDED** (L5 single-anchor precedent; embed condition verified — L5 verbatim inside, 321→322 decls = +1 Part M theorem); L5/earlier rungs → §-historical citations |
+| 41-P0 statement rung (R4) | `pilots/41/P0.lean` `b177acdbf0346bf1`, 202 LoC, 1 public decl (`phi_parts`, defl rfl) | `logs/p0-run2.log` GREEN r2 (65 s, ap-aVPWsYZdxVvzKx5GqaYOlb; run 1 NOT-GREEN codegen-class on the pre-open bytes `3ba649fa`) | GREEN — elaboration verdict ONLY (probe conventions; (M)/(N)/(H) stay dossier hypotheses until the core lands) | row on R4's confirmation class (never a headline); Core S–M rows land with R4's reports |
+| AL M0-rebuild (R8) | `pilots/al3d/A2.lean` `b84270b639166680`, 1,145 LoC, 73 decls (63 carry + 10 new publics; 0 priv) | `logs/alp2-m0-run3-fixround1.log` GREEN **r3** (86 s, OVER=0; regression leg run 1 + rebuild run 2 in `alp2-m0-run{1,2}*.log`) | GREEN — sorry-strict, rc=0, 0 errors; the find-#5 canonical z-rank core (`colZImage`/`colZRank` family, NO Eq.rec) | **supersedes the iter-4 close-time A2 bytes** (`6a5ed555…` + AxFC 126-record custody = historical for this file); AxPilotAL3D_A2 re-stages at THESE bytes at sweep (sha-at-sweep governs) |
+| η-pin-probe (R5) | `pilots/zzv2-lam/eta-pin-probe.lean` `cadc838d220455a7`, 322 LoC, 1 public decl | `logs/eta-pin-probe-run2.log` GREEN r2 COMPLETE (ap-rMawIAp2A8xPdQhUrs9443; OVER-cpu investigation delivered) | GREEN PROBE COMPLETE — sorry-strict OK on the built ZZV2 donor tree; **donor hygiene 7/7 triad-only on-pin**; record-billed quota-free (DECISION-2 Option A) | probe-convention — Step-A scope ONLY, never a Step-B stage |
+| Liu-B_new P0 (R7) | `pilots/liu-bnew/P0.lean` `20ac66718a932e6c`, 168 LoC, 2 public decls (the bridges; rest Prop defs) | `logs/p0-run2.log` GREEN **r2** (42 s, OVER=0; run 1 FAIL = 2 × dependsOnNoncomputable, fixed `noncomputable def` — the substrate rule's first application) | GREEN — engineering statement-port, never discovery-billed; bridges **triad-clean in-run** (`[propext, Classical.choice, Quot.sound]` ×2); Liu-1 stays DO-NOT-CONSUME (statement-level citation only) | probe-convention — NEVER a Step-B stage (§7a zzv2-P0 ruling class; class re-verified vs file header+census, ff-ez2-P1 lesson applied) |
+
+### 11.2 Landings + open rows (folded live by R1 on formal reports)
+
+**75-N2 P2-a — CLOSED GREEN run 26 (R6 unit 3, landed `ff8b99e` 2026-11-19; folded
+same-day by R1 unit 4; the §11.3-draft GREEN branch EXECUTED, honest-stop branch
+VACATED):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 75-N2 P2-a (R6) | `pilots/75/N2-P1.lean` @ `ff8b99e` `ce6719c8af450eaa`, 820 LoC, 27 decls (14 pub + 13 priv; the 15/15 = the file's own audit print surface) | `logs/n2-p1-run26.log` (wall 68 s, cpu 0.77/2.0, mem 3706 MB, **OVER=0** — fully in spec; fired-once per the final-grant ruling, pre-run sha guard ce6719c8) | **GREEN-triad — `windowFinite_LFunction` (`N2-P1.lean:738`) PROVED-UNCONDITIONAL; 15/15 file decls triad ([propext, Classical.choice, Quot.sound] only), 0 sorry, 0 sorryAx**; Pa + N2P0 chain recompiled OK in-run | **Fix-loop taxonomy r20→r26 = 10→8→3→4\*→11\*→1→0 (`*` = failed-have unmasking events)**; zero math defects across the entire grant, P2-a argument unchanged since run 22; r24/25 walls 63/81 s, r25 OVER-mem = the §Modal-5 mapped-olean artifact (cpu 0.67/2.0). Staging: GIT_BYTES_OVERRIDES MOVED to the run-26 state (`ff8b99e`/`ce6719c8`, mechanism verified by staging test; run-19 pin superseded — dated note in make_axcheck.py); AxFC custody at sweep direct-prints the 13 privates |
+| 75-N2 P3 skeleton (R6) | `pilots/75/N2-P3.lean` `5d2b7dd7e72497cc`, 207 LoC, 1 public decl (`windowFinite_family` :105) | NONE — never-run staging class | **SKELETON — statements-only, zero-sorry rung; NO verdict until fired** (the 41-P0 candidate-unfired class); Step-A entry landed (0 tokens) | charter = final-grant ruling 2026-11-19 (P2-a CLOSED authorizing the skeleton); the V2 ζ-column discharge + composed `zetaL_rat_two_thirds_landed`; row + AxDep chain wiring enter at the GREEN fire |
+
+Open (stubbed in FINAL-SWEEP-PLAN-ITER5 §2b, same-hour folds): 41 Core S–M (R4 —
+the §11.3-draft 41-core package armed); **AL-M1 (R8's ladder — the L1
+restriction-compat workhorse via the congruence class, consumes M0's
+`colZRank_fibre`; DISTINCT from 72-M1, both stubs live)**; 74-P2 (R3); 72-M1
+L3(b–d + interface) (R2); round-6 (R9); watchlist (`a9-iter5-article-watchlist.md`)
+— rows per landing, extractor counts, sha-at-run.
+
+### 11.3-draft — 41-core landing rows + same-hour-fold stubs (lane R1 event-prep, 2026-11-19; DRAFT ONLY until the owning lanes' formal reports — names/counts report-governed)
+
+**(a) 41-CORE row — decide-certified refutation + corrected-theorem landing (the 78
+precedent class, §10.13):** expected decl surface = r decide-certified REFUTATIONS of
+the P0-elaborated universals (kernel `Decidable.decide` over the finite quadruple
+space; NEVER `native_decide` — gate-enforced) + c CORRECTED-PROVED theorems
+(`GqGen`, `MainIdentityCor`, `MainIdentityStratum`, `qRigid` — report-governed) +
+private bookkeeping (census at landing). Row shape:
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict cell (the N+M vocabulary) |
+|---|---|---|---|
+| 41-Core (R4) | `pilots/41/Core.lean` `<sha>`, `<LoC>` LoC, `<r+c+priv>` decls | `<core-N run>.log` (wall, telemetry, app) | **GREEN-triad — `<r>` REFUTED-AS-UNIVERSAL (decide-certified, kernel, 0 sorryAx) + `<c>` CORRECTED-PROVED (`<names>`)**, records ⊆ triad (deciders may print no-axioms = ⊆ class); refutations are first-class PROVED-UNCONDITIONAL decls per the 78 precedent — NEGATIVE-kind discovery surface iff the dossier so rules (A9 roll-up owns PROVED-* vocabulary; D7 RULING pilot vocabulary here) |
+
+Step-B: ONE row `AxPilot41_Core` (refutation decides + corrected theorems together —
+the AxPilot78_P0 one-row precedent), + AxFC custody stage if privates exist;
+sorry-token class = ZERO by construction (a decide line is a kernel term — any sorry
+would surface as sorry-warning/sorryAx and fail sorry-strict; Step-A entry expected
+0). GIT_BYTES: **NO override** — fresh file, landing commit = verified state (overrides
+exist only for HEAD≠verified-bytes cases); sha-at-sweep stamp only. Sibling dep: if
+Core does `import P0`, an AxDep_41_P0 compile-only dep stage + stage-scoped rewrite
+(the AL3D-P0 pattern) — order.txt handles placement.
+
+**(b) 41-P0 row addendum — the supersession note, DRAFTED WORDING (P0 verdict STANDS;
+statements' status moves):** *Core addendum (post-core-1): P0's verdict of record is
+UNCHANGED — an elaboration verdict about statability/type-correctness, never truth
+("statement elaboration never certified provability", the N2-P0 erratum convention).
+The universal forms P0 elaborated are now REFUTED-AS-UNIVERSAL by Core's
+decide-certified theorems (kernel); the corrected forms (`GqGen`/`MainIdentityCor`/
+`MainIdentityStratum`/`qRigid`) are the carriers going forward. Nothing in P0 is
+retracted; P0's (M)/(N)/(H) hypothesis labels read, post-core, as "(M)-as-universal:
+refuted; corrected (M): see Core" pointers; P0's statement-rung Step-B treatment
+(never a headline) is unaffected.*
+
+**(c) N2 run-26 — EXECUTED 2026-11-19 (R1 unit 4):** the GREEN branch is LIVE in
+§11.2 above (run 26, 15/15 triad, override moved to `ff8b99e`/`ce6719c8af450eaa`);
+the honest-stop branch is VACATED (P2-a CLOSED). Future N2 folds (P2-b, the P3 fire)
+reuse this stub's chain-wiring notes.
+
+**(d) 74-P2 (R3) stub:** Step-B(i) `AxPilot74_P2` + AxFC custody (P1 class); verdict
+cell per report (GREEN-triad / honest-partial); billing per charter ruling at landing
+(the `6216e2a` precharter: FIND-#1 family recycled constructively).
+
+**(e) 72-M1 L3(b–d + interface) (R2) stub:** `P72M1T3.lean` GROWS — L3a citation
+(`fe57d30b…`) stands historical; re-stage + custody re-run at the sweep-time sha;
+headline decl = `interface_areaLaw_uniformAreaLaw`; verdict cell per report. (Prep
+note: the re-task's "M1" read as 72-M1's T3 growth; re-title with a correction note
+if another M1 was meant. **Unit-4 amendment: AL-M1 (R8) confirmed as a DISTINCT
+stubble — see §11.2 open list + FINAL-SWEEP-PLAN-ITER5 §2b; both M1 stubs live.**)
+
+— §11 opened lane R1, 2026-11-19, worktree agent-02 (reconstructed + folded at
+ff8b99e per the process note above). §10 and everything below it are CLOSED HISTORY
+at K = b2f2c18 (never edit; corrections append with dated notes).
+
+**77 follow-up completion — T1 + T2 BOTH GREEN (R7 iter-5 rung, worktree agent-10,
+folded by R1 unit 5 2026-11-19; the iter-4 §10.32 honest-stop state is SUPERSEDED —
+its rows are closed history):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 77 T1-completion (R7) | `pilots/77/T1.lean` `70d7e9f75e705303`, 840 LoC, 52 decls (12 pub + 40 priv) | `logs/t1t2-run11.log` (run 11; donor-pin runner: tauceti @ `d92acc5c`, its manifest mathlib `1b1ccf4b` — the zeta23E own-lineage pattern; sorry-strict, full #print echo) | **GREEN-triad — 8/8 top-level theorems [propext, Classical.choice, Quot.sound] only, 0 sorry/0 sorryAx** — incl. `toFock_mul_self`, `occupationElem_mul_self`, `commute_occupationElem`, the `dictionary_numberOp/idempotent/commute` triple, `traceQuadraticForm_isoV`, and **`map_iso_occupationElem` FIRST-CLEAN** (the element-level dictionary to tauceti's own `carOccupationElement`) | **Residual burn-down 31 → 7 → 0 COMPLETE** (the iter-4 honest-stop at 7 closed with zero math defects carried). **[Fintype κ]-class statement-strengthening finding recorded on the T2 side (below)**. Step-B: DONOR-PIN class — AxPilot77_T1 in TARGETS (plain-batch FAIL BY DESIGN, M4b precedent; verdict of record = this log, or a sweep re-fire in the 77 runner); AxFC custody prints all 52 decls; sweep guard: main bytes == 70d7e9f75e705303 |
+| 77 T2 completion (R7) | `pilots/77/T2.lean` `e70baf22d9ae220e`, 281 LoC, 12 decls (8 pub + 4 priv) | `logs/t2-run12.log` (run 12; sorry-strict) | **GREEN-triad — 8/8 top-level theorems triad-only, 0 sorry/0 sorryAx, incl. the FORMERLY-TAINTED `isDegreeBlock_iff_sum_blockProj` (`:82`)** | **THE WHOLE-TREE CENSUS'S 1-OF-386 RESIDUAL DISCHARGED: the iter-4 close basis 385/386 is superseded, on this landing, by a 386/386-equivalent state** (close-block residual pointer: CHARTER-SPLICE:71, RESEARCH.md:209, STATUS:830 — the "one residual = 77-T2 tainted decl → iter-5" line resolves HERE). Root cause of the iter-4 taint: `error(lean.synthInstanceFailed): failed to synthesize Fintype κ` — the drafted iff was **ill-typed without `[Fintype κ]`** (THE STATEMENT-STRENGTHENING FINDING: only the iff gains the binder; the parity twin needed none — its `Finset.range 2` spectrum masked the class; four other section theorems + three instances theorems signature-unchanged); the old runner's `": error:"`-only filter missed it (rc=1, errors=0 — the blind-spot). **Runner fix = the SECOND instance of the 43d55bb filter-blind-spot class** (`: error(` forms now matched + full raw dump on non-clean verdicts, run_pilot.py @ `1434e832e889a1cb`; FIRST instance family = the A4-run11/§7d standing note + the close-residue widened counters in make_axcheck/axcheck machinery). Step-B: [WARM] plain row AxPilot77_T2 (Mathlib-only; tauceti-SetLike stays a recorded extension condition); sweep guard: main bytes == e70baf22d9ae220e |
+
+*Fold note (R1, 2026-11-19): both rows' shas verified against R7's worktree-of-record
+(agent-10) this pass; entries become main-side when H commits the follow-up batch —
+Step-A classifier ENTRY 4 fires on my tree at that commit (the GREEN bytes are not yet
+in the classifier scope here). The §10.32 close-time rows and the K close block stand
+as history; this fold is the recorded supersession they pointed to.*

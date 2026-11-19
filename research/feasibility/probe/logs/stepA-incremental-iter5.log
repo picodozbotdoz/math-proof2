@@ -61,3 +61,18 @@
 # opening commit; when new N2 bytes land, make_axcheck's GIT_BYTES_OVERRIDES for
 # AxPilot75_N2P1 updates per FINAL-SWEEP-PLAN-ITER5 §0's rule); 74-P2 (R3); AL M0
 # further legs (R8); round-6 artifacts (R9).
+#
+# ENTRY 3 (R1, 2026-11-19) — ff8b99e landings (R6 N2 unit-3). Classifier re-run on the
+# post-ff8b99e tree: **52 REAL-TOKEN hits over 111 files — certificate EXACT (0 new)**.
+#   pilots/75/N2-P1.lean — MODIFIED (802→820 LoC; the P2-a closure), sha
+#     ce6719c8af450eaa = the RUN-26 FIRED/VERIFIED bytes (ff8b99e-committed). 0
+#     REAL-TOKEN (record: "zero sorry tokens written at any point — all grep hits
+#     header/audit prose"; classifier confirms). Class: PROOF — P2-a
+#     `windowFinite_LFunction` GREEN-triad run 26, 15/15 file decls, 0 sorry/0
+#     sorryAx (`logs/n2-p1-run26.log`). GIT_BYTES_OVERRIDES moved to
+#     (ff8b99e, ce6719c8af450eaa) at the unit-4 fold (run-19 pin superseded, dated
+#     note in make_axcheck.py; mechanism staging-tested).
+#   pilots/75/N2-P3.lean — NEW, 207 LoC, sha 5d2b7dd7e72497cc, 1 public decl
+#     (`windowFinite_family` :105). 0 REAL-TOKEN. Class: statements-only SKELETON,
+#     never-run staging class — NO Step-B row until fired-GREEN (41-P0
+#     candidate-unfired precedent); row + AxDep chain wiring at the GREEN fire.

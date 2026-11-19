@@ -580,6 +580,29 @@ rides this commit.
   registry insertion into RESEARCH.md's standing-clocks row — the orchestrator
   folds it at the next charter-touching commit (recorded here per instruction).
 
+## 2026-11-19 — iter-5 steady state, batch 5 (H): R1 units 4+5 (hold resolved) + R9 FB-2 pre-draft + the authorized RESEARCH.md edit
+
+- **R1 units 4+5 pulled** (4 files, shas verified 4/4): `r3-verification-tables.md`
+  `8b303777…` — **the §11 restructure IS R1's deliberate fold** (process note
+  at §11's head; the §11.3-draft GREEN branch EXECUTED) ⇒ **the batch-2 hold is
+  RESOLVED by this report**; `FINAL-SWEEP-PLAN-ITER5.md` `64487de3…` (the
+  COMPLETE state, superseding H's batch-2 prefix pull `3d7915c9…`);
+  `make_axcheck.py` `d3f8e30c…` (py_compile rc=0);
+  `stepA-incremental-iter5.log` `f3eb0fda…` (ENTRY 1 baseline + ENTRY 2 day-1
+  .lean deltas + ENTRY 3 the ff8b99e landing: **certificate EXACT 52 over 111
+  files, 0 new**).
+- **VERIFICATION FINDING (the coordinator's check, answered honestly): ENTRY 4
+  has NOT fired.** The reported log state carries entries 1–3 only; zero
+  mentions of the 77 set / `T1.lean` / `c74ac33`. The 77-commit's classifier
+  entry is **OWED by R1** (T1/T2 are new proof-class landings — the ENTRY-4
+  re-baseline is exactly the class the log exists for).
+- **R9's FB-2 pre-draft pulled**: `round6-fb2-citation-block.md` `67143493…`
+  (PRE-DRAFT/NOT-A-CHARTER noted in the INDEX row).
+- **ORCHESTRATOR-AUTHORIZED RESEARCH.md edit EXECUTED VERBATIM** (one line, in
+  the §Iteration 5 standing-clocks QR-D consumers parenthesis, appended after
+  the Frei–Sofos–Widmer cite): "; Chang–Wang arXiv:2611.00924 (Hecke zero-free,
+  added 2026-11-19)" — dated-attribution convention; anchor-count 1/1.
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over
