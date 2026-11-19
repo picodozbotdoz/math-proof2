@@ -1,0 +1,1646 @@
+# provenance: raw modal runs, pilot-74 P2 (G2 sharp constants + G3 family statement probe; iteration-5 charter debt rung 74-P2, recharter to R3 2026-11-19 DAY-1-CLASS; precharter `research/pilots/74/P2-precharter.md` A8 2026-11-18) | date 2026-11-19 | producing lane: R3 (A6 lineage, worktree agent-07) | command: bash research/pilots/74/stage_and_fire_p2.sh <N> (doz CLI, app crossmath-pilot-74p1, run_p1.py runner — FULL error output; SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2, telemetry every run; sha-guard sidecar /tmp/crossmath-74-p2-last.sha) | final file: P2.lean sha256 49b808f33ba897cc (1,063 LoC = 56-line header incl. the R9 pre-gate must-cites + P1.lean VERBATIM 770 [sha 6ddbda11…, P1 COMPLETION GREEN] + Part P2 237 lines) | **VERDICT: P2.lean OK at RUN 11 — G2 GREEN** (rc=0, 0 errors, 0 sorry-warnings; descent 14→12→14→9→9→9(misfire)→7→6→7→5→0 errors; every run sha-guarded; zero sorry at every run) | triad: CrossMath.Pilot74P1.mgfBound_var_sharp and CrossMath.Pilot74P1.t1c_sharp both [propext, Classical.choice, Quot.sound] (in-file prints) | **G3 PASS (statement probe, same run): famClassMemProbe / famVarLBProbe / famTailProbe : ℝ → ℕ → Prop all elaborate on-pin** (the n-atom family def + class-membership inequality + hVarLB + W-side Props; #check evidence below) | sha trail: 5ceebc2b→6fcd69bd→758203e1→477a97fc→b5ca3aca→3087526f→ddbaa486→9cbdc93d→7691d0cd→48e93728→49b808f3 | telemetry: warm walls 40–76 s; OVER flags = the mmapped-olean mem class only (max_cpu ≤ 0.94 within SPEC; anon=0 throughout; no escalation)
+## Budget disclosure (honest)
+G2 was chartered ≤5 runs; the descent used 11: runs 1–5 (chartered), run 6 = PROCESS-ERROR MISFIRE (the fix batch's python assert aborted BEFORE write and I fired without verifying — the staged file was byte-identical to run 5's fix state; owned here, the P1 run-6 precedent class; the sha guard correctly recorded a distinct sha because the header must-cite block HAD landed, masking the missing body fixes), runs 7–10 = the residue fix-loop (4 mechanical classes, each diagnosed from full error output, zero sorry throughout), run 11 = the audit-tail qualification fix + GREEN. P2-c's separate ≤5 budget is UNSPENT (chartered-unexecuted). All 11 runs elaborated under Modal; NO local lean was ever invoked.
+## Residue taxonomy (all mechanical, zero math defects; every class named + fixed)
+1. scoped-notation/namespace: 𝓝[>] is scoped[Topology] (P1 opens only Real) — fixed by `open Real Topology`; the audit tail's #print/#check sat outside the reopened namespace (P1's tail is inside) — qualified by moving inside (run 10→11, the last error class).
+2. atom-shape linarith discipline: `rexp (-(t/2))` vs `rexp (-t / 2)` defeat linarith's atom matching; `add_one_le_exp` on-pin arg order is `x + 1 ≤ exp x`; congr-value shapes for HasDerivAt builders need explicit `congr_deriv (by ring)`.
+3. polymorphic-constant dot resolution: `hasDerivAt_neg'.exp` cannot resolve (metavariable head) — bind `have hneg : <full type> := hasDerivAt_neg' t` first (also: the point argument is explicit on-pin).
+4. filter-elaboration order: anonymous-constructor membership proofs inside `apply` run before set endpoints are determined (metavariable poisoning) — the `have hioo : (0:ℝ) ∈ Set.Ioo (-δ) δ := ...` idiom; on-pin `Ioo_mem_nhds` anchors at the RIGHT endpoint (unusable at the left); `mem_of_superset` is `Filter.mem_of_superset`; on-pin `sub_le_sub` has the a₁−b₂ ≤ a₂−b₁ shape (not a₁−b₁ ≤ a₂−b₂).
+5. one REAL math finding mid-descent (run 2): the elementary squaring route CANNOT reach the sharp pair constant — `(1±t/2)^2` sums give t²/2 at best, so the sharp x² ≤ e^x + e^{−x} − 2 genuinely needs the monotone-derivative argument (two `monotoneOn_of_deriv_nonneg` layers; φ'' = e^t + e^{−t} − 2 ≥ 0 elementarily from `add_one_le_exp` at ±t). Recorded as the route decision's mathematical content.
+
+==================== RUN 1 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-uoiHIvhqI8Zv0IgN03byjT
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=0.92 mem=8390MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P2.lean': 'FAIL rc=1 errors=14 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=14 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (14 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:822:4: error: linarith failed to find a contradiction
+x t : ℝ
+ht : 0 ≤ t
+h1 : t / 2 + 1 ≤ rexp (t / 2)
+h2 : -(t / 2) + 1 ≤ rexp (-(t / 2))
+a✝ : rexp (t / 2) - rexp (-t / 2) < t
+⊢ False
+failed
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:826:57: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+y : ℝ
+⊢ rexp 0 = 1
+P2.lean:846:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -(-x / 2)
+in the target expression
+  (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+
+x : ℝ
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:826:57: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+y : ℝ
+⊢ rexp 0 = 1
+P2.lean:846:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -(-x / 2)
+in the target expression
+  (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (- -x / 2)
+hsq : (-x) ^ 2 = x ^ 2
+hxr : -x / 2 = -(x / 2)
+hxr' : -(-x / 2) = x / 2
+⊢ (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+P2.lean:850:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+in the target expression
+  (-x) ^ 2 ≤ (rexp (x / 2) - rexp (-x / 2)) ^ 2
+
+···
+⊢ rexp 0 = 1
+P2.lean:846:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -(-x / 2)
+in the target expression
+  (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (- -x / 2)
+hsq : (-x) ^ 2 = x ^ 2
+hxr : -x / 2 = -(x / 2)
+hxr' : -(-x / 2) = x / 2
+⊢ (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+P2.lean:850:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+in the target expression
+  (-x) ^ 2 ≤ (rexp (x / 2) - rexp (-x / 2)) ^ 2
+
+case neg
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+···
+⊢ (rexp (-(x / 2)) - rexp (- -(x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+P2.lean:850:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+in the target expression
+  (-x) ^ 2 ≤ (rexp (x / 2) - rexp (-x / 2)) ^ 2
+
+case neg
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-t / 2)
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (- -x / 2)
+hsq : (-x) ^ 2 = x ^ 2
+heq : (rexp (-x / 2) - rexp (-(-x / 2))) ^ 2 = (rexp (x / 2) - rexp (-(x / 2))) ^ 2
+⊢ (-x) ^ 2 ≤ (rexp (x / 2) - rexp (-x / 2)) ^ 2
+P2.lean:878:62: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+v u₀ : ℝ
+hp : IsSpectrum p
+hu₀ : 0 < u₀
+hplus : ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+···
+⊢ (-x) ^ 2 ≤ (rexp (x / 2) - rexp (-x / 2)) ^ 2
+P2.lean:878:62: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+v u₀ : ℝ
+hp : IsSpectrum p
+hu₀ : 0 < u₀
+hplus : ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hminus : ∑ i ∈ supp p, p i * rexp (-u₀ * dev p i) ≤ rexp (v * u₀ ^ 2)
+hsum : ∑ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 = u₀ ^ 2 * varK p
+hpt : ∀ i ∈ supp p, p i * (u₀ * dev p i) ^ 2 ≤ p i * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2)
+h1 : u₀ ^ 2 * varK p ≤ ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) + ∑ i ∈ supp p, (p i * rexp (-(u₀ * dev p i)) - 2 * p i)
+hE :
+  ∀ i ∈ supp p,
+    p i * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2) =
+      p i * rexp (u₀ * dev p i) + (p i * rexp (-(u₀ * dev p i)) - 2 * p i)
+hDist :
+  ∑ i ∈ supp p, p i * (rexp (u₀ * dev p i) + rexp (-(u₀ * dev p i)) - 2) =
+    ∑ i ∈ supp p, p i * rexp (u₀ * dev p i) + ∑ i ∈ supp p, (p i * rexp (-(u₀ * dev p i)) - 2 * p i)
+⊢ ∑ x ∈ supp p, p x * rexp (-(u₀ * dev p x)) - 2 * 1 = ∑ i ∈ supp p, p i * rexp (-(u₀ * dev p i)) - 2
+P2.lean:892:31: error: Application type mismatch: The argument
+  h2
+has type
+  -y + 1 ≤ rexp (-y)
+···
+⊢ ∑ x ∈ supp p, p x * rexp (-(u₀ * dev p x)) - 2 * 1 = ∑ i ∈ supp p, p i * rexp (-(u₀ * dev p i)) - 2
+P2.lean:892:31: error: Application type mismatch: The argument
+  h2
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  -y + 1 ≤ 1
+in the application
+  mul_le_mul_of_nonneg_right h2
+P2.lean:894:2: error: linarith failed to find a contradiction
+y : ℝ
+h2 : -y + 1 ≤ rexp (-y)
+h3 : (-y + 1) * rexp y ≤ 1 * rexp y
+h4 : (-y + 1) * rexp y = 1 * rexp y - y * rexp y
+a✝ : y * rexp y < rexp y - 1
+⊢ False
+failed
+P2.lean:932:9: error: unexpected token '>'; expected ':' or term
+P2.lean:932:7: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  mul_le_mul_of_nonneg_right h2
+P2.lean:894:2: error: linarith failed to find a contradiction
+y : ℝ
+h2 : -y + 1 ≤ rexp (-y)
+h3 : (-y + 1) * rexp y ≤ 1 * rexp y
+h4 : (-y + 1) * rexp y = 1 * rexp y - y * rexp y
+a✝ : y * rexp y < rexp y - 1
+⊢ False
+failed
+P2.lean:932:9: error: unexpected token '>'; expected ':' or term
+P2.lean:932:7: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+failed
+P2.lean:932:9: error: unexpected token '>'; expected ':' or term
+P2.lean:932:7: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:932:9: error: unexpected token '>'; expected ':' or term
+P2.lean:932:7: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:932:7: error(lean.unknownIdentifier): Unknown identifier `𝓝`
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:995:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:996:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:997:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:998:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:999:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=14 sorry=0
+[tele] SUMMARY run: wall=62s max_cpu=0.92 max_mem=8390MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-uoiHIvhqI8Zv0IgN03byjT
+
+==================== RUN 2 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-rasZPP4YiOp13l4K1JlCox
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: FAIL rc=1 errors=12 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+{'P2.lean': 'FAIL rc=1 errors=12 sorry=0'}
+---- error contexts (12 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:825:66: error: Application type mismatch: The argument
+  h2
+has type
+  -(t / 2) + 1 ≤ rexp (-(t / 2))
+but is expected to have type
+  rexp (-(t / 2)) ≤ -(t / 2) + 1
+in the application
+  sub_le_sub h1 h2
+P2.lean:830:57: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+y : ℝ
+⊢ y / 2 + -y / 2 = 0
+P2.lean:842:68: error: Application type mismatch: The argument
+  h
+has type
+  x ≤ rexp (x / 2) - rexp (-(x / 2))
+but is expected to have type
+  x ≤ rexp (x / 2) - rexp (-x / 2)
+in the application
+  LE.le.trans hx h
+P2.lean:843:4: error: linarith failed to find a contradiction
+case pos
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+···
+  sub_le_sub h1 h2
+P2.lean:830:57: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+y : ℝ
+⊢ y / 2 + -y / 2 = 0
+P2.lean:842:68: error: Application type mismatch: The argument
+  h
+has type
+  x ≤ rexp (x / 2) - rexp (-(x / 2))
+but is expected to have type
+  x ≤ rexp (x / 2) - rexp (-x / 2)
+in the application
+  LE.le.trans hx h
+P2.lean:843:4: error: linarith failed to find a contradiction
+case pos
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : 0 ≤ x
+h : x ≤ rexp (x / 2) - rexp (-(x / 2))
+hd0 : 0 ≤ rexp (x / 2) - rexp (-x / 2)
+a✝ : (rexp (x / 2) - rexp (-x / 2)) ^ 2 < x ^ 2
+⊢ False
+failed
+P2.lean:850:75: error: No goals to be solved
+···
+⊢ y / 2 + -y / 2 = 0
+P2.lean:842:68: error: Application type mismatch: The argument
+  h
+has type
+  x ≤ rexp (x / 2) - rexp (-(x / 2))
+but is expected to have type
+  x ≤ rexp (x / 2) - rexp (-x / 2)
+in the application
+  LE.le.trans hx h
+P2.lean:843:4: error: linarith failed to find a contradiction
+case pos
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : 0 ≤ x
+h : x ≤ rexp (x / 2) - rexp (-(x / 2))
+hd0 : 0 ≤ rexp (x / 2) - rexp (-x / 2)
+a✝ : (rexp (x / 2) - rexp (-x / 2)) ^ 2 < x ^ 2
+⊢ False
+failed
+P2.lean:850:75: error: No goals to be solved
+P2.lean:848:68: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+···
+  LE.le.trans hx h
+P2.lean:843:4: error: linarith failed to find a contradiction
+case pos
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : 0 ≤ x
+h : x ≤ rexp (x / 2) - rexp (-(x / 2))
+hd0 : 0 ≤ rexp (x / 2) - rexp (-x / 2)
+a✝ : (rexp (x / 2) - rexp (-x / 2)) ^ 2 < x ^ 2
+⊢ False
+failed
+P2.lean:850:75: error: No goals to be solved
+P2.lean:848:68: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (-(-x / 2))
+hsq : (-x) ^ 2 = x ^ 2
+e1 : rexp (x / 2) = rexp (-(-x / 2))
+e2 : rexp (-x / 2) = rexp (-x / 2)
+⊢ (rexp (-(-x / 2)) - rexp (-x / 2)) ^ 2 = (rexp (-x / 2) - rexp (-(-x / 2))) ^ 2
+P2.lean:858:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+···
+failed
+P2.lean:850:75: error: No goals to be solved
+P2.lean:848:68: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (-(-x / 2))
+hsq : (-x) ^ 2 = x ^ 2
+e1 : rexp (x / 2) = rexp (-(-x / 2))
+e2 : rexp (-x / 2) = rexp (-x / 2)
+⊢ (rexp (-(-x / 2)) - rexp (-x / 2)) ^ 2 = (rexp (-x / 2) - rexp (-(-x / 2))) ^ 2
+P2.lean:858:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:941:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+but is expected to have type
+  𝓝[>] 0 ≤ 𝓝 0
+in the application
+···
+P2.lean:850:75: error: No goals to be solved
+P2.lean:848:68: error: unsolved goals
+x : ℝ
+hkey : ∀ (t : ℝ), 0 ≤ t → t ≤ rexp (t / 2) - rexp (-(t / 2))
+hpow : ∀ (y : ℝ), rexp y + rexp (-y) - 2 = (rexp (y / 2) - rexp (-y / 2)) ^ 2
+hx : ¬0 ≤ x
+hx' : 0 ≤ -x
+h : -x ≤ rexp (-x / 2) - rexp (-(-x / 2))
+hsq : (-x) ^ 2 = x ^ 2
+e1 : rexp (x / 2) = rexp (-(-x / 2))
+e2 : rexp (-x / 2) = rexp (-x / 2)
+⊢ (rexp (-(-x / 2)) - rexp (-x / 2)) ^ 2 = (rexp (-x / 2) - rexp (-(-x / 2))) ^ 2
+P2.lean:858:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:941:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+but is expected to have type
+  𝓝[>] 0 ≤ 𝓝 0
+in the application
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:941:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+but is expected to have type
+  𝓝[>] 0 ≤ 𝓝 0
+in the application
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1003:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1004:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1005:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1003:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1004:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1005:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1003:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1004:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1005:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1004:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1005:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1005:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1006:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1007:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=12 sorry=0
+[tele] SUMMARY run: wall=45s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-rasZPP4YiOp13l4K1JlCox
+
+==================== RUN 3 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-7Sc5QgHD2by7brOkxbrLvk
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=0.94 mem=8366MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P2.lean': 'FAIL rc=1 errors=14 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=14 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (14 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:826:16: error: Type mismatch: After simplification, term
+  HasDerivAt.neg (hasDerivAt_id t)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (-id) (-1) t
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => -t) (-1) t
+P2.lean:844:40: error: Type mismatch
+  add_one_le_exp t
+has type
+  t + 1 ≤ rexp t
+but is expected to have type
+  1 + t ≤ rexp t
+P2.lean:845:46: error: Type mismatch
+  add_one_le_exp (-t)
+has type
+  -t + 1 ≤ rexp (-t)
+but is expected to have type
+  1 + -t ≤ rexp (-t)
+P2.lean:852:35: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:866:39: error: Application type mismatch: The argument
+  hasDerivAt_const t 2
+has type
+  HasDerivAt (fun x => 2) 0 t
+···
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => -t) (-1) t
+P2.lean:844:40: error: Type mismatch
+  add_one_le_exp t
+has type
+  t + 1 ≤ rexp t
+but is expected to have type
+  1 + t ≤ rexp t
+P2.lean:845:46: error: Type mismatch
+  add_one_le_exp (-t)
+has type
+  -t + 1 ≤ rexp (-t)
+but is expected to have type
+  1 + -t ≤ rexp (-t)
+P2.lean:852:35: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:866:39: error: Application type mismatch: The argument
+  hasDerivAt_const t 2
+has type
+  HasDerivAt (fun x => 2) 0 t
+but is expected to have type
+  HasDerivAt (fun t => -2) 0 t
+in the application
+  HasDerivAt.add (HasDerivAt.add (Real.hasDerivAt_exp t) he) (hasDerivAt_const t 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+···
+  1 + t ≤ rexp t
+P2.lean:845:46: error: Type mismatch
+  add_one_le_exp (-t)
+has type
+  -t + 1 ≤ rexp (-t)
+but is expected to have type
+  1 + -t ≤ rexp (-t)
+P2.lean:852:35: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:866:39: error: Application type mismatch: The argument
+  hasDerivAt_const t 2
+has type
+  HasDerivAt (fun x => 2) 0 t
+but is expected to have type
+  HasDerivAt (fun t => -2) 0 t
+in the application
+  HasDerivAt.add (HasDerivAt.add (Real.hasDerivAt_exp t) he) (hasDerivAt_const t 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:869:27: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+···
+  1 + -t ≤ rexp (-t)
+P2.lean:852:35: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:866:39: error: Application type mismatch: The argument
+  hasDerivAt_const t 2
+has type
+  HasDerivAt (fun x => 2) 0 t
+but is expected to have type
+  HasDerivAt (fun t => -2) 0 t
+in the application
+  HasDerivAt.add (HasDerivAt.add (Real.hasDerivAt_exp t) he) (hasDerivAt_const t 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:869:27: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+t : ℝ
+···
+P2.lean:852:35: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:866:39: error: Application type mismatch: The argument
+  hasDerivAt_const t 2
+has type
+  HasDerivAt (fun x => 2) 0 t
+but is expected to have type
+  HasDerivAt (fun t => -2) 0 t
+in the application
+  HasDerivAt.add (HasDerivAt.add (Real.hasDerivAt_exp t) he) (hasDerivAt_const t 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:869:27: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+t : ℝ
+he : HasDerivAt (fun t => rexp (-t)) (rexp (-t) * -1) t
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:869:27: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+t : ℝ
+he : HasDerivAt (fun t => rexp (-t)) (rexp (-t) * -1) t
+hsum : HasDerivAt (fun t => rexp t + rexp (-t) - 2) (rexp t + rexp (-t) * -1 + 0) t
+h : HasDerivAt (id ^ 2) (↑2 * id t ^ (2 - 1) * 1) t
+⊢ id t * 2 = t * 2
+P2.lean:878:33: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+···
+⊢ id t * 2 = t * 2
+P2.lean:878:33: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+hφdiff : Differentiable ℝ fun t => rexp t + rexp (-t) - 2 - t ^ 2
+hφmono : MonotoneOn (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (Set.Ici 0)
+h0 : 0 ∈ Set.Ici 0
+hx' : x ∈ Set.Ici 0
+hle : (fun t => rexp t + rexp (-t) - 2 - t ^ 2) 0 ≤ (fun t => rexp t + rexp (-t) - 2 - t ^ 2) x
+⊢ 1 + 1 - 2 = 0
+P2.lean:901:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+···
+P2.lean:878:33: error(lean.unknownIdentifier): Unknown constant `Set.left_mem_Ici`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hnegd : ∀ (t : ℝ), HasDerivAt (fun t => -t) (-1) t
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+hφdiff : Differentiable ℝ fun t => rexp t + rexp (-t) - 2 - t ^ 2
+hφmono : MonotoneOn (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (Set.Ici 0)
+h0 : 0 ∈ Set.Ici 0
+hx' : x ∈ Set.Ici 0
+hle : (fun t => rexp t + rexp (-t) - 2 - t ^ 2) 0 ≤ (fun t => rexp t + rexp (-t) - 2 - t ^ 2) x
+⊢ 1 + 1 - 2 = 0
+P2.lean:901:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+but is expected to have type
+  𝓝[>] 0 ≤ 𝓝 0
+in the application
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=14 sorry=0
+[tele] SUMMARY run: wall=64s max_cpu=0.94 max_mem=8366MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-7Sc5QgHD2by7brOkxbrLvk
+
+==================== RUN 4 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-M9fMKZ1kkywvD7vYoDuVB2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: FAIL rc=1 errors=9 sorry=0
+---- axioms ----
+{'P2.lean': 'FAIL rc=1 errors=9 sorry=0'}
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (9 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:830:6: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_neg'.exp`
+P2.lean:861:6: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_neg'.exp`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+hφdiff : Differentiable ℝ fun t => rexp t + rexp (-t) - 2 - t ^ 2
+hφmono : MonotoneOn (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (Set.Ici 0)
+h0 : 0 ∈ Set.Ici 0
+hx' : x ∈ Set.Ici 0
+hle : (fun t => rexp t + rexp (-t) - 2 - t ^ 2) 0 ≤ (fun t => rexp t + rexp (-t) - 2 - t ^ 2) x
+⊢ 1 + 1 - 2 = 0
+P2.lean:901:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+···
+P2.lean:830:6: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_neg'.exp`
+P2.lean:861:6: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_neg'.exp`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+hφdiff : Differentiable ℝ fun t => rexp t + rexp (-t) - 2 - t ^ 2
+hφmono : MonotoneOn (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (Set.Ici 0)
+h0 : 0 ∈ Set.Ici 0
+hx' : x ∈ Set.Ici 0
+hle : (fun t => rexp t + rexp (-t) - 2 - t ^ 2) 0 ≤ (fun t => rexp t + rexp (-t) - 2 - t ^ 2) x
+⊢ 1 + 1 - 2 = 0
+P2.lean:901:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+···
+P2.lean:861:6: error(lean.unknownIdentifier): Unknown constant `hasDerivAt_neg'.exp`
+P2.lean:881:76: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hψd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t - rexp (-t) - 2 * t) (rexp t + rexp (-t) - 2) t
+hψdiff : Differentiable ℝ fun t => rexp t - rexp (-t) - 2 * t
+hψnn : ∀ (t : ℝ), 0 ≤ deriv (fun t => rexp t - rexp (-t) - 2 * t) t
+hψmono : MonotoneOn (fun t => rexp t - rexp (-t) - 2 * t) (Set.Ici 0)
+hψge : ∀ (t : ℝ), 0 ≤ t → 0 ≤ rexp t - rexp (-t) - 2 * t
+hφd : ∀ (t : ℝ), HasDerivAt (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (rexp t - rexp (-t) - 2 * t) t
+hφdiff : Differentiable ℝ fun t => rexp t + rexp (-t) - 2 - t ^ 2
+hφmono : MonotoneOn (fun t => rexp t + rexp (-t) - 2 - t ^ 2) (Set.Ici 0)
+h0 : 0 ∈ Set.Ici 0
+hx' : x ∈ Set.Ici 0
+hle : (fun t => rexp t + rexp (-t) - 2 - t ^ 2) 0 ≤ (fun t => rexp t + rexp (-t) - 2 - t ^ 2) x
+⊢ 1 + 1 - 2 = 0
+P2.lean:901:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:984:41: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.748
+has type
+  ?m.747 ∈ 𝓝[?m.746] ?m.745
+but is expected to have type
+  𝓝[>] 0 ≤ 𝓝 0
+in the application
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  Filter.Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hcont)) (nhdsWithin_le_nhds ?m.748)
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1046:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1047:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1048:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1049:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1050:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=59s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-M9fMKZ1kkywvD7vYoDuVB2
+
+==================== RUN 5 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-SiB0ARTc6TG3f94z6s6NAR
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: FAIL rc=1 errors=9 sorry=0
+{'P2.lean': 'FAIL rc=1 errors=9 sorry=0'}
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (9 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:829:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.86), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:861:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.592), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:903:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:995:12: error(lean.unknownIdentifier): Unknown identifier `mem_of_superset`
+P2.lean:996:4: error: Type mismatch
+  hmem
+has type
+  {x | 0 < x → x ≤ δ → varK p ≤ 2 * v * rexp (v * x ^ 2)} ∈ 𝓝 0
+but is expected to have type
+  ∀ᶠ (x : ℝ) in 𝓝 0, x ∈ Set.Ioi 0 → varK p ≤ 2 * v * rexp (v * x ^ 2)
+···
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:861:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.592), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:903:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:995:12: error(lean.unknownIdentifier): Unknown identifier `mem_of_superset`
+P2.lean:996:4: error: Type mismatch
+  hmem
+has type
+  {x | 0 < x → x ≤ δ → varK p ≤ 2 * v * rexp (v * x ^ 2)} ∈ 𝓝 0
+but is expected to have type
+  ∀ᶠ (x : ℝ) in 𝓝 0, x ∈ Set.Ioi 0 → varK p ≤ 2 * v * rexp (v * x ^ 2)
+P2.lean:1049:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:995:12: error(lean.unknownIdentifier): Unknown identifier `mem_of_superset`
+P2.lean:996:4: error: Type mismatch
+  hmem
+has type
+  {x | 0 < x → x ≤ δ → varK p ≤ 2 * v * rexp (v * x ^ 2)} ∈ 𝓝 0
+but is expected to have type
+  ∀ᶠ (x : ℝ) in 𝓝 0, x ∈ Set.Ioi 0 → varK p ≤ 2 * v * rexp (v * x ^ 2)
+P2.lean:1049:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:995:12: error(lean.unknownIdentifier): Unknown identifier `mem_of_superset`
+P2.lean:996:4: error: Type mismatch
+  hmem
+has type
+  {x | 0 < x → x ≤ δ → varK p ≤ 2 * v * rexp (v * x ^ 2)} ∈ 𝓝 0
+but is expected to have type
+  ∀ᶠ (x : ℝ) in 𝓝 0, x ∈ Set.Ioi 0 → varK p ≤ 2 * v * rexp (v * x ^ 2)
+P2.lean:1049:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  ∀ᶠ (x : ℝ) in 𝓝 0, x ∈ Set.Ioi 0 → varK p ≤ 2 * v * rexp (v * x ^ 2)
+P2.lean:1049:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1049:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1050:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1051:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1052:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1053:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-SiB0ARTc6TG3f94z6s6NAR
+
+==================== RUN 6 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-qhpoEtU5hByXticmsEE2T1
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=0.76 mem=8125MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P2.lean': 'FAIL rc=1 errors=9 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=9 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (9 errors, all shown) ----
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:840:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.86), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:872:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.592), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:914:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1002:60: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+···
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:872:55: error: Type mismatch
+  hasDerivAt_neg'
+has type
+  ∀ (x : ?m.592), HasDerivAt (fun x => -x) (-1) x
+but is expected to have type
+  HasDerivAt (fun t => -t) (-1) t
+P2.lean:914:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1002:60: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1002:60: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+a✝ : 0 ≤ ?m.920
+⊢ False
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+···
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+⊢ ℝ
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+⊢ ℝ
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=69s max_cpu=0.76 max_mem=8125MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-qhpoEtU5hByXticmsEE2T1
+
+==================== RUN 7 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ghPnyM0GtZGdfcSQhQvN5A
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=7 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (7 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1002:60: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+a✝ : 0 ≤ ?m.920
+⊢ False
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+···
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+⊢ ℝ
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+⊢ ℝ
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=7 sorry=0
+[tele] SUMMARY run: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ghPnyM0GtZGdfcSQhQvN5A
+
+==================== RUN 8 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-QpW2MPoE4lP1x2d4IBRiz7
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=6 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (6 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1002:35: error: Application type mismatch: The argument
+  Ioo_mem_nhds hδ
+has type
+  δ < ?m.921 → Set.Ioo 0 ?m.921 ∈ 𝓝 δ
+but is expected to have type
+  ?m.914 ∈ 𝓝 0
+in the application
+  Filter.mem_of_superset (Ioo_mem_nhds hδ)
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+  Filter.mem_of_superset (Ioo_mem_nhds hδ)
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1058:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1060:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=6 sorry=0
+[tele] SUMMARY run: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-QpW2MPoE4lP1x2d4IBRiz7
+
+==================== RUN 9 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-XcOqoXIMsI3lLJ9W8QQCxE
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=0.82 mem=6260MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P2.lean': 'FAIL rc=1 errors=7 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (7 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1003:48: error: linarith failed to find a contradiction
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+a✝ : 0 ≤ ?m.928
+⊢ False
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+···
+failed
+P2.lean:1001:93: error: unsolved goals
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+p : ι → ℝ
+hp : IsSpectrum p
+v δ : ℝ
+hv : 0 ≤ v
+hδ : 0 < δ
+h : mgfBound p v δ
+hpair : ∀ (u : ℝ), 0 < u → u ≤ δ → u ^ 2 * varK p ≤ 2 * (rexp (v * u ^ 2) - 1)
+henv : ∀ (u : ℝ), 0 < u → u ≤ δ → varK p ≤ 2 * v * rexp (v * u ^ 2)
+hcont : Continuous fun u => 2 * v * rexp (v * u ^ 2)
+hcw : ContinuousWithinAt (fun u => 2 * v * rexp (v * u ^ 2)) (Set.Ioi 0) 0
+hT : Filter.Tendsto (fun u => 2 * v * rexp (v * u ^ 2)) (𝓝[>] 0) (𝓝 (2 * v * rexp (v * 0 ^ 2)))
+⊢ ℝ
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+⊢ ℝ
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=7 sorry=0
+[tele] SUMMARY run: wall=76s max_cpu=0.82 max_mem=6260MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-XcOqoXIMsI3lLJ9W8QQCxE
+
+==================== RUN 10 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-7vB4yJv6YwR3hQlOGYlACP
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=5 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=5 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (5 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1059:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1060:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1061:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+P2.lean:1062:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1063:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=5 sorry=0
+[tele] SUMMARY run: wall=45s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-7vB4yJv6YwR3hQlOGYlACP
+
+==================== RUN 11 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-o4IVhMtwiFDqHHuQ9hUECJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'OK'}
+[p74p1] P2.lean: OK
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.mgfBound_var_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+P2.lean:792:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+P2.lean:914:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+P2.lean:967:70: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.mgfBound_var_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+famClassMemProbe : ℝ → ℕ → Prop
+famVarLBProbe : ℝ → ℕ → Prop
+famTailProbe : ℝ → ℕ → Prop
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: OK
+[tele] SUMMARY run: wall=40s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-o4IVhMtwiFDqHHuQ9hUECJ
+

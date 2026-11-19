@@ -603,6 +603,39 @@ rides this commit.
   the Frei–Sofos–Widmer cite): "; Chang–Wang arXiv:2611.00924 (Hecke zero-free,
   added 2026-11-19)" — dated-attribution convention; anchor-count 1/1.
 
+## 2026-11-19 — iter-5 steady state, batch 6 (H): R4 41-core GREEN + R3 74-P2 G2 GREEN + R9 battery FINAL
+
+- **R4's 41-core landing** (12 files, shas verified): `Core.lean` at `733b4a2d…`
+  (the GREEN bytes `921bc43cbd06d252` documented in-file + comment-only
+  post-GREEN delta) + record + the amendment draft + 9 logs. **Verdict of
+  record: 41-core GREEN — the discovery core kernel-proved** (`mainCor`
+  triad-clean; antipodal stratification decide-certified; the P1/P2/universal-M
+  refutations decide-certified; (N′) closed nondegenerate; eth's Signs
+  re-proved on eth's own route). Billing ruled DISCOVERY quota-free;
+  article-41 drafting (R7), gated on R9's novelty refresh. **H folded R4's
+  [CORRECTION 2026-11-19] into dossier-41** (the three-way provenance quotes
+  ride: falsity = the precharter's universal-shaping layer; eth TRUE; the
+  dossier's conditional (M) now a theorem) + F4 actuals + F5(ii) CLOSED-REFUTED.
+- **BUDGET-DISCLOSURE DISPOSITION (recorded per the orchestrator; accepted, no
+  sanction):** 9 runs vs the 3–5+reserve charter — root-caused as universe
+  auto-bound churn; resources HELD at 2 cpu / 4 GB throughout;
+  investigate-not-upgrade per AGENTS §Modal guideline 3 (no upgrade sought or
+  granted).
+- **R3's 74-P2 G2/G3 landing** (4 files, shas verified): **G2 GREEN**
+  (`mgfBound_var_sharp` Var ≤ 2σ² + `t1c_sharp` exact constant, both triad) +
+  **G3 statement probe PASS**; P2-c chartered-unexecuted, ≤5 budget intact
+  (R3 re-tasked to P2-c). **Budget-calibration note (recorded):** P1's ≤5 ran
+  5/5 actual; P2-G2's ≤5 ran 11 — chartered budgets for this lane run ~2×
+  under actual; future 74 charters price accordingly. **Run-6 process error
+  owned in-log** (the P1-precedent class; accepted).
+- **R9's round6-41-battery FINAL pulled** (`c24b62e5…`, SUPERSEDING the
+  batch-2 copy `81cc649a`; the §LANDING appendix = the article's
+  novelty-section source). **Ship-gate (tracker): article-41 = R7's
+  draft-final + R2's S1–S4 pass → orchestrator splice approval.**
+- **R1's funnel flagged (tracker row):** the 74-P2 fold (§11 row +
+  `AxPilot74_P2` activation + classifier entry) QUEUES BEHIND R1's 41-core
+  fold (which itself queues behind the owed ENTRY 4).
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over

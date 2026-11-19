@@ -1,0 +1,98 @@
+# Provenance: 2026-11-19, lane R4 (unit 2: 41 core, run 8). Route: doz CLI, profile
+#   semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096, LEAN_NUM_THREADS=2,
+#   telemetry @60s; P0.lean staged alongside each run (regression, OK every time).
+#   Substrate: mathlib4 ff2494ea..., toolchain v4.36.0-rc2, 8710 oleans (warm).
+#   sha256 (full): 77ff652439aa63f238687b2f59f8b6daefee0f27ad4983168e1d5d39b2264c9b
+#   sha256 (16):  77ff652439aa63f2
+# run 8 = explicit application `@h Z _ ...`. SAME single error (`Z : Type of sort Type 1 but expected Type u_2`) — confirms the auto-bound-universe freeze conclusively. Fix identified: instantiate the def's universe in the theorem statement (`.{0}`). Verdict NOT-GREEN (1 error). Wall 56 s, samples=0.
+# Modal run: https://modal.com/apps/semraker/main/ap-ZCk2uMsi0VUEzvBM7arxTI
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ZCk2uMsi0VUEzvBM7arxTI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Core.lean', 'P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Core.lean
+[probe] Core.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=2
+---- output head ----
+Core.lean:532:4: warning: This simp argument is unused:
+  Polynomial.eval_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Gq, tauSum1, tauSum2, tauMin, gapOdd, kDef, phiQ, tau, phi1, phi2, phi3, intCast_eq_C,
+    ← Polynomial.C_pow, Polynomial.eval_mul, Polynomial.eval_pow, Polynomial.eval_C, Polynomial.eval_zero,
+    Finset.sum_range_one] at h1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Core.lean:533:4: warning: This simp argument is unused:
+  Finset.sum_range_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Gq, tauSum1, tauSum2, tauMin, gapOdd, kDef, phiQ, tau, phi1, phi2, phi3, intCast_eq_C,
+    ← Polynomial.C_pow, Polynomial.eval_mul, Polynomial.eval_pow, Polynomial.eval_X, Polynomial.eval_C,
+    Polynomial.eval_zero] at h1
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Core.lean:550:16: error: Application type mismatch: The argument
+  ℤ
+has type
+  Type
+of sort `Type 1` but is expected to have type
+  Type u_2
+of sort `Type (u_2 + 1)` in the application
+  @h ℤ
+'Pilot41.phi_parts' does not depend on any axioms
+'Pilot41.ethParity' does not depend on any axioms
+'Pilot41.stratumComplement' does not depend on any axioms
+'Pilot41.P1_refuted' does not depend on any axioms
+'Pilot41.P2_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.MainIdentity_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.neg_one_pow_two_mul' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_two_mul_succ' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_congr' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_add_eq_zero' depends on axioms: [propext, Quot.sound]
+'Pilot41.one_sub_mul_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.intCast_eq_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.parity_bracket' depends on axioms: [propext, Quot.sound]
+'Pilot41.two_term_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.sigmaQ_prod' depends on axioms: [propext]
+'Pilot41.aeval_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.main_abstract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.signs_anchor' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_axiom' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_pin_proof' depends on axioms: [propext, Quot.sound]
+'Pilot41.mainCor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.Gq_eq_GqGen_on_stratum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.mainStratum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.qRigid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.alternation_fails_at_q_minus_one' depends on axioms: [propext]
+'Pilot41.SigmaQ_Signs_all_q_refuted' depends on axioms: [propext, sorryAx]
+'Pilot41.mainCor_one_implies_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.mainImpliesSigns' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   Core.lean: FAIL (1 errors)
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=56s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ZCk2uMsi0VUEzvBM7arxTI

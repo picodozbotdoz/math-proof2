@@ -1,0 +1,137 @@
+# Provenance: 2026-11-19, lane R4 (unit 2: 41 core S–M, run core-1 of the ladder).
+# File fired: research/pilots/41/Core.lean TRUNCATED at the §5 header (core-1 = §0 P0
+#   surface + §0.5 intCast helper + §1 refutations + §2 finite facts + §3 ring helpers
+#   + §4 anchor), `end Pilot41` appended. 378 LoC staged.
+#   sha256 (full): c582eb90b59182fb… (see below); worktree full-file sha (581 LoC at
+#   the time): dbd8c7e4b4e2beee (superseded by fix-loop edits — the fired bytes are
+#   the record of run 1).
+#   Full sha256: c582eb90b59182fb392e4e4dd1c1e21f1cd3b910cfa4273c75f11ab31771e9e3
+#   sha256 (16):  c582eb90b59182fb
+# Route: doz CLI /home/doz/dozenv/bin/modal, profile semraker, warm app
+#   crossmath-probe (ephemeral modal run, no volume/secret/deploy).
+# Spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry @60s.
+#   No taskset / no -j (single-file elaboration).
+# Substrate: mathlib4 ff2494ea5e438f8a8452db803068acd711fa0059, toolchain
+#   leanprover/lean4:v4.36.0-rc2, 8710 oleans in-image (warm).
+# Wall: 77 s. Stage also carried P0.lean (regression pin): OK again, unchanged.
+# Verdict: NOT-GREEN — FAIL rc=1, 6 errors, ALL MECHANICAL (no statement-math
+#   defects among them). Crucially:
+#   - §1 P1_refuted and P2_refuted: KERNEL DECIDE PASSED (no errors) — FINDING F1's
+#     certification for P1/P2 is IN HAND.
+#   - §2 ethParity and stratumComplement decides: PASSED — the engine lemma and the
+#     F3 stratum characterization are kernel-certified.
+#   - Errors (all in §3 helpers / §4 anchor / §1 witness-compute):
+#     (1) :208 MainIdentity_refuted `by decide` — kernel reduction stuck at
+#         Int-decEq match: the aeval-side of the witness equation does not whnf
+#         through Classical decidability instances (Classical.decEq in the unfold
+#         chain). Fix (run 2): norm_num-based witness computation with the def+
+#         intCast_eq_C/aeval_C lemma set (no kernel aeval reduction).
+#     (2) :300 `Polynomial.intCast_def` unknown on this pin → fix: the pin has
+#         `Polynomial.C_eq_intCast : C (n : R) = n` (Basic.lean:981, read at the
+#         local encore checkout same rev) — intCast_eq_C now proven via
+#         `rw [← Polynomial.C_eq_intCast, Int.cast_id]`.
+#     (3) :308 parity_bracket — `rw [neg_pow]` leftmost-match polluted `(-1)^a`
+#         (base 1 also matches `(-?a)^?n` → `(-1)^a * 1^a`). Fix: `rw [neg_pow x g]`.
+#     (4) :357 main_abstract — rw ORDER: DefPoly was unfolded before aeval_geom's
+#         LHS pattern (which contains DefPoly). Fix: drop the DefPoly rw; aeval_geom
+#         matches directly.
+#     (5)+(6) :369/:372 signs_anchor hphi1/hphi2 — `rw [tau]` fired when no `tau`
+#         application existed (tauSum1 not yet unfolded). Fix: reorder
+#         `rw [phi_parts, phi_parts, tauSum1, tau, tau]`.
+# Telemetry: 1 sample OVER mem (8468 MB — the documented olean-mapping artifact for
+#   `import Mathlib` modules; anon=0 MB, cpu max 0.78, procs=2). No action, per
+#   AGENTS §Modal guideline 3 + measured fact 5.
+# Modal run: https://modal.com/apps/semraker/main/ap-d9fSd2RzWCTKGIiVF3tzJ3
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-d9fSd2RzWCTKGIiVF3tzJ3
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Core.lean', 'P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Core.lean
+[tele] t=60s cpu=0.78 mem=8468MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] Core.lean: FAIL rc=1; errors=6, sorry-warnings=0, other-warnings=0
+---- output head ----
+Core.lean:208:22: error: Tactic `decide` failed to reduce
+  @decide
+    (¬sigmaQ (-1) (false, false, false) (true, false, false) * sigmaQ (-1) (true, false, false) (false, false, false) +
+          sigmaQ (-1) (false, false, false) (false, false, false) *
+            sigmaQ (-1) (true, false, false) (true, false, false) =
+        (1 - ↑(-1)) *
+          (aeval ↑(-1)) (Gq (false, false, false) (true, false, false) (true, false, false) (false, false, false)))
+    instDecidableNot
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqNat`, `instDecidableNot`, `Classical.decEq`, `Classical.propDecidable`, `Int.decEq`, `Int.instDecidableEq`, and `Nat.decEq`, reduction got stuck at
+  match
+    sigmaQ (-1) (false, false, false) (true, false, false) * sigmaQ (-1) (true, false, false) (false, false, false) +
+      sigmaQ (-1) (false, false, false) (false, false, false) * sigmaQ (-1) (true, false, false) (true, false, false),
+    (1 - ↑(-1)) *
+      (aeval ↑(-1)) (Gq (false, false, false) (true, false, false) (true, false, false) (false, false, false)) with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+Core.lean:300:6: error(lean.unknownIdentifier): Unknown constant `Polynomial.intCast_def`
+Core.lean:299:76: error: unsolved goals
+c : ℤ
+⊢ ↑c = C c
+Core.lean:308:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  (-1) ^ a * 1 ^ a + (-1) ^ b * (-x) ^ g = (-1) ^ a * 1 ^ a * (1 - x ^ g)
+
+R : Type u_2
+inst✝ : CommRing R
+x : R
+a b g : ℕ
+h : (a + b + g) % 2 = 1
+⊢ (-1) ^ a * 1 ^ a + (-1) ^ b * (-x) ^ g = (-1) ^ a * 1 ^ a * (1 - x ^ g)
+Core.lean:357:46: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) (DefPoly ?c ?s ?n)
+in the target expression
+  (1 - x) * ((-1) ^ a * (-x) ^ s * ∑ j ∈ Finset.range (t - s), x ^ j) =
+    (1 - x) * (aeval x) (C ((-1) ^ a) * (-X) ^ s * ∑ j ∈ Finset.range (t - s), X ^ j)
+
+R : Type u_2
+inst✝ : CommRing R
+x : R
+a b s t : ℕ
+hle : s ≤ t
+h : (a + b + (t - s)) % 2 = 1
+⊢ (1 - x) * ((-1) ^ a * (-x) ^ s * ∑ j ∈ Finset.range (t - s), x ^ j) =
+    (1 - x) * (aeval x) (C ((-1) ^ a) * (-X) ^ s * ∑ j ∈ Finset.range (t - s), X ^ j)
+Core.lean:369:30: error: Failed to rewrite using equation theorems for `tau`
+Core.lean:372:30: error: Failed to rewrite using equation theorems for `tau`
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   Core.lean: FAIL (6 errors)
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=77s max_cpu=0.78 max_mem=8468MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-d9fSd2RzWCTKGIiVF3tzJ3

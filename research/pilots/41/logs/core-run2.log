@@ -1,0 +1,61 @@
+# Provenance: 2026-11-19, lane R4 (unit 2: 41 core S–M, run core-1 fix-loop re-fire).
+# File fired: Core.lean §0–§4 truncation (cut at §5 header), post-run-1 mechanical
+#   fixes: (i) intCast_eq_C via `← Polynomial.C_eq_intCast, Int.cast_id` (the pin has
+#   C_eq_intCast, Basic.lean:981 — intCast_def does NOT exist on-pin); (ii) parity_bracket
+#   `rw [neg_pow x g]` explicit args (leftmost-match misfire: `(-1)^a` also matches the
+#   `(-?a)^?n` pattern → `(-1)^a * 1^a` pollution); (iii) main_abstract rw order
+#   (aeval_geom before DefPoly unfold); (iv) signs_anchor hphi1/hphi2 reorder
+#   `rw [phi_parts, phi_parts, tauSum1, tau, tau]`; (v) MainIdentity_refuted switched
+#   from kernel decide to norm_num-witness computation (run-1 stuck point).
+#   sha256 (full): 7a5fb6d1315f36d5a21386cc295132570c5bca35a4d98f746d08e8bc5d3d60a1
+#   sha256 (16): 7a5fb6d1315f36d5 · 383 LoC.
+# Route: doz CLI, profile semraker, warm app crossmath-probe. Spec: cpu=2.0,
+#   memory=4096, LEAN_NUM_THREADS=2, telemetry @60s. P0.lean also staged (regression): OK.
+# Wall: 59 s.
+# Verdict: NOT-GREEN — 2 errors, both "No goals to be solved" (a GOOD failure class):
+#   - MainIdentity_refuted: the norm_num at h0 AUTO-CLOSED the goal (h0 normalized to
+#     the numeral-false `0 = 2` — norm_num detects numeral-false hyps); the trailing
+#     `exact absurd …` had nothing to do. FINDING F1's MainIdentity-refutation is
+#     thereby COMPUTED (LHS 0 vs RHS 2 at the witness); syntax fix only.
+#   - main_abstract: the rw chain closed by rfl; trailing `ring` had nothing to do.
+#   ALL OTHER §0–§4 content GREEN (P1/P2 refutation decides, ethParity, stratumComplement,
+#   all helpers, signs_anchor).
+# Telemetry: wall 59 s < 60 s interval → samples=0 (no sample lines; no OVER).
+# Modal run: https://modal.com/apps/semraker/main/ap-hDXneg0u6wqGWwqMPSYKDR
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-hDXneg0u6wqGWwqMPSYKDR
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Core.lean', 'P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Core.lean
+[probe] Core.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+---- output head ----
+Core.lean:218:2: error: No goals to be solved
+Core.lean:363:2: error: No goals to be solved
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   Core.lean: FAIL (2 errors)
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=59s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-hDXneg0u6wqGWwqMPSYKDR

@@ -106,6 +106,53 @@ G_q p q p' q' := (−1)^(Q1) · (−q)^(τmin) · Σ_{j=0}^{2k} q^j,   2k+1 = ga
 
 — end erratum.
 
+**[CORRECTION 2026-11-19, lane R4 — machine-certified; folded by H per the
+one-writer convention, draft = `pilots/41/dossier41-amendment-draft.md`.]** The P0
+precharter's universal SHAPING of the hypothesis layer is FALSE as stated —
+kernel-certified refutations (`pilots/41/Core.lean` §1, decide/norm_num,
+axiom-lean; witness quad **p = 000, q1 = 100, p′ = 100, q2 = 000**, a valid
+parallelogram with q1 ≠ q2): **P1 fails** (Q1 = 0 but Q2 = 1, `P1_refuted`, zero
+axioms); **P2 fails** (gapOdd = τ1 + τ2 = 0, even, `P2_refuted`); the
+**MainIdentity-as-universal fails** (at R = ℤ, q = −1 it reads 0 = 2,
+`MainIdentity_refuted`). **What survives, strengthened (all kernel-proved,
+triad-clean, `Core.lean` §6):** (1) **`mainCor` (M-corrected, universal)**: for
+EVERY parallelogram quad and every CommRing R with unit q,
+σ_q(p,q1)σ_q(p′,q2) + σ_q(p,q2)σ_q(p′,q1) = (1−q)·aeval q (GqGen), where
+**GqGen := (−1)^{Q_small}·(−X)^{τmin}·Σ_{j<|τ1−τ2|} X^j** — the geometric factor
+has length |τ1−τ2| = gapOdd − 2·τmin, Q_small the quadratic sum of the smaller-τ
+side; empty sum (τ1 = τ2) gives defect 0. (2) **`mainStratum`**: ON the odd-gap
+stratum GqGen = the dossier's G_q exactly (`Gq_eq_GqGen_on_stratum`) — the
+dossier's (M) display is exactly right where its own conditional meant it.
+(3) **Stratum characterization** (`stratumComplement`, decide-certified, zero
+axioms): the odd-gap stratum is precisely the **antipodal** parallelograms
+{p′ = ¬p bitwise} (bxor p p′ = 111); off it τ1 ≡ τ2 (mod 2), with defect 0 when
+τ1 = τ2 (**q-rigidity**, `qRigid` — the classical alternation survives every q
+there) or an even-length geometric sum when |τ1−τ2| ≥ 2 (e.g. p = 101, q1 = 101,
+p′ = 011, q2 = 011: A + B = 1 − q²). (4) **(N′) closed**
+(`SigmaQ_Signs_all_q_refuted`, [propext]): the family is NONdegenerate — at the
+antipodal quad p = 110, q1 = 110, p′ = 001, q2 = 001 the alternation value at
+q = −1 is 2 ≠ 0 (`alternation_fails_at_q_minus_one`, [propext]). (5) The anchor
++ bridge re-proved in-pilot (`signs_anchor`, `bridge_axiom`, [propext,
+Quot.sound]): eth's Signs via the same route eth itself uses, and the
+corrected-⇒classical regression `mainCor_one_implies_signs` (triad-clean).
+**Provenance (the three-way ruling):** the falsity is the P0 precharter's
+universal-shaping layer (`a6-41-p0-precharter.md` §1.4 stated (P1)/(P2)/(M) as
+Para-universals; the decide it invoked, when actually run, refuted its own
+universal — core runs 1–2) — **NOT the eth source** (eth's actual parity fact
+`SecCrossing_Identity.lean:240–242` `four_phi_odd` states NO (P1)/(P2) split;
+every eth-originated statement in the P0 is TRUE, Signs re-proved) and **NOT the
+dossier's (M)** (stated conditionally "provided the two parity facts hold" — the
+conditional reading is correct and now a theorem). Claim discipline unchanged
+(first sign-rule/parallelogram-defect deformation; NEVER first q-deformation —
+Benkart–Pérez-Izquierdo 1998 owns the q-composition object level). Billing
+(findings only): a spec-shaping defect in the precharter layer; the DISCOVERY
+content (unified defect identity + antipodal stratification + nondegeneracy) is
+intact and kernel-proved; the novelty battery targets the CORRECTED identity.
+**Verification:** mathlib `ff2494ea` / v4.36.0-rc2, warm `crossmath-probe`
+(doz/semraker); `pilots/41/Core.lean` GREEN run 9 sha256(16) `921bc43cbd06d252`
+(full `921bc43cbd06d252dbc796c79b734529a1dd1e02d7097b0e8efb3fdc41adf269`),
+0 sorry, 0 sorryAx, triad-or-leaner audit in-file; logs `core-run1..9`.
+
 **Nondegeneracy (N) [HYPOTHESIS, spot-checkable].** There exists a parallelogram quadruple with
 `G_q ≠ 0` in ℤ[q±] (equivalently: the alternation fails for a specific q ≠ 1, e.g. q = 2).
 Then: *the Graves alternation holds for all quadruples at parameter q iff q = 1* — the
@@ -266,11 +313,13 @@ bxor p q1 = bxor p' q2 → q1 ≠ q2 → <M with G_q as above>`, with (P1)(P2) d
 - **F4. Effort: S–M.** (M)+(N): ~500–1k LoC (definition ~50, step-1 parity split ~200 — mostly
   transcribing eth's chain with both parts tracked, step 2 ~100, (N) decide driver ~50,
   packaging ~100). (H): +1–3k with the finite TL search; scoped as a separate milestone.
+  *[ACTUALS 2026-11-19, lane R4: ~600 LoC, GREEN run 9 (logs `pilots/41/core-run1..9`);
+  the estimate held; see the CORRECTION block above for what the run actually proved.]*
 - **F5. Risks:** (i) **novelty risk is the dominant one** (q-octonion literature; R8 round-2
-  mandatory before pilot); (ii) (N) could fail (family degenerate) — the decide check settles
-  it in either direction, and a degenerate outcome would itself be an amusing statement
-  ("every q preserves the alternation"), still publishable as a corollary-grade finding but
-  weaker; (iii) (H)'s finite search may have no solution — mitigated by the fallback scope;
+  mandatory before pilot); (ii) ~~(N) could fail (family degenerate)~~ **CLOSED 2026-11-19 —
+  REFUTED (the family is NONdegenerate)**: `(SigmaQ_Signs_all_q_refuted,
+  alternation_fails_at_q_minus_one)`; the F5(ii) degenerate-branch descope is DEAD
+  (R4's CORRECTION block item 4); (iii) (H)'s finite search may have no solution — mitigated by the fallback scope;
   (iv) eth's `Signs` predicate lives in the statement file `EightSquareStatement.lean` imported
   by the proof file — restating (B) requires the statement-level `sigma`/`phi` defs to be
   visible; they are (`@[expose]` defs in `SecCrossing_Identity.lean:126–133`).

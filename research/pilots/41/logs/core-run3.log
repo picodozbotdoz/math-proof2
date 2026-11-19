@@ -1,0 +1,132 @@
+# Provenance: 2026-11-19, lane R4 (unit 2: 41 core S–M, run core-2 = FULL Core.lean,
+#   §0–§8, first full-file firing; run-2's two trailing-tactic deletions applied).
+#   sha256 (full): 27b005da0a93e3ffbe7f841d2485ebb20b64f0f5789382d1cae47728fa1a31c4
+#   sha256 (16):  27b005da0a93e3ff · 586 LoC.
+# Route: doz CLI, profile semraker, warm app crossmath-probe. Spec: cpu=2.0,
+#   memory=4096, LEAN_NUM_THREADS=2, telemetry @60s. P0.lean also staged: OK.
+# Wall: 53 s.
+# Verdict: NOT-GREEN — 5 errors (all §6–§8 mechanical), BUT the audit surface already
+#   certifies the milestone core:
+#   - signs_anchor [propext, Quot.sound] — the ANCHOR (eth's Signs re-proved) is CLEAN.
+#   - bridge_axiom / bridge_pin_proof [propext, Quot.sound] — (B) CLEAN.
+#   - main_abstract (the full step-2 algebra) [propext, Classical.choice, Quot.sound]
+#     — triad-only CLEAN.
+#   - alternation_fails_at_q_minus_one [propext] — FINDING F4 kernel-certified.
+#   - mainCor_one_implies_signs / mainImpliesSigns triad-only CLEAN.
+#   - sorryAx entries (mainCor, Gq_eq_GqGen_on_stratum, mainStratum, qRigid,
+#     nondegenerate, SigmaQ_Signs_all_q_refuted) are ERROR-RECOVERY shadows of the 5
+#     errors, not real sorries (0 sorry-warnings).
+#   Error taxonomy (all mechanical, one root-cause cluster):
+#   (a) if_pos/if_neg DO NOT FIRE as simp arguments on this pin (deprecated; the
+#       unused-arg linter confirmed `if_neg (by omega)` unused) — the GqGen ite did not
+#       reduce in three hG-proofs of mainCor + qRigid + (likely) the two middle errors.
+#       Fix (run 4): split-based branch resolution.
+#   (b) DISCOVERY about the P0 Gq elaboration: the ascription
+#       `((-1 : ℤ) ^ e : ℤ[X])` elaborates with the coercion on the BASE —
+#       `((-1 : ℤ) : ℤ[X]) ^ e` — so intCast_eq_C (c := -1) yields `(C (-1 : ℤ)) ^ e`,
+#       which needs `← Polynomial.C_pow` (exists on-pin, Basic.lean:366:
+#       C_pow : C (a ^ n) = C a ^ n) to reach the GqGen-side `C ((-1) ^ e)`. This is
+#       exactly the run-3 :463 residue `(C (-1))^e * … = C ((-1)^e) * …` and the :477
+#       hQ-not-found. Fix (run 4): intCast_eq_C then ← C_pow in Gq_eq_GqGen branches.
+#   (c) run-2-class finishers applied to nondegenerate (norm_num close) and
+#       SigmaQ_Signs_all_q_refuted (norm_num close) pre-emptively.
+#   NOTE: the probe's output-head/tail truncation dropped the middle 154 lines
+#   (incl. 2 error details and the early audit lines: phi_parts, ethParity,
+#   stratumComplement, P1/P2/MainIdentity_refuted, neg_one_pow*, one_sub_mul_geom,
+#   intCast_eq_C, parity_bracket, two_term_geom) — they re-print in the GREEN run.
+# Telemetry: wall 53 s < 60 s → samples=0, no OVER.
+# Modal run: https://modal.com/apps/semraker/main/ap-e6foaNlhmU6lT1qIXmHKYE
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-e6foaNlhmU6lT1qIXmHKYE
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Core.lean', 'P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Core.lean
+[probe] Core.lean: FAIL rc=1; errors=5, sorry-warnings=0, other-warnings=9
+---- output head ----
+Core.lean:434:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+Core.lean:444:35: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+Core.lean:452:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Core.lean:451:59: error: unsolved goals
+R : Type u_2
+inst✝ : CommRing R
+q : Rˣ
+p q1 p' q2 : Block
+hpara : Para p q1 p' q2
+hpar : (phiQ p q1 + phiQ p' q2 + (phiQ p q2 + phiQ p' q1) + (tauSum1 p q1 p' q2 + tauSum2 p q1 p' q2)) % 2 = 1
+hle : tauSum2 p q1 p' q2 ≤ tauSum1 p q1 p' q2
+hE : ¬tauSum1 p q1 p' q2 = tauSum2 p q1 p' q2
+hp : (phiQ p q2 + phiQ p' q1 + (phiQ p q1 + phiQ p' q2) + (tauSum1 p q1 p' q2 - tauSum2 p q1 p' q2)) % 2 = 1
+⊢ (if tauSum1 p q1 p' q2 ≤ tauSum2 p q1 p' q2 then
+      C ((-1) ^ (phiQ p q1 + phiQ p' q2)) * (-X) ^ tauSum1 p q1 p' q2 *
+        ∑ j ∈ Finset.range (tauSum2 p q1 p' q2 - tauSum1 p q1 p' q2), X ^ j
+    else
+      C ((-1) ^ (phiQ p q2 + phiQ p' q1)) * (-X) ^ tauSum2 p q1 p' q2 *
+        ∑ j ∈ Finset.range (tauSum1 p q1 p' q2 - tauSum2 p q1 p' q2), X ^ j) =
+    C ((-1) ^ (phiQ p q2 + phiQ p' q1)) * (-X) ^ tauSum2 p q1 p' q2 *
+      ∑ j ∈ Finset.range (tauSum1 p q1 p' q2 - tauSum2 p q1 p' q2), X ^ j
+Core.lean:452:35: warning: This simp argument is unused:
+  if_neg (by omega)
+Core.lean:468:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+Core.lean:463:2: error: unsolved goals
+case inl
+p q1 p' q2 : Block
+hpara : Para p q1 p' q2
+hT : (tauSum1 p q1 p' q2 + tauSum2 p q1 p' q2) % 2 = 1
+hpar : (phiQ p q1 + phiQ p' q2 + (phiQ p q2 + phiQ p' q1) + (tauSum1 p q1 p' q2 + tauSum2 p q1 p' q2)) % 2 = 1
+hle : tauSum1 p q1 p' q2 ≤ tauSum2 p q1 p' q2
+hmin : tauMin p q1 p' q2 = tauSum1 p q1 p' q2
+hlen : 2 * kDef p q1 p' q2 + 1 = tauSum2 p q1 p' q2 - tauSum1 p q1 p' q2
+⊢ C (-1) ^ (phiQ p q1 + phiQ p' q2) * (-X) ^ tauSum1 p q1 p' q2 *
+      ∑ j ∈ Finset.range (tauSum2 p q1 p' q2 - tauSum1 p q1 p' q2), X ^ j =
+    C ((-1) ^ (phiQ p q1 + phiQ p' q2)) * (-X) ^ tauSum1 p q1 p' q2 *
+      ∑ j ∈ Finset.range (tauSum2 p q1 p' q2 - tauSum1 p q1 p' q2), X ^ j
+Core.lean:477:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+Core.lean:477:52: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (-1) ^ (phiQ p q1 + phiQ p' q2)
+---- (…154 more lines) tail ----
+'Pilot41.sigmaQ_prod' depends on axioms: [propext]
+'Pilot41.aeval_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.main_abstract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.signs_anchor' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_axiom' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_pin_proof' depends on axioms: [propext, Quot.sound]
+'Pilot41.mainCor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41.Gq_eq_GqGen_on_stratum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41.mainStratum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41.qRigid' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41.nondegenerate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41.alternation_fails_at_q_minus_one' depends on axioms: [propext]
+'Pilot41.SigmaQ_Signs_all_q_refuted' depends on axioms: [propext, sorryAx]
+'Pilot41.mainCor_one_implies_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.mainImpliesSigns' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   Core.lean: FAIL (5 errors)
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-e6foaNlhmU6lT1qIXmHKYE
+
+# [log note] transcript is verbatim; this run produced no [tele] sample line (wall 53 s
+# < 60 s interval) — the [tele] start/SUMMARY lines are the only telemetry output.

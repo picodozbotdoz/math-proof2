@@ -1,0 +1,90 @@
+# Provenance: 2026-11-19, lane R4 (unit 2: 41 core, run 4 = core-2 re-fire, full file,
+#   post-run-3 fixes: split-based GqGen-ite resolution in mainCor ×3 / Gq_eq_GqGen ×2 /
+#   qRigid; intCast_eq_C + ← Polynomial.C_pow conversion chain in Gq_eq_GqGen
+#   (run-3 discovery: the P0 Gq ascription elaborates with the coercion on the BASE —
+#   ((-1:ℤ):ℤ[X])^e — so the C-conversion needs C_pow after intCast_eq_C);
+#   norm_num finishers in nondegenerate / SigmaQ_Signs_all_q_refuted).
+#   sha256 (full): c525de8915d9b713e7449e143728fccf6ad7c6e060b23f8118ed998d42e2fd24
+#   sha256 (16):  c525de8915d9b713 · 604 LoC.
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec 2cpu/4096MB,
+#   LEAN_NUM_THREADS=2, telemetry @60s. P0.lean staged alongside: OK.
+# Wall: 59 s. Verdict: NOT-GREEN — 1 error. THE DISCOVERY CORE IS DONE AT THIS RUN:
+#   mainCor / Gq_eq_GqGen_on_stratum / mainStratum / qRigid / nondegenerate ALL
+#   triad-clean; ethParity / stratumComplement / P1_refuted at ZERO axioms.
+#   The one error: SigmaQ_Signs_all_q_refuted's `h (-1 : ℤˣ)` — application-type
+#   mismatch (universe-rigid Units.{u_2}) — first sighting of the auto-bound-universe
+#   issue that runs 5–8 also chase.
+# Telemetry: 59 s < 60 s → samples=0, no OVER.
+# Modal run: https://modal.com/apps/semraker/main/ap-nqNE2o9mp9isSYZPx5GrTq
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-nqNE2o9mp9isSYZPx5GrTq
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 2 probe file(s): ['Core.lean', 'P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== Core.lean
+[probe] Core.lean: FAIL rc=1; errors=1, sorry-warnings=0, other-warnings=0
+---- output head ----
+Core.lean:550:15: error: Application type mismatch: The argument
+  -1
+has type
+  Units.{0} ℤ
+of sort `Type` but is expected to have type
+  Units.{u_2} ?m.5
+of sort `Type u_2` in the application
+  h (-1)
+'Pilot41.phi_parts' does not depend on any axioms
+'Pilot41.ethParity' does not depend on any axioms
+'Pilot41.stratumComplement' does not depend on any axioms
+'Pilot41.P1_refuted' does not depend on any axioms
+'Pilot41.P2_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.MainIdentity_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.neg_one_pow_two_mul' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_two_mul_succ' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_congr' depends on axioms: [propext, Quot.sound]
+'Pilot41.neg_one_pow_add_eq_zero' depends on axioms: [propext, Quot.sound]
+'Pilot41.one_sub_mul_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.intCast_eq_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.parity_bracket' depends on axioms: [propext, Quot.sound]
+'Pilot41.two_term_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.sigmaQ_prod' depends on axioms: [propext]
+'Pilot41.aeval_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.main_abstract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.signs_anchor' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_axiom' depends on axioms: [propext, Quot.sound]
+'Pilot41.bridge_pin_proof' depends on axioms: [propext, Quot.sound]
+'Pilot41.mainCor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.Gq_eq_GqGen_on_stratum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.mainStratum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.qRigid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.alternation_fails_at_q_minus_one' depends on axioms: [propext]
+'Pilot41.SigmaQ_Signs_all_q_refuted' depends on axioms: [propext, sorryAx]
+'Pilot41.mainCor_one_implies_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41.mainImpliesSigns' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   Core.lean: FAIL (1 errors)
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=59s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-nqNE2o9mp9isSYZPx5GrTq

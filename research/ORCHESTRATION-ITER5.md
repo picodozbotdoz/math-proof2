@@ -11,15 +11,15 @@ batches, hardened gate); file funnels + Modal rules per the launch brief §(b).
 | Lane | Worktree | Role | Current unit | Status | Last update |
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (sole committer) | steady-state pull-per-REPORT batches + INDEX rows; standby to confirm R2's G8 cell flips when they land; telemetry watch | active | 2026-11-19 |
-| R1 | agent-02 | iter-5 verification | units 4+5 LANDED (batch-5: the §11 RESTRUCTURE = the deliberate fold, batch-2 hold RESOLVED; sweep-plan complete state; make_axcheck; stepA entries 1–3, certificate EXACT 52) — **ENTRY 4 (the 77-commit c74ac33) still OWED** | active | 2026-11-19 |
+| R1 | agent-02 | iter-5 verification | units 4+5 LANDED (§11 restructure; sweep-plan complete; stepA 1–3, cert EXACT 52) — **OWED: ENTRY 4 (c74ac33) + the 41-core fold + the 74-P2 fold (§11 rows + `AxPilot74_P2` activation + classifier entries; 74-P2 queues behind 41-core)** | active | 2026-11-19 |
 | R2 | agent-03 | 72-M1 + gates tail | 72-M1 L3b–d active; **G8 flips owed** (G2(ii) → PASS 5/5 run2-subset; G3 → PASS closed in K's INDEX) — the gates file's last two conditional cells | active | 2026-11-19 |
-| R3 | agent-07 | 74-P2 | active (post M-arc GREEN r2) | active | 2026-11-19 |
-| R4 | agent-08 | 41-core | defect finding: corrected identity — decides pending | active | 2026-11-19 |
+| R3 | agent-07 | 74-P2 → P2-c | **74-P2 G2 GREEN** (`mgfBound_var_sharp` Var≤2σ² + `t1c_sharp` exact constant, both triad) + G3 statement probe PASS; P2-c chartered-unexecuted (≤5 intact) — landed batch-6 | active (P2-c) | 2026-11-19 |
+| R4 | agent-08 | 41-core | **41-core GREEN — the discovery core kernel-proved** (mainCor triad-clean, antipodal stratification, refutations decide-certified; billing DISCOVERY quota-free; batch-6 + the dossier-41 CORRECTION folded) → next = **(H)-preflight** (the promotion input) | active | 2026-11-19 |
 | R5 | agent-04 | η-port | rungs active — **rung-1 GATED-RED confirmation in flight** (pin-probe COMPLETE GREEN r2) | active | 2026-11-19 |
 | R6 | agent-06 | 75-N2 P2/P3 | **P2-a CLOSED GREEN at run 26** (final-grant fire-once; 15/15 triad, sha `ce6719c8…`); P3 skeleton staged (same unit); next reports ride follow-ups | active | 2026-11-19 |
-| R7 | agent-10 | 77 unit + editorial | **77 follow-up unit LANDED BOTH GREEN** (T1 8/8 run 11, T2 8/8 run 12 — the 386th residual discharged via the `[Fintype κ]` repair; batch-3); next = **41-article-skeleton** | active | 2026-11-19 |
+| R7 | agent-10 | 77 unit + editorial | 77 BOTH GREEN (batch-3); **article-41 FILL** — draft-final owed; ship-gate = R7 draft-final + R2 S1–S4 pass → orchestrator splice approval (R9's battery FINAL = the novelty-section source) | active | 2026-11-19 |
 | R8 | agent-05 | AL rebuild | M0 leg GREEN r3; **M1-completion granted** (per orchestrator) | active | 2026-11-19 |
-| R9 | agent-09 | novelty | rounds 5–6 on main (batch-2); **applying amendments** (dossier-77 amendments 1–3 applied by H at batch-3 per R7's drafts) | active | 2026-11-19 |
+| R9 | agent-09 | novelty | **final battery DELIVERED** (round6-41-battery FINAL, batch-6, supersedes; §LANDING = the article's novelty-section source); clocks + 74-P2 pre-gate landed | active | 2026-11-19 |
 
 Standing: R9's erratum-2 divergence record + the dependsOnNoncomputable substrate
 rule + the telemetry-watch notes live in `qa/iter4-review/h-wave4-log.md` (H's

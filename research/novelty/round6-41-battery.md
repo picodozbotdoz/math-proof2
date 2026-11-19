@@ -158,3 +158,78 @@ method as `round6-41-errata-check.md` §3):
    record-accuracy channel only.
 
 — addendum R9, 2026-11-19 (same hold: no commits).
+
+---
+
+## §LANDING — final novelty-table refresh for the article (R9, 2026-11-19; the article's
+novelty-section source)
+
+**Gate event: 41-core GREEN** (R4's facts of record, relayed 2026-11-19): **F2**
+`mainCor` — `A+B = (1−q)·aeval(GqGen)` at EVERY parallelogram quadruple, with
+`GqGen = (−1)^{Q_small}(−X)^{τmin}·Σ_{j<|τ1−τ2|}X^j`; the dossier's `G_q` recovered
+exactly on-stratum (`mainStratum`). **F3** odd-gap stratum = **antipodal parallelograms
+{p′ = ¬p}**, decide-certified; `qRigid` off-stratum. **F1** the refutations
+(P1/P2/MainIdentity-as-universals; witness p=000, q₁=100, p′=100, q₂=000). **F4** N′
+REFUTED (alternation value 2 ≠ 0 at q = −1). 30 top-level theorems, four at zero axioms.
+**Billing ruled DISCOVERY, quota-free.**
+
+**Independent convergence (R9's enumeration, this file's §ADDENDUM + errata-check §3):**
+R4's kernel-verified `mainCor`/`GqGen` COINCIDE with R9's uniform min-side certificate —
+`Q_small` = the Q of the τ-minimizing side (R9's `Q_min`), `Σ_{j<|τ1−τ2|}X^j` = R9's
+`Σ_{j<gap}`, 0 failures over 448 × 12 exact evaluation points (degrees ≤ 6); the
+stratification F3 = R9's census fact (odd gap ⟺ d := q₁⊕q₂ = 111 ⟺ p′ = ¬p, 64
+quadruples, 0 violations either direction); F1's witness = one of R9's 336 gap-0
+quadruples (the "0 = 2" reading recomputed independently); F4's q = −1 value-2
+refutation = the four gap-3 quadruples of R9's census (`F(−1) = ±2` there). Two
+independent methods (kernel decide vs exact enumeration), one theorem.
+
+### L1. Nearest-miss table at the landing evidence state (≥ 2 rows; vs the CORRECTED identity)
+
+| # | source | what it has | delta vs the LANDED statement (mainCor + mainStratum + qRigid) |
+|---|---|---|---|
+| 1 | **Benkart–Pérez-Izquierdo, arXiv:math/9801141** (1998) | q-composition at object level (U_q(D₄)/split octonions) | no four-term alternation, no parallelogram constraint, no defect polynomial, no stratification — object-level collision only; wording lock stands |
+| 2 | **eth `Eight.signs`** (`SecCrossing_Identity.lean:261`) | the classical Graves alternation, mod-2 proof | now SHARPENED by the landing: it is exactly the q = 1 fiber of the defect identity ON the antipodal stratum (`mainStratum`); the classical rule of signs lives on {p′ = ¬p} — nothing in eth knows this |
+| 3 | **tauceti Jones/TL/Hecke stack** (§1: `jonesTrace`, `MarkovEquiv.jonesTrace_eq`, `BraidWord/Jones.lean`, `Homfly/Jones.lean`, `Hecke.lean:49`, Khovanov/Jimbo) | a complete formal Jones polynomial + the TL host | the (H) host; zero sign-family/parallelogram content; (H) remains the second-phase bridge claim |
+| 4 | **tauceti `FactorSet.ofBimultiplicative`** (`FactorSet.lean:571–576`) | formal BILINEAR sign cocycles on lattices | the deformation's τ is CUBIC and q-weighted; the bilinear theory has no deformation, no strata, no defect form |
+| 5 | **AFP Prathamesh 2016 "Knot_Theory"** (Isabelle) | tangle-based links + bracket-polynomial invariance | no TL algebra as such, no Jones proper, no sign content |
+| 6 | **openai-math `HarmonicArtin.TemperleyLieb` + HoneycombChords dilute-TL** | two further TL developments | no Graves/eight-square content, no sign-rule deformation |
+| 7 | **Kauffman bracket skein calculus** (classical) | the ambient algebra of (H) | classical calculus; no composition-algebra connection |
+| 8 | **CLASS ROW (checked EMPTY at the landing state): "defect/skein identities at parallelogram quads"** — any source stating an alternating four-term sum over a parallelogram constraint equal to (1−q)·explicit-polynomial | **NONE, corpus or external, at 2026-11-19** — the class-level negative now stands against the LANDED (kernel-verified) statement, not a hypothesis: rows 1–7 + this session's sweeps (zbMATH/arXiv/ AFP/API, rounds 3+6) contain no member | the landed identity is the class's first (and so far only) member |
+
+### L2. Headline (confirmed, sharpened by antipodality)
+
+**"The first sign-rule/parallelogram-defect deformation" — CONFIRMED.** The sharpened
+form the article may now use: *the Graves–Cayley sign alternation is exactly the q = 1
+fiber, on the antipodal stratum {p′ = ¬p}, of an explicit ℤ[q]-valued defect identity
+holding at EVERY parallelogram quadruple — with the defect polynomial GqGen
+kernel-computed, the stratum decide-certified, q-rigidity off-stratum, and the
+deformation non-degenerate (N′ refuted: the alternation fails off q = 1, value 2 ≠ 0 at
+q = −1).* Wording locks unchanged: NEVER "first q-deformation of a composition algebra"
+(Benkart–Pérez-Izquierdo owns q-composition); never "first TL/Jones formalization"
+(tauceti's stack owns that — §1).
+
+### L3. S1–S4 bar-check inputs for R2's article-eligibility pass
+
+- **S1 (statement-level novelty) — PASS.** The landed statement family (universal
+  (1−q)-factorization + antipodal stratification + off-stratum rigidity) is stated
+  nowhere (L1 rows 1–8); it is structural, not corollary-grade — the refutation-laden
+  history (F1's false universals; F4's false N′; two display errata; the min-side sign
+  subtlety) is direct evidence that the corrected form is not folklore-adjacent.
+- **S2 (cross-corpus essentiality) — PASS.** eth owns the sign family and parity chain
+  but nothing algebraic beyond Bool arithmetic; tauceti owns TL/Jones with no sign
+  content; mathlib owns the polynomial/decide substrate; no single corpus — and no pair —
+  can state mainCor (the bridge is definitional: σ_q on eth's Blocks, GqGen in
+  `Polynomial ℤ`).
+- **S3 (mathematical content) — PASS with the honesty note.** The machinery is
+  elementary (polynomial algebra + kernel decide at 8⁴ scale); the CONTENT is the
+  deformation structure itself — antipodal stratum, q-rigidity, explicit defect — and no
+  paper states it (contrast the FB-2 formalization-of-recent class). The honest
+  comparison sentence for the article: elementary proof, nonelementary statement.
+- **S4 (binder/donor discipline) — PASS.** eth's definitions consumed as verbatim-marked
+  probe copies only; no eth theorem imported; no donor build dependency (tauceti enters
+  only at a future (H)); kernel-only (decide, no native_decide, no external CAS); 30
+  top-level theorems, four at zero axioms per R4's record.
+- **Billing: DISCOVERY, quota-free (ruled at the gate).** This appendix is the novelty
+  table's source; R2's pass consumes L1–L3.
+
+— §LANDING R9, 2026-11-19 (same hold: no commits; rides the H batch).
