@@ -506,3 +506,24 @@ telemetry every run, LEAN_NUM_THREADS=2, taskset not -j); file funnels
 lanes never commit (H commits, exact-file, hardened gate); worktrees persist — pull,
 never restart; siblings read-only; no local lake/lean; dates from decision rows or
 `git show -s --format=%cs`, never memory.
+
+## Wave-4 open (2026-11-19, H — post-restart stamp)
+
+The wave-3 SESSION END wrap above is the restart map; this stamp opens its execution.
+All 10 worktrees forwarded to `e3d984b` (H; carry manifest + the agent-02
+external-clean anomaly + Modal route health in `qa/iter4-review/h-wave4-log.md`;
+staleness-guard base rebased `53c1548`→`e3d984b`; `.carry` snapshot dirs for 03–10).
+Sequence in flight (restart-map §(b)3–5): R1 close residue (make_axcheck staging
+fixes per the W1 taxonomy + failed-stages-only subset re-fire + runbook Steps 9–12),
+R2 gates G1–G8 + G8 fill → **CLOSE-COMPLETION commit K on the orchestrator's explicit
+signal only** (K-list minus W1-pre-landed; [DATE-CLOSED] = K's actual date) →
+iteration 5 opens (DECISION-1/3/4 + typeset; **orchestrator approval 2026-11-19:
+the opening commit = R3's splice via the machine diff
+`qa/iter4-review/a6-iter5-research-splice.diff` (`git apply`, agent-07) + the
+§STATUS-BLOCK append after K's closed block + INDEX rows for
+`a6-iter5-charter-typeset.md` / `a6-iter5-research-splice.diff` + day-1 fire records
+as R4/R5/R6 report — NO splice before K**; R3 re-tasked to 10-D4 M-arc execution,
+day-1-class, holds commits). Day-1 fires staged: 41-P0, the η-pin-probe (a zzv2-lam
+pilot run observed in flight on doz/semraker 2026-11-19 18:29 +08), N2-P2 run 22 per
+the resume note. Standing constraints unchanged (routes, funnels, one-writer,
+H-only commits, hardened gate, worktrees persist — pull, never restart).

@@ -22,6 +22,17 @@ A8/agent-09); new duties for A1/A2/A6/A9. Close act armed on orchestrator signal
 the five units land (A2's runbook + A9's splice checklist 7 mandatory items + final gates
 G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator fires).
 
+**PHASE-B WAVE 4 opened 2026-11-19** (post-restart; wave-3 wrap W1 `8c1c544` / W2
+`0382e16` / W3 `21be078`, then `e3d984b`). Lane map re-cut to H + R1–R9 (worktrees
+agent-02..agent-10); agent-01 spare. H forwarded all 10 worktrees to `e3d984b` (carry
+manifest + the agent-02 external-clean anomaly: `qa/iter4-review/h-wave4-log.md`;
+Modal routes verified LIVE — doz primary already carrying wave-4 runs). Close act
+resumes per the restart map §(b)3–5: R1 close residue (make_axcheck staging fixes per
+the W1 taxonomy + failed-stages-only subset re-fire + runbook Steps 9–12), R2 gates
+G1–G8 + G8 fill, then the CLOSE-COMPLETION commit K **on orchestrator signal only**
+(K-list minus W1-pre-landed; [DATE-CLOSED] = K's actual date), then iteration 5 opens
+(DECISION-1/3/4 + typeset from the charter draft §8 + the staged day-1 fires).
+
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (branch, commits, tracker) | WRAPPED: wave-3 complete — 53+ commits; close act pre-landed (W1 `8c1c544`) + instruments (W2 `0382e16`); restart map = brief §Session-end-wave-3-wrap | wrapped | 2026-11-18 |
