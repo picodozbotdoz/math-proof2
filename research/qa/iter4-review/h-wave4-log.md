@@ -737,6 +737,21 @@ rides this commit.
   lands the .lean ONCE at the closing state (main keeps the batch-B
   `3da2deb0` bytes meanwhile). R1's L3 fold queues at the FINAL round's
   outcome the same way.
+
+## 2026-11-19 — iter-5 steady state, batch D (H): board correction — R4 tranche-1 GREEN + R5 rung-1 + the 41H stub
+
+- **R4's (H) tranche-1 set landed** (all three named shas exact-verified):
+  `H1.lean` `283503ada…` + `H-record.md` `9d79a3c3…` (**tranche 1 GREEN —
+  transport banked + the traciality obstruction banked**) + h1-run{1,2} logs
+  + **the article STUB `41H-tl-realizability-transport.md` `3b7bfd58…`** —
+  lands AS-IS, no content claims; the INDEX row carries the
+  second-discovery-own-file bookkeeping. **R4 → TRANCHE 2** (tracker).
+- **R5's rung-1 set landed** (named shas verified, two as reported prefixes):
+  `eta-r1.lean` `5b04304a…` (the parked GATED-RED state) + runs 1–2 + the
+  port plan `adde3717…`. **`eta-r1-record.md` HELD** — drifted past the
+  reported sha (`434dbae5…` → `c4332b55…`, now carrying confirmation/rung-2
+  content); with the unnamed run3/r2-run1 logs it rides R5's next report.
+  **R5 → past GATED-RED, on the confirmation + rung 2** (tracker).
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

@@ -1,0 +1,66 @@
+# Provenance: 2026-11-19, lane R4 (unit 4: (H) tranche 1, run 2 = FULL H1.lean).
+#   sha256 (16): 283503ada8f5571e · 455 LoC (cap 1500).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec 2cpu/4096MB,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Wall 41 s.
+# Verdict: **GREEN — H1.lean: OK; errors=0, sorry=0**, other-warnings=2 (cosmetic
+#   unused-variable `hq` — the q = −A² dictionary-side fiber is carried as a
+#   hypothesis and deliberately unused by the transport algebra, as documented).
+#   Full audit (verbatim below): §T shapes zero-axiom/triad; the transports
+#   (hostTransportCor, hostTransportCor_full, hostTransportStratum,
+#   hostTransportStratum_full) TRIAD-CLEAN; mainCor'/Gq_eq_GqGen'/mainStratum'
+#   triad-clean; **sigmaQ_asym_witness [propext];
+#   tracial_realizability_refuted [propext, Quot.sound]** — the tranche-1 milestone
+#   (traciality obstruction) is banked axiom-lean.
+# Telemetry: 41 s < 60 s → samples=0, no OVER.
+# Modal run: https://modal.com/apps/semraker/main/ap-piN1422g6e23d9HtUb8MzQ
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-piN1422g6e23d9HtUb8MzQ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H1.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H1.lean
+[probe] H1.lean: OK; errors=0, sorry-warnings=0, other-warnings=2
+---- output head ----
+'Pilot41H1.jonesDelta' depends on axioms: [propext]
+'Pilot41H1.JonesHomShape' does not depend on any axioms
+'Pilot41H1.SkeinRelationShape' does not depend on any axioms
+'Pilot41H1.QuantumTraceShape' depends on axioms: [propext, Classical.choice, Quot.sound]
+H1.lean:381:5: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+H1.lean:399:5: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Pilot41H1.ethParity' does not depend on any axioms
+'Pilot41H1.mainCor'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.Gq_eq_GqGen_on_stratum'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.mainStratum'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.hostTransportCor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.hostTransportCor_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.hostTransportStratum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.hostTransportStratum_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H1.sigmaQ_asym_witness' depends on axioms: [propext]
+'Pilot41H1.tracial_realizability_refuted' depends on axioms: [propext, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H1.lean: OK
+[tele] SUMMARY probe: wall=41s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-piN1422g6e23d9HtUb8MzQ

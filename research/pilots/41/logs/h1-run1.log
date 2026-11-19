@@ -1,0 +1,62 @@
+# Provenance: 2026-11-19, lane R4 (unit 4: (H) tranche 1, run 1 = THE TAUCETI GATE,
+#   fired FIRST per the promotion ruling's binding condition: triad print BEFORE any
+#   proof work; statement-binder class; no-consumption).
+# File fired: H1.lean §T-only truncation (cut at the §0 header), staged as H1T.lean,
+#   99 LoC. Content: verbatim tauceti quotes (TemperleyLieb.lean:87/:146/:157,
+#   Hecke.lean:49, QuantumTrace.lean:41) + on-pin binder-tier shape-analogs
+#   (jonesDelta VERBATIM — mathlib-only; JonesHomShape, SkeinRelationShape,
+#   QuantumTraceShape) + #print axioms at statement level.
+#   sha256 (16): 471575520b29fc32.
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec 2cpu/4096MB,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Wall 55 s.
+# Verdict: NOT-GREEN — 2 errors, BOTH in QuantumTraceShape (`LinearMap.id (V := V)`:
+#   invalid parameter name for LinearMap.id — fix: type-ascription
+#   `(LinearMap.id : V →ₗ[ℂ] V)`). The GATE OUTPUT itself:
+#   JonesHomShape / SkeinRelationShape: "does not depend on any axioms"; jonesDelta
+#   [propext]; QuantumTraceShape's sorryAx = error-recovery shadow only.
+#   The gate is therefore PASSED at statement-binder tier modulo the syntax fix
+#   (re-certified GREEN inside run 2's full-file audit).
+# Telemetry: 55 s < 60 s → samples=0, no OVER.
+# Modal run: https://modal.com/apps/semraker/main/ap-fAMrZBBj2DNkswDZWS4UUy
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-fAMrZBBj2DNkswDZWS4UUy
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H1T.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H1T.lean
+[probe] H1T.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+---- output head ----
+H1T.lean:91:41: error: Invalid argument name `V` for function `DFunLike.coe`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `R`: V̵R̲
+  • `M`: V̵M̲
+  • `a`: V̵a̲
+H1T.lean:92:48: error: Invalid argument name `V` for function `DFunLike.coe`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `R`: V̵R̲
+  • `M`: V̵M̲
+  • `a`: V̵a̲
+'Pilot41H1.jonesDelta' depends on axioms: [propext]
+'Pilot41H1.JonesHomShape' does not depend on any axioms
+'Pilot41H1.SkeinRelationShape' does not depend on any axioms
+'Pilot41H1.QuantumTraceShape' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H1T.lean: FAIL (2 errors)
+[tele] SUMMARY probe: wall=55s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-19T20:14:52+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-fAMrZBBj2DNkswDZWS4UUy

@@ -1,0 +1,246 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-r1.lean — lane R5 (A3 lineage; worktree agent-04 @ e3d984b), 2026-11-19. η-port EXECUTION rung R1 (covariance base layer) per eta-port-plan.md §R1, GREEN-gated on the pin probe; record-billed per DECISION-2 = Option A (quota-free). Run 1 of rung-1 budget ≤2 (port budget 6–10): first proof-artifact rung, sorry-strict.
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker; app crossmath-pilot-zzv2-lam (the standing route for this substrate per the R5 unit-1 reconciliation); SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2 (CAP), @telemetered; taskset -c 0,1 lake build (no -j). Run URL: https://modal.com/apps/semraker/main/ap-PD5LK4v6enKIWHZicfeOaz
+# API CENSUS (pre-run, static at the exact pin — encore-mathlib @ ff2494ea): (a) whole-line dilation substitution = MeasureTheory.Measure.integral_comp_mul_left (Haar/NormedSpace.lean:152, hypothesis-free junk-safe) — PRESENT; (b) iteratedDeriv-under-dilation (R5's need) = the donor's own idiom iteratedDeriv_eq_iterate + Function.iterate_succ_apply + ContDiff.iterate_deriv + HasCompactSupport.deriv (Zeta/Kernel.lean:366±) + HasDerivAt.div_const/.comp (Deriv/Mul.lean:496) — PRESENT. VERDICT: no finding that reshapes the ladder; #check anchors in-file (compile-time census evidence).
+# FIRED SHA: sha256(16) = 5807c02bf761a36a (211 LoC)
+# VERDICT: FAIL rc=1 errors=4 sorry=0 — 2 mechanical classes: (a) smul_eq_mul does not match the ℝ•ℂ module smul (final step of fourierC_dilateTo; the hL/key/hR chain itself worked); (b) reserved-character identifiers hAλ/hλ0 (λ is the Lean lambda keyword → parse errors). 3 of 6 theorems ALREADY triad-clean (cutoffNormaliserLam_covariance, dilateTo_half, extremalLam_half); the 2 sorryAx prints are downstream of the two defects, not independent failures. Fixes: Complex.real_smul (Basic/Complex/Basic.lean:321) + ASCII-safe identifiers — mechanical, run 2 fires.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-PD5LK4v6enKIWHZicfeOaz
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-r1.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.97 mem=1380MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=9.31 mem=1404MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=180s cpu=11.70 mem=1208MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=3.20 mem=2714MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.23 mem=1873MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=2.94 mem=2451MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.35 mem=2852MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=3.47 mem=3272MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=4.09 mem=1424MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6606/6633] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (5.6s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7522/7541] Built PrimeNumberTheoremAnd.ZetaBounds (12s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7629/7645] Built ZetaZeros.ZeroCount.LocalCount (5.7s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7645/7675] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.8s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7675/7705] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.6s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.5s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8158/8229] Built PrimeNumberTheoremAnd.MellinCalculus (5.6s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8177/8262] Built ZetaZeros.PairCorrelation.Truncation (6.7s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8197/8262] Built PrimeNumberTheoremAnd.MediumPNT (18s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8234/8262] Built PrimeNumberTheoremAnd.Wiener (12s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-r1.lean
+{'build': 'OK', 'eta-r1.lean': 'FAIL rc=1 errors=4 sorry=0'}
+[zzv2] eta-r1.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.fourierC_dilateTo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffNormaliserLam_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_eq_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.dilateTo_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.extremalLam_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  HasDerivAt c c' x → ∀ (d : 𝕜'), HasDerivAt (fun x => c x / d) (c' / d) x
+eta-r1.lean:142:19: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a • ?b
+in the target expression
+  (2 * lam) • fourierC f (2 * ↑lam * ξ) = 2 * ↑lam * fourierC f (2 * ↑lam * ξ)
+
+lam : ℝ
+hlam : 0 < lam
+f : ℝ → ℝ
+ξ : ℂ
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+key :
+  ∫ (x : ℝ), ↑(f (x / (2 * lam))) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * ξ * ↑(2 * lam * (x / (2 * lam)))) =
+    (2 * lam) • ∫ (y : ℝ), ↑(f y) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * ξ * ↑(2 * lam * y))
+hL :
+  fourierC (dilateTo lam f) ξ =
+    ∫ (x : ℝ), ↑(f (x / (2 * lam))) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * ξ * ↑(2 * lam * (x / (2 * lam))))
+hR : ∫ (y : ℝ), ↑(f y) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * ξ * ↑(2 * lam * y)) = fourierC f (2 * ↑lam * ξ)
+⊢ (2 * lam) • fourierC f (2 * ↑lam * ξ) = 2 * ↑lam * fourierC f (2 * ↑lam * ξ)
+eta-r1.lean:165:9: error: unexpected token 'λ'; expected ':=' or '|'
+eta-r1.lean:165:7: error: Missing cases:
+eta-r1.lean:164:45: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+psi : ℝ → ℝ
+···
+⊢ (2 * lam) • fourierC f (2 * ↑lam * ξ) = 2 * ↑lam * fourierC f (2 * ↑lam * ξ)
+eta-r1.lean:165:9: error: unexpected token 'λ'; expected ':=' or '|'
+eta-r1.lean:165:7: error: Missing cases:
+eta-r1.lean:164:45: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+psi : ℝ → ℝ
+hA : 0 < cutoffNormaliser psi
+⊢ cutoffTestLam lam psi = fun x =>
+    √(cutoffNormaliser psi / cutoffNormaliserLam lam psi) * dilateTo lam (cutoffTest psi) x
+'ZZLam.EtaPort.fourierC_dilateTo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffNormaliserLam_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_eq_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.dilateTo_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.extremalLam_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+eta-r1.lean:165:9: error: unexpected token 'λ'; expected ':=' or '|'
+eta-r1.lean:165:7: error: Missing cases:
+eta-r1.lean:164:45: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+psi : ℝ → ℝ
+hA : 0 < cutoffNormaliser psi
+⊢ cutoffTestLam lam psi = fun x =>
+    √(cutoffNormaliser psi / cutoffNormaliserLam lam psi) * dilateTo lam (cutoffTest psi) x
+'ZZLam.EtaPort.fourierC_dilateTo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffNormaliserLam_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_eq_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.dilateTo_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.extremalLam_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+eta-r1.lean:165:7: error: Missing cases:
+eta-r1.lean:164:45: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+psi : ℝ → ℝ
+hA : 0 < cutoffNormaliser psi
+⊢ cutoffTestLam lam psi = fun x =>
+    √(cutoffNormaliser psi / cutoffNormaliserLam lam psi) * dilateTo lam (cutoffTest psi) x
+'ZZLam.EtaPort.fourierC_dilateTo' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffNormaliserLam_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_eq_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.dilateTo_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.extremalLam_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== SUMMARY
+build: OK
+eta-r1.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=566s max_cpu=11.70 max_mem=3272MB max_anon=0MB samples=9 OVER=8
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-PD5LK4v6enKIWHZicfeOaz
+RC=0
+
+=== CLOSING VERDICT BLOCK (R5, 2026-11-19) ===
+VERDICT run 1: eta-r1.lean FAIL rc=1 errors=4 sorry=0; build OK (mathlib ff2494ea resolved in-container; ≈8.2k jobs).
+- DEFECT CLASS A (mechanical): fourierC_dilateTo's final step — `rw [smul_eq_mul]` cannot match the goal `(2 * lam : ℝ) • (fourierC f (2 * ↑lam * ξ) : ℂ) = 2 * ↑lam * fourierC f (2 * ↑lam * ξ)`: the • here is the NormedSpace module SMul ℝ ℂ, not Mul.toSMul. The rest of the proof chain (hL congr → key substitution → hR congr) FIRED CORRECTLY (run-log error context shows all three haves intact and the goal reduced to the smul-vs-mul conversion). Fix: `Complex.real_smul {x : ℝ} {z : ℂ} : x • z = x * z` (Mathlib/Basic/Complex/Basic.lean:321 at the pin) + push_cast + ring.
+- DEFECT CLASS B (mechanical): identifiers `hAλ`/`hλ0` contain U+03BB λ — the reserved lambda keyword — producing "unexpected token 'λ'" parse errors and cascading missing-case/unsolved-goal errors at :164–:165. Fix: ASCII-safe hAlam/hlam0 (hψ0's ψ is legal; renamed anyway for uniformity).
+- ALREADY-CLEAN (triad-only at run 1): cutoffNormaliserLam_covariance, dilateTo_half, extremalLam_half — the normaliser covariance and the λ=1/2 dilate/base anchors need NO fix. cutoffTestLam_eq_dilate's sorryAx is the parse-error fallout (its body is where the λ identifiers lived); cutoffTestLam_half's sorryAx propagates from consuming eq_dilate.
+- TELEMETRY: wall=566 s; max_mem 3272 MB < 4096; max_cpu 11.70, OVER=8 samples confined to the pre-taskset fetch phases (same pattern as every warm-lineage run; investigation notes stand from the pin-probe logs — no new finding).
+- BUDGET: run 1 of rung-1 ≤2. Both fixes mechanical → run 2 = final for this rung.
