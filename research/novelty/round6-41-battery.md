@@ -233,3 +233,80 @@ q = −1).* Wording locks unchanged: NEVER "first q-deformation of a composition
   table's source; R2's pass consumes L1–L3.
 
 — §LANDING R9, 2026-11-19 (same hold: no commits; rides the H batch).
+
+---
+
+## §NEGATIVE — the (H) no-go novelty section (R9, 2026-11-19; the 41H article's
+novelty-section source; R7 fills against this)
+
+**Gate verdict (R4's facts of record, relayed 2026-11-19): tranche-2 COMPLETE GREEN**
+(h2-run11): `sigmaOrth` / `sigmaExpand_basis` — `[propext]`-class; `sigmaExpand` +
+`rank_obstruction_nogo` — triad; **the complete obstruction theorem kernel-proved**.
+Ruling: **(H) BANK-AS-NEGATIVE (orchestrator, 2026-11-19)**. Per the one-article-per-
+finding rule this is a SEPARATE article from the §LANDING identity article (the (M)-core
+discovery and the (H) no-go are distinct findings — R7 watchlist rule 1).
+
+### N0. What is refuted (the NEGATIVE statement)
+
+The (H) host hope — eight 3-strand braid words w_p with Jones/Markov-trace evaluations
+realizing σ_q (the dossier's `ev (w p * w p') = sigmaQ q p p'` dictionary) — is REFUTED on
+the corrected surface, by two kernel-certified obstruction mechanisms:
+
+1. **Traciality obstruction** — trace-per-word σ_q realizations refuted: no evaluation of
+   the trace-per-word shape can reproduce the σ_q table (the Markov-trace compatibility
+   fails on the family);
+2. **Rank obstruction** — the σ-table is FULL RANK 8 (`sigmaExpand` / `sigmaExpand_basis`
+   / `sigmaOrth`: the eight columns expand to a basis, pairwise orthogonal), which kills
+   the 3-strand dictionary outright (`rank_obstruction_nogo`): the 3-strand evaluation
+   space cannot carry eight independent σ_q columns.
+
+Both certificates are finite-scale kernel facts; together they close the 3-strand
+TL/Jones-trace route for the σ_q family ON THE CORRECTED (§ADDENDUM/§LANDING) SURFACE.
+
+### N1. Obstruction table vs the TL/Jones/Kauffman literature (base rows 3/5/7; the
+pre-identified set) + negative-result precedent rows
+
+| # | source | what it has | delta vs the REFUTED (H) |
+|---|---|---|---|
+| 3 | **tauceti Jones/TL/Hecke stack** (`jonesTrace`, `MarkovEquiv.jonesTrace_eq`, `BraidWord/Jones.lean`, `Homfly/Jones.lean`, `Hecke.lean:49`, Khovanov/Jimbo) | a COMPLETE formal Jones polynomial — the host machinery the (H) hope targeted | the negative's SHARPEST row: the complete host exists, and the obstruction says it PROVABLY cannot carry this family at 3 strands — to our knowledge the first incompatibility statement between an eth-type cubic-corrected sign family and TL/Jones trace evaluations anywhere |
+| 5 | **AFP Prathamesh 2016 "Knot_Theory"** (Isabelle) | tangle-based links + bracket-polynomial invariance | the bracket/skein calculus; no realization question of this shape, no obstruction content |
+| 7 | **Kauffman bracket skein calculus** (classical) | the ambient algebra | same: no source poses, let alone answers, a sign-family ↔ trace-evaluation dictionary question |
+| P1 | **the 78 precedent (in-repo, governing)** — `articles/78-truffet-substitution-refutation.md`: kernel-verified refutation, kind NEGATIVE, discovery-grade per orchestrator ruling 2026-11-17, owner-attribution discipline, "as far as the surveyed literature shows" scoping | the class template the 41H article follows | identical billing class; our negative refutes a DOSSIER-INTERNAL hypothesis (the (H) banked hope), not an external paper's claim — attribution is to our own pre-registered conjecture (the honest analogue of 78's external-owner discipline) |
+| P2 | **the limitation-question genre (external marker)** — e.g. Bigelow 2002, "Does the Jones polynomial detect the unknot?" (the celebrated OPEN limitation question around TL/Jones representations) | the genre's respectability: TL/Jones limitation statements are valued open problems | marker only, cited as genre: ours is a PROVED no-go in that genre's neighborhood (a small 3-strand dictionary question, closed by elementary certificates); no claimed relation to the open questions |
+
+Class row carried: "defect/skein identities at parallelogram quads" (§L1 row 8) stays
+EMPTY and is untouched by the negative — the landed identity remains the class's only
+member.
+
+### N2. Corrected-surface transports (what survives; the article's scope fence)
+
+- The §LANDING core — `mainCor` (universal defect identity), `mainStratum` (antipodal
+  stratum, dossier G_q recovered on-stratum), `qRigid` (off-stratum), N′ refuted — is
+  UNAFFECTED (it never touched the host).
+- (H) RESTATED as the dossier's own pre-negotiated descope branch ("(H) no-match ⇒
+  Cayley–Dickson anchor"): the q = 1 octonion host (tauceti `CayleyDickson`, R7 §4b's
+  structure-constants table) remains the classical anchor; the REMAINING host options —
+  higher strand count (n ≥ 4), non-trace evaluation shapes — stay OPEN and UNCLAIMED.
+  The article words (H) as: proved no-go at 3 strands (both mechanisms) + open-problem
+  restatement; no claim beyond the refuted dictionary.
+
+### N3. S1–S4 bar inputs for R2's pass (negative-class reading)
+
+- **S1 — YES by precedent + ruling**: a negative obstruction is discovery-grade per the
+  78 precedent (orchestrator ruling 2026-11-17) and the BANK-AS-NEGATIVE ruling
+  (2026-11-19); the no-go is stated nowhere — no source in N1's rows or this session's
+  sweeps poses or answers a sign-family ↔ TL-trace dictionary question.
+- **S2 — PASS a fortiori**: the negative NEEDS both sides — eth's σ_q family (Block
+  arithmetic) and the TL/Jones trace machinery — neither corpus alone can state it.
+- **S3 — the honesty analog: PASS**: the obstruction certificates are ELEMENTARY
+  (orthogonality + basis/rank at finite 8×8 scale; decide/`[propext]`-class), while the
+  CLOSURE statement — no 3-strand host, two independent mechanisms, on the full corrected
+  surface — is nonelementary in effect: it terminates a charter-level research direction
+  (the (H) milestone's second phase). Wording lock: "elementary certificates,
+  nonelementary closure" (the §L3 honesty-note pattern, negative reading).
+- **S4 — PASS**: the HostTransport binder was the only donor-shaped input and it is the
+  REFUTED shape; tauceti consumed at statement/comparator level only (no tauceti import
+  in the obstruction proofs); kernel-only, no `native_decide`.
+
+— §NEGATIVE R9, 2026-11-19 (same hold: no commits; rides the H batch; R7 fills the 41H
+article against N0–N3).

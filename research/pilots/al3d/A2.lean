@@ -116,6 +116,10 @@ import Mathlib.Analysis.CStarAlgebra.Matrix
 import Mathlib.Analysis.Matrix.Order
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 
+-- Diagnostic hygiene (unit 8): the runner's per-file output tail is 200 lines; the
+-- linter-warning volume was cutting early-file error contexts (the hidden M2-b root).
+set_option linter.all false
+
 namespace OpenAI.AL3D
 
 open SimpleGraph
@@ -1212,7 +1216,7 @@ theorem colEquivVar_restr_apply {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' 
       colEquivVar Λ q X' hX'
         (restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) hX' w) := by
   have h := (colEquivVar_restr Λ q hX'
-    ((regReindexEquiv (Λ := Λ) q).symm w)).symm
+      ((regReindexEquiv (Λ := Λ) q).symm w)).symm
   rwa [Equiv.apply_symm_apply] at h
 
 /-- `Λ.powerset` is the disjoint union of the `projFib`-fibres over the planar
@@ -1228,7 +1232,7 @@ theorem powerset_eq_biUnion_projFib (Λ : Finset (ℤ × ℤ × ℤ)) :
     exact hXΛ
 
 theorem projFib_pairwise_disjoint (Λ : Finset (ℤ × ℤ × ℤ)) :
-    Set.PairwiseDisjoint ((projF Λ).powerset : Set (Finset (ℤ × ℤ))) (projFib Λ) := by
+  Set.PairwiseDisjoint ((projF Λ).powerset : Set (Finset (ℤ × ℤ))) (projFib Λ) := by
   rintro X₁ h₁ X₂ h₂ hne
   unfold Function.onFun
   rw [Finset.disjoint_right]
@@ -1262,8 +1266,109 @@ agreement off the fibre, column by column (`colRegEquiv` injectivity forward,
 `congrArg` backward; the column decomposition of `Λ \ fibre Λ X'`). No `Eq.rec`, no
 complement-`Eq.rec`-transport, no `sdiff`-bridge — the donor's own route. -/
 
-/-- GUARD BRIDGE: agreement off `X'` on the planar side iff agreement off the fibre on
-the 3D side, under the whole-domain regrouping. -/
+/-- GUARD BRIDGE, FORWARD DIRECTION (bisect unit 9): 3D agreement off the fibre →
+planar agreement off `X'` (congrArg direction). -/
+theorem regReindexEquiv_compl_fwd {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
+  (w w' : ∀ v : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)),
+      Fin (q ^ colCard Λ (v : ℤ × ℤ)))
+  (h : restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w) =
+      restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w')) :
+  restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w =
+      restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w' := by
+  have hw : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w) = w :=
+  (regReindexEquiv (Λ := Λ) q).apply_symm_apply w
+  have hw' : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w') = w' :=
+  (regReindexEquiv (Λ := Λ) q).apply_symm_apply w'
+  funext u
+  have huP : (u : ℤ × ℤ) ∈ projF Λ := (Finset.mem_sdiff.1 u.2).1
+  have huX : (u : ℤ × ℤ) ∉ X' := (Finset.mem_sdiff.1 u.2).2
+  -- the 3D agreement spreads over the whole column of u
+  have hcol : ∀ a : ℤ × ℤ × ℤ, ∀ ha : a ∈ col Λ (u : ℤ × ℤ),
+        (regReindexEquiv (Λ := Λ) q).symm w ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ =
+        (regReindexEquiv (Λ := Λ) q).symm w' ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ := by
+      intro a ha
+      have haΛ : a ∈ Λ := (Finset.mem_filter.1 ha).1
+      have haf : a ∉ fibre Λ X' := by
+        intro hcon
+        apply huX
+        rw [← (Finset.mem_filter.1 ha).2]
+        exact (Finset.mem_filter.1 hcon).2
+      have := congrFun h ⟨a, Finset.mem_sdiff.2 ⟨haΛ, haf⟩⟩
+      simpa [restr, Finset.restrict₂_def] using this
+  show w ⟨(u : ℤ × ℤ), huP⟩ = w' ⟨(u : ℤ × ℤ), huP⟩
+  rw [← hw, ← hw', regReindexEquiv_apply, regReindexEquiv_apply]
+  exact congrArg _ (funext fun s => hcol _ s.2)
+
+#print axioms OpenAI.AL3D.regReindexEquiv_compl_fwd
+
+/-- GUARD BRIDGE, BACKWARD DIRECTION (bisect unit 9): planar agreement off `X'` →
+3D agreement off the fibre (colRegEquiv-injectivity direction). -/
+theorem regReindexEquiv_compl_bwd {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
+    (w w' : ∀ v : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)),
+      Fin (q ^ colCard Λ (v : ℤ × ℤ)))
+    (h : restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w =
+      restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w') :
+    restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w) =
+      restr (S := Λ \ fibre Λ X') (T := Λ) Finset.sdiff_subset
+        ((regReindexEquiv (Λ := Λ) q).symm w') := by
+  have hw : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w) = w :=
+    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w
+  have hw' : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w') = w' :=
+    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w'
+  funext x
+  have hxΛ : (x : ℤ × ℤ × ℤ) ∈ Λ := (Finset.mem_sdiff.1 x.2).1
+  have hxf : (x : ℤ × ℤ × ℤ) ∉ fibre Λ X' := (Finset.mem_sdiff.1 x.2).2
+  have hxu : proj (x : ℤ × ℤ × ℤ) ∉ X' := fun hcon =>
+      hxf (Finset.mem_filter.2 ⟨hxΛ, hcon⟩)
+  have huP : proj (x : ℤ × ℤ × ℤ) ∈ projF Λ := Finset.mem_image_of_mem proj hxΛ
+  -- the planar agreement at proj x (an element of projF Λ \ X')
+  have hwu : w ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ =
+        w' ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ := by
+      have := congrFun h ⟨proj (x : ℤ × ℤ × ℤ),
+        Finset.mem_sdiff.2 ⟨huP, hxu⟩⟩
+      simpa [restr, Finset.restrict₂_def] using this
+  -- through the toFun-side transparency and injectivity: the columns agree
+  have hcol : (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+            Set (ℤ × ℤ × ℤ)) =>
+          (regReindexEquiv (Λ := Λ) q).symm w ⟨(s : ℤ × ℤ × ℤ),
+            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) =
+        (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+            Set (ℤ × ℤ × ℤ)) =>
+          (regReindexEquiv (Λ := Λ) q).symm w' ⟨(s : ℤ × ℤ × ℤ),
+            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) := by
+      refine (colRegEquiv (Λ := Λ) (q := q) (u := proj (x : ℤ × ℤ × ℤ))).injective ?_
+      have e1 : colRegEquiv (Λ := Λ) (q := q) (u := proj (x : ℤ × ℤ × ℤ))
+          (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+              Set (ℤ × ℤ × ℤ)) =>
+            (regReindexEquiv (Λ := Λ) q).symm w ⟨(s : ℤ × ℤ × ℤ),
+              col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) =
+          w ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ := by
+        rw [← regReindexEquiv_apply (Λ := Λ) (q := q) ((regReindexEquiv (Λ := Λ) q).symm w)
+          ⟨proj (x : ℤ × ℤ × ℤ), huP⟩, hw]
+      have e2 : colRegEquiv (Λ := Λ) (q := q) (u := proj (x : ℤ × ℤ × ℤ))
+          (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
+              Set (ℤ × ℤ × ℤ)) =>
+            (regReindexEquiv (Λ := Λ) q).symm w' ⟨(s : ℤ × ℤ × ℤ),
+              col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) =
+          w' ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ := by
+        rw [← regReindexEquiv_apply (Λ := Λ) (q := q) ((regReindexEquiv (Λ := Λ) q).symm w')
+          ⟨proj (x : ℤ × ℤ × ℤ), huP⟩, hw']
+      exact Eq.trans e1 (Eq.trans hwu e2.symm)
+  -- x sits in that column
+  have hxcol : (x : ℤ × ℤ × ℤ) ∈ col Λ (proj (x : ℤ × ℤ × ℤ)) :=
+      Finset.mem_filter.2 ⟨hxΛ, rfl⟩
+  simpa [restr, Finset.restrict₂_def] using congrFun hcol ⟨(x : ℤ × ℤ × ℤ), hxcol⟩
+
+#print axioms OpenAI.AL3D.regReindexEquiv_compl_bwd
+
+/-- GUARD BRIDGE (assembled from the two bisected directions). -/
 theorem regReindexEquiv_compl_iff {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finset (ℤ × ℤ)}
     (w w' : ∀ v : ↥((projF Λ : Finset (ℤ × ℤ)) : Set (ℤ × ℤ)),
       Fin (q ^ colCard Λ (v : ℤ × ℤ))) :
@@ -1274,60 +1379,8 @@ theorem regReindexEquiv_compl_iff {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X
     restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
         (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w =
       restr (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
-        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w' := by
-  have hw : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w) = w :=
-    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w
-  have hw' : regReindexEquiv (Λ := Λ) q ((regReindexEquiv (Λ := Λ) q).symm w') = w' :=
-    (regReindexEquiv (Λ := Λ) q).apply_symm_apply w'
-  constructor
-  · -- 3D agreement → planar agreement (congrArg direction)
-    intro h
-    funext u
-    have huP : (u : ℤ × ℤ) ∈ projF Λ := (Finset.mem_sdiff.1 u.2).1
-    have huX : (u : ℤ × ℤ) ∉ X' := (Finset.mem_sdiff.1 u.2).2
-    -- the 3D agreement spreads over the whole column of u
-    have hcol : ∀ a : ℤ × ℤ × ℤ, ∀ ha : a ∈ col Λ (u : ℤ × ℤ),
-        (regReindexEquiv (Λ := Λ) q).symm w ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ =
-        (regReindexEquiv (Λ := Λ) q).symm w' ⟨a, col_subset Λ (u : ℤ × ℤ) ha⟩ := by
-      intro a ha
-      have haΛ : a ∈ Λ := (Finset.mem_filter.1 ha).1
-      have haf : a ∉ fibre Λ X' := fun hcon =>
-        huX ((Finset.mem_filter.1 hcon).2.trans (Finset.mem_filter.1 ha).2.symm)
-      have := congrFun h ⟨a, Finset.mem_sdiff.2 ⟨haΛ, haf⟩⟩
-      simpa [restr, Finset.restrict₂_def] using this
-    show w ⟨(u : ℤ × ℤ), huP⟩ = w' ⟨(u : ℤ × ℤ), huP⟩
-    rw [← hw, ← hw', regReindexEquiv_apply, regReindexEquiv_apply]
-    exact congrArg _ (funext fun s => hcol _ s.2)
-  · -- planar agreement → 3D agreement, column by column (colRegEquiv injective)
-    intro h
-    funext x
-    have hxΛ : (x : ℤ × ℤ × ℤ) ∈ Λ := (Finset.mem_sdiff.1 x.2).1
-    have hxf : (x : ℤ × ℤ × ℤ) ∉ fibre Λ X' := (Finset.mem_sdiff.1 x.2).2
-    have hxu : proj (x : ℤ × ℤ × ℤ) ∉ X' := fun hcon =>
-      hxf (Finset.mem_filter.2 ⟨hxΛ, hcon⟩)
-    have huP : proj (x : ℤ × ℤ × ℤ) ∈ projF Λ := Finset.mem_image_of_mem proj hxΛ
-    -- the planar agreement at proj x (an element of projF Λ \ X')
-    have hwu : w ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ =
-        w' ⟨proj (x : ℤ × ℤ × ℤ), huP⟩ := by
-      have := congrFun h ⟨⟨proj (x : ℤ × ℤ × ℤ), huP⟩,
-        Finset.mem_sdiff.2 ⟨huP, hxu⟩⟩
-      simpa [restr, Finset.restrict₂_def] using this
-    -- through the toFun-side transparency and injectivity: the columns agree
-    have hcol : (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
-            Set (ℤ × ℤ × ℤ)) =>
-          (regReindexEquiv (Λ := Λ) q).symm w ⟨(s : ℤ × ℤ × ℤ),
-            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) =
-        (fun s : ↥((col Λ (proj (x : ℤ × ℤ × ℤ)) : Finset (ℤ × ℤ × ℤ)) :
-            Set (ℤ × ℤ × ℤ)) =>
-          (regReindexEquiv (Λ := Λ) q).symm w' ⟨(s : ℤ × ℤ × ℤ),
-            col_subset Λ (proj (x : ℤ × ℤ × ℤ)) s.2⟩) := by
-      refine (colRegEquiv (Λ := Λ) (q := q) (u := proj (x : ℤ × ℤ × ℤ))).injective ?_
-      rw [← regReindexEquiv_apply, ← regReindexEquiv_apply, ← hw, ← hw']
-      exact hwu
-    -- x sits in that column
-    have hxcol : (x : ℤ × ℤ × ℤ) ∈ col Λ (proj (x : ℤ × ℤ × ℤ)) :=
-      Finset.mem_filter.2 ⟨hxΛ, rfl⟩
-    simpa [restr, Finset.restrict₂_def] using congrFun hcol ⟨(x : ℤ × ℤ × ℤ), hxcol⟩
+        (S := projF Λ \ X') (T := projF Λ) Finset.sdiff_subset w' :=
+  ⟨regReindexEquiv_compl_fwd (Λ := Λ) q w w', regReindexEquiv_compl_bwd (Λ := Λ) q w w'⟩
 
 /-- **M2 SWAP (extend-relabel):** extending a fibre-indexed matrix to `Λ` by the
 identity and relabelling by the whole-domain regrouping equals relabelling by the
@@ -1352,6 +1405,124 @@ theorem colEquivVar_swap {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finse
     rw [colEquivVar_restr_apply, colEquivVar_restr_apply]
   · rw [if_neg hg, if_neg (fun hcon => hg
       ((regReindexEquiv_compl_iff (Λ := Λ) q w w').2 hcon))]
+
+/-! ## P2-d M2-c — the Hamiltonian identification (2026-11-19, unit 7 part b) -/
+
+/-- Attach↔dite bridge: a sum over `s.attach` of a membership-dependent body is the
+plain sum with the corresponding `dite` (the condition always holds on `s`;
+`Finset.sum_attach` itself takes only non-dependent bodies, so normalize per-element
+to the dite form first). -/
+private theorem sum_attach_eq_dite {α : Type*} {M : Type*} [AddCommMonoid M]
+    (s : Finset α) (P : α → Prop) [DecidablePred P] (hP : ∀ a ∈ s, P a)
+    (f : (a : α) → P a → M) :
+    ∑ x ∈ s.attach, f x.1 (hP x.1 (Finset.mem_coe.2 x.2)) =
+      ∑ a ∈ s, if ha : P a then f a ha else 0 := by
+  have h1 : ∑ x ∈ s.attach, f x.1 (hP x.1 (Finset.mem_coe.2 x.2)) =
+      ∑ x ∈ s.attach, (if hx : P x.1 then f x.1 hx else 0) :=
+    Finset.sum_congr rfl fun x _ => by rw [dif_pos (hP x.1 (Finset.mem_coe.2 x.2))]
+  rw [h1]
+  exact Finset.sum_attach (f := fun a => if ha : P a then f a ha else 0) s
+
+/-- Submatrix distributes over finite sums (`submatrix_add` is `rfl`, so the
+distribution goes by induction). -/
+private theorem sum_submatrix {ι : Type*} [DecidableEq ι] {M : Type*} [AddCommMonoid M]
+    {m n m' n' : Type*} (s : Finset ι) (f : ι → Matrix m n M)
+    (g : m' → m) (h : n' → n) :
+    (∑ i ∈ s, f i).submatrix g h = ∑ i ∈ s, (f i).submatrix g h := by
+  induction s using Finset.induction_on with
+  | empty => simp
+  | @insert a s ha ih => simp [Finset.sum_insert ha, ih, Matrix.submatrix_add]
+
+/-- PARTITION REGROUP (flat bodies; `rebuild-precharter.md` §3 M2): summing over
+`Λ.powerset` is summing the `projFib`-fibres over the planar powerset. -/
+theorem sum_powerset_eq_sum_projFib {Λ : Finset (ℤ × ℤ × ℤ)} {M : Type*} [AddCommMonoid M]
+    (F : Finset (ℤ × ℤ × ℤ) → M) :
+    ∑ X ∈ Λ.powerset, F X = ∑ X' ∈ (projF Λ).powerset, ∑ X ∈ projFib Λ X', F X := by
+  rw [powerset_eq_biUnion_projFib Λ, Finset.sum_biUnion (projFib_pairwise_disjoint Λ)]
+
+/-- **M2-c MAIN — the Hamiltonian identification** (`rebuild-precharter.md` §1, P2-d's
+parked target): the planar variable-height Hamiltonian of the projected interaction is
+the 3D Hamiltonian conjugated by the whole-domain regrouping. Chain: the two
+attach↔dite bridges + the partition regroup + `sum_projFib_extendId` + the swap. -/
+theorem hamiltonianVar_eq_submatrix {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*}
+    [RCLike 𝕜]
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜) :
+    hamiltonianVar (projF Λ) (colCard Λ) (fun X' => projInteraction Λ q Φ X') =
+      (hamiltonian3D Λ Φ).submatrix
+        ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) := by
+  classical
+  -- RHS: unfold the 3D Hamiltonian, distribute the submatrix, bridge attach→dite,
+  -- then regroup by the partition
+  have hR : (hamiltonian3D Λ Φ).submatrix
+      ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) =
+      ∑ X' ∈ (projF Λ).powerset, ∑ Y ∈ projFib Λ X',
+        (if hY : Y ∈ Λ.powerset then
+          (extendId (loc := OpenAI.Qudits3D q) (Finset.mem_powerset.1 hY) (Φ Y)).submatrix
+            ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm)
+        else 0) := by
+    have hbody : ∑ i ∈ Λ.powerset.attach,
+        (extendId (loc := OpenAI.Qudits3D q) (Finset.mem_powerset.1 i.2) (Φ i.1)).submatrix
+          ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) =
+      ∑ i ∈ Λ.powerset.attach,
+        (extendId (loc := OpenAI.Qudits3D q)
+            (Finset.mem_powerset.1 (Finset.mem_coe.2 i.2)) (Φ i.1)).submatrix
+          ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) :=
+      Finset.sum_congr rfl fun _ _ => rfl
+    rw [hamiltonian3D, sum_submatrix, hbody, sum_attach_eq_dite (s := Λ.powerset)
+      (P := fun X => X ∈ Λ.powerset)
+      (f := fun X hX => (extendId (loc := OpenAI.Qudits3D q)
+        (Finset.mem_powerset.1 hX) (Φ X)).submatrix
+        ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm))
+      (fun _ hX => hX), sum_powerset_eq_sum_projFib]
+  -- per-fibre key: the planar projected term equals the fibre's conjugated 3D sum
+  have key : ∀ X' : Finset (ℤ × ℤ), ∀ hX' : X' ∈ (projF Λ).powerset,
+      extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+          (Finset.mem_powerset.1 hX') (projInteraction Λ q Φ X') =
+      ∑ Y ∈ projFib Λ X',
+        (if hY : Y ∈ Λ.powerset then
+          (extendId (loc := OpenAI.Qudits3D q) (Finset.mem_powerset.1 hY) (Φ Y)).submatrix
+            ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm)
+        else 0) := by
+    intro X' hX'
+    have hX'p : X' ⊆ projF Λ := Finset.mem_powerset.1 hX'
+    have hswap : extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (Finset.mem_powerset.1 hX') (projInteraction Λ q Φ X') =
+      (extendId (fibre_subset Λ X')
+          (∑ Y ∈ projFib Λ X',
+            if hY : Y ⊆ fibre Λ X' then extendId hY (Φ Y) else 0)).submatrix
+        ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm) := by
+      rw [projInteraction, dif_pos hX'p, colEquivVar_swap]
+    have hfib : ∑ Y ∈ projFib Λ X',
+          (if hY : Y ⊆ fibre Λ X' then extendId hY (Φ Y) else 0) =
+        ∑ Y ∈ (projFib Λ X').attach,
+          extendId (subset_fibre_of_mem_projFib Y.2) (Φ Y.1) :=
+      (sum_attach_eq_dite (s := projFib Λ X') (P := fun Y => Y ⊆ fibre Λ X')
+        (f := fun Y hY => extendId (loc := OpenAI.Qudits3D q) hY (Φ Y))
+        (fun Y hY => subset_fibre_of_mem_projFib hY)).symm
+    rw [hswap, hfib, ← sum_projFib_extendId (Λ := Λ) (q := q) Φ, sum_submatrix,
+      sum_attach_eq_dite (s := projFib Λ X') (P := fun Y => Y ∈ Λ.powerset)
+        (f := fun Y hY => (extendId (loc := OpenAI.Qudits3D q)
+          (Finset.mem_powerset.1 hY) (Φ Y)).submatrix
+          ((regReindexEquiv (Λ := Λ) q).symm) ((regReindexEquiv (Λ := Λ) q).symm))
+        (fun Y hY => Finset.mem_powerset.2 ((mem_projFib.1 hY).1))]
+  -- LHS: unfold the planar Hamiltonian and bridge attach→dite
+  have hbody2 : ∑ i ∈ (projF Λ).powerset.attach,
+      extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (Finset.mem_powerset.1 i.2) (projInteraction Λ q Φ i.1) =
+    ∑ i ∈ (projF Λ).powerset.attach,
+      extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+        (Finset.mem_powerset.1 (Finset.mem_coe.2 i.2)) (projInteraction Λ q Φ i.1) :=
+    Finset.sum_congr rfl fun _ _ => rfl
+  rw [hamiltonianVar, hbody2, sum_attach_eq_dite (s := (projF Λ).powerset)
+    (P := fun X' => X' ∈ (projF Λ).powerset)
+    (f := fun X' hX' => extendId (loc := fun u : ℤ × ℤ => Fin (q ^ colCard Λ u))
+      (Finset.mem_powerset.1 hX') (projInteraction Λ q Φ X'))
+    (fun _ hX' => hX')]
+  rw [hR]
+  refine Finset.sum_congr rfl fun X' hX' => ?_
+  rw [dif_pos hX']
+  exact key X' hX'
 
 /-! ## P2-c audit (inline full-coverage; every new top-level theorem). -/
 
@@ -1427,5 +1598,9 @@ theorem colEquivVar_swap {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {X' : Finse
 #print axioms OpenAI.AL3D.sum_projFib_extendId
 #print axioms OpenAI.AL3D.regReindexEquiv_compl_iff
 #print axioms OpenAI.AL3D.colEquivVar_swap
+#print axioms OpenAI.AL3D.sum_powerset_eq_sum_projFib
+#print axioms OpenAI.AL3D.hamiltonianVar_eq_submatrix
+#print axioms OpenAI.AL3D.sum_attach_eq_dite
+#print axioms OpenAI.AL3D.sum_submatrix
 
 end OpenAI.AL3D

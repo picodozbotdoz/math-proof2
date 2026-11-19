@@ -273,6 +273,38 @@ and guard remain its only other dependencies (still the invisible-sorryAx pair).
   `alp2-m2c-run4-unit8.log`, `alp2-m2c-run5-unit8b.log`, `alp2-m2c-run6-unit8c.log`
   (walls 42–75 s, telemetry OVER=0).
 
+## Unit 9 (2026-11-19) — **M2 CLOSED GREEN: the Hamiltonian identification PROVED** (3 fires)
+
+**THE BISECT ANSWERED (run 7): `regReindexEquiv_compl_fwd` = sorryAx root,
+`compl_bwd` = triad-GREEN.** The invisible root WAS the `.trans`-on-membership in
+fwd's `haf` — its error was SUPPRESSED in the fused-iff context (why four runs of
+full-output logs showed nothing); the split made it visible at last. MECHANICAL, not
+math — fixed by the pre-written rw-form (`apply huX; rw [← …]`). Run-7 collateral:
+the reindent script mis-anchored (its "first funext u" was `colEquivVar_restr`'s) and
+flattened by-block interiors/signature continuations of four neighboring decls — all
+indent-repaired in run 8's byteset (fwd/bwd bodies kept at level 2).
+
+**Run 8: THE M2-b PAIR CLOSED** — compl_fwd, compl_iff, and `colEquivVar_swap` all
+GREEN-triad (plus the iff-assembly's positional-Λ, the class's 6th recurrence, named).
+**Run 9: A2.lean OK sorry-strict, rc=0 — `hamiltonianVar_eq_submatrix` GREEN-TRIAD =
+THE M2-c KEYSTONE. The full M0→M1→M2 ladder stands kernel-verified.**
+
+- **Gate at close:** run-13's 85-line core byte-identical; growth = 26 lines ALL
+  triad-only; sole subset-payload `walk_induce_length` unchanged since run 13.
+- **Standing notes:** (i) `set_option linter.all false` is DIAGNOSTIC-ONLY (unit 8) —
+  lift at the next file touch, restoring the tail-200 margin by pruning the warning
+  backlog instead; (ii) the fwd/bwd split decls stay (good hygiene: direction-level
+  audit).
+- **What M2's close means:** the precharter's P2-d parked targets — the extend-relabel
+  swap AND the Hamiltonian identification — are PROVED over the canonical z-rank
+  enumeration. The ladder's remainder is M3 (P2-e: eigenvector/gap/norm transports
+  [already GREEN, generic] + the entropy identification for column-closed cuts + the
+  final `SlabAreaLawColumnCuts3D` discharge from the `PlanarAreaLawVar` binder;
+  4–6 runs per the precharter).
+- A2.lean sha256(16) at unit-9 close: `61af175aae141aa9` (P0/A1 frozen). Logs:
+  `alp2-m2c-run7-unit9-bisect.log`, `alp2-m2c-run8-unit9b.log`,
+  `alp2-m2c-run9-unit9c.log` (walls 71–82 s, telemetry OVER=0).
+
 ## 1. Audit result — run-13's triad audit REPRODUCED (GREEN)
 
 **One Modal run fired** (this M0 is NOT audit-only — the precharter prices M0's

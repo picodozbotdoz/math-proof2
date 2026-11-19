@@ -954,6 +954,30 @@ certificates only). Companion of the dependsOnNoncomputable note above.
   closed FALSE).** R4 → standby (program complete; the ship chain live:
   R7 fill + R9 §NEGATIVE in flight). R1's 41H fold queues (certificates +
   expansion + no-go, 11 runs).
+
+## 2026-11-19 — iter-5 steady state, batch Q (H): R8's M2 CLOSED + R9's §NEGATIVE
+
+- **R8's M2 CLOSED landed (the A2 fold-once closing)**: `A2.lean`
+  `61af175a…` (the M2-b pair + the M2-c keystone GREEN; growth 26 lines
+  all triad; the run-13 core byte-identical) + record `e6bc86a4…` + the
+  3 unit-9 logs. **Verdict: M2 CLOSED GREEN — the M0→M2 ladder
+  kernel-verified; both P2-d parked targets PROVED.** R8 → M3 (the final
+  rung); R1's M2-closure fold queues.
+- **STANDING ELABORATION LESSON (the bisect's answer, unit 9):** an
+  elaboration error can be **SUPPRESSED in a fused-iff context** — the
+  failing branch's error (compl_fwd's `haf`) never surfaced while fused,
+  so the decl read clean while carrying the error silently (the
+  invisible-sorryAx class). **Rule: when an iff-assembly decl shows
+  unexplained sorryAx with a clean log, BISECT the iff halves — the error
+  lives in one branch's suppressed elaboration.** (Fourth entry in the
+  runner-hygiene lesson family: the `: error(` filter class, the
+  dual-orientation simp loop, `Finset.mem_image_of_mem` arity, now the
+  fused-iff suppression.)
+- **R9's §NEGATIVE landed:** the battery FINAL v2 `17970d4b…`
+  (supersedes `c24b62e5`; §ADDENDUM + §LANDING + §NEGATIVE in sequence) —
+  the 41H article's novelty-section source. Ship-gate: R9 ✅ · R2's 41H
+  pass DISPATCHED (against N3) · R7's draft in flight → the splice on
+  completion. R9 → standby.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
