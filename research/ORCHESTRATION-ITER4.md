@@ -23,25 +23,32 @@ the five units land (A2's runbook + A9's splice checklist 7 mandatory items + fi
 G1–G8 per `qa/iter4-closeout-gates.md`; H prepares and dry-runs, orchestrator fires).
 
 **PHASE-B WAVE 4 opened 2026-11-19** (post-restart; wave-3 wrap W1 `8c1c544` / W2
-`0382e16` / W3 `21be078`, then `e3d984b`). Lane map re-cut to H + R1–R9 (worktrees
-agent-02..agent-10); agent-01 spare. H forwarded all 10 worktrees to `e3d984b` (carry
-manifest + the agent-02 external-clean anomaly: `qa/iter4-review/h-wave4-log.md`;
-Modal routes verified LIVE — doz primary already carrying wave-4 runs). Close act
-resumes per the restart map §(b)3–5: R1 close residue (make_axcheck staging fixes per
-the W1 taxonomy + failed-stages-only subset re-fire + runbook Steps 9–12), R2 gates
-G1–G8 + G8 fill, then the CLOSE-COMPLETION commit K **on orchestrator signal only**
-(K-list minus W1-pre-landed; [DATE-CLOSED] = K's actual date), then iteration 5 opens
-(DECISION-1/3/4 + typeset from the charter draft §8 + the staged day-1 fires).
+`0382e16` / W3 `21be078`, then `e3d984b`; wave-4 commits from `3dc6de2`). Mission:
+the Iteration-4 close residue + the Iteration-5 open. H forwarded all 10 worktrees
+to `e3d984b` (carry manifest + the agent-02 anomaly — **CLOSED** as R1's own
+deliberate, pre-verified zero-loss force-forward; disposition + substrate standing
+notes: `qa/iter4-review/h-wave4-log.md`); Modal routes verified LIVE (doz primary
+carrying wave-4 runs). Close-act state: R2 gates G1–G8 DONE (G8 filled, §K-STAMPS
+prepared), R7 articles close-support DONE (D.4 anchors verified 6/6 unique) —
+**only R1's close residue gates K** (make_axcheck staging fixes + subset re-fire +
+runbook Steps 9–12; K = the close-completion commit, **fires ONLY on orchestrator
+signal**; [DATE-CLOSED] = K's actual date; the 14-step K execution script + dry-run
+verdicts + the iter-5 opening-commit checklist live in `h-wave4-log.md`). Post-K:
+iteration 5 opens (R3's APPROVED splice via `a6-iter5-research-splice.diff` +
+§STATUS block + INDEX rows + day-1 fire records).
+
+**Wave-4 lane map (re-cut 2026-11-19 per the orchestrator; worktree assignments
+non-sequential — pull per REPORT, never by lane number):**
 
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|
-| H | (main) | helper/infra (branch, commits, tracker) | ACTIVE wave-4: K DRY-RUNS ALL CLEAN (D.4 anchors 6/6 unique; date patches apply-clean; stamps 0–5 placement verified — scratch clone, main untouched); K execution script staged in h-wave4-log.md; standby on R1 + the K signal | active | 2026-11-19 |
-| A1 | agent-02 | verification integrity | WRAPPED: §10.1–10.32 + §10.CENSUS complete (385/386 basis); next = the close residue per the restart map (staging-defect fixes + subset re-fire + Steps 9–12 + G8 fill) | wrapped (close residue next) | 2026-11-18 |
-| A2 | agent-03 | bench/close-out | WRAPPED: filled close block + PRE-GO verification landed (W2 `0382e16`); K-rows 17–21 ADOPTED via the W1 pre-landing ruling; next = K-time stamps per the restart map | wrapped (K-time stamps next) | 2026-11-18 |
-| A3 | agent-04 | FF-EZ2 + articles 71/22 | WRAPPED: FF-EZ2 charter closed + η-port precharter (κ=1) + η-pin-probe STAGED (unfired — iter-5 day-1 fire) + A71-1 fixed | wrapped (iter-5 day-1 staged) | 2026-11-18 |
-| A4 | agent-05 | AL-3D P2 | WRAPPED: P2-c 100% CLOSED (run13) + runner error-filter fix + find-#5 rebuild precharter (M0–M3, 12–18 runs) | wrapped (rebuild = iter-5) | 2026-11-18 |
-| A5 | agent-06 | 75-N2 consumer | WRAPPED: paused-at-close committed (P1 COMPLETE run-19; P2-a 2/6 paused, fixes-on-disk unfired sha `ecd44c6a`; resume note = iter-5 lead-1; N2-P2 run 22 = day-1 fire) | wrapped (iter-5 lead-1) | 2026-11-18 |
-| A6 | agent-07 | iteration-5 prep | WRAPPED: charter draft FINAL (424-line outcome refresh §8, landed W2); DECISION-1/3/4 = the orchestrator's iter-5-open rulings; 41-P0 staged (unfired, day-1) | wrapped (typeset next) | 2026-11-18 |
-| A7 | agent-08 | 78 + 77 + prior-art | WRAPPED: 77 unit down (T1 honest stop 31→7; T2 7/8 — the tainted decl = the 386th residual → iter-5); physlib novelty event recorded; no AxPilot77_T1 row (74-precedent) | wrapped | 2026-11-18 |
-| A8 | agent-09 | 74 + validation | WRAPPED: 74-P1 completion GREEN (7/7 triad, verify-fire held) + dossier amendment + P2 precharter (FIND-#1 family recycled; ≤5+≤5) | wrapped (P2 = iter-5) | 2026-11-18 |
-| A9 | agent-10 | articles editorial | WRAPPED: checklist splice-time-only (D.5 resolved; zero article cells verified); next = the D.4 sha stamps ride K per the restart map | wrapped (D.4 rides K) | 2026-11-18 |
+| H | (main) | helper/infra (sole committer; K + opening mechanics) | K dry-runs ALL CLEAN (D.4 6/6 unique; date patches apply-clean; stamps 0–5 verified); 14-step K script + opening checklist staged (`qa/iter4-review/h-wave4-log.md`); standby on R1 + the K signal | active | 2026-11-19 |
+| R1 | agent-02 | close residue (**the K gate**) | make_axcheck staging fixes (dependency-ordered emission; P0 stem collision) + failed-stages-only subset re-fire + runbook Steps 9–12 | active | 2026-11-19 |
+| R2 | agent-03 | gates + 72-M1 | gates G1–G8 **DONE** (G8 filled; §K-STAMPS prepared; shas `94c9e14a…`/`2ec00eeb…` verified by H) + 72-M1 L3b–d active; K-time G4/G8 interrupt duty | active | 2026-11-19 |
+| R3 | agent-07 | iter-5 charter + M-arc + 74-P2 | charter typeset DELIVERED + splice APPROVED (rides the post-K opening commit) + 10-D4 M-arc GREEN + 74-P2 active | active | 2026-11-19 |
+| R4 | agent-08 | 41 + core S–M | 41-P0 GREEN (run 2 rc=0; `noncomputable def Gq` fix) + core S–M active (`pilots/41/S-M-plan.md`) | active | 2026-11-19 |
+| R5 | agent-04 | η-pin-probe | run-1 FAIL-mechanical (`dependsOnNoncomputable` :108 `dilateTo`; fix applied, run 2 owed) + OVER-cpu 5.70 investigation owed | active | 2026-11-19 |
+| R6 | agent-06 | 75-N2 P2 | N2-P2 run 22 fired (the iter-5 lead-1 resume note payload) | active | 2026-11-19 |
+| R7 | agent-10 | articles close-support + Liu port | close-support DONE (D.4 stamps ready; anchors 6/6 unique) + Liu B_new statement-port active | active | 2026-11-19 |
+| R8 | agent-05 | wave-2 queue + AL rebuild | wave-2 queue (`a6-iter5-wave2-queue.md`) + AL-M0 GREEN (regression run) + M0-rebuild active | active | 2026-11-19 |
+| R9 | agent-09 | round-6 novelty | round-6 novelty batteries | active | 2026-11-19 |

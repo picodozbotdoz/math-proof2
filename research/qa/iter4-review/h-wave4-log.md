@@ -397,3 +397,16 @@ action):** (i) R5's η-pin-probe run-1 FAIL-mechanical (one `lean.dependsOnNonco
 at :108 `dilateTo`; fix applied, run 2 owed) — R5 owns; (ii) the OVER-cpu 5.70
 sample on the same run (soft-limit burst @t=120 s) — investigation line owed in
 R5's reported record per AGENTS §Modal 3. Orchestrator chases both at R5's report.
+
+## 2026-11-19 — STANDING SUBSTRATE NOTE: the `lean.dependsOnNoncomputable` class (H; from R4+R5 independent hits)
+
+The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
+independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
+both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over
+`Polynomial ℤ` / monoid-algebra multiplication drag the noncomputable-mul
+dependency). Fixes: R4 = `noncomputable def` marking (41-P0 run 2 GREEN, rc=0);
+R5 = the analogous marker (fix applied, run 2 owed). **Rule of thumb for ALL
+iteration-5 pilots: mark data-level defs touching `Polynomial ℤ` / monoid-algebra
+mul `noncomputable` UP-FRONT** — a math-neutral mechanical marking; catching it
+pre-fire saves a run. (Tracker lane map re-cut to the wave-4 R1–R9 assignments in
+the same commit; worktree assignments are non-sequential — pull per REPORT.)
