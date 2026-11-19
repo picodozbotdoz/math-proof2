@@ -5,6 +5,19 @@ Lane R2 (close-out gates → W2-4 re-task), 2026-11-19. Spec: `pilots/72-M1/L3-s
 post-K continuation fire (iteration 5 wave 1; day-1-class: prepared + fired, ALL
 commits held for H post-K landing).
 
+## FINAL-ROUND AMENDMENT (2026-11-19 night): the ≤2-run final grant fired (runs 12–13) —
+## L3c + boundary lemmas now TRIAD-CLEAN; ladder still NOT-GREEN at wave close (final
+## honest stop; 4 named mechanical fixes charter the next wave — `logs/l3bd-stop-note.md`
+## §FINAL-ROUND ADDENDUM: the hQ-tail is a one-word `Finset.mul_sum` fix)
+
+Run 12 flipped `hasGlobalGap_of_fullSystemGap` (L3c) and `edgeBoundary_le_boundaryCard`
+to triad-clean — the Loewner gap transfer, the quadratic-form/reality assembly, and both
+boundary-comparability directions all close kernel-clean. Run 13 rotated the remaining
+form-mismatches (5 sites; hQ-tail one word from closing). Final triad-clean set: L3b,
+submatrix_mulVec_ec, eig_toGrid, L3c, edgeBoundary_le_boundaryCard + all T1/T2/L3a.
+Still contaminated: isAdmissible_ΦL, hamiltonian_gridDom_eq, the interface theorem.
+13 runs total, zero math defects, T1/T2 regression OK throughout.
+
 ## GRANT-ROUND AMENDMENT (2026-11-19, evening): continuation fired (runs 9–11), still
 ## HONEST PARTIAL at grant-exhaustion — the residual is 3 displayed-form one-liners
 
@@ -34,7 +47,7 @@ Descent 47 → 48(parse) → 39 → 15 → 9 → 9 → 9 → 8 error-lines acros
 regression OK in every run (0 errors, 0 sorry-warnings); ZERO mathematical defects —
 every failure class is a name/elaboration-shape issue. STOP per §7's budget guard:
 `logs/l3bd-stop-note.md` (descent table + the 3 residual classes + the next-instance
-fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..11}.log`,
+fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..13}.log`,
 provenance headers in each (substrate mathlib `ff2494ea` v4.36.0-rc2, doz CLI, SPEC
 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry in every tail; OVER-class = mmapped-olean
 mem-burst only — investigate-not-upgrade, no upgrade requested or needed).

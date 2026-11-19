@@ -183,16 +183,16 @@ theorem adj_split {L : ℕ} {v w : Vertex L}
     · exact Or.inl (show (v.1.val + 1 = w.1.val ∧ v.2 = w.2)
           ∨ (v.1 = w.1 ∧ v.2.val + 1 = w.2.val) from
         Or.inl (And.intro (by omega) (fin_eq_of_val_eq (by omega))))
-    · exact Or.inl (show (w.1.val + 1 = v.1.val ∧ w.2 = v.2)
+    · exact Or.inr (show (w.1.val + 1 = v.1.val ∧ w.2 = v.2)
           ∨ (w.1 = v.1 ∧ w.2.val + 1 = v.2.val) from
         Or.inl (And.intro (by omega) (fin_eq_of_val_eq (by omega))))
   · simp only [iotaL] at h1 h2
     rcases h1 with h1 | h1
+    · exact Or.inl (show (v.1.val + 1 = w.1.val ∧ v.2 = w.2)
+          ∨ (v.1 = w.1 ∧ v.2.val + 1 = w.2.val) from
+        Or.inr (And.intro (fin_eq_of_val_eq (by omega)) (by omega)))
     · exact Or.inr (show (w.1.val + 1 = v.1.val ∧ w.2 = v.2)
           ∨ (w.1 = v.1 ∧ w.2.val + 1 = v.2.val) from
-        Or.inr (And.intro (fin_eq_of_val_eq (by omega)) (by omega)))
-    · exact Or.inr (show (v.1.val + 1 = w.1.val ∧ v.2 = w.2)
-          ∨ (v.1 = w.1 ∧ v.2.val + 1 = w.2.val) from
         Or.inr (And.intro (fin_eq_of_val_eq (by omega)) (by omega)))
 
 /-- Every lattice boundary edge of the grid image comes from a crossing grid edge —
@@ -302,40 +302,50 @@ theorem hasGlobalGap_of_fullSystemGap {L q : ℕ} (H : Operator L q) (Ω : State
       have h4 : ∀ g : Configuration L q, u g = x (ec.symm g) := fun g => rfl
       calc (H *ᵥ u) ⬝ᵥ star u
           = ∑ g : Configuration L q, ∑ g' : Configuration L q, H g g' * u g' * star (u g) := by
-            simp [Matrix.mulVec, dotProduct]
+            show ∑ g : Configuration L q, (∑ g' : Configuration L q, H g g' * u g')
+                * star (u g) = _
+            exact Finset.sum_congr rfl fun g _ => Finset.sum_mul _ _ _
         _ = ∑ c : Reg (Qudits q) (gridDom L), ∑ d : Reg (Qudits q) (gridDom L),
-              H (ec c) (ec d) * x d * star (x c) := by
-            refine Fintype.sum_equiv ec _ _ fun c => ?_
-            refine Fintype.sum_equiv ec _ _ fun d => ?_
-            rw [h4, h4]
-            simp only [Equiv.symm_apply_apply]
+              H (ec c) (ec d) * x d * star (x c) :=
+            (Fintype.sum_equiv ec
+              (fun c => ∑ d : Reg (Qudits q) (gridDom L), H (ec c) (ec d) * x d * star (x c))
+              (fun g => ∑ g' : Configuration L q, H g g' * u g' * star (u g))
+              (fun c => Fintype.sum_equiv ec _ _ fun d => by
+                rw [h4, h4]
+                simp only [Equiv.symm_apply_apply])).symm
         _ = ∑ c : Reg (Qudits q) (gridDom L), ∑ d : Reg (Qudits q) (gridDom L),
               star (x c) * (H (ec c) (ec d) * x d) :=
             Finset.sum_congr rfl fun c _ => Finset.sum_congr rfl fun d _ => by ring
     rw [hR]
     simp only [dotProduct, Matrix.mulVec, Matrix.submatrix_apply]
+    exact Finset.sum_congr rfl fun i _ => Finset.sum_mul _ _ _
   have hN : star x ⬝ᵥ (vecMulVec Ω' (star Ω') *ᵥ x)
       = ((‖(inner ℂ Ω ψ : ℂ)‖ ^ 2 : ℝ) : ℂ) := by
     have hmul : ∀ c : Reg (Qudits q) (gridDom L),
         (vecMulVec Ω' (star Ω') *ᵥ x) c = Ω' c * (star Ω' ⬝ᵥ x) := by
       intro c
-      simp [Matrix.mulVec, Matrix.dotProduct, Matrix.vecMulVec_apply, mul_assoc]
+      rw [Matrix.mulVec, dotProduct, Matrix.vecMulVec_apply, ← mul_assoc,
+        ← Finset.sum_mul]
     have hin : (inner ℂ Ω ψ : ℂ) = star Ω' ⬝ᵥ x := by
       rw [show (inner ℂ Ω ψ : ℂ) = WithLp.ofLp ψ ⬝ᵥ star (WithLp.ofLp Ω) from EuclideanSpace.inner_eq_star_dotProduct Ω ψ]
       have h4 : ∀ g : Configuration L q, u g = x (ec.symm g) := fun g => rfl
       calc WithLp.ofLp ψ ⬝ᵥ star (WithLp.ofLp Ω)
           = ∑ g : Configuration L q, u g * star (WithLp.ofLp Ω g) := rfl
         _ = ∑ c : Reg (Qudits q) (gridDom L), x c * star (Ω' c) :=
-            Fintype.sum_equiv ec (fun g => u g * star (WithLp.ofLp Ω g))
-              (fun c => x c * star (Ω' c)) fun c => by
-              rw [h4, toGrid_eq_ofLp]
+            (Fintype.sum_equiv ec (fun c => x c * star (Ω' c))
+              (fun g => u g * star (WithLp.ofLp Ω g)) fun c => by
+              rw [hΩ', toGrid_eq_ofLp, h4, Equiv.symm_apply_apply]).symm
         _ = star Ω' ⬝ᵥ x := by
             simp only [dotProduct]
             exact Finset.sum_congr rfl fun c _ => mul_comm _ _
     calc star x ⬝ᵥ (vecMulVec Ω' (star Ω') *ᵥ x)
         = (∑ c : Reg (Qudits q) (gridDom L), star (x c) * Ω' c) * (star Ω' ⬝ᵥ x) := by
-          show ∑ c : Reg (Qudits q) (gridDom L), star (x c) * (vecMulVec Ω' (star Ω') *ᵥ x) c = _
-          rw [Finset.sum_congr rfl fun c _ => hmul c, ← Finset.sum_mul]
+          have e1 : ∀ c : Reg (Qudits q) (gridDom L),
+              star (x c) * (vecMulVec Ω' (star Ω') *ᵥ x) c
+                = star (x c) * Ω' c * (star Ω' ⬝ᵥ x) := fun c => by rw [hmul c]
+          show ∑ c : Reg (Qudits q) (gridDom L),
+              star (x c) * (vecMulVec Ω' (star Ω') *ᵥ x) c = _
+          rw [Finset.sum_congr rfl fun c _ => e1 c, ← Finset.sum_mul]
       _ = star (star Ω' ⬝ᵥ x) * (star Ω' ⬝ᵥ x) := by
           congr 1
           simp only [dotProduct, star_sum]
@@ -913,17 +923,25 @@ theorem hamiltonian_gridDom_eq {L q : ℕ} [NeZero q] (hv : Vertex L → Operato
       rw [Finset.sum_congr rfl fun v _ => hFv v,
         Finset.sum_congr rfl fun e _ => hFe e]
   calc OpenAI.hamiltonian (gridDom L) (ΦL hv he)
-      = ∑ X ∈ U, F X := by rw [OpenAI.hamiltonian, Finset.sum_attach]
+      = ∑ X ∈ U, F X := by
+        rw [hU, hps, hF, OpenAI.hamiltonian, Finset.sum_attach]
     _ = (∑ v : Vertex L, (hermPart (hv v)).submatrix (configEquiv L q) (configEquiv L q))
         + ∑ e : Edge L, (hermPart (he e)).submatrix (configEquiv L q) (configEquiv L q) :=
         key
     _ = ((∑ v : Vertex L, hermPart (hv v)) + ∑ e : Edge L, hermPart (he e)).submatrix
           (configEquiv L q) (configEquiv L q) := by
-        have e1 := sum_submatrix (m := Reg (Qudits q) (gridDom L)) Finset.univ
-          (fun v => hermPart (hv v)) (configEquiv L q) (configEquiv L q)
-        have e2 := sum_submatrix (m := Reg (Qudits q) (gridDom L)) Finset.univ
-          (fun e => hermPart (he e)) (configEquiv L q) (configEquiv L q)
-        rw [e1, e2, Matrix.submatrix_add]
+        have hc := congrArg (fun Z => Z + ∑ e : Edge L, (hermPart (he e)).submatrix
+          (configEquiv L q) (configEquiv L q))
+          (sum_submatrix (m := Reg (Qudits q) (gridDom L)) Finset.univ
+            (fun v => hermPart (hv v)) (configEquiv L q) (configEquiv L q))
+        have hc2 := congrArg (fun Z => (∑ v : Vertex L, hermPart (hv v)).submatrix
+          (configEquiv L q) (configEquiv L q) + Z)
+          (sum_submatrix (m := Reg (Qudits q) (gridDom L)) Finset.univ
+            (fun e => hermPart (he e)) (configEquiv L q) (configEquiv L q))
+        exact Eq.trans (hc.trans hc2)
+          (congrFun (congrFun (Matrix.submatrix_add (∑ v : Vertex L, hermPart (hv v))
+            (∑ e : Edge L, hermPart (he e))) (configEquiv L q))
+            (configEquiv L q)).symm
     _ = (Hamiltonian (fun v => hermPart (hv v)) (fun e => hermPart (he e))).submatrix
           (configEquiv L q) (configEquiv L q) := rfl
 

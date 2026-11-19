@@ -778,6 +778,21 @@ rides this commit.
   state. (Process note: H's recurring INDEX replace-not-append slip on the
   gates-row anchor occurred again and was again caught+restored pre-commit —
   anchor switched to avoid recurrence.)
+
+## 2026-11-19 — iter-5 steady state, batch G (H): the L3 fold-once landing (R2's FINAL round, closed)
+
+- **`P72M1T3.lean` v13 `dcda3133…` LANDED at the closing state** (the
+  fold-once rule executed: main moves from the batch-B `3da2deb0` bytes
+  directly to the 13-run final state — the intermediate v11/v12 states never
+  landed, as ruled). Zero sorry tokens; **triad: L3b + L3c +
+  both-boundary-directions**; the contaminated tail
+  (`isAdmissible_ΦL`/`hamiltonian_gridDom_eq`/interface) honestly recorded.
+- Stop-note `4f6ec977…` (§FINAL-ROUND = the **next-wave charter input**: the
+  `Finset.mul_sum` one-word fix et al.) + L3-record `0b3e129f…` (**W2-4 =
+  honest-partial FINAL this wave**) + runs 12–13 landed.
+- **R1's L3 fold is NOW executable** at the closing state (the
+  honest-partial-final row + the triad additions + the next-wave charter
+  pointer). R2 → mid-wave REPORT delta prep (tracker).
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

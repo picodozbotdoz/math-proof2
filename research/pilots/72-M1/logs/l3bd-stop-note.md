@@ -98,3 +98,42 @@ Grant budget exhausted at run 11; NOT fired further. Estimated: one more round c
 all three (each is a displayed-form one-liner). Same STOP class: zero math defects.
 
 — grant-round R2, 2026-11-19. Run-index extended: run9 v9, run10 v10, run11 v11.
+
+
+---
+
+## FINAL-ROUND ADDENDUM (lane R2, 2026-11-19 night — the ≤2-run final grant; NOT-GREEN,
+## final honest stop per the grant's own terms; this note is the next-wave charter input)
+
+Fired runs 12–13 (v12 → v13, logs `l3bd-run{12,13}.log`):
+
+- **run 12**: the 3 recorded one-liners applied. `hasGlobalGap_of_fullSystemGap` (L3c)
+  and `edgeBoundary_le_boundaryCard` went **TRIAD-CLEAN** — the entire L3c gap-transfer
+  and both boundary lemmas now close kernel-clean. 4 sites remained with goals fully
+  displayed in the errors.
+- **run 13**: form-rotations continued (hQ-tail → sum_congr-typing; hmul → pattern;
+  hN e1/star-chain; hamiltonian-step1 → motive-not-type-correct on the set-var type
+  rewrite). 5 sites. **The hQ-tail site is literally one word from closing: the lemma is
+  `Finset.mul_sum` (a * ∑ f = ∑ (a * f)), not `Finset.sum_mul` ((∑ f) * b = ∑ (f i * b))
+  — run-13's own error display shows the needed form.** The hamiltonian-step1 fix is to
+  avoid rewriting `ps` inside the subtype (state step-1 in the UNFOLDED `{X // X ∈
+  (gridDom L).powerset}`-form, or generalize `ps` before the calc instead of `set`).
+
+**Final clean/contaminated inventory (run 13):** TRIAD-CLEAN — `toGrid_star_dotProduct_self`
+(L3b), `submatrix_mulVec_ec`, `eig_toGrid`, `hasGlobalGap_of_fullSystemGap` (L3c),
+`edgeBoundary_le_boundaryCard` (both directions of the boundary comparability with T2's),
++ every T1/T2/L3a declaration. Contaminated via the remaining mechanical sites:
+`isAdmissible_ΦL`, `hamiltonian_gridDom_eq`, `interface_areaLaw_uniformAreaLaw`.
+T1/T2 regression OK in all 13 runs; zero mathematical defects in 13 runs; every
+mathematical route in the tranche is verified through.
+
+**Wave verdict: W2-4 = HONEST PARTIAL (final for this wave).** The L3 ladder did not
+close GREEN under the three grant budgets (8 + 3 + 2 = 13 runs); what remains is a
+bounded, fully-diagnosed mechanical tail in four proof regions (hQ-tail: `Finset.mul_sum`
+one-word fix; hmul: rw-order for ← mul_assoc/← mul_sum after vecMulVec_apply; hN-step1:
+e1-sum_congr + mul_sum-pullout; hamiltonian-step1: avoid the type-level `set`-unfold).
+Next wave's continuation charters from here: apply the four named fixes, fire, expect
+1–2 rounds.
+
+— final-round R2, 2026-11-19. Run-index final: runs 1–13, v1–v13
+(v13 sha256(16) at the run-13 header).
