@@ -367,3 +367,20 @@ option. No new article is warranted — the statement was never our result.
 statement-class work is T2a — the hypothesis-binder port of the upstream StrongPNT
 statement onto our pin, probe G9 GREEN at `feasibility/probe/logs-g/run37-g9-fix.log:30`
 (statement-only, two declared probe stubs). T2b remains retired.)*
+
+**[ERRATUM 2026-11-19, lane R9 (applied per orchestrator re-task, unit 4/5; prose above
+untouched) — the §F5 upstream race RESOLVED.** mathlib PR #43238 (weak PNT) was
+bors-merged to master 2026-11-11: `Mathlib/NumberTheory/LSeries/WeakPNT.lean` carries
+`Chebyshev.isEquivalent_psi_id` (ψ x ~ x — Tier-1a's exact form), the π-forms, AND the
+arithmetic-progression forms (`Nat.isEquivalent_card_prime_modEq`, vonMangoldt
+`tendsto_sum_modEq_div_atTop`). Timeline precision: our M4 proved Tier-1a in-project on
+2026-11-09 (two days earlier, sorry-free at ff2494ea, Wiener–Ikehara's first consumer) —
+the in-project result stands as executed; the ECOSYSTEM-priority claim ("mathlib's first
+PNT") is now SUPERSEDED by the upstream landing. Pin ruling 2026-11-19 (orchestrator):
+pin STAYS ff2494ea; WeakPNT is external-math citation class (PNT+ DEFER-watchlist
+convention), absent at our pin. Consequences: (i) M5/M6 stay skipped, permanently
+justified; (ii) any 22-v2 / T2a consumer cites mathlib's WeakPNT as the Tier-1 upstream
+holder alongside our M4 execution record; (iii) FB-2 note: master now carries the WEAK
+PNT-AP — FB-2's target is the ERROR-TERM class (x^{7/8+δ}, explicit-formula), so no
+preemption, but the weak-PNT-AP substrate enters FB-2's citation block at charter time.
+— end erratum.]

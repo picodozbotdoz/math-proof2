@@ -7,6 +7,9 @@ tauceti's own lake-manifest mathlib (1b1ccf4b) — NOT our ff2494ea substrate. I
 elan v4.2.4 + toolchain v4.36.0-rc2 + tauceti clone at d92acc5c + `lake exe cache get`
 + `lake build` of the two imported modules (and their tauceti dep closure).
 Ephemeral `modal run` only — NO volume, NO secret, NO deploy.
+Follow-up unit (lane R7, 2026-11-19): amended (a) modal_telemetry path → the main
+checkout's probe dir, (b) FULL RAW OUTPUT dump on any non-clean verdict (the run-9
+filter-blind-spot fix — rc=1/errors=0/sorryAx must never hide its error text again).
 
 Usage (via run_pilot.sh, staging into /tmp/crossmath-77-t1-stage):
     modal run run_pilot.py --dir <stage-dir>
@@ -19,7 +22,7 @@ import modal
 # AGENTS.md § Modal usage guidelines: default spec 2 cpu / 4 GB (soft), telemetry on every
 # run, LEAN_NUM_THREADS capped to the spec (Modal containers report more nproc than cpu).
 import sys as _sys
-_sys.path.insert(0, "/home/doz/zcode-workdir/worktrees/agent-08/research/feasibility/probe")
+_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
 from modal_telemetry import SPEC, telemetered  # noqa: E402
 CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
 
@@ -94,7 +97,8 @@ def run(files: dict, order: list):
             results[rel] = "TIMEOUT"
             continue
         out = r.stdout + r.stderr
-        errors = [l for l in out.splitlines() if ": error:" in l or l.startswith("error:")]
+        errors = [l for l in out.splitlines() if ": error:" in l or ": error(" in l
+                  or l.startswith("error:")]
         sorry = [l for l in out.splitlines() if "declaration uses 'sorry'" in l]
         axioms = [l for l in out.splitlines() if "'does not depend on any axioms'" in l
                   or "depends on axioms:" in l]
@@ -106,7 +110,19 @@ def run(files: dict, order: list):
             print("---- axioms ----", flush=True)
             print("\n".join(axioms), flush=True)
         lines = out.splitlines()
-        err_lines = [i for i, l in enumerate(lines) if ": error:" in l]
+        tainted = "sorryAx" in out
+        err_lines = [i for i, l in enumerate(lines) if ": error:" in l or ": error(" in l]
+        # follow-up-unit upgrade (R7, 2026-11-19): the run-9 gremlin (rc=1 with
+        # errors=0 and a sorryAx decl — the error text sat in the unprinted
+        # region) gets full visibility: dump the COMPLETE raw output whenever the
+        # run is not clean (rc != 0, any error line, any sorry-warning, or any
+        # sorryAx in the axioms report). head/tail excerpts are no longer trusted
+        # as the only evidence.
+        if r.returncode != 0 or err_lines or sorry or tainted:
+            print("---- FULL RAW OUTPUT (follow-up-unit runner: no truncation) ----",
+                  flush=True)
+            print(out, flush=True)
+            print("---- END FULL RAW OUTPUT ----", flush=True)
         if err_lines:
             print("---- error contexts ----", flush=True)
             shown = 0

@@ -55,7 +55,14 @@ open scoped BigOperators Matrix
 
 section Abstract
 
-variable {κ : Type*} [DecidableEq κ]
+-- `[Fintype κ]` (follow-up unit, run-10 finding): `isDegreeBlock_iff_sum_blockProj`'s
+-- degree-spectrum sum runs over `Finset.image deg Finset.univ`, which needs the index
+-- type finite — the drafted statement was ill-typed without it (the run-9 "filter-blind
+-- spot" gremlin: `error(lean.synthInstanceFailed)` at :77/:90, invisible to the old
+-- runner filter, hence the sorryAx). The parity twin needs no Fintype (its spectrum is
+-- `Finset.range 2`), which is why it verified cleanly. Section-variable auto-inclusion
+-- is use-based: only the iff gains the binder.
+variable {κ : Type*} [DecidableEq κ] [Fintype κ]
 
 /-- `M` is block-diagonal w.r.t. the degree map `deg` (the `⨁_n`-grading condition,
 entry form): entries between different degrees vanish. -/
@@ -87,7 +94,9 @@ theorem isDegreeBlock_iff_sum_blockProj (deg : κ → ℕ) (M : Matrix κ κ ℂ
       show (if deg a = n ∧ deg b = n then M a b else 0) = 0
       rw [if_neg (fun hc => hn hc.1.symm)]
     · intro hn
-      exact absurd (Finset.mem_image_of_mem (Finset.mem_univ a)) hn
+      -- pin signature (run-11 finding): `Finset.mem_image_of_mem` takes `f` EXPLICIT
+      -- first on this mathlib (1b1ccf4b), not implicit-position as drafted.
+      exact absurd (Finset.mem_image_of_mem deg (Finset.mem_univ a)) hn
   · intro h a b hab
     rw [← h, Matrix.sum_apply]
     refine Finset.sum_eq_zero fun n _ => ?_

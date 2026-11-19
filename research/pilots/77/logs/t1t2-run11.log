@@ -1,0 +1,240 @@
+# PROVENANCE — t1t2-run11.log (pilot 77 follow-up unit, fix-retry 1; lane R7, fired 2026-11-19T11:36:47Z)
+# PRE-RUN SHA GUARD: T1.lean sha256(16) 70d7e9f75e705303 (840 LoC — run-10 bytes f1a88276960201e3 repaired: dropped the hxis/hyis inverse simp pairs (the maxRecDepth loop, run-10 :769/:774/:801/:806) and the two impossible hny haves in the y=i positive branches (:777/:809)); T2.lean sha256(16) a8237f266d0b7537 (279 LoC — +8 lines: [Fintype κ] section variable + finding comment; the run-10-exposed synthInstanceFailed at :77/:90 fixed)
+# runner filter: ': error(' class added to errors/err_lines (the run-9 blind spot class; matches make_axcheck 43d55bb)
+# substrate: crossmath-pilot-77, tauceti d92acc5c lineage, mathlib 1b1ccf4b, doz CLI, warm; spec 2cpu/4096 + LEAN_NUM_THREADS=2 + telemetry
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vs0xkutACPO7bZF1xoXZn9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean', 'T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[tele] t=60s cpu=1.41 mem=3964MB anon=0MB peak=-1MB procs=2
+[pilot] T1.lean: OK
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:811:71: warning: This simp argument is unused:
+  hni'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hni]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:54: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_fst, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:815:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== T2.lean
+[pilot] T2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- FULL RAW OUTPUT (follow-up-unit runner: no truncation) ----
+T2.lean:91:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:92:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:95:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:97:65: error: Application type mismatch: The argument
+  hn
+has type
+  deg a ∉ Finset.image deg Finset.univ
+but is expected to have type
+  ¬(?m.141 ∈ ?m.136 → ?m.140 ?m.141 ∈ Finset.image ?m.140 ?m.136)
+in the application
+  absurd (Finset.mem_image_of_mem ?m.140) hn
+T2.lean:97:44: error: Application type mismatch: The argument
+  Finset.mem_univ a
+has type
+  a ∈ Finset.univ
+of sort `Prop` but is expected to have type
+  ?m.133 → ?m.134
+of sort `Type (max ?u.59 ?u.60)` in the application
+  @Finset.mem_image_of_mem ?m.133 ?m.134 ?m.135 ?m.136 (Finset.mem_univ a)
+T2.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:118:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:119:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:122:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:129:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:110:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj`:
+  [DecidableEq κ]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:132:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock`:
+  [DecidableEq κ]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:137:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isDegreeBlock_sum`:
+  [DecidableEq κ]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:145:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_sum`:
+  [DecidableEq κ]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:174:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:180:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:209:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:212:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+---- END FULL RAW OUTPUT ----
+---- error contexts ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:97:65: error: Application type mismatch: The argument
+  hn
+has type
+  deg a ∉ Finset.image deg Finset.univ
+but is expected to have type
+  ¬(?m.141 ∈ ?m.136 → ?m.140 ?m.141 ∈ Finset.image ?m.140 ?m.136)
+in the application
+  absurd (Finset.mem_image_of_mem ?m.140) hn
+T2.lean:97:44: error: Application type mismatch: The argument
+  Finset.mem_univ a
+has type
+  a ∈ Finset.univ
+of sort `Prop` but is expected to have type
+  ?m.133 → ?m.134
+of sort `Type (max ?u.59 ?u.60)` in the application
+  @Finset.mem_image_of_mem ?m.133 ?m.134 ?m.135 ?m.136 (Finset.mem_univ a)
+T2.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:118:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:119:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+···
+  absurd (Finset.mem_image_of_mem ?m.140) hn
+T2.lean:97:44: error: Application type mismatch: The argument
+  Finset.mem_univ a
+has type
+  a ∈ Finset.univ
+of sort `Prop` but is expected to have type
+  ?m.133 → ?m.134
+of sort `Type (max ?u.59 ?u.60)` in the application
+  @Finset.mem_image_of_mem ?m.133 ?m.134 ?m.135 ?m.136 (Finset.mem_univ a)
+T2.lean:102:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:118:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:119:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:122:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:129:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+···
+
+[pilot] SUMMARY
+[pilot]   T1.lean: OK
+[pilot]   T2.lean: FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=99s max_cpu=1.41 max_mem=3964MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vs0xkutACPO7bZF1xoXZn9

@@ -1,0 +1,676 @@
+# PROVENANCE — t1t2-run10.log (pilot 77 follow-up unit: T1-completion + T2 as ONE pilot; charter rung 5; lane R7/A9-lineage, fired 2026-11-19T11:25:43Z)
+# PRE-RUN SHA GUARD (verify-fire discipline): T1.lean sha256(16) f1a88276960201e3 (846 LoC — the run-8 base 29 lines net from the 7-residual fixes: pairBilin ext→LinearMap.ext ×2, isoV_hypE/isoV_hypE' undecided-ite pre-splits, hypE'_fst add); T2.lean sha256(16) 55107d0c6768fe34 (272 LoC — UNCHANGED run-9 bytes, diagnostic: the runner now dumps FULL RAW OUTPUT on non-clean, exposing the filter-missed elaboration error of isDegreeBlock_iff_sum_blockProj)
+# runner: run_pilot.sh → run_pilot.py (app crossmath-pilot-77, tauceti d92acc5c0393 lineage, mathlib 1b1ccf4b via tauceti manifest, Lean v4.36.0-rc2; doz CLI; warm image layers)
+# spec: cpu=2.0 mem=4096 (defaults, soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry
+# physlib clock (condition iii) START STAMP: pushed_at = 2026-11-18T14:07:18Z (api.github.com/repos/leanprover-community/physlib, read 2026-11-19T11:25:43Z); tick content checked = #2001 Central force integrability (ClassicalMechanics/PhyslibAlpha) — ORTHOGONAL to the PerturbationTheory wing; WickAlgebra differentiation re-run separately recorded in T1-record.md
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-FB3L9i0UXvXCaVgYkdK4gI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T1.lean', 'T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T1.lean
+[pilot] T1.lean: FAIL rc=1 errors=6 sorry=0
+---- axioms ----
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- FULL RAW OUTPUT (follow-up-unit runner: no truncation) ----
+T1.lean:159:46: warning: This simp argument is unused:
+  fermionSign_mul_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [creator, annihilator_apply, Matrix.conjTranspose_apply, hj, sign_insert_not_lt j j B (lt_irrefl j),
+    fermionSign_star, starRingEnd_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:160:24: warning: This simp argument is unused:
+  starRingEnd_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [creator, annihilator_apply, Matrix.conjTranspose_apply, hj, sign_insert_not_lt j j B (lt_irrefl j),
+    fermionSign_mul_self, fermionSign_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:166:6: warning: This simp argument is unused:
+  fermionSign_mul_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [creator, annihilator, Matrix.conjTranspose_apply, hc, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:235:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:238:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:304:20: warning: This simp argument is unused:
+  Prod.snd_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.add_apply, Prod.fst_add, Pi.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:332:13: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:376:16: warning: This simp argument is unused:
+  LinearMap.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, AddHom.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:376:34: warning: This simp argument is unused:
+  AddHom.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst_add, Prod.snd_add, Pi.add_apply, Finset.sum_add_distrib, add_smul, LinearMap.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:493:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:501:61: warning: Variable name `hij` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hij
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+T1.lean:506:59: warning: Variable name `hij` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hij
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+T1.lean:530:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T1.lean:554:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:556:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T1.lean:708:40: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+T1.lean:710:41: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+T1.lean:729:40: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+T1.lean:731:41: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+T1.lean:708:22: warning: This simp argument is unused:
+  eq_self_iff_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:710:22: warning: This simp argument is unused:
+  not_false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, if_false, zero_div, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:710:51: warning: This simp argument is unused:
+  zero_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, not_false_eq_true, if_false, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:729:22: warning: This simp argument is unused:
+  eq_self_iff_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:731:22: warning: This simp argument is unused:
+  not_false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, if_false, zero_mul, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:731:51: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, not_false_eq_true, if_false, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:769:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:774:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:777:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:16: warning: This simp argument is unused:
+  hypE_fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hxi, hnx, hyi, hny, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:41: warning: This simp argument is unused:
+  hny
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:46: warning: This simp argument is unused:
+  hnxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hny, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:52: warning: This simp argument is unused:
+  hni
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hny, hnxy, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:57: warning: This simp argument is unused:
+  hni'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hny, hnxy, hni]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:26: warning: This simp argument is unused:
+  hxi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hnx, hyi, hny, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:46: warning: This simp argument is unused:
+  hni
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hny, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:785:51: warning: This simp argument is unused:
+  hni'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE_fst, hxi, hnx, hyi, hny, hni]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:786:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:801:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:806:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:809:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:793:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:16: warning: This simp argument is unused:
+  hypE'_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.smul_apply, hxi, hnx, hyi, hny, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:61: warning: This simp argument is unused:
+  hny
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:66: warning: This simp argument is unused:
+  hnxy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:72: warning: This simp argument is unused:
+  hni
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hnxy, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:77: warning: This simp argument is unused:
+  hni'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hnxy, hni]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:817:46: warning: This simp argument is unused:
+  hxi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hnx, hyi, hny, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:817:66: warning: This simp argument is unused:
+  hni
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:817:71: warning: This simp argument is unused:
+  hni'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hni]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:819:54: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE'_fst, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:821:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Pilot77.toFock_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.occupationElem_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.commute_occupationElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_numberOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.dictionary_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.traceQuadraticForm_isoV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77.map_iso_occupationElem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+---- END FULL RAW OUTPUT ----
+---- error contexts ----
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:769:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:774:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:777:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+···
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:774:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:777:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:777:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:760:46: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:761:56: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, hypE_snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:781:16: warning: This simp argument is unused:
+  hypE_fst
+
+Hint: Omit it from the simp argument list.
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:801:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:806:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:809:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:793:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:16: warning: This simp argument is unused:
+  hypE'_snd
+
+···
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:806:10: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:809:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:793:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:16: warning: This simp argument is unused:
+  hypE'_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.smul_apply, hxi, hnx, hyi, hny, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+···
+use `set_option diagnostics true` to get diagnostic information
+T1.lean:809:43: error: Function expected at
+  hyi
+but this term has type
+  y = i
+
+Note: Expected a function because this term is being applied to the argument
+  h.symm
+T1.lean:793:43: warning: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isoV_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:16: warning: This simp argument is unused:
+  hypE'_snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.smul_apply, hxi, hnx, hyi, hny, hnxy, hni, hni']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+T1.lean:813:61: warning: This simp argument is unused:
+  hny
+
+Hint: Omit it from the simp argument list.
+···
+
+=== T2.lean
+[pilot] T2.lean: FAIL rc=1 errors=0 sorry=0
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- FULL RAW OUTPUT (follow-up-unit runner: no truncation) ----
+T2.lean:77:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype κ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+T2.lean:84:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:85:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:88:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:90:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype κ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+T2.lean:95:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:111:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:112:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:115:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:122:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:103:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:125:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:130:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isDegreeBlock_sum`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:138:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot77T2.isParityBlock_sum`:
+  [DecidableEq κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:167:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:173:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:202:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:205:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+---- END FULL RAW OUTPUT ----
+---- output tail ----
+  omit [DecidableEq κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:167:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:173:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:202:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:205:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   T1.lean: FAIL rc=1 errors=6 sorry=0
+[pilot]   T2.lean: FAIL rc=1 errors=0 sorry=0
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-FB3L9i0UXvXCaVgYkdK4gI

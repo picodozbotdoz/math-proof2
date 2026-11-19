@@ -531,6 +531,55 @@ rides this commit.
   N2-P3 NOVEL-AS-STATED; AL-3D residuals sub-item CLOSED-NEGATIVE; the
   errata-check carrying the erratum-1-CONFIRMED / erratum-2-REFINED record).
 
+## 2026-11-19 — iter-5 steady state, batch 3 (H): R7's 77 unit — BOTH GREEN, the 386th residual discharged
+
+- **R7's 77 follow-up unit pulled** (8 files, all reported shas verified at
+  copy): `T1.lean` `70d7e9f7…` · `T2.lean` `e70baf22…` · `run_pilot.py`
+  `1434e832…` (the follow-up runner: adds the `: error(` filter class +
+  full-raw-output dumps) · `T1-record.md` `b54a23de…` · **`followup-findings.md`
+  NEW** `1ae1141b…` · logs `t1t2-run{10,11}.log` + `t2-run12.log`. Verdict of
+  record: **T1 GREEN run 11 (8/8 top-level triad-only, residual burn-down
+  31→7→0, `map_iso_occupationElem` clean first time) + T2 GREEN run 12 (8/8 —
+  the tainted `isDegreeBlock_iff_sum_blockProj` REPAIRED: the run-9 sorryAx was
+  a filter-missed `error(lean.synthInstanceFailed)`; root cause = missing
+  `[Fintype κ]`). THE ITER-4 386th RESIDUAL IS DISCHARGED.** Physlib clock
+  stamped both ends (both ticks non-math); the C+ billing concentrates on the
+  dictionary core, kernel-verified both ways.
+- **The three dossier-77 amendments APPLIED by H per R7's drafts** (one-writer
+  rule; anchor-count-verified 1/1 each): **Amendment 1** = the dated
+  `[T2 AMENDED 2026-11-19]` statement-strengthening block after the drafted T2
+  (the `[Fintype κ]` binder; consumers unaffected); **Amendment 2** = the
+  `[FOLLOW-UP UNIT UPDATE 2026-11-19]` outcome block appended to the T1/T2
+  EXECUTION UPDATE (both-GREEN + the physlib both-end stamps + the C+
+  concentration); **Amendment 3** = the three durable-find additions to the API
+  ledger (explicit `Finset.mem_image_of_mem`; no dual-orientation simp; the
+  `: error(` filter class as the THIRD instrument lesson).
+- **README discipline (R7's flag, recorded):** the agent-10 worktree README
+  M-entry is PRE-SESSION STALENESS — never pull it; README edits come from MAIN
+  only.
+- **FLAGGED for R1 (via the orchestrator; r3-tables is R1's funnel):** the 77
+  GREEN landed (8/8 + 8/8, the 386th residual discharged) — R1's §11 fold row
+  is owed (with the re-report of the held §11 state from batch-2).
+- Tracker rows updated: R5 → rung-1 GATED-RED confirmation in flight; R7 →
+  41-article-skeleton next; R8 → M1-completion granted; R9 → applying
+  amendments.
+
+## 2026-11-19 — iter-5 steady state, batch 4 (H): R9 unit-5 — registry maintenance + the 22/74-P2 pre-gates
+
+- **R9 unit-5 pulled** (6 files, shas verified 6/6; the three modified tracked
+  files were pre-apply-verified byte-identical to main before R9's edits —
+  clean pulls): dossier-22 `cde38337…` · `novelty/CLAIMS-REGISTER.md`
+  `3753bfe4…` · `novelty/VERDICTS.md` `8ffccc15…` + NEW
+  `round6-clocks-iter5-s1.md` FINAL `cc7c596b…` (registry row folded;
+  supersedes any earlier copy) · `round6-74p2-pregate.md` `d5b7798a…` ·
+  `round6-22-tier1-amendment.md` `d50d3d81…` (rides as the amendment record).
+  Verdicts: **74-P2 pre-gate — no nearest-miss threatens the family's
+  NEW-statement status (P2-c class)**; dossier-22 Tier-1-ceded amendment;
+  the clocks registry gains **Chang–Wang arXiv:2611.00924** (exhaustion-aware).
+- **Orchestrator-owned edit NOTED, not executed:** the one-line Chang–Wang
+  registry insertion into RESEARCH.md's standing-clocks row — the orchestrator
+  folds it at the next charter-touching commit (recorded here per instruction).
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over

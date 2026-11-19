@@ -199,3 +199,100 @@ Logs: `logs/t1-run{1..5}.log` with provenance headers. Telemetry: all runs ≤1.
 (spec 2.0), one documented mem-OVER artifact line.
 
 — lane A7, 2026-11-17.
+
+## FOLLOW-UP UNIT (2026-11-19, lane R7/A9-lineage) — **T1 GREEN + T2 GREEN: the unit is COMPLETE**
+
+*Re-charter per iter-5 charter rung 5 (T1-completion + T2 as ONE pilot, ≤4+≤4 budgets,
+verify-fire discipline with pre-run sha guards). Worktree agent-10; H pulls after K.
+Logs `logs/t1t2-run{10,11}.log`, `logs/t2-run12.log` with provenance headers + guards.*
+
+### Verdicts
+
+- **T1: GREEN (run 11)** — `T1.lean: OK`, rc=0, 0 errors, 0 sorry; all 8 top-level
+  theorems `[propext, Classical.choice, Quot.sound]` triad-only:
+  `toFock_mul_self`, `occupationElem_mul_self`, `commute_occupationElem`,
+  `dictionary_numberOp/idempotent/commute`, `traceQuadraticForm_isoV`,
+  `map_iso_occupationElem` (the last one clean for the first time — the element-level
+  dictionary to tauceti's own declaration). **Residual burn-down complete: 31 → 7 → 0.**
+- **T2: GREEN (run 12)** — `T2.lean: OK`, rc=0, 0 errors, 0 sorry; all 8 top-level
+  theorems triad-only, **including the formerly-tainted
+  `isDegreeBlock_iff_sum_blockProj`** — T2 is now 8/8, not 7/8.
+
+### The run-9 "filter-blind-spot" gremlin — ROOT-CAUSED (run 10, full-dump runner)
+
+The hidden elaboration error was **`error(lean.synthInstanceFailed): failed to
+synthesize Fintype κ`** at the iff's STATEMENT (`Finset.image deg Finset.univ` —
+T2.lean:77) and proof (`Finset.mem_univ a` — :90): **the drafted T2(a) statement was
+ill-typed without `[Fintype κ]`** (the parity twin needs no Fintype — its spectrum is
+`Finset.range 2` — which is why it verified cleanly and masked the class). The old
+runner filter missed the `: error(` message format (rc=1, errors=0), and the decl
+took the error-sorry → sorryAx. Three-part fix: (1) `[Fintype κ]` added to the
+Abstract section variables (use-based auto-inclusion — only the iff gains the
+binder; the four other section theorems + the three instances theorems are
+signature-unchanged); (2) the runner gained the `: error(` filter class (matching
+make_axcheck's 43d55bb fix) AND a FULL RAW OUTPUT dump on any non-clean verdict;
+(3) one pin-signature repair: this mathlib's `Finset.mem_image_of_mem` takes `f`
+EXPLICIT first — `Finset.mem_image_of_mem deg (Finset.mem_univ a)`.
+
+### T1's residual fixes (runs 10–11; for the durable-find ledger)
+
+1. `pairBilin` outer `map_add'`/`map_smul'`: `refine LinearMap.ext fun u => ?_`
+   replaces `ext u` — the `ext` tactic's Pi-ext chain decomposed the nested
+   `Hyperbolic Q →ₗ[ℂ] Hyperbolic Q →ₗ[ℂ] ℂ` goal into `∘ₗ LinearMap.inl/single`
+   canonical form the sum-rewrites cannot recognize (fixed first try, run 11).
+2. `isoV_hypE`/`isoV_hypE'` undecided-ite cases: four-way `by_cases` pre-splits with
+   ¬-facts in BOTH eq-orientations (`hny : ¬(i = y)` alongside `hyi : ¬(y = i)`,
+   conjunction negations `hni`/`hni'` both ways). **New durable find: never feed simp
+   BOTH orientations of the same equality (`hxi : x = i` AND `hxis : i = x`) — the
+   inverse rewrite pair loops simp to maxRecDepth** (run 10's 4 blowouts); one
+   orientation + the cascade rewrite (x→i, y→i) suffices, and full-rewrite-to-`i` in
+   the positive case is orientation-immune w.r.t. `Matrix.single`'s if-condition.
+3. `hypE'_fst` added to the (inr, inl) case of `isoV_hypE'` (both branches zero →
+   ite closes; run-8's last residual there).
+
+### Physlib clock (condition (iii)) — START and END stamped; ticked twice, BOTH non-triggering
+
+- START `pushed_at = 2026-11-18T14:07:18Z` (post-dating A7's 13:00:37Z end-tick): the
+  tick = **#2001 Central force integrability** (ClassicalMechanics/PhyslibAlpha:
+  Poisson brackets, Liouville integrability, central forces) — ORTHOGONAL to the
+  PerturbationTheory wing; no CAR/Clifford/Fock content.
+- END `pushed_at = 2026-11-19T11:30:09Z`: the tick = **#2075/#2072 documentation
+  commits** (Contribution Handbook proofs refactor + Documentation Handbook) — zero
+  mathematical content.
+- **Differentiation re-run (2026-11-19, against master @ the end-tick): re-CONFIRMS
+  the 2026-11-18 event verdict.** `Physlib/QFT/PerturbationTheory/WickAlgebra/
+  {Basic,Grading}.lean` (501 + 458 LoC read at source): the quotient ideal = create-create
+  + annihilate-annihilate + different-statistics supercommutation with central
+  supercommutators; **0 matches for Clifford/quadratic-form content; 0 for any finite
+  Fock-matrix model; 0 for any tauceti connection; the {a, a†} mixed relation remains
+  central (= contractions), NOT a CAR relation.** WHERE THE C+ CAP MOVES: T1's
+  CAR-relations-transport sub-content (`annihilator_square`, `annihilator_anticommute`
+  — the same-statistics half) is now **formalization-parity against the Wick layer**
+  and its ceiling drops to parity-class (below C+; the T3-retirement precedent);
+  the pilot's C+ billing concentrates on the DICTIONARY core — hyperbolic-Clifford ↔
+  finite Fock matrices ↔ tauceti `carOccupationElement` — which stays clean in both
+  corpora, now kernel-verified GREEN on our side. The standing clock condition stays
+  LIVE for the FB-5/77 continuation.
+
+### Runs (follow-up unit)
+
+| run | wall | T1 | T2 | note |
+|---|---|---|---|---|
+| 10 | 53 s | 6 err | 0 err† | †exposed the gremlin via FULL RAW OUTPUT (Fintype κ ×2, `error(` format); pairBilin fixed; 4 simp loops + 2 impossible haves (mine) identified |
+| 11 | 99 s | **OK — GREEN** | 2 err | T1 complete; T2 down to the `mem_image_of_mem` signature |
+| 12 | 95 s | (not re-fired) | **OK — GREEN** | T2-only; T1's verdict of record = run 11 |
+
+Budget: T1 2 of ≤4 runs; T2 3 of ≤4. Telemetry: all runs ≤1.41 CPU (spec 2.0), 0 OVER
+(run 10's 3964 MB peak is inside spec; the historical mapped-olean artifact class
+noted in runs 6–9 did not recur above spec).
+
+### Files (follow-up-unit state; all in worktree agent-10, H pulls)
+
+| file | LoC | sha256(16) | state |
+|---|---|---|---|
+| `T1.lean` | 840 | `70d7e9f75e705303` | GREEN run 11 (bytes of record) |
+| `T2.lean` | 281 | `e70baf22d9ae220e` | GREEN run 12 (bytes of record) |
+| `run_pilot.py` | 155 | `1434e832e889a1cb` | amended: `: error(` class + full-dump |
+| `followup-findings.md` | — | — | the dossier amendment draft (H applies to dossier 77) |
+
+— lane R7 (A9 lineage), 2026-11-19. No commits (H commits, after K).

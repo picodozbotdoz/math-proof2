@@ -299,14 +299,14 @@ def pairBilin (Q : ℕ) : Hyperbolic Q →ₗ[ℂ] Hyperbolic Q →ₗ[ℂ] ℂ 
                  exact Finset.sum_congr rfl fun i _ => by ring }
   map_add' := by
     intros v w
-    ext u
+    refine LinearMap.ext fun u => ?_
     simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.add_apply,
       Prod.fst_add, Prod.snd_add, Pi.add_apply]
     rw [← Finset.sum_add_distrib]
     exact Finset.sum_congr rfl fun i _ => by ring
   map_smul' := by
     intros r v
-    ext u
+    refine LinearMap.ext fun u => ?_
     have h1 : (r • v).1 = r • v.1 := rfl
     simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.smul_apply,
       RingHom.id_apply, h1, Pi.smul_apply, smul_eq_mul]
@@ -760,13 +760,26 @@ private theorem isoV_hypE (Q : ℕ) (i : Orbital Q) :
   | Sum.inl x, Sum.inl y => simp [isoV_apply, Matrix.single_apply]
   | Sum.inl x, Sum.inr y => simp [isoV_apply, hypE_snd, Matrix.single_apply]
   | Sum.inr x, Sum.inl y =>
-      by_cases hxy : x = y
+      rw [isoV_inr_inl]
+      by_cases hxi : x = i
       · by_cases hyi : y = i
-        · simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hyi]
-        · have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
-          simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hyi, hni]
-      · have hni : ¬ (x = i ∧ y = i) := fun hc => hxy (hc.1.trans hc.2.symm)
-        simp [isoV_apply, hypE_fst, Matrix.single_apply, hxy, hni]
+        · have hxy : x = y := hxi.trans hyi.symm
+          simp [hypE_fst, hxi, hyi, hxy]
+        · have hny : ¬ (i = y) := fun h => hyi h.symm
+          have hnxy : ¬ (x = y) := fun h => hyi (h.symm.trans hxi)
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hny hc.2
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
+          simp [hypE_fst, hxi, hyi, hny, hnxy, hni, hni']
+      · have hnx : ¬ (i = x) := fun h => hxi h.symm
+        by_cases hyi : y = i
+        · have hnxy : ¬ (x = y) := fun h => hxi (h.trans hyi)
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hnx hc.1
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hxi hc.1
+          simp [hypE_fst, hxi, hnx, hyi, hnxy, hni, hni']
+        · have hny : ¬ (i = y) := fun h => hyi h.symm
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hnx hc.1
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hxi hc.1
+          simp [hypE_fst, hxi, hnx, hyi, hny, hni, hni']
   | Sum.inr x, Sum.inr y => simp [isoV_apply, Matrix.single_apply]
 
 private theorem isoV_hypE' (Q : ℕ) (i : Orbital Q) :
@@ -776,18 +789,28 @@ private theorem isoV_hypE' (Q : ℕ) (i : Orbital Q) :
   | Sum.inl x, Sum.inl y =>
       simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
   | Sum.inl x, Sum.inr y =>
-      by_cases hxy : x = y
+      rw [isoV_inl_inr]
+      by_cases hxi : x = i
       · by_cases hyi : y = i
-        · simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
-            hxy, hyi]
-        · have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
-          simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
-            hxy, hyi, hni]
-      · have hni : ¬ (x = i ∧ y = i) := fun hc => hxy (hc.1.trans hc.2.symm)
-        simp [isoV_apply, hypE'_snd, Matrix.smul_apply, Matrix.single_apply,
-          hxy, hni]
+        · have hxy : x = y := hxi.trans hyi.symm
+          simp [hypE'_snd, Matrix.smul_apply, hxi, hyi, hxy]
+        · have hny : ¬ (i = y) := fun h => hyi h.symm
+          have hnxy : ¬ (x = y) := fun h => hyi (h.symm.trans hxi)
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hny hc.2
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hyi hc.2
+          simp [hypE'_snd, Matrix.smul_apply, hxi, hyi, hny, hnxy, hni, hni']
+      · have hnx : ¬ (i = x) := fun h => hxi h.symm
+        by_cases hyi : y = i
+        · have hnxy : ¬ (x = y) := fun h => hxi (h.trans hyi)
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hnx hc.1
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hxi hc.1
+          simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hnxy, hni, hni']
+        · have hny : ¬ (i = y) := fun h => hyi h.symm
+          have hni' : ¬ (i = x ∧ i = y) := fun hc => hnx hc.1
+          have hni : ¬ (x = i ∧ y = i) := fun hc => hxi hc.1
+          simp [hypE'_snd, Matrix.smul_apply, hxi, hnx, hyi, hny, hni, hni']
   | Sum.inr x, Sum.inl y =>
-      simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
+      simp [isoV_apply, hypE'_fst, Matrix.smul_apply, Matrix.single_apply]
   | Sum.inr x, Sum.inr y =>
       simp [isoV_apply, Matrix.smul_apply, Matrix.single_apply]
 

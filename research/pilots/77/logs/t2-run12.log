@@ -1,0 +1,65 @@
+# PROVENANCE — t2-run12.log (pilot 77 follow-up unit, T2-only fix-retry 2; lane R7, fired 2026-11-19T11:40:33Z)
+# PRE-RUN SHA GUARD: T2.lean sha256(16) e70baf22d9ae220e (281 LoC — run-11 bytes a8237f266d0b7537 repaired: Finset.mem_image_of_mem deg (Finset.mem_univ a) — the pin's explicit-f signature). T1.lean NOT re-fired: GREEN at run 11, sha256(16) 70d7e9f75e705303 (840 LoC) — the verdict of record.
+# substrate: crossmath-pilot-77, tauceti d92acc5c lineage, mathlib 1b1ccf4b, doz CLI, warm; spec 2cpu/4096 + LEAN_NUM_THREADS=2 + telemetry
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-0pVLN2Y3hunghAbgQXanZI
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-77-t1-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[pilot] staging ['T2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[pilot] tauceti rev d92acc5c0393
+[pilot] mathlib oleans present: 8715
+
+=== T2.lean
+[tele] t=60s cpu=1.39 mem=3316MB anon=0MB peak=-1MB procs=2
+[pilot] T2.lean: OK
+---- axioms ----
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  [DecidableEq κ]
+  [Fintype κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq κ] [Fintype κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+T2.lean:176:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:182:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+T2.lean:211:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+T2.lean:214:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'CrossMath.Pilot77T2.isDegreeBlock_iff_sum_blockProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_iff_sum_parityProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_of_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isDegreeBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.isParityBlock_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isDegreeBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_entry_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot77T2.pairHamiltonian_isParityBlock' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[pilot] SUMMARY
+[pilot]   T2.lean: OK
+[tele] SUMMARY run: wall=95s max_cpu=1.39 max_mem=3316MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-0pVLN2Y3hunghAbgQXanZI

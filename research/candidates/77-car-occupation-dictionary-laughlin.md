@@ -146,6 +146,15 @@ unit; runs 6–9, logs `pilots/77/logs/t1t2-run{6..9}.log`).]**
   `Finset.card ≥ 1` from `j ∈ s` (pass `Finset.card_pos`); `Matrix.single` terms
   from `unfold` of tauceti defs carry `Classical.decEq` instances that differ from
   statement-elaborated ones (use the `_def` theorems, or bridge by `ext`+`simp`).
+  Follow-up additions (2026-11-19, runs 10–12): `Finset.mem_image_of_mem` on the
+  tauceti-pin mathlib (1b1ccf4b) takes `f` EXPLICIT first (`mem_image_of_mem deg h`)
+  — not the implicit-position application; never feed simp both orientations of one
+  equality (`hxi : x = i` + `hxis : i = x`) — the inverse rewrite pair loops to
+  `maximum recursion depth` (4 blowouts in run 10; one orientation + cascade-to-`i`
+  rewriting is orientation-immune for `Matrix.single`'s if-conditions); the
+  `: error(` message class (`error(lean.synthInstanceFailed)` et al.) must be in
+  EVERY runner/sweep error filter — the 77 runner is now the third instrument to
+  learn this (make_axcheck 43d55bb, the sweep tooling, now run_pilot.py).
 - **NOVELTY EVENT — the physlib clock FIRED PARTIALLY (condition (iii)):** master
   ticked 2026-11-17T09:42:38Z → 2026-11-18T08:24:23Z (→ 13:00:37Z end-tick) and the
   push LANDED a creation/annihilation wing: `Physlib/QFT/PerturbationTheory/`
@@ -169,6 +178,25 @@ unit; runs 6–9, logs `pilots/77/logs/t1t2-run{6..9}.log`).]**
   (C+ substrate-bridge); the standing clock condition stays LIVE for any
   follow-up.
 
+**[FOLLOW-UP UNIT UPDATE 2026-11-19 (lane R7; runs 10–12).]** T1 GREEN — all 8
+top-level theorems triad-only, incl. `map_iso_occupationElem` (the element-level
+dictionary to tauceti's own `carOccupationElement`) clean for the first time;
+residual burn-down 31 → 7 → 0. T2 GREEN at **8/8** triad-only — the tainted
+`isDegreeBlock_iff_sum_blockProj` repaired: the run-9 sorryAx was an
+`error(lean.synthInstanceFailed)` (missing `[Fintype κ]`, see the T2 AMENDED block
+above) that the pilot runner's `": error:"`-only filter missed; the follow-up
+runner adds the `: error(` class (matching make_axcheck's 43d55bb fix) and dumps
+FULL RAW OUTPUT on any non-clean verdict. Physlib clock (condition (iii)) stamped
+at BOTH ends: start `pushed_at = 2026-11-18T14:07:18Z` (tick = #2001 central-force
+integrability — orthogonal), end `pushed_at = 2026-11-19T11:30:09Z` (tick =
+#2075/#2072 documentation handbooks — zero math). Differentiation re-run at the
+end-tick re-confirms the 2026-11-18 event verdict (Wick wing: same-statistics
+supercommutation + central mixed supercommutators; 0 Clifford/quadratic-form,
+0 Fock-matrix, 0 tauceti): **the CAR-transport sub-content's ceiling is
+formalization-parity (below C+) against the Wick layer; the C+ billing
+concentrates on the dictionary core, now kernel-verified GREEN both ways.** The
+standing clock condition stays LIVE for the FB-5/77 continuation.
+
 **T2 (grading ↔ blocks, general lemma, new-in-both-corpora).** For any subalgebra A of a
 matrix algebra on `Finset ι`-indexed basis with the card-grading
 `A = ⨁_n A_n`, `A_n = {M : ∀ A B, card A ≠ card B → M A B = 0}`: an element M commutes
@@ -179,6 +207,23 @@ mod-2 regrading* — stated and proved once over tauceti's `SetLike`-graded disc
 then instantiated at Φ (T1) to give: `hamiltonian Q` is even ⇔ pair-preserving — with
 parity-sector coarsening of the donor's exact-card `sectorHamiltonian` decomposition as
 the corollary OAI states only implicitly.
+
+**[T2 AMENDED 2026-11-19 (lane R7, at the follow-up unit — the statement correction;
+full account in `pilots/77/followup-findings.md` Amendment 1 + `pilots/77/T2.lean:83`).]**
+The drafted degree-spectrum half of T2 was **ill-typed as stated**: the sum
+`∑ n ∈ Finset.image deg Finset.univ, blockProj deg n M = M` requires `[Fintype κ]`,
+absent from the abstract section. This was the ENTIRE content of the run-9
+"filter-blind-spot" tainted-decl mystery: two `error(lean.synthInstanceFailed)`
+messages in the `: error(` form the runner's filter missed (rc=1 reported as
+errors=0), the decl taking the error-sorry → sorryAx; the parity twin masked the
+class (its spectrum `Finset.range 2` needs no Fintype). **Amended statement (as now
+PROVED, `T2.lean:83`):** for any `κ` with `[DecidableEq κ] [Fintype κ]`, degree map
+`deg : κ → ℕ`, and `M : Matrix κ κ ℂ`: `IsDegreeBlock deg M ↔ ∑ n ∈
+Finset.image deg Finset.univ, blockProj deg n M = M`. The `[Fintype κ]` binder is a
+genuine hypothesis-strengthening relative to the draft (the mod-2 twin remains
+Fintype-free). Consumers unaffected (the three Laughlin-instance theorems never
+consume the iff; `Occupation Q = Finset …` carries `Fintype` canonically at
+instantiation).
 
 **T3 (identity transport, glue rung — NARROWED at battery 2026-11-16).** The surviving
 discovery content is the **H² Frobenius sector-trace identity**: for each particle-number
