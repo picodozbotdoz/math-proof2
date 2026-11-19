@@ -722,6 +722,21 @@ rides this commit.
   honestly carried, the M-ladder convention; the sweep guard re-binds at
   this commit). R1's funnel owes: the L3 fold + the M2-a closure + the P3-b/c
   entry.
+
+## 2026-11-19 — iter-5 steady state, batch C (H): R2's L3 grant round — records landed; the FINAL round live
+
+- **R2's grant-round records landed** at their reported shas (stop-note
+  `6e789c40…` w/ the verbatim next-fix list; L3-record `01e215bf…`) + runs
+  9–11 (snapshot shas in the INDEX row). Verdict of record: **honest-partial
+  at grant exhaustion — descent 8→4 one-liner sites, zero math defects
+  across 11 runs; the FINAL round granted (≤2, closes the ladder either
+  way).**
+- **`P72M1T3.lean` v11 (`1bd58fa6…`) HELD:** the worktree file drifted into
+  the LIVE FINAL round before the pull (now `005a1c0a…`, run-12 observed) —
+  per the coordinator's fold-once rule applied symmetrically to the pull, H
+  lands the .lean ONCE at the closing state (main keeps the batch-B
+  `3da2deb0` bytes meanwhile). R1's L3 fold queues at the FINAL round's
+  outcome the same way.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

@@ -58,3 +58,43 @@ run8 v8 — logs `logs/l3bd-run{1..8}.log`, provenance headers in each (substrat
 mathlib ff2494ea v4.36.0-rc2, doz CLI, SPEC 2cpu/4GB, LEAN_NUM_THREADS=2, telemetry
 in every tail; OVER-class = mem-burst/mmapped-olean only, investigate-not-upgrade, no
 upgrade requested or needed).
+
+
+---
+
+## GRANT-ROUND ADDENDUM (lane R2, 2026-11-19, same day — the continuation grant's record)
+
+The orchestrator GRANTED the continuation (mechanical class, ≤3 runs, 77-T1/M1-completion
+pattern). Fired runs 9–11 (v9 `1c6de0f4…`-lineage → v11, logs `l3bd-run{9,10,11}.log`):
+
+- run 9: adj_split fully closed (the case-2/3 goal-slot swap: case 2 → the goal's SECOND
+  disjunct via FA-w-v's first; case 3 → the FIRST via FA-v-w's second — cases 1/4's
+  omegas had already proven the ℕ/ℤ double-cast bridge); hQ-step2's sum_equiv-orientation
+  symm-form landed.
+- run 10: hQ-step1 show-defeq route; hN's hin f/g-swap + side-fix; final-assembly
+  congrArg-composition — the congrFun-pointwise `submatrix_add` signature decoded
+  (`((A+B).submatrix : (l→m)→(o→n)→_) = A.submatrix + B.submatrix` — a function-equality;
+  apply via double congrFun).
+- run 11: hQ-tail + hmul + hin-side + hc-lambda — 4 sites left, ALL with the required
+  form displayed verbatim in the error message (next-fix list below).
+
+Descent across the grant: 8 error-lines → 4 sites → 4 sites (shifted, smaller). T1/T2
+regression OK every run; triad-clean set unchanged-plus: eig/L3b stayed clean; adj_split
+dependencies (edgeBoundary_le_boundaryCard et al.) now elaborating.
+
+### Remaining fix list (3 one-liners, forms taken from run-11's own error displays)
+
+1. hQ-tail (:321): add `Finset.sum_mul` to the simp-only set (the residual is
+   `∑ i, star x i * ∑ i₁, H … * x i₁ = ∑ c ∑ d, star (x c) * (H … * x d)` — per-i
+   distribution, then alpha).
+2. hN-step1 (:344): replace the rw-pair with `simp only [dotProduct, e1, ← Finset.sum_mul]`
+   where `e1` is the per-point `hmul`-instance (factor `(star x c * Ω' c)` out of the sum).
+3. Final assembly (:937): the composition direction — use
+   `Eq.trans (hc.trans hc2) (congrFun (congrFun (Matrix.submatrix_add …) ec) ec).symm`
+   (the double-congrFun eq is ALREADY `sub-of-sum = split+split`; my `(.symm).trans`
+   composed it backwards).
+
+Grant budget exhausted at run 11; NOT fired further. Estimated: one more round closes
+all three (each is a displayed-form one-liner). Same STOP class: zero math defects.
+
+— grant-round R2, 2026-11-19. Run-index extended: run9 v9, run10 v10, run11 v11.

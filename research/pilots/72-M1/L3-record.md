@@ -5,6 +5,17 @@ Lane R2 (close-out gates → W2-4 re-task), 2026-11-19. Spec: `pilots/72-M1/L3-s
 post-K continuation fire (iteration 5 wave 1; day-1-class: prepared + fired, ALL
 commits held for H post-K landing).
 
+## GRANT-ROUND AMENDMENT (2026-11-19, evening): continuation fired (runs 9–11), still
+## HONEST PARTIAL at grant-exhaustion — the residual is 3 displayed-form one-liners
+
+The continuation grant (mechanical class, ≤3 runs) executed: adj_split CLOSED (the
+case-2/3 goal-slot swap — run 9); the hQ/hN transports and the final assembly each
+narrowed to displayed-form one-liners (runs 10–11; the `submatrix_add` pointwise-function
+signature decoded via double congrFun). Descent 8 → 4 → 4-smaller; T1/T2 regression OK
+every run. NOT GREEN at grant exhaustion; next-fix list of 3 one-liners recorded in
+`logs/l3bd-stop-note.md` §GRANT-ROUND ADDENDUM (forms verbatim from run-11's errors).
+Zero mathematical defects throughout.
+
 ## State at close of the ≤8-run budget (honest): HONEST PARTIAL — not GREEN
 
 **Discharge status per spec-decl:**
@@ -23,7 +34,7 @@ Descent 47 → 48(parse) → 39 → 15 → 9 → 9 → 9 → 8 error-lines acros
 regression OK in every run (0 errors, 0 sorry-warnings); ZERO mathematical defects —
 every failure class is a name/elaboration-shape issue. STOP per §7's budget guard:
 `logs/l3bd-stop-note.md` (descent table + the 3 residual classes + the next-instance
-fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..8}.log`,
+fix list; estimated 1–2 further fix rounds to GREEN). Logs: `logs/l3bd-run{1..11}.log`,
 provenance headers in each (substrate mathlib `ff2494ea` v4.36.0-rc2, doz CLI, SPEC
 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry in every tail; OVER-class = mmapped-olean
 mem-burst only — investigate-not-upgrade, no upgrade requested or needed).
