@@ -752,6 +752,19 @@ rides this commit.
   reported sha (`434dbae5…` → `c4332b55…`, now carrying confirmation/rung-2
   content); with the unnamed run3/r2-run1 logs it rides R5's next report.
   **R5 → past GATED-RED, on the confirmation + rung 2** (tracker).
+
+## 2026-11-19 — iter-5 steady state, batch E (H): R3's P2-c reported state — records landed, the .lean fold-once
+
+- **R3's P2-c records landed** at their reported shas: `P2-record.md`
+  `86582281…` + the combined `logs/p2c-runs12-16.log` `d4be9a19…`. Verdict
+  of record: **NOT-GREEN-honest at 5/5 budget — 18 residuals across 4
+  mechanical classes, fixes in hand.**
+- **`P2.lean` at the reported `199f06ba…` HELD (fold-once):** R3 is live
+  applying the **BkClass-nonneg repair ADJUDICATED by the orchestrator** +
+  the fix set for the run-17 fire-once (a dossier-74 amendment draft
+  follows); the .lean lands ONCE at its closing state. **The G2-GREEN state
+  of record `49b808f33ba897cc` stays preserved on main** (verified at pull;
+  log-cited) — R1's funnel folds P2-c at run 17's outcome.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

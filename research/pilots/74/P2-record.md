@@ -1,4 +1,4 @@
-# P2 record — pilot-74 G2 GREEN (sharp constants, route 1.5) + G3 PASS (family statement probe); P2-c chartered-unexecuted
+# P2 record — pilot-74 G2 GREEN (sharp constants, route 1.5) + G3 PASS + P2-c executed to a 5/5-budget honest stop (18 mechanical residuals, one-run close predicted)
 
 **Verdict: G2 GREEN at run 11, 2026-11-19** (iteration-5 charter debt rung 74-P2,
 recharter to R3, orchestrator 2026-11-19: DAY-1-CLASS, hold-all-commits; precharter
@@ -63,28 +63,62 @@ local lean, `maxHeartbeats 8M` carried in the verbatim P1 body.
   mathematically-folklore**; P2-c's class-level tightness set is NEW-statement
   (stated nowhere across 8 nearest-miss rows + sweeps).
 
-## P2-c state: G3 PASS, proof investment UNEXECUTED
+## P2-c state: EXECUTED to a 5/5-budget honest stop (NOT-GREEN, 18 mechanical residuals; re-task R3→unit 4, 2026-11-19)
 
-The G3 gate PASSED (the probe Props elaborate, run 11) — the P2-c door is open. The
-proof investment (`BkClass` class-indexed ceiling def + `t4_floor_achieved` +
-`t4_not_littleO`; ≈400–600 LoC, M-class per the precharter) did not start: G2's
-descent consumed the session's runs. Per the precharter's descope ladder the state is
-NOT a NO-GO (that would require the probe to fail): P2-c stands
-**chartered-unexecuted with its ≤5 budget intact** — the natural iter-5 continuation,
-with the probe Props already on main-tracked disk (this file), the marginal-θ
-membership risk still the known open core, and `IsLittleO`
-(Analysis/Asymptotics/Defs.lean:172) pinned for its statements.
+The G3 gate PASSED (run 11); the P2-c proof investment then executed on its own ≤5
+budget (runs 12–16, all sha-guarded, zero sorry at every run): the FULL statement set
+is in `P2.lean` — `famN_spectrum/varK/W/Mdev` (the family's EXACT spec: deviations
+two-valued ±(log n)/2, `varK = (log n)²/4` exactly, `Mdev = log n / 2`, `W_ε =
+log n / 2` for all 0 < ε < 1 — the marking parabola attained with EQUALITY),
+`famN_inClass` (membership at the EXPLICIT threshold θ₀ = 1/(1024·e) — the
+precharter's marginal-θ caveat made precise; membership fails as θ → 0, the window
+geometry y = |u|·L/2 ≤ 1/64 against the MGF budget being the binding constraint),
+`t4_floor_achieved` (κ = 1/8 floor + exact parabola tightness), `t4_not_littleO`
+(`Asymptotics.IsLittleO` negation via `Filter.eventually_atTop`), `exp_pair_upper`
+(the elementary reciprocal bound e^y + e^{−y} ≤ 2 + 4y² on y² ≤ 1/2), and the
+`CertValidClass`/`BkClass` definitions carrying the DEGENERACY FINDING in-file:
+
+**FINDING (BkClass degeneracy, owner to fold):** the precharter's literal
+`BkClass W_ε 1 𝒞 ≥ √(…κ·B)` floor statement is degenerate BOTH ways — (i) every
+point mass is a class member (trivial MGF) with W_ε = 0 and all moments 0, forcing
+`BkClass ≤ 0` on the full class; (ii) with unrestricted certificate coefficients,
+negative `a` makes the sup unbounded on hVarLB-restricted classes (S ≥ log 2 > 0
+pays for any c₀). The honest tightness content of T4 lives in the discharged-family
+theorems; the bounded class-indexed ceiling needs the nonneg-coefficient variant
+(proposed repair, owner's adjudication).
+
+**Residue at the stop: 18 errors, four mechanical classes, each with the fix in
+hand** (the full taxonomy with fix lines is in `logs/p2c-runs12-16.log`'s provenance
+header): (1) `one_div_le_one_div_of_le` argument shape at two sites; (2) `neg_neg`
+vs `inv_inv` in one rw chain; (3) one nlinarith mul-hint; (4) one REDUNDANT trailing
+rewrite in `t4_not_littleO` — whose context in run 16 already displays `hthis` in
+the final form `log m / 2 ≤ (1/4)·log m` (the theorem is one `linarith` from
+closed). **Zero math defects**; the descent 58→41→30→25→18 was pure API-shape. A
+re-charter with ONE run is the predicted close (H's calibration note stands).
+
+Descent discipline note: one mis-batched fire was REFUSED by the sha guard (run-15
+attempt: the fix batch's python assert aborted before write; the guard detected the
+byte-identical staged file and refused — no Modal run wasted; the batch was
+re-applied with corrected anchors and fired). Budget integrity held: P2-c used
+exactly 5 of 5.
 
 ## Files (H commits post-K, per the hold-all-commits ruling; A1 folds the §10 row)
 
-`research/pilots/74/P2.lean` (new; sha `49b808f3…`), `stage_and_fire_p2.sh` (new; the
-sha-guard stage/fire clone), `logs/p2-runs1-11.log` (new; sha `d061f77c…`), this
-record (new). P1.lean and the D/P0 records unchanged from their GREEN states.
+`research/pilots/74/P2.lean` (sha `199f06ba…` at the 5/5 stop — G2's GREEN theorems
++ the G3 probes + the full P2-c statement set and proofs-in-descent), 
+`stage_and_fire_p2.sh`, `logs/p2-runs1-11.log` (G2 series; sha `d061f77c…`),
+`logs/p2c-runs12-16.log` (P2-c series + residue taxonomy; sha `d4be9a19…`), this
+record. P1.lean and the D/P0 records unchanged from their GREEN states. NOTE for H:
+the G2-GREEN artifact of record is the run-11 file state (sha `49b808f3…`, preserved
+in the run-11 raw log); the current P2.lean carries it plus the in-descent P2-c —
+at commit time H may prefer to record both shas in the §10 row.
 
 ## Next pointer
 
-P2-c on its own ≤5 budget (G3 already passed); natural companions: the dossier-74
-§Iteration-4 amendment's status-line update for P2-a/b landing (owner's file), and
-the R9 pre-gate's nearest-miss table fold at article time.
+ONE run to close P2-c on a re-charter (the four fix classes); then the dossier-74
+§Iteration-4 amendment folds (P2-a/b GREEN status lines + the BkClass degeneracy
+finding + the θ₀ threshold finding), and the R9 pre-gate nearest-miss table at
+article time. The t4_not_littleO context makes it the highest-confidence single
+run in the project.
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-19.

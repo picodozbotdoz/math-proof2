@@ -1,0 +1,3613 @@
+# provenance: raw modal runs, pilot-74 P2-c (the FIND-#1 constructive n-atom family + class-membership at θ₀ + the T4 tightness pair + BkClass def; iteration-5 charter, re-task R3→unit 4, 2026-11-19; budget ≤5 runs, STOPPED AT 5 per the budget-integrity ruling) | date 2026-11-19 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/74/stage_and_fire_p2.sh <12..16> (doz CLI, app crossmath-pilot-74p1; SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2, telemetry; sha-guard sidecar) | final file: P2.lean sha256 199f06ba0de67399 — WAIT: run 16's staged sha; see header of each run below | **VERDICT at budget stop: NOT-GREEN-honest, 18 residual errors, ALL mechanical (four named classes, each with the fix in hand — see the residue taxonomy); ZERO math defects; zero sorry at every run** | descent: run12(=P2-c r1) 58 errors → run13 41 → run14 30 → run15 25 → run16 18 | sha trail: 598c5c86→c9caabab→149dc2e4→149dc2e4(sha-guard REFUSED the mis-batched fire — the guard WORKED, no Modal run wasted; re-batched)→fe0378f1→199f06ba | P2-c's five runs = 12–16 in the sidecar numbering (the G2 series was 1–11) | telemetry: warm walls 43–69 s; OVER flags = mmapped-olean class only (max_cpu ≤ 1.07 within SPEC; anon=0)
+## Residue taxonomy at the stop (all four classes diagnosed with fixes in hand — a re-charter closes in ONE run)
+1. `one_div_le_one_div_of_le` argument SHAPE: on-pin wants the `a ≤ b` argument syntactically as `(1:ℝ) + y ≤ Real.exp y` (resp. `1 - y ≤ …`); `y + 1 ≤ …` (from `add_one_le_exp`'s statement order) fails to unify. Fix: wrap with `(by linarith : (1:ℝ) + y ≤ Real.exp y)` at the two hb1/hb2 call sites (exp_pair_upper).
+2. hinv's normalizer: `rw [← Real.exp_neg, inv_inv]` → the residual goal `rexp (- -y) = rexp y` needs `neg_neg`, not `inv_inv` (the inverse was already consumed). Fix: `rw [← Real.exp_neg, neg_neg]`.
+3. hfinal2's product hint: the goal `2 * (u^2 * L^2 / 4) ≤ 512·e·θ·L^2·u^2` needs the mul-hint `mul_le_mul_of_nonneg_left hθe (mul_nonneg (sq_nonneg u) (sq_nonneg L))` fed to nlinarith (atom-association).
+4. t4_not_littleO's final rewrite is REDUNDANT: after `rw [hW2, abs_of_nonneg …, abs_of_nonneg …] at hthis`, `hthis` is already `log m / 2 ≤ 1 / 4 * log m` (displayed in the run-16 context — the theorem is one `linarith [hL]` from closed); the trailing `rw [habs] at hthis` finds nothing and aborts the line. Fix: delete the trailing rw.
+Also recorded mid-descent: `inv_le_inv` does NOT exist on-pin (use `one_div_le_one_div_of_le`); `Asymptotics.IsLittleO`/`Asymptotics.isLittleO_iff`/`Filter.eventually_atTop` full names; `Nat.pos_of_lt` absent (use `show n ≠ 0 by omega` + mod_cast); `sub_nonneg` (not `sub_non_neg`); `div_mul_eq_mul_cancel₀` absent (field_simp computes); `Real.sqrt_le_sqrt` is an implication (pair with `Real.sqrt_sq` for the L-form); positivity CANNOT use `set`-bound variables (L) — every L-positivity site needs the explicit `mul_nonneg/mul_pos` with `hL`; per-site ite-counts (surp 2, S-hval 3, varK-hval 2, mem-hval 3) for the if_pos/if_neg chains.
+
+==================== RUN 12 (P2-c run 1) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-1x9JsWaxhMdWN8zUDsZvHA
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: FAIL rc=1 errors=58 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+{'P2.lean': 'FAIL rc=1 errors=58 sorry=0'}
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (58 errors, all shown) ----
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1094:29: error: Application type mismatch: The argument
+  h3
+has type
+  ∀ (i : Fin (n + 1)), (if ↑i = 0 then A else B) = (if ↑i = 0 then A - B else 0) + B
+but is expected to have type
+  ∀ x ∈ Finset.univ, (if ↑x = 0 then A else B) = (if ↑x = 0 then A - B else 0) + B
+in the application
+  Finset.sum_congr rfl h3
+P2.lean:1103:25: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1104:25: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1112:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 < famN n i ↔ True
+P2.lean:1115:19: error: Type mismatch
+  famN_pos n hn i
+has type
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1112:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 < famN n i ↔ True
+P2.lean:1115:19: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 ≤ famN n i
+P2.lean:1122:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)), famN n i = if ↑i = 0 then 1 / 2 else 1 / (2 * ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x = ?m.108 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1133:25: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1136:25: warning: `if_false` has been deprecated: Use `ite_false` instead
+···
+  0 < famN n i ↔ True
+P2.lean:1115:19: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 ≤ famN n i
+P2.lean:1122:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)), famN n i = if ↑i = 0 then 1 / 2 else 1 / (2 * ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x = ?m.108 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1133:25: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1136:25: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1137:65: error: Type mismatch
+  hn0
+has type
+···
+  0 ≤ famN n i
+P2.lean:1122:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)), famN n i = if ↑i = 0 then 1 / 2 else 1 / (2 * ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x = ?m.108 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1133:25: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1136:25: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1137:65: error: Type mismatch
+  hn0
+has type
+  ↑n ≠ 0
+but is expected to have type
+  2 * ↑n ≠ 0
+P2.lean:1152:21: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1137:65: error: Type mismatch
+  hn0
+has type
+  ↑n ≠ 0
+but is expected to have type
+  2 * ↑n ≠ 0
+P2.lean:1152:21: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1152:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+⊢ famN n i * log 2 = 1 / 2 * log 2
+P2.lean:1153:21: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1153:4: error: unsolved goals
+case neg
+n : ℕ
+···
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1152:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+⊢ famN n i * log 2 = 1 / 2 * log 2
+P2.lean:1153:21: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1153:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ famN n i * (log 2 + log ↑n) = 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1154:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)),
+    famN n i * surprisal (famN n) i = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1153:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ famN n i * (log 2 + log ↑n) = 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1154:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)),
+    famN n i * surprisal (famN n) i = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x * surprisal (famN n) x = ?m.133 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1163:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1164:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+···
+⊢ famN n i * (log 2 + log ↑n) = 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1154:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)),
+    famN n i * surprisal (famN n) i = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x * surprisal (famN n) x = ?m.133 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1163:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1164:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1170:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1171:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1185:27: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)), famN n i * dev (famN n) i ^ 2 = if ↑i = 0 then log ↑n ^ 2 / 8 else log ↑n ^ 2 / (8 * ↑n)
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x * dev (famN n) x ^ 2 = ?m.178 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1195:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1196:26: error: linarith failed to find a contradiction
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ↑i = 0
+a✝ : -(1 / 2) * log ↑n < 0
+⊢ False
+failed
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+···
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1196:26: error: linarith failed to find a contradiction
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ↑i = 0
+a✝ : -(1 / 2) * log ↑n < 0
+⊢ False
+failed
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1195:2: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ↑i = 0
+⊢ log ↑n * (-1 / 2) = log ↑n * (1 / 2)
+P2.lean:1198:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1195:2: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ↑i = 0
+⊢ log ↑n * (-1 / 2) = log ↑n * (1 / 2)
+P2.lean:1198:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1198:2: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ¬↑i = 0
+⊢ 1 / 2 * log ↑n = log ↑n / 2
+P2.lean:1221:12: error(lean.unknownIdentifier): Unknown constant `Finset.filter_eq_univ.mpr`
+P2.lean:1222:12: error: No goals to be solved
+P2.lean:1234:40: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1198:2: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hL : 0 ≤ log ↑n
+hi : ¬↑i = 0
+⊢ 1 / 2 * log ↑n = log ↑n / 2
+P2.lean:1221:12: error(lean.unknownIdentifier): Unknown constant `Finset.filter_eq_univ.mpr`
+P2.lean:1222:12: error: No goals to be solved
+P2.lean:1234:40: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  0 ∈ supp (famN n) ∧ log ↑n / 2 = |dev (famN n) 0|
+in the application
+  Exists.intro 0 (famN_abs_dev n hn 0)
+P2.lean:1237:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |dev (famN n) i|
+in the target expression
+  r ≤ log ↑n / 2
+
+case a
+n : ℕ
+···
+⊢ 1 / 2 * log ↑n = log ↑n / 2
+P2.lean:1221:12: error(lean.unknownIdentifier): Unknown constant `Finset.filter_eq_univ.mpr`
+P2.lean:1222:12: error: No goals to be solved
+P2.lean:1234:40: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  0 ∈ supp (famN n) ∧ log ↑n / 2 = |dev (famN n) 0|
+in the application
+  Exists.intro 0 (famN_abs_dev n hn 0)
+P2.lean:1237:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |dev (famN n) i|
+in the target expression
+  r ≤ log ↑n / 2
+
+case a
+n : ℕ
+hn : 1 ≤ n
+r : ℝ
+i : Fin (n + 1)
+left✝ : i ∈ supp (famN n)
+hr' : r = |dev (famN n) i|
+⊢ r ≤ log ↑n / 2
+P2.lean:1238:60: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+···
+P2.lean:1221:12: error(lean.unknownIdentifier): Unknown constant `Finset.filter_eq_univ.mpr`
+P2.lean:1222:12: error: No goals to be solved
+P2.lean:1234:40: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  0 ∈ supp (famN n) ∧ log ↑n / 2 = |dev (famN n) 0|
+in the application
+  Exists.intro 0 (famN_abs_dev n hn 0)
+P2.lean:1237:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |dev (famN n) i|
+in the target expression
+  r ≤ log ↑n / 2
+
+case a
+n : ℕ
+hn : 1 ≤ n
+r : ℝ
+i : Fin (n + 1)
+left✝ : i ∈ supp (famN n)
+hr' : r = |dev (famN n) i|
+⊢ r ≤ log ↑n / 2
+P2.lean:1238:60: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+···
+P2.lean:1222:12: error: No goals to be solved
+P2.lean:1234:40: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  0 ∈ supp (famN n) ∧ log ↑n / 2 = |dev (famN n) 0|
+in the application
+  Exists.intro 0 (famN_abs_dev n hn 0)
+P2.lean:1237:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |dev (famN n) i|
+in the target expression
+  r ≤ log ↑n / 2
+
+case a
+n : ℕ
+hn : 1 ≤ n
+r : ℝ
+i : Fin (n + 1)
+left✝ : i ∈ supp (famN n)
+hr' : r = |dev (famN n) i|
+⊢ r ≤ log ↑n / 2
+P2.lean:1238:60: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+···
+  Exists.intro 0 (famN_abs_dev n hn 0)
+P2.lean:1237:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |dev (famN n) i|
+in the target expression
+  r ≤ log ↑n / 2
+
+case a
+n : ℕ
+hn : 1 ≤ n
+r : ℝ
+i : Fin (n + 1)
+left✝ : i ∈ supp (famN n)
+hr' : r = |dev (famN n) i|
+⊢ r ≤ log ↑n / 2
+P2.lean:1238:60: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  log ↑n / 2 = |dev (famN n) 0|
+in the application
+  ⟨?m.77, famN_abs_dev n hn 0⟩
+P2.lean:1238:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℕ
+
+Hint: Adding the command `deriving instance Fintype for Nat` may allow Lean to derive the missing instance.
+···
+⊢ r ≤ log ↑n / 2
+P2.lean:1238:60: error: Application type mismatch: The argument
+  famN_abs_dev n hn 0
+has type
+  |dev (famN n) 0| = log ↑n / 2
+but is expected to have type
+  log ↑n / 2 = |dev (famN n) 0|
+in the application
+  ⟨?m.77, famN_abs_dev n hn 0⟩
+P2.lean:1238:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℕ
+
+Hint: Adding the command `deriving instance Fintype for Nat` may allow Lean to derive the missing instance.
+P2.lean:1238:41: error: Application type mismatch: The argument
+  Finset.mem_univ 0
+has type
+  0 ∈ Finset.univ
+but is expected to have type
+  0 ∈ supp (famN n)
+in the application
+  And.intro (Finset.mem_univ 0)
+P2.lean:1254:43: error: Type mismatch
+  add_one_le_exp (-y)
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+···
+  ⟨?m.77, famN_abs_dev n hn 0⟩
+P2.lean:1238:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ℕ
+
+Hint: Adding the command `deriving instance Fintype for Nat` may allow Lean to derive the missing instance.
+P2.lean:1238:41: error: Application type mismatch: The argument
+  Finset.mem_univ 0
+has type
+  0 ∈ Finset.univ
+but is expected to have type
+  0 ∈ supp (famN n)
+in the application
+  And.intro (Finset.mem_univ 0)
+P2.lean:1254:43: error: Type mismatch
+  add_one_le_exp (-y)
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  1 + -y ≤ rexp (-y)
+P2.lean:1256:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1257:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+···
+Hint: Adding the command `deriving instance Fintype for Nat` may allow Lean to derive the missing instance.
+P2.lean:1238:41: error: Application type mismatch: The argument
+  Finset.mem_univ 0
+has type
+  0 ∈ Finset.univ
+but is expected to have type
+  0 ∈ supp (famN n)
+in the application
+  And.intro (Finset.mem_univ 0)
+P2.lean:1254:43: error: Type mismatch
+  add_one_le_exp (-y)
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  1 + -y ≤ rexp (-y)
+P2.lean:1256:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1257:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+···
+  And.intro (Finset.mem_univ 0)
+P2.lean:1254:43: error: Type mismatch
+  add_one_le_exp (-y)
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  1 + -y ≤ rexp (-y)
+P2.lean:1256:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1257:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+···
+  1 + -y ≤ rexp (-y)
+P2.lean:1256:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1257:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+···
+P2.lean:1256:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1257:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+···
+  • `x`: K̵x̲
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+···
+P2.lean:1259:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:22: error: Invalid argument name `K` for function `exp_neg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+···
+  • `x`: K̵x̲
+P2.lean:1287:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+···
+  2 ≤ rexp 1
+P2.lean:1289:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+···
+  1 ≤ n
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+hLhalf : 0 ≤ L / 2
+hA : |u| * (L / 2) ≤ 1 / (32 * √((1 + θ) * L ^ 2)) * (L / 2)
+···
+P2.lean:1312:13: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_le_sqrt.mpr`
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+hLhalf : 0 ≤ L / 2
+hA : |u| * (L / 2) ≤ 1 / (32 * √((1 + θ) * L ^ 2)) * (L / 2)
+hB : 32 * L ≤ 32 * √((1 + θ) * L ^ 2)
+···
+P2.lean:1313:6: error: No goals to be solved
+P2.lean:1323:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+hLhalf : 0 ≤ L / 2
+hA : |u| * (L / 2) ≤ 1 / (32 * √((1 + θ) * L ^ 2)) * (L / 2)
+hB : 32 * L ≤ 32 * √((1 + θ) * L ^ 2)
+hC : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+···
+⊢ 64 = 32 * 2
+P2.lean:1327:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1 / (32 * √((1 + θ) * L ^ 2)) * L / 2
+in the target expression
+  |u| * (L / 2) ≤ 1 / 64
+
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+···
+⊢ |u| * (L / 2) ≤ 1 / 64
+P2.lean:1332:35: error: linarith failed to find a contradiction
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+y : ℝ := |u| * L / 2
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * L / 2
+a✝ : 1 / 2 < y ^ 2
+···
+failed
+P2.lean:1335:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1342:29: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1342:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+···
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+P2.lean:1342:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+y : ℝ := |u| * L / 2
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * L / 2
+···
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+P2.lean:1343:6: error: unsolved goals
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+y : ℝ := |u| * L / 2
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * L / 2
+···
+⊢ 1 / (2 * ↑n) * rexp (u * (1 / 2 * log ↑n)) = 1 / (2 * ↑n) * rexp (u * (1 / 2 * L))
+P2.lean:1348:53: error: Application type mismatch: The argument
+  hval
+has type
+  ∀ (i : Fin (n + 1)),
+    famN n i * rexp (u * dev (famN n) i) =
+      if ↑i = 0 then 1 / 2 * rexp (u * (-(1 / 2) * L)) else 1 / (2 * ↑n) * rexp (u * (1 / 2 * L))
+but is expected to have type
+  ∀ x ∈ Finset.univ, famN n x * rexp (u * dev (famN n) x) = ?m.1226 x
+in the application
+  Finset.sum_congr rfl hval
+P2.lean:1355:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+···
+  Finset.sum_congr rfl hval
+P2.lean:1355:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+y : ℝ := |u| * L / 2
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * L / 2
+···
+⊢ 1 / 2 * (rexp (u * (1 / 2 * L)) + rexp (-(u * (1 / 2 * L)))) = 1 / 2 * (rexp (u * L / 2) + rexp (-(u * L / 2)))
+P2.lean:1363:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-u * (1 / 2 * L)) + rexp (-(-u * (1 / 2 * L)))
+in the target expression
+  1 / 2 * (rexp (u * (1 / 2 * L)) + rexp (-u * (1 / 2 * L))) = 1 / 2 * (rexp (-u * L / 2) + rexp (-(-u * L / 2)))
+
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1370:49: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+hθ1 : 0 ≤ 1 + θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hL2 : 0 < L ^ 2
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hδle : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+y : ℝ := |u| * L / 2
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * L / 2
+hy2 : y ^ 2 ≤ 1 / 2
+···
+⊢ |u| ^ 2 = u ^ 2
+P2.lean:1378:14: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1384:56: error: Type mismatch
+  add_one_le_exp ?m.2215
+has type
+  ?m.2215 + 1 ≤ rexp ?m.2215
+but is expected to have type
+  1 + 2 * y ^ 2 ≤ rexp (2 * y ^ 2)
+P2.lean:1400:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1401:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1418:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun n : ℕ => W (famN n) ε)
+
+···
+P2.lean:1378:14: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1384:56: error: Type mismatch
+  add_one_le_exp ?m.2215
+has type
+  ?m.2215 + 1 ≤ rexp ?m.2215
+but is expected to have type
+  1 + 2 * y ^ 2 ≤ rexp (2 * y ^ 2)
+P2.lean:1400:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1401:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1418:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun n : ℕ => W (famN n) ε)
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  1 + 2 * y ^ 2 ≤ rexp (2 * y ^ 2)
+P2.lean:1400:36: error: Type mismatch
+  add_one_le_exp 1
+has type
+  1 + 1 ≤ rexp 1
+but is expected to have type
+  2 ≤ rexp 1
+P2.lean:1401:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1418:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun n : ℕ => W (famN n) ε)
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1421:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1419:74: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+···
+  2 ≤ rexp 1
+P2.lean:1401:4: error: mod_cast has type
+  2 ≤ n
+but is expected to have type
+  1 ≤ n
+P2.lean:1418:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun n : ℕ => W (famN n) ε)
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1421:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1419:74: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+···
+  1 ≤ n
+P2.lean:1418:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (fun n : ℕ => W (famN n) ε)
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1421:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1419:74: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+···
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1421:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1419:74: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1421:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1419:74: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+⊢ False
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=58 sorry=0
+[tele] SUMMARY run: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-1x9JsWaxhMdWN8zUDsZvHA
+
+==================== RUN 13 (P2-c run 2) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-UewSf2G8hPDFMawNPwBGw7
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: FAIL rc=1 errors=41 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (41 errors, all shown) ----
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1088:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if ?m.148 = ?m.148 then ?m.150 else ?m.151
+in the target expression
+  (if ↑0 = 0 then A - B else 0) = A - B
+
+n : ℕ
+A B : ℝ
+h1 : ∀ (i : Fin (n + 1)), (if ↑i = 0 then A else B) = (if ↑i = 0 then A - B else 0) + B
+⊢ (if ↑0 = 0 then A - B else 0) = A - B
+P2.lean:1091:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1107:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1115:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1115:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 < famN n i ↔ True
+P2.lean:1118:19: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 ≤ famN n i
+P2.lean:1137:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+{'P2.lean': 'FAIL rc=1 errors=41 sorry=0'}
+hi : ↑i = 0
+···
+  0 < famN n i ↔ True
+P2.lean:1118:19: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 ≤ famN n i
+P2.lean:1137:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ↑i = 0
+⊢ surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+···
+  0 ≤ famN n i
+P2.lean:1137:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ↑i = 0
+⊢ surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+···
+⊢ surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1140:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  famN n i
+in the target expression
+  surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ¬↑i = 0
+⊢ surprisal (famN n) i = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1155:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1155:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1155:4: error: unsolved goals
+case pos
+n : ℕ
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1155:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+⊢ 1 / 2 * log 2 = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1156:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1156:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1156:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ 1 / (2 * ↑n) * (log 2 + log ↑n) = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1166:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1156:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ 1 / (2 * ↑n) * (log 2 + log ↑n) = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1166:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1166:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1167:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1167:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1173:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1186:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+⊢ log ↑n ^ 2 = (if ↑i = 0 then log ↑n ^ 2 * (1 / 8) else log ↑n ^ 2 * (↑n)⁻¹ * (1 / 8)) * 8
+P2.lean:1187:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1187:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1187:4: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ log ↑n ^ 2 = (↑n * if ↑i = 0 then log ↑n ^ 2 * (1 / 8) else log ↑n ^ 2 * (↑n)⁻¹ * (1 / 8)) * 8
+P2.lean:1198:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1200:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1227:6: error: Type mismatch
+  hlt
+has type
+  w < log ↑n / 2
+but is expected to have type
+  w < log ↑n / 2 ↔ True
+P2.lean:1244:38: error: Type mismatch
+  log ↑n / 2
+has type
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1227:6: error: Type mismatch
+  hlt
+has type
+  w < log ↑n / 2
+but is expected to have type
+  w < log ↑n / 2 ↔ True
+P2.lean:1244:38: error: Type mismatch
+  log ↑n / 2
+has type
+  ℝ
+but is expected to have type
+  Fin (n + 1)
+P2.lean:1244:37: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+P2.lean:1260:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-?x)
+in the target expression
+  (rexp y)⁻¹ ≤ (1 + y)⁻¹
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+···
+  w < log ↑n / 2 ↔ True
+P2.lean:1244:38: error: Type mismatch
+  log ↑n / 2
+has type
+  ℝ
+but is expected to have type
+  Fin (n + 1)
+P2.lean:1244:37: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+P2.lean:1260:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-?x)
+in the target expression
+  (rexp y)⁻¹ ≤ (1 + y)⁻¹
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+h1 : (rexp y)⁻¹ ≤ (1 + y)⁻¹
+⊢ rexp (-y) ≤ 1 / (1 + y)
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+···
+  Fin (n + 1)
+P2.lean:1244:37: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+P2.lean:1260:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-?x)
+in the target expression
+  (rexp y)⁻¹ ≤ (1 + y)⁻¹
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+h1 : (rexp y)⁻¹ ≤ (1 + y)⁻¹
+⊢ rexp (-y) ≤ 1 / (1 + y)
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+  sqrt_le_sqrt ?m.402
+has type
+  √?m.400 ≤ √?m.401
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+···
+P2.lean:1244:37: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided
+P2.lean:1260:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-?x)
+in the target expression
+  (rexp y)⁻¹ ≤ (1 + y)⁻¹
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+h1 : (rexp y)⁻¹ ≤ (1 + y)⁻¹
+⊢ rexp (-y) ≤ 1 / (1 + y)
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+  sqrt_le_sqrt ?m.402
+has type
+  √?m.400 ≤ √?m.401
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+n : ℕ
+···
+P2.lean:1260:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1261:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  rexp (-?x)
+in the target expression
+  (rexp y)⁻¹ ≤ (1 + y)⁻¹
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+h1 : (rexp y)⁻¹ ≤ (1 + y)⁻¹
+⊢ rexp (-y) ≤ 1 / (1 + y)
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+  sqrt_le_sqrt ?m.402
+has type
+  √?m.400 ≤ √?m.401
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+···
+⊢ rexp (-y) ≤ 1 / (1 + y)
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+  sqrt_le_sqrt ?m.402
+has type
+  √?m.400 ≤ √?m.401
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+···
+P2.lean:1263:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1309:6: error: Type mismatch
+  sqrt_le_sqrt ?m.402
+has type
+  √?m.400 ≤ √?m.401
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+···
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1316:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+hB : 32 * L ≤ 32 * √((1 + θ) * L ^ 2)
+hC : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+⊢ 64 = 32 * 2
+P2.lean:1321:12: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+···
+⊢ 64 = 32 * 2
+P2.lean:1321:12: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but
+  one_div_le_one_div_of_le ?m.755 hB
+is a proof of
+  1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+P2.lean:1329:27: error: Application type mismatch: The argument
+  sq_nonneg y
+has type
+  0 ≤ y ^ 2
+but is expected to have type
+  0 ≤ y
+in the application
+  mul_le_mul hy1 hy1 (sq_nonneg y)
+P2.lean:1332:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1339:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+···
+  1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+P2.lean:1329:27: error: Application type mismatch: The argument
+  sq_nonneg y
+has type
+  0 ≤ y ^ 2
+but is expected to have type
+  0 ≤ y
+in the application
+  mul_le_mul hy1 hy1 (sq_nonneg y)
+P2.lean:1332:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1339:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+···
+  mul_le_mul hy1 hy1 (sq_nonneg y)
+P2.lean:1332:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1339:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1339:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+y : ℝ := |u| * (1 / 2 * L)
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * (1 / 2 * L)
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1340:6: error: unsolved goals
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+y : ℝ := |u| * (1 / 2 * L)
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * (1 / 2 * L)
+···
+    if ↑i = 0 then 1 / 2 * rexp (u * (-(1 / 2) * L)) else 1 / (2 * ↑n) * rexp (u * (1 / 2 * L))
+P2.lean:1352:8: error: No goals to be solved
+P2.lean:1353:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -?a * ?b
+in the target expression
+  1 / 2 * (rexp (u * (1 / 2 * L)) + rexp (-(u * (1 / 2 * L)))) =
+    1 / 2 * (rexp (-(u * (1 / 2 * L))) + rexp (- -(u * (1 / 2 * L))))
+
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+···
+P2.lean:1352:8: error: No goals to be solved
+P2.lean:1353:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -?a * ?b
+in the target expression
+  1 / 2 * (rexp (u * (1 / 2 * L)) + rexp (-(u * (1 / 2 * L)))) =
+    1 / 2 * (rexp (-(u * (1 / 2 * L))) + rexp (- -(u * (1 / 2 * L))))
+
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+···
+    1 / 2 * (rexp (-(u * (1 / 2 * L))) + rexp (- -(u * (1 / 2 * L))))
+P2.lean:1367:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1408:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  Filter.atTop
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1411:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1409:61: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+···
+P2.lean:1367:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1408:6: error: Function expected at
+  IsLittleO
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  Filter.atTop
+
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1411:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1409:61: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+···
+Hint: The identifier `IsLittleO` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+P2.lean:1411:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1409:61: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1411:13: error(lean.unknownIdentifier): Unknown identifier `isLittleO_iff.mp`
+P2.lean:1409:61: error: unsolved goals
+x✝ : Sort u_2
+IsLittleO : x✝
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : sorry
+⊢ False
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+⊢ False
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1454:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1455:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1456:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1457:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1458:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1459:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1460:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1463:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1464:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1465:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1466:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=41 sorry=0
+[tele] SUMMARY run: wall=57s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-UewSf2G8hPDFMawNPwBGw7
+
+==================== RUN 14 (P2-c run 3) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-fUJ1RKF69UrV1rjdVG1CQs
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=30 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=30 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (30 errors, all shown) ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1116:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 < famN n i ↔ True
+P2.lean:1140:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1140:2: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ↑i = 0
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1140:2: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ↑i = 0
+⊢ log 2 = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1142:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1142:2: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+P2.lean:1142:2: error: unsolved goals
+case neg
+n : ℕ
+hn : 1 ≤ n
+i : Fin (n + 1)
+hn0 : ↑n ≠ 0
+h2 : 2 ≠ 0
+h2n : 2 * ↑n ≠ 0
+hi : ¬↑i = 0
+⊢ log 2 + log ↑n = if ↑i = 0 then log 2 else log 2 + log ↑n
+P2.lean:1156:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1156:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1156:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1156:4: error: unsolved goals
+case pos
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ↑i = 0
+⊢ 1 / 2 * log 2 = if ↑i = 0 then 1 / 2 * log 2 else 1 / (2 * ↑n) * (log 2 + log ↑n)
+P2.lean:1157:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1157:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1157:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1167:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1167:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1188:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if ↑i = 0 then ?m.197 else ?m.198
+in the target expression
+  1 / (2 * ↑n) * (log ↑n ^ 2 / 4) = log ↑n ^ 2 / (8 * ↑n)
+
+case neg
+n : ℕ
+hn : 1 ≤ n
+hn0 : ↑n ≠ 0
+i : Fin (n + 1)
+hi : ¬↑i = 0
+⊢ 1 / (2 * ↑n) * (log ↑n ^ 2 / 4) = log ↑n ^ 2 / (8 * ↑n)
+P2.lean:1199:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1201:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1262:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1304:24: error(lean.unknownIdentifier): Unknown identifier `sub_non_neg.mpr`
+P2.lean:1311:6: error: Type mismatch
+  sqrt_le_sqrt ?m.394
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1262:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1304:24: error(lean.unknownIdentifier): Unknown identifier `sub_non_neg.mpr`
+P2.lean:1311:6: error: Type mismatch
+  sqrt_le_sqrt ?m.394
+has type
+  √?m.392 ≤ √?m.393
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1318:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+···
+P2.lean:1262:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1304:24: error(lean.unknownIdentifier): Unknown identifier `sub_non_neg.mpr`
+P2.lean:1311:6: error: Type mismatch
+  sqrt_le_sqrt ?m.394
+has type
+  √?m.392 ≤ √?m.393
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1318:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+···
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1304:24: error(lean.unknownIdentifier): Unknown identifier `sub_non_neg.mpr`
+P2.lean:1311:6: error: Type mismatch
+  sqrt_le_sqrt ?m.394
+has type
+  √?m.392 ≤ √?m.393
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1318:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+···
+P2.lean:1304:24: error(lean.unknownIdentifier): Unknown identifier `sub_non_neg.mpr`
+P2.lean:1311:6: error: Type mismatch
+  sqrt_le_sqrt ?m.394
+has type
+  √?m.392 ≤ √?m.393
+but is expected to have type
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1318:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+···
+  L ≤ √((1 + θ) * L ^ 2)
+P2.lean:1318:53: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+hB : 32 * L ≤ 32 * √((1 + θ) * L ^ 2)
+hC : 1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+⊢ 64 = 32 * 2
+P2.lean:1324:8: error: Type mismatch
+···
+⊢ 64 = 32 * 2
+P2.lean:1324:8: error: Type mismatch
+  one_div_le_one_div_of_le
+    (mul_pos
+      (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 32)) (Eq.refl (Nat.ble 1 32)))
+      (lt_of_lt_of_le
+        (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl (Nat.ble 1 1)))
+        hL1))
+    hB
+has type
+  1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+but is expected to have type
+  1 / (32 * √((1 + θ) * L ^ 2)) = 1 / (32 * L)
+P2.lean:1338:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1345:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1345:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1345:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+···
+  1 / (32 * √((1 + θ) * L ^ 2)) = 1 / (32 * L)
+P2.lean:1338:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1345:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1345:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1345:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+···
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1345:6: error: unsolved goals
+case pos
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+y : ℝ := |u| * (1 / 2 * L)
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * (1 / 2 * L)
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1346:6: error: unsolved goals
+case neg
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+y : ℝ := |u| * (1 / 2 * L)
+hy1 : y ≤ 1 / 64
+hydef : y = |u| * (1 / 2 * L)
+···
+    if ↑i = 0 then 1 / 2 * rexp (u * (-(1 / 2) * L)) else 1 / (2 * ↑n) * rexp (u * (1 / 2 * L))
+P2.lean:1374:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1418:13: error: Function expected at
+  Asymptotics.isLittleO_iff.mp h ?m.60
+but this term has type
+  ∀ᶠ (x : ℕ) in Filter.atTop, ‖W (famN x) ε‖ ≤ ?m.51 * ‖√(log ↑x ^ 2)‖
+
+Note: Expected a function because this term is being applied to the argument
+  (by norm_num)
+P2.lean:1418:45: error: Type mismatch
+  1 / 4
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  0 < ?m.51
+of sort `Prop`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+···
+P2.lean:1374:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1418:13: error: Function expected at
+  Asymptotics.isLittleO_iff.mp h ?m.60
+but this term has type
+  ∀ᶠ (x : ℕ) in Filter.atTop, ‖W (famN x) ε‖ ≤ ?m.51 * ‖√(log ↑x ^ 2)‖
+
+Note: Expected a function because this term is being applied to the argument
+  (by norm_num)
+P2.lean:1418:45: error: Type mismatch
+  1 / 4
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  0 < ?m.51
+of sort `Prop`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+···
+  (by norm_num)
+P2.lean:1418:45: error: Type mismatch
+  1 / 4
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  0 < ?m.51
+of sort `Prop`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+of sort `Prop`
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1461:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1462:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1463:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1464:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1470:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1471:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1472:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1473:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=30 sorry=0
+[tele] SUMMARY run: wall=43s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-fUJ1RKF69UrV1rjdVG1CQs
+
+==================== RUN 15 (P2-c run 4) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ghposhXT2fpn4kXp2Tb2th
+✓ Created objects.
+├── ✓ Uploaded PythonPackage:modal_telemetry
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+{'P2.lean': 'FAIL rc=1 errors=25 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=25 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (25 errors, all shown) ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1116:2: error: Type mismatch
+  famN_pos n hn i
+has type
+  0 < famN n i
+but is expected to have type
+  0 < famN n i ↔ True
+P2.lean:1140:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1140:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1142:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1142:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1156:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1262:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1328:39: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1327:63: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+⊢ u * |1 / 2 * L| = u * (1 / 2 * L)
+···
+P2.lean:1262:44: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1328:39: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1327:63: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+⊢ u * |1 / 2 * L| = u * (1 / 2 * L)
+P2.lean:1337:8: error: Type mismatch
+···
+P2.lean:1265:47: error(lean.unknownIdentifier): Unknown identifier `inv_le_inv`
+P2.lean:1328:39: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1327:63: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+⊢ u * |1 / 2 * L| = u * (1 / 2 * L)
+P2.lean:1337:8: error: Type mismatch
+  one_div_le_one_div_of_le
+···
+P2.lean:1328:39: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1327:63: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+⊢ u * |1 / 2 * L| = u * (1 / 2 * L)
+P2.lean:1337:8: error: Type mismatch
+  one_div_le_one_div_of_le
+    (mul_pos
+···
+⊢ u * |1 / 2 * L| = u * (1 / 2 * L)
+P2.lean:1337:8: error: Type mismatch
+  one_div_le_one_div_of_le
+    (mul_pos
+      (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 32)) (Eq.refl (Nat.ble 1 32)))
+      (lt_of_lt_of_le
+        (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl (Nat.ble 1 1)))
+        hL1))
+    hB
+has type
+  1 / (32 * √((1 + θ) * L ^ 2)) ≤ 1 / (32 * L)
+but is expected to have type
+  1 / (32 * √((1 + θ) * L ^ 2)) = 1 / (32 * L)
+P2.lean:1347:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1354:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1354:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1354:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+···
+  1 / (32 * √((1 + θ) * L ^ 2)) = 1 / (32 * L)
+P2.lean:1347:22: error(lean.unknownIdentifier): Unknown constant `Nat.pos_of_lt`
+P2.lean:1354:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1354:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1354:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1355:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1355:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1355:34: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1370:37: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1370:59: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a * ?b) ^ ?n
+in the target expression
+  u ^ 2 * |1 / 2 * L| ^ 2 = u ^ 2 * L ^ 2 / 4
+
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+···
+P2.lean:1370:37: error: failed to prove positivity/nonnegativity/nonzeroness
+P2.lean:1370:59: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a * ?b) ^ ?n
+in the target expression
+  u ^ 2 * |1 / 2 * L| ^ 2 = u ^ 2 * L ^ 2 / 4
+
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+···
+⊢ u ^ 2 * |1 / 2 * L| ^ 2 = u ^ 2 * L ^ 2 / 4
+P2.lean:1378:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1423:6: error(lean.unknownIdentifier): Unknown identifier `eventually_atTop`
+P2.lean:1420:61: error: unsolved goals
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : (fun n => W (famN n) ε) =o[Filter.atTop] fun n => √(log ↑n ^ 2)
+h1 : ∀ᶠ (x : ℕ) in Filter.atTop, ‖W (famN x) ε‖ ≤ 1 / 4 * ‖√(log ↑x ^ 2)‖
+⊢ False
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1378:12: error(lean.unknownIdentifier): Unknown identifier `div_mul_eq_mul_cancel₀`
+P2.lean:1423:6: error(lean.unknownIdentifier): Unknown identifier `eventually_atTop`
+P2.lean:1420:61: error: unsolved goals
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : (fun n => W (famN n) ε) =o[Filter.atTop] fun n => √(log ↑n ^ 2)
+h1 : ∀ᶠ (x : ℕ) in Filter.atTop, ‖W (famN x) ε‖ ≤ 1 / 4 * ‖√(log ↑x ^ 2)‖
+⊢ False
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1423:6: error(lean.unknownIdentifier): Unknown identifier `eventually_atTop`
+P2.lean:1420:61: error: unsolved goals
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : (fun n => W (famN n) ε) =o[Filter.atTop] fun n => √(log ↑n ^ 2)
+h1 : ∀ᶠ (x : ℕ) in Filter.atTop, ‖W (famN x) ε‖ ≤ 1 / 4 * ‖√(log ↑x ^ 2)‖
+⊢ False
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+⊢ False
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1465:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1466:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1467:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1468:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1469:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1470:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1471:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1472:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1473:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1474:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1475:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1476:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1477:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=25 sorry=0
+[tele] SUMMARY run: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ghposhXT2fpn4kXp2Tb2th
+
+==================== RUN 16 (P2-c run 5) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-SFT6xQLb54wbeNBaJ8tlKu
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[tele] t=60s cpu=1.07 mem=8427MB anon=0MB peak=-1MB procs=2 OVER mem
+{'P2.lean': 'FAIL rc=1 errors=18 sorry=0'}
+[p74p1] P2.lean: FAIL rc=1 errors=18 sorry=0
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts (18 errors, all shown) ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1263:41: error: Application type mismatch: The argument
+  hlow1
+has type
+  y + 1 ≤ rexp y
+but is expected to have type
+  1 + y ≤ rexp y
+in the application
+  one_div_le_one_div_of_le hpos2 hlow1
+P2.lean:1266:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a⁻¹⁻¹
+in the target expression
+  rexp (- -y) = rexp y
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+hb1 : rexp (-y) ≤ 1 / (1 + y)
+⊢ rexp (- -y) = rexp y
+P2.lean:1268:41: error: Application type mismatch: The argument
+  hlow2
+···
+  one_div_le_one_div_of_le hpos2 hlow1
+P2.lean:1266:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a⁻¹⁻¹
+in the target expression
+  rexp (- -y) = rexp y
+
+y : ℝ
+hy : y ^ 2 ≤ 1 / 2
+hy1 : y < 1
+hpos1 : 0 < 1 - y
+hpos2 : 0 < 1 + y
+hy2 : y ^ 2 < 1
+hlow1 : y + 1 ≤ rexp y
+hlow2 : -y + 1 ≤ rexp (-y)
+hb1 : rexp (-y) ≤ 1 / (1 + y)
+⊢ rexp (- -y) = rexp y
+P2.lean:1268:41: error: Application type mismatch: The argument
+  hlow2
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  1 - y ≤ rexp (-y)
+in the application
+  one_div_le_one_div_of_le hpos1 hlow2
+P2.lean:1358:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+···
+⊢ rexp (- -y) = rexp y
+P2.lean:1268:41: error: Application type mismatch: The argument
+  hlow2
+has type
+  -y + 1 ≤ rexp (-y)
+but is expected to have type
+  1 - y ≤ rexp (-y)
+in the application
+  one_div_le_one_div_of_le hpos1 hlow2
+P2.lean:1358:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1358:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1358:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P2.lean:1359:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1359:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+···
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1384:78: error: unsolved goals
+n : ℕ
+hn : rexp 1 ≤ ↑n
+θ : ℝ
+hθ : 1 / (1024 * rexp 1) ≤ θ
+h2 : 2 ≤ rexp 1
+hn2 : 2 ≤ n
+hn1 : 1 ≤ n
+hnpos : 0 < ↑n
+hθ0 : 0 < θ
+u : ℝ
+L : ℝ := log ↑n
+hL1 : 1 ≤ L
+hL : 0 < L
+hLne : L ≠ 0
+hu : |u| ≤ 1 / (32 * √((1 + θ) * L ^ 2))
+hW1 : 0 < (1 + θ) * L ^ 2
+hs : 0 < √((1 + θ) * L ^ 2)
+hLdef : L = log ↑n
+hsL : L ≤ √((1 + θ) * L ^ 2)
+hLhalf : 0 ≤ L / 2
+y : ℝ := |u * (1 / 2 * L)|
+hy1 : y ≤ 1 / 64
+hydef : y = |u * (1 / 2 * L)|
+hynn : 0 ≤ y
+···
+⊢ 512 * 2 = 1024
+P2.lean:1450:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |log ↑(N.max 2)|
+in the target expression
+  log ↑(N.max 2) / 2 ≤ 1 / 4 * log ↑(N.max 2)
+
+ε : ℝ
+hε : 0 < ε
+hε' : ε < 1
+h : (fun n => W (famN n) ε) =o[Filter.atTop] fun n => √(log ↑n ^ 2)
+N : ℕ
+hN : ∀ (b : ℕ), N ≤ b → ‖W (famN b) ε‖ ≤ 1 / 4 * ‖√(log ↑b ^ 2)‖
+hm2 : 2 ≤ N.max 2
+hNm : N ≤ N.max 2
+hLpos : 1 < ↑(N.max 2)
+hL : 0 < log ↑(N.max 2)
+hLnn : 0 ≤ log ↑(N.max 2)
+hthis : log ↑(N.max 2) / 2 ≤ 1 / 4 * log ↑(N.max 2)
+hW2 : W (famN (N.max 2)) ε = log ↑(N.max 2) / 2
+habs : |log ↑(N.max 2)| = log ↑(N.max 2)
+⊢ False
+P2.lean:1477:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+···
+⊢ False
+P2.lean:1477:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1477:14: error(lean.unknownIdentifier): Unknown constant `mgfBound_var_sharp`
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1478:14: error(lean.unknownIdentifier): Unknown constant `t1c_sharp`
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1479:14: error(lean.unknownIdentifier): Unknown constant `famN_spectrum`
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1480:14: error(lean.unknownIdentifier): Unknown constant `famN_varK`
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1481:14: error(lean.unknownIdentifier): Unknown constant `famN_W`
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1482:14: error(lean.unknownIdentifier): Unknown constant `famN_Mdev`
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1483:14: error(lean.unknownIdentifier): Unknown constant `famN_inClass`
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1484:14: error(lean.unknownIdentifier): Unknown constant `t4_floor_achieved`
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1485:14: error(lean.unknownIdentifier): Unknown constant `t4_not_littleO`
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1486:8: error(lean.unknownIdentifier): Unknown identifier `famClassMemProbe`
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1487:8: error(lean.unknownIdentifier): Unknown identifier `famVarLBProbe`
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+P2.lean:1488:8: error(lean.unknownIdentifier): Unknown identifier `famTailProbe`
+P2.lean:1489:8: error(lean.unknownIdentifier): Unknown identifier `BkClass`
+···
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: FAIL rc=1 errors=18 sorry=0
+[tele] SUMMARY run: wall=69s max_cpu=1.07 max_mem=8427MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-SFT6xQLb54wbeNBaJ8tlKu
+
