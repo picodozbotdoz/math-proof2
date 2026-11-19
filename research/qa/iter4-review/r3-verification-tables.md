@@ -2470,3 +2470,14 @@ folded R1 unit 10, 2026-11-19; `P72M1T3.lean` v13 `dcda3133b1ffbd16`, 1,048 LoC,
 
 *Fold note (R1, 2026-11-19): bytes verified on main @ 53b7278; certificate UNCHANGED
 52+0 (0 real tokens — consistent with H's "zero sorry tokens" board line).*
+
+**η-port rung 1 — GREEN EXIT (R5, landed H batch-H @ b611a25; folded R1 unit 11,
+2026-11-19; `eta-r1.lean` `5b04304a53a5b849`, 217 LoC, 7 decls = 6 pub + 1 priv):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| zzv2-λ η-port R1 (R5) | `pilots/zzv2-lam/eta-r1.lean` `5b04304a53a5b849` (sha-guarded at the confirmation fire) | `logs/eta-r1-run3.log` (log sha `9b2db9ae…`; the confirmation run) — transition from `eta-r1-run{1,2}.log` (the ≤2 fix budget) | **GREEN — strict-OK 6/6 triad on the confirmation fire (3 runs total: 2 fix + 1 confirm)**: `fourierC_dilateTo` (i), `cutoffNormaliserLam_covariance` (ii-a), `cutoffTestLam_eq_dilate` (ii-b), + the λ=1/2 checkpoint `dilateTo_half` / `extremalLam_half` / `cutoffTestLam_half` | **The GATED-RED 5/6 → 6/6 transition, both log sets cited:** at run 2 (GATED-RED, budget spent) i, ii-a, dilateTo_half, extremalLam_half were triad-clean with ONE mechanical residual (unfold order in ii-b) — fix parked on-disk UNFIRED at `5b04304a` per budget discipline (the N2-P2 precedent); the confirmation run fired it: eq_dilate + cutoffTestLam_half clean, **strict-OK 6/6**. **The λ=1/2 regression discipline DELIVERED at rung 1** (the checkpoint ordered first-able — the Lamzouri-informal anchor pinned at the base layer). Class: PROOF artifact on the **DONOR TREE** ([LAYERS] — elaborated INSIDE the built ZetaZerosV2 tree on-pin; verdict of record = the run log, the zzv2-P1 precedent — NOT a plain TARGETS stage); billing: technical record, DECISION-2 Option A, never discovery-phrased. Port ledger: 6 of 6–10 spent; R2 GATED-RED with its confirmation parked (`36c593f7` — separate state, not this fold) |
+
+*Fold note (R1, 2026-11-19): bytes verified on main @ b611a25; classifier one-file scope:
+0 REAL-TOKEN (1 prose mention — "zero sorry by construction" confirmed at token level);
+certificate UNCHANGED 52+0.*

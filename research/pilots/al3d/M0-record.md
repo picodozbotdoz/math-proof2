@@ -205,6 +205,44 @@ the `.symm` orientation and the `unfold Function.onFun` prefix).
   Logs: `alp2-m2-run3-guard-swap.log`, `alp2-m2-run4-fixround2.log`,
   `alp2-m2-run5-fixround3.log` (walls 71–78 s, telemetry OVER=0).
 
+## Unit 7 (2026-11-19) — part (a) M2-b NOT closed at the 3-fire cap; part (b) M2-c charter first-exit MET
+
+**Part (a) — M2-b closure attempt (3 fires: m2-run6/7/8, descent 3→1→1 root):** the
+unit-6 census's two fixes landed (flat index; explicit-args e1/e2 with `(q := q)`
+named — the positional-implicit class's 5th recurrence found en route; `Eq.trans`
+explicit), but the guard+swap still carry `sorryAx` at unit end. Run-8's residual
+(`haf`'s `.trans`-on-membership) was fixed in the m2c-run1 byteset; the run-3(m2c)
+audit still lists both sorried, with no visible error-contexts in the printed tail —
+**the runner's error-context tail truncation is hiding their current root cause
+(recorded as a known runner limitation; the next unit's first action re-reads it from
+an untruncated channel or splits the guard out).**
+
+**Part (b) — M2-c (3 fires: m2c-run1/2/3):**
+- **CHARTER FIRST EXIT MET: `sum_powerset_eq_sum_projFib` GREEN-triad** (the
+  partition regroup — 2 lines over the GREEN partition + `Finset.sum_biUnion` at
+  `Set.PairwiseDisjoint`), and **the identification statement
+  `hamiltonianVar_eq_submatrix` ELABORATES** (its proof is parked, see census).
+- `sum_attach_eq_dite` (attach↔dite bridge for dependent bodies) GREEN-triad (run 3).
+- `sum_submatrix` GREEN-triad in run 2 (induction-name regression in run 3 — the
+  `Finset.induction` term-form failed; pre-written fix: `induction s using
+  Finset.induction_on with | empty => simp | insert …` or revert to the run-2 bytes).
+- **Run descent:** m2c-run1 (9 error-lines: bridge-dependent-f; hom-elaboration;
+  partition-rw direction; hR syntactic) → m2c-run2 (8: bridge-internal dite;
+  induction-names; hR syntactic confirmed) → m2c-run3 (6: sum_submatrix regression;
+  key's hatt ILL-TYPED — the two attach-sums have different matrix types (fibre vs Λ)
+  — my hatt wrongly equated them; fix pre-written: drop hatt, use
+  `(sum_projFib_extendId …).symm` inside a `congrArg (·.submatrix ē ē)`; finale's
+  `if_pos` → `dif_pos` — the dite/ite class's 3rd recurrence).
+- **Standing census (all pre-written):** (1) sum_submatrix induction-form; (2) key's
+  factorization-consumption via congrArg + the explicit bridge; (3) finale dif_pos;
+  (4) the guard/swap's hidden root cause (tail-truncation).
+- **Gate HELD all fires** (85-line core byte-identical; prior lines unchanged; growth
+  = the M2-b/M2-c lines as authored). A2.lean sha256(16) at unit-7 stop:
+  `455be065fd7e30f0` (P0/A1 frozen). Logs: `alp2-m2-run6-m2b-closure.log`,
+  `alp2-m2-run7-fixround4.log`, `alp2-m2-run8-m2b-final.log`,
+  `alp2-m2c-run1-identification.log`, `alp2-m2c-run2-fixround1.log`,
+  `alp2-m2c-run3-fixround2.log` (walls 36–78 s, telemetry OVER=0).
+
 ## 1. Audit result — run-13's triad audit REPRODUCED (GREEN)
 
 **One Modal run fired** (this M0 is NOT audit-only — the precharter prices M0's

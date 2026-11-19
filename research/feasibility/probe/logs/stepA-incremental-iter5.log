@@ -163,3 +163,13 @@
 # tokens). Sweep guard AxPilot72_M1_T3 = dcda3133; verdict class honest-partial until
 # the next wave's FINAL-ROUND GREEN (Finset.mul_sum one-word hQ-tail + 3 named fixes,
 # est. 1–2 rounds). Certificate UNCHANGED 52+0.
+#
+# ENTRY 11 (R1, 2026-11-19 — the eta-r1 GREEN-exit fold) — eta-r1.lean @ `5b04304a53a5b849`
+# (217 LoC, 7 decls = 6 pub + 1 priv; H batch-H). One-file §G1 scope: **0 REAL-TOKEN hits**
+# (1 prose mention — the header's "SORRY-STRICT: zero sorry by construction" confirmed at
+# token level). State: η-port RUNG 1 GREEN EXIT — the confirmation fire (eta-r1-run3.log,
+# log sha 9b2db9ae) flipped the GATED-RED 5/6 (runs 1–2, budget spent, one mechanical
+# unfold-order residual parked-on-disk-unfired) to strict-OK 6/6 triad (3 runs total).
+# The λ=1/2 checkpoint (dilateTo_half/extremalLam_half/cutoffTestLam_half) DELIVERED at
+# rung 1. Class: PROOF on the DONOR TREE ([LAYERS]; verdict of record = the on-pin log,
+# zzv2-P1 precedent — not a plain TARGETS stage). Certificate UNCHANGED 52+0.

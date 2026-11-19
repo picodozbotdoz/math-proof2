@@ -819,6 +819,27 @@ rides this commit.
   pointer verbatim) + sweep-plan `c83709bc…` (guard → `dcda3133`) +
   make_axcheck `71e79ac3…` + stepA ENTRY 10. R1 → event-standby (4
   pending: M2-b · P3-complete · 41H-T2 · eta-confirm).
+
+## 2026-11-19 — iter-5 steady state, batch I (H): R2's REPORT delta + R8 unit-7 + R1 unit-11
+
+- **R2's REPORT delta landed:** `qa/REPORT-INPUTS-ITER5.md` `b9cef1d8…`
+  (the §0–§4 fold input, sha-cited; the §I5 paste-ready delta structured
+  per §I4). **The §I5 splice into REPORT.md HOLDS for the orchestrator's
+  decision** (leaning wave-close) — REPORT.md untouched by H. R2 → iter-5
+  closeout-gates skeleton prep.
+- **R8's unit-7 landed:** M0-record `504d2065…` + the 6 m2/m2c logs.
+  Verdict of record: **M2-b NOT closed at cap** (hidden root cause; a
+  log-truncation workaround queued); **M2-c first exit MET**
+  (`sum_powerset_eq_sum_projFib` GREEN-triad; `hamiltonianVar_eq_submatrix`
+  elaborates; 4 pre-written fixes). `A2.lean` `455be065…` HELD (fold-once at
+  M2-c's closing state; main keeps `9706196c`). R8 → M2-c continuation.
+- **R1's unit-11 landed:** r3-tables `78ff0be5…` — **the η-rung-1
+  GREEN-exit row (donor-tree class; the queued eta-r1 fold executed)** +
+  the eta-ladder sweep-plan rewrite (η-pin stays Step-A-only) + stepA
+  ENTRY 11. R1 → the P2 parked fold (in flight), then live-events standby.
+- (Process note: the INDEX anchor slip recurred once more in-pass — the
+  REPORT-INPUTS row this time — caught and restored pre-commit; the class
+  is now on my pre-commit checklist explicitly.)
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
