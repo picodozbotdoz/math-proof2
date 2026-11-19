@@ -52,8 +52,8 @@ opened block (STATUS.md :868) + the day-1 records of R3 (M-arc GREEN run 2), R4
 delivered), R6 (N2-P2 runs 22–23 to budget; .lean in flight past parked sha
 `68a73689…`), R7 (Liu B_new P0 GREEN run 2) and R8 (AL M0-rebuild GREEN run 3) +
 the watchlist + the wave-2 queue. Charter decisions: DECISION-1/3/4/6 ruled at
-open (see the STATUS block). This tracker is now the ITERATION-5 lane tracker
-(rows below continue under the iteration-5 charter).**
+open (see the STATUS block). **The live ITERATION-5 lane tracker is now
+`research/ORCHESTRATION-ITER5.md` — this file is FROZEN at the close.**
 
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|

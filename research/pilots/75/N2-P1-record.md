@@ -1,4 +1,4 @@
-# Pilot 75-N2 P1 — verification record (COMPLETE: M1+M2+M3 all GREEN-triad)
+# Pilot 75-N2 P1 — verification record (COMPLETE: M1+M2+M3 GREEN-triad; P2-a GREEN at run 26)
 
 Lane A5, sessions 2026-11-17 (runs 1–8) + 2026-11-18 wave-3 (runs 9–15, M1+M2)
 + 2026-11-18 re-task (runs 16–19, M3) + 2026-11-18 close-act (runs 20–21, P2-a
@@ -11,9 +11,10 @@ P2-a continuation, 2-run remnant of the P2 ≤6 budget). Dossier:
 `research/candidates/75-N2-rayclass-dirichlet-consumer.md` §Pilot spec skeleton
 (P1) + §Proof-strategy steps 1–3. A1 folds the §10-format block below into
 `qa/iter4-review/r3-verification-tables.md` (one-writer discipline). Evidence
-of record: `pilots/75/logs/n2-p1-run{1..25}.log` (per-run provenance headers
+of record: `pilots/75/logs/n2-p1-run{1..26}.log` (per-run provenance headers
 with verify-fire shas + error-class analyses; **run 19 = the verified P1
-state**, sha ca1089e2a0c1…).
+state**, sha ca1089e2a0c1…; **run 26 = the verified P2-a state**, sha
+ce6719c8af450eaa…, 15/15 triad incl. `windowFinite_LFunction`).
 
 ## Milestone verdicts (verified state = run 19)
 
@@ -23,6 +24,7 @@ state**, sha ca1089e2a0c1…).
 | M1-packaging | `exists_nat_span`, `chiUnitHom`/`ratCharOf`, `ratCharOf_apply` | **GREEN-triad** (7/7 since run 10) |
 | M2 (P1-b) | `heckeTsum_eq_ratCharOf_LFunction` — the L-series identification | **GREEN-triad** (run 15) |
 | **M3 (P1-c/d)** | `ratCharOf_eq_one_iff` (principality transfer), `isPrincipal_of_modulus_one` (q = 1 degeneracy), `identity_theorem_extension` (the donor's EntireAbelianQuotient pattern on our pin), `hasQDirichletDictionary` (**N2-a DISCHARGED**), `factorization_identity_extension` (the hAbFacQ bridge), `dirichletFactorizationTransfer` (the corrected composed transfer) | **GREEN-triad (run 19)** — 6/6 |
+| **P2-a** | `windowFinite_LFunction` (χ ≠ 1 ⇒ WindowFinite (multOf χ.LFunction) — the hEχ port's window-finiteness input, via the isolated-zeros ⇒ discrete ⇒ closed ⇒ compact-box-finite chain) | **GREEN-triad (run 26)** — 15/15 file decls |
 
 **P1 is COMPLETE: the ℚ dictionary (N2-a), its L-series identification (N2-a(ii)),
 principality transfer (N2-a(iii)), the identity-theorem extension, and the
@@ -48,6 +50,7 @@ landing) — the assembly-engine side; the dictionary layer is done.
 | `hasQDirichletDictionary` | `N2-P1.lean:610` | PROVED-UNCONDITIONAL | idem — triad | **M3-d**: `HasQDirichletDictionary` discharged (N2-a complete) |
 | `factorization_identity_extension` | `N2-P1.lean:621` | PROVED-UNCONDITIONAL | idem — triad | **M3-c2**: the hAbFacQ bridge (products of entire LFunctions) |
 | `dirichletFactorizationTransfer` | `N2-P1.lean:651` | PROVED-UNCONDITIONAL | idem — triad | **M3-e**: the composed transfer (corrected shape, `hnp` explicit — see the FIND) |
+| `windowFinite_LFunction` | `N2-P1.lean:738` | PROVED-UNCONDITIONAL | **run 26** — triad | **P2-a**: the hEχ port's WindowFinite input (isolated-zeros chain; the §10 axioms source for this row is `logs/n2-p1-run26.log`) |
 | (engine, frozen) | `Pa.lean` | PROVED-HERITAGE | run 19 Pa block — triad | recompiled clean each run |
 | (P0 quotes, frozen) | `N2-P0.lean` (staged `N2P0`) | PROVED-HERITAGE | run 19 — triad | 15/15 per P0 record |
 
@@ -139,6 +142,13 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   r25 telemetry OVER-mem = the §Modal-5 mapped-olean artifact (cpu 0.67/2.0).
   **Zero math defects across the entire grant; the P2-a argument is
   unchanged since run 22.**
+- Run 26 (2026-11-19, R6 unit 3, the final-grant FIRE-ONCE ruling; input sha
+  ce6719c8… verified by the pre-run guard): **OK — P2-a GREEN. 15/15 file
+  decls triad-clean ([propext, Classical.choice, Quot.sound] only), 0 sorry,
+  0 sorryAx**; Pa.lean OK, N2P0.lean OK. Wall 68 s, cpu 0.77/2.0, mem 3706 MB,
+  **OVER=0** (fully within spec). The fix-loop closes at 10→8→3→4*→11*→1→0
+  (* = unmasking events). P2-a CLOSED; same unit drafted the N2-P3 skeleton
+  (`N2-P3.lean`, statements-only zero-sorry rung) + the P2-b note below.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -249,48 +259,60 @@ P2-a classes (runs 24–25, R6 unit 2; all tactic-field — zero math defects):
 - **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the dossier §Proof-strategy steps 4–5; the P2-b API facts pinned this session: `DirichletCharacter.LSeries_changeLevel` (EulerProduct/DirichletLSeries.lean:173, exact form recorded above), `changeLevel_injective` (Basic.lean:79), `LSeries_ne_zero_of_one_lt_re` (Dirichlet.lean:233). P3 readiness: `factorization_identity_extension` (run 19) supplies the engine-input bridge; P3 is blocked only on P2-c.
 
 
-## P2 state after runs 22–25 (R6, 2026-11-19) — grant 2/2 spent, ONE fixed-on-disk residual, parked
+## P2 state after run 26 (R6 unit 3, 2026-11-19) — **P2-a CLOSED GREEN**
 
-- **Riding item DONE (carried from A5)**: the N2-P0 erratum applied; the
-  amended P0 file elaborates OK in runs 20–25.
-- **P2-a (windowFinite_LFunction) STILL IN FLIGHT — not green, but at
-  11→1 descent with the single residual FIXED ON DISK.** Error history:
-  10 (r20) → 8 (r21) → 3 (r22) → 4-unmasked (r23) → 11-unmasked (r24,
-  all in the never-elaborated hBbd body) → **1 (r25 — R6's own bad
-  `abs_le.mp (le_abs_self T₁)` construction, one-line-fixed post-r25)**.
-  Every residual across ALL of runs 20–25 is name-resolution/shape/tactic-
-  field class — **zero math defects; the P2-a argument is unchanged since
-  run 22** (entireness ⇒ isolated zeros ⇒ discrete ⇒ closed ⇒ compact-box
-  finite; `isDiscrete_zeroSet` core GREEN since r22; hBcl/hBeq/hBbd/hBcp/
-  hfin/tail all validated at r25). The 14/14 M1+M2+M3 triad core stayed
-  error-free in every run; `windowFinite_LFunction`'s sorryAx is the
-  failed-decl artifact only.
-- **Budget: wave-4 ≤6 spent, then grant ≤2 spent (runs 24–25). Lane STOPPED
-  per the ruling ("anything beyond = STOP + findings").** The next firing
-  needs a new budget ruling; expected outcome GREEN (see resume note).
-- **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the
-  dossier §Proof-strategy steps 4–5; the P2-b API facts stand as recorded
-  above. P3 readiness: `factorization_identity_extension` (run 19) supplies
-  the engine-input bridge; P3 is blocked only on P2-c. **P3 skeleton NOT
-  drafted (both taskings conditioned it on P2-a GREEN — unmet at 1-residual
-  depth).**
+- **P2-a (windowFinite_LFunction) GREEN-triad at run 26** (15/15 file decls,
+  0 sorry; sha ce6719c8…; OVER=0 telemetry). The hEχ port's window-finiteness
+  input is a kernel-verified theorem. Error-loop closed: 10→8→3→4*→11*→1→0
+  over runs 20–26; zero math defects throughout (the r20–r26 engineering
+  classes are a complete name-resolution/tactic-field taxonomy — see the
+  two engineering-record blocks above).
+- **P2-b (strip immunity) — NEXT, not started. Spec note (pinned facts):**
+  the target is `HasEulerStripImmunity` (N2P0 pair form: multOf ψ.LFunction =
+  multOf χ'.LFunction on the open strip, χ' := the primitive associate).
+  Pinned API: `DirichletCharacter.LSeries_changeLevel`
+  (EulerProduct/DirichletLSeries.lean:173 — the imprimitivity Euler identity
+  on ℜs > 1), `changeLevel_injective` (Basic.lean:79),
+  `DirichletCharacter.LSeries_ne_zero_of_one_lt_re` (Dirichlet.lean:233),
+  and the NEW r24 pin: `DifferentiableOn.analyticAt`/`.analyticOnNhd`
+  (CauchyIntegral.lean:721/:729) for the identity-theorem transfer (the
+  P1 `identity_theorem_extension` pattern re-applies verbatim). Proof plan
+  (dossier step 4): changeLevel identity on ℜs > 1 → both sides meromorphic
+  ⇒ identity theorem to ℂ; each correction factor `1 − ψ p p⁻ˢ` zero-free on
+  the strip (|p⁻ˢ| = p⁻ᴿᵉˢ forces ℜs = 0 — Complex.abs-level, 75-prework
+  §(d)(d2)); then the multOf-transfer lemma (Pa's `multOf_mul`-style
+  vocabulary). Expected friction: the `p⁻ˢ` abs/zero-locus computation
+  (real-exponential monotonicity) and the correction-product finiteness
+  (N.primeFactors finite ✓ mathlib).
+- **P2-c (the dyadic→cumulative port) after P2-b** — the P0 shapes
+  (`ThmEDyadic`, `CountsUnbounded`, `ThmEDyadicToCumulative`) are staged
+  verbatim; the P2-a landing now supplies its `hfin` slot per component
+  (`windowFinite_family`, `N2-P3.lean`).
+- **P3 SKELETON DRAFTED (this unit): `N2-P3.lean`** — statements-only
+  zero-sorry rung: `AbFacQOfFactorization` (P3-b, the GREEN P1 chain shape),
+  `windowFinite_family` (the file's one proof — P2-a applied at the family
+  level), `ZetaColumnOfV2Q` (P3-d, the M4b ζ-column shape with the V2
+  endpoint as binder), `ZetaLRatTwoThirdsOfDZDF` (P3-e, the composed N2-d
+  statement, hEχ in ∀-candidate-family form) + `ComponentEpsCum`. Staging:
+  needs `N2-P1.lean` staged as `N2P1.lean` (the N2P0 byte-identical-copy
+  precedent) and a `run_n2p3` runner pair (copy of `run_n2p1` with ORDER
+  extended); the V2 import is deferred to the P3-execution rung (M4b staging
+  pattern — `pilots/42/M4b.lean:45` note). NOT yet elaborated (no run
+  authorized for it this unit).
 
 
-## NEXT-INSTANCE RESUME NOTE (R6 unit-2 close, parked disk sha ce6719c8af450eaa…)
+## NEXT-INSTANCE RESUME NOTE (R6 unit-3 close, 2026-11-19)
 
-EXACTLY ONE fix applied on disk AFTER run 25 (no run fired — grant 2/2
-spent): the :772 `hnTa1 : -|T₁| ≤ T₁` construction replaced by the verified
-one-liner `have h := le_abs_self (-T₁); rw [abs_neg] at h; linarith`
-(le_abs_self confirmed Abs.lean:120; abs_neg in-scope by usage Abs.lean:35/
-:75; the r25 error text showed the old form unifying to the trivial
-`|T₁| ≤ |T₁|`). NOTHING else changed from the r25 input. **Expected: the
-next run on sha ce6719c8… is P2-a GREEN — 15/15 file decls triad-clean
-including `windowFinite_LFunction`, 0 sorry.** Fire it as the next
-instance's first action after a budget ruling; verify-fire discipline
-unchanged (pre-run sha guard in the log header). On GREEN: proceed to
-P2-b (strip immunity — dossier step 4; API facts in the §P2 state above)
-and then the P3 skeleton (V2 ζ-column + composed landing statements,
-zero-sorry rung, hypothesis-binder pattern). On any residual: read the
-:context (the only remaining never-green-path text is the nlinarith slack
-hunk — if IT is the residual, try `nlinarith [hsre, hsim, hT1, hT2, hb1,
-hb2]` or split the (2+A)² expansion into explicit pow-mono steps).
+**P2-a is CLOSED GREEN at run 26 — verified state sha ce6719c8af450eaa
+(15/15 triad, 0 sorry). Next milestone: P2-b (strip immunity), then P2-c
+(port), then P3 execution.** First actions for the next instance, in order:
+(1) the P3-a statement rung — stage `N2-P1.lean` as `N2P1.lean`, add the
+`run_n2p3` runner pair (copy `run_n2p1` with ORDER = [Pa, N2P0, N2P1,
+N2-P3]), fire ONE elaboration run on the skeleton (expect OK or a handful of
+statement-level name/shape frictions — the file is zero-sorry by
+construction, its only proof is `@windowFinite_LFunction` applied at the
+family level); (2) P2-b per the spec note above (the pinned API list +
+the four-step plan); (3) P2-c per the P0 staged shapes. Budget discipline:
+fresh rulings per phase; verify-fire sha guards unchanged. The N3 axcheck
+(full-coverage `axcheck_full.py` pattern over Pa/N2P0/N2P1/N2P3) fires at
+P3 close, before `zetaL_rat_two_thirds_landed` is billed landed-in-corpus.

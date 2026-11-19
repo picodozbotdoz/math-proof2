@@ -719,18 +719,20 @@ private theorem isDiscrete_zeroSet {f : ℂ → ℂ} (hd : Differentiable ℂ f)
     (hne : ∃ s : ℂ, f s ≠ 0) : IsDiscrete {ρ | f ρ = 0} := by
   rw [isDiscrete_iff_nhdsNE]
   intro x hx
-  rcases AnalyticAt.eventually_eq_zero_or_eventually_ne_zero ((hd.differentiableAt (x := x)).analyticAt) with h0 | hne0
+  rcases AnalyticAt.eventually_eq_zero_or_eventually_ne_zero
+      ((hd.differentiableOn).analyticAt (isOpen_univ.mem_nhds (mem_univ x))) with h0 | hne0
   · exfalso
     obtain ⟨s₀, hs₀⟩ := hne
     have hzero : Set.EqOn f 0 (univ : Set ℂ) :=
-      AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero hd.analyticOnNhd
-        isPreconnected_univ (mem_univ x)
-        (h0.filter_mono nhdsWithin_le_nhds)
+      AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero
+        ((hd.differentiableOn).analyticOnNhd isOpen_univ) isPreconnected_univ (mem_univ x)
+        ((h0.filter_mono nhdsWithin_le_nhds).frequently)
     exact hs₀ (by simpa using hzero (mem_univ s₀))
   · have hempty : {z | f z ≠ 0} ∩ {ρ | f ρ = 0} = ∅ := by
       ext z; simp [Classical.em]
-    exact Filter.disjoint_iff.mpr ⟨{z | f z ≠ 0}, hne0, subset_rfl,
-      by simpa using hempty⟩
+    exact _root_.disjoint_iff.mp (Filter.disjoint_iff.mpr
+      ⟨{z | f z ≠ 0}, hne0, {ρ | f ρ = 0}, Filter.mem_principal_self _,
+        Set.disjoint_iff_inter_eq_empty.mpr hempty⟩)
 
 /-- **P2-a**: for a nontrivial Dirichlet character, `multOf χ.LFunction` has
 finite strip windows — the WindowFinite input of the hEχ port
@@ -750,35 +752,51 @@ theorem windowFinite_LFunction {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ
   have hBcl : IsClosed B := by
     have hre : IsClosed {ρ : ℂ | ρ.re ∈ Set.Icc 0 1} :=
       IsClosed.preimage Complex.continuous_re isClosed_Icc
-    him : IsClosed {ρ : ℂ | ρ.im ∈ Set.Icc T₁ T₂} :=
+    have him : IsClosed {ρ : ℂ | ρ.im ∈ Set.Icc T₁ T₂} :=
       IsClosed.preimage Complex.continuous_im isClosed_Icc
     have hBeq : B = {ρ : ℂ | ρ.re ∈ Set.Icc 0 1} ∩ {ρ : ℂ | ρ.im ∈ Set.Icc T₁ T₂} := by
-      ext ρ; simp [hBdef, Set.mem_Icc]
+      ext ρ
+      simp only [hBdef, Set.mem_setOf_eq, Set.mem_inter_iff, Set.mem_Icc]
+      constructor
+      · rintro ⟨a, b, c, d⟩; exact ⟨⟨a, b⟩, ⟨c, d⟩⟩
+      · rintro ⟨⟨a, b⟩, ⟨c, d⟩⟩; exact ⟨a, b, c, d⟩
     rw [hBeq]
     exact hre.inter him
-  have hBbd : IsBounded B := by
-    rw [isBounded_iff_subset_closedBall (0 : ℂ)]
+  have hBbd : Bornology.IsBounded B := by
+    rw [Metric.isBounded_iff_subset_closedBall (0 : ℂ)]
     refine ⟨2 + |T₁| + |T₂|, fun ρ hρ => ?_⟩
+    simp only [hBdef, Set.mem_ofPred_eq] at hρ
+    obtain ⟨hb1, hb2, hb3, hb4⟩ := hρ
     have hT1 : 0 ≤ |T₁| := abs_nonneg _
     have hT2 : 0 ≤ |T₂| := abs_nonneg _
-    have h1 : |ρ| ^ 2 ≤ (2 + |T₁| + |T₂|) ^ 2 := by
-      have habs : |ρ| ^ 2 = ρ.re ^ 2 + ρ.im ^ 2 := by
-        have := Complex.sq_abs ρ
-        simpa using this
-      have hre : |ρ.re| ≤ 1 := abs_le.mpr ⟨by linarith, by linarith⟩
-      have him : |ρ.im| ≤ |T₁| + |T₂| := abs_le.mpr ⟨by linarith, by linarith⟩
+    have hnTa1 : -|T₁| ≤ T₁ := by
+      have h := le_abs_self (-T₁)
+      rw [abs_neg] at h
+      linarith
+    have hTa2 : T₂ ≤ |T₂| := le_abs_self T₂
+    have hsre : ρ.re ^ 2 ≤ (1 : ℝ) ^ 2 := sq_le_sq' (by linarith) (by linarith)
+    have hsim : ρ.im ^ 2 ≤ (|T₁| + |T₂|) ^ 2 :=
+      sq_le_sq' (by linarith) (by linarith)
+    have habs : ‖ρ‖ ^ 2 = ρ.re ^ 2 + ρ.im ^ 2 := by
+      have h3 : ‖ρ‖ ^ 2 = ‖ρ‖ * ‖ρ‖ := by ring
+      rw [h3, Complex.norm_mul_self_eq_normSq, Complex.normSq_apply]
+      ring
+    have h1 : ‖ρ‖ ^ 2 ≤ (2 + |T₁| + |T₂|) ^ 2 := by
       rw [habs]
-      nlinarith [hre, him]
-    simp only [mem_closedBall, dist_zero_right, Complex.norm_eq_abs]
-    exact abs_le_of_sq_le_sq h1 (by positivity)
-  have hBcp : IsCompact B := isCompact_iff_isClosed_bounded.mpr ⟨hBcl, hBbd⟩
+      nlinarith [hsre, hsim, hT1, hT2]
+    rw [Metric.mem_closedBall, dist_zero_right]
+    have hn : 0 ≤ ‖ρ‖ := Complex.norm_nonneg ρ
+    have hle := abs_le_of_sq_le_sq h1 (by positivity)
+    rwa [abs_of_nonneg hn] at hle
+  have hBcp : IsCompact B := Metric.isCompact_iff_isClosed_bounded.mpr ⟨hBcl, hBbd⟩
   have hfin : (B ∩ {ρ | χ.LFunction ρ = 0}).Finite :=
     (hBcp.inter_right hclosed).finite (hdisc.mono Set.inter_subset_right)
   refine Set.Finite.subset hfin ?_
   intro ρ hρ
+  simp only [supp, multOf, stripWindow, Set.mem_ofPred_eq, Set.mem_inter_iff] at hρ
   have hzero : χ.LFunction ρ = 0 :=
     apply_eq_zero_of_analyticOrderNatAt_ne_zero hρ.1
-  refine ⟨⟨⟨by exact le_of_lt hρ.2.1, hρ.2.2.1⟩, hρ.2.2.2⟩, hzero⟩
+  exact ⟨⟨le_of_lt hρ.2.1, le_of_lt hρ.2.2.1, le_of_lt hρ.2.2.2.1, hρ.2.2.2.2⟩, hzero⟩
 
 end Dictionary
 

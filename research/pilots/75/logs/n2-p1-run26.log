@@ -1,0 +1,294 @@
+# =====================================================================
+# PILOT 75-N2 — run 26 (P2-a CLOSURE attempt; the ONE authorized run
+# of the final grant, FIRE-ONCE, no fix-loop) | lane R6 unit 3,
+# 2026-11-19. PRE-RUN SHA GUARD: the parked unit-2 sha
+# ce6719c8af450eaa verified on disk immediately before firing (= the
+# r25 input 4055a94e-class state + the single post-r25 one-liner:
+# hnTa1 via le_abs_self (-T1) + rw [abs_neg] at h + linarith — see
+# logs/n2-p1-run25.log footer + N2-P1-record.md resume note).
+# Expected: P2-a GREEN — 15/15 file decls triad-clean incl.
+# windowFinite_LFunction, 0 sorry (the r25 single residual was R6's
+# own abs_le.mp trivial-unification; everything else validated r25).
+# RULING: if green — P2-a CLOSED, same unit proceeds to the N2-P3
+# skeleton + P2-b note; if not green — HARD-STOP P2-a for this wave
+# regardless of error class; findings fold; no further micro-grants.
+# Spec: cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, telemetry per
+# AGENTS.md §Modal. Command: run_n2p1.sh (doz CLI, warm app
+# crossmath-pilot-75, profile semraker).
+# =====================================================================
+ce6719c8af450eaabaad0d2f3865fe2cbd99b361fc2b9b2783dbe11351e5f8db  N2-P1.lean
+1cf5cbe217c685643e8c20434db58596075c0be62b81be11926553366ba4eb47  N2-P0.lean
+d61eb0485a6ff672c32d64adb2d73962344975cad841f8e82359607c31e7d235  Pa.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-k5dn5nZ9vG1Mmlhfh6OeoM
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:252:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:239:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:241:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[tele] t=60s cpu=0.77 mem=3706MB anon=0MB peak=-1MB procs=2
+[n2p1] N2-P1.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2-P1.lean:335:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:352:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:392:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:397:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:556:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:684:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:732:19: warning: This simp argument is unused:
+  Classical.em
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2-P1.lean:759:24: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: OK
+[tele] SUMMARY run: wall=68s max_cpu=0.77 max_mem=3706MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-k5dn5nZ9vG1Mmlhfh6OeoM
+
+# ==== POST-RUN VERDICT (R6 unit 3, 2026-11-19) ====
+# N2-P1.lean: **OK — P2-a GREEN. 15/15 file decls triad-clean
+# ([propext, Classical.choice, Quot.sound] only), 0 sorry, 0 sorryAx
+# anywhere.** windowFinite_LFunction (χ ≠ 1 ⇒ WindowFinite (multOf
+# χ.LFunction)) — the hEχ port's WindowFinite input — is now a
+# kernel-verified theorem. Pa.lean OK, N2P0.lean OK. This closes P2-a
+# at run 26 of the fix-loop (10→8→3→4*→11*→1→0; * = unmasking events,
+# not regressions). Zero math defects across the whole loop; the
+# P2-a argument unchanged since run 22. Telemetry: wall=68s
+# max_cpu=0.77/2.0 mem=3706MB OVER=0 (fully within spec — no
+# over-flags). P2-a CLOSED per the final-grant ruling; this unit
+# proceeds to the N2-P3 skeleton + P2-b note. File sha at firing:
+# ce6719c8af450eaa (unchanged on disk — the verified state).

@@ -482,6 +482,35 @@ PASS ((A1)+(B1) closed in K's INDEX).**
   L3b–d, R7's 77 T1 follow-ups (`T1.lean`/`run_pilot.py` deltas + run10 log —
   not in the named day-1 sets).
 
+## 2026-11-19 — iter-5 steady state (H): R9 erratum-2 divergence record + R6 unit-3 landing + tracker re-cut
+
+**R9's erratum-2 divergence record (record-accuracy note, per the orchestrator
+relay):** R9's verdict on dossier-41's erratum 2 is **REFINED vs A6's mis-print
+stamp** — **NO consumer impact**: on the d=111 stratum, A6's display form, R9's
+uniform formula, and `GqGen` **coincide**; **erratum 1 is the load-bearing
+correction, CONFIRMED**. (R9's rounds 5–6 novelty batteries are delivered
+worktree-side — six files incl. the 41-battery/errata-check, 77-Wick,
+η-port/AL-residuals, N2-P3-priorart — pull per R9's report.)
+
+**R6 unit-3 landing (pull per the orchestrator's named set):**
+`N2-P1.lean` at the run-26 fired bytes sha `ce6719c8af450eaa` (log-verified
+"unchanged on disk — the verified state") + `logs/n2-p1-run{24,25,26}.log` +
+`N2-P1-record.md` (P2 state after run 26) + the dossier delta + **`N2-P3.lean`
+NEW** (statements-only SKELETON, authorized by the same final-grant ruling; never
+run — staging class). Verdict of record: **P2-a (`windowFinite_LFunction`) CLOSED
+GREEN at run 26** — the final-grant FIRE-ONCE ruling; 15/15 file decls triad,
+0 sorry; run-26 telemetry wall 68 s, max_cpu 0.77, OVER=0 (within spec); zero
+math defects across the whole loop. The old `n2-p1-run8.log` stays worktree-side
+(superseded closure log, never landed by design).
+
+**R2 G8 flips: NOT YET LANDED** — agent-03's gates copy still carries the two
+conditional cells (G2(ii) [PENDING-R1]-form; G3 "PASS after H's INDEX commit");
+H confirms and pulls them when they land (that closes the gates file completely).
+
+**Tracker re-cut:** `research/ORCHESTRATION-ITER5.md` opened (the live iteration-5
+execution tracker; ITER4 tracker frozen at the close with the pointer). INDEX row
+rides this commit.
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over
