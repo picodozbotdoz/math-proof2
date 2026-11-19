@@ -636,6 +636,57 @@ rides this commit.
   `AxPilot74_P2` activation + classifier entry) QUEUES BEHIND R1's 41-core
   fold (which itself queues behind the owed ENTRY 4).
 
+## 2026-11-19 — iter-5 steady state, batches 7+8 (H): R1 unit-6 (partial) + R9 template + R8 M1 CLOSED + R4 (H) PROMOTED + article-41 draft HELD
+
+- **R1 unit-6 (batch-7, partial):** `r3-verification-tables.md` pulled at the
+  reported `5c71301e…` — the 41-core live row (**4 REFUTED-AS-UNIVERSAL +
+  26 CORRECTED-PROVED**, 30 top-level theorems, four at zero axioms; no-dep /
+  inert-delta facts). **The held-log verification from batch-5 resolved:**
+  ENTRY 4 is PAID in the unit-6 state (the 77 files at c74ac33 classified:
+  0 real tokens each, certificate exact) and **ENTRY 5's sha-guard VERIFIED
+  against H's landed bytes** (on-disk `733b4a2d93a84689` = main's Core.lean;
+  fired `921bc43cbd06d252`; the tree-wide re-run correctly declared to fire at
+  H's commit — it did, 35bd210). **LIVE-DRIFT HOLD:** sweep-plan-ITER5 /
+  make_axcheck / stepA log ALL drifted past their reported shas mid-pull
+  (seconds between verify and copy — R1's 74-fold in flight, as announced);
+  no prefix-reconstruction attempted against a live mid-edit python file;
+  **DRAINED-7's four shas supersede.**
+- **R9's N2 ship template pulled** (`686f237d…`, PRE-STAGED marker; rides when
+  R6's P3 fires — cross-referenced in the tracker's R6 row). R9 → TRUE
+  GATE-STANDBY.
+- **R8's M1/M2-a set pulled** (record + 3 logs, shas verified): **M1 CLOSED
+  GREEN at 4 runs** (grant class) + M2-a 2/4 GREEN structural halves + 2
+  one-line parked (pre-written) → M2 continuation (≤3). **A2.lean HELD:** the
+  reported sha `7db88f34…` (the M1-CLOSED-GREEN + M2-a bytes the record cites)
+  drifted live mid-pull (now `208430ba…` — R8's M2 continuation); rides R8's
+  next report. The AL-M1 fold queues at R1's next drain.
+- **R7's a7-41-splice-package pulled** (`f9695a5a…`, paste-ready): the splice
+  kit (articles/ file + README row-41 + INDEX row pre-assembled) — the SPLICE
+  itself still waits on R2's S1–S4 pass + the orchestrator's signal. R7 →
+  standby-for-splice-signal. Ship-gate: R7 ✅ R9 ✅ — only R2's pass remains.
+- **R1 unit-8 pulled (supersedes the held unit-6 trio + the 5c71301e
+  r3-tables state in this same commit):** r3-tables `aed8b0bf…` (the AL-M1
+  CLOSED GREEN + M2-a honest-partial 2/4 rows with the
+  fixes-on-disk-unfired classification) · sweep-plan `ee2bf107…` (guard-move
+  discipline) · make_axcheck `1d0927df…` (63 rows; py_compile rc=0) · stepA
+  log `342a50b6…` (**ENTRY 6 + ENTRY 7 + certificate 52+0 UNCHANGED — the A2
+  unverified state is a run-status fact, not a token**). **Tree-wide guard
+  verification (the re-task's question, answered):** ENTRY 6's guards FIRE
+  correctly against H's batch-6 commit 35bd210 (Core `733b4a2d…` ✓ and P2
+  `49b808f3…` ✓ both = the landed bytes); **ENTRY 7's A2 guard (`7db88f34…`)
+  does NOT bind yet** — it targets R8's reported bytes which H HELD (live
+  drift to `208430ba…`); the guard re-binds at R8's landing per the recorded
+  guard-move discipline. R1 funnel next: L3 · M2-completion-fire · P3-fire.
+- **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
+  the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
+  ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
+  BARRED; tranche 1 executes. Ruling recorded here + tracker.
+- **R7's article-41 DRAFT-final: HELD, NOT PULLED** (worktree agent-10, sha
+  `f068d9aef70d3a36`, v0.3, 294 LoC, zero placeholders, kind DISCOVERY
+  quota-free) — the ship gate waits on R2's S1–S4 pass; the splice (articles/
+  + README row-41 + INDEX) executes ONLY on the orchestrator's explicit
+  signal; the article rides the splice commit, no INDEX row yet.
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over

@@ -76,3 +76,61 @@
 #     (`windowFinite_family` :105). 0 REAL-TOKEN. Class: statements-only SKELETON,
 #     never-run staging class — NO Step-B row until fired-GREEN (41-P0
 #     candidate-unfired precedent); row + AxDep chain wiring at the GREEN fire.
+#
+# ENTRY 4 (R1, 2026-11-19 — the H-relay OWED entry, paid) — 77 follow-up completion
+# landed at c74ac33 (R7 BOTH GREEN), classifier re-run on the post-538ce2a tree (the
+# landing + batch-5 pulls; T1/T2 GREEN bytes IN CLASSIFIER SCOPE):
+# **52 REAL-TOKEN hits over 111 files — certificate EXACT; the two 77 files contribute
+# 0 real tokens** (both GREEN are 0-sorry by verdict; all `sorry` mentions in them are
+# header/audit prose — the classifier confirms R7's "0 sorry" runs at the token level).
+#   pilots/77/T1.lean — REPLACED (honest-stop 817 LoC → GREEN 840 LoC), sha
+#     70d7e9f75e705303: PROOF artifact, T1-COMPLETION GREEN run 11 (8/8 top-level
+#     theorems triad incl. `map_iso_occupationElem` first-clean; burn-down 31→7→0;
+#     `logs/t1t2-run11.log`). **DONOR-PIN CLASS per the sweep-plan row**: imports
+#     `TauCeti.Algebra.Lie.GeneralLinear.{TraceForm,CAR.Occupation}` — resolves only
+#     in the 77 runner's tauceti pin (`d92acc5c`, manifest mathlib `1b1ccf4b`), never
+#     on the ff2494ea plain substrate; Step-B verdict of record = the donor-pin log.
+#     TARGETS row AxPilot77_T1 active (plain-batch FAIL BY DESIGN, M4b precedent).
+#   pilots/77/T2.lean — REPLACED (tainted 272 LoC → GREEN 281 LoC), sha
+#     e70baf22d9ae220e: PROOF artifact, GREEN run 12 (8/8 triad incl. the formerly
+#     tainted `isDegreeBlock_iff_sum_blockProj` = the whole-tree 385/386 residual
+#     DISCHARGED; `logs/t2-run12.log`). [WARM] Mathlib-only; TARGETS row AxPilot77_T2
+#     active. The [Fintype κ] statement-strengthening finding + the runner `: error(`
+#     filter fix (run_pilot.py @ 1434e832e889a1cb, SECOND instance of the 43d55bb
+#     blind-spot class) are recorded on the §11.2 live rows + the sweep-plan 77 slot.
+#
+# ENTRY 5 (R1, 2026-11-19 — the 41-CORE headline fold) — Core.lean classified over the
+# R4 worktree-of-record bytes (agent-08; H's batch-6 commits them — on-disk sha
+# 733b4a2d93a84689; GREEN-run FIRED sha 921bc43cbd06d252, delta = elaboration-inert
+# FIRED header block, the P0-record precedent). One-file §G1 scope:
+# **0 REAL-TOKEN hits** (2 `sorry` mentions total, both header/audit prose — the
+# 0-sorry GREEN run 9 confirmed at token level). Forbidden-token gate: OK, 0 hits
+# (the lone `native_decide` mention is compliance-header prose; finite checks are
+# kernel `decide`, never native_decide). Class: PROOF artifact GREEN run 9 —
+# 4 REFUTED-AS-UNIVERSAL (decide-certified: P1, P2, MainIdentity-as-Para, N′) +
+# 26 CORRECTED-PROVED (30 top-level theorems, four at zero axioms);
+# `logs/core-run9.log`. Step-B: AxPilot41_Core ACTIVE ([WARM], Mathlib-only, no dep
+# stage, no override — inert-delta class). The tree-wide re-run fires at H's commit
+# (bytes not yet in main-side classifier scope; sha-guarded here).
+#
+# ENTRY 6 (R1, 2026-11-19 — the 74-P2 fold) — P2.lean classified over R3's
+# worktree-of-record bytes (agent-07, sha 49b808f33ba897cc; H's batch-6 commits them).
+# One-file §G1 scope: **0 REAL-TOKEN hits** (2 `sorry` mentions, both header/audit
+# prose — run 11's 0-sorry-warnings GREEN confirmed at token level). Forbidden-token
+# gate: OK, 0 hits. Class: PROOF artifact — G2 GREEN run 11 (P2-a `mgfBound_var_sharp`
+# + P2-b `t1c_sharp`, both triad; G3 statement-probe PASS rides, elaboration-only);
+# `logs/p2-runs1-11.log`. Step-B: AxPilot74_P2 ACTIVE ([WARM]; AxFC custody class,
+# 37 decls = 9 pub + 28 priv). Tree-wide re-run fires at H's commit (sha-guarded here).
+#
+# ENTRY 7 (R1, 2026-11-19 — the AL M1/M2-a fold) — A2.lean MOVED to `7db88f34c8aab795`
+# (1,329 LoC; H's batch-7 commits R8's set). One-file §G1 scope over the worktree-of-
+# record bytes (agent-05): **0 REAL-TOKEN hits** (2 `sorry` mentions, both prose — the
+# disk is sorry-free). THE HONEST LABEL (the re-task's verification question, answered
+# from the bytes): the 2 M2-a parked decls (`colEquivVar_restr_apply` :1206,
+# `projFib_pairwise_disjoint` :1230) are **NOT sorry stubs — the pre-written one-line
+# fixes are APPLIED on disk, UNFIRED since m2-run2** (which fired the pre-fix sorryAx
+# bytes; no m2-run3 exists) — the fixes-on-disk-unfired class (N2-P2 paused precedent).
+# Certificate: UNCHANGED 52 + 0 declared (no new tokens; the unverified state is a
+# RUN-status fact recorded on the §11.2 honest-partial row, not a token). M1's GREEN
+# (4 runs, completion-grant class) + M2-a 2/4 recorded there; AxPilotAL3D_A2 sweep
+# guard moved to 7db88f34 (last-verified committed bytes @ batch-7).

@@ -2398,3 +2398,41 @@ its rows are closed history):**
 Step-A classifier ENTRY 4 fires on my tree at that commit (the GREEN bytes are not yet
 in the classifier scope here). The §10.32 close-time rows and the K close block stand
 as history; this fold is the recorded supersession they pointed to.*
+
+**41-CORE — GREEN run 9, the headline fold (R4 iter-5 unit 2, worktree agent-08; folded
+by R1 unit 6, 2026-11-19; the §11.3-draft (a) row-shape and (b) supersession wording
+EXECUTED as pre-staged):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict cell (the N+M vocabulary, as pre-staged) | note cell |
+|---|---|---|---|---|
+| 41-Core (R4) | `pilots/41/Core.lean` on-disk `733b4a2d93a84689`, 627 LoC, 31 decls ALL public (30 top-level theorems + 1 def; 0 privates → Step-B appended tail IS full coverage) | `logs/core-run9.log` (run 9, 53 s; warm app crossmath-probe, doz CLI; GREEN bytes = the FIRED sha `921bc43cbd06d252`; on-disk = fired + dated FIRED header block, elaboration-inert comment-only — the P0-record/A2.lean precedent; both shas of record in Core-record.md) | **GREEN-triad — 4 REFUTED-AS-UNIVERSAL (decide-certified, kernel `Decidable.decide` over the 8⁴=4096-quad space, 0 sorryAx: P1, P2, MainIdentity-as-Para, N′) + 26 CORRECTED-PROVED** (`mainCor`/`mainStratum`/`qRigid`/`signs_anchor`/`alternation_fails_at_q_minus_one` et al.; 30 top-level theorems; FOUR at zero axioms = the deciders, ⊆-triad class; rest triad-or-leaner; 0 sorry, 0 sorryAx) | **The corrected discovery identity kernel-proved: A+B = (1−q)·aeval(GqGen) at EVERY parallelogram quad (`mainCor`); the dossier's G_q recovered exactly on the antipodal stratum (`mainStratum`); (N) true + q-rigidity off-stratum (`qRigid`); degenerate branch N′ CLOSED (value 2 ≠ 0 at q = −1).** Refutations are first-class PROVED-UNCONDITIONAL decls per the 78 precedent. **BUDGET DISCLOSURE: 9 runs — runs 5–8 = the universe-churn class** (ONE theorem's auto-bound `Type*` plumbing, `SigmaQ_Signs_all_q`; mathematical content certified from run 4), ≈9×60 s warm single-container, **2cpu/4GB HELD throughout** (resources held, no upgrade). Step-B: `AxPilot41_Core` ACTIVE in make_axcheck ([WARM], `import Mathlib` ONLY — P0 surface verbatim in-file, NO dep stage; NO override — inert-delta class; sweep guard: main bytes == 733b4a2d93a84689). Classifier ENTRY 5: 0 real tokens (2 prose mentions); forbidden-token gate OK |
+
+*P0 supersession EXECUTED per the drafted (b) wording: P0's elaboration verdict STANDS
+(never truth); its universal forms are REFUTED-AS-UNIVERSAL by Core's deciders; the
+corrected forms are the carriers; P0's (M)/(N)/(H) labels read as pointers; P0's
+statement-rung Step-B treatment (never a headline) unchanged. Cross-refs: the
+dossier-41 amendment draft (R4, same directory) + §11.1's 41-P0 row.*
+
+**74-P2 — G2 GREEN run 11 + G3 statement-probe PASS (R3 recharter, worktree agent-07;
+folded by R1 unit 7, 2026-11-19; the §11.3-draft (d) stub EXECUTED):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 74-P2 G2 (R3) | `pilots/74/P2.lean` `49b808f33ba897cc`, 1,063 LoC, 37 decls (9 pub + 28 priv — AxFC custody at sweep prints all) | `logs/p2-runs1-11.log` (run 11 GREEN; sha-guarded every run; rc=0, 0 errors, 0 sorry-warnings; `maxHeartbeats 8M` carried in the verbatim P1 body) | **GREEN-triad — P2-a `mgfBound_var_sharp`** (varK ≤ 2v from the CENTERED bound on ANY positive window — the sharp window-free variance constant = the dossier T1(b)'s original Var ≤ 2σ²; **4.5× improvement over P1's window-edge 32(e^{1/4}−1)σ² ≈ 9.06σ²**) **+ P2-b `t1c_sharp`** (varK ≤ 1024·e·θ·B under `InSubGClass` — the exact MarginalTails class constant, 1024 = 2·512, pure instantiation of P2-a) — both exactly `[propext, Classical.choice, Quot.sound]` | **Budget disclosure — chartered ≤5, used 11** (descent 14→12→14→9→9→9→7→6→7→5→0, zero sorry every run): runs 1–5 chartered; **run 6 = process-error misfire OWNED** (the fix-batch's python assert aborted pre-write; fired without verifying — the P1 run-6 precedent class; the sha guard saw a distinct sha only via the landed header must-cite block masking the missing body fixes); runs 7–10 = mechanical-residue fix-loop (4 classes + audit-tail qualification, **every class named in the log header; ZERO math defects**); run 11 GREEN. **Route-1.5 finding: elementary squaring caps at 1/2 — the sharp constant needed the monotone-derivative route** (route 1's deriv blocked at its on-pin dependency). **Must-cites + wording guard CARRIED (binding, R9 pre-gate `novelty/round6-74p2-pregate.md`; P2.lean header verbatim)**: on-pin `Mathlib/Probability/Moments/SubGaussian.lean` EXISTS (the 2026-11-13 corpus-grep miss; no variance-equivalence theorem there — the tilted-variance identity lives only inside Hoeffding's proof) + `Mathlib/Probability/MGFAnalytic.lean:279`; NEVER phrase "corpus has no SubGaussian". Novelty (R9): P2-a formal-new-as-stated / mathematically-folklore. Step-B: AxPilot74_P2 ACTIVE ([WARM] Mathlib-only) + AxFC custody class; sweep guard: main bytes == 49b808f33ba897cc |
+| 74-P2 G3 probe (R3) | same file (the `famN` + 3 Prop defs) | run 11 (same log; elaboration-only) | **G3 statement-probe PASS** — `famClassMemProbe` (spectrum ∧ class membership at B = (log n)²), `famVarLBProbe` (uniform-κ varLB discharge), `famTailProbe` (W-side bound) all elaborate on-pin | **Elaboration verdicts ONLY — never proof claims. P2-c chartered-unexecuted: NO live row until its GREEN; its separate ≤5 budget is UNSPENT/INTACT** (the natural iter-5 continuation; probe Props already on main-tracked disk; marginal-θ membership risk = the known open core; `IsLittleO` pinned). P2-c's class-level tightness set = NEW-statement (R9) |
+
+*Fold note (R1, 2026-11-19): bytes verified at R3's worktree-of-record (agent-07); classifier
+one-file scope: 0 real tokens (2 prose mentions); forbidden-token gate OK. Step-B + AxFC
+rows live at H's batch-6 commit; tree-wide ENTRY fires then.*
+
+**AL M1/M2-a state (R8, worktree agent-05; landed via H's batch-7; folded by R1 unit 8,
+2026-11-19; A2 bytes `7db88f34c8aab795`, 1,329 LoC, 81 decls = 80 pub + 1 priv):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| AL-M1 (R8) | `pilots/al3d/A2.lean` @ `7db88f34c8aab795` | `logs/alp2-m1-run4-completion.log` (M1 completion fire; 4 runs of the 2–3 chartered — **completion-grant class**) | **CLOSED GREEN — the workhorse `colEquivVar_restr` final assembly triad; run-13's 85-line regression identity HELD** (the frozen-core gate: byte-identical through every M0/M1/M2 run); **growth = 10 M0 + 4 M1 lines, all triad** | The find-#5 canonical z-rank route pays off: no `Eq.rec` remains, the un-park key per the precharter. Guard discipline: AxPilotAL3D_A2 sweep guard MOVES to last-verified committed bytes = `7db88f34` @ batch-7 (from `b84270b6` @ M0) |
+| AL-M2-a (R8) | same file (the 4 M2-a lines) | `logs/alp2-m2-run2-fixround1.log` (descent 6→2→(2 trivial)) | **honest-partial — 2/4 GREEN structural halves: `powerset_eq_biUnion_projFib` + `sum_projFib_extendId` triad; 2 fixes-on-disk UNFIRED — no live claim until their GREEN** | **The 2 parked decls are NOT sorry stubs on disk — the pre-written one-liners are APPLIED** (`colEquivVar_restr_apply`: the `.symm` have-line; `projFib_pairwise_disjoint`: `unfold Function.onFun`) with **no fire since m2-run2, which fired the PRE-FIX sorryAx bytes** — the N2-P2 paused class (fixes-on-disk-unfired). Classifier over the moved bytes: **0 REAL-TOKEN** (2 prose mentions; disk sorry-free) — the re-task's verification question answered: sorry-free-but-unverified, labeled honestly. The A2 sweep stage's verdict stays HONEST-PARTIAL until the M2 completion fire certifies the 2. M2-b (swap proper) + M3 (P2-e assembly) follow |
+
+*Fold note (R1, 2026-11-19): bytes verified at R8's worktree-of-record (agent-05);
+certificate impact NONE (0 new tokens — the parked pair carries no literal sorry on
+disk). Tree-wide re-run fires at H's batch-7 commit.*

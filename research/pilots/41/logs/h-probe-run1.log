@@ -1,0 +1,51 @@
+# Provenance: 2026-11-19, lane R4 (unit 3: (H)-preflight, DECISION-4 promotion input).
+# File fired: research/pilots/41/H-probe.lean — statement-rung ONLY (probe conventions:
+#   not a proof artifact; Prop-defs + #check; zero sorry). Content: §0 surface copies
+#   (verbatim from Core.lean) + the two CORRECTED (H) binder statements
+#   (HostTransportCor = GqGen/unified form; HostTransportStratum = stratum form) +
+#   TLRealizability (the finite-search assertion's ∃-shape over ℂ, A/q = −A²).
+#   Rationale: the P0's HostTransport inherits FINDING F1 (its realizability
+#   hypothesis + conclusion = MainIdentity-as-universal, machine-refuted in Core §1),
+#   so the preflight elaborates the corrected candidates instead.
+#   sha256 (full): 740adaf154eb9e1812d46e91b403b948d30b6d6df2bd01f44e3c246e6e4a2101
+#   sha256 (16):  740adaf154eb9e18 · 120 LoC.
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s; single file staged (no other files).
+# Substrate: mathlib4 ff2494ea..., toolchain v4.36.0-rc2, 8710 oleans (warm).
+# Wall: 36 s.
+# Verdict: GREEN — H-probe.lean: OK; errors=0, sorry=0, other-warnings=0. All three
+#   (H) statement shapes elaborate on-pin: HostTransportCor, HostTransportStratum
+#   (types printed), TLRealizability : Prop. The binder tier is UNBLOCKED for the
+#   corrected statement set.
+# Telemetry: 36 s < 60 s → samples=0, no OVER.
+# Modal run: https://modal.com/apps/semraker/main/ap-07x1OITXnBDl6wokO3hcFy
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-07x1OITXnBDl6wokO3hcFy
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H-probe.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H-probe.lean
+[probe] H-probe.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+@HostTransportCor : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+@HostTransportStratum : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+TLRealizability : Prop
+
+[probe] SUMMARY
+[probe]   H-probe.lean: OK
+[tele] SUMMARY probe: wall=36s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-07x1OITXnBDl6wokO3hcFy
