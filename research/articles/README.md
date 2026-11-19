@@ -1,9 +1,10 @@
 # Research articles — iteration 4 index
 
-Honest counts — **FINAL, orchestrator-ratified 2026-11-18**: **6 discovery-grade**
-(01, 30, 32, 42, 75, 78 — 75 conditional, 78 NEGATIVE-kind per the orchestrator
-ruling) · **7 technical records & formalizations** · **4 notes/certificates (1 pending
-a branch decision)** + 3 relocated notes — down from 17 article files for both cycles. Not every
+Honest counts — **FINAL, orchestrator-ratified 2026-11-19**: **7 discovery-grade**
+(01, 30, 32, 41, 42, 75, 78 — 75 conditional, 78 NEGATIVE-kind per the orchestrator
+ruling; 41 the first iteration-5 shipment, kind DISCOVERY ruled 2026-11-19, quota-free)
+· **7 technical records & formalizations** · **4 notes/certificates (1 pending a branch
+decision)** + 3 relocated notes — down from 17 article files across iterations 1–4. Not every
 verified artifact is an article: donor swaps, binder discharges, statement layers and
 closure notes live in dossiers/ledger rows (§C) with full verification records. Article
 gate: `TEMPLATE-iter4.md` (mandatory). Discovery bar: R2's S1–S4 and the R1 editorial
@@ -19,6 +20,7 @@ toolchain substrate).
 | 01 | [An Exact Five-Defect Identity for the Rank–Trace Inequality](01-inertial-defect-master-identity.md) | new theorem (linear algebra) | Thms 1–3 PROVED-UNCONDITIONAL |
 | 30 | [The ETH-Appendix Operators Q_s Are Second Differences of Number Operators](30-boson-operators-second-difference-closed-form.md) | new closed form + refutation of a project-formulated conjecture (B2) | refutation/closed form/spectral/commutativity PROVED-UNCONDITIONAL; moment identities PAPER-ONLY with kernel-checked instances |
 | 32 | [The Exact Savings Frontier of the Corollary-31 Certificate Class](32-rc-savings-frontier.md) | new theorem (frontier function Γ(ε), phase transition); constants superseded at birth — caveat carried in-article | **proved; crossing exists for all ε < ε*** (run-12 discharge 2026-11-17, `pilots/32/M2.lean`: `crossing_exists`/`frontier_unconditional`/`frontier_formula_unconditional` triad; ε-dependence of c* and Corollary-31 data-structure statement remain PAPER-ONLY); `frontier_nonempty_iff` PROVED-UNCONDITIONAL |
+| 41 | [A q-Deformation of the Eight-Square Sign Rule: the Unified Parallelogram-Defect Identity and the Bitwise-Complement Stratum](41-parallelogram-defect-deformation-eight-square.md) | new theorem (the unified defect identity A + B = (1−q)·GqGen at every parallelogram quad + the antipodal stratification p′ = ¬p + off-stratum q-rigidity); first iteration-5 shipment — kind DISCOVERY per the orchestrator ruling 2026-11-19, quota-free | Thms 1–5 PROVED-UNCONDITIONAL (`Core.lean` core-run9: 30 top-level decls triad-or-leaner, four at zero axioms; the P1/P2/universal-form/N′ refutations enter as decide-certified components, never the headline); the (H) TL/Jones host bridge is a separate article if it lands |
 | 42 | [Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions](42-quadratic-dedekind-zeta-zero-proportions.md) | new statement class, corollary-level assembly; v2 = merged 42 + 42-M4 (2026-11-16) | Thms 1–3 PROVED-CONDITIONAL (χ-column = zeta23 Thm E as binder — the open core); ζ-column PROVED-UNCONDITIONAL (ZetaZerosV2 import, triad-audited) |
 | 75 | [Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower](75-abelian-assembly-zetaL-proportions.md) | **kind: DISCOVERY-CONDITIONAL** (v2, 2026-11-17 — two-tier, honest conditional billing in title/abstract) | **Tier 1**: Thms A–B PROVED-CONDITIONAL (component proportions = the open core); **Tier 2 (strip-distinct, 5/6)**: Theorems C–E′ PROVED-CONDITIONAL, landed 2026-11-16 (pb-run11/12; hCZStripFam conjecture-grade); the χ-column Dirichlet discharge audited (zeta23 Theorem-E chain, binder swap cleared); ℚ-instantiation (N2) carried to Iteration 5 (P0 15/15 triad; P1 M1+M2+M3 GREEN-triad at run 19 — 14/14 decls incl. hasQDirichletDictionary; P2 hEχ port + P3 V2 landing deferred, A5's budget note 2026-11-18) |
 | 78 | [Truffet's Tropical Substitution Procedure Terminates Suboptimally on a Bounded Two-Row Instance](78-truffet-substitution-refutation.md) | NEGATIVE — refutation of an external 2026 procedure (discovery-grade per orchestrator ruling 2026-11-17; does not touch the N=1 quota) | A1/A2/A2′ PROVED-UNCONDITIONAL (p0-run4: 3/3 triad, counts re-ratified by H vs disk; binder inventory empty; the model-level predecessor is the openai-math corpus's, the procedure-level promotion is ours) |
