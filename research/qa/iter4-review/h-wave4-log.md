@@ -840,6 +840,22 @@ rides this commit.
 - (Process note: the INDEX anchor slip recurred once more in-pass — the
   REPORT-INPUTS row this time — caught and restored pre-commit; the class
   is now on my pre-commit checklist explicitly.)
+
+## 2026-11-19 — iter-5 steady state, batch J (H): the wave-close charter + the iter-5 gates skeleton + R1 unit-12
+
+- **R3's wave-close re-open charter landed** (`a3-waveclose-reopen-charter.md`
+  `c68ab8fb…`): the one-fire instrument (items with owner/staged-sha/run;
+  10–16 predicted runs across 5 lanes). **Firing states recorded in the
+  tracker per the orchestrator: items 2 (P2-c) + 3 (L3-final) FIRED
+  2026-11-19; item 1 (N2 P2-b) rides R6's next drain; item 5 (eta confirm)
+  inside R5's live unit; item 6 (41H-T2) live under tranche-2.**
+- **R2's iter-5 gates skeleton landed** (`qa/iter5-closeout-gates.md`
+  `5672b30d…`) — PREP-ONLY; executes at iter-5 close on the orchestrator's
+  signal.
+- **R1's unit-12 landed** (r3-tables `eac24fee…` — the P2-c parked row
+  executed; sweep-plan guard → `4425be89`; make_axcheck `00236246…`;
+  ENTRY 12): R1 → **live-events standby (6 pending: M2-b · P3-complete ·
+  41H-T2 · eta-r2/3 · P2-c-close · L3-final)**.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

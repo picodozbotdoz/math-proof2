@@ -173,3 +173,13 @@
 # The λ=1/2 checkpoint (dilateTo_half/extremalLam_half/cutoffTestLam_half) DELIVERED at
 # rung 1. Class: PROOF on the DONOR TREE ([LAYERS]; verdict of record = the on-pin log,
 # zzv2-P1 precedent — not a plain TARGETS stage). Certificate UNCHANGED 52+0.
+#
+# ENTRY 12 (R1, 2026-11-19 — the 74-P2-c parked fold) — P2.lean MOVED to `4425be898768fdb0`
+# (1,490 LoC, 55 decls = 16+39; H batch-H, the run-17 FIRE-ONCE state). One-file §G1
+# scope: **0 REAL-TOKEN hits** (2 prose mentions — run 17's "zero sorry" confirmed at
+# token level). State: P2-c NOT-GREEN at fire-once → PARKED wave-close (15 err = 2 real
+# + 13 cascade; t4_not_littleO CLOSED = tightness set 3-of-4; famN_inClass 2-line
+# residue with both fixes stated in p2c-run17.log's header; the ADJUDICATED BkClass-
+# nonneg definition of record; FINDING #5 degeneracy+correction, FINDING #6 θ₀ =
+# 1/(1024·e)). Sweep guard AxPilot74_P2 → 4425be89; verdict class honest-partial until
+# the wave-close GREEN. Certificate UNCHANGED 52+0.

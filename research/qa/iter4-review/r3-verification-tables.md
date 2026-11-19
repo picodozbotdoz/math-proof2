@@ -2481,3 +2481,15 @@ folded R1 unit 10, 2026-11-19; `P72M1T3.lean` v13 `dcda3133b1ffbd16`, 1,048 LoC,
 *Fold note (R1, 2026-11-19): bytes verified on main @ b611a25; classifier one-file scope:
 0 REAL-TOKEN (1 prose mention — "zero sorry by construction" confirmed at token level);
 certificate UNCHANGED 52+0.*
+
+**74-P2-c — run-17 PARKED, final-for-this-wave (R3 unit-5, landed H batch-H @ b611a25;
+folded R1 unit 12, 2026-11-19; the G3 PASS row CONVERTS — `P2.lean` guard bytes
+`4425be898768fdb0`, 1,490 LoC, 55 decls = 16 pub + 39 priv):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 74-P2-c (R3) | `pilots/74/P2.lean` `4425be898768fdb0` | `logs/p2c-run17.log` (FIRE-ONCE grant; descent 18→15 = 2 real sites + 13 print-cascade; **ZERO sorry on disk** — classifier 0 real, certificate unchanged) | **NOT-GREEN at fire-once → PARKED wave-close; honest-partial per D7. `t4_not_littleO` CLOSED = the tightness set 3-OF-4: floor-achieved (`t4_floor_achieved`) + not-littleO (`Asymptotics.IsLittleO` negation via `Filter.eventually_atTop`) + the θ₀-membership statement (`famN_inClass` at the EXPLICIT threshold θ₀ = 1/(1024·e))** — the 4th (the bounded class-indexed ceiling GREEN) rides the wave-close | **famN_inClass's 2-line residue, BOTH fixes stated** (in `p2c-run17.log`'s provenance header): (1) `hy2`'s nlinarith atom-shape (`y^2` vs `y*y` — restate `hyy` in `y ^ 2 ≤ (1/64)^2` form or feed the `show`); (2) `hmul`'s type ascription (drop it — the lemma's own output shape needs no flip). CLEARED at run 17: t4_not_littleO (fully), both `one_div_le_one_div_of_le` arg-shape sites, the `neg_neg` class. **The ADJUDICATED `BkClass`-NONNEG definition of record** (`CertValidClass`/`BkClass` carry `(∀ j, 0 ≤ a j) ∧ …`, the 78-class correction pattern) — **FINDING #5** = the BkClass degeneracy (degenerate both ways: point-mass triviality + negative-coefficient unboundedness) + the adjudicated correction; **FINDING #6** = the explicit membership threshold θ₀ = 1/(1024·e) (the precharter's marginal-θ caveat made precise; the window geometry y = |u|·L/2 ≤ 1/64 vs the MGF budget is the binding constraint). Dossier-74 amendment drafted for H (`dossier-74-amendment-p2c.md`). Sweep: guard → 4425be89, verdict class honest-partial until the wave-close GREEN |
+
+*Fold note (R1, 2026-11-19): bytes verified on main @ b611a25; the G2 GREEN row (run 11,
+P2-a/P2-b) and the G3 PASS content stand — this row extends the pilot's state to the
+P2-c park. Certificate UNCHANGED 52+0.*
