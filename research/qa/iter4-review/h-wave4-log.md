@@ -1006,3 +1006,17 @@ iteration-5 pilots: mark data-level defs touching `Polynomial ℤ` / monoid-alge
 mul `noncomputable` UP-FRONT** — a math-neutral mechanical marking; catching it
 pre-fire saves a run. (Tracker lane map re-cut to the wave-4 R1–R9 assignments in
 the same commit; worktree assignments are non-sequential — pull per REPORT.)
+
+## 2026-11-19 — SPLICE-2 EXECUTED (H): article-41H ships — the iteration's SECOND discovery
+
+Per `a7-41h-splice-package.md` (`ac7a5da7…`) on the orchestrator's pre-approval +
+arrival signal: the 41H article replaces main's stub IN-PLACE (base `2923f188…` +
+ALL EIGHT in-commit flips, every anchor count-verified 1/1: the §4 five N1
+negative-class rows + closing note; the abstract's locked N1-row-3 novelty sentence
+(179 words); the §7 N2 scope fence; the §N3 wording lock "elementary certificates,
+nonelementary closure"; §9 final rows incl. box-11 SATISFIED; the front-matter
+stub-supersession; R2's riders; the §6 committed-bytes stamps) + README row-41H +
+counts 7→8 (8 discovery-grade: 01, 30, 32, 41, 41H, 42, 75, 78) + the INDEX row.
+**KPI for the close summary: discovery share 8/16 = exactly 50% — the ≥half bar
+PASSES at equality; TWO discovery shipments this cycle (41 DISCOVERY + 41H
+NEGATIVE-kind); quota still UNSPENT.**
