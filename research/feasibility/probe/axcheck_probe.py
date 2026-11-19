@@ -94,8 +94,18 @@ def probe(files: dict, order: list):
             lines = out.splitlines()
             print("\n".join(lines[:40]), flush=True)
             if len(lines) > 40:
+                rest = lines[40:-12] if len(lines) > 52 else []
                 print(f"(…{len(lines) - 40} more) tail:", flush=True)
                 print("\n".join(lines[-12:]), flush=True)
+                # close-residue custody upgrade (R1, 2026-11-19; R3 F3b no-excerpt
+                # rule for sweep-of-record logs): any "depends on axioms" line that
+                # the head/tail excerpt elided is persisted IN FULL below, so a
+                # persisted log always contains the lines it tallies.
+                elided_ax = [l for l in rest if "depends on axioms" in l]
+                if elided_ax:
+                    print(f"---- {len(elided_ax)} elided axiom-lines persisted in full "
+                          f"(close-residue custody rule, R3 F3b) ----", flush=True)
+                    print("\n".join(elided_ax), flush=True)
 
     print("\n[ax] SUMMARY", flush=True)
     for rel, v in results.items():
@@ -106,11 +116,28 @@ def probe(files: dict, order: list):
 @app.local_entrypoint()
 def main(dir: str):
     from pathlib import Path
+    stage = Path(dir)
     files, order = {}, []
-    for p in sorted(Path(dir).glob("*.lean")):
-        files[p.name] = p.read_text()
-        order.append(p.name)
+    staged = [p.name for p in sorted(stage.glob("*.lean"))]
+    # order.txt support (close-residue fix 2, R1 2026-11-19): make_axcheck.py emits a
+    # dependency-ordered order.txt (TARGETS list order) alongside the stage copies;
+    # cross-stage import chains (AxPilot75_Pa -> AxPilot75_N2P0 -> AxPilot75_N2P1;
+    # AxPilotAL3D_P0 -> A1 -> A2) need the olean of every dep BEFORE its consumer,
+    # and sorted-name order does NOT give that ('N' < 'P' sorts N2P0 before Pa —
+    # run1's failure). Absent order.txt, behavior is unchanged (sorted glob).
+    order_file = stage / "order.txt"
+    if order_file.exists():
+        order = [l.strip() for l in order_file.read_text().splitlines() if l.strip()]
+        missing = [f for f in order if f not in staged]
+        unlisted = [f for f in staged if f not in order]
+        if missing or unlisted:
+            raise SystemExit(f"order.txt/stage mismatch: missing={missing} unlisted={unlisted}")
+        print(f"[ax] order.txt found: dependency order overrides sorted glob")
+    else:
+        order = staged
     if not order:
         raise SystemExit(f"no staged axcheck files in {dir}")
+    for name in order:
+        files[name] = (stage / name).read_text()
     print(f"[ax] staging {len(order)} file(s): {order}")
     probe.remote(files=files, order=order)

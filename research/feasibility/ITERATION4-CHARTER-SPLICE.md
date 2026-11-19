@@ -1,4 +1,5 @@
 # ITERATION4-CHARTER-SPLICE — the §Iteration 4 block for research/RESEARCH.md (DRAFT FOR REVIEW)
+> SELECTED 2026-11-18 — the SPLICE TEXT was typeset into research/RESEARCH.md §Iteration 4 at L2 `808c809`; this file's in-file close-summary (W1 fills) is the record of it; literal stamp keyword added at close (this commit) per gates G7(a).
 
 Lane A1, 2026-11-14. **Draft only — the orchestrator reviews, fills the [DATE]/[SUBTITLE]
 slots, and typesets; the text below is written in RESEARCH.md's register, mirroring how
@@ -56,7 +57,10 @@ pattern, artifact-cache retry protocol, axcheck lessons — sibling-import rewri
 donor-tree axcheck pattern for built-donor consumers, v4.36 backtick sorry-warning filter
 caveat: axcheck is the reliable detector — and the standing clock protocols).
 
-Iteration 4 closed 2026-11-18 (orchestrator). Final state: the wave's pilot
+Iteration 4 closed 2026-11-19 (orchestrator; dated correction at K: the close
+act was interrupted post-Step-8 on 2026-11-18 and completed by close-completion
+commit K on 2026-11-19 per the W1 pre-landing ruling — honesty of the record over
+the earlier same-day assumption). Final state: the wave's pilot
 slots resolved as recorded in `qa/iter4-review/r3-verification-tables.md` §10
 (landings §10.1–§10.32 at close: tables N = 32 — **26 GREEN-triad / 3
 honest-partial / 3 NOT-GREEN-honest** [D7 RULING 2026-11-18: the §10 pilot

@@ -875,3 +875,10 @@ routing.
   (c) standing constraints unchanged. Tracker: all 10 lane rows → wrapped/standby
   with per-lane next tasks keyed to the sequence. This commit closes the wave-3
   session.
+
+## 2026-11-19 — K EXECUTED (H; closes this log's wave-3→wave-4 arc)
+
+The close-completion commit K fired 2026-11-19 on the orchestrator's signal (R1
+residue landed + R2 gates + R7 stamps all in). Full execution record, the 14-step
+playback, and the post-K re-greps: `h-wave4-log.md` (the K entry). This wave-3 log
+is CLOSED at K; iteration 5 opens per `RESUME-BRIEF-ITER5.md`.

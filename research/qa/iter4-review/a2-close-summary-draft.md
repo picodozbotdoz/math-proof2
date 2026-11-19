@@ -1,4 +1,5 @@
 # A2 — CHARTER-SPLICE close-summary + supersession-stamp DRAFTS (orchestrator-gated; H applies at the close signal)
+> APPLIED 2026-11-19 — Parts A+B landed in the close-completion commit K (this commit): the close block carries this draft's fill (32 tables / 26×G / 3×P / 3×N; whole-tree 385/386 per §10.CENSUS(e)) as verified at W2 `0382e16`.
 
 Lane A2, 2026-11-17. **Draft only — NOTHING is applied.** These drafts implement the
 close act the splice names at `feasibility/ITERATION4-CHARTER-SPLICE.md:71` ("fill

@@ -1,0 +1,1936 @@
+# PROVENANCE — axb-close-iter4-run1.log (lane R1, verification-integrity; close-act Step 9 = Step-B(ii)
+#   full-coverage CUSTODY batch, 2026-11-19). One ephemeral Modal run over 14 stages:
+#   9 AxFC_* full-coverage custody stages (axcheck_iter4.py gen — #print axioms tail on EVERY
+#   theorem/lemma decl incl. privates) + 5 AxDep_* compile-only dep stages (verbatim, olean feed,
+#   never audit rows). Dependency order via order.txt: 75Pa->75N2P0->N2P1run19; 73C->Q4;
+#   AL3DP0->AL3DA1->A2; then the dep-free stages.
+# bytes of record: closing tree @ e3d984b (2026-11-19) EXCEPT
+#   AxFC_75_N2P1run19 = RUN-19 COMMITTED BYTES git show 3ad896b:research/pilots/75/N2-P1.lean,
+#   sha-guarded ca1089e2a0c122c4 (HEAD bytes carry the paused P2-a block — never staged; §10.29 addendum).
+# sources: Pa d61eb0485a6ff672; N2-P0 1cf5cbe217c68564 (post-erratum 02a5d71); 73_C 4ed649217f754e8f;
+#   al3d/P0 52c5b9f77344e0ed; al3d/A1 a8feb25bcd60722f; al3d/A2 6a5ed5553bb62c55; 10/L5 da398f2170288acb;
+#   32/M1 5aad3ffa54be4679; 32/M2 9c10fcf5d209407b; ff-ez2/P2 24926ac4cbbcdd50; 74/P1 6ddbda11d5da4f35;
+#   78/P0 d94d115e3d8d08d7 (all sha256(16), measured at staging).
+# tool: axb_close_iter4.py (this dir) = axcheck_probe olean-emission class + axb75 complete-output
+#   custody class (no excerpting, R3 F1/F3b; widened error counters incl. error(<code>); backtick
+#   sorry-warning forms; in-run T9-fixed record join + triad classification).
+# cmd: run_axb_close_iter4.sh axb-close-iter4-run1.log — app crossmath-probe ephemeral modal run, doz CLI
+#   /home/doz/dozenv/bin/modal (semraker, warm layers), SPEC cpu=2.0/mem=4096 soft,
+#   LEAN_NUM_THREADS=2, telemetry every run; mathlib ff2494ea / v4.36.0-rc2; taskset not -j (n/a).
+# expected: 9/9 AxFC OK with 0 sorryAx and every record <= [propext, Classical.choice, Quot.sound];
+#   5/5 AxDep compile-OK. CITED (NOT re-run this batch, bytes unchanged): 75_Pb axcheck-full-run1.log
+#   89/89 @ da05c60ceb78755b; 72-M1 T1/T2/T3 axcheck-l3a-run1.log @ fe57d30b19d9a836; zzv2 P1
+#   p1-run3.log donor-tree 10/10 triad @ a9a6555cadcd604c; 42_M4b stepB-c2-m4b-donor.log @ 4499e790e54398c9.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-nGICUfHCJ396QbVP2acPRn
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-axb-close-stage/axb_close_iter4.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[axb] staging 14 file(s): ['AxDep_75Pa.lean', 'AxDep_75N2P0.lean', 'AxFC_75_N2P1run19.lean', 'AxDep_73C.lean', 'AxFC_73_Q4.lean', 'AxDep_AL3DP0.lean', 'AxDep_AL3DA1.lean', 'AxFC_AL3D_A2.lean', 'AxFC_10_L5.lean', 'AxFC_32_M1.lean', 'AxFC_32_M2.lean', 'AxFC_FFEZ2_P2.lean', 'AxFC_74_P1.lean', 'AxFC_78_P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[axb] mathlib rev ff2494ea5e43
+[axb] oleans present: 8710
+[axb] staged AxDep_75Pa.lean: sha256 54404cd1f02d5e58df106f6a6f0c4f8e41d43729fe8163ea9e64da8ff0d9c222
+[axb] staged AxDep_75N2P0.lean: sha256 986e2242338b1dced39bad8a5ed87c3e9b5b40d488343ca66504c73e87f5d838
+[axb] staged AxFC_75_N2P1run19.lean: sha256 728823d3104d3a88dc965cc09248b27f313514d3650c15909df4603e4c909ede
+[axb] staged AxDep_73C.lean: sha256 ec417f5c9e1311391371d3f0c383a286371b35db1a5d4284731db714b36a09b1
+[axb] staged AxFC_73_Q4.lean: sha256 699acf7b17c0dfb95b69560937340318b6c2058129e3acf646d77325d266061d
+[axb] staged AxDep_AL3DP0.lean: sha256 a5490a4ac3a41ef08f8b255f1c8571a0ba18d9104ddca855ed360bea14767eb9
+[axb] staged AxDep_AL3DA1.lean: sha256 a2c7e26ea40b33685075b56d180bab4f936c8476501f6e8f42d11ba58470fd0b
+[axb] staged AxFC_AL3D_A2.lean: sha256 ab5fc37130d8942dfdc2be249ffb12f10f825ebddef3ef28cc23c93febad05e3
+[axb] staged AxFC_10_L5.lean: sha256 2656714c6a33c28e5fe7e289873cde1a09f75f252c6371a30f5dc81e73e57687
+[axb] staged AxFC_32_M1.lean: sha256 a5cd1c6af20968a7d0804f73e021184017bd86f0794da27f94c746b64bfe98ab
+[axb] staged AxFC_32_M2.lean: sha256 967ca77486db792750dedcc402230eb0a127fdeec88b5eec52276ab9c12b5367
+[axb] staged AxFC_FFEZ2_P2.lean: sha256 16934b25025052ae54ccb0b5c96ce0d24850123082a0514a9bb44f50f11aeaf9
+[axb] staged AxFC_74_P1.lean: sha256 73f12ae802a0af111580133d9e6e82d5ebeca6564fb520fbf34aea7c38773d8e
+[axb] staged AxFC_78_P0.lean: sha256 0f3115a537fa5fec0dea4c9d20a19e755790771530482f3554939605ea5dcefa
+
+=== AxDep_75Pa.lean
+AxDep_75Pa.lean:655:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxDep_75Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxDep_75Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxDep_75Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxDep_75Pa.lean: OK (compile-only dep); axiom-lines=17 (dep stage: no appended prints)
+
+=== AxDep_75N2P0.lean
+AxDep_75N2P0.lean:139:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxDep_75N2P0.lean:157:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxDep_75N2P0.lean:256:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxDep_75N2P0.lean:243:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxDep_75N2P0.lean:245:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxDep_75N2P0.lean: OK (compile-only dep); axiom-lines=15 (dep stage: no appended prints)
+
+=== AxFC_75_N2P1run19.lean
+[tele] t=60s cpu=0.97 mem=1159MB anon=0MB peak=-1MB procs=1
+AxFC_75_N2P1run19.lean:328:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxFC_75_N2P1run19.lean:345:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxFC_75_N2P1run19.lean:385:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxFC_75_N2P1run19.lean:390:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxFC_75_N2P1run19.lean:549:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AxFC_75_N2P1run19.lean:677:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.symm_intCast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.map_span_int' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.map_symm_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.phi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.exists_mul_inv' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.sup_eq_top_of_isUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.isUnit_of_sup_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.pos_of_isUnit' depends on axioms: [propext, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.finrank_rat_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.absNorm_span_nat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.surj_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_75_N2P1run19.0.CrossMath.Pilot75N2.natCast_eq_zero_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_75_N2P1run19.lean: OK; axiom-lines=39, sorryAx-lines=0
+
+=== AxDep_73C.lean
+'Pilot73.norm_wOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.lPoly_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.re_eq_half_of_norm_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.no_real_homs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxDep_73C.lean: OK (compile-only dep); axiom-lines=7 (dep stage: no appended prints)
+
+=== AxFC_73_Q4.lean
+AxFC_73_Q4.lean:64:55: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_insert has, coeff_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_73_Q4.lean:64:59: warning: This simp argument is unused:
+  coeff_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_insert has, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_73_Q4.lean:78:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:89:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq_zero`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:103:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:103:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:103:60: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:105:11: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:106:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:107:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:107:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:108:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:128:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:128:35: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:130:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:134:64: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:145:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:147:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:149:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:150:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:164:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:164:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:164:44: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:164:57: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:220:0: warning: automatically included section variable(s) unused in theorem `Pilot73.isCoprime_congr_of_dvd_sub`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:231:0: warning: automatically included section variable(s) unused in theorem `Pilot73.not_isUnit_of_one_le_natDegree`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:240:0: warning: automatically included section variable(s) unused in theorem `Pilot73.span_sup_span_eq_top_iff`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:259:74: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_73_Q4.lean:260:5: warning: Variable name `hd1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_73_Q4.lean:320:0: warning: automatically included section variable(s) unused in theorem `Pilot73.monic_mul_add_natDegree`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:344:0: warning: automatically included section variable(s) unused in theorem `Pilot73.canonical_divByMonic`:
+  [Fintype k]
+  [DecidableEq k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype k] [DecidableEq k] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_73_Q4.lean:491:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:499:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:502:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:505:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:506:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:510:34: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:531:45: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_73_Q4.lean:532:45: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_73_Q4.lean:533:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'_private.AxFC_73_Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.poly_coeff_finset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.finset_sum_const_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_sum_monomial_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_monic_param' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_monicDegreeN_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.card_monicDegreeN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.natDegree_psiVec_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.eq_psiVec_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.mem_resFinset_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.isCoprime_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.not_isUnit_of_one_le_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.span_sup_span_eq_top_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_eq_zero_of_not_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.apply_span_singleton_congr_of_dvd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.monic_mul_add_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.canonical_divByMonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.sum_apply_span_eq_of_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.coeff_heckeSeriesT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_mul_one_sub_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_73_Q4.0.Pilot73.coeff_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.heckeSeriesT_rational_of_periodicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot73.hecke_continuation_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_73_Q4.lean: OK; axiom-lines=46, sorryAx-lines=0
+
+=== AxDep_AL3DP0.lean
+AxDep_AL3DP0.lean:108:8: warning: declaration uses `sorry`
+AxDep_AL3DP0.lean:146:8: warning: declaration uses `sorry`
+AxDep_AL3DP0.lean:151:8: warning: declaration uses `sorry`
+
+[ax] AxDep_AL3DP0.lean: FAIL rc=0 errors=0 sorry-warnings=3; axiom-lines=0 (dep stage: no appended prints)
+
+=== AxDep_AL3DA1.lean
+AxDep_AL3DA1.lean:221:2: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxDep_AL3DA1.lean:228:2: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxDep_AL3DA1.lean:260:5: warning: Variable name `hAΛ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hAΛ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxDep_AL3DA1.lean:273:15: warning: This simp argument is unused:
+  SimpleGraph.fromRel_adj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxDep_AL3DA1.lean:340:21: warning: This simp argument is unused:
+  Prod.ext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [proj, h2, h3]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OpenAI.AL3D.col_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_col_of_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_heights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_inj_on_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_eq_bUnion_cols' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_walk_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.walk_induce_length' depends on axioms: [propext, Quot.sound]
+'OpenAI.AL3D.proj_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDistG_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDist3D_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.proj_diam_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_subset_A_of_mem_proj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edgeBoundaryG_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.int_covBy_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.cubic_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_adj_of_cubic_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projLattice_le_plan' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxDep_AL3DA1.lean: OK (compile-only dep); axiom-lines=22 (dep stage: no appended prints)
+
+=== AxFC_AL3D_A2.lean
+AxFC_AL3D_A2.lean:145:7: warning: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'OpenAI.AL3D.colCard_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+AxFC_AL3D_A2.lean:198:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:204:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:235:8: warning: automatically included section variable(s) unused in theorem `Arealaw.regEquivOfEq_apply`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:238:8: warning: automatically included section variable(s) unused in theorem `Arealaw.regEquivOfEq_symm_apply`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:247:8: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_zero`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:247:16: warning: Overlapping instance parameters in `extendId_zero`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:254:8: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_add`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:254:16: warning: Overlapping instance parameters in `extendId_add`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:261:0: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_sum`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:261:8: warning: Overlapping instance parameters in `extendId_sum`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:268:8: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_apply_glue`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:268:16: warning: Overlapping instance parameters in `extendId_apply_glue`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:299:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:299:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:299:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:301:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:301:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:301:34: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:302:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:302:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:276:0: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_extendId`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:276:8: warning: Overlapping instance parameters in `extendId_extendId`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:313:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:313:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:314:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:314:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:306:0: warning: automatically included section variable(s) unused in theorem `Arealaw.isHermitian_extendId`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:306:8: warning: Overlapping instance parameters in `isHermitian_extendId`:
+
+⚠️ There are 2 `[DecidableEq σ]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:340:0: warning: automatically included section variable(s) unused in theorem `Arealaw.euclidean_norm_comp_le`:
+  [DecidableEq n]
+  [DecidableEq p]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq n] [DecidableEq p] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:349:0: warning: automatically included section variable(s) unused in theorem `Arealaw.l2_opNorm_le_bound`:
+  [DecidableEq m]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq m] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:378:0: warning: automatically included section variable(s) unused in theorem `Arealaw.euclidean_norm_sq_prod`:
+  [DecidableEq m]
+  [DecidableEq p]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq m] [DecidableEq p] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:383:0: warning: automatically included section variable(s) unused in theorem `Arealaw.kronecker_one_mulVec_apply`:
+  [DecidableEq n]
+  [DecidableEq p]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq n] [DecidableEq p] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:387:22: warning: This simp argument is unused:
+  Prod.mk.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mulVec, dotProduct, Matrix.kroneckerMap_apply, Fintype.sum_prod_type, Matrix.one_apply, mul_ite,
+    mul_zero, mul_one, Finset.sum_ite_eq, Finset.sum_ite_eq']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_AL3D_A2.lean:387:65: warning: This simp argument is unused:
+  Finset.sum_ite_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mulVec, dotProduct, Matrix.kroneckerMap_apply, Fintype.sum_prod_type, Matrix.one_apply,
+    Prod.mk.injEq, mul_ite, mul_zero, mul_one, Finset.sum_ite_eq']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_AL3D_A2.lean:388:4: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mulVec, dotProduct, Matrix.kroneckerMap_apply, Fintype.sum_prod_type, Matrix.one_apply,
+    Prod.mk.injEq, mul_ite, mul_zero, mul_one, Finset.sum_ite_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_AL3D_A2.lean:383:8: warning: Overlapping instance parameters in `kronecker_one_mulVec_apply`:
+
+⚠️ There are 2 `[DecidableEq p]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:392:0: warning: automatically included section variable(s) unused in theorem `Arealaw.l2_opNorm_kronecker_one_le`:
+  [DecidableEq p]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq p] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:392:8: warning: Overlapping instance parameters in `l2_opNorm_kronecker_one_le`:
+
+⚠️ There are 2 `[DecidableEq p]` instances; one is sufficient.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+AxFC_AL3D_A2.lean:407:0: warning: automatically included section variable(s) unused in theorem `Arealaw.extendId_eq_kronecker`:
+  [(i : σ) → Fintype (loc i)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [(i : σ) → Fintype (loc i)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:556:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:655:9: warning: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_AL3D_A2.lean:662:7: warning: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_AL3D_A2.lean:712:9: warning: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_AL3D_A2.lean:740:23: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:745:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:747:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:770:23: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:777:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:791:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:796:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_AL3D_A2.lean:798:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_AL3D_A2.lean:824:6: warning: Variable name `X'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _X'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_AL3D_A2.lean:846:0: warning: automatically included section variable(s) unused in theorem `OpenAI.AL3D.vecMulVec_submatrix`:
+  [Fintype ι]
+  [Fintype ι']
+  [DecidableEq ι]
+  [DecidableEq ι']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [Fintype ι'] [DecidableEq ι] [DecidableEq ι'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:874:0: warning: automatically included section variable(s) unused in theorem `OpenAI.AL3D.mulVec_eq_smul_submatrix`:
+  [DecidableEq ι]
+  [DecidableEq ι']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ι'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:884:0: warning: automatically included section variable(s) unused in theorem `OpenAI.AL3D.star_dotProduct_comp`:
+  [DecidableEq ι]
+  [DecidableEq ι']
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] [DecidableEq ι'] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_AL3D_A2.lean:898:11: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_apply_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.isHermitian_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_comp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_le_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_id_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_sq_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.kronecker_one_mulVec_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_kronecker_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_eq_kronecker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_extendId_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_multiset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_of_multiset_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.trace_cfc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edist_induce_le_of_adj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_max_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_one_of_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_length_of_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.exists_walk_length_le_iff_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_of_domainEDistG_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDiamG_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_supportsG_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_Icc_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_eq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_sub_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_le_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_fibre_of_mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_projFib_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projF_fibre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.image_projF_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.isAdmissible_projInteraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.vecMulVec_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.hasGlobalGap_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mulVec_eq_smul_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.star_dotProduct_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.regReindexEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.regReindexEquiv_comp_colEquivVar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.sdiff_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.restr_glue_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glue_restr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.glueEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.regEquivOfEq_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_apply_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.isHermitian_extendId' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_comp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_le_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_id_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.euclidean_norm_sq_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.kronecker_one_mulVec_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_kronecker_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.extendId_eq_kronecker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.l2_opNorm_extendId_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_multiset_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.H_eq_of_multiset_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.trace_cfc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_eq_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.eigenvalues_multiset_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Arealaw.vonNeumann_submatrix_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.edist_induce_le_of_adj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_max_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_eq_one_of_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_length_of_walk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.exists_walk_length_le_iff_edist_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.planar_dist_le_of_domainEDistG_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.domainEDiamG_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_supportsG_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_Icc_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_eq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_Icc_sub_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_le_of_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.subset_fibre_of_mem_projFib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.card_projFib_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projF_fibre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.col_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.colCard_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.image_projF_mem_supportsG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.projInteraction_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.isAdmissible_projInteraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.vecMulVec_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.hasGlobalGap_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.mulVec_eq_smul_submatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.star_dotProduct_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.regReindexEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.regReindexEquiv_comp_colEquivVar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.fibre_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OpenAI.AL3D.sdiff_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_AL3D_A2.lean: OK; axiom-lines=126, sorryAx-lines=0
+
+=== AxFC_10_L5.lean
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+AxFC_10_L5.lean:3581:16: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+AxFC_10_L5.lean:3812:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+AxFC_10_L5.lean:4033:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Run.one' does not depend on any axioms
+'Groundwork.TM.Run.trans' depends on axioms: [propext]
+'Groundwork.TM.Run.iterate' does not depend on any axioms
+'Groundwork.TM.stepAux_place' does not depend on any axioms
+'Groundwork.TM.run_place' depends on axioms: [propext]
+'Groundwork.TM.Frag.seq_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_head' depends on axioms: [propext]
+'Groundwork.TM.Frag.ofStmt_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.branch_runs_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.of_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.beq_RL' does not depend on any axioms
+'Groundwork.TM.beq_LR' does not depend on any axioms
+'Groundwork.TM.beq_bL' does not depend on any axioms
+'Groundwork.TM.beq_bR' does not depend on any axioms
+'Groundwork.TM.mirror_mirror' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.length_mirror' depends on axioms: [propext]
+'Groundwork.TM.code_mir' depends on axioms: [propext]
+'Groundwork.TM.st_main' does not depend on any axioms
+'Groundwork.TM.st_a' does not depend on any axioms
+'Groundwork.TM.st_b' does not depend on any axioms
+'Groundwork.TM.st_cnt' does not depend on any axioms
+'Groundwork.TM.upd_main' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_a' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd_b' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.agree_update' depends on axioms: [propext]
+'Groundwork.TM.stepAux_renK' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_renK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.st4_src' does not depend on any axioms
+'Groundwork.TM.st4_t1' does not depend on any axioms
+'Groundwork.TM.st4_t2' does not depend on any axioms
+'Groundwork.TM.st4_cnt' does not depend on any axioms
+'Groundwork.TM.upd4_src' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t1' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_t2' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.upd4_cnt' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_start' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_open' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_bit_in' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_close_in' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_bit_out' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.step_close_out' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.putIf_nil' depends on axioms: [propext]
+'_private.AxFC_10_L5.0.Groundwork.TM.putIf_cons' depends on axioms: [propext]
+'_private.AxFC_10_L5.0.Groundwork.TM.code_cons_append' depends on axioms: [propext]
+'_private.AxFC_10_L5.0.Groundwork.TM.length_code_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_inside' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.mvB_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.toStk_injective' does not depend on any axioms
+'Groundwork.TM.mvB_ren_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.other_ne' depends on axioms: [propext]
+'Groundwork.TM.mv_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv_runs'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.mv2_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.drp_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.TM.stepAux_pushSeq' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.pushW_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dropF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromA_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.fromB_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.dupF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.update_withIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.stepAux_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.run_liftIO' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.Frag.io_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.wd_pair' does not depend on any axioms
+'Groundwork.wd_nil' does not depend on any axioms
+'Groundwork.wd_cons' does not depend on any axioms
+'Groundwork.wd_none' does not depend on any axioms
+'Groundwork.wd_some' does not depend on any axioms
+'Groundwork.wd_bool' does not depend on any axioms
+'Groundwork.len_cons' depends on axioms: [propext]
+'Groundwork.len_bool' does not depend on any axioms
+'Groundwork.len_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.bound_le' depends on axioms: [propext]
+'Groundwork.PB.bound_comp' depends on axioms: [propext]
+'Groundwork.PB.const' depends on axioms: [propext]
+'Groundwork.PB.id'' depends on axioms: [propext]
+'Groundwork.PB.add' depends on axioms: [propext]
+'Groundwork.PB.mul' depends on axioms: [propext]
+'Groundwork.PB.pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PB.comp' depends on axioms: [propext]
+'Groundwork.PB.mono_bound' depends on axioms: [propext]
+'Groundwork.PolyT.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.length_le_stkLen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.sum_stk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.stkLen_stepAux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.step_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.RunIn.run' does not depend on any axioms
+'Groundwork.TM.RunIn.start' does not depend on any axioms
+'Groundwork.TM.RunIn.mono' does not depend on any axioms
+'Groundwork.TM.RunIn.trans' depends on axioms: [propext]
+'Groundwork.TM.RunIn.of_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.iterate_none' does not depend on any axioms
+'Groundwork.TM.RunIn.iterate' does not depend on any axioms
+'Groundwork.TM.Frag.RunsB.runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.RunsB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Runs.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.runIn_place' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.run_headB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.seq_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_exitB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.loop_runs_iterB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.WithinB.seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.Frag.Within.toB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.within_io' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.withIO_none' does not depend on any axioms
+'Groundwork.Host.withIO_some' does not depend on any axioms
+'Groundwork.Host.upd_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.skip_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.pourQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pourQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.buildQ_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.pour_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.build_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.prologue_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.chkQ_none' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.chkQ_some' depends on axioms: [propext, Quot.sound]
+'Groundwork.Host.size_le_of_reaches' does not depend on any axioms
+'Groundwork.Host.look_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.initList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.haltList_tmOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.outputs_of_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_withIO_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.stkLen_head' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.spaceWithinTM_of_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Host.mainLoop_withinB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Trace.iterate' does not depend on any axioms
+'Groundwork.Trace.of_iterate' does not depend on any axioms
+'Groundwork.spaceWithinTM_iff_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.located_high_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.visitedStacks_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.beq_bit_bit' does not depend on any axioms
+'Groundwork.Counted.cw_zero' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cw_length_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_len_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_pow_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.bits_odd_dec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.stkLen_st' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_start' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_walk_false' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_walk_true_R' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_walk_true_bit' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_unwind_bit' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.cd_unwind_sent' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.headQ_zero' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.headQ_step' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.unwind_run' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.walk_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.pushes_place' depends on axioms: [propext]
+'Groundwork.Counted.loop_growth_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.iter_len_le' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.id_iterate' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.bound16' depends on axioms: [propext, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.Counted.boundW' depends on axioms: [propext, Quot.sound]
+'Groundwork.Counted.skipF_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.skipF_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bool'' does not depend on any axioms
+'Groundwork.PadC.size_list'' depends on axioms: [propext]
+'Groundwork.PadC.size_nat'' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.size_nat' depends on axioms: [propext, Quot.sound]
+'Groundwork.size_bool' does not depend on any axioms
+'Groundwork.size_unit' does not depend on any axioms
+'Groundwork.size_prod' does not depend on any axioms
+'Groundwork.size_inl' does not depend on any axioms
+'Groundwork.size_inr' does not depend on any axioms
+'Groundwork.size_none' does not depend on any axioms
+'Groundwork.size_some' does not depend on any axioms
+'Groundwork.size_list' depends on axioms: [propext]
+'Groundwork.wd_inl' does not depend on any axioms
+'Groundwork.wd_inr' does not depend on any axioms
+'Groundwork.len_pair' depends on axioms: [propext]
+'Groundwork.len_nil' does not depend on any axioms
+'Groundwork.len_none' does not depend on any axioms
+'Groundwork.len_some' depends on axioms: [propext]
+'Groundwork.len_inl' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_inr' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_unit' does not depend on any axioms
+'Groundwork.len_list' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_append' depends on axioms: [propext, Quot.sound]
+'Groundwork.two_le_len_list' depends on axioms: [propext, Quot.sound]
+'Groundwork.length_le_len' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_le_of_mem' depends on axioms: [propext, Quot.sound]
+'Groundwork.len_nat' depends on axioms: [propext, Quot.sound]
+'Groundwork.TM.pop1_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.toA_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.toB_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.swapF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.consF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.TM.unconsF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.of_wd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.dropW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.dupW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.swapW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.consW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.unconsW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.pb_lin' depends on axioms: [propext]
+'Groundwork.PolyT.id'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.prodMk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.fst0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.snd0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.fst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.snd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.some'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.inl'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.inr'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.cons'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.within_branch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.tagHead_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.sumCore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.cond'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.sumElim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.nilHead_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.nilHead_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.tagF_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.listSplit_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.listCases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.and'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.or'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.not'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.xor'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.code_ne_R' depends on axioms: [propext]
+'Groundwork.PolyT.foldHead_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.foldHead_cons' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.foldLoop_within' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.take_self' does not depend on any axioms
+'_private.AxFC_10_L5.0.Groundwork.PolyT.take_len_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_ctx' does not depend on any axioms
+'Groundwork.PolyT.foldl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.len_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.foldl_cons_eq' depends on axioms: [propext]
+'Groundwork.PolyT.reverseAppend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.isEmpty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.headD' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.bval_nil' does not depend on any axioms
+'Groundwork.PolyT.bval_cons' depends on axioms: [propext]
+'Groundwork.PolyT.bval_eq' depends on axioms: [propext]
+'Groundwork.PolyT.bval_bits' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.bval_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.eq_zero_of_bits_eq_nil' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.bitsTrim_cons' does not depend on any axioms
+'Groundwork.PolyT.bits_bval' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.length_bitsTrim_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.of_bits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.bitsTrim'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.bits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.ofBits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.bval'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.length_bitRun' depends on axioms: [propext]
+'Groundwork.PolyT.foldl_bitStep' depends on axioms: [propext]
+'Groundwork.PolyT.bitRun'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.addφ_spec' does not depend on any axioms
+'Groundwork.PolyT.bval_bitRun_add' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.bval_addRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.add_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.subφ_spec' does not depend on any axioms
+'Groundwork.PolyT.bval_bitRun_sub' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.subRun_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.subRun'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.sub_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.pred' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.size_succ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.size_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.log2_eq_size_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_10_L5.0.Groundwork.PolyT.foldl_succ_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.size'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2log'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.len_nat_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.len_dbl_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr_bits_mul' depends on axioms: [propext, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_step_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_step_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_10_L5.lean: OK; axiom-lines=350, sorryAx-lines=0
+
+=== AxFC_32_M1.lean
+[tele] t=120s cpu=1.45 mem=238MB anon=0MB peak=-1MB procs=1
+AxFC_32_M1.lean:82:28: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_32_M1.lean:125:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M1.lean:174:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M1.lean:175:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M1.lean:190:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M1.lean:174:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M1.lean:175:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M1.lean:190:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M1.lean:373:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_32_M1.lean:477:6: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log4_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log10_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'div_lt_div_same' depends on axioms: [propext, Classical.choice, Quot.sound]
+'div_inv_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'div_inv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'one_div_rhoC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log_quot_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_lt_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_strictMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lconst_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'entropy_one_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_decompose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'hasDerivAt_Ffun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'deriv_Ffun_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log_quot_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_mvt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_drop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+'kappa_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_pos_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_strictAntiOn_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_antitone_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rc_lt_epsStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lt_Rc_iff_gmax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_strictAnti' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_nine_tenth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'theta_of_recover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'membership_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_32_M1.lean: OK; axiom-lines=50, sorryAx-lines=0
+
+=== AxFC_32_M2.lean
+AxFC_32_M2.lean:84:28: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_32_M2.lean:127:4: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:173:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M2.lean:174:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M2.lean:189:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+AxFC_32_M2.lean:173:6: warning: Unused tactic linter: `exact HasDerivAt.sub_const 1 (hasDerivAt_id' c)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:174:6: warning: Unused tactic linter: `simpa using (hasDerivAt_id c).sub (hasDerivAt_const c (1 : ℝ))` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:189:4: warning: Unused tactic linter: `(convert (h3.sub h5).congr_deriv hde using 1; funext x; simp [Ffun])` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:324:31: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_32_M2.lean:470:8: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:490:4: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:529:4: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AxFC_32_M2.lean:544:65: warning: Variable name `hle` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hle
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log4_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log10_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'div_lt_div_same' depends on axioms: [propext, Classical.choice, Quot.sound]
+'div_inv_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'one_div_rhoC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log_quot_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_lt_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_strictMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_10_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lconst_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'entropy_one_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_decompose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'hasDerivAt_Ffun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'deriv_Ffun_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'log_quot_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_mvt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_drop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ffun_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+'kappa_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_pos_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lt_Rc_iff_gmax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_strictAnti' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_nine_tenth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'theta_of_recover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'membership_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_le_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lnΛ_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gammaOf_tendsto_ten_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_pos_near_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gmax_neg_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossDiff_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'crossing_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'frontier_formula_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_32_M2.lean: OK; axiom-lines=50, sorryAx-lines=0
+
+=== AxFC_FFEZ2_P2.lean
+'CrossMath.FFEZ2.guard_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_lpoly_squarefree_iff_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_iff_squarefree_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_simple_proportion_le_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.factor_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.roots_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.factor_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.roots_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.inv_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.nodup_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_FFEZ2_P2.0.CrossMath.FFEZ2.nodup_of_map_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.guard_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_lpoly_squarefree_iff_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.zeros_simple_iff_squarefree_of_purity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.FFEZ2.stmt_simple_proportion_le_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_FFEZ2_P2.lean: OK; axiom-lines=18, sorryAx-lines=0
+
+=== AxFC_74_P1.lean
+AxFC_74_P1.lean:129:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.p_zero_of_notsupp`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:134:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.sum_supp_extend`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:134:43: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:177:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.Mdev_bddAbove`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:203:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_eq_supp`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:221:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_antitone`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:239:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.mem_Wset`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:244:10: warning: Variable name `w` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _w
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:252:36: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:252:64: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:256:39: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:256:67: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:260:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.sum_split`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:267:34: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, true_and, not_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_74_P1.lean:267:51: warning: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_filter, Finset.mem_univ, not_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_74_P1.lean:271:8: warning: automatically included section variable(s) unused in theorem `_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_nonneg`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:320:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+AxFC_74_P1.lean:357:73: warning: Variable name `hu₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:487:72: warning: Variable name `hε'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+AxFC_74_P1.lean:710:70: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+AxFC_74_P1.lean:713:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_74_P1.lean:719:6: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_74_P1.lean:721:0: warning: automatically included section variable(s) unused in theorem `CrossMath.Pilot74P1.cert_pad`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+AxFC_74_P1.lean:753:67: warning: Variable name `hκ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hκ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.p_zero_of_notsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.sum_supp_extend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.supp_sum_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.supp_sum_K_eq_S' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.varK_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.Mdev_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.dev_le_Mdev' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.Mdev_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_eq_supp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_zero_of_big' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.mem_Wset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.wset_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.wset_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.W_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.W_le_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.sum_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.massTail_at_W_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.exp_pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.pair_var_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.pair_tail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.padA_castSucc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_74_P1.0.CrossMath.Pilot74P1.padA_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_74_P1.lean: OK; axiom-lines=38, sorryAx-lines=0
+
+=== AxFC_78_P0.lean
+[tele] t=180s cpu=1.50 mem=8355MB anon=0MB peak=-1MB procs=2 OVER mem
+AxFC_78_P0.lean:293:8: warning: This simp argument is unused:
+  terminal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [stop, finalState, nullForm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_78_P0.lean:328:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_78_P0.lean:331:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+AxFC_78_P0.lean:331:69: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_78_P0.lean:331:79: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_78_P0.lean:338:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+AxFC_78_P0.lean:341:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+AxFC_78_P0.lean:341:69: warning: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_78_P0.lean:341:79: warning: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Set.mem_singleton_iff, Set.mem_setOf_eq, Prod.mk.injEq, Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+AxFC_78_P0.lean:380:6: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+AxFC_78_P0.lean:439:6: warning: This simp argument is unused:
+  max_bot_left_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eval, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons,
+    Matrix.tail_cons, bot_add_coeff, coe_add_coeff, coe_zero_coeff, max_bot_right_coeff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.bot_add_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.coe_add_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.coe_zero_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.coe_one_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.max_bot_left_coeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.max_bot_right_coeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.fin3_two_ne_one' depends on axioms: [propext]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.fin3_two_ne_zero' depends on axioms: [propext]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.coeff_one_add_neg_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.row_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.state_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.advance_first' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.advance_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.terminal_final' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.output_feasible_cost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.better_feasible_cost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.bounded_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.dominating_initial_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.no_dominating_middle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.candidates_initial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.candidates_middle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.case222_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.AxFC_78_P0.0.CrossMath.Truffet78.case222_middle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paperSelect_forced_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.paper_run_not_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Truffet78.instance_unbounded_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[ax] AxFC_78_P0.lean: OK; axiom-lines=29, sorryAx-lines=0
+
+[axb] SUMMARY
+[axb]   AxDep_75Pa.lean: OK (compile-only dep)
+[axb]   AxDep_75N2P0.lean: OK (compile-only dep)
+[axb]   AxFC_75_N2P1run19.lean: OK
+[axb]   AxDep_73C.lean: OK (compile-only dep)
+[axb]   AxFC_73_Q4.lean: OK
+[axb]   AxDep_AL3DP0.lean: FAIL rc=0 errors=0 sorry-warnings=3
+[axb]   AxDep_AL3DA1.lean: OK (compile-only dep)
+[axb]   AxFC_AL3D_A2.lean: OK
+[axb]   AxFC_10_L5.lean: OK
+[axb]   AxFC_32_M1.lean: OK
+[axb]   AxFC_32_M2.lean: OK
+[axb]   AxFC_FFEZ2_P2.lean: OK
+[axb]   AxFC_74_P1.lean: OK
+[axb]   AxFC_78_P0.lean: OK
+[tele] SUMMARY run: wall=185s max_cpu=1.50 max_mem=8355MB max_anon=0MB samples=3 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-nGICUfHCJ396QbVP2acPRn
+# rc=0 (axb_close wrapper)
+# ============================================================================
+# VERDICT-DISPOSITION ADDENDUM (lane R1, 2026-11-19, appended post-run):
+# AxDep_AL3DP0's "FAIL rc=0 errors=0 sorry-warnings=3" is a VERDICT-RULE artifact
+# of the dep-stage class, NOT an artifact defect: al3d/P0.lean is the
+# probe-convention statement layer whose 3 `sorry` stubs are CERTIFIED Step-A
+# tokens (stepA-incremental-iter4.log entry 3, source lines :106/:144/:149 at
+# sha 52c5b9f77344e0ed; the staged copy warns at :108/:146/:151 = +2-line header
+# offset, exact 1:1 match, nothing else). The dep stage's PURPOSE discharged:
+# rc=0, 0 errors (incl. error(<code>) forms), olean emitted — its consumers
+# AxDep_AL3DA1 and AxFC_AL3D_A2 (which imports it) both OK in this same batch.
+# The runner's dep-verdict rule counts sorry-warnings flatly; the certified-
+# probe-token exemption (Step-A certificate class) was not carried into the dep
+# branch. Correction recorded here rather than silently; no re-fire needed.
+# FINAL BATCH VERDICT: 9/9 AxFC full-coverage custody stages OK, every stage
+# 0 sorryAx, every record ⊆ [propext, Classical.choice, Quot.sound] (in-run
+# join+classify; scan pass below); 5/5 deps compile-OK (AxDep_AL3DP0 = OK for
+# its purpose per this disposition). Scan re-read (axcheck_iter4.py scan,
+# 2026-11-19): see the §10.33 fold for the final per-stage record table.
+# ============================================================================

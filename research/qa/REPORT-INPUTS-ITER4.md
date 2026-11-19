@@ -90,6 +90,23 @@ list (01-stability / 32-crossing / 30-Theorem A, not yet chartered). **No quota
 consumption yet — the article ships at cycle close per the gate.** KPI at close: ≥ half
 of shipped articles discovery-grade — recorded in the cycle-close REPORT block.
 
+### §3 close fill (H-shepherded, 2026-11-19 at K; G6 executed — raw results in `qa/iter4-closeout-gates.md` §G8)
+
+**Shipped-article set at close (iteration-4 article output):** NEW articles — 75 v2
+(`articles/75-abelian-assembly-zetaL-proportions.md`, kind DISCOVERY-CONDITIONAL,
+two-tier per S4(b)) and 78 (`articles/78-truffet-substitution-refutation.md`, kind
+NEGATIVE, discovery-grade, quota NOT consumed); UPGRADED in place (v2 revisions, not
+new articles) — 01, 30, 32 (+ the corpus-wide template pass 14/14, G5 authoritative
+= `a9-g5-dryrun.md`). **New-article class: 100% discovery-grade (2/2).** Stock
+corpus health line: 6/14 ≈ 43% discovery-grade (README counts, ratified 2026-11-18).
+**Quota ruling recorded (orchestrator): cap-N = 1 UNSPENT — DECISION-1 ruled
+2026-11-19: spend-only-if-executed; the FB-2 vs FB-4 vs unspent contest is an
+iteration-5 decision.** R1 gate enforcement noted: no knowledge-level /
+formalization-first / donor-discharge article shipped this cycle (the wave's record
+outputs are dossier/pilot records and verification tables). **KPI: met with margin
+— ≥ half of shipped articles discovery-grade holds on the new-article class (2/2);
+the KPI line is recorded in REPORT.md §I4.**
+
 ## §4 Open-marker summary
 
 OPEN rows land as `FINAL-GREEN / FINAL / DECLARED-DROP` per the Cycle-2 convention

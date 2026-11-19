@@ -82,3 +82,14 @@
 #     unexplained hits (the N2-P1 paused-state bytes add no real tokens — ENTRY 6's
 #     supersession holds). Command = the G1 classifier verbatim (gates :33–56).
 #     G1 verdict: PASS (sweep-time, closing tree).
+# --- CLOSE-ACT RE-RUN ENTRY (lane R2, gates owner, 2026-11-19; main @ e3d984b, tree CLEAN) ---
+#     G1 of qa/iter4-closeout-gates.md §CLOSE-ACT GATE RUN: classifier verbatim (gates :33-56),
+#     full scope 108 files (.lean tree IDENTICAL dd6686f -> e3d984b; the close residue is
+#     .py/.log/.md only — zero .lean deltas, `git ls-tree` both revs).
+#     TOTAL REAL-TOKEN HITS = 52 — EXACT certificate match (ENTRY 8 + sweep-time entry);
+#     bucket tally: 9 main-run + 23 C2 G-series + 3 probe re-baseline (G9 :51/:67, G10 :96)
+#     + 71/P0 x4 (:65/:90/:97/:110) + 73/P0 x7 (:40/:45/:53/:79/:87/:121/:143)
+#     + al3d/P0 x3 (:106/:144/:149) + lp/P0 x3 (:44/:55/:97). ZERO unexplained.
+#     R1's staging work landed NO .lean staging files (compile-only classes stage in /tmp)
+#     — the pre-declared STOP condition did not fire. G1 verdict: PASS (closing tree,
+#     2026-11-19). Evidence row = gates §G8 G1 (worktree agent-03; H pulls with the G8 fill).

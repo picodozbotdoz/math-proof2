@@ -544,3 +544,12 @@ untouched): D.4 anchors 6/6 UNIQUE (text-match immune to the +4 drift), both
 keyword-absent; items 1–5 dates substitute K's fire date if ≠ 2026-11-19); the
 14-step K execution script + the R5 OPEN lane items (η-pin run-1 FAIL-mechanical +
 OVER-cpu sample, R5-owned) are staged in `h-wave4-log.md`.
+
+## CLOSED AT K — 2026-11-19 (H)
+
+**Iteration 4 closed at the close-completion commit K, fired 2026-11-19 on the
+orchestrator's signal** (R1 residue + R2 gates + R7 stamps all landed in K; full
+execution record + post-K re-greps: `qa/iter4-review/h-wave4-log.md`; the closed
+block: `STATUS.md` § Iteration 4 CLOSED; the close-out record: `RESEARCH.md`
+§ Iteration 4). **This brief is now FROZEN HISTORY — the live brief is
+`RESUME-BRIEF-ITER5.md`.**

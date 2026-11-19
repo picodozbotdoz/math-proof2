@@ -1,4 +1,5 @@
 # A2 — G7 token-disposition inventory (Iteration-4 close-out decision input)
+> SUPERSEDED-BY-CLOSE-BLOCK 2026-11-19 — the corrected census (46 sites = 40 close / 6 retarget / 0 unrulled; runbook §8) is quoted in K's close block (this commit); this file remains the 34-site record of 2026-11-17 (`de56e68`).
 
 Lane A2, 2026-11-17 (reading + scoped greps only, no Modal). Scope: the live annotation
 families the G7 close-out must account for — `[TRIAGE-DECISION]`, `[A5-triage-pending]`,

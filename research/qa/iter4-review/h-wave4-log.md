@@ -398,7 +398,53 @@ at :108 `dilateTo`; fix applied, run 2 owed) — R5 owns; (ii) the OVER-cpu 5.70
 sample on the same run (soft-limit burst @t=120 s) — investigation line owed in
 R5's reported record per AGENTS §Modal 3. Orchestrator chases both at R5's report.
 
-## 2026-11-19 — STANDING SUBSTRATE NOTE: the `lean.dependsOnNoncomputable` class (H; from R4+R5 independent hits)
+## 2026-11-19 — K EXECUTED (H; the close-completion commit, fired on the orchestrator's signal)
+
+The 14-step script played back mechanically; every replace count-verified =1
+pre-apply (dry-run basis held: all targets byte-identical to the dry-run tree
+except the pulls themselves).
+
+- **K0** tree CLEAN at `6f25933`; concurrency probe 8. **K1** R2 pair pulled
+  (sha-verified `94c9e14a…`/`2ec00eeb…`, cmp-clean). **K2** R1 residue pulled —
+  8 files, all sha-verified (`ddc9f5aa`/`71aa12ce`/`4bae2e18`/`2d8835ee`/
+  `47953e0f`/`baf07d4a`/`1c6da8b3`/`203a0336`), py_compile ×3 rc=0 + bash -n rc=0.
+- **K3** six stamps inserted (items 0–5, title+1 placement; item 0 keeps
+  2026-11-18 = the W1/L2 fact; items 1–5 dated 2026-11-19 = K's fire date, matching
+  R2's hard-coded texts — no substitution needed). **K4** both [DATE-CLOSED]
+  patches applied (SPLICE close line + RESEARCH.md close-out record header; dated
+  correction notes embedded; K-DATE = 2026-11-19). **K5** six D.4 stamps applied
+  BY TEXT-MATCH (all counts =1; `<close-date>` → 2026-11-19; bytes-unchanged shas:
+  Pa `d61eb0485a6ff672`, Pb `da05c60ceb78755b`, zeta23e-P0 `986f1ce879786f33`,
+  78-P0 `d94d115e3d8d08d7`).
+- **K6** STATUS.md closed block appended (pre-draft + R1's subset-refire verdict:
+  58/58 stages OK = 53 run1 + 4 re-fired + M4b bytes-unchanged, 807 custody
+  records, 0 sorryAx; whole-tree 385/386 unchanged; sole residual = 77-T2 tainted
+  decl → iter-5). **K7** REPORT-INPUTS §3 close fill (H-shepherded; shipped set +
+  N=1 UNSPENT + DECISION-1 + KPI). **K8** REPORT.md §I4.7 close block (final
+  currency + the G6 KPI line).
+- **K9** INDEX: (A1) `pilots/32/run_pilot.py` row added; (B1) runner-fixes
+  patch row status-cell corrected (ADJUDICATED-NO-APPLICATION 2026-11-18 + the
+  taskset supersession); NEW row for R1's close-residue tooling pair + logs; G3
+  comm re-run: **237 delta lines = R2's pre-computed 238 minus the closed (A1)
+  gap** — remainder = directory-covered/grouped/extension classes + stamped
+  dead-article rows ⇒ **G3 PASS**. **K10** README verify-only (counts line
+  "ratified 2026-11-18" + D.3 confirmed W1-landed; no edits).
+- **K11** tracker closed-stamp + R1 row → done (iter-4); brief-ITER4 CLOSED AT K
+  stamp (frozen history; ITER5 brief is live); h-wave3-log closing entry.
+- **K12/K13** hardened gate + exact-file commit (file list below). **K14** post-K
+  re-greps recorded below. R2 pinged (via the orchestrator) for the K-time G4/G8
+  interrupt duty: flip G2(ii) → "PASS 2026-11-19 — 5/5 run2-subset (58/58 total)"
+  and G3 → "PASS — (A1)+(B1) closed in K's INDEX commit".
+
+K file list (committed): gates file, stepA log, make_axcheck.py, axcheck_probe.py,
+axcheck-iter4-close-run2-subset.log, axb_close_iter4.py, run_axb_close_iter4.sh,
+axb-close-iter4-run1.log, VERIFICATION-LEDGER.md, r3-verification-tables.md,
+SPLICE (stamp + date patch), RESEARCH.md (date patch), the five instrument files
+(stamps), articles 75 + 78 (D.4 stamps), STATUS.md (closed block),
+REPORT-INPUTS-ITER4.md (§3), REPORT.md (§I4.7), INDEX.md (G3 + A1/B1 + tooling
+row), ORCHESTRATION-ITER4.md + RESUME-BRIEF-ITER4.md + h-wave3-log.md +
+h-wave4-log.md (this entry). [K-SHA] recorded in the post-K note appended after
+the commit (self-reference resolved post-hoc, the "this commit" convention).
 
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —

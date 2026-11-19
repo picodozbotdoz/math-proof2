@@ -40,15 +40,20 @@ iteration 5 opens (R3's APPROVED splice via `a6-iter5-research-splice.diff` +
 **Wave-4 lane map (re-cut 2026-11-19 per the orchestrator; worktree assignments
 non-sequential — pull per REPORT, never by lane number):**
 
+**ITERATION 4 CLOSED AT K (2026-11-19, close-completion commit K — this commit's
+batch; [DATE-CLOSED] = K's actual date per the W1 ruling). Iteration 5 opens with
+the next commit (`RESUME-BRIEF-ITER5.md` = the live brief).** The R-rows below are
+the wave-4 working map; their iteration-5 duties continue per the charter.
+
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|
-| H | (main) | helper/infra (sole committer; K + opening mechanics) | K dry-runs ALL CLEAN (D.4 6/6 unique; date patches apply-clean; stamps 0–5 verified); 14-step K script + opening checklist staged (`qa/iter4-review/h-wave4-log.md`); standby on R1 + the K signal | active | 2026-11-19 |
-| R1 | agent-02 | close residue (**the K gate**) | make_axcheck staging fixes (dependency-ordered emission; P0 stem collision) + failed-stages-only subset re-fire + runbook Steps 9–12 | active | 2026-11-19 |
-| R2 | agent-03 | gates + 72-M1 | gates G1–G8 **DONE** (G8 filled; §K-STAMPS prepared; shas `94c9e14a…`/`2ec00eeb…` verified by H) + 72-M1 L3b–d active; K-time G4/G8 interrupt duty | active | 2026-11-19 |
+| H | (main) | helper/infra (sole committer; K + opening mechanics) | **K EXECUTED 2026-11-19** (14/14 steps clean; post-K re-greps in h-wave4-log) + the iter-5 opening commit next | active | 2026-11-19 |
+| R1 | agent-02 | close residue (**the K gate**) | **RESIDUE LANDED at K** (8 files sha-verified; G2 final 58/58 + 807 custody records) — K gate DISCHARGED | done (iter-4) | 2026-11-19 |
+| R2 | agent-03 | gates + 72-M1 | gates **IN K** (G8 with the G2(ii)/G3 conditional cells); K-time G4/G8 interrupt duty = flip the two completion-owed cells post-K; 72-M1 L3b–d active | active | 2026-11-19 |
 | R3 | agent-07 | iter-5 charter + M-arc + 74-P2 | charter typeset DELIVERED + splice APPROVED (rides the post-K opening commit) + 10-D4 M-arc GREEN + 74-P2 active | active | 2026-11-19 |
 | R4 | agent-08 | 41 + core S–M | 41-P0 GREEN (run 2 rc=0; `noncomputable def Gq` fix) + core S–M active (`pilots/41/S-M-plan.md`) | active | 2026-11-19 |
 | R5 | agent-04 | η-pin-probe | run-1 FAIL-mechanical (`dependsOnNoncomputable` :108 `dilateTo`; fix applied, run 2 owed) + OVER-cpu 5.70 investigation owed | active | 2026-11-19 |
 | R6 | agent-06 | 75-N2 P2 | N2-P2 run 22 fired (the iter-5 lead-1 resume note payload) | active | 2026-11-19 |
-| R7 | agent-10 | articles close-support + Liu port | close-support DONE (D.4 stamps ready; anchors 6/6 unique) + Liu B_new statement-port active | active | 2026-11-19 |
+| R7 | agent-10 | articles close-support + Liu port | close-support DONE (D.4 stamps landed in K) + Liu B_new statement-port active | active | 2026-11-19 |
 | R8 | agent-05 | wave-2 queue + AL rebuild | wave-2 queue (`a6-iter5-wave2-queue.md`) + AL-M0 GREEN (regression run) + M0-rebuild active | active | 2026-11-19 |
 | R9 | agent-09 | round-6 novelty | round-6 novelty batteries | active | 2026-11-19 |

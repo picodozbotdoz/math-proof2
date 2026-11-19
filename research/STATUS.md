@@ -815,3 +815,52 @@ article (judgments: r5 §14.1). Slot ledger + evidence-slot formats + OPEN marke
 Branch `dev/iteration4` (cut from the Cycle-2 close commit; H commits). Protocols carry
 over from Cycle 2 unchanged (queue-loaded lanes, one writer per file, log provenance
 headers, concurrency probe at batch close).
+
+## Iteration 4 CLOSED — 2026-11-19
+
+Charter: `RESEARCH.md` § Iteration 4 (+ close-out record, same date). Session maps:
+`RESUME-BRIEF-ITER4.md` (wave-3 wrap = restart map; wave-4 open stamp) +
+`RESUME-BRIEF-ITER5.md`; lane tracker `ORCHESTRATION-ITER4.md`. Close-completion
+commit: K (this commit) — the close act was interrupted post-Step-8 on 2026-11-18;
+K completed it; [DATE-CLOSED] = K's actual date per the W1 pre-landing ruling.
+
+**Final pilot outcomes (§10 basis, machine-computed by
+`qa/iter4-review/tally_section10.py`; D7 vocabulary):** tables N = 32 — **26
+GREEN-triad / 3 honest-partial / 3 NOT-GREEN-honest**; every landed row triad-only
+`[propext, Classical.choice, Quot.sound]`, 0 sorryAx; whole-tree **385/386
+triad-clean decls** (226/226 machine over 9 sections + 159/160 manual per the
+§10.CENSUS companion; the ONE residual = 77-T2's filter-blind-spot tainted decl →
+Iteration 5) + **18/18 donor rows triad at their donor pins**. Evidence:
+`qa/iter4-review/r3-verification-tables.md` §10 + §10.CENSUS.
+
+**Sweep:** FINAL-SWEEP-PLAN-ITER4 Steps A–B executed at close: Step-A certificate
+**52 exact** on the closing tree (sweep-time entry); Step-B(i) 58 stages — 53 OK /
+5 staging-class FAILs dispositioned in-log (`feasibility/probe/logs/
+axcheck-iter4-close-run1.log`), the 5 re-fired after the make_axcheck staging
+fixes (dependency-ordered emission + P0 stem-collision fix): **58/58 stages OK**
+(53 run1 + 4 re-fired + M4b bytes-unchanged citation), **807 custody records,
+0 sorryAx** (R1 close residue: `axcheck-iter4-close-run2-subset.log` +
+`axb-close-iter4-run1.log`). Step-B(ii) custody stages per the runbook. Ledger:
+`feasibility/VERIFICATION-LEDGER.md` §10 + Step D.
+
+**Gates G1–G8:** executed on the exact closing tree; persistence table =
+`qa/iter4-closeout-gates.md` §G8 (committed with this close block; the G2(ii)/G3
+completion-owed cells flip at K per R2's interrupt duty).
+
+**Articles:** 75 two-tier DISCOVERY-CONDITIONAL (P-b entry + 5/6 strip-distinct arm
+FINAL-GREEN) and 78 NEGATIVE (discovery-grade; quota not consumed); corpus header
+"6 discovery-grade (01, 30, 32, 42, 75, 78)". Knowledge-level quota cap-N = 1
+**UNSPENT** (the wave's record outputs are dossier/pilot records and verification
+tables, not N-class articles). Token census **40/46 closed in-cycle, 6 retargeted
+to Iteration 5, 0 unrulled** (corrected census, `a2-close-act-runbook.md` §8).
+Index: `articles/README.md`.
+
+**Carried to Iteration 5 (owners recorded):** 72-M1 L3b–d + interface theorem;
+22-T2a conditional remainder (PNT+ watch DEFER); 74-T3 (OPEN-GATED); 10-tranche
+D4–D6 (D4 ruled Iteration 5); N2 P2-a paused-at-close (2/6, name-resolution only;
+resume note = iter-5 lead-1) + P3 GO; AL-P2 P2-d find-#5 park + P2-e (canonical
+z-rank rebuild); 77 T1's 7 site-local residuals + T2's tainted decl; G10 SHELF;
+11-M3 benched; debts f/h/l.
+
+**AGENTS-ITER4-DRAFT:** E1–E9 NOT applied at close — user-gated (separate
+decision, separate commit if approved).

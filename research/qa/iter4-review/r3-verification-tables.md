@@ -2188,3 +2188,100 @@ name-resolution only, the 14/14 core untouched, P2-a block = in-flight-unverifie
 the hnp erratum DISCHARGED as applied at 02a5d71). Census close-time basis: N=32,
 verdicts 26/3/3, machine 226/226 over 9 sections, manual 159/160, whole-tree
 385/386 — the one residual = 77-T2's tainted decl (iter-5). Delta slots: NONE.*
+
+### 10.33 — close residue: Step-B(i) re-fire + Step-B(ii) custody batch + D.4 stamps (lane R1, verification-intensity [verification-integrity], 2026-11-19; executes RESUME-BRIEF-ITER4 §(b)3 = runbook Steps 9–12 verification lane)
+
+**Input state:** the Step-8 sweep (`axcheck-iter4-close-run1.log`, 58 stages, 53 OK /
+5 FAIL — all five dispositioned STAGING defects per the in-log W1 taxonomy). Worktree
+agent-02 re-synced to the forward main @ `e3d984b` (pre-verified byte-identical carry,
+zero loss; H relay-answered).
+
+**Root causes found, BOTH deeper than the taxonomy's phrasing (same staging class):**
+(a) *taxonomy defect (1)* was a **stem collision**, not just a missing dep:
+`al3d/{A1,A2}.lean` do `import P0`, but the global stem rewrite map keyed `P0` →
+`AxPilot78_P0` (78/P0.lean and al3d/P0.lean share the stem; dict-last-wins) — run1
+elaborated the WRONG module clean, then `proj`/`IsSlabDomain3D` (P0.lean:384/:348) went
+unknown. Fix: `AMBIGUOUS_STEMS` drops `P0` from the global map + stage-scoped
+`EXTRA_REWRITES` route A1/A2 → the new **compile-only dep stage `AxPilotAL3D_P0`**
+(verbatim probe bytes, no prints, never a verdict row).
+(b) *taxonomy defect (2)*'s premise was **false**: "sorted-name chain Pa < N2P0" —
+`'N'(0x4E) < 'P'(0x50)`, sorted order compiled N2P0 BEFORE Pa (run1's exact failure).
+Fix: `make_axcheck.py` emits **order.txt** (TARGETS list order = dependency order) and
+`axcheck_probe.py` reads it (absent → sorted glob, back-compat). Dated correction note
+in the N2P0 row comment; the 2026-11-18 belief is recorded as corrected, not inherited.
+
+**Defect (3):** `AxPilot75_N2P1` staged from **RUN-19 COMMITTED BYTES**
+(`git show 3ad896b:research/pilots/75/N2-P1.lean`, `GIT_BYTES_OVERRIDES`, sha-guarded
+`ca1089e2a0c122c4` — HEAD's paused P2-a block `ecd44c6a…` never staged; A1's
+pre-registered flag). **Dep compatibility verified:** the 02a5d71 hnp erratum changed
+only `DirichletFactorizationTransferQ`'s def in N2-P0; run-19 N2-P1 references it in
+docstring prose alone (:112/:644) and states the corrected shape inline with its own
+`hnp` binder (:651/:654) — so run-19 bytes elaborate identically against post-erratum
+N2-P0 (`1cf5cbe217c68564`), which is itself GREEN-loaded (run20/21 chains).
+
+**Defect (4):** `AxPilot42_M4b` — **bytes-unchanged donor citation** (C2-close precedent
+`stepB-c2.log:1`): verdict of record = `stepB-c2-m4b-donor.log` (donor-tree build rc=0 +
+stage OK, 70 axiom-lines triad-only). Verified 2026-11-19: M4b.lean sha `4499e790e54398c9`
+identical at `4323178` (M4b TERMINAL, 2026-11-14) and close HEAD `e3d984b`, no intervening
+commit, 70-theorem extraction parity. Row comment amended in `make_axcheck.py`.
+
+**Outcome (b) — subset re-fire** `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log`
+(app ap-j76M5pBFvem1VTu7QBohXM, doz CLI, wall 130 s, max_cpu 1.13, max_mem 6060 MB
+mmapped-olean class, OVER=1 mem): **5/5 run1-FAIL verdict stages OK** — AL3D_A1 44 /
+AL3D_A2 126 / 75_N2P0 16 / 75_N2P1 27 records + M4b cited; Pa drift-check 82; scan 295
+records, **0 sorryAx, 0 errors, all ⊆ triad** (292 triad + 2 [propext, Quot.sound] +
+1 [propext]); per-stage record-parity with verdict counters (the engine's new
+elided-axiom full persistence fired under every excerpt marker).
+
+**Outcome (c) — Step-B(ii) custody batch** `feasibility/probe/logs/axb-close-iter4-run1.log`
+(runner `feasibility/probe/axb_close_iter4.py` + `run_axb_close_iter4.sh`, app
+ap-nGICUfHCJ396YbVP2acPRn, wall 185 s, max_cpu 1.50, max_mem 8355 MB same class):
+**9/9 full-coverage stages OK — 807 records, 0 sorryAx, 0 TALLY-ONLY, all ⊆ triad**
+(641 triad + 79 [propext, Quot.sound] + 53 no-axioms + 34 [propext]):
+`AxFC_75_N2P1run19` 39 (12 privates direct-printed FIRST TIME — run-19's 14/14 print
+surface was publics + the ratCharOf def); `AxFC_73_Q4` 46; `AxFC_AL3D_A2` 126;
+`AxFC_10_L5` **350** (280+41 census incl. every D-tranche private); `AxFC_32_M1` 50 /
+`AxFC_32_M2` 50 (§10.11's print caveat CLOSED — the 28 named M1 lemmas + M2's
+`log4_pos`/`log10_pos` direct-printed); `AxFC_FFEZ2_P2` 18; `AxFC_74_P1` 38 (24
+privates); `AxFC_78_P0` 29 (23 privates). Dep stages 5/5 compile-OK — AxDep_AL3DP0's
+"FAIL sorry-warnings=3" = the 3 CERTIFIED Step-A probe tokens (staged :108/:146/:151 =
+source :106/:144/:149 + 2-line header offset, exact 1:1; rc=0, 0 errors, olean fed
+A1/A2 both OK) — verdict-rule artifact, dispositioned in-log, NOT an artifact defect.
+
+**Citations of record (bytes-unchanged branch, each verified this pass):** 75_Pb
+`axcheck-full-run1.log` 89/89 @ `da05c60ceb78755b`; 72-M1 T3 `axcheck-l3a-run1.log`
+9/9 @ `fe57d30b19d9a836`; zzv2-lam P1 `p1-run3.log` donor-tree 10/10 incl. 2 privates @
+`a9a6555cadcd604c` (not re-staged — runbook Step 9's "if re-staged" condition unmet);
+42-M4b `stepB-c2-m4b-donor.log` @ `4499e790e54398c9`; **ff-ez2 P1** `p1-run4.log`
+sorry-strict OK, full print surface 7/7 incl. `_private…density_of_all` @
+`9d8a7b1981faabce` — DATED CORRECTION: the 2026-11-18 TARGETS comment "P1 STAY
+probe-convention" was WRONG (P1.lean is proof-class, own header + §7d's "fires at
+sweep"); discharged via the citation branch (Pb/D.4 precedent) with the correction
+recorded in `make_axcheck.py`.
+
+**D.4 sha stamps — bytes-unchanged branch RE-VERIFIED at `e3d984b` (2026-11-19,
+verify-don't-assume): Pa `d61eb0485a6ff672`/1557 ✓, Pb `da05c60ceb78755b`/2303 ✓,
+zeta23e P0 `986f1ce879786f33`/59 ✓, 78-P0 `d94d115e3d8d08d7`/444 ✓ — all four exactly
+the a9-splice-readme-checklist §D.4 table values; sweep actions executed (Pa
+drift-check re-stage run2-subset; 78-P0 TARGETS row run1 + custody stage; Pb/zeta23e
+standing-log stamps cited). The article-side stamp edits stay H-owned (A9 items 6–7).
+
+**Census impact:** none to the 385/386 close-time basis — the custody prints bring the
+print-gapped decls (N2-P1 12, 74-P1 24, 78-P0 23, Q4 9, L5 41, FFEZ2-P2 5, 32's lemma
+classes) under DIRECT machine records for the first time, all GREEN 0 sorryAx —
+strengthening (not changing) §10.CENSUS(e); the one whole-tree residual remains 77-T2's
+tainted decl (iter-5 carry). VERIFICATION-LEDGER §10 + Step D appended this pass
+(`feasibility/VERIFICATION-LEDGER.md`, 55,305 LoC tree total, extractor-generated).
+
+— close-residue fold lane R1, 2026-11-19, worktree agent-02 (main @ e3d984b). Supersedes
+nothing in §10.1–§10.32; the two runbook-stale namings encountered (the false sorted-chain
+premise in make_axcheck's N2P0 comment; FFEZ2-P1's mislabel) are recorded as dated
+corrections in situ, per the no-silent-deviation rule.
+
+*Changelog tail (batch 23, 2026-11-19, R1 close residue): §10.33 — Step-B(i) re-fire
+5/5 (run2-subset log; P0-stem-collision + order.txt fixes; run-19-bytes N2P1 staged
+git-show-3ad896b sha-guarded) + Step-B(ii) custody 9/9 (axb-close-iter4-run1.log,
+807 records 0 sorryAx 0 TALLY-ONLY; AxDep_AL3DP0 = certified-token verdict-rule
+disposition) + M4b/ff-ez2-P1 citation corrections + D.4 stamps re-verified 4/4 +
+VERIFICATION-LEDGER §10 + Step D. Whole-tree basis unchanged: 385/386 (the residual =
+77-T2 tainted decl, iter-5).*

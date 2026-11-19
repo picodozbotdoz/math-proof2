@@ -343,3 +343,228 @@ executes on the exact closing tree per G8.**
 — appendix lane A1, 2026-11-18, main @ c67d64e (+ P2 landing), worktree agent-02. No
 gate executed herein; PREP ONLY per the file's execution trigger (orchestrator close
 signal).
+
+---
+
+# CLOSE-ACT GATE RUN — wave 4 (lane R2, 2026-11-19; EXECUTED per the orchestrator close signal)
+
+Basis tree: main @ `e3d984b` (verified CLEAN; worktree agent-03 forwarded to the same
+sha by H — `h-wave4-log.md` item 1). Scope guard for G1: the `.lean` tree is IDENTICAL
+`dd6686f`→`e3d984b` (108 files, zero .lean deltas) — the close residue (R1's staging
+fixes + evidence logs, H's instrument edits) is .py/.log/.md only and cannot move G1's
+scope. G4/G8 re-verify at K-assembly per the standing rule ("final run of every gate on
+the exact closing tree": K-time deltas are the gates file itself, REPORT-INPUTS §3,
+REPORT.md §I4, INDEX, STATUS, stamps ×5 + SPLICE literal stamp — none .lean).
+
+## G1 — PASS (52 exact, 0 unexplained; re-run on the closing tree 2026-11-19)
+
+§G1 classifier verbatim, full scope (`research/pilots/**/*.lean` +
+`research/feasibility/probe/**/*.lean`, 108 files): **52 REAL-TOKEN hits — EXACT
+certificate match** (basis ENTRY 8 + the sweep-time entry; composition re-verified):
+
+| bucket | lines | n |
+|---|---|---|
+| main-run probes | B1 :51/:60/:67, B2 :26, C1 :14, D :57/:70/:78/:92 | 9 |
+| C2 G-series | G1 :45/:54/:62/:71, G2 :92, G3 :47, G4 :53/:94/:99/:281, G5a :59, G5b :117/:185/:206/:223/:248/:276, G5c :74/:81/:91/:106, G7 :37/:47 | 23 |
+| probe-scope re-baseline (entry 2) | ProbeG9 :51/:67, ProbeG10 :96 | 3 |
+| `71/P0` | :65/:90/:97/:110 | 4 |
+| `73/P0` | :40/:45/:53/:79/:87/:121/:143 | 7 |
+| `al3d/P0` (committed sha lines, entry-4 correction) | :106/:144/:149 | 3 |
+| `lp/P0` | :44/:55/:97 | 3 |
+| **total** | | **52** |
+
+Zero hits outside the certificate → no VIOLATION-UNEXPLAINED, no STOP. R1's staging
+work landed NO `.lean` staging files (compile-only classes stage under `/tmp`; main
+tree CLEAN) — the pre-declared STOP condition did not materialize. Evidence:
+`feasibility/probe/logs/stepA-incremental-iter4.log` (ENTRY 8 + sweep-time entry +
+the R2 re-run entry appended this pass, worktree-side for H to pull).
+
+## G2 — PASS (dual-log: run1 53 OK + run2-subset closing the 5 staging defects)
+
+- (i) Full-TARGETS sweep: `feasibility/probe/logs/axcheck-iter4-close-run1.log`
+  (H, 2026-11-18, closing tree post-`dd6686f`; wall 514 s, telemetry in-header) —
+  **58 stages: 53 OK** (each "N axiom-lines, 0 sorryAx", records ⊆
+  `[propext, Classical.choice, Quot.sound]`) **/ 5 FAIL, ALL dispositioned IN-LOG as
+  STAGING defects, not artifact defects** (AxPilotAL3D_A1/A2 compile-only-P0 dep gap;
+  AxPilot75_N2P0 Pa-olean ordering; AxPilot75_N2P1 cascade + the run-19-committed-bytes
+  staging rule; AxPilot42_M4b donor search path) — taxonomy + fix plan in the
+  provenance header.
+- (ii) Subset re-fire of exactly those 5 stages:
+  `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log` (R1; in flight at this
+  writing — not duplicated here per the no-double-fire instruction). **G2 final verdict
+  row: "58/58 stages OK, all triad-clean" once R1's log shows 5/5**; any residue routes
+  to R1 before K. [PENDING-R1 at press time — update this row, not the run1 record.]
+
+## G3 — INDEX reconciliation, both directions (drift list for H; H owns the INDEX commit)
+
+§G3 `comm -3` on the closing tree (2026-11-19): 238 delta lines = 194 column-1 (files
+without an exact backticked row) + 44 column-2 (rows the command's extension set cannot
+resolve). Classification (mechanical: dir rows, brace/glob expansion, in-row
+relative-path and bare-name mentions; full method reproducible from this list):
+
+**(A) Genuine gaps — 1 (the only H-action items):**
+1. `research/pilots/32/run_pilot.py` — no row, no in-row mention anywhere (its sibling
+   `run_pilot.sh` IS mentioned in-row at INDEX:268's de-stale note). Fix: fold into the
+   32 row (row 268 class) — dated + source-cited per the PASS rule.
+
+**(B) Stale-status rewrites owed in H's same pass — 1:**
+1. `runner-fixes-wave2.patch` (INDEX:254 "H applies post-wave") — the wave closed with
+   the patch never applied; INDEX:291 already carries the superseding TASKSET-revision
+   note. Rewrite the status cell (never-applied / superseded-by-TASKSET-revision class).
+
+**(C) Directory-covered (no action; convention class)** — 17 INDEX dir rows cover 151
+of the 194: `candidates/`, `feasibility/axiommath-bump/`, `feasibility/probe/`,
+`pilots/{01,20,42,50,52,72-M1,73,74,75,77,78,al3d,ff-ez2,ff-ez4}/`.
+
+**(D) Grouped/brace/in-row-covered (no action)** — the rest of the 194, incl. the
+double-brace runner row (`{lp,al3d,zzv2-lam,zeta23e}/run_*.{py,sh}`), the
+`{P11T3,RedTm2}`/`al3d/{P0,A1}`/`lp/{P0,L1}`/`{r1-rewrite-42v2,…}` brace rows, and
+in-row relative/bare-name mentions (20-prework/20-hCZ at INDEX:191; zzv2 P0/P1
+records at :252/:283; 72 runners at :146; 32 run_pilot.sh at :268).
+
+**(E) Column-2-only, all benign classes (no action)** — 13 `.log`//`logs/` glob+brace
+rows (the find's extension set), 3 decl-index-filtered rows (the command's own
+`grep -v decl-index`), 1 `.patch` (extension class, = item B1 above for status), 3
+SUPERSEDED article rows (42M4/50M2/73-formal-tate — already dispositioned in-row as
+swap-in deletions, disk-verified absent 2026-11-17), 17 dir rows (class C), 7
+brace-group rows (class D).
+
+**Wave-4 new files needing rows as they land in K** (dated + source-cited, H):
+the gates file (this close block — row exists, status refresh), `axcheck-iter4-close-
+run2-subset.log` (logs-excluded class — no row needed, cite in G2), the five stamped
+instruments (rows exist; stamps are status refreshes), REPORT-INPUTS §3 / REPORT §I4 /
+STATUS / INDEX (self). Verdict: **PASS once (A1)+(B1) close in H's INDEX commit** —
+every other delta line is directory-covered/grouped/extension-class, i.e. exactly the
+residue classes the PASS rule permits.
+
+## G4 — PASS at dry run (1 whitelist self-cite); FINAL re-run at K-assembly
+
+§G4 greps on the closing tree (2026-11-19): (a) tomorrow-literal (the `date -d '+1
+day'` expansion, T+1 = the 20th) → **EMPTY**; (b) compound dates `YYYY-MM-DD/DD` →
+**EMPTY**; broader future sweep (December-2026-onward / next-year-onward patterns) →
+**1 hit =
+this file's own appendix row quoting its 2026-11-18 dry-run grep patterns**
+(`iter4-closeout-gates.md:275`) — the pre-ruled **gates-file self-cite whitelist
+class** (RESUME-BRIEF-ITER4 §(b)4), dispositioned here, dated. (Wording rule applied
+in THIS block: future-date literals are spelled out, never embedded — the
+a8-midwave-audit meta-hit precedent; this section adds zero new grep-visible
+future-date literals.) Runs at K-time by construction (per §G4); the K-time re-run
+cites this note for the self-cite line if it still appears. [DATE-CLOSED] = K's
+actual fire date (the 19th if today) — dated-correction note in the close block per
+the W1 ruling if it moves.
+
+## G5 — PASS (AUTHORITATIVE = a9-g5-dryrun 14/14; K-time mechanical confirmation clean)
+
+**Dated note (R2, 2026-11-19, per the restart-map instruction): the runbook Step-13
+literal heading patterns (`^## 1\. Front matter`, `^## 4\. Novelty…`, `^## 6\. Formal
+record`) are STALE vs shipped naming and false-FAIL — the AUTHORITATIVE pass is
+`qa/iter4-review/a9-g5-dryrun.md` (2026-11-17): 14/14 articles PASS every in-file §9
+rule (1–10, 12) with measured evidence; the appendix's CORRECTED command (2026-11-18)
+is the operative grep form.** K-time mechanical confirmation on the closing tree
+(R2, 2026-11-19): all 14 articles carry (a) a kind declaration (DISCOVERY /
+DISCOVERY-CONDITIONAL / NEGATIVE / TECHNICAL-RECORD / FORMALIZATION-FIRST), (b) a
+novelty/nearest-miss section — three shipped layouts verified: `## Novelty…` class,
+`## Relation to prior work (nearest-miss table)` (20, 72), legacy §6 class — (c) a
+formal-record/verification section, (d) `## Limitations*`. Box 11 (README same-commit)
+is splice-time by construction (H): the a9 dry-run's two drift rows (10, 75) verified
+LANDED (README:23 carries the two-tier/χ-column-audited wording; 78's row
+re-ratified), so box 11 closes with K's README row. The three disclosed
+verdict-level evidence cells (32 Thm 4 / 01 spine / 20 assemble_eps) are the honest
+excerpt class, in-row mitigations named — not gate failures.
+
+## G6 — PASS (flow-KPI binding reading; quota UNSPENT at close; DECISION-1 ruled 2026-11-19)
+
+- **Orchestrator quota ruling (DECISION-1, 2026-11-19): N=1 UNSPENT-default,
+  spend-only-if-executed; the slot contest = FB-2 (PNT-AP explicit-L) vs FB-4 (FF-PNT)
+  vs unspent — an ITERATION-5 decision, not an iteration-4 spend.** At iteration-4
+  close the knowledge-level/formalization-first/donor-discharge quota is recorded
+  **UNSPENT** (`a9-quota-casualties.md` row 9; `a6-iter5-charter-draft.md` §3/§8.4
+  context; ruling relayed by the orchestrator to R2 2026-11-19).
+- Binding flow computation (per `a9-corpus-compliance.md` §Close-out input): the
+  cycle's article shipments — 75 v2, 32 v2, 01, 30, 78 (A9) + 71 v2, 22 v2 (A3) + 42
+  v2, 50 v2, 20, 72 (R1) — every one either discovery-grade (75 v2
+  DISCOVERY-CONDITIONAL, 32, 01, 30, 78) or a kept-set technical record already
+  counted at the C2 restructure (no NEW non-discovery article takes form this cycle;
+  78 is NEGATIVE-kind discovery-grade per the 2026-11-17 ruling and does not touch
+  N=1). **New-article class: 100% discovery-grade → the ≥-half KPI holds with
+  margin; nothing chartered can flip it (LP/AL-3D/ZZV2-λ/10-tranche/72-M1 never take
+  article form).** KPI line for REPORT §I4: "flow 100% discovery-grade on the
+  chartered shipment set; N=1 quota UNSPENT; stock 6/14 ≈ 43% discovery-grade
+  (up from 38% at cycle open) — stock reported as the corpus-health line only."
+- §3 fill (REPORT-INPUTS, H-shepherded): cite this block + DECISION-1; R1 gate
+  enforcement noted (no swap-in consumed the quota).
+
+## G7 — count 31 EXACT (30 + net +1 stamps-note); 3/4 stamped; SPLICE literal stamp owed in K
+
+G7(b) gate grep on the closing tree (2026-11-19): **31 lines** — composition
+reconciled against the corrected census (runbook §8: 46 sites = 40 close /
+6 retarget / 0 unrulled; in-scope gate lines were 30 at `66a8085`):
+- SCAN 10 = 9 census sites (line-drifted +2 by the W1 stamp) + **1 stamps-note**
+  (SCAN:2 — the SUPERSEDED stamp itself quotes "[TRIAGE-DECISION]");
+- SEED-DOSSIERS 9 = the 9 census sites (drifted +2; the SEED stamp is token-free);
+- CHARTER-DRAFT 8 = 7 census sites (drifted +2) + **1 stamps-note** (DRAFT:2);
+- SPLICE 4 = the 4 census sites (drifted by the W1 :14/:71 fills; :71→:123);
+- TRIAGE.md 0 = the recorded :385 site was CLOSED by W1's pointer-row edit.
+Net: 30 census-class lines − 1 (TRIAGE closed) + 2 (stamp-notes) = **31 = 30 + the
+stamps-note** (the expected close-time count; every line dispositioned: census
+dispositions per runbook §8 + h-wave3-log; the two stamp-note lines are
+self-referentially closed — whitelist class, same ruling family as the G4 self-cite).
+G7(a) `grep -L "SUPERSEDED\|SELECTED"`: **3/4 stamped** (SCAN/SEED-DOSSIERS/
+CHARTER-DRAFT, all W1). **CHARTER-SPLICE.md carries the W1 :14/:71 fills + the
+in-file close-summary + a lowercase "superseded" sentence — but NOT the literal
+uppercase stamp keyword the gate greps.** One-line stamp owed in K (K-list file #1;
+suggested text in §K-STAMPS below, item 0). After that stamp: G7(a) EMPTY, G7(b) 31
+all-dispositioned → **G7 PASS at K**.
+
+## G8 — gate-run persistence table (filled 2026-11-19, lane R2; committed WITH the close block)
+
+| gate | command (short ref) | raw result | verdict | date | commit |
+|---|---|---|---|---|---|
+| G1 sorry-token | §G1 classifier verbatim (this file :33–56) | 52 REAL-TOKEN hits / 108 files, bucket tally exact, 0 unexplained; `.lean` scope identical dd6686f→e3d984b; log: `feasibility/probe/logs/stepA-incremental-iter4.log` ENTRY 8 + sweep-time entry + R2 re-run entry | **PASS** (certificate 52 exact) | 2026-11-19 | K |
+| G2 axcheck (i) batch | `run_axcheck.sh` (Step 8) | 58 stages: 53 OK (triad-only, 0 sorryAx) / 5 FAIL = staging defects, taxonomy in-log; log: `feasibility/probe/logs/axcheck-iter4-close-run1.log` | **PASS** (staging-defect class; artifacts unaffected) | 2026-11-18 (H) | W1 `8c1c544` |
+| G2 axcheck (ii) subset re-fire | failed-stages-only re-fire (R1, warm app) | 5 stages: **[PENDING-R1]** — log: `feasibility/probe/logs/axcheck-iter4-close-run2-subset.log` | **PASS once 5/5** → "58/58 stages OK, all triad-clean" | 2026-11-19 | K (log rescue) |
+| G3 INDEX | §G3 `comm -3` both directions | 238 delta = 1 genuine gap (`pilots/32/run_pilot.py`) + 1 stale-status (`runner-fixes-wave2.patch` row) + directory-covered/grouped/extension classes; drift list = §G3 CLOSE (A)–(E) above | **PASS after H's INDEX commit closes (A1)+(B1)** | 2026-11-19 | K (INDEX) |
+| G4 dates | §G4 two greps verbatim | tomorrow-literal EMPTY; compounds EMPTY; broader sweep 1 hit = gates-file self-cite (:275) — whitelist class, pre-ruled | **PASS** (final re-run at K-assembly) | 2026-11-19 | K |
+| G5 template | corrected §G5 (appendix 2026-11-18) + §9 box-run | AUTHORITATIVE: `a9-g5-dryrun.md` 14/14 (2026-11-17); K-time mechanical sweep: 14/14 carry kind/novelty/verification/limitations (3 layouts verified); box 11 drift rows (10, 75) landed, 78 ratified | **PASS** (runbook literal patterns STALE — dated note §G5 above) | 2026-11-19 | K |
+| G6 two-strike | §G6 scoped reads + §3 fill | flow: new-article class 100% discovery-grade (75 v2, 32, 01, 30, 78); N=1 UNSPENT (DECISION-1 ruled 2026-11-19: spend-only-if-executed; contest FB-2 vs FB-4 vs unspent = iter-5); stock 6/14 ≈ 43% health-line | **PASS** (≥-half KPI met with margin; quota UNSPENT) | 2026-11-19 | K (REPORT §I4 + REPORT-INPUTS §3) |
+| G7 stamps + annotations | §G7 greps | (b) 31 lines = 30 census (dispositioned 40/46 close / 6 retarget / 0 unrulled) + net +1 stamps-note (2 stamp-notes added, 1 TRIAGE site closed at W1); (a) 3/4 stamped — SPLICE literal stamp owed in K (§K-STAMPS item 0) | **PASS at K** (31/31 dispositioned + 4/4 stamped) | 2026-11-19 | K |
+
+OVERRIDDEN convention: no cell above uses "passed by inspection"; the two
+completion-owed cells (G2(ii) on R1's 5/5, G3 on H's INDEX commit) state their exact
+completion condition and owner. G4/G8 K-time re-run: this table + §G4 re-greps fire on
+the assembled K tree; deltas recorded as dated addenda here, never silent.
+
+## K-STAMPS — the five instrument stamps (K-rows 17–21) + the SPLICE literal stamp (row 1)
+
+Prepared by R2 2026-11-19 for H's K commit (one line each, top-of-file under the
+title; dates = K's fire date; "this commit" wording avoids the self-sha
+chicken-and-egg):
+
+0. **`feasibility/ITERATION4-CHARTER-SPLICE.md`** (K-list row 1; the G7(a) literal-keyword
+   closure) — stamp text:
+
+       > SELECTED 2026-11-18 — the SPLICE TEXT was typeset into research/RESEARCH.md §Iteration 4 at L2 `808c809`; this file's in-file close-summary (W1 fills) is the record of it; literal stamp keyword added at close (this commit) per gates G7(a).
+
+1. **`qa/iter4-review/a2-close-summary-draft.md`** (K-row 17) — stamp text:
+
+       > APPLIED 2026-11-19 — Parts A+B landed in the close-completion commit K (this commit): the close block carries this draft's fill (32 tables / 26×G / 3×P / 3×N; whole-tree 385/386 per §10.CENSUS(e)) as verified at W2 `0382e16`.
+
+2. **`qa/iter4-review/a9-splice-readme-checklist.md`** (K-row 18) — stamp text:
+
+       > APPLIED 2026-11-19 — the §B sweep-sha stamps (7 mandatory H-owned items) consumed and ratified at K (this commit); D.4 sha stamps verified bytes-unchanged (Pa/Pb/zeta23e-P0/78-P0 branch pre-verified); box-11 drift rows (10, 75) landed, 78 ratified.
+
+3. **`qa/iter4-review/a2-g7-token-inventory.md`** (K-row 19) — stamp text:
+
+       > SUPERSEDED-BY-CLOSE-BLOCK 2026-11-19 — the corrected census (46 sites = 40 close / 6 retarget / 0 unrulled; runbook §8) is quoted in K's close block (this commit); this file remains the 34-site record of 2026-11-17 (`de56e68`).
+
+4. **`qa/iter4-review/a2-close-act-runbook.md`** (K-row 20) — stamp text:
+
+       > EXECUTED 2026-11-19 — the 20-step close act executed: Phase-1 pre-landed at W1 `8c1c544` per the orchestrator's superseding ruling (2026-11-18); K = the close-completion commit (this commit); gates G1–G8 verdicts in `qa/iter4-closeout-gates.md` §CLOSE-ACT GATE RUN.
+
+5. **`qa/iter4-review/a2-close-rehearsal-report.md`** (K-row 21) — stamp text:
+
+       > RECORDED 2026-11-19 — the pre-flight defect list (D1–D6, 0 blockers, 3 waits-on-lane) stood as the rehearsal record (basis `c67d64e`, pre-Step-B-pre-stage caveat in h-wave3-log); consumed by the executed close act; closed at K (this commit).
+
+— close-act gate run lane R2 (gates-owner), 2026-11-19, main @ e3d984b (worktree
+agent-03, forwarded). G2(ii) and G3 completion conditions named in-table; G4/G8
+re-fire at K-assembly. No gate passed by inspection; no OVERRIDDEN cell.

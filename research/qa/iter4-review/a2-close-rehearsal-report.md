@@ -1,4 +1,5 @@
 # A2 — CLOSE-ACT PHASE-1 REHEARSAL REPORT (pre-flight defect list; 2026-11-18)
+> RECORDED 2026-11-19 — the pre-flight defect list (D1–D6, 0 blockers, 3 waits-on-lane) stood as the rehearsal record (basis `c67d64e`, pre-Step-B-pre-stage caveat in h-wave3-log); consumed by the executed close act; closed at K (this commit).
 
 Lane A2. Mechanical dry-run of runbook §2 Phase 1 (Steps 1–6) against **main @
 `c67d64e`** (bases byte-verified before editing). Staging area + apply script:

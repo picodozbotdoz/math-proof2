@@ -1,4 +1,5 @@
 # A9 — splice-time box-11 README same-commit checklist (final prep; 2026-11-17)
+> APPLIED 2026-11-19 — the §B sweep-sha stamps (7 mandatory H-owned items) consumed and ratified at K (this commit); D.4 sha stamps verified bytes-unchanged (Pa/Pb/zeta23e-P0/78-P0 branch pre-verified); box-11 drift rows (10, 75) landed, 78 ratified.
 
 Lane A9. The single checklist of every edit that must ride the CLOSE COMMIT (the
 template's §9 box 11 — README row in the same commit as the article — plus the

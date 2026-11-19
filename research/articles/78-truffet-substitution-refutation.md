@@ -196,9 +196,9 @@ procedure-level refutation.
 "⊆ triad" = exactly `[propext, Classical.choice, Quot.sound]` at the cited print.
 
 ### Verification: Theorem A1 — `CrossMath.Truffet78.paperSelect_forced_singleton`
-- file: `research/pilots/78/P0.lean:365–380` (444 lines; sha256(16) of the run-4
-  bytes `d94d115e3d8d08d7`, measured 2026-11-17; the final sweep re-stamps —
-  PENDING-CLOSE, owner H)
+- file: `research/pilots/78/P0.lean:365–380` (444 lines; sha256(16)
+  `d94d115e3d8d08d7` — run-4 bytes, sweep-stamped unchanged at the final sweep,
+  2026-11-19)
 - exact statement form: `_hcase : case222 s`, `hsing : paperCandidates s = {(i, j)} ⊢
   paperSelect s = some (i, j)` — scope hypotheses of the statement class, no donor
   binders
@@ -310,8 +310,8 @@ keyword line). Audit record: `qa/iter4-review/a9-claims-audit-iter4.md`.
 | 8 | formal record table-only; no infra narration | PASS — §6 is the table + R3-§5 blocks; run counts/walls stay in the pilot record, not here |
 | 9 | internal vocabulary ≤ 3 glosses | PASS — no dossier/pilot/probe tokens in body prose (paths appear as citations) |
 | 10 | citations spot-checked (5+) | PASS this draft — `P0.lean:365/:383/:405`, `p0-run4.log:20/:22–24/:53–55` read on disk (agent-08 tree); dossier/scoping cites traced to the input package; re-verify at splice |
-| 11 | README row updated in the same commit | **PENDING — owner H**: the §A row is drafted in `articles/README.md` this session; counts re-ratify at splice |
+| 11 | README row updated in the same commit | SATISFIED — the §A row landed with the article at `b98f8bc` (same commit, box-11 satisfied at landing; counts re-ratified by H vs disk); the draft marker drops in the close commit |
 | 12 | superseded files marked; edit-state claims git-checked | PASS — supersedes none; the A2′ history claim cites the pilot record, not git state |
 
-PENDING-CLOSE: sha256-at-sweep of `P0.lean` (run-4 bytes `d94d115e3d8d08d7` recorded
-above) — owner H at the final sweep.
+sha256-at-sweep of `P0.lean`: `d94d115e3d8d08d7` (run-4 bytes; unchanged at the
+final sweep, 2026-11-19).

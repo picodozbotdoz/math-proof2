@@ -307,3 +307,64 @@ environment; `pilots/71/run_pilot.sh:11`).
 > **G7b PASS** (`probe/logs-g/run32-g7-elab.log` — both headlines + both delegation roots
 > triad-only) and **pilot 50 R1 GREEN** in the same run (`pilots/50/R1.lean`, 178 lines; all
 > four landings triad-only, 0 sorry). Not an on-pin TARGETS row (donor-pin substrate).
+
+## 10 Iteration-4 final sweep — FINAL (close-act executed 2026-11-18/19; this section by lane R1, verification-integrity, 2026-11-19, per close-act runbook §3 Steps 9–10 + the W1 FAIL-taxonomy fix plan)
+
+Step A (sorry-token classifier): **52 EXACT on the closing tree, 0 unexplained** — sweep-time
+entry by H 2026-11-18 (`probe/logs/stepA-incremental-iter4.log`: 43 C2 carry-forward +
+3 `al3d/P0` :106/:144/:149 + 3 `lp/P0` :44/:55/:97 + 2 ProbeG9 :51/:67 + 1 ProbeG10 :96).
+
+Step B two-part, on the closing tree (main @ `e3d984b`, worktree-verified byte-identical):
+(i) TARGETS batch `probe/logs/axcheck-iter4-close-run1.log` — 58 stages, 53 OK / 5 FAIL,
+ALL FIVE dispositioned staging defects (in-log taxonomy) — then the subset re-fire
+`probe/logs/axcheck-iter4-close-run2-subset.log` (app ap-j76M5pBFvem1VTu7QBohXM):
+**5/5 re-discharged OK** (4 re-fired: AL3D_A1 44 / AL3D_A2 126 / 75_N2P0 16 / 75_N2P1 27
+records, 0 sorryAx each; M4b by bytes-unchanged donor citation) + 1 compile-only dep
+(AxPilotAL3D_P0) + drift-check 75_Pa (82); scan: 295 records 0 sorryAx, all ⊆ triad.
+Fix mechanics in `probe/make_axcheck.py` (P0 stem-collision + compile-only dep stage +
+order.txt dependency-ordered emission + run-19 GIT_BYTES_OVERRIDES for N2-P1) and
+`probe/axcheck_probe.py` (order.txt reader; elided-axiom full persistence, R3 F3b).
+(ii) full-coverage CUSTODY batch `probe/logs/axb-close-iter4-run1.log` (app
+ap-nGICUfHCJ396YbVP2acPRn, wall 185 s): **9/9 AxFC stages OK, 807 records, 0 sorryAx,
+all ⊆ [propext, Classical.choice, Quot.sound], 0 TALLY-ONLY** (complete-output custody);
+5/5 AxDep dep stages compile-OK (AxDep_AL3DP0's 3 sorry-warnings = the certified Step-A
+probe tokens, +2-line header offset exact match — disposition in-log, verdict-rule
+artifact, not an artifact defect).
+
+| pilot | final files | LoC/thms (extractor, sha-dated 2026-11-19) | axcheck verdict (log cite; coverage split public/private) | sorry tokens | sign-off |
+|---|---|---|---|---|---|
+| lp | `L1.lean` + `L2.lean` | 90 / 2 pub (`0d200325f3f105cb`); 127 / 1+1 priv (`282c9c05711dc54c`) | Step-B(i) run1: `AxPilotLP_L1` OK, `AxPilotLP_L2` OK (0 sorryAx, ⊆ triad) | 0 (lp/P0 probe stubs are the 3 certified :44/:55/:97) | OK |
+| al3d | `A1.lean` + `A2.lean` (P0 = probe layer) | 372 / 22 pub (`a8feb25bcd60722f`); 993 / 63 pub (`6a5ed5553bb62c55`) | A1 re-fire run2-subset OK 44 recs; A2 re-fire OK 126 recs + custody `AxFC_AL3D_A2` OK 126 recs — 0 sorryAx, ⊆ triad | 0 (P0's 3 certified :106/:144/:149) | OK |
+| 75 | `Pa.lean`, `Pb.lean`, `N2-P0.lean`, `N2-P1.lean` @3ad896b | 1557 / 65+3 (`d61eb0485a6ff672`); 2303 / 82+7 (`da05c60ceb78755b`); 290 / 1 (`1cf5cbe217c68564`); 713 / 13+12 (`ca1089e2a0c122c4` RUN-19 BYTES — HEAD carries paused P2-a, never staged) | Pa drift-check run1+run2 OK 82 recs; **Pb CITED** `pilots/75/logs/axcheck-full-run1.log` 89/89 @ sha (bytes unchanged, D.4 verified); N2-P0 re-fire OK 16 recs (post-erratum 02a5d71); N2-P1 re-fire OK 27 + custody `AxFC_75_N2P1run19` OK 39 recs (12 privates direct-printed first time) — 0 sorryAx everywhere | 0 | OK |
+| 72-M1 | `P72M1T3.lean` (T1/T2 C2 rows stand) | 143 / 9 pub (`fe57d30b19d9a836`) | run1 drift-check OK + **CITED** `pilots/72-M1/logs/axcheck-l3a-run1.log` 9/9 direct triad @ sha (bytes unchanged) | 0 | OK |
+| 73 | `Q4.lean` (C = dep row stands) | 586 / 14+9 (`491af05ab4b95e76`) | run1 `AxPilot73_Q4` OK + custody `AxFC_73_Q4` OK 46 recs — 0 sorryAx, ⊆ triad | 0 | OK |
+| 78 | `P0.lean` | 444 / 3+23 (`d94d115e3d8d08d7`) | run1 `AxPilot78_P0` OK (3 publics) + custody `AxFC_78_P0` OK 29 recs (23 privates direct-printed) | 0 | OK |
+| 10 (D-tranche final) | `L5.lean` (embeds L4+L3; single-anchor ruling) | 4248 / 280+41 (`da398f2170288acb`) | run1 `AxPilot10_L5` OK + custody `AxFC_10_L5` OK **350 recs** — 0 sorryAx, ⊆ triad | 0 | OK |
+| 32 | `M1.lean` + `M2.lean` | 511 / 41 pub (`5aad3ffa54be4679`); 675 / 43 pub (`9c10fcf5d209407b`) | run1 `AxPilot32_M1/_M2` OK + custody `AxFC_32_M1` OK 50 / `AxFC_32_M2` OK 50 recs — §10.11's print caveat closed (28 named M1 lemmas + M2 `log4_pos`/`log10_pos` direct-printed) | 0 | OK |
+| ff-ez2 | `P1.lean` + `P2.lean` | 186 / 6+1 (`9d8a7b1981faabce`); 207 / 4+5 (`24926ac4cbbcdd50`) | P2 run1 OK 13 recs + custody `AxFC_FFEZ2_P2` OK 18 recs; **P1 CITED** `pilots/ff-ez2/logs/p1-run4.log` sorry-strict OK, full print surface 7/7 incl. `_private…density_of_all`, triad-only (`choice` = Classical.choice relativized by `open Classical`, in-log note) — bytes unchanged since `570f3e9` (dated correction: the 2026-11-18 "P1 probe-convention" TARGETS comment was wrong; recorded in make_axcheck.py) | 0 | OK |
+| 74 | `P1.lean` | 770 / 7+24 (`6ddbda11d5da4f35`) | run1 `AxPilot74_P1` OK + custody `AxFC_74_P1` OK 38 recs (24 privates direct-printed) — 0 sorryAx, ⊆ triad | 0 | OK |
+| zzv2-lam | `P1.lean` (P0 = probe) | 290 / 8+2 (`a9a6555cadcd604c`) | **CITED — donor-tree class** `pilots/zzv2-lam/logs/p1-run3.log`: elaborated INSIDE the built ZetaZerosV2 tree (M4b2 recipe), sorry-strict OK, 10/10 triad incl. both private helpers — bytes unchanged (not re-staged; runbook Step 9 "if re-staged" condition not met) | 0 (P0 probe, `ab9974f18568d0ab`, donor-hygiene of record p0-run1.log:151–154) | OK |
+| zeta23e | `P0.lean` (donor-pin probe) | 59 / 0 (`986f1ce879786f33`) | probe-convention — NEVER a Step-B stage (§7c); donor-pin class, log-header sha of record (D.4 verified unchanged) | 0 | OK (Step A only) |
+| 22-T2a | `T2a-P0.lean` | 99 / 0 (`1b3d117662eb6cc8`) | statement rung, probe-convention — no stage (§7d) | 0 | OK (Step A only) |
+| 77 | `T1.lean` + `T2.lean` honest-stop | 817 / 31 residual sites (`3e6b50641990af9b`); 272 / 7+1 (`55107d0c6768fe34`) | NO stage by ruling (§10.32; classifier-only; T2's one tainted decl = the whole-tree 1/386 residual → iter-5) | 0 real | OK (honest-stop class; NOT a GREEN row) |
+| 42-M4b (donor) | `M4b.lean` | 1571 / 68 (`4499e790e54398c9`) | plain-substrate FAIL BY DESIGN (`import ZetaZeros`); **verdict of record CITED** `probe/logs/stepB-c2-m4b-donor.log` (donor-tree build rc=0 + stage OK, 70 axiom-lines triad-only; C2-close precedent stepB-c2.log:1) — bytes unchanged since `4323178` 2026-11-14 (verified 2026-11-19, no intervening commit) | 0 | OK (donor-tree class) |
+
+Pilot tree at close: **55,305 lines of Lean** (extractor-generated; superseding C2's 32,783).
+
+**Step D — compliance sign-off (Iteration-4 final sweep, 2026-11-19):**
+
+> Signed off (Iteration-4 final sweep 2026-11-19): all kept Iteration-4 pilot artifacts
+> elaborate on mathlib `ff2494ea` (v4.36.0-rc2) or a declared donor pin with standard
+> axioms only — no `sorry`, no `native_decide`, no external CAS in any proof artifact;
+> the sole `sorry` tokens in the tree are the enumerated header-justified
+> probe-convention stubs (carry-forward baseline + Iteration-4 additions, listed:
+> 43 C2 + 3 al3d/P0 + 3 lp/P0 + 2 ProbeG9 + 1 ProbeG10 = 52 exact, sweep-time
+> certificate `probe/logs/stepA-incremental-iter4.log`), never cited as results;
+> external donors enter only as statements — binders, verbatim probe copies, or
+> already-built on-pin libraries (ZetaZerosV2 built-tree: zzv2-lam P1 `p1-run3.log`,
+> 42-M4b `stepB-c2-m4b-donor.log`; zeta23e donor-pin probe: log-header sha of record);
+> counts in this sign-off are extractor-generated.
+
+Steps A–C surfaced nothing further at the close (the 5 run1 FAILs were staging defects,
+re-discharged 5/5 per the run2-subset log; the AxDep_AL3DP0 sorry-warning flag is the
+certified-probe-token class, dispositioned in-log).

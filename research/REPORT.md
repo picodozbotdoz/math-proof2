@@ -551,3 +551,24 @@ REPORT fills from REPORT-INPUTS-ITER4 §1–§4 (fully audit-reconciled `fa4dfba
 **close-instrument DRAFTS `a42dc77`** (SPLICE :71 close block + 3 stamps + 8-placeholder
 map — apply-gated, orchestrator signal). **PENDING (A1): fold-owner standby; the §10
 landings table current through §10.21.**
+
+### I4.7 Close-out record (2026-11-19 at K — final currency; supersedes the I4.2 wave-2 state and the I4.6 PENDING note)
+
+Iteration 4 closed 2026-11-19 (close-completion commit K = this commit; the close act
+was interrupted post-Step-8 on 2026-11-18 and completed at K per the W1 pre-landing
+ruling). Final basis: §10 tables N = 32 — **26 GREEN-triad / 3 honest-partial / 3
+NOT-GREEN-honest** (machine tally `tally_section10.py`; every landed row triad-only,
+0 sorryAx); whole-tree **385/386 triad-clean decls** (226/226 machine + 159/160
+manual; the ONE residual = 77-T2's filter-blind-spot tainted decl → Iteration 5) +
+**18/18 donor rows** at their donor pins. Final sweep: Step-A certificate **52
+exact**; Step-B **58/58 stages OK** (53 run1 + 4 re-fired + M4b bytes-unchanged
+citation), **807 custody records, 0 sorryAx**; `VERIFICATION-LEDGER.md` §10 + Step D
+signed. Gates G1–G8 executed on the exact closing tree (`qa/iter4-closeout-gates.md`
+§G8, committed with the close). Discovery ledger final: **75 two-tier**
+DISCOVERY-CONDITIONAL (P-b entry + 5/6 strip-distinct arm FINAL-GREEN) + **78
+NEGATIVE** (discovery-grade; quota not consumed). **KPI (two-strike ratio): met with
+margin — new-article class 100% discovery-grade (75 v2, 78); cap-N = 1 UNSPENT
+(DECISION-1 ruled 2026-11-19: spend-only-if-executed; the FB-2 vs FB-4 vs unspent
+contest = Iteration 5); stock health line 6/14 ≈ 43%.** Token census 40/46 closed
+in-cycle / 6 retargeted / 0 unrulled. Carried items with owners: the STATUS closed
+block (same date); evidence pointers `qa/iter4-review/r3-verification-tables.md` §10.

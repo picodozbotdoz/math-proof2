@@ -379,8 +379,11 @@ current/closure bytes, sha256(16) `da05c60ceb78755b`. **Step-B full-coverage clo
 direct-print exactly `[propext, Classical.choice, Quot.sound]`, 0 `sorryAx`, official
 scan 124 records all-triad, at source sha `da05c60ceb78755b`** — the per-row evidence
 below is complete at the closure bytes, with the run-11/12 prints as the per-theorem
-pointers. sha256 at the final sweep [the close-out re-verification pass that
-hash-stamps the staged files]: PENDING-CLOSE — owner H; `Pa.lean`/`P0.lean` likewise.
+pointers. sha256-at-sweep (final sweep, 2026-11-19): `Pa.lean` `d61eb0485a6ff672`
+(1,557 LoC; `AxPilot75_Pa` drift-check re-stage); `Pb.lean` `da05c60ceb78755b`
+(2,303 LoC; = the closure bytes above — standing log `axcheck-full-run1.log` cited,
+not re-run); `P0.lean` (zeta23e) `986f1ce879786f33` (59 LoC; probe-convention file,
+log-header stamp, never a Step-B stage).
 
 ### Verification: Theorem A — `CrossMath.Pilot75.zetaL_assembly_landed`
 - file: `research/pilots/75/Pa.lean:1473–1518` (carried verbatim in `Pb.lean`)
@@ -548,11 +551,10 @@ verification tables `research/qa/iter4-review/r3-verification-tables.md` §§6-r
 | 8 | formal record table-only; no infrastructure narration | PASS — §6 opens with the §6-format table and adds the per-theorem verification blocks (R3 §5 format; charter-mandated); the coverage corrections in §7.5 are stated as record facts, not run histories; error-descent numbers of v1 removed |
 | 9 | internal vocabulary ≤ 3 glosses | PASS — "donor" appears only as the substrate qualifier sanctioned by the template; no dossier/pilot IDs in body prose (paths only in §6/§8 evidence cells, where they are citations) |
 | 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; plus A1's pre-check pass (all rows verified against the record chain; closure log `axcheck-full-run1.log` added per F1); re-verify at splice |
-| 11 | README row updated in the same commit | **PENDING — owner H**: the `articles/README.md` row 75 must move to the v2 wording (two tiers; Dirichlet-column discharge audited; N2 still carried) in the splice commit |
+| 11 | README row updated in the same commit | SATISFIED — row 75 moved to the v2 two-tier wording at `37a2637` (2026-11-17, H; one commit after the `a6c7b13` article landing, the drift the G5 dry-run flagged, closed same-day); the close commit adds the counts line and the N2-conditional refresh if branch-landed fires |
 | 12 | superseded files marked; edit-state claims git-checked | PASS — v1 superseded in place by this file (§0); no claim about another article's edit state is made beyond cited record paths |
 
-PENDING-CLOSE fields (owner named per the task convention): sha256-at-sweep and final
-LoC re-measure of `Pa.lean`/`Pb.lean`/`P0.lean` (§6 preamble) — **owner H** at the
-final sweep; any G-class evidence beyond the recorded zeta23e audit (none needed by
+Closed at the final sweep (2026-11-19): sha256-at-sweep and final LoC re-measure
+of `Pa.lean`/`Pb.lean`/`P0.lean` STAMPED (§6 preamble); any G-class evidence beyond the recorded zeta23e audit (none needed by
 this draft's claims) — **owner A1** for ledger rows. Rubric floor: (a) precision 2,
 (b) status honesty 2, (d) citations 2 — self-assessed; R1/gate re-check at splice.

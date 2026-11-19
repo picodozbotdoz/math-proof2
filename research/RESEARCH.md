@@ -195,7 +195,9 @@ before the close commit the tree greps clean of future and split-mind dates.
 (5) **Staging-file supersession** — when a staged block is spliced or decided, the
 staging file gets its superseded/selected stamp in the same commit.
 
-**Close-out record (2026-11-18).** Iteration 4 closed 2026-11-18 (orchestrator).
+**Close-out record (2026-11-19; dated correction at K: the close act was
+interrupted post-Step-8 on 2026-11-18 and completed at K on 2026-11-19 per the W1
+pre-landing ruling).** Iteration 4 closed 2026-11-19 (orchestrator).
 Final state: the wave's pilot slots resolved as recorded in
 `qa/iter4-review/r3-verification-tables.md` §10 (landings §10.1–§10.32 at close:
 tables N = 32 — 26 GREEN-triad / 3 honest-partial / 3 NOT-GREEN-honest [D7 RULING

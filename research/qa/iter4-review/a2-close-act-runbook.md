@@ -1,4 +1,5 @@
 # A2 — ITERATION-4 CLOSE-ACT RUNBOOK (ordered execution plan; PREP ONLY)
+> EXECUTED 2026-11-19 — the 20-step close act executed: Phase-1 pre-landed at W1 `8c1c544` per the orchestrator's superseding ruling (2026-11-18); K = the close-completion commit (this commit); gates G1–G8 verdicts in `qa/iter4-closeout-gates.md` §CLOSE-ACT GATE RUN.
 
 Lane A2 (bench/close-out), 2026-11-18. **Phase-1 steps REHEARSED 2026-11-18** against
 main @ `c67d64e` — staging copies + the mechanical apply script live at
