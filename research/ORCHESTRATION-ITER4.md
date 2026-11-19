@@ -45,6 +45,16 @@ batch; [DATE-CLOSED] = K's actual date per the W1 ruling). Iteration 5 opens wit
 the next commit (`RESUME-BRIEF-ITER5.md` = the live brief).** The R-rows below are
 the wave-4 working map; their iteration-5 duties continue per the charter.
 
+**ITERATION 5 OPENED 2026-11-19 (the opening commit follows K): charter spliced
+(`RESEARCH.md` §Iteration 5 :246 via the approved machine diff) + the §STATUS
+opened block (STATUS.md :868) + the day-1 records of R3 (M-arc GREEN run 2), R4
+(41-P0 GREEN), R5 (η-pin-probe GREEN run 2, PROBE COMPLETE, OVER-cpu investigation
+delivered), R6 (N2-P2 runs 22–23 to budget; .lean in flight past parked sha
+`68a73689…`), R7 (Liu B_new P0 GREEN run 2) and R8 (AL M0-rebuild GREEN run 3) +
+the watchlist + the wave-2 queue. Charter decisions: DECISION-1/3/4/6 ruled at
+open (see the STATUS block). This tracker is now the ITERATION-5 lane tracker
+(rows below continue under the iteration-5 charter).**
+
 | Lane | Worktree | Role | Current task | Status | Last update |
 |---|---|---|---|---|---|
 | H | (main) | helper/infra (sole committer; K + opening mechanics) | **K EXECUTED 2026-11-19** (14/14 steps clean; post-K re-greps in h-wave4-log) + the iter-5 opening commit next | active | 2026-11-19 |

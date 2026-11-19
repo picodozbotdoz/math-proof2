@@ -1,16 +1,19 @@
 # Pilot 75-N2 P1 — verification record (COMPLETE: M1+M2+M3 all GREEN-triad)
 
 Lane A5, sessions 2026-11-17 (runs 1–8) + 2026-11-18 wave-3 (runs 9–15, M1+M2)
-+ 2026-11-18 re-task (runs 16–19, M3). Charter chain: orchestrator P1 GO ruling
++ 2026-11-18 re-task (runs 16–19, M3) + 2026-11-18 close-act (runs 20–21, P2-a
+open) + **2026-11-19 wave-4 R6 (runs 22–23, P2-a fix-loop to budget
+exhaustion — see §P2 state)**. Charter chain: orchestrator P1 GO ruling
 of 2026-11-17 (≤6-run fix-loop); restart charter 2026-11-18 (closure + one
 fix+rerun + M2 + M3-if-budget); re-task 2026-11-18 (M3 execution, fresh ≤6-run
-budget, verify-fire discipline, hard-stop rule). Dossier:
+budget, verify-fire discipline, hard-stop rule); wave-4 task 2026-11-19 (R6:
+P2-a continuation, 2-run remnant of the P2 ≤6 budget). Dossier:
 `research/candidates/75-N2-rayclass-dirichlet-consumer.md` §Pilot spec skeleton
 (P1) + §Proof-strategy steps 1–3. A1 folds the §10-format block below into
 `qa/iter4-review/r3-verification-tables.md` (one-writer discipline). Evidence
-of record: `pilots/75/logs/n2-p1-run{1..19}.log` (per-run provenance headers
-with verify-fire shas + error-class analyses; **run 19 = the verified state**,
-sha ca1089e2a0c1…).
+of record: `pilots/75/logs/n2-p1-run{1..25}.log` (per-run provenance headers
+with verify-fire shas + error-class analyses; **run 19 = the verified P1
+state**, sha ca1089e2a0c1…).
 
 ## Milestone verdicts (verified state = run 19)
 
@@ -94,6 +97,48 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   limit); run 17 (1 error: unit-vs-element metavariable rw in hvne); run 18
   (1 error: `.symm` direction); **run 19: OK — 14/14 triad-clean**. Four M3
   runs (2 under budget).
+- Runs 22–23 (2026-11-19, R6 wave-4, the 2-run remnant of the P2 ≤6 budget;
+  input shas 4839521c… (r22, from parked ecd44c6a + 4 pin-verified fixes) →
+  r23): **r22 8→3 errors** — the four R6 fixes all landed (isDiscrete_zeroSet
+  block fully green: `DifferentiableOn.analyticAt` + `.analyticOnNhd`
+  (CauchyIntegral.lean:721/:729 — the REAL complex bridges; neither
+  `DifferentiableAt.analyticAt` nor `Differentiable.analyticOnNhd` exists on
+  the pin), the `.frequently` append (mathlib's own
+  `frequently_zero_iff_eventually_zero` idiom), the verified 5-tuple
+  `Filter.disjoint_iff` shape, the missing-`have` on `him`); residue = hBeq
+  and_assoc + IsBounded shadowing. **r23 3→4 errors — NOT descent: the r22
+  count was masking** (a failed have-type suppresses its whole tactic block;
+  hBbd's `rw` had never elaborated at r21/r22). Residue all name-resolution:
+  the pin's set-boundedness API is namespaced (`Bornology.IsBounded`,
+  `Metric.isBounded_iff_subset_closedBall`, `Metric.isCompact_iff_isClosed
+  _bounded`) while the file's `open Filter` shadows bare `IsBounded`; plus the
+  A5 tail-tuple shape (wrong all along, masked — Real's `≤` whnfs to lt-or-eq,
+  the r23 "more than one constructor" error). All four fixes applied on disk
+  post-r23 (parked, unfired, sha cf6d293f…); budget EXHAUSTED at 6/6 there.
+  Walls 66/59 s; r22 telemetry OVER-mem = the §Modal-5 mapped-olean artifact;
+  r23 finished under the first sample.
+- Runs 24–25 (2026-11-19, R6 unit 2, fresh ≤2-run grant on the diagnosis
+  class; input shas 68a73689… (r24) → ce6719c8… (post-r25 park)): **r24 11
+  errors — ALL inside the never-elaborated hBbd body, every other fix held**
+  (the Pa-idiom tail, hBeq, hBbd's have-type + rw, hBcp/hfin all green; the
+  masking lesson vindicated). Classes: bare `|ρ|` for ρ : ℂ is a lattice-abs
+  parse error on the pin ("failed to synthesize Lattice ℂ" — write `‖ρ‖`;
+  the ℂ norm instance is √(normSq), Analysis/Complex/Norm.lean:28–33);
+  `Complex.sq_abs` unknown (A5's guess — the bridge is
+  `Complex.norm_mul_self_eq_normSq` + `Complex.normSq_apply`, Norm.lean:33 +
+  Basic/Complex/Basic.lean:516); the folded-hρ linarith blindness (unfold via
+  the Pa simp-only idiom + obtain); `Metric.mem_closedBall` +
+  root `dist_zero_right` + `abs_le_of_sq_le_sq` for the finish. Full hBbd
+  rewrite in ‖·‖ form applied. **r25 11→1 — the whole rewrite landed; the
+  single residual (:772) was R6's own `abs_le.mp (le_abs_self T₁)`
+  construction unifying to the trivial `|T₁| ≤ |T₁|`; the intended
+  `-|T₁| ≤ T₁` is one line (`le_abs_self (-T₁)` + `rw [abs_neg] at h` +
+  linarith). Applied on disk, parked unfired (grant 2/2 SPENT; anything
+  beyond = STOP + findings per the ruling). Expected: the next run on the
+  parked sha ce6719c8… is P2-a GREEN (15/15, 0 sorry).** Walls 63/81 s;
+  r25 telemetry OVER-mem = the §Modal-5 mapped-olean artifact (cpu 0.67/2.0).
+  **Zero math defects across the entire grant; the P2-a argument is
+  unchanged since run 22.**
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -111,6 +156,73 @@ identity-theorem extension is now a one-shot reusable pattern
 ⇒ everywhere-off-{1}); the punctured-plane connectedness comes free from
 `isConnected_compl_singleton_of_one_lt_rank` + `Complex.rank_real_complex`.
 
+P2-a classes (runs 22–23, R6; all name-resolution/shape — zero math defects):
+
+- **The complex bridges are `DifferentiableOn.analyticAt` /
+  `DifferentiableOn.analyticOnNhd`** (Analysis/Complex/CauchyIntegral.lean:721/
+  :729) — `DifferentiableAt.analyticAt` and `Differentiable.analyticOnNhd` do
+  NOT exist on the pin; feed `hd.differentiableOn` + `isOpen_univ` /
+  `isOpen_univ.mem_nhds (mem_univ x)`.
+- **`AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero` takes ∃ᶠ
+  (∃ᶠ z in 𝓝[≠] z₀)**, not ∀ᶠ — from an ∀ᶠ-in-𝓝 branch use
+  `(h.filter_mono nhdsWithin_le_nhds).frequently` (mathlib's own
+  `AnalyticAt.frequently_zero_iff_eventually_zero` idiom; NeBot for 𝓝[≠] is
+  free over ℂ).
+- **`Filter.disjoint_iff` (Order/Filter/Basic.lean:420) is the 5-component
+  ∃** (`∃ s ∈ f, ∃ t ∈ g, Disjoint s t`); with `Filter.mem_principal_self`
+  (:152) + `Set.disjoint_iff_inter_eq_empty` under `_root_.disjoint_iff.mp`
+  (Order/Disjoint.lean:162) it discharges the `isDiscrete_iff_nhdsNE` goal
+  `𝓝[≠] x ⊓ 𝓟 S = ⊥` (note the pin's RHS is the inf-equation, not NeBot).
+- **Set-boundedness API is NAMESPACED on this pin**: `Bornology.IsBounded`
+  (Topology/Bornology/Basic.lean:101), `Metric.isBounded_iff_subset_closedBall
+  ` and `Metric.isCompact_iff_isClosed_bounded` (inside `namespace Metric`,
+  MetricSpace/Bounded.lean:65/:97) — Bounded.lean reads them bare only via its
+  own `open Bornology`; a consuming file with `open Filter` gets `IsBounded`
+  SHADOWED by `Filter.IsBounded` (Order/Filter/Defs.lean:491) and
+  `_root_.IsBounded` is a resolution error. `IsCompact.finite` (Compactness/
+  Compact.lean:1054, takes `(hs : IsCompact s) (hs' : IsDiscrete s)`) and
+  `IsDiscrete.mono` (Constructions.lean:636, `(hs : IsDiscrete s) (hst : t ⊆
+  s)`) ARE root and fine.
+- **THE MASKING LESSON (runs 21–23)**: under a failed `have`-TYPE, the
+  block's tactic lines are suppressed — absence of per-line errors inside a
+  masked block is NOT evidence of correctness (A5's r21 "hBbd fixed" note and
+  R6's r22 "hBbd body clean" reading were both this artifact; it also hid the
+  tail-tuple shape error). Budget discipline consequence: error-COUNT
+  non-descent (3→4 at r23) can be an unmasking, not a regression — read the
+  positions, not the count.
+- **Real's `≤` whnfs to `a < b ∨ a = b`** (the LE instance is literally
+  lt-or-eq): an anonymous-constructor leaf mismatch against a Real inequality
+  surfaces as the confusing "expected type `0 < ρ.re ∨ 0 = ρ.re` has more
+  than one constructor". The fix is the tuple SHAPE (`rintro ⟨hρs, hρ2, hρ3,
+  hρ4, hρ5⟩` flattening supp ∩ stripWindow, then `⟨⟨le_of_lt hρ2, le_of_lt
+  hρ3, le_of_lt hρ4, hρ5⟩, hzero⟩` flat-4-in-pair against B ∩ zeros).
+
+P2-a classes (runs 24–25, R6 unit 2; all tactic-field — zero math defects):
+
+- **Bare `|z|` for z : ℂ does NOT elaborate on this pin** — the `| |`
+  notation attempts a lattice-flavored abs and fails with "failed to
+  synthesize instance Lattice ℂ". Write `‖z‖` (the ℂ norm instance is
+  √(normSq), Analysis/Complex/Norm.lean:28–33; `Complex.norm_nonneg` is
+  protected — call it by full name).
+- **The |z|² = re²+im² bridge**: `Complex.sq_abs` does NOT exist; use
+  `‖z‖ ^ 2 = ‖z‖ * ‖z‖ (by ring)` → `Complex.norm_mul_self_eq_normSq`
+  (Norm.lean:33) → `Complex.normSq_apply` (Basic/Complex/Basic.lean:516),
+  finished with `ring`.
+- **linarith cannot see through folded set-membership hypotheses** — unfold
+  first with the Pa idiom (`simp only [hBdef, Set.mem_ofPred_eq] at hρ`)
+  then `obtain` the bounds; |T|-atom connections need explicit facts
+  (`T₂ ≤ |T₂|` via `le_abs_self`; `-|T₁| ≤ T₁` via
+  `le_abs_self (-T₁)` + `rw [abs_neg] at h` + linarith).
+- **The `abs_le.mp (le_abs_self a)` TRAP** (r25's single error): the
+  application unifies to the trivial `|a| ≤ |a|` and fails — expected-type
+  propagation sets the iff's `b` from the projection, not from the argument.
+  Construct negated-abs facts via the `le_abs_self (-a)` + `abs_neg` route.
+- **The closedBall finish**: `Metric.mem_closedBall` (Pseudo/Defs.lean:423,
+  namespaced — NOT bare) + root `dist_zero_right` (bare; precedent
+  Normed/Module/Convex.lean:119) + `abs_le_of_sq_le_sq`
+  (Algebra/Order/Ring/Abs.lean:134) with a final `rwa [abs_of_nonneg hn] at
+  hle` (the lemma concludes `|a| ≤ b`, the goal is `a ≤ b` for `a := ‖ρ‖`).
+
 ## P2/P3 recommendation (updated 2026-11-18, post-M3)
 
 - **P2 (the hEχ port): GO** — every dictionary-level input it needs is now a
@@ -123,28 +235,62 @@ identity-theorem extension is now a one-shot reusable pattern
   `hAbFacQ : ∀ s ≠ 1` bridge the engine consumes, so P3's composition is a
   direct application chain (transfer → identity-extension →
   `zetaL_rat_two_thirds_landed`).
-- **P0 amendment owed** (the FIND above): add `hnp` to
-  `DirichletFactorizationTransferQ`.
+- **P0 amendment owed** (the FIND above): ~~add `hnp` to
+  `DirichletFactorizationTransferQ`~~ — **APPLIED by A5 2026-11-18** (dated
+  erratum block at `N2-P0.lean:161`; elaborates OK runs 20–23).
 
 — end record (A5, 2026-11-18; P1 COMPLETE — M1+M2+M3 GREEN-triad at run 19).
 
 
-## P2 state at the close-act hard stop (A5, 2026-11-18)
+## P2 state at the close-act hard stop (A5, 2026-11-18) — superseded by §below (R6)
 
 - **Riding item DONE**: the N2-P0 erratum applied (`DirichletFactorizationTransferQ` + the `hnp` antecedent, dated erratum block at `N2-P0.lean:161`; P0-record note added; the amended file elaborates OK in runs 20–21; ledger 15/15 stands as history).
 - **P2-a (windowFinite_LFunction) IN FLIGHT**: first elaborations runs 20–21 (10 → 8 errors, all in the P2-a block; the 14/14 triad state below line 720 is untouched and error-free). Four name-resolution classes fixed at run 21 (namespace AnalyticAt; Continuous.preimage_isClosed; IsBounded/isBounded_iff_subset_closedBall; two-preimage closedness). Remaining 8 errors: see `logs/n2-p1-run21.log` header + error list. 4 of the ≤6 P2 runs spent; parked at sha d4efc4ff… per the hard-stop rule.
 - **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the dossier §Proof-strategy steps 4–5; the P2-b API facts pinned this session: `DirichletCharacter.LSeries_changeLevel` (EulerProduct/DirichletLSeries.lean:173, exact form recorded above), `changeLevel_injective` (Basic.lean:79), `LSeries_ne_zero_of_one_lt_re` (Dirichlet.lean:233). P3 readiness: `factorization_identity_extension` (run 19) supplies the engine-input bridge; P3 is blocked only on P2-c.
 
 
-## NEXT-INSTANCE RESUME NOTE (post-hard-stop disk state, sha ecd44c6a…)
+## P2 state after runs 22–25 (R6, 2026-11-19) — grant 2/2 spent, ONE fixed-on-disk residual, parked
 
-Three certain fixes applied on disk AFTER run 21 (no run fired, per the hard-stop
-rule): (1) `.analyticAt` bridge on the isolation lemma's argument
-(`DifferentiableAt → AnalyticAt`); (2) `AnalyticOnNhd.` namespace prefix on
-`eqOn_zero_of_preconnected_of_frequently_eq_zero`; (3) the closed-preimage lemma
-is `IsClosed.preimage (hf : Continuous f) (h : IsClosed t)` (Topology/Continuous.lean:188).
-Run-21's two remaining classes beyond these: the `hne2` show/rw bridge
-(`ZMod.LFunction (⇑χ) 2`-form vs the LSeries lemma's shape — expected one-line
-adjustment) and the hBbd/hBcl tactic hunks (750:28 unsolved + 753 unknown-tactic —
-the `ext ρ; simp [hBdef, Set.mem_Icc]` set-identity hunk). Fire run 22 on this
-sha as the next instance's first action; 2 runs remain of the P2 ≤6 budget.
+- **Riding item DONE (carried from A5)**: the N2-P0 erratum applied; the
+  amended P0 file elaborates OK in runs 20–25.
+- **P2-a (windowFinite_LFunction) STILL IN FLIGHT — not green, but at
+  11→1 descent with the single residual FIXED ON DISK.** Error history:
+  10 (r20) → 8 (r21) → 3 (r22) → 4-unmasked (r23) → 11-unmasked (r24,
+  all in the never-elaborated hBbd body) → **1 (r25 — R6's own bad
+  `abs_le.mp (le_abs_self T₁)` construction, one-line-fixed post-r25)**.
+  Every residual across ALL of runs 20–25 is name-resolution/shape/tactic-
+  field class — **zero math defects; the P2-a argument is unchanged since
+  run 22** (entireness ⇒ isolated zeros ⇒ discrete ⇒ closed ⇒ compact-box
+  finite; `isDiscrete_zeroSet` core GREEN since r22; hBcl/hBeq/hBbd/hBcp/
+  hfin/tail all validated at r25). The 14/14 M1+M2+M3 triad core stayed
+  error-free in every run; `windowFinite_LFunction`'s sorryAx is the
+  failed-decl artifact only.
+- **Budget: wave-4 ≤6 spent, then grant ≤2 spent (runs 24–25). Lane STOPPED
+  per the ruling ("anything beyond = STOP + findings").** The next firing
+  needs a new budget ruling; expected outcome GREEN (see resume note).
+- **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the
+  dossier §Proof-strategy steps 4–5; the P2-b API facts stand as recorded
+  above. P3 readiness: `factorization_identity_extension` (run 19) supplies
+  the engine-input bridge; P3 is blocked only on P2-c. **P3 skeleton NOT
+  drafted (both taskings conditioned it on P2-a GREEN — unmet at 1-residual
+  depth).**
+
+
+## NEXT-INSTANCE RESUME NOTE (R6 unit-2 close, parked disk sha ce6719c8af450eaa…)
+
+EXACTLY ONE fix applied on disk AFTER run 25 (no run fired — grant 2/2
+spent): the :772 `hnTa1 : -|T₁| ≤ T₁` construction replaced by the verified
+one-liner `have h := le_abs_self (-T₁); rw [abs_neg] at h; linarith`
+(le_abs_self confirmed Abs.lean:120; abs_neg in-scope by usage Abs.lean:35/
+:75; the r25 error text showed the old form unifying to the trivial
+`|T₁| ≤ |T₁|`). NOTHING else changed from the r25 input. **Expected: the
+next run on sha ce6719c8… is P2-a GREEN — 15/15 file decls triad-clean
+including `windowFinite_LFunction`, 0 sorry.** Fire it as the next
+instance's first action after a budget ruling; verify-fire discipline
+unchanged (pre-run sha guard in the log header). On GREEN: proceed to
+P2-b (strip immunity — dossier step 4; API facts in the §P2 state above)
+and then the P3 skeleton (V2 ζ-column + composed landing statements,
+zero-sorry rung, hypothesis-binder pattern). On any residual: read the
+:context (the only remaining never-green-path text is the nlinarith slack
+hunk — if IT is the residual, try `nlinarith [hsre, hsim, hT1, hT2, hb1,
+hb2]` or split the (2+A)² expansion into explicit pow-mono steps).

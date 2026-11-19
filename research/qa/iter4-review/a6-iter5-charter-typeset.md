@@ -1,0 +1,338 @@
+# A6/R3 — Iteration-5 charter TYPESET (exact splice text for the orchestrator's RESEARCH.md pass)
+
+Lane R3 (A6 lineage, worktree agent-07), 2026-11-19, wave 4. This document is the
+typeset-ready §Iteration 5 section: §SPLICE below is the exact text H appends to
+`research/RESEARCH.md` (after the Iteration-4 close-out record paragraph, i.e. at end
+of file at `e3d984b`); §STATUS-BLOCK is the exact `research/STATUS.md` opened-block
+text (appended after the close-completion K leaves the Iteration-4 section closed —
+K does not touch RESEARCH.md, both files are pre-landed by W1). Source of record:
+`qa/iter4-review/a6-iter5-charter-draft.md` (§8 FINAL-OUTCOME REFRESH authoritative;
+§6 DECISION register) + the orchestrator rulings of 2026-11-19 (DECISION-1/3/4/6,
+quoted as such in the splice). A machine-generated unified diff against
+`e3d984b:research/RESEARCH.md` ships alongside: `a6-iter5-research-splice.diff`
+(extracted programmatically from §SPLICE — no transcription drift; `git apply` clean).
+
+Everything between the SPLICE markers is charter text (goes to RESEARCH.md verbatim);
+nothing outside them does.
+
+<!-- ===================== BEGIN SPLICE (RESEARCH.md) ===================== -->
+
+## Iteration 5 (opened 2026-11-19, orchestrator) — same raised bar, pre-consolidated seeds, staged day-1 fires
+
+Iteration 4 closed 2026-11-18 with the verification chain complete (§10.1–§10.32 at
+close; whole-tree 385/386 triad-clean + 18/18 donor rows at their pins), the
+knowledge-level quota N=1 UNSPENT (78 = NEGATIVE-kind, discovery-grade, no
+consumption), every chartered slot landed or honestly recorded, and two hard-stop
+rulings minting iteration-5 payloads: the **Landau η-port** (ZZV2-λ P2,
+`pilots/zzv2-lam/P1-record.md` §HARD-STOP :75–90) and **10-D4's M-arc assembly w/ hv**
+(`pilots/10/D3-record.md:31–37`). Iteration 5 re-charters under the SAME raised
+discovery bar (R2 S1–S4 + the iteration-4 template; two-strike cap N = 1 per cycle;
+≥ half of shipped articles discovery-grade) over the same five corpora (mathlib,
+tauceti, openai-math, anthropics, axiommath) plus the Cycle-2/Iteration-4 donor
+registrations. The seed inventory is PRE-CONSOLIDATED at open — A6's charter
+consolidation (`qa/iter4-review/a6-iter5-charter-draft.md`, §8 final-outcome refresh
+authoritative) over its three payload pre-charters
+(`qa/iter4-review/a6-iter5-charter-candidate.md` — ranked leads, bench audit, and
+the §5a NS-1 sweep: NS-1 KILLED, verdict COVERED;
+`qa/iter4-review/a6-41-p0-precharter.md` = Lead 2's payload;
+`pilots/zzv2-lam/eta-port-precharter.md` = Lead 3's payload) — no
+new scan is needed at open; the bench is coherence-audited (candidate §4): **41
+CHARTER — the iteration-5 opener** (`INDEX.md:290`), **12 DEFER behind 41** (P0-first
+mandatory); FF-EZ2 and the physlib probe left the bench by execution. Discovery
+posture: every launch slot below has a named NEW-statement target or a pre-ruled
+opener; formalization-first work competes only for the single knowledge-level quota
+slot and never displaces a discovery lead.
+
+**Orchestrator rulings at open (2026-11-19; binding this iteration).** **DECISION-1:**
+the N=1 quota opens UNSPENT by default — spend-only-if-executed; the contest is FB-2
+vs FB-4 vs unspent; discovery leads are never displaced by the knowledge-level slot.
+**DECISION-3 (confirmed):** the cap is per-cycle — a fresh N=1 in Iteration 5
+(iteration-4's unspent status is the health indicator, not a carry-over); FB-2 and
+FB-4 compete for the SAME single slot (the η-port Option-C corollary is out per
+DECISION-2 = A). **DECISION-4:** pilot-41's (H) phase stays WAVE-TAIL CONDITIONAL —
+no own slot or milestone budget at open; promotion to its own budget only by
+mid-wave orchestrator ruling after core S–M GREEN + the (H) preflight pass.
+**DECISION-6:** bench conversions DENIED at open — 12-P0 and 11-M3 stay under the
+drain-activation rule (activate only when a pilot lane drains); 12-P0 may convert
+mid-wave on idle-lane + dry-queue. (DECISION-2 = Option A, record-billed quota-free,
+and DECISION-5 = resolved-by-battery for the η-port scope were ruled 2026-11-18 and
+are folded into Lead 3 and the battery record; Option B unsupported, Option C closed.)
+
+**Quality gate (carried verbatim from §Iteration 4 — normative here, operational in
+`articles/TEMPLATE-iter4.md`).** An article ships only through the template — kind
+declaration (DISCOVERY / DISCOVERY-CONDITIONAL / NEGATIVE / FORMALIZATION-FIRST),
+per-theorem status rows in the closed four-string vocabulary, a novelty table with
+≥ 2 nearest-miss rows, per-theorem verification blocks per R3 §5, no infrastructure
+narration, the full §9 checklist. A candidate is article-eligible only if it passes
+R2's S1–S4. Donor swaps, binder discharges, certified numerics and
+formalization-first layers are first-class ENGINEERING deliverables — never
+discoveries; an upgraded theorem is revised to v2 in one versioned article.
+Two-strike rule FINAL: at most **one** knowledge-level / formalization-first /
+donor-discharge article per cycle, and ≥ half of shipped articles discovery-grade.
+
+**Launch order (day-1 items STAGED on main, unfired):**
+
+(1) **75-N2 completion — resume first** (the strongest discovery-grade lead;
+S4(a)-class). P1 is COMPLETE — M1+M2+M3 GREEN-triad at run 19 (14/14;
+`heckeTsum_eq_ratCharOf_LFunction`, `hasQDirichletDictionary` = N2-a discharged;
+§10.29 roll-up 278/278 triad-clean, zero residuals). **P2 is paused at the close
+hard-stop: fire run 22 as the first action** on the parked post-fix sha `ecd44c6a…`
+(three certain fixes on disk, unfired; 2 runs remain of the ≤6 budget; resume note
+`pilots/75/N2-P1-record.md:139–150`; run-21 residuals are two named classes beyond
+the applied fixes). P2-b (strip immunity) / P2-c (port) not started, API facts pinned
+(`DirichletCharacter.LSeries_changeLevel` EulerProduct/DirichletLSeries.lean:173;
+`changeLevel_injective` Basic.lean:79; `LSeries_ne_zero_of_one_lt_re`
+Dirichlet.lean:233). P3 (V2 ζ-column + the composed `zetaL_rat_two_thirds_landed`
+landing) is GO, blocked ONLY on P2-c (`factorization_identity_extension` supplies the
+exact `hAbFacQ` bridge; M4b import pattern settled). Then N3 axcheck (S) and the
+unconditional-at-ℚ endpoint `zetaL_two_thirds_landed_ℚ` — N2-d unproven at close is
+this lead's own remainder. The 50-M2-R2 binder fold resolves here ((d1) staging
+shared). Citations: `pilots/75/N2-P1-record.md`, dossier
+`candidates/75-N2-rayclass-dirichlet-consumer.md`, pre-shipping sweep 3×NOVEL
+(`3e5aaef`). Substrate warm (`crossmath-pilot-75`). Gate: none hard.
+
+(2) **Pilot 41, q-deformed-eight-square — the pre-ruled OPENER, day-1.** Payload:
+`qa/iter4-review/a6-41-p0-precharter.md` → the staged `pilots/41/P0.lean` (190 LoC,
+self-consistency passed, firing instruction in-file; commit `f5cfe5e`): verbatim eth
+port (`EightSquareStatement.lean:37–53` + `SecCrossing_Identity.lean:126–136`);
+`sigmaQ`/`Gq` in `Polynomial ℤ` + `aeval` — the no-Laurent pin; Prop-valued
+zero-sorry statements (M)/(B)/(P1)/(P2)/(N)/(N′); (H) at binder tier only (the
+EnclOK `HostTransport` binder). P0 = 1–2 warm runs (`crossmath-probe`, doz CLI,
+SPEC 2cpu/4GB, LEAN_NUM_THREADS=2); gates G-P0(a)–(c) as specced; then core S–M
+≈ 0.5–1k LoC, 3–5 runs. **(H) is wave-tail conditional per DECISION-4** (+1–3k LoC,
+own gate and budget only if promoted mid-wave). Descope ladder pre-negotiated ((N′)
+degenerate branch; (H) no-match ⇒ Cayley–Dickson anchor; decide-too-slow ⇒
+enumeration; aeval friction ⇒ map form). Headline discipline locked by round-3:
+"first sign-rule/parallelogram-defect deformation", never "first q-deformation"
+(Benkart–Pérez-Izquierdo 1998 owns the q-composition object level; nearest-miss
+citations per the dossier's five). The dossier-41 G_q display errata are stamped and
+the pre-charter carries the corrected `Gq` — the pilot consumes the corrected form.
+
+(3) **The Landau η-port (ZZV2-λ P2) — record-billed per DECISION-2 = A** (pure
+technical record, quota-free; the ZZV2-λ technical-record continuation). Payload:
+`pilots/zzv2-lam/eta-port-precharter.md` (κ=1 amendment folded) + the staged
+`pilots/zzv2-lam/eta-pin-probe.lean` (320 LoC at `e3d984b`; staged `c7a3089`,
+firing-paragraph precision + runner-compat 4/4 PASS `c359f48`; unfired). Target:
+`exists_KSAsymptotic_of_pos` (∃ c, `KSAsymptotic lam c ∧ |c − scaledConstLam lam| < ε`
+for all λ > 0) via the scaling-covariance ladder (`dilateTo`/`extremalLam`/
+`cutoffTestLam`/`correctedTestLam` — the corrected test keeps the donor's
+`1/(4 log²T)` coefficient VERBATIM: the κ=1 pairWeight cancellation
+`4/(4−(ρ−ρ′)²)` is family-independent). **Cost note, verbatim per A3 §2.2: the donor
+bridge chain is ENTIRELY private (14 lemmas, `Zeta/Kernel.lean:237–599`) ⇒ local
+re-proof, no transport-by-invocation shortcut** (the P1 private-copy precedent writ
+large; sibling-read-only forecloses donor patching). Budget: **6–10 runs (the κ=1
+amendment shifts the plausible band to 5–8; honest ceiling 12), 0.8–1.5k LoC, class
+L** (1 pin-probe + 4–8 proof-loop + 1 regression/assembly; ≈1–1.9 h total at SPEC;
+staged-image option per A3 §4 Phase 2 — a fresh `crossmath-pilot-zzv2-eta`-class app,
+G7b layer pattern — if the loop grows past ~4 runs). **Donor hygiene at the pin
+probe:** consumer-side `#print axioms` triad prints for the newly consumed public
+names — minimally `PairCorrelation.tendsto` + the `pairCorrelationSum`/`pairWeight`
+surface. Regression discipline: λ = 1/2 recovers the frozen constants bit-for-bit,
+proved FIRST as the mid-ladder checkpoint. Billing guards binding: the informal
+λ-dependence is Lamzouri's (must-cite in full: Lamzouri arXiv:2609.02882 + Montgomery
+ICF 1974 + Baluyot–Goldston–Suriajaya–Turnage-Butterbaugh 2024); never phrased as
+new mathematics — the η-port round-5 battery graded every component
+PARTIALLY-COVERED/COVERED informally (component (ii) COVERED post-amendment; the
+battery also closes the G7-retarget ZZV2 residual).
+
+(4) **Same-week engineering rungs (never discovery-billed):** 10-D4 M-arc assembly
+w/ hv — all inputs GREEN (`D3-record.md:31–37`); supply the value-poly binder
+`hv : ∃ k, ∀ x, e x ≤ (|x|+2)^k` or derive it Solver-side (the adjudicated
+two-true-forms amendment, `D1-record.md:42–45`); ~120 LoC, 1–3 warm runs; closes the
+dossier-10 machine layer. 72-M1 L3b–d + the interface theorem (spec
+`pilots/72-M1/L3-spec.md` §8; `REPORT.md` §I4.2 post-wave row). The Liu B_new
+statement-level port (the never-fired named-cheap item; the informal frontier B♭
+0.8748866 / B_new 0.8749570 now beats the in-corpus 7/8 donor): statement-binder
+port, Liu-1 convention — statement-level citation ONLY, DO-NOT-CONSUME as build dep
+(`novelty/liu1-as-donor.md` §5); warm, 1–2 runs, <250 LoC binder artifact.
+
+(5) **Debt rungs (each carries its own landed precharter):** the AL-3D find-#5
+canonical z-rank rebuild (`pilots/al3d/rebuild-precharter.md`; M0–M3 ladder, 12–18
+runs ≈ 3–4 lane-sessions; fences carried: no AreaLaw3D content, `PlanarAreaLawVar`
+binder not discharged, full `SlabAreaLaw3D` hard-stopped). 74-P2
+(`pilots/74/P2-precharter.md`; the two-atom hVarLB insufficiency find + FIND-#1's
+family recycled constructively; ≤5+≤5; 74-P1 completion is GREEN at 7/7 triad). The
+77 follow-up = T1-completion + T2 as ONE pilot (residual census = the work list;
+T1 NOT-GREEN honest at 31→7 residuals, zero math failures; T2 delivered 7/8
+triad-clean with one tainted decl — the filter-blind-spot residual, the whole-tree
+census's 1 of 386 — in scope, the runner filter fix already landed `43d55bb`);
+**re-run T1's differentiation against physlib's new `WickAlgebra` layer** (the
+2026-11-17/18 novelty event: the equal-statistics half of CAR now exists on physlib,
+T1's CAR-transport sub-content drops to formalization-parity, condition (i)'s C+ cap
+is more binding; FB-5/77's four charter conditions at
+`candidates/77-car-occupation-dictionary-laughlin.md:331–341` carry; the physlib
+clock rides the pilot at start AND end). The N2P0-sweep staging note (the
+hyphen-workaround closure: stage the Pa → N2P0 → N2-P1 chain in the runner's ORDER
+pattern or extend the rewrite map).
+
+(6) **Wave-tail / lane-drain queue (charter names them, no slot by default):** 12-P0
+(the DEFERred bench #2; P0-first MANDATORY, the termPrime/monotonicity check rides
+the P0, `pilots/12/preflight.md:94–106`; **conversion DENIED at open per DECISION-6**
+— mid-wave on idle-lane + dry-queue only); 11-M3 (CH20∘VW13; drain rule per
+DECISION-6; carries the Fischer arXiv:2610.32162 cite-consumable); FB-1/76-T1a
+(dual-value convergence rung; T2's 78-gate is clear); AL-3D B.3 (the designated
+iteration-5 rung at the 6.3k-LoC transcription pricing, held behind the rebuild
+outcome + the challenge-repo clock).
+
+**Quota + watchlist (as ruled).** The N=1 knowledge-level slot opens UNSPENT
+(DECISION-1/3): the contestants are **FB-2** (PNT-AP explicit-L: L-grade
+explicit-formula build per R6's deciding rg — zero PNT-AP statements in the OAI tree;
+donors registered, G7b 7/8 tree as the zero-free binder with G11 SiegelZeros `hLS`
+as fallback; PNT-AP at x^{7/8+δ} = QRH-paper2 Cor 1.2 verbatim,
+FORMALIZATION-OF-RECENT, never a discovery headline), **FB-4** (FF-PNT: M-effort
+formalization-first technical record, "must not consume a discovery slot" per R2),
+and **unspent**; default spend-only-if-executed (iteration-4 precedent: unspent again
+is a healthy outcome). **T2 ignition rule carried verbatim from §Iteration 4:** IF an
+FB-2 PNT-AP pilot charters (the G7b-audited 7/8 tree as zero-free binder, error
+x^{7/8+δ}, landing on mathlib's `NumberTheory/LSeries/PrimesInAP.lean`), THEN T2
+FIRES and the PNT+ watchlist upgrades DEFER → REGISTER-AND-PORT (upstream StrongPNT
+imported at the donor pin; G9 preflight staged). Not fired at open; **PNT+ stays
+DEFER** (T1/T2/T3 unfired; upstream v4.35.0 as of the last fetch). FB-3 stays a
+watch note; the battery-hardened FB dossiers on disk are 76 (FB-1) and 77 (FB-5,
+re-scoped).
+
+**Template gates.** Every article ships through `articles/TEMPLATE-iter4.md`
+unchanged — kind declaration; per-theorem status rows in the closed four-string
+vocabulary; novelty table ≥ 2 nearest-miss rows; per-theorem verification blocks per
+R3 §5; no infrastructure narration; the §9 shipping checklist. P0-GREEN is an
+elaboration verdict, never a proof claim (probe conventions); statement-probe
+`sorry` only in probe-convention files with headers.
+
+**Day-1 fire table (all staged on main, unfired):**
+
+| opener | state | payload |
+|---|---|---|
+| **41-P0** | staged, candidate-unfired (`f5cfe5e`) | `pilots/41/P0.lean` (190 LoC, self-consistency passed; firing instruction in-file; warm `crossmath-probe`, doz CLI, 1–2 runs) |
+| **η-pin-probe** | staged, record-billed per DECISION-2 = A (`c7a3089`; firing-paragraph precision + runner-compat 4/4 PASS `c359f48`) | `pilots/zzv2-lam/eta-pin-probe.lean` (320 LoC at `e3d984b`, unfired; κ=1 correction folded in the precharter) |
+| **N2-P2 run 22** | first action; parked sha `ecd44c6a…`, 2 runs remain of ≤6 | the resume note at `pilots/75/N2-P1-record.md:139–150` (three certain fixes on disk; two residual classes named) |
+
+All fires at SPEC 2 CPU / 4 GB + telemetry + `LEAN_NUM_THREADS=2` per the mandatory
+Modal guidelines.
+
+**Inherited dispositions from the close (TRIAGE next-cycle annotations).** The
+corrected token census closed 40/46 in-cycle, **6 retargeted to Iteration 5**, 0
+unrulled: the five RETARGET-ITER-5 G7 sites (`qa/iter4-review/a2-g7-token-inventory.md:56–73`)
+— `ITERATION4-SEED-DOSSIERS.md:56` (OAI family-265 companion sweep + AreaLaw2D 3D
+third-party formal activity; carrier the L6/`novelty/round-5*` canonical record),
+`ITERATION4-CHARTER-DRAFT.md:58` (AL-3D novelty residual + the ZZV2 sub-item — the
+latter now CLOSED by the η-port round-5 battery + DECISION-2), `lp-duality-bridge.md:68`
+(mathlib LP/PNT PR standing clock), `pilots/10/next-tranche-spec.md:3` +
+`10-blueprint.md:187` (resolve with the D4 charter line) — plus 77-T2's
+filter-blind-spot residual (in the 77 follow-up's scope). The 72-M1 L3-spec §8
+header rides the L3b–d carry. The canonical `novelty/round-5*` record and the AL-3D
+sub-item residual remain open obligations (DECISION-5's open remainder), as does the
+optional BGS-TB/Lamzouri full-text pass (warranted only if a future consumer
+challenges the DECISION-2 ruling).
+
+**Standing rules + registries carried.** Ground rules verbatim: discovery-first,
+kernel-only (no `sorry`, no `native_decide`, no external CAS), siblings read-only,
+exact citations for every claim; donor statements enter only as hypothesis binders,
+verbatim marked probe copies, or already-built on-pin libraries; logs persisted with
+provenance headers; one writer per file; H commits only. Modal per the AGENTS.md
+mandatory guidelines (2 CPU / 4 GB default, telemetry every run,
+`LEAN_NUM_THREADS=2`, taskset-not-`-j` on lake phases, investigate-not-upgrade,
+cached image layers for long builds, never over-reserve). Lane topology: H +
+queue-loaded sticky lanes. **The Λ-absence ban carries verbatim (debt-l):** Λ ≤ 9/32
+is kernel-checked by DrMurphyIsIn; "Λ absent everywhere" is false — any Λ idea must
+START from this artifact. Standing clocks (`qa/REPORT-INPUTS-ITER4.md:69`): tracker,
+Liu-2, WenrongZou, physlib pushed_at + wing sweep, mathlib PNT/LP PRs, AreaLaw2D
+challenge repo, QR-D race consumers (Bhargava–Vemulapalli arXiv:2611.09031;
+Baldwin–Sivek arXiv:2611.06705; Cao–Gao–Huang–Nie arXiv:2610.37179; Frei–Sofos–Widmer
+arXiv:2610.18491; Walsh arXiv:2610.40439). Debts f/h/l open (HKT theorem-number
+partial pin; tracker as_of convention; the Λ-absence ban); debt g closed 2026-11-17.
+Donor registration: the Sept-2026 honeycomb-SAW cluster (9 OAI preprints +
+~150-module proved tree, `OAI/Combinatorics/Honeycomb*`) is unregistered —
+G11/G12-pattern registration available, **SHELF, fire-gated on a chartered
+consumer** (none exists); NS-1 is KILLED (verdict COVERED — name-collision artifact,
+candidate §5a); stale-note flags report-only. Close-out: the Iteration-4 adopted
+five-rule protocol (scoped final gates, gate-run persistence, INDEX reconciliation
+as a close gate, date discipline, staging-file supersession stamps).
+
+<!-- ===================== END SPLICE (RESEARCH.md) ===================== -->
+
+<!-- ===================== BEGIN STATUS-BLOCK (STATUS.md) ===================== -->
+
+## Iteration 5 (opened 2026-11-19) — same raised bar, pre-consolidated seeds, staged day-1 fires
+
+Chartered from A6's consolidation (`qa/iter4-review/a6-iter5-charter-draft.md` §8
+authoritative; typeset `qa/iter4-review/a6-iter5-charter-typeset.md`; the
+`RESEARCH.md` §Iteration 5 splice = this opening commit, NOT part of K). Same raised
+discovery bar as Iteration 4 (R2 S1–S4 + the iter-4 template; two-strike cap N=1 per
+cycle; ≥ half of shipped articles discovery-grade), same five corpora + donor
+registrations; seed inventory PRE-CONSOLIDATED (no new scan at open); bench:
+41 CHARTER (the opener) / 12 DEFER behind 41.
+
+**Rulings at open (2026-11-19):** DECISION-1 (quota UNSPENT-default at open;
+spend-only-if-executed; contest FB-2 vs FB-4 vs unspent; discovery leads never
+displaced by the knowledge-level slot); DECISION-3 (fresh per-cycle N=1 confirmed;
+FB-2/FB-4 compete for the SAME single slot); DECISION-4 (41's (H) phase wave-tail
+conditional — promotion only mid-wave after core S–M GREEN + (H) preflight);
+DECISION-6 (bench conversions DENIED at open; 12-P0/11-M3 under the drain rule;
+12-P0 may convert mid-wave on idle-lane + dry-queue). DECISION-2 = Option A (η-port
+record-billed, quota-free) and DECISION-5 (resolved-by-battery) ruled 2026-11-18.
+
+**Launch order:** (1) 75-N2 resume — P1 COMPLETE (278/278); P2 paused at 2 runs
+remaining of ≤6, **run 22 = first action** (parked sha `ecd44c6a…`); P3 GO, blocked
+only on P2-c. (2) 41-P0 day-1 (staged `f5cfe5e`; core S–M 3–5 runs; (H) per
+DECISION-4). (3) η-pin-probe day-1 (staged `c7a3089`/`c359f48`; record-billed;
+6–10 runs, class L). (4) engineering rungs: 10-D4 w/ hv, 72-M1 L3b–d + interface,
+Liu B_new port. (5) debt rungs: AL-3D rebuild (12–18 runs), 74-P2 (≤5+≤5), 77
+T1-completion + T2 follow-up as ONE pilot (Wick re-differentiation), N2P0-sweep
+staging note. (6) drain queue: 12-P0, 11-M3 (Fischer 2610.32162 cite), FB-1/76-T1a,
+AL-3D B.3.
+
+**Day-1 fires (staged on main, unfired):** 41-P0 (`pilots/41/P0.lean`);
+η-pin-probe (`pilots/zzv2-lam/eta-pin-probe.lean`); N2-P2 run 22 (resume note
+`pilots/75/N2-P1-record.md:139–150`). All at SPEC 2 CPU / 4 GB + telemetry +
+`LEAN_NUM_THREADS=2` per the mandatory Modal guidelines.
+
+Quality gate, quota/watchlist, template gates, inherited TRIAGE dispositions
+(corrected census 40/46 closed / 6 retargeted / 0 unrulled), and standing rules:
+`RESEARCH.md` §Iteration 5 (normative). Protocols carry over from Iteration 4
+unchanged (queue-loaded sticky lanes, one writer per file, log provenance headers,
+concurrency probe at batch close; close-out per the adopted five-rule protocol).
+
+<!-- ===================== END STATUS-BLOCK (STATUS.md) ===================== -->
+
+## Cross-check record (R3, 2026-11-19; every splice claim against the landed tree at `e3d984b`)
+
+- **INDEX.md:290** — verified: "41 = CHARTER, the iteration-5 opener (wave-tail only
+  if a lane drains idle); 12 = DEFER, iteration-5 behind 41 (P0-first mandatory;
+  termPrime check at P0)".
+- **Staged files** — `pilots/41/P0.lean` = 190 LoC at `e3d984b` (staged `f5cfe5e`
+  with the draft + INDEX + ORCHESTRATION rows); `pilots/zzv2-lam/eta-pin-probe.lean`
+  = **320 LoC at `e3d984b`** (319 at staging `c7a3089`; `c359f48` adds one line —
+  the A6 draft §8.5's "319 LoC" predates `c359f48`; the splice carries 320).
+- **N2 resume** — `02a5d71` lands the resume note; record :139–150 verified (run 22
+  first action; sha `ecd44c6a…`; 2 runs remain of ≤6; three applied fixes named;
+  two residual classes named). §10.29 roll-up 278/278 (`d77bb20`) and P1 end-stamp
+  run 19 (`3ad896b`) verified against the close-out record.
+- **η-port** — DECISION-2 = Option A stamp verified in the precharter §5; κ=1
+  amendment verified (§AMENDMENT + the battery's CORRECTION block); the 14-lemma
+  private chain (`Zeta/Kernel.lean:237–599`) per precharter §2.2; budget band
+  post-amendment "5–8 plausible, 6–10 safe, ceiling 12" (§AMENDMENT) — the splice's
+  "6–10 / plausible 5–8 / ceiling 12" reconciles the A6 draft's "12–13" (pre-amendment
+  §2.4 figure) with the amendment.
+- **Rulings DECISION-1/3/4/6 (2026-11-19)** — quoted from the orchestrator's
+  tasking verbatim-in-substance; DECISION-2/5 stamps verified at the precharter and
+  draft §6.
+- **RESEARCH.md line refs used by the payloads** (checked at `e3d984b`): :89–92
+  two-strike FINAL; :96–99 the 75 statement class; :143–146 Liu B_new item;
+  :150–160 FB-2/T2 ignition rule — all resolve as claimed.
+- **TRIAGE dispositions** — TRIAGE.md's carried block records the corrected census
+  (40/46 closed in-cycle, 6 retargeted, 0 unrulled); the close-out record in
+  RESEARCH.md names the retarget set; the G7 inventory :56–73 lists the five sites;
+  the 77-T2 filter-blind-spot residual is the census's 1 of 386. The splice's
+  inherited-dispositions paragraph matches all four sources.
+- **Λ-absence ban (debt-l)** — carried verbatim-in-substance from
+  `r5-iteration4-backlog.md` §1c debt-l row + `:228–229` (DrMurphyIsIn Λ ≤ 9/32;
+  "Λ absent everywhere" false; any Λ idea must start from the artifact).
+- **Quality gate §1** — carried character-verbatim from the A6 draft §1 (itself
+  "carried verbatim from §Iteration 4" in substance; the four-string vocabulary and
+  R3 §5 details stay defined in §Iteration 4 / TEMPLATE-iter4.md).
+- **STATUS block** — drafted to append after K's Iteration-4 closed block (K's list
+  does not touch RESEARCH.md or add any Iteration-5 content; no overlap).
+
+— lane R3 (worktree agent-07, A6 lineage), 2026-11-19. Never committed; H commits
+after orchestrator approval. The charter splice is Iteration 5's opening commit,
+NOT part of K.

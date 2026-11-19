@@ -35,6 +35,18 @@ Self-consistency pass (on paper, 2026-11-18, vs the read-verified eth sources):
   tauMin, gapOdd, kDef, Gq, MainIdentity, BridgeAxiom, P1, P2, Nondegenerate,
   SigmaQ_Signs_all_q, MainImpliesSigns, bridge_pin, HostTransport) resolve within this
   namespace; ℕ-exponents only (no zpow); no proofs beyond the definitional rfl.
+
+FIRED 2026-11-19 (lane R4, Iteration-5 day-1): run 1 fired the verbatim e3d984b bytes
+  (sha256-16 3ba649fa12cca395) — NOT-GREEN by ONE error, a codegen-class defect, not a
+  statement defect: P0.lean:117:4 error(lean.dependsOnNoncomputable) on `def Gq`
+  (mathlib's `AddMonoidAlgebra.instMul` = Polynomial ℤ mul is noncomputable); all four
+  #check targets elaborated, both precharter-flagged mechanical spots (ℤ→ℤ[X] coercion,
+  aeval instance) passed clean, 0 sorry. Log `logs/p0-run1.log`.
+
+PIN-ADJUSTMENT (D3 precedent, 2026-11-19, lane R4, fix-loop run 2): `Gq` marked
+  `noncomputable` — the one-word codegen fix; statement surface UNCHANGED (elaborated
+  types of MainIdentity/Nondegenerate/HostTransport/bridge_pin identical to run 1;
+  Prop-valued consumers do no codegen). Nothing else moved.
 -/
 import Mathlib
 
@@ -114,7 +126,7 @@ and 1+(−q)^{2k+1} = 1−q^{2k+1} = (1−q)Σ_{j≤2k} q^j"): the geometric fac
 **X^j** (positive), not (−X)^j as the dossier's (M) display line mis-prints; and
 2k+1 = |τ₁−τ₂| = gapOdd − 2·τmin (NOT gapOdd − 1). Erratum stamped in the dossier
 2026-11-18; this file carries the corrected form. -/
-def Gq (p q1 p' q2 : Block) : Polynomial ℤ :=
+noncomputable def Gq (p q1 p' q2 : Block) : Polynomial ℤ :=
   ((-1 : ℤ) ^ (phiQ p q1 + phiQ p' q2) : Polynomial ℤ)
     * (-X) ^ tauMin p q1 p' q2
     * ∑ j ∈ Finset.range (2 * kDef p q1 p' q2 + 1), (X : Polynomial ℤ) ^ j

@@ -1,0 +1,39 @@
+# PROVENANCE — p0-run2.log (pilot liu-bnew, lane R7/A9-lineage, W2-5; fired 2026-11-19T11:00:44Z)
+# source of record: research/pilots/liu-bnew/P0.lean (168 LoC; sha256(16) 20ac66718a932e6c — this run's bytes; run-1 bytes df0b60db65daea6d superseded by the noncomputable-constant fix, the run-1 log records the finding)
+# runner: run_pilot.sh → lean_probe.py (app crossmath-probe, EXISTING; mathlib ff2494ea5e438f8a8452db803068acd711fa0059, Lean v4.36.0-rc2, elan v4.2.4, CI oleans via lake exe cache get)
+# spec: cpu=2.0 mem=4096 (defaults, soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (@telemetered; [tele] lines below are the resource record)
+# fix-retry (2 of the 1–2-run warm budget + 1 fix): run-1 errors were 2× lean.dependsOnNoncomputable on B_r/B_new (Real.instDivInvMonoid); fix = noncomputable def on both (Liu-1's own convention: its file opens noncomputable section)
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-zDGK5lEheJmTE1SPpZD5vA
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-liu-bnew-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== P0.lean
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'CrossMath.LiuBNew.discharge_hQRH_of_liu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.LiuBNew.discharge_hQRHχ_of_liu' depends on axioms: [propext, Classical.choice, Quot.sound]
+LiuBoundaryOrder : Prop
+LiuHeckeZeroFree : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → ℝ → Prop
+LiuBetaBound : ℝ → ℝ → Prop
+LiuDirichletZeroFree : ℝ → Prop
+LiuZetaZeroFree : ℝ → Prop
+LiuZetaZeroFree' : ℝ → Prop
+LiuCor14_1Transfer : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → Prop
+LiuEntryTiers : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → ℝ → Prop
+
+[probe] SUMMARY
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=42s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-zDGK5lEheJmTE1SPpZD5vA

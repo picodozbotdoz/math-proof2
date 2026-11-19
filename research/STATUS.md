@@ -864,3 +864,43 @@ z-rank rebuild); 77 T1's 7 site-local residuals + T2's tainted decl; G10 SHELF;
 
 **AGENTS-ITER4-DRAFT:** E1–E9 NOT applied at close — user-gated (separate
 decision, separate commit if approved).
+
+## Iteration 5 (opened 2026-11-19) — same raised bar, pre-consolidated seeds, staged day-1 fires
+
+Chartered from A6's consolidation (`qa/iter4-review/a6-iter5-charter-draft.md` §8
+authoritative; typeset `qa/iter4-review/a6-iter5-charter-typeset.md`; the
+`RESEARCH.md` §Iteration 5 splice = this opening commit, NOT part of K). Same raised
+discovery bar as Iteration 4 (R2 S1–S4 + the iter-4 template; two-strike cap N=1 per
+cycle; ≥ half of shipped articles discovery-grade), same five corpora + donor
+registrations; seed inventory PRE-CONSOLIDATED (no new scan at open); bench:
+41 CHARTER (the opener) / 12 DEFER behind 41.
+
+**Rulings at open (2026-11-19):** DECISION-1 (quota UNSPENT-default at open;
+spend-only-if-executed; contest FB-2 vs FB-4 vs unspent; discovery leads never
+displaced by the knowledge-level slot); DECISION-3 (fresh per-cycle N=1 confirmed;
+FB-2/FB-4 compete for the SAME single slot); DECISION-4 (41's (H) phase wave-tail
+conditional — promotion only mid-wave after core S–M GREEN + (H) preflight);
+DECISION-6 (bench conversions DENIED at open; 12-P0/11-M3 under the drain rule;
+12-P0 may convert mid-wave on idle-lane + dry-queue). DECISION-2 = Option A (η-port
+record-billed, quota-free) and DECISION-5 (resolved-by-battery) ruled 2026-11-18.
+
+**Launch order:** (1) 75-N2 resume — P1 COMPLETE (278/278); P2 paused at 2 runs
+remaining of ≤6, **run 22 = first action** (parked sha `ecd44c6a…`); P3 GO, blocked
+only on P2-c. (2) 41-P0 day-1 (staged `f5cfe5e`; core S–M 3–5 runs; (H) per
+DECISION-4). (3) η-pin-probe day-1 (staged `c7a3089`/`c359f48`; record-billed;
+6–10 runs, class L). (4) engineering rungs: 10-D4 w/ hv, 72-M1 L3b–d + interface,
+Liu B_new port. (5) debt rungs: AL-3D rebuild (12–18 runs), 74-P2 (≤5+≤5), 77
+T1-completion + T2 follow-up as ONE pilot (Wick re-differentiation), N2P0-sweep
+staging note. (6) drain queue: 12-P0, 11-M3 (Fischer 2610.32162 cite), FB-1/76-T1a,
+AL-3D B.3.
+
+**Day-1 fires (staged on main, unfired):** 41-P0 (`pilots/41/P0.lean`);
+η-pin-probe (`pilots/zzv2-lam/eta-pin-probe.lean`); N2-P2 run 22 (resume note
+`pilots/75/N2-P1-record.md:139–150`). All at SPEC 2 CPU / 4 GB + telemetry +
+`LEAN_NUM_THREADS=2` per the mandatory Modal guidelines.
+
+Quality gate, quota/watchlist, template gates, inherited TRIAGE dispositions
+(corrected census 40/46 closed / 6 retargeted / 0 unrulled), and standing rules:
+`RESEARCH.md` §Iteration 5 (normative). Protocols carry over from Iteration 4
+unchanged (queue-loaded sticky lanes, one writer per file, log provenance headers,
+concurrency probe at batch close; close-out per the adopted five-rule protocol).

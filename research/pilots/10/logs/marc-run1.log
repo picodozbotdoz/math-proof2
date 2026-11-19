@@ -1,0 +1,172 @@
+# provenance: raw modal runs, pilot-10 M-arc landing (exists_tm_padded_space, eth Pad.lean:116–120 statement shape under the hv amendment; iteration-5 charter rung 4, orchestrator ruling 2026-11-19 DAY-1-CLASS + hv SUPPLIED-AS-BINDER; the D-charter/M-arc separation ruling: NOT a D-tranche extension) | date 2026-11-19 | producing lane: R3 (A6 lineage) | command: MODAL_USER=doz bash research/pilots/10/run_pilot.sh research/pilots/10/M-arc.lean (both runs) | final file: M-arc.lean sha256 7addcf0029ea06e7 (4,327 LoC = 28-line M-arc header + L5.lean VERBATIM 4,248 [sha da398f21…, D3 GREEN] + Part M 51 lines incl. `open TM Turing`) | **VERDICT: M-arc.lean OK at RUN 2 — M-arc GREEN** (rc=0, 0 errors, 0 sorry-warnings; 2 of ≤3 runs used) | triad: Groundwork.PadC.exists_tm_padded_space [propext, Classical.choice, Quot.sound] (in-file print) | descent: run 1 FAIL rc=1 errors=2 sorry=0 — MECHANICAL namespace class only (TM2ComputableAux/TM2OutputsInTime unknown inside Groundwork.PadC: Part M had omitted the `open TM Turing` that L5's exists_tm_space block carries; the fix-loop's budgeted class); fix = one line (`open TM Turing`), run 2 GREEN. One style-linter warning stands (haveI vs have at :4310 — the instance-registration idiom; harmless, recorded in M-arc-record.md) | substrate: mathlib ff2494ea5e438f8a8452, v4.36.0-rc2, warm app crossmath-pilot-10 (doz CLI semraker), SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2 | run-1 URL https://modal.com/apps/semraker/main/ap-E75oxDB5BGG6uDXxsdTIuS (wall=50s, samples=0) | run-2 URL https://modal.com/apps/semraker/main/ap-fQVP8opqITg30XeUinFJsA (wall=65s, max_cpu=0.96, max_mem=8459MB, samples=1, OVER=1 soft = the mmapped-mathlib-olean telemetry class documented in AGENTS.md §Modal(5) and every D-run; CPU within SPEC)
+
+==================== RUN 1 (FAIL, mechanical namespace) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-E75oxDB5BGG6uDXxsdTIuS
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['M-arc.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== M-arc.lean
+[p10] M-arc.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+M-arc.lean:4300:11: error: Function expected at
+  TM2ComputableAux
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  Bool
+
+Hint: The identifier `TM2ComputableAux` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M-arc.lean:4302:18: error: Function expected at
+  TM2OutputsInTime
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  N.tm
+
+Hint: The identifier `TM2OutputsInTime` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M-arc.lean:4325:14: error(lean.unknownIdentifier): Unknown constant `Groundwork.PadC.exists_tm_padded_space`
+···
+Hint: The identifier `TM2ComputableAux` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M-arc.lean:4302:18: error: Function expected at
+  TM2OutputsInTime
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  N.tm
+
+Hint: The identifier `TM2OutputsInTime` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M-arc.lean:4325:14: error(lean.unknownIdentifier): Unknown constant `Groundwork.PadC.exists_tm_padded_space`
+···
+
+[p10] SUMMARY
+[p10]   M-arc.lean: FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-E75oxDB5BGG6uDXxsdTIuS
+
+==================== RUN 2 (GREEN) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-fQVP8opqITg30XeUinFJsA
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-10-d1-a6/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p10] staging ['M-arc.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p10] mathlib rev ff2494ea5e43
+[p10] oleans present: 8710
+
+=== M-arc.lean
+[tele] t=60s cpu=0.96 mem=8459MB anon=0MB peak=-1MB procs=2 OVER mem
+[p10] M-arc.lean: OK
+---- axioms ----
+'Groundwork.exists_tm_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.exists_tm_space_monitor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdFrag_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.cdLoop_runsB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.PolyTVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.polyTVal_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.Counted.countdown_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.size_bools' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.size_two_pow' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_reaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_state_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.canary_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.carried_σ' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_init_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_init_eq' depends on axioms: [propext, Quot.sound]
+'Groundwork.PadC.padM'_out_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.exists_tm_padded_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+M-arc.lean:3835:84: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+M-arc.lean:4056:15: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+'Groundwork.PolyT.decide_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.log2'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldl_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PolyT.foldr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padM'_isPolyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.pad_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Groundwork.PadC.padded_time_absorb' depends on axioms: [propext, Classical.choice, Quot.sound]
+M-arc.lean:4310:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Groundwork.PadC.exists_tm_padded_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[p10] SUMMARY
+[p10]   M-arc.lean: OK
+[tele] SUMMARY run: wall=65s max_cpu=0.96 max_mem=8459MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-fQVP8opqITg30XeUinFJsA

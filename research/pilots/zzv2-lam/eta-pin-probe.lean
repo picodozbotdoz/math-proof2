@@ -104,8 +104,10 @@ open ZetaZeros Filter Topology
 
 /-! ## The scaled family (defs against donor vocabulary; pre-charter §1.2) -/
 
-/-- Coordinate dilation to the λ-window (ρ := 2λ). -/
-def dilateTo (lam : ℝ) (f : ℝ → ℝ) : ℝ → ℝ := fun x => f (x / (2 * lam))
+/-- Coordinate dilation to the λ-window (ρ := 2λ). `noncomputable` marker added at
+run-1 fix (2026-11-19): `lean.dependsOnNoncomputable` on the ℝ-division — the
+P1-run2 friction class, mechanical fix only. -/
+noncomputable def dilateTo (lam : ℝ) (f : ℝ → ℝ) : ℝ → ℝ := fun x => f (x / (2 * lam))
 
 /-- The λ-scaled extremal base: `extremalTest` re-windowed from [−1/2, 1/2] to
 [−λ, λ] (`Defs.lean:76` dilated; for `lam = 1/2` literally `extremalTest`). -/

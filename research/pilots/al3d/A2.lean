@@ -62,6 +62,17 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   against them) — sized and chartered as the NEXT unit (find #5 recorded in A2-gaps §5).
 - P2-e: the entropy identification for column-closed cuts (whole columns = single
   sites) + the final assembly of `SlabAreaLawColumnCuts3D` via P1-b's boundary lift.
+- M0-REBUILD (EXECUTED 2026-11-19, lane R8; `rebuild-precharter.md` §2 + the M0-record
+  freeze manifest): the canonical z-rank enumeration IS IN — `colZImage`/`colZRank`
+  (the new core, "canonical z-rank column enumeration" section below) replace BOTH
+  classical `Fintype.equivFin` bodies (`colToFin`'s and `colRegEquiv`'s inner
+  reindex). The congruence class (`colZImage_congr`/`colZRank_congr`/
+  `colZRank_fibre` — plain `congrArg`, no `Eq.rec`, no instance transport) plus the
+  rank-fiber pinning (`colZRank_inj`, `colToFin_symm_rank`) are the un-park key for
+  M1's restriction-compat workhorse. Statements FROZEN: all P2-b/P2-c types
+  byte-identical to the equivFin era (only def BODIES moved — M0-record §2 manifest);
+  regression = run-13's 275-line audit identity re-verified on the rebuilt tree
+  (`logs/alp2-m0-run2-rebuild.log`).
 
 STATEMENT-LEVEL FIND #4 (at P2-e assembly planning, 2026-11-17; amended P0, re-GREEN as
 probe in `logs/alp2-run8-substrate.log`): the landed `PlanarAreaLawVar` quantified
@@ -112,6 +123,126 @@ def colCard (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) : ℕ :=
 theorem colCard_eq_card (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) :
     colCard Λ u = (col Λ u).card := Fintype.card_coe _
 
+/-! ### The canonical z-rank column enumeration (M0-rebuild, find #5; 2026-11-19)
+
+Replaces the two `Fintype.equivFin` bodies (find #5, `A2-gaps.md` §4,
+`rebuild-precharter.md` §1–§2): `Fintype.equivFin`'s value is an opaque classical
+function of the `Fintype` instance, so the two instances carried by the
+propositionally equal columns `col Λ u` and `col (fibre Λ X') u` enumerate unrelated —
+every per-site transport along `col_fibre_eq` died on dependent motives. The donor's
+canonical architecture instead enumerates a column through its z-IMAGE — a `Finset ℤ`
+whose `Finset.orderIsoOfFin` is a function of the Finset data (`Finset.sort` of the
+backing Multiset; `Finset.orderIsoOfFin_symm_apply` is `rfl`) — so the encoding
+congruence along propositional column equality is plain `congrArg`: no `Eq.rec`, no
+instance transport. The site↔z leg is classical (`Equiv.ofBijective`) but VALUE-PINNED
+by rank-fiber uniqueness (`colZRank_inj`, `colToFin_symm_rank`). Statements FROZEN —
+`colToFin`/`colRegEquiv` types byte-identical to the equivFin era (M0-record §2). -/
+
+/-- The z-image of a column — the substrate of the canonical enumeration. -/
+def colZImage (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) : Finset ℤ :=
+  (col Λ u).image fun x => x.2.2
+
+theorem mem_colZImage {Λ : Finset (ℤ × ℤ × ℤ)} {u : ℤ × ℤ} {x : ℤ × ℤ × ℤ}
+    (hx : x ∈ col Λ u) : x.2.2 ∈ colZImage Λ u :=
+  Finset.mem_image_of_mem _ hx
+
+/-- The canonical z-rank of a site in column `u`: the position of its z-value in the
+sorted z-image (the donor's height index at variable heights). A function of the
+column Finset data — never of a `Fintype` instance. -/
+def colZRank (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) (x : ℤ × ℤ × ℤ) : ℕ :=
+  (colZImage Λ u).sort.idxOf x.2.2
+
+/-- The z-image's card is the column's height (z is injective on a column). -/
+theorem colZImage_card (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) :
+    (colZImage Λ u).card = colCard Λ u := by
+  simp only [colZImage, colCard_eq_card]
+  refine Finset.card_image_of_injOn ?_
+  rintro a ha b hb hab
+  simpa using col_inj_on_z Λ u (Finset.mem_coe.2 ha) (Finset.mem_coe.2 hb) hab
+
+/-- RANK CHARACTERIZATION (rfl-level via `Finset.orderIsoOfFin_symm_apply`): the
+z-rank is the `Fin`-value of the canonical z-image enumeration. -/
+theorem colZRank_eq (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) {x : ℤ × ℤ × ℤ}
+    (hx : x ∈ col Λ u) :
+    colZRank Λ u x =
+      ((((colZImage Λ u).orderIsoOfFin (colZImage_card Λ u)).symm
+          ⟨x.2.2, by simpa using mem_colZImage hx⟩ :
+        Fin (colCard Λ u))).val := by
+  simp [colZRank, Finset.orderIsoOfFin_symm_apply]
+
+/-- The rank is bounded by the column height. -/
+theorem colZRank_lt (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) {x : ℤ × ℤ × ℤ}
+    (hx : x ∈ col Λ u) : colZRank Λ u x < colCard Λ u := by
+  rw [colZRank_eq Λ u hx]
+  exact Fin.isLt _
+
+/-- RANK-FIBER UNIQUENESS (the value-pinning of the classical leg): equal ranks give
+equal sites (z injective on the column, and the z-image enumeration is an equiv). -/
+theorem colZRank_inj (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) {x y : ℤ × ℤ × ℤ}
+    (hx : x ∈ col Λ u) (hy : y ∈ col Λ u) (h : colZRank Λ u x = colZRank Λ u y) :
+    x = y := by
+  refine col_inj_on_z Λ u hx hy ?_
+  have e1 : (((colZImage Λ u).orderIsoOfFin (colZImage_card Λ u)).symm
+          ⟨x.2.2, by simpa using mem_colZImage hx⟩ :
+        Fin (colCard Λ u)) =
+      (((colZImage Λ u).orderIsoOfFin (colZImage_card Λ u)).symm
+          ⟨y.2.2, by simpa using mem_colZImage hy⟩ :
+        Fin (colCard Λ u)) :=
+    Fin.val_injective (by rw [← colZRank_eq Λ u hx, ← colZRank_eq Λ u hy, h])
+  exact Subtype.ext_iff.mp
+    (((colZImage Λ u).orderIsoOfFin (colZImage_card Λ u)).symm.injective e1)
+
+/-- CONGRUENCE (the un-park key): the z-image is extensional in the column. -/
+theorem colZImage_congr {Λ Λ' : Finset (ℤ × ℤ × ℤ)} {u : ℤ × ℤ}
+    (h : col Λ u = col Λ' u) : colZImage Λ u = colZImage Λ' u := by
+  simp only [colZImage]
+  exact congrArg (fun T : Finset (ℤ × ℤ × ℤ) => T.image fun x => x.2.2) h
+
+/-- CONGRUENCE (the un-park key): the canonical z-rank is extensional in the column —
+plain `congrArg` through the data functions, NO instance transport, NO `Eq.rec`
+(find #5 dies here). -/
+theorem colZRank_congr {Λ Λ' : Finset (ℤ × ℤ × ℤ)} {u : ℤ × ℤ}
+    (h : col Λ u = col Λ' u) (x : ℤ × ℤ × ℤ) :
+    colZRank Λ u x = colZRank Λ' u x := by
+  simp only [colZRank, colZImage_congr h]
+
+/-- The canonical column enumeration (M0-REBUILD 2026-11-19; TYPE FROZEN): a column
+site ↦ the position of its z-value in the sorted z-image (`colZRank`); the inverse
+leg is the sorted-z-image member with that rank — classical (`Equiv.ofBijective`,
+whose `toFun` is the literal z-map) but value-pinned (`colZRank_inj`,
+`colToFin_symm_rank`). Unlike `Fintype.equivFin`, congruent along propositional
+column equality (`colZRank_congr`); `colToFin_apply` is the per-site transparency
+lemma M1's workhorse consumes. -/
+noncomputable def colToFin (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) :
+    ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) ≃ Fin (colCard Λ u) :=
+  (Equiv.ofBijective
+        (fun x : ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) =>
+          ⟨(x : ℤ × ℤ × ℤ).2.2, mem_colZImage x.2⟩)
+        ⟨fun x y hxy =>
+            Subtype.ext
+              (col_inj_on_z Λ u x.2 y.2 (Subtype.ext_iff.mp hxy)),
+          fun z =>
+            by
+            obtain ⟨x, hx, hxz⟩ := Finset.mem_image.1 z.2
+            exact ⟨⟨x, hx⟩, Subtype.ext hxz⟩⟩).trans
+      ((colZImage Λ u).orderIsoOfFin (colZImage_card Λ u)).symm.toEquiv
+
+/-- Per-site transparency: the canonical enumeration's `toFun` value IS the z-rank. -/
+theorem colToFin_apply (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ)
+    (x : ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ))) :
+    (colToFin Λ u x : Fin (colCard Λ u)).val = colZRank Λ u (x : ℤ × ℤ × ℤ) := by
+  simp [colToFin, colZRank, Equiv.trans_apply, Equiv.ofBijective_apply,
+    Finset.orderIsoOfFin_symm_apply]
+
+/-- Per-site pinning of the inverse leg: the site at index `i` has rank `i`. -/
+theorem colToFin_symm_rank (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) (i : Fin (colCard Λ u)) :
+    colZRank Λ u ((colToFin Λ u).symm i : ℤ × ℤ × ℤ) = (i : Fin (colCard Λ u)).val := by
+  have h1 : (colToFin Λ u ((colToFin Λ u).symm i) : Fin (colCard Λ u)).val =
+      (i : Fin (colCard Λ u)).val := by
+    rw [(colToFin Λ u).apply_symm_apply]
+  rw [colToFin_apply] at h1
+  exact h1
+
 /-! ## P2-b — the column regrouping equivalence -/
 
 /-- Sigma decomposition of a 3D domain into its columns (the fibres of `proj`;
@@ -133,12 +264,15 @@ def colSigmaEquiv (Λ : Finset (ℤ × ℤ × ℤ)) :
 /-- The per-column configuration equivalence: a column of height `n` carrying `Fin q`
 per site ≃ one site carrying `Fin (q ^ n)` (the donor's `finFunctionFinEquiv` map,
 generalized from uniform `h` to the column height; pin anchor
-`Mathlib/Algebra/BigOperators/Fin.lean:577`). -/
+`Mathlib/Algebra/BigOperators/Fin.lean:577`). M0-REBUILD 2026-11-19: the inner
+reindex is the CANONICAL `colToFin Λ u` (was a second, independent
+`Fintype.equivFin _` — the two classical choices never agreed; find #5); type
+FROZEN, body-moves per the M0-record §2 manifest. -/
 noncomputable def colRegEquiv {Λ : Finset (ℤ × ℤ × ℤ)} {q : ℕ} (u : ℤ × ℤ) :
     (∀ x : ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)), Fin q) ≃
       Fin (q ^ colCard Λ u) :=
   (Equiv.piCongrLeft' (fun _ : ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) =>
-      Fin q) (Fintype.equivFin _)).trans
+      Fin q) (colToFin Λ u)).trans
     (finFunctionFinEquiv (m := q) (n := colCard Λ u))
 
 /-- P2-b MAIN: the column regrouping — 3D configurations over `Λ` (each site `Fin q`)
@@ -167,6 +301,15 @@ theorem colCard_le_h (h : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)} (hΛ : IsSlabDo
 
 #print axioms colCard_eq_card
 #print axioms colCard_le_h
+#print axioms mem_colZImage
+#print axioms colZImage_card
+#print axioms colZRank_eq
+#print axioms colZRank_lt
+#print axioms colZRank_inj
+#print axioms colZImage_congr
+#print axioms colZRank_congr
+#print axioms colToFin_apply
+#print axioms colToFin_symm_rank
 
 end OpenAI.AL3D
 
@@ -620,12 +763,11 @@ theorem card_projFib_le (h : ℕ) {Λ : Finset (ℤ × ℤ × ℤ)} (hΛ : IsSla
   rw [Finset.card_powerset]
   exact Nat.pow_le_pow_right two_pos (fibre_card_le h hΛ X')
 
-/-- The column enumeration used by the relabelling: `col Λ u` indexed as
-`Fin (colCard Λ u)` (the variable-height replacement of the donor's `⟨x.2.2.toNat⟩`
-height index; REGION-INDEPENDENT — this is what the P2-d transport rides on). -/
-noncomputable def colToFin (Λ : Finset (ℤ × ℤ × ℤ)) (u : ℤ × ℤ) :
-    ↥((col Λ u : Finset (ℤ × ℤ × ℤ)) : Set (ℤ × ℤ × ℤ)) ≃ Fin (colCard Λ u) :=
-  Fintype.equivFin _
+/- The column enumeration used by the relabelling (`col Λ u` indexed as
+`Fin (colCard Λ u)`; REGION-INDEPENDENT — this is what the P2-d transport rides on).
+M0-REBUILD 2026-11-19: the `colToFin` def itself moved up to the P2-b core (the
+canonical z-rank enumeration, `colZImage`/`colZRank`); `colSiteOf`/`colIdxOf` below
+consume it unchanged. -/
 
 /-- The 3D site of column `u` at enumeration index `i`, as an element of the fibre
 (the membership proof: a column site is in `Λ` and projects to `u ∈ X'`). -/
@@ -684,6 +826,15 @@ theorem colCard_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × 
     (hu : u ∈ X') : colCard (fibre Λ X') u = colCard Λ u := by
   rw [colCard_eq_card, colCard_eq_card]
   exact congrArg Finset.card (col_fibre_eq Λ hu)
+
+/-- CONGRUENCE, FIBRE INSTANCE (M1's exact feed): the canonical z-rank is insensitive
+to restricting `Λ` to the fibre over `X'` — the two columns are propositionally equal
+(`col_fibre_eq`), and the canonical enumeration is extensional, so the per-site
+comparison closes by rewriting with NO `Eq.rec` (find #5's obstruction dies here). -/
+theorem colZRank_fibre (Λ : Finset (ℤ × ℤ × ℤ)) {X' : Finset (ℤ × ℤ)} {u : ℤ × ℤ}
+    (hu : u ∈ X') (x : ℤ × ℤ × ℤ) :
+    colZRank (fibre Λ X') u x = colZRank Λ u x :=
+  colZRank_congr (col_fibre_eq Λ hu) x
 
 /-- Height-cast along a column-cardinality equality (roundtrips free: `Equiv.cast`). -/
 noncomputable def heightCastEquiv (q : ℕ) {a b : ℕ} (h : a = b) : Fin (q ^ a) ≃ Fin (q ^ b) :=
@@ -989,5 +1140,6 @@ theorem sdiff_fibre_eq (Λ : Finset (ℤ × ℤ × ℤ)) (X' : Finset (ℤ × �
 #print axioms OpenAI.AL3D.regReindexEquiv_comp_colEquivVar
 #print axioms OpenAI.AL3D.fibre_subset
 #print axioms OpenAI.AL3D.sdiff_fibre_eq
+#print axioms OpenAI.AL3D.colZRank_fibre
 
 end OpenAI.AL3D

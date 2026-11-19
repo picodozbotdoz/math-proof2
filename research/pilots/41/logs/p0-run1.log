@@ -1,0 +1,65 @@
+# Provenance: 2026-11-19, lane R4 (pilot-41 day-1 fire, Iteration-5 opener, wave 4).
+# File fired: research/pilots/41/P0.lean, VERBATIM bytes of commit e3d984b (staged
+#   candidate, unfired; extracted `git show e3d984b:research/pilots/41/P0.lean`;
+#   main working-tree copy byte-identical to e3d984b, verified pre-fire).
+#   sha256 (full): 3ba649fa12cca395874b2c5340f45225e45e61e28e2a49a869ad7e74c95da494
+#   sha256 (16):  3ba649fa12cca395 · 190 LoC · 10502 bytes.
+# Route: doz CLI /home/doz/dozenv/bin/modal, profile semraker (workspace semraker),
+#   warm app crossmath-probe (ephemeral modal run, no volume/secret/deploy).
+# Spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry @60s.
+#   No taskset / no -j (single-file elaboration, no lake build phase).
+# Command: cd /tmp/crossmath-41-stage && /home/doz/dozenv/bin/modal run lean_probe.py
+#   --dir /tmp/crossmath-41-stage  (lean_probe.py copied read-only from
+#   research/feasibility/probe/; stage = world-readable /tmp per staging pattern).
+# Substrate: mathlib4 ff2494ea5e438f8a8452db803068acd711fa0059 (HEAD verified in
+#   container), toolchain leanprover/lean4:v4.36.0-rc2, 8710 oleans in-image (warm).
+# Wall: 96 s (warm run; [tele] SUMMARY below).
+# Verdict: NOT-GREEN — statement-elaboration rung, single non-elaboration-blocking
+#   codegen error class: P0.lean:117:4 error(lean.dependsOnNoncomputable) on `def Gq`
+#   (depends on noncomputable `AddMonoidAlgebra.instMul` = Polynomial ℤ mul).
+#   ALL FOUR #check TARGETS ELABORATED (types printed below); zero `sorry`; zero
+#   name-resolution errors; zero aeval/coercion friction (both precharter-flagged
+#   mechanical spots passed clean). Fix applied: `noncomputable def Gq` (mechanical,
+#   run 2 = the budgeted fix-loop).
+# Telemetry finding (AGENTS §Modal guideline 3): one sample OVER mem (4312 MB vs 4096
+#   spec) — the DOCUMENTED inherent artifact: mem = MemTotal−MemAvailable includes
+#   memory-mapped Mathlib olean pages for `import Mathlib` modules (AGENTS measured
+#   fact 5: ≈5–6 GB class); anon=0 MB (no anonymous RSS growth), cpu=0.60 (max, well
+#   under 2.0), procs=2. No code-side action warranted; no resource escalation sought.
+# Probe-tooling observation: lean_probe.py's error matcher (`": error:"`) does not
+#   match the parenthesized `error(lean.dependsOnNoncomputable)` form, so the summary
+#   line reads `errors=0` while rc=1 — the FAIL verdict is carried by rc; worth a
+#   matcher broadening in lean_probe.py at next probe-infra touch (not this lane's file).
+# Modal run: https://modal.com/apps/semraker/main/ap-Ff7T9BWeQPUGijytDT50oF
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Ff7T9BWeQPUGijytDT50oF
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.60 mem=4312MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] P0.lean: FAIL rc=1; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+P0.lean:117:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.instMul', which is 'noncomputable'
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   P0.lean: FAIL rc=1
+[tele] SUMMARY probe: wall=96s max_cpu=0.60 max_mem=4312MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Ff7T9BWeQPUGijytDT50oF

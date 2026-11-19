@@ -1,0 +1,202 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-pin-probe.lean — lane R5 (A3 lineage; worktree agent-04 @ 53c1548), 2026-11-19, iteration-5 day-1 fire (wave 4). Record-billed infrastructure probe per DECISION-2 = Option A (a6-iter5-charter-draft.md §6 row 2). Run 2 of budget 1–3 (final): the run-1 mechanical fix applied (noncomputable marker on `dilateTo`, the P1-run2 divide-on-ℝ friction class; dated comment in-file; NO math changed).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker (PRIMARY per the 2026-11-17 route ruling). App crossmath-pilot-zzv2-lam (M4b2 recipe, warm image-layer family); SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2 (CAP secret), @telemetered on; build phase `taskset -c 0,1 lake build ZetaZeros` (lake v4.36.0-rc2 has NO -j flag). Run URL: https://modal.com/apps/semraker/main/ap-rMawIAp2A8xPdQhUrs9443. APP-NAME reconciliation + LOG-NAME alias: see eta-pin-probe-run1.log header (same ruling applies).
+# SUCCESS CRITERION (quoted before the verdict, per task): "statement-elaboration of the η-pin lemma chain at κ=1 against the ZZV2 donor statement classes" — every ported statement a statable, meaningful on-pin Prop (zero sorry, zero errors under the runner's SORRY-STRICT branch — the file name deliberately lacks the P0 prefix), the 19-name donor #check preflight resolving, and the extended consumer-side triad print surface sorryAx-free (7 names).
+# FIRED SHA: sha256(16) = cadc838d220455a71 (full cadc838d220455a71b840d927efedc73e8afa2e5fe14ae4fb9e6ca09fe5d1828)
+# VERDICT (see closing block): GREEN — eta-pin-probe.lean: OK (rc=0, 0 errors, 0 sorry, sorry-strict); build OK; 7/7 donor triad prints exactly [propext, Classical.choice, Quot.sound]; 19/19 preflight names resolved. Criterion MET.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-rMawIAp2A8xPdQhUrs9443
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-pin-probe.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.88 mem=1372MB anon=0MB peak=-1MB procs=4
+[tele] t=120s cpu=7.85 mem=1399MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=180s cpu=12.31 mem=1205MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=2.67 mem=1770MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.56 mem=1881MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=3.48 mem=2440MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.20 mem=2683MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=3.21 mem=2588MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=3.60 mem=2474MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=600s cpu=4.73 mem=1665MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6599/6627] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (6.7s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7523/7541] Built PrimeNumberTheoremAnd.ZetaBounds (14s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7645/7669] Built ZetaZeros.ZeroCount.LocalCount (6.1s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7649/7675] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (2.2s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7660/7681] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.6s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (4.5s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8157/8229] Built PrimeNumberTheoremAnd.MellinCalculus (6.2s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8179/8262] Built ZetaZeros.PairCorrelation.Truncation (8.2s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8197/8262] Built PrimeNumberTheoremAnd.MediumPNT (20s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (16s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-pin-probe.lean
+{'build': 'OK', 'eta-pin-probe.lean': 'OK'}
+[zzv2] eta-pin-probe.lean: OK
+---- axioms ----
+'ZetaZeros.PairCorrelation.tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairCorrelationSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairCorrelationFormula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.simpleOnLineCount_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.distinctZeroCount_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.unweightedKernelSum_cutoffTest_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+pairMainTerm : (ℝ → ℝ) → ℝ
+pairWeight : ℂ → ℂ
+pairCorrelationSum : (ℝ → ℝ) → ℝ → ℂ
+rescaledDiff : ℝ → ℂ → ℂ → ℂ
+IsCutoff : ℝ → (ℝ → ℝ) → Prop
+cutoffNormaliser : (ℝ → ℝ) → ℝ
+cutoffTest : (ℝ → ℝ) → ℝ → ℝ
+cutoffSelfConv : (ℝ → ℝ) → ℝ → ℝ
+correctedTest : (ℝ → ℝ) → ℝ → ℝ → ℝ
+IsAdmissible : ℝ → (ℝ → ℝ) → Prop
+fourierC : (ℝ → ℝ) → ℂ → ℂ
+testKernel : (ℝ → ℝ) → ℂ → ℂ
+unweightedKernelSum : (ℝ → ℝ) → ℝ → ℂ
+zeroScale : ℝ → ℝ
+IsPairTestFunction : (ℝ → ℝ) → Prop
+@PairCorrelation.tendsto : ∀ {f : ℝ → ℝ},
+  IsPairTestFunction f → Tendsto (fun T => pairCorrelationSum f T / ↑(zeroScale T)) atTop (𝓝 ↑(pairMainTerm f))
+kernelConstruction : ∀ (ε : ℝ),
+  0 < ε →
+    ∃ eta C,
+      IsAdmissible (1 / 2) eta ∧
+        |C - montgomeryTaylorConst| < ε ∧ Tendsto (fun T => (unweightedKernelSum eta T).re / zeroScale T) atTop (𝓝 C)
+montgomeryTaylorConst : ℝ
+'ZetaZeros.PairCorrelation.tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairCorrelationSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.pairCorrelationFormula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.simpleOnLineCount_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.distinctZeroCount_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.unweightedKernelSum_cutoffTest_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== SUMMARY
+build: OK
+eta-pin-probe.lean: OK
+[tele] SUMMARY run: wall=629s max_cpu=12.31 max_mem=2683MB max_anon=0MB samples=10 OVER=9
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-rMawIAp2A8xPdQhUrs9443
+RC=0
+
+=== CLOSING VERDICT BLOCK (R5, 2026-11-19) ===
+VERDICT run 2 (FINAL): GREEN — [zzv2] eta-pin-probe.lean: OK. rc=0, 0 errors, 0 sorry under the runner's SORRY-STRICT verdict branch (the expected strict-OK per the firing paragraph: "the file name lacks the P0 prefix, so the runner applies its SORRY-STRICT verdict branch — INTENTIONAL for this zero-sorry rung"). build: OK (ZetaZerosV2 + redirected PNT+ ≈8.2k jobs; mathlib ff2494ea5e438f8a8452db803068acd711fa0059 resolved in-container).
+- SUCCESS CRITERION MET in full: (a) the whole η-pin statement ladder at κ=1 elaborates on-pin — the scaled-family defs (dilateTo/extremalLam/cutoffNormaliserLam/cutoffTestLam/cutoffSelfConvLam/correctedTestLam with the DONOR coefficient 1/(4 log²T), scaledConstLam), the ScaledBridge binder rung + discharge_of_scaledBridge (the file's only theorem, trivial wrapper), all 14 Prop-valued statement defs (covariance ladder i/ii-a/ii-b/ii-c/iii, admissibility, pair-test, the four donor-mirrored Fourier/identity statements, the bridge ports, the full-domain target, the λ=1/2 regression, the strict-improvement transfer); (b) 19/19 donor #check preflight resolved (output tail shows the full signature surface incl. kernelConstruction's existential shape and PairCorrelation.tendsto); (c) donor-hygiene gate 7/7 triad-only: PairCorrelation.tendsto, pairCorrelationSum, pairWeight, pairCorrelationFormula, simpleOnLineCount_lower, distinctZeroCount_lower, unweightedKernelSum_cutoffTest_tendsto — each exactly [propext, Classical.choice, Quot.sound], ZERO sorryAx (the Cycle-2 gate as on-pin prints; supersedes P0's 4-name claim-level check for the port's consumption set).
+- ELABORATION VERDICTS CONVENTION: this is a statement-elaboration probe — never a proof claim. The Prop-valued defs assert statability; their proofs are the η-port execution plan's rungs (eta-port-plan.md).
+- TELEMETRY READING (investigate-not-upgrade): wall=629s (precedent band 582–681s); max_mem=2683MB < 4096 soft spec (mem = MemTotal−MemAvailable incl. mathlib olean mmap pages, the documented measurement class); max_cpu=12.31, OVER=9 samples — the same confined pattern as P1-run3: t=120/180 OVER = lake-update git-fetch + cache zstd (pre-taskset phases, un-controllable); build phase t=240–540 reads 2.67–3.60 (taskset-capped lake + the un-capped telemeter/parent reader process, the documented reading); t=600 reads 4.73 = the elaboration phase (lake env lean; lean's own threads capped by LEAN_NUM_THREADS=2). No code-level waste found: build closure is the donor tree as-is (the M4b2 recipe, minimal); no rebuild loops; the run is correctly sized (one file, one pass). No resource change warranted; defaults held.
+- BUDGET: 2 of 1–3 runs used. Probe COMPLETE. Next: the η-port execution plan (eta-port-plan.md), whose rung budget = the precharter's honest 6–10-run band for the PROPER port (this probe is the precharter §2.4 "1 pin-probe run" line item, now spent).

@@ -3,9 +3,10 @@
 ## (a) Session context
 
 - Iteration 5 opens 2026-11-19, post-close: Iteration-4 close-completion commit
-  **K = [K-SHA], [K-DATE]** (fires ONLY on orchestrator signal after R1's
-  close-residue report). This brief lands pre-K as restart insurance; the
-  placeholders fill at the opening commit (K script: h-wave4-log.md).
+  **K = `b2f2c18`, 2026-11-19** (fired on the orchestrator's signal; post-K
+  re-greps G4/G7(a)/G7(b) all PASS — h-wave4-log). The splice + §STATUS block +
+  day-1 records landed in the opening commit (this brief's placeholders filled
+  there; K execution record: h-wave4-log.md).
 - Charter = `RESEARCH.md` § Iteration 5: R3's typeset (`a6-iter5-charter-typeset.md`)
   spliced VERBATIM per the orchestrator's 2026-11-19 approval (machine diff
   `a6-iter5-research-splice.diff`, `git apply`); the §STATUS block appends after

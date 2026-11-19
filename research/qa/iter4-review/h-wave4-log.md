@@ -446,6 +446,42 @@ row), ORCHESTRATION-ITER4.md + RESUME-BRIEF-ITER4.md + h-wave3-log.md +
 h-wave4-log.md (this entry). [K-SHA] recorded in the post-K note appended after
 the commit (self-reference resolved post-hoc, the "this commit" convention).
 
+**K = `b2f2c18` (full `b2f2c187c5aa2ff5499ce702932bdbb52315f281`), tree CLEAN
+after. Post-K re-greps: G4 future-date (2026-11-20) EMPTY; G4 compounds 0; G7(a)
+`grep -L SUPERSEDED\|SELECTED` over the four staging files EMPTY; G7(b) 31 lines =
+the G8 table's 31/31 dispositioned. R2's K-time interrupt duty PINGED (via the
+orchestrator): flip G2(ii) → PASS (5/5 run2-subset; 58/58 total) and G3 → PASS
+((A1)+(B1) closed in K's INDEX).**
+
+## 2026-11-19 — THE ITERATION-5 OPENING COMMIT (H; executed immediately post-K per the orchestrator's instruction)
+
+- **Splice pair pulled** from agent-07 (shas `0567dc6c…` typeset / `70f5c417…`
+  diff); `git apply --check` CLEAN against post-K main, then APPLIED —
+  `RESEARCH.md` §Iteration 5 at :246 (charter verbatim per the 2026-11-19
+  approval). **§STATUS-BLOCK appended verbatim** from the typeset :253–295
+  markers → `STATUS.md` :868 (39 lines; DECISION-1/3/4/6 ruled at open recorded
+  in-block).
+- **Day-1 record pulls, every artifact sha-guard-verified against its record:**
+  R3 M-arc (`7addcf00…`; GREEN run 2) · R4 41-P0 (`b177acdb…`; GREEN, run-1 FAIL
+  = the dependsOnNoncomputable class) · R5 η-pin-probe (`cadc838d…`; GREEN run 2,
+  PROBE COMPLETE, **the owed OVER-cpu investigation DELIVERED in-log** — the
+  confined pre-taskset/telemeter pattern, no waste, defaults held) · R6 runs
+  22–23 + record + dossier (**P2-a fix-loop to budget**; **N2-P1.lean NOT
+  pulled** — worktree bytes moved past the record's parked sha `68a73689…` to
+  `ce6719c8…`, runs 24–25 in flight; rides R6's next report) · R7 Liu B_new
+  (`20ac6671…`; GREEN run 2, triad-clean bridges in-run; run-1 = the class's
+  third hit, `B_r`/`B_new` noncomputable-marked) + the watchlist
+  (`2408da6e…`) · R8 AL M0 (`b84270b6…`; GREEN run 3 of 3–4) + the wave-2
+  queue. INDEX rows landed for all (dated, sha-cited).
+- ITER5 launch brief placeholders filled (K = `b2f2c18`, 2026-11-19); tracker
+  carries the ITERATION-5 OPENED stamp; this log entry rides the same commit.
+- In-flight (deliberately NOT pulled, ride later reports): 74-P2 (`P2.lean` +
+  `stage_and_fire_p2.sh`, agent-07), 41 core S–M (`Core.lean`, `S-M-plan.md`,
+  agent-08), η-port execution (`eta-port-plan.md`, `eta-r1.lean`, agent-04), R6
+  `.lean` + runs 24–25, AL M1–M3 continuation, R9 round-6 batteries, R2 72-M1
+  L3b–d, R7's 77 T1 follow-ups (`T1.lean`/`run_pilot.py` deltas + run10 log —
+  not in the named day-1 sets).
+
 The `lean.dependsOnNoncomputable` error class has now hit **TWO wave-4 pilots
 independently**: 41-P0's `Gq` (:117) and the η-pin-probe's `dilateTo` (:108) —
 both rooted in mathlib's `AddMonoidAlgebra.instMul` (data-level defs over

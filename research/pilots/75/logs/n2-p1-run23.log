@@ -1,0 +1,413 @@
+# =====================================================================
+# PILOT 75-N2 — run 23 (P2-a fix-loop, FINAL run of the ≤6 budget) |
+# lane R6 (A5 lineage), 2026-11-19. PRE-RUN SHA GUARD: run-22 input
+# was 4839521cb70ea150 (log n2-p1-run22.log, r22 = 8→3 errors); two
+# mechanical fixes applied post-r22, both diagnosed to certainty from
+# the r22 error contexts:
+#   (a) hBeq — explicit simp only [hBdef, Set.mem_setOf_eq,
+#       Set.mem_inter_iff, Set.mem_Icc] + constructor/rintro pair for
+#       the and_assoc residual (r22 showed the exact residual goal);
+#   (b) hBbd — _root_.IsBounded (the file's  shadows root
+#       IsBounded with Filter.IsBounded, Filter/Defs.lean:491; the r22
+#       error's "Filter ?m → Prop" display confirms).
+# Post-fix pre-run sha ef9301066d9b8ffa (this run's input state). Everything else
+# byte-identical to r22 input; hBbd body/hBcp/hfin/tail error-free at
+# r22. Budget: run 6 of ≤6 — THE LAST; on residual errors the lane
+# parks per the verify-fire discipline (no blind re-fires).
+# Spec: cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, telemetry per
+# AGENTS.md §Modal. Command: run_n2p1.sh (doz CLI, warm app
+# crossmath-pilot-75, profile semraker).
+# =====================================================================
+ef9301066d9b8ffa4912da7d7956f0b969363ac16ed6a6ad80fa6c546ccd6e6c  N2-P1.lean
+1cf5cbe217c685643e8c20434db58596075c0be62b81be11926553366ba4eb47  N2-P0.lean
+d61eb0485a6ff672c32d64adb2d73962344975cad841f8e82359607c31e7d235  Pa.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-9o6j9SqZUZW4nTimt6LTdK
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p1-stage/run_n2p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p1] mathlib rev ff2494ea5e43
+[n2p1] oleans present: 8710
+[n2p1] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p1] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[n2p1] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:252:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:239:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:241:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2-P1.lean
+[n2p1] N2-P1.lean: FAIL rc=1 errors=4 sorry=1
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2-P1.lean:765:14: error(lean.unknownIdentifier): Unknown identifier `_root_.IsBounded`
+N2-P1.lean:766:8: error(lean.unknownIdentifier): Unknown identifier `isBounded_iff_subset_closedBall`
+N2-P1.lean:780:29: error(lean.unknownIdentifier): Unknown identifier `isCompact_iff_isClosed_bounded.mpr`
+N2-P1.lean:787:11: error: Invalid `⟨...⟩` notation: The expected type `0 < ρ.re ∨ 0 = ρ.re` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:765:14: error(lean.unknownIdentifier): Unknown identifier `_root_.IsBounded`
+N2-P1.lean:766:8: error(lean.unknownIdentifier): Unknown identifier `isBounded_iff_subset_closedBall`
+N2-P1.lean:780:29: error(lean.unknownIdentifier): Unknown identifier `isCompact_iff_isClosed_bounded.mpr`
+N2-P1.lean:787:11: error: Invalid `⟨...⟩` notation: The expected type `0 < ρ.re ∨ 0 = ρ.re` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:766:8: error(lean.unknownIdentifier): Unknown identifier `isBounded_iff_subset_closedBall`
+N2-P1.lean:780:29: error(lean.unknownIdentifier): Unknown identifier `isCompact_iff_isClosed_bounded.mpr`
+N2-P1.lean:787:11: error: Invalid `⟨...⟩` notation: The expected type `0 < ρ.re ∨ 0 = ρ.re` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+N2-P1.lean:780:29: error(lean.unknownIdentifier): Unknown identifier `isCompact_iff_isClosed_bounded.mpr`
+N2-P1.lean:787:11: error: Invalid `⟨...⟩` notation: The expected type `0 < ρ.re ∨ 0 = ρ.re` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+---- full output (first 200) ----
+N2-P1.lean:335:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:352:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:392:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:397:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:556:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:684:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2-P1.lean:732:19: warning: This simp argument is unused:
+  Classical.em
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2-P1.lean:759:24: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2-P1.lean:765:14: error(lean.unknownIdentifier): Unknown identifier `_root_.IsBounded`
+N2-P1.lean:766:8: error(lean.unknownIdentifier): Unknown identifier `isBounded_iff_subset_closedBall`
+N2-P1.lean:780:29: error(lean.unknownIdentifier): Unknown identifier `isCompact_iff_isClosed_bounded.mpr`
+N2-P1.lean:787:11: error: Invalid `⟨...⟩` notation: The expected type `0 < ρ.re ∨ 0 = ρ.re` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p1] SUMMARY
+[n2p1]   Pa.lean: OK
+[n2p1]   N2P0.lean: OK
+[n2p1]   N2-P1.lean: FAIL rc=1 errors=4 sorry=1
+[tele] SUMMARY run: wall=59s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-9o6j9SqZUZW4nTimt6LTdK
+
+# ==== POST-RUN VERDICT (R6, 2026-11-19) ====
+# N2-P1.lean: FAIL rc=1 errors=4 (was 3 at r22 — NOT descent: the r22 count
+# was masking). Pa.lean OK, N2P0.lean OK. The r22 "3 errors" hid the fact
+# that hBbd's tactic block never elaborates while its have-type fails —
+# LESSON (recorded in the engineering ledger): under a failed have-type,
+# silence of the block's tactic lines is NOT evidence of cleanliness; the
+# same masking explains A5's r21 note treating hBbd as fixed.
+# Residue at r23, ALL name-resolution class (zero math defects — the
+# P2-a argument is unchanged):
+#   (a) :765 _root_.IsBounded unknown — set-boundedness on this pin is
+#       Bornology.IsBounded (Topology/Bornology/Basic.lean:101); the file's
+#       'open Filter' shadows bare IsBounded with Filter.IsBounded
+#       (Order/Filter/Defs.lean:491) — the r22 error display confirmed.
+#   (b) :766 isBounded_iff_subset_closedBall unknown — it is
+#       Metric.isBounded_iff_subset_closedBall (MetricSpace/Bounded.lean:97,
+#       inside namespace Metric :65; Bounded.lean's own 'open Bornology'
+#       (:41) is why it reads bare in mathlib sources).
+#   (c) :780 isCompact_iff_isClosed_bounded unknown — it is
+#       Metric.isCompact_iff_isClosed_bounded (in-tree usage:
+#       RieszMarkovKakutani/Real.lean:194).
+#   (d) :787 the A5 tail tuple shape was wrong all along (masked at r21/22):
+#       ⟨⟨⟨_,_⟩,_⟩, hzero⟩ does not match and(and(4-conj), zeros); whnf of
+#       the mismatched leaf unfolds Real's ≤ to lt-or-eq (Real's
+#       LE instance is literally lt-or-eq), producing the "more than one
+#       constructor" error.
+# VALIDATED at r23: the four r22 fixes (isDiscrete_zeroSet block now fully
+# green), hBeq fix (no 757 error), hL/hne2/hclosed/hdisc, IsClosed.preimage
+# hunks, hre/him/hBcl. 14/14 dictionary+transfer decls triad below line 720;
+# windowFinite_LFunction carries the failed-decl sorryAx only.
+# BUDGET: 6 of ≤6 P2 runs spent — EXHAUSTED. Lane STOPPED per verify-fire
+# discipline (no blind re-fires). Fixes (a)-(d) applied on disk post-r23
+# (parked, unfired): Bornology.IsBounded + Metric.isBounded… + Metric
+# .isCompact_iff… + tail. PARKED SHA cf6d293fb2ea658a; tail subsequently
+# hardened to Pa.lean's own simp-only [supp, multOf, stripWindow,
+# Set.mem_ofPred_eq, Set.mem_inter_iff]-at-hρ idiom (final parked sha
+# 68a736896c8b4380).
+# Telemetry: r23 wall=59s max_cpu=0/2.0 (0 samples — finished under the
+# first 60s interval; no over-flags).

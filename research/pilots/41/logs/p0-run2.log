@@ -1,0 +1,63 @@
+# Provenance: 2026-11-19, lane R4 (pilot-41 day-1 fire, Iteration-5 opener, wave 4).
+# File fired: research/pilots/41/P0.lean, FIX-LOOP bytes (run 1 + the single mechanical
+#   pin-adjustment `noncomputable def Gq`, D3 in-file note added; see p0-run1.log).
+#   sha256 (full): b177acdbf0346bf12ec4c23a5aecee8834de1d1ed57694114f5fa60f6beb1363
+#   sha256 (16):  b177acdbf0346bf1 · 202 LoC (190 + 12 header lines; statement surface
+#   byte-identical to the e3d984b candidate below the header comment).
+# Route: doz CLI /home/doz/dozenv/bin/modal, profile semraker (workspace semraker),
+#   warm app crossmath-probe (ephemeral modal run, no volume/secret/deploy).
+# Spec: cpu=2.0, memory=4096 (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry @60s.
+#   No taskset / no -j (single-file elaboration, no lake build phase).
+# Command: cd /tmp/crossmath-41-stage && /home/doz/dozenv/bin/modal run lean_probe.py
+#   --dir /tmp/crossmath-41-stage.
+# Substrate: mathlib4 ff2494ea5e438f8a8452db803068acd711fa0059 (HEAD verified in
+#   container), toolchain leanprover/lean4:v4.36.0-rc2, 8710 oleans in-image (warm).
+# Wall: 65 s (warm run; [tele] SUMMARY below).
+# Verdict: GREEN — statement-elaboration rung PASSES: `P0.lean: OK; errors=0,
+#   sorry-warnings=0, other-warnings=0`, rc=0. All four #check targets print
+#   (MainIdentity / Nondegenerate / @HostTransport / bridge_pin), types identical to
+#   run 1 — the pin-adjustment changed codegen marking only, zero statement drift.
+#   Zero sorry by construction (Prop-valued defs + #check; only proof token = the
+#   port's definitional rfl at phi_parts). Gates G-P0(a)/(b)/(c) all GREEN; GO to
+#   core per precharter §4 (see P0-record.md).
+# Telemetry finding (AGENTS §Modal guideline 3): one sample OVER mem (8005 MB vs 4096
+#   spec) — the DOCUMENTED inherent artifact again: mem = MemTotal−MemAvailable
+#   includes the memory-mapped Mathlib olean pages + page cache for `import Mathlib`
+#   modules (AGENTS measured fact 5); anon=0 MB (zero anonymous RSS), cpu=0.53 max
+#   (cap 2.0), procs=2. Same-artifact class as run 1 (4312 MB); the run-2 reading is
+#   higher because the successful full elaboration touched more of the mapped cache.
+#   Investigation conclusion (both runs): no runaway tactic, no rebuild, no
+#   mis-scoped import beyond the intended `import Mathlib`; no code-side action; no
+#   resource escalation sought or needed.
+# Modal run: https://modal.com/apps/semraker/main/ap-aVPWsYZdxVvzKx5GqaYOlb
+# --- transcript (full, verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-aVPWsYZdxVvzKx5GqaYOlb
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.53 mem=8005MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] P0.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+MainIdentity : (R : Type u_2) → [inst : CommRing R] → Rˣ → Prop
+Nondegenerate : Prop
+@HostTransport : {R : Type u_2} →
+  [inst : CommRing R] → Rˣ → Rˣ → (FreeMonoid (Fin 2) → R) → (Block → FreeMonoid (Fin 2)) → Prop
+bridge_pin : Prop
+
+[probe] SUMMARY
+[probe]   P0.lean: OK
+[tele] SUMMARY probe: wall=65s max_cpu=0.53 max_mem=8005MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-aVPWsYZdxVvzKx5GqaYOlb

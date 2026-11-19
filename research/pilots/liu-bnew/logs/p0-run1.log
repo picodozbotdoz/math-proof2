@@ -1,0 +1,50 @@
+# PROVENANCE — p0-run1.log (pilot liu-bnew, lane R7/A9-lineage, W2-5 the named-cheap Liu B_new statement-port; fired 2026-11-19T10:57:20Z)
+# source of record: research/pilots/liu-bnew/P0.lean (166 LoC; sha256(16) df0b60db65daea6d — this run's bytes)
+# runner: run_pilot.sh → lean_probe.py (app crossmath-probe, EXISTING; mathlib ff2494ea5e438f8a8452db803068acd711fa0059, Lean v4.36.0-rc2, elan v4.2.4, CI oleans via lake exe cache get)
+# spec: cpu=2.0 mem=4096 (defaults, soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry via modal_telemetry (@telemetered; [tele] lines below are the resource record)
+# convention: statement-rung P0 file (probe class; NEVER a Step-B stage per FINAL-SWEEP-PLAN §7a zzv2-P0 ruling); expected verdict = OK with 0 errors, 0 sorry-warnings, 2 bridge theorems triad-or-fewer axioms
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-PeyyDmQabhcFH77sDy7Mx0
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-liu-bnew-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['P0.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== P0.lean
+[tele] t=60s cpu=0.72 mem=5331MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] P0.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+---- output head ----
+P0.lean:62:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+P0.lean:67:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+'CrossMath.LiuBNew.discharge_hQRH_of_liu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.LiuBNew.discharge_hQRHχ_of_liu' depends on axioms: [propext, Classical.choice, Quot.sound]
+LiuBoundaryOrder : Prop
+LiuHeckeZeroFree : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → ℝ → Prop
+LiuBetaBound : ℝ → ℝ → Prop
+LiuDirichletZeroFree : ℝ → Prop
+LiuZetaZeroFree : ℝ → Prop
+LiuZetaZeroFree' : ℝ → Prop
+LiuCor14_1Transfer : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → Prop
+LiuEntryTiers : (H : Type) → (H → ℂ → ℂ) → (H → ℂ) → ℝ → Prop
+
+[probe] SUMMARY
+[probe]   P0.lean: FAIL (2 errors)
+[tele] SUMMARY probe: wall=76s max_cpu=0.72 max_mem=5331MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-PeyyDmQabhcFH77sDy7Mx0
+
+# OVER-mem investigation (guideline 3; recorded per AGENTS.md § Modal usage):
+# the single OVER sample (t=60s mem=5331MB, anon=0MB, cpu=0.72) is the documented
+# Mathlib-olean mmap artifact — the mem figure is MemTotal−MemAvailable and includes
+# the ≈5–6 GB of memory-mapped Mathlib .olean pages inherent to elaborating
+# Mathlib-importing modules (AGENTS.md §5 measured facts, G7b investigation). 5331MB
+# sits inside the documented band; anon=0MB confirms no anonymous allocation growth;
+# cpu within spec. No code-side action; no resource change requested.
