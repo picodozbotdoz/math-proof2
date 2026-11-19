@@ -1,0 +1,56 @@
+# Provenance: 2026-11-19, lane R4 (unit 7: the GRANTED confirm run — firing the
+#   documented unfired amendment, bytes sha256-16 9534383949a6ac0c, run-10 content
+#   + the closed-shape hcon congr-fix).
+# Route: doz CLI, profile semraker, warm app crossmath-probe; spec cpu=2.0/memory=4096,
+#   LEAN_NUM_THREADS=2, telemetry @60s. Wall 63 s; 1 tele sample (cpu=0.56, mem=8186MB
+#   OVER-mem = the documented olean-mapping artifact, anon=0).
+# **VERDICT: GREEN — H2.lean: OK; errors=0, sorry=0. TRANCHE-2 COMPLETE.**
+# Full audit (verbatim below): sigmaOrth [propext]; sigmaExpand_basis [propext];
+# sigmaExpand [propext, Classical.choice, Quot.sound]; **rank_obstruction_nogo
+# [propext, Classical.choice, Quot.sound]** — the full obstruction theorem
+# (certificates + expansion + no-go) is kernel-proved, triad-or-leaner throughout.
+# (2 deprecation-class warnings only: if_pos/if_neg inside lsum_evec lemmas.)
+# Modal run: https://modal.com/apps/semraker/main/ap-gD5LlCYrrQASY0RlrQu1x8
+# --- transcript (verbatim) ---
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-gD5LlCYrrQASY0RlrQu1x8
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H2.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H2.lean
+[tele] t=60s cpu=0.56 mem=8186MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] H2.lean: OK; errors=0, sorry-warnings=0, other-warnings=3
+---- output head ----
+H2.lean:201:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+H2.lean:218:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+H2.lean:222:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'Pilot41H2.sigmaOrth' depends on axioms: [propext]
+'Pilot41H2.sigmaExpand_basis' depends on axioms: [propext]
+'Pilot41H2.sigmaExpand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H2.rank_obstruction_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H2.lean: OK
+[tele] SUMMARY probe: wall=63s max_cpu=0.56 max_mem=8186MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-19T21:00:51+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-gD5LlCYrrQASY0RlrQu1x8

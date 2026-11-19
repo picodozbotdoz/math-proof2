@@ -941,6 +941,19 @@ certificates only). Companion of the dependsOnNoncomputable note above.
   executes on the close signal). **R1's P2-c fold RELEASES at this
   final-parked row** (the audit-pending note included). R3 → close-support
   standby.
+
+## 2026-11-19 — iter-5 steady state, batch P (H): R4's tranche-2 COMPLETE — the second discovery banked
+
+- **The H2 fold-once closing landing** (4/4 shas verified):
+  `H2.lean` `3bc81701…` (fired `95343839…` + comment-only note = the GREEN
+  closing state; 11 runs) + `h2-run11.log` `136b3486…` + `H-record.md`
+  `f21b07f3…` (tranche-2 COMPLETE + the **bank-as-negative ruling** + the
+  n≥4 deferred seed) + **the 41H stub → LANDED-FACTS** (`eedeb8fa…`).
+- Verdict of record: **TRANCHE-2 COMPLETE — the (H) program BANKS AS THE
+  SECOND DISCOVERY (negative-kind, QUOTA-FREE; the 3-strand hypothesis
+  closed FALSE).** R4 → standby (program complete; the ship chain live:
+  R7 fill + R9 §NEGATIVE in flight). R1's 41H fold queues (certificates +
+  expansion + no-go, 11 runs).
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording
