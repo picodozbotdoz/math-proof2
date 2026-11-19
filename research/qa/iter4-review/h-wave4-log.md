@@ -677,6 +677,25 @@ rides this commit.
   does NOT bind yet** — it targets R8's reported bytes which H HELD (live
   drift to `208430ba…`); the guard re-binds at R8's landing per the recorded
   guard-move discipline. R1 funnel next: L3 · M2-completion-fire · P3-fire.
+
+## 2026-11-19 — iter-5 steady state, batch 9 (H): R6 unit-5 STOPPED — records + P3-a landed; P2-b parked
+
+- **R6's stopped set landed per the report's boundaries** (record artifacts +
+  the P3 family ONLY): `N2-P1-record.md` `697a9b82…` (run-30 entry + the
+  §NEXT-INSTANCE RESUME NOTE) · `logs/n2-p1-run30.log` `9258b488…` (the
+  FIRE-ONCE closure attempt: 11→6→4→2, NOT green) · the dossier unit-5 bullet
+  `20e0143f…` · **`N2-P3.lean` `fda66526…`** + `logs/n2-p3-run{1,2}.log`
+  (**P3-a GREEN banked** — all four staged modules OK) + the runner pair
+  `run_n2p3.{py,sh}` (py_compile rc=0).
+- **HELD (per the ruling in the report): `N2-P1.lean` at parked
+  `396d8710…` stays WORKTREE-side** — unverified bytes; main keeps the
+  verified run-26 bytes `ce6719c8…` (asserted at pull). Same for runs 27–29
+  logs + run8 (ride R6's next report).
+- **State of record: P2-b parked 16/17** (only `eulerStripImmunity_changeLevel`
+  remains; `lFunction_not_eventually_zero` now a VERIFIED theorem; the two
+  residuals fixed-on-disk-unfired — the parked hoist; **resume = a single
+  confirmation run on a FRESH ruling**); P2-c not opened (conditional); P3-a
+  GREEN banked. Tracker: R6 → P3-plan drafting.
 - **R4's (H)-preflight pulled** (3 files, shas verified): binder tier GREEN on
   the corrected statements; **(H) PROMOTED by the orchestrator's mid-wave
   ruling 2026-11-19** — conditions bind verbatim; the P0 HostTransport wording

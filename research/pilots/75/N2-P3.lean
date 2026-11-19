@@ -135,6 +135,21 @@ def ZetaColumnOfV2Q (fK : ℂ → ℂ) (hfinK : WindowFinite (multOf fK))
   EpsLowerCum ⟨multOf riemannZeta, hfinζ⟩ (2 / 3) →
     EpsLowerCum ⟨multOf fK, hfinK⟩ (2 / 3)
 
+/-! ### The hEχ slot shape (P2-c output; the component-proportion binder)
+
+Stated per family member with the P2-a finiteness DISCHARGED (run 26) — the
+`ThmEDyadicToCumulative` conclusion + `HasEulerStripImmunity` composition
+target of the P2-c port. (Defined before P3-e, which consumes it in
+∀-candidate-family form.) -/
+
+/-- The per-component cumulative 2/3 proportion slot: each nontrivial family
+member's L-function zero data carries 2/3, on the P2-a-supplied window
+finiteness. -/
+def ComponentEpsCum {n : ℕ} {q : Fin n → ℕ} (hN : ∀ i, NeZero (q i))
+    (ψ : (i : Fin n) → DirichletCharacter ℂ (q i)) (hne : ∀ i, ψ i ≠ 1) : Prop :=
+  ∀ i, EpsLowerCum ⟨multOf (@DirichletCharacter.LFunction (q i) (hN i) (ψ i)),
+    windowFinite_family hN ψ hne i⟩ (2 / 3)
+
 /-! ### P3-e — the composed landing (N2-d at P3, statement form)
 
 The full composition: DZDF-quoted factorization data + the dictionary + the
@@ -181,15 +196,6 @@ def ZetaLRatTwoThirdsOfDZDF (fK fL : ℂ → ℂ) (n : ℕ)
       = (⟨multOf riemannZeta, hfinζ⟩ : ZeroMult).countOnCum T) →
   EpsLowerCum ⟨multOf riemannZeta, hfinζ⟩ (2 / 3) →
     EpsLowerCum ⟨multOf fL, hfinL⟩ (2 / 3)
-
-/-- The hEχ slot shape (P2-c output; restated here for the inventory): each
-component at cumulative with-multiplicity 2/3 — the `ThmEDyadicToCumulative`
-conclusion + `HasEulerStripImmunity` composition target, stated per family
-member with the P2-a finiteness now DISCHARGED (run 26). -/
-def ComponentEpsCum {n : ℕ} {q : Fin n → ℕ} (hN : ∀ i, NeZero (q i))
-    (ψ : (i : Fin n) → DirichletCharacter ℂ (q i)) (hne : ∀ i, ψ i ≠ 1) : Prop :=
-  ∀ i, EpsLowerCum ⟨multOf (@DirichletCharacter.LFunction (q i) (hN i) (ψ i)),
-    windowFinite_family hN ψ hne i⟩ (2 / 3)
 
 -- Statement-layer name/shape pins (the P3 binder inventory, elaborated at the
 -- P3-a statement rung; expect `theorem`/`def` cards only, 0 sorry).

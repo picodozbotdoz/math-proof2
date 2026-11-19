@@ -11,10 +11,13 @@ P2-a continuation, 2-run remnant of the P2 ≤6 budget). Dossier:
 `research/candidates/75-N2-rayclass-dirichlet-consumer.md` §Pilot spec skeleton
 (P1) + §Proof-strategy steps 1–3. A1 folds the §10-format block below into
 `qa/iter4-review/r3-verification-tables.md` (one-writer discipline). Evidence
-of record: `pilots/75/logs/n2-p1-run{1..26}.log` (per-run provenance headers
-with verify-fire shas + error-class analyses; **run 19 = the verified P1
-state**, sha ca1089e2a0c1…; **run 26 = the verified P2-a state**, sha
-ce6719c8af450eaa…, 15/15 triad incl. `windowFinite_LFunction`).
+of record: `pilots/75/logs/n2-p1-run{1..30}.log` + `n2-p3-run{1,2}.log`
+(per-run provenance headers with verify-fire shas + error-class analyses;
+**run 19 = the verified P1 state**, sha ca1089e2a0c1…; **run 26 = the
+verified P2-a state**, sha ce6719c8af450eaa…, 15/15 triad incl.
+`windowFinite_LFunction`; **n2-p3-run2 = the verified P3-a statement rung**,
+N2-P3.lean sha fda6652636cddd8f…; run 30 = the P2-b hard-stop, 16/17 with
+the helper triad-clean).
 
 ## Milestone verdicts (verified state = run 19)
 
@@ -149,6 +152,42 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   **OVER=0** (fully within spec). The fix-loop closes at 10→8→3→4*→11*→1→0
   (* = unmasking events). P2-a CLOSED; same unit drafted the N2-P3 skeleton
   (`N2-P3.lean`, statements-only zero-sorry rung) + the P2-b note below.
+- Runs 27–29 (2026-11-19, R6 unit 4, the P3-a + P2-b grant): **P3-a GREEN
+  in 2 runs** (`logs/n2-p3-run{1,2}.log`; run 1 = one declaration-order
+  error — ComponentEpsCum used before its def; run 2 = OK, all five cards +
+  #check pins, 0 sorry; the N2P1 byte-identical-copy staging VERIFIED —
+  compiles OK; runner pair `run_n2p3.sh`/`.py` added, ORDER =
+  [Pa, N2P0, N2P1, N2-P3]). Then **P2-b (strip immunity) opened: 11 → 6 → 4
+  errors over runs 27–29** (grant 3/3 spent): r27 = the changeLevel family
+  is namespaced (`DirichletCharacter.` prefix; unqualified use in a theorem
+  STATEMENT autoImplicit-poisons the whole body — the AddCommGroup ℕ junk
+  class) + `↗` is scoped notation (`scoped[LSeries.notation]`,
+  LSeries/Basic.lean:265 — expanded to the explicit lambda in e1/e2); r28 =
+  ONE root class: un-annotated `fun s =>` binders under postponed instance
+  metas make the leading `1 - …` literal default to ℕ (annotate
+  `fun s : ℂ =>`, 11 sites); r29 = **hhp + hident (the Euler-identity
+  transport — P2-b's mathematical core) elaborate GREEN**, residuals 4
+  mechanical (double-prefix from the blanket replace; `push_cast <;> rfl`
+  cast-bridge; `Complex.`-namespace for norm_cpow_eq_rpow_re_of_pos; the
+  `analyticOrderAt_ne_top` ∃-form trap → reroute via
+  `analyticOrderAt_eq_top.mp`). All four fixed on disk post-r29 — parked
+  sha 225830aa…, expected next-run GREEN (17/17). Zero math defects; walls
+  79/76/67 s, cpu ≤ 0.92/2.0, one OVER-mem artifact (r28).
+- Run 30 (2026-11-19, R6 unit 5, the LAST P2 micro-grant, FIRE-ONCE; input
+  sha 225830aa… guarded): **FAIL — 2 errors — HARD-STOP P2-b per the
+  ruling.** Descent 11→6→4→2; **`lFunction_not_eventually_zero` now
+  TRIAD-CLEAN (16/17 — only `eulerStripImmunity_changeLevel` carries the
+  failed-decl sorryAx)**. The two residuals: (i) :883 a by-linarith inside
+  the norm_cpow rw (goal display truncated; best-effort parked fix hoists
+  the positivity fact with the lemma supplied); (ii) :918 dot-notation on
+  AnalyticAt-typed terms resolves through the whnf head
+  (`∃ p, HasFPowerSeriesAt …`) → phantom `Exists.` lookup — the eq_top iff
+  is ROOT-level (`analyticOrderAt_eq_top`, Order.lean:77 in section
+  NormedSpace with no namespace; its :119 sibling carries an explicit
+  `AnalyticAt.` prefix IN THE NAME, which is why ITS dot worked at r29).
+  Both fixed on disk post-r30 — parked sha 396d8710…, expected next-run
+  GREEN 17/17. P3-a STAYS BANKED GREEN; P2-c NOT opened (was conditional
+  on r30 green); no P3 staging. Wall 64s, cpu 0.89/2.0, OVER=0.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -233,6 +272,45 @@ P2-a classes (runs 24–25, R6 unit 2; all tactic-field — zero math defects):
   (Algebra/Order/Ring/Abs.lean:134) with a final `rwa [abs_of_nonneg hn] at
   hle` (the lemma concludes `|a| ≤ b`, the goal is `a ≤ b` for `a := ‖ρ‖`).
 
+P2-b/P3-a classes (runs n2-p3-1/2 + 27–29, R6 unit 4; zero math defects):
+
+- **An unqualified namespaced identifier in a theorem STATEMENT
+  autoImplicit-poisons the entire proof body** (`changeLevel` → junk
+  metavars → phantom AddCommGroup ℕ / Neg ℕ failures deep in the body).
+  Qualify statement identifiers FIRST; body errors under a failed statement
+  are not evidence. (Same genus as the failed-have masking lesson.)
+- **`↗` is SCOPED notation** (`scoped[LSeries.notation]`,
+  LSeries/Basic.lean:265, expands to `fun n : ℕ ↦ (f n : ℂ)`); without the
+  scope it is a PARSE error. Expand the lambda explicitly rather than
+  opening (the scope also carries an `L` alias for LSeries).
+- **Un-annotated lambda binders under postponed instance metas default
+  numeric literals to ℕ**: `Differentiable ℂ (fun s => 1 - …)` leaves
+  `?E → ?F` unassigned, so the leading `1` elaborates as ℕ and
+  `AddCommGroup ℕ` fails. ALWAYS annotate (`fun s : ℂ =>`) when the body
+  starts with a numeric literal or the type feeds only through instances.
+- **`AnalyticAt.analyticOrderAt_ne_top` is the ∃-witness iff** (Order.lean:
+  119) on this pin, NOT the eventually-zero negation — for nontop from
+  not-eventually-zero use `fun h => hnotzero (hA.analyticOrderAt_eq_top.mp h)`
+  (:77: `analyticOrderAt = ⊤ ↔ ∀ᶠ z in 𝓝 z₀, f z = 0`).
+- **`norm_cpow_eq_rpow_re_of_pos` is Complex-namespaced** (declared inside
+  `namespace Complex`, Pow/Real.lean:280/:337) despite living in a Real
+  file; the (p:ℝ)↔(p:ℕ)-cast bridge in ℂ needs `by push_cast <;> rfl`
+  (plain push_cast can leave a trivial residual; `Complex.ofReal_natcast`
+  does NOT exist on this pin).
+- **Blanket string-replace double-prefix hazard**: replacing
+  `changeLevel hMN χ` also hit inside `LSeries_changeLevel hMN χ` — verify
+  replaces against lemma-name substrings (`LSeries_` + `changeLevel`).
+- **Dot-notation on `AnalyticAt`-typed terms resolves through the whnf
+  head (`∃ p, HasFPowerSeriesAt …`) → phantom `Exists.` lookups** (r30
+  :918). The order-API siblings differ: `AnalyticAt.analyticOrderAt_ne_top`
+  (:119) carries the namespace IN ITS DECLARED NAME (dot works), while
+  `analyticOrderAt_eq_top` (:77) is ROOT-level in `section NormedSpace`
+  (dot fails — reference it bare).
+- **`χ.norm_le_one`** (Bounds.lean:44, `DirichletCharacter.`-namespaced,
+  dot-usable) is the character-value norm bound; with
+  `Complex.norm_cpow_eq_rpow_re_of_pos` + `Real.rpow_lt_one_of_one_lt_of_neg`
+  + `Real.rpow_nonneg` the strip zero-freeness is a 4-fact nlinarith.
+
 ## P2/P3 recommendation (updated 2026-11-18, post-M3)
 
 - **P2 (the hEχ port): GO** — every dictionary-level input it needs is now a
@@ -259,7 +337,7 @@ P2-a classes (runs 24–25, R6 unit 2; all tactic-field — zero math defects):
 - **P2-b (strip immunity) / P2-c (port) NOT STARTED** — spec current in the dossier §Proof-strategy steps 4–5; the P2-b API facts pinned this session: `DirichletCharacter.LSeries_changeLevel` (EulerProduct/DirichletLSeries.lean:173, exact form recorded above), `changeLevel_injective` (Basic.lean:79), `LSeries_ne_zero_of_one_lt_re` (Dirichlet.lean:233). P3 readiness: `factorization_identity_extension` (run 19) supplies the engine-input bridge; P3 is blocked only on P2-c.
 
 
-## P2 state after run 26 (R6 unit 3, 2026-11-19) — **P2-a CLOSED GREEN**
+## P2 state after run 26 (R6 unit 3, 2026-11-19) — **P2-a CLOSED GREEN**; unit-4: P3-a GREEN, P2-b opened; unit-5: P2-b HARD-STOPPED at 2 residuals (see ledger + resume note)
 
 - **P2-a (windowFinite_LFunction) GREEN-triad at run 26** (15/15 file decls,
   0 sorry; sha ce6719c8…; OVER=0 telemetry). The hEχ port's window-finiteness
@@ -301,18 +379,29 @@ P2-a classes (runs 24–25, R6 unit 2; all tactic-field — zero math defects):
   authorized for it this unit).
 
 
-## NEXT-INSTANCE RESUME NOTE (R6 unit-3 close, 2026-11-19)
+## NEXT-INSTANCE RESUME NOTE (R6 unit-5 close, 2026-11-19 — P2-b HARD-STOPPED; parked disk sha 396d8710d9084388…)
 
-**P2-a is CLOSED GREEN at run 26 — verified state sha ce6719c8af450eaa
-(15/15 triad, 0 sorry). Next milestone: P2-b (strip immunity), then P2-c
-(port), then P3 execution.** First actions for the next instance, in order:
-(1) the P3-a statement rung — stage `N2-P1.lean` as `N2P1.lean`, add the
-`run_n2p3` runner pair (copy `run_n2p1` with ORDER = [Pa, N2P0, N2P1,
-N2-P3]), fire ONE elaboration run on the skeleton (expect OK or a handful of
-statement-level name/shape frictions — the file is zero-sorry by
-construction, its only proof is `@windowFinite_LFunction` applied at the
-family level); (2) P2-b per the spec note above (the pinned API list +
-the four-step plan); (3) P2-c per the P0 staged shapes. Budget discipline:
-fresh rulings per phase; verify-fire sha guards unchanged. The N3 axcheck
-(full-coverage `axcheck_full.py` pattern over Pa/N2P0/N2P1/N2P3) fires at
-P3 close, before `zetaL_rat_two_thirds_landed` is billed landed-in-corpus.
+**[Unit-6 addendum: the full N2-P3 execution plan is now drafted —
+`research/pilots/75/N2-P3-plan.md` (rung ladder P3-b/c/d/e with per-rung
+exits, budgets, binder-discharge inventory, risks, and the P2-c interleave
+analysis: P3-b/P3-c/P3-d are NOT P2-c-dependent and can run while P2-b
+parks; only P3-e's assembly waits on P2-c ⇒ transitively P2-b). The
+critical path to the landing: P2-b-confirm (1 run) → P2-c → P3-e.]**
+
+**Wave-5 posture: P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
+P2-b HARD-STOPPED at 2-residual depth by the ruling** (runs 27–30:
+11→6→4→2; the helper `lFunction_not_eventually_zero` is TRIAD-CLEAN; the
+Euler-identity transport hhp/hident validated since r29; zero math defects
+throughout — the whole loop is name-resolution/tactic-field). Two fixes
+applied on disk post-r30 (the hoisted positivity fact for the :883
+by-linarith; the root-level `analyticOrderAt_eq_top.mp` for the :918
+Exists-whnf dot trap) — parked sha 396d8710…, **expected: the next run
+closes P2-b GREEN at 17/17**. Next-instance order: (1) fire that one run
+on a fresh ruling (guard sha 396d8710…); (2) if the :883 linarith
+resurfaces, read its exact :context goal first (the r30 display was
+truncated — the parked hoist is best-effort); (3) on P2-b green → P2-c
+(the dyadic→cumulative port per the P0 staged shapes `ThmEDyadic`/
+`CountsUnbounded`/`ThmEDyadicToCumulative`; both its structural inputs —
+P2-a finiteness, P2-b immunity — will then be theorems); (4) then P3
+execution per the plan (V2 import rung, M4b pattern) + the N3
+full-coverage axcheck before billing `zetaL_rat_two_thirds_landed`.
