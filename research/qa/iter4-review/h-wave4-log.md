@@ -1533,3 +1533,16 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
   STATUS.md "Iteration 6" block appended from the typeset's STATUS-BLOCK
   verbatim. INDEX rows ride. Day-1 fire records land as their reports arrive
   (post-splice batches).
+
+## 2026-11-20 — iter-6 day-1, batches: the F1 gap fix + R2's dry-pass + R8's run-7 park
+
+- **F1 FIXED (`7caddb3`)**: main's N2-P1.lean was at run-26 `ce6719c8` — the run-31
+  GREEN 17/17 state `396d8710` had been verified worktree-side only at batch MM;
+  landed now + the recovered run-31 log (`404de7d7`). The G2 override interaction
+  self-resolves; landed before R1's re-bind verdict (the racing guard).
+- **R2's 75v3 S1–S4 dry-pass landed** (`e41b8faf`): GO-dry w/ three splice-time
+  conditions; F1 fixed, F2/F3 ride the dossier.
+- **R8's run-7 park records landed** (record `375fd760` + log `18cdefae`, 19 s
+  OVER=0): NOT-GREEN → park-permanent per D5, THEN the universe-0 root found on
+  the inlined hq helper (the runs-5/6 kabstract opacity explained); the final
+  fire granted at P0 `7cd41a30` w/ the ABSOLUTE cap — P0/A2 HELD until post-fire.

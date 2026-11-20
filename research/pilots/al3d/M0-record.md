@@ -580,3 +580,30 @@ from GREEN. The find-#6 P0 amendment (H-approved) is applied and 90% verified in
 
 — lane R8 (worktree agent-05), 2026-11-20, M3 wave fires EXHAUSTED per the cap; parked
 honestly; iter-6 inherits with a one-fire-ready state. No commits (H commits).
+
+## M3 iter-6 day-1 fire (run 7, D5 inheritance): NOT-GREEN ⇒ PARK-PERMANENT for re-scoping
+
+**Run 7** (`logs/alp2-m3-run7-iter6day1.log`, wall 19 s, telemetry OVER=0, guard
+`/tmp/al3d-prefire-sha-m3run7.txt` at the inherited triple `33c759420ad65598` /
+`a8feb25bcd60722f` / `221eb30b6debba75`): **P0 FAIL errors=2 (one root + cascade);
+A1/A2 pure cascade.** Per the D5 order: park-permanent, no further fires.
+
+**ROOT — finally COMPLETE, and it retroactively explains the entire `hq` saga (runs
+5–7):** the inlined `hq` helper was declared `∀ {ι κ : Type}` — universe-0 — while the
+concrete index type `Reg loc S` lives in `Type (max u_3 u_1 u_2)`. Run 7's error shows
+it literally (`x : Reg.{u_1,u_2} loc S → 𝕜` vs expected `Reg.{0,0} ?m → 𝕜`); run 5's
+bare-`rw` and run 6's pinned-`rw` "pattern not found" failures were the same universe
+mismatch surfacing opaquely. **FIX = ONE WORD, pre-applied to the parked bytes:
+`{ι κ : Type}` → `{ι κ : Type*}`.** Parked post-state: **P0 `7cd41a3046eda597`**, A1
+`a8feb25bcd60722f`, A2 `221eb30b6debba75` — the re-scoped unit's first action remains
+ONE fire, now with the last invisible root eliminated (the run-6 `.symm` and `▸` fixes
+are also in these bytes and the per-z entry proof's only remaining step after them is
+exactly the machinery that elaborated clean in runs 5–7).
+
+**Full M3 fire history (7 fires, 2026-11-19/20+): 27 → 13 → 11 → 2 → 2 → 2 → 1 root —
+every class mechanical; zero math defects. The M0→M2 ladder stays GREEN-triad on main
+(batch Q); M3 = park-permanent honest-partial with a one-fire-ready, one-word-from-GREEN
+state.**
+
+— lane R8 (worktree agent-05), iter-6 day-1. Records worktree-side until the opening
+commit. No commits (H commits).
