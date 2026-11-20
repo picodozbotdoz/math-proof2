@@ -458,6 +458,115 @@ theorem call_cost_corollary_16 {n D : ℕ} {t C C₁₆ : ℝ} (hD : 1 ≤ D) (h
           (mul_le_mul_of_nonneg_left hread hC)
     _ = (2 * C₁₆ + C) * ((n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ)) := by ring
 
+/-! ## Part 3c — the MM-generalized cost analysis (the REBUILD, per the strassen-frozen
+finding: not re-instantiation — the donor's `Theorem19.exists_total_le`
+(`Sec3/Theorem19/Choice.lean:245`) hardcodes `termPrime strassen n D` and its
+`Choice.strassen_le` input; here the term is `termPrime W.MM n D` and the input is
+the ω_b-BALANCE `W.ωb + 1/12 ≤ 3 − η/18` as an explicit binder, from which the
+MM-term bound is PROVED in-line from `W.grows` + `Choice.le_root` — exactly where
+ε(ω_b) is born). All real proofs; zero sorry. NOTE (run-4 lesson): the donor's
+`Real.natCast_le_rpow_inv_iff` does NOT exist on our pin (v4.33→v4.36 drift), so
+the n-positivity input is derived inline instead of via a `le_root_iff` port. -/
+
+/-- The donor's Choice-DERIVED per-term bounds (its `instances_le`/`scans_le`/
+`build_le`/`one_le_log`, `Sec3/Theorem19/Choice.lean:60–244`) — MM-INDEPENDENT, so
+they survive the generalization verbatim in shape — collected as an explicit
+interface binder. Discharging them from the six `Choice` fields (the donor's rpow
+calculus) is the next batch; the interface is the honest statement-level seam. -/
+structure ChoiceSumInputs (η c : ℝ) : Prop where
+  instances_le : ∀ {n D : ℕ}, Theorem19.Choice n D η c → ∀ {X κ Λ : ℝ}, 0 ≤ X → 1 ≤ κ → 1 ≤ Λ →
+      X ≤ Λ → 4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η))
+        ≤ 8 * c ^ η * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ))
+  scans_le : ∀ {n D : ℕ}, Theorem19.Choice n D η c → ∀ {κ Λ : ℝ}, 1 ≤ κ → 1 ≤ Λ →
+      termScans n ⌈(D : ℝ) ^ η⌉₊ κ ≤ c ^ η * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ))
+  build_le : ∀ {n D : ℕ}, Theorem19.Choice n D η c → ∀ {κ Λ : ℝ}, 1 ≤ κ → 1 ≤ Λ →
+      termBuild n D ⌈(D : ℝ) ^ η⌉₊ ≤ 2 * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ))
+  one_le_log : ∀ {n D : ℕ}, Theorem19.Choice n D η c → 1 ≤ Real.log n
+
+/-- The generalized cost analysis (the donor's `exists_total_le` with the strassen
+slot freed): for every word-RAM MM whose exponent satisfies the BALANCE
+`ωb + 1/12 ≤ 3 − η/18`, the Theorem-17 total at `termPrime W.MM` is
+`O(κ n^{3−η/18} Λ)`. The ω_b-balance is the explicit binder the pricing correction
+names; the MM-term bound it unlocks is proved in-line (W.grows × Choice.le_root). -/
+theorem MMgeneral_total_sum (W : WordRamMMData) {c : ℝ} (hc : 0 ≤ c) (η : ℝ)
+    (I : ChoiceSumInputs η c)
+    (hbal : W.ωb + 1 / 12 ≤ 3 - η / 18) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ {n D : ℕ}, Theorem19.Choice n D η c → ∀ {a b κ X Λ : ℝ},
+      0 ≤ a → 0 ≤ b → 1 ≤ κ → 0 ≤ X → X ≤ Λ → Real.log n ≤ Λ →
+      4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * (a * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+        + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+          + termBuild n D ⌈(D : ℝ) ^ η⌉₊)
+        ≤ C * ((a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ))) := by
+  obtain ⟨Cb, hCb, hgrow⟩ := W.grows
+  have hCb0 : (0 : ℝ) ≤ Cb := zero_le_one.trans hCb
+  refine ⟨8 * c ^ η + Cb + 3, by positivity, fun {n D} P {a b κ X Λ} ha hb hκ hX hXΛ hlogΛ => ?_⟩
+  have hΛ : 1 ≤ Λ := (I.one_le_log P).trans hlogΛ
+  have hΛκ : Λ ≤ κ * Λ := le_mul_of_one_le_left (zero_le_one.trans hΛ) hκ
+  -- n is positive: if n = 0 then le_root forces D = 0 against sixteen_le.
+  have hnpos : 0 < n := by
+    rcases Nat.eq_zero_or_pos n with h0 | h1
+    · exfalso
+      -- Real.zero_rpow_le_one (on-pin): (0:ℝ)^x ≤ 1, total — no ≠ 0 needed
+      have hroot1 : (D : ℝ) ≤ 1 := by
+        have h := P.le_root
+        rw [h0, Nat.cast_zero] at h
+        exact h.trans (Real.zero_rpow_le_one _)
+      have h16D : (16 : ℝ) ≤ (D : ℝ) := by exact_mod_cast P.sixteen_le
+      exact absurd (h16D.trans hroot1) (by norm_num)
+    · exact h1
+  have hn1 : (1 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hnpos
+  have hn0 : (0 : ℝ) < (n : ℝ) := lt_of_lt_of_le zero_lt_one hn1
+  have hD1 : (1 : ℝ) ≤ (D : ℝ) :=
+    le_trans (by norm_num : (1 : ℝ) ≤ 16) (by exact_mod_cast P.sixteen_le)
+  have hD0 : (0 : ℝ) < (D : ℝ) := lt_of_lt_of_le zero_lt_one hD1
+  -- the MM-term bound: THE ω_b-balance step (the strassen-le slot's replacement).
+  have hMM : termPrime W.MM n D ≤ Cb * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ)) := by
+    have hDp : (D : ℝ) ^ (3 / 2 : ℝ) ≤ (n : ℝ) ^ (1 / 12 : ℝ) := by
+      have h2 : ((n : ℝ) ^ (1 / 18 : ℝ)) ^ (3 / 2 : ℝ) = (n : ℝ) ^ (1 / 12 : ℝ) := by
+        rw [← Real.rpow_mul hn0.le, show (1 / 18 : ℝ) * (3 / 2 : ℝ) = 1 / 12 by norm_num]
+      calc (D : ℝ) ^ (3 / 2 : ℝ) ≤ ((n : ℝ) ^ (1 / 18 : ℝ)) ^ (3 / 2 : ℝ) :=
+            Real.rpow_le_rpow hD0.le P.le_root (by norm_num : (0 : ℝ) ≤ 3 / 2)
+        _ = (n : ℝ) ^ (1 / 12 : ℝ) := h2
+    have hg := hgrow n (Nat.one_le_iff_ne_zero.2 (Nat.ne_of_gt hnpos))
+    have h1κΛ : 1 ≤ κ * Λ := by
+      nlinarith [mul_le_mul hκ hΛ zero_le_one (zero_le_one.trans hκ)]
+    have hωΛ : (n : ℝ) ^ (3 - η / 18) ≤ (n : ℝ) ^ (3 - η / 18) * (κ * Λ) :=
+      le_mul_of_one_le_right (Real.rpow_nonneg hn0.le _) h1κΛ
+    unfold termPrime
+    calc W.MM n * (D : ℝ) ^ (3 / 2 : ℝ)
+        ≤ (Cb * (n : ℝ) ^ W.ωb) * (n : ℝ) ^ (1 / 12 : ℝ) :=
+          mul_le_mul hg hDp (Real.rpow_nonneg hD0.le _)
+            (mul_nonneg hCb0 (Real.rpow_nonneg hn0.le _))
+      _ = Cb * ((n : ℝ) ^ (W.ωb + 1 / 12 : ℝ)) := by rw [Real.rpow_add hn0]; ring
+      _ ≤ Cb * ((n : ℝ) ^ (3 - η / 18 : ℝ)) :=
+          mul_le_mul_of_nonneg_left (Real.rpow_le_rpow_of_exponent_le hn1 hbal) hCb0
+      _ ≤ Cb * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ)) := mul_le_mul_of_nonneg_left hωΛ hCb0
+  -- the assembly (the donor's `exists_total_le` calc, MM-slot swapped in).
+  have hinstances := I.instances_le P hX hκ hΛ hXΛ
+  have hscans := I.scans_le P hκ hΛ
+  have hbuild := I.build_le P hκ hΛ
+  set R := (n : ℝ) ^ (3 - η / 18) * (κ * Λ) with hR
+  have hR0 : (0 : ℝ) ≤ R := by positivity
+  -- monomial nonnegativity facts: the generalized constant Cb makes the donor's
+  -- linarith-linear steps nonlinear, so the products ride as explicit hypotheses.
+  have hA0 : (0 : ℝ) ≤ c ^ η := Real.rpow_nonneg hc η
+  have hcηR : (0 : ℝ) ≤ c ^ η * R := mul_nonneg hA0 hR0
+  have hCbR : (0 : ℝ) ≤ Cb * R := mul_nonneg hCb0 hR0
+  calc 4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * (a * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+          + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+            + termBuild n D ⌈(D : ℝ) ^ η⌉₊)
+      = a * (4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+          + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+            + termBuild n D ⌈(D : ℝ) ^ η⌉₊) := by ring
+    _ ≤ a * ((8 * c ^ η + Cb + 3) * R) + b * ((8 * c ^ η + Cb + 3) * R) := by
+        apply add_le_add
+        · apply mul_le_mul_of_nonneg_left _ ha
+          linarith [hinstances, hCbR, hR0]
+        · apply mul_le_mul_of_nonneg_left _ hb
+          linarith [hscans, hMM, hbuild, hcηR, hCbR, hR0]
+    _ = (8 * c ^ η + Cb + 3) * ((a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ))) := by
+        rw [hR]; ring
+
 /-! ## Part 4 — the core-target stubs (day-1 statement scaffolds)
 The three work items of the iter-6 core charter (per `core-charter-input.md` §1–§3),
 each as a named statement stub: day-1 of iteration 6 fires this file for a

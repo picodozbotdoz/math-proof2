@@ -1,0 +1,888 @@
+# provenance: raw modal runs, pilot-12 CORE runs 4-9 (the S-tranche continue-order: the MM-generalized cost analysis; D4 GO budget 9 fires, ALL SPENT, descent 11->10->3->2->1->0) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | commands: bash research/pilots/12/stage_and_fire_core.sh {4..9} | sha chain (guard verified every fire): run4 d3f7b5c9ad1e327f (Part 3c v1) -> run5 acb9fe47c4620a8d (qualify Theorem19.Choice + inline n-positivity; drop the v4.33-only Real.natCast_le_rpow_inv_iff) -> run6 49dc682ad0a890a4 (on-pin signatures: 3-arg Real.rpow_le_rpow, strict-0 rpow_add, <-rpow_mul, Real.zero_rpow_le_one contradiction route) -> run7 0b040ee709a6df2e (mul_le_mul arg4 + ring_nf probe) -> run8 5608bb3098184da8 (mul_le_mul final order + donor set-R discipline) -> run9 7e40dff4dc12b6a6 (THE REAL MATH FIX: the donor's two-sided strengthening step — both a- and b-sides to the COMMON (8c^eta + Cb + 3)*R bound — before the exact ring step; my v1 claimed a false direct equality; plus the Cb-mononial nonneg facts hcetaR/hCbR that the generalized constant makes necessary) | **RUN 9 VERDICT: GREEN — PROBE-OK rc=0 errors=0 sorry=8. MMgeneral_total_sum PROVED KERNEL-CLEAN: the donor's exists_total_le REBUILT with termPrime W.MM (the strassen slot freed), the omega_b-BALANCE W.omegab + 1/12 <= 3 - eta/18 as the explicit binder, the MM-term bound proved in-line from W.grows x Choice.le_root (the rpow chain D^{3/2} <= n^{1/12}; n^{omega_b} . n^{1/12} = n^{omega_b+1/12} <= n^{3-eta/18}), and the ChoiceSumInputs interface (instances/scans/build/one_le_log — MM-independent donor-derived inputs) as the explicit seam. Sorry stays 8: the milestone adds PROOF, discharges none of the remaining stubs (by design — the interface is the next batch's target)** | API-drift ledger (v4.33 donor -> v4.36 pin, for the record): Real.natCast_le_rpow_inv_iff GONE (worked around, never re-derived); Real.rpow_le_rpow is 3-explicit-arg (h : 0<=x) (h1 : x<=y) (h2 : 0<=z); Real.rpow_add wants 0<x strict; mul_le_mul arg order (h1)(h2)(c0 : 0<=c)(b0 : 0<=b); root-namespace mul_le_mul_left' ABSENT (le_mul_of_one_le_right used); zero_rpow is NNReal-only, Real.zero_rpow_le_one is the total form | telemetry: walls 38-71 s, OVER-mem samples = known mmapped-olean class where sampled, cpu max 0.69 within SPEC, app crossmath-pilot-12core, oleans 8710 @ ff2494ea | run-4 note: modal-client 'Timed out waiting for final app logs' — infra-cosmetic, verdict + summary delivered
+
+==================== RUN 4 (Part 3c v1) — raw ====================
+
+==================== RUN 4 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-zaeHJ8H6GGM6CxRMAzCdtP
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'FAIL rc=1 errors=11 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=11 sorry=8
+---- error contexts (11 errors, all shown) ----
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:472:12: error(lean.unknownIdentifier): Unknown constant `Real.natCast_le_rpow_inv_iff`
+CORE.lean:471:81: error: unsolved goals
+x n : ℕ
+⊢ ↑x ≤ ↑n ^ (1 / 18) ↔ x ^ 18 ≤ n
+CORE.lean:481:30: error: Function expected at
+  Choice
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:484:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.134
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:486:26: error: Function expected at
+  Choice
+but this term has type
+···
+CORE.lean:472:12: error(lean.unknownIdentifier): Unknown constant `Real.natCast_le_rpow_inv_iff`
+CORE.lean:471:81: error: unsolved goals
+x n : ℕ
+⊢ ↑x ≤ ↑n ^ (1 / 18) ↔ x ^ 18 ≤ n
+CORE.lean:481:30: error: Function expected at
+  Choice
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:484:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.134
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:486:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.189
+···
+⊢ ↑x ≤ ↑n ^ (1 / 18) ↔ x ^ 18 ≤ n
+CORE.lean:481:30: error: Function expected at
+  Choice
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:484:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.134
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:486:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.189
+
+Note: Expected a function because this term is being applied to the argument
+  n
+···
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:484:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.134
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:486:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.189
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:488:28: error: Function expected at
+  Choice
+but this term has type
+  ?m.242
+
+Note: Expected a function because this term is being applied to the argument
+  n
+···
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:486:26: error: Function expected at
+  Choice
+but this term has type
+  ?m.189
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:488:28: error: Function expected at
+  Choice
+but this term has type
+  ?m.242
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:496:9: error: Function expected at
+  ChoiceSumInputs
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  η
+···
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:488:28: error: Function expected at
+  Choice
+but this term has type
+  ?m.242
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:496:9: error: Function expected at
+  ChoiceSumInputs
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  η
+
+Hint: The identifier `ChoiceSumInputs` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:498:34: error: Function expected at
+  Choice
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  n
+···
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:496:9: error: Function expected at
+  ChoiceSumInputs
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  η
+
+Hint: The identifier `ChoiceSumInputs` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:498:34: error: Function expected at
+  Choice
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:512:55: error: Application type mismatch: The argument
+  hD18
+has type
+  D ^ 18 ≤ n
+but is expected to have type
+  16 ^ 18 ≤ n
+in the application
+···
+Hint: The identifier `ChoiceSumInputs` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:498:34: error: Function expected at
+  Choice
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:512:55: error: Application type mismatch: The argument
+  hD18
+has type
+  D ^ 18 ≤ n
+but is expected to have type
+  16 ^ 18 ≤ n
+in the application
+  Nat.le_trans (Nat.one_le_pow 18 16 ?m.392) hD18
+CORE.lean:514:70: error: unsolved goals
+x✝¹ : Sort u_1
+ChoiceSumInputs : x✝¹
+x✝ : Sort u_2
+Choice : x✝
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+···
+Hint: The identifier `Choice` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+CORE.lean:512:55: error: Application type mismatch: The argument
+  hD18
+has type
+  D ^ 18 ≤ n
+but is expected to have type
+  16 ^ 18 ≤ n
+in the application
+  Nat.le_trans (Nat.one_le_pow 18 16 ?m.392) hD18
+CORE.lean:514:70: error: unsolved goals
+x✝¹ : Sort u_1
+ChoiceSumInputs : x✝¹
+x✝ : Sort u_2
+Choice : x✝
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : sorry
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : sorry
+···
+  Nat.le_trans (Nat.one_le_pow 18 16 ?m.392) hD18
+CORE.lean:514:70: error: unsolved goals
+x✝¹ : Sort u_1
+ChoiceSumInputs : x✝¹
+x✝ : Sort u_2
+Choice : x✝
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : sorry
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : sorry
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+···
+⊢ 0 < ?m.425
+CORE.lean:503:64: error: unsolved goals
+x✝¹ : Sort u_1
+ChoiceSumInputs : x✝¹
+x✝ : Sort u_2
+Choice : x✝
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : sorry
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : sorry
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=11 sorry=8
+[tele] SUMMARY run: wall=38s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-20T20:55:18+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-zaeHJ8H6GGM6CxRMAzCdtP
+
+==================== RUN 5 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-HTyHSR2dBnr62mRm0XNLL0
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.48 mem=7118MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=10 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=10 sorry=8
+---- error contexts (10 errors, all shown) ----
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:512:31: error(lean.unknownIdentifier): Unknown identifier `zero_rpow`
+CORE.lean:509:4: error: unsolved goals
+case inl
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hXκΛ : X ≤ κ * Λ
+···
+CORE.lean:512:31: error(lean.unknownIdentifier): Unknown identifier `zero_rpow`
+CORE.lean:509:4: error: unsolved goals
+case inl
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hXκΛ : X ≤ κ * Λ
+h0 : n = 0
+···
+⊢ False
+CORE.lean:520:37: error: mod_cast has type
+  16 ≤ D
+but is expected to have type
+  1 ≤ D
+CORE.lean:526:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑n ^ (?y * ?z)
+in the target expression
+  (↑n ^ (1 / 18)) ^ (3 / 2) = ↑n ^ (1 / 12)
+
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+···
+  1 ≤ D
+CORE.lean:526:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑n ^ (?y * ?z)
+in the target expression
+  (↑n ^ (1 / 18)) ^ (3 / 2) = ↑n ^ (1 / 12)
+
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+···
+⊢ (↑n ^ (1 / 18)) ^ (3 / 2) = ↑n ^ (1 / 12)
+CORE.lean:528:12: error: Function expected at
+  Real.rpow_le_rpow (LT.lt.le hD0) ?m.639 ?m.644
+but this term has type
+  ↑D ^ ?m.628 ≤ ?m.627 ^ ?m.628
+
+Note: Expected a function because this term is being applied to the argument
+  (by norm_num : (0 : ℝ) ≤ 3 / 2)
+CORE.lean:528:65: error: Application type mismatch: The argument
+  P.le_root
+has type
+  ↑D ≤ ↑n ^ (1 / 18)
+but is expected to have type
+  0 ≤ ?m.628
+in the application
+  Real.rpow_le_rpow (LT.lt.le hD0) ?m.639 P.le_root
+CORE.lean:533:6: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+CORE.lean:539:71: error: Application type mismatch: The argument
+  LT.lt.le hn0
+has type
+  0 ≤ ↑n
+but is expected to have type
+  0 < ↑n
+in the application
+  Real.rpow_add (LT.lt.le hn0)
+CORE.lean:544:47: error: Application type mismatch: The argument
+···
+  (by norm_num : (0 : ℝ) ≤ 3 / 2)
+CORE.lean:528:65: error: Application type mismatch: The argument
+  P.le_root
+has type
+  ↑D ≤ ↑n ^ (1 / 18)
+but is expected to have type
+  0 ≤ ?m.628
+in the application
+  Real.rpow_le_rpow (LT.lt.le hD0) ?m.639 P.le_root
+CORE.lean:533:6: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+CORE.lean:539:71: error: Application type mismatch: The argument
+  LT.lt.le hn0
+has type
+  0 ≤ ↑n
+but is expected to have type
+  0 < ↑n
+in the application
+  Real.rpow_add (LT.lt.le hn0)
+CORE.lean:544:47: error: Application type mismatch: The argument
+  hXκΛ
+has type
+  X ≤ κ * Λ
+but is expected to have type
+  X ≤ Λ
+in the application
+  I.instances_le P hX hκ hΛ hXκΛ
+···
+  Real.rpow_le_rpow (LT.lt.le hD0) ?m.639 P.le_root
+CORE.lean:533:6: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+CORE.lean:539:71: error: Application type mismatch: The argument
+  LT.lt.le hn0
+has type
+  0 ≤ ↑n
+but is expected to have type
+  0 < ↑n
+in the application
+  Real.rpow_add (LT.lt.le hn0)
+CORE.lean:544:47: error: Application type mismatch: The argument
+  hXκΛ
+has type
+  X ≤ κ * Λ
+but is expected to have type
+  X ≤ Λ
+in the application
+  I.instances_le P hX hκ hΛ hXκΛ
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:565:81: error: unsolved goals
+W : WordRamMMData
+···
+CORE.lean:533:6: error(lean.unknownIdentifier): Unknown identifier `mul_le_mul_left'`
+CORE.lean:539:71: error: Application type mismatch: The argument
+  LT.lt.le hn0
+has type
+  0 ≤ ↑n
+but is expected to have type
+  0 < ↑n
+in the application
+  Real.rpow_add (LT.lt.le hn0)
+CORE.lean:544:47: error: Application type mismatch: The argument
+  hXκΛ
+has type
+  X ≤ κ * Λ
+but is expected to have type
+  X ≤ Λ
+in the application
+  I.instances_le P hX hκ hΛ hXκΛ
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:565:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+···
+  Real.rpow_add (LT.lt.le hn0)
+CORE.lean:544:47: error: Application type mismatch: The argument
+  hXκΛ
+has type
+  X ≤ κ * Λ
+but is expected to have type
+  X ≤ Λ
+in the application
+  I.instances_le P hX hκ hΛ hXκΛ
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:565:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:565:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hXκΛ : X ≤ κ * Λ
+hnpos : 0 < n
+hn1 : 1 ≤ ↑n
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=10 sorry=8
+[tele] SUMMARY run: wall=71s max_cpu=0.48 max_mem=7118MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-HTyHSR2dBnr62mRm0XNLL0
+
+==================== RUN 6 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-YMdqFO5YwCldwsYbuHDdRH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'FAIL rc=1 errors=3 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=3 sorry=8
+---- error contexts (3 errors, all shown) ----
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:512:46: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Real.log 0
+in the target expression
+  ↑D ≤ (↑0 ^ ↑(1 / 18)).re
+
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+···
+⊢ ↑D ≤ 1
+CORE.lean:532:46: error: Application type mismatch: The argument
+  zero_le_one
+has type
+  0 ≤ 1
+but is expected to have type
+  0 ≤ κ
+in the application
+  mul_le_mul hκ hΛ zero_le_one zero_le_one
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:566:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:566:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hnpos : 0 < n
+hn1 : 1 ≤ ↑n
+hn0 : 0 < ↑n
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=3 sorry=8
+[tele] SUMMARY run: wall=38s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-YMdqFO5YwCldwsYbuHDdRH
+
+==================== RUN 7 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-4OGwVFWa32uY8jUwVM4Qz2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'FAIL rc=1 errors=2 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=2 sorry=8
+---- error contexts (2 errors, all shown) ----
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:532:53: error: Application type mismatch: The argument
+  hκ
+has type
+  1 ≤ κ
+but is expected to have type
+  1 ≤ 1
+in the application
+  LE.le.trans zero_le_one hκ
+CORE.lean:566:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+···
+  LE.le.trans zero_le_one hκ
+CORE.lean:566:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hnpos : 0 < n
+hn1 : 1 ≤ ↑n
+hn0 : 0 < ↑n
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=2 sorry=8
+[tele] SUMMARY run: wall=32s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-4OGwVFWa32uY8jUwVM4Qz2
+
+==================== RUN 8 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-9QnUDECgh7zGiJVxflQ5wG
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'FAIL rc=1 errors=1 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=1 sorry=8
+---- error contexts (1 errors, all shown) ----
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:563:81: error: unsolved goals
+W : WordRamMMData
+c : ℝ
+hc : 0 ≤ c
+η : ℝ
+I : ChoiceSumInputs η c
+hbal : W.ωb + 1 / 12 ≤ 3 - η / 18
+Cb : ℝ
+hCb : 1 ≤ Cb
+hgrow : ∀ (n : ℕ), 1 ≤ n → W.MM n ≤ Cb * ↑n ^ W.ωb
+hCb0 : 0 ≤ Cb
+n D : ℕ
+P : Theorem19.Choice n D η c
+a b κ X Λ : ℝ
+ha : 0 ≤ a
+hb : 0 ≤ b
+hκ : 1 ≤ κ
+hX : 0 ≤ X
+hXΛ : X ≤ Λ
+hlogΛ : Real.log ↑n ≤ Λ
+hΛ : 1 ≤ Λ
+hΛκ : Λ ≤ κ * Λ
+hnpos : 0 < n
+hn1 : 1 ≤ ↑n
+hn0 : 0 < ↑n
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=1 sorry=8
+[tele] SUMMARY run: wall=47s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-9QnUDECgh7zGiJVxflQ5wG
+
+==================== RUN 9 — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-DUJLnX7XQgOGTEDaUVi2Po
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'PROBE-OK rc=0 errors=0 sorry=8'}
+[p12core] CORE.lean: PROBE-OK rc=0 errors=0 sorry=8
+---- output tail ----
+CORE.lean:190:8: warning: declaration uses `sorry`
+CORE.lean:198:8: warning: declaration uses `sorry`
+CORE.lean:233:8: warning: declaration uses `sorry`
+CORE.lean:240:8: warning: declaration uses `sorry`
+CORE.lean:250:8: warning: declaration uses `sorry`
+CORE.lean:378:8: warning: declaration uses `sorry`
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:580:4: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: PROBE-OK rc=0 errors=0 sorry=8
+[tele] SUMMARY run: wall=57s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-DUJLnX7XQgOGTEDaUVi2Po

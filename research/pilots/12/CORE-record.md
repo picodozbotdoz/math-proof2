@@ -70,4 +70,38 @@ charter-input's rescope-shape decision, now concrete.
 `CORE.lean` `9c213eb771efe843` at GREEN baseline; `run_core.py` `55e541eafc43a704`;
 `stage_and_fire_core.sh` `7546ffd3dfd046e9`; logs as above; this record.
 
+## MILESTONE (D4 continue-order, runs 4–9, 2026-11-20): `MMgeneral_total_sum` PROVED kernel-clean — the 9-fire budget spent GREEN
+
+**Run 9 verdict: `PROBE-OK rc=0 errors=0 sorry=8`** (`logs/core-runs4-9.log`
+`63307eda…`; CORE.lean `7e40dff4dc12b6a6` at GREEN). The rebuild the pricing
+correction called for is DONE at the total-sum level: the donor's
+`Theorem19.exists_total_le` with the strassen slot freed —
+
+- `termPrime W.MM n D` in place of `termPrime strassen n D`;
+- the **ω_b-balance `W.ωb + 1/12 ≤ 3 − η/18` as THE explicit binder**, from which
+  the MM-term bound is PROVED in-line: `W.MM n ≤ Cb·n^{ωb}` (W.grows) ×
+  `D^{3/2} ≤ (n^{1/18})^{3/2} = n^{1/12}` (Choice.le_root) ⇒
+  `termPrime ≤ Cb·n^{ωb+1/12} ≤ Cb·n^{3−η/18}` (the balance step — where ε(ω_b)
+  is born, now a kernel-checked inequality chain);
+- the MM-INDEPENDENT donor-derived inputs (`instances_le`/`scans_le`/`build_le`/
+  `one_le_log`) as the explicit `ChoiceSumInputs` interface — the next batch's
+  discharge target (porting the donor's `Choice.lean:60–244` rpow calculus at the
+  frozen η = 0.0315, c = 2 instance), after which `route16_MMgeneral` closes.
+
+Descent: 11 → 10 → 3 → 2 → 1 → 0 errors over 6 fires (sha chain in the log
+header; every fire sha-guarded). Residue classes: v4.33→v4.36 API drift
+(`Real.natCast_le_rpow_inv_iff` gone — worked around, not re-derived;
+`Real.rpow_le_rpow` 3-arg; `Real.rpow_add` strict-0; `mul_le_mul` arg order;
+no root `mul_le_mul_left'`; `zero_rpow` NNReal-only, `Real.zero_rpow_le_one`
+the total form — the full ledger is in the log header), ONE real math slip of
+mine (run 8's tail: I claimed a direct equality where the donor uses a two-sided
+strengthening to the common `(8c^η + Cb + 3)·R` bound — fixed to the donor's
+shape, plus the `c^η·R`/`Cb·R` monomial nonnegativity facts the generalized
+constant Cb makes necessary; the donor's Cb = 1 case is linarith-linear, the
+generalized one is not).
+
+**Budget: 9 of ~9 fires spent, GREEN.** The S-tranche frontier is unchanged
+(8 stubs — the 7 P0 statements + the ε construction); the milestone adds ~120
+lines of kernel-verified proof and the statement-level seam for the rest.
+
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-20.
