@@ -1105,3 +1105,30 @@ fused-iff suppression bisect rule.)
   wording application already executed, rider satisfied).
 - **Dry-run blockers #5 (TARGETS rows) and #6 (G7 stamps) DISCHARGED**; the
   remaining blockers are the fold-once verdicts + the R1 folds + the close act.
+
+## 2026-11-20 — VERIFICATION-INTEGRITY CORRECTION (R1 print-level finding, relayed by the orchestrator; entry per the correction line)
+
+The **batch-G** ("triad: L3b+L3c+both-boundary") and **batch-M**
+("isAdmissible+hamiltonian now TRIAD; hasGlobalGap reopened") log entries
+repeated L3 flip narratives that are **CONTRADICTED at print level**: all 16
+`l3bd-run*` logs show sorryAx throughout for
+`hasGlobalGap_of_fullSystemGap` / `isAdmissible_ΦL` / `hamiltonian_gridDom_eq` /
+`interface_areaLaw_uniformAreaLaw`. The TRUE certified-clean set = L3b run 6 +
+`eig_toGrid` run 5 + `edgeBoundary` run 9 + T1/T2/L3a; **edgeBoundary's flip =
+run 9, not 12**; `submatrix_mulVec_ec` = print-gap record-only. **Authority:
+R1's corrected rows in `qa/iter4-review/r3-verification-tables.md`** (R1's
+funnel file, worktree-side until its fold). R2 is re-basing the stop-note +
+L3-record to match. **No sweep/certificate impact** (guard `aed63101` stands,
+classifier 52+0 stands).
+
+## 2026-11-20 — iter-5 steady state, batch X (H): R9's quota-disposition draft landed; the iter-6 charter draft HELD
+
+- **R9's quota-disposition DRAFT landed** (`r9-quota-disposition-draft.md`
+  `ddec4089…`): the DECISION-1 close-time ruling input — UNSPENT recommended,
+  third consecutive unspent cycle, all claims byte-cited; feeds skeleton item 7
+  + the dry-run G6 record.
+- **`r9-iter6-charter-draft.md` HELD, NOT LANDED** (orchestrator split-relay):
+  it repeats the stale "every parked fix mechanical" L3 premise contradicted by
+  R1's print-level finding (the seed census `e202244b` seed-#5 carries the same
+  defect); R9 re-issues with corrected L3 pricing — land the corrected sha on
+  its relay.
