@@ -549,3 +549,34 @@ theorems is SUPERSEDED: all should print triad).
 awaiting the next order. Files: P0.lean `2d84a3caf8d0d26f` (amended+fixed), A1.lean
 `a8feb25bcd60722f` (frozen), A2.lean `221eb30b6debba75` (parked); logs
 `alp2-m3-run5-completion.log`. No commits (H commits).
+
+## M3 final fire (run 6, 2026-11-20, the wave's LAST): NOT-GREEN — honest-partial park; iter-6 inherits
+
+**Run 6** (`logs/alp2-m3-run6-final.log`, wall 31 s, telemetry OVER=0, guard
+`/tmp/al3d-prefire-sha-m3run6.txt`): **P0 FAIL errors=2 (both inside the amended
+`posSemidef_ptrace` body); A1/A2 pure cascade.** The run-5 fixes landed: `hin`+`simp only
+[in]` worked (the inner selection closes), and the per-z goal is now ONE `.symm` from
+done. The residuals:
+1. `:184` — PURE ORIENTATION: the per-z goal (sum_congr orients ptrace-side = product-side)
+   is `M (glue c z) (glue d z) = ∑ x, …`; `hsel'` gives the ∑-side first. FIX
+   (pre-written): `(hsel' …).symm`.
+2. `:205` — the pinned `rw [hq …]` fails to match its structurally-identical pattern
+   (both displays identical up to bound names — an invisible implicit divergence). FIX
+   (pre-written): `refine (hq … x) ▸ ?_` transport instead of the rewrite.
+
+**Parked post-state (fixes pre-applied): P0 `33c759420ad65598`, A1 `a8feb25bcd60722f`,
+A2 `221eb30b6debba75` — one fire at these shas is iter-6's first M3 action** (expected:
+P0 OK sorry-free; A2 OK rc=0 errors=0 with ZERO sorryAx — the find-#6 amendment stays in
+force; the three pureState-typed theorems should print triad).
+
+**Wave-5 M3 roll-up:** 6 fires total this unit-lineage (3 budget + 1 completion grant +
+1 fresh order... i.e. runs 2–6 of 2026-11-20), descent 27→13→11→2→2; every error class
+mechanical (named-args, implicit-arg signatures, simp-normalization shapes, orientation,
+rewriter-matching); ZERO math defects across the entire M3 content. Ladder state: M0, M1,
+M2 GREEN-triad (kernel-verified); M3 = honest-partial — all content authored and in the
+bytes, the psd/compression/identification/rung-stone chain one orientation+transport fix
+from GREEN. The find-#6 P0 amendment (H-approved) is applied and 90% verified in-file
+(trace_ptrace, hsel, hsel', hin, Hermitian half, hq internals, hnn cast all clean).
+
+— lane R8 (worktree agent-05), 2026-11-20, M3 wave fires EXHAUSTED per the cap; parked
+honestly; iter-6 inherits with a one-fire-ready state. No commits (H commits).

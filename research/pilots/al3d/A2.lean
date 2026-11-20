@@ -82,6 +82,27 @@ P2 decomposition (this file grows by milestones; each elaborates sorry-strict):
   partition `powerset_eq_biUnion_projFib` + `projFib_pairwise_disjoint`, and the
   per-fibre factorization `sum_projFib_extendId`) lands beside it; the swap proper and
   the Hamiltonian identification are the M2-b continuation.
+- M2 (COMPLETED GREEN 2026-11-19, units 6–9; `M0-record.md` §Unit 9): the guard bridge
+  (bisected fwd/bwd after the suppressed-error-in-fused-iff find), the extend-relabel
+  swap `colEquivVar_swap`, the partition regroup `sum_powerset_eq_sum_projFib`, and the
+  KEYSTONE `hamiltonianVar_eq_submatrix` — the P2-d parked targets PROVED over the
+  canonical z-rank enumeration.
+- M3 (EXECUTED 2026-11-20, lane R8; PARKED at the unit's 3-fire cap with BOTH residual
+  fixes pre-written — completion = one fire, the M1 completion-grant precedent): the
+  transports (eigenvector/norm/gap, keystone-fed),
+  the psd support layer V (`compE`-compression + `posSemidef_ptrace'` + the mathlib-native
+  `Matrix.posSemidef_vecMulVec_self_star`), the ENTROPY IDENTIFICATION
+  `regionEntropy_pureState_column_closed` (two-loc split lemma + column dichotomy +
+  restr-transport), and the RUNG-STONE `slab_column_cuts_of_planar_var`
+  (`SlabAreaLawColumnCuts3D` discharged from the `PlanarAreaLawVar` binder at
+  `G := projLattice Λ`, `Λ' := projF Λ`, `hU := colCard Λ`, `Ψ := projInteraction`,
+  `C' := max C 0`; boundary side on A1's `edgeBoundaryG_card_le`). STATEMENT-LAYER
+  FIND #6 recorded in-file at the rung-stone: the frozen P0 probe stubs
+  (`posSemidef_vecMulVec_self_star`/`posSemidef_ptrace`/`trace_ptrace`, P0 :104/:142/:147)
+  sit INSIDE the frozen defs `pureState`/`SubState.restrict`, so the def-traversing axiom
+  audit shows their `sorryAx` on exactly the pureState-typed theorems — M3's OWN proof
+  content is triad-only (see the audit block; the find + the proof-only-amendment option
+  are recorded for H in `M0-record.md` §M3).
 
 STATEMENT-LEVEL FIND #4 (at P2-e assembly planning, 2026-11-17; amended P0, re-GREEN as
 probe in `logs/alp2-run8-substrate.log`): the landed `PlanarAreaLawVar` quantified
@@ -116,9 +137,9 @@ import Mathlib.Analysis.CStarAlgebra.Matrix
 import Mathlib.Analysis.Matrix.Order
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 
--- Diagnostic hygiene (unit 8): the runner's per-file output tail is 200 lines; the
--- linter-warning volume was cutting early-file error contexts (the hidden M2-b root).
-set_option linter.all false
+-- (Linter diagnostic LIFTED at M3 close, 2026-11-20, per the task instruction: the
+-- unit-8 `set_option linter.all false` workaround is removed; verdicts never depended
+-- on it — the runner's error filter and axiom extraction grep the FULL output.)
 
 namespace OpenAI.AL3D
 
@@ -1524,6 +1545,373 @@ theorem hamiltonianVar_eq_submatrix {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) 
   rw [dif_pos hX']
   exact key X' hX'
 
+/-! ## P2-e / M3 — the transports, the entropy identification, the rung-stone (2026-11-19)
+
+The AL-rebuild ladder's final rung. The eigenvector/norm/gap transports consume the M2
+keystone (`hamiltonianVar_eq_submatrix`) plus the P2-d generic submatrix transports; the
+ENTROPY IDENTIFICATION is the donor's partial-trace commutation, done as
+`vecMulVec_submatrix` + the splitting lemma `ptrace_submatrix_split` (the glue-commuted
+case analysis rides the column dichotomy: a column of a column-closed cut is either
+wholly inside `A` or wholly in the complement) + `vonNeumann_submatrix_equiv`; the
+RUNG-STONE assembles the `PlanarAreaLawVar` binder at `G := projLattice Λ`,
+`Λ' := projF Λ`, `hU := colCard Λ`, `Ψ := projInteraction`, with the boundary side on
+A1's `edgeBoundaryG_card_le`. Fences: no `AreaLaw3D` content; `PlanarAreaLawVar` NOT
+discharged (consumed as the binder); `SlabAreaLaw3D` untouched. -/
+
+/-- The partial trace commutes with a SPLIT submatrix-conjugation: if the relabelling
+`e` carries the `S`-part and the complement part separately (the glue-commutation),
+then tracing out the complement commutes with the conjugation. TWO-LOC form (M3 fix,
+2026-11-20): the primed side may carry a different site-type function — the planar
+variable-height system vs the 3D system — which the entropy identification needs; the
+entrywise proof never compares the two locs, so the generalization is free. The run-1
+residuals are fixed by restructuring: the summands are rewritten by the derived
+`e.symm ∘ glue = glue ∘ (eS.symm, eC.symm)` identity FIRST, then the sum is reindexed
+by `Equiv.sum_comp eC.symm _` (positional `g` — the pin's parameter name, run-1's
+`(f := …)` was the named-arg class's 7th recurrence). -/
+private theorem ptrace_submatrix_split {σ σ' : Type*}
+    {loc : σ → Type*} [∀ i, Fintype (loc i)]
+    {loc' : σ' → Type*} [∀ i, Fintype (loc' i)]
+    {𝕜 : Type*} [RCLike 𝕜] {S T : Finset σ} {S' T' : Finset σ'}
+    (hS : S ⊆ T) (hS' : S' ⊆ T')
+    (e : Reg loc' T' ≃ Reg loc T)
+    (eS : Reg loc' S' ≃ Reg loc S)
+    (eC : Reg loc' (T' \ S') ≃ Reg loc (T \ S))
+    (hglue : ∀ x : Reg loc' S', ∀ z : Reg loc' (T' \ S'),
+      e (glue x z) = glue (eS x) (eC z))
+    (M : Matrix (Reg loc' T') (Reg loc' T') 𝕜) :
+    ptrace hS (M.submatrix (fun x => e.symm x) (fun x => e.symm x)) =
+      (ptrace hS' M).submatrix (fun x => eS.symm x) (fun x => eS.symm x) := by
+  ext x y
+  simp only [ptrace, Matrix.of_apply, Matrix.submatrix_apply]
+  have key : ∀ w : Reg loc S, ∀ z : Reg loc (T \ S),
+      e.symm (glue w z) = glue (eS.symm w) (eC.symm z) := by
+    intro w z
+    have h1 := hglue (eS.symm w) (eC.symm z)
+    rw [eS.apply_symm_apply w, eC.apply_symm_apply z] at h1
+    rw [← h1, e.symm_apply_apply]
+  calc ∑ z : Reg loc (T \ S), M (e.symm (glue x z)) (e.symm (glue y z))
+      = ∑ z : Reg loc (T \ S),
+          M (glue (eS.symm x) (eC.symm z)) (glue (eS.symm y) (eC.symm z)) :=
+        Finset.sum_congr rfl fun z _ => by rw [key x z, key y z]
+    _ = ∑ w : Reg loc' (T' \ S'), M (glue (eS.symm x) w) (glue (eS.symm y) w) :=
+        eC.symm.sum_comp _
+
+/-- EIGENVECTOR TRANSPORT: the composed planar configuration `Ω ∘ ē` is an eigenvector
+of the projected Hamiltonian with the same eigenvalue (the M2 keystone + the generic
+submatrix transport). -/
+theorem hamiltonianVar_eigenvector {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    {Ω : Reg (OpenAI.Qudits3D q) Λ → 𝕜} {E₀ : ℝ}
+    (heig : hamiltonian3D Λ Φ *ᵥ Ω = (E₀ : 𝕜) • Ω) :
+    hamiltonianVar (projF Λ) (colCard Λ) (fun X' => projInteraction Λ q Φ X') *ᵥ
+        (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) =
+      (E₀ : 𝕜) • (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) := by
+  rw [hamiltonianVar_eq_submatrix]
+  exact mulVec_eq_smul_submatrix heig _
+
+/-- NORM TRANSPORT: the composed planar configuration is a unit vector. -/
+theorem star_dotProduct_regReindex {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*} [RCLike 𝕜]
+    {Ω : Reg (OpenAI.Qudits3D q) Λ → 𝕜} (hΩ : star Ω ⬝ᵥ Ω = 1) :
+    star (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) ⬝ᵥ
+        (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) = 1 :=
+  star_dotProduct_comp hΩ _
+
+/-- GAP TRANSPORT: the spectral-gap hypothesis transports to the projected system. -/
+theorem hasGlobalGap_hamiltonianVar {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) {𝕜 : Type*}
+    [RCLike 𝕜]
+    (Φ : (X : Finset (ℤ × ℤ × ℤ)) →
+      Matrix (Reg (OpenAI.Qudits3D q) X) (Reg (OpenAI.Qudits3D q) X) 𝕜)
+    {Ω : Reg (OpenAI.Qudits3D q) Λ → 𝕜} {E₀ Δ : ℝ}
+    (hgap : HasGlobalGap (hamiltonian3D Λ Φ) Ω E₀ Δ) :
+    HasGlobalGap (hamiltonianVar (projF Λ) (colCard Λ)
+        (fun X' => projInteraction Λ q Φ X'))
+      (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) E₀ Δ := by
+  rw [hamiltonianVar_eq_submatrix]
+  exact hasGlobalGap_submatrix hgap _
+
+/-! ### M3 remainder (2026-11-20, lane R8): the psd support layer V, the entropy
+identification, and the rung-stone. Supports: `compE`-compression (each `ptrace`-summand
+is `E M Eᴴ`, psd by `Matrix.PosSemidef.mul_mul_conjTranspose_same`), the mathlib-native
+`Matrix.posSemidef_vecMulVec_self_star` (the probe stub's content, available on this pin),
+witness-extensionality of `vonNeumann` (proof irrelevance), and the column dichotomy
+(`fibre_eq_of_column_closed` — a column-closed cut IS its projection's fibre). The
+identification itself consumes the two-loc split lemma + the M1/M2 ē-form workhorses;
+the rung-stone closes over A1's boundary lift. -/
+
+section M3
+
+open scoped ComplexOrder
+
+/-- A finite sum of `𝕜`-elements with vanishing imaginary parts and nonnegative real
+parts is nonnegative (the cast route — `𝕜` carries no `OrderedAddCommMonoid` suitable
+for `Finset.sum_nonneg`, so the sum is pulled to `ℝ` and pushed back). -/
+private theorem sum_nonneg_re {ι : Type*} [Fintype ι] {𝕜 : Type*} [RCLike 𝕜]
+    (q : ι → 𝕜) (hre : ∀ i, 0 ≤ RCLike.re (q i)) (him : ∀ i, RCLike.im (q i) = 0) :
+    0 ≤ ∑ i, q i := by
+  have h1 : ∀ i, q i = ((RCLike.re (q i) : ℝ) : 𝕜) := by
+    intro i
+    have h2 := RCLike.re_add_im (q i)
+    rw [him i] at h2
+    simp at h2
+    exact h2.symm
+  rw [Finset.sum_congr rfl (fun i _ => h1 i), ← RCLike.ofReal_sum]
+  exact RCLike.ofReal_nonneg.2 (Finset.sum_nonneg fun i _ => hre i)
+
+/-- The quadratic form of a sum of matrices is the sum of the quadratic forms
+(entrywise distributivity, via two pinned sum-commutations). -/
+private theorem dotProduct_sum_mulVec {ι κ : Type*} [Fintype ι] [Fintype κ]
+    {𝕜 : Type*} [RCLike 𝕜] (P : ι → Matrix κ κ 𝕜) (x : κ → 𝕜) :
+    star x ⬝ᵥ ((∑ i, P i) *ᵥ x) = ∑ i, star x ⬝ᵥ (P i *ᵥ x) := by
+  have h1 : (∑ i, P i) *ᵥ x = ∑ i, P i *ᵥ x := by
+    funext j
+    simp only [mulVec, dotProduct, Matrix.sum_apply, Finset.sum_apply, Finset.sum_mul]
+    rw [show ∑ j' : κ, ∑ i : ι, P i j j' * x j' = ∑ i : ι, ∑ j' : κ, P i j j' * x j' from
+      Finset.sum_comm]
+  have h3 : star x ⬝ᵥ (∑ i, P i *ᵥ x) = ∑ i, star x ⬝ᵥ (P i *ᵥ x) := by
+    simp only [dotProduct, Finset.sum_apply, Finset.mul_sum]
+    rw [show ∑ j : κ, ∑ i : ι, star x j * (P i *ᵥ x) j = ∑ i : ι, ∑ j : κ, star x j * (P i *ᵥ x) j from
+      Finset.sum_comm]
+  rw [h1, h3]
+
+/-- The compression matrix of the complement-slice `z`: conjugating `M` by `E_z`
+selects the `z`-block of `M` entrywise, so each `ptrace`-summand below is a conjugate
+compression of `M` — positive semidefinite whenever `M` is. -/
+private noncomputable def compE {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    [∀ i, Fintype (loc i)] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+    {S T : Finset σ} (z : Reg loc (T \ S)) :
+    Matrix (Reg loc S) (Reg loc T) 𝕜 :=
+  Matrix.of fun c w => if w = glue c z then 1 else 0
+
+/-- Entry form of the slice-compression: conjugating by `E_z` selects the `z`-block
+(single-point selection at both indices; each selection a standalone lemma so no
+rw-induced beta redexes or postponed metavariable-goals arise). -/
+private theorem compE_entry {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    [∀ i, Fintype (loc i)] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+    {S T : Finset σ} (z : Reg loc (T \ S)) (M : Matrix (Reg loc T) (Reg loc T) 𝕜)
+    (c d : Reg loc S) : (compE z * M * (compE z)ᴴ) c d = M (glue c z) (glue d z) := by
+  classical
+  simp only [Matrix.mul_apply, compE, Matrix.conjTranspose_apply, Matrix.of_apply]
+  have sel1 : ∀ F : Reg loc T → 𝕜,
+      (∑ w : Reg loc T, (if w = glue c z then (1 : 𝕜) else 0) * F w) = F (glue c z) := by
+    intro F
+    rw [Finset.sum_eq_single_of_mem (glue c z) (Finset.mem_univ _)
+      (fun b _ hbne => by simp [hbne])]
+    simp
+  have sel2 : (∑ w' : Reg loc T,
+        M (glue c z) w' * star ((if w' = glue d z then (1 : 𝕜) else 0))) =
+      M (glue c z) (glue d z) := by
+    rw [Finset.sum_eq_single_of_mem (glue d z) (Finset.mem_univ _)
+      (fun b _ hbne => by simp [hbne])]
+    simp
+  refine Eq.trans ?_ sel2
+  exact sel1 (fun w => ∑ w' : Reg loc T, M w w' * star ((if w' = glue d z then (1 : 𝕜) else 0)))
+
+/-- `ptrace` is the sum of the slice-compressions (entrywise single-point selection). -/
+private theorem ptrace_eq_sum_compE {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    [∀ i, Fintype (loc i)] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+    {S T : Finset σ} (h : S ⊆ T) (M : Matrix (Reg loc T) (Reg loc T) 𝕜) :
+    ptrace h M = ∑ z : Reg loc (T \ S), compE z * M * (compE z)ᴴ := by
+  ext c d
+  simp only [ptrace, Matrix.of_apply, Matrix.sum_apply]
+  exact Finset.sum_congr rfl fun z _ => compE_entry z M c d
+
+/-- The partial trace of a positive semidefinite matrix is positive semidefinite —
+mathlib-only re-proof of the probe stub's CONTENT under a new name (P0's
+`Arealaw.posSemidef_ptrace` stays untouched, frozen; it is bridged proof-irrelevantly
+at the entropy layer). Compression route: a sum of psd conjugates. -/
+private theorem posSemidef_ptrace' {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    [∀ i, Fintype (loc i)] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+    {S T : Finset σ} (h : S ⊆ T) {M : Matrix (Reg loc T) (Reg loc T) 𝕜}
+    (hM : M.PosSemidef) : (ptrace h M).PosSemidef := by
+  have hsum : ptrace h M = ∑ z : Reg loc (T \ S), compE z * M * (compE z)ᴴ :=
+    ptrace_eq_sum_compE h M
+  have hH : (ptrace h M).IsHermitian := by
+    rw [hsum]
+    exact (isSelfAdjoint_sum _ fun z _ =>
+      ((hM.mul_mul_conjTranspose_same (compE z)).isHermitian).isSelfAdjoint).isHermitian
+  refine Matrix.PosSemidef.of_dotProduct_mulVec_nonneg hH ?_
+  intro x
+  rw [hsum, dotProduct_sum_mulVec _ x]
+  refine sum_nonneg_re _ (fun z =>
+    (hM.mul_mul_conjTranspose_same (compE z)).re_dotProduct_nonneg x) ?_
+  exact fun z =>
+    ((hM.mul_mul_conjTranspose_same (compE z)).isHermitian
+        : Matrix.IsHermitian _).im_star_dotProduct_mulVec_self x
+
+/-- The von Neumann entropy does not see the Hermitian witness (proof irrelevance). -/
+private theorem vonNeumann_witness_ext {n : Type*} [Fintype n] [DecidableEq n]
+    {𝕜 : Type*} [RCLike 𝕜]
+    {ρ : Matrix n n 𝕜} (h₁ h₂ : ρ.IsHermitian) : vonNeumann h₁ = vonNeumann h₂ := by
+  rw [proof_irrel h₁ h₂]
+
+/-- The von Neumann entropy is invariant under matrix EQUALITY (witnesses may differ). -/
+private theorem vonNeumann_congr {n : Type*} [Fintype n] [DecidableEq n]
+    {𝕜 : Type*} [RCLike 𝕜]
+    {A B : Matrix n n 𝕜} (hAB : A = B) (hA : A.IsHermitian) (hB : B.IsHermitian) :
+    vonNeumann hA = vonNeumann hB := by
+  subst hAB
+  rw [proof_irrel hA hB]
+
+/-- Restriction of configurations along an equality of regions: `regEquivOfEq` is the
+transport (both `restr`-actions are `Finset.restrict₂` — proof-irrelevant pointwise). -/
+private theorem restr_congr {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    {S S' T : Finset σ} (h : S = S') (hST : S ⊆ T) (hS'T : S' ⊆ T) {u : Reg loc T} :
+    restr hS'T u = regEquivOfEq h (restr hST u) := by
+  funext j
+  simp only [restr, Finset.restrict₂_def, regEquivOfEq_apply]
+
+/-- The region entropy of a PURE state is the von Neumann entropy of the partially
+traced density matrix, with the mathlib-native psd witnesses (the frozen P0 stubs enter
+only through proof-irrelevant `IsHermitian` witnesses — see the rung-stone's find-#6
+note below for what this does and does not discharge at the audit layer). -/
+theorem regionEntropy_pureState_eq {σ : Type*} [DecidableEq σ] {loc : σ → Type*}
+    [∀ i, Fintype (loc i)] [∀ i, DecidableEq (loc i)] {𝕜 : Type*} [RCLike 𝕜]
+    {A T : Finset σ} (hA : A ⊆ T) {Ω : Reg loc T → 𝕜} (hΩ : star Ω ⬝ᵥ Ω = 1) :
+    (pureState Ω hΩ).regionEntropy hA =
+      vonNeumann (posSemidef_ptrace' hA (Matrix.posSemidef_vecMulVec_self_star Ω)).isHermitian := by
+  have h1 : (pureState Ω hΩ).regionEntropy hA =
+      vonNeumann (Arealaw.posSemidef_ptrace hA
+        (_root_.posSemidef_vecMulVec_self_star Ω)).isHermitian :=
+    rfl
+  rw [h1]
+
+/-- M3 column dichotomy: a column-closed cut IS the fibre of its own projection
+(whole columns, by definition of `IsColumnClosed3D`; consumes A1's
+`col_subset_A_of_mem_proj`). -/
+theorem fibre_eq_of_column_closed {Λ A : Finset (ℤ × ℤ × ℤ)} (hcol : IsColumnClosed3D Λ A)
+    (hA : A ⊆ Λ) : fibre Λ (projF A) = A := by
+  ext x
+  simp only [fibre, projF, Finset.mem_filter, Finset.mem_image]
+  constructor
+  · rintro ⟨hxΛ, y, hyA, hyx⟩
+    exact col_subset_A_of_mem_proj hcol (Finset.mem_image.2 ⟨y, hyA, rfl⟩) hxΛ hyx.symm
+  · intro hx
+    exact ⟨hA hx, x, hx, rfl⟩
+
+/-- **M3 ENTROPY IDENTIFICATION**: for a COLUMN-CLOSED cut, the 3D pure state's region
+entropy equals the planar pure state's region entropy at the projected cut — the
+partial trace commutes with the column regrouping. Proof: both sides are `vonNeumann`
+of a partially traced density (`regionEntropy_pureState_eq`); the planar density is the
+3D density conjugated by the whole-domain regrouping (`vecMulVec_submatrix`), and the
+split lemma `ptrace_submatrix_split` (fed by the M1 ē-form workhorse `colEquivVar_restr_apply`
+at the cut and its complement, plus the dichotomy transports `restr_congr`) identifies
+the traced matrices up to submatrix-conjugation, which `vonNeumann_submatrix_equiv`
+cannot see. -/
+theorem regionEntropy_pureState_column_closed {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ)
+    {𝕜 : Type*} [RCLike 𝕜] {A : Finset (ℤ × ℤ × ℤ)} (hcol : IsColumnClosed3D Λ A)
+    (hA : A ⊆ Λ) {Ω : Reg (OpenAI.Qudits3D q) Λ → 𝕜} (hΩ : star Ω ⬝ᵥ Ω = 1) :
+    (pureState Ω hΩ).regionEntropy hA =
+    (pureState (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm :
+          Reg (fun u => Fin (q ^ colCard Λ u)) (projF Λ) → 𝕜)
+        (star_dotProduct_regReindex q hΩ)).regionEntropy
+      (Finset.image_subset_image hA) := by
+  have hA' : projF A ⊆ projF Λ := Finset.image_subset_image hA
+  have hfibA : fibre Λ (projF A) = A := fibre_eq_of_column_closed hcol hA
+  have hC2 : fibre Λ (projF Λ \ projF A) = Λ \ A := by
+    rw [← sdiff_fibre_eq Λ (projF A), hfibA]
+  have hglue : ∀ x : Reg (fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) (projF A),
+      ∀ z : Reg (fun u : ℤ × ℤ => Fin (q ^ colCard Λ u)) (projF Λ \ projF A),
+      (regReindexEquiv (Λ := Λ) q).symm (glue x z) =
+        glue (((colEquivVar Λ q (projF A) hA').trans (regEquivOfEq hfibA)) x)
+          (((colEquivVar Λ q (projF Λ \ projF A)
+              (Finset.sdiff_subset : projF Λ \ projF A ⊆ projF Λ)).trans
+            (regEquivOfEq hC2)) z) := by
+    intro x z
+    have hdec : (regReindexEquiv (Λ := Λ) q).symm (glue x z) =
+        glue (restr hA ((regReindexEquiv (Λ := Λ) q).symm (glue x z)))
+          (restr (S := Λ \ A) (T := Λ) Finset.sdiff_subset
+            ((regReindexEquiv (Λ := Λ) q).symm (glue x z))) :=
+      (glue_restr hA _).symm
+    rw [hdec]
+    have hS : restr hA ((regReindexEquiv (Λ := Λ) q).symm (glue x z)) =
+        ((colEquivVar Λ q (projF A) hA').trans (regEquivOfEq hfibA)) x := by
+      rw [restr_congr hfibA (fibre_subset Λ (projF A)) hA,
+        colEquivVar_restr_apply q hA' (glue x z), restr_glue, Equiv.trans_apply]
+    have hC : restr (S := Λ \ A) (T := Λ) Finset.sdiff_subset
+          ((regReindexEquiv (Λ := Λ) q).symm (glue x z)) =
+        ((colEquivVar Λ q (projF Λ \ projF A)
+              (Finset.sdiff_subset : projF Λ \ projF A ⊆ projF Λ)).trans
+            (regEquivOfEq hC2)) z := by
+      rw [restr_congr hC2 (fibre_subset Λ (projF Λ \ projF A))
+        (Finset.sdiff_subset : Λ \ A ⊆ Λ),
+        colEquivVar_restr_apply q
+          (Finset.sdiff_subset : projF Λ \ projF A ⊆ projF Λ) (glue x z),
+        restr_glue_compl x z, Equiv.trans_apply]
+    rw [hS, hC]
+  have hcomp : (vecMulVec (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm)
+        (star (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm))).submatrix
+      (fun x => (regReindexEquiv (Λ := Λ) q).symm.symm x)
+      (fun x => (regReindexEquiv (Λ := Λ) q).symm.symm x) = vecMulVec Ω (star Ω) := by
+    rw [vecMulVec_submatrix]
+    ext i j
+    simp [vecMulVec_apply, Function.comp_apply, Equiv.symm_symm, Equiv.symm_apply_apply]
+  have hsplit := ptrace_submatrix_split (σ := ℤ × ℤ × ℤ) (σ' := ℤ × ℤ)
+      (loc := OpenAI.Qudits3D q) (loc' := fun u => Fin (q ^ colCard Λ u))
+      (S := A) (T := Λ) (S' := projF A) (T' := projF Λ)
+      hA hA' (regReindexEquiv (Λ := Λ) q).symm
+      ((colEquivVar Λ q (projF A) hA').trans (regEquivOfEq hfibA))
+      ((colEquivVar Λ q (projF Λ \ projF A)
+          (Finset.sdiff_subset : projF Λ \ projF A ⊆ projF Λ)).trans
+        (regEquivOfEq hC2))
+      hglue
+      (vecMulVec (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm)
+        (star (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm)))
+  rw [hcomp] at hsplit
+  rw [regionEntropy_pureState_eq hA hΩ,
+      regionEntropy_pureState_eq hA' (star_dotProduct_regReindex q hΩ)]
+  calc vonNeumann (posSemidef_ptrace' hA
+          (Matrix.posSemidef_vecMulVec_self_star Ω)).isHermitian
+      = vonNeumann (((posSemidef_ptrace' hA'
+              (Matrix.posSemidef_vecMulVec_self_star
+                (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm))).isHermitian).submatrix
+          ((colEquivVar Λ q (projF A) hA').trans (regEquivOfEq hfibA)).symm) :=
+        vonNeumann_congr hsplit _ _
+    _ = vonNeumann (posSemidef_ptrace' hA'
+          (Matrix.posSemidef_vecMulVec_self_star
+            (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm))).isHermitian :=
+        vonNeumann_submatrix_equiv _ _
+
+/-- **M3 RUNG-STONE — `SlabAreaLawColumnCuts3D` discharged from the `PlanarAreaLawVar`
+binder** (hypothesis-binder pattern per EnclOK: the donor statement is the explicit
+`Prop` binder `hplanar`). Instantiation: `G := projLattice Λ` (A1's honest boundary-lift
+graph, `projLattice_le_plan`), `Λ' := projF Λ`, `hU := colCard Λ` (`colCard_le_h`),
+`Ψ := projInteraction Λ q Φ` (`isAdmissible_projInteraction` at `groupStrength`),
+`Ω' := Ω ∘ ē` (the three transports), cut `projF A`; the entropy side is the
+identification above; the boundary side is A1's `edgeBoundaryG_card_le`. The output
+constant is `max C 0` (monotonicity needs `0 ≤ C'`, which the binder does not provide).
+FENCES: `PlanarAreaLawVar` NOT discharged (consumed as the binder — honesty ledger);
+full `SlabAreaLaw3D` untouched; no `AreaLaw3D` content.
+STATEMENT-LAYER FIND #6 (audit): the frozen P0 probe stubs (P0 :104 `sorry` inside
+`pureState`'s psd witness via `posSemidef_vecMulVec_self_star`, :142/:147 inside
+`SubState.restrict`) are traversed by the def-level axiom audit, so the pureState-TYPED
+theorems of this section print `sorryAx` of P0 provenance — every theorem PROVED here is
+otherwise triad-only, and the stubs' mathematical content is re-proved at
+`posSemidef_ptrace'`/mathlib above. A proof-only P0 completion (replace the three
+`sorry` bodies; zero statement drift) is the recorded amendment option for H. -/
+theorem slab_column_cuts_of_planar_var {𝕜 : Type*} [RCLike 𝕜] {q R : ℕ} {J Δ : ℝ} {h : ℕ}
+    (hplanar : PlanarAreaLawVar 𝕜 q R (groupStrength h R J) Δ h) :
+    SlabAreaLawColumnCuts3D 𝕜 q R J Δ h := by
+  obtain ⟨C, hC⟩ := hplanar
+  refine fun _ => ⟨max C 0, fun Λ hΛ Φ hΦ Ω hΩ E₀ heig hgap A hA hcol => ?_⟩
+  have hA' : projF A ⊆ projF Λ := Finset.image_subset_image hA
+  have hbound := hC (projLattice Λ) (projLattice_le_plan Λ) (projF Λ) (colCard Λ)
+    (colCard_le_h h hΛ) (projInteraction Λ q Φ)
+    (isAdmissible_projInteraction h R hΛ q Φ hΦ)
+    (Ω ∘ (regReindexEquiv (Λ := Λ) q).symm) (star_dotProduct_regReindex q hΩ) E₀
+    (hamiltonianVar_eigenvector q Φ heig) (hasGlobalGap_hamiltonianVar q Φ hgap)
+    (projF A) hA'
+  rw [regionEntropy_pureState_column_closed q hcol hA hΩ]
+  refine le_trans hbound ?_
+  calc C * ((edgeBoundaryG (projLattice Λ) (projF Λ) (projF A)).card : ℝ)
+      ≤ max C 0 * ((edgeBoundaryG (projLattice Λ) (projF Λ) (projF A)).card : ℝ) :=
+        mul_le_mul_of_nonneg_right (le_max_left C 0) (by positivity)
+    _ ≤ max C 0 * ((edgeBoundary3D Λ A).card : ℝ) :=
+        mul_le_mul_of_nonneg_left
+          (Nat.cast_le.2 (edgeBoundaryG_card_le Λ A hcol hA)) (le_max_right C 0)
+
+end M3
+
 /-! ## P2-c audit (inline full-coverage; every new top-level theorem). -/
 
 #print axioms Arealaw.restr_glue
@@ -1602,5 +1990,22 @@ theorem hamiltonianVar_eq_submatrix {Λ : Finset (ℤ × ℤ × ℤ)} (q : ℕ) 
 #print axioms OpenAI.AL3D.hamiltonianVar_eq_submatrix
 #print axioms OpenAI.AL3D.sum_attach_eq_dite
 #print axioms OpenAI.AL3D.sum_submatrix
+#print axioms OpenAI.AL3D.ptrace_submatrix_split
+#print axioms OpenAI.AL3D.hamiltonianVar_eigenvector
+#print axioms OpenAI.AL3D.star_dotProduct_regReindex
+#print axioms OpenAI.AL3D.hasGlobalGap_hamiltonianVar
+#print axioms OpenAI.AL3D.sum_nonneg_re
+#print axioms OpenAI.AL3D.dotProduct_sum_mulVec
+#print axioms OpenAI.AL3D.compE
+#print axioms OpenAI.AL3D.compE_entry
+#print axioms OpenAI.AL3D.ptrace_eq_sum_compE
+#print axioms OpenAI.AL3D.posSemidef_ptrace'
+#print axioms OpenAI.AL3D.vonNeumann_witness_ext
+#print axioms OpenAI.AL3D.vonNeumann_congr
+#print axioms OpenAI.AL3D.restr_congr
+#print axioms OpenAI.AL3D.regionEntropy_pureState_eq
+#print axioms OpenAI.AL3D.fibre_eq_of_column_closed
+#print axioms OpenAI.AL3D.regionEntropy_pureState_column_closed
+#print axioms OpenAI.AL3D.slab_column_cuts_of_planar_var
 
 end OpenAI.AL3D

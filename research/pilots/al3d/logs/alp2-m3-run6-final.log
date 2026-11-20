@@ -1,0 +1,146 @@
+# alp2-m3-run6 — M3 FINAL FIRE this wave (the fresh 1-fire order; CAP: the last M3 fire
+# of the wave, no third completion grant regardless of outcome).
+# Provenance: 2026-11-20, lane R8. Route: doz CLI (warm), app crossmath-pilot-al3d.
+# Guard: /tmp/al3d-prefire-sha-m3run6.txt — P0 = 2d84a3caf8d0d26f (amended + BOTH run-5
+# park-fixes pre-applied: hsel' right-selector + hin inner-selection; the fully-pinned
+# rw [hq (ι := …) (κ := …) … x]); A1 = a8feb25bcd60722f (frozen); A2 = 221eb30b6debba75
+# (parked; hglue-parenthesization + compE_entry fixes in the bytes).
+# Run-5 census recap: A1/A2 errors pure cascade; trace_ptrace + hsel + Hermitian half +
+# hq internals all clean; the 2 residuals are fixed in these bytes.
+# EXPECTED on GREEN: P0.lean OK (probe, sorry-free); A1 OK; A2.lean OK rc=0 errors=0
+# sorry=0, ZERO sorryAx in the full audit, the three pureState-typed theorems TRIAD
+# (the find-#6 taint removed by the amendment); run-13's 85-line core byte-identical;
+# M0→M3 ladder CLOSED. On NOT-GREEN: honest-partial park, record, report; iter-6
+# inherits the rung. Command:
+#   bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/{P0,A1,A2}.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-zCnQEN27ikxShK3iy8SLs2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-a4-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['P0.lean', 'A1.lean', 'A2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+[al3d] LEAN_PATH base: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P0.lean
+[al3d] P0.lean: FAIL rc=1 errors=2
+---- error contexts ----
+P0.lean:184:4: error: Type mismatch
+  hsel' (glue d z) fun w => M (glue c z) w
+has type
+  ∑ w, M (glue c z) w * star (if w = glue d z then 1 else 0) = M (glue c z) (glue d z)
+but is expected to have type
+  M (glue c z) (glue d z) = ∑ x, M (glue c z) x * star (if x = glue d z then 1 else 0)
+P0.lean:205:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  star ?m.664 ⬝ᵥ
+    (∑ i, (of fun c w => if w = glue c i then 1 else 0) * M * (of fun c w => if w = glue c i then 1 else 0)ᴴ) *ᵥ ?m.664
+in the target expression
+  0 ≤
+    star x ⬝ᵥ
+      (∑ z, (of fun c w => if w = glue c z then 1 else 0) * M * (of fun c w => if w = glue c z then 1 else 0)ᴴ) *ᵥ x
+
+σ : Type u_1
+inst✝² : DecidableEq σ
+loc : σ → Type u_2
+inst✝¹ : (i : σ) → Fintype (loc i)
+𝕜 : Type u_3
+inst✝ : RCLike 𝕜
+S T : Finset σ
+h : S ⊆ T
+M : Matrix (Reg loc T) (Reg loc T) 𝕜
+hM : M.PosSemidef
+hsel : ∀ (a : Reg loc T) (F : Reg loc T → 𝕜), ∑ w, (if w = a then 1 else 0) * F w = F a
+···
+  M (glue c z) (glue d z) = ∑ x, M (glue c z) x * star (if x = glue d z then 1 else 0)
+P0.lean:205:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  star ?m.664 ⬝ᵥ
+    (∑ i, (of fun c w => if w = glue c i then 1 else 0) * M * (of fun c w => if w = glue c i then 1 else 0)ᴴ) *ᵥ ?m.664
+in the target expression
+  0 ≤
+    star x ⬝ᵥ
+      (∑ z, (of fun c w => if w = glue c z then 1 else 0) * M * (of fun c w => if w = glue c z then 1 else 0)ᴴ) *ᵥ x
+
+σ : Type u_1
+inst✝² : DecidableEq σ
+loc : σ → Type u_2
+inst✝¹ : (i : σ) → Fintype (loc i)
+𝕜 : Type u_3
+inst✝ : RCLike 𝕜
+S T : Finset σ
+h : S ⊆ T
+M : Matrix (Reg loc T) (Reg loc T) 𝕜
+hM : M.PosSemidef
+hsel : ∀ (a : Reg loc T) (F : Reg loc T → 𝕜), ∑ w, (if w = a then 1 else 0) * F w = F a
+hsel' : ∀ (a : Reg loc T) (F : Reg loc T → 𝕜), ∑ w, F w * star (if w = a then 1 else 0) = F a
+hsum :
+  ptrace h M = ∑ z, (of fun c w => if w = glue c z then 1 else 0) * M * (of fun c w => if w = glue c z then 1 else 0)ᴴ
+hH : (ptrace h M).IsHermitian
+x : Reg loc S → 𝕜
+hq :
+···
+
+=== A1.lean
+[al3d] A1.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+A1.lean:33:0: error: unknown module prefix 'P0'
+
+No directory 'P0' or file 'P0.olean' in the search path entries:
+/opt/mathlib/AL3D
+/opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean
+/opt/mathlib/.lake/build/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+···
+
+=== A2.lean
+[al3d] A2.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+A2.lean:132:0: error: unknown module prefix 'A1'
+
+No directory 'A1' or file 'A1.olean' in the search path entries:
+/opt/mathlib/AL3D
+/opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean
+/opt/mathlib/.lake/build/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+···
+
+[al3d] SUMMARY
+[al3d]   P0.lean: FAIL rc=1 errors=2
+[al3d]   A1.lean: FAIL rc=1 errors=1 sorry=0
+[al3d]   A2.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=31s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-zCnQEN27ikxShK3iy8SLs2
+# VERDICT (NOT-GREEN — CAP REACHED; honest-partial park, iter-6 inherits the rung; no
+# third completion grant this wave): P0.lean FAIL rc=1 errors=2; A1/A2 pure cascade
+# (unknown-module-prefix imports; P0's olean never built). Wall 31 s, telemetry OVER=0.
+# Descent inside the amended body: run-5's hsel'/hin route WORKED — the remaining pair:
+# (a) :184 PURE ORIENTATION — the per-z goal after `simp only [hin]` is
+#     `M (glue c z) (glue d z) = ∑ x, M (glue c z) x * star (…)` (sum_congr orients
+#     ptrace-side = product-side); hsel' provides the ∑-side first. FIX (pre-written):
+#     `(hsel' … ).symm` — one token.
+# (b) :205 — the pinned `rw [hq …]` still fails to match its structurally-identical
+#     pattern in the goal (invisible implicit divergence; both displays identical up to
+#     bound names). FIX (pre-written): replace the rewrite by a ▸-transport of the goal
+#     through the pinned equation (`refine (hq … x) ▸ ?_`) — no kabstract matching.
+# Parked post-state: P0 33c759420ad65598 (run-6 fixes pre-applied); A1 a8feb25bcd60722f;
+# A2 221eb30b6debba75. One fire at these three shas is iter-6's first action.

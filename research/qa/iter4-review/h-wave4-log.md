@@ -1438,3 +1438,13 @@ replaces, the parse-trap class.)
   P0.lean and A2.lean both HELD worktree-side until the post-fire state**
   (GREEN → the ladder closes; red → park per the cap). The close-gate
   event is now this final fire.
+
+## 2026-11-20 — iter-5 steady state, batch YY (H): R8's M3 FINAL PARK — the handoff state landed
+
+- **The .lean hold LIFTS; the park IS the state** (5 files, 4 relayed shas
+  verified + the run-6 log computed `bcecf724`, 31 s OVER=0): P0 at the
+  amended `33c75942` (sorry-free, byte-identical decl-list), A2 at the parked
+  `221eb30b` (full M3 content, linter lifted), A1 frozen `a8feb25b`. **M3
+  cap-reached honest-partial: 6 fires, 27→13→11→2→2, all mechanical, zero
+  math defects.** Iter-6 inherits ONE fire at the three shas; the close's
+  [IF-NOT] branch takes the slot. R8 → standby.

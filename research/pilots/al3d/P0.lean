@@ -20,10 +20,21 @@ is proved about them here. New defs (rule 2, new names beside): `planarLattice`,
 `SlabAreaLawColumnCuts3D` — recorded as weaker/variant, never as progress on the frozen
 `SlabAreaLaw3D` (rule 3).
 
-SORRY MAP (probe-convention only; never cited as results): `posSemidef_vecMulVec_self_star`
-(the one Physlib statement-layer lemma, restated per G4), `posSemidef_ptrace`,
-`trace_ptrace` (G4 probe scaffolding verbatim) — three sorries total. All other
-declarations are defs or trivial re-export shape checks (sorry-free; never results).
+STUB-COMPLETION NOTE (find-#6 amendment, H-approved 2026-11-20 — PROOF-ONLY, the
+declaration list byte-identical): the three probe-convention stubs this file carried
+since the G4 port are now PROVED, mathlib-only, zero statement drift:
+`posSemidef_vecMulVec_self_star` := mathlib's `Matrix.posSemidef_vecMulVec_self_star`
+(the Physlib statement-layer lemma turns out to be IN mathlib at this pin);
+`posSemidef_ptrace` := the compression route (the A2 M3 support-layer V port — ptrace
+as a sum of psd conjugate slice-compressions); `trace_ptrace` := the glue-reindex route
+(`Reg S × Reg (T \ S) ≃ Reg T` bijection). What the stubs WERE: G4 probe scaffolding
+verbatim (the dropped `QuantumInfo.ForMathlib.*` imports' statement-layer content),
+carried as `sorry` under the probe convention while A2's support layers re-proved the
+CALCULUS around them; why COMPLETED: the find-#6 audit mechanism — the def-level axiom
+audit propagates stub `sorryAx` through the frozen DEFS `pureState`/`SubState.restrict`
+into every pureState-typed consumer, so the AL rung-stone could not be triad-clean
+without this completion. This file is now sorry-free; it remains probe-convention
+statement-layer (its verdict line still reads "probe").
 
 STATEMENT-LEVEL FIND (surfaced by this probe's spec pass; recorded for the dossier):
 the prework's §2.3/§2.5 reading of the boundary lift via "π(Λ)'s INDUCED (square) graph"
@@ -102,8 +113,8 @@ open scoped ComplexOrder
 /-- Physlib lemma (the five dropped `QuantumInfo.ForMathlib.*` imports' only statement-layer
 contribution), restated per G4; its PROOF is not part of this probe. -/
 theorem posSemidef_vecMulVec_self_star {ι : Type*} [Fintype ι] [DecidableEq ι] {𝕜 : Type*}
-    [RCLike 𝕜] (Ω : ι → 𝕜) : Matrix.PosSemidef (Matrix.vecMulVec Ω (star Ω)) := by
-  sorry
+    [RCLike 𝕜] (Ω : ι → 𝕜) : Matrix.PosSemidef (Matrix.vecMulVec Ω (star Ω)) :=
+  Matrix.posSemidef_vecMulVec_self_star Ω
 
 namespace Arealaw
 
@@ -140,13 +151,103 @@ noncomputable def ptrace (_h : S ⊆ T) (M : Matrix (Reg loc T) (Reg loc T) 𝕜
 
 /-- The partial trace of a positive semidefinite matrix is positive semidefinite. -/
 theorem posSemidef_ptrace (h : S ⊆ T) {M : Matrix (Reg loc T) (Reg loc T) 𝕜} (hM : M.PosSemidef) :
-    (ptrace h M).PosSemidef :=
-  sorry
+    (ptrace h M).PosSemidef := by
+  classical
+  -- COMPRESSION ROUTE (the A2 M3 support-layer V port; find-#6 amendment, H-approved
+  -- 2026-11-20): `ptrace h M = ∑ z, E z M (E z)ᴴ` with `E z` the glue-slice selector;
+  -- each summand is psd by conjugation (`mul_mul_conjTranspose_same`), quadratic forms
+  -- distribute over the sum, and the ℝ-cast (`sum_nonneg_re`-route) closes.
+  have hsel : ∀ (a : Reg loc T) (F : Reg loc T → 𝕜),
+      (∑ w : Reg loc T, (if w = a then (1 : 𝕜) else 0) * F w) = F a := by
+    intro a F
+    rw [Finset.sum_eq_single_of_mem a (Finset.mem_univ _)
+      (fun b _ hbne => by simp [hbne])]
+    simp
+  have hsel' : ∀ (a : Reg loc T) (F : Reg loc T → 𝕜),
+      (∑ w : Reg loc T, F w * star ((if w = a then (1 : 𝕜) else 0))) = F a := by
+    intro a F
+    rw [Finset.sum_eq_single_of_mem a (Finset.mem_univ _)
+      (fun b _ hbne => by simp [hbne])]
+    simp
+  have hsum : ptrace h M = ∑ z : Reg loc (T \ S),
+      (Matrix.of fun c w => if w = glue c z then (1 : 𝕜) else 0) * M *
+        (Matrix.of fun c w => if w = glue c z then (1 : 𝕜) else 0)ᴴ := by
+    ext c d
+    simp only [ptrace, Matrix.of_apply, Matrix.sum_apply]
+    refine Finset.sum_congr rfl fun z _ => ?_
+    simp only [Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.of_apply]
+    have hin : ∀ j : Reg loc T,
+        (∑ j_1 : Reg loc T, (if j_1 = glue c z then (1 : 𝕜) else 0) * M j_1 j) =
+          M (glue c z) j :=
+      fun j => hsel (glue c z) (fun w => M w j)
+    simp only [hin]
+    exact (hsel' (glue d z) (fun w => M (glue c z) w)).symm
+  have hH : (ptrace h M).IsHermitian := by
+    rw [hsum, Matrix.IsHermitian, Matrix.conjTranspose_sum]
+    exact Finset.sum_congr rfl fun z _ =>
+      ((hM.mul_mul_conjTranspose_same _).isHermitian).eq
+  refine Matrix.PosSemidef.of_dotProduct_mulVec_nonneg hH ?_
+  intro x
+  rw [hsum]
+  have hq : ∀ {ι κ : Type} [Fintype ι] [Fintype κ] (P : ι → Matrix κ κ 𝕜) (x : κ → 𝕜),
+      star x ⬝ᵥ ((∑ i, P i) *ᵥ x) = ∑ i, star x ⬝ᵥ (P i *ᵥ x) := by
+    intro ι κ _ _ P x
+    have h1 : (∑ i, P i) *ᵥ x = ∑ i, P i *ᵥ x := by
+      funext j
+      simp only [mulVec, dotProduct, Matrix.sum_apply, Finset.sum_apply, Finset.sum_mul]
+      rw [show ∑ j' : κ, ∑ i : ι, P i j j' * x j' = ∑ i : ι, ∑ j' : κ, P i j j' * x j' from
+        Finset.sum_comm]
+    have h3 : star x ⬝ᵥ (∑ i, P i *ᵥ x) = ∑ i, star x ⬝ᵥ (P i *ᵥ x) := by
+      simp only [dotProduct, Finset.sum_apply, Finset.mul_sum]
+      rw [show ∑ j : κ, ∑ i : ι, star x j * (P i *ᵥ x) j = ∑ i : ι, ∑ j : κ, star x j * (P i *ᵥ x) j from
+        Finset.sum_comm]
+    rw [h1, h3]
+  refine (hq (ι := Reg loc (T \ S)) (κ := Reg loc S)
+      (fun z => (Matrix.of fun c w => if w = glue c z then (1 : 𝕜) else 0) * M *
+        (Matrix.of fun c w => if w = glue c z then (1 : 𝕜) else 0)ᴴ) x) ▸ ?_
+  have hnn : ∀ q : Reg loc (T \ S) → 𝕜,
+      (∀ i, 0 ≤ RCLike.re (q i)) → (∀ i, RCLike.im (q i) = 0) → 0 ≤ ∑ i, q i := by
+    intro q hre him
+    have h1 : ∀ i, q i = ((RCLike.re (q i) : ℝ) : 𝕜) := by
+      intro i
+      have h2 := RCLike.re_add_im (q i)
+      rw [him i] at h2
+      simp at h2
+      exact h2.symm
+    rw [Finset.sum_congr rfl (fun i _ => h1 i), ← RCLike.ofReal_sum]
+    exact RCLike.ofReal_nonneg.2 (Finset.sum_nonneg fun i _ => hre i)
+  refine hnn _ (fun z =>
+    (hM.mul_mul_conjTranspose_same _).re_dotProduct_nonneg x) (fun z =>
+    ((hM.mul_mul_conjTranspose_same _).isHermitian).im_star_dotProduct_mulVec_self x)
 
 /-- The partial trace preserves the trace. -/
 theorem trace_ptrace (h : S ⊆ T) (M : Matrix (Reg loc T) (Reg loc T) 𝕜) :
-    (ptrace h M).trace = M.trace :=
-  sorry
+    (ptrace h M).trace = M.trace := by
+  classical
+  -- GLUE-REINDEX ROUTE (find-#6 amendment, 2026-11-20): the diagonal sum reindexes
+  -- along the glue bijection `Reg S × Reg (T \ S) ≃ Reg T`.
+  have hrg : ∀ (x : Reg loc S) (z : Reg loc (T \ S)), restr h (glue x z) = x :=
+    fun _ _ => funext fun i => dif_pos i.2
+  have hrgc : ∀ (x : Reg loc S) (z : Reg loc (T \ S)),
+      restr (S := T \ S) (T := T) Finset.sdiff_subset (glue x z) = z :=
+    fun _ _ => funext fun i => dif_neg (Finset.mem_sdiff.1 i.2).2
+  have hgr : ∀ w : Reg loc T,
+      glue (restr h w) (restr (S := T \ S) (T := T) Finset.sdiff_subset w) = w :=
+    fun _ => funext fun _ => by simp [restr, glue]
+  have hbij : Function.Bijective (fun p : Reg loc S × Reg loc (T \ S) => glue p.1 p.2) := by
+    constructor
+    · rintro ⟨x, z⟩ ⟨x', z'⟩ hp
+      have e1 := congrArg (restr h) hp
+      have e2 := congrArg (restr (S := T \ S) (T := T) Finset.sdiff_subset) hp
+      simp only [hrg, hrgc] at e1 e2
+      exact Prod.ext e1 e2
+    · intro w
+      exact ⟨(restr h w, restr (S := T \ S) (T := T) Finset.sdiff_subset w), hgr w⟩
+  simp only [ptrace, Matrix.of_apply, Matrix.trace, Matrix.diag_apply]
+  rw [← Fintype.sum_prod_type' (fun (x : Reg loc S) (z : Reg loc (T \ S)) =>
+    M (glue x z) (glue x z))]
+  exact Fintype.sum_equiv (Equiv.ofBijective _ hbij)
+    (fun p => M (glue p.1 p.2) (glue p.1 p.2)) (fun w => M w w) (fun _ => rfl)
 
 section DecEqLoc
 variable [∀ i, DecidableEq (loc i)]
