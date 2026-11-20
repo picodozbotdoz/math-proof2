@@ -57,6 +57,10 @@ python3 research/qa/decl_index_v3.py status         # exit 1 = a corpus moved si
 python3 research/qa/decl_index_v3.py build          # after a rebuild: decl_index_v3.py enrich check
 python3 research/qa/decl_index_v3.py find WORDS...  # clues + ranked words over names/statements/docs
 python3 research/qa/decl_index_v3.py find --exact NAME    # exact name or namespace-qualified name
+# Meaning-based search over the core corpora (vectors from a GPU run; numpy-only at query time).
+# Use dozenv's OpenBLAS numpy: the system numpy's reference BLAS is ~40x slower.
+/home/doz/dozenv/bin/python research/qa/decl_index_v3.py find --semantic WORDS...
+/home/doz/dozenv/bin/python research/qa/decl_index_v3.py find --like QNAME   # nearest declarations
 # Found a poorly named declaration? Add a clue (never edits the declaration):
 python3 research/qa/decl_index_v3.py enrich add CORPUS QNAME alias|keyword|description|see-also TEXT --by "who: source"
 ```

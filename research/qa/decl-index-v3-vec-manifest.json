@@ -1,0 +1,69 @@
+{
+ "vectors": "decl-index-v3-vec.{f16,sha,ids}.npy (gitignored, next to decl-index-v3.sqlite)",
+ "model": "BAAI/bge-small-en-v1.5",
+ "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+ "safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+ "pooling": "cls",
+ "normalized": true,
+ "max_len": 256,
+ "dim": 384,
+ "dtype": "float16",
+ "text_recipe": "et-v1",
+ "words": "words-v1",
+ "query_instruction": "Represent this sentence for searching relevant passages: ",
+ "scope_exclude": [
+  "openai-math"
+ ],
+ "rows": 731232,
+ "db_sha256": "59090a465f1fade2bd0a96ccc3e12c05893396fd24101ab9a5c09be7f808d850",
+ "f16_sha256": "56f1602e586852558527afe7e40380cdc1c0505b94e0d0e85f967abb2c52e628",
+ "norm_check": {
+  "min": 0.999884843826294,
+  "max": 1.0001121759414673
+ },
+ "gpu_run": {
+  "app": "crossmath-embed-v3",
+  "gpu_requested": [
+   "L4",
+   "A10G",
+   "L40S",
+   "T4"
+  ],
+  "gpu_used": [
+   "NVIDIA A10"
+  ],
+  "cpu": 2.0,
+  "memory_mb": 4096,
+  "timeout_s": 3600,
+  "max_containers": 1,
+  "model": "BAAI/bge-small-en-v1.5",
+  "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "precision": "fp32, TF32 off; stored float16",
+  "max_len": 256,
+  "batch": 256,
+  "rows": 731232,
+  "chunks": 15,
+  "tokens": 67267265,
+  "embed_s": 696.1,
+  "gpu_mem_max_mb": 1257,
+  "wall_s_incl_startup": 813.8,
+  "texts_sha256": "4529db866eb5f97bd993518cd445fd5edcf3d842134cf52482344312e5a3c5e8",
+  "log": "research/qa/logs/embed-v3-run2.log"
+ },
+ "created_utc": "2026-11-20T18:02:28Z",
+ "parity": {
+  "vectors": {
+   "n": 500,
+   "min_cos": 0.9999003410339355,
+   "mean_cos": 1.0000022649765015,
+   "local_encode_s_per_text": 0.2315,
+   "blas": "openblas",
+   "python": "/home/doz/dozenv/bin/python"
+  },
+  "tokens": {
+   "n": 2004,
+   "mismatches": 0,
+   "examples": []
+  }
+ }
+}

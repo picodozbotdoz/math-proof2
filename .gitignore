@@ -1,5 +1,6 @@
 external-doc/
 __pycache__
 research/qa/decl-index-v3.sqlite
+research/qa/decl-index-v3-vec.*.npy
 research/qa/.decl-v3-tmp-*
 .run/

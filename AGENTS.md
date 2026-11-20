@@ -124,6 +124,16 @@ when a `lean-toolchain` is added here.
 
   Check the source directly (`rg` in the tree, namespace check) before any "corpus X has Y"
   claim.
+- Decl semantic search (2026-11-21): `find --semantic` / `find --like` rank by meaning over
+  bge-small-en-v1.5 vectors of the core corpora (all but openai-math). The vectors came from
+  one Modal GPU run (`qa/embed_v3_modal.py`, log `qa/logs/embed-v3-run2.log`). Query time
+  is numpy-only and matches the GPU (`qa/decl-index-v3-vec-manifest.json` parity:
+  cos ≥ 0.9999, 0 token mismatches in 2,004).
+  - Hits are leads for nearest-miss and bridge work, never evidence. They need the same
+    direct-source check as any decl-index hit.
+  - Known limits: definitions are embedded without their body, and long corpus namespaces
+    blur queries that use the same words.
+  - Re-embedding is a new GPU run and needs fresh user approval. Use the GPU fallback list.
 - Decl enrichment: a check may find a poorly or uncommonly named declaration, or a
   same-object pair under different names. Record a clue in tracked `qa/decl-enrich-v3.tsv`
   with `decl_index_v3.py enrich add` (type alias / keyword / description / see-also;

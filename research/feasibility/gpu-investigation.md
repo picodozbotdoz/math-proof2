@@ -86,6 +86,24 @@ run): L4 ≈ $0.80/h, L40S ≈ $1.95/h, A100-80GB ≈ $2.50/h, H100 ≈ $3.95/h,
   been built and needs a GPU-run approval. Suggested order: core corpora first
   (about 0.73M texts), openai-math later or on demand. Clues are embedded as extra vectors
   per declaration, so adding one is a CPU job.
+- **2026-11-21, semantic stage built.** BAAI/bge-small-en-v1.5 @ `5c38ec7c` embedded the
+  731,232 distinct core-corpus texts on one Modal GPU.
+  - Run 1 asked for an L4 alone, queued about 47 min and was cancelled. Run 2 used the
+    fallback list and ran on an A10: 696 s of embedding, about 14 min wall, cpu within spec.
+    Its memory OVER flags were investigated as the mapped-library measurement class
+    (`qa/logs/embed-v3-run2.log`).
+  - Query-time encoding is numpy-only and matches the GPU: cos ≥ 0.9999 on 500 samples,
+    0 token mismatches on 2,004.
+  - A query takes about 1.4 s with OpenBLAS numpy. The system numpy's reference BLAS is
+    about 40× slower.
+  - Validation on English queries: strong for concrete objects. For "finitely many zeros
+    … compact set", all top 5 were on target across 4 corpora, where BM25 put 4 unrelated
+    hits first. Weak when a query shares words with a corpus namespace ("Dedekind zeta
+    zero free").
+  - The two recorded duplicate pairs rank 691 and 1,341 of 731,232, not in the top 10.
+    `--like` instead surfaces closer compact-set duplicates, e.g. AxiomMath PNT
+    `riemannZeta.zeroes_on_Compact_finite`, which the bridges map does not record.
+  - A recipe v2 would strip root namespaces and include definition bodies (one more GPU run).
 - **2026-11-20, v3.1:** the TSV and the statements JSONL are replaced by one SQLite file
   (1.69 GB: files and namespaces stored once, porter-stemmed BM25 full-text index). Its
   export is byte-identical to the v3.0 TSV. Queries take about 0.2–0.8 s (3.6 s for a

@@ -1,0 +1,157 @@
+# embed-v3-run2.log — provenance header
+# what:    decl-index-v3 semantic stage, run 2 = the run of record (research/qa/embed_v3_modal.py, app crossmath-embed-v3)
+# command: EMBED_TEXTS=~/.cache/decl-v3/embed/texts-core.tsv.gz /home/doz/dozenv/bin/modal run research/qa/embed_v3_modal.py --out ~/.cache/decl-v3/embed/gpu-run2
+# spec:    gpu=["L4","A10G","L40S","T4"] (fallback list, user directive 2026-11-21) -> ran on NVIDIA A10;
+#          cpu 2.0, memory 4096 MB (AGENTS.md default SPEC), timeout 3600 s, max_containers 1
+# window:  launched 2026-11-20T17:47:07Z, finished 2026-11-20T18:00:57Z (UTC); embed 696.1 s over 15 chunks,
+#          67,267,265 tokens, 731,232 rows; GPU memory max 1,257 MB; texts sha256 4529db86...e5a3c5e8
+# model:   BAAI/bge-small-en-v1.5 @ 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a, weights sha256 verified at image build;
+#          fp32, TF32 off, CLS pooling, L2-normalized, stored float16
+# telemetry disposition (AGENTS.md Modal guideline 3 — investigation, not an upgrade):
+#   OVER mem on all 62 samples (4,281..4,571 MB vs the 4,096 MB soft spec). The sandbox exposes no cgroup
+#   memory files (peak=-1, anon=0), so `mem` = MemTotal - MemAvailable, which counts page cache and
+#   file-backed mappings: here chiefly the mapped PyTorch/CUDA shared libraries and model, the same
+#   measurement class as the recorded mapped-olean OVER-mem precedents. The anonymous share cannot be
+#   separated inside this sandbox. Baseline was already 4,281 MB 10 s into chunk 1; growth over 15 chunks
+#   was +290 MB (bounded, no leak signature). cpu max 0.99 of 2.0 = IN SPEC. No spec change: none needed.
+#   Finding for next time: one tokenizer thread was the bottleneck (GPU under-used); allowing 2 tokenizer
+#   threads stays inside the 2-CPU spec.
+# raw:     ANSI escapes stripped; otherwise verbatim client output
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ewy15yCwB8hHpRYosjqsck
+✓ Created objects.
+├── ✓ Uploaded 
+│   /home/doz/zcode-workdir/cross-math-fronttier/.claude/worktrees/gpu-lean-theo
+│   rem-proving-940d0d/research/qa/embed_v3_modal.py
+├── ✓ Uploaded /home/doz/.cache/decl-v3/embed/texts-core.tsv.gz
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function Embedder.*.
+[embed] model + 731232 texts loaded in 3.1s on NVIDIA A10; torch 2.5.1+cu124
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4281MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4287MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4304MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 0..50000: {'rows': 50000, 'tokens': 2915477, 'secs': 30.3, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=30s max_cpu=0.99 max_mem=4304MB max_anon=0MB samples=3 OVER=3
+[local] 50000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4348MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4350MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4356MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 50000..100000: {'rows': 50000, 'tokens': 3364258, 'secs': 35.3, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=35s max_cpu=0.99 max_mem=4356MB max_anon=0MB samples=3 OVER=3
+[local] 100000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4371MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4373MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 100000..150000: {'rows': 50000, 'tokens': 2925815, 'secs': 29.8, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=29s max_cpu=0.99 max_mem=4373MB max_anon=0MB samples=2 OVER=2
+[local] 150000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4426MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4428MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4431MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 150000..200000: {'rows': 50000, 'tokens': 3462150, 'secs': 35.8, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=35s max_cpu=0.99 max_mem=4431MB max_anon=0MB samples=3 OVER=3
+[local] 200000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4434MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4436MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4438MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 200000..250000: {'rows': 50000, 'tokens': 2993462, 'secs': 30.5, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=30s max_cpu=0.99 max_mem=4438MB max_anon=0MB samples=3 OVER=3
+[local] 250000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4439MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4442MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4444MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4445MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 250000..300000: {'rows': 50000, 'tokens': 4267315, 'secs': 44.4, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=44s max_cpu=0.99 max_mem=4445MB max_anon=0MB samples=4 OVER=4
+[local] 300000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4457MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4459MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4461MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4464MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4464MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 300000..350000: {'rows': 50000, 'tokens': 5767940, 'secs': 59.8, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=59s max_cpu=0.99 max_mem=4464MB max_anon=0MB samples=5 OVER=5
+[local] 350000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4477MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4479MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4482MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4483MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4483MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=60s cpu=0.99 mem=4494MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 350000..400000: {'rows': 50000, 'tokens': 5983838, 'secs': 61.3, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=61s max_cpu=0.99 max_mem=4494MB max_anon=0MB samples=6 OVER=6
+[local] 400000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4505MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4507MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4509MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4511MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4511MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 400000..450000: {'rows': 50000, 'tokens': 5378896, 'secs': 55.8, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=55s max_cpu=0.99 max_mem=4511MB max_anon=0MB samples=5 OVER=5
+[local] 450000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4512MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4514MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4516MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4518MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4518MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 450000..500000: {'rows': 50000, 'tokens': 5438340, 'secs': 56.7, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=56s max_cpu=0.99 max_mem=4518MB max_anon=0MB samples=5 OVER=5
+[local] 500000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4519MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4521MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4524MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4526MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4526MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=60s cpu=0.99 mem=4530MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 500000..550000: {'rows': 50000, 'tokens': 6023149, 'secs': 61.2, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=61s max_cpu=0.99 max_mem=4530MB max_anon=0MB samples=6 OVER=6
+[local] 550000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4537MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4539MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4542MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4543MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4543MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 550000..600000: {'rows': 50000, 'tokens': 5760527, 'secs': 58.7, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=58s max_cpu=0.99 max_mem=4543MB max_anon=0MB samples=5 OVER=5
+[local] 600000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4546MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4548MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4551MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4552MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 600000..650000: {'rows': 50000, 'tokens': 4443466, 'secs': 46.8, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=46s max_cpu=0.99 max_mem=4552MB max_anon=0MB samples=4 OVER=4
+[local] 650000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4556MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4558MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4561MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=40s cpu=0.99 mem=4562MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=50s cpu=0.99 mem=4571MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 650000..700000: {'rows': 50000, 'tokens': 4861912, 'secs': 50.3, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=50s max_cpu=0.99 max_mem=4571MB max_anon=0MB samples=5 OVER=5
+[local] 700000/731232 rows
+[tele] start embed: spec cpu=2.0 mem=4096MB nproc=18 interval=10s
+[tele] t=10s cpu=0.99 mem=4558MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=20s cpu=0.99 mem=4560MB anon=0MB peak=-1MB procs=0 OVER mem
+[tele] t=30s cpu=0.99 mem=4561MB anon=0MB peak=-1MB procs=0 OVER mem
+[embed] rows 700000..731232: {'rows': 31232, 'tokens': 3680720, 'secs': 39.4, 'gpu_mem_max_mb': 1257, 'device': 'NVIDIA A10'}
+[tele] SUMMARY embed: wall=39s max_cpu=0.99 max_mem=4561MB max_anon=0MB samples=3 OVER=3
+[local] 731232/731232 rows
+[local] DONE {"app": "crossmath-embed-v3", "gpu_requested": ["L4", "A10G", "L40S", "T4"], "gpu_used": ["NVIDIA A10"], "cpu": 2.0, "memory_mb": 4096, "timeout_s": 3600, "max_containers": 1, "model": "BAAI/bge-small-en-v1.5", "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a", "precision": "fp32, TF32 off; stored float16", "max_len": 256, "batch": 256, "rows": 731232, "chunks": 15, "tokens": 67267265, "embed_s": 696.1, "gpu_mem_max_mb": 1257, "wall_s_incl_startup": 813.8, "texts_sha256": "4529db866eb5f97bd993518cd445fd5edcf3d842134cf52482344312e5a3c5e8"}
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ewy15yCwB8hHpRYosjqsck
+exit=0
