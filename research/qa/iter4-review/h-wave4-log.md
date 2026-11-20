@@ -1546,3 +1546,11 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
   OVER=0): NOT-GREEN → park-permanent per D5, THEN the universe-0 root found on
   the inlined hq helper (the runs-5/6 kabstract opacity explained); the final
   fire granted at P0 `7cd41a30` w/ the ABSOLUTE cap — P0/A2 HELD until post-fire.
+
+## 2026-11-20 — iter-6 day-1: R1's N2P1 re-bind — the close's carried item DISCHARGED
+
+- **R1's re-bind landed** (make_axcheck `206b0840` + the 6-stage re-verify log
+  `55f7b197`, wall 106 s cpu 0.90, OVER-mem anon=0): the trio ALL OK at the
+  re-bound bytes — override == HEAD == verified `396d8710`. Root cause = the
+  missed SLOT-1 pull (fixed at `7caddb3`); the unit-16 EMPTY note superseded.
+  **The iter-5 close's one OVERRIDDEN carry is closed.**
