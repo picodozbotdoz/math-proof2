@@ -1353,3 +1353,20 @@ untracked files are landed on main); retry at drain or fold into the close act.
   quota row (both now read **second** w/ the F5 provenance: audited
   `6f90b2a2` supersedes the landed `ddec4089`'s 'third'). Verified current on
   main: quota `6f90b2a2` + charter v5 `d16ad6e5` (both batch-LL).
+
+## 2026-11-20 — iter-5 steady state, batch OO (H): R7's 11-M3 GREEN + the echo-backtick standing lesson
+
+- **R7's 11-M3 landed** (6 files, shas 6/6): GREEN 0/0, 3 theorems all-triad,
+  `composed_21a_of_ch20_vw13` via the `RedB.Red.comp` black-box; standalone on
+  our pin (the G7b-class in-tree route rejected, deviation recorded); Fischer
+  cite = context-class. Article-11 refresh stays R7's (articles/ untouched).
+
+### STANDING LESSON #4 (R7's, relayed by the orchestrator): the echo-backtick trap
+
+**Backticked prose inside a double-quoted `echo` is EXECUTED by the shell** —
+R7's log-header echo hit ImageMagick's `import` (a 15-minute hang, killed
+pre-fire; the run logs were unaffected). **Rule: provenance headers are
+heredoc-quoted (or single-quoted) henceforth — never interpolated echo with
+backticks in log/rescue scripts.** (Fifth runner-hygiene-family lesson; joins
+the `: error(` filter class, the fused-iff suppression, the assertion-guarded
+replaces, the parse-trap class.)

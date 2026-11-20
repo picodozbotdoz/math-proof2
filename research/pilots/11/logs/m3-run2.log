@@ -1,0 +1,86 @@
+# Provenance: 2026-11-20, lane R7 (11-M3 drain activation, run 2 = fix-retry of the <=2 gate budget; run 3 fired as the documented second fix-iteration per the M1/M2 pilot-loop convention — warm ~1 min/run, all logged).
+#   Artifact bytes: RedM3.lean @ 54ec934928ae922a (204 LoC) — the show-normalization + max_eq_right fix.
+#   Route unchanged: doz CLI, app crossmath-probe (warm), SPEC cpu=2.0/mem=4096, LEAN_NUM_THREADS=2, telemetry on.
+# Verdict: FAIL rc=1 — lifts 1+2 GREEN-triad (red_of_CH20/red_of_VW13 both [propext, Classical.choice, Quot.sound]);
+#   acceptance 2 mechanical errors: (1) lift-2's rw auto-rfl closed the goal (exact le_rfl surplus);
+#   (2) final exact hb blocked by the Function.comp redex in the composed beta and the E1+(A+B) vs (E1+A)+B association.
+#   Fix: drop the surplus exact; dsimp only [Function.comp_def] at hb + calc(le, ring) ending. Run-3 bytes supersede.
+# Telemetry: 1 sample OVER-mem (t=60s mem=8134MB anon=0MB) = the documented Mathlib-olean mmap artifact
+#   (AGENTS.md section-5 measured facts; an import-Mathlib file), anon=0 confirms no anonymous growth — no investigation due.
+# NOTE (shell hygiene, recorded as a lane lesson): this run's FIRST log-write attempt hung 15 min — the provenance
+#   header carried backticked "import Mathlib" inside a double-quoted echo; bash ran ImageMagick's `import` binary
+#   (blocks awaiting a window click). Killed, header rewritten backtick-free (single-quoted heredoc). No Modal effect.
+# Modal run URL (ephemeral): https://modal.com/apps/semraker/main/ap-pV6CIVEKN05UMLfFeAyeGO
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pV6CIVEKN05UMLfFeAWeGO
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-p11m3-stage/pilot11_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function pilot.
+[p11] staging 4 file(s): ['P11T1.lean', 'P11T2.lean', 'RedCompB.lean', 'RedM3.lean']
+[tele] start pilot: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p11] mathlib rev ff2494ea5e43
+[p11] oleans present: 8710
+[p11] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P11T1.lean
+[p11] P11T1.lean: OK; errors=0, sorry-warnings=0
+
+=== P11T2.lean
+[p11] P11T2.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+'ThreeSumApsp.Theorem19.explicit_of_theorem_17_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== RedCompB.lean
+[p11] RedCompB.lean: OK; errors=0, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output head ----
+RedCompB.lean:86:81: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CrossMath.RedB.Red.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedB.theorem19_of_red' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== RedM3.lean
+[tele] t=60s cpu=0.93 mem=8134MB anon=0MB peak=-1MB procs=2 OVER mem
+[p11] RedM3.lean: FAIL rc=1; errors=2, sorry-warnings=0
+[p11] AXIOMS 'CrossMath.RedM3.red_of_CH20' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedM3.red_of_VW13' depends on axioms: [propext, Classical.choice, Quot.sound]
+[p11] AXIOMS 'CrossMath.RedM3.composed_21a_of_ch20_vw13' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output head ----
+RedM3.lean:147:2: error: No goals to be solved
+RedM3.lean:191:2: error: Type mismatch
+  hb
+has type
+  T₃ n (↑n ^ κ) ≤
+    E₁ n + Num₁ n * (E₂ (N n) * (1 + logU (mag n))) +
+      Num₁ n * Num₂ (N n) *
+        T (((fun p => (size p.1, c * p.2)) ∘ fun p => (N p.1, mag p.1)) (n, ↑n ^ κ)).1
+          (((fun p => (size p.1, c * p.2)) ∘ fun p => (N p.1, mag p.1)) (n, ↑n ^ κ)).2
+but is expected to have type
+  T₃ n (↑n ^ κ) ≤ E₁ n + (Num₁ n * (E₂ (N n) * (1 + logU (mag n))) + Num₁ n * Num₂ (N n) * T (size (N n)) (c * mag n))
+'CrossMath.RedM3.red_of_CH20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedM3.red_of_VW13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.RedM3.composed_21a_of_ch20_vw13' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Claim.CH20_Theorem_5_1 : DetTimeModel → Prop
+Claim.VW13_Theorem_4_3 : DetTimeModel → Prop
+IsPowLittleO : (ℕ → ℝ) → ℝ → Prop
+IsPowPolylog : (ℕ → ℝ) → ℝ → Prop
+IsBigOPow : (ℕ → ℝ) → ℝ → Prop
+logU : ℝ → ℝ
+
+[p11] SUMMARY
+[p11]   P11T1.lean: OK
+[p11]   P11T2.lean: OK
+[p11]   RedCompB.lean: OK
+[p11]   RedM3.lean: FAIL (2 errors)
+[tele] SUMMARY pilot: wall=62s max_cpu=0.93 max_mem=8134MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-20T18:56:51+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pV6CIVEKN05UMLfFeAWeGO
