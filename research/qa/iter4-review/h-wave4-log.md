@@ -1270,3 +1270,9 @@ classifier 52+0 stands).
   records the LIVE parked-sha moves (N2-P2c `2cca447d`, eta-r2 `ed412a03`,
   eta-r3 `ddf85a41`, NEW eta-r4 `1eead7a4`, A2 `a9e19f54` M3-open) — fold-once
   at confirmed states holds. R1 → live-events standby (verdict-gated).
+
+## 2026-11-20 — iter-5 steady state, batch JJ (H): the 12-core day-1 staging (STAGED, UNFIRED)
+
+- **R3's iter-6 12-core day-1 set landed** (4 files, shas 4/4): the
+  launch-order convention (STAGED-UNFIRED; one-command fire on the iter-6
+  day-1 signal; the item-13 override preempts).
