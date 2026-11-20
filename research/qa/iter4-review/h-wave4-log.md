@@ -1554,3 +1554,7 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
   re-bound bytes — override == HEAD == verified `396d8710`. Root cause = the
   missed SLOT-1 pull (fixed at `7caddb3`); the unit-16 EMPTY note superseded.
   **The iter-5 close's one OVERRIDDEN carry is closed.**
+
+## 2026-11-21 — SESSION PAUSE (user-ordered) + the off_peak_cancelled diagnosis (orchestrator-direct)
+
+Cause chain: session on zai-offpeak-idle-plan → platform reclaimed off-peak compute 21:16–21:19 (R5+R3 transcripts end `off_peak_cancelled`; db turn_usage UNKNOWN_ERROR; zero context_exceeded all day — the hard-stop class was NOT context) → all other lanes in designed standby ⇒ zero running tasks ⇒ silence → session migrated to zai-individual-coding-plan (reload banner). The orchestrator's immediate re-spawn of R5/R3 ran under the NEW plan — **user ruling: unnecessary and wrong; lanes stopped, heartbeat automation deleted; resume only under the same plan family on the user's signal.** Lessons: (1) a cancelled lane cannot be SendMessage-resumed — fresh spawn w/ the standing order (worktree sha-guard makes this safe); (2) check the session's plan BEFORE spawning; (3) inter-turn silence up to ~25 min is normal async-protocol behavior, not death. /tmp sidecar note: guard files (al3d-prefire-sha-*, crossmath-*-last.sha) and p12-core raw logs were ephemeral; their content is superseded by the landed logs (core-runs4-9.log, the 8 al3d run logs) — no rescue owed.

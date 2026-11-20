@@ -27,3 +27,20 @@ fused-iff suppression, assertion-guarded replaces, the parse-trap class, the
 echo-backtick trap) + the site-closure≠certification rule + the Modal SPEC
 discipline live in `qa/iter4-review/h-wave4-log.md` (the lineage continues there).
 Day-1 fire records land worktree-side until the opening commit.
+
+## PAUSED — user-ordered (2026-11-21; off-peak reclaim killed the two running lanes; user directed no resume under a different plan)
+
+| Lane | Worktree | State at pause |
+|---|---|---|
+| H | agent-01 (main) | idle-landed; 47 batches + ship family committed; tree CLEAN at 8c99166 |
+| R1 | agent-02 | standby; §12 opened (both ship rows + fire folds landed) |
+| R2 | agent-03 | standby; both gate verdicts DELIVERED (41H3 4/4 PASS 14c86d28; 75v3 splice-time PASS 74ef9e67) |
+| R3 | agent-07 | **INTERRUPTED** (off_peak_cancelled 21:16); CORE.lean @ 7e40dff4 = the landed milestone; closing GO stands (≤5 fires) |
+| R4 | agent-08 | standby (evidence owner: H3 wave package + M pre-solve banked) |
+| R5 | agent-04 | **INTERRUPTED** (off_peak_cancelled 21:19); eta-r4.lean @ 285a411e = routes (b)+heartbeat PRE-APPLIED UNFIRED — fire as-is on resume |
+| R6 | agent-06 | drained/standby (75-N2 arc complete; v3 dossier owner) |
+| R7 | agent-10 | standby (both editorial units delivered; provenance fix landed) |
+| R8 | agent-05 | frozen standby (M3 run-8 park; variant-1 pre-applied, re-scope queued) |
+| R9 | agent-09 | standby (novelty-verification queue armed; typeset delivered) |
+
+Restart map: RESUME-BRIEF-ITER6 §SESSION END (plan check FIRST per the user directive).
