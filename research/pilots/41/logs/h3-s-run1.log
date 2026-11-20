@@ -1,0 +1,70 @@
+# Provenance: 2026-11-20, lane R4 (worktree agent-08) — the n>=4 TL hunt, S-RUNG
+#   FIRE RUN 1 (of the 3–5 budget, hard cap 5; fire order: coordinator 2026-11-20,
+#   novelty cleared per R9 round-7 87659f58; precharter
+#   research/pilots/41/H3-precharter.md sha256(16) 60278bd4b6e824bf §4 §1–§2).
+# File: pilots/41/H3.lean, 465 LoC, fired bytes = on-disk sha256(16) 833dcff84309c986.
+# Route: doz CLI /home/doz/dozenv/bin/modal, profile semraker, warm app crossmath-probe;
+#   spec cpu=2.0/memory=4096, LEAN_NUM_THREADS=2, telemetry @60s. Stage
+#   /tmp/crossmath-41-h3stage (world-readable, discarded after).
+# Telemetry: wall=62s; 1 sample: cpu=0.67, mem=8296MB OVER-mem = the documented
+#   olean-mapping artifact (MemTotal-MemAvailable incl. mapped Mathlib oleans; anon=0;
+#   same class as h2-run11's 8186MB sample; AGENTS §Modal 5). No code investigation
+#   triggered — the elaboration profile matches H2's (62 s vs 63 s).
+# **VERDICT: GREEN — H3.lean: OK; errors=0, sorry=0; other-warnings=3 (the known
+#   if_pos/if_neg deprecation class, cosmetic — same as h2-run11's 2).**
+# Full audit (verbatim below): sigmaOrth / sigmaExpand_basis / sigmaOneOrth /
+#   sigmaOneExpand_basis / sigmaOne_asym_witness [propext]; tableExpand / sigmaExpand /
+#   sigmaOneExpand / table_rank_nogo / no_realization_dim7 / no_realization_dim7_one
+#   [propext, Classical.choice, Quot.sound] — triad-or-leaner throughout.
+# S-rung budget state: 1 of 3–5 runs used (4 unused; run 1 = the verdict of record;
+#   fired = on-disk, no post-green edits per the D.4 discipline).
+# Modal run: https://modal.com/apps/semraker/main/ap-pn5B8Ce84wHQ5f6T00H6Oi
+# --- transcript (verbatim) ---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pn5B8Ce84wHQ5f6T00H6Oi
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-h3stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H3.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H3.lean
+[tele] t=60s cpu=0.67 mem=8296MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe] H3.lean: OK; errors=0, sorry-warnings=0, other-warnings=3
+---- output head ----
+H3.lean:244:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+H3.lean:261:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+H3.lean:265:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+DictionaryOn : (H : Type u_1) → [Mul H] → [inst : AddCommGroup H] → [Module ℤ H] → (Block → Block → ℤ) → Prop
+'Pilot41H3.sigmaOrth' depends on axioms: [propext]
+'Pilot41H3.sigmaExpand_basis' depends on axioms: [propext]
+'Pilot41H3.sigmaOneOrth' depends on axioms: [propext]
+'Pilot41H3.sigmaOneExpand_basis' depends on axioms: [propext]
+'Pilot41H3.sigmaOne_asym_witness' depends on axioms: [propext]
+'Pilot41H3.tableExpand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H3.sigmaExpand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H3.sigmaOneExpand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H3.table_rank_nogo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H3.no_realization_dim7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H3.no_realization_dim7_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H3.lean: OK
+[tele] SUMMARY probe: wall=62s max_cpu=0.67 max_mem=8296MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pn5B8Ce84wHQ5f6T00H6Oi

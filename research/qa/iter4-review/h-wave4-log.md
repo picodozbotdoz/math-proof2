@@ -1174,3 +1174,11 @@ classifier 52+0 stands).
   `db872dc5`; DECISION-4 → RESOLVED-BY-REBASE; the lane-wide standing rule
   folded. Single-landing rule honored: v2 `f3a8e43d` + the in-flight
   `6cdf85d0` never landed.
+
+## 2026-11-20 — iter-5 steady state, batch BB (H): R4's H3 S-rung GREEN landed
+
+- **The n≥4 TL hunt S-rung GREEN run 1-of-5** (3 files, shas 3/3): Theorem C
+  S-part kernel-proved both fibers; every d≤7 host excluded, TL₄ dim-14
+  minimal. **Telemetry (task 3): SPEC cpu=2.0/mem=4096 + LEAN_NUM_THREADS=2
+  conformed; 1 OVER-mem sample (8296 MB, anon=0) = the documented
+  olean-mapping class, dispositioned in-log; wall 62 s. Nothing to escalate.**
