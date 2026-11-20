@@ -1448,3 +1448,12 @@ replaces, the parse-trap class.)
   cap-reached honest-partial: 6 fires, 27→13→11→2→2, all mechanical, zero
   math defects.** Iter-6 inherits ONE fire at the three shas; the close's
   [IF-NOT] branch takes the slot. R8 → standby.
+
+## 2026-11-20 — iter-5 steady state, batch ZZ (H): R1's SLOT-6 fold — the AL-M3 NOT-GREEN record state
+
+- **R1's five-file fold landed** (shas 5/5; make_axcheck re-asserted on the
+  pulled bytes: 0 dups, py_compile rc=0): the AL-M3 park block w/ the honest
+  nuances (A2's M3 surface UNVERIFIED-never-re-audited; fired-vs-parked P0
+  sha; M0→M2 89/89 stands); tally 13/3/1 = 17 ✓; the A2 guard → `221eb30b`
+  honest-partial class; SLOT 6 stamped. **R5's eta pair = the close's only
+  outstanding verdict.**

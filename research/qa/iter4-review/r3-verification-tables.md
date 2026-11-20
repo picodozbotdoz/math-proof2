@@ -2546,6 +2546,22 @@ block (one citing line; the ledger never re-derives). Templates: SLOT-1/2/3 EXEC
 (`r1-verdict-fold-templates.md`); the P3-COMPLETE skeleton slot
 `[P3-COMPLETE-STATE]` fills from the P3-e row.*
 
+**AL M3 — NOT-GREEN at cap, honest-partial PARK (R8's final rung, worktree-of-record
+agent-05 2026-11-20, landing via H — every sha byte-verified this pass, R1 unit 17;
+park shas P0 `33c759420ad65598` / A1 `a8feb25bcd60722f` / A2 `221eb30b6debba75`;
+record `M0-record.md` `6718ec201bb51cbc`):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| AL-M3 (R8) | `pilots/al3d/A2.lean` @ `221eb30b6debba75` (2,011 LoC; the M3 content = the rung-stone `slab_column_cuts_of_planar_var` + `regionEntropy_pureState_column_closed` + support layer V, AUTHORED in the parked bytes) + `P0.lean` @ `33c759420ad65598` (the orchestrator-approved find-#6 P0 amendment + the run-6 post-fixes pre-applied; **fired bytes were `2d84a3caf8d0d26f`** — the parked P0 is post-fix) + `A1.lean` frozen `a8feb25bcd60722f` | `logs/alp2-m3-run{1..6}*.log` (run 6 = the CAP fire, `alp2-m3-run6-final.log`: wall 31 s, telemetry OVER=0; sha-guarded, guard file cited in-header) | **NOT-GREEN at cap → PARK, honest-partial per D7: P0 FAIL rc=1 errors=2 — the amended body's last pair, (a) `:184` PURE ORIENTATION (a one-token `.symm`; sum_congr orients ptrace-side = product-side) + (b) `:205` the pinned `rw [hq …]` kabstract mismatch (invisible implicit divergence; displays identical up to bound names); A1/A2 FAIL rc=1 errors=1 each = PURE CASCADE (P0's olean never built — unknown-module-prefix imports) — A2's own content NOT re-audited in run 6, the M3 decls' triad status UNVERIFIED (zero prints). Descent 27→13→11→2→2 over 6 fires (3 unit-budget + completion grants), ALL-mechanical error classes (named-args, implicit signatures, simp shapes, orientation, rewriter-matching), ZERO math defects** | **The M0→M2 verified surface STANDS untouched: 89/89 exactly triad @ `61af175a` (batch-Q, log-cited) — the ladder's closed rungs are history, not reopened.** Both residual fixes PRE-WRITTEN (the `.symm` token; the `refine (hq … x) ▸ ?_` transport replacing the rewrite) and are IN the parked P0 bytes — **iter-6 inheritance = ONE fire at the three parked shas (R8's stated first action)**. The cap ruling HELD (no third grant). **The `set_option linter.all false` diagnostic NOT lifted** (1 hit in the parked A2 — carried into the park; lifts at iter-6's fire per record note i). Guard: AxPilotAL3D_A2 → `221eb30b` with verdict class HONEST-PARTIAL (the 74-P2 parked-guard precedent: the guard tracks the committed closing bytes; the M2-GREEN state stays log-cited); the P0 compile-only dep stage re-cites the amended sha |
+
+*Fold note (R1 unit 17, 2026-11-20): byte-verified at agent-05 pre-landing (A2/P0/A1/
+record shas + the run-6 verdict block re-read; the fired-vs-parked P0 distinction
+recorded above — the relay's "P0 33c75942" is the POST-fix park, the fire was
+2d84a3ca). Tally row 12 SPLITS per the template's NOT-GREEN variant (the
+L3-corrected-block precedent): the family class → honest-partial with the M0→M2
+GREEN surface named in the note. The close waits on R5 alone (slots 4/5).*
+
 **AL M2-b CLOSURE + the M2-c KEYSTONE — the M0→M2 ladder kernel-verified (R8 unit-9,
 landed H batch-Q @ `a175b1d` 2026-11-19; folded R1 unit 14, 2026-11-20, byte-verified
 against main — this REPLACES the pre-termination unit-13 narrative draft, correcting
@@ -2676,7 +2692,7 @@ record):**
 | `pilots/41/Core.lean` `733b4a2d93a84689` | **30/30 top-level printed** — 4 deciders at zero axioms (⊆-triad) + 26 triad-or-leaner, 0 sorryAx | `core-run9.log` (fired `921bc43cbd06d252`) | NONE — 31 decls all public, Step-B tail = full coverage |
 | `pilots/41/H1.lean` `283503ada8f5571e` | **2/2 printed** (the tranche-1 pair: `sigmaQ_asym_witness` [propext], `tracial_realizability_refuted` [propext, Quot.sound]) | `h1-run2.log:58–:59` (wall 41 s, OVER=0) | **20 unprinted theorems** → AxFC custody at sweep (print-gap class, §10.9 precedent) |
 | `pilots/41/H2.lean` `3bc8170121492d18` (= fired `9534383949a6ac0c` + comment-only) | **4/4 printed** (`sigmaOrth` [propext], `sigmaExpand_basis` [propext], `sigmaExpand` triad, `rank_obstruction_nogo` triad) | `h2-run11.log:45–:48` (wall 63 s; OVER-mem 1 = mmapped class, anon=0) | **14 unprinted theorems** → AxFC custody at sweep |
-| `pilots/al3d/A2.lean` `61af175aae141aa9` | **89/89 audit-surface ALL exactly triad** (86 pub + 3 priv — R1's independent decomposition) | `alp2-m2c-run9-unit9c.log` A2 section (sorry-strict rc=0) | NONE — full coverage in-run |
+| `pilots/al3d/A2.lean` `61af175aae141aa9` | **89/89 audit-surface ALL exactly triad** (86 pub + 3 priv — R1's independent decomposition) | `alp2-m2c-run9-unit9c.log` A2 section (sorry-strict rc=0) | M0→M2 full coverage in-run; **M3-parked `221eb30b` (2,011 LoC) = authored-not-closed — the M3 surface UNAUDITED (run-6 cascade; triad UNVERIFIED, zero prints) — iter-6's one fire at the parked shas re-opens the audit** |
 | `pilots/75/N2-P1.lean` `396d8710d9084388` (run-31 closing bytes, lands as HEAD; the run-26 `ce6719c8` pin DROPS at landing — HEAD = verified) | **17/17 P2-b surface triad** (15/15 run-26 core re-verified in-run; 47 distinct names printed, ⊆-triad, 0 sorryAx) | `n2-p1-run{26,31}.log` | 13 privates → AxFC custody direct-prints at sweep; the N3 audit already carries N2P1 at these bytes (92 records) |
 | `pilots/75/N2-P3.lean` `f9bd28c5f8f7c3d2` | **3/3 publics triad** (P3-a/b/c) | `n2-p3-run3.log` | the composed headline + P3-d = **DISCHARGED 2026-11-20** (P3-d V2-side + P3-e plain-side rows below; the composed card triad; P3-COMPLETE) |
 | `pilots/zzv2-lam/eta-r1.lean` `5b04304a53a5b849` | **6/6 strict-OK triad** (7 decls = 6 pub + 1 priv) | `eta-r1-run3.log` (DONOR-TREE class — verdict of record = the run log, zzv2-P1 precedent) | none beyond the donor-tree convention |

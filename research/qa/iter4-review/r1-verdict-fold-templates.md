@@ -26,7 +26,7 @@ closing sha is byte-derived at the verdict):**
 
 ---
 
-**EXECUTED-STAMPS (R1):** SLOT 1 (P2-b) + SLOT 2 (P2-c) + SLOT 3 (P3-d/e + N3) EXECUTED 2026-11-20 as R1 unit 16 — rows of record in r3-tables §11's "75-N2 SLOT-1 SALVO" block; the P3-COMPLETE skeleton slot [P3-COMPLETE-STATE] fills from the P3-e row. Remaining templates: SLOT 4/5 (eta pair), SLOT 6 (M3).
+**EXECUTED-STAMPS (R1):** SLOT 1 (P2-b) + SLOT 2 (P2-c) + SLOT 3 (P3-d/e + N3) EXECUTED 2026-11-20 as R1 unit 16 — rows of record in r3-tables §11's "75-N2 SLOT-1 SALVO" block; the P3-COMPLETE skeleton slot [P3-COMPLETE-STATE] fills from the P3-e row. SLOT 6 (M3) EXECUTED 2026-11-20 as R1 unit 17 (NOT-GREEN variant — honest-partial park at A2 221eb30b / P0 33c75942). Remaining templates: SLOT 4/5 (eta pair) — the close's last pending verdicts.
 
 ## SLOT 1 — R6 P2-b confirm (`N2-P1.lean`, wave-close charter item 1)
 
