@@ -121,27 +121,25 @@ theorem countCum_split (z : ZeroMult) {T₁ T₂ : ℝ} (h0 : 0 ≤ T₁) (h : T
     · rintro (⟨hs, hre1, hre2, him1, him2⟩ | ⟨hs, hre1, hre2, him1, him2⟩)
       · exact ⟨hs, hre1, hre2, him1, him2.trans h⟩
       · exact ⟨hs, hre1, hre2, lt_of_le_of_lt h0 him1, him2⟩
-  have hdisj : (supp z.mult ∩ stripWindow 0 T₁) ∩ (supp z.mult ∩ stripWindow T₁ T₂)
-      = ∅ := by
-    ext ρ
-    simp only [stripWindow, Set.mem_inter_iff, Set.mem_setOf_eq, Set.mem_empty_iff_false,
-      not_and]
-    rintro ⟨⟨-, -, -, him2⟩, ⟨-, -, -, him1⟩⟩
-    exact absurd him1 (not_lt.mpr him2)
   have hfA : (supp z.mult ∩ stripWindow 0 T₁).Finite := z.windowFinite 0 T₁
   have hfB : (supp z.mult ∩ stripWindow T₁ T₂).Finite := z.windowFinite T₁ T₂
-  have hfinU : (supp z.mult ∩ stripWindow 0 T₂).Finite := z.windowFinite 0 T₂
-  rw [hset] at hfinU
-  have hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset := by
-    ext ρ
-    simp [hset]
+  have hfU : ((supp z.mult ∩ stripWindow 0 T₁) ∪ (supp z.mult ∩ stripWindow T₁ T₂)).Finite :=
+    hfA.union hfB
   have hdisjF : Disjoint hfA.toFinset hfB.toFinset :=
     Finset.disjoint_iff_ne.mpr fun a ha b hb hab => by
       subst hab
       simp only [Set.Finite.mem_toFinset] at ha hb
       exact absurd hb.2.2.2.1 (not_lt.mpr ha.2.2.2.2)
+  have hfe : (z.windowFinite 0 T₂).toFinset = hfU.toFinset := by
+    ext ρ
+    simp only [Set.Finite.mem_toFinset, hset]
+  have hfu : hfU.toFinset = hfA.toFinset ∪ hfB.toFinset := by
+    ext ρ
+    simp
+  have hfe₁ : (z.windowFinite 0 T₁).toFinset = hfA.toFinset := rfl
+  have hfe₂ : (z.windowFinite T₁ T₂).toFinset = hfB.toFinset := rfl
   unfold ZeroMult.countCum
-  rw [hfu, Finset.sum_union hdisjF]
+  rw [hfe, hfu, Finset.sum_union hdisjF, hfe₁, hfe₂]
 
 /-- Cumulative counts are monotone. -/
 theorem countCum_mono (z : ZeroMult) {S T : ℝ} (h : S ≤ T) :
@@ -163,8 +161,7 @@ theorem countCum_mono (z : ZeroMult) {S T : ℝ} (h : S ≤ T) :
 theorem countCum_split' (z : ZeroMult) {S : ℝ} (hS : 0 < S) :
     z.countCum (2 * S) = z.countCum S + z.count S := by
   have h2S : S ≤ 2 * S := by nlinarith
-  rw [countCum_split z hS.le h2S]
-  unfold ZeroMult.count
+  exact countCum_split z hS.le h2S
 
 /-- The on-line doubling split (the on-chain's step). -/
 theorem countOnCum_split' (z : ZeroMult) {S : ℝ} (hS : 0 < S) :
@@ -182,30 +179,25 @@ theorem countOnCum_split' (z : ZeroMult) {S : ℝ} (hS : 0 < S) :
       · refine ⟨hs, hre, him1, le_trans him2 ?_⟩
         nlinarith
       · exact ⟨hs, hre, hS.trans him1, him2⟩
-  have hdisj : (supp z.mult ∩ lineWindow 0 S) ∩ (supp z.mult ∩ lineWindow S (2 * S))
-      = ∅ := by
-    ext ρ
-    constructor
-    · intro hρ
-      simp only [Set.mem_inter_iff, lineWindow, Set.mem_setOf_eq] at hρ
-      exact absurd hρ.2.2.2.1 (not_lt.mpr hρ.1.2.2.2)
-    · intro hρ
-      exact absurd hρ (by simp)
   have hfA : (supp z.mult ∩ lineWindow 0 S).Finite := lineFiniteCum z.windowFinite S
   have hfB : (supp z.mult ∩ lineWindow S (2 * S)).Finite := lineFinite z.windowFinite S
-  have hfinU : (supp z.mult ∩ lineWindow 0 (2 * S)).Finite :=
-    lineFiniteCum z.windowFinite (2 * S)
-  rw [hset] at hfinU
-  have hfu : hfinU.toFinset = hfA.toFinset ∪ hfB.toFinset := by
-    ext ρ
-    simp [hset]
+  have hfU : ((supp z.mult ∩ lineWindow 0 S) ∪ (supp z.mult ∩ lineWindow S (2 * S))).Finite :=
+    hfA.union hfB
   have hdisjF : Disjoint hfA.toFinset hfB.toFinset :=
     Finset.disjoint_iff_ne.mpr fun a ha b hb hab => by
       subst hab
       simp only [Set.Finite.mem_toFinset] at ha hb
       exact absurd hb.2.2.1 (not_lt.mpr ha.2.2.2)
+  have hfe : (lineFiniteCum z.windowFinite (2 * S)).toFinset = hfU.toFinset := by
+    ext ρ
+    simp only [Set.Finite.mem_toFinset, hset]
+  have hfu : hfU.toFinset = hfA.toFinset ∪ hfB.toFinset := by
+    ext ρ
+    simp
+  have hfe₁ : (lineFiniteCum z.windowFinite S).toFinset = hfA.toFinset := rfl
+  have hfe₂ : (lineFinite z.windowFinite S).toFinset = hfB.toFinset := rfl
   unfold ZeroMult.countOnCum ZeroMult.countOn
-  rw [hfu, Finset.sum_union hdisjF]
+  rw [hfe, hfu, Finset.sum_union hdisjF, hfe₁, hfe₂]
 
 /-! ### (4b) The doubling chains (the block family) -/
 
@@ -263,7 +255,7 @@ theorem epsLowerCum_of_epsLower {z : ZeroMult} {c : ℝ}
   have hMpos : (0:ℝ) < M₀ := by rw [hM₀def]; positivity
   have hNnn : (0:ℝ) ≤ M₀ * N₀ := by positivity
   have hE : ∀ᶠ y in atTop, M₀ * N₀ / (ε / 2) < y :=
-    eventually_atTop.mpr ⟨M₀ * N₀ / (ε / 2), fun y hy => hy⟩
+    eventually_atTop.mpr ⟨M₀ * N₀ / (ε / 2) + 1, fun y hy => by linarith⟩
   obtain ⟨T₂, hT₂⟩ := eventually_atTop.mp (hUnb.eventually hE)
   refine ⟨max (2 * T₀d) T₂, fun T hT => ?_⟩
   have hT₀d : T₀d < T := by
@@ -275,7 +267,9 @@ theorem epsLowerCum_of_epsLower {z : ZeroMult} {c : ℝ}
       intro m
       induction m with
       | zero => norm_num
-      | succ k ih => rw [pow_succ]; linarith [ih, Nat.cast_nonneg (α := ℝ) k]
+      | succ k ih =>
+        rw [pow_succ, Nat.cast_succ]
+        linarith [ih, Nat.cast_nonneg (α := ℝ) k]
     obtain ⟨n, hn⟩ := exists_nat_gt (T / T₀d)
     refine ⟨n + 1, ?_⟩
     rw [div_lt_iff₀ hT₀pos] at hn
@@ -283,79 +277,80 @@ theorem epsLowerCum_of_epsLower {z : ZeroMult} {c : ℝ}
     nlinarith [hn, hle, hT₀pos]
   obtain ⟨K, hKspec, hKeq⟩ : ∃ K, T ≤ T₀d * 2 ^ K ∧ Nat.find hex = K :=
     ⟨Nat.find hex, Nat.find_spec hex, rfl⟩
-  rcases K with
-  | zero =>
-    exfalso
+  obtain _ | K' := K
+  · exfalso
     rw [pow_zero, mul_one] at hKspec
     exact absurd hKspec (not_le.mpr hT₀d)
-  | succ K' =>
-  have hKmin : ¬(T ≤ T₀d * 2 ^ K') :=
-    fun hle => absurd (Nat.find_le hle)
-      (by rw [hKeq]; omega)
-  have hKlow : T₀d * 2 ^ K' < T := not_le.mp hKmin
-  have hp2K : (0:ℝ) < 2 ^ K' := pow_pos two_pos _
-  have hlowdiv : T₀d < T / 2 ^ K' := by
-    rw [lt_div_iff₀ hp2K]
-    exact hKlow
-  have hchain := countCum_chain z hTpos K'
-  have hchainOn := countOnCum_chain z hTpos K'
-  have hremle : T / 2 ^ K' ≤ 2 * T₀d := by
-    rw [pow_succ] at hKspec
-    field_simp
-    nlinarith
-  have hrem : z.countCum (T / 2 ^ K') ≤ N₀ := by
-    rw [hN₀def]
-    exact countCum_mono z hremle
-  have hblock (j : ℕ) (hj : j < K') : T₁ ≤ T / 2 ^ (j + 1) := by
-    have hpow : ((2:ℝ) ^ (j + 1)) ≤ ((2:ℝ) ^ K') := by
-      exact_mod_cast Nat.pow_le_pow_right (by omega : (1:ℕ) ≤ 2) (by omega : j + 1 ≤ K')
-    have hdivge : T / 2 ^ K' ≤ T / 2 ^ (j + 1) := by
+  · have hKmin : ¬(T ≤ T₀d * 2 ^ K') := by
+      intro hle
+      have h1 : Nat.find hex ≤ K' := Nat.find_le hle
+      rw [hKeq] at h1
+      omega
+    have hKlow : T₀d * 2 ^ K' < T := not_le.mp hKmin
+    have hp2K : (0:ℝ) < 2 ^ K' := by positivity
+    have hlowdiv : T₀d < T / 2 ^ K' := by
+      rw [lt_div_iff₀ hp2K]
+      exact hKlow
+    have hchain := countCum_chain z hTpos K'
+    have hchainOn := countOnCum_chain z hTpos K'
+    have hremle : T / 2 ^ K' ≤ 2 * T₀d := by
+      rw [pow_succ] at hKspec
       field_simp
-      nlinarith [hpow, hTpos, pow_pos two_pos (j + 1)]
-    exact le_trans (le_trans hT₀le (le_of_lt hlowdiv)) hdivge
-  have hsumb : ∀ j ∈ Finset.range K', (c - ε / 2) * ((z.count (T / 2 ^ (j + 1)) : ℝ))
-      ≤ (z.countOn (T / 2 ^ (j + 1)) : ℝ) :=
-    fun j hj => hT₁ _ (hblock j (Finset.mem_range.mp hj))
-  have hsum : (c - ε / 2) * (∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ))
-      ≤ ∑ j ∈ Finset.range K', (z.countOn (T / 2 ^ (j + 1)) : ℝ) := by
-    rw [Finset.mul_sum]
-    exact Finset.sum_le_sum fun j hj => hsumb j hj
-  have honsum : (∑ j ∈ Finset.range K', (z.countOn (T / 2 ^ (j + 1)) : ℝ))
-      ≤ (z.countOnCum T : ℝ) := by
-    rw [hchainOn]
-    have h0 : (0:ℝ) ≤ (z.countOnCum (T / 2 ^ K') : ℝ) := by positivity
-    push_cast
-    linarith
-  have hcum : (z.countCum T : ℝ)
-      = (z.countCum (T / 2 ^ K') : ℝ)
-        + ∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ) := by
-    have := hchain
-    push_cast
-    exact this
-  have hB : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ)) ≤ M₀ * N₀ := by
-    have hX : (z.countCum (T / 2 ^ K') : ℝ) ≤ (N₀ : ℝ) := by exact_mod_cast hrem
-    rcases le_or_gt 0 (c - ε / 2) with hpos | hneg
-    · have h1 : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ))
-          ≤ (c - ε / 2) * (N₀ : ℝ) :=
-        mul_le_mul_of_nonneg_left hX hpos
-      have h2 : (c - ε / 2) * (N₀ : ℝ) ≤ M₀ * N₀ := by
-        rw [hM₀def]
-        nlinarith [abs_le (c - ε / 2), abs_nonneg (c - ε / 2), hpos]
-      exact le_trans h1 h2
-    · have h1 : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ)) ≤ 0 :=
-        mul_nonpos_of_nonpos_of_nonneg hneg (by positivity)
-      exact le_trans h1 (by positivity)
-  have habs : M₀ * N₀ ≤ (ε / 2) * ((z.countCum T : ℝ)) := by
-    have h3 := hT₂ T (le_trans (le_max_right (2 * T₀d) T₂) hT)
-    rw [div_lt_iff₀ (by positivity : (0:ℝ) < ε / 2)] at h3
-    linarith
-  have hsplit : (c - ε / 2) * ((z.countCum T : ℝ))
-      = (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ))
-        + (c - ε / 2) * (∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ)) := by
-    rw [← Finset.mul_sum, ← hcum]
-    ring
-  rw [hsplit]
-  linarith [hsum, honsum, hB, habs]
+      nlinarith
+    have hrem : z.countCum (T / 2 ^ K') ≤ N₀ := by
+      rw [hN₀def]
+      exact countCum_mono z hremle
+    have hblock (j : ℕ) (hj : j < K') : T₁ ≤ T / 2 ^ (j + 1) := by
+      have hpow : ((2:ℝ) ^ (j + 1)) ≤ ((2:ℝ) ^ K') := by
+        exact_mod_cast Nat.pow_le_pow_right (by omega : (1:ℕ) ≤ 2) (by omega : j + 1 ≤ K')
+      have hdivge : T / 2 ^ K' ≤ T / 2 ^ (j + 1) := by
+        field_simp
+        nlinarith [hpow, hTpos, (by positivity : (0:ℝ) < 2 ^ (j + 1))]
+      exact le_trans (le_trans hT₀le (le_of_lt hlowdiv)) hdivge
+    have hsumb : ∀ j ∈ Finset.range K', (c - ε / 2) * ((z.count (T / 2 ^ (j + 1)) : ℝ))
+        ≤ (z.countOn (T / 2 ^ (j + 1)) : ℝ) :=
+      fun j hj => hT₁ _ (hblock j (Finset.mem_range.mp hj))
+    have hsum : (c - ε / 2) * (∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ))
+        ≤ ∑ j ∈ Finset.range K', (z.countOn (T / 2 ^ (j + 1)) : ℝ) := by
+      rw [Finset.mul_sum]
+      exact Finset.sum_le_sum fun j hj => hsumb j hj
+    have honsum : (∑ j ∈ Finset.range K', (z.countOn (T / 2 ^ (j + 1)) : ℝ))
+        ≤ (z.countOnCum T : ℝ) := by
+      rw [hchainOn]
+      have h0 : (0:ℝ) ≤ (z.countOnCum (T / 2 ^ K') : ℝ) := by positivity
+      push_cast
+      linarith
+    have hcum : (z.countCum T : ℝ)
+        = (z.countCum (T / 2 ^ K') : ℝ)
+          + ∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ) := by
+      exact_mod_cast hchain
+    have hB : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ)) ≤ M₀ * N₀ := by
+      have hX : (z.countCum (T / 2 ^ K') : ℝ) ≤ (N₀ : ℝ) := by exact_mod_cast hrem
+      rcases le_or_gt 0 (c - ε / 2) with hpos | hneg
+      · have h1 : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ))
+            ≤ (c - ε / 2) * (N₀ : ℝ) :=
+          mul_le_mul_of_nonneg_left hX hpos
+        have h2 : (c - ε / 2) * (N₀ : ℝ) ≤ M₀ * N₀ := by
+          rw [hM₀def]
+          nlinarith [le_abs_self (c - ε / 2), abs_nonneg (c - ε / 2), hpos,
+            Nat.cast_nonneg (α := ℝ) N₀]
+        exact le_trans h1 h2
+      · have h1 : (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ)) ≤ 0 :=
+          mul_nonpos_of_nonpos_of_nonneg (le_of_lt hneg) (by positivity)
+        exact le_trans h1 (by positivity)
+    have habs : M₀ * N₀ ≤ (ε / 2) * ((z.countCum T : ℝ)) := by
+      have h3 := hT₂ T (le_trans (le_max_right (2 * T₀d) T₂) hT)
+      rw [div_lt_iff₀ (by positivity : (0:ℝ) < ε / 2)] at h3
+      linarith
+    have hsplit : (c - ε / 2) * ((z.countCum T : ℝ))
+        = (c - ε / 2) * ((z.countCum (T / 2 ^ K') : ℝ))
+          + (c - ε / 2) * (∑ j ∈ Finset.range K', (z.count (T / 2 ^ (j + 1)) : ℝ)) := by
+      rw [hcum]
+      ring
+    have hG : (c - ε) * ((z.countCum T : ℝ))
+        = (c - ε / 2) * ((z.countCum T : ℝ))
+          - (ε / 2) * ((z.countCum T : ℝ)) := by ring
+    linarith [hG, hsplit, hsum, honsum, hB, habs]
 
 /-! ### (5) The composed port theorem -/
 

@@ -15,9 +15,16 @@ of record: `pilots/75/logs/n2-p1-run{1..30}.log` + `n2-p3-run{1,2}.log`
 (per-run provenance headers with verify-fire shas + error-class analyses;
 **run 19 = the verified P1 state**, sha ca1089e2a0c1…; **run 26 = the
 verified P2-a state**, sha ce6719c8af450eaa…, 15/15 triad incl.
-`windowFinite_LFunction`; **n2-p3-run2 = the verified P3-a statement rung**,
-N2-P3.lean sha fda6652636cddd8f…; run 30 = the P2-b hard-stop, 16/17 with
-the helper triad-clean).
+`windowFinite_LFunction`; **run 31 = the verified P2-b state**, sha
+396d8710d9084388…, 17/17 triad incl. `eulerStripImmunity_changeLevel`
+(the dead unit-9 fire's run 31 COMPLETED before the session died — verdict
+recovered from the preserved log at restart, 2026-11-20); **n2-p3-run2 =
+the verified P3-a statement rung**; **n2-p2c-run8 = the verified P2-c
+primitive core**, sha 2cca447d7c2a29c8…, 11/11 triad incl.
+`thmE_dyadic_to_cumulative`; **n2-p3e-run1 = the verified P3-e assembly**;
+**n2-p3v2-run3/4 = the verified P3-d + ℚ endpoint**, incl.
+`zetaColumn_of_V2` and `zetaL_two_thirds_landed_ℚ` triad on the V2
+substrate).
 
 ## Milestone verdicts (verified state = run 19)
 
@@ -28,6 +35,13 @@ the helper triad-clean).
 | M2 (P1-b) | `heckeTsum_eq_ratCharOf_LFunction` — the L-series identification | **GREEN-triad** (run 15) |
 | **M3 (P1-c/d)** | `ratCharOf_eq_one_iff` (principality transfer), `isPrincipal_of_modulus_one` (q = 1 degeneracy), `identity_theorem_extension` (the donor's EntireAbelianQuotient pattern on our pin), `hasQDirichletDictionary` (**N2-a DISCHARGED**), `factorization_identity_extension` (the hAbFacQ bridge), `dirichletFactorizationTransfer` (the corrected composed transfer) | **GREEN-triad (run 19)** — 6/6 |
 | **P2-a** | `windowFinite_LFunction` (χ ≠ 1 ⇒ WindowFinite (multOf χ.LFunction) — the hEχ port's window-finiteness input, via the isolated-zeros ⇒ discrete ⇒ closed ⇒ compact-box-finite chain) | **GREEN-triad (run 26)** — 15/15 file decls |
+| **P2-b** | `eulerStripImmunity_changeLevel` (the Euler-identity transport — strip immunity for imprimitive characters; `HasEulerStripImmunity` becomes a theorem) | **GREEN-triad (run 31, verdict recovered 2026-11-20)** — 17/17 file decls |
+| **P2-c core** | `thmE_dyadic_to_cumulative` + the count/window/chain infrastructure (`multOf_supp_iff`, `count_eq_ncountL`, `n0star_le_countOn`, `countCum_split`, `countCum_mono`, the doubling chains, `epsLowerCum_of_epsLower` — the dyadic→cumulative bridge) | **GREEN-triad (n2-p2c-run8, 2026-11-20)** — 11/11; the hUnb binder stays (Titchmarsh §5.8/Davenport ch.9, named) |
+| **P3-b** | `abFacQ_of_factorization` (the hAbFacQ bridge — two-theorem P1 chain) | **GREEN-triad (n2-p3-run3)** |
+| **P3-c** | `analyticOrderAt_lFunction_ne_top` (the engine's component nontop slot) | **GREEN-triad (n2-p3-run3)** |
+| **P3-d** | `zetaColumn_of_V2` (the V2 ζ-column discharge — d4 endpoint + count identifications + the 2/3 ≤ 0.6725 numeral) | **GREEN-triad (n2-p3v2-run3, 2026-11-20)** — on the V2 substrate; donor d4 re-printed triad |
+| **P3-e** | `zetaL_two_thirds_landed_of_DZDF` (THE COMPOSED N2-d ASSEMBLY — the card discharged over the GREEN stack; hζ/hEχcum as premises per the substrate split) | **GREEN-triad (n2-p3e-run1, 2026-11-20)** — first shot |
+| **ℚ endpoint** | `zetaL_two_thirds_landed_ℚ` (the unconditional-at-ℚ remainder — RESEARCH.md §Iteration-5 lead-1 tail) | **GREEN-triad (n2-p3v2-run4, 2026-11-20)** — hfinζ/hntopζ the named FOREVER binders |
 
 **P1 is COMPLETE: the ℚ dictionary (N2-a), its L-series identification (N2-a(ii)),
 principality transfer (N2-a(iii)), the identity-theorem extension, and the
@@ -217,6 +231,33 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   pullback form, the find-equation carry-through, term-vs-tactic
   mem_toFinset). Zero math defects; the bridge/chain architecture is
   validated by the green pillars. Walls 60–90s, no over-flags.
+- **Unit 9 (2026-11-19, R6 — DEAD FIRE, verdicts recovered 2026-11-20 from
+  the preserved worktree logs; the session died AFTER these completed):**
+  (a) **run 31 = P2-b GREEN 17/17** (`n2-p1-run31.log` — input sha 396d8710
+  guarded; `eulerStripImmunity_changeLevel` triad; the r30 fix pair closed
+  the loop 11→6→4→2→0; wall 52s, OVER=0); (b) **n2-p2c-run4 = P2-c FAIL
+  7 errors** (the parked fix-set C insufficient — see run 5); (c) **P3-d
+  runs 1–2** (`n2-p3v2-run{1,2}.log`): r1 13 errors, root = the incomplete
+  V2-abbrev carry (V2.nontrivialZeros/V2.zeroMultiplicity) + backward rw;
+  r2 exactly 1 error (:44 anonymous-constructor `hρ.1 : ρ.re = 1/2` passed
+  where `ρ.re < 1` expected). The session died before r2's one-line fix was
+  applied — recovered + fired as run 3 by unit 10.
+- Unit 10 (2026-11-20, R6, the post-restart re-fire session): **the WHOLE
+  landing arc closed.** (1) **P3-d run 3 GREEN** (input 5bb6a49f = r2 + the
+  :44 fix; 5/5 audit prints triad + d4 re-print; wall 491s, build-phase
+  OVER-cpu = the authorized m4b2/G2 class). (2) **P2-c runs 5–8**: r5
+  7→1 (the toFinset transport restructure — see the engineering block
+  below), r6 1→6* (UNMASKING — the failed hKmin term suppressed the
+  succ-bullet tail), r7 6→1 (the :308 misattribution corrected — the error
+  was hblock's nlinarith `pow_pos two_pos (j+1)`, not hp2K), **r8 GREEN
+  11/11** (`n2-p2c-run8.log`; final sha 2cca447d7c2a29c8). (3) **P3-e run 1
+  GREEN FIRST SHOT** (`n2-p3e-run1.log` — new file N2-P3e.lean + runner
+  pair run_n2p3e.{sh,py}; `zetaL_two_thirds_landed_of_DZDF` +
+  `epsLowerCum_transfer_plain` triad; wall 100s, OVER=0). (4) **V2 run 4
+  GREEN — the ℚ endpoint** (`n2-p3v2-run4.log`: `zetaL_two_thirds_landed_ℚ`
+  appended, 6/6 prints triad; wall 567s). (5) N3 full-coverage axchecks
+  fired (plain 6-module Ax-chain + V2-side AxN2P3V2 — see below). All runs
+  sha-guarded, telemetry logged, verdicts with post-run blocks in-log.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -340,6 +381,42 @@ P2-b/P3-a classes (runs n2-p3-1/2 + 27–29, R6 unit 4; zero math defects):
   `Complex.norm_cpow_eq_rpow_re_of_pos` + `Real.rpow_lt_one_of_one_lt_of_neg`
   + `Real.rpow_nonneg` the strip zero-freeness is a 4-fact nlinarith.
 
+P2-c classes (runs 4–8, R6 units 9–10; zero math defects — the bridge's
+architecture was already validated by the green pillars):
+
+- **`Set.Finite.toFinset` is PROOF-DEPENDENT on this pin** (Data/Set/Finite/
+  Basic.lean:75: `toFinset h = Set.toFinset h.fintype`, choice through the
+  Fintype) — two toFinsets of the SAME set via different Finite proofs are
+  neither syntactically equal nor rw-bridgeable. The working idiom (Pa.lean's
+  own GREEN pattern): build the union finiteness by `hfA.union hfB`, bridge
+  set-level by `Finset.ext ρ; simp only [Set.Finite.mem_toFinset, hset]` (or
+  full `simp` when Finset/Set unions mix), convert same-proof toFinsets by
+  `rfl`, then ONE `rw [hfe, hfu, Finset.sum_union hdisjF, hfe₁, hfe₂]`
+  closing by rfl. NEVER `rw [hset] at hfinU` + pattern-match its toFinset.
+- **`unfold`'s auto-rfl is not reliable for defeq-identical sums**: a goal
+  whose two sides differ only by delta of a def (count vs its body) should
+  be closed by `exact countCum_split …` (whole-theorem defeq) rather than
+  rw+unfold.
+- **`rcases K with | zero => … | succ K' => …` is MATCH syntax** — rcases
+  wants `obtain _ | K' := K` + bullets.
+- **`Nat.find_le hle` leaves the find predicate as a META** (its `p m`
+  argument is implicit) — always ascribe:
+  `have h1 : Nat.find hex ≤ K' := Nat.find_le hle`.
+- **A bare `pow_pos two_pos _` inside a bracketed nlinarith list resolves
+  `two_pos` against an AddMonoidWithOne junk instance** (no expected type
+  under a bracket) — write `(by positivity : (0:ℝ) < 2 ^ (j + 1))`. The
+  SAME term with an expected type (the chains' hpp) elaborates fine.
+- **`abs_le` is an IFF** — cannot be applied; feed `le_abs_self` +
+  `abs_nonneg` + cast-nonneg to nlinarith instead.
+- **`le_or_gt`'s negative branch is STRICT** — `mul_nonpos_of_nonpos_of_
+  nonneg` wants `le_of_lt hneg`.
+- **linarith cannot relate the product atoms `(c-ε)*N` and
+  `(c-ε/2)*N`** — bridge with `have hG : … := by ring` first, then linarith
+  over hG + the decomposition equation.
+- **A failed TERM-mode have masks the whole rest of its bullet** (the r5
+  1-error → r6 6-error unmasking; the record's standing masking lesson now
+  verified in the term direction too).
+
 ## P2/P3 recommendation (updated 2026-11-18, post-M3)
 
 - **P2 (the hEχ port): GO** — every dictionary-level input it needs is now a
@@ -429,7 +506,24 @@ spent at 14 residuals, the count-identification pillar (`multOf_supp_iff` +
 (sha da4c8d3f…). Remaining to the landing: P2-b-confirm (1 run) + P2-c
 confirm (1 run expected) → P3-e assembly + N3 axcheck; P3-d any time.]**
 
-**Wave-5 posture: P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
+**[Unit-10 FINAL: THE LANDING ARC IS CLOSED (2026-11-20). P2-b GREEN at
+run 31 (verdict recovered from the dead unit-9 fire); P2-c GREEN 11/11 at
+n2-p2c-run8; P3-d GREEN at n2-p3v2-run3; P3-e GREEN first shot at
+n2-p3e-run1 (zetaL_two_thirds_landed_of_DZDF — the composed N2-d card
+discharged); the ℚ endpoint zetaL_two_thirds_landed_ℚ GREEN at
+n2-p3v2-run4; N3 plain-side full-coverage axcheck GREEN (358 records, 0
+sorryAx, all ⊆ triad over Pa+N2P0+N2P1+N2P3+N2P2c+N2P3e; logs/
+axcheck-n3-run1.log) AND the V2-side AxN2P3V2 audit GREEN (48 axiom
+lines all exactly the triad, 0 sorryAx, incl. the donor d4 re-print;
+logs/axcheck-n3v2-run1.log) — N3 CLOSED audit-complete. New files this session:
+N2-P3e.lean + run_n2p3e.{sh,py} + axcheck_n75.{sh,py}; modified:
+N2-P2c.lean (2cca447d), N2-P3V2.lean (run-4 sha), this record, the
+dossier. The one remaining engineering rung if SLOT-1 wants the hEχ
+premise FULLY discharged: the imprimitive composition (per-member
+`thmE_dyadic_to_cumulative` for primitives + `eulerStripImmunity_
+changeLevel` transport for imprimitives — both GREEN inputs now).]**
+
+**Wave-5 posture (superseded): P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
 P2-b HARD-STOPPED at 2-residual depth by the ruling** (runs 27–30:
 11→6→4→2; the helper `lFunction_not_eventually_zero` is TRIAD-CLEAN; the
 Euler-identity transport hhp/hident validated since r29; zero math defects

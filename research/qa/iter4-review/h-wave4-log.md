@@ -1327,3 +1327,18 @@ untracked files are landed on main); retry at drain or fold into the close act.
   correction: third → SECOND consecutive unspent** (minting provenance
   recorded; all cells now aligned). The close-relevant datum: the quota
   draft's recommendation row now reads second-consecutive-unspent.
+
+## 2026-11-20 — iter-5 steady state, batch MM (H): THE 75-N2 LANDING ARC COMPLETE — census seed #1 discharged
+
+- **R6's full arc landed** (18 files: 5 new code/runner + 9 logs + 4 modified;
+  11 relayed shas verified, logs cmp-verified with computed shas recorded
+  here: p2c-run5 `22a51e3f`, run6 `47c9f319`, run7 `72ae0999`, run8
+  `d443ca7f`, p3v2-run3 `ec634e6d`, run4 `f0b8eb64`, p3e-run1 `9f4c3212`,
+  axcheck-n3 `ef78f2c7`, axcheck-n3v2 `023a7287`): P2-b GREEN 17/17, P2-c
+  GREEN 11/11 @ run 8, P3-d GREEN, P3-e first-shot GREEN, the ℚ endpoint
+  triad on V2, N3 audit 358+48 records 0 sorryAx all ⊆ triad.
+- **Telemetry (task 3) checked across all 9 logs:** SPEC conformed everywhere;
+  the sustained cpu≈10 samples on the two V2 build runs + axcheck-n3v2 =
+  **the authorized m4b2/G2 lake-build subprocess class**, dispositioned
+  in-log in all three; OVER-mem samples all anon=0 (the mapped-olean class).
+  No escalation needed — the in-log dispositions satisfy guideline 3.

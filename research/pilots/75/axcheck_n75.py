@@ -1,0 +1,138 @@
+"""cross-math-fronttier pilot 75-N2 P3 statement-rung runner (app `crossmath-pilot-75`).
+
+Lane R6, 2026-11-19 (unit-4 P3-a authorization). Same image recipe as `run_n2p1.py`
+(warm, shared layers); dependency-order olean elaboration (pilot-11 pattern):
+    Pa.lean -> Pa.olean ; N2-P0.lean (staged as module `N2P0`) -> N2P0.olean ;
+    N2-P1.lean (staged as module `N2P1`, byte-identical copy) -> N2P1.olean ;
+    N2-P3.lean (staged as module `N2P3`) -> N2P3.olean ; N2-P3e.lean (imports N2P3)
+Both staged copies (`N2P0.lean`, `N2P1.lean`) are module-NAME workarounds for the
+hyphenated filenames (`import N2-P0`/`import N2-P1` are not legal module paths);
+the repo files are untouched — the copies are byte-identical.
+Ephemeral `modal run` only — NO volume, NO secret, NO deploy. Telemetry per AGENTS.md
+§Modal usage guidelines (2 cpu / 4 GB soft, LEAN_NUM_THREADS=2).
+
+Usage (via run_axcheck_n75.sh):  modal run axcheck_n75.py --dir <stage-files-dir>
+"""
+
+import modal
+
+import sys as _sys
+_sys.path.insert(0, "/home/doz/zcode-workdir/cross-math-fronttier/research/feasibility/probe")
+from modal_telemetry import SPEC, telemetered  # noqa: E402
+CAP = [modal.Secret.from_dict({"LEAN_NUM_THREADS": "2"})]
+
+app = modal.App("crossmath-pilot-75")  # same app name: shares the image bake
+
+MATHLIB_REV = "ff2494ea5e438f8a8452db803068acd711fa0059"
+MATHLIB_URL = "https://github.com/leanprover-community/mathlib4.git"
+TOOLCHAIN = "leanprover/lean4:v4.36.0-rc2"
+
+image = (
+    modal.Image.debian_slim(python_version="3.12")
+    .apt_install("curl", "git", "ca-certificates", "build-essential", "xz-utils")
+    .run_commands(
+        "curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /tmp",
+        "mkdir -p /opt/elan",
+        "ELAN_HOME=/opt/elan /tmp/elan-init -y --default-toolchain none",
+        f"ELAN_HOME=/opt/elan /opt/elan/bin/elan toolchain install {TOOLCHAIN}",
+    )
+    .run_commands(
+        "git init /opt/mathlib",
+        f"cd /opt/mathlib && git remote add origin {MATHLIB_URL}",
+        f"cd /opt/mathlib && git fetch --depth 1 origin {MATHLIB_REV} && git checkout -q FETCH_HEAD",
+        "cd /opt/mathlib && ELAN_HOME=/opt/elan /opt/elan/bin/lake exe cache get",
+    )
+    .env({"ELAN_HOME": "/opt/elan", "PATH": "/opt/elan/bin:/usr/local/bin:/usr/bin:/bin"})
+)
+
+image = image.add_local_python_source("modal_telemetry")
+
+ORDER = ["AxPa.lean", "AxN2P0.lean", "AxN2P1.lean", "AxN2P3.lean", "AxN2P2c.lean",
+         "AxN2P3e.lean"]  # N3 full-coverage Ax-stages (axcheck_iter4 gen --rewrite; dependency order)
+
+
+@app.function(image=image, **SPEC, secrets=CAP, timeout=2 * 60 * 60)
+@telemetered
+def run(files: dict, order: list):
+    import pathlib
+    import subprocess
+
+    repo = pathlib.Path("/opt/mathlib")
+    stage = repo / "n2p3"
+    stage.mkdir(parents=True, exist_ok=True)
+
+    def sh(cmd, timeout=2400):
+        return subprocess.run(cmd, cwd=repo, shell=isinstance(cmd, str),
+                              capture_output=True, text=True, timeout=timeout)
+
+    print(f"[axn75] mathlib rev {MATHLIB_REV[:12]}", flush=True)
+    n_olean = sum(1 for _ in (repo / ".lake/build/lib/lean").rglob("*.olean")) \
+        if (repo / ".lake/build/lib/lean").exists() else 0
+    print(f"[axn75] oleans present: {n_olean}", flush=True)
+    if n_olean < 1000:
+        print("[n2p3] CACHE-MISS abort", flush=True)
+        return {rel: "CACHE-MISS" for rel in order}
+
+    r = sh("cd /opt/mathlib && lake env printenv LEAN_PATH")
+    lp = r.stdout.strip()
+    print(f"[axn75] mathlib LEAN_PATH: {lp}", flush=True)
+    if not lp:
+        return {rel: "NO-LEAN-PATH" for rel in order}
+
+    for name, content in files.items():
+        (stage / name).write_text(content)
+
+    env = f'ELAN_HOME=/opt/elan PATH=/opt/elan/bin:/usr/local/bin:/usr/bin:/bin LEAN_PATH="{stage}:{lp}"'
+    results = {}
+    for name in order:
+        stem = name[:-len(".lean")] if name.endswith(".lean") else name
+        print(f"\n=== {name}", flush=True)
+        cmd = f'cd {stage} && {env} lean -o {stem}.olean {name}'
+        try:
+            r = sh(cmd, timeout=2100)
+        except subprocess.TimeoutExpired:
+            print(f"[axn75] TIMEOUT (2100s) compiling {name}", flush=True)
+            results[name] = "TIMEOUT"
+            continue
+        out = r.stdout + r.stderr
+        errors = [l for l in out.splitlines() if ": error" in l or l.startswith("error")]
+        sorryw = [l for l in out.splitlines() if "sorry" in l.lower()]
+        axioms = [l for l in out.splitlines() if "does not depend on any" in l
+                  or "depends on axioms" in l]
+        verdict = "OK" if (r.returncode == 0 and not errors and not sorryw) else \
+            f"FAIL rc={r.returncode} errors={len(errors)} sorry={len(sorryw)}"
+        results[name] = verdict
+        print(f"[axn75] {name}: {verdict}", flush=True)
+        if axioms:
+            print("---- axioms ----", flush=True)
+            print("\n".join(axioms), flush=True)
+        lines = out.splitlines()
+        err_lines = [i for i, l in enumerate(lines) if ": error" in l]
+        if err_lines:
+            print("---- error contexts ----", flush=True)
+            shown = 0
+            for i in err_lines:
+                if shown >= 80:
+                    break
+                print("\n".join(lines[max(0, i - 1):i + 25]), flush=True)
+                print("···", flush=True)
+                shown += 1
+        if out.strip():
+            print("---- full output (COMPLETE; F1/F3b custody — no excerpts) ----", flush=True)
+            print(out, flush=True)
+
+    print("\n[n2p3] SUMMARY", flush=True)
+    for rel, v in results.items():
+        print(f"[axn75]   {rel}: {v}", flush=True)
+    return results
+
+
+@app.local_entrypoint()
+def main(dir: str):
+    from pathlib import Path
+    files, order = {}, []
+    for name in ORDER:
+        p = Path(dir) / name
+        files[name] = p.read_text()
+        order.append(name)
+    run.remote(files, order)

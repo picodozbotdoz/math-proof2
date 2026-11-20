@@ -1,0 +1,647 @@
+# =====================================================================
+# PILOT 75-N2 P2-c — run 6 (the single-residual fix; grant extension
+# 1 run on the run-5 diagnosis) | lane R6 unit 10, 2026-11-20.
+# Input = run-5 sha 5777f18e + the :286 metaviable fix (ascribed
+# have h1 : Nat.find hex ≤ K' := Nat.find_le hle; rw [hKeq] at h1;
+# omega). Expected: P2-c GREEN 11/11 (thmE_dyadic_to_cumulative
+# triad). Spec/command unchanged (run_n2p2c.sh, doz CLI, warm
+# crossmath-pilot-75, 2cpu/4GB soft, LEAN_NUM_THREADS=2, telemetry).
+# =====================================================================
+# fe658fe38330016eb6e59897748e8e0369c4c06d5920202e397113e678d39c3d  N2-P2c.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-pLTIfPYdZPXIwkWFdzf7S9
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p2c-stage/run_n2p2c.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[n2p2c] mathlib rev ff2494ea5e43
+[n2p2c] oleans present: 8710
+[n2p2c] mathlib LEAN_PATH: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== Pa.lean
+[n2p2c] Pa.lean: OK
+---- axioms ----
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+Pa.lean:651:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'CrossMath.Pilot75.zetaK_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaK_distinct_five_sixths_strip_landed_of_negligible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CrossMath.Pilot75.sum_inter_distrib_fin_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCum_addFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_finprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.analyticOrderAt_finprod_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.multOf_of_abelFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.assemble_eps_cum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.countOnCumOf_add_of_abFac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_assembly_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75.zetaL_two_thirds_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticAt_finset_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.analyticOrderAt_finset_prod'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.Pa.0.CrossMath.Pilot75.toNat_sum_finset' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P0.lean
+[tele] t=60s cpu=0.87 mem=4211MB anon=0MB peak=-1MB procs=2 OVER mem
+[n2p2c] N2P0.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P0.lean:135:5: warning: Variable name `hcomm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcomm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:153:26: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:252:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P0.lean:239:5: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+N2P0.lean:241:5: warning: Variable name `hntopL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntopL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@ThmEDyadic : {q : ℕ} → [NeZero q] → DirichletCharacter ℂ q → Prop
+IsDZDFRayClassCharacterQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+IsDZDFPrincipalQ : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DZDFAbelianFactorizationQ : (L : Type) →
+  [inst : Field L] →
+    [NumberField L] → [inst_2 : Algebra ℚ L] → [IsGalois ℚ L] → (∀ (σ τ : Gal(L/ℚ)), σ * τ = τ * σ) → Prop
+HasQDirichletDictionary : Ideal (𝓞 ℚ) → (Ideal (𝓞 ℚ) → ℂ) → Prop
+DirichletFactorizationTransferQ : (ℂ → ℂ) → (ℂ → ℂ) → (n : ℕ) → (Fin n → Ideal (𝓞 ℚ)) → (Fin n → Ideal (𝓞 ℚ) → ℂ) → Prop
+@HasEulerStripImmunity : {N q' : ℕ} → [NeZero N] → [NeZero q'] → DirichletCharacter ℂ N → DirichletCharacter ℂ q' → Prop
+@CountsUnbounded : {N : ℕ} →
+  [inst : NeZero N] → (ψ : DirichletCharacter ℂ N) → WindowFinite (multOf (DirichletCharacter.LFunction ψ)) → Prop
+@ThmEDyadicToCumulative : {q : ℕ} →
+  [inst : NeZero q] → (χ : DirichletCharacter ℂ q) → WindowFinite (multOf (DirichletCharacter.LFunction χ)) → Prop
+@zetaL_rat_two_thirds_landed : ∀ {fK fL : ℂ → ℂ} {n : ℕ} {q : Fin n → ℕ} (ψ : (i : Fin n) → DirichletCharacter ℂ (q i))
+  (Lχ : Fin n → ℂ → ℂ) (hN : ∀ (i : Fin n), NeZero (q i)),
+  (∀ (i : Fin n), 1 < q i ∧ ψ i ≠ 1) →
+    (∀ (i : Fin n), Lχ i = DirichletCharacter.LFunction (ψ i)) →
+      (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fK ρ) →
+        (∀ (ρ : ℂ), ρ ≠ 1 → AnalyticAt ℂ fL ρ) →
+          (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fK ρ ≠ ⊤) →
+            (∀ (ρ : ℂ), ρ ≠ 1 → analyticOrderAt fL ρ ≠ ⊤) →
+              (∀ (i : Fin n) (ρ : ℂ), analyticOrderAt (Lχ i) ρ ≠ ⊤) →
+                (∀ (s : ℂ), s ≠ 1 → fL s = (∏ i, Lχ i s) * fK s) →
+                  ∀ (hfinK : WindowFinite (multOf fK)) (hfinL : WindowFinite (multOf fL))
+                    (hfinψ : ∀ (i : Fin n), WindowFinite (multOf (Lχ i))),
+                    EpsLowerCum { mult := multOf fK, windowFinite := hfinK } (2 / 3) →
+                      (∀ (i : Fin n), EpsLowerCum { mult := multOf (Lχ i), windowFinite := ⋯ } (2 / 3)) →
+                        EpsLowerCum { mult := multOf fL, windowFinite := hfinL } (2 / 3)
+'CrossMath.Pilot75N2.IsNontrivialZeroL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zeroMultL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zerosInL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.NcountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.N0starL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFRayClassCharacterQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.IsDZDFPrincipalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DZDFAbelianFactorizationQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.DirichletFactorizationTransferQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.HasEulerStripImmunity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.CountsUnbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ThmEDyadicToCumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_rat_two_thirds_landed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P1.lean
+[n2p2c] N2P1.lean: OK
+---- axioms ----
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.lFunction_not_eventually_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.eulerStripImmunity_changeLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- full output (first 200) ----
+N2P1.lean:335:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:352:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:392:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:397:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:556:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:684:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+N2P1.lean:732:19: warning: This simp argument is unused:
+  Classical.em
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+N2P1.lean:759:24: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P1.lean:882:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+N2P1.lean:882:63: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'CrossMath.Pilot75N2.exists_nat_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.chi_span_residue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.heckeTsum_eq_ratCharOf_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.ratCharOf_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.isPrincipal_of_modulus_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.identity_theorem_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.hasQDirichletDictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.factorization_identity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.dirichletFactorizationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.windowFinite_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.lFunction_not_eventually_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.eulerStripImmunity_changeLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== N2P2c.lean
+[n2p2c] N2P2c.lean: FAIL rc=1 errors=6 sorry=2
+---- axioms ----
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:308:40: error: Application type mismatch: The argument
+  two_pos
+has type
+  @OfNat.ofNat ?m.823 0 (@Zero.toOfNat0 ?m.823 AddMonoidWithOne.toAddMonoid.toAddZeroClass.toAddZero.toZero) < 2
+but is expected to have type
+  @OfNat.ofNat ?m.817 0 (@Zero.toOfNat0 ?m.817 MonoidWithZero.toMulZeroOneClass.toMulZeroClass.toZero) < ?m.820
+in the application
+  pow_pos two_pos
+N2P2c.lean:328:6: error: Type mismatch
+  this
+has type
+  z.countCum T = z.countCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.count (T / 2 ^ (j + 1))
+but is expected to have type
+  ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:337:21: error: Function expected at
+  abs_le
+but this term has type
+  |?m.1262| ≤ ?m.1263 ↔ -?m.1263 ≤ ?m.1262 ∧ ?m.1262 ≤ ?m.1263
+
+Note: Expected a function because this term is being applied to the argument
+  (c - ε / 2)
+N2P2c.lean:340:41: error: Application type mismatch: The argument
+  hneg
+has type
+  c - ε / 2 < 0
+···
+  pow_pos two_pos
+N2P2c.lean:328:6: error: Type mismatch
+  this
+has type
+  z.countCum T = z.countCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.count (T / 2 ^ (j + 1))
+but is expected to have type
+  ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:337:21: error: Function expected at
+  abs_le
+but this term has type
+  |?m.1262| ≤ ?m.1263 ↔ -?m.1263 ≤ ?m.1262 ∧ ?m.1262 ≤ ?m.1263
+
+Note: Expected a function because this term is being applied to the argument
+  (c - ε / 2)
+N2P2c.lean:340:41: error: Application type mismatch: The argument
+  hneg
+has type
+  c - ε / 2 < 0
+but is expected to have type
+  c - ε / 2 ≤ 0
+in the application
+  mul_nonpos_of_nonpos_of_nonneg hneg
+N2P2c.lean:349:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  (c - ε / 2) * ↑(z.countCum T) =
+···
+  ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:337:21: error: Function expected at
+  abs_le
+but this term has type
+  |?m.1262| ≤ ?m.1263 ↔ -?m.1263 ≤ ?m.1262 ∧ ?m.1262 ≤ ?m.1263
+
+Note: Expected a function because this term is being applied to the argument
+  (c - ε / 2)
+N2P2c.lean:340:41: error: Application type mismatch: The argument
+  hneg
+has type
+  c - ε / 2 < 0
+but is expected to have type
+  c - ε / 2 ≤ 0
+in the application
+  mul_nonpos_of_nonpos_of_nonneg hneg
+N2P2c.lean:349:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+···
+  (c - ε / 2)
+N2P2c.lean:340:41: error: Application type mismatch: The argument
+  hneg
+has type
+  c - ε / 2 < 0
+but is expected to have type
+  c - ε / 2 ≤ 0
+in the application
+  mul_nonpos_of_nonpos_of_nonneg hneg
+N2P2c.lean:349:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+ε : ℝ
+hε : ε > 0
+T₁ : ℝ
+hT₁ : ∀ (T : ℝ), T₁ ≤ T → (c - ε / 2) * ↑(z.count T) ≤ ↑(z.countOn T)
+T₀d : ℝ := max T₁ 1
+hT₀pos : 0 < T₀d
+hT₀le : T₁ ≤ T₀d
+···
+  mul_nonpos_of_nonpos_of_nonneg hneg
+N2P2c.lean:349:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+ε : ℝ
+hε : ε > 0
+T₁ : ℝ
+hT₁ : ∀ (T : ℝ), T₁ ≤ T → (c - ε / 2) * ↑(z.count T) ≤ ↑(z.countOn T)
+T₀d : ℝ := max T₁ 1
+hT₀pos : 0 < T₀d
+hT₀le : T₁ ≤ T₀d
+hT₀def : T₀d = max T₁ 1
+M₀ : ℝ := |c - ε / 2| + 1
+hM₀def : M₀ = |c - ε / 2| + 1
+N₀ : ℕ := z.countCum (2 * T₀d)
+hN₀def : N₀ = z.countCum (2 * T₀d)
+hMpos : 0 < M₀
+hNnn : 0 ≤ M₀ * ↑N₀
+hE : ∀ᶠ (y : ℝ) in atTop, M₀ * ↑N₀ / (ε / 2) < y
+···
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:351:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (c - ε / 2) * ↑(z.countCum T)
+in the target expression
+  (c - ε) * ↑(z.countCum T) ≤ ↑(z.countOnCum T)
+
+case succ
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+ε : ℝ
+hε : ε > 0
+T₁ : ℝ
+hT₁ : ∀ (T : ℝ), T₁ ≤ T → (c - ε / 2) * ↑(z.count T) ≤ ↑(z.countOn T)
+T₀d : ℝ := max T₁ 1
+hT₀pos : 0 < T₀d
+hT₀le : T₁ ≤ T₀d
+hT₀def : T₀d = max T₁ 1
+M₀ : ℝ := |c - ε / 2| + 1
+hM₀def : M₀ = |c - ε / 2| + 1
+N₀ : ℕ := z.countCum (2 * T₀d)
+hN₀def : N₀ = z.countCum (2 * T₀d)
+hMpos : 0 < M₀
+hNnn : 0 ≤ M₀ * ↑N₀
+hE : ∀ᶠ (y : ℝ) in atTop, M₀ * ↑N₀ / (ε / 2) < y
+···
+---- full output (first 200) ----
+N2P2c.lean:65:57: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:115:47: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:155:49: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:172:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+N2P2c.lean:308:40: error: Application type mismatch: The argument
+  two_pos
+has type
+  @OfNat.ofNat ?m.823 0 (@Zero.toOfNat0 ?m.823 AddMonoidWithOne.toAddMonoid.toAddZeroClass.toAddZero.toZero) < 2
+but is expected to have type
+  @OfNat.ofNat ?m.817 0 (@Zero.toOfNat0 ?m.817 MonoidWithZero.toMulZeroOneClass.toMulZeroClass.toZero) < ?m.820
+in the application
+  pow_pos two_pos
+N2P2c.lean:328:6: error: Type mismatch
+  this
+has type
+  z.countCum T = z.countCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.count (T / 2 ^ (j + 1))
+but is expected to have type
+  ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:337:21: error: Function expected at
+  abs_le
+but this term has type
+  |?m.1262| ≤ ?m.1263 ↔ -?m.1263 ≤ ?m.1262 ∧ ?m.1262 ≤ ?m.1263
+
+Note: Expected a function because this term is being applied to the argument
+  (c - ε / 2)
+N2P2c.lean:340:41: error: Application type mismatch: The argument
+  hneg
+has type
+  c - ε / 2 < 0
+but is expected to have type
+  c - ε / 2 ≤ 0
+in the application
+  mul_nonpos_of_nonpos_of_nonneg hneg
+N2P2c.lean:349:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?a * ?f i
+in the target expression
+  (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+ε : ℝ
+hε : ε > 0
+T₁ : ℝ
+hT₁ : ∀ (T : ℝ), T₁ ≤ T → (c - ε / 2) * ↑(z.count T) ≤ ↑(z.countOn T)
+T₀d : ℝ := max T₁ 1
+hT₀pos : 0 < T₀d
+hT₀le : T₁ ≤ T₀d
+hT₀def : T₀d = max T₁ 1
+M₀ : ℝ := |c - ε / 2| + 1
+hM₀def : M₀ = |c - ε / 2| + 1
+N₀ : ℕ := z.countCum (2 * T₀d)
+hN₀def : N₀ = z.countCum (2 * T₀d)
+hMpos : 0 < M₀
+hNnn : 0 ≤ M₀ * ↑N₀
+hE : ∀ᶠ (y : ℝ) in atTop, M₀ * ↑N₀ / (ε / 2) < y
+T₂ : ℝ
+hT₂ : ∀ (b : ℝ), T₂ ≤ b → M₀ * ↑N₀ / (ε / 2) < ↑(z.countCum b)
+T : ℝ
+hT : max (2 * T₀d) T₂ ≤ T
+hT₀d : T₀d < T
+hTpos : 0 < T
+hex : ∃ k, T ≤ T₀d * 2 ^ k
+K' : ℕ
+hKspec : T ≤ T₀d * 2 ^ (K' + 1)
+hKeq : Nat.find hex = K' + 1
+hKmin : ¬T ≤ T₀d * 2 ^ K'
+hKlow : T₀d * 2 ^ K' < T
+hp2K : 0 < 2 ^ K'
+hlowdiv : T₀d < T / 2 ^ K'
+hchain : z.countCum T = z.countCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.count (T / 2 ^ (j + 1))
+hchainOn : z.countOnCum T = z.countOnCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.countOn (T / 2 ^ (j + 1))
+hremle : T / 2 ^ K' ≤ 2 * T₀d
+hrem : z.countCum (T / 2 ^ K') ≤ N₀
+hblock : ∀ j < K', T₁ ≤ T / 2 ^ (j + 1)
+hsumb : ∀ j ∈ Finset.range K', (c - ε / 2) * ↑(z.count (T / 2 ^ (j + 1))) ≤ ↑(z.countOn (T / 2 ^ (j + 1)))
+hsum :
+  (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1))) ≤
+    ∑ j ∈ Finset.range K', ↑(z.countOn (T / 2 ^ (j + 1)))
+honsum : ∑ j ∈ Finset.range K', ↑(z.countOn (T / 2 ^ (j + 1))) ≤ ↑(z.countOnCum T)
+hcum : ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+hB : (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) ≤ M₀ * ↑N₀
+habs : M₀ * ↑N₀ ≤ ε / 2 * ↑(z.countCum T)
+⊢ (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+N2P2c.lean:351:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (c - ε / 2) * ↑(z.countCum T)
+in the target expression
+  (c - ε) * ↑(z.countCum T) ≤ ↑(z.countOnCum T)
+
+case succ
+z : ZeroMult
+c : ℝ
+hdyad : EpsLower z c
+hUnb : Tendsto (fun T => ↑(z.countCum T)) atTop atTop
+ε : ℝ
+hε : ε > 0
+T₁ : ℝ
+hT₁ : ∀ (T : ℝ), T₁ ≤ T → (c - ε / 2) * ↑(z.count T) ≤ ↑(z.countOn T)
+T₀d : ℝ := max T₁ 1
+hT₀pos : 0 < T₀d
+hT₀le : T₁ ≤ T₀d
+hT₀def : T₀d = max T₁ 1
+M₀ : ℝ := |c - ε / 2| + 1
+hM₀def : M₀ = |c - ε / 2| + 1
+N₀ : ℕ := z.countCum (2 * T₀d)
+hN₀def : N₀ = z.countCum (2 * T₀d)
+hMpos : 0 < M₀
+hNnn : 0 ≤ M₀ * ↑N₀
+hE : ∀ᶠ (y : ℝ) in atTop, M₀ * ↑N₀ / (ε / 2) < y
+T₂ : ℝ
+hT₂ : ∀ (b : ℝ), T₂ ≤ b → M₀ * ↑N₀ / (ε / 2) < ↑(z.countCum b)
+T : ℝ
+hT : max (2 * T₀d) T₂ ≤ T
+hT₀d : T₀d < T
+hTpos : 0 < T
+hex : ∃ k, T ≤ T₀d * 2 ^ k
+K' : ℕ
+hKspec : T ≤ T₀d * 2 ^ (K' + 1)
+hKeq : Nat.find hex = K' + 1
+hKmin : ¬T ≤ T₀d * 2 ^ K'
+hKlow : T₀d * 2 ^ K' < T
+hp2K : 0 < 2 ^ K'
+hlowdiv : T₀d < T / 2 ^ K'
+hchain : z.countCum T = z.countCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.count (T / 2 ^ (j + 1))
+hchainOn : z.countOnCum T = z.countOnCum (T / 2 ^ K') + ∑ j ∈ Finset.range K', z.countOn (T / 2 ^ (j + 1))
+hremle : T / 2 ^ K' ≤ 2 * T₀d
+hrem : z.countCum (T / 2 ^ K') ≤ N₀
+hblock : ∀ j < K', T₁ ≤ T / 2 ^ (j + 1)
+hsumb : ∀ j ∈ Finset.range K', (c - ε / 2) * ↑(z.count (T / 2 ^ (j + 1))) ≤ ↑(z.countOn (T / 2 ^ (j + 1)))
+hsum :
+  (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1))) ≤
+    ∑ j ∈ Finset.range K', ↑(z.countOn (T / 2 ^ (j + 1)))
+honsum : ∑ j ∈ Finset.range K', ↑(z.countOn (T / 2 ^ (j + 1))) ≤ ↑(z.countOnCum T)
+hcum : ↑(z.countCum T) = ↑(z.countCum (T / 2 ^ K')) + ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+hB : (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) ≤ M₀ * ↑N₀
+habs : M₀ * ↑N₀ ≤ ε / 2 * ↑(z.countCum T)
+hsplit :
+  (c - ε / 2) * ↑(z.countCum T) =
+    (c - ε / 2) * ↑(z.countCum (T / 2 ^ K')) + (c - ε / 2) * ∑ j ∈ Finset.range K', ↑(z.count (T / 2 ^ (j + 1)))
+⊢ (c - ε) * ↑(z.countCum T) ≤ ↑(z.countOnCum T)
+'CrossMath.Pilot75N2.multOf_supp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.count_eq_ncountL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.n0star_le_countOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_split'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_split'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countCum_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.countOnCum_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_of_epsLower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.thmE_dyadic_to_cumulative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[n2p2c] SUMMARY
+[n2p2c]   Pa.lean: OK
+[n2p2c]   N2P0.lean: OK
+[n2p2c]   N2P1.lean: OK
+[n2p2c]   N2P2c.lean: FAIL rc=1 errors=6 sorry=2
+[tele] SUMMARY run: wall=90s max_cpu=0.87 max_mem=4211MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-pLTIfPYdZPXIwkWFdzf7S9
+
+# ==== POST-RUN VERDICT (R6 unit 10, 2026-11-20) ====
+# N2P2c.lean: FAIL rc=1 errors=6 sorry=2 — an UNMASKING, not a regression
+# (the record's masking lesson: run 5's failed hKmin TERM suppressed the
+# whole succ-bullet tail; 1→6* with the * = newly-visible positions).
+# The :286 fix itself held. Six certain fixes applied on disk:
+# (1) :308 hp2K := by positivity (two_pos instance-resolution failure
+#     under the obtain-context — the chains' identical pow_pos two_pos _
+#     sites elaborate fine, this one did not);
+# (2) :328 hcum := exact_mod_cast hchain (push_cast rewrites the goal,
+#     never the hypothesis — the ℕ-equation needed the cast bridge);
+# (3) :337 nlinarith now takes le_abs_self + abs_nonneg + hpos +
+#     N₀-cast-nonneg (abs_le is an IFF, cannot be applied);
+# (4) :340 le_of_lt hneg (le_or_gt's negative branch is strict);
+# (5) :349 hsplit := rw [hcum]; ring (the ← Finset.mul_sum pattern never
+#     applied — the summand is a bare cast);
+# (6) :351 the (c-ε)-vs-(c-ε/2) atom bridge: hG := by ring + linarith
+#     [hG, hsplit, hsum, honsum, hB, habs] (pure-linarith cannot see
+#     (c-ε)*N = (c-ε/2)*N − (ε/2)*N across product atoms).
+# Parked sha 6953c25e…. Expected next-run GREEN 11/11. Telemetry:
+# wall=90s, cpu 0.87/2.0, one OVER-mem sample (4211MB — the §Modal-5
+# mapped-olean artifact class).

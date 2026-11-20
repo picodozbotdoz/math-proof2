@@ -535,12 +535,49 @@ Bar: `qa/iter4-review/r2-discovery-strength.md` §4.
 - **[R6 unit-5 update, 2026-11-19]: P2-b HARD-STOPPED at 2-residual depth by the final-grant ruling** (run 30: 11→6→4→2, NOT green, FIRE-ONCE spent). **16/17 decls triad-clean — the helper `lFunction_not_eventually_zero` is now a verified theorem**; only `eulerStripImmunity_changeLevel` remains (failed-decl sorryAx; the two residuals = a truncated-display by-linarith in the norm chain + the Exists-whnf dot trap on `analyticOrderAt_eq_top` — both fixed on disk, parked sha 396d8710…, expected next-run GREEN 17/17; zero math defects across runs 27–30). P3-a stays banked; P2-c not opened (was conditional). Unit 6: the N2-P3 execution plan drafted (`pilots/75/N2-P3-plan.md`).
 - **[R6 unit-7 update, 2026-11-19]: P3-b + P3-c EXECUTED GREEN, first shot** (`logs/n2-p3-run3.log`, 1 of ≤4 runs): `abFacQ_of_factorization` (the hAbFacQ bridge), `analyticOrderAt_lFunction_ne_top` (the hntopψ slot), `windowFinite_family`'s first axiom print — all triad, 0 sorry; N2-P3.lean sha f9bd28c5….
 - **[R6 unit-8 update, 2026-11-19]: two-track progress. (b) THE V2 SUBSTRATE BUILT GREEN** (`logs/n2-p3v2-build1.log`: `build: OK` + smoke OK, wall 507s; **`ZetaZeros.simple_proportion_d4` ON-PIN TRIAD-CLEAN — its axiom print is banked, the A3-rec-4 obligation discharged at audit level**; the runner pair `run_n2p3v2.{sh,py}` + smoke file are staged; P3-d is unblocked and holds only for scheduling). **(a) P2-c primitive core opened** (new `N2-P2c.lean`, keeping N2-P1 frozen at the parked P2-b sha): grant 3/3 spent at 37→26→14 errors — the count-identification pillar (`multOf_supp_iff` + `count_eq_ncountL`) ALREADY TRIAD-CLEAN, all 14 residuals name-resolution/tactic-shape with certain fixes parked on disk (sha da4c8d3f…); zero math defects. Remaining to the landing: P2-b-confirm + P2-c confirm (one run each expected) → P3-e + N3 axcheck, with P3-d ready any time. Canonical state: `pilots/75/N2-P1-record.md` §ledger + §NEXT-INSTANCE RESUME NOTE + `pilots/75/N2-P3-plan.md`.
-- Billing note (unchanged by the landings): the dictionary remains
+- **[R6 unit-9 addendum, recovered 2026-11-20]: the dead-fire verdicts were
+  RECOVERED from the preserved worktree logs** (the 2026-11-19 night session
+  died AFTER the salvo's runs completed but BEFORE any report): **P2-b GREEN
+  17/17 at run 31** (`eulerStripImmunity_changeLevel` triad; sha 396d8710 =
+  the disk state — HasEulerStripImmunity is a THEOREM); **P2-c run 4 FAIL 7
+  errors** (fix-set C insufficient); P3-d runs 1–2 (13 errors → exactly 1:
+  the :44 anonymous-constructor component type). The re-fire was therefore
+  fix-and-continue, not re-run — verdict recovery beats re-firing when logs
+  complete (the RESUME-BRIEF (h)3 precedence).
+- **[R6 unit-10 update, 2026-11-20]: THE N2 LANDING ARC IS COMPLETE.**
+  (1) **P3-d GREEN** (`logs/n2-p3v2-run3.log`: `zetaColumn_of_V2` +
+  `epsLowerCum_zeta_of_V2d4` + `epsLowerCum_transfer` + `two_thirds_le_d4` +
+  `V2d4_endpoint` ALL TRIAD on the V2 substrate; donor d4 re-printed). (2)
+  **P2-c GREEN 11/11** (`logs/n2-p2c-run8.log`: `thmE_dyadic_to_cumulative`
+  — the dyadic→cumulative bridge, runs 4–8 = 7→1→6*→1→0, * = unmaskings;
+  sha 2cca447d; the hUnb binder stays as billed). (3) **P3-e GREEN FIRST
+  SHOT** (`logs/n2-p3e-run1.log`: the new `N2-P3e.lean` +
+  `run_n2p3e.{sh,py}` — **`zetaL_two_thirds_landed_of_DZDF` = the composed
+  N2-d card DISCHARGED** over P3-b/P3-c/P2-a/the P0 engine; hζ/hEχcum ride
+  as the card's premises per the plan's substrate split). (4) **the ℚ
+  endpoint GREEN** (`logs/n2-p3v2-run4.log`:
+  **`zetaL_two_thirds_landed_ℚ`** — the unconditional-at-ℚ remainder of
+  RESEARCH.md §Iteration-5 lead-1, triad with only the named FOREVER
+  binders hfinζ/hntopζ). (5) N3 full-coverage axchecks executed (plain
+  6-module Ax-chain via `axcheck_iter4.py gen --rewrite` + the new
+  `run_axcheck_n75.{sh,py}`; V2-side AxN2P3V2 — see the record). Sorry-token
+  classifier: all pilot-75 grep hits are header/prose, zero proof-body
+  tokens. Remaining honest binders at the composed statement: the DZDF
+  factorization (donor theorem, G1-blocked, billed as statement
+  consumption), hUnb per component (Titchmarsh §5.8/Davenport ch.9),
+  hfinζ/hntopζ (classical structural), the fL-side classical set — exactly
+  the dossier's FOREVER ledger; the imprimitive hEχ composition (via
+  run-31's eulerStripImmunity_changeLevel) is the one remaining ENGINEERING
+  rung if SLOT-1 wants the hEχ premise fully discharged rather than
+  per-primitive.
+- Billing note (updated 2026-11-20): the dictionary remains
   FORMALIZATION-novel only (classical per Milne; the A7 pre-shipping sweep's
   two mandatory nearest-miss rows stand); the discovery claim rests on the
-  composed N2-d statement, which now awaits ONLY P2 (hEχ port) + P3 (V2 ζ-column
-  landing). The S1–S4 self-assessment "what hardens it" item (ii) is now
-  substantially satisfied for the P1 layer (14/14 triad-only; P2/P3 pending).
+  composed N2-d statement — NOW KERNEL-VERIFIED as a conditional theorem
+  (`zetaL_two_thirds_landed_of_DZDF` triad; every analytic-content input
+  except the named FOREVER binders is a kernel-verified theorem). The S1–S4
+  "what hardens it" item (ii) is satisfied across P1 + P2-a/b/c + P3-b/c/d/e
+  + the ℚ endpoint.
 
 
 
