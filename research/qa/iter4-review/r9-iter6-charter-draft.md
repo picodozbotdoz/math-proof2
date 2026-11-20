@@ -6,7 +6,10 @@ EVERY ruling below; nothing here pre-decides.** Lane R9 (worktree agent-09),
 print-level correction applied — every L3-referencing line re-checked against the
 census v2 correction block (the landed v1 `e202244b` carried the stale mechanical
 pricing; the quota draft `ddec4089` is UNAFFECTED); v3 (same date): slot 5's scope
-PARAMETER RESOLVED from R2's re-based stop-note @ `db872dc5fe076358` (batch 11).** Form follows
+PARAMETER RESOLVED from R2's re-based stop-note @ `db872dc5fe076358` (batch 11); v6
+(same date): the [DECISION-H3] cell RESOLVED-BY-OUTCOME — the hunt BANKED at
+wave-close (Theorem C GREEN `833dcff8`; the M pre-solve raised-negative
+`7647a1f9`).** Form follows
 `qa/iter4-review/a6-iter5-charter-draft.md` (A6, 2026-11-18) — objective, quality
 gate, launch-ordered leads, quota/watchlist, debt rungs, standing rules, decision
 register. Inputs consolidated: the Iteration-6 seed census
@@ -116,9 +119,17 @@ dim-14 corpus-NONE rider R9-verified at source `Basic.lean:48–53` — the A14
 literal-host design is forced). Pricing (the precharter's own §5): S ≈ 0.35–0.55k
 LoC / 3–5 runs; M (own GO) +0.3–0.5k / +2–4; proposed cap ≤1.2k LoC / ≤10 runs
 S+M; the P4 refinement (one certified fiber kills the genericity scan) holds the
-rider at an L-rung. **[DECISION-H3: hunt vs bank]** — the precharter's §7 GO-to-S
-consumes the battery; the alternative close (bank 41H as-is, zero further runs)
-stays the orchestrator's. Owner R4 (agent-08).
+rider at an L-rung. **[DECISION-H3: RESOLVED-BY-OUTCOME 2026-11-20 — the hunt BANKED
+at wave-close]**: the S-rung LANDED (**Theorem C GREEN, kernel-proved** — `H3.lean` @
+`833dcff84309c986`, h3-s-run1 the only fire, S-cap 4-of-5 unused) and the M pre-solve
+BANKED AS RAISED-NEGATIVE (`H3-M-candidates.md` @ `7647a1f9859764bc`): the candidate
+list is **EMPTY across ~200M systems with validated controls** — S1 = the spin-host
+negative (a TL₄ generator-word negative at δ = ±2); S2 = a codim ≥ 50 m-membership
+obstruction; S4 = the open combination tier (the theory-class next step). **Ruling
+2026-11-20: NO M/S2-formality fire this wave.** The article decision (ship vs carry)
+= an **iter-6 editorial slot**; evidence base = `H3.lean` `833dcff8` +
+`H3-M-candidates.md` `7647a1f9` + the battery `5f0b57cc99556d4d` §M-PRE. Owner R4
+(agent-08).
 
 **3. AL-M3 verdict fold + the ladder's article-eligibility pass** (the census #3).
 **[IF-GREEN M3]** the M0→M3 rebuild ladder is kernel-complete (entropy
@@ -257,7 +268,7 @@ stamps).
 | # | decision | options / determining input |
 |---|---|---|
 | Q | the iter-5 quota disposition (close block item 7) | input delivered: `r9-quota-disposition-draft.md` — UNSPENT recommended; ruling at close |
-| H3 | hunt vs bank (the precharter §7) | hunt = S-tranche fire (TARGET-C near-certain; the battery is GREEN with wording locks); bank = zero further runs, the precharter = the deferral record. Recommend (input): hunt — the census's #2 and the only named NEW-statement hunt on the bench |
+| H3 | hunt vs bank (the precharter §7) | **RESOLVED-BY-OUTCOME 2026-11-20: BANKED** — Theorem C GREEN (S-rung, `H3.lean` `833dcff8`) + the M pre-solve raised-negative (candidates EMPTY over ~200M systems w/ validated controls; S1 spin-host/TL₄-generator-word negative at δ = ±2; S2 codim ≥ 50 obstruction; S4 open combination tier; no M/S2-formality fire this wave). NEW iter-6 ask: the article decision (ship vs carry) = editorial slot, evidence `7647a1f9` + battery §M-PRE |
 | 0 | iter-6 open timing vs the close act | open after the close commit (this draft's §2.0 assumption) vs pre-open in parallel. Recommend (input): after — the verdict-parameterized slots resolve cleanly and the payloads do not rot (A6's DECISION-0 reasoning, reapplied) |
 | 1 | verdict-parameterization resolution | the [IF-GREEN]/[IF-NOT] branches in §2 items 1/3/4 resolve at the folds; the orchestrator may pre-decide branch policy (e.g. IF-NOT salvo ⇒ R6 diagnoses before any re-charter) |
 | 2 | bench conversions | 12-P0 / 11-M3 stay under the drain-activation rule (carried); any mid-wave conversion per the iter-5 DECISION-6 pattern |

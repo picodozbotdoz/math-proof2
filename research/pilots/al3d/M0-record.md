@@ -415,3 +415,105 @@ aborts the ladder (re-charter required).
 files sha-verified identical). No sorry/native_decide/external CAS introduced; kernel
 verification only; Modal per AGENTS.md §Modal usage guidelines (SPEC 2cpu/4GB,
 telemetry, LEAN_NUM_THREADS=2; measured wall 53 s, OVER=0).
+
+## M3 — the final rung: PARKED at the unit cap with 2 pre-written one-line fixes (2026-11-20, lane R8, re-fired fresh after the external termination)
+
+**Context:** the previous dispatch (2026-11-19 night) died mid-run after 3 FAIL fires
+(`logs/alp2-m3-run1-transports.log`, descent 3→2→2, the `Equiv.sum_comp` named-arg +
+cascade). This unit re-fired fresh with a ≤3-run budget and the FULL M3 remainder
+authored (the split-lemma two-loc fix + support layer V + the entropy identification +
+the rung-stone). **Verdict: PARKED at A2.lean FAIL errors=11 (2 unique roots, both
+one-line, fixes pre-written in the parked bytes); descent 27 → 13 → 11.** The ladder's
+M0→M2 GREEN state is untouched (regression gate HELD at every fire: run-13's 85-line
+core byte-identical; P0/A1 shas frozen at the M0-record §2 manifest values).
+
+**Run ledger (app `crossmath-pilot-al3d`, doz CLI, warm; telemetry OVER=0 every fire):**
+- run 2 `alp2-m3-run2-remainder.log` (wall 55 s, pre-sha a9e19f54353d6054): FAIL errors=27
+  — 8 mechanical root classes (zero math defects): `mul_zero`→`zero_mul` orientation;
+  `Finset.sum_comm` all-implicit on this pin (positional application was the error);
+  `Finset.sum_eq_single` carries the out-of-set case (`sum_eq_single_of_mem` the right
+  form); `vonNeumann`'s `[DecidableEq n]` binder; `restr_congr`'s redundant rfl;
+  `fibre_eq_of_column_closed` orientation + exists-form; the identification RHS's
+  delayed-witness unification (vector-type ascription); the rung-stone's def-wrapped
+  anonymous constructor (`refine fun _ => ⟨…⟩`).
+- run 3 `alp2-m3-run3-fixround1.log` (wall 88 s, sha 93ff27cce18a27e4): FAIL errors=13 —
+  banked TRIAD: `sum_nonneg_re`, `vonNeumann_witness_ext`, `vonNeumann_congr`,
+  `restr_congr`, `fibre_eq_of_column_closed` (the dichotomy), `compE`, + h1 of
+  `dotProduct_sum_mulVec`. 4 one-line roots left.
+- run 4 `alp2-m3-run4-fixround2.log` (wall 74 s, sha 32de92b713267873): FAIL errors=11 —
+  banked TRIAD: `dotProduct_sum_mulVec` (h3's Pi-star form `(star x) j`, not `star (x j)`);
+  **find #6 CONFIRMED** (below). 2 roots left → parked.
+
+**Delivered content (all in the parked bytes, post-state sha256(16) `221eb30b6debba75`;
+`4402ab460aac541e` = the same bytes before the header-prose edit):**
+- **Split fix:** `ptrace_submatrix_split` generalized to TWO site-type functions (the
+  planar variable-height system vs the 3D system — the identification's requirement),
+  proof restructured: summands rewritten by the derived `e.symm ∘ glue` identity FIRST,
+  then `Equiv.sum_comp eC.symm _` positional (run-1's `(f := …)` was the named-arg
+  class's 7th recurrence).
+- **Support layer V (psd, mathlib-only):** `compE` (slice-selector matrix; triad),
+  `compE_entry` + `ptrace_eq_sum_compE` (ptrace = ∑ of conjugate compressions),
+  `posSemidef_ptrace'` (the P0 stub's CONTENT re-proved under a new name — each
+  compression psd by `Matrix.PosSemidef.mul_mul_conjTranspose_same`; the ℝ-cast route
+  `sum_nonneg_re`; quadratic-form distributivity `dotProduct_sum_mulVec`), plus
+  `vonNeumann_witness_ext`/`vonNeumann_congr` (proof irrelevance) and `restr_congr`
+  (the fibre↔cut restriction transport; GREEN-triad).
+- **Entropy identification** `regionEntropy_pureState_column_closed`: consumes the M1
+  ē-form workhorse at the cut and its complement + `fibre_eq_of_column_closed` +
+  `restr_congr` + the split lemma + `vonNeumann_submatrix_equiv`; the pureState-to-
+  vonNeumann bridge `regionEntropy_pureState_eq` (rfl + proof-irrelevance).
+- **The rung-stone** `slab_column_cuts_of_planar_var`: `SlabAreaLawColumnCuts3D`
+  discharged from the `PlanarAreaLawVar` binder (EnclOK hypothesis-binder pattern) at
+  `G := projLattice Λ`, `Λ' := projF Λ`, `hU := colCard Λ`, `Ψ := projInteraction`,
+  output constant `max C 0` (monotonicity needs `0 ≤ C'`); boundary side A1's
+  `edgeBoundaryG_card_le`; consumes the three keystone-fed transports.
+- **The linter lift:** `set_option linter.all false` REMOVED per the task (verified
+  across three fires: verdict extraction is filter-based on full output; the returned
+  warning volume did not affect any verdict or audit line).
+
+**STATEMENT-LAYER FIND #6 (CONFIRMED at run 4):** the frozen P0 probe stubs
+(`posSemidef_vecMulVec_self_star` P0:104, `posSemidef_ptrace` :142, `trace_ptrace` :147
+— probe-convention sorries) sit INSIDE the frozen DEFS `pureState` and
+`SubState.restrict`, and the def-traversing axiom audit propagates them: any theorem
+whose TYPE mentions `pureState`/`regionEntropy` prints `sorryAx` of P0 provenance
+regardless of its own proof — `regionEntropy_pureState_eq`'s proof CLOSED at run 4 and
+its audit line still shows sorryAx, exactly as pre-registered. Consequence at GREEN: the
+three pureState-typed decls (`regionEntropy_pureState_eq`,
+`regionEntropy_pureState_column_closed`, `slab_column_cuts_of_planar_var`) will carry
+P0-statement-layer sorryAx; every OTHER M3 decl is triad-only (the mathematical content
+of the stubs is re-proved in A2 at `posSemidef_ptrace'` + mathlib's
+`Matrix.posSemidef_vecMulVec_self_star`). **Amendment option for H (not executed — P0 is
+frozen whole-file): a PROOF-ONLY P0 completion (replace the three sorry bodies; zero
+statement drift; ~5 LoC for the two vecMulVec/trace one-liners + the A2-ported
+`posSemidef_ptrace'` body) would make the whole rung-stone triad-clean. Fence status
+unchanged: `PlanarAreaLawVar` NOT discharged (consumed as the binder); full
+`SlabAreaLaw3D` untouched; no `AreaLaw3D` content.**
+
+**Residual census (fixes PRE-WRITTEN in the parked bytes):**
+1. hglue's STATEMENT: `glue E x F z` (four juxtaposed tokens, two equivs) defeats the
+   elaborator's overapplication-grouping — it consumed the second trans-equiv as glue's
+   first explicit arg. FIX (applied): parenthesize — `glue ((E₁) x) ((E₂) z)`.
+2. `ptrace_eq_sum_compE`'s outer slice-selection left an ill-typed postponed target.
+   FIX (applied): the per-slice entry equality extracted as `compE_entry` (both
+   selections standalone, exact-chained, no rw-induced beta redexes); the main lemma
+   reduced to `sum_congr` over it (+ its audit line).
+
+**M3-COMPLETION = ONE fire of the parked bytes** (sha `221eb30b6debba75`; expected
+verdict: A2.lean OK sorry-strict with the three pureState-typed decls P0-sorryAx and
+everything else triad — the ladder M0→M3 then closes modulo the find-#6 statement layer,
+with the amendment decision H's).
+
+## Ladder roll-up (M0→M3, at the M3 park)
+
+| rung | state | evidence |
+|---|---|---|
+| M0 regression | GREEN (run 1, 2026-11-19) | `alp2-m0-run1-regression.log` — run-13's 275-line audit reproduced |
+| M0 rebuild | GREEN (run 3 of 3–4) | `alp2-m0-run3-fixround1.log` — canonical z-rank core, 10 new triad |
+| M1 | GREEN (4 runs) | `alp2-m1-run4-completion.log` — `colEquivVar_restr` triad |
+| M2-a/b/c | GREEN (units 6–9) | `alp2-m2c-run9-unit9c.log` — swap + `hamiltonianVar_eq_submatrix` |
+| M3 | PARKED at cap (3 fires, 27→13→11); completion = 1 fire | `alp2-m3-run{2,3,4}*.log`; parked sha `221eb30b6debba75` |
+
+— lane R8 (worktree agent-05), 2026-11-20. P0/A1 frozen-unchanged throughout
+(52c5b9f77344e0ed / a8feb25bcd60722f); no sorry/native_decide/external CAS in A2 (grep
+verified, prose-only tokens); kernel verification only; Modal per AGENTS.md (SPEC
+2cpu/4GB, LEAN_NUM_THREADS=2, telemetry every fire, OVER=0; walls 55–88 s).

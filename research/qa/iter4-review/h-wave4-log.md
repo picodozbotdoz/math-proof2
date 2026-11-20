@@ -1415,3 +1415,15 @@ replaces, the parse-trap class.)
   unit-12 ledger pointer `0515fd50`): the one-read iter-6 decision doc
   (J1–J10 sha-pinned; S1–S4 prospective; NOT-A-SHIP standing box; the
   v3-naming caution). R6 → drained/standby.
+
+## 2026-11-20 — iter-5 steady state, batches VV + WW (H): R8's M3 park records + the charter v6
+
+- **VV:** R8's M3-PARK records landed (M0-record `63f0d69f` at the settled
+  sha + 3 logs; **A2.lean HELD** at `221eb30b` pending the granted completion
+  fire): parked at the 3-fire cap, fixes pre-written, descent 27→13→11, zero
+  math defects, linter lift DONE; the find-#6 statement-layer discovery +
+  both rulings (amendment approved; ONE completion fire granted — the
+  close-gate event). Telemetry OVER=0 ×3.
+- **WW:** the charter v6 landed (`f0565371`, the citation fix merged
+  pre-landing — single-landing rule): [DECISION-H3] RESOLVED-BY-OUTCOME
+  (hunt BANKED at wave-close).
