@@ -1,0 +1,15 @@
+# decl-enrich-v3.tsv — curated enrichment overlay for decl-index-v3 (tracked).
+# Adds clues to declarations whose own names are poor or uncommon; never edits a declaration.
+# Edit with `python3 research/qa/decl_index_v3.py enrich add CORPUS QNAME TYPE TEXT --by WHO`
+# (validates the declaration and records its sha), or by hand keeping 7 TAB-separated columns.
+# A row applies to every v3 row with the same (corpus, qname); it survives index rebuilds.
+# columns: corpus  qname  type  text  added_by  date  stmt_sha
+#   type: alias (a better or more common name) | keyword (search terms) |
+#         description (one plain sentence) | see-also (corpus:qname of a related declaration)
+#   stmt_sha: v3 sha(s) of the declaration when the clue was written; `enrich check` reports
+#             STALE (declaration text changed since) and DANGLING (declaration gone).
+zeta23	Zeta23.ZetaSeam.finite_window	alias	riemannZeta_nontrivialZeros_finite_inter_height_window	claude 2026-11-19: verified duplicate pair, bridges/analytic-nt.md §1 item 1	2026-11-19	39256c1e9f054a0e
+zeta23	Zeta23.ZetaSeam.finite_window	keyword	zeta zero-set finiteness; finitely many zeros in a bounded window	claude 2026-11-19: verified duplicate pair, bridges/analytic-nt.md §1 item 1	2026-11-19	39256c1e9f054a0e
+mathlib	IsCompact.inter_riemannZetaZeros_finite	keyword	zeta zero-set finiteness; finitely many zeros in a compact set	claude 2026-11-19: verified duplicate pair, bridges/analytic-nt.md §1 item 1	2026-11-19	e852189ee56f8bce
+zeta23	Zeta23.ZetaSeam.finite_window	see-also	mathlib:IsCompact.inter_riemannZetaZeros_finite	claude 2026-11-19: verified duplicate pair, bridges/analytic-nt.md §1 item 1	2026-11-19	39256c1e9f054a0e
+mathlib	IsCompact.inter_riemannZetaZeros_finite	see-also	zeta23:Zeta23.ZetaSeam.finite_window	claude 2026-11-19: verified duplicate pair, bridges/analytic-nt.md §1 item 1	2026-11-19	e852189ee56f8bce

@@ -1,0 +1,286 @@
+{
+ "index": "decl-index-v3",
+ "extractor": "v3.0",
+ "script": "research/qa/decl_index_v3.py",
+ "built_utc": "2026-11-19T10:39:24Z",
+ "partial": null,
+ "tsv_columns": [
+  "corpus",
+  "file",
+  "kind",
+  "name",
+  "qname",
+  "line",
+  "sha"
+ ],
+ "tsv_rows": 4636995,
+ "tsv_sha256": "4a8ab9d416d2f4c801f4278ca6ac99f064deb1a8185dccf9db9efb2dc8a12eaf",
+ "stmts_records": 4636995,
+ "corpora": [
+  {
+   "label": "mathlib",
+   "root": "/home/doz/zcode-workdir/encore-mathlib/repo/mathlib4/Mathlib",
+   "exclude": null,
+   "rev": "ff2494ea5e438f8a8452db803068acd711fa0059",
+   "commit_date": "2026-11-09T02:14:19Z",
+   "files": 8691,
+   "records": 276494,
+   "by_kind": {
+    "abbrev": 3714,
+    "alias": 6532,
+    "class": 2022,
+    "ctor": 1091,
+    "def": 34009,
+    "field": 7038,
+    "inductive": 345,
+    "instance": 27968,
+    "lemma": 61720,
+    "opaque": 4,
+    "structure": 1730,
+    "theorem": 130321
+   }
+  },
+  {
+   "label": "tauceti",
+   "root": "/home/doz/zcode-workdir/tauceti/TauCeti",
+   "exclude": null,
+   "rev": "d92acc5c0393646e14960dfd4972fc836aad3ebe",
+   "commit_date": "2026-11-09T11:59:37+11:00",
+   "files": 27934,
+   "records": 341287,
+   "by_kind": {
+    "abbrev": 3880,
+    "alias": 16,
+    "class": 122,
+    "ctor": 468,
+    "def": 43050,
+    "field": 4237,
+    "inductive": 125,
+    "instance": 11790,
+    "lemma": 19319,
+    "structure": 1147,
+    "theorem": 257133
+   }
+  },
+  {
+   "label": "3sum-apsp",
+   "root": "/home/doz/zcode-workdir/anthropics_formal-math/3sum-apsp",
+   "exclude": null,
+   "rev": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+   "commit_date": "2026-10-26T20:07:21-07:00",
+   "files": 434,
+   "records": 11959,
+   "by_kind": {
+    "abbrev": 1825,
+    "ctor": 53,
+    "def": 2392,
+    "field": 2231,
+    "inductive": 15,
+    "instance": 10,
+    "lemma": 54,
+    "structure": 382,
+    "theorem": 4997
+   }
+  },
+  {
+   "label": "eth",
+   "root": "/home/doz/zcode-workdir/anthropics_formal-math/eth",
+   "exclude": null,
+   "rev": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+   "commit_date": "2026-10-26T20:07:21-07:00",
+   "files": 1052,
+   "records": 13237,
+   "by_kind": {
+    "abbrev": 176,
+    "alias": 493,
+    "class": 7,
+    "ctor": 22,
+    "def": 3330,
+    "field": 737,
+    "inductive": 14,
+    "instance": 62,
+    "structure": 129,
+    "theorem": 8267
+   }
+  },
+  {
+   "label": "zeta23",
+   "root": "/home/doz/zcode-workdir/anthropics_formal-math/zeta23",
+   "exclude": null,
+   "rev": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+   "commit_date": "2026-10-26T20:07:21-07:00",
+   "files": 326,
+   "records": 5944,
+   "by_kind": {
+    "abbrev": 19,
+    "def": 685,
+    "field": 547,
+    "instance": 16,
+    "lemma": 1988,
+    "structure": 74,
+    "theorem": 2615
+   }
+  },
+  {
+   "label": "openai-math",
+   "root": "/home/doz/zcode-workdir/openai-math/lean",
+   "exclude": null,
+   "rev": "4eaee87548250b2682affda7d05d947c05554bae",
+   "commit_date": "2026-10-29T17:35:35-07:00",
+   "files": 163097,
+   "records": 3904368,
+   "by_kind": {
+    "abbrev": 37715,
+    "alias": 21,
+    "class": 67,
+    "ctor": 7903,
+    "def": 1317349,
+    "field": 57988,
+    "inductive": 2413,
+    "instance": 51387,
+    "lemma": 724462,
+    "opaque": 1540,
+    "structure": 9256,
+    "theorem": 1694267
+   }
+  },
+  {
+   "label": "axiommath-dzzf",
+   "root": "/home/doz/zcode-workdir/axiommath/DedekindZetaZeroFree",
+   "exclude": "!vendor/**",
+   "rev": "4f6208b2cfcfbea71b822ec12377179675fdab99",
+   "commit_date": "2026-11-13T17:12:50+08:00",
+   "files": 3870,
+   "records": 42938,
+   "by_kind": {
+    "abbrev": 1346,
+    "alias": 7,
+    "ctor": 25,
+    "def": 8374,
+    "field": 3378,
+    "inductive": 8,
+    "instance": 1446,
+    "lemma": 4606,
+    "structure": 386,
+    "theorem": 23362
+   }
+  },
+  {
+   "label": "axiommath-vendor-cft",
+   "root": "/home/doz/zcode-workdir/axiommath/DedekindZetaZeroFree/vendor/class-field-theory",
+   "exclude": null,
+   "rev": "4f6208b2cfcfbea71b822ec12377179675fdab99",
+   "commit_date": "2026-11-13T17:12:50+08:00",
+   "files": 1658,
+   "records": 19076,
+   "by_kind": {
+    "abbrev": 379,
+    "class": 8,
+    "def": 4258,
+    "field": 351,
+    "instance": 1574,
+    "lemma": 41,
+    "opaque": 6,
+    "structure": 89,
+    "theorem": 12370
+   }
+  },
+  {
+   "label": "axiommath-zetazeros-v2",
+   "root": "/home/doz/zcode-workdir/axiommath/ZetaZerosV2",
+   "exclude": null,
+   "rev": "a86af1af1ad8ca16dec6bfdcd80ae79a0fa8d093",
+   "commit_date": "2026-11-13T20:38:57+08:00",
+   "files": 96,
+   "records": 1242,
+   "by_kind": {
+    "abbrev": 1,
+    "def": 141,
+    "field": 25,
+    "instance": 4,
+    "lemma": 548,
+    "structure": 6,
+    "theorem": 517
+   }
+  },
+  {
+   "label": "axiommath-zetazeros",
+   "root": "/home/doz/zcode-workdir/axiommath/ZetaZeros",
+   "exclude": null,
+   "rev": "c0b585ec92f5fd5b1ea9a1d0b0c97d11fe699f7d",
+   "commit_date": "2026-11-13T18:05:54+08:00",
+   "files": 37,
+   "records": 425,
+   "by_kind": {
+    "abbrev": 1,
+    "def": 80,
+    "field": 24,
+    "instance": 3,
+    "lemma": 95,
+    "structure": 6,
+    "theorem": 216
+   }
+  },
+  {
+   "label": "axiommath-pnt",
+   "root": "/home/doz/zcode-workdir/axiommath/PrimeNumberTheoremAnd",
+   "exclude": null,
+   "rev": "d82cfae58ea845f6de6da1dacd5722cf97a443b8",
+   "commit_date": "2026-11-13T20:38:57+08:00",
+   "files": 135,
+   "records": 3350,
+   "by_kind": {
+    "abbrev": 31,
+    "class": 2,
+    "def": 348,
+    "field": 34,
+    "instance": 19,
+    "lemma": 1840,
+    "structure": 7,
+    "theorem": 1069
+   }
+  },
+  {
+   "label": "axiommath-weil",
+   "root": "/home/doz/zcode-workdir/axiommath/Weil",
+   "exclude": null,
+   "rev": "c1c898355a34e65d47cd893143d3911fa232694d",
+   "commit_date": "2026-11-13T17:12:50+08:00",
+   "files": 980,
+   "records": 10812,
+   "by_kind": {
+    "abbrev": 549,
+    "class": 3,
+    "ctor": 2,
+    "def": 2142,
+    "field": 197,
+    "inductive": 1,
+    "instance": 653,
+    "lemma": 2312,
+    "structure": 49,
+    "theorem": 4904
+   }
+  },
+  {
+   "label": "axiommath-arealaw2d",
+   "root": "/home/doz/zcode-workdir/axiommath/AreaLaw2D",
+   "exclude": null,
+   "rev": "c0f6d96bb1d579468489b91a84937fb75c26777d",
+   "commit_date": "2026-11-13T17:12:50+08:00",
+   "files": 335,
+   "records": 5863,
+   "by_kind": {
+    "abbrev": 58,
+    "ctor": 18,
+    "def": 1019,
+    "field": 223,
+    "inductive": 6,
+    "instance": 31,
+    "lemma": 221,
+    "structure": 36,
+    "theorem": 4251
+   }
+  }
+ ],
+ "enrichment": "research/qa/decl-enrich-v3.tsv (keyed by corpus+qname; see `enrich check`)"
+}
