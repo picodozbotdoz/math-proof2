@@ -1132,3 +1132,25 @@ classifier 52+0 stands).
   R1's print-level finding (the seed census `e202244b` seed-#5 carries the same
   defect); R9 re-issues with corrected L3 pricing — land the corrected sha on
   its relay.
+
+## 2026-11-20 — iter-5 steady state, batch Y-PARTIAL (H): R1's fold batch — 2 of 4 landed, 2 HELD (superseded mid-pull)
+
+- **Landed (hash-verified 2/2):** `FINAL-SWEEP-PLAN-ITER5.md` `927f3235` (the
+  closing-fold §2 states incl. the L3 print-level correction row w/ the v16
+  guard `aed63101`) + `stepA-incremental-iter5.log` `14e43b28` (ENTRY 13:
+  five-state consolidated fold, ALL 0 real-token, certificate UNCHANGED 52+0).
+- **Fold-supersession note (per the batch-8 relay):** R1's fold batch
+  supersedes the M2 / 41H-T2 / P2-c rows (guards `61af175a` / H2 `3bc81701` /
+  `531a9eb7`; splice-2 `cc71841` citations) — carried in the landed sweep-plan
+  rows above.
+- **HELD 2 of 4:** `r3-verification-tables.md` (relayed `a4938caa` → worktree
+  now `3047e7da`) + `make_axcheck.py` (relayed `93252ec0` → worktree now
+  `6eedbfdc`) — R1 was LIVE-EDITING both during the pull window (4 fresh files
+  incl. a new tally-section11 file). The hash gate FAILED ⇒ not landed; main
+  restored to HEAD (make_axcheck = R2's `12c05683`). Unverified bytes preserved
+  at /tmp/carry-20261120/unverified-pulls/ for reference only. **Merge-case
+  verdict on the relayed `93252ec0` (executed before the supersession was
+  found): it was a COMPATIBLE SUPERSET of R2's `12c05683` (10_MArc + H2 rows
+  byte-identical, + AxPilot41_H1 row + 3 comment folds, 0 duplicate names,
+  py_compile rc=0) — the UNION path was available; fresh relay will re-run the
+  same asserts.** Fresh shas owed from R1's drain report.

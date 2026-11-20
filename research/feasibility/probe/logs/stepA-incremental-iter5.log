@@ -183,3 +183,33 @@
 # nonneg definition of record; FINDING #5 degeneracy+correction, FINDING #6 θ₀ =
 # 1/(1024·e)). Sweep guard AxPilot74_P2 → 4425be89; verdict class honest-partial until
 # the wave-close GREEN. Certificate UNCHANGED 52+0.
+#
+# ENTRY 13 (R1, 2026-11-19 — the CONSOLIDATED closing fold, @ a175b1d; five byte
+# states, one-file §G1 scopes each): **ALL 0 REAL-TOKEN — certificate UNCHANGED 52+0.**
+#   pilots/41/H1.lean `283503ada8f5571e` (455 LoC, 22 decls) — tranche-1 GREEN, 0 tokens.
+#   pilots/41/H2.lean `3bc8170121492d18` (373 LoC, 18 decls; = fired `95343839` +
+#     comment-only, inert-delta) — tranche-2 GREEN h2-run11, 0 tokens. BANK-AS-NEGATIVE
+#     ruling: the (H) program = the second discovery (negative-kind, quota-free);
+#     3-strand hypothesis CLOSED FALSE.
+#   pilots/al3d/A2.lean `61af175aae141aa9` (1,606 LoC, 89 decls) — M2 CLOSED GREEN
+#     (compl_iff + colEquivVar_swap + hamiltonianVar_eq_submatrix triad; M0→M2 ladder
+#     kernel-verified; both P2-d parked targets PROVED; the bisect lesson =
+#     suppressed-error-in-fused-iff), 0 tokens.
+#   pilots/72-M1/P72M1T3.lean `aed631015beb38d6` (v16, 1,046 LoC) — isAdmissible_ΦL +
+#     hamiltonian_gridDom_eq flipped triad (run 14); hasGlobalGap REGRESSED (hz-block,
+#     conj→star restate); honest-partial deepened, 0 tokens.
+#   pilots/74/P2.lean `531a9eb70f9871ba` (1,489 LoC) — P2-c FINAL PARK:
+#     elaboration-COMPLETE 0-sorry/19 runs; rc=1 = audit-tail namespace placement alone;
+#     checklist item 13 (audit fire at wave-close), 0 tokens.
+# New TARGETS rows AxPilot41_H1/H2 (65 rows total); guards re-bound (A2 61af175a,
+# T3 aed63101, P2 531a9eb7); staging smoke-test clean.
+#
+# ENTRY 13 CORRECTION (R1, 2026-11-20 — classifier facts unchanged, narrative facts
+#   corrected): the T3 line's "isAdmissible_ΦL + hamiltonian_gridDom_eq flipped
+#   triad (run 14); hasGlobalGap REGRESSED" phrasing is CONTRADICTED by the logs —
+#   multiline-verified over ALL 16 l3bd runs: those two + hasGlobalGap + interface
+#   have ZERO triad prints in every persisted run (no run-14 flip, no run-12 L3c
+#   flip; edgeBoundary triad since run 9). Certified clean set = L3b + eig_toGrid +
+#   edgeBoundary + T1/T2/L3a; submatrix_mulVec_ec never print-audited. The 0-token
+#   classification and all three guard shas STAND. Corrected row of record:
+#   r3-verification-tables.md §11 (the corrected L3 block).
