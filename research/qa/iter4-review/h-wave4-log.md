@@ -1154,3 +1154,11 @@ classifier 52+0 stands).
   byte-identical, + AxPilot41_H1 row + 3 comment folds, 0 duplicate names,
   py_compile rc=0) — the UNION path was available; fresh relay will re-run the
   same asserts.** Fresh shas owed from R1's drain report.
+
+## 2026-11-20 — iter-5 steady state, batch Z (H): R4's H3 pre-charter FINAL landed
+
+- **The n≥4 TL hunt pre-charter landed** (`pilots/41/H3-precharter.md` `60278bd4…`):
+  the post-battery final (single landing per the coordinator protocol; the
+  in-flight sha chain delta-noted). Round-7 battery folded — TARGET-C/D
+  NEW-narrow, the three minted wording locks adopted, §2 exhaustively
+  cross-checked, fires priced post-approval (≤1.2k LoC / 10 runs).
