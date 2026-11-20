@@ -1262,3 +1262,11 @@ classifier 52+0 stands).
   STOP-at-tranche; T2-ignition block.
 - **The charter draft v4 landed** (`10ff9b96`, delta on the committed v3):
   the 12-core bench-annex [IF-GO]-parameterized citing `5f8facd4`.
+
+## 2026-11-20 — iter-5 steady state, batch II (H): R1's verdict-fold templates
+
+- **R1's six verdict-fold templates landed** (`r1-verdict-fold-templates.md`
+  `73f6d953…`): each fold becomes fill-in + byte-verify only; the drift table
+  records the LIVE parked-sha moves (N2-P2c `2cca447d`, eta-r2 `ed412a03`,
+  eta-r3 `ddf85a41`, NEW eta-r4 `1eead7a4`, A2 `a9e19f54` M3-open) — fold-once
+  at confirmed states holds. R1 → live-events standby (verdict-gated).
