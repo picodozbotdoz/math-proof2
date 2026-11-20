@@ -2562,6 +2562,33 @@ recorded above — the relay's "P0 33c75942" is the POST-fix park, the fire was
 L3-corrected-block precedent): the family class → honest-partial with the M0→M2
 GREEN surface named in the note. The close waits on R5 alone (slots 4/5).*
 
+**η-PORT RUNGS 2+3 EXITS GREEN · RUNG 4 PARKED — the FOLD QUEUE DRAINS (R5's final
+salvo, worktree-of-record agent-04 2026-11-20, landing via H — every sha + verdict
+byte-verified this pass, R1 unit 18; the amended port ledger's CEILING RUN 13 of
+12–13, stop-loss honored):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| zzv2-λ rung 2 (R5) | `pilots/zzv2-lam/eta-r2.lean` `a9c6b59f8a769335` (661 LoC) | `logs/eta-r2-run9-eta-r3-run6-eta-r4-run4.log` (the ceiling fire; DONOR-TREE class — elaborated INSIDE the built ZetaZerosV2 tree, 8,262-job build rc=0 in-run; walls 421–725 s across the session, max_mem ≤ 3.3 GB, OVER-cpu = the standing pre-taskset burst + donor-build class, dispositioned in-record investigate-not-upgrade) | **RUNG 2 EXITS GREEN — strict-OK 4/4, ALL exactly triad** (prints verified incl. one multiline-wrap): `cutoffSelfConvLam_eq_scaled_dilate` (**lemma A = the amendment-2 (ii-c′) FINDING's theorem, the six-fire blocker, kernel-proved**) + `cutoffTestLam_isAdmissible` + `cutoffSelfConvLam_isPairTestFunction` + `iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction` | **FALSIFIED-THEN-EARNED fire history (folded honestly): the dead salvo fire's expected 4/4 was FALSIFIED — the parked `38bb8463` fix-batch came back RED on the first re-fire (port-run 9: 7+7 errors, the record's own falsification note); five fix-batches to GREEN** — log descent 10→7→4→2→2→OK (log-runs 4–9 = port-ledger 8–13). The whnf bomb (below) was the six-fire blocker |
+| zzv2-λ rung 3 (R5) | `pilots/zzv2-lam/eta-r3.lean` `21fb0c4e45f88b92` (307 LoC) | same log (the ceiling fire) | **RUNG 3 EXITS GREEN — strict-OK 2/2, ALL exactly triad**: `pairMainTerm_cutoffSelfConvLam` (**the corrected (iii′) covariance — the amendment-2 falsity's corrected form, kernel-proved**) + `scaledConstLam_half` (**the λ=1/2 bit-for-bit regression anchor** — the rung-1 checkpoint discipline extended) | Same falsified-then-earned history (7 errors at the first re-fire → GREEN at the ceiling). The amended precharter's corrected (ii-c′)/(iii′) forms are now BOTH theorems — the amendment's FINDING fully discharged at rungs 2–3 |
+| zzv2-λ rung 4 PARK (R5) | `pilots/zzv2-lam/eta-r4.lean` `06ad527f00d3a30c` (808 LoC; the pure public-layer transport) | same log — eta-r4 FAIL rc=1 errors=10 sorry=0 | **PARKED-unfired → honest-partial per D7: GATED at T2/T3 by a batch-9 SYNTAX SLIP alone (`set_option … in` placed BETWEEN a docstring and its declaration is invalid — parser recovery dropped BOTH heartbeat boosts; the div-lemma + T3 re-hit their whnf budgets; 8 of the 10 errors pure cascade; ZERO math defects). Fix-batch-10 PARKED UNFIRED per the 13-run stop-loss (the set_options repositioned BEFORE their docstrings, placement verified :206/:448/:525)** | **iter-6 first-action candidate: ONE fire at `06ad527f00d3a30c`** + three decoded residual routes in `eta-r4-record.md` `8926d6886460128f` ((a) fire it; (b) the hsplit :615 `div_const` metavar — spell the divisor explicitly, `_` elaborates to a metavar before goal-matching; (c) the :595 show-block — mirror the donor's `Zeta/Kernel.lean:383–397` text character-for-character). The port ledger CLOSED at its amended ceiling (13 of 12–13) |
+
+*Fold note (R1 unit 18, 2026-11-20): all shas byte-verified at agent-04 (r2 a9c6b59f /
+r3 21fb0c4e / r4 06ad527f / record 8926d688; the six triad prints re-read in the
+ceiling log — one wrapped multiline, parsed accordingly). **STANDING LESSON-CLASS
+(reference, the record's own rules — `eta-r4-record.md` §1–2, the port-ledger note):
+the REAL-MUL WHNF BOMB** — `integral_mul_const _ _`'s metavars unified against a
+constant-on-the-LEFT integrand explore the wrong (?f := const) decomposition through
+Quotient-Cauchy real mul (the diagnostics table: HMul.hMul 3,374,473 / Mul.mul
+3,333,908 / Quotient.map₂ 2,369,789 / Real.rec 1,463,868 unfoldings); the KILL =
+SYNTACTIC ORDER-AGREEMENT (state hint + calc steps with the constant on the RIGHT);
+rule: never hand `integral_mul_const _ _` a constant-on-the-left goal. Companion: a
+"no goals to be solved" tactic firing POISONS with sorryAx (error-recovery class —
+the L3/A2 sorryAx-from-errors mechanism, independently re-confirmed). Both live in
+R5's record rules; flagged here for the close-block's lessons line. Tally: row 19
+CONVERTS (r2+r3 GREEN) + the r4 PARK row adds as parked-unfired. **THE FOLD QUEUE IS
+DRAINED — every §11 row is at its closing state; the close act's gates may execute.***
+
 **AL M2-b CLOSURE + the M2-c KEYSTONE — the M0→M2 ladder kernel-verified (R8 unit-9,
 landed H batch-Q @ `a175b1d` 2026-11-19; folded R1 unit 14, 2026-11-20, byte-verified
 against main — this REPLACES the pre-termination unit-13 narrative draft, correcting
@@ -2704,6 +2731,9 @@ record):**
 | `pilots/75/N2-P2c.lean` `2cca447d7c2a29c8` (worktree-of-record, main-side at H's landing) | **11/11 triad-clean, 0 sorry** (56 distinct names printed in-run, ⊆-triad, 0 sorryAx) | `n2-p2c-run8.log` (runs 4–8 fix-loop; wall 96 s, one OVER-mem mmapped sample) | N2P3V2's privates nonexistent (11 publics); the N3 audit carries N2P2c at these bytes (44 records) |
 | `pilots/75/N2-P3V2.lean` `2613cfd241ec207f` (314 LoC; V2 donor tree) | **18 distinct names ALL exactly triad** (the 5 P3-d theorems + the ℚ endpoint `zetaL_two_thirds_landed_ℚ` + donor re-print) | `n2-p3v2-run3.log` + `axcheck-n3v2-run1.log` (48 lines) | DONOR-TREE class — verdict of record = the run log (cited at sweep, the M4b precedent; NEVER a plain stage) |
 | `pilots/75/N2-P3e.lean` `6f6beb2065c2c511` (86 LoC, 2 publics) | **2/2 publics triad** (`zetaL_two_thirds_landed_of_DZDF` + `epsLowerCum_transfer_plain`) | `n2-p3e-run1.log` (GREEN first-shot) | plain-side only (NO V2 import — premises honest); the N3 audit carries N2P3e at these bytes (8 records) |
+| `pilots/zzv2-lam/eta-r2.lean` `a9c6b59f8a769335` (661 LoC) | **4/4 publics exactly triad** (lemma A + the three admissibility/test-function decls) | the ceiling log `eta-r2-run9-eta-r3-run6-eta-r4-run4.log` | DONOR-TREE class (verdict of record = the run log, zzv2-P1 precedent) |
+| `pilots/zzv2-lam/eta-r3.lean` `21fb0c4e45f88b92` (307 LoC) | **2/2 publics exactly triad** (the corrected (iii′) + the λ=1/2 anchor) | same log | DONOR-TREE class, same |
+| `pilots/zzv2-lam/eta-r4.lean` `06ad527f00d3a30c` (808 LoC) | **UNAUDITED — parked-unfired** (run-13 gated at T2/T3 by the set_option-placement slip; 8 of 10 errors cascade; disk sorry-free) | same log (the FAIL of record) | ONE fire at the parked sha = iter-6's candidate first action; re-audit then |
 
 **(c) Donor-pin / donor-build rows (separate composition line):** eta-pin-probe donor
 hygiene **7/7 triad on-pin** (`eta-pin-probe-run2.log`, probe class below); the V2

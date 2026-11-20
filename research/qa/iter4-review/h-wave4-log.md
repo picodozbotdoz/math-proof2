@@ -1477,3 +1477,12 @@ replaces, the parse-trap class.)
   (R6 batch-MM/RR, R8 batch-YY, R5 batch-AAA) → the close sequence begins
   on the orchestrator's remaining landings (R3's item-13 fire + R1's slots
   4/5).
+
+## 2026-11-20 — iter-5 steady state, batch BBB (H): R1's FINAL fold — the drain signal
+
+- **R1's fold queue DRAINED** (4 files landed, shas 4/4; make_axcheck
+  confirmed unchanged at `d3e594a3`): the tally closes at **14/3/1 = 18 ✓**
+  (22 rows); all six template slots stamped EXECUTED; the η history recorded
+  falsified-then-earned. **Only item-13's fire remains as a close-time
+  verdict move** (may flip tally row 16). On its landing: the full §D
+  choreography executes (gates → §I5 splice → skeleton fill → close commit).

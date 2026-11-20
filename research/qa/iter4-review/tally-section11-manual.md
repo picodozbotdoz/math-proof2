@@ -66,17 +66,18 @@ Rows of record and their D7 classes as of this pre-stage (chains resolved):
 | 16 | 74-P2-c FINAL PARK (R3) | `74/P2.lean` @ 531a9eb7 | honest-partial | elaboration-COMPLETE, triad PENDING item 13 |
 | 17 | 41-H tranches 1+2 (R4) | `41/H1.lean` + `H2.lean` | GREEN-triad | BANK-AS-NEGATIVE; article SHIPPED cc71841 |
 | 18 | N2-P2c parked (R6) — **CONVERTED 2026-11-20 (R1 unit 16): P2-c GREEN 11/11 @ `2cca447d` (runs 4–8)** | `75/N2-P2c.lean` @ 2cca447d | GREEN-triad | `thmE_dyadic_to_cumulative` closes; the hUnb binder named-honest |
-| 19 | eta-r2/r3 pair — [PENDING R5's re-fire] | `eta-r{2,3}.lean` @ 38bb8463/ed0c0612 | NOT-GREEN-honest (parked-unfired) | fold-once at the confirmation |
+| 19 | eta-r2/r3 pair — **CONVERTED 2026-11-20 (R1 unit 18): rungs 2+3 EXITS GREEN @ a9c6b59f / 21fb0c4e** (strict-OK 4/4 + 2/2, all exactly triad; the falsified-then-earned history folded) | `eta-r{2,3}.lean` @ a9c6b59f/21fb0c4e | GREEN-triad | DONOR-TREE class; lemma A = the amendment-2 FINDING's theorem |
 | 20 | 41-H3 S-rung (R4, added 2026-11-20 — postdates the live-events list; worktree-of-record, main-side at H's landing) | `41/H3.lean` @ 833dcff8 | GREEN-triad | 11/11 printed; 16-helper custody gap at sweep |
 | 21 | 75-N2 P3-d/e — P3-COMPLETE (R6, added 2026-11-20, R1 unit 16; worktree-of-record, main-side at H's landing) | `75/N2-P3V2.lean` @ 2613cfd2 (donor-tree, cited) + `75/N2-P3e.lean` @ 6f6beb20 (plain, 2/2) | GREEN-triad | the composed N2-d card `zetaL_two_thirds_landed_of_DZDF` + the ℚ endpoint; iter-6 seed #1 CLOSED; rows 6/14 extended (P2-b 17/17 @ 396d8710; N2-P3 gap DISCHARGED) |
+| 22 | eta-r4 PARK (R5, added 2026-11-20, R1 unit 18) — rung 4 gated by a set_option-placement syntax slip; fix-batch-10 parked UNFIRED at the 13-run stop-loss | `eta-r4.lean` @ 06ad527f | NOT-GREEN-honest (parked-unfired) | iter-6 first-action candidate (one fire); zero math defects |
 
-**CURRENT COUNT (refreshed 2026-11-20, R1 unit 17 — the SLOT-6 M3 park; step 4's sum
-check applied):** GREEN-triad = rows 1, 2, 4, 5, 6, 8, 9, 14, 15, 17, 20, 18, 21 =
-**13**; honest-partial = rows 12, 13, 16 = **3**; NOT-GREEN-honest (parked-unfired) =
-row 19 = **1**; total classified 13+3+1 = **17 ✓** (+4 chain-history rows excluded by
-step 2: rows 3, 7, 10, 11). At close: refresh row 19 (R5's pair — the LAST pending
-verdict) to its landing verdict; item 13's audit fire may move row 16; the sum check
-must then close again.
+**FINAL COUNT (refreshed 2026-11-20, R1 unit 18 — the SLOT-4/5 eta folds; THE FOLD
+QUEUE IS DRAINED; step 4's sum check applied):** GREEN-triad = rows 1, 2, 4, 5, 6, 8,
+9, 14, 15, 17, 20, 18, 21, 19 = **14**; honest-partial = rows 12, 13, 16 = **3**;
+NOT-GREEN-honest (parked-unfired) = row 22 = **1**; total classified 14+3+1 = **18 ✓**
+(+4 chain-history rows excluded by step 2: rows 3, 7, 10, 11 — the 22-row table
+closes: 18 classified + 4 history = 22 ✓). Remaining close-time moves: item 13's audit fire may move row 16 (74-P2);
+nothing else pending — re-run the sum check after any move.
 
 — pre-staged lane R1 (verification-integrity), 2026-11-20, worktree agent-02. The
 `[TALLIES-*]` numbers H cites at close come from the refreshed run of THIS procedure
