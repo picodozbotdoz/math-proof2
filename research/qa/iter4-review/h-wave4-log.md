@@ -1225,3 +1225,15 @@ classifier 52+0 stands).
   `14f80c83`): blockers #4/#5 DISCHARGED, #6 READY-TO-FLIP, #7's G6 input landed,
   1–3 parameterized; 8-of-13 execution-ready; close-act GO once the trio drains
   + the L3 re-base pull (DONE at batch-CC, post-rehearsal) + R1's :83 re-bind.
+
+## 2026-11-20 — iter-5 steady state, batch FF (H): the 12-core charter input + the dossier reconciliation closed
+
+- **R3's core-charter-input landed** (`pilots/12/core-charter-input.md`
+  `5f8facd4…`): the P0-based S–M scoping for Iteration 6 (statement set =
+  P0 minus stubs; step-2 open question; S–M pricing; the binding
+  decreasing-form rider).
+- **Reconciliation (A) closed:** the dossier-12 v2 correction (`1e8a50d3`)
+  was ALREADY committed inside batch-DD `e9e1434` (R3's v2 edit hit main's
+  working tree at ~19:04–19:05, before batch-DD's add at 19:05:41) — the
+  relayed "dirty" description raced the commit; sha-verified at the commit;
+  main CLEAN after batch-EE confirmed.
