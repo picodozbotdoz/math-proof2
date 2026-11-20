@@ -186,4 +186,5 @@ Firing this charter therefore ALSO fires:
 — lane R9 (worktree agent-09), 2026-11-20. PRE-CHARTER; no fires, no commits (H
 commits on main; REPORT ONLY). Companion records: `novelty/round6-fb2-citation-block.md`
 (the fire-time citation block), `novelty/round6-clocks-iter5-s1.md` (the WeakPNT
-landing + pin ruling), the census Tier-3 row #6 (`novelty/iter6-seed-census.md`).
+landing + pin ruling), the census Tier-3 row #6 (`novelty/iter6-seed-census.md` v2 @
+`e8efb8876b0cc4c8` — rows #6/#7 unchanged by the L3 correction).

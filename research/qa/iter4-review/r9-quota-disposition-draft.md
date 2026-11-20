@@ -35,15 +35,19 @@ citation — R2's dry-run KPI section already verified the cells against the byt
 
 ## 2. The recommendation row (input for the ruling)
 
-**[QUOTA-STATE] = UNSPENT; [QUOTA-OUTCOME] = third consecutive unspent cycle
-(iter-4 N=1 unspent on article-78 NEGATIVE-kind; iter-5 N=1 unspent on two
-quota-free shipments) — the spend-only-if-executed default held both times; per
+**[QUOTA-STATE] = UNSPENT; [QUOTA-OUTCOME] = second consecutive unspent cycle under
+the two-strike FINAL rule (the rule was minted at Iteration 4: iter-4 N=1 unspent on
+article-78's NEGATIVE-kind quota-free billing; iter-5 N=1 unspent on two quota-free
+shipments) — the spend-only-if-executed default held both times; an Iteration-6
+unspent cycle would be the THIRD and is itself a signal (the census §3 note); per
 DECISION-3 the cap is per-cycle, so the unspent status carries NO quota arithmetic
 into Iteration 6 (health indicator only, the iter-4 precedent's own reading:
 "unspent again is a healthy outcome").**
 
 ## 3. The Iteration-6 contest framing (carried verbatim from the seed census
-`novelty/iter6-seed-census.md` rows #6/#7, `e202244b819f6366`)
+`novelty/iter6-seed-census.md` rows #6/#7 — v2 @ `e8efb8876b0cc4c8`, the
+L3-correction re-write; **rows #6/#7 unchanged by that correction**; v1 landed
+`e202244b`)
 
 Fresh N=1 at Iteration-6 open (per-cycle rule); contestants, NONE pre-decided:
 

@@ -10,12 +10,14 @@ PARAMETER RESOLVED from R2's re-based stop-note @ `db872dc5fe076358` (batch 11).
 `qa/iter4-review/a6-iter5-charter-draft.md` (A6, 2026-11-18) — objective, quality
 gate, launch-ordered leads, quota/watchlist, debt rungs, standing rules, decision
 register. Inputs consolidated: the Iteration-6 seed census
-`novelty/iter6-seed-census.md` **v2, L3-corrected 2026-11-20 (v1 landed `e202244b`;
-the correction block + seed-#5 re-write supersede it — H re-lands)**, the round-7
-battery `novelty/round7-h3-battery.md` + §RE-RUN (`87659f5849b82e65`, this session),
-R4's H3 precharter (worktree agent-08, read at `b9e911cdac5f1c90`, 346 lines; the
-file has continued moving — `7b76e8ce783fea76` at last check — R4's refinement, H
-lands the final), the quota-disposition draft (`r9-quota-disposition-draft.md`, this
+`novelty/iter6-seed-census.md` **v2 @ `e8efb8876b0cc4c8`** (L3-corrected + family-
+audit-refreshed 2026-11-20; v1 landed `e202244b` — superseded on seed #5/§2(b), H
+re-lands), the round-7 battery `novelty/round7-h3-battery.md` **@ `5f0b57cc99556d4d`**
+(base + §RE-RUN landed `87659f58`; the §M-PRE M-tranche pre-battery appended
+2026-11-20 — H re-lands), R4's H3 precharter (worktree agent-08; family-audit current
+read `60278bd4b6e824bf`, 426 lines — the spin-model redesign; sha chain
+`726e3d69`→`b9e911cd`→`7b76e8ce`→`60278bd4`, H lands the final), the
+quota-disposition draft (`r9-quota-disposition-draft.md`, this
 session), R2's close-out gates DRY-RUN `qa/iter5-closeout-gates-dryrun.md`
 (`4e5b4854`, landed batch T `a33c319` — the pre-close state map), the live tracker
 `ORCHESTRATION-ITER5.md` (working-tree-dirty at read time — H mid-edit), and
@@ -100,7 +102,8 @@ chain. Owner R6 (agent-06). Gate: none hard. Citations: `pilots/75/N2-P1-record.
 consumer.md`.
 
 **2. H3 — the n≥4 TL hunt** (the census #2; R4's deferred seed, PRECHARTERED:
-`worktrees/agent-08/research/pilots/41/H3-precharter.md` @ `b9e911cdac5f1c90` —
+`worktrees/agent-08/research/pilots/41/H3-precharter.md` @ `60278bd4b6e824bf` (the
+family-audit current read; sha chain `726e3d69`→`b9e911cd`→`7b76e8ce`→`60278bd4`) —
 H lands the final bytes). Two targets: **TARGET-C** (the two-fiber strand-free rank
 closure — both closed fibers of σ_q are permuted Walsh character tables; no d ≤ 7
 realization at either; non-tracial force at all n; eth's own σ covered — near-certain
@@ -146,7 +149,9 @@ Owner **R2 (agent-03) — one-writer rule: the 72-M1 files are R2's funnel (dirt
 R2's worktree; R2 is re-basing the stop-note in parallel); this charter names the
 seed, R2 executes.** Corrected scope (the census v2 correction block, authority =
 R1's `qa/iter4-review/r3-verification-tables.md` "72-M1 L3 — v16 CLOSING STATE,
-BYTE-VERIFIED" block @ `4e705f510a8c01f9`): `hasGlobalGap_of_fullSystemGap`,
+BYTE-VERIFIED" block @ `fb86e3e29743a527` — the batch-GG re-base of the `4e705f510a8c01f9`
+this slot originally cited; the v16 correction block intact at :2539):
+`hasGlobalGap_of_fullSystemGap`,
 `isAdmissible_ΦL`, `hamiltonian_gridDom_eq` = **sorryAx in ALL 16 `l3bd-run*` logs**
 (TRIAD NEVER — the flip narratives were tactic-level site-closures read as
 certifications; run 16: rc=1, 35 errors, 0 sorry-warnings, the error-recovery
@@ -180,7 +185,8 @@ drain-activation rule); the BGS-TB/Lamzouri full-text pass (NOT-WARRANTED; fires
 only on a consumer challenge to DECISION-2 = A); Liu-1 replay prerequisite (dormant,
 no consumer).
 
-**Bench-annex — 12-core (P0-PINNED; [IF-GO] parameterized on the conversion ruling).**
+**Bench-annex — 12-core (P0-PINNED; [IF-GO] parameterized on the conversion ruling).
+Carrier: R3 (agent-07), the P0's owner (A6 lineage).**
 R3's charter input is on file: `worktrees/agent-07/research/pilots/12/
 core-charter-input.md` @ `5f8facd4544f92a9` (109 lines; A6 lineage, 2026-11-20) —
 the P0-based S–M scoping: §1 the statement surface = `P0.lean` `3d924056ed4c3e2c`
@@ -256,14 +262,16 @@ stamps).
 | 1 | verdict-parameterization resolution | the [IF-GREEN]/[IF-NOT] branches in §2 items 1/3/4 resolve at the folds; the orchestrator may pre-decide branch policy (e.g. IF-NOT salvo ⇒ R6 diagnoses before any re-charter) |
 | 2 | bench conversions | 12-P0 / 11-M3 stay under the drain-activation rule (carried); any mid-wave conversion per the iter-5 DECISION-6 pattern |
 | 3 | AL article-eligibility pass ordering | if M3 GREEN: R2's S1–S4 pass fires at ladder-complete vs at article-draft time. Recommend (input): at ladder-complete (the 41H pattern — eligibility before drafting) |
-| 4 | L3 re-derivation scope + pricing (v2 correction) | **RESOLVED-BY-REBASE 2026-11-20**: R2's re-based stop-note @ `db872dc5fe076358` supplies the scope (3 form-level mechanical candidates, sufficiency unverified + the 4-decl derivation class at 3+ rounds w/ re-derivation risk; PARKED for iter-6 chartering, no fire this wave without re-charter); R1's correction block @ `4e705f510a8c01f9` remains the print-level authority; the pre-re-basis stop-note (`d562b2b4`) is NOT consumable |
+| 4 | L3 re-derivation scope + pricing (v2 correction) | **RESOLVED-BY-REBASE 2026-11-20**: R2's re-based stop-note @ `db872dc5fe076358` supplies the scope (3 form-level mechanical candidates, sufficiency unverified + the 4-decl derivation class at 3+ rounds w/ re-derivation risk; PARKED for iter-6 chartering, no fire this wave without re-charter); R1's correction block @ `fb86e3e29743a527` (the batch-GG re-base; block intact at :2539) remains the print-level authority; the pre-re-basis stop-note (`d562b2b4`) is NOT consumable |
 
 ## §7 Files (cross-references for the typeset pass)
 
-The census `novelty/iter6-seed-census.md` **v2 (L3-corrected 2026-11-20; v1 landed
-`e202244b` — superseded on seed #5/§2(b), H re-lands)**; the round-7 battery
-`novelty/round7-h3-battery.md` (`87659f5849b82e65`, base + §RE-RUN); R4's H3
-precharter (worktree agent-08; read @ `b9e911cdac5f1c90`, moving — H lands final);
+The census `novelty/iter6-seed-census.md` **v2 @ `e8efb8876b0cc4c8`** (L3-corrected
++ family-audit-refreshed 2026-11-20; v1 landed `e202244b` — superseded on seed
+#5/§2(b), H re-lands); the round-7 battery `novelty/round7-h3-battery.md` **@
+`5f0b57cc99556d4d`** (base + §RE-RUN landed `87659f58`; §M-PRE appended — H
+re-lands); R4's H3 precharter (worktree agent-08; family-audit current read @
+`60278bd4b6e824bf`, chain delta-noted — H lands final);
 the quota draft `qa/iter4-review/r9-quota-disposition-draft.md`; R2's dry-run
 `qa/iter5-closeout-gates-dryrun.md` (`4e5b4854`); R3's item-13 prestage
 `pilots/74/item13-prestage.md` (`1294a667`); the census's own source records

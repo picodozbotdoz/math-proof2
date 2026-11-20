@@ -1318,3 +1318,12 @@ untracked files are landed on main); retry at drain or fold into the close act.
   I5.6 KPI final-form 8/16 = 50% at equality. **The close act's instrument
   set is now COMPLETE** (gates + skeleton + stamps + refresh lists +
   rehearsal + landing audit + splice). R2 → close-support standby.
+
+## 2026-11-20 — iter-5 steady state, batch LL (H): R9's family audit + the refreshed instrument set
+
+- **R9's iter-6 family audit landed** (`r9-iter6-family-audit.md` `ba01dc32…`)
+  + the four refreshed files (5 shas 5/5): 12 guarded fixes across
+  census/charter-v5/quota/FB-2; battery unchanged. **F5 arithmetic
+  correction: third → SECOND consecutive unspent** (minting provenance
+  recorded; all cells now aligned). The close-relevant datum: the quota
+  draft's recommendation row now reads second-consecutive-unspent.
