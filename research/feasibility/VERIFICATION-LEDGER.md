@@ -421,5 +421,11 @@ tables tail — count at close governs); (2) the L3-INTEGRITY CORRECTION (author
 REPORT delta (`qa/REPORT-INPUTS-ITER5.md` §4) is the paste source for the close
 block's report splice, not this ledger.
 
+**KPI cell move (R1 unit 21, 2026-11-20, rides the 41H3 splice commit):** discovery
+8→9, articles 16→17 → **9/17 ≈ 52.9% — ABOVE the ≥half bar** (the iter-5 close basis
+8/16 = exactly-50% stands as history; the 41H3 ship = the THIRD discovery shipment,
+NEGATIVE-kind quota-free per the BANK-AS-NEGATIVE precedent; the 75-v3 revision adds
+NO ship — counts/KPI untouched by the v3 itself; row of record = r3-tables §12).
+
 — pre-staged lane R1, 2026-11-20, worktree agent-02 (base = main's ledger @
 `1c6da8b346c1abba` byte-identical; PREP-ONLY, no instrument executed herein).

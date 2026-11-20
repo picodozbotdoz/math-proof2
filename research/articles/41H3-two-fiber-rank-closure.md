@@ -259,21 +259,21 @@ fence).
 (the σ_q surface's home); tauceti `MarkovTrace.lean` / `Spin/Positive.lean`
 (read-only sibling, statement-tier citations only).
 
-## 9. Shipping gate (self-audit; DRAFT state — re-run at splice)
+## 9. Shipping gate (self-audit; RE-RUN AT SPLICE 2026-11-20 — the executed state)
 
 | # | rule | state |
 |---|---|---|
-| 1 | kind is a §0 article kind | PASS-shaped — NEGATIVE (the 41H family form); the kind call justified in §1; discovery-grade/quota-free per the 41H/78 precedents REQUESTED at the ship gate, not assumed |
+| 1 | kind is a §0 article kind | PASS — NEGATIVE (the 41H family form); **the kind call RULED at the ship gate 2026-11-20: discovery-grade QUOTA-FREE per BANK-AS-NEGATIVE + the 78/41H precedents (orchestrator); the no-gos unconditional kernel; the pre-solve CERTIFIED-NUMERIC billed (never kernel, never in proved counts) — exactly as R2's S4 verified** |
 | 2 | title free of project-internal tokens | PASS-shaped — mathematical content only ("dimension at most 7", "either closed fiber", "monomial-word search") |
 | 3 | status rows, closed vocabulary, binders listed | PASS-shaped — 5 rows; C3's binder column states the pigeonhole unfolding; the pre-solve row bills CERTIFIED-NUMERIC with the never-kernel parenthetical |
-| 4 | abstract ≤ 200 words, all five elements | PASS-shaped — 198 words (re-count at splice) |
+| 4 | abstract ≤ 200 words, all five elements | PASS — 198 words, re-counted at splice |
 | 5 | novelty table ≥ 2 rows, scoped "first" | PASS-shaped — 6 rows + the EMPTY class row carried in §4's scope statement; the M1 tauceti row is the sharpest |
 | 6 | no bracketed errata | PASS-shaped — provenance is §1 prose, told once |
 | 7 | no section contradicts another | PASS-shaped — §3's hunt-state corollary matches §7's open tier; the CERTIFIED-NUMERIC billing is consistent in the table, §3, §6 |
 | 8 | formal record table-only, no infra narration | PASS-shaped (register: "elementary certificates, nonelementary closure") |
 | 9 | internal vocabulary ≤ 3 glosses | PASS-shaped — "dossier", "battery", "pre-solve" glossed at first use |
-| 10 | citations spot-checked (5+) | PASS-shaped at draft — decl:line cites taken from `h3-s-run1.log`'s audit tail and `H3.lean`'s declaration list this session; battery rows at source per R9; re-verify ALL at splice |
-| 11 | README row updated in the same commit | NOT STARTED — ships at the splice (own row + counts arithmetic per the ship-gate ruling; the splice package pattern) |
+| 10 | citations spot-checked (5+) | PASS at splice — decl:line cites re-verified against `h3-s-run1.log`'s audit tail + `H3.lean`'s declaration list; battery rows at source per R9 (CONCUR 6/6); R2's S1–S4 pass `14c86d28` (against `200fa5bf` + the cosmetic delta `16307eca`, both cited) re-verified the evidence chain |
+| 11 | README row updated in the same commit | SATISFIED — in this splice commit (row-41H3 + counts 8→9 discovery-grade + the KPI cell 9/17 ≈ 52.9%, ABOVE the ≥half bar) |
 | 12 | superseded files marked | PASS-shaped — supersedes none; the companion stands (the forward-pointer row in 41H is the splice's option, not this draft's edit) |
 
 — DRAFT-FINAL v0.1, lane R7, 2026-11-20, worktree agent-10 (the D2 fill: the 41H

@@ -2787,3 +2787,28 @@ ITER-4 BASIS:            385/386 (§10.CENSUS (e))
 — census companion lane R1, 2026-11-20, worktree agent-02 (main @ `37cb520`; every
 cell byte-verified this pass). Supersedes nothing; the §10 companion stays closed
 history.
+
+
+## §12 — Iteration-6 verification rows (lane R1, opened 2026-11-20 post-close; ship events + day-1 folds land here; conventions carry from §11)
+
+**SHIP EVENT 1 — article-41H3 SHIPS, kind NEGATIVE discovery-grade QUOTA-FREE (the
+coordinator's ruling per BANK-AS-NEGATIVE + the 78/41H precedents; the ship-gate
+splice lands README row-41H3 + counts discovery 8→9, articles 16→17 via H):**
+
+| slot | artifact (sha256(16), class) | gate evidence | verdict | note cell |
+|---|---|---|---|---|
+| article-41H3 SHIP | `articles/41H3-two-fiber-rank-closure.md` @ draft-final `200fa5bf` + the row-6 cosmetic delta **landed `16307eca12b46217`** (byte-verified on main @ `4dbf33c`) | **R2's S1–S4 4/4 PASS `r2-41h3-s1s4-pass.md` `14c86d28`** (gated-at `200fa5bf`, delta-noted; on main) + **R9's round-7 H3 battery `5f0b57cc` §3 — the novelty CONCUR 6/6** (relay-cited; the n≥4 TL-hunt NEW-narrow verdicts of record) | **SHIPS NEGATIVE-kind discovery-grade quota-free — the THIRD discovery shipment of the 41 program's arc (41 DISCOVERY, 41H NEGATIVE, 41H3 NEGATIVE)** | S2's audit spine = **the 11 h3-s-run1 prints** (the pilot row: H3.lean `833dcff8`, §11's 41-H3 block); the **custody-gap DISCLOSED** (16 unprinted helpers) with the **BINDING RIDER: the audit tail extends to all 16 at the NEXT H3.lean edit's fire** (a ship-gate condition, in-draft §6) — the §10.9 print-gap precedent, honestly carried. The pilot's kernel evidence: run 1 GREEN first-shot (§11 row). KPI cell: **discovery 8→9, articles 16→17 → 9/17 ≈ 52.9% — ABOVE the ≥half bar now** (the equality-only pass of iter-5 superseded) |
+
+**SHIP EVENT 2 — article-75 v3 REVISE-IN-PLACE, then E9'd (revision-class; NO ship
+added; counts/KPI untouched by the v3 itself):**
+
+| slot | artifact (sha256(16), class) | gate evidence | verdict | note cell |
+|---|---|---|---|---|
+| article-75 v3 REVISION | `articles/75-abelian-assembly-zetaL-proportions.md` @ **`cb3da4ae8220d376`** (byte-verified on main @ `8680edc`; the E1–E8 apply per the editorial plan `ca753e25`; E9's README tail HELD on the pass, then released) | **R2's SPLICE-TIME S1–S4 PASS `r2-75v3-splicetime-pass.md` `74ef9e67`** (against the LANDED v3 bytes; F1 = the batch-MM N2-P1 gap, fixed at `7caddb3` pre-pass; abstract re-counted 201→200 exactly) | **REVISION-CLASS LANDED — the v3 ladder complete (v2→v3 revise-in-place; the NOT-A-SHIP standing box in-§0; E9's README row-75 tail updates the row WITHOUT touching counts/KPI)** | The v3's verification content (per the E-blocks): the §3.3 N2 discharge ledger + the honest remainder; the §6 formal-record rows incl. the N3 audit paragraph (358+48 all-⊆-triad — R1's own parses cited); the V2-import-substrate qualifier on Thms B′/B″; the §9 self-audit re-run. The pilot rows stand in §11 (74-P2 G2 GREEN + G3 PASS + P2-c TRIAD-VERIFIED run 20; the N2 SLOT-1 salvo rows) |
+
+*Fold note (R1 unit 21, 2026-11-20): both events byte-verified against main
+(`4dbf33c`: 41H3 @ 16307eca, 75v3 @ cb3da4ae, both pass files on main). The SPLICE
+commits (README row-41H3 + counts; the 75 E9 tail) land via H — these rows are
+splice-pending by convention (main-side at those commits; the KPI move 8/16→9/17
+rides the 41H3 splice). Ledger: the KPI line added to §11's standing references (the
+iter-5 close basis 8/16 = 50%-at-equality stands as HISTORY; the live cell = 9/17).*
