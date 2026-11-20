@@ -474,3 +474,50 @@ consumer** (none exists); NS-1 is KILLED (verdict COVERED — name-collision art
 candidate §5a); stale-note flags report-only. Close-out: the Iteration-4 adopted
 five-rule protocol (scoped final gates, gate-run persistence, INDEX reconciliation
 as a close gate, date discipline, staging-file supersession stamps).
+
+**Close-out record (2026-11-20).** Iteration 5 closed 2026-11-20 (orchestrator;
+close-completion commit this commit). Final pilot outcomes (§11 basis,
+machine-computed, D7 vocabulary): tables N = 22 — **15 GREEN-triad / 2
+honest-partial / 1 NOT-GREEN-honest (parked-unfired)**; every landed row triad-only
+`[propext, Classical.choice, Quot.sound]`, 0 sorryAx; whole-tree **605
+print-verified** triad-clean decls (the 386/386-equivalent Iteration-4 basis + 219
+Iteration-5 growth: 77-T1 8 + 41-Core 30 + 41-H1 2 + 41-H2 4 + A2 89 + N2-P1 17 @
+run-31 + N2-P3 3 + P2-c 11 + P3-d V2 5 + P3-e 2 + P2-d 2 + eta-r1 6 + eta-r2 4 +
+eta-r3 2 + RedM3 3 + M-arc 1 + 72-M1-T3 3-clean + 74-P2 16 @ run-20 + H3 11;
+machine stages + AxFC custody cover the unprinted-helper surfaces per the ledger;
+residual = the L3 contaminated four — `hasGlobalGap_of_fullSystemGap`,
+`isAdmissible_ΦL`, `hamiltonian_gridDom_eq`, `interface_areaLaw_uniformAreaLaw`,
+re-derivation class, named) + **18 donor rows** triad at their donor pins (the
+P3-d endpoint set proved ON the ZetaZerosV2 donor tree). Sweep:
+FINAL-SWEEP-PLAN-ITER5 Steps A–B executed at close — Step-A certificate **66 = 52 −
+3 + 17 exact, zero unexplained** (ENTRY 14: −3 = the al3d/P0 find-#6 amendment
+sorry-free; +17 = the 12-family staged-unfired statement stubs, in-record); Step-B
+**60 stages** (make_axcheck `048b501f`, py_compile rc=0, 0 duplicate names) + the
+AxFC custody records, 0 sorryAx. Gates G1–G8 executed on the exact closing tree
+(`qa/iter5-closeout-gates.md` §G8, committed with this close block). **Discovery
+ledger: article-41 SHIPPED** (splice `cb87a67`, DISCOVERY quota-free — the
+Graves–Cayley sign alternation as the q=1 fiber of the (1−q)-defect identity on the
+antipodal stratum; S1–S4 4/4; the S3 honesty sentence in-text) **+ article-41H
+SHIPPED** (splice-2 `cc71841`, post-edit sha `cb4d4fae`, kind NEGATIVE
+discovery-grade per BANK-AS-NEGATIVE — the 3-strand TL/Jones hypothesis closed
+FALSE). **75-N2's arc CLOSED GREEN end-to-end** (P2-a/b + P3-a/b/c/d/e + the ℚ
+endpoint triad on the V2 donor tree + the optional P2-d hEχ rung — SLOT-1 with NO
+remainder; the N3 full-coverage audit 358+48 records, 0 sorryAx, all ⊆ triad).
+Quota cap-N = 1 **UNSPENT** (DECISION-1: spend-only-if-executed; the FB-2 vs FB-4
+vs unspent contest **never chartered or executed — the SECOND consecutive unspent
+cycle** per the F5-corrected disposition, minting provenance recorded:
+the two-strike rule was minted at Iteration 4, iter-4 was the FIRST cycle under
+it). KPI: **flow 2/2 = 100% discovery-grade; stock 8/16 = exactly 50% — the ≥half
+bar PASSES at equality.** Carried to Iteration 6 (owners recorded): the L3
+re-derivation remainder (stop-note `db872dc5` = the re-charter input); η-r4 parked
+at T2/T3 (fix-batch-10 unfired) + rungs 5–8 in the amended band; the AL-M3
+one-fire inheritance (P0 `33c75942` + A1 `a8feb25b` + A2 `221eb30b`); the H3
+M-tranche BANKED + the §S4 open tier (precharter + battery + pre-solve on main;
+article decision at open); the article-75 v2/v3-candidacy decision
+(`v2-candidacy-dossier.md`); the FB-2 vs FB-4 contest (precharter + core-charter
+input landed); 74-T3 OPEN-GATED; debts f/h/l; stale wrappers; the iter-6 bench =
+census v2 + charter TYPESET-DRAFT v6 + the 12-core day-1 STAGED-UNFIRED set.
+Token/annotation census: **7 staging stamps flipped at close** (+ the splice-.diff
+census-exclusion ruling: payload-not-instrument); annotation census = 1 baseline
+token, dispositioned CLOSED-by-cycle (the η-port session's landing); the
+fold-once queue DRAINED (all six slots folded + item-13 GREEN at run 20).

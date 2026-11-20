@@ -1,4 +1,6 @@
 # ITER-5 G7(a) STAMP PREP — paste-ready supersession/execution stamps (lane R2, 2026-11-20; PREP ONLY)
+> CONSUMED 2026-11-20 — consumed by the G7(a) close census: all 7 blocks applied at the
+> close commit + the splice-.diff census-exclusion ruling adopted. Stamp per §G7(a).
 
 Discharges dry-run blocker #6 (`qa/iter5-closeout-gates-dryrun.md` BLOCKERS, "G7(a)
 stamp debts"). **Nothing executed herein** — H flips these in at the close act (or at

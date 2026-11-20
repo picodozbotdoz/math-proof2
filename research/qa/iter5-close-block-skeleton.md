@@ -1,4 +1,6 @@
 # ITER-5 WAVE-CLOSE BLOCK SKELETON (lane R2, close-prep, 2026-11-19; PREP ONLY)
+> CONSUMED 2026-11-20 — consumed by the close block: Instruments A+B executed at the
+> close commit (all 13 items filled; the [DATE-CLOSED]-amends-to-actual ruling applied).
 
 The complete close instrument set = this skeleton + `qa/REPORT-INPUTS-ITER5.md` §4
 (the paste-ready §I5 delta) + `qa/iter5-closeout-gates.md` (G1–G8, PREP-ONLY). Every
@@ -109,7 +111,7 @@ conversion per DECISION-6); 74-T3 (OPEN-GATED); debts f/h/l; stale wrappers;
 7. `[QUOTA-STATE]` / `[QUOTA-OUTCOME]` — UNSPENT stands unless an FB executed;
    DECISION-1 cites.
 8. `[KPI-SENTENCE]` / `[STOCK-COUNT]` — from `REPORT-INPUTS-ITER5.md` §3 refreshed
-   at close (prep: flow 100%, stock 7/15 ≈ 47%).
+   at close (prep: flow 100%; final at close: flow 2/2, stock 8/16 = 50%).
 9. `[SALVO-2-SET]` — the carried list (prep-default members above; prune/extend).
 10. `[CENSUS-SENTENCE]` — the G7 annotation/stamp census result at close.
 11. `[I5-SPLICE-STATE]` — the §I5 fold's commit (wave-close per the leaning;

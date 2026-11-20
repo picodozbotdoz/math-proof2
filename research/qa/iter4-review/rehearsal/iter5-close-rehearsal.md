@@ -1,4 +1,7 @@
 # ITER-5 CLOSE REHEARSAL — the 13-item checklist walkthrough + blocker-map refresh (lane R2, 2026-11-20; REHEARSAL ONLY)
+> CONSUMED 2026-11-20 — consumed by the close act: the §D choreography executed at the
+> close commit (drain check passed, item-13 GREEN, gates G1-G8, the I5 splice, the
+> skeleton fill). Stamp per §G7(a).
 
 Purpose: **when the fold-once trio (R6 salvo / R5 eta pair / R8 M3) drains, the
 close act is fully mechanical.** This is the walkthrough of the 13-item close-block

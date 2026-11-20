@@ -213,3 +213,22 @@
 #   edgeBoundary + T1/T2/L3a; submatrix_mulVec_ec never print-audited. The 0-token
 #   classification and all three guard shas STAND. Corrected row of record:
 #   r3-verification-tables.md §11 (the corrected L3 block).
+#
+# ENTRY 14 (H, 2026-11-20 — the SWEEP-TIME declaration at the close act, @ the
+# closing tree; G1 final certificate run): classifier = **66 REAL-TOKENS = 52 − 3
+# + 17, ZERO unexplained.**
+#   −3: pilots/al3d/P0.lean — the find-#6 amendment (batch-YY `d6e211b`, P0
+#     `33c75942`) made the file SORRY-FREE in-record ("This file is now
+#     sorry-free"; the three frozen-def stubs removed; probe-convention class
+#     unchanged). Declared in M0-record.md's run-5/final-park sections.
+#   +17: pilots/12/P0.lean (7) + pilots/12/CORE.lean (10) — the DECISION-6
+#     12-family STAGED-UNFIRE statement stubs ("sorry -- P0 stub" / "CORE stub"
+#     per line), declared in P0-record.md ("the 7 sorries are the expected
+#     statement-shape stubs, probe-convention, NOT proof artifacts") +
+#     core-day1-staging.md ("expected sorry=10"); fires ONLY on the iter-6 day-1
+#     signal (launch-order convention; the item-13 override preempted).
+#   All other files byte-stable vs the ENTRY-13 composition (35 probe + 3 lp +
+#   4 71/P0 + 7 73/P0 = 49 unchanged); the eta/N2/H3/11-M3 landings this
+#   session are ZERO-token (verified in this run: no hits in zzv2-lam rungs,
+#   75/*, 41/H3, 11/RedM3, al3d A1/A2).
+# Certificate of record at close: 66 = 52 − 3 + 17 + 0 UNEXPLAINED.

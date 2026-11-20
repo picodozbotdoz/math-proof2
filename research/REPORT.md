@@ -572,3 +572,127 @@ margin — new-article class 100% discovery-grade (75 v2, 78); cap-N = 1 UNSPENT
 contest = Iteration 5); stock health line 6/14 ≈ 43%.** Token census 40/46 closed
 in-cycle / 6 retargeted / 0 unrulled. Carried items with owners: the STATUS closed
 block (same date); evidence pointers `qa/iter4-review/r3-verification-tables.md` §10.
+
+## Iteration 5 addendum (opened 2026-11-19; closed 2026-11-20 — this commit)
+
+### I5.1 Charter and session
+
+Same raised bar (R2 S1–S4 + the iteration-4 template; two-strike cap N = 1 per cycle,
+fresh per DECISION-3; ≥ half of shipped articles discovery-grade); pre-consolidated
+seeds; rulings DECISION-1/3/4/6 at open (`RESEARCH.md:272–:282`). Day-1 staged fires
+all GREEN at `e309edd`: M-arc, 41-P0, η-pin-probe (Option A, quota-free), Liu B_new
+P0 (statement-level only), AL M0-rebuild, N2-P2 to budget. The wave ran PAST the
+2026-11-19 external termination (lanes dead, tree clean at `3b12eb4`): the
+orchestrator-direct restart (SESSION END map) re-fired the in-flight set and landed
+batches F–CCC; every claim below is landed-bytes.
+
+### I5.2 Pilot outcomes (final; the fold-set roll-up)
+
+GREEN/closed this cycle: **41-core SHIPPED** (article-41, I5.3); **41-(H)
+tranches 1+2 → BANK-AS-NEGATIVE, SHIPPED** (article-41H, I5.3); **77 both-GREEN**
+(T1 r11 8/8 + T2 r12 8/8, the `[Fintype k]` repair — the iter-4 386th residual
+discharged, `c74ac33`); **AL M0→M2 CLOSED GREEN** (`61af175a`; both P2-d parked
+targets proved; the suppressed-error-in-fused-iff lesson); **N2 P2-a GREEN run 26 +
+P3-a/b/c GREEN** (P3-b/c first-shot, `f9bd28c5`); **74-P2 G2/G3 GREEN** (sharp
+constants `Var ≤ 2σ²` + the class form) with **P2-c final-parked elaboration-complete
+0-sorry** (`531a9eb7`; audit-tail fire = close item 13 — **EXECUTED GREEN at run 20**:
+the full tightness set TRIAD-VERIFIED, P1's 7 + all nine Part-P2 theorems each
+[propext, Classical.choice, Quot.sound], zero sorryAx, one-fire grant spent,
+`6c6a251f` fired / park-of-record `531a9eb7`); **M-arc GREEN** (`7addcf00`,
+hv-as-binder); **η rung-1 GREEN exit** (`5b04304a`, strict-OK 6/6); **H3 S-rung
+GREEN first-shot** (Theorem C S-part both fibers, `833dcff8` = fired, `h3-s-run1.log`
+`6dc794e7`, record `8b1bd589`; the q=+1 certificates NEW; every d ≤ 7 host excluded,
+TL₄ dim-14 minimal); **12-P0 GREEN run 2** (the DECISION-6 idle-lane conversion
+exercised, `3d924056` set, batch DD). Honest partials/stops: **72-M1 L3 re-based
+print-level** — certified set `toGrid_star_dotProduct_self` (r6) + `eig_toGrid` (r5)
++ `edgeBoundary_le_boundaryCard` (r9) + T1/T2/L3a; `hasGlobalGap`/`isAdmissible_ΦL`/
+`hamiltonian_gridDom_eq`/`interface` = re-derivation class (16 runs, zero math
+defects, ZERO triad prints — the flip narratives retracted; stop-note §PRINT-LEVEL
+RE-BASE `db872dc5` = the Iteration-6 charter input). **The re-fired trio, all
+folded:** (R6) **P2-b GREEN 17/17** (run 31, the dead-fire recovered) + **P2-c
+confirmation GREEN 11/11 @ run 8** (`2cca447d` the GREEN state) + **P3-d GREEN +
+P3-e FIRST-SHOT GREEN** (`zetaL_rat_two_thirds_landed_of_DZDF` the composed N2-d
+card; the ℚ endpoint `zetaL_two_thirds_landed_ℚ` TRIAD on V2 `2613cfd2`; the N3
+audit 358+48 records 0 sorryAx all ⊆ triad; the optional P2-d imprimitive-hEχ rung
+GREEN — **SLOT-1 complete with NO remainder**; batches MM/RR). (R5) **η rungs 2+3
+EXIT GREEN** (strict-OK 4/4 + 2/2 all-triad, `a9c6b59f`/`21fb0c4e`; the re-fire
+FALSIFIED the dead-fire's expected verdicts — the parked states were RED, five
+fix-batches; lemma A = the (ii-c′) finding kernel-proved; the λ=1/2 anchor
+bit-for-bit; the 3.37M-unfolding whnf bomb decoded + dead; **r4 parked at T2/T3**
+with fix-batch-10 unfired + residuals pre-decoded; batch AAA). (R8) **AL-M3
+cap-reached honest-partial PARK** (6 fires, descent 27→13→11→2→2, every error class
+mechanical, zero math defects; the find-#6 statement-layer discovery — frozen-def
+sorryAx propagation — + its proof-only amendment, P0 now sorry-free `33c75942`;
+the iter-6 inheritance = ONE fire at the fixed shas P0 `33c75942` + A1 `a8feb25b`
++ A2 `221eb30b`; the linter lift DONE in-bytes; batch YY).
+
+### I5.3 Discovery ledger (final)
+
+**Two shipments, both discovery-grade, both quota-free:** **article-41** (splice
+`cb87a67`, kind DISCOVERY — the Graves–Cayley sign alternation as the q=1 fiber of
+the (1−q)-defect identity on the antipodal stratum; S1–S4 4/4 with the S3 honesty
+sentence in-text) and **article-41H** (splice-2 `cc71841`, kind NEGATIVE
+discovery-grade per the BANK-AS-NEGATIVE ruling 2026-11-19, the 78 precedent — no
+3-strand TL/Jones dictionary realizes the σ_q family: certified traciality + rank
+obstructions close the 3-strand hypothesis FALSE; post-edit sha `cb4d4fae`; the
+n ≥ 4 host hunt re-scoped and pre-chartered as Iteration-6's H3 program,
+precharter `60278bd4` + battery `5f0b57cc`).
+
+### I5.4 Engineering-billed (never articles)
+
+M-arc (plumbing/completion-value); Liu B_new statement-port (citation-only; the
+batch-U disposition: verdict OWED-and-DELIVERED, no re-fire); η-pin + rungs
+(Option A record-billed); AL M0→M2 rebuild (+ the M3 honest-park handoff above); N2
+P2/P3 rungs (+ the salvo GREEN set above); 74-P2 G2/G3 + the P2-c park (run-20
+tightness release); 77 completion; 12-P0 + the 12-core day-1 staging (bench
+conversion; STAGED-UNFIRED for iter-6); L3's injection-compression ΦL architecture
+(banked clean through the certified set; the contested four re-derivation).
+
+### I5.5 Rulings ledger (this iteration)
+
+DECISION-1/3/4/6 at open; hv SUPPLIED-AS-BINDER; 74-T3 OPEN-GATED (carried);
+README-date keeps "ratified 2026-11-18"; **pin-stays** (mathlib ff2494ea; WeakPNT =
+external-citation class — the clock consequence); BkClass-nonneg adjudicated;
+**(H) promotion** (`4ef1bad`); **BANK-AS-NEGATIVE** (`c25bf25`); the
+completion-grant pattern exercised (L3: 8+3+2+3 across four grants); **the L3
+print-level correction + re-charter** (site-closure is not certification — clean =
+own triad print + regression leg; the parse-trap lesson: token-validated joins
+only; L3 PARKED for Iteration-6); **quota-disposition** (`ddec4089`: UNSPENT;
+**second**-consecutive-unspent per the F5 counting correction — the two-strike
+FINAL rule was MINTED at Iteration 4, so the draft's "third" miscounted the
+minting); the liu-bnew OWED/MOOTED determination;
+DECISION-6's 12-P0 idle-lane conversion exercised; **the H3 M-tranche BANK ruling**
+(no M/S2-formality fire this wave; certificate-class-computation designation; wave
+outcome = S-rung GREEN + banked raised-negative + the open tier); **the
+echo-backtick standing lesson** (provenance headers heredoc-quoted).
+
+### I5.6 KPI (two-strike ratio — final)
+
+**Met AT EQUALITY: discovery share 8/16 = exactly 50%** (8 discovery-grade article
+rows — 01, 30, 32, 41, 41H, 42, 75, 78 — over the 16 article files; the ≥half bar
+passes at equality; mid-wave stock 7/15 ≈ 47% → splice-2 moved both cells by one).
+**Flow: 2/2 = 100% discovery-grade** (41 DISCOVERY + 41H NEGATIVE-kind). **Quota
+cap-N = 1 UNSPENT — the SECOND consecutive unspent cycle** (DECISION-1
+spend-only-if-executed; the FB-2 vs FB-4 contest never chartered/executed; per the
+disposition draft `ddec4089` as corrected by R9's family-audit F5 — minting
+provenance: the two-strike FINAL rule was minted at Iteration 4, iter-4's UNSPENT
+close was the FIRST cycle under it, this close is the SECOND consecutive; an
+Iteration-6 unspent would be the third; the draft's "third" miscounted and is
+corrected here; orchestrator-confirmed at close).
+
+### I5.7 Verification and close (cross-references)
+
+§11 tables = `qa/iter4-review/r3-verification-tables.md` §11 (R1's corrected L3
+block + the six verdict folds ALL LANDED through the item-13 upgrade `b7022079`;
+the manual tally CLOSED 15 GREEN / 2 honest-partial / 1 parked-unfired = 18 ✓).
+Step-A certificate **66 = 52 − 3 + 17** (ENTRY 14, the sweep-time declaration:
+−3 = the al3d/P0 find-#6 amendment made that file sorry-free in-record; +17 = the
+12-family staged-unfired statement stubs, declared in their landed records; ZERO
+unexplained; `stepA-incremental-iter5.log`). TARGETS **60 rows @ `048b501f`** (the
+:83 72-row guard re-bound `aed63101` by R1's verdict folds; the 75-family rows +
+the 74_P2 GREEN class landed; py_compile rc=0, 0 duplicate names). Gates G1–G8 =
+`qa/iter5-closeout-gates.md`, executed on the exact closing tree with the §G8
+persistence table; the close-act walkthrough = `qa/iter4-review/rehearsal/
+iter5-close-rehearsal.md`; the landing audit = `qa/iter4-review/
+r2-landing-audit-tx.md` (CLEAN 26/26; its two not-yet-landed flags both discharged).
+[DATE-CLOSED] = 2026-11-20, this commit.

@@ -63,7 +63,7 @@ Rows of record and their D7 classes as of this pre-stage (chains resolved):
 | 13 | 72-M1 L3 — v16 CORRECTED block (R2) | `72-M1/P72M1T3.lean` @ aed63101 | honest-partial | the certified clean set = 3 + T1/T2/L3a; 4 contaminated named |
 | 14 | N2-P3 three-theorem GREEN (R6) | `75/N2-P3.lean` @ f9bd28c5 | GREEN-triad | P3-complete [PENDING the salvo fold — class may move] |
 | 15 | eta-rung-1 GREEN EXIT (R5) | `zzv2-lam/eta-r1.lean` @ 5b04304a | GREEN-triad | donor-tree class |
-| 16 | 74-P2-c FINAL PARK (R3) | `74/P2.lean` @ 531a9eb7 | honest-partial | elaboration-COMPLETE, triad PENDING item 13 |
+| 16 | 74-P2-c — **FLIPPED 2026-11-20 (R1 unit 19, item 13's fire): TRIAD-VERIFIED AT RUN 20** (16/16 prints exactly triad, 0 sorryAx) | `74/P2.lean` park `531a9eb7` / fired artifact `6c6a251f` | GREEN-triad | G2 GREEN + G3 PASS + P2-c run-20; 20 runs, zero math defects |
 | 17 | 41-H tranches 1+2 (R4) | `41/H1.lean` + `H2.lean` | GREEN-triad | BANK-AS-NEGATIVE; article SHIPPED cc71841 |
 | 18 | N2-P2c parked (R6) — **CONVERTED 2026-11-20 (R1 unit 16): P2-c GREEN 11/11 @ `2cca447d` (runs 4–8)** | `75/N2-P2c.lean` @ 2cca447d | GREEN-triad | `thmE_dyadic_to_cumulative` closes; the hUnb binder named-honest |
 | 19 | eta-r2/r3 pair — **CONVERTED 2026-11-20 (R1 unit 18): rungs 2+3 EXITS GREEN @ a9c6b59f / 21fb0c4e** (strict-OK 4/4 + 2/2, all exactly triad; the falsified-then-earned history folded) | `eta-r{2,3}.lean` @ a9c6b59f/21fb0c4e | GREEN-triad | DONOR-TREE class; lemma A = the amendment-2 FINDING's theorem |
@@ -76,8 +76,10 @@ QUEUE IS DRAINED; step 4's sum check applied):** GREEN-triad = rows 1, 2, 4, 5, 
 9, 14, 15, 17, 20, 18, 21, 19 = **14**; honest-partial = rows 12, 13, 16 = **3**;
 NOT-GREEN-honest (parked-unfired) = row 22 = **1**; total classified 14+3+1 = **18 ✓**
 (+4 chain-history rows excluded by step 2: rows 3, 7, 10, 11 — the 22-row table
-closes: 18 classified + 4 history = 22 ✓). Remaining close-time moves: item 13's audit fire may move row 16 (74-P2);
-nothing else pending — re-run the sum check after any move.
+closes: 18 classified + 4 history = 22 ✓). Item 13's audit fire EXECUTED 2026-11-20 (R1 unit 19): row 16 FLIPPED to GREEN.
+**FINAL DRAINED COUNT: 15 GREEN / 2 honest-partial (rows 12, 13) / 1 parked-unfired
+(row 22, eta-r4) = 18 ✓ (+4 history = the 22-row table closes). NO close-time
+verdict moves remain.**
 
 — pre-staged lane R1 (verification-integrity), 2026-11-20, worktree agent-02. The
 `[TALLIES-*]` numbers H cites at close come from the refreshed run of THIS procedure

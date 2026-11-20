@@ -2646,6 +2646,24 @@ CONVERTS to the final park; P2 guard `4425be89` → `531a9eb70f9871ba`, 1,489 Lo
 |---|---|---|---|---|
 | 74-P2-c final park (R3) | `pilots/74/P2.lean` `531a9eb70f9871ba` (staged-sha-guarded; diff vs the run-18 base = exactly ONE deleted line, verified pre-fire in the log header) | `logs/p2c-run19.log` (FIRE-ONCE, salvo item 2b; wall 54 s, samples=0, within SPEC; run ledger 19 = `p2-runs1-11` [G2] + `p2c-runs12-16` + run 17 + run 18 + run 19) | **elaboration-COMPLETE, 0 sorry — NOT-GREEN at rc=1 = the audit-tail namespace placement ALONE: 13 errors, ALL at lines 1477–1489, ALL `#print axioms` resolutions failing against the ROOT namespace (the prints sit AFTER `end CrossMath.Pilot74P1` — the unit-4 assembly regression of the run 10→11-fixed class, re-introduced by the p2c body's own `end`+tail block). ZERO body errors — every Part P2 decl (mgfBound_var_sharp, t1c_sharp, famN_spectrum/varK/W/Mdev/inClass, t4_floor_achieved, t4_not_littleO, CertValidClass/BkClass) elaborates kernel-clean** | **AUDIT STATUS — HONEST: the Part P2 theorems' TRIAD status is UNVERIFIED (the axiom prints never resolved — a claim of record is elaboration-clean, NOT proof-certified; the N2-P0 erratum convention). The completion, NOT fired per the FIRE-ONCE terms: move `end` after the 13 print lines (or fully qualify) — rc=0 + the full-coverage audit then expected.** Charter item 2 CLOSED (two-fire history + **audit-pending at close = CLOSE-CHECKLIST ITEM 13**, `iter5-close-block-skeleton.md`; the audit-tail move + ONE audit fire at wave-close, R3 on the close signal; charter `40eee946` + record `aaf521b8`). G2 state of record `49b808f3` preserved log-cited (`p2-runs1-11.log`). The sweep verdict class stays honest-partial until that audit fire; guard → `531a9eb7` |
 
+**74-P2-c ITEM-13 UPGRADE — TRIAD-VERIFIED AT RUN 20 (R3's close-signal audit fire,
+worktree agent-07 2026-11-20, riding H's close commit — byte-verified R1 unit 19;
+`p2c-run20.log` `6f19672eed6f8e86`): rc=0, ZERO errors, sorry=0, wall 36 s, OVER=0
+(app crossmath-pilot-74p1 warm, oleans 8710 @ ff2494ea). The full-coverage audit
+EXECUTED and RELEASES the PENDING status: P1's 7 + ALL NINE Part-P2 theorems —
+`mgfBound_var_sharp`, `t1c_sharp`, `famN_spectrum`/`varK`/`W`/`Mdev`/`inClass`,
+`t4_floor_achieved`, `t4_not_littleO` — EACH exactly
+[propext, Classical.choice, Quot.sound] (R1's independent parse: 16/16 distinct
+prints, ZERO sorryAx); the four #check surfaces echo clean; cosmetic warnings only
+(:1360 if_neg rename + :1388/9 h4-tail notes — the run-19 residue class). ROW OF
+RECORD UPGRADES: 74-P2 = G2 GREEN (triad-verified run 11) + G3 PASS + **P2-c
+TRIAD-VERIFIED AT RUN 20** (the full tightness set: family-on-parabola + the
+θ₀ = 1/(1024·e) membership + floor-achieved + not-littleO + the adjudicated
+nonneg-BkClass). Park of record `531a9eb7`; artifact-at-fire `6c6a251f` (the park +
+the pre-staged namespace move — both shas of record; P2-record `07132d938f3a7922`);
+G2 state `49b808f3` preserved log-cited; 20 runs, zero math defects. Tally row 16
+FLIPS parked → GREEN.**
+
 *Fold note (R1, 2026-11-19, consolidated @ a175b1d): all five byte states classifier-
 scoped — **0 REAL-TOKEN each** (certificate UNCHANGED 52+0); H2 = the inert-delta
 class (fired 95343839 + comment-only → on-disk 3bc81701). *
@@ -2725,7 +2743,7 @@ record):**
 | `pilots/zzv2-lam/eta-r1.lean` `5b04304a53a5b849` | **6/6 strict-OK triad** (7 decls = 6 pub + 1 priv) | `eta-r1-run3.log` (DONOR-TREE class — verdict of record = the run log, zzv2-P1 precedent) | none beyond the donor-tree convention |
 | `pilots/10/M-arc.lean` `7addcf0029ea06e7` | **+1 Part M theorem over the embedded L5 basis** (`exists_tm_padded_space`, hv SUPPLIED-AS-BINDER; rc=0, 0 sorry) | `marc-run1.log` GREEN r2 | SINGLE-ANCHOR class: L5 verbatim inside (= §10.26's 45/45 + C2-swept carries, NOT recounted); 41 privates + 281 carry → custody at sweep |
 | `pilots/72-M1/P72M1T3.lean` `aed631015beb38d6` (v16) | **printed 7: 3 triad + 4 sorryAx** (the corrected L3 block's table = the census of record: L3b since run 6, eig_toGrid run 5, edgeBoundary run 9; hasGlobalGap/isAdmissible/hamiltonian/interface NEVER triad in any print) | `l3bd-run16.log` full audit (FAIL rc=1 errors=35 — sorryAx = error-recovery) | `submatrix_mulVec_ec` NEVER print-audited (print-gap); the unprinted remainder → custody at sweep; **L3-INTEGRITY CORRECTION governs (r3-tables §11 corrected block; R2 re-basis owed)** |
-| `pilots/74/P2.lean` `531a9eb70f9871ba` (final park) | **triad prints UNRESOLVED at the park** (rc=1 = the 13-line audit-tail placement alone; 0 body errors, 0 sorry) — G2 state of record `49b808f3`: P2-a/P2-b publics triad + P1 heritage (7 pub + 24 priv elim, §10.31) | `p2c-run19.log` + `p2-runs1-11.log` | **whole-file triad = PENDING close-checklist item 13** (the audit fire; R3 on the close signal) |
+| `pilots/74/P2.lean` `531a9eb70f9871ba` (final park) | **triad prints UNRESOLVED at the park** (rc=1 = the 13-line audit-tail placement alone; 0 body errors, 0 sorry) — G2 state of record `49b808f3`: P2-a/P2-b publics triad + P1 heritage (7 pub + 24 priv elim, §10.31) | `p2c-run19.log` + `p2-runs1-11.log` | **whole-file triad VERIFIED at run 20 (item 13, 2026-11-20): 16/16 distinct prints exactly triad, 0 sorryAx — `p2c-run20.log` `6f19672e`** (park `531a9eb7` + the staged tail-move artifact `6c6a251f`) |
 | `pilots/liu-bnew/P0.lean` `20ac66718a932e6c` | **2/2 bridges triad in-run** | `p0-run2.log` GREEN r2 | statement-layer — NEVER a Step-B stage (probe class, (d)) |
 | `pilots/41/H3.lean` `833dcff84309c986` (S-rung; worktree-of-record, main-side at H's landing) | **11/11 printed** (5 × [propext] certificates + 6 × full-triad) | `h3-s-run1.log:53–:63` (GREEN first-shot, errors=0 sorry=0, wall 62 s) | **16 unprinted theorems** → AxFC custody at sweep (print-gap class) |
 | `pilots/75/N2-P2c.lean` `2cca447d7c2a29c8` (worktree-of-record, main-side at H's landing) | **11/11 triad-clean, 0 sorry** (56 distinct names printed in-run, ⊆-triad, 0 sorryAx) | `n2-p2c-run8.log` (runs 4–8 fix-loop; wall 96 s, one OVER-mem mmapped sample) | N2P3V2's privates nonexistent (11 publics); the N3 audit carries N2P2c at these bytes (44 records) |

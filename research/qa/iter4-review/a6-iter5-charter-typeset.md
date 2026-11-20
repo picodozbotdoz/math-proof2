@@ -1,4 +1,7 @@
 # A6/R3 — Iteration-5 charter TYPESET (exact splice text for the orchestrator's RESEARCH.md pass)
+> APPLIED 2026-11-19 — §SPLICE applied as `research/RESEARCH.md` §Iteration 5 at the
+> opening commit `e309edd` (splice payload `a6-iter5-research-splice.diff`). The charter
+> text of record is RESEARCH.md; this file is the applied staging original.
 
 Lane R3 (A6 lineage, worktree agent-07), 2026-11-19, wave 4. This document is the
 typeset-ready §Iteration 5 section: §SPLICE below is the exact text H appends to

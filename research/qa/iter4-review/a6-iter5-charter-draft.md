@@ -1,4 +1,8 @@
 # A6 — Iteration-5 charter TYPESET-DRAFT v1 (working consolidation for the orchestrator's typeset pass)
+> SUPERSEDED 2026-11-19 — superseded by the typeset charter (`a6-iter5-charter-typeset.md`
+> §SPLICE), applied as `RESEARCH.md` §Iteration 5 at the opening commit `e309edd`
+> (pre-consolidated open: no ITERATION5-{SCAN,SEED-DOSSIERS,CHARTER-DRAFT,CHARTER-SPLICE}
+> family exists). Stamp per `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane A6 (worktree agent-07), 2026-11-18, wave 3. This is the merged working draft the
 orchestrator typesets into `RESEARCH.md` §Iteration 5 (spliced per the Iteration-4

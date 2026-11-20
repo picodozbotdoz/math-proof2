@@ -1,4 +1,7 @@
 # A7/R7 — article-41 splice package (paste-ready; pre-staged for the orchestrator's post-R2 signal)
+> EXECUTED 2026-11-19 — executed by H as the article-41 splice `cb87a67` (the §1–§5
+> flips applied in-commit; §9 box-11 SATISFIED; README row-41 + counts 6→7). Stamp per
+> `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane R7 (A9 lineage), 2026-11-19. Purpose: make the article-41 splice MECHANICAL. The
 ship-gate chain (per the batch-6 record, main `35bd210`): R9's 41-battery **FINAL

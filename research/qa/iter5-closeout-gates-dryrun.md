@@ -1,4 +1,6 @@
 # ITER-5 CLOSE-OUT GATES — DRY-RUN against main @ `a6ad33d` (lane R2, 2026-11-20; EVALUATION-ONLY)
+> CONSUMED 2026-11-20 — consumed at close: blockers #1-#7 all discharged by the landed
+> folds + the formal gate run; the addendum's refresh list executed. Stamp per §G7(a).
 
 Scope discipline (the tasking verbatim): **no gate executed, nothing fired.** Every
 command below that overlaps a gate form (the sorry-token classifier, the date greps,

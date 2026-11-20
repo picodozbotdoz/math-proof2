@@ -1486,3 +1486,29 @@ replaces, the parse-trap class.)
   falsified-then-earned. **Only item-13's fire remains as a close-time
   verdict move** (may flip tally row 16). On its landing: the full §D
   choreography executes (gates → §I5 splice → skeleton fill → close commit).
+
+## 2026-11-20 — THE ITERATION-5 CLOSE ACT (H; the §D choreography, single close commit)
+
+Executed per the orchestrator's close-sequence relay on the drained state (the
+six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
+1. **G1** classifier: **66 = 52 − 3 + 17, zero unexplained** (ENTRY 14 appended:
+   −3 = the al3d/P0 find-#6 amendment [in-record sorry-free]; +17 = the 12-family
+   staged-unfired statement stubs [in-record]).
+2. **G2** the Step-B batch fired (the 70-stage axcheck, app semraker, wall 897 s,
+   cpu 1.78 IN-SPEC, OVER-mem anon=0): **61/70 OK all 0-sorryAx ⊆ triad; 9 FAIL
+   in declared classes** (donor-pin 77_T1; donor-tree 42_M4b; the N2P1
+   override-stale trio — the one mechanical follow-up, OVERRIDDEN w/ owner R1,
+   carried; the AL3D M3-park trio; the L3 v16 park). Transcript rescued w/
+   provenance → `axcheck-iter5-close-run1.log` `b3107e35`.
+3. **G3** drift: 299 raw → 7 uncovered → the grouped round-6 row added (+ the
+   RELATED-WORK grandfather note). **G4** 0/0. **G5** both articles drift-clean
+   (41: 0 since `cb87a67`; 41H at the audited `cb4d4fae`).
+4. **G6** §3 filled (flow 2/2; stock 8/16 = 50% at equality; UNSPENT
+   second-consecutive per the F5 correction). **G7** 7+5 stamps + the .diff
+   exclusion ruling; annotation census 1 → CLOSED-by-cycle; queue drained.
+5. **§I5 splice** executed (package `5bd50453` §1; REPORT.md `ebaa3df9`
+   anchor-verified; slots filled from the drained verdicts; [DATE-CLOSED]
+   2026-11-20). **Instruments A+B** (the RESEARCH.md close-out record + the
+   STATUS.md CLOSED block) w/ the census computed from the rows of record (605
+   print-verified = 386-equiv + 219 growth; the L3 four named residual).
+6. **The close commit** = this commit (single-commit convention; §G8 rides).

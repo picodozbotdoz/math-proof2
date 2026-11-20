@@ -1,4 +1,5 @@
 # A9/R7 — iteration-5 article watchlist (which leads need articles, at which milestone, at what quota/bar cost)
+> CONSUMED 2026-11-20 — consumed at the iter-5 close act (both shipped articles verified §9 12/12; no further ships this cycle; R7's post-splice audit `bad61a2c` + the liu-bnew/11-M3 dispositions recorded). Stamp per `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane R7 (A9 lineage; articles editorial close-support), wave 4, 2026-11-19. Written at
 re-task against main @ `e3d984b` (the "one article per important findings" re-emphasis

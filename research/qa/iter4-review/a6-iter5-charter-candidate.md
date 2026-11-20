@@ -1,4 +1,8 @@
 # A6 — Iteration-5 charter CANDIDATE (consolidation + ranking + citations; orchestrator owns the typeset charter)
+> SUPERSEDED 2026-11-19 — superseded by A6's charter draft (`a6-iter5-charter-draft.md`
+> §8 final-outcome refresh = the authoritative consolidation); the ranked-leads, bench
+> audit and §5a NS-1 sweep were all consumed there, and the family by the approved
+> `RESEARCH.md` §Iteration 5 splice `e309edd`. Stamp per `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane A6 (worktree agent-07), 2026-11-18, wave 3. Written against the main tree @
 `2f90dcc` (read-pull; the worktree sits at the frozen snapshot `53c1548` — every

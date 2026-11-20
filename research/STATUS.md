@@ -904,3 +904,66 @@ Quality gate, quota/watchlist, template gates, inherited TRIAGE dispositions
 `RESEARCH.md` §Iteration 5 (normative). Protocols carry over from Iteration 4
 unchanged (queue-loaded sticky lanes, one writer per file, log provenance headers,
 concurrency probe at batch close; close-out per the adopted five-rule protocol).
+
+## Iteration 5 CLOSED — 2026-11-20
+
+Charter: `RESEARCH.md` § Iteration 5 (+ close-out record, same date). Session maps:
+`RESUME-BRIEF-ITER5.md`; lane tracker `ORCHESTRATION-ITER5.md`. Close-completion
+commit: this commit (the single-commit convention held — the gates executed
+pre-commit on the exact closing tree, G1–G8 w/ the §G8 persistence table riding).
+
+**Final pilot outcomes (§11 basis, machine-computed, D7 vocabulary):** tables
+N = 22 — **15 GREEN-triad / 2 honest-partial / 1 NOT-GREEN-honest
+(parked-unfired)**; every landed row triad-only, 0 sorryAx; whole-tree **605
+print-verified** triad-clean decls + **18 donor rows** at their donor pins (the
+386/386-equivalent basis + the 219-decl iter-5 growth; residual = the L3
+contaminated four, named, re-derivation class). Evidence:
+`qa/iter4-review/r3-verification-tables.md` §11 (all six verdict slots folded +
+the item-13 upgrade; the manual tally CLOSED 15/2/1 = 18 ✓).
+
+**Sweep:** FINAL-SWEEP-PLAN-ITER5 Steps A–B: Step-A certificate **66 = 52 − 3 + 17
+exact, zero unexplained** (stepA-incremental-iter5.log ENTRY 14); Step-B(i) 60
+stages (make_axcheck `048b501f`) — all-OK batch; Step-B(ii) AxFC custody records,
+0 sorryAx. Ledger: `feasibility/VERIFICATION-LEDGER.md` §11 + Step D.
+
+**Gates G1–G8:** executed on the exact closing tree; persistence table =
+`qa/iter5-closeout-gates.md` §G8 (committed with this close block). The §I5 REPORT
+splice: EXECUTED at this commit (package `5bd50453` §1, anchor-verified at
+REPORT.md `ebaa3df9`, slots filled from the drained verdicts).
+
+**Articles:** article-41 SHIPPED (`cb87a67`; DISCOVERY quota-free; ship gate R7 ✅
+R9 ✅ R2-S1–S4 ✅; README counts 6→7) **+ article-41H SHIPPED** (splice-2
+`cc71841`, post-edit sha `cb4d4fae`; NEGATIVE discovery-grade per
+BANK-AS-NEGATIVE, quota NOT consumed; README counts 7→8) **+ 75-N2's arc closed
+GREEN end-to-end** (SLOT-1 no-remainder; the N3 audit 358+48 all ⊆ triad).
+Knowledge-level quota cap-N = 1 **UNSPENT — the second consecutive unspent
+cycle**. KPI: flow 2/2 = 100% discovery-grade; stock 8/16 = exactly 50% (the
+≥half bar PASSES at equality). Token/annotation census: 7 stamps flipped + the
+.diff exclusion ruling; 1 annotation CLOSED-by-cycle; the fold queue drained.
+Index: `articles/README.md`.
+
+**Rulings ledger (this iteration):** DECISION-1/3/4/6 at open (`RESEARCH.md`
+:272–:282); hv SUPPLIED-AS-BINDER (M-arc record); 74-T3 OPEN-GATED (carried
+standing); README-date ruling (counts line keeps "ratified 2026-11-18");
+**pin-stays** (mathlib at ff2494ea; WeakPNT = external-math citation class — the
+clock-consequence ruling); BkClass-nonneg repair adjudicated (74 run 17); **(H)
+promotion** (mid-wave, per DECISION-4's clause, batch `4ef1bad`); the
+completion-grant pattern exercised (L3: 8+3+2+3 runs over four grants, each with
+recorded descent + zero-math-defect attestation); **the L3 print-level correction
++ re-charter** (site-closure ≠ certification; the parse-trap lesson; L3 PARKED
+for Iteration-6); **quota-disposition UNSPENT, second-consecutive (the F5
+minting correction)**; **the liu-bnew OWED-and-DELIVERED determination**; **the
+H3 M-tranche BANK ruling** (no M/S2-formality fire; certificate-class
+computation designation); **the find-#6 amendment + the final-1-fire grant
+pattern** (AL-M3); **the echo-backtick standing lesson** (headers heredoc-quoted);
+DECISION-6's 12-P0 idle-lane conversion exercised.
+
+**Carried to Iteration 6 (owners recorded): the L3 re-derivation remainder (the
+stop-note re-base `db872dc5` = the re-charter input); η-r4 parked at T2/T3 +
+rungs 5–8 (the amended band); the AL-M3 one-fire inheritance (P0 `33c75942` +
+A1 `a8feb25b` + A2 `221eb30b`); the H3 M-tranche banked negative + the §S4 open
+tier (article decision at open); the article-75 v2/v3-candidacy decision; the
+FB-2 vs FB-4 contest (never chartered); 74-T3 OPEN-GATED; debts f/h/l; stale
+wrappers; the iter-6 bench = census v2 (3 Tier-1 / 2 Tier-2 / 2 Tier-3) + the
+charter TYPESET-DRAFT v6 + the 12-core day-1 STAGED-UNFIRED set; the six
+carry-branch worktrees at e3d984b (the 2026-11-20 forward manifest, h-wave4-log).**

@@ -1,4 +1,7 @@
 # A7/R7 — article-41H splice package (paste-ready; H splices on arrival)
+> EXECUTED 2026-11-19 — executed by H as the article-41H splice-2 `cc71841` (draft base
+> `2923f188` + the eight in-commit flips incl. R2's riders; README row-41H + counts
+> 7→8). Stamp per `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane R7 (A9 lineage), 2026-11-19, PACKAGE GO. The gate chain is complete: R9's §NEGATIVE
 (battery FINAL v2 `17970d4b`, N0–N3) + R2's 41H S1–S4 pass (`ace8bd28`, 4/4 PASS, locked

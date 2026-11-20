@@ -1,4 +1,5 @@
 # ITER-5 CLOSE-OUT GATES — pre-staged command table (lane R2, 2026-11-19; PREP ONLY)
+> EXECUTED 2026-11-20 — the gates ran on the exact closing tree at the iter-5 close commit; §G8 filled and committed with the close block (this file's own G7(a) convention).
 
 Protocol source: `research/RESEARCH.md` §Close-out protocol + the **executed iteration-4
 precedent** `qa/iter4-closeout-gates.md` (8/8 PASS at K `b2f2c18`, closed 2026-11-19 —
@@ -121,7 +122,7 @@ surface.
 Charter text: `RESEARCH.md` §Iteration 5 (two-strike FINAL; **fresh N=1 per DECISION-3**).
 Basis at prep (mid-wave, this file's §3 in `REPORT-INPUTS-ITER5.md`): **1 shipped —
 article-41, DISCOVERY quota-free; N=1 UNSPENT (DECISION-1: spend-only-if-executed;
-contest FB-2 vs FB-4 vs unspent); flow 100% discovery-grade; stock 7/15 ≈ 47%.**
+contest FB-2 vs FB-4 vs unspent); flow 100% discovery-grade (2/2); stock 8/16 = 50%.**
 PASS at close = the §3 accounting FILLED with the close-time shipped set + quota ruling
 recorded + KPI line in the cycle-close REPORT block.
 
@@ -153,14 +154,14 @@ or carried with an owner.
 
 | gate | command (short ref) | raw result | verdict | date | commit |
 |---|---|---|---|---|---|
-| G1 sorry-token | §G1 classifier verbatim | | | | |
-| G2 axcheck (i) batch | `run_axcheck.sh` | | | | |
-| G2 axcheck (ii) full-coverage | `axcheck_iter4.py gen`+custody per row | | | | |
-| G3 INDEX | §G3 `comm -3` | | | | |
-| G4 dates | §G4 greps | | | | |
-| G5 template | §G5 per-article §9 run | | | | |
-| G6 two-strike | §G6 scoped reads + §3 fill | | | | |
-| G7 stamps + annotations | §G7 censuses | | | | |
+| G1 sorry-token | §G1 classifier verbatim | **66 REAL-TOKENS = 52 − 3 + 17, ZERO unexplained** (ENTRY 14: −3 al3d/P0 find-#6 amendment sorry-free in-record; +17 the 12-family staged-unfired statement stubs in-record) | **PASS** (declared-additions form) | 2026-11-20 | this commit |
+| G2 axcheck (i) batch | `run_axcheck.sh` → `logs/axcheck-iter5-close-run1.log` `b3107e35` | **61/70 OK, every OK stage 0 sorryAx, records ⊆ triad; 9 FAIL in DECLARED classes** — 77_T1 donor-pin (TauCeti prefix, by-design; verdict-of-record `t1t2-run11.log`); 42_M4b donor-tree (ZetaZeros prefix; verdict-of-record the m4b2 audit); 75_N2P3/N2P3e/N2P2c = the N2P1 GIT_BYTES-**override-stale** interaction (stages run-26 `ce6719c8` vs HEAD `396d8710` → unknownIdentifier; verdicts-of-record `n2-p3-run3`/`n2-p2c-run8`; **OVERRIDDEN — the override re-bind is the one mechanical follow-up, carried to iter-6 — owner R1**) | **PASS w/ declared exceptions + 1 OVERRIDDEN** | 2026-11-20 | this commit |
+| G2 axcheck (ii) full-coverage | per-row custody; the batch transcript prints FULL axiom-line sets | the OK stages' complete axiom-line sets in the transcript (no excerpts); the H1/H2/H3 unprinted-helper custody cells ride ledger §11 + the item-13 run-20 full-coverage audit (16/16) + the N3 audit (358+48) | **PASS** (custody-of-record form) | 2026-11-20 | this commit |
+| G3 INDEX | §G3 `comm -3` + coverage filter | 299 raw → **7 uncovered** after dir/group coverage: the 6 round-6 novelty files (landed batches 2–4 without rows — the grouped row added at this close) + RELATED-WORK.md (Cycle-2 legacy, grandfathered + named in the row) | **PASS** (rows added same-commit) | 2026-11-20 | this commit |
+| G4 dates | §G4 greps | tomorrow-literal scan = **0 hits**; compound-range scan = **0 hits** | **PASS** | 2026-11-20 | this commit |
+| G5 template | §G5 per-article §9 run | article-41: **0 drift since splice `cb87a67`**, §9 12/12; article-41H: sha `cb4d4fae` = the audited post-edit state (16/16 audit), §9 12/12, §4/Limitations present | **PASS** (2/2 shipped articles) | 2026-11-20 | this commit |
+| G6 two-strike | §G6 scoped reads + §3 fill | §3 filled: flow 2/2 = 100% discovery-grade; stock **8/16 = exactly 50%** (≥half PASSES at equality); quota UNSPENT — the **second** consecutive unspent cycle (F5-corrected disposition `6f90b2a2`; minting provenance recorded) | **PASS** | 2026-11-20 | this commit |
+| G7 stamps + annotations | §G7 censuses | **7 stamps flipped** (candidate/draft/typeset/wave2-queue/a7-41/a7-41h + the watchlist close-time) + the splice-.diff **census-exclusion ruling** (payload-not-instrument) + 5 close-time instrument stamps (stamps-prep/skeleton/rehearsal/dry-run/REPORT-INPUTS CONSUMED, gates EXECUTED); annotation census **1** baseline token → CLOSED-by-cycle (the η-port landing); fold-once queue **DRAINED** | **PASS** | 2026-11-20 | this commit |
 
 OVERRIDDEN convention unchanged; no "passed by inspection"; completion-owed cells state
 their exact condition and owner.

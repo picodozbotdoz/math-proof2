@@ -1,4 +1,7 @@
 # R8 — Iteration-5 WAVE-2 QUEUE (charter-row consolidation; what fires AFTER the day-1 trio)
+> CONSUMED 2026-11-19 — consumed by the typeset charter's launch-order/wave-2 sections
+> (spliced `e309edd`); the queue's dispositions live in `RESEARCH.md` §Iteration 5
+> Launch order + the STATUS.md open block. Stamp per `qa/iter5-closeout-gates.md` §G7(a).
 
 Lane R8 (A4 lineage), worktree agent-05, wave 4, 2026-11-19. Basis: main @ `e3d984b`
 (read-side; H forwards this worktree to it). This file is the consolidated wave-2

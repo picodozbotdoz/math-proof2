@@ -24,6 +24,21 @@ N2-P2 runs 22–23 to budget. Watchlist `a9-iter5-article-watchlist.md` pulled a
 
 ## §1 Slot ledger (one row per chartered/carried item; status column ships OPEN)
 
+> **CLOSE-STATE 2026-11-20 (the iter-5 close fold):** the rows below are the MID-WAVE
+> delta (statuses as of the early-wave refresh); the rows of record = the §11 tables
+> (`r3-verification-tables.md`, all six verdict slots folded + the item-13 upgrade) +
+> `REPORT.md` §I5 (spliced at the close commit). Per-row close states: 41-core
+> **SHIPPED** (article-41); 41-(H) **SHIPPED** (article-41H, splice-2, BANK-AS-NEGATIVE);
+> η-port **rungs 1–3 GREEN-exit** + r4 parked T2/T3; 10-M-arc GREEN; Liu B_new
+> **OWED-and-DELIVERED** (no re-fire); AL-rebuild **M0→M2 GREEN** + M3 honest-park
+> (the one-fire inheritance); 75-N2 **arc CLOSED GREEN, no remainder** (P2-a/b, P3
+> a–e, the ℚ endpoint on the V2 tree, the optional P2-d; N3 audit all-⊆-triad);
+> 74-P2 **G2/G3 GREEN + P2-c TRIAD-VERIFIED at run 20**; 72-M1 L3 honest-partial
+> **re-based print-level, PARKED for iter-6**; 77 both-GREEN; FB-2/FB-4 **contest
+> unchartered → UNSPENT (second consecutive)**; 12-P0 **GREEN** (DECISION-6
+> conversion exercised) + the 12-core day-1 set STAGED-UNFIRED; 11-M3 **GREEN**
+> (Thm 4 PROVED-CONDITIONAL).
+
 | Row | Item (lane; billing) | State at this delta (kernel-checkable) | Evidence slot (path + form) | Status |
 |---|---|---|---|---|
 | 41-core S–M | q-deformed eight-square discovery core (R4; **DISCOVERY, quota-free** — ruled at the gate, `cb87a67`) | **SHIPPED as article-41** (see §3): core GREEN at `35bd210` — `mainCor` (universal `(1−q)` defect identity) triad; antipodal stratification `{p′ = ¬p}` decide-certified; F1/F4 refutations; R9's enumeration convergent (two methods, one theorem; battery §LANDING) | `pilots/41/Core.lean` (committed sha `733b4a2d` / fired `921bc43c` per the article §6 stamps); `Core-record.md`; `novelty/round6-41-battery.md` FINAL `c24b62e520133724` | **FINAL-GREEN + SHIPPED** |
@@ -44,7 +59,7 @@ N2-P2 runs 22–23 to budget. Watchlist `a9-iter5-article-watchlist.md` pulled a
 | Row | Item | State at this delta |
 |---|---|---|
 | clocks | tracker/static-asset, Liu-2, WenrongZou, physlib pushed_at, AreaLaw2D challenge, mathlib PNT/LP PRs (+ Chang–Wang registry row added 2026-11-19) | **1 FIRED — the mathlib PNT clock** (`novelty/round6-clocks-iter5-s1.md`): weak PNT on master via PR #43238/Bors (WeakPNT.lean, one file beyond pin, carrying the PNT-AP forms incl. `Chebyshev.isEquivalent_psi_id`); consequences: (a) dossier-22 "Tier-1 strategically ceded" MATERIALIZED — any 22-v2/derivative article cites mathlib's WeakPNT as Tier-1 holder (amendment `round6-22-tier1-amendment.md`); (b) FB-2 NOT preempted (error-term class x^{7/8+δ} vs the weak forms); (c) **pin ruling: mathlib pin STAYS at ff2494ea** (a bump invalidates every warm cache + donor build; WeakPNT = external-math citation class). 6 SILENT incl. Liu-2 (no v3) and the LP/Cone TODO; Chang–Wang `2611.00924` added (QR-D zero-free axis only) |
-| fold-once queue | R1's five pending folds, each at its closing state (`22d688b` tracker) | L3-final · M2-b-fire · P3-complete-fire · 41H-T2 · eta-confirm — all EVENT-STANDBY |
+| fold-once queue | R1's pending folds | **CLOSE 2026-11-20: ALL FOLDED — the six verdict slots (R6×3, R5×2, R8×1) + the item-13 run-20 GREEN; the queue DRAINED** (supersedes the mid-wave EVENT-STANDBY |
 | debts f/h/l | HKT pin; tracker citation convention; Λ-absence ban | OPEN (carried from iter-4 §2); runner-fixes-wave2 re-adjudication at donor-tree touch |
 | stale wrappers | `pilots/32/run_pilot.sh:15–16`, `feasibility/probe/run_probe.sh:15–16` | OPEN (carried) |
 | cold bench | 12 (behind 41 — P0-first), 11-M3, physlib bridge probe | BENCHED (DECISION-6) |
@@ -52,7 +67,7 @@ N2-P2 runs 22–23 to budget. Watchlist `a9-iter5-article-watchlist.md` pulled a
 
 ## §3 Article-gate accounting (mid-wave; DECISION-1 frame)
 
-**Shipped this cycle so far: article-41** — SPLICE `cb87a67`: kind **DISCOVERY,
+**CLOSE-STATE 2026-11-20 — two shipments this cycle: article-41** — SPLICE `cb87a67`: kind **DISCOVERY,
 quota-free**; ship gate COMPLETE (R7 draft-final `f068d9ae` + R9 battery FINAL
 `c24b62e520133724` + **R2 S1–S4 4/4** — `qa/iter4-review/r2-41-s1s4-pass.md`, riding
 the splice commit); in-commit flips per `a7-41-splice-package.md`: §4 refreshed from
@@ -60,9 +75,14 @@ the battery §LANDING incl. the **S3 honesty sentence ("elementary proof,
 nonelementary statement")**, abstract 192 words, §6 committed-bytes stamps, §9 box-11
 SATISFIED, README row-41 + corpus counts 6→7. **Quota N=1 UNSPENT at mid-wave**
 (spend-only-if-executed; contest FB-2 vs FB-4 vs unspent). KPI to date: 100%
-discovery-grade on the cycle's shipped set (1/1); stock 7/15 ≈ 47%.
+discovery-grade on the cycle's shipped set (2/2); stock 8/16 = 50%.
 
 ## §4 REPORT.md §I5 running-section delta (PASTE-READY for H/orchestrator at the mid-wave or wave-close fold; supersedes nothing — §I5 opens here)
+
+> **CONSUMED 2026-11-20 (by the REPORT §I5 fold):** the paste source of record for the executed §I5 splice =
+> `qa/iter4-review/r2-i5-splice-package.md` §1 (`5bd50453`, slots filled from the
+> drained verdicts, drift cells updated); the §4 fence below remains the MID-WAVE
+> funnel snapshot (superseded by the package + the spliced REPORT.md bytes).
 
 ```markdown
 ### I5 Iteration 5 (opened 2026-11-19; mid-wave state at `22d688b`, 2026-11-19)
