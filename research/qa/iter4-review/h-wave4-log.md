@@ -1042,3 +1042,21 @@ text edit asserts its anchor count (== 1) before replacing, exactly as H's splic
 flips do; a failed assert stops the fire rather than shipping an un-edited file.
 (Third runner-hygiene-family lesson; joins the `: error(` filter class and the
 fused-iff suppression bisect rule.)
+
+## 2026-11-20 — iter-5 steady state, batch T (H; post-restart): R2's gates dry-run + R3's item-13 prestage
+
+- **R2's iter-5 close-out gates DRY-RUN landed** (`qa/iter5-closeout-gates-dryrun.md`
+  `4e5b4854…`): evaluation-only against main `a6ad33d`; **G1/G4/G5 PASS-today**
+  (G1 = 52 exact, the ENTRY-1 certificate composition, zero tokens in any iter-5
+  artifact; G4 = 0 future-date/compound hits; G5 = both shipped articles §9 12/12
+  undrifted), **G2/G3/G7/G8 BLOCKED** on the re-fired fold-once set + the 3
+  landed-but-unfolded folds + owed TARGETS rows; **KPI cells byte-verified:
+  8/16 = 50% at equality, quota UNSPENT, two shipments.**
+- **R3's item-13 prestage landed** (`pilots/74/item13-prestage.md` `1294a667…`):
+  staged `6c6a251f03eb0797` verified = final park `531a9eb7` + exactly the
+  2-hunk namespace move; GO 10/11 (item 11 = the close signal, HOLD by design);
+  ONE-fire grant; expected GREEN = the 9 Part-P2 triad-only lines.
+- **Worktree-forward interaction (task 1 in flight):** both pulls done
+  PRE-forward — agent-03/agent-07 forwards skipped at the mtime guard (active
+  lane writes within minutes of the attempt); 04/05/06/08/09 carried; full
+  .carry manifest in the next entry.
