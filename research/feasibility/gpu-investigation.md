@@ -103,7 +103,34 @@ run): L4 ≈ $0.80/h, L40S ≈ $1.95/h, A100-80GB ≈ $2.50/h, H100 ≈ $3.95/h,
   - The two recorded duplicate pairs rank 691 and 1,341 of 731,232, not in the top 10.
     `--like` instead surfaces closer compact-set duplicates, e.g. AxiomMath PNT
     `riemannZeta.zeroes_on_Compact_finite`, which the bridges map does not record.
-  - A recipe v2 would strip root namespaces and include definition bodies (one more GPU run).
+  - The recipe v2 idea (strip root namespaces, include definition bodies) was run as et-v2; see
+    the 2026-11-21 entry below.
+- **2026-11-21, recipe et-v2 (kept).** et-v1 had two measured weaknesses: full qualified names
+  let a long namespace dominate a text, and definitions were embedded without their body. et-v2
+  (`EMBED_TEXT_VERSION` in `qa/decl_index_v3.py`) embeds the last two name components, then the
+  statement, then the definition body for `def`/`abbrev`/`instance`/`opaque` (the text after the
+  first top-level `:=` and its indented continuation lines, cut at 400 characters; theorems get
+  none), then the docstring. `words()` and the SQLite index are unchanged. Run 3
+  (`qa/logs/embed-v3-run3.log`) embedded the same 731,232 texts on one Modal GPU from the fallback
+  list: NVIDIA A10, 740 s of embedding, 843 s wall, cpu within spec, 72,631,930 tokens (run 2:
+  67,267,265). Parity against the GPU passed (min cos 0.99990, 0 token mismatches in 2,004).
+  Evaluation with clues disabled; pair rank = 1 + the number of other vectors with a higher cosine:
+
+  | Check | et-v1 (run 2) | et-v2 (run 3) |
+  |---|---|---|
+  | P1 rank A→B / B→A (cos) | 691 / 2,120 (0.751) | 210 / 582 (0.760) |
+  | P2 rank A→B / B→A (cos) | 1,341 / 12,291 (0.736) | 23 / 21 (0.844) |
+  | Q1 top 5 on target | 5 of 5 | 5 of 5 (the set differs: PNT `zeroes_on_Compact_finite` and mathlib `IsCompact.inter_riemannZetaZeros_finite` replace mathlib `riemannZetaZeros` and zeta23 `XiPrime.xiDeriv_zeros_finite_of_isCompact`) |
+  | Q2 "zero-free region for Dedekind zeta functions" | 5 unrelated DZZF hits (FAIL) | still 5 unrelated DZZF hits (FAIL; cos 0.848–0.861) |
+  | Q3 top 2 | TauCeti `zetaEntireCompletion`, mathlib `completedRiemannZeta₀` | same |
+  | L1 `--like` top 2 | PNT `zeroes_on_Compact_finite'` (0.952), `zeroes_on_Compact_finite` (0.945) | same |
+
+  **Decision (rule set before the run: keep only if P1 and P2 both improve and Q1 and Q3 do not
+  get worse; Q2 is a bonus): kept et-v2.** P1 and P2 improve in both directions, Q1 and Q3 are not
+  worse, and Q2 did not improve. The et-v1 vectors stay in `~/.cache/decl-v3/vec-v1/`. The vector
+  key (`sha`) does not cover the body, so declarations with the same kind, qname, statement and
+  docstring share one vector (the first body seen). An out-of-scope `--like` (openai-math) embeds
+  without a body.
 - **2026-11-20, v3.1:** the TSV and the statements JSONL are replaced by one SQLite file
   (1.69 GB: files and namespaces stored once, porter-stemmed BM25 full-text index). Its
   export is byte-identical to the v3.0 TSV. Queries take about 0.2–0.8 s (3.6 s for a

@@ -126,13 +126,16 @@ when a `lean-toolchain` is added here.
   claim.
 - Decl semantic search (2026-11-21): `find --semantic` / `find --like` rank by meaning over
   bge-small-en-v1.5 vectors of the core corpora (all but openai-math). The vectors came from
-  one Modal GPU run (`qa/embed_v3_modal.py`, log `qa/logs/embed-v3-run2.log`). Query time
-  is numpy-only and matches the GPU (`qa/decl-index-v3-vec-manifest.json` parity:
-  cos ≥ 0.9999, 0 token mismatches in 2,004).
+  one Modal GPU run. The current vectors use text recipe et-v2 from run 3 (`qa/embed_v3_modal.py`,
+  log `qa/logs/embed-v3-run3.log`); et-v1 came from run 2 (`qa/logs/embed-v3-run2.log`). Query time
+  is numpy-only and matches the GPU (`qa/decl-index-v3-vec-manifest.json` parity, run 3: min cos
+  0.99990, 0 token mismatches in 2,004).
   - Hits are leads for nearest-miss and bridge work, never evidence. They need the same
     direct-source check as any decl-index hit.
-  - Known limits: definitions are embedded without their body, and long corpus namespaces
-    blur queries that use the same words.
+  - Known limits (et-v2): a definition's body is embedded after its statement, cut at 400
+    characters, and the 256-token cap cuts the tail of long statements. Names keep only their last
+    two components, so a two-component name keeps its root namespace, and queries naming that
+    namespace still match it broadly (the DZZF query still fails).
   - Re-embedding is a new GPU run and needs fresh user approval. Use the GPU fallback list.
 - Decl enrichment: a check may find a poorly or uncommonly named declaration, or a
   same-object pair under different names. Record a clue in tracked `qa/decl-enrich-v3.tsv`

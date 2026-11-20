@@ -8,7 +8,7 @@
  "max_len": 256,
  "dim": 384,
  "dtype": "float16",
- "text_recipe": "et-v1",
+ "text_recipe": "et-v2",
  "words": "words-v1",
  "query_instruction": "Represent this sentence for searching relevant passages: ",
  "scope_exclude": [
@@ -16,10 +16,10 @@
  ],
  "rows": 731232,
  "db_sha256": "59090a465f1fade2bd0a96ccc3e12c05893396fd24101ab9a5c09be7f808d850",
- "f16_sha256": "56f1602e586852558527afe7e40380cdc1c0505b94e0d0e85f967abb2c52e628",
+ "f16_sha256": "0b515867ac9547f929cfb59ec33d14506e2516f36235e40c2e2ef33a790989e5",
  "norm_check": {
-  "min": 0.999884843826294,
-  "max": 1.0001121759414673
+  "min": 0.9998854994773865,
+  "max": 1.0001113414764404
  },
  "gpu_run": {
   "app": "crossmath-embed-v3",
@@ -43,20 +43,20 @@
   "batch": 256,
   "rows": 731232,
   "chunks": 15,
-  "tokens": 67267265,
-  "embed_s": 696.1,
+  "tokens": 72631930,
+  "embed_s": 740.4,
   "gpu_mem_max_mb": 1257,
-  "wall_s_incl_startup": 813.8,
-  "texts_sha256": "4529db866eb5f97bd993518cd445fd5edcf3d842134cf52482344312e5a3c5e8",
-  "log": "research/qa/logs/embed-v3-run2.log"
+  "wall_s_incl_startup": 843.0,
+  "texts_sha256": "5660f700a5f75c88d07d7c45fe4acffa4b4eab85270e6c739bf15790e4ec706b",
+  "log": "research/qa/logs/embed-v3-run3.log"
  },
- "created_utc": "2026-11-20T18:02:28Z",
+ "created_utc": "2026-11-20T21:23:40Z",
  "parity": {
   "vectors": {
    "n": 500,
-   "min_cos": 0.9999003410339355,
-   "mean_cos": 1.0000022649765015,
-   "local_encode_s_per_text": 0.2315,
+   "min_cos": 0.9998998641967773,
+   "mean_cos": 1.0000004768371582,
+   "local_encode_s_per_text": 0.2555,
    "blas": "openblas",
    "python": "/home/doz/dozenv/bin/python"
   },
