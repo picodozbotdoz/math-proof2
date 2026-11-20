@@ -1081,3 +1081,14 @@ fused-iff suppression bisect rule.)
   MB, anon=0) = the documented Mathlib-olean mmap band, dispositioned in-log
   per guideline-3; run 2 OVER=0, wall 42 s warm, SPEC cpu=2.0/mem=4096 +
   LEAN_NUM_THREADS=2 conformed. Nothing to escalate.
+
+## 2026-11-20 — iter-5 steady state, batch V (H): R9's round-7 battery + the iter-6 seed census
+
+- **R9's round-7 H3 battery landed** (`novelty/round7-h3-battery.md` `87659f58…`):
+  (Q4) TARGET-C/D **NEW-narrow** (class rows EMPTY, negatives re-verified at
+  source); the tauceti spin-model + Avan-2013 wording locks; NO-GO FALSE. The
+  battery carries the provenance rider (built pre-precharter; the H3
+  precharter's sha chain cited delta-noted, re-run clause if scope moves).
+- **R9's iter-6 seed census landed** (`novelty/iter6-seed-census.md`
+  `e202244b…`): 3 Tier-1 / 2 Tier-2 / 2 Tier-3 bench, ≈15–25 runs — iter-6
+  opens charter-ready; watch ticks 2026-11-20 recorded.
