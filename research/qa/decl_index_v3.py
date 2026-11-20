@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """decl_index_v3.py — decl-index-v3: cross-corpus Lean declaration index with statement
-text, plus a curated enrichment overlay. Successor of decl-index v1/v2
-(`qa/make-decl-index.sh`, `qa/make-decl-index-v2.sh`; design: `feasibility/gpu-investigation.md` §4.1).
+text, plus a curated enrichment overlay. Design: `feasibility/gpu-investigation.md` §4.1.
+
+Successor of decl-index v1/v2, RETIRED 2026-11-20 (name-only, cut dotted names at the first
+'.', no structure fields). Their builders and zips were removed from the tree; restore with
+  git show 0676ba0:research/qa/decl-index-v2.tsv.zip > decl-index-v2.tsv.zip   (v1: decl-index.tsv.zip;
+  builders: make-decl-index{,-v2}.sh). Coverage evidence: decl-index-v3-coverage-vs-v2.tsv.
 
 Outputs (next to this script, in research/qa/):
   decl-index-v3.tsv             gitignored. One row per declaration, LC_ALL=C sorted, no header:
@@ -25,6 +29,7 @@ Outputs (next to this script, in research/qa/):
 
 Usage:
   python3 research/qa/decl_index_v3.py build                    # CPU only, a few minutes
+  python3 research/qa/decl_index_v3.py status                   # stale? (corpus revs vs manifest)
   python3 research/qa/decl_index_v3.py find TERM...             # names + qnames + clues
   python3 research/qa/decl_index_v3.py find --stmts TERM...     # also statement + docstring text
   python3 research/qa/decl_index_v3.py enrich add CORPUS QNAME TYPE TEXT [--by WHO] [--both]
@@ -563,10 +568,51 @@ ENRICH_HEADER = """\
 """
 
 
+def corpus_drift(check_dirty):
+    """Per corpus: (label, manifest rev, current rev, dirty .lean count or None)."""
+    with open(os.path.join(HERE, MANIFEST_NAME), encoding="utf-8") as fh:
+        m = json.load(fh)
+    rows = []
+    for c in m["corpora"]:
+        cur = git_info(c["root"])["rev"] if os.path.isdir(c["root"]) else None
+        dirty = None
+        if check_dirty and cur:
+            st = subprocess.run(["git", "-C", c["root"], "status", "--porcelain", "--", "."],
+                                capture_output=True, text=True).stdout
+            dirty = sum(1 for line in st.splitlines() if line.endswith(".lean"))
+        rows.append((c["label"], c["rev"], cur, dirty))
+    return m, rows
+
+
+def cmd_status(a):
+    tsv_path = os.path.join(HERE, TSV_NAME)
+    m, rows = corpus_drift(check_dirty=True)
+    print(f"{m['index']} {m['extractor']} built {m['built_utc']}: {m['tsv_rows']} rows, "
+          f"tsv {'present' if os.path.exists(tsv_path) else 'MISSING (run build)'}")
+    stale = 0
+    for label, was, cur, dirty in rows:
+        ok = cur == was and not dirty
+        stale += not ok
+        print(f"{'SAME' if ok else 'CHANGED':8} {label:24} built {str(was)[:10]}  now {str(cur)[:10]}"
+              f"  dirty .lean: {dirty}")
+    if a.verify and os.path.exists(tsv_path):
+        good = sha256_file(tsv_path) == m["tsv_sha256"]
+        stale += not good
+        print(f"tsv sha256 {'matches' if good else 'DIFFERS from'} the manifest")
+    print(f"enrichment: {len(load_enrich())} clues in {os.path.relpath(ENRICH, os.getcwd())}")
+    if stale:
+        print("-- STALE: rebuild (`build`), then `enrich check`", file=sys.stderr)
+    sys.exit(1 if stale or not os.path.exists(tsv_path) else 0)
+
+
 def cmd_find(a):
     tsv_path = os.path.join(HERE, TSV_NAME)
     if not os.path.exists(tsv_path):
         sys.exit(f"{tsv_path} missing — run `build` first")
+    changed = [label for label, was, cur, _ in corpus_drift(check_dirty=False)[1] if cur != was]
+    if changed:
+        print(f"WARN: index is stale for {', '.join(changed)} (corpus moved since build) — "
+              f"rebuild with `build`", file=sys.stderr)
     terms = [t.lower() for t in a.terms]
     corpora = set(a.corpus.split(",")) if a.corpus else None
     clues_by_key, clue_hit = {}, set()
@@ -728,6 +774,9 @@ def main():
     b.add_argument("--out-dir", help="write outputs here instead of research/qa/")
     b.add_argument("--proj", help="also write v2-projection rows here (for `coverage`)")
     b.set_defaults(fn=cmd_build)
+    s = sub.add_parser("status", help="is the index current? (corpus revs + dirty .lean vs manifest)")
+    s.add_argument("--verify", action="store_true", help="also re-hash the TSV against the manifest")
+    s.set_defaults(fn=cmd_status)
     f = sub.add_parser("find", help="search names, qnames and enrichment clues")
     f.add_argument("terms", nargs="+", help="all terms must match (case-insensitive substrings)")
     f.add_argument("--stmts", action="store_true", help="also search statement + docstring text")

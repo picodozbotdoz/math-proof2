@@ -110,12 +110,26 @@ when a `lean-toolchain` is added here.
   READMEs are claims, on-pin `#print axioms` is proof (G2 did this for ZetaZerosV2's
   13 audited theorems; executed for a consumer at `pilots/42/logs/m4b-axcheck-run1.log`;
   DZDF/Liu-1 remain claim-level).
-- Decl index: novelty/absence work uses `qa/decl-index-v2.tsv` (+ labels
-  `axiommath-{dzzf,vendor-cft,zetazeros-v2,zetazeros,pnt,weil,arealaw2d}`); **caveat
-  block** as pre-registered in `qa/cycle2-qa-plan.md` §(b): AxiomMath repos re-export
-  mathlib/TauCeti content — a TSV hit is never evidence of provability; openai-math
-  vendors mathlib-like trees; preprints are never indexed. Direct-source (`rg` in the
-  tree, namespace check) before any "corpus X has Y" claim.
+- Decl index: novelty/absence work uses **decl-index-v3** (`qa/decl_index_v3.py` →
+  gitignored `qa/decl-index-v3.tsv` + statement text; tracked manifest
+  `qa/decl-index-v3-manifest.json`). v1/v2 were RETIRED 2026-11-20; v3 covers every live v2
+  row (`qa/decl-index-v3-coverage-vs-v2.tsv`). Same 13 corpus labels, incl.
+  `axiommath-{dzzf,vendor-cft,zetazeros-v2,zetazeros,pnt,weil,arealaw2d}`. Run `status`
+  before citing a result, and rebuild if a corpus moved. The **caveat block**, first
+  pre-registered in `qa/cycle2-qa-plan.md` §(b), is carried in the v3 script header:
+  - AxiomMath repos re-export mathlib/TauCeti content, so a TSV hit is never evidence of
+    provability.
+  - openai-math vendors mathlib-like trees.
+  - Preprints are never indexed.
+
+  Check the source directly (`rg` in the tree, namespace check) before any "corpus X has Y"
+  claim.
+- Decl enrichment: a check may find a poorly or uncommonly named declaration, or a
+  same-object pair under different names. Record a clue in tracked `qa/decl-enrich-v3.tsv`
+  with `decl_index_v3.py enrich add` (type alias / keyword / description / see-also;
+  `--by` names the lane and the source). Clues are search hints, never evidence, and they
+  never edit a declaration. After every rebuild, run `enrich check` and resolve any STALE
+  or DANGLING rows.
 - G-series probes (`feasibility/axiommath-donor-probes.md`, logs
   `feasibility/probe/logs-g/`): statement-elaboration-only probes, numbered G1…, one
   verdict line each, probe `sorry` only inside "not a proof artifact" headers;

@@ -50,14 +50,19 @@ research/feasibility/probe/run_axcheck.sh
 # Check a single pilot (stages that pilot's .lean files); others: pilots/11/run_pilot11.sh, pilots/32/run_pilot.sh
 research/pilots/22/run_m1.sh
 
-# Cross-corpus declaration index (qa/decl-index.tsv, 273 MB) is gitignored; the repo tracks
-# only qa/decl-index.tsv.zip. Either unzip it or rebuild it, then query it for novelty checks:
-unzip -o research/qa/decl-index.tsv.zip -d research/qa/   # or: bash research/qa/make-decl-index.sh
-cut -f4 research/qa/decl-index.tsv | grep -xF 'NAME'
+# Cross-corpus declaration index decl-index-v3 (v1/v2 retired 2026-11-20). Its TSV (~0.8 GB)
+# and statements file are gitignored: build locally (CPU, ~3 min), check freshness, query.
+python3 research/qa/decl_index_v3.py status         # exit 1 = a corpus moved since build -> rebuild
+python3 research/qa/decl_index_v3.py build          # after a rebuild: decl_index_v3.py enrich check
+python3 research/qa/decl_index_v3.py find TERM...   # names + qnames + clues; --stmts adds statement text
+cut -f4 research/qa/decl-index-v3.tsv | grep -xF 'NAME'   # exact name (col 5 = namespace-qualified)
+# Found a poorly named declaration? Add a clue (never edits the declaration):
+python3 research/qa/decl_index_v3.py enrich add CORPUS QNAME alias|keyword|description|see-also TEXT --by "who: source"
 ```
 
 To check a new Lean file, copy an existing pilot runner, point its stage at the new
 files, and save the Modal output to `research/pilots/NN/logs/<name>-runK.log` with a
-provenance header. A miss in `decl-index.tsv` is weak evidence: it skips unicode names and
-prefixed headers (`noncomputable def`, `private theorem`, …), so for important novelty
-claims `rg` the sibling corpora directly. The script header lists the caveats.
+provenance header. A miss in decl-index-v3 is weak evidence: extraction is a comment-aware
+scanner, not elaboration, so Lean-generated names (`to_additive`/`simps` outputs,
+auto-named instances) are not rows. For important novelty claims `rg` the sibling corpora
+directly. The script header lists the caveats.
