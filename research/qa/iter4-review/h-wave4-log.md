@@ -1276,3 +1276,35 @@ classifier 52+0 stands).
 - **R3's iter-6 12-core day-1 set landed** (4 files, shas 4/4): the
   launch-order convention (STAGED-UNFIRED; one-command fire on the iter-6
   day-1 signal; the item-13 override preempts).
+
+## 2026-11-20 — WORKTREE FORWARD .carry MANIFEST (H; task-1 record — the full disposition)
+
+Pattern per the tasking: `stash push -u "carry-20261120"` → `merge --ff-only` →
+`stash pop`; on ANY pop conflict → `stash branch carry-20261120-<wt>` (worktree
+left at pre-forward base). **Structural finding (rehearsed on a scratch worktree
+first):** git's untracked-restore is ALL-OR-NOTHING — if ANY stashed untracked
+path exists at the target commit, pop fails wholesale for untracked (tracked
+3-way merges still apply). Since H's steady-state landing had already committed
+most lane files to main by forward time, pops conflicted STRUCTURALLY; every
+executed forward therefore resolved via the prescribed carry-branch fallback,
+which preserves every dirty byte sha-exact at the pre-forward base.
+
+| worktree (lane) | base | disposition |
+|---|---|---|
+| agent-01 (H, own) | e3d984b | out of scope; untouched |
+| agent-02 (R1) | a175b1d | **DEFERRED — active writes** (make_axcheck/r3-tables/FINAL-SWEEP-PLAN churn 18:29–19:45+; two mid-pull sha supersessions at batch-Y). Retry at lane drain; files never touched |
+| agent-03 (R2) | e3d984b | **DEFERRED — active writes** (dryrun deliverable, then ledger/audit/rehearsal churn). Retry at lane drain |
+| agent-04 (R5) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-04`** — 20 files sha-exact (stash `26c0fdae`, consumed; η ladder incl. the drifted parked pair) |
+| agent-05 (R8) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-05`** — 29 files sha-exact (stash `1c6c73aa`; the A2/M3 line) |
+| agent-06 (R6) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-06`** — 35 files sha-exact (stash `ef7700e1`; the N2 salvo set + runners) |
+| agent-07 (R3) | e3d984b | **DEFERRED — active writes** (item-13 prestage, then 12-P0/12-core staging churn). Retry at lane drain |
+| agent-08 (R4) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-08`** — 12 files + the `41/logs/` dir (26 logs) sha-exact (stash `e6a797fc`; the (H) evidence set) |
+| agent-09 (R9) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-09`** — 14 files sha-exact (stash `f20b1e4e`; the round-6/7 batteries) |
+| agent-10 (R7) | e3d984b | **CARRY-BRANCH `carry-20261120-agent-10`** — 20 files sha-exact (stash `b4925f77`; first attempt guard-skipped 18:35, executed ~19:45 after writes settled; incl. the post-survey pilot-11 M3 additions `M3-precharter.md`/`RedM3.lean`/`m3-run{1,2}.log`/`run_m3.sh` — preserved) |
+
+Post-state: all six carry branches at base e3d984b; stash list EMPTY; every
+worktree's dirty set byte-preserved (sha256(16) manifests + byte trees at
+`/tmp/carry-20261120/agent-*/`, machine-local). NOTHING lost, deleted, or
+hand-merged. The DEFERRED trio (02/03/07) costs nothing operationally — the
+carry-branch fallback would leave them at their current bases anyway (their
+untracked files are landed on main); retry at drain or fold into the close act.
