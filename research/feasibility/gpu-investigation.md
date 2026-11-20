@@ -86,6 +86,11 @@ run): L4 ≈ $0.80/h, L40S ≈ $1.95/h, A100-80GB ≈ $2.50/h, H100 ≈ $3.95/h,
   been built and needs a GPU-run approval. Suggested order: core corpora first
   (about 0.73M texts), openai-math later or on demand. Clues are embedded as extra vectors
   per declaration, so adding one is a CPU job.
+- **2026-11-20, v3.1:** the TSV and the statements JSONL are replaced by one SQLite file
+  (1.69 GB: files and namespaces stored once, porter-stemmed BM25 full-text index). Its
+  export is byte-identical to the v3.0 TSV. Queries take about 0.2–0.8 s (3.6 s for a
+  single very common word) at about 25 MB RAM, against 8–34 s scans before. Embeddings
+  will key on the per-declaration `sha` text fingerprint.
 - **2026-11-20:** decl-index v1/v2 RETIRED. v3 is the canonical index (workflow in
   CLAUDE.md and AGENTS.md; `status` catches staleness against the corpus checkouts).
 

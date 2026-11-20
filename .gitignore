@@ -1,6 +1,5 @@
 external-doc/
 __pycache__
-research/qa/decl-index-v3.tsv
-research/qa/decl-index-v3-stmts.jsonl.gz
+research/qa/decl-index-v3.sqlite
 research/qa/.decl-v3-tmp-*
 .run/

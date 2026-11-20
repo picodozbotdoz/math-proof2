@@ -111,8 +111,8 @@ when a `lean-toolchain` is added here.
   13 audited theorems; executed for a consumer at `pilots/42/logs/m4b-axcheck-run1.log`;
   DZDF/Liu-1 remain claim-level).
 - Decl index: novelty/absence work uses **decl-index-v3** (`qa/decl_index_v3.py` →
-  gitignored `qa/decl-index-v3.tsv` + statement text; tracked manifest
-  `qa/decl-index-v3-manifest.json`). v1/v2 were RETIRED 2026-11-20; v3 covers every live v2
+  gitignored `qa/decl-index-v3.sqlite`: names, statements, docstrings, BM25 full-text
+  index; tracked manifest `qa/decl-index-v3-manifest.json`). v1/v2 were RETIRED 2026-11-20; v3 covers every live v2
   row (`qa/decl-index-v3-coverage-vs-v2.tsv`). Same 13 corpus labels, incl.
   `axiommath-{dzzf,vendor-cft,zetazeros-v2,zetazeros,pnt,weil,arealaw2d}`. Run `status`
   before citing a result, and rebuild if a corpus moved. The **caveat block**, first

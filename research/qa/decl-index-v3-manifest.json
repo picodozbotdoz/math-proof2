@@ -1,21 +1,17 @@
 {
  "index": "decl-index-v3",
- "extractor": "v3.0",
+ "extractor": "v3.1",
+ "words": "words-v1",
  "script": "research/qa/decl_index_v3.py",
- "built_utc": "2026-11-19T10:39:24Z",
+ "built_utc": "2026-11-20T15:33:48Z",
  "partial": null,
- "tsv_columns": [
-  "corpus",
-  "file",
-  "kind",
-  "name",
-  "qname",
-  "line",
-  "sha"
- ],
- "tsv_rows": 4636995,
- "tsv_sha256": "4a8ab9d416d2f4c801f4278ca6ac99f064deb1a8185dccf9db9efb2dc8a12eaf",
- "stmts_records": 4636995,
+ "db": "decl-index-v3.sqlite",
+ "db_bytes": 1691262976,
+ "db_sha256": "59090a465f1fade2bd0a96ccc3e12c05893396fd24101ab9a5c09be7f808d850",
+ "rows": 4636995,
+ "files_with_decls": 207534,
+ "namespaces": 73098,
+ "tables": "corpus(id,label,root,rev) file(id,corpus_id,path) ns(id,ns) decl(id,file_id,ns_id,kind,name,line,sha,stmt,doc) view decl_v(id,file_id,kind,name,qname,line,sha,stmt,doc) decl_fts(name_words,stmt_words,doc_words; contentless, porter unicode61, rowid=decl.id)",
  "corpora": [
   {
    "label": "mathlib",

@@ -50,12 +50,13 @@ research/feasibility/probe/run_axcheck.sh
 # Check a single pilot (stages that pilot's .lean files); others: pilots/11/run_pilot11.sh, pilots/32/run_pilot.sh
 research/pilots/22/run_m1.sh
 
-# Cross-corpus declaration index decl-index-v3 (v1/v2 retired 2026-11-20). Its TSV (~0.8 GB)
-# and statements file are gitignored: build locally (CPU, ~3 min), check freshness, query.
+# Cross-corpus declaration index decl-index-v3 (v1/v2 retired 2026-11-20): one SQLite file
+# (~1.7 GB, gitignored) with names, statements, docstrings and a BM25 full-text index.
+# Build locally (CPU, ~6 min), check freshness, query (well under a second, typically):
 python3 research/qa/decl_index_v3.py status         # exit 1 = a corpus moved since build -> rebuild
 python3 research/qa/decl_index_v3.py build          # after a rebuild: decl_index_v3.py enrich check
-python3 research/qa/decl_index_v3.py find TERM...   # names + qnames + clues; --stmts adds statement text
-cut -f4 research/qa/decl-index-v3.tsv | grep -xF 'NAME'   # exact name (col 5 = namespace-qualified)
+python3 research/qa/decl_index_v3.py find WORDS...  # clues + ranked words over names/statements/docs
+python3 research/qa/decl_index_v3.py find --exact NAME    # exact name or namespace-qualified name
 # Found a poorly named declaration? Add a clue (never edits the declaration):
 python3 research/qa/decl_index_v3.py enrich add CORPUS QNAME alias|keyword|description|see-also TEXT --by "who: source"
 ```
