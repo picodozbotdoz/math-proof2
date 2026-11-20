@@ -1377,3 +1377,13 @@ replaces, the parse-trap class.)
   `a5230150…`): Thm 4 PROVED-CONDITIONAL (donor binders; in-run 3/3 triad as
   verdict-of-record); the README row-11 tail updated in-commit (R7's
   paste-ready wording, anchor-count==1-guarded). R7 → n≥4 editorial standby.
+
+## 2026-11-20 — iter-5 steady state, batch QQ (H): R1's SLOT-1 fold — seed #1 closed in the record layer
+
+- **R1's five-file fold landed** (shas 5/5; make_axcheck asserts re-run on
+  the pulled bytes: 60 tuples, 0 duplicates, py_compile rc=0): the §11
+  75-N2 SALVO block (5 GREEN rows), the tally at 14/2/1 = 17 ✓, templates
+  slots 1–3 EXECUTED-stamped, the ledger cell filled, the TARGETS wiring
+  (3 new 75-rows + EXTRA_REWRITES + the N2P1 override-drop — correct
+  post-MM). The honest ℚ-endpoint citation correction carried (prints in
+  n3v2, not the plain N3 log). R1 → standby, slots 4/5/6 armed.

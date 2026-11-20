@@ -65,17 +65,17 @@ Rows of record and their D7 classes as of this pre-stage (chains resolved):
 | 15 | eta-rung-1 GREEN EXIT (R5) | `zzv2-lam/eta-r1.lean` @ 5b04304a | GREEN-triad | donor-tree class |
 | 16 | 74-P2-c FINAL PARK (R3) | `74/P2.lean` @ 531a9eb7 | honest-partial | elaboration-COMPLETE, triad PENDING item 13 |
 | 17 | 41-H tranches 1+2 (R4) | `41/H1.lean` + `H2.lean` | GREEN-triad | BANK-AS-NEGATIVE; article SHIPPED cc71841 |
-| 18 | N2-P2c parked (R6) — [PENDING the salvo] | `75/N2-P2c.lean` @ da4c8d3f | NOT-GREEN-honest (parked-unfired) | pillar triad parked; NO verdict until the salvo |
+| 18 | N2-P2c parked (R6) — **CONVERTED 2026-11-20 (R1 unit 16): P2-c GREEN 11/11 @ `2cca447d` (runs 4–8)** | `75/N2-P2c.lean` @ 2cca447d | GREEN-triad | `thmE_dyadic_to_cumulative` closes; the hUnb binder named-honest |
 | 19 | eta-r2/r3 pair — [PENDING R5's re-fire] | `eta-r{2,3}.lean` @ 38bb8463/ed0c0612 | NOT-GREEN-honest (parked-unfired) | fold-once at the confirmation |
 | 20 | 41-H3 S-rung (R4, added 2026-11-20 — postdates the live-events list; worktree-of-record, main-side at H's landing) | `41/H3.lean` @ 833dcff8 | GREEN-triad | 11/11 printed; 16-helper custody gap at sweep |
+| 21 | 75-N2 P3-d/e — P3-COMPLETE (R6, added 2026-11-20, R1 unit 16; worktree-of-record, main-side at H's landing) | `75/N2-P3V2.lean` @ 2613cfd2 (donor-tree, cited) + `75/N2-P3e.lean` @ 6f6beb20 (plain, 2/2) | GREEN-triad | the composed N2-d card `zetaL_two_thirds_landed_of_DZDF` + the ℚ endpoint; iter-6 seed #1 CLOSED; rows 6/14 extended (P2-b 17/17 @ 396d8710; N2-P3 gap DISCHARGED) |
 
-**CURRENT COUNT (pre-stage, NOT close — step 4's sum check applied; refreshed
-2026-11-20 for the H3 add):** GREEN-triad = rows 1, 2, 4, 5, 6, 8, 9, 12, 14, 15, 17,
-20 = **12**; honest-partial = rows 13, 16 = **2**; NOT-GREEN-honest (parked-unfired) =
-rows 18, 19 = **2**; total classified 12+2+2 = **16 ✓** (+4 chain-history rows excluded
-by step 2: rows 3, 7, 10, 11). At close: refresh rows 14/18 (the R6 salvo) and 19
-(R5's pair) to their landing verdicts; item 13's audit fire may move row 16; the sum
-check must then close again.
+**CURRENT COUNT (refreshed 2026-11-20, R1 unit 16 — the SLOT-1 salvo folds; step 4's
+sum check applied):** GREEN-triad = rows 1, 2, 4, 5, 6, 8, 9, 12, 14, 15, 17, 20, 18,
+21 = **14**; honest-partial = rows 13, 16 = **2**; NOT-GREEN-honest (parked-unfired) =
+row 19 = **1**; total classified 14+2+1 = **17 ✓** (+4 chain-history rows excluded by
+step 2: rows 3, 7, 10, 11). At close: refresh row 19 (R5's pair) to its landing
+verdict; item 13's audit fire may move row 16; the sum check must then close again.
 
 — pre-staged lane R1 (verification-integrity), 2026-11-20, worktree agent-02. The
 `[TALLIES-*]` numbers H cites at close come from the refreshed run of THIS procedure
