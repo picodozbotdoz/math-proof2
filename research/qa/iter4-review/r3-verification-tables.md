@@ -2493,3 +2493,208 @@ folded R1 unit 12, 2026-11-19; the G3 PASS row CONVERTS — `P2.lean` guard byte
 *Fold note (R1, 2026-11-19): bytes verified on main @ b611a25; the G2 GREEN row (run 11,
 P2-a/P2-b) and the G3 PASS content stand — this row extends the pilot's state to the
 P2-c park. Certificate UNCHANGED 52+0.*
+
+**41-H — TRANCHE 1+2 COMPLETE; the (H) program BANKS AS THE SECOND DISCOVERY (R4,
+landed batches D+P; folded R1 unit 13, 2026-11-19):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 41-H tranche 1 (R4) | `pilots/41/H1.lean` `283503ada8f5571e`, 455 LoC, 22 decls all public | the tranche-1 run set (`H-record.md` §runs; GREEN per batch-D) | **GREEN — transports + the TRACIALITY OBSTRUCTION banked**: `sigmaQ_asym_witness` [propext] (σ_q(100,110) = 1 ≠ −1 = σ_q(110,100) at q = −1, kernel decide) + `tracial_realizability_refuted` [propext, Quot.sound] (NO tracial evaluation can realize σ_q on w-word products — traciality forces symmetry, the witness breaks it) | **Consequence banked for tranche 2:** Markov/Hecke-TRACE-per-word realizations IMPOSSIBLE; the (H) dictionary must be NON-tracial (tangle/Kauffman-bracket — the dossier's skein phrasing; kills the naive closure-trace reading). Own-file bookkeeping honored (H1/H-record/logs/article stub separate from 41-core's files); on-tauceti-pin #print axioms DEFERRED per the no-consumption rule |
+| 41-H tranche 2 (R4) | `pilots/41/H2.lean` on-disk `3bc8170121492d18` = FIRED `9534383949a6ac0c` + comment-only status note (inert-delta class) , 373 LoC, 18 decls all public | `logs/h2-run11.log` (the granted confirm; 11 runs total; 0 errors, 0 sorry) | **GREEN — the complete obstruction theorem (Walsh certificates → expansion → no-go) kernel-proved: the certificates `sigmaOrth` + `sigmaExpand_basis` [propext]×2 (σ-table orthogonal rows ⟨r_p,r_p'⟩ = 8δ; basis-expansion 8e_{b₀} = Σ⟨r_p,e_{b₀}⟩r_p, both kernel-decide over ℤ) + `sigmaExpand` + `rank_obstruction_nogo` triad** (realization factors as C·Φ·Cᵀ with rank ≤ 5 → contradiction) | **TRANCHE-3 RULING: BANK-AS-NEGATIVE — the (H) program banks as the SECOND DISCOVERY, negative-kind, quota-free; the dossier's 3-strand [HYPOTHESIS] is CLOSED FALSE** (the dictionary needs ≥ 4 strands, TL₄ dim 14; the n≥4 deferred seed recorded). Elaboration finding: `Rat.add`/`Rat.div` are extern-opaque to the kernel on v4.36.0-rc2 (decide must avoid ALL ℚ arithmetic). LoC at cap 805/1455 ✓, runs at cap 10/10 → STOP invoked, confirm granted as run 11 |
+
+*Fold note (R1 unit 14, 2026-11-20 — the queued 41H-T2 fold, byte-verified on main):
+H1 `283503ada8f5571e` (455 LoC, **22 theorems all public**; audit surface = the
+tranche-1 pair at `h1-run2.log:58–:59`, wall 41 s, OVER=0) and H2 on-disk
+`3bc8170121492d18` (373 LoC, **18 theorems all public** — `:19`'s "theorem forces v = 0.
+Contradiction" is prose inside the design comment, NOT a decl; audit surface = the 4
+prints at `h2-run11.log:45–:48`, wall 63 s, **OVER-mem 1 sample = the documented
+mmapped-olean class** [anon=0, max_cpu 0.56/2.0]) both verified at batch-P `c25bf25`
+2026-11-19; H-record `f21b07f375d40d23`. **SHIP EVENT post-dating the unit-13 draft:
+the article SHIPPED at SPLICE-2 `cc71841` 2026-11-19** (kind NEGATIVE discovery-grade
+quota-free per the bank-as-negative ruling; README counts 7→8; R2's S1–S4 4/4 pass
+`ace8bd28` rode batch-R; R9's §NEGATIVE = the battery FINAL v2 `17970d4b`). Sweep:
+AxPilot41_H1/H2 rows ACTIVE (the unit-13 TARGETS adds); guards = main bytes
+(283503ada / 3bc81701, the inert-delta fired+comment-only class for H2).*
+
+**41-H3 — the n≥4 TL hunt S-RUNG, GREEN FIRST-SHOT (R4, the iter-6 Tier-1 seed fired
+early; worktree-of-record agent-08 2026-11-20, main-side at H's landing — bytes
+verified this pass; the n≥4 deferred seed from the 41H bank ruling EXECUTING):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 41-H3 S-rung (R4) | `pilots/41/H3.lean` `833dcff84309c986` (fired = on-disk; 465 LoC, 27 theorems, 0 privates) | `logs/h3-s-run1.log` `6dc794e7a27d8565` (run 1 of the 3–5 budget; wall 62 s; doz CLI, warm crossmath-probe, SPEC 2cpu/4GB, threads=2; **OVER-mem 1 sample = the documented mmapped-olean class** [8,296 MB, anon=0, cpu 0.67/2.0] — dispositioned in-log, no investigation owed) | **GREEN first-shot — H3.lean OK, errors=0, sorry=0: the dim-7 obstruction kernel-proved. Audit 11 prints: `sigmaOrth`/`sigmaExpand_basis`/`sigmaOneOrth`/`sigmaOneExpand_basis`/`sigmaOne_asym_witness` [propext]×5 (the σ-table certificates + the σ₁-witness, kernel-decide over ℤ) + `tableExpand`/`sigmaExpand`/`sigmaOneExpand`/`table_rank_nogo`/`no_realization_dim7`/`no_realization_dim7_one` full-triad ×6** (3 deprecation warnings only — if_neg/if_pos, in-log) | **Class = the n≥4 TL hunt S-rung** (the 41H bank ruling's deferred seed; novelty pre-cleared by R9 round-7 `87659f58` — TARGET-C/D NEW-narrow; precharter `60278bd4b6e824bf`). 16 unprinted theorems → AxFC custody at sweep (the §10.9 print-gap class). Step-B: AxPilot41_H3 row ACTIVE in make_axcheck (guard 833dcff8); classifier ENTRY fires at H's landing commit (the ENTRY-4 precedent — worktree-side until then) |
+
+**AL M2-b CLOSURE + the M2-c KEYSTONE — the M0→M2 ladder kernel-verified (R8 unit-9,
+landed H batch-Q @ `a175b1d` 2026-11-19; folded R1 unit 14, 2026-11-20, byte-verified
+against main — this REPLACES the pre-termination unit-13 narrative draft, correcting
+its run-7 wall (57 s, not "71–82") and the M2-b row's fold-unit attribution (the
+unit-9 fold, not 12); the unit-9 M2-b honest-partial row CONVERTS; A2 guard
+`9706196c` → `61af175aae141aa9`, 1,606 LoC, audit surface 89 decls = 86 pub + 3 priv):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| AL-M2-b (R8) | `pilots/al3d/A2.lean` @ `61af175aae141aa9` (`regReindexEquiv_compl_iff` :1372, bisected into fwd :1271 / bwd :1310; `colEquivVar_swap` :1390) | `logs/alp2-m2c-run7-unit9-bisect.log` (the DIAGNOSTIC bisect fire, wall 57 s, OVER=0) + `logs/alp2-m2c-run8-unit9b.log` (the closure fire, wall 71 s, max_cpu 0.61, OVER=0; app ap-Ps16VMJRnkCahWRFyFhbdZ, doz CLI, spec 2cpu/4GB held) | **CLOSED GREEN — the parked pair `regReindexEquiv_compl_iff` + `colEquivVar_swap` BOTH triad** (run-8 log :200/:201/:272/:273 = fwd/bwd/iff/swap, all `[propext, Classical.choice, Quot.sound]`; re-printed in run 9's full audit) — the unit-9 parks resolved; no live-claim rider remains | **The bisect answer = the SUPPRESSED-ERROR-IN-FUSED-IFF mechanism — standing lesson (h-wave4-log batch-Q)**: the invisible-sorryAx root was compl_fwd's `haf` `.trans`-on-membership error, SUPPRESSED while fused in the iff (invisible to four full-output runs AND the widened `: error(` filter); exposed only by the fwd/bwd split (run 7); MECHANICAL fix (the pre-written rw-form). Run-8 precision: A2 rc=1 errors=1 = the UNRELATED sum_submatrix residual alone — the pair's triad prints stand as their closing evidence. The fwd/bwd split decls STAY (direction-level audit hygiene, record note ii); run-7 reindent collateral (4 neighboring decls) honestly recorded, repaired in run 8's byteset |
+| AL-M2-c keystone (R8) | same file (`sum_powerset_eq_sum_projFib` :1438; private helpers `sum_attach_eq_dite` :1415 / `sum_submatrix` :1428; `hamiltonianVar_eq_submatrix` :1447) | `logs/alp2-m2c-run9-unit9c.log` (wall 82 s, max_cpu 0.87, OVER=0; A2.lean OK **sorry-strict rc=0**; app ap-Qa8zOUjX9aZjdrG9VFeyvm, mathlib ff2494ea) | **GREEN — the keystone `hamiltonianVar_eq_submatrix` triad, with `sum_powerset_eq_sum_projFib` + both private helpers triad — BOTH P2-d parked targets PROVED (the extend-relabel swap AND the Hamiltonian identification, over the canonical z-rank enumeration); the M0→M1→M2 ladder kernel-verified END-TO-END** | **Whole-file census at the landed bytes (R1's independent decomposition of run 9's A2 audit section): 89/89 audit-surface decls — 86 pub + 3 priv — EVERY name exactly `[propext, Classical.choice, Quot.sound]`, 0 sorryAx** (vs the batch-B surface 83 = +6: the fwd/bwd split pair, the 2 private helpers, the sum lemma, the keystone). Regression gate held: run-13's 85-line core byte-identical; growth 26 lines all triad-only; sole subset-payload `walk_induce_length` ([propext, Quot.sound]) unchanged since run 13. Diagnostic `set_option linter.all false` LIFTS at M3's close (record note i). **M3 = the ladder's final rung** (entropy identification + the `SlabAreaLawColumnCuts3D` discharge from the `PlanarAreaLawVar` binder) |
+
+**72-M1 L3 — v16 CLOSING STATE, BYTE-VERIFIED — with a LANDED-RECORD CORRECTION (R2
+W2-4 final round, landed H batch-M; folded R1 unit 14, 2026-11-20 — this REPLACES the
+pre-termination unit-13 "v16 DEEPENING" paragraph AND corrects the unit-10 v13 row's
+L3c line below; T3 guard `dcda3133` → `aed631015beb38d6`, 1,046 LoC):** the unit-13
+paragraph's flip claims are CONTRADICTED by the landed logs. Run 16 = the last fire of
+the landed v16 bytes (source-sha-guarded in its header); R1's exhaustive
+multiline-aware parse of ALL 16 `l3bd-run*` audit prints gives the certified state —
+SHALLOWER than every narrative of record claims:
+
+| decl | print history (runs 1–16) | certified state at the v16 park |
+|---|---|---|
+| `toGrid_star_dotProduct_self` (L3b) | triad every run 6–16 | TRIAD ✓ |
+| `eig_toGrid` | triad every run 5–16 | TRIAD ✓ |
+| `edgeBoundary_le_boundaryCard` | triad every run 9–16 | TRIAD ✓ (since run 9 — not the run-12 flip the records narrate) |
+| `hasGlobalGap_of_fullSystemGap` (L3c) | printed runs 4–16, **TRIAD NEVER** (0 triad prints repo-wide) | CONTAMINATED — "run 12 flipped L3c / triad at close" (stop-note :111/:122, L3-record, H batch-G, the unit-10 row) is CONTRADICTED; the v16 "REGRESSION, reopened by conj→star" framing had a false premise (it never closed) |
+| `isAdmissible_ΦL` | printed all 16 runs, **TRIAD NEVER** | CONTAMINATED — "run 14 flipped triad-clean" (L3-record :13, stop-note :151, H batch-M, the unit-13 draft) is CONTRADICTED |
+| `hamiltonian_gridDom_eq` | printed all 16 runs, **TRIAD NEVER** | CONTAMINATED — same |
+| `interface_areaLaw_uniformAreaLaw` | printed all 16 runs, TRIAD NEVER | CONTAMINATED (as recorded) |
+| `submatrix_mulVec_ec` | NEVER print-audited in any log | record-only triad claim (the §10.9 print-gap class) — UNVERIFIED at print level |
+
+Run-16 overall: P72M1T3.lean **FAIL rc=1, errors=35, sorry-warnings=0** (wall 83 s;
+OVER-mem 1 sample = the mmapped-olean class, anon=0; max_cpu 1.02/2.0). The persistent
+sorryAx with disk-sorry-free = the error-recovery class (decls whose proofs still fail
+to elaborate), so the flip narratives were most plausibly TACTIC-LEVEL site-closures
+read as certifications. **W2-4 = honest-partial at close — MORE partial than the
+records state: the certified clean set is L3b + eig_toGrid + edgeBoundary (+ T1/T2/L3a
+throughout); the §CHARTER-ITEM-3 next-wave input must ALSO re-derive
+isAdmissible/hamiltonian/hasGlobalGap (their "solved" status was narrative, not
+prints).** CORRECTION ROUTED (R1 → coordinator, 2026-11-20): R2's `L3-record.md`
+`bc26418c` + `l3bd-stop-note.md` `d562b2b4` and H's h-wave4 batch-G/batch-M entries
+carry the contradicted claims — re-basis owed before Iteration-6 planning consumes the
+stop-note. Classifier: disk-sorry-free stands (0 real tokens; certificate 52+0 stands);
+guard `aed63101` stands (the landed bytes ARE the park); sweep verdict class honest-partial, with THIS clean-set inventory as the row of record.
+
+**74-P2-c — FINAL PARK (R3 item-2b, landed H batch-O @ `cc1c566` 2026-11-19; folded
+R1 unit 14, 2026-11-20, byte-verified on main — this REPLACES the pre-termination
+unit-13 narrative draft with the row-convention form; the ENTRY-12 run-17 PARKED row
+CONVERTS to the final park; P2 guard `4425be89` → `531a9eb70f9871ba`, 1,489 LoC,
+55 decls = 16 pub + 39 priv, +10 defs — the one-line delta vs run-18's re-park
+`7393c98d` is the h4 first-chain's bare `field_simp` branch deleted):**
+
+| slot | file (sha256(16), LoC, census) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| 74-P2-c final park (R3) | `pilots/74/P2.lean` `531a9eb70f9871ba` (staged-sha-guarded; diff vs the run-18 base = exactly ONE deleted line, verified pre-fire in the log header) | `logs/p2c-run19.log` (FIRE-ONCE, salvo item 2b; wall 54 s, samples=0, within SPEC; run ledger 19 = `p2-runs1-11` [G2] + `p2c-runs12-16` + run 17 + run 18 + run 19) | **elaboration-COMPLETE, 0 sorry — NOT-GREEN at rc=1 = the audit-tail namespace placement ALONE: 13 errors, ALL at lines 1477–1489, ALL `#print axioms` resolutions failing against the ROOT namespace (the prints sit AFTER `end CrossMath.Pilot74P1` — the unit-4 assembly regression of the run 10→11-fixed class, re-introduced by the p2c body's own `end`+tail block). ZERO body errors — every Part P2 decl (mgfBound_var_sharp, t1c_sharp, famN_spectrum/varK/W/Mdev/inClass, t4_floor_achieved, t4_not_littleO, CertValidClass/BkClass) elaborates kernel-clean** | **AUDIT STATUS — HONEST: the Part P2 theorems' TRIAD status is UNVERIFIED (the axiom prints never resolved — a claim of record is elaboration-clean, NOT proof-certified; the N2-P0 erratum convention). The completion, NOT fired per the FIRE-ONCE terms: move `end` after the 13 print lines (or fully qualify) — rc=0 + the full-coverage audit then expected.** Charter item 2 CLOSED (two-fire history + **audit-pending at close = CLOSE-CHECKLIST ITEM 13**, `iter5-close-block-skeleton.md`; the audit-tail move + ONE audit fire at wave-close, R3 on the close signal; charter `40eee946` + record `aaf521b8`). G2 state of record `49b808f3` preserved log-cited (`p2-runs1-11.log`). The sweep verdict class stays honest-partial until that audit fire; guard → `531a9eb7` |
+
+*Fold note (R1, 2026-11-19, consolidated @ a175b1d): all five byte states classifier-
+scoped — **0 REAL-TOKEN each** (certificate UNCHANGED 52+0); H2 = the inert-delta
+class (fired 95343839 + comment-only → on-disk 3bc81701). *
+
+*Footnote (R1 unit 14, 2026-11-20 — the make_axcheck TARGETS row-count METHOD, per
+R2's gates dry-run relay `4e5b4854`, recorded not reconciled): the gates file's basis
+line reads "63 rows at `1d0927df`" vs "53 active tuple rows at `00236246`" — a
+COUNTING-METHOD DELTA, not a drift (static-tuple counting excludes the `01/port` glob
+comprehension and any disabled-row filtering; R1's ENTRY-13 method counts 55 static
+tuples + 10 globbed files = 65 total at the unit-13 bytes). All three numbers stand
+as recorded by their methods; **count at close governs** — the close-time `order.txt`
+emission is the canonical counter. No unilateral reconciliation.*
+
+*Close-readiness pre-audit (R1 unit 14, 2026-11-20 — the wave-close checklist's
+verification-row dependencies, gaps flagged early per the drain task):*
+1. **Skeleton items 2–3 (tallies + census)** — DEPENDS on §11's final state. Two gaps:
+   (a) `tally_section10.py` hard-splits at `## 10.` + enumerates `### 10.N`
+   subsections; §11's rows are heterogeneous (three `### 11.N` headers + bolded
+   paragraph-block tables) — the "adapt the section arg" note understates the work;
+   either R1 normalizes §11 into `### 11.N` subsections pre-close or the tally is
+   semi-manual. (b) the **§11.CENSUS companion is UNOPENED** (Instrument B cites it
+   conditionally) — R1 owes the manual-part roll-up at close; basis = iter-4's
+   385/386 + the 77-discharge + iter-5 landed growth (machine part via the sweep).
+   **BOTH DISCHARGED 2026-11-20 (R1 pre-stage pass): (a) the tally route ruled MANUAL
+   — `qa/iter4-review/tally-section11-manual.md` (the documented procedure + working
+   tally; the §10 parser stays untouched — route call + reasons recorded there);
+   (b) §11.CENSUS OPENED below (print-verified rows + [AT-CLOSE] slots).**
+2. **Skeleton item 4 (Step-A certificate)** — READY: ENTRY ledger live (13 entries,
+   52+0 basis); the sweep-time entry fires at close.
+3. **Skeleton item 13 (P2-c audit fire)** — the audit-pending note rides the §11
+   final-park row (landed this pass); R3 executes on the close signal.
+4. **`VERIFICATION-LEDGER.md` §11** — DOES NOT EXIST yet (ledger ends at §10);
+   Instrument B cites it; R1 owes it at close (the §10 precedent).
+   **DISCHARGED 2026-11-20: §11 PRE-STAGE OPENED (skeleton grammar + per-pilot
+   [AT-CLOSE] cells + the guards-of-record list + the TARGETS-count footnote + the
+   L3-correction reference) — fills at the close signal, the §10 pattern.**
+5. **Gates G2 basis refresh** (R2's file, H-shepherded — flagged, not mine): the
+   ACTIVE list predates the M2/41H closures (AxPilot41_H1/H2 + the A2 GREEN verdict
+   class) and the basis-line count carries the method delta footnoted above.
+6. **L3 correction** (this pass): the corrected L3 block above changes the
+   close-block's carried-L3 sentence basis — R2's re-basis of the stop-note should
+   land BEFORE the close commit's carried-list is filled.
+7. Pending verdict rows for §11 at close: P3-complete + the N2 salvo folds (R6
+   re-fire), eta-r2/r3 (R5 re-fire) — the standby folds, released per landing.
+
+### 11.CENSUS — manual per-decl triad census companion (lane R1, 2026-11-20; PRE-STAGE
+closing the pre-audit's owed gap; composition conventions carry from §10.CENSUS;
+refreshes at each pending fold + the close sweep — [AT-CLOSE] slots are the sweep's to
+fill, never guessed here)
+
+Basis: the Iteration-4 close basis **385/386** (§10.CENSUS (e)) **+ the 77-T2
+discharge** (the 386th decl repaired and printed triad at `t2-run12.log`) → the
+**386/386-equivalent starting point**; this companion counts ONLY Iteration-5 growth
+beyond it, each decl exactly once at its current guard sha. Every census cell below
+cites the persisted log line re-read this pass (no count from memory; print-gap and
+elimination classes are flagged, never silent — the §10.CENSUS discipline).
+
+**(a) Discharge of the Iteration-4 residual (composes onto the §10 basis, not new
+growth):**
+
+| artifact | census | evidence |
+|---|---|---|
+| `pilots/77/T2.lean` `e70baf22d9ae220e` | **8/8 top-level triad** incl. the formerly-tainted `isDegreeBlock_iff_sum_blockProj` | `t2-run12.log` (sorry-strict; the §11 77-T2 row) — the iter-4 1/386 residual CLOSED |
+
+**(b) Iteration-5 landed growth — print-verified rows (by FILE, at the guard sha of
+record):**
+
+| artifact (guard sha) | census (triad/printed-surface) | evidence | gap class → who fills |
+|---|---|---|---|
+| `pilots/77/T1.lean` `70d7e9f75e705303` | **8/8 top-level triad** | `t1t2-run11.log` (donor-pin runner, tauceti @ d92acc5c) | 40 privates → AxFC custody at sweep (DONOR-PIN class, plain-batch FAIL by design) |
+| `pilots/41/Core.lean` `733b4a2d93a84689` | **30/30 top-level printed** — 4 deciders at zero axioms (⊆-triad) + 26 triad-or-leaner, 0 sorryAx | `core-run9.log` (fired `921bc43cbd06d252`) | NONE — 31 decls all public, Step-B tail = full coverage |
+| `pilots/41/H1.lean` `283503ada8f5571e` | **2/2 printed** (the tranche-1 pair: `sigmaQ_asym_witness` [propext], `tracial_realizability_refuted` [propext, Quot.sound]) | `h1-run2.log:58–:59` (wall 41 s, OVER=0) | **20 unprinted theorems** → AxFC custody at sweep (print-gap class, §10.9 precedent) |
+| `pilots/41/H2.lean` `3bc8170121492d18` (= fired `9534383949a6ac0c` + comment-only) | **4/4 printed** (`sigmaOrth` [propext], `sigmaExpand_basis` [propext], `sigmaExpand` triad, `rank_obstruction_nogo` triad) | `h2-run11.log:45–:48` (wall 63 s; OVER-mem 1 = mmapped class, anon=0) | **14 unprinted theorems** → AxFC custody at sweep |
+| `pilots/al3d/A2.lean` `61af175aae141aa9` | **89/89 audit-surface ALL exactly triad** (86 pub + 3 priv — R1's independent decomposition) | `alp2-m2c-run9-unit9c.log` A2 section (sorry-strict rc=0) | NONE — full coverage in-run |
+| `pilots/75/N2-P1.lean` `ce6719c8af450eaa` (GIT_BYTES pin, run-26 bytes) | **15/15 file decls triad** | `n2-p1-run26.log` (15/15 = the file's own print surface) | 13 privates → AxFC custody direct-prints at sweep |
+| `pilots/75/N2-P3.lean` `f9bd28c5f8f7c3d2` | **3/3 publics triad** (P3-a/b/c) | `n2-p3-run3.log` | the composed headline + P3-d = PENDING the R6 salvo fold (standby) |
+| `pilots/zzv2-lam/eta-r1.lean` `5b04304a53a5b849` | **6/6 strict-OK triad** (7 decls = 6 pub + 1 priv) | `eta-r1-run3.log` (DONOR-TREE class — verdict of record = the run log, zzv2-P1 precedent) | none beyond the donor-tree convention |
+| `pilots/10/M-arc.lean` `7addcf0029ea06e7` | **+1 Part M theorem over the embedded L5 basis** (`exists_tm_padded_space`, hv SUPPLIED-AS-BINDER; rc=0, 0 sorry) | `marc-run1.log` GREEN r2 | SINGLE-ANCHOR class: L5 verbatim inside (= §10.26's 45/45 + C2-swept carries, NOT recounted); 41 privates + 281 carry → custody at sweep |
+| `pilots/72-M1/P72M1T3.lean` `aed631015beb38d6` (v16) | **printed 7: 3 triad + 4 sorryAx** (the corrected L3 block's table = the census of record: L3b since run 6, eig_toGrid run 5, edgeBoundary run 9; hasGlobalGap/isAdmissible/hamiltonian/interface NEVER triad in any print) | `l3bd-run16.log` full audit (FAIL rc=1 errors=35 — sorryAx = error-recovery) | `submatrix_mulVec_ec` NEVER print-audited (print-gap); the unprinted remainder → custody at sweep; **L3-INTEGRITY CORRECTION governs (r3-tables §11 corrected block; R2 re-basis owed)** |
+| `pilots/74/P2.lean` `531a9eb70f9871ba` (final park) | **triad prints UNRESOLVED at the park** (rc=1 = the 13-line audit-tail placement alone; 0 body errors, 0 sorry) — G2 state of record `49b808f3`: P2-a/P2-b publics triad + P1 heritage (7 pub + 24 priv elim, §10.31) | `p2c-run19.log` + `p2-runs1-11.log` | **whole-file triad = PENDING close-checklist item 13** (the audit fire; R3 on the close signal) |
+| `pilots/liu-bnew/P0.lean` `20ac66718a932e6c` | **2/2 bridges triad in-run** | `p0-run2.log` GREEN r2 | statement-layer — NEVER a Step-B stage (probe class, (d)) |
+| `pilots/41/H3.lean` `833dcff84309c986` (S-rung; worktree-of-record, main-side at H's landing) | **11/11 printed** (5 × [propext] certificates + 6 × full-triad) | `h3-s-run1.log:53–:63` (GREEN first-shot, errors=0 sorry=0, wall 62 s) | **16 unprinted theorems** → AxFC custody at sweep (print-gap class) |
+
+**(c) Donor-pin / donor-build rows (separate composition line):** eta-pin-probe donor
+hygiene **7/7 triad on-pin** (`eta-pin-probe-run2.log`, probe class below); the V2
+substrate build GREEN `simple_proportion_d4` **on-pin triad** (`n2-p3v2-build1.log` —
+a DONOR-BUILD row, quoted separately; the OVER-cpu samples dispositioned as the
+authorized lake-build subprocess class). Adds to the §10 (c) convention, never to the
+pilot census.
+
+**(d) N/A classes (flagged, excluded from every roll-up):** probe/statement rungs —
+41-P0 (`b177acdb`, 1 defl-rfl def), eta-pin-probe (`cadc838d`), liu-bnew (statement
+bridges in (b) are citation-class rows, not Step-B), 41-P0's supersession pointers;
+skeletons/parked-unfired — N2-P2c @ `da4c8d3f` (pillar triad PARKED, no verdict until
+the salvo), the eta-r2/r3 parked pair (fold-once at their confirmation fires);
+honest-park classes carry their rows in §11 proper (verdict cells there, not censuses).
+
+**(e) Roll-up formula — PRE-STAGE (the [AT-CLOSE] slots are the close sweep's):**
+
+```
+ITER-4 BASIS:            385/386 (§10.CENSUS (e))
++ 77-T2 discharge:       +1 (the 386th, table (a))            → 386/386-equivalent
++ ITER-5 GROWTH, print-verified now (table (b)):
+    77-T1 8/8 · 41-Core 30/30 · 41-H1 2/2(+20 gap) · 41-H2 4/4(+14 gap)
+    · A2 89/89 · N2-P1 15/15 · N2-P3 3/3 · eta-r1 6/6 · M-arc +1
+    · 72-M1-T3 3-new-clean/4-contaminated (corrected block) · 74-P2 [AT-CLOSE item 13]
+  = [GROWTH-SUM — R1 re-derives at close from the rows of record]
++ SWEEP machine stages + AxFC custody print-gaps ([AT-CLOSE]: the 20+14 helpers,
+  privates, submatrix_mulVec_ec, M-arc carry surfaces)
++ PENDING FOLDS ([AT-CLOSE]: P3-complete family, N2-P2c salvo, eta-r2/r3)
+= [WHOLE-TREE-CENSUS] for Instrument B item 3; residual note = the L3 contaminated
+  four (named) + any pending-unresolved at close (named, never blurred).
+```
+
+— census companion lane R1, 2026-11-20, worktree agent-02 (main @ `37cb520`; every
+cell byte-verified this pass). Supersedes nothing; the §10 companion stays closed
+history.

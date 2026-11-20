@@ -1237,3 +1237,16 @@ classifier 52+0 stands).
   working tree at ~19:04–19:05, before batch-DD's add at 19:05:41) — the
   relayed "dirty" description raced the commit; sha-verified at the commit;
   main CLEAN after batch-EE confirmed.
+
+## 2026-11-20 — iter-5 steady state, batch GG (H): R1's §11 prestage — the fold batch COMPLETES
+
+- **4 files landed (shas 4/4, asserts all-green):** the §11 manual tally
+  (20 rows: 12 GREEN-triad / 2 honest-partial / 2 NOT-GREEN-parked = 16 ✓ —
+  the MANUAL route per the parse-trap lesson) + the VERIFICATION-LEDGER §11
+  prestage (base `1c6da8b3` = main-current, verified) + the r3-tables §11.CENSUS
+  companion + H3 fold row (gaps 1a/1b/4 discharged) + **the make_axcheck
+  SUPERSET** `5bf0ef60` — R1 re-based onto R2's landed `12c05683` (the merge
+  case resolved exactly as the fallback prescribed): MArc/H2 verbatim, +:83
+  discharge, +AxPilot41_H3, 57 tuples, 0 duplicates, py_compile rc=0.
+- The earlier-held tables/make_axcheck pair (batch-Y's two holds) is now
+  FULLY superseded by this landing.

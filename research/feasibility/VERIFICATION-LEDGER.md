@@ -368,3 +368,58 @@ Pilot tree at close: **55,305 lines of Lean** (extractor-generated; superseding 
 Steps A–C surfaced nothing further at the close (the 5 run1 FAILs were staging defects,
 re-discharged 5/5 per the run2-subset log; the AxDep_AL3DP0 sorry-warning flag is the
 certified-probe-token class, dispositioned in-log).
+
+## 11 Iteration-5 final sweep — PRE-STAGE (opened by lane R1, verification-integrity, 2026-11-20; the close-audit gap from the §11-tail pre-audit DISCHARGED at skeleton level — this section fills at the wave-close signal exactly as §10 did)
+
+Grammar note (the structural difference vs §10, recorded for the close-time filler):
+Iteration-5's rows of record live in `qa/iter4-review/r3-verification-tables.md` §11
+(folded-verdict rows: `### 11.N` tables AND free-standing bolded conversion blocks —
+chains resolved to terminal states; the authoritative inventory =
+`qa/iter4-review/tally-section11-manual.md`, the DOCUMENTED MANUAL TALLY — the §10
+parser is deliberately NOT extended; route call + reasons recorded there). The
+close-time numbers cite that file, never this section's frozen pre-stage counts.
+
+Step A (sorry-token classifier): basis **52+0 carried EXACT through 13 ENTRY-ledger
+increments** (`probe/logs/stepA-incremental-iter5.log`; every iter-5 landing classified
+0 real tokens — the A2 parks, P2-c parks, v16, H1/H2, H3 all disk-sorry-free);
+[AT-CLOSE] = the sweep-time entry over the closing tree.
+
+Step B two-part [AT-CLOSE]: (i) TARGETS batch via `probe/make_axcheck.py` — guards of
+record: A2 `61af175a` (M2-closed), T3 `aed63101` (v16 park, print-corrected), 74_P2
+`531a9eb7` (final park), N2P1 GIT_BYTES pin `ce6719c8` (run-26 bytes), 41_Core
+`733b4a2d`, 41_H1 `283503ada`, 41_H2 `3bc81701` (inert-delta), 41_H3 `833dcff8`
+(main-side at H's landing), MArc `7addcf00`, 77_T1 `70d7e9f7` / T2 `e70baf22`
+(T1 donor-pin class). TARGETS-count footnote (recorded, not reconciled): gates basis
+"63 @ 1d0927df" vs tuple-method "53 @ 00236246" vs R1's static+glob "65→67 as rows
+land" — **count at close governs** (order.txt emission). (ii) AxFC custody [AT-CLOSE]:
+the print-gap surfaces named in `r3-verification-tables.md` §11.CENSUS (b) — 41-H1's
+20 + 41-H2's 14 + 41-H3's 16 unprinted theorems, N2P1's 13 privates, 77_T1's 40,
+M-arc's carry, `submatrix_mulVec_ec`, the 74-P2 privates at item 13's audit fire.
+
+| pilot | final files (guard sha of record) | axcheck verdict basis (pre-stage) | sorry tokens | sign-off |
+|---|---|---|---|---|
+| 41 (core+H program) | `Core.lean` `733b4a2d` · `H1.lean` `283503ada` · `H2.lean` `3bc81701` · `H3.lean` `833dcff8` (main-side at landing) | [AT-CLOSE stages]; print-verified: Core 30/30 (4 deciders ⊆), H1 2/2 (+20 custody), H2 4/4 (+14 custody), H3 11/11 (+16 custody) — `r3-tables` §11 rows + §11.CENSUS (b) | 0 | [AT-CLOSE] |
+| al3d (M0→M2 ladder) | `A2.lean` `61af175a` (+ P0/A1 frozen chain) | [AT-CLOSE stage]; print-verified **89/89 exactly triad in-run** (`alp2-m2c-run9-unit9c.log`) | 0 | [AT-CLOSE] |
+| 75-N2 | `N2-P1.lean` @ GIT_BYTES `ce6719c8` · `N2-P3.lean` `f9bd28c5` · [PENDING: P3-complete family + N2-P2c salvo folds] | [AT-CLOSE]; print-verified: 15/15 run-26 + 3/3 P3-a/b/c; P3-d + P2-c pillar = pending verdicts | 0 | [AT-CLOSE] |
+| 74 | `P2.lean` `531a9eb7` (final park) | [AT-CLOSE = close-checklist item 13's audit fire — the ONLY unresolved print surface: triad prints never resolved at the park; G2 state `49b808f3` stands meanwhile] | 0 | [AT-CLOSE] |
+| 72-M1 (L3 continuation) | `P72M1T3.lean` `aed63101` (v16) | [AT-CLOSE drift-check vs guard]; **PRINT-LEVEL CORRECTION of record**: certified clean = L3b + eig_toGrid + edgeBoundary + T1/T2/L3a; the four named decls NEVER triad in any print (`r3-tables` §11 corrected block; R2's stop-note/L3-record re-basis owed — main batch-X already carries the correction entry) | 0 | [AT-CLOSE] |
+| 77 (follow-up) | `T1.lean` `70d7e9f7` (donor-pin) · `T2.lean` `e70baf22` | [AT-CLOSE: T1 donor-pin class cites its run log; T2 plain stage]; print-verified 8/8 + 8/8 incl. the iter-4 residual discharge | 0 | [AT-CLOSE] |
+| 10 (M-arc) | `M-arc.lean` `7addcf00` | [AT-CLOSE single-anchor stage]; print-verified +1 Part M over the embedded L5 basis | 0 | [AT-CLOSE] |
+| zzv2-lam (η-port) | `eta-r1.lean` `5b04304a` · [PENDING: eta-r2/r3 folds] | [AT-CLOSE donor-tree class — verdict of record = run logs]; print-verified rung-1 6/6 | 0 | [AT-CLOSE] |
+| liu-bnew (statement) | `P0.lean` `20ac6671` | NEVER a Step-B stage (statement-layer citation class; §11.1 row) | 0 | OK (Step A only) |
+| probe/statement rungs | 41-P0 `b177acdb` · eta-pin `cadc838d` | probe-convention (§10.CENSUS (d) class); eta-pin donor hygiene 7/7 on-pin (donor rows quoted separately) | 0 | OK (Step A only) |
+
+Pilot tree at close: [AT-CLOSE — extractor over the closing tree].
+
+**Step D — compliance sign-off [AT-CLOSE; the §10 text re-based: ff2494ea or declared
+donor pin; probe stubs enumerated by the sweep-time Step-A entry; counts
+extractor-generated].**
+
+Standing references riding this section: (1) the TARGETS-count method footnote (§11
+tables tail — count at close governs); (2) the L3-INTEGRITY CORRECTION (authority =
+`r3-tables` §11 corrected block; propagation recorded at main batch-X); (3) the §I5
+REPORT delta (`qa/REPORT-INPUTS-ITER5.md` §4) is the paste source for the close
+block's report splice, not this ledger.
+
+— pre-staged lane R1, 2026-11-20, worktree agent-02 (base = main's ledger @
+`1c6da8b346c1abba` byte-identical; PREP-ONLY, no instrument executed herein).
