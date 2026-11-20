@@ -1250,3 +1250,15 @@ classifier 52+0 stands).
   discharge, +AxPilot41_H3, 57 tuples, 0 duplicates, py_compile rc=0.
 - The earlier-held tables/make_axcheck pair (batch-Y's two holds) is now
   FULLY superseded by this landing.
+
+## 2026-11-20 — iter-5 steady state, batch HH (H): the landing audit CLEAN + the FB-2 precharter + the charter v4
+
+- **R2's landing audit landed** (`r2-landing-audit-tx.md` `248d880c`):
+  **CLEAN — 26/26 sha PASS** across T→`868e37d`; supersedes all dated +
+  authorized; the two close-gating flags (R1's tables/make_axcheck mid-flight
+  snapshots) discharged by batch-GG's completed re-bases.
+- **R9's FB-2 PNT-AP precharter landed** (`fb2-pntap-precharter.md`
+  `3760595f`): informs-never-spends the N=1 slot; descope ladder +
+  STOP-at-tranche; T2-ignition block.
+- **The charter draft v4 landed** (`10ff9b96`, delta on the committed v3):
+  the 12-core bench-annex [IF-GO]-parameterized citing `5f8facd4`.

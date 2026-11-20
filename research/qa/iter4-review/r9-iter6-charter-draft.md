@@ -175,9 +175,29 @@ wording above is an instance). Park = v16 @ `aed631015beb38d6` (1,046 LoC),
 disk-sorry-free (certificate 52+0 stands).
 
 **Wave-tail / drain-queue (charter names them, no slot by default):** the FB quota
-contest (§3); 12-P0 (DEFER behind the drain-activation rule; 11-M3 same); the
-BGS-TB/Lamzouri full-text pass (NOT-WARRANTED; fires only on a consumer challenge
-to DECISION-2 = A); Liu-1 replay prerequisite (dormant, no consumer).
+contest (§3); the **12-core bench-annex** (below); 11-M3 (DEFER behind the
+drain-activation rule); the BGS-TB/Lamzouri full-text pass (NOT-WARRANTED; fires
+only on a consumer challenge to DECISION-2 = A); Liu-1 replay prerequisite (dormant,
+no consumer).
+
+**Bench-annex — 12-core (P0-PINNED; [IF-GO] parameterized on the conversion ruling).**
+R3's charter input is on file: `worktrees/agent-07/research/pilots/12/
+core-charter-input.md` @ `5f8facd4544f92a9` (109 lines; A6 lineage, 2026-11-20) —
+the P0-based S–M scoping: §1 the statement surface = `P0.lean` `3d924056ed4c3e2c`
+minus its 7 stubs, all elaborated 0-error on-pin (P0-record `3f88feb8`, run-2 logs
+`46abd882`); §2 the ONE open mathematical risk = the step-2 question (Sec-4 input
+sufficiency for `balancePoint_monotone_shape`, the c-coordinate crux) — proof-level
+only, with a priced rescope fallback; §3 S–M pricing (the S part fully elaborated
+already; single-digit fires); §4 the BINDING corrected-monotonicity rider
+(`EpsData.strict_anti : StrictAntiOn ε (Set.Ioc 2 2.9)` — the DECREASING form binds
+all core prose); §5 the donor must-cites; §6 the sequencing facts (12 was the
+6.0 runner-up, TRIAGE N4 S3 E2; its only pilot-time flag DISCHARGED at statement
+level by the P0). **[IF-GO]** (a mid-wave conversion per the drain-activation rule,
+the iter-5 DECISION-6 pattern): the S-tranche fires against the pinned surface (the
+statement tier is already paid for); **[IF-NOT-GO]**: stays benched with the P0
+banked as the conversion-ready artifact. Charter consumes R3's note verbatim-class;
+the probe-runner sorry-filter process finding (backtick form, `run_p0.py`
+`a3976f96` the fixed template) binds ANY iter-6 probe runner.
 
 ## §3 Quota + watchlist (the [DECISION-Q] asks)
 
