@@ -1308,3 +1308,13 @@ worktree's dirty set byte-preserved (sha256(16) manifests + byte trees at
 hand-merged. The DEFERRED trio (02/03/07) costs nothing operationally — the
 carry-branch fallback would leave them at their current bases anyway (their
 untracked files are landed on main); retry at drain or fold into the close act.
+
+## 2026-11-20 — iter-5 steady state, batch KK (H): R2's §I5 splice package — the close instrument set COMPLETE
+
+- **R2's §I5 splice package landed** (`r2-i5-splice-package.md` `cd00b3b9…`;
+  basis REPORT.md `ebaa3df9` re-verified unchanged through HEAD at landing;
+  the I4.7 append-anchor count==1 stands): PREP-ONLY, six [SLOT-*] verdict
+  parameters (drift-by-design, bind at confirmed shas per R1's templates),
+  I5.6 KPI final-form 8/16 = 50% at equality. **The close act's instrument
+  set is now COMPLETE** (gates + skeleton + stamps + refresh lists +
+  rehearsal + landing audit + splice). R2 → close-support standby.
