@@ -2,8 +2,9 @@
 
 *kind: TECHNICAL-RECORD — formal calculus for folklore composition, acceptance-tested
 on donor Theorem 19 (TEMPLATE-iter4 §0 kept set) · date: 2026-11-09 (header modernized
-2026-11-17) · supersedes: none · artifacts: `research/pilots/11/` (Lean pilots +
-logs), dossier `research/candidates/11-z1-composable-reduction-theory.md`, blueprint
+2026-11-17; M3 status-row refresh 2026-11-20) · supersedes: none · artifacts:
+`research/pilots/11/` (Lean pilots + logs), dossier
+`research/candidates/11-z1-composable-reduction-theory.md`, blueprint
 `research/pilots/11-blueprint.md`*
 
 | theorem | status | hypotheses | evidence |
@@ -12,6 +13,7 @@ logs), dossier `research/candidates/11-z1-composable-reduction-theory.md`, bluep
 | Thm 2 `RedB.red_of_theorem_17` / `Corollary_16` repackaging | PROVED-CONDITIONAL | `Claim.Theorem_17` (donor statement as binder; donor reference compiled verbatim alongside as faithfulness check — `stepB-c2.log:60` triad) | print `axcheck-final.log:389` — triad [R3 tables §5] |
 | Thm 3 acceptance: `Claim.Theorem_19_explicit M 0.00175 1` from one composition | PROVED-CONDITIONAL | `Claim.Theorem_17` + `Claim.Corollary_16` binders (donor parameter arithmetic ported verbatim) | print `axcheck-final.log:387` — triad [R3 tables §5] |
 | Thm B(ii) `tm2_realized_composed` (§8) | PROVED-CONDITIONAL | EthExistsTm, EthPoly, EthIsPoly (eth interface statements as explicit binders) + the machine/size binders of §8 | print `pilots/11/logs/m2-axcheck-final.log:22` — triad [R3 tables §5] |
+| Thm 4 (M3 second acceptance) `RedM3.composed_21a_of_ch20_vw13` | PROVED-CONDITIONAL | `Claim.CH20_Theorem_5_1` + `Claim.VW13_Theorem_4_3` (donor cited-literature statements, def-only verbatim transcript, as binders — the ChanHe program not re-ported) | in-run `#print axioms` `pilots/11/logs/m3-run3.log` — 3/3 triad (with `red_of_CH20`, `red_of_VW13`); verdict of record until the wave-close full-coverage axcheck |
 
 All kernel verification on mathlib `ff2494ea`, Lean v4.36.0-rc2; axioms ⊆ {propext,
 Classical.choice, Quot.sound}; no `sorry`, no `native_decide`. Kind: formal calculus
@@ -28,6 +30,16 @@ states both as open; §6 converted to the mandatory nearest-miss table (same
 citations). Same-day depth pass: §5 gained the per-theorem verification blocks
 (decl file:line + binder inventories + honest labels); the run-count/machine-time
 sentence was removed (record content, not article content).
+
+Change log (2026-11-20, lane R7 — the M3 status-row refresh, IN PLACE): the last
+benched rung (M3, CH20∘VW13; DECISION-6 drain activation) landed GREEN and joins the
+article as Theorem 4 — the second acceptance instance, one level up from Theorem 3
+(status row + §3/§4/§5 entries below). The §7 open-problems entry is rewritten
+accordingly: what remains open is the Tier-2 asymptotic classification port (the
+priced iteration-6 add-on) and the unchanged word-RAM half. References gain the
+Fischer arXiv:2610.32162 context citation (corroboration of the refutation premise
+only — never a mathematical input; precharter `pilots/11/M3-precharter.md` §5).
+Status vocabulary unchanged; no other row touched.
 
 ---
 
@@ -91,6 +103,24 @@ type of the donor theorem `ThreeSumApsp.Theorem19.explicit_of_theorem_17_corolla
 one application of Theorem 1 followed by the donor's parameter-choice arithmetic
 (`choice_corollary_26`, `total_corollary_26`).
 
+**Theorem 4 (second acceptance — the M3 instantiation, 2026-11-20).** Assume the two
+cited-literature claims of the donor, `Claim.CH20_Theorem_5_1 M` (3SUM →
+Convolution-3SUM) and `Claim.VW13_Theorem_4_3 M` (Convolution-3SUM → Exact Triangle),
+as binders. For every weight exponent κ ≥ 0 the composed data exist — E₁, Num₁, mag,
+N with the donor's `IsPowPolylog` side-conditions, E₂, Num₂, size, c ≥ 1 with the
+`IsPowLittleO`/`IsBigOPow` ones (the six hypothesis shapes of the corpus's
+hand-carried `theorem_21a_compose` arithmetic) — and every Exact-Triangle time T
+yields a 3SUM time T₃ with
+
+  T₃ n (n^κ) ≤ E₁ n + Num₁ n·(E₂ (N n)·(1 + logU (mag n)) + Num₂ (N n)·T (size (N n)) (c·mag n))
+
+on the guard n ≥ 1 with nonnegative call counts — calls `Num₁·(Num₂∘N)` multiply,
+extras `E₁ + Num₁·(E₂∘N)` add, weight `(size∘N, c·mag)` — derived through Theorem 1
+(`Red.comp` consumed as a black box), the one-level-up twin of Theorem 3: the
+composition the donor carries by hand becomes an instance of the calculus. The
+`n^{3/2+o(1)}` classification of the composed bound (the NOTE term of
+`theorem_21a_compose`) is the priced Tier-2 add-on (§7).
+
 ## 4. Proofs
 
 **Theorem 1.** Given a C-solver in time T, r₂ gives a B-solver in time T₂ with
@@ -104,6 +134,13 @@ the unused κ-slot), then `linear_combination` against the claim's bound. **Theo
 composes the two `Red`s and discharges the remaining inequality with the donor's own
 arithmetic lemmas, ported verbatim in `P11T2.lean`. ∎
 
+**Theorem 4** lifts each donor claim to a `Red` over the padded `ℕ × ℝ` parameter
+type (`red_of_CH20` at fixed κ, `red_of_VW13`), then reads the composed bound off
+`(Red.comp r₁ r₂).transfer` — order composition plus the padding equalities; the
+calculus's nonnegative-calls field is met by clamping at 0 with the sign carried in
+the guard (the corpus's own partiality convention). No donor content is used or
+re-proved. ∎
+
 The calculus is elementary by design; its value is that a 3-step reduction chain becomes a
 term `r₁.comp (r₂.comp r₃)` whose bound is computed, not re-proved.
 
@@ -111,8 +148,9 @@ term `r₁.comp (r₂.comp r₃)` whose bound is computed, not re-proved.
 
 | item | Lean |
 |---|---|
-| transcript layer | `research/pilots/11/P11T1.lean` (defs), `P11T2.lean` (arithmetic port with proofs + the donor reference theorem compiled verbatim — first-try OK) |
+| transcript layer | `research/pilots/11/P11T1.lean` (defs), `P11T2.lean` (arithmetic port with proofs + the donor reference theorem compiled verbatim — first-try OK), `RedM3.lean` transcript block (def-only: `logU`, `IsPowLittleO`/`IsPowPolylog`/`IsBigOPow`, the two Claim statements) |
 | calculus (Design B, record) | `CrossMath.RedB.Red`, `Red.comp`, `red_of_theorem_17`, `theorem19_of_red` in `RedCompB.lean` |
+| M3 instantiation | `CrossMath.RedM3.red_of_CH20`, `red_of_VW13`, `composed_21a_of_ch20_vw13` in `RedM3.lean` (202 LoC, sha256(16) `4c6bc688fedf2174`; GREEN `logs/m3-run3.log` — all three exactly [propext, Classical.choice, Quot.sound], in-run verdict of record until the wave-close full-coverage axcheck) |
 | calculus (Design A, comparison) | `CrossMath.RedA.*` in `RedCompA.lean` |
 | axioms | all `[propext, Classical.choice, Quot.sound]` (`research/pilots/11/logs/axcheck-final.log`: RedCompA 5 lines, RedCompB 5 lines, P11T2 19 lines, 0 sorryAx) |
 
@@ -136,8 +174,18 @@ binder inventories; the status rows in the header carry the print cites):
   hypothesis binders — the open machine-model core) + the machine/size binders of §8;
   print `pilots/11/logs/m2-axcheck-final.log:22` — triad; honest label
   PROVED-CONDITIONAL(EthExistsTm, EthPoly, EthIsPoly).
+- Thm 4 `CrossMath.RedM3.composed_21a_of_ch20_vw13` — `pilots/11/RedM3.lean` (the
+  acceptance block); binder inventory: `Claim.CH20_Theorem_5_1` +
+  `Claim.VW13_Theorem_4_3` (donor cited-literature statements, def-only verbatim
+  transcript, as explicit hypotheses — nothing of the donor tree imported or built,
+  the ChanHe program not re-ported); companions `red_of_CH20`/`red_of_VW13` carry the
+  same binders destructured; in-run print `pilots/11/logs/m3-run3.log` — 3/3 exactly
+  [propext, Classical.choice, Quot.sound]; honest label
+  PROVED-CONDITIONAL(CH20_Theorem_5_1, VW13_Theorem_4_3).
 - Coverage: the calculus layer's public theorems all print in the RedCompA/RedCompB
-  stages of the sweep log; the word-RAM half and M3 are open (§7), no claims carried.
+  stages of the sweep log; the M3 theorems print in-run (3/3 triad; the full-coverage
+  axcheck rides the wave-close sweep); the word-RAM half is open (§7), no claims
+  carried.
 
 ## 6. Novelty and nearest misses
 
@@ -157,8 +205,18 @@ not the calculus, is the deliverable (kind TECHNICAL-RECORD; the relabel applied
   realized by a single machine — is proved in §8, conditional on the three eth
   interface binders (EthExistsTm, EthPoly, EthIsPoly). The word-RAM half (light-language
   programs with oracle calls inlined, via `Ends.callTo`/`Ends.callLast`,
-  `ThreeSumApsp/Lang/Calls.lean:93–124`) and the M3 instantiation (CH20 ∘ VW13 as one
-  composed realization, blueprint §4) remain open.
+  `ThreeSumApsp/Lang/Calls.lean:93–124`) remains open.
+- **The M3 tier and its Tier-2 remainder.** The M3 instantiation (CH20 ∘ VW13 as one
+  calculus composition) LANDED 2026-11-20 as Theorem 4 — conditional on the two donor
+  binders, with the six asymptotic side-conditions surfaced at the corpus's
+  `theorem_21a_compose` hypothesis shapes. What remains open is the Tier-2
+  classification port: deriving `IsPowLittleO (fun n => E₁ n + Num₁ n · E₂ (N n))
+  (3/2)` (the NOTE-carried `n^{3/2+o(1)}` of Theorem 21(a)) from those
+  side-conditions requires the donor's asymptotic API with proofs
+  (`Util/Asymptotics/PowLittleO.lean` + dependencies, ~300–500 LoC) — priced as the
+  iteration-6 add-on (`pilots/11/M3-precharter.md` §4); the present artifact is
+  Tier-2-ready (the acceptance theorem hands the side-conditions to the future port
+  at exactly its hypothesis shapes).
 - The calculus is over real-valued time shapes with pointwise guards; asymptotic (`=O`)
   forms and randomized cost models are not covered.
 
@@ -169,6 +227,14 @@ not the calculus, is the deliverable (kind TECHNICAL-RECORD; the relabel applied
   `Lang/Calls.lean:93–124`.
 - V. Vassilevska Williams, R. Williams, *Subcubic equivalences between path, matrix and
   triangle problems*, FOCS 2010.
+- Fischer, arXiv:2610.32162 (2026) — **context citation only, never a mathematical
+  input**: it opens "since the 3SUM Hypothesis was recently refuted" and rebuilds
+  geometric quadratic lower bounds under a replacement "k-AP Hypothesis",
+  externally corroborating the refutation premise the 3sum-apsp corpus formalizes
+  and motivating the M3 instantiation's currency (the field re-anchors lower bounds
+  on replacement hypotheses; Exact Triangle is the standard anchor, CH20∘VW13 its
+  3SUM-side bridge). It proves nothing about CH20∘VW13 and is cited as if it did
+  nowhere.
 
 ---
 
@@ -236,4 +302,6 @@ pilot-11 files, 0 errors, 0 sorry):
 | list lemmas | `orbit_sf` (`[propext]`), `map_headD_sf` (axiom-free), `sum_sf` (`[propext]`) | idem | ⊆ triad or fewer | prints `m2-axcheck-final.log:23–25` [R3 tables §5] |
 | ported machine tranche | 110 public theorems (run-header "88"; R3 §4 F4) | `research/pilots/11/P11T3.lean` | ⊆ triad | sweep of record `stepB-c2.log:533` — AxPilot11_P11T3 OK, 71 axiom-lines, 0 sorryAx, excerpts `:534–586` (the "64 axiom-lines" at `m2-axcheck-final.log:13` is tally-only — custody gap F1; the sweep is the evidence of record) |
 
-The still-open word-RAM half and M3 instantiation are listed in §7.
+The still-open word-RAM half is listed in §7; the M3 instantiation landed 2026-11-20
+as Theorem 4 (§3, §5 — conditional on the two donor binders; the Tier-2
+classification port remains the priced iteration-6 add-on).

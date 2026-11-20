@@ -1370,3 +1370,10 @@ heredoc-quoted (or single-quoted) henceforth — never interpolated echo with
 backticks in log/rescue scripts.** (Fifth runner-hygiene-family lesson; joins
 the `: error(` filter class, the fused-iff suppression, the assertion-guarded
 replaces, the parse-trap class.)
+
+## 2026-11-20 — iter-5 steady state, batch PP (H): R7's article-11 M3 refresh
+
+- **The article-11 refresh landed** (`11-call-charged-reduction-calculus.md`
+  `a5230150…`): Thm 4 PROVED-CONDITIONAL (donor binders; in-run 3/3 triad as
+  verdict-of-record); the README row-11 tail updated in-commit (R7's
+  paste-ready wording, anchor-count==1-guarded). R7 → n≥4 editorial standby.
