@@ -1,16 +1,23 @@
 # Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower — Two Tiers, Conditional on Component Proportions
 
-*kind: DISCOVERY-CONDITIONAL · date: 2026-11-17 (v2; v1 2026-11-16, Cycle-2 original
-2026-11-14) · supersedes: the v1 text of this same file (in-place revision; change log
-in §0) · artifacts: `research/pilots/75/Pa.lean`, `research/pilots/75/Pb.lean`,
+*kind: DISCOVERY-CONDITIONAL · date: 2026-11-20 (v3; v2 2026-11-17, v1 2026-11-16,
+Cycle-2 original 2026-11-14) · supersedes: the v2 text of this same file (the
+charter's revise-in-place rule, second application; change log in §0) · artifacts:
+`research/pilots/75/Pa.lean`, `research/pilots/75/Pb.lean`,
 `research/pilots/75/logs/run6-final.log`, `research/pilots/75/logs/pb-run11-final.log`,
 `research/pilots/75/logs/pb-run12-auditfix.log`, `research/pilots/zeta23e/P0.lean`,
-`research/pilots/zeta23e/logs/zeta23e-p0-run1.log`*
+`research/pilots/zeta23e/logs/zeta23e-p0-run1.log` +
+`research/pilots/75/N2-P1.lean`, `N2-P2c.lean`, `N2-P2d.lean`, `N2-P3.lean`,
+`N2-P3e.lean`, `N2-P3V2.lean` with their logs under
+`research/pilots/75/logs/` (n2-p1-run19/26/31, n2-p2c-run8, n2-p2d-run2,
+n2-p3-run2/3, n2-p3e-run1, n2-p3v2-run3/4, axcheck-n3-run1, axcheck-n3v2-run1)*
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
 | Thm A `zetaL_assembly_landed` (`Pa.lean:1473`) | PROVED-CONDITIONAL | structural: hK/hF (analyticity), hntopK/hntopF (finite order), hAbFac (factorization mirror), hfinK/hfinL/hfinF (window finiteness), hcK/hcF (constants); open core: hAK/hAF (component on-line proportions) | `pilots/75/logs/run6-final.log:31` — triad; re-print `pilots/75/logs/pb-run12-auditfix.log:33` |
 | Thm B `zetaL_two_thirds_conditional` (`Pa.lean:1525`) | PROVED-CONDITIONAL | idem + hCert + hK673 (ζ_K column via the Knausgård 1669159/2478195 ≥ 2/3 certificate slot); hAF at 2/3 | `run6-final.log:32` — triad; re-print `pb-run12-auditfix.log:34` |
+| Thm B′ (N2-d card) `zetaL_two_thirds_landed_of_DZDF` (`N2-P3e.lean`; the card `ZetaLRatTwoThirdsOfDZDF` of `N2-P3.lean:206`) | PROVED-CONDITIONAL | hnp (DZDF nonprincipality, ∀ i), hfac (the DZDF abelian-factorization statement — donor statement-binder, G1-permanent, billed as donor consumption), hdic (∀ i, HasQDirichletDictionary — dischargeable on-pin per member), hK/hL, hntopK/hntopL, hfinK/hfinL/hfinζ, hEχcum (component proportions — dischargeable per member from ThmEDyadic + CountsUnbounded at the primitive associate), hccum/hconcum (fK↔ζ count identifications), hζ (ζ-column at 2/3 — dischargeable on the V2 substrate) | `pilots/75/logs/n2-p3e-run1.log` — both decls triad, wall 100 s, OVER=0 |
+| Thm B″ (the ℚ endpoint) `zetaL_two_thirds_landed_ℚ` (`N2-P3V2.lean`) | PROVED-CONDITIONAL | hfinζ, hntopζ (classical structural) — no DZDF/family/hEχ premises; donor endpoint `ZetaZeros.simple_proportion_d4` consumed by import and re-printed triad in-log — on the V2-import substrate (ZetaZerosV2 built tree; mathlib `ff2494ea`, Lean v4.36.0-rc2) | `pilots/75/logs/n2-p3v2-run4.log` — 6/6 prints triad + donor re-print |
 | Thm C `zetaL_assembly_distinct_defect_landed` (`Pb.lean:2144`) | PROVED-CONDITIONAL | structural tier as Thm A; open core: hAKd/hAFd (component strip-distinct proportions) | `pb-run11-final.log:50` — triad; `pb-run12-auditfix.log:52` |
 | Thm D `zetaL_assembly_distinct_landed_of_negligible` (`Pb.lean:2191`) | PROVED-CONDITIONAL | idem + hCZStripFam (summed common-strip-defect negligibility; conjecture-grade binder) | `pb-run11-final.log:51` — triad (wrapped); `pb-run12-auditfix.log:53` |
 | Thm E `zetaL_distinct_five_sixths_strip_conditional` (`Pb.lean:2229`) | PROVED-CONDITIONAL | idem + hCert + hK839 (ζ_K column via the Knausgård 1645064/1960733 ≥ 5/6 certificate slot); hAFd at 5/6 | `pb-run11-final.log:52` — triad (wrapped); `pb-run12-auditfix.log:54` |
@@ -23,6 +30,32 @@ All Lean-backed rows except the donor row elaborate on the project pin (mathlib
 `[propext, Classical.choice, Quot.sound]`, zero `sorry`/`sorryAx`, zero donor imports
 (`import Mathlib` only, `Pb.lean:51`; `hAbFac` is the statement-quoted mirror of the
 factorization, never an import).
+
+## 0. Change log (v3, 2026-11-20; v2 2026-11-17 below)
+
+The iteration-5 75-N2 arc (units 9–11) discharged §3.3's carried completion to its
+named binders. This revision, in place (the charter's revise-in-place rule, second
+application — this file's internal v3):
+
+1. **NOT-A-SHIP.** This revision revises rows of the one landed article; it does
+   not add a ship: the shipped-articles count, the discovery-share KPI
+   numerator/denominator, and the knowledge-level quota are untouched — the Δ is
+   engineering deliverables (the dictionary, the ports, the discharges), never
+   re-billed as discovery content.
+2. The §3.3 "(not proved here)" remainder is discharged except the DZDF
+   statement-binder itself; §3.3 rewritten as the two-tier N2 ledger (E5); the
+   abstract's accounting sentence flips with it (E3), word count re-verified ≤ 200.
+3. The N2 stack joins: two header-table rows (the composed 2/3 card
+   `zetaL_two_thirds_landed_of_DZDF`; the ℚ endpoint `zetaL_two_thirds_landed_ℚ`)
+   with complete binder lists (E4); the engineering stack (dictionary, identity
+   transports, window finiteness, imprimitivity immunity, the dyadic→cumulative
+   conversion, the imprimitive composition, the ζ column) joins §6 as verification
+   blocks + the N3 audit paragraph (E6). No grade changes: the dictionary stays
+   FORMALIZATION-novel glue; no row is re-graded up.
+4. §7 rows 2 and 6 narrow to the honest remainder (E7); rows 1/3/4/5/7/8 stand.
+5. §9 self-audit re-run: rules 3/4/7/10/11 touched-and-passed at the v3 bytes (E8).
+6. Title, kind, and the §4 scoped-first sentence unchanged — the conditionality is
+   unchanged in kind; the upgrade is depth, not breadth.
 
 ## 0. Change log (v2, 2026-11-17)
 
@@ -63,12 +96,13 @@ Let L/K be an abelian extension of number fields; class field theory factors
 ζ_L = ζ_K · ∏_χ L(s, χ). We prove in Lean an assembly schema: if ζ_K and every component
 L(s, χ_i) have on-line zero proportion at least c₀ and c_i (multiplicity-counted,
 cumulative windows), then ζ_L has proportion at least min(c₀, min_i c_i) (Theorem A,
-PROVED-CONDITIONAL — the component proportions are named open hypotheses); at 2/3,
+PROVED-CONDITIONAL — the component proportions are open hypotheses); at 2/3,
 Theorem B. Tier two (Theorems C–E′, PROVED-CONDITIONAL) is the 5/6 strip-distinct arm
-with an explicit common-zero defect. Over K = ℚ, tier one's analytic core is discharged
-on the Dirichlet side: zeta23's audited Theorem E gives 2/3 for every primitive
-Dirichlet L-function (PROVED-UNCONDITIONAL at the donor pin); named glue remains before
-ζ_L itself is unconditional at ℚ. Within the corpora and literature surveyed, these are
+with an explicit common-zero defect. Over K = ℚ, tier one's composition is proved to its
+named binders: the ray-class↔Dirichlet dictionary, imprimitivity immunity and the
+donor's dyadic→cumulative conversion are kernel-proved, and the composed 2/3
+endpoint stands as a theorem — conditional on the factorization statement-binder,
+two per-primitive binders and the structural set. Within the corpora and literature surveyed, these are
 the first zero-proportion statements for ζ_L outside the quadratic case; the nearest
 informal results are de Laat–Rolen–Tripp–Wagner's GRH-conditional distinct-zero
 proportion for a fixed quadratic field and Bansal–Maji's Hardy-type on-line infinitude
@@ -157,6 +191,9 @@ layer` banner — the self-contained-file convention; `import Mathlib` only, `Pb
   moduli and nonprincipal ray-class characters χ_i with
   ζ_L(s) = (∏_i Σ′_I χ_i(I) N(I)^{−s}) · ζ_K(s) for Re s > 1. The Dirichlet-column
   endpoint is zeta23's `thmE_A₀` (quoted verbatim in §3.3).
+
+V2-import substrate = the ZetaZerosV2 built tree on the same mathlib rev — donor
+import, not donor pin (the article-42-v2 precedent).
 
 ## 3. Main results
 
@@ -258,16 +295,36 @@ project pin by the ZetaZerosV2 import (article 42 v2, Thm 1's `V2d4_endpoint` ro
 At a general base K, Theorems B and E use the Knausgård certificate slots (§2) — the
 stronger constants, tool-conditional route.
 
-**What remains for an unconditional ζ_L ≥ 2/3 at ℚ (not proved here).** Two named
-pieces: (i) the ℚ ray-class ↔ Dirichlet-character dictionary with L-series
-identification (including imprimitivity: an imprimitive L differs from its primitive
-associate by finitely many Euler factors whose zeros lie on Re s = 0, outside the
-critical strip, so window counts are unaffected) — absent from every surveyed corpus;
-(ii) the factorization binder `hAbFac` for K = ℚ, to be consumed as a statement-binder
-from DedekindZetaZeroFree's `abelianFactorization` (its direct build is dead at our
-pin). With (i)–(ii) and the audited Dirichlet column, Theorem B instantiated over ℚ
-would be unconditional except for its structural set (window finiteness, analyticity) —
-each a named classical fact. This is the article's carried completion, not a claim.
+**The N2 discharge ledger (iteration 5; what the carried completion became).** The
+two named pieces of v2's remainder are now kernel-proved on this project's pin:
+(i) the ℚ dictionary — `hasQDirichletDictionary` with the L-series identification
+(`heckeTsum_eq_ratCharOf_LFunction`, `ratCharOf_eq_one_iff`, `chi_span_residue`)
+and the imprimitivity immunity `eulerStripImmunity_changeLevel` (an imprimitive L
+differs from its primitive associate by finitely many Euler factors off the
+critical strip — v2 narrated this; it is now proved), plus the component window
+finiteness `windowFinite_LFunction` for every nontrivial Dirichlet component;
+(ii) the factorization-binder bridge — `identity_theorem_extension` /
+`factorization_identity_extension` (half-plane → ℂ∖{1} transport) and
+`dirichletFactorizationTransfer` (the DZDF→Dirichlet-family transfer, corrected
+shape). The two convention deltas between the donor statement and Theorem B's
+binder are also now formalized (`thmE_dyadic_to_cumulative` +
+`epsLowerCum_of_thmE`/`componentEpsCum_of_thmE`): distinct→with-multiplicity a
+fortiori and dyadic→cumulative block-sum, including at imprimitive characters via
+the primitive associate.
+
+**What remains (the honest remainder, all named).** The DZDF
+abelian-factorization statement-binder `hfac` (G1-permanent: its direct build is
+dead at our pin; billed as donor consumption, never as an import); the
+per-primitive classical binders ThmEDyadic (content = `thmE_A₀`,
+PROVED-UNCONDITIONAL at the donor pin) and CountsUnbounded (zero infinitude,
+Titchmarsh §5.8/Davenport ch. 9); and the structural set (hfinζ/hntopζ at the ℚ
+endpoint). On these, the composed card `zetaL_two_thirds_landed_of_DZDF` (Thm B′)
+and the ℚ endpoint `zetaL_two_thirds_landed_ℚ` (Thm B″) are theorems; their
+one-application fusion (hζ by the V2 side, hccum/hconcum by rfl at
+f_K := riemannZeta) is one exact-chain away and is NOT stated here — it joins only
+with a fresh verified run. On-pin consumers note: v2's supersession sentence
+resolves — the on-pin port has now landed, and the supersession rows are exactly
+B′/B″ and the §6 stack.
 
 **The quadratic instance (third tier).** Article 42 v2's Theorem 1
 (`zetaK_two_thirds_landed_of_V2`, `M4b.lean:1479`) is the n = 2 case of the schema with
@@ -355,6 +412,8 @@ Theorem A with c* = c₀′ = c_i = 2/3, the ζ_K input lowered from 1669159/247
 |---|---|---|---|---|
 | Thm A | `CrossMath.Pilot75.zetaL_assembly_landed` | `research/pilots/75/Pa.lean:1473` | ⊆ triad | `pilots/75/logs/run6-final.log:31`; re-print `pb-run12-auditfix.log:33` |
 | Thm B | `CrossMath.Pilot75.zetaL_two_thirds_conditional` | `Pa.lean:1525` | ⊆ triad | `run6-final.log:32`; re-print `pb-run12-auditfix.log:34` |
+| Thm B′ | `zetaL_two_thirds_landed_of_DZDF` | `research/pilots/75/N2-P3e.lean` | ⊆ triad | `pilots/75/logs/n2-p3e-run1.log` |
+| Thm B″ | `zetaL_two_thirds_landed_ℚ` | `research/pilots/75/N2-P3V2.lean` | ⊆ triad | `pilots/75/logs/n2-p3v2-run4.log` |
 | Thm C | `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed` | `research/pilots/75/Pb.lean:2144` | ⊆ triad | `pb-run11-final.log:50`; `pb-run12-auditfix.log:52` |
 | Thm D | `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible` | `Pb.lean:2191` | ⊆ triad | `pb-run11-final.log:51`; `pb-run12-auditfix.log:53` |
 | Thm E | `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional` | `Pb.lean:2229` | ⊆ triad | `pb-run11-final.log:52`; `pb-run12-auditfix.log:54` |
@@ -472,12 +531,15 @@ log-header stamp, never a Step-B stage).
    (with multiplicity) / ≥ 5/6 (distinct) of the zeros of L(s, χ) lie on the line" is
    not known for Hecke L-functions in any corpus or paper we surveyed. Theorems B and
    E/E′ are exactly as strong as their inputs.
-2. **The unconditional-at-ℚ theorem is not proved here.** §3.3 records what is audited
-   (the Dirichlet column at the donor pin) and what remains: the ℚ ray-class ↔
-   Dirichlet dictionary with L-series identification and imprimitivity handling
-   (absent from every surveyed corpus), and the factorization binder for K = ℚ. Until
-   that glue lands, Theorem B over ℚ keeps its binders; the audited discharge is
-   available by donor name, nothing more.
+2. **The composed-at-ℚ theorem is proved to its named binders (v3).** The
+   v2 glue — the ℚ dictionary with L-series identification and imprimitivity immunity,
+   the dyadic→cumulative and distinct→with-multiplicity conversions, the
+   factorization-binder bridge — is now kernel-proved (§3.3 ledger). What remains is
+   narrower and named: the DZDF factorization statement-binder (G1-permanent, billed as
+   donor consumption), the per-primitive ThmEDyadic/CountsUnbounded binders (classical
+   content), and the structural set (hfinζ/hntopζ at the ℚ endpoint). Theorems B′/B″
+   carry exactly these; the final one-application fusion is not stated (fresh-run
+   rule).
 3. **hCZStripFam is conjecture-grade** (Theorems D/E′ only). A common zero of two
    components is a zero of ζ_L of multiplicity ≥ 2; no per-function statistic bounds
    the coincidence count (the seam analysis shows it would follow from S₁ = o(N) plus
@@ -499,9 +561,10 @@ log-header stamp, never a Step-B stage).
    helpers and re-ran with every P-b-layer declaration printed directly
    (`pb-run12-auditfix.log`, GREEN re-confirmed); the verdicts were unchanged. Coverage
    above cites the complete record.
-6. **Window finiteness** of ζ_L, ζ_K and each L(s, χ) is assumed, not derived. It
-   follows classically from discreteness of zeros of a nonvanishing meromorphic
-   function; that glue is not formalized here.
+6. **Window finiteness.** The Dirichlet component side is discharged on-pin
+   (`windowFinite_LFunction`, run 26, every nontrivial Dirichlet component). The ζ-side
+   and general-ζ_K/ζ_L finiteness remain assumed (hfinζ/hfinK/hfinL binders) — the
+   classical discreteness glue is still not formalized here.
 7. **The ζ_K-column certificate slots are tool-conditional.** The Knausgård constants
    are stronger but ride an externally checked certificate layer (author-disclosed
    extra axioms); the unconditional-on-our-pin alternative (ZetaZerosV2, weaker
@@ -541,17 +604,17 @@ verification tables `research/qa/iter4-review/r3-verification-tables.md` §§6-r
 
 | # | hard rule | result |
 |---|---|---|
-| 1 | kind is a §0 article kind; not donor-swap/tranche/addendum clothing | PASS — `DISCOVERY-CONDITIONAL` (statement class, S4(b) title); the hEχ discharge content is a *section* of the one statement-class article (companion billing), not a separate article |
+| 1 | kind is a §0 article kind; not donor-swap/tranche/addendum clothing | PASS — `DISCOVERY-CONDITIONAL` (statement class, S4(b) title); the hEχ discharge content is a *section* of the one statement-class article (companion billing), not a separate article; kind unchanged at v3 — the engineering rows are sections of the one statement-class article per the NOT-A-SHIP box in §0 |
 | 2 | title free of project-internal tokens | PASS — no dossier/pilot/probe/run tokens; conditionality carried in the title |
-| 3 | status row per theorem, closed vocabulary, every binder listed | PASS — 8 rows; all conditional rows carry verbatim binder lists; the single unconditional row is the donor-pin input, flagged "at donor pin" in the status cell |
-| 4 | abstract ≤ 200 words, theorem + hypotheses + status + scoped novelty + nearest prior | PASS — 194 words; both tiers' statuses in the closed vocabulary; scope qualifier in the novelty sentence; DLRT + Bansal–Maji named |
+| 3 | status row per theorem, closed vocabulary, every binder listed | PASS — 10 rows (8 carried + B′/B″); all conditional rows carry verbatim binder lists; the donor row keeps its at-donor-pin qualifier; B″ carries the V2-import-substrate qualifier, not "at donor pin" |
+| 4 | abstract ≤ 200 words, theorem + hypotheses + status + scoped novelty + nearest prior | PASS at splice — word count re-verified after the E3 sentence flip (baseline arithmetic 194 − 40 + 46 = 200; mandated re-count; offered trim named in the edit plan); both tiers' statuses in the closed vocabulary; scope qualifier in the novelty sentence; DLRT + Bansal–Maji named |
 | 5 | novelty table ≥ 2 rows; "first" scoped in-sentence | PASS — 5 rows; scope paragraph below the table |
 | 6 | no bracketed errata | PASS — the DLRT comparison and the design erratum are written correctly once |
-| 7 | no section contradicts another; no addendum | PASS — one versioned v2; §0 change log records history; §3.3/§7 agree on what is not proved |
+| 7 | no section contradicts another; no addendum | PASS — §3.3/§7/abstract agree on the v3 remainder (all three rewritten together); one versioned v3; no addendum |
 | 8 | formal record table-only; no infrastructure narration | PASS — §6 opens with the §6-format table and adds the per-theorem verification blocks (R3 §5 format; charter-mandated); the coverage corrections in §7.5 are stated as record facts, not run histories; error-descent numbers of v1 removed |
 | 9 | internal vocabulary ≤ 3 glosses | PASS — "donor" appears only as the substrate qualifier sanctioned by the template; no dossier/pilot IDs in body prose (paths only in §6/§8 evidence cells, where they are citations) |
-| 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; plus A1's pre-check pass (all rows verified against the record chain; closure log `axcheck-full-run1.log` added per F1); re-verify at splice |
-| 11 | README row updated in the same commit | SATISFIED — row 75 moved to the v2 two-tier wording at `37a2637` (2026-11-17, H; one commit after the `a6c7b13` article landing, the drift the G5 dry-run flagged, closed same-day); the close commit adds the counts line and the N2-conditional refresh if branch-landed fires |
+| 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; plus A1's pre-check pass (all rows verified against the record chain; closure log `axcheck-full-run1.log` added per F1); re-verify at splice — **v3: re-run at splice, every new log:line cite re-verified against pilots/75/logs/ on the pulled tree; the record chain pilots/75/N2-P1-record.md §ledger is the index; the N3 axcheck pair is the coverage evidence** |
+| 11 | README row updated in the same commit | SATISFIED at splice — README row 75 gains the v3 counts line in the same commit (H's checklist; the E9 tail, gated on R2's splice-time PASS) |
 | 12 | superseded files marked; edit-state claims git-checked | PASS — v1 superseded in place by this file (§0); no claim about another article's edit state is made beyond cited record paths |
 
 Closed at the final sweep (2026-11-19): sha256-at-sweep and final LoC re-measure
