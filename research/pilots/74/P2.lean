@@ -1472,8 +1472,6 @@ the adjudicated definition of record (2026-11-19). -/
 noncomputable def BkClass (𝒞 : (ι → ℝ) → Prop) (F : (ι → ℝ) → ℝ) (k : ℕ) : ℝ :=
   sSup {c₀ : ℝ | ∃ a : Fin k → ℝ, CertValidClass 𝒞 F k c₀ a}
 
-end CrossMath.Pilot74P1
-
 #print axioms mgfBound_var_sharp
 #print axioms t1c_sharp
 #print axioms famN_spectrum
@@ -1487,3 +1485,5 @@ end CrossMath.Pilot74P1
 #check @famVarLBProbe
 #check @famTailProbe
 #check @BkClass
+
+end CrossMath.Pilot74P1

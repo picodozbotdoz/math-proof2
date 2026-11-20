@@ -122,3 +122,39 @@ full-coverage axcheck per the pilot-10 pattern).
 
 — lane R5 (A3 lineage), 2026-11-20 (worktree agent-04 @ e3d984b; REPORT ONLY — H
 commits)
+
+## ADDENDUM (2026-11-20, post-landing) — TELEMETRY DISPOSITION for the session's
+## five Modal runs, per AGENTS.md §Modal guideline 3 (H flag on batch-AAA)
+
+Disposition for the sustained build-phase OVER-cpu readings in ALL FIVE session
+logs — recorded HERE because the logs themselves lack disposition lines (the
+precedent m4b2/G2 runs carried them in-log; this delta records the equivalent
+per guideline 3; the landed logs are NOT edited):
+
+- **Class citation — AUTHORIZED lake-build subprocess family (the m4b2/G2
+  class).** The OVER-cpu samples are the ZetaZerosV2 donor-tree build phase
+  (8262-job `lake build`, fired inside the ephemeral container). The runner
+  caps the lake-build command itself via `taskset -c 0,1` (the v4.36 no `-j`
+  finding), but the container-wide CPU aggregate during the build/update/cache
+  phases reads above the 2.0 spec because transient compile/elan/git/artifact
+  subprocesses run before affinity settles — the same signature the m4b2 and G2
+  precedent runs carried and had dispositioned (investigate-not-upgrade, no
+  code defect; the g7-documented nproc=18-at-cpu=2 container behavior).
+- **Memory evidence — in-SPEC throughout:** max_mem 3302 / 3297 / 2742 / 3050 /
+  2903 MB across the five runs (all < 4096 soft), `anon=0` in every sample (the
+  g7-documented MemTotal−MemAvailable artifact: memory-mapped olean pages, not
+  anonymous growth). No memory overrun at any point; no resource change
+  requested or warranted.
+- **Per-run lines (log → wall / max_cpu / max_mem / OVER):**
+  `eta-r2-run5-eta-r3-run2.log` → 634 s / 11.18 / 3302 MB / 8;
+  `eta-r2-run6-eta-r3-run3-eta-r4-run1.log` → 725 s / 15.26 / 3297 MB / 9;
+  `eta-r2-run7-eta-r3-run4-eta-r4-run2.log` → 593 s / 12.13 / 2742 MB / 6;
+  `eta-r2-run8-eta-r3-run5-eta-r4-run3.log` → 421 s / 12.22 / 3050 MB / 6;
+  `eta-r2-run9-eta-r3-run6-eta-r4-run4.log` → 626 s / 12.63 / 2903 MB / 8.
+- **Action:** none (authorized class; the four-file-stage pattern of the runner
+  plus the taskset build cap are already the g7/m4b2-mitigated form). Elaboration
+  phases proper (post-build, the verdict-bearing segments) read cpu ≤ 5,
+  procs 2–4 — confined.
+
+— lane R5 (A3 lineage), 2026-11-20 addendum (worktree agent-04 @ e3d984b;
+REPORT ONLY — H lands the delta)

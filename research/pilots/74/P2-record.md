@@ -190,4 +190,42 @@ fold: 74-P2 = G2 GREEN (triad-verified, run 11) + G3 PASS + P2-c
 elaboration-complete/final-parked (audit pending the tail move; zero mathematical
 defects in 19 runs).**
 
+## CLOSE-TIME STANDBY (recorded 2026-11-19, per the orchestrator's close-support ruling)
+
+The P2-c triad audit rides the wave-close as ONE verification fire
+(verification-machinery class, the iter-4 staging-fix precedent; NOT a research
+grant). **The fix is PRE-STAGED ON DISK UNFIRED** (the N2/eta convention): the
+audit tail now sits INSIDE the namespace (`end CrossMath.Pilot74P1` relocated
+after the 13 prints; diff vs the reported park `531a9eb7…` = exactly that block
+move, verified). **Staged sha `6c6a251f03eb0797`; the fire is one command on
+signal: `bash research/pilots/74/stage_and_fire_p2.sh 20` (warm 74 substrate,
+sha-guard sidecar active, doz CLI, SPEC 2cpu/4GB). Expected: rc=0 + the
+full-coverage triad audit executing for all nine Part P2 theorems + the four
+#check surface lines — releasing the PENDING audit status. The fold row stands as
+reported until that verdict: G2 GREEN (triad-verified, run 11) + G3 PASS + P2-c
+elaboration-complete/final-parked-audit-pending.
+
+## CLOSE-TIME EXECUTION (item 13, 2026-11-20): GREEN — the PENDING triad audit RELEASED
+
+Fired on the orchestrator's wave-close signal per the prestage runbook
+(`item13-prestage.md` §7 pre-fire assertions all passed: close signal; worktree sha
+re-verified `6c6a251f03eb0797`; guard-line agreement; `modal app list` no orphans).
+Run 20 (`logs/p2c-run20.log` sha `6f19672e…`; staged sha `6c6a251f03eb0797` = the
+park `531a9eb7` + exactly the pre-staged 14-line namespace move, diff-verified at
+prestage): **`{'P2.lean': 'OK'}` — rc=0, ZERO errors, sorry=0. The full-coverage
+triad audit EXECUTED: P1's 7 theorems + ALL NINE Part P2 theorems
+(`mgfBound_var_sharp`, `t1c_sharp`, `famN_spectrum`, `famN_varK`, `famN_W`,
+`famN_Mdev`, `famN_inClass`, `t4_floor_achieved`, `t4_not_littleO`) each
+`[propext, Classical.choice, Quot.sound]` TRIAD-ONLY, zero sorryAx; the four `#check`
+surface lines echo clean.** Warnings are cosmetic non-errors (a deprecated-name hint
+at :1360; unreachable/unused-tactic notes on h4's first-chain tail). Telemetry: wall
+36 s, OVER=0, SPEC held. **The fold row of record UPGRADES to: 74-P2 = G2 GREEN
+(triad-verified, run 11) + G3 PASS + P2-c TRIAD-VERIFIED AT RUN 20 — the full
+tightness set (family-on-parabola + θ₀ = 1/(1024·e) membership + floor-achieved +
+not-littleO + the adjudicated nonneg-BkClass), zero mathematical defects across 20
+runs.** Park of record `531a9eb7` (artifact at this fire = staged `6c6a251f`, the
+park + the tail move — H may record both shas in the §10 row); G2 state of record
+`49b808f3` preserved in `logs/p2-runs1-11.log`. Feeds gate G2's P2-c row + the close
+block. No further fires (the one-fire grant is spent GREEN).
+
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-19.

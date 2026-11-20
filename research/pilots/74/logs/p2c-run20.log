@@ -1,0 +1,72 @@
+# provenance: raw modal run, pilot-74 P2-c AUDIT-TAIL FIRE (close-checklist ITEM 13, verification-machinery class, the one-fire grant; the pre-staged namespace move on the final park 531a9eb7 — end CrossMath.Pilot74P1 relocated after the 13 print/check lines, staged sha 6c6a251f03eb0797, diff-verified = exactly that block move at prestage) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/74/stage_and_fire_p2.sh 20 | pre-fire assertions per item13-prestage.md §7 ALL PASSED (close signal in hand; worktree sha re-verified 6c6a251f03eb0797; guard line agreement; modal app list = no orphan 74p1/74-p2) | **VERDICT: GREEN — {'P2.lean': 'OK'}: rc=0, ZERO errors, sorry=0. The full-coverage triad audit EXECUTED and RELEASES the PENDING status: P1's 7 theorems + ALL NINE Part P2 theorems — mgfBound_var_sharp, t1c_sharp, famN_spectrum, famN_varK, famN_W, famN_Mdev, famN_inClass, t4_floor_achieved, t4_not_littleO — each [propext, Classical.choice, Quot.sound] TRIAD-ONLY (no sorryAx); the four #check surface lines (famClassMemProbe, famVarLBProbe, famTailProbe, @BkClass) echo clean** | warnings (non-errors, cosmetic, no action this grant): :1360 deprecated if_neg→ite_eq_right rename hint; :1388/:1389 unreachable/unused-tactic notes on h4's first-chain tail (the run-19 one-word-fix residue class — every branch already ends in an arithmetic closer) | telemetry: wall 36 s, samples=0 (run under one interval), OVER=0, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2, oleans 8710 @ ff2494ea, toolchain v4.36.0-rc2, app crossmath-pilot-74p1 (warm) | fold row of record UPGRADES to: 74-P2 = G2 GREEN (triad-verified, run 11) + G3 PASS + P2-c TRIAD-VERIFIED AT RUN 20 (audit tail in-namespace; the full tightness set: family-on-parabola + θ₀ = 1/(1024·e) membership + floor-achieved + not-littleO + the adjudicated nonneg-BkClass); park of record 531a9eb7 (artifact of record at this fire: staged 6c6a251f = the park + the tail move); G2 state of record 49b808f3 preserved in logs/p2-runs1-11.log | gates: feeds G2's P2-c row + the close block; run count for the P2-c line: 20 runs total, zero mathematical defects
+
+==================== RUN 20 (item-13 audit-tail fire, staged sha 6c6a251f03eb0797) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-4y9X5hpTJx1ObQQB5jz3Ei
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-74-p2-stage/run_p1.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p74p1] staging ['P2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p74p1] mathlib rev ff2494ea5e43
+[p74p1] oleans present: 8710
+
+=== P2.lean
+[p74p1] P2.lean: OK
+---- axioms ----
+'CrossMath.Pilot74P1.t1a_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1b_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.cert_pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.Bk_le_Bk_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.mgfBound_var_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_spectrum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_varK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_W' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_Mdev' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_inClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_achieved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_not_littleO' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1360:34: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P2.lean:1388:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+P2.lean:1389:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+P2.lean:1388:12: warning: Unused tactic linter: `(field_simp; norm_num)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+P2.lean:1389:12: warning: Unused tactic linter: `norm_num` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'CrossMath.Pilot74P1.mgfBound_var_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t1c_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_spectrum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_varK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_W' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_Mdev' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.famN_inClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_floor_achieved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot74P1.t4_not_littleO' depends on axioms: [propext, Classical.choice, Quot.sound]
+famClassMemProbe : ℝ → ℕ → Prop
+famVarLBProbe : ℝ → ℕ → Prop
+famTailProbe : ℝ → ℕ → Prop
+@BkClass : {ι : Type u_2} → [Fintype ι] → ((ι → ℝ) → Prop) → ((ι → ℝ) → ℝ) → ℕ → ℝ
+
+[p74p1] SUMMARY
+[p74p1]   P2.lean: OK
+{'P2.lean': 'OK'}
+[tele] SUMMARY run: wall=36s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-4y9X5hpTJx1ObQQB5jz3Ei
