@@ -1162,3 +1162,15 @@ classifier 52+0 stands).
   in-flight sha chain delta-noted). Round-7 battery folded — TARGET-C/D
   NEW-narrow, the three minted wording locks adopted, §2 exhaustively
   cross-checked, fires priced post-approval (≤1.2k LoC / 10 runs).
+
+## 2026-11-20 — iter-5 steady state, batch AA (H): R9's census v2 + the iter-6 charter draft v3
+
+- **Census v2 landed** (`iter6-seed-census.md` `a69ee201…`, supersedes the
+  batch-V v1): the dated CORRECTION block (R1's print-level finding, authority
+  = the v16 closing-state block) — seed-#5's "1–2 fix rounds" retracted →
+  re-derivation class. Tier structure + cost class stand.
+- **Charter TYPESET-DRAFT v3 landed** (`r9-iter6-charter-draft.md`
+  `587f1ab5…`): slot-5 RESOLVED-BY-REBASE from R2's re-based stop-note
+  `db872dc5`; DECISION-4 → RESOLVED-BY-REBASE; the lane-wide standing rule
+  folded. Single-landing rule honored: v2 `f3a8e43d` + the in-flight
+  `6cdf85d0` never landed.

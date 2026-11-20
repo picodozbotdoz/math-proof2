@@ -17,9 +17,32 @@ potential is named per seed; carriers + cost classes follow the recorded owners.
 **Census verdict line: THREE Tier-1 discovery-grade seeds (N2-completion/P3-d — the
 strongest, pre-certified NOVEL-AS-STATED; the H3 n≥4 TL hunt — two-sided, battery'd
 this session; AL-M3 — the ladder's final rung), TWO Tier-2 completion seeds (η rungs,
-L3 fixes — record-billed/mechanical), TWO Tier-3 quota contestants (FB-2/FB-4, never
-displacing discovery). Total fresh-fire cost of the whole bench ≈ 15–25 runs, ≈1–2k
-LoC — Iteration 6 can open charter-ready with zero new scanning.**
+L3 — record-billed; **L3 re-priced by the v2 correction below: re-derivation class,
+NOT mechanical**), TWO Tier-3 quota contestants (FB-2/FB-4, never displacing
+discovery). Fresh-fire cost of the bench ≈ 15–25 runs, ≈1–2k LoC **EXCLUDING the L3
+re-derivation, whose scope is parameterized on R2's re-based stop-note (R2's
+funnel)** — Iteration 6 can open charter-ready with zero new scanning.**
+
+**CORRECTION 2026-11-20 (v2, post-landing; R1's print-level finding, coordinator-
+confirmed against the landed e202244b bytes): seed #5 was UNDERSTATED.** The 72-M1
+L3 flip narratives carried by the stop-note (and repeated by this census's v1) are
+CONTRADICTED by all 16 persisted `l3bd-run*` audit logs:
+`hasGlobalGap_of_fullSystemGap`/`isAdmissible_ΦL`/`hamiltonian_gridDom_eq`/
+`interface_areaLaw_uniformAreaLaw` = **sorryAx throughout** (TRIAD NEVER; the "flips"
+were tactic-level site-closures read as certifications — run 16 overall: rc=1,
+errors=35, sorry-warnings=0, the error-recovery class). Authority: R1's
+`qa/iter4-review/r3-verification-tables.md` "72-M1 L3 — v16 CLOSING STATE,
+BYTE-VERIFIED" correction block (worktree agent-02 @ `4e705f510a8c01f9`; routed R1 →
+coordinator 2026-11-20; R2's `L3-record.md` `bc26418c` + `l3bd-stop-note.md`
+`d562b2b4` carry the contradicted claims — re-basis owed and IN PROGRESS in R2's
+funnel; **this census does not consume the stop-note's flip claims**). Corrected
+certified-clean set: `toGrid_star_dotProduct_self` (L3b, triad every run 6–16) +
+`eig_toGrid` (runs 5–16) + `edgeBoundary_le_boundaryCard` (runs 9–16 — not the
+narrated run-12 flip) + T1/T2/L3a throughout; `submatrix_mulVec_ec` = NEVER
+print-audited, record-only triad claim (the print-gap class), UNVERIFIED at print
+level. Consequence: the three contested theorems need **RE-DERIVATION** (their
+"solved" status was narrative, not prints); W2-4 stays honest-partial — MORE partial
+than the records state. Seed #5's row and §2(b) note are re-written below accordingly.
 
 ---
 
@@ -31,7 +54,7 @@ LoC — Iteration 6 can open charter-ready with zero new scanning.**
 | **2** | **H3 — the n≥4 TL hunt** (pilot 41 lineage, precharter LANDED): TARGET-C (two-fiber d≤7 rank closure, near-certain) + TARGET-D (the TL₄ dictionary, raised-negative prior) | **MEDIUM-HIGH — two-sided**: TARGET-C = the near-certain negative-tier extension (quota-free, 41H lineage); TARGET-D: if a dictionary exists → quota-consuming DISCOVERY (S1–S4; battery rows are the inputs); if the bounded search misses → reportable third obstruction. Round-7 battery: (Q4)/(TARGET-C class)/(TARGET-D class) all NEW-narrow, class rows EMPTY; NO-GO check resolved FALSE (no collision) | **R4 (agent-08)** — precharter on disk `worktrees/agent-08/research/pilots/41/H3-precharter.md` @ `b9e911cdac5f1c90` (moved from the relayed `726e3d695e766da6` — refinement delta noted) | SMALL-MEDIUM per the precharter's own §5: S+M ≈ 0.5–0.9k LoC, 5–9 runs (proposed cap ≤1.2k/10); the P4 refinement (one certified fiber kills the 25-point scan) shaves the rider to an L-rung det-commutation; search cost DOWN per the battery (spin-model/Avan/dimer candidate generators); dim-14 stays binder-or-cite (corpus-NONE, `Basic.lean:48–53`, R9-verified at source) | the S-ruling (orchestrator approves the precharter + consumed this battery); tauceti donors stay statement-binder class unless an import is chartered (then on-pin triad FIRST) |
 | **3** | **AL ladder M3** (pilot al3d): entropy identification + the `SlabAreaLawColumnCuts3D` discharge from the binder — the M0→M3 rebuild's final rung (M2 closed GREEN `61af175a`; both P2-d parked targets PROVED) | **MEDIUM-HIGH (conditional)**: completes the chain whose end statement is dossier seed-1's 3D slab area law (every-statement-binder posture; the informal field was swept clean by round-5 §2's AL-3D negative). Discovery billing decided by R2's S1–S4 at article time (the banked rungs themselves are engineering-class) | **R8 (agent-05)** — in-flight at termination; RE-FIRE per SESSION END (h)3 | TINY: ≤3 runs (the dispatched unit's own budget); `A2.lean` at `61af175a` = the landed M2 base; M3's post-state is worktree-side (pull per REPORT, never delete) | none hard (was already dispatched); closes the `set_option linter.all false` diagnostic at M3's close |
 | **4** | **η rung ladder remainder** (zzv2-λ): rungs 2/3 parked-with-fixes → R5/R6 (Fourier/identity layer at κ=1, donor-verbatim, public-layer re-census) → R7/R8 | **LOW (by ruling)**: record-billed quota-free per [DECISION-2] = Option A (2026-11-18; the round-5 battery graded the informal layer below S1 on every component); value = formal de-freezing infrastructure + the corrected (iii) form (`pairMainTerm Q_λ = ρ·c₀ + (1/ρ − ρ)·Q(0)`, threshold domain ρ ∈ (Q(0)/c₀, 1]) rides the record | **R5 (agent-04)** — the port's owner | SMALL: 1 confirm run for the parked pair, then rungs 5–8 inside the amended 11–13-run band (8 spent) | the parked-pair confirmation FIRST (`eta-r2.lean` `38bb8463fe7af1bc` expected strict-OK 4/4 + `eta-r3.lean` `ed0c061218a2d739` expected 2/2 — one Modal run, two verdicts); public-layer re-census vs `Zeta/Basic.lean` + `Zeta/CutoffSelfConv.lean` before any re-proof (the amendment's own discovery) |
-| **5** | **L3 3-item fix list → 72-M1 completion**: close `hasGlobalGap_of_fullSystemGap` (reality block) + `interface_areaLaw_uniformAreaLaw`; 16 runs of zero-math-defect state, every route verified through | **LOW (completion)**: mechanical finish of an honest-partial; the L3d superstructure is already kernel-clean (`isAdmissible_ΦL`, `hamiltonian_gridDom_eq` triad at run 16) | **R2 (agent-03)** — the 72-M1 owner (stop-note author) | TINY: 1–2 fix rounds (the three forms are displayed verbatim in run-16's errors: hz-block sum-conversions mirroring the solved hQ/prodComm pattern; hFe via the run-14-passing hFv-form verbatim; the attach-bridge's fourth form) | a continuation charter (the declared-drop rule's STOP branch was exhausted across 4 grant rounds — the stop-note IS the charter input) |
+| **5** | **L3 → 72-M1 completion (RE-PRICED v2)**: re-derive `hasGlobalGap_of_fullSystemGap` + `isAdmissible_ΦL` + `hamiltonian_gridDom_eq` (sorryAx in ALL 16 logs — the flip narratives were tactic-level site-closures, not certifications), then the `interface_areaLaw_uniformAreaLaw` heir; the certified-clean set (L3b + eig_toGrid + edgeBoundary + T1/T2/L3a) stands | **LOW (completion; larger than v1 priced)**: W2-4 stays honest-partial — MORE partial than the records state; the completion is now a re-derivation tranche, not a fix round | **R2 (agent-03)** — the 72-M1 owner; **R2's re-based stop-note owns the definitive scope (in progress — do NOT consume the pre-re-basis stop-note)** | **RE-DERIVATION class (not mechanical)**: the three contested theorems' proofs never certified (persistent sorryAx = error-recovery class); only whatever SURVIVES R2's re-base is genuinely mechanical; pricing = parameterized on that re-base (unpriced here — v1's "1–2 fix rounds" is RETRACTED); park = v16 @ `aed631015beb38d6`, 1,046 LoC, disk-sorry-free (classifier 52+0 stands) | a continuation charter scoped by R2's re-based stop-note; the 72-M1 files are R2's funnel (one-writer rule) |
 | **6** | **FB-2** — PNT-AP explicit-L at x^{7/8+δ} (QRH-paper2 Cor 1.2 verbatim; G7b 7/8 tree as zero-free binder, G11 SiegelZeros `hLS` fallback) | **KNOWLEDGE-LEVEL (FORMALIZATION-OF-RECENT, never a discovery headline)** — competes for the SINGLE N=1 quota slot; must not displace any Tier-1 seed | quota slot (any drained lane; 12-P0 conversion rule) | L-grade (explicit-formula build) | T2-ignition rule carried; the mathlib WeakPNT-AP landing (clock FIRED 2026-11-19, pin stays `ff2494ea`, external-citation class) enters the citation block; error-term target NOT preempted |
 | **7** | **FB-4** — FF-PNT (tauceti Wiener–Ikehara × Weil rationality) | **KNOWLEDGE-LEVEL (formalization-first technical record, "must not consume a discovery slot" per R2)** — same single-slot contest | quota slot | M-effort | same slot competition (FB-2 vs FB-4 vs unspent; spend-only-if-executed) |
 
@@ -57,15 +80,21 @@ EMPTY, the corpus re-check verified clean; NO-GO resolved FALSE; five report-onl
 Eisermann/Pourkia/MO/Hartsell rows). Charter decision is the orchestrator's (hunt vs
 bank-already-done; the precharter's §7 GO to S consumes this battery).
 
-**(b) L3's 3-item fix list.** `pilots/72-M1/logs/l3bd-stop-note.md:172–178` verbatim:
-(1) the hz-block's h1/h2/h3 sum-conversions — mirror the SOLVED hQ/prodComm pattern
-with per-side `Finset.sum_congr rfl` + explicit `mul_sum`/`sum_mul` directions;
-(2) hFe's show — the run-14-passing hFv-form verbatim; (3) the attach-bridge —
-`Finset.sum_attach (s := (gridDom L).powerset)` explicit, or restate `key`'s U/F over
-the attach-type directly. Clean at run 16: L3b `toGrid_star_dotProduct_self`,
-`submatrix_mulVec_ec`, `eig_toGrid`, `edgeBoundary_le_boundaryCard`,
-`isAdmissible_ΦL`, `hamiltonian_gridDom_eq` + all T1/T2/L3a. Contaminated: the
-reality block + its two heirs.
+**(b) L3 → 72-M1 completion (v2-corrected).** v1 quoted the stop-note's 3-item fix
+list and its "clean at run 16" inventory — **BOTH SUPERSEDED by R1's print-level
+correction** (the top-of-file CORRECTION block): `isAdmissible_ΦL` and
+`hamiltonian_gridDom_eq` were NEVER triad (the v1 clean-list was wrong);
+`hasGlobalGap_of_fullSystemGap`'s run-12 "flip" narrative is contradicted (TRIAD
+NEVER repo-wide; the v16 "regression, reopened" framing had a false premise — it
+never closed); `submatrix_mulVec_ec` was never print-audited. The stop-note's
+3-item fix list (`l3bd-stop-note.md:172–178`: the hz-block sum-conversions, hFe's
+hFv-form, the attach-bridge's fourth form) is NARRATIVE-CLASS for the contested set
+— its items address tactic sites inside proofs that never certified. **Definitive
+scope: R2's re-based stop-note (in progress, R2's funnel — one-writer rule; this
+census consumes only R1's correction block as authority).** Park state: v16 @
+`aed631015beb38d6` (1,046 LoC), disk-sorry-free (the G1 certificate 52+0 stands);
+certified-clean: L3b (runs 6–16) + `eig_toGrid` (5–16) + `edgeBoundary` (9–16) +
+T1/T2/L3a.
 
 **(c) The η rung ladder.** Parked pair (one run, two verdicts): `eta-r2.lean`
 @ `38bb8463fe7af1bc` (expected strict-OK 4/4 → rung-2 exit) + `eta-r3.lean` @
