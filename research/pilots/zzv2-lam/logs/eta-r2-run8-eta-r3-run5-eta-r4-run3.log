@@ -1,0 +1,551 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-r2.lean research/pilots/zzv2-lam/eta-r3.lean research/pilots/zzv2-lam/eta-r4.lean — lane R5 (A3 lineage), 2026-11-20. Port run 12: fix-batch-8 confirmation (r2 @ 1c268f5bc7a1e731, r3 @ 3b8813e05498feba, r4 @ a6c24ae4f5a23ff5) — the syntactic order-agreement killing the integral_mul_const metavar trap at its source.
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker; app crossmath-pilot-zzv2-lam; SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered; taskset build. Build 8262 jobs OK.
+# VERDICT: r2 FAIL rc=1 errors=2 (4→2); r3 FAIL rc=1 errors=2 (4→2); r4 FAIL rc=1 errors=11. THE ORDER-FIX WORKED: r2/r3's ONLY errors are 'No goals to be solved' at lemma A's hfac-ring (:229) and the trailing show+rw (:239) — THE CALC NOW CLOSES THE ENTIRE GOAL EARLY (the goal-RHS ((2λ)⁻¹ • dilateTo lam Q) x is defeq-cheap to the calc's end form, so the calc's rfl-finish absorbs it) — the trailing tactics fire on nothing and ERROR-RECOVERY POISONS the declaration with sorryAx (the axioms print shows [propext, sorryAx, Classical.choice, Quot.sound]). FIX-BATCH-9 = delete the two trailing sites (trivial). r4's residuals: the div-lemma and T3 hit default-200k whnf-timeouts (fix-batch-8's r4-only edits shifted elaboration costs; heartbeat insurance added), the hsplit show was a Pi-SUBTRACTION of two lambdas (no instance + wrong shape for integral_sub's `∫ x, ?f x − ?g x` pattern — the donor's parse is ONE lambda with the difference in its BODY, Zeta/Kernel.lean:383-397 — restructured verbatim); the rest cascades. Post-run shas: r2 @ a9c6b59f8a769335, r3 @ 21fb0c4e45f88b92, r4 @ cf8f6ca3d395650b (port run 13 = fix-batch-9, the final in-band fire).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-6oyeozzl9gDblPXbgi3pcJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-r2.lean', 'eta-r3.lean', 'eta-r4.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.82 mem=1341MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=12.22 mem=1407MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=180s cpu=5.42 mem=2882MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=240s cpu=3.18 mem=1991MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.10 mem=2683MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=3.64 mem=3050MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6586/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (3.8s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7523/7541] Built PrimeNumberTheoremAnd.ZetaBounds (8.7s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7643/7667] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.2s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7644/7675] Built ZetaZeros.ZeroCount.LocalCount (3.8s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7660/7681] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (1.6s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7911/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (2.3s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8160/8229] Built PrimeNumberTheoremAnd.MellinCalculus (4.1s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8175/8262] Built ZetaZeros.PairCorrelation.Truncation (4.4s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8197/8262] Built PrimeNumberTheoremAnd.MediumPNT (12s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (8.6s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-r2.lean
+[zzv2] eta-r2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+---- error contexts ----
+eta-r2.lean:229:10: error: No goals to be solved
+eta-r2.lean:239:2: error: No goals to be solved
+eta-r2.lean:251:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+eta-r2.lean:319:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+eta-r2.lean:348:31: warning: Variable name `hpsi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpsi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+···
+eta-r2.lean:229:10: error: No goals to be solved
+eta-r2.lean:239:2: error: No goals to be solved
+eta-r2.lean:251:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+eta-r2.lean:319:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+eta-r2.lean:348:31: warning: Variable name `hpsi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpsi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+···
+
+=== eta-r3.lean
+[zzv2] eta-r3.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+eta-r3.lean:205:10: error: No goals to be solved
+eta-r3.lean:215:2: error: No goals to be solved
+eta-r3.lean:257:15: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+eta-r3.lean:257:19: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+eta-r3.lean:257:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+eta-r3.lean:205:10: error: No goals to be solved
+eta-r3.lean:215:2: error: No goals to be solved
+eta-r3.lean:257:15: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+eta-r3.lean:257:19: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+eta-r3.lean:257:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== eta-r4.lean
+[tele] t=420s cpu=2.53 mem=2637MB anon=0MB peak=-1MB procs=3 OVER cpu
+{'build': 'OK', 'eta-r2.lean': 'FAIL rc=1 errors=2 sorry=0', 'eta-r3.lean': 'FAIL rc=1 errors=2 sorry=0', 'eta-r4.lean': 'FAIL rc=1 errors=11 sorry=0'}
+[zzv2] eta-r4.lean: FAIL rc=1 errors=11 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.fourierC_iteratedDeriv_two_cutoffSelfConvLam' depends on axioms: [propext,
+'ZZLam.EtaPort.fourierC_correctedTestLam' depends on axioms: [propext,
+'ZZLam.EtaPort.correctedTestLam_weight_cancel' depends on axioms: [propext,
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_eq_pairCorrelationSum' depends on axioms: [propext,
+'ZZLam.EtaPort.cutoffSelfConvLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.testKernel_cutoffTestLam_half' depends on axioms: [propext,
+'ZZLam.EtaPort.fourierC_correctedTestLam_half' depends on axioms: [propext,
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_half' depends on axioms: [propext,
+---- error contexts ----
+eta-r4.lean:262:10: error: No goals to be solved
+eta-r4.lean:272:2: error: No goals to be solved
+eta-r4.lean:279:47: warning: Variable name `hlam` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlam
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r4.lean:493:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r4.lean:527:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+···
+eta-r4.lean:262:10: error: No goals to be solved
+eta-r4.lean:272:2: error: No goals to be solved
+eta-r4.lean:279:47: warning: Variable name `hlam` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlam
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r4.lean:493:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r4.lean:527:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r4.lean:493:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r4.lean:527:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+hd : 0 < delta
+hd4 : delta < 1 / 4
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r4.lean:527:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+hd : 0 < delta
+hd4 : delta < 1 / 4
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQcd : ContDiff ℝ (↑⊤) (cutoffSelfConv psi)
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+hd : 0 < delta
+hd4 : delta < 1 / 4
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQcd : ContDiff ℝ (↑⊤) (cutoffSelfConv psi)
+hQ2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConv psi))
+hQ2supp : HasCompactSupport (iteratedDeriv 2 (cutoffSelfConv psi))
+hiterf :
+  iteratedDeriv 2 ((2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)) = fun x =>
+    iteratedDeriv 2 (cutoffSelfConv psi) (x / (2 * lam)) / (2 * lam * (2 * lam) * (2 * lam))
+⊢ -(↑lam ^ 3 * z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2 * 8) =
+    -(z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2 * ↑(lam * 2) ^ 3)
+eta-r4.lean:555:8: error: (kernel) unknown constant 'ZZLam.EtaPort.testKernel_cutoffTestLam'
+Try this:
+  [apply] ring_nf
+  
+···
+    -(z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2 * ↑(lam * 2) ^ 3)
+eta-r4.lean:555:8: error: (kernel) unknown constant 'ZZLam.EtaPort.testKernel_cutoffTestLam'
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:605:6: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+  Integrable
+    (fun x => ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x))
+    volume
+x : ℝ
+⊢ ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(↑Real.pi * Complex.I * z * ↑x * 2)) +
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:605:6: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+  Integrable
+    (fun x => ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x))
+    volume
+x : ℝ
+⊢ ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(↑Real.pi * Complex.I * z * ↑x * 2)) +
+      ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * (↑(Real.log T))⁻¹ ^ 2 *
+          Complex.exp (-(↑Real.pi * Complex.I * z * ↑x * 2)) *
+        (-1 / 4) =
+    ((fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(↑Real.pi * Complex.I * z * ↑x * 2))) - fun x =>
+        (↑(Real.log T))⁻¹ ^ 2 * ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) *
+            Complex.exp (-(↑Real.pi * Complex.I * z * ↑x * 2)) *
+          (1 / 4))
+···
+      x
+eta-r4.lean:617:23: error: Application type mismatch: The argument
+  Integrable.div_const hI2
+has type
+  ∀ (c : ℂ),
+    Integrable
+      (fun x =>
+        ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x) / c)
+      volume
+but is expected to have type
+  Integrable ?m.279 volume
+in the application
+  integral_sub hI1 (Integrable.div_const hI2)
+eta-r4.lean:597:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+···
+  integral_sub hI1 (Integrable.div_const hI2)
+eta-r4.lean:597:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+  Integrable
+    (fun x => ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x))
+    volume
+⊢ integral volume
+      ((fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) - fun x =>
+        ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x) /
+          ↑(4 * Real.log T ^ 2)) =
+    (∫ (u : ℝ), ↑(cutoffSelfConvLam lam psi u) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u)) -
+      (∫ (u : ℝ),
+          ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) u) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u)) /
+        ↑(4 * Real.log T ^ 2)
+eta-r4.lean:625:8: error: (kernel) unknown constant 'ZZLam.EtaPort.fourierC_cutoffSelfConvLam'
+···
+        ↑(4 * Real.log T ^ 2)
+eta-r4.lean:625:8: error: (kernel) unknown constant 'ZZLam.EtaPort.fourierC_cutoffSelfConvLam'
+eta-r4.lean:764:8: error: (kernel) unknown constant 'ZZLam.EtaPort.testKernel_cutoffTestLam'
+'ZZLam.EtaPort.testKernel_cutoffTestLam' does not depend on any axioms
+'ZZLam.EtaPort.fourierC_cutoffSelfConvLam' does not depend on any axioms
+'ZZLam.EtaPort.fourierC_iteratedDeriv_two_cutoffSelfConvLam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_iteratedDeriv_two_cutoffSelfConvLam]
+'ZZLam.EtaPort.fourierC_correctedTestLam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.correctedTestLam_weight_cancel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_eq_pairCorrelationSum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.cutoffSelfConvLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.testKernel_cutoffTestLam_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+···
+eta-r4.lean:625:8: error: (kernel) unknown constant 'ZZLam.EtaPort.fourierC_cutoffSelfConvLam'
+eta-r4.lean:764:8: error: (kernel) unknown constant 'ZZLam.EtaPort.testKernel_cutoffTestLam'
+'ZZLam.EtaPort.testKernel_cutoffTestLam' does not depend on any axioms
+'ZZLam.EtaPort.fourierC_cutoffSelfConvLam' does not depend on any axioms
+'ZZLam.EtaPort.fourierC_iteratedDeriv_two_cutoffSelfConvLam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_iteratedDeriv_two_cutoffSelfConvLam]
+'ZZLam.EtaPort.fourierC_correctedTestLam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.correctedTestLam_weight_cancel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_eq_pairCorrelationSum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound,
+ fourierC_correctedTestLam]
+'ZZLam.EtaPort.cutoffSelfConvLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.testKernel_cutoffTestLam_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ testKernel_cutoffTestLam_half]
+···
+
+=== SUMMARY
+build: OK
+eta-r2.lean: FAIL rc=1 errors=2 sorry=0
+eta-r3.lean: FAIL rc=1 errors=2 sorry=0
+eta-r4.lean: FAIL rc=1 errors=11 sorry=0
+[tele] SUMMARY run: wall=421s max_cpu=12.22 max_mem=3050MB max_anon=0MB samples=7 OVER=6
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-6oyeozzl9gDblPXbgi3pcJ
+EXIT=0

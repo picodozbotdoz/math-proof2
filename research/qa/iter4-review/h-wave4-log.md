@@ -1457,3 +1457,23 @@ replaces, the parse-trap class.)
   sha; M0→M2 89/89 stands); tally 13/3/1 = 17 ✓; the A2 guard → `221eb30b`
   honest-partial class; SLOT 6 stamped. **R5's eta pair = the close's only
   outstanding verdict.**
+
+## 2026-11-20 — iter-5 steady state, batch AAA (H): R5's η-port session — the trio complete
+
+- **R5's session landed** (9 files, shas 9/9): **rungs 2+3 EXIT GREEN**
+  (strict-OK 4/4 + 2/2, all-triad) — the re-fire FALSIFIED the dead-fire's
+  expected verdicts (the parked states were RED; 5 fix-batches); lemma A =
+  the (ii-c′) finding kernel-proved; the λ=1/2 anchor bit-for-bit; the
+  3.37M-unfolding whnf bomb decoded + dead. **r4 parked at T2/T3**
+  (set_option-placement slip; fix-batch-10 unfired; residuals pre-decoded).
+  Public-layer re-census: donor-private mirrors → ~zero. Ledger 13 of the
+  12–13 band, stop-loss honored; record-billed quota-free.
+- **Telemetry flag (task 3):** the session's build-phase OVER-cpu samples
+  (cpu ≈ 11–14 sustained, walls 382–635 s; mem 2.7–3.3 GB IN-SPEC, anon=0)
+  = the donor-tree layer-build mechanism (the m4b2/G2 class signature) BUT
+  the logs lack the in-log disposition lines the precedent runs carried —
+  flagged to the orchestrator; R5 owes the one-line notes. Non-blocking.
+- **With this landing the fold-once trio is COMPLETE in the landed set**
+  (R6 batch-MM/RR, R8 batch-YY, R5 batch-AAA) → the close sequence begins
+  on the orchestrator's remaining landings (R3's item-13 fire + R1's slots
+  4/5).

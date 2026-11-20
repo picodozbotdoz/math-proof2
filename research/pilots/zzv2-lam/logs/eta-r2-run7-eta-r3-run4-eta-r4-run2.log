@@ -1,0 +1,531 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-r2.lean research/pilots/zzv2-lam/eta-r3.lean research/pilots/zzv2-lam/eta-r4.lean — lane R5 (A3 lineage), 2026-11-20. Port run 11: fix-batch-7 confirmation (r2 @ a92118ff7cf7dbd9, r3 @ 0bd1942df691b29f, r4 @ 9c2721ca1953fb49) with maxHeartbeats 2000000 + set_option diagnostics true on lemma A (all three copies).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker; app crossmath-pilot-zzv2-lam; SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered; taskset build. Build 8262 jobs OK.
+# VERDICT: r2 FAIL rc=1 errors=2 (4→2); r3 FAIL rc=1 errors=2 (4→2); r4 FAIL rc=1 errors=9 (23→9). THE WHNF-TIMEOUT IS DEAD: at 2M heartbeats lemma A elaborates everywhere (the six-fire blocker). THE DIAGNOSTICS TABLE (in-log) NAMES THE BOMB: unfolded declarations max HMul.hMul 3,374,473 / Mul.mul 3,333,908 / Quotient.map₂ 2,369,789 / Real.rec 1,463,868 — a REAL-MULTIPLICATION KERNEL whnf storm (Quotient-Cauchy reals), triggered by `integral_mul_const _ _`'s metavars unifying `?f t * ?c` against a goal whose constant sits on the LEFT (mul-comm on Real is NOT whnf-trivial). Root fix = fix-batch-8: syntactic order-agreement — hint and calc steps 1-3 restated with the constant on the RIGHT (`integrand * c`), making the `integral_mul_const` pattern match syntactically (zero real-mul unification). Remaining r4 errors decoded+fixed: heq's rw needs the iterate-simp follow; T2/T3 close via `exact mul_div_cancel₀ _ hc` (GroupWithZero/Units/Basic.lean:460 shape b * (a / b) = a); R5-1 needs the ↑((2λ)³) → ↑(2λ)³ cast-bridge before field_simp (ring cannot merge cast-atoms); hsplit's show had the division OUTSIDE the lambda (no Pi-HDiv — donor-parse puts it INSIDE); two trailing-ring no-goals trimmed. Post-run shas: r2 @ 1c268f5bc7a1e731, r3 @ 3b8813e05498feba, r4 @ a6c24ae4f5a23ff5.
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-CDa2ADBLXk9XLod0rA6H5g
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-r2.lean', 'eta-r3.lean', 'eta-r4.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=2.82 mem=1398MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=120s cpu=12.13 mem=1206MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=180s cpu=3.12 mem=1826MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=240s cpu=3.18 mem=2742MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=2.99 mem=2697MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=3.66 mem=1232MB anon=0MB peak=-1MB procs=2 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6586/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (3.7s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7522/7541] Built PrimeNumberTheoremAnd.ZetaBounds (8.2s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7645/7667] Built ZetaZeros.ZeroCount.LocalCount (3.5s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7647/7669] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.1s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7657/7677] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (1.5s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (2.2s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8156/8211] Built PrimeNumberTheoremAnd.MellinCalculus (3.4s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8185/8262] Built ZetaZeros.PairCorrelation.Truncation (4.3s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8201/8262] Built PrimeNumberTheoremAnd.MediumPNT (11s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8234/8262] Built PrimeNumberTheoremAnd.Wiener (8.6s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-r2.lean
+[tele] t=420s cpu=0.99 mem=2613MB anon=0MB peak=-1MB procs=3
+[zzv2] eta-r2.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+---- error contexts ----
+eta-r2.lean:230:10: error: No goals to be solved
+eta-r2.lean:220:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+···
+eta-r2.lean:230:10: error: No goals to be solved
+eta-r2.lean:220:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+    [reduction] Real.inv'✝ ↦ 195800
+···
+
+=== eta-r3.lean
+[tele] t=480s cpu=1.04 mem=2612MB anon=0MB peak=-1MB procs=3
+[zzv2] eta-r3.lean: FAIL rc=1 errors=2 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts ----
+eta-r3.lean:206:10: error: No goals to be solved
+eta-r3.lean:196:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+···
+eta-r3.lean:206:10: error: No goals to be solved
+eta-r3.lean:196:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+    [reduction] Real.inv'✝ ↦ 195800
+···
+
+=== eta-r4.lean
+[tele] t=540s cpu=1.01 mem=2596MB anon=0MB peak=-1MB procs=3
+[zzv2] eta-r4.lean: FAIL rc=1 errors=9 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.testKernel_cutoffTestLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.fourierC_cutoffSelfConvLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.fourierC_iteratedDeriv_two_cutoffSelfConvLam' depends on axioms: [propext,
+'ZZLam.EtaPort.fourierC_correctedTestLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.correctedTestLam_weight_cancel' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_eq_pairCorrelationSum' depends on axioms: [propext,
+'ZZLam.EtaPort.cutoffSelfConvLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.testKernel_cutoffTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.fourierC_correctedTestLam_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.unweightedKernelSum_cutoffTestLam_half' depends on axioms: [propext,
+---- error contexts ----
+eta-r4.lean:263:10: error: No goals to be solved
+eta-r4.lean:253:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+···
+eta-r4.lean:263:10: error: No goals to be solved
+eta-r4.lean:253:8: error: Type mismatch
+  integral_mul_const ?m.708 ?m.709
+has type
+  ∫ (a : ?m.703), ?m.709 a * ?m.708 ∂?m.705 = (∫ (a : ?m.703), ?m.709 a ∂?m.705) * ?m.708
+but is expected to have type
+  ∫ (t : ℝ),
+      (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+        (cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2) =
+    (cutoffNormaliser psi / cutoffNormaliserLam lam psi) ^ 2 *
+      ∫ (t : ℝ), cutoffTest psi (t / (2 * lam)) ^ 2 * cutoffTest psi ((x - t) / (2 * lam)) ^ 2
+[diag] Diagnostics
+  [reduction] unfolded declarations (max: 3374473, num: 37):
+    [reduction] HMul.hMul ↦ 3374473
+    [reduction] Mul.mul ↦ 3333908
+    [reduction] Quotient.map₂ ↦ 2369789
+    [reduction] Real.rec ↦ 1463868
+    [reduction] Real.mul✝ ↦ 634115
+    [reduction] Quot.lift ↦ 504723
+    [reduction] npowRec ↦ 293700
+    [reduction] Nat.rec ↦ 293700
+    [reduction] Div.div ↦ 195812
+    [reduction] HDiv.hDiv ↦ 195812
+    [reduction] Inv.inv ↦ 195806
+    [reduction] DivInvMonoid.div' ↦ 195800
+    [reduction] Real.inv'✝ ↦ 195800
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r4.lean:325:47: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+f : ℝ → ℝ
+hf : ContDiff ℝ (↑⊤) f
+hf' : ContDiff ℝ (↑⊤) (deriv f)
+hd1 :
+  ∀ (y : ℝ),
+    HasDerivAt (fun x => (2 * lam)⁻¹ * f (x / (2 * lam))) ((2 * lam)⁻¹ * (deriv f (y / (2 * lam)) * (2 * lam)⁻¹)) y
+hder1 : (deriv fun x => (2 * lam)⁻¹ * f (x / (2 * lam))) = fun y => (2 * lam)⁻¹ * (2 * lam)⁻¹ * deriv f (y / (2 * lam))
+y : ℝ
+hbase : HasDerivAt (fun x => deriv f (x / (2 * lam))) (deriv (deriv f) (y / (2 * lam)) * (2 * lam)⁻¹) y
+⊢ deriv (deriv f) (y / (2 * lam)) = deriv^[2] f (y / (2 * lam))
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:498:55: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+{'build': 'OK', 'eta-r2.lean': 'FAIL rc=1 errors=2 sorry=0', 'eta-r3.lean': 'FAIL rc=1 errors=2 sorry=0', 'eta-r4.lean': 'FAIL rc=1 errors=9 sorry=0'}
+hpsi : IsCutoff delta psi
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:498:55: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hAlam : cutoffNormaliserLam lam psi = 2 * lam * cutoffNormaliser psi
+hAne : cutoffNormaliser psi ≠ 0
+hκ2cont : Continuous fun y => cutoffTest psi y * cutoffTest psi y
+hκ2supp : HasCompactSupport fun y => cutoffTest psi y * cutoffTest psi y
+hfund :
+  (fun x => cutoffTestLam lam psi x * cutoffTestLam lam psi x) = fun x =>
+    cutoffTest psi (x / (2 * lam)) * cutoffTest psi (x / (2 * lam)) / (2 * lam)
+⊢ ↑lam * fourierC (fun y => cutoffTest psi y ^ 2) (↑lam * z * 2) * 2 =
+    fourierC (fun y => cutoffTest psi y ^ 2) (↑lam * z * 2) * ↑(lam * 2)
+eta-r4.lean:534:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+···
+    fourierC (fun y => cutoffTest psi y ^ 2) (↑lam * z * 2) * ↑(lam * 2)
+eta-r4.lean:534:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQcont : Continuous (cutoffSelfConv psi)
+hQsupp : HasCompactSupport (cutoffSelfConv psi)
+hfn : (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi) = fun x => cutoffSelfConv psi (x / (2 * lam)) / (2 * lam)
+⊢ 2 * ↑lam * testKernel (cutoffTestLam lam psi) z ^ 2 = testKernel (cutoffTestLam lam psi) z ^ 2 * ↑(2 * lam)
+eta-r4.lean:577:4: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+···
+⊢ 2 * ↑lam * testKernel (cutoffTestLam lam psi) z ^ 2 = testKernel (cutoffTestLam lam psi) z ^ 2 * ↑(2 * lam)
+eta-r4.lean:577:4: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+hd : 0 < delta
+hd4 : delta < 1 / 4
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQcd : ContDiff ℝ (↑⊤) (cutoffSelfConv psi)
+hQ2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConv psi))
+hQ2supp : HasCompactSupport (iteratedDeriv 2 (cutoffSelfConv psi))
+hiterf :
+  iteratedDeriv 2 ((2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)) = fun x =>
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+eta-r4.lean:559:81: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+delta : ℝ
+hd : 0 < delta
+hd4 : delta < 1 / 4
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+z : ℂ
+hρ : 0 < 2 * lam
+hc : ↑(2 * lam) ≠ 0
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQcd : ContDiff ℝ (↑⊤) (cutoffSelfConv psi)
+hQ2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConv psi))
+hQ2supp : HasCompactSupport (iteratedDeriv 2 (cutoffSelfConv psi))
+hiterf :
+  iteratedDeriv 2 ((2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)) = fun x =>
+    iteratedDeriv 2 (cutoffSelfConv psi) (x / (2 * lam)) / (2 * lam * (2 * lam) * (2 * lam))
+⊢ -(↑lam * z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2 * (↑lam)⁻¹) =
+    -(z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2)
+eta-r4.lean:610:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HDiv (ℝ → ℂ) ℂ ?m.228
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+···
+    -(z ^ 2 * testKernel (cutoffTestLam lam psi) z ^ 2)
+eta-r4.lean:610:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HDiv (ℝ → ℂ) ℂ ?m.228
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+eta-r4.lean:596:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+  Integrable
+    (fun x => ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x))
+    volume
+⊢ ∫ (u : ℝ),
+      ↑((fun x => cutoffSelfConvLam lam psi x - iteratedDeriv 2 (cutoffSelfConvLam lam psi) x / (4 * Real.log T ^ 2))
+            u) *
+        Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u) =
+    (∫ (u : ℝ), ↑(cutoffSelfConvLam lam psi u) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u)) -
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+eta-r4.lean:596:52: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+T : ℝ
+hT : 1 < T
+z : ℂ
+hI1 : Integrable (fun x => ↑(cutoffSelfConvLam lam psi x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x)) volume
+hI2 :
+  Integrable
+    (fun x => ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) x) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑x))
+    volume
+⊢ ∫ (u : ℝ),
+      ↑((fun x => cutoffSelfConvLam lam psi x - iteratedDeriv 2 (cutoffSelfConvLam lam psi) x / (4 * Real.log T ^ 2))
+            u) *
+        Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u) =
+    (∫ (u : ℝ), ↑(cutoffSelfConvLam lam psi u) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u)) -
+      (∫ (u : ℝ),
+          ↑(iteratedDeriv 2 (cutoffSelfConvLam lam psi) u) * Complex.exp (-(2 * ↑Real.pi) * Complex.I * z * ↑u)) /
+        ↑(4 * Real.log T ^ 2)
+'ZZLam.EtaPort.testKernel_cutoffTestLam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+=== SUMMARY
+build: OK
+eta-r2.lean: FAIL rc=1 errors=2 sorry=0
+eta-r3.lean: FAIL rc=1 errors=2 sorry=0
+eta-r4.lean: FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=593s max_cpu=12.13 max_mem=2742MB max_anon=0MB samples=9 OVER=6
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-CDa2ADBLXk9XLod0rA6H5g
+EXIT=0

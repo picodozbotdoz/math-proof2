@@ -1,0 +1,514 @@
+# Provenance: bash research/pilots/zzv2-lam/run_zzv2.sh research/pilots/zzv2-lam/eta-r2.lean research/pilots/zzv2-lam/eta-r3.lean — lane R5 (A3 lineage), 2026-11-20. The parked-pair RE-FIRE after the wave-4 external termination (RESUME-BRIEF-ITER5.md §SESSION END (g)2; verdicts were UNKNOWN, the dead log treated as unread, nothing re-derived from it).
+# ROUTE: doz CLI /home/doz/dozenv/bin/modal, profile semraker; app crossmath-pilot-zzv2-lam; SPEC cpu=2.0/mem=4096 soft, LEAN_NUM_THREADS=2, @telemetered; taskset build. Run URL: https://modal.com/apps/semraker/main/ap-ovAHGao93vSNkijsBu0WU
+# FIRED SHAS (guard matched BEFORE firing): eta-r2.lean sha256(16) = 38bb8463fe7af1bc (the parked fix-batch-5 state); eta-r3.lean sha256(16) = ed0c061218a2d739.
+# VERDICT: FAIL/FAIL — eta-r2 rc=1 errors=7 sorry=0; eta-r3 rc=1 errors=7 sorry=0. NOT the expected 4/4 + 2/2: the parked batch-5 fixes were UNVERIFIED (never fired) and did NOT clear the rung. Root-cause decode (error contexts in-log): (i) the whnf-timeout at lemma A PERSISTED in BOTH files (r2 :163, r3 :139) — batch-5's applied-form restatement of cutoffTestLamSq_eq left the cutoffTestSq-form integrands in calc steps 1/4 of lemma A's proof (the Pi-power defeq of Zeta/Defs.lean:115); every downstream 'unknown constant cutoffSelfConvLam_eq_scaled_dilate' is its cascade; (ii) r2 :512 Real.abs_mul DOES NOT EXIST at the pin (generic abs_mul), :511/:518 its cascades; (iii) r2 :641 mul_le_of_le_one_right misapplied (arg-order mangled the (by linarith) goal into metavars) — but hc1 is already in context, the whole nested block collapses to (by linarith); (iv) r3 :231/:234 Continuous.intervalIntegrable ascription-postponement (named-have fix), :245 plain EqOn unknown (Set.EqOn), :266 integral_add_adjacent_intervals needs the BACKWARDS (fuse) direction. GOOD NEWS: B (cutoffTestLam_isAdmissible) landed TRIAD-CLEAN [propext, Classical.choice, Quot.sound]; zero math defects anywhere — all elaboration-mechanical. Fix-batch-6 applied on disk post-run: eta-r2 @ ed412a03fec748ee (lemma-A restructure + abs_mul + linarith-collapse), eta-r3 @ ddf85a41dbe00019 (same lemma-A + 3 local fixes); PLUS eta-r4.lean @ 1eead7a48e585faa drafted (R5+R6, public-layer transport, ZERO donor-private mirrors beyond the 8-line integrability helper). Telemetry: wall=634s max_cpu=11.18 max_mem=3302MB < 4096, OVER=8 (the standing pre-taskset burst pattern, investigate-not-upgrade per the g7 finding; confined post-taskset).
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ovAHGao93vSNkijsBu0WUJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-lam-stage/run_zzv2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2] staging ['eta-r2.lean', 'eta-r3.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.47 mem=1197MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=6.92 mem=1394MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=180s cpu=11.18 mem=1209MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=2.67 mem=2430MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.95 mem=1549MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=2.83 mem=2398MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.45 mem=2648MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=2.88 mem=2746MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=4.93 mem=3302MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6586/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (5.9s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7524/7541] Built PrimeNumberTheoremAnd.ZetaBounds (13s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7629/7645] Built ZetaZeros.ZeroCount.LocalCount (5.7s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7645/7675] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7676/7703] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.9s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7907/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.8s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8158/8229] Built PrimeNumberTheoremAnd.MellinCalculus (5.7s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8175/8262] Built ZetaZeros.PairCorrelation.Truncation (7.2s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8196/8262] Built PrimeNumberTheoremAnd.MediumPNT (18s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8234/8262] Built PrimeNumberTheoremAnd.Wiener (13s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+
+=== eta-r2.lean
+[tele] t=600s cpu=1.84 mem=2637MB anon=0MB peak=-1MB procs=3
+[zzv2] eta-r2.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+---- error contexts ----
+eta-r2.lean:163:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r2.lean:235:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+eta-r2.lean:303:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+eta-r2.lean:332:31: warning: Variable name `hpsi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpsi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r2.lean:512:14: error(lean.unknownIdentifier): Unknown constant `Real.abs_mul`
+eta-r2.lean:511:39: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+eta-r2.lean:512:14: error(lean.unknownIdentifier): Unknown constant `Real.abs_mul`
+eta-r2.lean:511:39: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+heps1 : min eps0 (1 / 2) < 1
+hmpos : 0 < min eps0 (1 / 2)
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hzero : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → dilateTo lam (cutoffSelfConv psi) y = 0
+···
+eta-r2.lean:512:14: error(lean.unknownIdentifier): Unknown constant `Real.abs_mul`
+eta-r2.lean:511:39: error: unsolved goals
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hDiv : Continuous fun x => x / (2 * lam)
+hQc : Continuous (dilateTo lam (cutoffSelfConv psi))
+hQdilzero : ∀ (x : ℝ), 1 ≤ |x| → dilateTo lam (cutoffSelfConv psi) x = 0
+hQsupp : HasCompactSupport (dilateTo lam (cutoffSelfConv psi))
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+heps1 : min eps0 (1 / 2) < 1
+hmpos : 0 < min eps0 (1 / 2)
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hzero : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → dilateTo lam (cutoffSelfConv psi) y = 0
+C : NNReal
+···
+    (2 * lam)⁻¹ * |cutoffSelfConv psi (x / (2 * lam)) - cutoffSelfConv psi 0|
+eta-r2.lean:518:10: error: No goals to be solved
+eta-r2.lean:417:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+eta-r2.lean:641:53: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+hmpos : 0 < min eps0 (1 / 2)
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos✝ : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hQlamzero2 : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → cutoffSelfConvLam lam psi y = 0
+···
+eta-r2.lean:518:10: error: No goals to be solved
+eta-r2.lean:417:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+eta-r2.lean:641:53: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+hmpos : 0 < min eps0 (1 / 2)
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos✝ : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hQlamzero2 : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → cutoffSelfConvLam lam psi y = 0
+h2zero_open : ∀ (x : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) < |x| → iteratedDeriv 2 (cutoffSelfConvLam lam psi) x = 0
+···
+eta-r2.lean:417:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+eta-r2.lean:641:53: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+heven : ∀ (x : ℝ), cutoffSelfConvLam lam psi (-x) = cutoffSelfConvLam lam psi x
+hQlamcd : ContDiff ℝ (↑⊤) (cutoffSelfConvLam lam psi)
+h2cd : ContDiff ℝ (↑⊤) (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+hQlamzero1 : ∀ (y : ℝ), 2 * lam ≤ |y| → cutoffSelfConvLam lam psi y = 0
+eps0 : ℝ
+heps0 : eps0 > 0
+hzero0 : ∀ (x : ℝ), 1 - eps0 ≤ |x| → cutoffSelfConv psi x = 0
+hm1 : min eps0 (1 / 2) < 1
+hmpos : 0 < min eps0 (1 / 2)
+hc1 : 2 * lam * (1 - min eps0 (1 / 2)) < 1
+hcpos✝ : 0 < 2 * lam * (1 - min eps0 (1 / 2))
+hQlamzero2 : ∀ (y : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) ≤ |y| → cutoffSelfConvLam lam psi y = 0
+h2zero_open : ∀ (x : ℝ), 2 * lam * (1 - min eps0 (1 / 2)) < |x| → iteratedDeriv 2 (cutoffSelfConvLam lam psi) x = 0
+h2supp : HasCompactSupport (iteratedDeriv 2 (cutoffSelfConvLam lam psi))
+···
+failed
+eta-r2.lean:524:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate' does not depend on any axioms
+'ZZLam.EtaPort.cutoffTestLam_isAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cutoffSelfConvLam_isPairTestFunction]
+'ZZLam.EtaPort.iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ iteratedDeriv_two_cutoffSelfConvLam_isPairTestFunction]
+···
+
+=== eta-r3.lean
+{'build': 'OK', 'eta-r2.lean': 'FAIL rc=1 errors=7 sorry=0', 'eta-r3.lean': 'FAIL rc=1 errors=7 sorry=0'}
+[zzv2] eta-r3.lean: FAIL rc=1 errors=7 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext,
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext,
+---- error contexts ----
+eta-r3.lean:139:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r3.lean:231:4: error: Type mismatch
+  Continuous.intervalIntegrable ?m.212
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u * cutoffSelfConv psi u) ?m.215 a b
+but is expected to have type
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+eta-r3.lean:234:4: error: Type mismatch
+  Continuous.intervalIntegrable ?m.253
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u * cutoffSelfConv psi u) ?m.256 a b
+but is expected to have type
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+eta-r3.lean:245:17: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+eta-r3.lean:247:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+eta-r3.lean:231:4: error: Type mismatch
+  Continuous.intervalIntegrable ?m.212
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u * cutoffSelfConv psi u) ?m.215 a b
+but is expected to have type
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+eta-r3.lean:234:4: error: Type mismatch
+  Continuous.intervalIntegrable ?m.253
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u * cutoffSelfConv psi u) ?m.256 a b
+but is expected to have type
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+eta-r3.lean:245:17: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+eta-r3.lean:247:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+hρ1 : 2 * lam ≤ 1
+···
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+eta-r3.lean:234:4: error: Type mismatch
+  Continuous.intervalIntegrable ?m.253
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u * cutoffSelfConv psi u) ?m.256 a b
+but is expected to have type
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+eta-r3.lean:245:17: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+eta-r3.lean:247:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQ0 : cutoffSelfConvLam lam psi 0 = (2 * lam)⁻¹ * cutoffSelfConv psi 0
+hQcont : Continuous (cutoffSelfConv psi)
+hintI1 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+hintI2 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+hpt : ∀ (α : ℝ), α * cutoffSelfConvLam lam psi α = (fun u => u * cutoffSelfConv psi u) (α / (2 * lam))
+···
+  IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+eta-r3.lean:245:17: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+eta-r3.lean:247:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQ0 : cutoffSelfConvLam lam psi 0 = (2 * lam)⁻¹ * cutoffSelfConv psi 0
+hQcont : Continuous (cutoffSelfConv psi)
+hintI1 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+hintI2 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+hpt : ∀ (α : ℝ), α * cutoffSelfConvLam lam psi α = (fun u => u * cutoffSelfConv psi u) (α / (2 * lam))
+hwin : 1 ≤ 1 / (2 * lam)
+⊢ sorry
+eta-r3.lean:266:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∫ (x : ℝ) in 0..1, x * cutoffSelfConv psi x) + ∫ (x : ℝ) in 1..1 / (2 * lam), x * cutoffSelfConv psi x
+in the target expression
+  2 * lam * ∫ (x : ℝ) in 0..1 / (2 * lam), x * cutoffSelfConv psi x =
+···
+eta-r3.lean:245:17: error(lean.unknownIdentifier): Unknown identifier `EqOn`
+eta-r3.lean:247:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQ0 : cutoffSelfConvLam lam psi 0 = (2 * lam)⁻¹ * cutoffSelfConv psi 0
+hQcont : Continuous (cutoffSelfConv psi)
+hintI1 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+hintI2 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+hpt : ∀ (α : ℝ), α * cutoffSelfConvLam lam psi α = (fun u => u * cutoffSelfConv psi u) (α / (2 * lam))
+hwin : 1 ≤ 1 / (2 * lam)
+⊢ sorry
+eta-r3.lean:266:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∫ (x : ℝ) in 0..1, x * cutoffSelfConv psi x) + ∫ (x : ℝ) in 1..1 / (2 * lam), x * cutoffSelfConv psi x
+in the target expression
+  2 * lam * ∫ (x : ℝ) in 0..1 / (2 * lam), x * cutoffSelfConv psi x =
+    2 * lam * ∫ (α : ℝ) in 0..1, α * cutoffSelfConv psi α
+···
+⊢ sorry
+eta-r3.lean:266:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∫ (x : ℝ) in 0..1, x * cutoffSelfConv psi x) + ∫ (x : ℝ) in 1..1 / (2 * lam), x * cutoffSelfConv psi x
+in the target expression
+  2 * lam * ∫ (x : ℝ) in 0..1 / (2 * lam), x * cutoffSelfConv psi x =
+    2 * lam * ∫ (α : ℝ) in 0..1, α * cutoffSelfConv psi α
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hρ : 0 < 2 * lam
+hn : 2 * lam ≠ 0
+hρ1 : 2 * lam ≤ 1
+hQ : cutoffSelfConvLam lam psi = (2 * lam)⁻¹ • dilateTo lam (cutoffSelfConv psi)
+hQ0 : cutoffSelfConvLam lam psi 0 = (2 * lam)⁻¹ * cutoffSelfConv psi 0
+hQcont : Continuous (cutoffSelfConv psi)
+hintI1 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 0 1
+hintI2 : IntervalIntegrable (fun u => u * cutoffSelfConv psi u) volume 1 (1 / (2 * lam))
+hpt : ∀ (α : ℝ), α * cutoffSelfConvLam lam psi α = (fun u => u * cutoffSelfConv psi u) (α / (2 * lam))
+hwin : 1 ≤ 1 / (2 * lam)
+htail : ∫ (u : ℝ) in 1..1 / (2 * lam), (fun u => u * cutoffSelfConv psi u) u = 0
+h1 :
+···
+    2 * lam * ∫ (α : ℝ) in 0..1, α * cutoffSelfConv psi α
+eta-r3.lean:215:8: error: (kernel) unknown constant 'ZZLam.EtaPort.cutoffSelfConvLam_eq_scaled_dilate'
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ pairMainTerm_cutoffSelfConvLam]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ pairMainTerm_cutoffSelfConvLam]
+···
+
+=== SUMMARY
+build: OK
+eta-r2.lean: FAIL rc=1 errors=7 sorry=0
+eta-r3.lean: FAIL rc=1 errors=7 sorry=0
+[tele] SUMMARY run: wall=634s max_cpu=11.18 max_mem=3302MB max_anon=0MB samples=10 OVER=8
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ovAHGao93vSNkijsBu0WUJ
+EXIT=0
