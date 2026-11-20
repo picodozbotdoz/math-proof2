@@ -17,7 +17,7 @@ z4-parametric-savings-function-in-matrix-exponent
 ## One-line pitch
 
 The frozen Exact-Triangle savings constant ε_T = 0.0017 becomes an explicit, strictly
-increasing function ε(ω_b) of an assumed matrix-multiplication exponent bound, so that
+decreasing function ε(ω_b) of an assumed matrix-multiplication exponent bound, so that
 openai's proved ω_ℂ ≤ 9/4 (vs. Strassen's log₂ 7 ≈ 2.807) yields a strictly better
 formal running time — the first parametrized theorem where each corpus supplies one
 side of the equation.
@@ -50,7 +50,7 @@ size (the precise shape of the Strassen program-with-proof,
 "[Str69]: O(n^{log₂ 7}) ring operations … a program with a proof"). Say `MM` has
 exponent `ω_b` if `MM n ≤ C·n^{ω_b}` for all large n.
 
-**Theorem (parametric savings).** There is an explicitly given, strictly increasing,
+**Theorem (parametric savings).** There is an explicitly given, strictly decreasing,
 continuous function `ε : (2, 3) → ℝ≥0` (built from the Sec-4 trade-off data: `Rc`,
 `lnΛ`, `gammaOf`, `qOf`, `rhoC`, `PaperStatements.lean:2004–2031`, and the choice
 lemmas `Theorem19.choice_theorem_5/choice_corollary_26`) such that for every `MM` with
@@ -62,8 +62,19 @@ for an explicit polylog exponent `e`, with:
 
 1. `ε(log₂ 7) = 0.0017` — the frozen `ε_T` (`EndStatement.lean:82`,
    `Theorem_19 : ExactTriangle.SolvedInTime (3 - ε_T)`, :85–86) is recovered exactly;
-2. `ε` strictly increasing, so `ε(9/4) > 0.0017`;
-3. monotone dependence: `ω_b ≤ ω_b' → ε(ω_b) ≤ ε(ω_b')`, with `ε(ω) → 0` as `ω → 3`.
+2. `ε` strictly decreasing, so `ε(9/4) > 0.0017` (9/4 < log₂ 7 on the decreasing branch);
+3. monotone dependence: `ω_b ≤ ω_b' → ε(ω_b') ≤ ε(ω_b)`, with `ε(ω) → 0` as `ω → 3`.
+
+**[Correction 2026-11-20, R3/P0 (citing `research/pilots/12/P0-record.md` sha
+`3f88feb8…`): the monotonicity direction above was stated backwards in v1 —
+"strictly increasing" contradicts the dossier's own headline ε(9/4) > 0.0017,
+since 9/4 = 2.25 < log₂ 7 ≈ 2.8074. The correct form, as pinned in the P0
+statement set (`EpsData.strict_anti`, `StrictAntiOn ε (Set.Ioc 2 2.9)`), is
+strictly DECREASING on (2, 3): better (smaller) MM exponent ⇒ larger savings,
+with `ε → 0` as `ω → 3` and `ε(log₂ 7) = 0.0017` unchanged. All "increasing"
+wording in this dossier (pitch, Theorem, properties, F0) is corrected in place
+this date; the ε(9/4) > ε(log₂ 7) headline claims were already direction-correct
+and stand.]**
 
 **Corollary (conditional on the model-gap transfer lemma, see Feasibility F3b).**
 If every `AdmissibleExponent ℂ τ` bound (openai
@@ -169,7 +180,7 @@ formalization, different regime (D < n middle part is where `Rc` lives).
 
 ## Feasibility (R9 template, `research/feasibility/mathlib-verification.md` §3)
 
-- **F0.** ε(ω_b): an explicit strictly increasing savings function with
+- **F0.** ε(ω_b): an explicit strictly decreasing savings function with
   ε(log₂ 7) = 0.0017, so openai's ω_ℂ ≤ 9/4 strictly improves the formal Exact
   Triangle exponent.
 - **F1. Mathlib entry points**: no complexity API needed beyond what 3sum-apsp

@@ -1200,3 +1200,17 @@ classifier 52+0 stands).
      only on its OWN triad print + regression leg; tactic-level
      site-closures (an error count dropping at a named site) never certify.
   (Both join the runner-hygiene lesson family; they bind all lanes.)
+
+## 2026-11-20 — iter-5 steady state, batch DD (H): R3's 12-P0 GREEN + the dossier correction
+
+- **12-P0 GREEN landed** (5 files, shas 5/5; telemetry SPEC-conformed, walls
+  49 s/32 s warm, OVER=0): probe 7/7 sorry-stubs rc=0 errors=0; all four
+  preflight components elaborated verbatim on v4.36; GO for the core S–M w/
+  F3b as hypothesis binder. Findings: the dossier ε(ω_b) monotonicity DEFEAT
+  (strictly DECREASING correct) + the probe-runner sorry-filter widened to
+  the backtick warning class.
+- **Provenance record:** the dossier-12 correction arrived as a
+  working-tree edit ON MAIN (mtime 19:04:01) — content-matched this unit's
+  relayed finding; the hardened gate kept it out of batches CC/earlier; it
+  rides THIS commit with this note. (Orchestrator-direct edits on main are
+  in-pattern — the sole other committer; flagged in the batch report.)

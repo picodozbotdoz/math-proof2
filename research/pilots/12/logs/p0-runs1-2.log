@@ -1,0 +1,70 @@
+# provenance: raw modal runs, pilot-12 P0 (z4-parametric-savings; DECISION-6 idle-lane conversion, P0-first per preflight §5) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | commands: bash research/pilots/12/stage_and_fire_p0.sh 1 then 2 | run 1 staged sha 12759a5e3eb8abd9 (first fire), run 2 staged sha 3d924056ed4c3e2c (fix batch: single-level namespace reopen after the top-level OAI block — kills the two dupNamespace linter warnings; runner sorry-filter widened to the backtick form) | VERDICT run 1: rc=0, 0 errors, 7 sorry-stubs exactly as expected (verdict line printed 'OK' due to the then-broken sorry filter; true count = the 7 warning lines in the tail) | VERDICT run 2 (artifact of record): PROBE-OK rc=0 errors=0 sorry=7 — ZERO elaboration errors on the full statement surface (all Part 0 verbatim ports incl. Claim.Theorem_17/Corollary_15_first/Corollary_16/Theorem_19_explicit + termPrime + the Sec-4 trade-off block + Theorem19.Choice; the two frozen route restatements; the MM-generalized set WordRamMMData/EpsData/route15/16_MMgeneral/route16_symbolic; the OAI Model block verbatim; flagship_shape; balancePoint_monotone_shape = the flagged F5 consumer ELABORATES) | telemetry: wall 49s/32s, samples=0 (runs under one interval), OVER=0, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2, oleans 8710 @ ff2494ea | app crossmath-pilot-12p0 (image layers textually identical to gprobe/73/74 lineage — warm) | sorry = statement-shape stubs only, probe-convention header in-file; NOT proof artifacts
+
+==================== RUN 1 (first fire, sha 12759a5e3eb8abd9) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-a4YB9LbrGfXuaYz9F4AoV2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-p0-stage/run_p0.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12p0] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12p0] mathlib rev ff2494ea5e43
+[p12p0] oleans present: 8710
+
+=== P0.lean
+{'P0.lean': 'OK'}
+[p12p0] P0.lean: OK
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:229:8: warning: declaration uses `sorry`
+P0.lean:236:8: warning: declaration uses `sorry`
+P0.lean:246:8: warning: declaration uses `sorry`
+P0.lean:372:8: warning: declaration uses `sorry`
+P0.lean:372:8: warning: The namespaces `CrossMath` and `Pilot12P0` are duplicated in the declaration `CrossMath.Pilot12P0.CrossMath.Pilot12P0.flagship_shape`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+P0.lean:394:8: warning: declaration uses `sorry`
+P0.lean:394:8: warning: The namespaces `CrossMath` and `Pilot12P0` are duplicated in the declaration `CrossMath.Pilot12P0.CrossMath.Pilot12P0.balancePoint_monotone_shape`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+
+[p12p0] SUMMARY
+[p12p0]   P0.lean: OK
+[tele] SUMMARY run: wall=49s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-a4YB9LbrGfXuaYz9F4AoV2
+
+==================== RUN 2 (fix batch, sha 3d924056ed4c3e2c — ARTIFACT OF RECORD) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5oYkaVFr1Cy061L0amZYlC
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-p0-stage/run_p0.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12p0] staging ['P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12p0] mathlib rev ff2494ea5e43
+[p12p0] oleans present: 8710
+
+=== P0.lean
+[p12p0] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+{'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:229:8: warning: declaration uses `sorry`
+P0.lean:236:8: warning: declaration uses `sorry`
+P0.lean:246:8: warning: declaration uses `sorry`
+P0.lean:374:8: warning: declaration uses `sorry`
+P0.lean:396:8: warning: declaration uses `sorry`
+
+[p12p0] SUMMARY
+[p12p0]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=32s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5oYkaVFr1Cy061L0amZYlC
