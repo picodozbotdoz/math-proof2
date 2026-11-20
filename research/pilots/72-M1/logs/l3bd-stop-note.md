@@ -179,3 +179,85 @@ over the attach-type directly (no conversion step at all).
 
 — charter-item-3 R2, 2026-11-19. Run-index final: runs 1–16, v1–v16
 (v16 sha in the run-16 header). NO further grants this wave per the charter.
+
+
+---
+
+## PRINT-LEVEL RE-BASE (lane R2, 2026-11-20 — on R1's verification-integrity finding;
+## SUPERSEDES every flip claim in the three addenda above; the next-wave charter input
+## is THIS section, not the §CHARTER-ITEM-3 fix list)
+
+**The finding (R1, routed 2026-11-20; independently re-verified by R2 this session
+with a bracket-tracking multiline parser over ALL 16 persisted logs — continuation
+lines joined only inside the axiom bracket, interleaved log text rejected):**
+`hasGlobalGap_of_fullSystemGap`, `isAdmissible_ΦL`, `hamiltonian_gridDom_eq`,
+`interface_areaLaw_uniformAreaLaw` have **ZERO triad prints in any persisted run**
+(interface footnote: its ONLY triad prints are runs 2–3, early statement forms; every
+run from 4 on prints sorryAx — the CURRENT form has never printed clean). The run-16
+AXIOMS block says it outright: all four carry `sorryAx`. The evidence was in every
+log all along.
+
+**Retracted (narrative-vs-print contradictions — mechanism: tactic-level site-closures
+read as certifications; error-descent at named lines is NOT certification, the triad
+print is):**
+
+1. §FINAL-ROUND ADDENDUM's "run 12: hasGlobalGap (L3c) + edgeBoundary went
+   TRIAD-CLEAN" — FALSE for hasGlobalGap (0 triad prints runs 4–16, no print 1–3).
+   edgeBoundary IS triad-clean but its first clean print is **run 9**, not 12.
+2. §CHARTER-ITEM-3 RECORD's "run 14: isAdmissible_ΦL + hamiltonian_gridDom_eq went
+   TRIAD-CLEAN" and its "Final triad-clean set (run 16)" listing them — FALSE (both
+   print sorryAx in ALL 16 runs).
+3. The same flip claims propagated to `L3-record.md`'s amendment headers and R1's
+   unit-10 row (R1's correction is in its own funnel,
+   `qa/iter4-review/r3-verification-tables.md` :2531+ — not edited here; H carries a
+   dated correction line in h-wave4-log).
+
+**The authoritative per-run print matrix (R2's re-verification, 2026-11-20):**
+
+| decl | triad prints | sorryAx prints | verdict |
+|---|---|---|---|
+| `toGrid_star_dotProduct_self` (L3b) | runs 6–16 | 1–5 | CERTIFIED (since run 6) |
+| `eig_toGrid` | runs 5–16 | 1–4 | CERTIFIED (since run 5) |
+| `edgeBoundary_le_boundaryCard` | runs 9–16 | 1–8 | CERTIFIED (since run 9) |
+| `hasGlobalGap_of_fullSystemGap` (L3c) | none | 4–16 | NEVER certified — re-derivation class |
+| `isAdmissible_ΦL` (L3d) | none | 1–16 | NEVER certified — re-derivation class |
+| `hamiltonian_gridDom_eq` (L3d) | none | 1–16 | NEVER certified — re-derivation class |
+| `interface_areaLaw_uniformAreaLaw` | 2–3 only (early forms) | 1, 4–16 | current form NEVER certified |
+| `submatrix_mulVec_ec` | none | none | print-gap class — record-only (the §10.9 precedent), no print evidence either way |
+| T1/T2/L3a (regression set) | every run | none | CERTIFIED throughout |
+
+**Re-based residue (supersedes the "3-item mechanical tail" framing):** the four
+contested decls need **RE-DERIVATION, not mechanical fixes** — none has ever
+elaborated clean in 16 runs, so the displayed five error-sites (hz :374/:379/:387,
+hFe :848, attach-bridge :924) are the VISIBLE tail of run 16 only; nothing establishes
+their exhaustiveness (errors=35 incl. cascades; the 616 elided lines were never
+itemized). The 3-item list UNDERSTATES the residue.
+
+**Re-scoped next-wave plan (priced, NOT fired — fire only on the orchestrator's
+re-charter, mechanical items only if they survive this re-base):**
+
+- **Mechanical-surviving candidates (form-level only, sufficiency UNVERIFIED)** — the
+  three displayed-site families, fix forms derived against run-16's displays:
+  (a) hz h1/h2/h3 — `Fintype.sum_prod_type'` orientation (h1: rewrite the RHS
+  pair-sum to iterated via ←, then `star_sum` + per-side `Finset.sum_congr rfl`;
+  h3: `exact (Fintype.sum_prod_type' …).symm`), h2's prodComm projections reduced by
+  rfl-`show`s (`(Equiv.prodComm … p).1 ≡ p.2`) then `ring`; (b) hFe — mirror the
+  passing hFv canonical-show (the `rw [ΦL_edge, ← ha, …]` chain diverged: the
+  ΦL_edge RHS already carries `hermPart (he e)`, so the `← ha` liftLocal-rewrite has
+  no target); (c) the attach-bridge 4th form (`Finset.sum_attach (s := …)` explicit /
+  restate `key` over the attach-type). Each is a single-site form fix FOR A DISPLAYED
+  ERROR — closing them is necessary, NOT sufficient.
+- **Derivation-class (priced, reported, not fired):** the first CLEAN elaboration of
+  each contested decl — expected to surface additional sites beyond the displayed
+  five once the proofs first elaborate end-to-end. Honest price: **3+ rounds with
+  re-derivation risk** (supersedes the retracted "1–2 rounds" estimate); treat any
+  next-wave charter as a re-derivation charter with a mechanical prefix, budget
+  accordingly, and certify ONLY by triad print.
+- **Standing rule minted here (fold into the next charter):** site-closure is not
+  certification; a decl is CLEAN iff its own triad (or zero-axiom) print appears in a
+  run whose T1/T2 regression leg also holds.
+
+— print-level re-base by lane R2, 2026-11-20, worktree agent-03. Parser: bracket-
+tracking multiline join over `logs/l3bd-run{1..16}.log`; matches R1's rows at
+:2531–:2559 (one refinement: interface's runs-2/3 early-form prints). No fire in this
+unit; the fix candidates above are recorded for the orchestrator's re-charter decision.

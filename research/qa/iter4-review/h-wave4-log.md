@@ -1182,3 +1182,21 @@ classifier 52+0 stands).
   minimal. **Telemetry (task 3): SPEC cpu=2.0/mem=4096 + LEAN_NUM_THREADS=2
   conformed; 1 OVER-mem sample (8296 MB, anon=0) = the documented
   olean-mapping class, dispositioned in-log; wall 62 s. Nothing to escalate.**
+
+## 2026-11-20 — iter-5 steady state, batch CC (H): R2's L3 re-base landed + the two minted lessons
+
+- **R2's L3 re-base landed** (3 files, shas 3/3; the REPORT-INPUTS-ITER5 edit
+  diff-verified EXACTLY one surgical row before staging): the stop-note's
+  §PRINT-LEVEL RE-BASE (authoritative matrix, enumerated retractions,
+  re-scoped plan, no-fire-without-re-charter) + the L3-record amendment with
+  retraction riders.
+- **Two lessons minted (per the batch-11 rider), authority = the re-based
+  stop-note `db872dc5`:**
+  1. **R2's parse-trap class:** naive multiline bracket-parsing MANUFACTURED
+     FALSE triads by crossing interleaved log output — only token-validated
+     continuation joins are admissible when reading run logs
+     programmatically.
+  2. **Standing rule: site-closure is not certification** — a decl is clean
+     only on its OWN triad print + regression leg; tactic-level
+     site-closures (an error count dropping at a named site) never certify.
+  (Both join the runner-hygiene lesson family; they bind all lanes.)
