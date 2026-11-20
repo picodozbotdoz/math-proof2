@@ -1395,3 +1395,12 @@ replaces, the parse-trap class.)
   `componentEpsCum_of_thmE`, zero new math over the pin's primitive-associate
   API. **SLOT-1 COMPLETE WITH NO REMAINDER**; the v2-candidacy note recorded
   for the iter-6 open. Telemetry conformant (cpu ≤ 1.17; OVER-mem anon=0).
+
+## 2026-11-20 — iter-5 steady state, batch SS (H): R4's M pre-solve — the banked negative
+
+- **The M-tranche pre-solve landed** (`H3-M-candidates.md` `ca72ad2d` + the
+  record addendum `a47a521f`): ~200M systems, 0 survivors, controls ~1e-14;
+  S1/S2/S4 structural findings; candidate list EMPTY in every scanned class —
+  BANKED per the orchestrator ruling (the wave outcome: S-rung GREEN + the
+  raised negative; article decision at the iter-6 open). Zero fires (the
+  S-cap residue 4-of-5 stays explicit; any M re-price needs a fresh order).

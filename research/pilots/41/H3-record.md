@@ -69,3 +69,20 @@ pre-solve the small K systems) + re-price checkpoint (unchanged: +0.3–0.5k LoC
 fires), then the M-GO request with the candidate list attached.
 
 — lane R4, 2026-11-20 (S-rung close).
+
+## Addendum (2026-11-20, same lane): the M-tranche pre-solve unit — candidate list EMPTY
+
+The approved follow-up unit (paper-level spin-host candidate identification, no
+fires) completed: **the candidate list is EMPTY in every scanned class** — canonical-13
+subsets 0/103.2M, natural-monomial order×scalar 0/82.6M, random L≤4 sweep 0/13.9M, per
+fiber, with planted-solution controls validating the scanner (~1e-14 detection).
+Structural findings: the spin host at δ = ±2 spans the FULL 14 dims (the faithfulness
+datum — the spin-host negative IS a TL₄ generator-word negative at these fibers); the
+≤14-dim reachable-table bound (codim ≥ 50 membership condition) is the root cause;
+sector rank caps (1,4,6,4,1 — no single sector, needs 4+6+4 alignment); the open tier
+is COMBINATION words (dimension counting does not preclude them). **Recommendation
+recorded: do NOT fire the M search rung; bank S + the pre-solve; M-GO not requested.**
+Full record: `H3-M-candidates.md` (sha16 `ca72ad2de2cda662`). S-cap residue unchanged:
+4 unused of 5; any M/L fire needs a fresh order. Custody-gap rider (R1): extend the
+H3.lean audit tail to the 16 unprinted helpers at the NEXT edit's fire, no dedicated
+run. — R4, 2026-11-20.
