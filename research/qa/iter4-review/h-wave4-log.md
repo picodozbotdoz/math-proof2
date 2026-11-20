@@ -1427,3 +1427,14 @@ replaces, the parse-trap class.)
 - **WW:** the charter v6 landed (`f0565371`, the citation fix merged
   pre-landing — single-landing rule): [DECISION-H3] RESOLVED-BY-OUTCOME
   (hunt BANKED at wave-close).
+
+## 2026-11-20 — iter-5 steady state, batch XX (H): R8's run-5 park + the final-fire grant
+
+- **The M3 run-5 park records landed** (M0-record `d0d5285f` + the run-5 log
+  `647c470e`, OVER=0, 48 s): NOT-GREEN — 2 mechanical residuals w/ fixes
+  pre-written+applied; A1/A2 cascade-only; the find-#6 amendment
+  byte-identical-decl-list, clean except the pair. **The FINAL 1-fire order
+  granted at the fixed shas (P0 2d84a3ca + A1 a8feb25b + A2 221eb30b) —
+  P0.lean and A2.lean both HELD worktree-side until the post-fire state**
+  (GREEN → the ladder closes; red → park per the cap). The close-gate
+  event is now this final fire.

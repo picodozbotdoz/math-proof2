@@ -517,3 +517,35 @@ with the amendment decision H's).
 (52c5b9f77344e0ed / a8feb25bcd60722f); no sorry/native_decide/external CAS in A2 (grep
 verified, prose-only tokens); kernel verification only; Modal per AGENTS.md (SPEC
 2cpu/4GB, LEAN_NUM_THREADS=2, telemetry every fire, OVER=0; walls 55–88 s).
+
+## M3 completion fire (run 5, 2026-11-20, the granted 1-fire): NOT-GREEN — parked per the ruling, both fixes pre-written
+
+**The find-#6 amendment was APPLIED first** (H-approved, proof-only): P0's three stub
+bodies proved mathlib-only — `posSemidef_vecMulVec_self_star` := mathlib's
+`Matrix.posSemidef_vecMulVec_self_star`; `posSemidef_ptrace` := the compression route
+(the A2 M3 support-layer V port); `trace_ptrace` := the glue-reindex route
+(`Reg S × Reg (T \ S) ≃ Reg T` bijection) — decl-list BYTE-IDENTICAL (+106/−10,
+bodies + header-prose only; the frozen sha 52c5b9f77344e0ed → amended d4573bdf00a5a2bb;
+the probe-convention provenance note kept in P0's header as ruled).
+
+**Run 5** (`logs/alp2-m3-run5-completion.log`, wall 48 s, telemetry OVER=0, guard
+`/tmp/al3d-prefire-sha-m3run5.txt`): **NOT-GREEN — P0 FAIL errors=2, A1/A2 pure cascade**
+(P0's olean never built). Both errors sit INSIDE the amended `posSemidef_ptrace` body and
+are precisely diagnosed; the rest of the amendment (trace_ptrace entirely, hsel, the
+Hermitian half, hq's internal proofs, hnn) elaborated clean:
+1. The per-slice entry-normalization associates `(lit * M) * litᴴ`, putting the
+   star-selector OUTSIDE the inner sum (not the A2 form the port assumed).
+2. The bare `rw [hq]` failed to match its fully-generic pattern at the concrete goal.
+
+**Both fixes are PRE-WRITTEN into the parked P0 bytes (sha `2d84a3caf8d0d26f`)** — the
+M1-park convention: `hsel'` right-selector + `hin` inner-selection for (1); fully-pinned
+`rw [hq (ι := …) (κ := …) … ]` for (2). A1/A2 need NO changes (cascade only). **The next
+1-fire order at P0 `2d84a3caf8d0d26f` + A1 `a8feb25bcd60722f` + A2 `221eb30b6debba75`
+completes** (expected: P0 OK sorry-free, A2 OK rc=0 with ZERO sorryAx — the amendment
+removed the P0-layer taint, so the find-#6 prediction for the three pureState-typed
+theorems is SUPERSEDED: all should print triad).
+
+— lane R8 (worktree agent-05), 2026-11-20, completion fire spent per the grant; parked;
+awaiting the next order. Files: P0.lean `2d84a3caf8d0d26f` (amended+fixed), A1.lean
+`a8feb25bcd60722f` (frozen), A2.lean `221eb30b6debba75` (parked); logs
+`alp2-m3-run5-completion.log`. No commits (H commits).
