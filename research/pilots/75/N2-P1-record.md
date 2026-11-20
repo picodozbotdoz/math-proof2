@@ -42,6 +42,7 @@ substrate).
 | **P3-d** | `zetaColumn_of_V2` (the V2 ζ-column discharge — d4 endpoint + count identifications + the 2/3 ≤ 0.6725 numeral) | **GREEN-triad (n2-p3v2-run3, 2026-11-20)** — on the V2 substrate; donor d4 re-printed triad |
 | **P3-e** | `zetaL_two_thirds_landed_of_DZDF` (THE COMPOSED N2-d ASSEMBLY — the card discharged over the GREEN stack; hζ/hEχcum as premises per the substrate split) | **GREEN-triad (n2-p3e-run1, 2026-11-20)** — first shot |
 | **ℚ endpoint** | `zetaL_two_thirds_landed_ℚ` (the unconditional-at-ℚ remainder — RESEARCH.md §Iteration-5 lead-1 tail) | **GREEN-triad (n2-p3v2-run4, 2026-11-20)** — hfinζ/hntopζ the named FOREVER binders |
+| **P2-d (hEχ composition)** | `epsLowerCum_of_thmE` + `componentEpsCum_of_thmE` (ANY ψ ≠ 1 via `ψ.primitiveCharacter` — the imprimitive hEχ rung: thmE_dyadic_to_cumulative + eulerStripImmunity_changeLevel + the count-agreement transfer) | **GREEN-triad (n2-p2d-run2, 2026-11-20)** — 6/6; SLOT-1's hEχ premise fully dischargeable; per-primitive binders only (ThmEDyadic donor endpoint + CountsUnbounded classical) |
 
 **P1 is COMPLETE: the ℚ dictionary (N2-a), its L-series identification (N2-a(ii)),
 principality transfer (N2-a(iii)), the identity-theorem extension, and the
@@ -258,6 +259,28 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   appended, 6/6 prints triad; wall 567s). (5) N3 full-coverage axchecks
   fired (plain 6-module Ax-chain + V2-side AxN2P3V2 — see below). All runs
   sha-guarded, telemetry logged, verdicts with post-run blocks in-log.
+- Unit 11 (2026-11-20, R6, the orchestrator's optional-rung ruling): **the
+  imprimitive hEχ composition GREEN — SLOT-1 has NO remainder.** New file
+  `N2-P2d.lean` + runner pair `run_n2p2d.{sh,py}` (run_n2p3e pattern, ORDER =
+  [Pa, N2P0, N2P1, N2P2c, N2P3, N2-P2d]). Runs 1–2 (`n2-p2d-run{1,2}.log`):
+  r1 = 4 mechanical errors (the supp-transfer rw direction ×2; nested
+  instance synthesis — windowFinite_LFunction inside @-form binders needs its
+  OWN @-explicit NeZero(conductor) ×2), `primitiveCharacter_ne_one` already
+  triad; **r2 GREEN 6/6** (`countCum_congr`, `countOnCum_congr`,
+  `epsLowerCum_congr`, `primitiveCharacter_ne_one`, `epsLowerCum_of_thmE`,
+  `componentEpsCum_of_thmE`; final sha 4f978b44a98ddbbe). The hEχ premise is
+  now dischargeable for ANY nontrivial family from the two per-primitive
+  binders (ThmEDyadic at ψ.primitiveCharacter = the zeta23 donor endpoint;
+  CountsUnbounded at ψ.primitiveCharacter = the classical zero-infinitude).
+  Zero new mathematics across the rung. **v2-candidacy note (per the
+  orchestrator's 2026-11-20 ruling, evaluation at Iteration-6 open): the
+  evidence base for an article-75 v2 upgrade = the composed N2-d card
+  `zetaL_two_thirds_landed_of_DZDF` (n2-p3e-run1) + the ℚ endpoint
+  `zetaL_two_thirds_landed_ℚ` (n2-p3v2-run4) + the full hEχ arc (P2-a/b/c/d)
+  + the N3 audits (358 + 48 records, 0 sorryAx) — every engineering slot of
+  the charter discharged; the FOREVER binder ledger unchanged (DZDF
+  statement-binder G1-permanent; hUnb/hfinζ/hntopζ classical; fL-side
+  structural).**
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 
@@ -518,10 +541,10 @@ lines all exactly the triad, 0 sorryAx, incl. the donor d4 re-print;
 logs/axcheck-n3v2-run1.log) — N3 CLOSED audit-complete. New files this session:
 N2-P3e.lean + run_n2p3e.{sh,py} + axcheck_n75.{sh,py}; modified:
 N2-P2c.lean (2cca447d), N2-P3V2.lean (run-4 sha), this record, the
-dossier. The one remaining engineering rung if SLOT-1 wants the hEχ
-premise FULLY discharged: the imprimitive composition (per-member
-`thmE_dyadic_to_cumulative` for primitives + `eulerStripImmunity_
-changeLevel` transport for imprimitives — both GREEN inputs now).]**
+dossier. The optional imprimitive hEχ rung ALSO closed GREEN at unit 11
+(n2-p2d-run2: `componentEpsCum_of_thmE` triad — SLOT-1 has NO remainder;
+per-primitive binders only: the donor endpoint + the classical
+zero-infinitude).]**
 
 **Wave-5 posture (superseded): P2-a CLOSED GREEN (run 26); P3-a BANKED GREEN (n2-p3-run2);
 P2-b HARD-STOPPED at 2-residual depth by the ruling** (runs 27–30:

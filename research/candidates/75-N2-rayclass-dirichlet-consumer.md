@@ -578,6 +578,27 @@ Bar: `qa/iter4-review/r2-discovery-strength.md` §4.
   except the named FOREVER binders is a kernel-verified theorem). The S1–S4
   "what hardens it" item (ii) is satisfied across P1 + P2-a/b/c + P3-b/c/d/e
   + the ℚ endpoint.
+- **[R6 unit-11 update, 2026-11-20]: the OPTIONAL imprimitive hEχ rung GREEN —
+  SLOT-1 has NO remainder** (`logs/n2-p2d-run2.log`: new `N2-P2d.lean` +
+  `run_n2p2d.{sh,py}`, 2 runs, 4 mechanical residuals → 0, zero new math —
+  `epsLowerCum_of_thmE` + `componentEpsCum_of_thmE` triad, 6/6). The hEχ
+  premise is dischargeable outright for ANY nontrivial Dirichlet family via
+  the pin's primitive-associate API (`DirichletCharacter.primitiveCharacter` /
+  `changeLevel_primitiveCharacter`, Basic.lean:306–315), composing P2-c's
+  `thmE_dyadic_to_cumulative` with P2-b's
+  `eulerStripImmunity_changeLevel` over the count-agreement transfer
+  (`countCum_congr`/`countOnCum_congr`/`epsLowerCum_congr`). The per-member
+  named binders reduce to exactly two, both AT THE PRIMITIVE ASSOCIATE:
+  `ThmEDyadic` (the audited zeta23 donor endpoint) and `CountsUnbounded`
+  (the classical zero-infinitude, Titchmarsh §5.8/Davenport ch. 9).
+- **[v2-candidacy note, recorded 2026-11-20 per the orchestrator's ruling;
+  evaluation at Iteration-6 open]**: the evidence base for an article-75 v2
+  upgrade = `zetaL_two_thirds_landed_of_DZDF` (the composed N2-d card,
+  n2-p3e-run1) + `zetaL_two_thirds_landed_ℚ` (the unconditional-at-ℚ
+  endpoint, n2-p3v2-run4) + the complete hEχ arc P2-a/b/c/d (runs 26/31/8/2)
+  + the N3 full-coverage audits (358 plain records + 48 V2 lines, 0 sorryAx,
+  all within the triad) — every engineering slot of the Iteration-5 charter
+  discharged; the FOREVER binder ledger unchanged and named.
 
 
 

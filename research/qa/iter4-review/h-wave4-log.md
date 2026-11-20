@@ -1387,3 +1387,11 @@ replaces, the parse-trap class.)
   (3 new 75-rows + EXTRA_REWRITES + the N2P1 override-drop — correct
   post-MM). The honest ℚ-endpoint citation correction carried (prints in
   n3v2, not the plain N3 log). R1 → standby, slots 4/5/6 armed.
+
+## 2026-11-20 — iter-5 steady state, batch RR (H): R6's optional P2-d rung — SLOT-1 no-remainder
+
+- **The imprimitive hEχ rung landed GREEN** (7 files; 5 relayed shas verified +
+  2 logs cmp'd, computed shas recorded): `epsLowerCum_of_thmE` (ANY ψ≠1) +
+  `componentEpsCum_of_thmE`, zero new math over the pin's primitive-associate
+  API. **SLOT-1 COMPLETE WITH NO REMAINDER**; the v2-candidacy note recorded
+  for the iter-6 open. Telemetry conformant (cpu ≤ 1.17; OVER-mem anon=0).
