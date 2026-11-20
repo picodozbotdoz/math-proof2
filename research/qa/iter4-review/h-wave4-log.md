@@ -1512,3 +1512,14 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
    STATUS.md CLOSED block) w/ the census computed from the rows of record (605
    print-verified = 386-equiv + 219 growth; the L3 four named residual).
 6. **The close commit** = this commit (single-commit convention; §G8 rides).
+
+## 2026-11-20 — THE WRAP: Iteration 5 frozen, Iteration 6 opened (H; the orchestrator's wrap directives)
+
+- `ORCHESTRATION-ITER5.md` FROZEN (the CLOSED-at-`6306dbe` header prepended);
+  `ORCHESTRATION-ITER6.md` OPENED (the new lane map: R1 N2P1-override-re-bind-first
+  · R2 article-75-v3 S1–S4 · R3 12-core day-1 · R4 H3 standby · R5 eta-r4 one-fire
+  · R6 v3 dossier owner · R7 H3 draft + v3 read · R8 M3 one-fire · R9 typeset);
+  `RESUME-BRIEF-ITER6.md` WRITTEN (§a the close record; §b protocol verbatim;
+  §c lane table; §d restart incl. the override-re-bind carry). Standing-notes
+  lineage continues HERE. The opening commit waits on R9's typeset + approval
+  (verbatim splice, git-apply-checked; conflict ⇒ route to R9).

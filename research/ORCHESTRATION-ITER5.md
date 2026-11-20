@@ -1,3 +1,5 @@
+> **CLOSED at `6306dbe` (2026-11-20) — Iteration 5 is FROZEN.** Live tracker = `research/ORCHESTRATION-ITER6.md`; launch brief = `research/RESUME-BRIEF-ITER6.md`. Final KPI: two discovery shipments (41 DISCOVERY + 41H NEGATIVE-kind, both quota-free); discovery share 8/16 = exactly 50% (the >=half bar PASSES at equality); quota N=1 UNSPENT (second consecutive). Close block: STATUS.md "Iteration 5 CLOSED"; gates §G8 at `qa/iter5-closeout-gates.md`.
+
 # ORCHESTRATION-ITER5 — Iteration 5 lane tracker
 
 Iteration 5 opened 2026-11-19 (opening commit `e309edd`, post-K `b2f2c18`); charter
