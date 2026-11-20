@@ -113,6 +113,22 @@ solver at ~35 ms/subset/40320-assignments) is rebuilt from the formulas recorded
 §1–S1 (scripts were ephemeral by design; every number here re-derived twice this
 session).
 
+## 6. RULING (orchestrator, 2026-11-20, on §3): BANK — no M fire, no S2-formality rung this wave
+
+The pre-solve's empty candidate list + S1/S2 bank as the raised-negative evidence per
+the precharter's descope rung 1. Reasons recorded verbatim in substance: (a) the
+S2-formality's sharp constant (≤ 14) is blocked by the corpus-NONE dim theorem — a
+weak-constant formality adds little verification grade for its runs; (b) the S2 sweep
+is machinery-validated (~1e-14 controls), NOT integer-exact, so it rides any article
+as **certificate-class computation evidence, not kernel theorem** (the 41H §N3
+convention); (c) the wave-close is imminent and a third ship's editorial chain would
+overload the close act. **The hunt's wave outcome: S-rung Theorem C GREEN (kernel) +
+this pre-solve banked (raised-negative, structural) + the open combination tier named
+(§S4).** The article decision (ship vs carry; quota rules n/a — discovery-class)
+opens at Iteration 6 with the charter's editorial slots. The custody-gap rider stands
+for the NEXT H3.lean edit whenever that comes (no dedicated run). Lane: STANDBY
+post-landing.
+
 — lane R4 (worktree agent-08), 2026-11-20. Sources: tauceti `MarkovTrace.lean`
 (:88–:112 cup/cap, :153 spinGenerator, :300 spinRep), `Spin/Positive.lean` (header),
 `Basic.lean:48–53`; the landed 41H/H2/H3 records; R9 §M-PRE @ `5f0b57cc` (cited).

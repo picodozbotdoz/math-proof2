@@ -281,6 +281,14 @@ analysis closure; cpu stayed ≤ 1.02/2.0 in every run)
   the charter discharged; the FOREVER binder ledger unchanged (DZDF
   statement-binder G1-permanent; hUnb/hfinζ/hntopζ classical; fL-side
   structural).**
+- Unit 12 (2026-11-20, R6, planning-only per the orchestrator's iter-6-prep
+  ruling): **the article-75 v2-candidacy dossier drafted —
+  `pilots/75/v2-candidacy-dossier.md`** (the one-read decision input for the
+  iteration-6 open: the row-delta map vs the landed article v2, the closed-
+  vocabulary status-row drafts with exact binder inventories, the N3 audit
+  citations, the prospective S1–S4 checklist with the S4(b) bite-risks named,
+  and the NOT-A-SHIP box; includes the file-internal v3-numbering caution).
+  No fires this unit.
 
 ## Engineering record (reusable friction ledger; supplements the M2 note)
 

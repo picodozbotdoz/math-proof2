@@ -86,3 +86,10 @@ Full record: `H3-M-candidates.md` (sha16 `ca72ad2de2cda662`). S-cap residue unch
 4 unused of 5; any M/L fire needs a fresh order. Custody-gap rider (R1): extend the
 H3.lean audit tail to the 16 unprinted helpers at the NEXT edit's fire, no dedicated
 run. — R4, 2026-11-20.
+
+**RULING FOLDED (orchestrator, 2026-11-20): BANK** — no M fire and no S2-formality
+rung this wave; the wave outcome stands as S-rung Theorem C GREEN (kernel) + the
+pre-solve banked (raised-negative, structural; certificate-class computation
+evidence per 41H §N3, not kernel theorem) + the open combination tier named; the
+article decision opens at Iteration 6. Full ruling text: `H3-M-candidates.md` §6.
+Lane STANDBY post-landing. — R4, 2026-11-20.

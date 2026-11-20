@@ -1404,3 +1404,14 @@ replaces, the parse-trap class.)
   BANKED per the orchestrator ruling (the wave outcome: S-rung GREEN + the
   raised negative; article decision at the iter-6 open). Zero fires (the
   S-cap residue 4-of-5 stays explicit; any M re-price needs a fresh order).
+
+## 2026-11-20 — iter-5 steady state, batches TT + UU (H): the H3 BANK ruling-fold + R6's v2-candidacy dossier
+
+- **TT:** the H3 pre-solve ruling-fold delta landed (`7647a1f9`/`7fd9ace6`
+  supersedes the batch-SS pair): the BANK ruling verbatim-in-substance (no
+  M/S2-formality fire this wave; certificate-class-computation designation;
+  the custody-gap rider for the next H3.lean edit).
+- **UU:** R6's article-75 v2-candidacy dossier landed (`12219e48` + the
+  unit-12 ledger pointer `0515fd50`): the one-read iter-6 decision doc
+  (J1–J10 sha-pinned; S1–S4 prospective; NOT-A-SHIP standing box; the
+  v3-naming caution). R6 → drained/standby.
