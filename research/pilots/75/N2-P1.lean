@@ -641,7 +641,7 @@ theorem factorization_identity_extension {fK fL : ℂ → ℂ} {n : ℕ} {q : Fi
     ∀ s : ℂ, s ≠ 1 →
       fL s = (∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) * fK s := by
   have hg : Differentiable ℂ
-      (fun s => ∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) :=
+      (fun s : ℂ => ∏ i, @DirichletCharacter.LFunction (q i) (hN i) (ψ i) s) :=
     Differentiable.fun_finsetProd (u := (Finset.univ : Finset (Fin n))) fun i _ =>
       @DirichletCharacter.differentiable_LFunction (q i) (hN i) (ψ i) (hne i)
   exact identity_theorem_extension
@@ -798,6 +798,138 @@ theorem windowFinite_LFunction {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ
     apply_eq_zero_of_analyticOrderNatAt_ne_zero hρ.1
   exact ⟨⟨le_of_lt hρ.2.1, le_of_lt hρ.2.2.1, le_of_lt hρ.2.2.2.1, hρ.2.2.2.2⟩, hzero⟩
 
+/-! ### P2-b (Euler-correction strip immunity, N2-b)
+
+The port's imprimitivity immunity: a changed-level character and its source
+have EQUAL strip zero multiplicities. The changeLevel Euler identity
+(`DirichletCharacter.LSeries_changeLevel`, EulerProduct/DirichletLSeries.lean:
+173) is transported from the half-plane (where `LFunction = LSeries`,
+`ZMod.LFunction_eq_LSeries`) to ℂ∖{1} by the M3-c identity-theorem pattern;
+each correction factor `1 − χ p p⁻ˢ` is entire
+(`Differentiable.const_cpow`, Pow/Deriv.lean:159) and nonvanishing on the
+open strip (‖χ p‖ ≤ 1 by `DirichletCharacter.norm_le_one`, Bounds.lean:44;
+‖p⁻ᢝ‖ = p^(−ℜρ) < 1 by `norm_cpow_eq_rpow_re_of_pos` +
+`Real.rpow_lt_one_of_one_lt_of_neg`); `multOf_congr` + `multOf_mul` + the
+order-zero criterion (`AnalyticAt.analyticOrderAt_eq_zero`, Order.lean:148)
+transfer the multiplicity. -/
+
+/-- **P2-b helper**: a nontrivial character's L-function is not eventually
+zero at any point (else the identity theorem forces it ≡ 0, contradicting
+nonvanishing at 2 on the half-plane). -/
+theorem lFunction_not_eventually_zero {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N}
+    (hχ : χ ≠ 1) (ρ : ℂ) : ¬ ∀ᶠ z in 𝓝 ρ, χ.LFunction z = 0 := by
+  intro h0
+  have h2 : χ.LFunction (2 : ℂ) ≠ 0 := by
+    show ZMod.LFunction (χ : ZMod N → ℂ) 2 ≠ 0
+    rw [ZMod.LFunction_eq_LSeries (χ : ZMod N → ℂ) (by norm_num : 1 < (2 : ℂ).re)]
+    exact DirichletCharacter.LSeries_ne_zero_of_one_lt_re χ (by norm_num)
+  have hA : AnalyticOnNhd ℂ χ.LFunction (univ : Set ℂ) :=
+    ((DirichletCharacter.differentiable_LFunction hχ).differentiableOn).analyticOnNhd
+      isOpen_univ
+  exact h2 (AnalyticOnNhd.eqOn_zero_of_preconnected_of_eventuallyEq_zero hA
+    isPreconnected_univ (mem_univ ρ) h0 (mem_univ (2 : ℂ)))
+
+/-- **P2-b**: strip immunity in the canonical changeLevel form — the
+imprimitive (changed-level) character and its source have equal `multOf`
+on the open strip 0 < ℜρ < 1 (`HasEulerStripImmunity` at the canonical
+witness pair ψ := DirichletCharacter.changeLevel hMN χ, χ' := χ). -/
+theorem eulerStripImmunity_changeLevel {M N : ℕ} [NeZero M] [NeZero N]
+    (hMN : M ∣ N) (χ : DirichletCharacter ℂ M) (hχ : χ ≠ 1) :
+    HasEulerStripImmunity (DirichletCharacter.changeLevel hMN χ) χ := by
+  have hψne : DirichletCharacter.changeLevel hMN χ ≠ 1 := fun h =>
+    hχ (DirichletCharacter.changeLevel_injective hMN (h.trans (DirichletCharacter.changeLevel_one hMN).symm))
+  have hplt : ∀ p ∈ N.primeFactors, (1 : ℝ) < (p : ℝ) := fun p hp => by
+    exact_mod_cast (Nat.prime_of_mem_primeFactors hp).one_lt
+  -- the correction factors are entire
+  have hfac : ∀ p ∈ N.primeFactors, Differentiable ℂ
+      (fun s : ℂ => 1 - χ p * (p : ℂ) ^ (-s)) := fun p hp =>
+    (differentiable_const (1 : ℂ)).sub
+      ((differentiable_const (χ p)).mul
+        ((differentiable_id.neg).const_cpow
+          (.inl (by exact_mod_cast (Nat.Prime.ne_zero
+            (Nat.prime_of_mem_primeFactors hp)) : (p : ℂ) ≠ 0))))
+  have hprod : Differentiable ℂ
+      (fun s : ℂ => ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) :=
+    Differentiable.fun_finsetProd fun p hp => hfac p hp
+  have hRHS : Differentiable ℂ
+      (fun s : ℂ => χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) :=
+    (DirichletCharacter.differentiable_LFunction hχ).mul hprod
+  -- the Euler identity, half-plane form then extended to ℂ ∖ {1}
+  have hhp : ∀ s : ℂ, 1 < s.re →
+      (DirichletCharacter.changeLevel hMN χ).LFunction s
+        = χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s)) := by
+    intro s hs
+    have h1 := DirichletCharacter.LSeries_changeLevel hMN χ hs
+    have e1 : (DirichletCharacter.changeLevel hMN χ).LFunction s
+        = LSeries (fun n : ℕ ↦ ((DirichletCharacter.changeLevel hMN χ) n : ℂ)) s :=
+      ZMod.LFunction_eq_LSeries _ hs
+    have e2 : χ.LFunction s = LSeries (fun n : ℕ ↦ (χ n : ℂ)) s :=
+      ZMod.LFunction_eq_LSeries _ hs
+    rw [e1, e2]
+    exact h1
+  have hident : ∀ s : ℂ, s ≠ 1 →
+      (DirichletCharacter.changeLevel hMN χ).LFunction s
+        = χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s)) :=
+    identity_theorem_extension
+      (DirichletCharacter.differentiable_LFunction hψne).differentiableOn
+      hRHS.differentiableOn hhp
+  -- the correction factors are nonzero on the open strip
+  have hzerofree : ∀ p ∈ N.primeFactors, ∀ ρ : ℂ, 0 < ρ.re →
+      1 - χ p * (p : ℂ) ^ (-ρ) ≠ 0 := by
+    intro p hp ρ hρ1 h0
+    have h1 : χ p * (p : ℂ) ^ (-ρ) = 1 := (sub_eq_zero.mp h0).symm
+    have h2 : ‖χ p * ((p : ℝ) : ℂ) ^ (-ρ)‖ = 1 := by
+      rw [show ((p : ℝ) : ℂ) = ((p : ℕ) : ℂ) from by push_cast <;> rfl, h1, norm_one]
+    have hp0' : (0 : ℝ) < (p : ℝ) := by linarith [hplt p hp]
+    rw [Complex.norm_mul, Complex.norm_cpow_eq_rpow_re_of_pos hp0' (-ρ), Complex.neg_re] at h2
+    have hb : (p : ℝ) ^ (-(ρ.re)) < 1 :=
+      Real.rpow_lt_one_of_one_lt_of_neg (hplt p hp) (by linarith)
+    have hpos : 0 ≤ (p : ℝ) ^ (-(ρ.re)) := Real.rpow_nonneg (by linarith) _
+    have h4 : ‖χ p‖ * (p : ℝ) ^ (-(ρ.re)) < 1 := by
+      nlinarith [χ.norm_le_one (p : ZMod M), hb, hpos, norm_nonneg (χ p)]
+    linarith [h2, h4]
+  -- per-point transfer
+  intro ρ hρ1 hρ2
+  have hρne : ρ ≠ 1 := by
+    intro h
+    rw [h] at hρ2
+    norm_num at hρ2
+  have hE : (DirichletCharacter.changeLevel hMN χ).LFunction =ᶠ[𝓝 ρ]
+      (fun s : ℂ => χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) :=
+    Filter.eventually_of_mem (compl_singleton_mem_nhds hρne)
+      fun s hs => hident s (by simpa using hs)
+  rw [multOf_congr hE]
+  have hGρ : (∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-ρ))) ≠ 0 :=
+    Finset.prod_ne_zero_iff.mpr fun p hp => hzerofree p hp ρ hρ1
+  have hAG : AnalyticAt ℂ
+      (fun s : ℂ => ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ :=
+    hprod.differentiableOn.analyticAt (isOpen_univ.mem_nhds (mem_univ ρ))
+  have hAχ : AnalyticAt ℂ χ.LFunction ρ :=
+    (DirichletCharacter.differentiable_LFunction hχ).differentiableOn.analyticAt
+      (isOpen_univ.mem_nhds (mem_univ ρ))
+  have hAR : AnalyticAt ℂ
+      (fun s : ℂ => χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ :=
+    hRHS.differentiableOn.analyticAt (isOpen_univ.mem_nhds (mem_univ ρ))
+  have hntG : analyticOrderAt
+      (fun s : ℂ => ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ ≠ ⊤ := by
+    rw [(hAG.analyticOrderAt_eq_zero).mpr hGρ]
+    simp
+  have hntχ : analyticOrderAt χ.LFunction ρ ≠ ⊤ := fun h =>
+    lFunction_not_eventually_zero hχ ρ (analyticOrderAt_eq_top.mp h)
+  have hmul : multOf
+      (fun s : ℂ => χ.LFunction s * ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ
+      = multOf χ.LFunction ρ
+        + multOf (fun s : ℂ => ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ :=
+    multOf_mul hAχ hAG hntχ hntG
+  have hG0 : multOf
+      (fun s : ℂ => ∏ p ∈ N.primeFactors, (1 - χ p * (p : ℂ) ^ (-s))) ρ = 0 := by
+    have h0 := (hAG.analyticOrderAt_eq_zero).mpr hGρ
+    unfold multOf analyticOrderNatAt
+    rw [h0]
+    simp
+  rw [hmul, hG0]
+  simp
+
 end Dictionary
 
 -- audit (expect: [propext, Classical.choice, Quot.sound] only; 0 sorryAx)
@@ -816,5 +948,7 @@ end Dictionary
 #print axioms CrossMath.Pilot75N2.factorization_identity_extension
 #print axioms CrossMath.Pilot75N2.dirichletFactorizationTransfer
 #print axioms CrossMath.Pilot75N2.windowFinite_LFunction
+#print axioms CrossMath.Pilot75N2.lFunction_not_eventually_zero
+#print axioms CrossMath.Pilot75N2.eulerStripImmunity_changeLevel
 
 end CrossMath.Pilot75N2
