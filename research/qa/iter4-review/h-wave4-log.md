@@ -1125,7 +1125,7 @@ classifier 52+0 stands).
 
 - **R9's quota-disposition DRAFT landed** (`r9-quota-disposition-draft.md`
   `ddec4089…`): the DECISION-1 close-time ruling input — UNSPENT recommended,
-  third consecutive unspent cycle, all claims byte-cited; feeds skeleton item 7
+  **second** consecutive unspent cycle (F5-corrected 2026-11-20: the audited draft `6f90b2a2`, batch-LL, supersedes the landed `ddec4089`'s 'third' — minting provenance in the family audit), all claims byte-cited; feeds skeleton item 7
   + the dry-run G6 record.
 - **`r9-iter6-charter-draft.md` HELD, NOT LANDED** (orchestrator split-relay):
   it repeats the stale "every parked fix mechanical" L3 premise contradicted by
@@ -1342,3 +1342,14 @@ untracked files are landed on main); retry at drain or fold into the close act.
   **the authorized m4b2/G2 lake-build subprocess class**, dispositioned
   in-log in all three; OVER-mem samples all anon=0 (the mapped-olean class).
   No escalation needed — the in-log dispositions satisfy guideline 3.
+
+## 2026-11-20 — iter-5 steady state, batch NN (H): the F5 splice-package delta + the four residual main-hits
+
+- **R2's §I5 splice package v2 landed** (`5bd50453` supersedes the batch-KK
+  `cd00b3b9`): I5.6/I5.5/§3 corrected to SECOND-consecutive + the §4
+  correction note. **The four F5 residual main-hits dispositioned in-commit**
+  (all anchor-count==1 guarded): the rehearsal :26/:51 two-line delta (per
+  R2's authorization, F5-marked); the batch-X log line + the batch-X INDEX
+  quota row (both now read **second** w/ the F5 provenance: audited
+  `6f90b2a2` supersedes the landed `ddec4089`'s 'third'). Verified current on
+  main: quota `6f90b2a2` + charter v5 `d16ad6e5` (both batch-LL).

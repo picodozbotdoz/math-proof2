@@ -12,7 +12,8 @@ byte-derived drift table: N2-P2c → `2cca447d`, eta-r2 → `ed412a03`, eta-r3 �
 its CONFIRMED-state sha per R1's fold-template procedure (byte-verify → multiline
 parse → git dates → anchor guards → fold-once). KPI cells are FINAL-FORM
 (byte-verified against README.md + articles/ at the dry-run; quota framing per
-`r9-quota-disposition-draft.md` `ddec4089`). Nothing executed herein; no edits to
+`r9-quota-disposition-draft.md` `ddec4089` **as corrected by R9's family-audit F5**
+— see §4). Nothing executed herein; no edits to
 REPORT.md or REPORT-INPUTS were made by this package.
 
 ## 1 The splice — ONE append block (the §I5 section, complete)
@@ -97,7 +98,9 @@ completion-grant pattern exercised (L3: 8+3+2+3 across four grants); **the L3
 print-level correction + re-charter** (site-closure is not certification — clean =
 own triad print + regression leg; the parse-trap lesson: token-validated joins
 only; L3 PARKED for Iteration-6); **quota-disposition** (`ddec4089`: UNSPENT;
-third-consecutive-unspent recommended); the liu-bnew OWED/MOOTED determination;
+**second**-consecutive-unspent per the F5 counting correction — the two-strike
+FINAL rule was MINTED at Iteration 4, so the draft's "third" miscounted the
+minting); the liu-bnew OWED/MOOTED determination;
 DECISION-6's 12-P0 idle-lane conversion exercised.
 
 ### I5.6 KPI (two-strike ratio — final)
@@ -106,9 +109,13 @@ DECISION-6's 12-P0 idle-lane conversion exercised.
 rows — 01, 30, 32, 41, 41H, 42, 75, 78 — over the 16 article files; the ≥half bar
 passes at equality; mid-wave stock 7/15 ≈ 47% → splice-2 moved both cells by one).
 **Flow: 2/2 = 100% discovery-grade** (41 DISCOVERY + 41H NEGATIVE-kind). **Quota
-cap-N = 1 UNSPENT — the third consecutive unspent cycle** (DECISION-1
+cap-N = 1 UNSPENT — the SECOND consecutive unspent cycle** (DECISION-1
 spend-only-if-executed; the FB-2 vs FB-4 contest never chartered/executed; per the
-disposition draft `ddec4089`, orchestrator-confirmed at close).
+disposition draft `ddec4089` as corrected by R9's family-audit F5 — minting
+provenance: the two-strike FINAL rule was minted at Iteration 4, iter-4's UNSPENT
+close was the FIRST cycle under it, this close is the SECOND consecutive; an
+Iteration-6 unspent would be the third; the draft's "third" miscounted and is
+corrected here; orchestrator-confirmed at close).
 
 ### I5.7 Verification and close (cross-references)
 
@@ -143,7 +150,7 @@ REPORT-INPUTS §4 (on main @ `09c3bcab`) is the MID-WAVE delta (state at `22d688
 2. §4's I5.2 "P2-c run-17 fire-once in flight" — superseded (final-parked
    `531a9eb7`, audit-pending = item 13).
 3. §4's I5.3 one-shipment ledger + "Quota UNSPENT (DECISION-1 frame)" — superseded
-   (two shipments; third-consecutive framing per `ddec4089`).
+   (two shipments; second-consecutive framing per `ddec4089` as F5-corrected).
 4. §4 lacks entirely: the 41H shipment, H3 S-rung GREEN, 12-P0 GREEN, the liu-bnew
    disposition, the L3 print-level re-base, the restart/orchestrator-direct session
    note, the KPI final cells, the I5.7 cross-references.
@@ -156,6 +163,34 @@ package (or re-point §4 at this file with a dated note) — the package is the 
 source of record; REPORT-INPUTS stays the funnel trail. No edit made herein
 (surgical-edits discipline: R2 flags, H applies).
 
-— pre-staged lane R2 (close-support lineage), 2026-11-20, main read @ `868e37d`,
-worktree agent-03. PREP ONLY; parameterized slots fill at the close act. H pulls at
-convenience; no commit (lanes never commit).
+## 4 CORRECTION NOTE (2026-11-20 — R9's family-audit F5, relayed by the orchestrator; supersedes the quota-count phrasing of the landed v1 `cd00b3b9`)
+
+**The error:** v1's I5.6 read "quota UNSPENT — the third consecutive unspent
+cycle", following the disposition draft's recommendation row. **The correction:**
+the two-strike FINAL rule was MINTED at Iteration 4 — iter-4's UNSPENT close was
+the FIRST cycle under it, so this close is the **SECOND consecutive** unspent
+cycle; an Iteration-6 unspent would be the third. Fixed in this version at: I5.5
+(the quota-disposition ruling row), I5.6 (the KPI cell, minting provenance
+in-cell), §3 drift-point 3. Full-package sweep: no other occurrence remains
+(0 hits for "third consecutive"/"third-consecutive" outside the correction prose).
+
+**Main-side hits for H's close-time correction** (grep read-only @ HEAD `91108de`;
+NOT edited by R2):
+
+| file | hit | owner of the fix |
+|---|---|---|
+| `qa/iter4-review/r9-quota-disposition-draft.md` (`ddec4089`) | the source recommendation row "third consecutive unspent cycle" | R9's funnel (F5's own correction in flight) |
+| `INDEX.md` :389 | the draft's INDEX row repeats "third consecutive" | H (one-line delta at the close commit, or rides R9's v2) |
+| `qa/iter4-review/h-wave4-log.md` :1128 | H's log line quoting the draft | H (dated correction line, the established pattern) |
+| `qa/iter4-review/rehearsal/iter5-close-rehearsal.md` :26/:51 | MY rehearsal quotes the draft's recommendation verbatim (2 rows) | H (two-line delta when landing this package; the recommendation-quote is accurate-as-quote but should carry the F5 marker at close) |
+| `qa/iter4-review/r9-iter6-charter-draft.md` :41 | the charter draft's KPI line | R9's funnel |
+
+**Verified CLEAN (no hit):** the gates file G6 cells (`df2e93c2`), REPORT-INPUTS
+§3 (`09c3bcab`), the skeleton fill-note 8 — the three stock-cell instruments do
+NOT carry the phrasing; only draft-derived texts do. The dry-run (`14ee0643`) and
+the landing audit (`248d880c`) are also clean.
+
+— pre-staged lane R2 (close-support lineage), 2026-11-20, main read @ `868e37d` +
+`fc7a057`/`91108de` for the correction sweep, worktree agent-03. PREP ONLY;
+parameterized slots fill at the close act. H lands this corrected version as the
+delta before the close act pastes; no commit (lanes never commit).
