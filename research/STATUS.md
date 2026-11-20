@@ -967,3 +967,30 @@ FB-2 vs FB-4 contest (never chartered); 74-T3 OPEN-GATED; debts f/h/l; stale
 wrappers; the iter-6 bench = census v2 (3 Tier-1 / 2 Tier-2 / 2 Tier-3) + the
 charter TYPESET-DRAFT v6 + the 12-core day-1 STAGED-UNFIRED set; the six
 carry-branch worktrees at e3d984b (the 2026-11-20 forward manifest, h-wave4-log).**
+
+## Iteration 6 (opened 2026-11-20) — same raised bar, census-consolidated seeds, day-1 completion grants + the editorial queue
+
+Chartered from R9's consolidation (`qa/iter4-review/r9-iter6-charter-draft.md` v6
+`f0565371`; typeset `qa/iter4-review/a9-iter6-charter-typeset.md`; the RESEARCH.md
+§Iteration 6 splice = the opening commit). Same raised discovery bar (R2 S1–S4 +
+the iter-4 template; two-strike cap N=1 per cycle; ≥ half discovery-grade); seed
+inventory PRE-CONSOLIDATED (census `e8efb887` + battery `5f0b57cc` + the family
+audit; no new scan at open).
+
+**Rulings at open (2026-11-20):** D1 quota UNSPENT-default, FB-2 vs FB-4 vs unspent,
+discovery never displaced; D2 the H3 article enters the editorial queue as a
+NEGATIVE-kind discovery candidate (R7 drafts from `833dcff8` + `7647a1f9` + battery
+§M-PRE; R2 S1–S4 gates; NOT day-1); D3 article-75 v3 evaluation day-1 (vs dossier
+`12219e48`; revise-in-place, no ship added, v3-naming caution binding); D4 12-core
+S-tranche GO (`CORE.lean` `5a9b19b4` fires day-1); D5 the M3 one-fire (fixed shas
+`33c75942`/`a8feb25b`/`221eb30b`) + eta-r4 one-fire (`06ad527f`) as day-1 completion
+grants; D6 L3 PARKED per its re-charter gate; D7 honest-park conventions verbatim.
+
+**Day-1 fires (staged, sha-guarded, unfired):** 12-core S-tranche (R3); M3 one-fire
+(R8); eta-r4 one-fire (R5). Editorial/no-fire: article-75 v3 evaluation (R2+R7);
+R1's N2P1-override re-bind first; the H3 queue stands by. All fires at SPEC
+2 CPU / 4 GB + telemetry + LEAN_NUM_THREADS=2.
+
+Quality gate, quota/watchlist, template gates, and standing rules:
+`RESEARCH.md` §Iteration 6 (normative). Protocols carry over unchanged.
+

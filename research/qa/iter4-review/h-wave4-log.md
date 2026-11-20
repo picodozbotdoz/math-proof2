@@ -1523,3 +1523,13 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
   §c lane table; §d restart incl. the override-re-bind carry). Standing-notes
   lineage continues HERE. The opening commit waits on R9's typeset + approval
   (verbatim splice, git-apply-checked; conflict ⇒ route to R9).
+
+## 2026-11-20 — THE ITERATION-6 OPENING COMMIT (H; per the orchestrator's approval)
+
+- **The §Iteration 6 splice executed VERBATIM**: the typeset `7253a71d` + diff
+  `b7025ba1` hash-verified from agent-09; `git apply --check` CLEAN at the
+  approval base (RESEARCH.md `871f25db`, re-verified identical at HEAD);
+  applied (+152 lines; the one cosmetic EOF-blank-line note recorded); the
+  STATUS.md "Iteration 6" block appended from the typeset's STATUS-BLOCK
+  verbatim. INDEX rows ride. Day-1 fire records land as their reports arrive
+  (post-splice batches).

@@ -1,0 +1,160 @@
+diff --git a/research/RESEARCH.md b/research/RESEARCH.md
+index cb96bdd..ef9e513 100644
+--- a/research/RESEARCH.md
++++ b/research/RESEARCH.md
+@@ -521,3 +521,155 @@ Token/annotation census: **7 staging stamps flipped at close** (+ the splice-.di
+ census-exclusion ruling: payload-not-instrument); annotation census = 1 baseline
+ token, dispositioned CLOSED-by-cycle (the η-port session's landing); the
+ fold-once queue DRAINED (all six slots folded + item-13 GREEN at run 20).
++
++## Iteration 6 (opened 2026-11-20, orchestrator) — same raised bar, census-consolidated seeds, day-1 completion grants + the editorial queue
++
++Iteration 5 closed 2026-11-20 with TWO discoveries shipped — article-41 (the
++parallelogram-defect deformation; DISCOVERY, splice `cb87a67`) and article-41H (the
++3-strand TL no-go; NEGATIVE-kind discovery-grade quota-free, splice-2 `cc71841`) —
++the KPI at **discovery share 8/16 = exactly 50%** (the ≥half bar passes at equality),
++the knowledge-level quota N=1 UNSPENT (the **second** consecutive unspent cycle under
++the two-strike FINAL rule; the disposition record
++`qa/iter4-review/r9-quota-disposition-draft.md`), the fold-once queue DRAINED with
++item-13 GREEN at run 20, and the wave surviving an external termination mid-flight
++(the 2026-11-19 restart map executed). Iteration 6 re-charters under the SAME raised
++discovery bar (R2 S1–S4 + the iteration-4 template; two-strike cap N = 1 per cycle;
++≥ half of shipped articles discovery-grade) over the same five corpora plus the
++standing donor registrations. The seed inventory is PRE-CONSOLIDATED at open — the
++Iteration-6 seed census (`novelty/iter6-seed-census.md` `e8efb887`; three Tier-1
++discovery seeds, two Tier-2 completion seeds, two Tier-3 quota contestants) with its
++consistency audit (`qa/iter4-review/r9-iter6-family-audit.md`), the round-7 battery +
++§M-PRE (`novelty/round7-h3-battery.md` `5f0b57cc`), the FB-2 precharter
++(`candidates/fb2-pntap-precharter.md`), and R3's 12-core charter input
++(`worktrees/agent-07/research/pilots/12/core-charter-input.md` `5f8facd4`) — no new
++scan is needed at open. Discovery posture unchanged: every launch slot has a named
++NEW-statement target, a pre-certified lead, or a ruled editorial decision;
++formalization-first work competes only for the single knowledge-level quota slot and
++never displaces a discovery lead.
++
++**Orchestrator rulings at open (2026-11-20; binding this iteration;
++ruled-2026-11-20-by-orchestrator).**
++
++- **D1 (quota):** the N=1 knowledge-level slot opens UNSPENT — spend-only-if-executed;
++  the contest is FB-2 vs FB-4 vs unspent; a discovery lead is never displaced by the
++  knowledge-level slot. (The FB-2 precharter `candidates/fb2-pntap-precharter.md` is
++  charter-ready; the T2-ignition consequence block rides it, unfired.)
++- **D2 (the H3 article):** the 41H-successor article ENTERS the iteration-6 editorial
++  queue as a NEGATIVE-kind discovery-grade candidate — R7 drafts from the wave
++  evidence (the S-rung Theorem C GREEN, `pilots/41/H3.lean` `833dcff8`; the M
++  pre-solve banked as raised-negative, `pilots/41/H3-M-candidates.md` `7647a1f9`;
++  the battery + §M-PRE `novelty/round7-h3-battery.md` `5f0b57cc`); R2's S1–S4 gates
++  the draft; the splice executes on the ship gate; NOT a day-1 item.
++- **D3 (article-75 v3):** the v3 evaluation proceeds day-1 — R2's S1–S4 dry-pass +
++  R7's editorial read against R6's dossier `pilots/75/v2-candidacy-dossier.md`
++  (`12219e48`; its NOT-A-SHIP standing box and naming caution are binding: the
++  revision REVISES rows of the one landed article, adds no ship, and the §0 change
++  log carries "v3" — the charter's revise-in-place rule, second application).
++- **D4 (12-core):** the S-tranche is GO (drain-activated) — R3's staged
++  `pilots/12/CORE.lean` (`5a9b19b4`) fires day-1, scoped by R3's charter input
++  (`core-charter-input.md` `5f8facd4`: the statement set = `P0.lean` `3d924056`
++  minus its 7 stubs; the step-2 open question is the only mathematical risk; the
++  corrected DECREASING-form rider `EpsData.strict_anti` BINDS all core prose; the
++  probe-runner sorry-filter fix — backtick message forms, `run_p0.py` `a3976f96`
++  the template — binds ANY iteration-6 probe runner).
++- **D5 (day-1 completion grants):** (a) the M3 one-fire — R8, at the fixed shas
++  (`al3d/P0.lean` `33c75942`, `A1.lean` `a8feb25b`, `A2.lean` `221eb30b`), the AL
++  ladder's final rung (entropy identification + the `SlabAreaLawColumnCuts3D`
++  discharge from the binder; the `set_option linter.all false` diagnostic lifts at
++  M3 close); (b) the eta-r4 one-fire — R5, `eta-r4.lean` `06ad527f` (fix-batch-10
++  applied-unfired; residual routes (b)/(c) pre-decoded; record-billed per the
++  standing DECISION-2 = Option A, inside the amended 11–13-run band). One fire each;
++  no follow-on without a fresh grant.
++- **D6 (72-M1 L3):** stays PARKED per its own re-charter gate — fires only on the
++  re-based stop-note's terms (`l3bd-stop-note.md` `db872dc5`: the derivation-class
++  charter with a mechanical prefix, 3+ rounds with re-derivation risk, certified
++  ONLY by triad print; the standing rule "site-closure is not certification" binds
++  lane-wide).
++- **D7 (conventions):** the honest-park conventions carry verbatim (honest-partial /
++  NOT-GREEN-at-cap records with named residual classes and priced continuations are
++  first-class outcomes; every park records its next-action; declared-drop rules
++  honored).
++
++**Quality gate (carried verbatim from §Iteration 4 — normative here, operational in
++`articles/TEMPLATE-iter4.md`).** An article ships only through the template — kind
++declaration (DISCOVERY / DISCOVERY-CONDITIONAL / NEGATIVE / FORMALIZATION-FIRST),
++per-theorem status rows in the closed four-string vocabulary, a novelty table with
++≥ 2 nearest-miss rows, per-theorem verification blocks per R3 §5, no infrastructure
++narration, the full §9 checklist. A candidate is article-eligible only if it passes
++R2's S1–S4. Donor swaps, binder discharges, certified numerics and
++formalization-first layers are first-class ENGINEERING deliverables — never
++discoveries; an upgraded theorem is revised in one versioned article (the v3-naming
++caution per D3). Two-strike rule FINAL: at most **one** knowledge-level /
++formalization-first / donor-discharge article per cycle, and ≥ half of shipped
++articles discovery-grade.
++
++**Launch order (day-1; lane map = `ORCHESTRATION-ITER6.md`):**
++
++(1) **Article-75 v3 evaluation** (D3; R2 + R7; no fires) — the S1–S4 dry-pass and the
++editorial read against the dossier `12219e48`; outcome = the revise-in-place decision
++(no ship added).
++
++(2) **12-core S-tranche** (D4; R3) — the staged `CORE.lean` `5a9b19b4` fires day-1 at
++SPEC (2 CPU / 4 GB, telemetry, LEAN_NUM_THREADS=2, doz CLI, the pilot-12 runner
++line); sha-guarded fires; the S-cap residue (4 of 5 unused at the P0 close) carries.
++
++(3) **The M3 one-fire** (D5a; R8) — at the fixed shas; on GREEN the M0→M3 rebuild
++ladder is kernel-complete and the seed-1 object's article eligibility goes to R2's
++S1–S4; on NOT-GREEN the honest-park convention records the residual class (D7).
++
++(4) **The eta-r4 one-fire** (D5b; R5) — at `06ad527f`; on strict-OK the Fourier/
++identity rungs (R5/R6 of the port plan) queue with a fresh grant; else the residual
++routes (b)/(c) ledger.
++
++(5) **The H3 article editorial queue** (D2; R7 draft + R2 gates; NOT day-1) — the
++NEGATIVE-kind candidate from the banked wave evidence; splice on the ship gate.
++
++(6) **R1's N2P1-override re-bind first** (verification integrity; the fold item the
++wrap commit names) + the standing verification queue.
++
++(7) **Wave-tail (no slot by default):** the FB-2/FB-4/unspent quota contest (D1; the
++FB-2 precharter ready, T2-ignition pre-registered and unfired); 11-M3 under the
++drain rule; the BGS-TB/Lamzouri full-text pass NOT-WARRANTED (fires only on a
++consumer challenge); L3 PARKED (D6).
++
++**Quota + watchlist (as ruled, D1).** The N=1 knowledge-level slot opens UNSPENT;
++contestants FB-2 (PNT-AP explicit-L at x^{7/8+δ}, FORMALIZATION-OF-RECENT, never a
++discovery headline; the G7b 7/8 binder with G11 fallback; landing surface mathlib
++`NumberTheory/LSeries/PrimesInAP.lean`; chartering fires T2 — PNT+
++DEFER → REGISTER-AND-PORT), FB-4 (FF-PNT, M-effort, must not consume a discovery
++slot), and unspent (default; a third consecutive unspent cycle is itself a signal —
++the disposition record's own framing). Standing clocks carried: the mathlib
++PNT/Mertens and LP/Cone clocks (SILENT post-FIRED at the 2026-11-20 tick), the
++physlib WickAlgebra clock (tick-moved/content-silent), the QR-D consumers + Chang–Wang
++registry, Liu-2 v3, QuasiRiemannTracker.
++
++**Template gates + honest-park conventions (D7).** Every article ships through
++`articles/TEMPLATE-iter4.md` unchanged. P0-GREEN is an elaboration verdict, never a
++proof claim; statement-probe `sorry` only in probe-convention files with headers.
++The honest-park conventions (D7) and the site-closure-is-not-certification standing
++rule (D6's re-base, now lane-wide) bind every pilot record.
++
++**Day-1 fire table (staged, sha-guarded, unfired):**
++
++| fire | owner | payload |
++|---|---|---|
++| **12-core S-tranche** | R3 (agent-07) | `pilots/12/CORE.lean` `5a9b19b4` (scope per `core-charter-input.md` `5f8facd4`; the decreasing-form rider binding) |
++| **M3 one-fire** | R8 (agent-05) | `al3d/P0.lean` `33c75942` + `A1.lean` `a8feb25b` + `A2.lean` `221eb30b` (the fixed shas; ≤1 fire) |
++| **eta-r4 one-fire** | R5 (agent-04) | `zzv2-lam/eta-r4.lean` `06ad527f` (fix-batch-10 applied-unfired; routes (b)/(c) pre-decoded; ≤1 fire) |
++
++No-fire day-1 units: the article-75 v3 evaluation (editorial); R1's re-bind;
++the H3 queue stands by (D2). All fires at SPEC 2 CPU / 4 GB + telemetry +
++LEAN_NUM_THREADS=2 per the mandatory Modal guidelines.
++
++**Standing rules + registries carried.** Ground rules verbatim: discovery-first,
++kernel-only (no `sorry`, no `native_decide`, no external CAS), siblings read-only,
++exact citations for every claim; donor statements enter only as hypothesis binders,
++verbatim-marked probe copies, or already-built on-pin libraries; logs persisted with
++provenance headers; one writer per file; H commits only; assertion-guarded replaces
++(standing lesson #3). Modal per the AGENTS.md mandatory guidelines (2 CPU / 4 GB
++default, telemetry every run, LEAN_NUM_THREADS=2, investigate-not-upgrade, cached
++image layers for long builds, never over-reserve). The Λ-absence ban (debt-l) and
++debts f/h carry. Close-out: the adopted five-rule protocol (scoped final gates,
++gate-run persistence, INDEX reconciliation as a close gate, date discipline,
++staging-file supersession stamps).
++
