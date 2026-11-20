@@ -1060,3 +1060,24 @@ fused-iff suppression bisect rule.)
   PRE-forward — agent-03/agent-07 forwards skipped at the mtime guard (active
   lane writes within minutes of the attempt); 04/05/06/08/09 carried; full
   .carry manifest in the next entry.
+
+## 2026-11-20 — iter-5 steady state, batch U (H): R7's post-splice audit + the liu-bnew statement-port + the authorized 41H wording edits
+
+- **R7's post-splice audit landed** (`qa/iter4-review/r7-41h-postsplice-audit.md`
+  `bad61a2c…`): **16/16 PASS** — splice-2 executed the package faithfully; B2's
+  4 stale pre-gate wording phrases (:69/:134/:257/:263) dispositioned IN THIS
+  COMMIT per the orchestrator's authorization (wording-class, anchor-count==1
+  guarded, zero claim drift; ship gate stays closed; audit sha cited); B3's
+  close-instrument stock cells refresh at close.
+- **R7's liu-bnew OWED/MOOTED determination landed** (the P0-record addendum;
+  the 5-file set itself was already on main at the opening commit `e309edd` —
+  the 4 non-record siblings re-verified byte-identical, all relayed shas 6/6):
+  verdict **OWED — delivered pre-termination, run 2 GREEN (0/0, both bridges
+  triad), NO re-fire**; ENGINEERING rung, Liu-1 convention DO-NOT-CONSUME;
+  INDEX-only — README-excluded per the articles README's own scope note
+  ("statement layers live in dossiers/ledger rows"; flagged to the orchestrator
+  per the relay's ask).
+- **Telemetry check (task 3):** liu-bnew run 1's single OVER-mem sample (5331
+  MB, anon=0) = the documented Mathlib-olean mmap band, dispositioned in-log
+  per guideline-3; run 2 OVER=0, wall 42 s warm, SPEC cpu=2.0/mem=4096 +
+  LEAN_NUM_THREADS=2 conformed. Nothing to escalate.

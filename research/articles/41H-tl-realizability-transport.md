@@ -66,7 +66,7 @@ and its owner are the project's own hypothesis — no external conjecture is ref
 **Headline discipline (inherited, locked).** Sign-rule/parallelogram-defect-shaped
 claims only; NEVER "first q-deformation of a composition algebra" (Benkart–Pérez-
 Izquierdo 1998 owns the object level). The negative-class novelty row refresh (R9's
-§NEGATIVE appendix) is the pending gate named in §7.
+§NEGATIVE appendix) landed — battery FINAL v2 `17970d4b`.
 
 ## 2. Setting and notation
 
@@ -131,7 +131,7 @@ dictionary class considered: tracial dictionaries by Theorem A; arbitrary
 5-dimensional linear-functional dictionaries by Theorem B. The host, if any, lives at
 n ≥ 4 strands (TL₄, dimension 14 ≥ 8 — necessary, not sufficient), non-tracial.
 
-## 4. Novelty and nearest misses (seeded; R9's §NEGATIVE appendix refresh pending)
+## 4. Novelty and nearest misses (seeded from R9's §NEGATIVE appendix, landed `17970d4b`)
 
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
@@ -254,13 +254,14 @@ Jones's index-subfactor machinery and the Temperley–Lieb algebra literature
 (classical, the §3 table's shape).
 
 **(b) Project artifacts.** Companion article: `articles/41-parallelogram-defect-
-deformation-eight-square.md` (DRAFT-final, same ship chain). Pilot records:
+deformation-eight-square.md` (shipped at splice `cb87a67`; the iteration's
+first DISCOVERY). Pilot records:
 `pilots/41/H-record.md` (the tranche history + the bank ruling + the tranche-3 seed),
 `pilots/41/H-preflight.md`, `H1.lean`/`H2.lean` + `logs/h1-run{1,2}.log`,
 `logs/h2-run{1..11}.log`. Donor sources (read-only, verbatim-quoted under the gate):
 tauceti `KnotTheory/TemperleyLieb.lean:87/:146/:157`, `Hecke.lean:49`,
 `UqSl2/QuantumTrace.lean:41`. Novelty: `novelty/round6-41-battery.md` (FINAL +
-§LANDING; the §NEGATIVE appendix incoming). Dossier:
+§LANDING; the §NEGATIVE appendix landed `17970d4b`). Dossier:
 `candidates/41-q-deformed-eight-square-temperley-lieb.md` (the negated (H)
 hypothesis's home; its correction fold landed at batch 6).
 

@@ -84,3 +84,63 @@ logs with provenance headers).
 
 — Lane R7 (A9 lineage), 2026-11-19. Worktree agent-10; H pulls. No commits (H
 commits, after K).
+
+## Post-restart verification + the OWED/MOOTED determination (R7, 2026-11-20)
+
+The 2026-11-19 session was externally terminated after this rung's two fires; the
+iter-5 restart queue (2026-11-20) re-asked the OWED-or-MOOTED question before any
+re-fire. Determination, desk-verified against main @ `a6ad33d` (read-only):
+
+**VERDICT: OWED — and DELIVERED by the preserved pre-termination execution above.
+Not MOOTED. No re-fire needed** (the queue's "write the binder artifact + fire 1–2
+warm confirmation runs" is discharged by `P0.lean` `20ac66718a932e6c` + runs 1–2,
+whose logs survived the termination with provenance headers, verdict lines, axiom
+prints, and telemetry intact — re-firing would spend budget for zero new
+information).
+
+The moot-test (each leg desk-checked):
+
+1. **Does the landed pilot-50 R1 openai-7/8 route (G7b) cover this?** No. R1
+   discharged `hQRH`/`hQRHχ` at EXACTLY 7/8 = 0.875, definitionally from the openai
+   donor (`pilots/50/R1-prework.md` §1; README row-50: "at donor pin (openai 7/8
+   donor, G7b-audited)"). It provides no constant upgrade and lives at the donor
+   pin. The port's premises are strictly stronger (B_r = 34999/40000 = 0.874975,
+   B_new = (1507 − 2√921)/1653 ≈ 0.8749571; both < 7/8, so the Liu half-planes
+   strictly CONTAIN the 7/8 half-plane) and the artifact is on OUR pin
+   (mathlib `ff2494ea`, `import Mathlib` only).
+2. **Does anything landed cover a B_r/B_new-class binder?** No — `rg` over main's
+   `.lean` files for `34999|1507|921|B_new`: zero artifact hits; the only mentions
+   are prose (RESEARCH.md charter item, TRIAGE/REPORT constant-story rows,
+   AGENTS.md). This pilot remains the only Lean-side object carrying the constants.
+3. **Is the port still the chartered shape?** Yes — `RESEARCH.md` §Iteration-5 item
+   (4): "the never-fired named-cheap item … statement-binder port, Liu-1 convention
+   — statement-level citation ONLY, DO-NOT-CONSUME as build dep; warm, 1–2 runs,
+   <250 LoC binder artifact" (168 LoC, 2 runs, convention respected — see §hygiene
+   below). `liu1-as-donor.md` §5 anticipated exactly this artifact ("if a
+   0.874975-class binder is ever wanted: stage the four RHZeroFreeExtension entry
+   statements as binders — never import"); §6.2's flagged port cost (the OAI
+   `Character`/`LFunction`/`HeckeZeroSupremum` definitional layer) is dodged by the
+   abstract `H`/`LF`/`residue` stand-ins.
+4. **"As written" binder alignment re-verified on main @ `a6ad33d`:** bridge 1's
+   conclusion is character-for-character `pilots/50/M1.lean`'s `hQRH`
+   (`strip_confinement` binder, :41–45); bridge 2's is `pilots/50/Dirichlet.lean`'s
+   `hQRHχ` (:41–43, explicit-instance `@`-form incl. the `¬(χ = 1 ∧ s = 1)` pole
+   clause). A consumer assuming the Liu tiers therefore discharges both pilot-50
+   binders with NO weakening — the AGENTS.md constant-story claim now has its
+   formal record.
+5. **Artifact-chain re-verification post-restart (2026-11-20):** `P0.lean` =
+   `20ac66718a932e6c` (168 LoC, unchanged); `logs/p0-run1.log` `1d7ffea901a2ea4c`
+   (FAIL rc=1 2×`dependsOnNoncomputable`, fix documented; the OVER-mem
+   investigation note present per the Modal guideline-3 discipline — 5331 MB in the
+   documented Mathlib-olean band, anon = 0); `logs/p0-run2.log` `30cb5a563b7645d3`
+   — **GREEN, errors=0, sorry=0, other-warnings=0, wall 42 s, OVER=0**, both
+   bridges `[propext, Classical.choice, Quot.sound]` (triad), 8/8 `#check`s —
+   stands as the verdict of record.
+
+Landing state: the hold-for-K naming is superseded by the termination — the
+directory stays worktree-side, H pulls it in H's next main batch (splice-class
+bookkeeping: engineering rung, no article, never discovery-billed; nothing here
+upgrades Liu-1's claim-level hygiene status).
+
+— Lane R7 (A9 lineage), 2026-11-20 addendum, worktree agent-10. No commits (H
+commits).
