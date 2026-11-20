@@ -1214,3 +1214,14 @@ classifier 52+0 stands).
   relayed finding; the hardened gate kept it out of batches CC/earlier; it
   rides THIS commit with this note. (Orchestrator-direct edits on main are
   in-pattern — the sole other committer; flagged in the batch report.)
+
+## 2026-11-20 — iter-5 steady state, batch EE (H): the battery §M-PRE + the close rehearsal
+
+- **R9's §M-PRE landed** (battery supersede `5f0b57cc`, pure append): the M-GO
+  novelty precondition DISCHARGED (M1 tauceti inventory at source, SpinRealizability
+  NEW-narrow, no-injectivity asymmetry locked; M2 class row EMPTY; M3 wording lock +
+  3 disclosure riders; M4 hygiene rows).
+- **R2's close rehearsal landed** (`rehearsal/iter5-close-rehearsal.md`
+  `14f80c83`): blockers #4/#5 DISCHARGED, #6 READY-TO-FLIP, #7's G6 input landed,
+  1–3 parameterized; 8-of-13 execution-ready; close-act GO once the trio drains
+  + the L3 re-base pull (DONE at batch-CC, post-rehearsal) + R1's :83 re-bind.

@@ -261,3 +261,121 @@ addendum is the precharter-indexed delta.
 — §RE-RUN R9, 2026-11-20, against precharter `b9e911cdac5f1c90` (moved from the
 relayed `726e3d695e766da6` mid-battery — refinement delta noted, not restart).
 Same hold: no commits.
+
+---
+
+## §M-PRE — the M-tranche pre-battery: the spin-model route (R9, 2026-11-20;
+## forward critical-path so R4's M-GO is never serialization-blocked on novelty)
+
+**Basis:** the precharter FINAL @ `60278bd4b6e824bf` (426 lines; the sha chain this
+battery has tracked: `726e3d69` → `b9e911cd` → `7b76e8ce` → `60278bd4`), §4 §3b —
+the `SpinRealizability` surface (words + K-weighted functional on the 16-config
+matrix space, `tr(K·spinWord(·))`-class), §2 P5 (the spin ansatz: φ_K with K OUTSIDE
+the commutant; matrix coefficients = K = E_{s,t} instances; integer fibers δ = −2 ⇔
+spin parameter 1, δ = +2 ⇔ spin parameter −1), §5 M (the spin host LEAD, A14 literal
+fallback, actual-import = L-rung + hygiene gate). Zero Modal; corpus-grep + cite
+tier; every tauceti claim below re-read at source this session (declaration names +
+line numbers from the tree, read-only sibling).
+
+### M1. Corpus row — `SpinRealizability`-type statements vs the tauceti
+### MarkovTrace/Spin tree AT SOURCE
+
+**What IS proved there (the complete proved-content inventory, this session's read):**
+
+- `TauCeti/Algebra/TemperleyLieb/MarkovTrace.lean` (44 decls): the spin DATA —
+  `spinCup` :91 / `spinCap` :99 / `markovWeight` :106 with their simp-algebra
+  (:110–:126) and `sum_markovWeight` :129 (loop value); the GENERATOR MATRICES —
+  `spinGenerator` :153 (+ `spinGenerator_apply` :157, `mul_apply` :164,
+  `update_update_apply` :203, `mul_self` :214, `zigzag_left/right` :227/:248,
+  `mul_spinGenerator_comm` :270); **`spinRep` :300** — the algebra map
+  TL_n(δ = −(q+q⁻¹)) → M(2ⁿ), built by the universal property (`lift`), with
+  `spinRep_e` :313 (@[simp]); the WEIGHTED-TRACE FACTORS — `spinWeight` :324,
+  `spinWeight_eq_of_forall_notMem` :332, `diagonal_spinWeight_mul_spinGenerator`
+  :345, `commute_diagonal_spinWeight_spinRep` :360, `spinWeight_snoc` :378,
+  `spinGenerator_castSucc` :385, `trace_diagonal_spinWeight_mul_extendLast` :411,
+  `markov_partial_sum` :419, the trace assembly :433, **`markovTrace` :460** (apply
+  :465; `one` :470; **`mul_comm` :476 — TRACIAL**; `spinRep_strandIncl` :483;
+  `strandIncl` :494/:502; `isMarkovTrace_markovTrace` :509;
+  `IsMarkovTrace.eq_markovTrace` :518 — UNIQUENESS).
+- `TauCeti/Algebra/TemperleyLieb/Spin/Positive.lean`: `isHermitian_spinGenerator`
+  :48; `markovWeight_pos` :66 / `spinWeight_pos` :73 (negative real q);
+  `spinPositiveLinearMap` :79 (+ apply :88; `_spinRep` :94 — positivity on the
+  image; `_one` :102; `conjTranspose_mul_self_eq_zero_iff` :110 — FAITHFUL;
+  `spinRep_mul_comm` :117 — **the diagonal-K class IS the commutant class**);
+  `exists_neg_spinParameter` :125 (every δ ≥ 2 admits one).
+- `KnotTheory/Jimbo/TemperleyLieb.lean`: the spin model = the two-colour Jimbo rep
+  at q = a² (the braid-algorithm identification; R9's base-battery §1).
+
+**What is NOT there (the negative, at source):** no `SpinRealizability`-type
+statement anywhere in the tree — nothing poses a "prescribed table from
+tr(K·spinRep(·)) over word families" question; the K-class machinery PRESENT is the
+diagonal/commutant class (the `spinWeight`-weighted traces = the Markov-trace
+family, tracial on the image — Theorem-A-excluded as the (H3) functional);
+**non-commutant K's appear NOWHERE as objects** in the corpus.
+
+**Verdict M1: NEW-narrow — the `SpinRealizability`/H4-DICT-spin statement family is
+corpus-NEW on a corpus-NATIVE substrate** (spinRep + positivity + the integer
+fibers all proved at source); the M-tranche's consumed claims are exactly the
+proved inventory above; the new content is the realizability question itself. The
+no-injectivity caveat (`Spin/Positive.lean` header, tauceti's own words) cuts BOTH
+ways and the battery locks the asymmetry: **a spin-tier POSITIVE is a full TL₄
+dictionary** (φ_K ∘ spinRep IS a ℤ-linear functional on TL₄ — TARGET-D lands);
+**a spin-tier NEGATIVE closes only the spin host** (the kernel may hide
+dictionaries). Consistency: at n = 3 spin-coefficients stay inside Theorem B's
+refuted class (they factor through TL₃, dim 5) — the route opens exactly at n = 4
+(16 ≥ 8), matching the precharter's tier.
+
+### M2. External rows — the four precharter/base-battery rows EXTENDED to "does it
+### cover a spin-representation realizability statement?" + the fresh genre sweep
+
+| row | source | spin-realizability coverage | verdict |
+|---|---|---|---|
+| 2 | **Avan et al., arXiv:1306.2927** (TMP 178 (2014) 223; abstract read) | NO — rank-n reps of TL_N(q) from generalized-Hadamard PAIRS (Fourier/Butson special cases); the auxiliary representation spaces are n-dim, NOT 2ⁿ spin chains; no prescribed-table question; the Butson kinship stays a candidate-generator pointer (unconsumed) | **NOT-COVERED** |
+| 4 | **Eisermann, Pacific J. Math. 231 (2007) 305–336** (abstract read) | NO — colouring polynomials as traces of linear braid reps from finite-group colouring data; direction group→invariant; no spin chain, no TL-algebra functional class, no realizability/no-go | **NOT-COVERED** |
+| 7 | **Pourkia, arXiv:2611.10850** (Nov 2026; abstract read) | NO — non-homogeneous local B_n reps by strand-label tracking; representation-construction content; no TL/Jones algebra, no table realization (abstract level) | **NOT-COVERED** |
+| — | **Morin-Duchesne, "Dimer representations of the TL algebra"** (2015; abstract read) | NO — dim-2ⁿ⁻¹ dimer reps of TL_n (d = 8 at n = 4, at loop value 0) + structure analysis; the dimension bookkeeping is the kin (the d = 8 boundary host class); no realizability question, not at the δ = ±2 fibers | **NOT-COVERED (dimension kin only)** |
+| — | **the XXZ/TL correlation genre** (this session's targeted sweep: SciPost Phys. 16.1.003 (2024) — mean values of spin-reflection-invariant operators via Taylor coefficients; periodic-TL spectra arXiv:1003.1932; "On spin systems related to the TL algebra" (2003) — the TL R-matrix from XXZ functional relations; **Chernyak 2023** — the two-boundary TL Hamiltonian in U_q(sl₂)-invariant chains, the boundary-K formalism where tr(K·)-type functionals are standard machinery; Pinet — affine-TL representation structure) | NO — the genre computes SPECTRA and CORRELATION FUNCTIONS of TL-type spin chains; no member poses a prescribed-sign/Gram-table realizability question in any functional class | **NOT-COVERED; class row EMPTY** |
+
+**Class row (checked EMPTY at 2026-11-20): "spin-representation realizability
+statements for prescribed sign/Gram tables"** — no source in M2's rows, the
+precharter's §3 table, or this session's two sweep batches (the base battery's +
+M2's targeted XXZ sweep) states or studies whether a prescribed (Z/2)³-graded
+±1-table arises as tr(K·spinRep(w·w′)) — or as any spin-rep matrix-element family —
+over any TL_n. The M-tranche's lead route is a first-mover in the class.
+
+### M3. The negative-search honesty row (battery-side wording lock, from the
+### precharter's own caveat)
+
+If the M-tranche's bounded search misses, the reportable negative is
+**HOST-SCOPED**: "no spin-host dictionary with words of length ≤ L in the searched
+K-classes" — NEVER "no TL₄ dictionary" (the no-injectivity caveat: the spin
+negative does not exhaust TL₄; NEG-H4-bounded's own scope fence, precharter §1).
+Three disclosure riders the article/statement surface must carry: (i) the searched
+K-class enumeration (sparse/rank-one/matrix-coefficient families per the §5 M
+paper-level pre-solve — the negative is scoped to what was enumerated); (ii) the
+asymmetric inheritance (M1: positive ⇒ full TARGET-D, negative ⇒ spin-subclass
+only); (iii) the L-bound (the words enumeration's cutoff, stated with the bound).
+Register: "elementary certificates, nonelementary closure" applies with the
+extra honesty that the spin-tier closure is a PROPER subclass of the TL₄ question.
+
+### M4. Hygiene riders for the M-GO (the G-series distinction, carried)
+
+- Statement-tier citation of `spinRep` (the precharter's §3b route) is CLAIM-class
+  until an actual import fires; the actual-import L-rung requires the
+  tauceti-olean-capable image AND the donor-hygiene triad on tauceti's pin FIRST
+  (the H1 §T gate pattern; precharter §5 L). Nothing in this battery consumes
+  tauceti.
+- Decide discipline at the fibers: integer arithmetic only (cup/cap ∈ {±1} at both
+  closed fibers — the precharter's own arithmetic; the H2 substrate rules carry).
+
+**§M-PRE verdict line: the M-tranche's spin route is novelty-CLEAR for the M-GO —
+H4-DICT-spin NEW-narrow on a corpus-native substrate (M1); all four extended
+external rows NOT-COVERED + the XXZ genre row NOT-COVERED, class row EMPTY (M2);
+the negative-outcome wording is host-scoped-locked (M3); hygiene riders carried
+(M4). No collision found; the M-GO's novelty precondition is DISCHARGED by this
+section (the GO's other conditions — S GREEN + a paper-level candidate class + the
+re-price checkpoint — remain R4/the orchestrator's).**
+
+— §M-PRE R9, 2026-11-20, against precharter `60278bd4b6e824bf` (sha chain
+`726e3d69`→`b9e911cd`→`7b76e8ce`→`60278bd4`; further moves = delta-note only).
+Same hold: no commits; H re-lands the battery with this extension.
