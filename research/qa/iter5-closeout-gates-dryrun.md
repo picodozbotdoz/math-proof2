@@ -81,8 +81,9 @@ names, H executes. No fold-once verdict gates it directly; the R6/R5/R8 landings
 simply enlarge the closing tree the drift list must cover.
 
 **G4 — date discipline.** Dry-run greps @ `a6ad33d`: future-literal scan
-(2026-11-21 … 2027+) over `research/` = **0 hits** outside the two gates files'
-self-cite whitelist class; compound `YYYY-MM-DD/DD-MM` scan = **0 hits**. PASS if
+(tomorrow-and-later date literals, the §G4 pattern run with `date -d '+1 day'`)
+over `research/` = **0 hits** outside the two gates files' self-cite whitelist
+class; compound `YYYY-MM-DD/DD-MM` scan = **0 hits**. PASS if
 evaluated today; the formal run is at close-commit time by construction. Gated-by:
 nothing.
 
@@ -213,3 +214,54 @@ tree; committed WITH the close block. Inherits every blocker above.
 — dry-run by lane R2 (gates-owner), 2026-11-20, main read @ `a6ad33d`, worktree
 agent-03 (base `e3d984b`). Evaluation-only: no gate executed, nothing fired, no
 ledger/instrument writes. H pulls at convenience; no commit (lanes never commit).
+
+## ADDENDUM 2026-11-20 (post-dry-run close-prep, same session; coordinator-note items + the OWED-list discharge)
+
+### G6/G8 close-time stock-cell refresh list (coordinator note 2026-11-20; basis = R7's post-splice audit `bad61a2c`, 16/16 PASS)
+
+The close instruments still carry the PRE-splice stock cells **by design** (splice-2
+flipped the article and the README, not the instrument cells). At the close summary:
+**one assertion-guarded replace per cell** — anchors verified against main `a6ad33d`;
+the already-consistent references need NO touch (R7 §A15: README:3–6, INDEX:377,
+RESUME-BRIEF-ITER5:95–96, h-wave4-log:1020):
+
+1. `qa/iter5-closeout-gates.md` G6 basis (:119 at dry-run read): `flow 100%
+   discovery-grade; stock 7/15 ≈ 47%.**` → `flow 100% discovery-grade (2/2);
+   stock 8/16 = 50%.**` (the same close act updates the sentence's "1 shipped"
+   frame to the close-time shipped set per G6's own PASS form).
+2. `qa/REPORT-INPUTS-ITER5.md` §3 (:62–63): `100% discovery-grade on the cycle's
+   shipped set (1/1); stock 7/15 ≈ 47%.` → `100% discovery-grade on the cycle's
+   shipped set (2/2); stock 8/16 = 50%.` (this IS the "§3 refresh" G6's close form
+   already names).
+3. `qa/iter5-close-block-skeleton.md` fill-note 8 (:112 at dry-run read):
+   `(prep: flow 100%, stock 7/15 ≈ 47%)` → `(prep: flow 100%; final at close:
+   flow 2/2, stock 8/16 = 50%)`.
+
+### 41H-sha rider (note-and-follow, does not block)
+
+H applies R7's 4 wording-class micro-edits to the landed article-41H
+(:69/:134/:263/:257) — the article file sha `fcbcd812` cited in this dry-run's G5
+evidence moves ONE commit at that application; the ship anchor (splice-2 `cc71841`)
+is commit-stable and the §9 box stands. The close-time G5 drift-scan re-cites the
+post-edit sha. (The gates file and skeleton cite NO 41H file sha — verified, nothing
+to follow there.)
+
+### OWED-list discharge record (this session, worktree agent-03; no fires, no gate execution)
+
+1. **TARGETS rows ADDED** to `feasibility/probe/make_axcheck.py` (edit base = main
+   @ `a6ad33d` bytes `00236246`, synced into the worktree first — the worktree copy
+   was base-`e3d984b`-stale): `AxPilot10_MArc` (`10/M-arc.lean`, single-anchor
+   class, guard `7addcf0029ea06e7`) + `AxPilot41_H2` (`41/H2.lean`, inert-delta
+   class, guard `3bc8170121492d18`). Post-edit asserts: py_compile rc=0; 55 active
+   rows (53+2); 0 duplicate names; each new name exactly once.
+2. **Guard cells REFRESHED** in `qa/iter5-closeout-gates.md`: 74_P2 →
+   `531a9eb70f9871ba` @ batch-O final park; AL3D_A2 → `61af175a` @ batch-Q
+   M2-closed (lineage trails kept; dated 2026-11-20, main `a6ad33d`).
+3. **G7(a) stamps PRE-STAGED** at `qa/iter5-g7-stamps-prep.md` — paste-ready
+   blocks for the a6 charter family + the two splice packages; H flips at close
+   (nothing executed herein).
+4. The dry-run's BLOCKERS #5 (TARGETS rows owed) is DISCHARGED; the "63 vs 53"
+   count reconciliation and the remaining guard re-binds stay with R1's folds.
+
+— addendum by lane R2, 2026-11-20, worktree agent-03. H pulls at convenience; no
+commit (lanes never commit).

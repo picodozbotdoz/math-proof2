@@ -1092,3 +1092,16 @@ fused-iff suppression bisect rule.)
 - **R9's iter-6 seed census landed** (`novelty/iter6-seed-census.md`
   `e202244b…`): 3 Tier-1 / 2 Tier-2 / 2 Tier-3 bench, ≈15–25 runs — iter-6
   opens charter-ready; watch ticks 2026-11-20 recorded.
+
+## 2026-11-20 — iter-5 steady state, batch W (H): R2's dry-run OWED list discharged
+
+- **Landed (4 files, shas 4/4):** `make_axcheck.py` `12c05683` (full-file replace,
+  base = main bytes + EXACTLY the 2 appended rows: AxPilot10_MArc single-anchor,
+  AxPilot41_H2 inert-delta) + `iter5-closeout-gates.md` `df2e93c2` (guard-cell
+  refresh pair: 74_P2 → `531a9eb7`, AL3D_A2 → `61af175a`) + the NEW
+  `iter5-g7-stamps-prep.md` `f4307714` (paste-ready stamps, PREP-ONLY) + the
+  dry-run **v2 `14ee0643`** (supersedes the batch-T `4e5b4854`: G4 relative-date
+  fix + the G6/G8 stock-cell refresh ADDENDUM + the 41H-sha rider — the batch-U
+  wording application already executed, rider satisfied).
+- **Dry-run blockers #5 (TARGETS rows) and #6 (G7 stamps) DISCHARGED**; the
+  remaining blockers are the fold-once verdicts + the R1 folds + the close act.

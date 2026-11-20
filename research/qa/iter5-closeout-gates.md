@@ -57,8 +57,13 @@ Class map pre-staged by R1 (FINAL-SWEEP-PLAN-ITER5 §0 + the row comments):
 plain-batch FAIL BY DESIGN; verdict of record = `logs/t1t2-run11.log` or a sweep-time
 re-fire in the 77 runner); **[WARM] rows** — 77_T2, 41_Core (inert-delta class: on-disk
 `733b4a2d` = fired `921bc43c` + comment header; NO GIT_BYTES override), 74_P2
-(`49b808f3` sha-guard); **guard-tracking** — AxPilotAL3D_A2 (guard MOVES to the last
-verified committed bytes at each landing; `9706196c5f5ff593` @ batch-B); **GIT_BYTES
+(`531a9eb7` sha-guard @ the batch-O final park `cc1c566` — refreshed 2026-11-20 by
+lane R2 from main `a6ad33d`; lineage: run-11 `49b808f3` → ENTRY-12 park `4425be89`
+→ final park `531a9eb70f9871ba` = the bytes on main; the R1 P2-c-close fold re-binds
+the row guard); **guard-tracking** — AxPilotAL3D_A2 (guard MOVES to the last
+verified committed bytes at each landing; `61af175a` @ batch-Q M2-closed `a175b1d`
+— refreshed 2026-11-20 by lane R2 from main `a6ad33d`, superseding
+`9706196c5f5ff593` @ batch-B; M3's landing moves it again); **GIT_BYTES
 override-tracking** — AxPilot75_N2P1 (run-26 bytes `ce6719c8` @ `ff8b99e`; the override
 tracks last-verified-committed, drops iff HEAD == verified at sweep); **single-anchor**
 — `AxPilot10_MArc` (embeds L5 verbatim — the `AxPilot10_L5` precedent); **deferred
