@@ -1,0 +1,164 @@
+# alp2-m3-run8 — M3 FINAL GRANTED FIRE (iteration-6 budget; new rationale: run-7's root
+# DIAGNOSED-AND-ELIMINATED, not merely pre-written — the universe-0 restriction in the
+# inlined hq-have, one-word `Type*` restore per the A2 original's own signature).
+# ABSOLUTE CAP: M3's last fire this cycle — NOT-GREEN ⇒ deep re-scoping park.
+# Provenance: lane R8, worktree agent-05. Route: doz CLI (warm), app crossmath-pilot-al3d.
+# Guard: /tmp/al3d-prefire-sha-m3run8.txt — P0 = 7cd41a3046eda597 (amendment + ALL fixes:
+# hsel/hsel'/hin, the (hsel' …).symm orientation, the ▸ transport, the Type* universe
+# restore), A1 = a8feb25bcd60722f (frozen), A2 = 221eb30b6debba75 (parked).
+# EXPECTED: P0.lean OK (probe, sorry-free); A1 OK; A2.lean OK rc=0 errors=0 sorry=0 with
+# ZERO sorryAx (the three pureState-typed theorems triad); run-13's 85-line core
+# byte-identical; the M0→M3 LADDER CLOSES. Command:
+#   bash research/pilots/al3d/run_pilot.sh research/pilots/al3d/{P0,A1,A2}.lean
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-gKHHYn1grlgqRbzeruGpTz
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-al3d-a4-stage/run_pilot.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[al3d] staging ['P0.lean', 'A1.lean', 'A2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[al3d] mathlib rev ff2494ea5e43
+[al3d] oleans present: 8710
+[al3d] LEAN_PATH base: /opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean:/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean:/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean:/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean:/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean:/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean:/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean:/opt/mathlib/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== P0.lean
+[al3d] P0.lean: FAIL rc=1 errors=5
+---- error contexts ----
+P0.lean:205:19: error: failed to solve universe constraint
+  u_4 =?= max u_2 u_1
+while trying to unify
+  Type u_4 : Type (u_4 + 1)
+with
+  Type (max u_1 u_2) : Type (max (u_1 + 1) (u_2 + 1))
+P0.lean:205:42: error: failed to solve universe constraint
+  u_5 =?= max u_2 u_1
+while trying to unify
+  Type u_5 : Type (u_5 + 1)
+with
+  Type (max u_1 u_2) : Type (max (u_1 + 1) (u_2 + 1))
+P0.lean:208:2: error: No goals to be solved
+P0.lean:152:0: error: AddConstAsyncResult.commitConst: constant has level params [u_1, u_2, u_3, u_4, u_5] but expected [u_1, u_2, u_3]
+P0.lean:230:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:233:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P0.lean:301:18: error: (kernel) unknown constant 'Arealaw.posSemidef_ptrace'
+···
+  Type (max u_1 u_2) : Type (max (u_1 + 1) (u_2 + 1))
+P0.lean:205:42: error: failed to solve universe constraint
+  u_5 =?= max u_2 u_1
+while trying to unify
+  Type u_5 : Type (u_5 + 1)
+with
+  Type (max u_1 u_2) : Type (max (u_1 + 1) (u_2 + 1))
+P0.lean:208:2: error: No goals to be solved
+P0.lean:152:0: error: AddConstAsyncResult.commitConst: constant has level params [u_1, u_2, u_3, u_4, u_5] but expected [u_1, u_2, u_3]
+P0.lean:230:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:233:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P0.lean:301:18: error: (kernel) unknown constant 'Arealaw.posSemidef_ptrace'
+···
+  Type (max u_1 u_2) : Type (max (u_1 + 1) (u_2 + 1))
+P0.lean:208:2: error: No goals to be solved
+P0.lean:152:0: error: AddConstAsyncResult.commitConst: constant has level params [u_1, u_2, u_3, u_4, u_5] but expected [u_1, u_2, u_3]
+P0.lean:230:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:233:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P0.lean:301:18: error: (kernel) unknown constant 'Arealaw.posSemidef_ptrace'
+···
+P0.lean:208:2: error: No goals to be solved
+P0.lean:152:0: error: AddConstAsyncResult.commitConst: constant has level params [u_1, u_2, u_3, u_4, u_5] but expected [u_1, u_2, u_3]
+P0.lean:230:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+P0.lean:233:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P0.lean:301:18: error: (kernel) unknown constant 'Arealaw.posSemidef_ptrace'
+···
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+P0.lean:301:18: error: (kernel) unknown constant 'Arealaw.posSemidef_ptrace'
+···
+
+=== A1.lean
+[al3d] A1.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+A1.lean:33:0: error: unknown module prefix 'P0'
+
+No directory 'P0' or file 'P0.olean' in the search path entries:
+/opt/mathlib/AL3D
+/opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean
+/opt/mathlib/.lake/build/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+···
+
+=== A2.lean
+[al3d] A2.lean: FAIL rc=1 errors=1 sorry=0
+---- error contexts ----
+A2.lean:132:0: error: unknown module prefix 'A1'
+
+No directory 'A1' or file 'A1.olean' in the search path entries:
+/opt/mathlib/AL3D
+/opt/mathlib/.lake/packages/Cli/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/batteries/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/Qq/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/aesop/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/proofwidgets/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/importGraph/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/opt/mathlib/.lake/packages/plausible/.lake/build/lib/lean
+/opt/mathlib/.lake/build/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+···
+
+[al3d] SUMMARY
+[al3d]   P0.lean: FAIL rc=1 errors=5
+[al3d]   A1.lean: FAIL rc=1 errors=1 sorry=0
+[al3d]   A2.lean: FAIL rc=1 errors=1 sorry=0
+[tele] SUMMARY run: wall=27s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-gKHHYn1grlgqRbzeruGpTz
+# VERDICT (NOT-GREEN at the ABSOLUTE CAP ⇒ DEEP RE-SCOPING PARK; no further completion
+# grants regardless of diagnosis): P0 FAIL rc=1 errors=5; A1/A2 pure cascade. Wall 27 s,
+# OVER=0. The Type* fix DID eliminate run-7's root (the hq-application now unifies) and
+# exposed the FINAL layer: a universe-POLYMORPHIC local have cannot be absorbed into the
+# enclosing declaration's universe profile — the kernel rejected the commit with
+# "AddConstAsyncResult.commitConst: constant has level params [u_1,u_2,u_3,u_4,u_5] but
+# expected [u_1,u_2,u_3]" (:152), cascading "unknown constant 'Arealaw.posSemidef_ptrace'"
+# (:301) and two universe-constraint failures at the ▸-site (:205).
+# DIAGNOSIS-COMPLETE, fix-class named (proof-only-legal): pin the have's universe at the
+# enclosing declaration's own parameters — `∀ {ι κ : Type (max u_1 u_2)}` (both Reg-index
+# types live exactly there; no new level params) — OR pull hq to a top-level private
+# helper (A2's own architecture; requires H to widen the amendment grant beyond "3 sorry
+# bodies"). The fixed-universe variant is PRE-APPLIED to the parked bytes (UNFIRED,
+# grant-gated — the re-scoping decision owns the next fire). Parked post-state:
+# P0 = 7cd41a3046eda597 + the fixed-universe word; A1 a8feb25bcd60722f; A2 221eb30b6debba75.
+# (parked post-state sha256(16): P0 = c6752422b49555af — the guard sha 7cd41a3046eda597
+#  + the fixed-universe word in the hq-have; A1/A2 unchanged.)

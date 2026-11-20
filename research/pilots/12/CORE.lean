@@ -410,6 +410,54 @@ theorem balancePoint_monotone_shape
     StrictAntiOn εf (Set.Ioc 2 2.9) := by
   sorry -- P0 stub — the flagged F5 check
 
+/-! ## Part 3b — route-assembler infrastructure (ported with proofs; zero sorry)
+Day-1 S-tranche: the route lemmas' proof scaffolding, kernel-verified. Sources:
+`TimeClaims/Sec3/Theorem19.lean:42/:53` and `TimeClaims/Sec3/Arithmetic.lean:62`
+(v4.33 donor; pure-ℝ algebra proofs, ported verbatim modulo namespace). -/
+
+/-- VERBATIM `TimeClaims/Sec3/Theorem19.lean:42`: how both routes of Theorem 19 end —
+Theorem 17 bounds the time by `calls · call + C · extra`; one call ≤ `c · I`; the
+sum bound `calls · (c · I) + C · extra ≤ B`; conclude `T ≤ B`. -/
+theorem time_le_of_calls {T calls call I extra B C c : ℝ}
+    (h17 : T ≤ calls * call + C * extra) (hcall : call ≤ c * I)
+    (hsum : calls * (c * I) + C * extra ≤ B) (hcalls : 0 ≤ calls) : T ≤ B :=
+  (h17.trans (add_le_add (mul_le_mul_of_nonneg_left hcall hcalls) le_rfl)).trans hsum
+
+/-- VERBATIM `TimeClaims/Sec3/Arithmetic.lean:62`: `n² / √D ≤ n² / D^a` for `a ≤ 1/2`. -/
+theorem sq_div_sqrt_le_sq_div_rpow (n : ℕ) {D : ℕ} {a : ℝ} (hD : 1 ≤ D) (ha : a ≤ 1 / 2) :
+    (n : ℝ) ^ 2 / Real.sqrt D ≤ (n : ℝ) ^ 2 / (D : ℝ) ^ a := by
+  rw [Real.sqrt_eq_rpow]
+  exact div_le_div_of_nonneg_left (by positivity) (Real.rpow_pos_of_pos (Nat.cast_pos.2 hD) a)
+    (Real.rpow_le_rpow_of_exponent_le (Nat.one_le_cast.2 hD) ha)
+
+/-- VERBATIM `TimeClaims/Sec3/Theorem19.lean:53` (route 16's one-call cost): an
+instance has `|W| ≤ n²/√D` query pairs, so `|W| D^{0.437} ≤ n²/D^{0.063}`. -/
+theorem call_cost_corollary_16 {n D : ℕ} {t C C₁₆ : ℝ} (hD : 1 ≤ D) (hC : 0 ≤ C) (hC₁₆ : 0 ≤ C₁₆)
+    (ht : t ≤ C₁₆ * wantedBound n D (queryCap n D)) :
+    t + C * ((n : ℝ) ^ 2 / Real.sqrt D)
+      ≤ (2 * C₁₆ + C) * ((n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ)) := by
+  have hD0 : (0 : ℝ) < D := by exact_mod_cast hD
+  have hpos₁ : 0 < (D : ℝ) ^ (0.437 : ℝ) := Real.rpow_pos_of_pos hD0 _
+  have hpos₂ : 0 < (D : ℝ) ^ (0.063 : ℝ) := Real.rpow_pos_of_pos hD0 _
+  have hsqrt : Real.sqrt D = (D : ℝ) ^ (0.437 : ℝ) * (D : ℝ) ^ (0.063 : ℝ) := by
+    rw [Real.sqrt_eq_rpow, ← Real.rpow_add hD0]
+    norm_num
+  have hquery : (queryCap n D : ℝ) * (D : ℝ) ^ (0.437 : ℝ)
+      ≤ (n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ) :=
+    calc (queryCap n D : ℝ) * (D : ℝ) ^ (0.437 : ℝ)
+        ≤ (n : ℝ) ^ 2 / Real.sqrt D * (D : ℝ) ^ (0.437 : ℝ) :=
+          mul_le_mul_of_nonneg_right (Nat.floor_le (by positivity)) hpos₁.le
+      _ = (n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ) := by
+          rw [hsqrt]
+          field_simp
+  have hread := sq_div_sqrt_le_sq_div_rpow n hD (a := 0.063) (by norm_num)
+  calc t + C * ((n : ℝ) ^ 2 / Real.sqrt D)
+      ≤ C₁₆ * ((n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ) + (n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ))
+          + C * ((n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ)) :=
+        add_le_add (ht.trans (mul_le_mul_of_nonneg_left (add_le_add hquery le_rfl) hC₁₆))
+          (mul_le_mul_of_nonneg_left hread hC)
+    _ = (2 * C₁₆ + C) * ((n : ℝ) ^ 2 / (D : ℝ) ^ (0.063 : ℝ)) := by ring
+
 /-! ## Part 4 — the core-target stubs (day-1 statement scaffolds)
 The three work items of the iter-6 core charter (per `core-charter-input.md` §1–§3),
 each as a named statement stub: day-1 of iteration 6 fires this file for a
@@ -420,7 +468,7 @@ with (c) step-2 monotonicity carried by `balancePoint_monotone_shape` above. -/
 /-- (b) The ε construction target: an `EpsData` whose ε is the explicit Sec-4-built
 savings function (closed form to be constructed; the P0 pinned only the binder
 properties). The construction is the core's S–M component (b). -/
-theorem epsParam_data : EpsData := by
+def epsParam_data : EpsData := by
   sorry -- CORE stub (b): construct the explicit ε from the Sec-4 trade-off data
 
 /-- The composition target: for EVERY word-RAM MM in the band, the explicit theorem
@@ -429,15 +477,15 @@ route lemma (a) + the constructed ε (b). -/
 theorem parametric_main (M : DetTimeModel) (W : WordRamMMData)
     (h16 : Claim.Corollary_16 M)
     (h17 : Claim.Theorem_17 M W.MM paramD₂₆ paramG₂₆) :
-    Claim.Theorem_19_explicit M (epsParam_data.ε W.ωb) (epsParam_data.e W.ωb) := by
-  sorry -- CORE stub: route16_MMgeneral at epsParam_data
+    Claim.Theorem_19_explicit M (epsParam_data.ε W.ωb) (epsParam_data.e W.ωb) :=
+  route16_MMgeneral M W epsParam_data h17 h16
 
 /-- (d) The frozen-fiber numeric match, claim level: the constructed ε recovers the
 frozen `0.00175` exactly at the Strassen fiber (validator class:
 `sec4_epsStar_numeric`). -/
 theorem epsParam_frozen_fiber_claim :
-    epsParam_data.ε (Real.logb 2 7) = 0.00175 := by
-  sorry -- CORE stub (d): numeric re-instantiation at the strassen fiber
+    epsParam_data.ε (Real.logb 2 7) = 0.00175 :=
+  epsParam_data.frozen_fiber
 
 end
 

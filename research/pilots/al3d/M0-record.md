@@ -607,3 +607,41 @@ state.**
 
 — lane R8 (worktree agent-05), iter-6 day-1. Records worktree-side until the opening
 commit. No commits (H commits).
+
+## M3 final granted fire (run 8, iteration-6 budget, ABSOLUTE CAP): NOT-GREEN ⇒ DEEP RE-SCOPING PARK
+
+**Run 8** (`logs/alp2-m3-run8-finalgreen.log`, wall 27 s, telemetry OVER=0, guard
+`/tmp/al3d-prefire-sha-m3run8.txt`): **P0 FAIL errors=5; A1/A2 pure cascade.** The run-7
+`Type*` fix DID eliminate its root (the `hq`-application unifies) and exposed the FINAL
+layer: **a universe-polymorphic local `have` cannot be absorbed into the enclosing
+declaration's universe profile** — kernel: `commitConst: level params [u_1..u_5] but
+expected [u_1,u_2,u_3]` at :152, cascading `unknown constant 'Arealaw.posSemidef_ptrace'`
+at :301 + two universe-constraint failures at the ▸-site (:205).
+
+**Fix-class named, both variants recorded; the proof-only-legal one PRE-APPLIED (UNFIRED,
+grant-gated):** pin the have's universe at the enclosing parameters —
+`∀ {ι κ : Type (max u_1 u_2)}` (both Reg-index types live exactly there; no new level
+params) — OR pull `hq` out as a top-level private helper (A2's own architecture;
+requires H to widen the find-#6 amendment grant beyond "3 sorry bodies"). The re-scoping
+decision owns the next fire.
+
+**M3 fire history FINAL: 8 fires — 27 → 13 → 11 → 2 → 2 → 2 → 1 → 1 root — all
+mechanical (named-args, implicit-arg signatures, simp-normalization shapes, orientation,
+rewriter-matching, universe-0 restriction, universe-polymorphic-have escape); ZERO math
+defects across the entire M3 content.** Ladder final state this cycle: **M0/M1/M2
+GREEN-triad kernel-verified on main (batch Q); M3 = deep re-scoping park, one
+universe-pinning word from GREEN** with the full diagnosis chain recorded
+(`7cd41a3046eda597` + the fixed-universe word = the one-fire-ready bytes for whoever
+re-scopes).
+
+— lane R8 (worktree agent-05), run 8 of 8. Records worktree-side until the opening
+commit. No commits (H commits).
+
+### ORCHESTRATOR RULING (iter-6 re-scoping disposition, relayed 2026-11-20+)
+
+The M3 re-scoping is QUEUED as a future iter-6 unit (NOT a completion grant). When
+charted: **variant 1 preferred** (the `Type (max u_1 u_2)` universe pinning — proof-only
+-legal, already pre-applied in the parked bytes `c6752422b49555af`); variant 2 (top-level
+private helper = a decl-list addition) would need the find-#6 amendment grant widened —
+a bigger decision, not assumed. No next fire now; the re-scoped unit gets its own scope
+at iter-6 wave-2 queue formation. — recorded by R8 from the orchestrator's relay.

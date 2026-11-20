@@ -1,0 +1,34 @@
+# provenance: raw modal run, pilot-12 CORE day-1 run 3 (the one-line argument-order fix on run 2; staged sha 9c213eb771efe843, sha-guarded vs run-2's 90bbe79dc) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/12/stage_and_fire_core.sh 3 | **VERDICT: GREEN — PROBE-OK rc=0 errors=0 sorry=8. THE DAY-1 DESCENT BASELINE: parametric_main DISCHARGED (real reduction := route16_MMgeneral M W epsParam_data h17 h16) and epsParam_frozen_fiber_claim DISCHARGED (real projection); sorry 10->8 across the day (both discharges are kernel-checked REAL proofs — they consume the sorry'd route lemma / the EpsData field, so sorryAx still propagates transitively until the route stubs fall, as expected at this rung). The 8 remaining stubs: the 7 P0 statement stubs (:190 route15_frozen, :198 route16_frozen, :233 route15_MMgeneral, :240 route16_MMgeneral, :250 route16_symbolic, :378 flagship_shape, :400 balancePoint_monotone_shape) + :471 epsParam_data (the construction target, def-stub). Infrastructure now proved kernel-clean in-file: time_le_of_calls, sq_div_sqrt_le_sq_div_rpow, call_cost_corollary_16 (verbatim donor ports, zero sorry). NEXT BATCH (priced, the charter-input (b)/(c) components): the MM-generalized exists_total_le — the donor's general cost lemma is strassen-FROZEN in statement (Choice.lean:245, termPrime strassen n D hardcoded; the Choice field strassen_le bounds exactly that term), so the generalization must rebuild it with termPrime MM n D and the omega_b-balance (omega_b + (3/2)(1/18) <= 3 - eta/18 as the binding inequality — where epsilon(omega_b) is born); then route16_MMgeneral closes from it + call_cost_corollary_16 + time_le_of_calls** | telemetry: wall 63 s, 1 sample OVER mem = known mmapped-olean class (8144 MB; cpu 0.69 within SPEC) | app crossmath-pilot-12core, oleans 8710 @ ff2494ea, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+
+==================== CORE RUN 3 (GREEN baseline, sha 9c213eb771efe843) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-F1lnKtNSOWLxFRJN2vudBR
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.69 mem=8144MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'PROBE-OK rc=0 errors=0 sorry=8'}
+[p12core] CORE.lean: PROBE-OK rc=0 errors=0 sorry=8
+---- output tail ----
+CORE.lean:190:8: warning: declaration uses `sorry`
+CORE.lean:198:8: warning: declaration uses `sorry`
+CORE.lean:233:8: warning: declaration uses `sorry`
+CORE.lean:240:8: warning: declaration uses `sorry`
+CORE.lean:250:8: warning: declaration uses `sorry`
+CORE.lean:378:8: warning: declaration uses `sorry`
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:471:4: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: PROBE-OK rc=0 errors=0 sorry=8
+[tele] SUMMARY run: wall=63s max_cpu=0.69 max_mem=8144MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-F1lnKtNSOWLxFRJN2vudBR

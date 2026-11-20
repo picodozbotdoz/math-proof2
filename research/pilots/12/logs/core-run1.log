@@ -1,0 +1,42 @@
+# provenance: raw modal run, pilot-12 CORE day-1 run 1 (iter-6 D4 drain-activated day-1 fire; staged sha 5a9b19b4563b6612 per core-day1-staging.md; pre-fire assertions ALL PASSED: day-1 signal in hand, staged sha re-verified 5a9b19b4563b6612 + guard-line agreement, modal app list no orphan 12core, item-13 CLOSED/non-live) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/12/stage_and_fire_core.sh 1 | **VERDICT: NOT-GREEN — FAIL rc=1 errors=3 sorry=9, all three errors in Part 4 (the day-1 scaffold's own assembly), ZERO donor-port or P0-surface defects. ROOT CAUSE (authoring-class): 'theorem epsParam_data : EpsData' — a THEOREM cannot carry a non-Prop type (EpsData is a structure with data fields); errors :429/:438 (kernel: unknown constant 'epsParam_data') are its cascade into parametric_main and epsParam_frozen_fiber_claim. FIX BATCH (guarded, next fire): theorem->def for epsParam_data (noncomputable section covers it) + the two planned day-1 discharges (parametric_main := route16_MMgeneral M W epsParam_data h16 h17; epsParam_frozen_fiber_claim := epsParam_data.frozen_fiber — real proofs, sorry falls) + the ported route-16 assembler triple (time_le_of_calls, sq_div_sqrt_le_sq_div_rpow, call_cost_corollary_16 — real proofs, zero sorry)** | sorry=9 = the 7 P0 stubs + the 2 cascade-site stubs (epsParam_data's own sorry warned but its theorem failed to define) | telemetry: wall 76 s, 1 sample [t=60s cpu=0.49 mem=7447MB OVER mem] — the OVER-mem sample is the KNOWN mmapped-olean class (mem = MemTotal-MemAvailable incl. approx 5-6 GB mapped mathlib .olean pages, the AGENTS.md measured fact / G7b + 74-P2 precedent class); max_cpu 0.49 within SPEC; no action, no upgrade | app crossmath-pilot-12core (first fire: layer upload + cold-ish wall), oleans 8710 @ ff2494ea, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+
+==================== CORE RUN 1 (day-1 baseline fire, sha 5a9b19b4563b6612) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-38of73ahv6CWRCFtUDB6Nw
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.49 mem=7447MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=3 sorry=9'}
+[p12core] CORE.lean: FAIL rc=1 errors=3 sorry=9
+---- error contexts (3 errors, all shown) ----
+CORE.lean:400:8: warning: declaration uses `sorry`
+CORE.lean:420:0: error: type of theorem `CrossMath.Pilot12P0.epsParam_data` is not a proposition
+  EpsData
+CORE.lean:429:8: warning: declaration uses `sorry`
+CORE.lean:429:8: error: (kernel) unknown constant 'CrossMath.Pilot12P0.epsParam_data'
+CORE.lean:438:8: warning: declaration uses `sorry`
+CORE.lean:438:8: error: (kernel) unknown constant 'CrossMath.Pilot12P0.epsParam_data'
+···
+CORE.lean:429:8: warning: declaration uses `sorry`
+CORE.lean:429:8: error: (kernel) unknown constant 'CrossMath.Pilot12P0.epsParam_data'
+CORE.lean:438:8: warning: declaration uses `sorry`
+CORE.lean:438:8: error: (kernel) unknown constant 'CrossMath.Pilot12P0.epsParam_data'
+···
+CORE.lean:438:8: warning: declaration uses `sorry`
+CORE.lean:438:8: error: (kernel) unknown constant 'CrossMath.Pilot12P0.epsParam_data'
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=3 sorry=9
+[tele] SUMMARY run: wall=76s max_cpu=0.49 max_mem=7447MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-38of73ahv6CWRCFtUDB6Nw

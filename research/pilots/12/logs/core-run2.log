@@ -1,0 +1,36 @@
+# provenance: raw modal run, pilot-12 CORE day-1 run 2 (the run-1 fix batch: epsParam_data theorem->def per the root cause + the two day-1 discharges + the ported route-16 assembler triple; staged sha 90bbe79dcff53fce, sha-guarded vs run-1's 5a9b19b4) | date 2026-11-20 | producing lane: R3 (worktree agent-07) | command: bash research/pilots/12/stage_and_fire_core.sh 2 | **VERDICT: NOT-GREEN at exactly ONE error — descent 3->1, sorry 9->8. The fix batch WORKED: epsParam_data now defines (def, noncomputable section), the cascade pair is GONE, epsParam_frozen_fiber_claim DISCHARGED (real projection := epsParam_data.frozen_fiber), and ALL THREE verbatim-ported assembler lemmas (time_le_of_calls, sq_div_sqrt_le_sq_div_rpow, call_cost_corollary_16) compile CLEAN on v4.36 — zero donor-proof port friction. THE ONE ERROR (:481, authoring-class, mine): argument-order slip in parametric_main's discharge — route16_MMgeneral M W epsParam_data h16 h17, but the lemma's binder order is h17 h16; type-mismatch caught by the elaborator. FIX (one line, guarded): swap to h17 h16 -> run 3** | telemetry: wall 70 s, 1 sample OVER mem = the known mmapped-olean class (7342 MB incl. mapped oleans; cpu 0.51 within SPEC) | app crossmath-pilot-12core, oleans 8710 @ ff2494ea, SPEC 2cpu/4096MB, LEAN_NUM_THREADS=2
+
+==================== CORE RUN 2 (fix batch, sha 90bbe79dcff53fce) — raw ====================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-PnEAdig4Q32cjCN8XIFufN
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.51 mem=7342MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=1 sorry=8'}
+[p12core] CORE.lean: FAIL rc=1 errors=1 sorry=8
+---- error contexts (1 errors, all shown) ----
+CORE.lean:471:4: warning: declaration uses `sorry`
+CORE.lean:481:38: error: Application type mismatch: The argument
+  h16
+has type
+  Claim.Corollary_16 M
+but is expected to have type
+  Claim.Theorem_17 M W.MM paramD₂₆ paramG₂₆
+in the application
+  route16_MMgeneral M W epsParam_data h16
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=1 sorry=8
+[tele] SUMMARY run: wall=70s max_cpu=0.51 max_mem=7342MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-PnEAdig4Q32cjCN8XIFufN

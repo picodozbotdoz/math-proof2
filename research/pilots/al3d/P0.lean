@@ -189,7 +189,8 @@ theorem posSemidef_ptrace (h : S ⊆ T) {M : Matrix (Reg loc T) (Reg loc T) 𝕜
   refine Matrix.PosSemidef.of_dotProduct_mulVec_nonneg hH ?_
   intro x
   rw [hsum]
-  have hq : ∀ {ι κ : Type} [Fintype ι] [Fintype κ] (P : ι → Matrix κ κ 𝕜) (x : κ → 𝕜),
+  have hq : ∀ {ι κ : Type (max u_1 u_2)} [Fintype ι] [Fintype κ] (P : ι → Matrix κ κ 𝕜)
+      (x : κ → 𝕜),
       star x ⬝ᵥ ((∑ i, P i) *ᵥ x) = ∑ i, star x ⬝ᵥ (P i *ᵥ x) := by
     intro ι κ _ _ P x
     have h1 : (∑ i, P i) *ᵥ x = ∑ i, P i *ᵥ x := by
