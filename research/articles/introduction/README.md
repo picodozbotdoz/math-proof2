@@ -16,6 +16,26 @@ undefined scope) are what these files exist to close. The binding spec is
 The standalone marker file is superseded by this preamble and is marked for deletion by
 the orchestrator (it is tracked at HEAD; lanes do not delete it themselves).
 
+**Companion sync (standing rule; adopted 2026-11-21 — R6's §1 verbatim,
+`pilots/75/v5-companion-sync-plan.md` `03db76ef`):**
+
+> **Companion sync (standing rule).** Each companion describes its article's current
+> committed bytes. **Any revision to an article — referee set, revise-in-place,
+> integrity fix, tail update — requires its same-stem companion to be re-verified
+> against the revised bytes in the SAME landing family as the revision's apply.**
+> If the sync cannot ride that landing, the registry row is stamped
+> `stale-at-<article-sha256-16>` until the sync lands, and a stale companion is not
+> cited as current. A companion never leads its article: no companion edit anticipates
+> an un-landed article state — pre-plans for pending revisions live pilot-side
+> (e.g. `pilots/75/v5-companion-sync-plan.md`), and the registry row's "written
+> against" line is the sync witness. Sync scope = the introduction pass's
+> post-revision-consistency check (claims, status strings, novelty framing, theorem
+> names/counts/pointers); the non-normative marker already governs any conflict —
+> this rule makes the conflict not happen.
+
+(Adopted with no retroactive stamps: R6's audit at `7307e0c` found the 17 current rows
+in sync, with stem 75 drift-pending on the v5 chain itself.)
+
 Every companion is **non-normative**: each carries the marker *"Nothing here adds,
 weakens, or replaces any claim of the article: if this file and the article ever
 disagree, the article and its Lean artifacts win."* Status strings, hypothesis
