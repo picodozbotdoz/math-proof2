@@ -72,3 +72,41 @@ sampling interval — samples=0 = no sample).
 
 — lane R9 (worktree agent-09), 2026-11-21. PARKED at the cap per D7; no further
 fires without a fresh grant; records worktree-side until H lands. No commits.
+
+## ADDENDUM — the fresh continuation tranche (granted ≤5 fires; ALL 5 SPENT, parked at cap)
+
+Fires m2-run5..9 (logs alongside; same SPEC/provenance). Outcome: the r1–r3 fixes
+CONVERGED structurally — the decisive route for `deriv_symFactor` is the
+**HasDerivAt pipeline** (`hasDerivAt_exp` ∘ `HasDerivAt.comp` ∘ `HasDerivAt.mul` ∘
+`HasDerivAt.div_const`, ExpDeriv.lean:87 + Deriv/Mul.lean:254/:496), replacing the
+Differentiable/Pi-mul route entirely (recorded as the canonical idiom for this
+corpus's constant-factor derivatives). State at park: **two residuals, both
+one-line, both pre-written**:
+
+- **(:299)** the `.trans` bridge's `exact mul_comm _ _` picked the INNER product —
+  pin the pair: `exact mul_comm (Complex.exp (s / 2 * Complex.ofReal (Real.log (N : ℝ))))
+  (Complex.ofReal (Real.log (N : ℝ)) / 2)`.
+- **(:351)** `re_pos_of_factor_bound`'s closer: `exact hfb s hs hs1` missed on
+  `one_div`-vs-`inv` and `L/2`-vs-`L*(1/2)` normalization; close with
+  `simpa only [one_div, mul_one_div] using hfb s hs hs1` (or state hfb in the
+  normalized shape).
+
+Everything else in the file — M1's content, the bridge identity, `gProd_eq`,
+`completedRiemannZeta_ne_zero`, `deriv_div_symCompleted_eq` (which elaborates GREEN
+in isolation once :299's value-lemma lands) — is error-free in the run-9 coverage.
+**Continuation 2 (the Gauss-sum glue) was again NOT attempted — the step-3 slice's
+tactic tail consumed the tranche. The glue's price is updated by one hard datum:
+`χMod3`/`χMod4` DO NOT EXIST in mathlib at `ff2494ea` (zero corpus hits) — the
+character must be hand-built (`ZMod 3`ˣ →* ℂ, sign map), the conductor/primitivity
+and the `gaussSum`/rootNumber evaluation ride it; M-class stands, now with the
+construction cost explicit.**
+
+**The Λ₀-propagation flag (rides this report per the grant):** the precharter's
+`candidates/xi-k-prime-precharter.md` §2 "cheapest next lemma" framing (the
+`s(s−1)Λ₀ = s(s−1)Λ` route to discharge `hζ`) is SUPERSEDED by M2's
+`smul_la₀_add_one`: the offset is 1, the identity fails at s ∈ {0,1}, and the Λ₀-
+binder is non-elementary (ξ ≠ ½ on the half-plane). Any consumer (precharter §4's
+Stage-1 list; the census Tier-1 row's gate text; future tranche charters) should
+carry `hζ` / `hsL : s(s−1)·Λ ≠ 1` as a named open input, not an S-class discharge.
+
+Parked bytes: `M2.lean` sha256(16) **38e5a73bca8a2631** at park (post fresh-tranche).

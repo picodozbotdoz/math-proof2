@@ -295,27 +295,12 @@ theorem completedRiemannZeta_ne_zero {s : ℂ} (hs0 : s ≠ 0) (hs : 1 ≤ s.re)
 /-- The symmetrizer factor's derivative: `SF′ = (log N / 2) · SF`. -/
 theorem deriv_symFactor (N : ℕ) (s : ℂ) : deriv (symFactor N) s
     = Complex.ofReal (Real.log (N : ℝ)) / 2 * symFactor N s := by
-  have hcs : DifferentiableAt ℂ (fun _ : ℂ => Complex.ofReal (Real.log (N : ℝ))) s :=
-    (differentiable_const _) s
-  have hin : DifferentiableAt ℂ (fun t : ℂ => t / 2 * Complex.ofReal (Real.log (N : ℝ))) s :=
-    ((differentiable_id (𝕜 := ℂ) s).div_const 2).mul hcs
-  have hE : deriv ((Complex.exp : ℂ → ℂ) ∘
-      (fun t : ℂ => t / 2 * Complex.ofReal (Real.log (N : ℝ)))) s
-      = Complex.exp (s / 2 * Complex.ofReal (Real.log (N : ℝ)))
-        * deriv (fun t : ℂ => t / 2 * Complex.ofReal (Real.log (N : ℝ))) s := by
-    rw [deriv_comp (x := s)
-      (Complex.differentiable_exp (s / 2 * Complex.ofReal (Real.log (N : ℝ)))) hin,
-      Complex.deriv_exp]
-  have hin' : deriv (fun t : ℂ => t / 2 * Complex.ofReal (Real.log (N : ℝ))) s
-      = 1 / 2 * Complex.ofReal (Real.log (N : ℝ)) := by
-    rw [deriv_mul ((differentiable_id (𝕜 := ℂ) s).div_const 2) hcs]
-    simp only [deriv_const, mul_zero, add_zero, deriv_id, one_mul]
   unfold symFactor
-  rw [show (fun t : ℂ => Complex.exp (t / 2 * Complex.ofReal (Real.log (N : ℝ))))
-      = Complex.exp ∘ (fun t : ℂ => t / 2 * Complex.ofReal (Real.log (N : ℝ))) from rfl,
-    hE, hin']
-  congr 1
-  ring
+  exact (((hasDerivAt_exp
+        (s / 2 * Complex.ofReal (Real.log (N : ℝ)))).comp s
+      (((hasDerivAt_id s).div_const 2).mul (hasDerivAt_const s _)))).deriv.trans (by
+    simp only [mul_zero, add_zero]
+    exact mul_comm _ _)
 
 /-- The Λ̃ log-derivative decomposition: `Λ̃′/Λ̃ = (log N)/2 + Λ_χ′/Λ_χ` — the
 symmetrizer contributes exactly the real positive constant `½·log N`. -/
@@ -334,7 +319,6 @@ theorem deriv_div_symCompleted_eq (hχ : χ ≠ 1)
   rw [hder, deriv_symFactor]
   unfold symCompleted
   field_simp
-  ring
 
 /-- **The composed device conditional (the step-3 reduction)**: if the factor bound
 holds on the closed half-plane — `Re(1/s + 1/(s−1) + Λ₀′/Λ₀ + Λ_χ′/Λ_χ) + ½·log N > 0`

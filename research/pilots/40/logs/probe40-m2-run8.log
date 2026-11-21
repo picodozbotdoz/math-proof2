@@ -1,0 +1,78 @@
+# probe40-m2-run8 — fresh-tranche continuation fire (see M2-record.md addendum; run9 = the cap-park, two one-line residuals :299/:351).
+# Same substrate/spec/provenance (app crossmath-probe-40, mathlib ff2494ea, SPEC 2cpu/4GB,
+# LEAN_NUM_THREADS=2, doz CLI, 2026-11-21 lane R9 worktree agent-09).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-rKayLEkfdPbt7gcmt7314X
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M2.lean
+[probe40] M2.lean: PROBE-FAIL rc=1 errors=2 sorry=0
+---- error contexts ----
+M2.lean:301:82: error: unsolved goals
+N : ℕ
+s : ℂ
+⊢ cexp (s * ↑(Real.log ↑N) / 2) * (↑(Real.log ↑N) + id s * 0) = s * 2
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:350:79: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:350:79: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hs0 : s ≠ 0
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hζ : completedRiemannZeta₀ s ≠ 0
+⊢ s⁻¹.re + (-1 + s)⁻¹.re + (deriv completedRiemannZeta₀ s * (completedRiemannZeta₀ s)⁻¹).re +
+        (↑(Real.log ↑N) * (1 / 2)).re +
+      (deriv (DirichletCharacter.completedLFunction χ) s * (DirichletCharacter.completedLFunction χ s)⁻¹).re =
+    s⁻¹.re + (-1 + s)⁻¹.re + (deriv completedRiemannZeta₀ s * (completedRiemannZeta₀ s)⁻¹).re +
+        (deriv (DirichletCharacter.completedLFunction χ) s * (DirichletCharacter.completedLFunction χ s)⁻¹).re +
+···
+
+[probe40] SUMMARY
+[probe40]   M2.lean: PROBE-FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-rKayLEkfdPbt7gcmt7314X
