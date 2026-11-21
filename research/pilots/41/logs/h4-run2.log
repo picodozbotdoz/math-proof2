@@ -1,0 +1,90 @@
+# Provenance: 2026-11-21, lane R4 (worktree agent-08) — the E1 FIRE (grant: orchestrator,
+#   conditions as stated: self-contained H4.lean [H3.lean untouched, its 16-helper custody
+#   rider untriggered], E1 scope only, <=3 fires; sha-guarded runs, provenance logs, SPEC
+#   2cpu/4GB, LEAN_NUM_THREADS=2 [CAP secret], telemetry IN-LOG, doz CLI, profile semraker,
+#   warm app crossmath-probe, stage /tmp/crossmath-41-h4fire [world-readable, discarded]).
+# Substrate: mathlib4 ff2494ea, toolchain v4.36.0-rc2 (warm oleans).
+# Descent: run1 14 errors -> run2 4 errors -> run3 0 = GREEN. ALL error classes mechanical
+#   (zero math defects): run1 = the budgeted mul<->zsmul lemma-name/orientation class
+#   [mul_assoc orientation in the two private helpers; Int.mul_right_cancel0 absent at the
+#   pin -> Int.eq_of_mul_eq_mul_right] + the 4 finals missing the explicit phi u S args;
+#   run2 = mul_comm unavailable in a noncommutative Ring [CommMagma synth fail] -> fix =
+#   the canonical Ring.toIntAlgebra route [Algebra.mul_smul_comm / Algebra.smul_mul_assoc,
+#   Mathlib/Algebra/Algebra/{Defs,Basic}.lean, names+instance verified at the pin checkout]
+#   + two redundant exact zero_smul lines [rw already closed] + 2 unused-binder warnings.
+# Run bytes: run1 3291454a23faccc1 (superseded) | run2 30bf23cd9fb3f6c6 (superseded) |
+#   run3 768c6f5d6e777d25 = the fired state of record (325 -> 316 -> 302 LoC).
+# RUN 2 verdict: FAIL rc=1, 4 errors (CommMagma + 2 cascade No-goals + 2 warnings; transcript verbatim below; Modal ap-5PyuGBScSlQ5LdNgrISUYR; wall 45s, samples=0, OVER=0)
+# --- transcript (verbatim) ---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5PyuGBScSlQ5LdNgrISUYR
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-h4fire/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H4.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H4.lean
+[probe] H4.lean: FAIL rc=1; errors=4, sorry-warnings=0, other-warnings=2
+---- output head ----
+H4.lean:66:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  CommMagma H
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+H4.lean:65:33: error: unsolved goals
+H : Type
+inst✝ : Ring H
+n : ℤ
+x y : H
+⊢ x * ↑n * y = n • (x * y)
+H4.lean:101:6: error: No goals to be solved
+H4.lean:141:6: error: No goals to be solved
+StructureConstantDictionary : (Block → Block → ℤ) → Prop
+SemigroupEvaluationTable : (Block → Block → ℤ) → Prop
+diagonal8_open_questions : Prop
+H4.lean:277:5: warning: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+H4.lean:279:5: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CombinationDictionary : (Block → Block → ℤ) → Prop
+@dictionary_of_combination_data : ∀ {M : Block → Block → ℤ} {H : Type} [inst : Ring H] (v : Fin 14 → H) (φ : H →ₗ[ℤ] ℤ)
+  (f : Fin 14 → ℤ),
+  (∀ (k : Fin 14), φ (v k) = f k) →
+    ∀ (T : Fin 14 → Fin 14 → Fin 14 → ℤ),
+      (∀ (k l : Fin 14), v k * v l = lsumV idx14 fun r => T k l r • v r) →
+        ∀ (W : Block → Fin 14 → ℤ),
+          (∀ (p q : Block), φ ((lsumV idx14 fun k => W p k • v k) * lsumV idx14 fun l => W q l • v l) = M p q) →
+            ∃ w, ∀ (p q : Block), φ (w p * w q) = M p q
+sigmaInt : ℤ → Block → Block → ℤ
+GenericNoDim7 : Prop
+'Pilot41H4.sigmaRow_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaOne_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaRow_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H4.sigmaOne_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H4.table_diagLeft_nogo' depends on axioms: [propext, sorryAx]
+'Pilot41H4.table_diagRight_nogo' depends on axioms: [propext, sorryAx]
+'Pilot41H4.no_diagLeft_dim8_sigmaRow' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H4.no_diagRight_dim8_sigmaRow' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H4.no_diagLeft_dim8_sigmaOne' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H4.no_diagRight_dim8_sigmaOne' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Pilot41H4.dictionary_of_combination_data' depends on axioms: [propext]
+
+[probe] SUMMARY
+[probe]   H4.lean: FAIL (4 errors)
+[tele] SUMMARY probe: wall=45s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5PyuGBScSlQ5LdNgrISUYR

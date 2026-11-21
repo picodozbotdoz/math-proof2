@@ -1,0 +1,117 @@
+# Provenance: 2026-11-21, lane R4 (worktree agent-08) — the E1 FIRE (grant: orchestrator,
+#   conditions as stated: self-contained H4.lean [H3.lean untouched, its 16-helper custody
+#   rider untriggered], E1 scope only, <=3 fires; sha-guarded runs, provenance logs, SPEC
+#   2cpu/4GB, LEAN_NUM_THREADS=2 [CAP secret], telemetry IN-LOG, doz CLI, profile semraker,
+#   warm app crossmath-probe, stage /tmp/crossmath-41-h4fire [world-readable, discarded]).
+# Substrate: mathlib4 ff2494ea, toolchain v4.36.0-rc2 (warm oleans).
+# Descent: run1 14 errors -> run2 4 errors -> run3 0 = GREEN. ALL error classes mechanical
+#   (zero math defects): run1 = the budgeted mul<->zsmul lemma-name/orientation class
+#   [mul_assoc orientation in the two private helpers; Int.mul_right_cancel0 absent at the
+#   pin -> Int.eq_of_mul_eq_mul_right] + the 4 finals missing the explicit phi u S args;
+#   run2 = mul_comm unavailable in a noncommutative Ring [CommMagma synth fail] -> fix =
+#   the canonical Ring.toIntAlgebra route [Algebra.mul_smul_comm / Algebra.smul_mul_assoc,
+#   Mathlib/Algebra/Algebra/{Defs,Basic}.lean, names+instance verified at the pin checkout]
+#   + two redundant exact zero_smul lines [rw already closed] + 2 unused-binder warnings.
+# Run bytes: run1 3291454a23faccc1 (superseded) | run2 30bf23cd9fb3f6c6 (superseded) |
+#   run3 768c6f5d6e777d25 = the fired state of record (325 -> 316 -> 302 LoC).
+# RUN 1 verdict: FAIL rc=1, 14 errors (the fix classes above; transcript verbatim below; Modal ap-dpLrHWFom6D623IKtNtQJz; wall 54s, samples=0, OVER=0)
+# --- transcript (verbatim) ---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dpLrHWFom6D623IKtNtQJz
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-h4fire/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H4.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H4.lean
+[probe] H4.lean: FAIL rc=1; errors=14, sorry-warnings=0, other-warnings=2
+---- output head ----
+H4.lean:66:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ?b * ?c
+in the target expression
+  x * (↑n * y) = n • (x * y)
+
+H : Type
+inst✝ : Ring H
+n : ℤ
+x y : H
+⊢ x * (↑n * y) = n • (x * y)
+H4.lean:70:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * (?b * ?c)
+in the target expression
+  ↑n * x * y = n • (x * y)
+
+H : Type
+inst✝ : Ring H
+n : ℤ
+x y : H
+⊢ ↑n * x * y = n • (x * y)
+H4.lean:101:6: error: No goals to be solved
+H4.lean:103:10: error(lean.unknownIdentifier): Unknown constant `Int.mul_right_cancel₀`
+H4.lean:141:6: error: No goals to be solved
+H4.lean:143:10: error(lean.unknownIdentifier): Unknown constant `Int.mul_right_cancel₀`
+H4.lean:177:70: error: Application type mismatch: The argument
+  hdict
+has type
+  ∀ (p q : Block), φ (u p * u q) = sigmaRow p q
+of sort `Prop` but is expected to have type
+  Block → Block → ℤ
+of sort `Type` in the application
+  table_diagLeft_nogo sigmaRow_zero_free sigmaRow_nonRankOne ?m.43 ?m.45 hdict
+H4.lean:177:65: error: Application type mismatch: The argument
+  hmul
+has type
+  ∀ (p q : Block), u p * u q = S p q • u p
+of sort `Prop` but is expected to have type
+  Block → ?m.41
+of sort `Type` in the application
+  table_diagLeft_nogo sigmaRow_zero_free sigmaRow_nonRankOne ?m.43 hmul
+H4.lean:187:71: error: Application type mismatch: The argument
+  hdict
+has type
+  ∀ (p q : Block), φ (u p * u q) = sigmaRow p q
+of sort `Prop` but is expected to have type
+  Block → Block → ℤ
+of sort `Type` in the application
+  table_diagRight_nogo sigmaRow_zero_free sigmaRow_nonRankOne ?m.43 ?m.45 hdict
+H4.lean:187:66: error: Application type mismatch: The argument
+  hmul
+has type
+  ∀ (p q : Block), u p * u q = S p q • u q
+of sort `Prop` but is expected to have type
+  Block → ?m.41
+of sort `Type` in the application
+  table_diagRight_nogo sigmaRow_zero_free sigmaRow_nonRankOne ?m.43 hmul
+H4.lean:197:70: error: Application type mismatch: The argument
+  hdict
+has type
+  ∀ (p q : Block), φ (u p * u q) = sigmaOne p q
+---- (…65 more lines) tail ----
+          (∀ (p q : Block), φ ((lsumV idx14 fun k => W p k • v k) * lsumV idx14 fun l => W q l • v l) = M p q) →
+            ∃ w, ∀ (p q : Block), φ (w p * w q) = M p q
+sigmaInt : ℤ → Block → Block → ℤ
+GenericNoDim7 : Prop
+'Pilot41H4.sigmaRow_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaOne_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaRow_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H4.sigmaOne_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H4.table_diagLeft_nogo' depends on axioms: [propext, sorryAx]
+'Pilot41H4.table_diagRight_nogo' depends on axioms: [propext, sorryAx]
+'Pilot41H4.no_diagLeft_dim8_sigmaRow' depends on axioms: [propext, sorryAx]
+'Pilot41H4.no_diagRight_dim8_sigmaRow' depends on axioms: [propext, sorryAx]
+'Pilot41H4.no_diagLeft_dim8_sigmaOne' depends on axioms: [propext, sorryAx]
+'Pilot41H4.no_diagRight_dim8_sigmaOne' depends on axioms: [propext, sorryAx]
+'Pilot41H4.dictionary_of_combination_data' depends on axioms: [propext]
+
+[probe] SUMMARY
+[probe]   H4.lean: FAIL (14 errors)
+[tele] SUMMARY probe: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dpLrHWFom6D623IKtNtQJz

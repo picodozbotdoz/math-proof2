@@ -94,7 +94,7 @@ the fired hunt instantiates T at the spin host's word-algebra constants
 (certificate data; the archived pre-solve machinery recomputes them
 exact-integer; dim-14 itself stays binder-or-cite per `Basic.lean:48–53`); a
 positive ⇒ a TL₄-hosted dictionary exists (the (H) program's resurrection at
-n = 4, quota-consuming DISCOVERY, S1–S4); the sector frame (S3: rank-(4,6,4)
+n = 4, discovery-grade DISCOVERY, quota-free per the 41/41H lineage; S1–S4 still gate the draft); the sector frame (S3: rank-(4,6,4)
 aligned Gram decomposition) is the lead ansatz for the data. Nearest misses: (1)
 the archived pre-solve (`pilots/41/presolve/` + S1–S4 findings) — monomial tier
 EMPTY, combination tier explicitly unscanned; (2) Avan et al. 1306.2927 — the
@@ -182,7 +182,7 @@ never headlines).
   unit ADDS two concrete question classes inside them (the d = 8
   structure-constant tier; the semigroup evaluation tier).
 - **Two-sided, honestly weighted:** F-positive ⇒ a TL₄-hosted dictionary
-  (quota-consuming DISCOVERY — the program's resurrection at n = 4); E2-negative
+  (discovery-grade DISCOVERY, quota-free per the 41/41H lineage — the program's resurrection at n = 4); E2-negative
   ⇒ a fourth obstruction class (NEGATIVE-kind, quota-free per the 78/41H/41H3
   lineage); E1 = the floor rung (band extension, elementary register — flag it
   BELOW the standalone discovery bar, per the S2-formality ruling precedent; it
