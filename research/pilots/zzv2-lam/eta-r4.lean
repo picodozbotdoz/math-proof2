@@ -453,7 +453,7 @@ runs field_simp near the default budget (runs 12-13 finding). -/
 private theorem fourierC_dilateTo_div {lam : ℝ} (hlam : 0 < lam) {f : ℝ → ℝ}
     (hf : Continuous f) (hfs : HasCompactSupport f) (d : ℝ) (z : ℂ) :
     fourierC (fun x => f (x / (2 * lam)) / d) z
-      = (2 * lam) * (fourierC f ((2 * lam) * z) / ((d : ℝ) : ℂ)) := by
+      = ((2 * lam : ℝ) : ℂ) * (fourierC f ((2 * lam) * z) / ((d : ℝ) : ℂ)) := by
   have hint := integrable_fourierC_integrand' hf hfs ((2 * lam) * z)
   have key := integral_comp_dilateTo (lam := lam) hlam
     (G := fun y : ℝ => ((f y / d : ℝ) : ℂ)
@@ -485,9 +485,8 @@ private theorem fourierC_dilateTo_div {lam : ℝ} (hlam : 0 < lam) {f : ℝ → 
         field_simp]
     rw [integral_div]
   rw [hL, key, hR, Complex.real_smul]
-  push_cast
-  ring
 
+set_option maxHeartbeats 1000000 in
 /-- **(T2) Kernel covariance**: `testKernel κ_λ z = testKernel κ (ρ·z)` — the
 square-level transport (R1 (i) + R2's applied-form square relation). -/
 theorem testKernel_cutoffTestLam {lam : ℝ} (hlam : 0 < lam) {delta : ℝ}
@@ -582,6 +581,7 @@ theorem fourierC_iteratedDeriv_two_cutoffSelfConvLam {lam : ℝ} (hlam : 0 < lam
       = ((2 * lam : ℝ) : ℂ) * (((2 * lam : ℝ) : ℂ)
           * ((2 * lam : ℝ) : ℂ)) from by push_cast; ring]
   field_simp [hc]
+  push_cast
   ring
 
 /-- The integrand-level split of the scaled corrected test (the donor's
@@ -613,10 +613,8 @@ private theorem fourierC_correctedTestLam_split {lam : ℝ} (hlam : 0 < lam)
       funext x
       push_cast
       ring]
-  rw [integral_sub hI1 hI2.div_const _, integral_div]
-  change fourierC (cutoffSelfConvLam lam psi) z
-      - fourierC (iteratedDeriv 2 (cutoffSelfConvLam lam psi)) z
-          / (((4 * Real.log T ^ 2 : ℝ) : ℂ)) = _
+  rw [integral_sub hI1 (hI2.div_const ((4 * Real.log T ^ 2 : ℝ) : ℂ)),
+    integral_div]
 
 /-- **(R5-2) Fourier value of the scaled corrected test** — mirror-statement of
 the donor's PUBLIC `fourierC_correctedTest` (Zeta/Kernel.lean:375) at
