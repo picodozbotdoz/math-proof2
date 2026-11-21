@@ -11,18 +11,15 @@
 
 ## 1. In plain words
 
-The eight-square identity (Degen, 1818) says: multiply two numbers that are each sums of
-eight squares, and the product is again a sum of eight squares. Its classical proof runs
-on a rule of signs — really the multiplication table of the octonions in disguise. This
-article treats that sign rule as a dial with a setting q. At the classical setting q = 1
-the rule holds exactly, everywhere. At any other setting the cancellation breaks — but
-not mysteriously: the article proves the breakage is always exactly (1 − q) times an
-explicit polynomial, one per configuration, which it writes down and the Lean kernel
-verifies. It also maps exactly which of the configurations feel the deformation and how
-(the "antipodal" ones), proves that some configurations never feel it at all, and
-certifies — with machine-checked counterexamples — that three earlier draft forms of the
-statement were false. No number theory is used anywhere: the entire result is sign
-bookkeeping plus the schoolbook factorization of a geometric sum.
+The eight-square identity (Degen, 1818) says: multiply two numbers that are each sums
+of eight squares, and the product is again a sum of eight squares. Its classical proof
+runs on a rule of signs — the multiplication table of the octonions in disguise. This
+article treats that sign rule as a dial with a setting q; at the classical setting q = 1
+the rule holds exactly, on every configuration. Away from q = 1 the cancellation can
+fail, and wherever it does the failure is exactly (1 − q) times an explicit polynomial,
+one per configuration, which the article writes down and the Lean kernel verifies. Some
+configurations never fail at any q, and three earlier draft forms of the statement are
+certified false by machine-checked counterexamples; no number theory is used anywhere.
 
 ## 2. The background, in one page
 
@@ -30,26 +27,15 @@ bookkeeping plus the schoolbook factorization of a geometric sum.
 
 (a² + b²)(c² + d²) = (ac − bd)² + (ad + bc)².
 
-This is complex multiplication in disguise: with z = a + bi and w = c + di it reads
-|z|²·|w|² = |zw|². The sign pattern (one minus, one plus) is forced by how complex
-numbers multiply.
+This is complex multiplication: with z = a + bi, w = c + di it reads |z|²·|w|² = |zw|².
 
-### 2.2 Two, four, eight — and only these
+### 2.2 Two, four, eight — and why the sign rule matters
 
-The same trick exists for four squares (Euler; quaternions) and for eight squares (Degen
-1818; found again by Graves in 1843 and Cayley in 1845; the octonions). Hurwitz proved
-this is the complete list: bilinear sums-of-squares identities exist only in dimensions
-1, 2, 4, 8. The eight-dimensional case is the last and strangest, because octonions are
-non-associative — so the eight-square sign pattern has no simple "it's just complex
-multiplication" description. (All classical.)
-
-### 2.3 Why the eight-square case is interesting at all
-
-As a statement about integers it is almost free: Lagrange already proves every positive
-integer is a sum of four squares, so the product of two sums of eight squares is
-trivially one too. The real content of the eight-square identity is the *uniform*
-formula — the same eight products in the same eight slots for every input — and the sign
-rule that makes it work. That sign rule is the object this article studies.
+The same trick exists for four squares (Euler; quaternions) and eight squares (Degen
+1818; Graves 1843, Cayley 1845; the octonions), and Hurwitz proved bilinear identities
+exist only in dimensions 1, 2, 4, 8 (all classical). Over the integers the statement is
+almost free (Lagrange: every positive integer is a sum of four squares); the real content
+is the *uniform* formula and the sign rule that makes it work — the object studied here.
 
 ### 2.4 The cube picture (the article's actual subject)
 
@@ -59,10 +45,9 @@ through `111`. To each ordered pair of blocks (a, b) attach a sign
 σ(a, b) = (−1)^{φ(a,b)}, where φ(a,b) = a₁b₁ + a₁b₂ + a₁b₃ + a₂b₂ + a₂b₃ + a₃b₃
 + b₁a₂a₃ + a₁b₂a₃ + a₁a₂b₃.
 
-Don't memorize the nine terms — they are fixed and mechanical, and the article's §2
-defines them exactly this way (the article's compact notation writes the first six terms
-as one sum; its subscripts there run over the bits of the two blocks). Example:
-φ(110, 110) = 3, so σ(110, 110) = −1.
+Don't memorize the nine terms — they are fixed and mechanical (the article's §2 defines
+them the same way, with a compact notation for the first six). Example: φ(110, 110) = 3,
+so σ(110, 110) = −1.
 
 The cleanest form of the classical rule is not the identity itself but its
 **alternation**. Call four blocks p, q₁, p′, q₂ a **parallelogram** when p ⊕ q₁ =
@@ -86,8 +71,7 @@ sign and re-weights the cubic part:
 
 where q may be any unit of any commutative ring — in particular any nonzero rational,
 real, or complex number. At q = 1 we get (−q)^τ = (−1)^τ, so σ₁ = σ: the dial's
-classical setting. The article's question: away from q = 1, what exactly happens to the
-cancellation? The answer is that the failure is not qualitative but polynomial.
+classical setting. The question: away from q = 1, what happens to the cancellation? The failure is polynomial.
 
 ## 3. One quad, by hand
 
@@ -109,8 +93,7 @@ So A = (−1)(−1) = 1 and B = (−q)(1) = −q, giving
 
 **A + B = 1 − q.**
 
-Check the classical setting: at q = 1 both products reduce to the classical signs
-(+1 and −1), and the sum is 0 — the classical cancellation, on display.
+At q = 1 the sum is 0: the classical cancellation, on display.
 
 The polynomial: define the two sides' cubic totals τ₁ = τ(p,q₁) + τ(p′,q₂) = 0 and
 τ₂ = τ(p,q₂) + τ(p′,q₁) = 1; the **gap** is |τ₁ − τ₂| = 1. The identity is stated from
@@ -132,22 +115,19 @@ is −1. Two neighbors show the other regimes:
 | 000/100/100/000 | off-stratum | 0 | 0 (empty sum) | 0 for every q | 0 | 0 |
 | 101/101/011/011 | off-stratum | 2 | 1 + X | 1 − q² | 0 (deceptive!) | **−3** (fails) |
 
-The second row is the **q-rigid** regime (equal cubic totals ⇒ empty geometric sum ⇒
-cancellation for every q; 336 of the 448 quads). The third row fails only away from
-special q — a reminder that vanishing at one value of q is not rigidity.
+Row two is the **q-rigid** regime (equal cubic totals ⇒ empty sum ⇒ cancellation for every
+q; 336 of 448 quads). Row three vanishes at q = −1 yet is not rigid.
 
-*Provenance:* the values A + B = 1 − q with GqGen = 1 on the antipodal quad, the failure
-value 2 at q = −1, the q-rigid quad, and the 1 − q² example are all recorded in the
-article (§3, Theorem 4 and its nondegeneracy witness; §2 for the counts). The Q/τ table
-above was hand-recomputed from the article's §2 definitions and agrees with those
-recorded witnesses.
+*Provenance:* A + B = 1 − q, GqGen = 1, the value 2 at q = −1, the q-rigid quad and the
+1 − q² example are recorded in the article (§3 Thm 4; §2 counts). The Q/τ table was
+hand-recomputed from the article's §2 definitions and agrees with them.
 
 ## 4. How the proof works, without Lean
 
 Each crossing product collects into one old-fashioned sign times one power of −q:
 A = (−1)^{Q₁}(−q)^{τ₁} and B = (−1)^{Q₂}(−q)^{τ₂}, with Q₁, Q₂ the sides' quadratic
 totals. Factor out the smaller-power side and what remains is 1 ± (−q)^{gap}. The whole
-theorem hangs on one parity fact (the engine, proved as Theorem 2): **Q₁ + Q₂ + gap is
+theorem hangs on one parity fact (the engine, the article's parity split `ethParity`): **Q₁ + Q₂ + gap is
 odd at every parallelogram quad**, and that forces the bracket to collapse to 1 − q^{gap}
 uniformly, whatever the parities. Then the schoolbook factorization
 1 − q^{gap} = (1 − q)(1 + q + ⋯ + q^{gap−1}) produces GqGen — the geometric sum wearing
@@ -167,25 +147,25 @@ no number theory, no case analysis beyond parity.
   whenever 1 − q is cancellable (any integral domain with q ≠ 1, for instance), the
   cancellation holds at q **if and only if** GqGen vanishes there. At q = 1 the classical
   rule holds by the prefactor alone — on 112 quads the polynomial itself is nonzero
-  there. PROVED-UNCONDITIONAL. → article §3, Thm 1.
+  there. PROVED-UNCONDITIONAL. → formal statement: article §3, Thm 1.
 - **Theorem 2 (stratification, `stratumComplement`).** gap odd ⟺ q₁ ⊕ q₂ = `111` ⟺
   p′ = ¬p. The 64-quad odd-gap regime is exactly the antipodal stratum, and only there
   does the article's earlier draft display form hold exactly. PROVED-UNCONDITIONAL. →
-  article §3, Thm 2.
+  formal statement: article §3, Thm 2.
 - **Theorem 3 (the classical fiber, `signs_anchor` + `bridge_axiom`).** σ₁ = σ, and the
   classical cancellation holds on every quad at q = 1 — re-proved without importing the
-  donor's proof. PROVED-UNCONDITIONAL. → article §3, Thm 3.
+  donor's proof (recovery from Theorem 1 is over ℤ and uses the bridge axiom). PROVED-UNCONDITIONAL. → formal statement: article §3, Thm 3.
 - **Theorem 4 (nondegeneracy and rigidity).** The deformation is genuine: the
   cancellation fails at q = −1 on an antipodal quad (value 2 ≠ 0); the equal-cubic-total
   quads (336 of 448) cancel for *every* q; the remaining 48 off-stratum quads fail
-  polynomially (e.g. 1 − q²). PROVED-UNCONDITIONAL. → article §3, Thm 4.
+  polynomially (e.g. 1 − q²). PROVED-UNCONDITIONAL. → formal statement: article §3, Thm 4.
 - **Negative certificates.** The draft parity hypotheses (P1) and (P2) and the draft
   universally-quantified identity are FALSE — kernel `decide` counterexamples (the last
   reads 0 = 2 at q = −1). These were the project's own draft forms, superseded by
-  Theorem 1; no external conjecture is refuted. → article §3, negative-certificate rows.
-- **What is *not* here:** the Temperley–Lieb/Jones host bridge. The three-strand tier and
-  linear hosts of dimension ≤ 7 at the two closed fibers are ruled out by the companion
-  articles 41H and 41H3; the general bridge stays open. → article §7.
+  Theorem 1; no external conjecture is refuted. → formal statement: article §3, negative-certificate rows.
+- **What is *not* here:** the Temperley–Lieb/Jones host bridge; the three-strand tier and
+  linear hosts of dimension ≤ 7 at the two closed fibers are ruled out by companions
+  41H and 41H3, the general bridge stays open. → article §7.
 
 ## 6. Glossary
 
@@ -200,6 +180,8 @@ no number theory, no case analysis beyond parity.
 | σ_q(a,b) | deformed sign (−1)^φQ·(−q)^τ | σ_q(110,110) = −1 |
 | A, B | the two crossing sign products of a quad | A = 1, B = −q on the worked quad |
 | τ₁, τ₂, gap | the sides' cubic totals; their absolute difference | 0, 1, gap 1 |
+| X, aeval_q | the polynomial variable; "substitute q for X" (evaluation at q) | 1 + X ↦ 1 + q |
+| Q₁, Q₂, Q_min, τ_min | the sides' quadratic totals; the quadratic total and cubic total of the min-side | 4, 0 on the worked quad |
 | min-side | the side with smaller cubic total; anchors GqGen | side 1 above |
 | GqGen | the defect polynomial: geometric sum × surviving sign, in ℤ[X] | = 1 on the worked quad |
 | antipodal | q₁ ⊕ q₂ = `111`, i.e. p′ = ¬p; 64 quads, all odd-gap | the worked quad |
@@ -209,12 +191,10 @@ no number theory, no case analysis beyond parity.
 
 ## 7. What this is — and what it is not
 
-- "Defect" here means the failure of sign-cancellation, A + B ≠ 0 — **not** a
-  crystallographic dislocation, torsion defect, or any lattice-physics object. The
-  "parallelograms" are combinatorial parallelograms inside the 8-point cube {0,1}³, not
-  cells of a physical lattice.
-- "Eight-square" is Degen's algebraic identity — **not** the statistical-mechanics
-  eight-vertex model.
+- "Defect" means failure of sign-cancellation at a given q, A + B ≠ 0 (the *defect
+  polynomial* is A + B as a polynomial in q) — **not** a crystallographic or
+  lattice-physics defect. "Parallelograms" are combinatorial, inside the cube {0,1}³.
+- "Eight-square" is Degen's algebraic identity, **not** the eight-vertex model.
 - "q-deformation" is a deformation of the *sign rule only*. Object-level q-deformations
   of the split octonions are owned by Benkart–Pérez-Izquierdo (1998) — the article's
   nearest prior work (article §4, row 1) — and no object-level claim is made. The
@@ -223,28 +203,18 @@ no number theory, no case analysis beyond parity.
 - "Kernel-verified" means: every theorem was machine-checked, term by term, by the Lean
   type checker against fixed axioms — the triad is the full set used by the theorems
   here, and several statements were checked with even fewer.
-- The article is elementary by design: its own honesty note says "elementary proof,
-  nonelementary statement" — the content is the deformation structure itself, not the
-  machinery.
 
 ## 8. How to read the real article
 
-- Claim in words → §1 here, then the article's abstract.
-- Formal statement → article §3 with the glossary (§6 here) open.
-- Proof idea → §4 here, then article §5.
-- Verification → article §6 (formal record table), `pilots/41/Core.lean`,
-  `pilots/41/logs/core-run9.log` (the audit of record).
-- Novelty and nearest misses → article §4 (the Benkart–Pérez-Izquierdo wording lock).
+- Claim in words → §1 here, then the article's abstract. Formal statement → article §3.
+- Proof idea → §4 here, then article §5. Novelty → article §4.
+- Verification → article §6, `pilots/41/Core.lean`, `pilots/41/logs/core-run9.log`.
 - What stays open → article §7 and the companions
   [41H](../41H-tl-realizability-transport.md), [41H3](../41H3-two-fiber-rank-closure.md).
 
 ## 9. What you need going in
 
-- Polynomials with integer coefficients and evaluating them at a number or ring element.
-- Parity and arithmetic mod 2; signs as (−1)^n.
-- Bitwise xor on 3-bit strings (one line to learn: compare bit by bit, write 1 where
-  they differ).
-- The ring-language sliver: "commutative ring" = a place where +, −, × behave like the
-  integers; "unit" = an element you can divide by.
-- What a Lean kernel check is (one sentence, §7 above) — nothing else about
-  formalization.
+- Integer polynomials and evaluating them at a number or ring element; parity and
+  signs as (−1)^n; bitwise xor on 3-bit strings (write 1 where bits differ).
+- "Commutative ring" = a place where +, −, × behave like the integers; "unit" = an
+  element you can divide by. Nothing else about formalization (see §7).

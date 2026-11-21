@@ -127,7 +127,7 @@ is odd — the donor's `four_phi_odd` through `phi_parts`).
 **Theorem 3 (the classical fiber, `signs_anchor` + `bridge_axiom`).** σ₁ = σ, and the
 classical alternation `Signs` is re-proved here by the mod-2 route (no donor theorem
 imported; the donor's statement files are the verbatim port source only). Theorem 1 at
-q = 1 recovers `Signs` (`mainCor_one_implies_signs`).
+q = 1 over ℤ, together with the bridge axiom, recovers `Signs` (`mainCor_one_implies_signs`).
 
 **Theorem 4 (nondegeneracy and rigidity, `alternation_fails_at_q_minus_one` +
 `qRigid` + `nondegenerate`).** The deformation is genuine: at the antipodal quad
@@ -143,7 +143,7 @@ by itself the nondegeneracy of the deformation; the alternation-failure witness 
 the genuine certificate). Conversely the equal-exponent quads (τ₁ = τ₂; 336 of the 448)
 are q-rigid: the alternation vanishes for EVERY q there (`qRigid` reads Theorem 1 at
 gap = 0: empty sum ⇒ GqGen = 0). Rigidity is the equal-exponent case only — the 48
-remaining off-stratum quads (even gap ≥ 2) have NONZERO defect (e.g. p = 101, q₁ = 101,
+remaining off-stratum quads (even gap ≥ 2) have a NONZERO defect polynomial (`A + B` is not identically zero in q; e.g. p = 101, q₁ = 101,
 p′ = 011, q₂ = 011: A + B = 1 − q²).
 
 **Negative certificates (decide-certified refutations — component certificates, not the
