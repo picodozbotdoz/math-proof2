@@ -61,7 +61,7 @@ prior state in `.carry/2026-11-21-resume/`. NO `git stash` lane-side (shared sta
 | R5 | agent-04 | eta-r4 grant-fire-2 @ `285a411e` as-is (≤3 band; no re-fire w/o grant) | active |
 | R6 | agent-06 | introduction verification batch A (8 stems + 41 spot-check) | active |
 | R7 | agent-10 | introduction verification batch B (8 stems) + registry draft | active |
-| R8 | agent-05 | M3 variant-1 ONE scoped fire @ P0 `c6752422` (absolute cap) | active |
+| R8 | agent-05 | M3 run-9 DONE: split verdict ⇒ PERMANENT PARK (P0+A1 kernel-GREEN, A2 first-sight mechanical; log f3d6a0d2 + record b9dad480 landed) → re-tasked: seed-1 N2-completion/P3-d discovery-prep | active |
 | R9 | agent-09 | novelty-verification queue (post-referee posture + seed census) | active |
 | helper | agent-01 | carry-scratch triage; INDEX drift prep; substrate draft; health | active |
 

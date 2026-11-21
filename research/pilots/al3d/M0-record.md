@@ -645,3 +645,67 @@ charted: **variant 1 preferred** (the `Type (max u_1 u_2)` universe pinning — 
 private helper = a decl-list addition) would need the find-#6 amendment grant widened —
 a bigger decision, not assumed. No next fire now; the re-scoped unit gets its own scope
 at iter-6 wave-2 queue formation. — recorded by R8 from the orchestrator's relay.
+
+## M3 variant-1 re-scope fire (run 9, iteration-6 wave-2 item 1, ABSOLUTE CAP): NOT-GREEN ⇒ PERMANENT PARK (A2 first-sight residuals)
+
+**Run 9** (`logs/alp2-m3-run9-variant1fire.log` `f3d6a0d2a4d0a83d`, wall 57 s, telemetry
+OVER=0, guard `/tmp/al3d-prefire-sha-m3run9.txt` at the grant triple `c6752422b49555af` /
+`a8feb25bcd60722f` / `221eb30b6debba75`, all verified pre-fire, no edits between guard
+and fire). **SPLIT verdict — the variant-1 pin WORKED, but the ladder does NOT close:**
+
+- **P0.lean GREEN sorry-free** (rc=0, errors=0, sorry=0, no probe-sorry suffix; only the
+  2 cosmetic dif_pos/dif_neg deprecation warnings). The run-8 universe-polymorphic-have
+  root is DEAD: no commitConst level-params error, the ▸-site elaborates, and
+  `Arealaw.posSemidef_ptrace` commits. The 9-fire universe saga (runs 5–8: universe-0
+  restriction → polymorphic-have escape → pinned-have) is CLOSED — the P0 statement +
+  find-#6-amendment layer is kernel-clean at `c6752422b49555af`.
+- **A1.lean full GREEN** (rc=0, errors=0, sorry=0) — the FIRST full A1 GREEN of the M3
+  era (runs 7/8 were cascade-FAIL); all printed decls triad-clean.
+- **A2.lean NOT-GREEN** (rc=1, errors=10 by the fixed-regex line count, sorry ≥ 1 by the
+  backtick form): FIRST-SIGHT residuals in the M3 region no prior run ever reached —
+  runs 2–8 all died at the P0 import (posSemidef_ptrace unknown), so this content had
+  NEVER elaborated. Nothing here contradicts "zero math defects": both visible classes
+  are statement-layer elaboration mechanics.
+
+**Residual class (named, evidence in the log):** (1) `A2.lean:1692:24` —
+`compE_entry`'s STATEMENT: "Function expected at `compE z * M * (compE z)ᴴ` but this
+term has type `?m.51`" + synthInstance-failure Hint — an instance-synthesis /
+implicit-binder-context divergence LOCAL to A2's mirror of the compression route (the
+structurally identical P0 shape at P0:172–174 is GREEN in this very run); (2)
+`A2.lean:1819:12` — the `colEquivVar ∘ regEquivOfEq` composite: app-type-mismatch
+`Reg ?m (fibre Λ (projF Λ \ projF A)) ≃ Reg ?m (Λ \ A)` vs the expected
+`(↥(fibre …) → Fin q) ≃ Reg (Qudits3D q) (Λ \ …)` — the coercion-unfolding/orientation
+class; (3) `errors=10` includes code-form `error(lean.*)` lines the runner's
+context-DISPLAY path still drops (old `": error:"` substring at run_pilot.py:162 — the
+A2-gaps §6 trap class, display-path only; the COUNT is correct); (4) cascade —
+`A2.lean:1711:16` warning "declaration uses `sorry`" (`ptrace_eq_sum_compE`; error-
+recovery sorry from the failed `compE_entry`), and the three pureState-typed M3
+theorems print WITH sorryAx (`regionEntropy_pureState_eq`,
+`regionEntropy_pureState_column_closed`, `slab_column_cuts_of_planar_var` = [propext,
+sorryAx, Classical.choice, Quot.sound]; `fibre_eq_of_column_closed` IS triad-clean).
+**Runner traps for the record:** the al3d runner's sorry COUNTER (run_pilot.py:143,
+straight quotes) misses the backtick form — its `sorry=0` is a false negative; the
+D4 backtick-form fix (template `run_p0.py` `a3976f96`) binds any FUTURE al3d runner,
+plus the :162 display-path fix. Both are one-liners; NOT applied now (no re-fire at
+the cap).
+
+**Priced continuation (for a FUTURE grant, not this iteration):** fix-round on the two
+A2 sites — (1) restore/align `compE_entry`'s binder context against the GREEN P0 mirror
+(likely the missing/dropped `[∀ i, Fintype (loc i)]`-class instance binder, the P2-c
+run-13 precedent shape) + (2) the :1819 composite coercion alignment (named-equivalent
+transport or `simp only [Reg]`-unfold, orientation pre-written from the displayed
+mismatch); apply the two runner one-liners; re-fire the triple. Estimate 2–4 fires
+(each ~1 min wall warm; diagnosis is already 80% done — both messages name their
+divergence explicitly). ZERO statement-layer math risk: P0/A1 are GREEN at the frozen
+shas and untouched by any A2-local fix.
+
+**M3 fire history FINAL (9 fires): 27 → 13 → 11 → 2 → 2 → 2 → 1 → 1 → 0 on P0
+(P0's ninth-fire state = GREEN sorry-free); the M3 residue is now entirely A2-local,
+first-sight, 2 mechanical classes + cascades.** Ladder state at park: **M0/M1/M2
+GREEN-triad on main (batch Q) + P0 statement layer GREEN sorry-free + A1 full-GREEN
+triad — all kernel-verified this run; M3 = PERMANENT PARK this iteration (D5/D7
+honest-park; the article-eligibility handoff does NOT fire: it was conditioned on
+GREEN).** No further M3 fires this iteration regardless of diagnosis.
+
+— lane R8 (worktree agent-05), run 9 of 9, 2026-11-21. Records worktree-side until H
+lands them. No commits (H commits).
