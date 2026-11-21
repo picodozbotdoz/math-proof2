@@ -104,4 +104,78 @@ generalized one is not).
 (8 stubs — the 7 P0 statements + the ε construction); the milestone adds ~120
 lines of kernel-verified proof and the statement-level seam for the rest.
 
-— lane R3 (A6 lineage, worktree agent-07), 2026-11-20.
+## TRANCHE CLOSE (Iteration-6 resume closing batch, 2026-11-21): `ChoiceSumInputs` DISCHARGED + `route16_MMgeneral` CLOSED — the 12-core S-tranche closes GREEN
+
+**Run 13 verdict: `PROBE-OK rc=0 errors=0 sorry=7`** (`logs/core-runs10-13.log`
+`e499f7e1…`; CORE.lean `940bc9eabe82d5e0` at GREEN, sha-guarded descent
+16 → 5 → 2 → 0 errors over runs 10–13, 5-fire budget: 4 descent + 1 axcheck).
+**Run 14 (certification, stage-copy `#print axioms`, repo file untouched): all 14
+new/re-verified theorems triad-only `[propext, Classical.choice, Quot.sound]`, zero
+sorryAx** (`logs/core-run14-axcheck.log` `b8c1c194…`; staged axcheck sha
+`58af6ad3…`). `parametric_main` prints with `sorryAx` — the expected honest seam
+(it consumes the `epsParam_data` def-stub; the reduction is real).
+
+### What landed kernel-clean (Part 3d/3e, all sorry-free)
+
+- **The donor `Choice.lean:60–244` calculus ported WITH PROOFS** (Part 3d), for
+  every η, c — `Theorem19.Choice.{n_pos, pow_eighteen_le, le_n, one_le_D, D_pos,
+  one_le_n, one_le_rpow, one_le_ceil, ceil_le, ceil_le_sqrt, one_le_log, log_le_log,
+  saving, cube_mul_saving_le, rpow_le_rpow_div, rpow_le_of_le, instances_le,
+  scans_le, build_le}` — `strassen_le` intentionally NOT ported (that slot is the
+  MM-generalization's ω_b-balance, proved in-line in `MMgeneral_total_sum`).
+- `choiceSumInputs_of_choice : ∀ {η c}, ChoiceSumInputs η c` — the ordered
+  discharge, general over the frozen instance.
+- `Theorem19.sixteen_le_root` + `Theorem19.choice_corollary_26` (donor
+  `Sec3/Theorem19.lean:91` — the frozen route-16 Choice instance at η = 0.0315, c = 2).
+- `explicit_transfer` — the ε-fiber transfer (δ ≤ 0.0315/18 ∧ e ≥ 1 ⇒ the delivered
+  `n^{3−0.00175}·log n` bound implies the `(δ, e)` bound; n ≥ 1, log n ≥ 1).
+- `route16_core` — the E-free composition at the frozen fiber for EVERY W in the
+  band (donor `:107` with the MM slot freed; balance 2.9 + 1/12 < 3 − 0.00175 free
+  from `W.le_band`).
+- **`route16_MMgeneral` CLOSED** (with the two ε-fiber binders below).
+- `route16_MMgeneral_frozen : Theorem_19_explicit M 0.00175 1` for every W — the
+  unconditional fiber.
+- `parametric_main` re-discharged through the amended route16 (still sorry-free as a
+  reduction; sorryAx rides only via `epsParam_data`).
+
+### THE TWO INTERFACE CORRECTIONS OF RECORD (mathematically forced — H must land the statement changes)
+
+1. **`ChoiceSumInputs.scans_le` gained the donor's `Real.log n ≤ Λ` hypothesis.**
+   The v1 field (only `1 ≤ Λ`) was FALSE as stated: at Λ = 1, κ = 1 it demands
+   `termScans ≤ c^η·n^{3−η/18}`, i.e. log n ≤ 1. The donor's `scans_le` always took
+   `hΛ : Real.log n ≤ Λ`. `MMgeneral_total_sum`'s own statement is UNCHANGED (its
+   hlogΛ rides; proof got one extra argument).
+2. **`route16_MMgeneral` + `parametric_main` gained the ε-fiber binders**
+   `(hδ : E.ε W.ωb ≤ 0.0315 / 18)` and `(he : 1 ≤ E.e W.ωb)`. The P0 stub concluded
+   `Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb)` UNconditionally — FALSE as stated:
+   h16's `wantedBound` is frozen at the 0.437/0.063 exponents, so the one-call cost
+   n²/D^{0.063} caps deliverable savings at 0.0315/18 = 0.00175 with a log¹ floor;
+   a DECREASING ε (the corrected rider `EpsData.strict_anti`) demands MORE exactly
+   when W.ωb < log₂ 7, and `E.e = 0` at the exact fiber would drop the log. This is
+   the charter-input §2 rescope shape verbatim ("the EpsData-binder statements
+   already support exactly that fallback"). `hδ` is dischargeable for W.ωb ≥ log₂ 7
+   from `strict_anti` + `frozen_fiber` (numeric gate not yet formalized — M-class).
+
+### Residual drift ledger (v4.33 donor → v4.36 pin; runs 10–12 residue classes)
+
+- `Real.natCast_le_rpow_inv_iff` (le_root_iff route) gone → `pow_eighteen_le` /
+  `sixteen_le_root` re-derived via `Real.rpow_le_rpow` + `← Real.rpow_natCast` +
+  `Real.rpow_mul` (helpers `natPow_rpow_inv_self` / `rpow_inv_natPow_self`).
+- `Real.one_le_log_natCast_of_three_le` gone → `Real.le_log_iff_exp_le` +
+  `Real.exp_one_lt_d9`.
+- `Nat.le_self_pow` route avoided in `le_n` (all-nat `16^18 ≤ D^18 ≤ n` instead).
+- OfScientific-literal trap: `3 - 0.0315 / 18` in a bare-literal exponent needs
+  `(0.0315 : ℝ)` (binop% otherwise resolves ℕ); donor-`(by omega)` side-conditions
+  over `paramD₂₆ n` fail on v4.36 omega (floor-atom) — explicit projections
+  `(1 ≤ 16).trans P.sixteen_le` instead.
+
+### S-tranche state at close
+
+7 stubs remain (route15_frozen :201, route16_frozen :209, route15_MMgeneral :244,
+route16_symbolic :259, flagship_shape :387, balancePoint_monotone_shape :409,
+epsParam_data :932) — all M-class per the evaluation note
+(`M-CLASS-EVALUATION.md`). NOTE for that evaluation: `route16_frozen` is now a FREE
+corollary of `route16_MMgeneral_frozen` (a strassen-fiber WordRamMMData instance;
+the numeric log₂-7 band facts are the only missing glue).
+
+— lane R3 (A6 lineage, worktree agent-07), 2026-11-21.

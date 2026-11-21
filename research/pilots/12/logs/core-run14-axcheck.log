@@ -1,0 +1,65 @@
+# pilot-12 CORE closing batch — run 14 (AXCHECK certification fire; lane R3, 2026-11-21)
+# App/spec/substrate: identical to core-runs10-13.log; stage copy = CORE.lean @ 940bc9eabe82d5e0 + appended #print axioms (repo file untouched)
+# Staged axcheck file sha256-16: 58af6ad316a552fd
+# Verdict: PROBE-OK rc=0 errors=0 sorry=7 + 15 axiom prints (14 triad-only; parametric_main carries sorryAx via the epsParam_data def-stub — expected honest seam)
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-ztiZcimwW1OuR4zj6fhF4t
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-axstage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+{'CORE.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] CORE.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- axioms ----
+'CrossMath.Pilot12P0.MMgeneral_total_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.choiceSumInputs_of_choice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.explicit_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_MMgeneral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_MMgeneral_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.sixteen_le_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.choice_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.pow_eighteen_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.ceil_le_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.build_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.parametric_main' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- output tail ----
+CORE.lean:201:8: warning: declaration uses `sorry`
+CORE.lean:209:8: warning: declaration uses `sorry`
+CORE.lean:244:8: warning: declaration uses `sorry`
+CORE.lean:259:8: warning: declaration uses `sorry`
+CORE.lean:387:8: warning: declaration uses `sorry`
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:932:4: warning: declaration uses `sorry`
+'CrossMath.Pilot12P0.MMgeneral_total_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.choiceSumInputs_of_choice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.explicit_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_MMgeneral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_MMgeneral_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.sixteen_le_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.choice_corollary_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.pow_eighteen_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.ceil_le_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.build_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.parametric_main' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-ztiZcimwW1OuR4zj6fhF4t

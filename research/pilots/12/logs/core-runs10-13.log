@@ -1,0 +1,587 @@
+# pilot-12 CORE closing batch — runs 10–13 (Iteration-6 resume, lane R3, 2026-11-21)
+# App: crossmath-pilot-12core (ephemeral modal run, doz CLI /home/doz/dozenv/bin/modal)
+# Substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain v4.36.0-rc2, elan v4.2.4
+# SPEC: cpu=2.0 mem=4096MB (soft), LEAN_NUM_THREADS=2 (CAP secret), telemetry lines inline below
+# Runner: run_core.py 55e541eafc43a704 (sorry-filter: both message forms, per run_p0.py a3976f96 template)
+# Sha chain (staged CORE.lean, sha-guarded by stage_and_fire_core.sh):
+#   run 10: 9e07ed2fd0d6ddc7 (pre-fix: port + route16 close first attempt)
+#   run 11: cbf8b49f21749d1d (fix batch 1: dangling docstring / le_n forward-ref / one_le_log parse / (0.0315:ℝ) ascriptions)
+#   run 12: 2396e984671ce8b1 (fix batch 2: one_le_log metavar-free, pow_succ exponent shape)
+#   run 13: 940bc9eabe82d5e0 (fix batch 3: explicit 1 ≤ paramD₂₆ n projections) = GREEN
+# Verdicts: run10 FAIL rc=1 errors=16 sorry=7 | run11 FAIL errors=5 sorry=7 | run12 FAIL errors=2 sorry=7 | run13 PROBE-OK rc=0 errors=0 sorry=7
+
+=================== RUN 10 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-XvMQj8c2Oi5YX6yx2smMjX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.90 mem=8362MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=16 sorry=7'}
+[p12core] CORE.lean: FAIL rc=1 errors=16 sorry=7
+---- error contexts (16 errors, all shown) ----
+CORE.lean:244:8: warning: declaration uses `sorry`
+CORE.lean:252:69: error: unexpected token '/--'; expected 'lemma'
+CORE.lean:259:8: warning: declaration uses `sorry`
+CORE.lean:387:8: warning: declaration uses `sorry`
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:663:40: error(lean.invalidField): Invalid field `one_le_D`: The environment does not contain `CrossMath.Pilot12P0.Theorem19.Choice.one_le_D`, so it is not possible to project the field `one_le_D` from an expression
+  P
+of type `Choice n D η c`
+CORE.lean:707:22: error: unexpected identifier; expected ')', ',' or ':'
+CORE.lean:706:40: error: unsolved goals
+n D : ℕ
+η c : ℝ
+P : Choice n D η c
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:706:64: error: mod_cast has type
+  D ≤ ?m.38 → 16 ≤ ?m.38
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+···
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:663:40: error(lean.invalidField): Invalid field `one_le_D`: The environment does not contain `CrossMath.Pilot12P0.Theorem19.Choice.one_le_D`, so it is not possible to project the field `one_le_D` from an expression
+  P
+of type `Choice n D η c`
+CORE.lean:707:22: error: unexpected identifier; expected ')', ',' or ':'
+CORE.lean:706:40: error: unsolved goals
+n D : ℕ
+η c : ℝ
+P : Choice n D η c
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:706:64: error: mod_cast has type
+  D ≤ ?m.38 → 16 ≤ ?m.38
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+···
+of type `Choice n D η c`
+CORE.lean:707:22: error: unexpected identifier; expected ')', ',' or ':'
+CORE.lean:706:40: error: unsolved goals
+n D : ℕ
+η c : ℝ
+P : Choice n D η c
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:706:64: error: mod_cast has type
+  D ≤ ?m.38 → 16 ≤ ?m.38
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+···
+CORE.lean:707:22: error: unexpected identifier; expected ')', ',' or ':'
+CORE.lean:706:40: error: unsolved goals
+n D : ℕ
+η c : ℝ
+P : Choice n D η c
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:706:64: error: mod_cast has type
+  D ≤ ?m.38 → 16 ≤ ?m.38
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.sub_congr
+···
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:706:64: error: mod_cast has type
+  D ≤ ?m.38 → 16 ≤ ?m.38
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.sub_congr
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+···
+  ?m.24 < ?m.25
+CORE.lean:842:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.sub_congr
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.sub_pf
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:843:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.sub_congr
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.sub_pf
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul δ (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:844:4: error: Type mismatch
+  Real.rpow_le_rpow_of_exponent_le hn1
+    (le_of_not_gt fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.sub_congr
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.atom_pf δ rfl
+                  (Eq.mpr
+                    (id (congrArg (fun _a => δ ^ Nat.rawCast 1 * Nat.rawCast 1 = δ ^ Nat.rawCast 1 * _a) (Eq.symm rfl)))
+                    (Eq.refl (δ ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                (Mathlib.Tactic.Ring.Common.sub_pf
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul δ (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    Mathlib.Tactic.Ring.Common.neg_zero)
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+···
+  n ^ (3 - 315e-4 / 18) ≤ n ^ (3 - δ)
+CORE.lean:863:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfScientific ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:877:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:878:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:884:68: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+C : ℝ
+hC : 0 ≤ C
+···
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CORE.lean:877:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:878:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:884:68: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+C : ℝ
+hC : 0 ≤ C
+h17✝¹ :
+  ∀ (T : ℕ → ℕ → ℕ → ℝ),
+    M.lopDetect T →
+      ∃ T',
+···
+ a := ↑n
+CORE.lean:878:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:884:68: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+C : ℝ
+hC : 0 ≤ C
+h17✝¹ :
+  ∀ (T : ℕ → ℕ → ℕ → ℝ),
+    M.lopDetect T →
+      ∃ T',
+        M.exactTriangle T' ∧
+          ∀ (n : ℕ) (κ u : ℝ),
+            16 ≤ paramD₂₆ n →
+              paramD₂₆ n ≤ n →
+                1 ≤ paramG₂₆ n →
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:884:68: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+C : ℝ
+hC : 0 ≤ C
+h17✝¹ :
+  ∀ (T : ℕ → ℕ → ℕ → ℝ),
+    M.lopDetect T →
+      ∃ T',
+        M.exactTriangle T' ∧
+          ∀ (n : ℕ) (κ u : ℝ),
+            16 ≤ paramD₂₆ n →
+              paramD₂₆ n ≤ n →
+                1 ≤ paramG₂₆ n →
+                  ↑(paramG₂₆ n) ≤ √↑(paramD₂₆ n) →
+                    1 ≤ κ →
+                      u ≤ ↑n ^ κ →
+                        T' n u ≤
+                          4 * ↑n * ↑(paramG₂₆ n) *
+                              (T n (paramD₂₆ n) (queryCap n (paramD₂₆ n)) + C * (↑n ^ 2 / √↑(paramD₂₆ n))) +
+                            C *
+                              (termScans n (paramG₂₆ n) κ + termPrime W.MM n (paramD₂₆ n) +
+                                termBuild n (paramD₂₆ n) (paramG₂₆ n))
+C₁₆ : ℝ
+w✝ Td : ℕ → ℕ → ℕ → ℝ
+···
+    C₀ * C₁₆ * κ * Real.log ↑n * ↑n ^ (3 - 315e-4 / 18) * 2 + C₀ * C * κ * Real.log ↑n * ↑n ^ (3 - 315e-4 / 18) * 2
+CORE.lean:892:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:892:9: error: Tactic `rcases` failed: `x✝ : ?m.16` is not an inductive datatype
+CORE.lean:911:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:911:11: error: Tactic `rcases` failed: `x✝ : ?m.19` is not an inductive datatype
+CORE.lean:927:4: warning: declaration uses `sorry`
+···
+CORE.lean:892:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:892:9: error: Tactic `rcases` failed: `x✝ : ?m.16` is not an inductive datatype
+CORE.lean:911:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:911:11: error: Tactic `rcases` failed: `x✝ : ?m.19` is not an inductive datatype
+CORE.lean:927:4: warning: declaration uses `sorry`
+···
+CORE.lean:892:9: error: Tactic `rcases` failed: `x✝ : ?m.16` is not an inductive datatype
+CORE.lean:911:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:911:11: error: Tactic `rcases` failed: `x✝ : ?m.19` is not an inductive datatype
+CORE.lean:927:4: warning: declaration uses `sorry`
+···
+CORE.lean:911:32: error(lean.unknownIdentifier): Unknown identifier `route16_core`
+CORE.lean:911:11: error: Tactic `rcases` failed: `x✝ : ?m.19` is not an inductive datatype
+CORE.lean:927:4: warning: declaration uses `sorry`
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=16 sorry=7
+[tele] SUMMARY run: wall=66s max_cpu=0.90 max_mem=8362MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-XvMQj8c2Oi5YX6yx2smMjX
+
+=================== RUN 11 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-x18n1EdUyfv7jTMe7iZcds
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[p12core] CORE.lean: FAIL rc=1 errors=5 sorry=7
+---- error contexts (5 errors, all shown) ----
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:710:40: error: unsolved goals
+n D : ℕ
+η c : ℝ
+P : Choice n D η c
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:711:8: error: mod_cast has type
+  16 ≤ n
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:851:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a ^ (?n + 1)
+in the target expression
+  Real.log n ≤ Real.log n ^ (1 + (e - 1))
+
+n δ : ℝ
+e : ℕ
+hn1 : 1 ≤ n
+hlog1 : 1 ≤ Real.log n
+hδ : δ ≤ 315e-4 / 18
+he : 1 ≤ e
+h1 : n ^ (3 - 315e-4 / 18) ≤ n ^ (3 - δ)
+hk : e = 1 + (e - 1)
+⊢ Real.log n ≤ Real.log n ^ (1 + (e - 1))
+CORE.lean:881:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+···
+⊢ 13591409143 / 5000000000 ≤ ?m.24
+CORE.lean:711:8: error: mod_cast has type
+  16 ≤ n
+but is expected to have type
+  ?m.24 < ?m.25
+CORE.lean:851:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a ^ (?n + 1)
+in the target expression
+  Real.log n ≤ Real.log n ^ (1 + (e - 1))
+
+n δ : ℝ
+e : ℕ
+hn1 : 1 ≤ n
+hlog1 : 1 ≤ Real.log n
+hδ : δ ≤ 315e-4 / 18
+he : 1 ≤ e
+h1 : n ^ (3 - 315e-4 / 18) ≤ n ^ (3 - δ)
+hk : e = 1 + (e - 1)
+⊢ Real.log n ≤ Real.log n ^ (1 + (e - 1))
+CORE.lean:881:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+···
+  ?m.24 < ?m.25
+CORE.lean:851:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a ^ (?n + 1)
+in the target expression
+  Real.log n ≤ Real.log n ^ (1 + (e - 1))
+
+n δ : ℝ
+e : ℕ
+hn1 : 1 ≤ n
+hlog1 : 1 ≤ Real.log n
+hδ : δ ≤ 315e-4 / 18
+he : 1 ≤ e
+h1 : n ^ (3 - 315e-4 / 18) ≤ n ^ (3 - δ)
+hk : e = 1 + (e - 1)
+⊢ Real.log n ≤ Real.log n ^ (1 + (e - 1))
+CORE.lean:881:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:931:4: warning: declaration uses `sorry`
+···
+⊢ Real.log n ≤ Real.log n ^ (1 + (e - 1))
+CORE.lean:881:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:931:4: warning: declaration uses `sorry`
+···
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:931:4: warning: declaration uses `sorry`
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=5 sorry=7
+[tele] SUMMARY run: wall=44s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+{'CORE.lean': 'FAIL rc=1 errors=5 sorry=7'}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-x18n1EdUyfv7jTMe7iZcds
+
+=================== RUN 12 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-vLG7rFutdckAVrlWZ5Cj1s
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.76 mem=7837MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=2 sorry=7'}
+[p12core] CORE.lean: FAIL rc=1 errors=2 sorry=7
+---- error contexts (2 errors, all shown) ----
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:881:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:931:4: warning: declaration uses `sorry`
+···
+ a := ↑n
+CORE.lean:882:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 4722366482869645213696
+where
+ a := ↑n
+CORE.lean:931:4: warning: declaration uses `sorry`
+···
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=2 sorry=7
+[tele] SUMMARY run: wall=68s max_cpu=0.76 max_mem=7837MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-vLG7rFutdckAVrlWZ5Cj1s
+
+=================== RUN 13 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-JrAHRjENbAngVUj4N3guhx
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-core-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.67 mem=8364MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] CORE.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+CORE.lean:201:8: warning: declaration uses `sorry`
+CORE.lean:209:8: warning: declaration uses `sorry`
+CORE.lean:244:8: warning: declaration uses `sorry`
+CORE.lean:259:8: warning: declaration uses `sorry`
+CORE.lean:387:8: warning: declaration uses `sorry`
+CORE.lean:409:8: warning: declaration uses `sorry`
+CORE.lean:932:4: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=63s max_cpu=0.67 max_mem=8364MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-JrAHRjENbAngVUj4N3guhx
+
