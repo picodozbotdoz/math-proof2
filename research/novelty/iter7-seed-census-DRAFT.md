@@ -76,6 +76,29 @@ outside that contingency and does not weaken it. Subtotal arithmetic: the bench 
 two precharter-gated Tier-1, one charter-GO Tier-1, two Tier-2 completions, two Tier-3
 contestants (the standing 12-DEFER bench + the drain-activation rule remain fallbacks).
 
+**Ξ_K′ execution datapoints (row 1's charter-time annotations, folded by the census
+owner 2026-11-21 post-tranche; source `pilots/40/M2-record.md` `42e31cfd32c4e9f7` +
+the d29aaed banking ruling):**
+
+1. **The Λ₀-propagation flag.** The precharter's §2 "cheapest next lemma" framing
+   (discharging the `hζ` binder via an `s(s−1)Λ₀ = s(s−1)Λ` identity) is SUPERSEDED
+   by the tranche's proved bridge `smul_la₀_add_one`: the offset is 1, the identity
+   fails at s ∈ {0,1}, and the Λ₀-binder is non-elementary (⟺ ξ ≠ ½ on the
+   half-plane). Every consumer of row 1 (the precharter §4 Stage-1 list, this
+   census's gate text, future tranche charters) carries `hζ` / the equivalent
+   `hsL : s(s−1)·Λ ≠ 1` as a NAMED OPEN INPUT — never an S-class discharge.
+2. **The χMod3-absence datum.** `χMod3`/`χMod4` do not exist in mathlib at
+   `ff2494ea` (zero corpus hits, rg-verified): the Gauss-sum glue (`hinv`/`hε`) is
+   its own CONSTRUCTION UNIT — the hand-built `ZMod 3`ˣ →* ℂ sign character +
+   conductor/primitivity + the `gaussSum`/`rootNumber` evaluation (the
+   `e^{2πi/3} − e^{4πi/3} = i√3` arithmetic + a cpow-√3 bridge). Banked per the
+   orchestrator's ruling; its re-charter waits on the other Tier-1s' reports.
+   Row 1's tranche state at bank: Stage-1 tranches 1–2 delivered (M1 GREEN
+   `71922301cbb0761d` 11/11 triad; M2's standing GREEN inventory — the bridge
+   identity, the Λ-form nonvanishing, the gProd Λ-form — with the step-3 slice's
+   two timeout-class one-fix residuals parked per the two-flip discipline); 20
+   fires over four grants, zero math defects.
+
 ## 2. Seed detail notes (direct-source checks, this session)
 
 **(a) The Ξ_K′ lead — zeta23's ξ′ engine is PROVED and ζ-side only.** The Challenge/Solution
