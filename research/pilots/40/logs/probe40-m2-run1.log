@@ -1,0 +1,251 @@
+# probe40-m2-run1 — M2 continuation diagnostic fire (see M2-record.md; run4 = the cap-park state, errors confined to :297+).
+# Same substrate/spec/provenance as the m1 runs (app crossmath-probe-40, mathlib ff2494ea,
+# SPEC 2cpu/4GB, LEAN_NUM_THREADS=2, doz CLI, fired 2026-11-21 lane R9 worktree agent-09).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-wvrsnwiCbF0T6YfPlO3yiA
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M2.lean
+[probe40] M2.lean: PROBE-FAIL rc=1 errors=9 sorry=0
+---- error contexts ----
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:270:88: error: unsolved goals
+s : ℂ
+⊢ 1 - s * completedRiemannZeta₀ s + s ^ 2 * completedRiemannZeta₀ s =
+    -(s * completedRiemannZeta₀ s) + s * s⁻¹ + s * (1 - s)⁻¹ + s ^ 2 * completedRiemannZeta₀ s - s ^ 2 * s⁻¹ -
+      s ^ 2 * (1 - s)⁻¹
+M2.lean:303:53: error: Application type mismatch: The argument
+  differentiable_const ?m.108
+has type
+  Differentiable ?m.98 fun x => ?m.108
+but is expected to have type
+  DifferentiableAt ℂ (fun s => ↑(Real.log ↑N)) s
+in the application
+  DifferentiableAt.mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.108)
+M2.lean:306:36: error: Application type mismatch: The argument
+  hc
+has type
+  DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+but is expected to have type
+  Differentiable ?m.134 ?m.148
+in the application
+  Differentiable.comp differentiable_exp hc
+M2.lean:311:63: error: Application type mismatch: The argument
+  differentiable_const ?m.231
+has type
+  Differentiable ?m.221 fun x => ?m.231
+···
+      s ^ 2 * (1 - s)⁻¹
+M2.lean:303:53: error: Application type mismatch: The argument
+  differentiable_const ?m.108
+has type
+  Differentiable ?m.98 fun x => ?m.108
+but is expected to have type
+  DifferentiableAt ℂ (fun s => ↑(Real.log ↑N)) s
+in the application
+  DifferentiableAt.mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.108)
+M2.lean:306:36: error: Application type mismatch: The argument
+  hc
+has type
+  DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+but is expected to have type
+  Differentiable ?m.134 ?m.148
+in the application
+  Differentiable.comp differentiable_exp hc
+M2.lean:311:63: error: Application type mismatch: The argument
+  differentiable_const ?m.231
+has type
+  Differentiable ?m.221 fun x => ?m.231
+but is expected to have type
+  DifferentiableAt ℂ ?m.206 s
+in the application
+  deriv_mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.231)
+M2.lean:321:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+···
+  DifferentiableAt.mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.108)
+M2.lean:306:36: error: Application type mismatch: The argument
+  hc
+has type
+  DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+but is expected to have type
+  Differentiable ?m.134 ?m.148
+in the application
+  Differentiable.comp differentiable_exp hc
+M2.lean:311:63: error: Application type mismatch: The argument
+  differentiable_const ?m.231
+has type
+  Differentiable ?m.221 fun x => ?m.231
+but is expected to have type
+  DifferentiableAt ℂ ?m.206 s
+in the application
+  deriv_mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.231)
+M2.lean:321:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv ((fun s => cexp (s / 2 * ↑(Real.log ↑N))) * DirichletCharacter.completedLFunction χ) s
+in the target expression
+  deriv (fun s => symFactor N s * DirichletCharacter.completedLFunction χ s) s =
+    ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N)) * DirichletCharacter.completedLFunction χ s +
+      cexp (s / 2 * ↑(Real.log ↑N)) * deriv (DirichletCharacter.completedLFunction χ) s
+
+N : ℕ
+inst✝ : NeZero N
+···
+  Differentiable.comp differentiable_exp hc
+M2.lean:311:63: error: Application type mismatch: The argument
+  differentiable_const ?m.231
+has type
+  Differentiable ?m.221 fun x => ?m.231
+but is expected to have type
+  DifferentiableAt ℂ ?m.206 s
+in the application
+  deriv_mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.231)
+M2.lean:321:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv ((fun s => cexp (s / 2 * ↑(Real.log ↑N))) * DirichletCharacter.completedLFunction χ) s
+in the target expression
+  deriv (fun s => symFactor N s * DirichletCharacter.completedLFunction χ s) s =
+    ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N)) * DirichletCharacter.completedLFunction χ s +
+      cexp (s / 2 * ↑(Real.log ↑N)) * deriv (DirichletCharacter.completedLFunction χ) s
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+s : ℂ
+hχ : χ ≠ 1
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hc : DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+hd1 : DifferentiableAt ℂ (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s
+hd2 : DifferentiableAt ℂ (DirichletCharacter.completedLFunction χ) s
+hE : deriv (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s = ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N))
+···
+  deriv_mul (DifferentiableAt.div_const (differentiable_id s) 2) (differentiable_const ?m.231)
+M2.lean:321:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv ((fun s => cexp (s / 2 * ↑(Real.log ↑N))) * DirichletCharacter.completedLFunction χ) s
+in the target expression
+  deriv (fun s => symFactor N s * DirichletCharacter.completedLFunction χ s) s =
+    ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N)) * DirichletCharacter.completedLFunction χ s +
+      cexp (s / 2 * ↑(Real.log ↑N)) * deriv (DirichletCharacter.completedLFunction χ) s
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+s : ℂ
+hχ : χ ≠ 1
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hc : DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+hd1 : DifferentiableAt ℂ (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s
+hd2 : DifferentiableAt ℂ (DirichletCharacter.completedLFunction χ) s
+hE : deriv (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s = ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N))
+⊢ deriv (fun s => symFactor N s * DirichletCharacter.completedLFunction χ s) s =
+    ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N)) * DirichletCharacter.completedLFunction χ s +
+      cexp (s / 2 * ↑(Real.log ↑N)) * deriv (DirichletCharacter.completedLFunction χ) s
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:301:55: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+s : ℂ
+hχ : χ ≠ 1
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hc : DifferentiableAt ℂ (fun s => s / 2 * ↑(Real.log ↑N)) s
+hd1 : DifferentiableAt ℂ (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s
+hd2 : DifferentiableAt ℂ (DirichletCharacter.completedLFunction χ) s
+hE : deriv (fun s => cexp (s / 2 * ↑(Real.log ↑N))) s = ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N))
+hderiv :
+  deriv (symCompleted χ) s =
+    ↑(Real.log ↑N) / 2 * cexp (s / 2 * ↑(Real.log ↑N)) * DirichletCharacter.completedLFunction χ s +
+      cexp (s / 2 * ↑(Real.log ↑N)) * deriv (DirichletCharacter.completedLFunction χ) s
+⊢ ↑(Real.log ↑N) * cexp (↑(Real.log ↑N) * s * (1 / 2)) * DirichletCharacter.completedLFunction χ s * (symFactor N s)⁻¹ +
+      cexp (↑(Real.log ↑N) * s * (1 / 2)) * deriv (DirichletCharacter.completedLFunction χ) s * (symFactor N s)⁻¹ * 2 =
+    ↑(Real.log ↑N) * DirichletCharacter.completedLFunction χ s + deriv (DirichletCharacter.completedLFunction χ) s * 2
+M2.lean:343:29: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.135
+of sort `Type` in the application
+···
+    ↑(Real.log ↑N) * DirichletCharacter.completedLFunction χ s + deriv (DirichletCharacter.completedLFunction χ) s * 2
+M2.lean:343:29: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.135
+of sort `Type` in the application
+  deriv_div_gProd_eq_sum hχ
+M2.lean:339:82: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+···
+  deriv_div_gProd_eq_sum hχ
+M2.lean:339:82: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hζ : completedRiemannZeta₀ s ≠ 0
+⊢ 0 < (deriv (gProd χ) s / gProd χ s).re
+'XiKPrime.smul_la₀_add_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.gProd_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.completedRiemannZeta_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.deriv_div_symCompleted_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.re_pos_of_factor_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+'XiKPrime.re_pos_of_factor_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+M2.lean:368:0: error: Invalid `end`: There is no current scope to end
+
+Note: Scopes are introduced using `namespace` and `section`
+'XiKPrime.smul_la₀_add_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.gProd_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.completedRiemannZeta_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.deriv_div_symCompleted_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'XiKPrime.re_pos_of_factor_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[probe40] SUMMARY
+[probe40]   M2.lean: PROBE-FAIL rc=1 errors=9 sorry=0
+[tele] SUMMARY run: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-wvrsnwiCbF0T6YfPlO3yiA

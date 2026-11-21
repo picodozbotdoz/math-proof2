@@ -1,0 +1,134 @@
+# probe40-m2-run3 — M2 continuation diagnostic fire (see M2-record.md; run4 = the cap-park state, errors confined to :297+).
+# Same substrate/spec/provenance as the m1 runs (app crossmath-probe-40, mathlib ff2494ea,
+# SPEC 2cpu/4GB, LEAN_NUM_THREADS=2, doz CLI, fired 2026-11-21 lane R9 worktree agent-09).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-Pl2oCSOdUI0WRY8lnAn4LJ
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M2.lean
+[tele] t=60s cpu=0.66 mem=4738MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe40] M2.lean: PROBE-FAIL rc=1 errors=4 sorry=0
+---- error contexts ----
+M2.lean:306:4: error: Type mismatch
+  deriv_comp s (differentiable_exp (s / 2 * ↑(Real.log ↑N))) hin
+has type
+  deriv (cexp ∘ fun t => t / 2 * ↑(Real.log ↑N)) s =
+    deriv cexp (s / 2 * ↑(Real.log ↑N)) * deriv (fun t => t / 2 * ↑(Real.log ↑N)) s
+but is expected to have type
+  deriv (cexp ∘ fun t => t / 2 * ↑(Real.log ↑N)) s =
+    cexp (s / 2 * ↑(Real.log ↑N)) * deriv (fun t => t / 2 * ↑(Real.log ↑N)) s
+M2.lean:331:4: error: Type mismatch
+  deriv_mul (differentiable_symFactor N s) (DirichletCharacter.differentiable_completedLFunction hχ s)
+has type
+  deriv (symFactor N * DirichletCharacter.completedLFunction χ) s =
+    deriv (symFactor N) s * DirichletCharacter.completedLFunction χ s +
+      symFactor N s * deriv (DirichletCharacter.completedLFunction χ) s
+but is expected to have type
+  deriv (symCompleted χ) s =
+    symFactor N s * deriv (DirichletCharacter.completedLFunction χ) s +
+      deriv (symFactor N) s * DirichletCharacter.completedLFunction χ s
+M2.lean:357:29: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.149
+of sort `Type` in the application
+···
+    cexp (s / 2 * ↑(Real.log ↑N)) * deriv (fun t => t / 2 * ↑(Real.log ↑N)) s
+M2.lean:331:4: error: Type mismatch
+  deriv_mul (differentiable_symFactor N s) (DirichletCharacter.differentiable_completedLFunction hχ s)
+has type
+  deriv (symFactor N * DirichletCharacter.completedLFunction χ) s =
+    deriv (symFactor N) s * DirichletCharacter.completedLFunction χ s +
+      symFactor N s * deriv (DirichletCharacter.completedLFunction χ) s
+but is expected to have type
+  deriv (symCompleted χ) s =
+    symFactor N s * deriv (DirichletCharacter.completedLFunction χ) s +
+      deriv (symFactor N) s * DirichletCharacter.completedLFunction χ s
+M2.lean:357:29: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.149
+of sort `Type` in the application
+  deriv_div_gProd_eq_sum hχ
+M2.lean:350:82: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+···
+      deriv (symFactor N) s * DirichletCharacter.completedLFunction χ s
+M2.lean:357:29: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.149
+of sort `Type` in the application
+  deriv_div_gProd_eq_sum hχ
+M2.lean:350:82: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+···
+  deriv_div_gProd_eq_sum hχ
+M2.lean:350:82: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hs0 : s ≠ 0
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hζ : completedRiemannZeta₀ s ≠ 0
+⊢ 0 < (deriv (gProd χ) s / gProd χ s).re
+'XiKPrime.smul_la₀_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.gProd_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.completedRiemannZeta_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.deriv_symFactor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+···
+
+[probe40] SUMMARY
+[probe40]   M2.lean: PROBE-FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=74s max_cpu=0.66 max_mem=4738MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-21T14:41:09+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-Pl2oCSOdUI0WRY8lnAn4LJ
