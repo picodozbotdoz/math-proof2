@@ -173,8 +173,10 @@ Firing this charter therefore ALSO fires:
 ## §7 The quota frame (this file informs, never spends)
 
 - The N=1 knowledge-level slot: **FB-2 vs FB-4 vs unspent** (DECISION-1/3 discipline
-  carried into Iteration 6 verbatim; the iter-5 disposition = UNSPENT, third
-  consecutive unspent cycle — `r9-quota-disposition-draft.md` is the ruling input).
+  carried into Iteration 6 verbatim; the iter-5 disposition = UNSPENT, second
+  consecutive unspent cycle — `r9-quota-disposition-draft.md` is the ruling input;
+  count fixed 2026-11-21 r9 per the disposition's F5 lineage: the two-strike rule
+  was minted at Iteration 4, so iter-4/iter-5 = first/second unspent).
 - FB-2's billing is locked: FORMALIZATION-FIRST kind at article time (if it ships);
   at most one knowledge-level article per cycle (the two-strike FINAL rule); never
   displaces a discovery lead; the S1 fail is by design and the article's novelty
