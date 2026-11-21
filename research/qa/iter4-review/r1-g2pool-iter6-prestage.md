@@ -234,3 +234,29 @@ state (the mid-unit refreshes `7d7fcdd → 1c10bc4 → 8cbb2ae` changed exactly 
 — §G1-DRY + §LANDING-RECORD folded by lane R1, worktree agent-02 @ `8cbb2ae`,
 2026-11-21. Still zero Modal fires; the close signal executes §5 Part i + mints
 the Part-ii runner (STANDBY).
+
+## §REFRESH-2 — the H4 fill + the `60bebc8` census refresh (R1, 2026-11-21; folded per the coordinator's relay)
+
+- **AxPilot41_H4 row FILLED** (the relay: E1 landed GREEN at `cc7ef3c`, 3-of-3
+  budget): guard `768c6f5d6e777d25` (316 LoC, `import Mathlib` only — [WARM]
+  verified at fill; 11 theorems). Dry-run re-verified: py_compile rc=0, **73
+  stages** (72→73 per the relay's expectation); the stage's 11 appended prints
+  re-cover the run-3 audit tail's 11/11 — R4's belt-and-braces note carried
+  in-row. **§5 Part-i count updates: 73 stages.**
+- **Census refresh @ `60bebc8`: 78 real-tokens over 133 files = the 72 composition
+  + 6 NEW** — `pilots/40/XiKPrime-stmt-probe.lean` (:113,:117,:125,:131,:138,:144;
+  R9's Ξ_K′ statement-tier checkpoint probe, header-declared "NOT A PROOF ARTIFACT
+  … every proof body below is `sorry`", the "sorry=6-as-registered" landing note)
+  — probe-convention class, NEVER a Step-B stage. **H4.lean itself = 0 tokens**
+  (11/11 print-verified zero-sorryAx — Branch A's H4 expectation RESOLVED at 0;
+  the only live branch variable left = the 12-core closing batch's `n`).
+- **Final dry composition at `60bebc8`: 78 = 49 carry + 7 12/P0 + 8 12/CORE(interface)
+  + 8 H4-probe + 6 Xi-stmt-probe + 0 H4.lean + 0 UNEXPLAINED.** ENTRY-15
+  arithmetic: Branch A = `78 − n(CORE discharges)`; Branch B = `78 as-is` (+ any
+  H4/closing-batch landed classes enumerated per line). The mid-fold refresh
+  `8cbb2ae → 60bebc8` used the restored-duplicate ff procedure both times
+  (byte-identity verified before every restore; the `git log -1` post-ff check
+  held).
+
+— §REFRESH-2 folded by lane R1 @ `60bebc8`, 2026-11-21. STANDBY unchanged: Part i
+(73 stages) + the Part-ii eta custody runner mint fire AT the close signal.
