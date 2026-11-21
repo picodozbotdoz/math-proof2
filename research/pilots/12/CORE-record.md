@@ -247,3 +247,24 @@ upper-bound η₀-binder would invert the transfer direction (caught pre-fire as
 :1283 linarith failure).
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-21.
+
+## PARK LIFTED — the granted continuation fire (2026-11-21): batch closes GREEN at run 20
+
+**Run 20 verdict: `PROBE-OK rc=0 errors=0 sorry=3`** (`logs/sresidue-run20-green.log`
+`2b40160d…`; CORE.lean `b5e5e1d9bb667597` fired AS-IS per the grant, the eta-r4
+pattern vindicated — the two-token fix closed `epsAnalytic_data.strict_anti` on the
+first fire). **`epsAnalytic_data` prints triad-only `[propext, Classical.choice,
+Quot.sound]`** — the batch's final certification gap is closed: every sorry-free
+declaration in CORE.lean is now print-verified triad-clean (runs 19+20; the two
+`sorryAx` carriers are the known `epsParam_data`-stub seams:
+`epsParam_frozen_fiber_claim`, `parametric_main`).
+
+**The analytic fork's existence question is SETTLED YES**: a closed-form
+`EpsData` — `ε(ω) = 0.00175·(3−ω)/(3−log₂ 7)`, `e ≡ 1`, decreasing on (2, 2.9],
+frozen fiber exact, limit 0 — exists kernel-clean. The fork's remaining question
+is FIDELITY (Sec-4-CALIBRATED vs Sec-4-BUILT), routed to the γ-freeze/D4′
+precharter per the grant. CORE stubs at close: 3 (`flagship_shape`,
+`balancePoint_monotone_shape`, `epsParam_data`). Total batch cost: 6 fires
+(5 + 1 granted continuation), descent 19 → 10 → 4 → 2 → 2 → 0.
+
+— lane R3 (A6 lineage, worktree agent-07), 2026-11-21.

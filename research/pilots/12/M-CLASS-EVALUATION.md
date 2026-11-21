@@ -97,3 +97,15 @@ sha chain and per-fire verdicts in `CORE-record.md` §TRANCHE CLOSE and
   symbolic route consumes it directly.
 
 — lane R3, 2026-11-21.
+
+### Run-20 addendum (2026-11-21): the analytic arm is GREEN + triad-clean
+
+`epsAnalytic_data` certified `[propext, Classical.choice, Quot.sound]`
+(`logs/sresidue-run20-green.log`). The §ITER-7 UPDATE's one-token park is LIFTED;
+the fork's existence question is settled YES. For the D4′ precharter: the analytic
+arm is a CONCRETE, kernel-clean fallback for any `EpsData`-consumer (its `e ≡ 1`
+discharges every `he` binder outright; its `hδ` obligations reduce to
+`E.ε ωb ≤ cap` arithmetic on the explicit formula). Fidelity (Sec-4-built) remains
+the only open fork question.
+
+— lane R3, 2026-11-21.

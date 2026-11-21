@@ -1,0 +1,56 @@
+# pilot-12 iter-7 S-residue sweep — run 20 (the GRANTED continuation fire; lane R3, 2026-11-21)
+# App crossmath-pilot-12core (ephemeral modal, doz CLI); substrate mathlib4 @ ff2494ea, v4.36.0-rc2;
+# SPEC cpu=2.0/mem=4096 (soft), LEAN_NUM_THREADS=2, telemetry inline (OVER mem = known mmapped-olean class).
+# Repo CORE.lean b5e5e1d9bb667597 (the applied-unfired continuation state, fired AS-IS per the grant);
+# staged axcheck copy b1d1c152214b6f78 (+ epsAnalytic_data print only); P0.lean ea5285a32db350c4 rode unchanged.
+# VERDICT: CORE.lean PROBE-OK rc=0 errors=0 sorry=3 (expected shape) — the D7 park LIFTS;
+# epsAnalytic_data triad-only [propext, Classical.choice, Quot.sound] — the analytic fork's existence
+# question settled YES in closed form. P0 PROBE-OK sorry=7 (stable).
+
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-2gnTyzSURTlf1pK1xP0EdC
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[p12core] CORE.lean: PROBE-OK rc=0 errors=0 sorry=3
+---- axioms ----
+'CrossMath.Pilot12P0.epsAnalytic_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+CORE.lean:362:8: warning: declaration uses `sorry`
+CORE.lean:384:8: warning: declaration uses `sorry`
+CORE.lean:1128:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1356:4: warning: declaration uses `sorry`
+'CrossMath.Pilot12P0.epsAnalytic_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== P0.lean
+[tele] t=60s cpu=0.92 mem=8129MB anon=0MB peak=-1MB procs=2 OVER mem
+{'CORE.lean': 'PROBE-OK rc=0 errors=0 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: PROBE-OK rc=0 errors=0 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=64s max_cpu=0.92 max_mem=8129MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-2gnTyzSURTlf1pK1xP0EdC
