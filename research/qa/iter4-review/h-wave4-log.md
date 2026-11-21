@@ -1623,3 +1623,29 @@ Cause chain: session on zai-offpeak-idle-plan → platform reclaimed off-peak co
    (D1′ quota Option A; the day-1 grants: Ξ_K′ Stage-1, M3-A2 continuation, η R7/R8
    fresh-grant, the H4 pre-solve unit, the census consolidation).
 — the orchestrator, 2026-11-21. The loop continues: iteration 7 opens now.
+
+## 2026-11-21 — SESSION TERMINATION WRAP (user-ordered, orchestrator-direct; iteration 7 mid-flight)
+
+**Cause:** the user terminated the session for a fresh-continuation restart (planned, not a failure — no off-peak reclaim, no context event). **State at wrap: main CLEAN at `c0230e3`; all landed artifacts committed (the iter-6 close `f0af143` + wrap `a352952` + the iter-7 open + day-1 + the FIRST SHIP `0924078` + the ship family `fc3e185`).**
+
+**The day's arc (2026-11-21, this session):** the iter-6 resume → the full fire program (eta-r4 ledger CLOSED; the 12-core S-tranche CLOSED w/ two forced-honest amendments; H4 E1 kernel; M3 permanent park) → the post-referee verification sweep → the accessibility pass COMPLETE → the close (G1–G8 PASS, one ship 41H3, KPI 9/17, quota UNSPENT third-consecutive w/ Option A adopted) → the iter-7 open (charter spliced, D1′–D6′) → day-1 → **article-12 SHIPPED (the γ-freeze interface cap; 10/18 ≈ 55.6%)** → the γ evidence family kernel-complete, the 12-core iter-7 batch GREEN (route16_symbolic PROVED, the analytic fork settled), the η-R7 bridge GREEN, the Ξ tranches banked at solid state. 94 landings.
+
+**The lanes' in-flight state at termination (worktrees carry everything; re-spawn fresh, verify-then-continue per the sha guards):**
+- **R8/agent-05** — the two-arm assembly + axcheck was IN FLIGHT (firing minutes before the wrap; `/tmp/zzv2r8c-axcheck-raw.log` 15:14 rescued). Its eta-r8 park files landed `652e28a`; the continuation bytes (fix round consumed R7's bridge, unconditional conversion, the axcheck over the fired bytes) are worktree-side UNREPORTED — the fresh R8 re-spawns, inventories its dirty state against the landed shas, completes the unit, reports.
+- **R4/agent-08** — the constraint-propagation pre-solve IN FLIGHT (charter cda679ec; the presolve7 contracts landed; the run state worktree-side). Fresh R4 inventories + continues; ANY survivor output = the F/E2-positive certificate DATA relay immediately.
+- **R6/agent-06** — the CDKN carrier ladder IN FLIGHT (chartered at 3afd726; the first-fire TauCeti bootstrap verdict gates the ladder). Fresh R6 continues.
+- **R9/agent-09** — the Ξ arc BANKED at a solid tranche close (standing GREEN inventory; the whole-file-GREEN one-fix and the Gauss-sum construction unit both BANKED, re-charter on wave-2). Fresh R9 holds/reports.
+- **R7/agent-10** — the ship family discharged (companion landed `fc3e185`); the close-skeleton EXPANSION trigger is MET (first ship). Fresh R7 expands the skeleton.
+- **R5/agent-04** — the R8-read rubric armed (fires on R8's completion); the wrap §5 landed.
+- **R2/agent-03** — gates armed; the quota day-1 UNSPENT-FINAL ruling stands (the re-open trigger: a 10/18-class headroom event is NOW LIVE post-ship — **the re-open trigger has FIRED by the ship itself; the day-1 ruling's own clause applies: re-rule on the orchestrator's motion** — the fresh orchestrator decides FB-2 spend or hold).
+- **R3/agent-07** — the S-residue batch closed GREEN; the analytic fork's fidelity question routes to the γ/D4′ precharter chain.
+- **R1/agent-02** — the G-pool prestage begins at the first iter-7 fire logs (many now landed); fresh R1 prestages.
+- **helper/agent-01** — the standing watch (ghost silent since 12:37:50 through three opens/closes; the snapshot tooling live).
+
+**Restart map (fresh session, in order):**
+1. Read `AGENTS.md` → `research/RESEARCH.md` §Iteration 7 → this entry → `research/ORCHESTRATION-ITER7.md` → `research/RESUME-BRIEF-ITER7.md` §SESSION END.
+2. Verify main CLEAN at `c0230e3`+; worktrees on `carry-20261121-agent-NN` (in-flight states preserved; never clean/restore them — lanes inventory their own dirt against the landed shas).
+3. Re-spawn 10 lanes one-by-one (sticky topology; the ORCHESTRATION-ITER7 map) — fresh subagents, background notifications.
+4. FIRST ORCHESTRATOR DECISION: the quota re-open trigger FIRED (article-12 shipped ⇒ 10/18 headroom-class) — re-rule FB-2 spend or hold per R2's disposition §2.
+5. The day-1 continuations per lane above (R8 complete-and-report; R4 pre-solve continue; R6 ladder continue; R7 skeleton expand; R1 prestage).
+6. Guard rails unchanged: lanes never commit/stash; Modal rules (doz CLI, SPEC 2/4GB, LEAN_NUM_THREADS=2, telemetry in-log, one-liners); the ghost containment (silent; the snapshot tooling live); the loop terminates only externally.

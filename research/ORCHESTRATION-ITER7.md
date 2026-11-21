@@ -31,3 +31,21 @@ iter-7 runners; the companion-sync rule binds all article revisions; honest-park
 site-closure ≠ certification; the ghost containment + the worktree traps
 (shared-stash / foreign-origin) carry. Day-1 fire records land worktree-side until
 the day-1 batch. The loop terminates only externally.
+
+## PAUSED — user-ordered session termination (2026-11-21; iteration 7 mid-flight)
+
+| Lane | Worktree | State at pause |
+|---|---|---|
+| H | (main) | CLEAN at `c0230e3`; the ship + all day-1 landings committed |
+| R1 | agent-02 | standby (the G-pool prestage begins at the landed iter-7 fire logs) |
+| R2 | agent-03 | standby (gates armed; **the quota re-open trigger FIRED by the ship — the fresh session's first decision**) |
+| R3 | agent-07 | batch closed GREEN (route16_symbolic proved; the analytic fork settled); standby |
+| R4 | agent-08 | **IN FLIGHT** (the pre-solve; state worktree-side) |
+| R5 | agent-04 | standby (the R8-read rubric armed; the wrap §5 landed) |
+| R6 | agent-06 | **IN FLIGHT** (the CDKN ladder; state worktree-side) |
+| R7 | agent-10 | the ship family discharged (`fc3e185`); the skeleton-expansion trigger MET → fresh R7 expands |
+| R8 | agent-05 | **IN FLIGHT** (the two-arm + axcheck, firing at termination; bytes worktree-side unreported) |
+| R9 | agent-09 | banked/holding (the whole-file-GREEN one-fix + the Gauss-sum unit re-charter on wave-2) |
+| helper | agent-01 | the standing watch (ghost silent; snapshots clean) |
+
+Restart map: `RESUME-BRIEF-ITER7.md` §SESSION END. The loop terminates only externally; the fresh session re-spawns and continues.

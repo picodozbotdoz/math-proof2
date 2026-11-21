@@ -95,3 +95,35 @@ interrupted-units map (sha-guarded), restart map. Nothing here is pre-fillable.]
 
 — pre-drafted by lane R6 (worktree agent-06) @ `7d7fcdd`, 2026-11-21. PREP ONLY; the
 wrap commit consumes this file; INDEX row rides H's landing.
+
+## SESSION END — user-ordered termination (2026-11-21; iteration 7 mid-flight, wrapped orchestrator-direct)
+
+**Cause:** the user terminated the session for a fresh-continuation restart (planned). **Nothing lost: main CLEAN at `c0230e3`, every landed artifact committed, all lane states worktree-preserved.**
+
+### (a) State at termination
+
+- **Iteration 7's first ship LANDED: article-12** (the γ-freeze interface cap, NEGATIVE quota-free per the D4′ fork; 4 theorems PROVED-UNCONDITIONAL triad; the Remark-20 challenge-stub delta; the ship family = `0924078` + companion/registry `fc3e185`). **Discovery-grade share 10/18 ≈ 55.6%.**
+- Also closed this session-span: the iter-6 close (`f0af143`, G1–G8 PASS, one ship 41H3, KPI 9/17, quota UNSPENT third-consecutive, Option A adopted) + wrap (`a352952`); the iter-7 open (`4906376`/`e415e77`/`d429d19`); the 12-core iter-7 batch GREEN (`route16_symbolic` PROVED at fully-symbolic; the analytic fork's existence settled; 37/37 triad — the Choice custody discharged); the η-R7 bridge GREEN (`061b64f5`, 16/16, **P1's hKS binder DISCHARGEABLE**); the Ξ tranches banked (20 fires, zero math defects; M1 GREEN 11/11 + two mathematical corrections; the offset-1 self-correction; the χMod3-absence datum); the γ evidence family kernel-complete (N1's `savings_cap_frozen` + N2's witness); the quota Option-A day-1 ruling EXECUTED (UNSPENT-FINAL + the re-open trigger).
+
+### (b) THE FIRST DECISION OF THE FRESH SESSION
+
+**The quota re-open trigger FIRED** (article-12 shipped ⇒ 10/18 = the R-B(b1)-class headroom the day-1 ruling named). Per `r2-iter7-quota-disposition.md` §2: re-rule on the orchestrator's motion — SPEND-ON-FB-2 (the four strength conditions + the never-FB-4 clause) or hold UNSPENT. R2's disposition file is the decision basis.
+
+### (c) INTERRUPTED UNITS (worktree states preserved; re-spawn fresh, inventory-then-continue)
+
+1. **R8/agent-05** — the two-arm assembly + axcheck IN FLIGHT at termination (firing ~15:14; the raw rescued). The eta-r8 park landed `652e28a`; continuation bytes worktree-side UNREPORTED. Fresh R8: inventory dirty-vs-landed, complete, report → R5's armed read fires.
+2. **R4/agent-08** — the H4 constraint-propagation pre-solve IN FLIGHT. Fresh R4 continues (any survivor = the certificate-DATA relay).
+3. **R6/agent-06** — the CDKN carrier ladder IN FLIGHT (the TauCeti bootstrap gates T1 work). Fresh R6 continues.
+4. **R7/agent-10** — the skeleton EXPANSION trigger MET (first ship). Fresh R7 expands the close skeleton.
+5. **R9/agent-09** — banked/holding (the whole-file-GREEN one-fix + the Gauss-sum construction unit re-charter on wave-2).
+6. **R5/R2/R3/R1/helper** — armed standbys per the tracker table.
+
+### (d) RESTART MAP
+
+1. Read: `AGENTS.md` → `RESEARCH.md` §Iteration 7 → this §SESSION END → `ORCHESTRATION-ITER7.md` → the wave-log wrap entry (`qa/iter4-review/h-wave4-log.md`, 2026-11-21 session-termination section).
+2. Verify main CLEAN at `c0230e3`+; worktrees on `carry-20261121-agent-NN` (never clean/restore — lanes inventory their own dirt).
+3. Re-spawn 10 lanes one-by-one (sticky; the ORCHESTRATION-ITER7 map; background notifications; re-task immediately on completion).
+4. Decide (b) first.
+5. Guard rails: lanes never commit/stash; Modal rules (doz CLI, SPEC 2/4GB, LEAN_NUM_THREADS=2, telemetry in-log, the D5′ one-liners); the ghost containment (silent; `research/qa/ghost_snapshot.sh` live; the quarantine protocol); the worktree traps (shared stash, foreign origin — ff-only via local sha); the loop terminates only externally.
+
+— wrapped by the orchestrator, 2026-11-21.
