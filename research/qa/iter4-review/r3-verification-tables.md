@@ -2847,3 +2847,60 @@ remains history. Post-revision sweep annotations landed same session: the §4
 (`16307eca`/`cb3da4ae`) are SHIP-TIME snapshots — both articles were revised in place
 by the 2026-11-21 external-referee set (`2bfe771` + `2ea25a9`); the rows stand as
 landing records, the live article bytes are the v-rev.*
+## §13 — Iteration-6 close verification summary (post-mortem fold; lane R1, iter-7 day-1, 2026-11-21)
+
+The close act (commit `f0af143`, gates G1–G8 all PASS per `qa/iter6-closeout-gates.md`
+EXECUTED) on the closing tree `c5eafc0`. Evidence of record, this lane's own runs:
+
+- **G1 (Step-A certificate): 77 real-tokens over 133 files, 0 UNEXPLAINED** (49 carry
+  + 7 12/P0 stubs + 7 12/CORE interface stubs + 8 H4-probe + 6 Xi-stmt-probe + 0
+  H4.lean + 0 N2-P4V2; the 66 = 52−3+17 basis reproduced EXACTLY at `6306dbe`;
+  Branch A — the 12-core arc closed GREEN, no further discharges). The dry-run =
+  `r1-g2pool-iter6-prestage.md` §G1-DRY (fill-not-compute; the gates §G1 record
+  cites it).
+- **G2 Part (i) — the Step-B batch** (`feasibility/probe/logs/axcheck-iter6-close-run1.log`
+  `4b9f411a`, wall 979 s, telemetry OVER-mem anon=0 = the authorized mmapped class):
+  **73 stages = 68 OK + 5 FAIL, the FAILs EXACTLY the pre-declared classes** (42_M4b +
+  ZZV2_etaR4 donor-tree; 77_T1 donor-pin; AL3D_A2 the run-9 park [7 sorryAx as
+  predicted]; P72M1_T3 the L3 v16 park [18 sorryAx]) — ZERO other FAILs. OK stages
+  all sorryAx-lines=0 except **AxPilot12_CORE: OK, 28 axiom-lines, 8 sorryAx = the
+  DECLARED interface class** (7 stubs + 1 transitive consumer; run-14's rc=0
+  whole-file stands; the 13-name Choice custody rider RIDES to iter-7 — full
+  coverage owed at the NEXT 12-core fire, the route-15 family). Axiom census
+  2314 records / 1037 distinct decls: 1856 exact-triad + 419 subset-triad + 30
+  with-sorryAx (all inside the 3 declared park stages) + 9 wrap/truncation
+  artifacts (clean-twin-verified or FAIL-park-confined) — **zero genuine non-triad
+  on any OK stage**.
+- **G2 Part (ii) — the eta donor-tree full-coverage custody**
+  (`pilots/zzv2-lam/logs/axcheck-eta-fullcoverage-run1.log` `bd0eaeeb`; runner
+  `run_zzv2_axcheck.py` `e008dc96`; mathlib at pin in-log; wall 687 s, the
+  authorized build-phase class): eta-r2/r3/r4 ALL OK 0-sorry; **21/21 distinct
+  decls EXACTLY triad, 0 missing, 0 sorryAx** — the port family's AxFC custody
+  DISCHARGED.
+- **Census reconciliation: 605 → 666 print-verified triad-clean (+18 donor rows)**
+  — the close-out record's cell (RESEARCH.md §Iteration 6 close-out). Row-level
+  basis = the §12 inventory: every iter-6 GREEN row printed triad at the batch
+  (A1 44 lines first-full-GREEN; 12_CORE 20 clean of 28; H3 27 publics; H4 11;
+  the N2P1 chain 33) or at Part ii (eta 21); the park/donor rows ride their
+  declared classes exactly (AL3D_A2, L3-v16, 77_T1, 42_M4b, ZZV2_etaR4 →
+  donor-tree verdicts of record). Arithmetic attribution of the +61 = H's
+  close computation (distinct-decl instrument); no §12 row contradicts it.
+- **Row-state updates the close implies (folded here, one line each):**
+  1. §11 eta-r4 parked row — CLOSED by run-14 GREEN + Part-ii custody (the
+     06ad527f→285a411e cross-note's fire has happened and passed).
+  2. §12 SHIP EVENT shas — ship-time snapshots (annotated in-fold previously).
+  3. The 41H3 16-helper print rider — **DISCHARGED at the batch** (H3 stage 35
+     lines 0 sorryAx); re-arms only if H3.lean edits again.
+  4. AL3D_A2 — plain-batch FAIL class CONFIRMED as declared; the iter-7 D2′(b)
+     continuation grant (2–4 fires at the frozen triple) is the row's live
+     next-action.
+  5. The 12-core 13-name Choice custody rider — carried to iter-7 (the next
+     12-core fire owes the axcheck_full sweep).
+- **Iter-7 funnel continuity:** iter-7 fire rows land in a §14 opened at the first
+  landed log (Ξ_K′ Stage-1 / η R7 / η R8 / route-15 dispatched day-1; the G-pool
+  prestage begins on those landings — same recipe: enumerate → stage map → guards →
+  payload-moved flags → batch command lines; the runner one-liners per D5′ bind all
+  new runners).
+
+— folded by lane R1 (verification-integrity), worktree agent-02 @ `d429d19`,
+2026-11-21. Iter-6 verification duty CLOSED; iter-7 standby active.
