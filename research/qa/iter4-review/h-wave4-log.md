@@ -1558,3 +1558,35 @@ six verdict slots + item-13 GREEN at batch-CCC + R1's item-13 fold staged):
 ## 2026-11-21 — SESSION PAUSE (user-ordered) + the off_peak_cancelled diagnosis (orchestrator-direct)
 
 Cause chain: session on zai-offpeak-idle-plan → platform reclaimed off-peak compute 21:16–21:19 (R5+R3 transcripts end `off_peak_cancelled`; db turn_usage UNKNOWN_ERROR; zero context_exceeded all day — the hard-stop class was NOT context) → all other lanes in designed standby ⇒ zero running tasks ⇒ silence → session migrated to zai-individual-coding-plan (reload banner). The orchestrator's immediate re-spawn of R5/R3 ran under the NEW plan — **user ruling: unnecessary and wrong; lanes stopped, heartbeat automation deleted; resume only under the same plan family on the user's signal.** Lessons: (1) a cancelled lane cannot be SendMessage-resumed — fresh spawn w/ the standing order (worktree sha-guard makes this safe); (2) check the session's plan BEFORE spawning; (3) inter-turn silence up to ~25 min is normal async-protocol behavior, not death. /tmp sidecar note: guard files (al3d-prefire-sha-*, crossmath-*-last.sha) and p12-core raw logs were ephemeral; their content is superseded by the landed logs (core-runs4-9.log, the 8 al3d run logs) — no rescue owed.
+
+## 2026-11-21 — THE RESUME (H; orchestrator-direct; 10 lanes re-spawned)
+
+- **Plan-check PASS** (the §SESSION END directive): the session runs on the offpeak-idle
+  plan family + the user's explicit resume instruction ⇒ spawn authorized.
+- **Pre-spawn mechanics:** R5's interrupted payload rescued — agent-04's `eta-r4.lean`
+  @ `285a411e48c3ad1e` (routes (b) div_const + casts + heartbeat PRE-APPLIED UNFIRED;
+  diff inspected = the resume map's description exactly) LANDED at `0df2546`. The
+  articles introduction draft set (17 stems + `_SPEC` + the post-review marker) landed
+  UNVERIFIED at `ef1e7bd` so verification lanes work from one source of truth. All 10
+  worktrees forwarded to `ef1e7bd` on fresh branches `carry-20261121-agent-NN` (stash +
+  `.carry/2026-11-21-resume/` belt-and-braces). **LESSON: the stash stack is SHARED
+  across worktrees — lanes are briefed never to touch `git stash`; the `.carry` file
+  backups are the canonical rescue.**
+- **Substrate:** no orphan Modal apps; `sudo -n -u xyz` WORKS AGAIN (probe PASS — the
+  2026-11-13 "blocked" note is stale for this environment); doz CLI stays PRIMARY
+  (§(b)3, warm caches), xyz = documented fallback. AGENTS.md edit is user-gated — the
+  helper lane drafts the amendment for the user's approval.
+- **10 lanes spawned one-by-one** (sticky; background notifications, no log polling;
+  re-task on completion): R5 eta-r4 grant-fire-2 @ `285a411e` as-is · R3 12-core
+  closing batch (≤5 fires; the Choice.lean:60–244 rpow port @ η=0.0315 →
+  `ChoiceSumInputs` → `route16_MMgeneral`) · R8 M3 variant-1 ONE scoped fire @ P0
+  `c6752422` (absolute cap; NOT-GREEN ⇒ permanent park) · R9 novelty-verification
+  queue (post-referee novelty posture + seed-census re-verification, decl-index-v3
+  with direct-source checks) · R1 post-revision integrity sweep (article sha-pins,
+  ledger §12/README consistency, sorry-free diff check) · R2 D1 quota contest (FB-2
+  follow-on + the iter-6 disposition draft) · R4 L3 re-charter per `db872dc5` under
+  D6 · R6+R7 introduction verification batches A/B (post-revision consistency is the
+  critical check) + the registry draft · helper (agent-01): carry-scratch triage +
+  INDEX drift prep + substrate-note draft + health snapshot.
+- **Wave-2 queue re-keyed:** the H3.lean custody-rider item is SUPERSEDED (custody
+  settled at `2ea25a9`, option-a archive, 0 survivors / ~2.97e8 systems) — dropped.

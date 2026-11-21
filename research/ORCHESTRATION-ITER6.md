@@ -44,3 +44,28 @@ Day-1 fire records land worktree-side until the opening commit.
 | R9 | agent-09 | standby (novelty-verification queue armed; typeset delivered) |
 
 Restart map: RESUME-BRIEF-ITER6 §SESSION END (plan check FIRST per the user directive).
+
+## RESUMED — 2026-11-21 (orchestrator; 10 lanes re-spawned sticky; the pause table above is the historical state)
+
+Base `ef1e7bd` (R5's payload `285a411e` landed `0df2546`; the introduction draft set
+landed unverified for lane verification). All worktrees on `carry-20261121-agent-NN`,
+prior state in `.carry/2026-11-21-resume/`. NO `git stash` lane-side (shared stack).
+
+| Lane | Worktree | Resumed unit | Status |
+|---|---|---|---|
+| H | (main) | sole committer; lands lane batches on reports; INDEX rows ride | active |
+| R1 | agent-02 | post-revision integrity sweep (sha-pins / ledger §12 / sorry-free diff) | active |
+| R2 | agent-03 | D1 quota contest: FB-2 follow-on + iter-6 disposition draft | active |
+| R3 | agent-07 | 12-core closing batch (Choice.lean:60–244 rpow port @ η=0.0315; ≤5 fires) | active |
+| R4 | agent-08 | L3 re-charter per stop-note `db872dc5` (D6 terms; no fires) | active |
+| R5 | agent-04 | eta-r4 grant-fire-2 @ `285a411e` as-is (≤3 band; no re-fire w/o grant) | active |
+| R6 | agent-06 | introduction verification batch A (8 stems + 41 spot-check) | active |
+| R7 | agent-10 | introduction verification batch B (8 stems) + registry draft | active |
+| R8 | agent-05 | M3 variant-1 ONE scoped fire @ P0 `c6752422` (absolute cap) | active |
+| R9 | agent-09 | novelty-verification queue (post-referee posture + seed census) | active |
+| helper | agent-01 | carry-scratch triage; INDEX drift prep; substrate draft; health | active |
+
+Wave-2 queue (post-resume): M3 variant-1 re-scope = R8 (in flight); L3 re-charter = R4
+(in flight); FB-2 follow-on = R2 (in flight); H3.lean custody-rider = SUPERSEDED
+(settled `2ea25a9`). Loop terminates only externally; re-task lanes immediately on
+completion notifications (10 lanes fully utilized).
