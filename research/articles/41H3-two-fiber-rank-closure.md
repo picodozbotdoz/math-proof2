@@ -20,7 +20,7 @@ is the n ≥ 4 continuation the 41H §7 remainder named) · artifacts:
 | **Thm C2 — the generalized lifting** `tableExpand`: any row family with the 8·-scaled basis certificate expands to ALL integer function vectors (H2's lifting exists once, over an arbitrary family) | PROVED-UNCONDITIONAL | none as content — the certificate enters as the `hbasis` binder, a property of the row family proved for both fibers by C1's expansion theorems, not an open hypothesis | `H3.lean:278`, audit triad (`h3-s-run1.log:58`); instances `sigmaExpand`/`sigmaOneExpand` triad (`:59–60`) |
 | **Thm C3 — the two-fiber rank no-go** `no_realization_dim7` + `no_realization_dim7_one` (via `table_rank_nogo`, the strand-free generalization over an arbitrary index list): NO d ≤ 7-dimensional linear-functional realization of EITHER certified table | PROVED-UNCONDITIONAL | none as mathematical content — the (C, Φ, v, hv, hdep) binders unfold "given any d ≤ 7 realization" (pigeonhole 8 > 7) | `H3.lean:422/:433` (general :369), audit triad ×3 (`h3-s-run1.log:61–63`) |
 | Witness `sigmaOne_asym_witness`: σ₊(100,010) = −σ₊(010,100) | PROVED-UNCONDITIONAL | none | `H3.lean:221`, audit [propext] (`h3-s-run1.log:57`) |
-| The pre-solve scans (the empty monomial-word candidate list + planted-solution controls + the record note's structural findings) | **CERTIFIED-NUMERIC** — machinery-validated computation (exact-integer host construction; the scanner's rank/QR path is float-validated by planted controls at residual ~10⁻¹⁴), NOT kernel theorem (the 41H §N3 convention; 2026-11-20 ruling); no archived scripts — the certificate artifact is the record note's formulas and recorded numbers, re-derived twice in-session and re-derivable from those formulas; never in the proved-artifact counts | n/a (computation class) | `H3-M-candidates.md` §1–§2 (`7647a1f9`) |
+| The pre-solve scans (the empty monomial-word candidate list + planted-solution controls + the record note's structural findings) | **CERTIFIED-NUMERIC** — machinery-validated computation (exact-integer host construction; the scanner's rank/QR path is float-validated by planted controls at residual ~10⁻¹³), NOT kernel theorem (the 41H §N3 convention; 2026-11-20 ruling); **generator/checker + outputs ARCHIVED 2026-11-21** at `pilots/41/presolve/` (the custody-settlement re-run of record: per-fiber counts, S1 census and controls reproduced, 0 survivors) — never in the proved-artifact counts | n/a (computation class) | `H3-M-candidates.md` §1–§2 (`7647a1f9`) + `pilots/41/presolve/` (the archive) |
 
 All kernel rows: mathlib `ff2494ea`, Lean v4.36.0-rc2, `import Mathlib` only, zero
 `sorry`, zero `native_decide`, no tauceti import at any point (statement-binder
@@ -33,14 +33,15 @@ The q-deformed eight-square sign rule σ_q asks which algebra hosts realize its
 tier (no 5-dimensional Temperley–Lieb₃ realization at q = −1). We close the
 small-host tier at BOTH closed fibers. First, four kernel certificates, two per
 fiber (Theorem C1, PROVED-UNCONDITIONAL): the q = +1 fiber, the undeformed table,
-is a permuted Walsh matrix (rows = characters of the affine forms a₊(p)·p′, a₊ =
-cumsum + cubic row-gradient), and an asymmetry witness: any q = +1 dictionary is
+is a permuted Walsh matrix (rows = characters of the affine forms a₊(p)·p′), and
+an asymmetry witness: any q = +1 dictionary is
 non-tracial at every strand count. Second (Theorem C3, PROVED-UNCONDITIONAL): the
 strand-free rank obstruction excludes every host of dimension at most 7 at both
 fibers; Temperley–Lieb₄ (dimension 14) is the minimal Temperley–Lieb host. Third, a
 machinery-validated search over the spin host (16-dimensional) finds NO
 monomial-word dictionary at either fiber (CERTIFIED-NUMERIC: computation evidence,
-never kernel; 0 survivors in ~2×10⁸ recorded systems, controls at residual ~10⁻¹⁴);
+never kernel; 0 survivors in ~3×10⁸ systems in the archived per-fiber re-scan,
+controls at residual ~10⁻¹³);
 the structural obstruction: realizable tables span at most 14 of the 64 table
 dimensions. Nearest prior work: the corpus's spin-host Markov-trace machinery,
 which builds the searched host but never poses the prescribed-table realizability
@@ -130,16 +131,23 @@ symmetry, and σ₊(100,010) = −σ₊(010,100) breaks it).
 **The pre-solve (CERTIFIED-NUMERIC, the raised negative).** Over the tauceti spin
 host at n = 4 (the 16-dimensional representation, exact-integer construction from
 the recorded cup/cap/parallel formulas), with the functional ranging over the FULL
-K class: the monomial-word candidate list is EMPTY — 0 survivors in the record
-note's scan counts of 103.2M canonical-word subset systems, 82.6M natural-monomial
-systems, and 13.9M random L ≤ 4 subsets, recorded for the scan at both closed
-fibers (the note states no per-fiber split), with planted-solution controls
-detected at residual ~10⁻¹⁴. The structural root: word products live in the
-14-dimensional word algebra, so realizable tables span ≤ 14 dimensions inside the
-64-dimensional table space — membership of the Walsh table is a codimension-≥50
-condition. The spin host at these fibers spans the FULL 14 dimensions (the
-faithfulness datum) — so the spin-host negative IS a TL₄ generator-word negative
-at δ = ±2 (the fiber-scoped transfer of §1's wording lock).
+K class: the monomial-word candidate list is EMPTY — 0 survivors. The scan of
+record is the 2026-11-21 archived re-run (`pilots/41/presolve/`, generator/checker
+persisted, per-fiber counts; ~3×10⁸ systems): canonical-13 C(13,8) subsets,
+51.9M systems per fiber; natural-monomial 16×128 variants, 82.6M per fiber;
+random L ≤ 4 subsets, 14.1M (m₊, 350 independent of 2500 sampled) and 14.0M
+(m₋, 346 of 2500). The record note's combined counts (103.2M / 82.6M / 13.9M)
+reconcile as its rows 2–3 being one-fiber figures and row 1 short by 7 of the
+1287 subsets per fiber — the re-run covers the full space at both fibers, 0
+survivors everywhere, with planted-solution controls detected at residual ~10⁻¹³
+and far-table residuals at ~7.1 as in the record. The structural root: word
+products live in the 14-dimensional word algebra, so realizable tables span
+≤ 14 dimensions inside the 64-dimensional table space — membership of the Walsh
+table is a codimension-≥50 condition (the scan's minimum distance to any scanned
+monomial subspace is 4.8–5.6). The spin host at these fibers spans the FULL 14
+dimensions (the faithfulness datum) — so the spin-host negative IS a TL₄
+generator-word negative at δ = ±2 (the fiber-scoped transfer of §1's wording
+lock).
 
 **Corollary (the search's state).** At both closed fibers: no dictionary through
 tracial evaluations (companion Thm A, extended by the new witness); none through
@@ -205,8 +213,10 @@ of the file's 27 theorems — the 16 unprinted are public helpers of the printed
 spine (lsum infrastructure, raw forms, membership lemmas, the dotted-name/`@[simp]`
 class a regex sweep misses) — and the standing commitment extends the audit tail to
 all 16 at the next H3.lean edit's verification run, with no dedicated run. The pre-solve
-rows cite `H3-M-candidates.md` as their certificate artifact (recorded formulas;
-scripts ephemeral; never kernel-verified, never in the proved-artifact counts).
+rows cite `H3-M-candidates.md` as their certificate artifact; since the 2026-11-21
+custody settlement the persisted generator/checker + outputs live at
+`pilots/41/presolve/` (the re-run of record, per-fiber counts; controls reproduced;
+never kernel-verified, never in the proved-artifact counts).
 
 ## 7. Limitations and open problems
 

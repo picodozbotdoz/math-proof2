@@ -1,5 +1,18 @@
 # Pilot 41-H3 — M-tranche pre-solve: the spin-host candidate identification (paper-level, no fires)
 
+**[2026-11-21 archival note (custody settlement, orchestrator option (a)):** this
+note's session scripts were ephemeral by design; the scan of record has been
+RE-RUN from the formulas below with a persisted generator/checker at
+`pilots/41/presolve/` (deterministic seed; numpy-only). The re-run reproduces
+every load-bearing number here — S1 census (24/13 at L ≤ 3, 37/14 at L ≤ 4),
+controls (plants ~1e-13, far ±1-tables ~7.1) — and finds **0 survivors in
+~2.97×10⁸ systems** with the PER-FIBER split now explicit (canonical 51.9M/fiber;
+natural 82.6M/fiber; random 14.1M/14.0M). Reconciliation of §1's combined counts:
+its rows 2–3 are one-fiber figures and row 1 is short by 7 of the 1287 canonical
+subsets per fiber (mechanism unverifiable; batch-boundary artifact suspected) —
+the re-run covers the full space at both fibers and strengthens the EMPTY verdict.
+See ledger §12 item 5 and the article's §3 pre-solve paragraph.]
+
 *Lane R4 (worktree agent-08), 2026-11-20, the unit approved on the S-GREEN report
 ("the paper-level spin-host candidate identification — no fires; the concrete
 spin-host word/K candidate list at δ ∈ {−2, +2}, small-K systems pre-solved

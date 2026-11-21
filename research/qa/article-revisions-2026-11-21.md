@@ -57,10 +57,18 @@ Everything else in the 17 reports + corpus review survived verification and was 
    the five dispositions the referees asked moved out of the articles (10 log-truncation,
    52 reverify-cause, 71 transfer fact, 78 A2′ artifact + propagation map, 41H
    determinant record) plus the 41H3 custody state (pending decision, item 3).
-3. **41H3 custody — PENDING DECISION (see ledger §12 item 5):** either archive the
-   pre-solve generator/checker + exact matrices at a re-run (new compute task; also
-   settles the per-fiber count split), or downgrade the CERTIFIED-NUMERIC billing in
-   article + README. The article's current disclosure is accurate either way.
+3. **41H3 custody — SETTLED 2026-11-21 (orchestrator option (a)):** the pre-solve
+   scan re-run with a persisted generator/checker at `pilots/41/presolve/`
+   (deterministic seed, numpy-only, no Modal; 782 s wall on 4 cores). Reproductions:
+   S1 census exact (24/13, 37/14), |det| = 8⁴ both fibers, plants 20/20/fiber at
+   ~1e-13, far ±1-tables ~7.1 (the record's figure), **0 survivors in ~2.97×10⁸
+   systems**; per-fiber split explicit (canonical 51.9M/fiber; natural 82.6M/fiber;
+   random 14.1M/14.0M) and the record's combined counts reconciled (rows 2–3 were
+   one-fiber figures; row 1 short by 7 subsets/fiber — re-run covers the full space
+   and strengthens the negative). Article 41H3 §3/status table/§6/abstract, README
+   row, ledger §12 item 5, and the record note all updated to the archived state.
+   Remaining custody item: the H3.lean print-coverage rider (16 unprinted helpers
+   at the next H3.lean edit) — unchanged, still binding.
 4. **Possible kernel upgrades flagged by the reviews** (each needs a new pilot run, not
    an article edit; recorded at dossier-41's follow-ups block and dossier-78 note (c)):
    41H det M(q) ≠ 0 at generic q (would restore the general real-fibre no-go);

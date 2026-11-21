@@ -383,15 +383,18 @@ directly (`research/feasibility/port-probe.md`).
    complex excluded fibers, per the H2.lean §4 comment) would restore the general
    real-fibre no-go and re-open the "host, if any, at n ≥ 4 strands" corollary at its
    original strength.
-2. **41H3 per-fiber scan split** (settles the 41H3 "per fiber" count comment): the
-   pre-solve record note states its ~1.39×10⁷ random-sampled / ~2×10⁸ enumerated-system
-   counts "at BOTH closed fibers" with no per-fiber split, and the counts do not
-   decompose arithmetically (13,870,080 ≠ 2500 × 40320). Settled either by the record's
-   author adding the split line, or (better, with item 3) by the archived re-run
-   emitting per-fiber counts.
-3. **41H3 custody archive** (settles the CERTIFIED-NUMERIC custody comment): the
-   pre-solve scripts were ephemeral by design — no archived generator/checker, no exact
-   integer matrices; the certificate artifact is the record note's formulas + the
-   float-validated scanner (planted controls ~1e-14). Archiving scripts + outputs at a
-   re-run (or downgrading the billing — pending orchestrator decision) is the standing
-   custody commitment; see article 41H3 §3/§6 and README row 41H3.
+2. **41H3 per-fiber scan split — SETTLED 2026-11-21 (custody settlement, option (a)):**
+   the archived re-run (`pilots/41/presolve/`, deterministic seed 20261121) scanned
+   both fibers explicitly and reports the split: canonical-13 51,891,840 per fiber
+   (all 1287 subsets, 0 rank-skips); natural 82,575,360 per fiber; random-L4
+   14,112,000 (m₊) / 13,950,720 (m₋). Reconciliation: the record note's combined
+   counts were rows 2–3 one-fiber figures and row 1 short by 7 subsets/fiber; the
+   re-run covers the full space (see ledger §12 item 5).
+3. **41H3 custody archive — DONE 2026-11-21 (option (a)):** generator/checker +
+   outputs persisted at `pilots/41/presolve/` (numpy-only, deterministic, no Modal);
+   S1 census, |det| = 8⁴, plants (~1e-13) and far-table residuals (~7.1) all
+   reproduce the record note; **0 survivors in ~2.97×10⁸ systems** (negative
+   strengthened: the re-run covers the 7 previously-unscanned canonical subsets per
+   fiber and both fibers of the natural class). The CERTIFIED-NUMERIC billing
+   stands, now with archived artifacts. The H3.lean print-coverage rider (16
+   unprinted helpers at the next H3.lean edit) remains the only open custody item.

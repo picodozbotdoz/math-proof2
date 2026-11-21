@@ -1,0 +1,134 @@
+{
+ "protocol": "see module docstring \u2014 rebuilt from H3-M-candidates.md formulas",
+ "seed": 20261121,
+ "tolerances": {
+  "rank": 1e-09,
+  "survivor": 1e-08
+ },
+ "fibers": {
+  "m_plus": {
+   "q_spin": -1,
+   "delta": 2,
+   "target": "M_plus (deformation q=+1, eth's sigma)",
+   "s1_census": {
+    "L3_distinct_images": 24,
+    "L3_span_dim": 13,
+    "L4_distinct_images": 37,
+    "L4_span_dim": 14
+   },
+   "controls": {
+    "plants_detected": 20,
+    "plants_requested": 20,
+    "plant_residual_max": 1.2200302860636928e-13,
+    "random_pm1_residual_min": 6.329635511961624,
+    "random_pm1_residual_median": 7.172118423222243,
+    "random_pm1_residual_max": 7.609674293762042,
+    "null_dim_at_reference_subset": 51
+   },
+   "class1_canonical13": {
+    "subsets_total": 1287,
+    "subsets_scanned": 1287,
+    "subsets_rank_skipped": 0,
+    "systems_tested": 51891840,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 5.629190410626471,
+    "phi_rank_min": 8,
+    "phi_rank_max": 14
+   },
+   "class2_natural": {
+    "subsets_total": 2048,
+    "subsets_scanned": 2048,
+    "subsets_rank_skipped": 0,
+    "systems_tested": 82575360,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 5.760199922042177,
+    "phi_rank_min": 13,
+    "phi_rank_max": 14
+   },
+   "class3_random_L4": {
+    "subsets_total": 2500,
+    "subsets_scanned": 350,
+    "subsets_rank_skipped": 2150,
+    "systems_tested": 14112000,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 5.7386751109235465,
+    "phi_rank_min": 8,
+    "phi_rank_max": 14
+   }
+  },
+  "m_minus": {
+   "q_spin": 1,
+   "delta": -2,
+   "target": "M_minus (deformation q=-1, (-1)^phiQ)",
+   "s1_census": {
+    "L3_distinct_images": 24,
+    "L3_span_dim": 13,
+    "L4_distinct_images": 37,
+    "L4_span_dim": 14
+   },
+   "controls": {
+    "plants_detected": 20,
+    "plants_requested": 20,
+    "plant_residual_max": 1.5494288129523282e-13,
+    "random_pm1_residual_min": 6.42372833440874,
+    "random_pm1_residual_median": 7.206147333548298,
+    "random_pm1_residual_max": 7.590407480121586,
+    "null_dim_at_reference_subset": 51
+   },
+   "class1_canonical13": {
+    "subsets_total": 1287,
+    "subsets_scanned": 1287,
+    "subsets_rank_skipped": 0,
+    "systems_tested": 51891840,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 4.842387661027255,
+    "phi_rank_min": 8,
+    "phi_rank_max": 14
+   },
+   "class2_natural": {
+    "subsets_total": 2048,
+    "subsets_scanned": 2048,
+    "subsets_rank_skipped": 0,
+    "systems_tested": 82575360,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 4.888330883271942,
+    "phi_rank_min": 13,
+    "phi_rank_max": 14
+   },
+   "class3_random_L4": {
+    "subsets_total": 2500,
+    "subsets_scanned": 346,
+    "subsets_rank_skipped": 2154,
+    "systems_tested": 13950720,
+    "survivors": 0,
+    "min_residual_over_all_assignments": 5.353698954360619,
+    "phi_rank_min": 8,
+    "phi_rank_max": 14
+   }
+  }
+ },
+ "totals_per_fiber": {
+  "class1_canonical13": {
+   "m_plus": 51891840,
+   "m_minus": 51891840
+  },
+  "class2_natural": {
+   "m_plus": 82575360,
+   "m_minus": 82575360
+  },
+  "class3_random_L4": {
+   "m_plus": 14112000,
+   "m_minus": 13950720
+  }
+ },
+ "totals_both_fibers": {
+  "class1_canonical13": 103783680,
+  "class2_natural": 165150720,
+  "class3_random_L4": 28062720
+ },
+ "record_note_counts": {
+  "class1_canonical13": 103219200,
+  "class2_natural": 82575360,
+  "class3_random_L4": 13870080
+ }
+}

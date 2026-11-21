@@ -465,16 +465,25 @@ articles now cite this ledger as the narration home; per-article detail in
    Kernel upgrade that would settle the referee's finding-3 comment (A2 back-substitution
    conjuncts — they hold numerically in P0's identical definition layer): needs a new
    pilot run; recorded at dossier-78 note (c).
-5. **Article 41H3 (custody state — PENDING ORCHESTRATOR DECISION).** The CERTIFIED-NUMERIC
-   pre-solve (monomial-class scan, ~2×10⁸ enumerated systems + ~1.39×10⁷ random-sampled,
-   both closed fibers) has NO archived generator/checker scripts (ephemeral by design)
-   and NO archived exact integer matrices; the certificate artifact of record is the
-   note's recorded formulas + the float-validated scanner (planted controls ~1e-14),
-   disclosed as such in article v-rev §3/§6 and README row 41H3. Two settlement options:
-   (a) re-run the scan with persisted scripts + per-fiber count outputs (new compute
-   task, Modal CPU; also settles the per-fiber split question), or (b) downgrade the
-   billing to computation-evidence/PAPER-ONLY in article + README. No action taken in
-   this pass; the article's disclosure is accurate as it stands.
+5. **Article 41H3 (custody) — RESOLVED 2026-11-21, option (a) executed (orchestrator
+   decision).** The CERTIFIED-NUMERIC pre-solve now has a persisted generator/checker
+   + outputs: `pilots/41/presolve/` (`h3_presolve_archive.py` + `README.md` +
+   `outputs/` — host matrices, target tables, per-fiber scan results, run log;
+   numpy-only, deterministic seed 20261121, no Modal). The re-run of record
+   (782 s wall, 4 cores) reproduces the record note's S1 census exactly (24/13 at
+   L ≤ 3, 37/14 at L ≤ 4), both targets |det| = 8⁴, plants 20/20 per fiber at
+   residual ~1.2–1.6e-13, far ±1-tables at median ~7.17–7.21 (the record's "~7.1"),
+   and **0 survivors in ~2.97×10⁸ systems**. Per-fiber split now explicit:
+   canonical-13 51,891,840 per fiber (all 1287 subsets, 0 rank-skips); natural
+   82,575,360 per fiber (2048 variants); random-L4 14,112,000 (m₊, 350 of 2500
+   independent) / 13,950,720 (m₋, 346). Reconciliation: the record's combined
+   counts (103,219,200 / 82,575,360 / 13,870,080) read as rows 2–3 being ONE-fiber
+   figures and row 1 short by 7 of 1287 subsets per fiber (mechanism unverifiable —
+   batch-boundary artifact suspected); the re-run covers the full space at both
+   fibers and STRENGTHENS the negative. Min target distance to any scanned monomial
+   subspace: 4.84–5.63. Article v-rev §3/status table/§6 + README row updated to
+   the archived state. The separate H3.lean print-coverage rider (16 unprinted
+   helpers at the next H3.lean edit) remains BINDING and unaffected.
 6. **Article 41H (determinant — unformalized, recorded).** The referee's
    `det M(q) = −512·q·(q⁴+6q²+1)` claim was independently recomputed by the revision
    lane (exact integer interpolation; det M(−1) = 4096 = 8⁴) but is NOT formalized and

@@ -1,0 +1,23 @@
+target M_plus: det = -4096 (C1: |det| = 8^4 = 4096), rank = 8
+target M_minus: det = 4096 (C1: |det| = 8^4 = 4096), rank = 8
+=== fiber m_plus: q_spin = -1 (delta = 2), target M_plus (deformation q=+1, eth's sigma)
+  S1 census: L<=3 words=40 distinct images=24 span dim=13 (record: 24/13 at L<=3, 37/14 at L<=4)
+  S1 census: L<=4 words=121 distinct images=37 span dim=14 (record: 24/13 at L<=3, 37/14 at L<=4)
+  controls [m_plus]: plants detected 20/20 (max planted residual 1.22e-13)
+  controls [m_plus]: 100 random +-1 tables vs a rank-13 monomial subspace: residual min 6.330 / median 7.172 / max 7.610  (record note: ~7.1)
+  canonical-13 C(13,8) [m_plus]: subsets=1287 scanned=1287 rank-skipped=0 systems=51891840 survivors=0 min_residual=5.6292 wall=136.9s (106.4 ms/scanned-subset)
+  natural-monomial 16x128 [m_plus]: subsets=2048 scanned=2048 rank-skipped=0 systems=82575360 survivors=0 min_residual=5.7602 wall=213.0s (104.0 ms/scanned-subset)
+  random-L4 (2500/fiber) [m_plus]: subsets=2500 scanned=350 rank-skipped=2150 systems=14112000 survivors=0 min_residual=5.7387 wall=37.3s (106.4 ms/scanned-subset)
+=== fiber m_minus: q_spin = 1 (delta = -2), target M_minus (deformation q=-1, (-1)^phiQ)
+  S1 census: L<=3 words=40 distinct images=24 span dim=13 (record: 24/13 at L<=3, 37/14 at L<=4)
+  S1 census: L<=4 words=121 distinct images=37 span dim=14 (record: 24/13 at L<=3, 37/14 at L<=4)
+  controls [m_minus]: plants detected 20/20 (max planted residual 1.55e-13)
+  controls [m_minus]: 100 random +-1 tables vs a rank-13 monomial subspace: residual min 6.424 / median 7.206 / max 7.590  (record note: ~7.1)
+  canonical-13 C(13,8) [m_minus]: subsets=1287 scanned=1287 rank-skipped=0 systems=51891840 survivors=0 min_residual=4.8424 wall=136.8s (106.3 ms/scanned-subset)
+  natural-monomial 16x128 [m_minus]: subsets=2048 scanned=2048 rank-skipped=0 systems=82575360 survivors=0 min_residual=4.8883 wall=214.9s (104.9 ms/scanned-subset)
+  random-L4 (2500/fiber) [m_minus]: subsets=2500 scanned=346 rank-skipped=2154 systems=13950720 survivors=0 min_residual=5.3537 wall=37.5s (108.4 ms/scanned-subset)
+TOTALS per fiber: {"class1_canonical13": {"m_plus": 51891840, "m_minus": 51891840}, "class2_natural": {"m_plus": 82575360, "m_minus": 82575360}, "class3_random_L4": {"m_plus": 14112000, "m_minus": 13950720}}
+TOTALS both fibers: {"class1_canonical13": 103783680, "class2_natural": 165150720, "class3_random_L4": 28062720}
+record-note counts (no per-fiber split): {"class1_canonical13": 103219200, "class2_natural": 82575360, "class3_random_L4": 13870080}
+GRAND TOTAL SURVIVORS: 0
+wall total: 782.1s
