@@ -1,4 +1,4 @@
-# zzv2-lam LANDAU η-PORT — PILOT-LEVEL WRAP RECORD (the port-arc close; rungs R0–R6 kernel-complete, R7/R8 banked to iter-7 Tier-2)
+# zzv2-lam LANDAU η-PORT — PILOT-LEVEL WRAP RECORD (the port-arc close; rungs R0–R6 kernel-complete at iter-6, R7 CLOSED GREEN at iter-7 day-1 — see §5 the continuation; R8 firing)
 
 Lane R5 (A3 lineage), 2026-11-21 (worktree agent-04 @ 5c7fac7; REPORT ONLY — H
 commits). **Billing: ENGINEERING DELIVERABLE per DECISION-2 = Option A
@@ -205,3 +205,47 @@ R7 and R8**, flagged for the census owner's iter-7 refresh.
 
 — lane R5 (A3 lineage), 2026-11-21 (worktree agent-04 @ 5c7fac7; REPORT ONLY —
 H lands: this wrap file + the INDEX row)
+
+## 5. CONTINUATION (iter-7 day-1, 2026-11-21) — RUNG R7 CLOSED GREEN: the hKS discharge, the de-freezing move kernel-complete
+
+Landed at main `d6cd72a` (the D2′(c) fresh grant; grant shape = 1 fire + fix
+tail, spent exactly). Record of the rung: `eta-r5-record.md` @ `e712eb82c42fbdd4`.
+
+**The ledger extended** (the port's overall fire history continues; iter-7's
+grant accounting is its own cycle — NOT the closed 14-of-12–13 band):
+
+| # | rung / files | payload shas (fired) | verdict | residue discharged |
+|---|---|---|---|---|
+| 15 | R7 `eta-r5` first fire (+ `eta-r4` anchor, run 6) | `e7234318deb593f4` + `285a411e` | **THE BRIDGE GREEN ON FIRST ELABORATION** (`unweightedKernelSum_cutoffTestLam_tendsto` + B/C/D triad-clean in run 1's own prints); FAIL rc=1 errors=4 sorry=0 — all four in the two NEW projection micro-lemmas | decode: `Complex.im_ofReal` name-drift (pin = `Complex.ofReal_im`, TwoDim.lean:451 idiom) + cascade; `Tendsto.comp` ∘-vs-lambda ascription; `congr'` orientation reversed |
+| 16 | R7 fix tail (+ `eta-r4` anchor, run 7) | `061b64f593ef5db3` + `285a411e` | **GREEN strict-OK — 16/16 prints triad-clean** (10 carried base + the 6 R7 decls); anchor holds | residue cleared; zero math defects (the whole port's history: every error class mechanical) |
+
+Logs: `logs/eta-r4-run6-eta-r5-run1.log` `f8c4e152` + `logs/eta-r4-run7-eta-r5-run2.log`
+`272bf676` (telemetry dispositions IN-LOG both; the authorized m4b2/G2
+build-phase class; walls 639/607 s; mem ≤ 2835 MB anon=0).
+
+**What the kernel now holds, R7 additions** (all print-verified triad-clean in
+`eta-r5.lean`, self-contained per the port convention — the eta-r4 base
+verbatim + the rung-2 trio (B)/(C)/(D) re-established from eta-r2 + the R7
+layer): the **bridge at the scaled family** (the donor `Zeta/Kernel.lean:600`
+statement, proved via the PUBLIC `PairCorrelation.tendsto` at the rung-2
+instances + the R6-4 identity — the private-chain finding of §1 fully worked
+around, nothing private consumed); the **`ScaledBridge` projection**
+(`.re / zeroScale` at `scaledConstLam`, probe :159); and the **discharge glue**
+— `KSAsymptotic lam (scaledConstLam lam psi)` for every cutoff ψ on the honest
+domain `0 < lam ≤ 1/2`, `delta < 1/4`. **P1's `hKS` binder is DISCHARGEABLE —
+the de-freezing move is kernel-complete**; the P1 HARD-STOP's P2 ask is
+discharged on the `lam ∈ (0, 1/2]` arm (P1's own `exists_KSAsymptotic_of_half_le`
+covers `lam ≥ 1/2`).
+
+**The R8 leg (firing):** the two-arm assembly
+(`stmt_exists_KSAsymptotic_of_pos` = P1's half-le arm + R7's scaled arm) + the
+threshold-form improvement (the (ii-c)/(iii) FINDING's antecedent — the honest
+domain is the threshold ρ ∈ (Q(0)/c₀, 1]) + the **full-coverage axcheck sweep
+over the whole port artifact** (pilot-10 pattern) — R8's exit criterion, the
+port's terminal rung. FRESH grant precondition (D2′(c) — one fire each, per
+rung). Residue-class note for R8's own glue: the run-15 projection-micro-lemma
+class (lemma-name drift at the pin; `congr'` orientation; comp-ascription) —
+mechanical, priced ≈0.
+
+— continuation by lane R5 (A3 lineage), 2026-11-21 (worktree agent-04 @
+d6cd72a; REPORT ONLY — H lands this section)
