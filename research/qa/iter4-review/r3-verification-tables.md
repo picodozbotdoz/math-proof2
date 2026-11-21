@@ -94,7 +94,7 @@ inside the built tree per `stepB-c2-m4b-donor.log`).
 |---|---|---|---|---|
 | `instantiate_family_A` (+ B/C) | `pilots/20/M1.lean:437` (+ siblings) | PROVED-CONDITIONAL — Card20 (zeta23 PaperInputs card), TracesFamily, EngineStep binders | `pilots/20/logs/axcheck-cycle2.log:56` — triad; main-run `axcheck-final.log:436` | the interface half of the split |
 | `assemble_eps` | `pilots/20/M1.lean:188` | PROVED-CONDITIONAL — hz, hw (component `EpsLower` inputs) | main-run `axcheck-final.log` (in-stage; 36 axiom-lines) / C2 38 lines, 0 sorryAx | counting algebra |
-| `merged_mult_of_common` | `pilots/20/M1.lean:513` | PROVED-UNCONDITIONAL (hz, hw = "ρ is a simple zero of both" — configurational, no donor binder) | `axcheck-cycle2.log:63` — triad | the seam's key fact |
+| `merged_mult_of_common` | `pilots/20/M1.lean:513` | PROVED-UNCONDITIONAL (hz, hw = "ρ is a simple zero of both" — configurational, no donor binder) | `axcheck-cycle2.log:63` — triad | the seam's key fact. **2026-11-21 cross-note (post-revision sweep):** article-20 v-rev (external-referee set, `2bfe771`) re-bills this decl **PROVED-CONDITIONAL — hz : `z.mult ρ = 1`, hw : `w.mult ρ = 1`** (article §2 status table, Thm 4 (i)); the row above stands as artifact-audit history — same evidence line, billing class per the binder-naming rule the same revision set applied to 41H Thm B (78 A2′ precedent) |
 | `family_merge` | `pilots/20/M1.lean:525` | PROVED-CONDITIONAL — hfamz, hfamw (component λ-family proportions; NO common-zero hypothesis) | `axcheck-cycle2.log:51` — triad | multiplicity route |
 | `two_thirds_of_components` | `pilots/20/M1.lean:534` | PROVED-CONDITIONAL — component family inputs | in-stage (C2 sweep, 38 axiom-lines, 0 sorryAx) | |
 | Theorem 5 (hCZ at η > 1/6 follows from the factors' 5/6-distinct theorems) | no decl | PAPER-ONLY (§4.3 seam analysis) | none | MUST be a per-theorem status row in the rewrite — the abstract currently asserts it as a result |
@@ -2751,7 +2751,7 @@ record):**
 | `pilots/75/N2-P3e.lean` `6f6beb2065c2c511` (86 LoC, 2 publics) | **2/2 publics triad** (`zetaL_two_thirds_landed_of_DZDF` + `epsLowerCum_transfer_plain`) | `n2-p3e-run1.log` (GREEN first-shot) | plain-side only (NO V2 import — premises honest); the N3 audit carries N2P3e at these bytes (8 records) |
 | `pilots/zzv2-lam/eta-r2.lean` `a9c6b59f8a769335` (661 LoC) | **4/4 publics exactly triad** (lemma A + the three admissibility/test-function decls) | the ceiling log `eta-r2-run9-eta-r3-run6-eta-r4-run4.log` | DONOR-TREE class (verdict of record = the run log, zzv2-P1 precedent) |
 | `pilots/zzv2-lam/eta-r3.lean` `21fb0c4e45f88b92` (307 LoC) | **2/2 publics exactly triad** (the corrected (iii′) + the λ=1/2 anchor) | same log | DONOR-TREE class, same |
-| `pilots/zzv2-lam/eta-r4.lean` `06ad527f00d3a30c` (808 LoC) | **UNAUDITED — parked-unfired** (run-13 gated at T2/T3 by the set_option-placement slip; 8 of 10 errors cascade; disk sorry-free) | same log (the FAIL of record) | ONE fire at the parked sha = iter-6's candidate first action; re-audit then |
+| `pilots/zzv2-lam/eta-r4.lean` `06ad527f00d3a30c` (808 LoC) | **UNAUDITED — parked-unfired** (run-13 gated at T2/T3 by the set_option-placement slip; 8 of 10 errors cascade; disk sorry-free) | same log (the FAIL of record) | ONE fire at the parked sha = iter-6's candidate first action; re-audit then. **2026-11-21 cross-note (post-revision sweep):** the parked bytes moved at `0df2546` (R5's resume payload, post-pause, NOT a referee edit) to **`285a411e48c3ad1e`** — routes (b) explicit `div_const` divisor (:616), cast cleanups (:456/:584), heartbeat insurance (:488), all PRE-APPLIED **UNFIRED**; class unchanged (parked-unfired); fire-as-is = grant-fire 2 of the ≤3 order (RESUME-BRIEF-ITER6 §SESSION END(b)1); re-audit at that fire |
 
 **(c) Donor-pin / donor-build rows (separate composition line):** eta-pin-probe donor
 hygiene **7/7 triad on-pin** (`eta-pin-probe-run2.log`, probe class below); the V2
@@ -2826,3 +2826,24 @@ iter-5 close basis 8/16 = 50%-at-equality stands as HISTORY; tthe live cell = 9/
 run-8 filename-vs-verdict discrepancy recorded above — verdicts from VERDICT blocks,
 never filenames). The 12-core closing batch (≤5-fire GO) and the queued M3 variant-1
 fold on their reports; eta-r4 still standby.*
+
+**WAVE-2 FOLD — AL-M3 run-9 variant-1 fire: SPLIT verdict ⇒ PERMANENT PARK (R1 unit
+24, 2026-11-21; byte-verified against main `fbf91d1` via `git show` before folding —
+log `f3d6a0d2a4d0a83d` and record-§run-9 `b9dad4806f9c2dd3` recomputed from the
+commit's bytes; worktree branch at `ef1e7bd`, no ff performed):**
+
+| slot | file (sha256(16)) | run of record | verdict | note cell |
+|---|---|---|---|---|
+| AL-M3 run-9 (R8, wave-2 item 1) | `pilots/al3d/P0.lean` `c6752422b49555af` (variant-1 pre-applied = the run-8 parked post-state, GUARD-VERIFIED pre-fire) · `A1.lean` `a8feb25b` · `A2.lean` `221eb30b` (all three unchanged post-fire; no post-fire edits) · record `M0-record.md` §run-9 (`b9dad480`) | `logs/alp2-m3-run9-variant1fire.log` `f3d6a0d2` (wall 57 s, telemetry OVER=0, app crossmath-pilot-al3d semraker, doz CLI warm, SPEC 2cpu/4GB) | **SPLIT — the variant-1 pin WORKED but the ladder does NOT close: P0.lean GREEN sorry-free (rc=0, errors=0; the run-8 `commitConst` universe root DEAD; the 9-fire universe saga runs 5–8 CLOSED at `c6752422`) + A1.lean FULL GREEN (the FIRST full A1 GREEN of the M3 era — runs 7/8 were cascade-FAIL; all printed decls triad) + A2.lean NOT-GREEN (rc=1, errors=10) ⇒ PERMANENT PARK per D5/D7 — no further M3 fires this iteration; the article-eligibility handoff does NOT fire (conditioned on GREEN)** | **A2's residual is FIRST-SIGHT** (runs 2–8 died at the P0 import; this content never elaborated): 2 mechanical statement-layer classes — `compE_entry` instance-synthesis/binder-context divergence at `A2.lean:1692` (the structurally identical P0 mirror :172–174 is GREEN in this very run) + the `colEquivVar ∘ regEquivOfEq` coercion/orientation mismatch at `:1819` — plus cascades; ZERO math defects alleged or found. **The three pureState-typed M3 theorems print WITH sorryAx** (`regionEntropy_pureState_eq`, `regionEntropy_pureState_column_closed`, `slab_column_cuts_of_planar_var` = [propext, sorryAx, Classical.choice, Quot.sound]) **while `fibre_eq_of_column_closed` IS triad-clean**; the runner's `sorry=0` summary is a FALSE NEGATIVE (backtick-form counter miss at run_pilot.py:143 — the D4 fix, template `run_p0.py` `a3976f96`, binds any future al3d runner; + the :162 display-path `": error:` trap). Ladder at park: M0/M1/M2 GREEN-triad (batch Q) + P0 statement layer GREEN + A1 full-GREEN, all kernel-verified THIS run; M3 residue entirely A2-local. Fire history FINAL 9 fires: 27→13→11→2→2→2→1→1→0 on P0. **Priced continuation (FUTURE grant only, 2–4 fires, zero statement-layer math risk — P0/A1 GREEN and untouched by any A2-local fix): the two A2 site-fixes + the two runner one-liners + re-fire the triple** |
+
+*Fold note (R1 unit 24, 2026-11-21): folded with the post-revision integrity sweep
+(`r1-postrevision-integrity-iter6.md`, same delivery). The §12 row above SUPERSEDES
+the run-8 "DEEP RE-SCOPING PARK" row's queued-variant-1 cell (the variant-1 fire HAS
+NOW HAPPENED — its parked-permanent outcome governs); the §11 iter-5 M3-park row
+remains history. Post-revision sweep annotations landed same session: the §4
+`merged_mult_of_common` 2026-11-21 cross-note (article-20 v-rev re-billing) and the
+§11 eta-r4 sha-cell cross-note (parked bytes → `285a411e` pre-applied-unfired at
+`0df2546`). NOTE on §12 ship-event cells: the SHIP EVENT 1/2 article shas
+(`16307eca`/`cb3da4ae`) are SHIP-TIME snapshots — both articles were revised in place
+by the 2026-11-21 external-referee set (`2bfe771` + `2ea25a9`); the rows stand as
+landing records, the live article bytes are the v-rev.*

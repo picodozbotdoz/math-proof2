@@ -56,7 +56,7 @@ Everything else in the 17 reports + corpus review survived verification and was 
 2. **Ledger entries — DONE:** `research/feasibility/VERIFICATION-LEDGER.md` §12 carries
    the five dispositions the referees asked moved out of the articles (10 log-truncation,
    52 reverify-cause, 71 transfer fact, 78 A2′ artifact + propagation map, 41H
-   determinant record) plus the 41H3 custody state (pending decision, item 3).
+   determinant record) plus the 41H3 custody state (settled at 2ea25a9, item 5).
 3. **41H3 custody — SETTLED 2026-11-21 (orchestrator option (a)):** the pre-solve
    scan re-run with a persisted generator/checker at `pilots/41/presolve/`
    (deterministic seed, numpy-only, no Modal; 782 s wall on 4 cores). Reproductions:

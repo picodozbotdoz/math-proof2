@@ -9,7 +9,7 @@ is the n ≥ 4 continuation the 41H §7 remainder named) · artifacts:
 `research/pilots/41/H3.lean` (verification run `h3-s-run1`, passed — 0 errors, 0
 `sorry`; on-disk sha256(16) `833dcff84309c986`),
 `research/pilots/41/logs/h3-s-run1.log` (`6dc794e7a27d8565`),
-`research/pilots/41/H3-M-candidates.md` (`7647a1f9859764bc` — the pre-solve record
+`research/pilots/41/H3-M-candidates.md` (`8d211d4c69cddebb` — the pre-solve record
 [the mechanical candidate scan of record], CERTIFIED-NUMERIC class),
 `research/novelty/round7-h3-battery.md` (`5f0b57cc99556d4d` — the novelty survey),
 `research/pilots/41/H3-precharter.md` (`60278bd4b6e824bf`)*
@@ -20,7 +20,7 @@ is the n ≥ 4 continuation the 41H §7 remainder named) · artifacts:
 | **Thm C2 — the generalized lifting** `tableExpand`: any row family with the 8·-scaled basis certificate expands to ALL integer function vectors (H2's lifting exists once, over an arbitrary family) | PROVED-UNCONDITIONAL | none as content — the certificate enters as the `hbasis` binder, a property of the row family proved for both fibers by C1's expansion theorems, not an open hypothesis | `H3.lean:278`, audit triad (`h3-s-run1.log:58`); instances `sigmaExpand`/`sigmaOneExpand` triad (`:59–60`) |
 | **Thm C3 — the two-fiber rank no-go** `no_realization_dim7` + `no_realization_dim7_one` (via `table_rank_nogo`, the strand-free generalization over an arbitrary index list): NO d ≤ 7-dimensional linear-functional realization of EITHER certified table | PROVED-UNCONDITIONAL | none as mathematical content — the (C, Φ, v, hv, hdep) binders unfold "given any d ≤ 7 realization" (pigeonhole 8 > 7) | `H3.lean:422/:433` (general :369), audit triad ×3 (`h3-s-run1.log:61–63`) |
 | Witness `sigmaOne_asym_witness`: σ₊(100,010) = −σ₊(010,100) | PROVED-UNCONDITIONAL | none | `H3.lean:221`, audit [propext] (`h3-s-run1.log:57`) |
-| The pre-solve scans (the empty monomial-word candidate list + planted-solution controls + the record note's structural findings) | **CERTIFIED-NUMERIC** — machinery-validated computation (exact-integer host construction; the scanner's rank/QR path is float-validated by planted controls at residual ~10⁻¹³), NOT kernel theorem (the 41H §N3 convention; 2026-11-20 ruling); **generator/checker + outputs ARCHIVED 2026-11-21** at `pilots/41/presolve/` (the custody-settlement re-run of record: per-fiber counts, S1 census and controls reproduced, 0 survivors) — never in the proved-artifact counts | n/a (computation class) | `H3-M-candidates.md` §1–§2 (`7647a1f9`) + `pilots/41/presolve/` (the archive) |
+| The pre-solve scans (the empty monomial-word candidate list + planted-solution controls + the record note's structural findings) | **CERTIFIED-NUMERIC** — machinery-validated computation (exact-integer host construction; the scanner's rank/QR path is float-validated by planted controls at residual ~10⁻¹³), NOT kernel theorem (the 41H §N3 convention; 2026-11-20 ruling); **generator/checker + outputs ARCHIVED 2026-11-21** at `pilots/41/presolve/` (the custody-settlement re-run of record: per-fiber counts, S1 census and controls reproduced, 0 survivors) — never in the proved-artifact counts | n/a (computation class) | `H3-M-candidates.md` §1–§2 (`8d211d4c`) + `pilots/41/presolve/` (the archive) |
 
 All kernel rows: mathlib `ff2494ea`, Lean v4.36.0-rc2, `import Mathlib` only, zero
 `sorry`, zero `native_decide`, no tauceti import at any point (statement-binder
@@ -144,7 +144,7 @@ and far-table residuals at ~7.1 as in the record. The structural root: word
 products live in the 14-dimensional word algebra, so realizable tables span
 ≤ 14 dimensions inside the 64-dimensional table space — membership of the Walsh
 table is a codimension-≥50 condition (the scan's minimum distance to any scanned
-monomial subspace is 4.8–5.6). The spin host at these fibers spans the FULL 14
+monomial subspace is 4.8–5.8). The spin host at these fibers spans the FULL 14
 dimensions (the faithfulness datum) — so the spin-host negative IS a TL₄
 generator-word negative at δ = ±2 (the fiber-scoped transfer of §1's wording
 lock).
@@ -269,7 +269,7 @@ fence).
 **(b) Project artifacts.** Companion: `articles/41H-tl-realizability-transport.md`
 + `pilots/41/{H1,H2}.lean` with logs; `pilots/41/H3-precharter.md` (`60278bd4`);
 `pilots/41/H3-record.md` (the kernel run's close and the 2026-11-20 ruling);
-`pilots/41/H3-M-candidates.md` (`7647a1f9`); `novelty/round7-h3-battery.md`
+`pilots/41/H3-M-candidates.md` (`8d211d4c`); `novelty/round7-h3-battery.md`
 (`5f0b57cc`, §§1–4 and the pre-solve novelty section); the core deformation article
 `articles/41-…eight-square.md`
 (the σ_q surface's home); tauceti `MarkovTrace.lean` / `Spin/Positive.lean`
@@ -288,12 +288,12 @@ fence).
 | 7 | no section contradicts another | PASS — the byline, gate rows, and footer all state the shipped state; §3's search-state corollary matches §7's open tier; the CERTIFIED-NUMERIC billing is consistent in the table, §3, §6 |
 | 8 | formal record table-only, no infra narration | PASS — the §6 table, the axiom gloss, a one-line evidence pointer, and the one-sentence custody disclosure; run narration, telemetry, and budget live in `pilots/41/H3-record.md` §Runs (register: "elementary certificates, nonelementary closure") |
 | 9 | internal vocabulary ≤ 3 glosses | PASS — one glossed internal term ("pre-solve", glossed at first use); workflow labels (S-rung, BANK, splice, wave, quota, run IDs as status nouns) removed at this revision |
-| 10 | citations spot-checked (5+) | PASS — re-verified 2026-11-21 against the tree: every §6 decl:line cite resolves (`H3.lean` declarations; audit tail `h3-s-run1.log:53–63`); the §4 tauceti cites resolve (`spinRep :300`, `markovTrace :460`, `markovTrace_mul_comm :476`, `IsMarkovTrace.eq_markovTrace :518`, `Spin/Positive.lean:110/:117`); the companion's Thm A is at `pilots/41/H1.lean:436`; artifact sha256 prefixes re-measured (H3.lean `833dcff84309c986`, log `6dc794e7a27d8565`, pre-solve note `7647a1f9859764bc`, survey `5f0b57cc99556d4d`, precharter `60278bd4b6e824bf`, `H2.lean` `3bc8170121492d18`); the evidence-chain review record `research/qa/iter4-review/r2-41h3-s1s4-pass.md` (sha16 `14c86d28ee4b5e9e`) |
+| 10 | citations spot-checked (5+) | PASS — re-verified 2026-11-21 against the tree: every §6 decl:line cite resolves (`H3.lean` declarations; audit tail `h3-s-run1.log:53–63`); the §4 tauceti cites resolve (`spinRep :300`, `markovTrace :460`, `markovTrace_mul_comm :476`, `IsMarkovTrace.eq_markovTrace :518`, `Spin/Positive.lean:110/:117`); the companion's Thm A is at `pilots/41/H1.lean:436`; artifact sha256 prefixes re-measured (H3.lean `833dcff84309c986`, log `6dc794e7a27d8565`, pre-solve note `8d211d4c69cddebb`, survey `5f0b57cc99556d4d`, precharter `60278bd4b6e824bf`, `H2.lean` `3bc8170121492d18`); the evidence-chain review record `research/qa/iter4-review/r2-41h3-s1s4-pass.md` (sha16 `14c86d28ee4b5e9e`) |
 | 11 | README row updated in the same commit | SATISFIED at the ship commit `e4ac8dd` — the row and the discovery counts landed with the article; the external review then flagged the row's TITLE as stating a stronger claim than the article's wording lock allows (it names a TL₄ generator-word exclusion, while the combination-word tier is open); the corrected row text is queued for the index's next revision |
 | 12 | superseded files marked | PASS — supersedes none; the companion stands unchanged |
 
 — Shipped 2026-11-20 at commit `e4ac8dd` (the kernel run `833dcff84309c986`, the
-pre-solve record `7647a1f9859764bc`, the novelty survey `5f0b57cc99556d4d`).
+pre-solve record `8d211d4c69cddebb`, the novelty survey `5f0b57cc99556d4d`).
 Revised 2026-11-21 applying the external referee report: shipped-state seam,
 register, status vocabulary, and citation fixes; Theorems C1–C3 and the pre-solve
 unchanged.

@@ -481,7 +481,7 @@ articles now cite this ledger as the narration home; per-article detail in
    figures and row 1 short by 7 of 1287 subsets per fiber (mechanism unverifiable —
    batch-boundary artifact suspected); the re-run covers the full space at both
    fibers and STRENGTHENS the negative. Min target distance to any scanned monomial
-   subspace: 4.84–5.63. Article v-rev §3/status table/§6 + README row updated to
+   subspace: 4.84–5.76. Article v-rev §3/status table/§6 + README row updated to
    the archived state. The separate H3.lean print-coverage rider (16 unprinted
    helpers at the next H3.lean edit) remains BINDING and unaffected.
 6. **Article 41H (determinant — unformalized, recorded).** The referee's
