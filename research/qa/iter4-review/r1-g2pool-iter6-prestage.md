@@ -141,3 +141,96 @@ Do NOT fire either part before the close signal (this note pre-stages only).
 — lane R1 (verification-integrity), worktree agent-02 @ `7d7fcdd`, 2026-11-21.
 Pre-stage only; no Modal fires; no commits (H lands). make_axcheck.py untouched
 (rows land with their payloads per the on-landing rule).
+
+---
+
+# §G1-DRY — the G1 classifier dry-run (folded 2026-11-21; final basis HEAD `8cbb2ae`; the close's G1 slot = fill-not-compute)
+
+**Method:** the gates §G1 classifier VERBATIM (`qa/iter4-closeout-gates.md` §G1
+:33–56, C2 lineage — the SAME script `qa/iter6-closeout-gates.md` §G1 cites,
+"unchanged this cycle"), scope `research/pilots/**/*.lean` +
+`research/feasibility/probe/**/*.lean`, run locally at HEAD and — via
+`git archive` materialization — at the iter-5 close basis `6306dbe`
+(ENTRY-14's certificate). Basis reproduction: **66 real-tokens over 129 files =
+ENTRY 14 exactly** (the classifier run is faithful; 66 = 49 carry + 7 12/P0 +
+10 12/CORE stubs). Re-run at each refresh; the numbers below are the `8cbb2ae`
+state (the mid-unit refreshes `7d7fcdd → 1c10bc4 → 8cbb2ae` changed exactly one
+`.lean` — `pilots/75/N2-P4.lean`, statements-only, **0 real tokens** — so the
+72-token result is refresh-stable).
+
+## (a) Whole-tree census at HEAD `8cbb2ae` (vs basis `6306dbe`)
+
+| metric | basis 6306dbe | HEAD 8cbb2ae | delta |
+|---|---|---|---|
+| classifier REAL-TOKENS | **66** (129 files) | **72** (131 files) | **+6, fully classed below** |
+| raw `\bsorry\b` lines | 219 | 229 | +10 (the 8 H4-probe + CORE line moves/prose) |
+| `native_decide` lines | 73 | 73 | 0 (probe-convention sites only) |
+| `axiom` declarations | 0 | 0 | 0 |
+
+## (b) The delta classes — every token explained (ZERO unexplained at HEAD)
+
+| class | files | tokens at HEAD | disposition |
+|---|---|---|---|
+| CARRY-FORWARD (unchanged vs ENTRY 14) | 35 probe + 3 lp + 4 71/P0 + 7 73/P0 | **49** | byte-stable; the ENTRY-14 composition verbatim |
+| 12-FAMILY STAGED-UNFIRED STATEMENT STUBS | `pilots/12/P0.lean` (`3d924056`) | **7** | unchanged (probe-convention, P0-record) |
+| 12-FAMILY CORE INTERFACE STUBS (BY-DESIGN) | `pilots/12/CORE.lean` @ `7e40dff4` | **8** (was 10 at basis) | the descent :424/:433/:440 DISCHARGED runs 1–9; the NEW stub-(b) :581 added at the run-9 milestone; all 8 "P0 stub"/"CORE stub" per line (:194,:202,:237,:244,:257,:387,:411,:581) — DECLARED (core-day1-staging + §12 rows; the ChoiceSumInputs seam) |
+| H4-PROBE (NEW, R4 seed-2) | `pilots/41/H4-probe.lean` @ `bef92692` (landed `5c7fac7`) | **8** (:83,:98,:124,:133,:142,:151,:234,:274) | header-declared probe-convention ("Every `sorry` below is a PROBE-CLASS … never lands as a proof artifact"); NEVER a Step-B stage |
+| every other iter-6 .lean delta | eta-r2/r3/r4, al3d P0 (`c6752422`) + **A2 (`221eb30b`) = 0 real tokens — ANSWERS gates-G1(d)'s PENDING: A2's sorryAx is run-status (error-recovery), NOT disk tokens (the iter-5 M-ladder note's token-count-bound criterion)**, 75/N2-P1 (`396d8710`), **75/N2-P4 (NEW, statements-only "ZERO sorry" rung, 0 real tokens — gates-G1(e)'s R8 seed-1 class)** | **0** | zero-token (verified by the classifier diff: only the 12/CORE and H4-probe rows are nonzero) |
+
+**HEAD certificate: 72 = 49 + 7 + 8 + 8 + 0 UNEXPLAINED.**
+
+## (c) ENTRY-15 arithmetic, pre-computed per branch (the close fills the landed one)
+
+- **Branch A — in-flight fires land GREEN (12-core closing batch + H4 E1):**
+  `72 − n(CORE stubs discharged by the closing batch; enumerated per line at the
+  landing sha) + 0 (H4.lean E1 expected zero-token) = 72 − n + 0`, composition
+  re-enumerated per-file; bar = 0 unexplained. The G2 side moves with it
+  (AxPilot12_CORE class upgrades to OK iff sorryAx-lines=0; guard re-binds).
+  H4 live state at this fold: E1 in flight at agent-08, worktree bytes
+  `768c6f5d6e777d25` NOT yet on main (the `r2-41h4-s1s4-gate.md` at `1c10bc4` is
+  the PRECHARTER/statement-set gate for the E2/F path — NOT a post-fire gate);
+  the AxPilot41_H4 row lands at the GREEN main-landing.
+- **Branch B — fires park/unfired at close:** certificate = **72 as-is** (CORE's 8
+  stay the DECLARED interface class — the honest by-design set; H4 unlanded ⇒ +0;
+  if H4 lands WITH stubs, its tokens enter as a NEW declared class owned by R4,
+  enumerated per line, before the certificate issues).
+- Either branch: the pre-computed ENTRY-15 skeleton = "**N = 49 carry + 7 12/P0 +
+  k 12/CORE(interface) + 8 H4-probe + [H4-landed class] + 0 UNEXPLAINED**", N =
+  72 − n. Ledger vehicle: extend `stepA-incremental-iter5.log` or open
+  `stepA-incremental-iter6.log` (the skeleton §0's PENDING-INPUT — H's choice;
+  the dry numbers above paste verbatim).
+- Post-referee `.lean` zero-diff class: CARRIED from the post-revision integrity
+  sweep (`r1-postrevision-integrity-iter6.md` Check 4: the referee commits touched
+  ZERO .lean files; the only 0676ba0..HEAD .lean delta = eta-r4's mechanical
+  resume payload, 0 sorry tokens).
+
+## §LANDING-RECORD (2026-11-21, folded with §G1-DRY per the coordinator's gap relay)
+
+- **Gap-relay item 2 EXECUTED:** the §3.1 `AxPilot12_CORE` + §3.3 `AxPilotZZV2_etaR4`
+  rows are **LANDED in `make_axcheck.py`** (new append-only Iteration-6 block;
+  eta-r4 as a DECLARED DONOR-TREE row — the 42_M4b pattern, per the relay's
+  MATERIAL flag; eta-r2/r3 stay verdict-of-record-only). Local dry-run re-verified:
+  py_compile rc=0, **72 stages** (was 70), both stages emitted at the tail
+  (13 + 16 theorem prints), all guards pass (N2P1 override triple-equality GREEN).
+  The H4 row stays the commented [PENDING-PAYLOAD-SHA] placeholder in the same
+  block — lands at R4's GREEN. **§5's Part-i count updates: 72 stages now; 73 with
+  H4.**
+- Gap-relay item 1 (REPORT-INPUTS §2 path/eta-row fixes) was re-addressed to R6 by
+  the coordinator's correction — NOT this lane's edit.
+- **Refresh-chain correction (recorded for the close):** the first `8cbb2ae`
+  refresh chained through `1c10bc4`, whose landing of THIS note (at `5221bbb`,
+  verbatim `fbd5cf31`) collided with the worktree's untracked copy — the
+  `--ff-only` aborted with the error masked by a `tail` pipe; caught by
+  `git log` audit, fixed by park/rm/ff/restore (no content lost — the parked copy
+  was byte-verified against the landed base before restore). Standing lesson (the
+  helper's T3 form): after EVERY ff, verify `git log -1` shows the target sha —
+  never trust a piped merge exit silently.
+- **Gates-file alignment:** `qa/iter6-closeout-gates.md` (R5's fill-target, landed
+  mid-unit) G1 section's [PENDING] cells fill from this dry run: STEPA-COUNT =
+  72 − n (branch arithmetic above); (a) zero-delta VERIFIED; (b) the 8-stub class
+  enumerated :194,:202,:237,:244,:257,:387,:411,:581; (c) eta zero-token VERIFIED;
+  (d) A2 = 0 disk tokens (run-status class); (e) H4-probe 8 + N2-P4 0.
+
+— §G1-DRY + §LANDING-RECORD folded by lane R1, worktree agent-02 @ `8cbb2ae`,
+2026-11-21. Still zero Modal fires; the close signal executes §5 Part i + mints
+the Part-ii runner (STANDBY).
