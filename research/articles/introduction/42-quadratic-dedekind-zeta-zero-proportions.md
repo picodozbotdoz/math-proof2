@@ -31,45 +31,33 @@ line of arithmetic: counts add because multiplicities add under products.
 
 For K a quadratic field there is an integer D (the discriminant) and a character χ_D — a
 ±1-valued function on integers encoding whether a prime splits or stays inert in K — and
-the classical factorization (classical) reads
-
-  ζ_K(s) = ζ(s) · L(s, χ_D),
-
-valid where both sides are defined. In words: the quadratic field's zeta function is the
-product of the ordinary Riemann zeta function and one Dirichlet L-function. The article
-calls these the **two columns**: ζ (left) and L(·, χ_D) (right). Each is a function of one
-complex variable with its own nontrivial zeros (real part between 0 and 1).
+the classical factorization (classical) reads ζ_K(s) = ζ(s) · L(s, χ_D): the quadratic
+field's zeta function is the product of the ordinary Riemann zeta function and one
+Dirichlet L-function. The article calls these the **two columns**. Each is a function of
+one complex variable with its own nontrivial zeros (real part between 0 and 1).
 
 ### 2.2 Proportions, multiplicities, distinctness
 
-Fix a height T and count the nontrivial zeros with imaginary part in (0, T]:
-- N_K(T): with multiplicity — a double zero counts twice;
-- N⁰_K(T): the same count restricted to the critical line Re s = 1/2;
-- D_K(T): distinct zeros only — each zero counted once;
-- commonStrip(ζ, fχ)(T): how many of those strip points are zeros of *both* factors.
+Fix a height T and count the nontrivial zeros with imaginary part in (0, T]: N_K(T) with
+multiplicity (a double zero counts twice); N⁰_K(T), the same count restricted to the
+critical line Re s = 1/2; D_K(T), distinct zeros only; and commonStrip(ζ, fχ)(T), how many
+of those strip points are zeros of *both* factors. "At least c of the zeros lie on the
+line" is the division-free ε-form: for every ε > 0 there is a height T₀ so that
+(c − ε) · N_K(T) ≤ N⁰_K(T) for all T ≥ T₀ — beyond T₀ the on-line count is within relative
+slack ε of the fraction c. The distinct analogue uses D_K as numerator. These are
+deterministic counting statements about one fixed function — no randomness anywhere. For
+the Riemann zeta the record constants are about 0.6725 (simple zeros on the line) and
+0.83625 (distinct), kernel-verified in the AxiomMath ZetaZerosV2 tree.
 
-The statement "at least c of the zeros lie on the line" is the division-free ε-form: for
-every ε > 0 there is a height T₀ so that (c − ε) · N_K(T) ≤ N⁰_K(T) for all T ≥ T₀. In
-words: beyond T₀, the on-line count is within relative slack ε of the fraction c. The
-distinct analogue uses D_K as numerator. These are deterministic counting statements about
-one fixed function — no randomness anywhere. For the Riemann zeta the record constants are
-about 0.6725 (simple zeros on the line) and 0.83625 (distinct), kernel-verified in the
-AxiomMath ZetaZerosV2 tree.
-
-### 2.3 Why the product inherits the bound
+### 2.3 Why the product inherits the bound, and the article's question
 
 At any point where the product's factors are analytic, the multiplicity of a zero of the
-product is the *sum* of the factors' multiplicities (differentiate the product, or use the
-standard order-of-vanishing arithmetic — classical). So every window count of ζ_K splits
-into the two factors' counts. A proportion bound is a linear inequality between two such
-counts, and linear inequalities add. That is the entire mechanism; the article's work is
-doing it carefully, with both columns accounted for honestly.
-
-### 2.4 The article's core question
-
-What proportion of ζ_K's zeros lie on the critical line, given what is known for ζ and
-what must be assumed for L(·, χ_D)? And when the two factors share a zero, exactly how
-much does the distinct-count bookkeeping lose?
+product is the *sum* of the factors' multiplicities (classical), so every window count of
+ζ_K splits into the two factors' counts; a proportion bound is a linear inequality between
+two such counts, and linear inequalities add. The article's questions: what proportion of
+ζ_K's zeros lie on the critical line, given what is known for ζ and what must be assumed
+for L(·, χ_D)? And when the two factors share a zero, exactly how much does the distinct
+bookkeeping lose?
 
 ## 3. One product, by hand
 
@@ -81,14 +69,13 @@ mult ζ_K(ρ) = mult ζ(ρ) + mult fχ(ρ) (the article's §5). Summing over the
 N_K = N_ζ + N_χ and N⁰_K = N⁰_ζ + N⁰_χ. In words: the product's zeros are the pooled zeros
 of its two factors.
 
-**Step 2 — the inequality adds.** Suppose both factors satisfy the ε-form at 2/3:
-(2/3 − ε)·N_ζ ≤ N⁰_ζ and (2/3 − ε)·N_χ ≤ N⁰_χ beyond a common threshold (take the larger
-of the two thresholds). Adding:
+**Step 2 — the inequality adds.** Suppose both factors satisfy the ε-form at 2/3 beyond a
+common threshold (take the larger of the two thresholds). Adding:
 
   (2/3 − ε)·(N_ζ + N_χ) ≤ N⁰_ζ + N⁰_χ = N⁰_K,
 
-and by Step 1 the bracket is N_K. So ζ_K satisfies the ε-form at 2/3. That is Theorem 1,
-and it is one line of arithmetic once counts add.
+and by Step 1 the bracket is N_K. So ζ_K satisfies the ε-form at 2/3 — Theorem 1, one line
+of arithmetic once counts add.
 
 **Step 3 — the recorded constants.** The ζ column enters through two kernel-verified donor
 endpoints: 0.6725 (simple zeros on the line) and 0.83625 (distinct). Both exceed their
@@ -116,8 +103,8 @@ recorded values. The article records no numeric zero counts, and none are invent
 
 Three moves. First, extend the factorization from its half-plane of convergence to
 everywhere except the single pole at s = 1 (the identity principle for analytic functions,
-applied after multiplying by (s − 1) to remove the pole), so multiplicities add at *every*
-counted point. Second, feed the ζ column: every simple zero on the line is a strip zero of
+after multiplying by (s − 1) to remove the pole), so multiplicities add at *every* counted
+point. Second, feed the ζ column: every simple zero on the line is a strip zero of
 multiplicity exactly one, and the donor tree's counting coincides with this article's, so
 the donor's ratio endpoint transfers into the ε-form — conditionally only on two classical
 structural conditions about ζ (finitely many zeros per window; never locally zero), which
@@ -136,17 +123,17 @@ structural set **H** collects the classical conditions: window finiteness for th
 factors, analyticity off s = 1 with the pole removed, non-degeneracy (never locally zero),
 and the factorization on the half-plane.
 
-- **Theorem 1 (`zetaK_two_thirds_landed_of_V2`).** Assume H and the χ-column binder
-  (the ε-form at 2/3 for L(·, χ_D)). Then ζ_K satisfies the ε-form at 2/3: at least 2/3 of
-  its zeros up to height T, with multiplicity, lie on the critical line, for all large T.
+- **Theorem 1 (`zetaK_two_thirds_landed_of_V2`).** Assume H and the χ-column binder (the
+  ε-form at 2/3 for L(·, χ_D)). Then ζ_K satisfies the ε-form at 2/3: at least 2/3 of its
+  zeros up to height T, with multiplicity, lie on the critical line, for all large T.
   PROVED-CONDITIONAL. → article §3, Thm 1.
 - **Theorem 2 (distinct, 5/6, with defect).** Assume H and the χ-column distinct binder at
   5/6. Then (5/6 − ε)·N_K(T) ≤ D_K(T) + commonStrip(ζ, fχ)(T) for all large T: the 5/6
-  distinct bound with the shared-zero correction carried explicitly. PROVED-CONDITIONAL. →
-  article §3, Thm 2.
+  distinct bound with the shared-zero correction carried explicitly. PROVED-CONDITIONAL.
+  → article §3, Thm 2.
 - **Theorem 3 (distinct, 5/6, negligible common zeros).** Assume further hCZStrip: the
   shared-zero count is eventually ≤ ε·N_K(T). Then the distinct ε-form at 5/6 holds
-  outright. hCZStrip is the one genuinely open hypothesis — conjecture-grade, and only
+  outright. hCZStrip is the one genuinely open hypothesis — conjecture-grade — and only
   Theorem 2 is free of it. PROVED-CONDITIONAL. → article §3, Thm 3.
 - **ζ-column inputs (transfer lemmas).** From the donor endpoints plus the two structural
   conditions on ζ, the ε-forms at 2/3 and the distinct analogue hold for ζ itself — these
@@ -156,13 +143,12 @@ and the factorization on the half-plane.
   proportion theorems of the ZetaZerosV2 tree (0.6725 / 0.83625): no hypotheses, rebuilt
   and axiom-audited on this project's pin. PROVED-UNCONDITIONAL. → article §3, §6.
 - **Hypothesis form of Theorems 1–3.** The same three theorems with the donor endpoints as
-  explicit premises — the portable fallback for settings where the donor build is
-  unavailable. PROVED-CONDITIONAL. → article §3, §6.
+  explicit premises — the portable fallback where the donor build is unavailable.
+  PROVED-CONDITIONAL. → article §3, §6.
 - **What is *not* here:** the χ column proved at this project's pin. Its content is proved
-  in the zeta23 corpus with no analytic hypotheses and audited there — the remaining gap is
-  a proof port (toolchain and window-convention adaptation), not open analysis (article §7
-  item 1). Beyond quadratic K, the article points to its n+1-factor generalization
-  (article 75).
+  in the zeta23 corpus with no analytic hypotheses and audited there — the remaining gap
+  is a proof port (toolchain and window-convention adaptation), not open analysis (article
+  §7 item 1). Beyond quadratic K, the n+1-factor generalization is article 75.
 
 ## 6. Glossary
 
@@ -170,16 +156,15 @@ and the factorization on the half-plane.
 |---|---|---|
 | K, D, χ_D | a quadratic field; its discriminant; its ±1 splitting character | ℚ(√2) has D = 8 |
 | ζ_K(s) | the quadratic field's zeta function | the object being bounded |
-| ζ(s) | the Riemann zeta function — the left column | the donor side |
-| L(s, χ_D) | the Dirichlet L-function — the right column | the assumed side |
+| ζ(s), L(s, χ_D) | the Riemann zeta (left column); the Dirichlet L-function (right column) | the two factors |
 | multOf f ρ | order of vanishing of f at ρ | a double zero has 2 |
 | N_K(T), N⁰_K(T) | strip zero count / on-line count up to height T, with multiplicity | the pair that adds |
 | D_K(T) | distinct (multiplicity-free) strip zero count | used at 5/6 |
 | commonStrip(ζ, fχ)(T) | strip points that are zeros of both factors | the defect term |
 | EpsLowerCum z c | the ε-form: (c − ε)·N ≤ N⁰ eventually | the proportion statement |
-| stripWindow, lineWindow | the two counted sets: strip 0 < Re < 1 vs line Re = 1/2 | cumulative (0, T] |
+| stripWindow, lineWindow | the counted sets: strip 0 < Re < 1 vs line Re = 1/2 | cumulative (0, T] |
 | H | the structural hypothesis set (finiteness, analyticity, factorization) | carried, classical |
-| hEχ, hEχdStrip | the χ-column binders at 2/3 (with multiplicity) and 5/6 (distinct) | the one analytic input |
+| hEχ, hEχdStrip | the χ-column binders at 2/3 (multiplicity) and 5/6 (distinct) | the analytic input |
 | hCZStrip | the negligibility hypothesis on shared zeros | genuinely open |
 | 0.6725 / 0.83625 | donor ζ constants: simple-on-line / distinct | > 2/3 and > 5/6 |
 | 1669159/2478195 | the earlier certificate-route constant, ≈ 0.6735 | v1's stronger route |
@@ -190,19 +175,18 @@ and the factorization on the half-plane.
 ## 7. What this is — and what it is not
 
 - "Proportion" is a deterministic limiting statement about the zero set of one fixed
-  function — **not** statistics of random matrices, not a probability model, not data
-  analysis. The zeros are of ζ_K, one specific function per field K.
+  function — **not** statistics of random matrices, a probability model, or data analysis.
+  The zeros are of ζ_K, one specific function per field K.
 - "Critical line" means Re s = 1/2 for these functions too; "with multiplicity" means a
-  double zero counts twice, "distinct" means it counts once. The defect term is the count
-  of *shared* zeros — a named statistic, not an error term from physics.
+  double zero counts twice, "distinct" means once. The defect term counts *shared* zeros —
+  a named statistic, not an error term from physics.
 - Conditional here has a precise shape: Theorems 1–2 rest on the χ-column binder whose
   content is *already proved* in another corpus (the gap is a proof port) plus classical
   structural conditions carried as assumptions; Theorem 3 additionally needs hCZStrip,
-  which is genuinely open. The article keeps these two kinds of "conditional" strictly
-  separated.
+  which is genuinely open. The article keeps these two kinds of "conditional" separate.
 - Not a GRH-conditional theorem: the hypothesis is one proportion statement for one
   L-function, not a half-plane nonvanishing principle; the comparison with the nearest
-  informal prior (which is GRH-conditional) is made hypothesis-shape to hypothesis-shape
+  informal prior (which is GRH-conditional) is hypothesis-shape to hypothesis-shape
   (article §4).
 - "Kernel-verified" means: every theorem was machine-checked by the Lean type checker
   against fixed axioms — the triad (propext, Classical.choice, Quot.sound) is the full set
@@ -216,9 +200,9 @@ and the factorization on the half-plane.
   article's head for the exact binder lists.
 - Proof idea → §4 here, then article §5 (multiplicities add; the two assembly steps; the
   hCZStrip discussion).
-- Verification → article §6 (formal record), `research/pilots/42/M4b.lean` and `M4a.lean`,
-  logs under `research/pilots/42/logs/`.
-- Novelty and nearest misses → article §4 (the DLRT row and the scope statement).
+- Verification → article §6; `research/pilots/42/M4b.lean` and `M4a.lean`; logs under
+  `research/pilots/42/logs/`.
+- Novelty → article §4 (the DLRT row and the scope statement).
 - What stays open → article §7 (the proof port; hCZStrip; the carried structural
   conditions).
 
@@ -229,7 +213,6 @@ and the factorization on the half-plane.
 - Limits in the plain sense "for every ε > 0 there is a threshold T₀" — no measure theory.
 - The factorization ζ_K = ζ · L(·, χ_D) taken as a classical black box (the article states
   it as a hypothesis).
-- Finite sums and inequalities: linear inequalities add over sums, and
-  inclusion–exclusion for two sets.
-- What a Lean kernel check is (one sentence, §7 above) and what a named, undischarged
-  hypothesis ("binder") is (§5 above).
+- Finite sums and inequalities: linear inequalities add over sums, and inclusion–
+  exclusion for two sets.
+- What a Lean kernel check is (one sentence, §7 above) and what a "binder" is (§5 above).

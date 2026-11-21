@@ -36,8 +36,9 @@ Re s = 1/2. A **zero-free half-plane** is a statement of the form "ζ(s) ≠ 0 w
 Re s > σ₀" for some constant σ₀: no zeros to the right of the vertical line at σ₀. The
 famous (open) Riemann hypothesis is the case σ₀ = 1/2; the results this article consumes
 are the cases σ₀ = 7/8 for ζ and for Dirichlet L-functions (proved in a sibling formal
-corpus), and σ₀ = 31/32 for all number fields (proved in another). (classical framing;
-the cited formal results are the donors'.)
+corpus). A stronger case, σ₀ = 31/32 for all number fields, exists in another corpus but
+is cited there, not consumed — it is not consumable at this project's toolchain pin
+(article §4). (classical framing; the cited formal results are the donors'.)
 
 ### 2.2 Reflection: the functional equation
 
