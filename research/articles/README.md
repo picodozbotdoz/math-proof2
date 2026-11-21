@@ -16,6 +16,12 @@ Status strings below use the template's closed vocabulary (PROVED-UNCONDITIONAL 
 PROVED-CONDITIONAL / CERTIFIED-NUMERIC / PAPER-ONLY; "at donor pin" flags a donor
 toolchain substrate).
 
+Companion introductions: one beginner's-introduction file per article stem (17) lives
+under [`introduction/`](introduction/), registry
+[`introduction/README.md`](introduction/README.md) — post-review expository companions
+generated after the 2026-11-21 external review (policy line folded into that registry);
+non-normative by their standing marker: the article and its Lean artifacts win.
+
 ## A. Discovery-grade
 
 | # | article | kind | status |
