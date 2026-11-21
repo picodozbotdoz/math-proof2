@@ -260,3 +260,35 @@ the Part-ii runner (STANDBY).
 
 — §REFRESH-2 folded by lane R1 @ `60bebc8`, 2026-11-21. STANDBY unchanged: Part i
 (73 stages) + the Part-ii eta custody runner mint fire AT the close signal.
+
+## §REFRESH-3 — the 12-core closing-batch landing + the 13-name custody row (R1, 2026-11-21; the custody-row relay ACKED and folded)
+
+- **The closing batch LANDED GREEN** (runs 10–13 descent 16→5→2→0, run 13 rc=0
+  sorry=7 whole-file, `core-runs10-13.log` + the axcheck-of-record
+  `core-run14-axcheck.log` `b8c1c194`; R5's verification read `ae6301d` GREEN
+  CONFIRMED 6/6): CORE.lean `7e40dff4 → 940bc9eabe82d5e0` — **the
+  AxPilot12_CORE guard RE-BOUND** (row updated with the full-arc facts + the
+  sorry-class 8 → 7). Dry-run: py_compile rc=0, **73 stages**; the CORE stage now
+  prints **28 top-level theorems** (the closing batch grew the public surface 13
+  → 28 — the plain-batch stage itself covers 28 of the ~41 decls, beyond run-14's
+  15 prints).
+- **The CUSTODY ROW is folded in-row (the R5-read §2 disposition, the pilot-10
+  axcheck_full class):** the Choice lemma namespace's **13 UNPRINTED lemmas are
+  NAMED in the AxPilot12_CORE row** — `n_pos, one_le_D, D_pos, one_le_n,
+  one_le_rpow, ceil_le, log_le_log, saving, cube_mul_saving_le,
+  rpow_le_rpow_div, rpow_le_of_le, instances_le, scans_le` (19 namespace decls /
+  6 printed; whole file ~41 decls vs 15 printed at run-14) — with the
+  **full-coverage sweep owed at the NEXT 12-core fire**. **The phrasing rule is
+  carried in-row and binds all downstream records: "the certification set
+  14/14" / "15 printed = 14 triad + 1 declared seam" — NEVER "14/14" restated as
+  whole-file coverage.**
+- **Census refresh @ `ae6301d`: 77 real-tokens over 133 files** — the 78
+  composition with 12/CORE at **7** (the closing batch discharged one more
+  interface stub; :581-class set now 7). ENTRY-15 arithmetic final-form:
+  **Branch A resolves to `77 − n(any further CORE discharges; expected 0 — the
+  arc is closed GREEN) = 77`; Branch B = `77 as-is`.** Composition: 49 carry +
+  7 12/P0 + 7 12/CORE(interface) + 8 H4-probe + 6 Xi-stmt-probe + 0 H4.lean +
+  0 UNEXPLAINED.
+
+— §REFRESH-3 folded by lane R1 @ `ae6301d`, 2026-11-21. STANDBY unchanged
+(73 stages + the Part-ii eta custody runner at the close signal).
