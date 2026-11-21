@@ -1590,3 +1590,9 @@ Cause chain: session on zai-offpeak-idle-plan → platform reclaimed off-peak co
   INDEX drift prep + substrate-note draft + health snapshot.
 - **Wave-2 queue re-keyed:** the H3.lean custody-rider item is SUPERSEDED (custody
   settled at `2ea25a9`, option-a archive, 0 survivors / ~2.97e8 systems) — dropped.
+
+## 2026-11-21 — the eta-r4 resume fire: GREEN, the η-port ledger CLOSED at 14 (H fold: the task-3 telemetry dispositions)
+
+- **Run 14 GREEN strict-OK first-shot** (log `cebc4730`, payload `285a411e` fired as-is; eta-r4 10/10 triad-clean; anchors 4/4 + 2/2 hold; route (b) discharged-as-pre-applied, (c) never triggered). The D5b resume order is complete; no re-fire.
+- **The 5 owed build-phase OVER-cpu dispositions (task-3 flag, now folded):** runs at walls 421–725 s, max_cpu 11.18–15.26, max_mem 2742–3302 MB, OVER=6–9 — ALL the authorized **m4b2/G2 donor-tree layer-build class** (build subprocess family, taskset-capped on the build command, anon=0 every sample = olean-mmap artifact; elaboration phases proper cpu ≤ 4.21): `eta-r2-run5-eta-r3-run2` (634 s/11.18/3302/OVER=8) · `run6/run3/run1` (725/15.26/3297/9) · `run7/run4/run2` (593/12.13/2742/6) · `run8/run5/run3` (421/12.22/3050/6) · `run9/run6/run4` (626/12.63/2903/8). Action NONE per guideline 3 (investigated = known class; not upgraded). Run 14 itself (649 s/12.78 peak at the cache-get artifact phase/2757 MB/anon=0): same class, disposition carried IN-LOG — the compliant form; no disposition debt on new runs.
+- **Ruling (orchestrator):** the port-plan Fourier/identity rungs (R7 bridge, R8 full-domain assembly + full-coverage axcheck) BANK to the **iter-7 Tier-2 bench** (already rowed in the census DRAFT `422face2`, conditional satisfied) — no fresh iter-6 grant mid-close. R5's next unit: the port-arc wrap record.
