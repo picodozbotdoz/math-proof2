@@ -1,0 +1,106 @@
+# probe40-m2-run10 — the one-fire GREEN grant (spent; residuals flipped to timeout-class :299/:303 + the :352 closer — see M2-record.md addendum 2).
+# Same substrate/spec/provenance (app crossmath-probe-40, mathlib ff2494ea, SPEC 2cpu/4GB,
+# LEAN_NUM_THREADS=2, doz CLI, 2026-11-21 lane R9 worktree agent-09).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-E9LQRjaUHo21V5s0N7p6bG
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M2.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M2.lean
+[tele] t=60s cpu=0.72 mem=4746MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe40] M2.lean: PROBE-FAIL rc=1 errors=3 sorry=0
+---- error contexts ----
+M2.lean:303:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+M2.lean:299:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:352:79: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+M2.lean:299:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:352:79: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+M2.lean:352:79: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hζne : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → completedRiemannZeta₀ s ≠ 0
+hfb :
+  ∀ (s : ℂ),
+    1 ≤ s.re →
+      s ≠ 1 →
+        0 <
+          (1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+                deriv (DirichletCharacter.completedLFunction χ) s / DirichletCharacter.completedLFunction χ s).re +
+            Real.log ↑N / 2
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hs0 : s ≠ 0
+hL : DirichletCharacter.completedLFunction χ s ≠ 0
+hζ : completedRiemannZeta₀ s ≠ 0
+⊢ s⁻¹.re + (-1 + s)⁻¹.re + (deriv completedRiemannZeta₀ s * (completedRiemannZeta₀ s)⁻¹).re +
+        (↑(Real.log ↑N) * (1 / 2)).re +
+      (deriv (DirichletCharacter.completedLFunction χ) s * (DirichletCharacter.completedLFunction χ s)⁻¹).re =
+    s⁻¹.re + (-1 + s)⁻¹.re + (deriv completedRiemannZeta₀ s * (completedRiemannZeta₀ s)⁻¹).re +
+        (deriv (DirichletCharacter.completedLFunction χ) s * (DirichletCharacter.completedLFunction χ s)⁻¹).re +
+···
+
+[probe40] SUMMARY
+[probe40]   M2.lean: PROBE-FAIL rc=1 errors=3 sorry=0
+[tele] SUMMARY run: wall=72s max_cpu=0.72 max_mem=4746MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-E9LQRjaUHo21V5s0N7p6bG

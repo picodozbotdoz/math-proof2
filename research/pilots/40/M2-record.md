@@ -110,3 +110,33 @@ Stage-1 list; the census Tier-1 row's gate text; future tranche charters) should
 carry `hζ` / `hsL : s(s−1)·Λ ≠ 1` as a named open input, not an S-class discharge.
 
 Parked bytes: `M2.lean` sha256(16) **38e5a73bca8a2631** at park (post fresh-tranche).
+
+## ADDENDUM 2 — the one-fire GREEN grant (spent; PARKED on timeout-class residuals)
+
+Fire m2-run10 (log alongside; same SPEC/provenance). The two pre-written one-liners
+were applied and FLIPPED the failure class from shape-mismatch to **elaboration
+timeout**: pinning the `mul_comm` pair made the `exact`-elaboration re-unfold
+`symFactor` past the default 200k heartbeats (`:299 whnf` / `:303 whnf` timeouts),
+and the `:352` closer (`simpa only [one_div, mul_one_div] using hfb s hs hs1`) still
+misses — the goal's post-`rw [hre]` shape normalizes further than the simpa set
+covers. **The grant's single fire is spent; the tranche closes PARKED** with the
+next-fire fixes upgraded to match the observed class:
+
+- (:299/:303) do NOT elaborate the bridge as a pinned `exact mul_comm …` term:
+  restructure tactic-side — `rw [show symFactor N s = Complex.exp (s / 2 * …) from
+  rfl]` first (one unfold, at the VALUE not the function), then `rw` the
+  `HasDerivAt`-pipeline `.deriv` and close with `ring`-free `mul_comm`; and/or wrap
+  the theorem in `set_option maxHeartbeats 400000 in` (the timeout is elaboration
+  load, not math).
+- (:352) state `hfb` in the already-normalized shape (`(1/s + …).re` spelled with
+  `⁻¹`-forms and `Real.log N * (1/2)`), or close by `linarith` on the
+  `Complex.add_re`-distributed parts (the bridging identity `hre` is already
+  proved; only the final syntactic match remains).
+
+Cumulative Stage-1 arithmetic at this park: **20 fires over four grants (10 + 4 + 5
++ 1)**; every residual across the whole arc is statement/elaboration-mechanics
+class; zero math defects. The GREEN inventory stands as in the first addendum
+(M1 entire; `smul_la₀_add_one`; `gProd_eq`; `completedRiemannZeta_ne_zero`;
+`deriv_div_symCompleted_eq` pending only :299's value-lemma).
+
+Parked bytes after the one-fire grant: `M2.lean` sha256(16) **d0200c4bcc6c9174**.

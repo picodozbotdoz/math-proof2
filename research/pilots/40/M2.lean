@@ -300,7 +300,8 @@ theorem deriv_symFactor (N : ℕ) (s : ℂ) : deriv (symFactor N) s
         (s / 2 * Complex.ofReal (Real.log (N : ℝ)))).comp s
       (((hasDerivAt_id s).div_const 2).mul (hasDerivAt_const s _)))).deriv.trans (by
     simp only [mul_zero, add_zero]
-    exact mul_comm _ _)
+    exact mul_comm (Complex.exp (s / 2 * Complex.ofReal (Real.log (N : ℝ))))
+      (Complex.ofReal (Real.log (N : ℝ)) / 2))
 
 /-- The Λ̃ log-derivative decomposition: `Λ̃′/Λ̃ = (log N)/2 + Λ_χ′/Λ_χ` — the
 symmetrizer contributes exactly the real positive constant `½·log N`. -/
@@ -352,7 +353,7 @@ theorem re_pos_of_factor_bound (hχ : χ ≠ 1)
     simp only [Complex.add_re, Complex.ofReal_re]
     ring
   rw [hre]
-  exact hfb s hs hs1
+  simpa only [one_div, mul_one_div] using hfb s hs hs1
 
 end XiKPrime
 
