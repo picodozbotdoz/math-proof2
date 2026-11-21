@@ -19,19 +19,20 @@ at their pins.
 |---|---|---|---|---|
 | eta-r4 rung (R5 grant-fire-2) | **+10** | r4 strict-OK 10/10 TRIAD-CLEAN | print-verified IN-RUN (run 14) | `zzv2-lam-port-wrap.md` rung 14 (`285a411e`, log `cebc4730`-class; landed `25879dd`); the arc total 22/22 = 12 inside the 605 base (R1 6/6 + rungs 2/3 4/4+2/2, batch-AAA) + 10 NEW |
 | al3d A1 full GREEN (R8 run-9) | **+24** | A1.lean 24 theorems, all printed decls triad-clean | print-verified IN-RUN (run 9) | `al3d/M0-record.md` run-9 block (log `f3d6a0d2a4d0a83d`); P0's re-verification at `c6752422` = 0 NEW (inside the 89/89 M0→M2 base); A2 NOT-GREEN = 0 |
-| **Confirmed subtotal** | **+34** | **605 → 639** | | |
-| 12-core family (R3) | **[PENDING-CLOSE-VALUES]** | CORE.lean @ `7e40dff4` = 14 top-level theorems (47 decl-lines incl. defs): day-1's 5 kernel-clean + the `MMgeneral_total_sum` milestone chain | kernel-clean (0 sorry) but **NOT print-verified** (core logs carry no `#print axioms`) — the family enters the census ONLY via the close G2 Step-B axcheck (or the closing batch's audit) | `pilots/12/CORE-record.md` milestone block; `core-runs4-9.log` (0 axiom lines, verified this session) |
-| 12-core closing batch (R3) | **[PENDING-CLOSE-VALUES]** | + the `route16_MMgeneral` closure + the Choice.lean:60–244 rpow-port decls | unfired (≤5-fire GO stands) | `RESUME-BRIEF-ITER6.md` §SESSION END (b)2 |
+| **Confirmed subtotal** | **+48** | **605 → 653** | | (the +34 of the first draft + the 12-core resolution below; V1 fill 2026-11-21) |
+| 12-core family (R3) — **RESOLVED** | **+14** | S-TRANCHE CLOSED: closing batch GREEN 5/5; run 13 GREEN at CORE.lean `940bc9eabe82d5e0` + run 14 axcheck **14/14 triad-only**; TWO forced statement amendments (two landed stubs were false — the honest forms per the charter-input landed; a G1-class note for the close classifier) | print-verified IN-RUN (run 14) | `pilots/12/M-CLASS-EVALUATION.md` header (`3d40f84e`) + `CORE-record.md` §TRANCHE CLOSE; commit `223cfa1` |
+| 12-core M-class evaluation (V1) | **0 decls** | the γ-freeze finding: balanced total n^{3−0.00175} MM-independent; `flagship_shape` corpus-blocked (hF3b ωb ≈ 2.25 < log₂7); **record-billed, NO article row** — the negative-kind re-scope = an iter-7 CANDIDACY (routed to R9's census v3), not this close | record only (no kernel; the M-class stubs stay stubbed, sorry=7 at `940bc9ea` = the out-of-scope M-class frontier) | `pilots/12/M-CLASS-EVALUATION.md` §0; the relay 2026-11-21 |
 | H4 / E1 fire (R4) | **[PENDING-CLOSE-VALUES]** | ≈ +8 (2 nogo theorems + 4 fiber finals + the F pullback; the 4 micro-decides re-certified in-file) | unfired (granted, in flight); probe micro-decides alone are NOT proof-artifact decls | `pilots/41/H4-precharter.md` §3; R2 gate `r2-41h4-s1s4-gate.md` §S3 |
 | P4 / V2 fire (R8) | **[PENDING-CLOSE-VALUES]** | +2 (the two card proofs; the d4 re-print is a donor re-print, not a new decl) | unfired (granted, ≤3 runs) | `iter6-seed1-n2-uniform-p4-prep.md` §3; R2 gate `r2-p4-s1s4-gate.md` §S3 |
 | **Zero-delta families (state explicitly)** | 0 | N2P1 (re-bind re-verification; the 17/17 inside the base) · the H4/P4 statement probes (statement tier) · article-75 v3/v4/v5 (revisions over already-counted evidence) · the referee/companions set (no kernel) · the 41H3 pre-solve re-run (computation evidence) · the custody settlement (archive) | | |
 | donor rows | expected **18 → 18** | d4 already inside the 18 (the iter-5 B″ landing, batch-MM) | recompute at close G2 | `RESEARCH.md:484`; v4 header artifacts block |
 
-**Close fill:** stock = **639 + {12-core prints} + {E1 if GREEN} + {P4 if GREEN}**;
-expected band ≈ **639–663**; the exact cell fills at the close G2 (Step-B batch
+**Close fill (V1-updated):** stock = **653 + {E1 if GREEN ≈8} + {P4 if GREEN +2}**;
+expected band ≈ **653–663**; the exact cell fills at the close G2 (Step-B batch
 re-print). The growth sentence for Instruments A: "the 219-class growth ledger
-gains the eta-r4 rung (+10) and the first full A1 GREEN (+24) confirmed, plus the
-12-core/E1/P4 families as their fires resolve."
+gains the eta-r4 rung (+10), the first full A1 GREEN (+24), and the S-tranche
+close (+14, the 14/14 triad axcheck at `940bc9ea`) — 605 → 653 confirmed — plus
+the E1/P4 families as their fires resolve."
 
 ## §2 G6 — the KPI + quota cells (fill-not-compute)
 
@@ -43,17 +44,18 @@ gains the eta-r4 rung (+10) and the first full A1 GREEN (+24) confirmed, plus th
   verified again this session). **Fixed points holding:** eta-r4 record-billed
   no-row (`25879dd`); v5 revise-in-place moves NOTHING (R2's P4 gate S2 ruling,
   `5ecdb9bb`); M3 PERMANENT PARK; L3 BANK.
-- **[PENDING-CLOSE-VALUES]: the 12-core M-class evaluation** — the ONLY live
-  article variable; the three branches and their cells are PRE-COMPUTED at
-  `r2-mclass-share-arithmetic.md` §2 ((a) 10/18 · (b1) 9/17 · (b2) 9/18 · (c)
-  9/17; × FB-2 spent/unspent; the (b2)-spend BLOCK cell). The close stamps the
-  branch that landed.
+- **RESOLVED (V1, 2026-11-21): the 12-core M-class evaluation = the (b1)/(c)
+  branch** — record-billed, NO article row this iteration (the γ-freeze
+  finding; `flagship_shape` corpus-blocked; the negative-kind re-scope = an
+  iter-7 candidacy, routed to R9's census v3 — NOT this close's article).
+  **Stock at close: 9/17 ≈ 52.9%** (`r2-mclass-share-arithmetic.md` §2 row
+  (b1)/(c) × unspent — the pre-computed cell lands as written).
 
 **Quota cells (per R-A; the disposition `356cff31` §2):**
 
 - **[QUOTA-STATE] = UNSPENT** — re-run the byte-test at close (no FB-2/FB-4
   article file or README row; no [DECISION-Q] charter ruling; at HEAD: verified
-  none exists).
+  none exists; V1 removed the last spend-side variable).
 - **[QUOTA-OUTCOME] = THIRD consecutive unspent cycle** (iter-4 → iter-5 →
   iter-6, the F5-corrected trajectory), carrying the structural-finding sentence
   (paste-ready, from `r2-iter7-quota-structural-draft.md` `4955ac91` §1–§2):
@@ -63,9 +65,10 @@ gains the eta-r4 rung (+10) and the first full A1 GREEN (+24) confirmed, plus th
   > drained-lane preconditions, day-1 UNSPENT final with one headroom re-open
   > trigger), with the opportunistic reclassification (Option B) as the
   > automatic fallback; no quota arithmetic carries (per-cycle rule).
-- R-B override check at close: **[PENDING-CLOSE-VALUES]** — (b1) requires the
-  M-class resolution with non-breaking arithmetic AND (b2) ≥2 drained-lane
-  sessions; if the pause shortens the tail, R-A is the expected branch.
+- R-B override check at close: **CLOSED-NO (V1)** — (b1)'s preconditions are
+  UNMET (no discovery-grade M-class article landed; no headroom event; the
+  share stays 9/17 pre-FB) and (b2)'s drained-lane window was consumed by the
+  closing batch; R-A is the operative branch, no re-open trigger fired.
 
 ## §3 G7 — the stamp census (re-derived at HEAD `fff5c33`)
 
@@ -86,6 +89,7 @@ Classification + paste-ready one-liners (line-2 blockquote, title-anchored):
 | `qa/iter4-review/r9-iter6-charter-draft.md` | SUPERSEDED — by the executed §Iteration 6 splice (typeset `7253a71d`, applied at the opening commit) |
 | `pilots/12/core-charter-input.md` + `core-day1-staging.md` | CONSUMED — by the D4 day-1 fire + the S-tranche milestone (`7e40dff4`) |
 | `novelty/iter6-seed-census.md` | CONSUMED at close — seeds realized (1 via v3/v4+P4 per R8's course correction; 2 shipped 41H3 + the H4 residue; 3 parked; the quota row resolved at the [QUOTA-OUTCOME] stamp) |
+| `pilots/12/M-CLASS-EVALUATION.md` (`3d40f84e`) | RECORDED 2026-11-21 — V1 ruled record-billed/no-row (the (b1)/(c) branch); the γ-freeze finding + the corpus-blocked flagship consumed by the G6 fills; the negative-kind re-scope candidacy CARRIES to R9's iter-7 census v3 |
 | R7's §I6 addendum pre-draft (`2aed649e`) | CONSUMED — by the close splice's §I6 fill |
 
 **(b) EVENT-STANDBY (stamp on the pending verdict, pre-close or in the close
@@ -111,13 +115,16 @@ named-disposition:**
    iter-5 was the SECOND) — disposition: R9's one-word fix at next touch, or
    carries named (never consumed as-is).
 
-## §4 The close-act dependency order (one line)
+## §4 The close-act dependency order (V1-updated)
 
-G2 Step-B re-print (fills §1's pending prints) → M-class evaluation verdict
-(fills §2's branch cell) → G6 stamps (this file §2) → G7 flips (§3) → INDEX
-reconciliation (the close gate; also disposes annotation token 1) → the §I6
-splice → the close commit (G8 rides).
+~~M-class evaluation verdict~~ **RESOLVED (V1: (b1)/(c), no row)** → G2 Step-B
+re-print (fills §1's remaining E1/P4 pendings) → G6 stamps (this file §2, now
+fill-ready) → G7 flips (§3) → INDEX reconciliation (the close gate; also
+disposes annotation token 1) → the §I6 splice → the close commit (G8 rides).
 
-— lane R2 (worktree agent-03), 2026-11-21. PREP ONLY; no fires, no commits (H
-commits on main; REPORT ONLY). Lineage: `iter5-g7-stamps-prep.md` (`f4307714`)
-→ this. INDEX row owed.
+— lane R2 (worktree agent-03), 2026-11-21; **V1 fills applied same day** (the
+M-class resolution + the S-tranche close folded into §1/§2/§3). PREP ONLY; no
+fires, no commits (H commits on main; REPORT ONLY). Lineage:
+`iter5-g7-stamps-prep.md` (`f4307714`) → this (landed `8b449491`; the V1
+fill-delta rides H's next batch). INDEX row owed at first landing (done,
+`e8323ab`).
