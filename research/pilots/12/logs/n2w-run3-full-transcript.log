@@ -1,0 +1,42 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-GnbcIDQQJ4hm9myiPoZ7wX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-n2w-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['N2-witness.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== N2-witness.lean
+[probe] N2-witness.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+---- output head ----
+N2-witness.lean:70:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (2 ^ 5) ^ (1 / 2) < (7 ^ 2) ^ (1 / 2)
+in the target expression
+  (2 ^ ↑5) ^ (1 / 2) < (7 ^ ↑2) ^ (1 / 2)
+
+h : 5 / 2 < Real.logb 2 7 ↔ 2 ^ (5 / 2) < 7
+hL : 2 ^ (5 / 2) = (2 ^ ↑5) ^ (1 / 2)
+hR : 7 = (7 ^ ↑2) ^ (1 / 2)
+⊢ (2 ^ ↑5) ^ (1 / 2) < (7 ^ ↑2) ^ (1 / 2)
+N2-witness.lean:87:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (7 ^ 10) ^ (1 / 10) ≤ (2 ^ 29) ^ (1 / 10)
+in the target expression
+  (7 ^ ↑10) ^ (1 / 10) ≤ (2 ^ ↑29) ^ (1 / 10)
+
+h : Real.logb 2 7 ≤ 2.9 ↔ 7 ≤ 2 ^ 2.9
+hL : 2 ^ 2.9 = (2 ^ ↑29) ^ (1 / 10)
+hR : 7 = (7 ^ ↑10) ^ (1 / 10)
+⊢ (7 ^ ↑10) ^ (1 / 10) ≤ (2 ^ ↑29) ^ (1 / 10)
+'fiber_cap_blocked_regime' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   N2-witness.lean: FAIL (2 errors)
+[tele] SUMMARY probe: wall=40s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-GnbcIDQQJ4hm9myiPoZ7wX

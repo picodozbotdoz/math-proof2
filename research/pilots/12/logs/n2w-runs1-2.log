@@ -1,0 +1,101 @@
+# N2-WITNESS fire log — runs 1–2 (2026-11-21, lane R2; grant = 1 run + the pre-registered one-mechanical-fix round)
+
+PROVENANCE: fired from worktree agent-03 @ main d290a9d-family; payload
+`pilots/12/N2-witness.lean`; staged `/tmp/crossmath-12-n2w-stage/` (lean_probe.py
++ modal_telemetry.py + the payload, world-readable, the family pattern); doz CLI
+`/home/doz/dozenv/bin/modal run lean_probe.py --dir .` (app semraker, ephemeral
+probe app class — NO volume/secret/deploy); SPEC cpu=2.0 / mem=4096 (the app's
+CAP secret sets LEAN_NUM_THREADS=2); substrate mathlib `ff2494ea` / v4.36.0-rc2.
+Sha guards: run 1 prefire `812f7732fa2eb49d` (`/tmp/p12-n2w-prefire-sha.txt`);
+run 2 prefire `2607e023d53cc9ed` (`/tmp/p12-n2w-prefire-sha-run2.txt`); the
+EpsData restate byte-checked VERBATIM vs `CORE.lean:235–241` before BOTH runs.
+TRUNCATION NOTE: this file preserves the verdict lines + the error excerpts from
+the session transcript (the full stdout was piped through `tail` — the excerpt
+below is the persisted record; the Modal run URLs are the deep references).
+
+## RUN 1 (prefire sha 812f7732) — RED, 12 errors, ALL API-name class
+
+[probe] N2-witness.lean: FAIL (12 errors). Telemetry: wall 54 s, OVER=0.
+Representative errors (the full class):
+- `Real.log_pow ?m` — "argument has type 7 ≠ 0 of sort Prop but is expected to
+  have type ℝ": the pin's `Real.log_pow` takes the VALUE explicitly (signature
+  drift vs the assumed form).
+- `error(lean.unknownIdentifier): Unknown constant 'Real.logb_def'` — the
+  logb↔log/log rewrite name does not exist on this pin.
+- The sorryAx in the axioms print (`[propext, sorryAx, ...]`) = the error-recovery
+  class (errors in dependencies propagate sorryAx), NOT proof content.
+Modal: https://modal.com/apps/semraker/main/ap-NVWfyy9w6mlFzuqkInNCh8
+
+## RUN 2 (the budgeted mechanical fix round; prefire sha 2607e023) — RED, 2 errors, one decoded literal-cast class
+
+Fixes applied for run 2 (all names verified against the LOCAL pin checkout
+`encore-mathlib/repo/mathlib4` ff2494ea BEFORE firing): `Real.lt_logb_iff_rpow_lt`
+(Log/Base.lean:219), `Real.logb_le_iff_le_rpow` (:210, section OneLtB, hb
+explicit), `Real.rpow_mul` (Pow/Real.lean:414), `Real.rpow_natCast` (:61),
+`Real.rpow_one` (:148), `Real.rpow_lt_rpow_iff`/`rpow_le_rpow_iff` (:571/:574);
+integer cores by norm_num (49 > 32; 7^10 = 282475249 ≤ 2^29 = 536870912).
+
+[probe] N2-Witness.lean: FAIL (2 errors). Telemetry: wall 45 s, OVER=0.
+The residual (BOTH errors the same class, fully decoded):
+- `rw [Real.rpow_natCast]` fails: the goal carries `2 ^ (5:ℝ)` / `7 ^ (10:ℝ)`
+  with RAW real literals, but `rpow_natCast`'s pattern needs `(↑n : ℕ) : ℝ`
+  natCast literals — my `hL`/`hR` wrote the exponents as raw `(5:ℝ)` instead of
+  `((5:ℕ):ℝ)`. Pure literal-cast elaboration mechanics; ZERO mathematical
+  content; the fix is a byte-level cast edit at four sites (hL/hR × the two
+  numeric lemmas) + refire.
+- The axioms print again shows the error-recovery sorryAx (2 errors propagate).
+Modal: https://modal.com/apps/semraker/main/ap-jFQWL9V39ZP9VsRxS9Le3J
+
+## VERDICT: NOT-GREEN-AT-CAP (D7 honest-park) — the residual class NAMED, the continuation PRICED
+
+- Grant scope: 1 run + the pre-registered one-mechanical-fix round (`gamma-freeze-precharter.md`
+  §6 GO/NO-GO semantics) = 2 runs; both spent.
+- Residual class: the literal-cast/natCast-pattern class (the `exact?`-adjacent
+  elaboration mechanics family); fix IN HAND (the four cast edits); risk of a
+  further round: LOW (every lemma name now pin-verified; the only unmatched
+  pattern is the cast form).
+- Continuation: ONE fresh run at the fixed bytes (sha re-guarded; no other
+  change) — requests a fresh one-run grant per the no-follow-on-without-grant
+  rule (D5-class discipline).
+- On GREEN, the run-2→3 delta is pure mechanics — the witness claim is
+  unchanged (sha lineage: 812f7732 → 2607e023 → the fix bytes).
+
+## RUN 3 (the fresh one-run grant, 2026-11-21; prefire sha 4981ce6ed9cfa73f, GUARD-OK, fired as-is; EpsData verbatim re-checked) — RED, 2 errors, the residual class at its LAST site
+
+FULL transcript captured this run (rescued to this log's companion /tmp — the
+run-3 stdout was tee'd complete; the excerpt below is verbatim-complete for the
+error class):
+
+[probe] N2-witness.lean: FAIL rc=1; errors=2, sorry-warnings=0, other-warnings=0
+N2-witness.lean:70:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (2 ^ 5) ^ (1 / 2) < (7 ^ 2) ^ (1 / 2)
+in the target expression
+  (2 ^ ↑5) ^ (1 / 2) < (7 ^ ↑2) ^ (1 / 2)
+N2-witness.lean:87:4: error: (the same class at the ≤ site:
+  (7 ^ 10) ^ (1 / 10) ≤ (2 ^ 29) ^ (1 / 10) vs the goal's ↑10/↑29)
+Telemetry: wall 40 s, OVER=0. Modal: https://modal.com/apps/semraker/main/ap-GnbcIDQQJ4hm9myiPoZ7wX
+
+ROOT (decoded, same class as run 2 — one layer deeper): the goal after the
+hL/hR rewrites carries `2 ^ (↑5:ℕ)` (the cast form, correct), but the
+`rpow_lt_rpow_iff`/`rpow_le_rpow_iff` HYPOTHESIS terms `(by norm_num : (0:ℝ) ≤ 2 ^ 5)`
+elaborate the exponent as a RAW ℕ-pow (`2 ^ (5:ℕ)`, a different term) — the rw
+unifies x := 2^(5:ℕ) which never matches the goal. The run-2 fix casted hL/hR
+but not the iff-hypotheses. Fix: `show`-ascribe the hypothesis terms to the
+cast form (4 sites) — APPLIED PRE-APPLIED-UNFIRED post-run-3 (the payload now
+at the fix bytes; fires as-is on the next grant).
+
+## PARK RECORD (D7): the N2 unit parks NOT-GREEN-AT-3-RUNS
+
+- The grant (1 fresh run) is spent; the residual re-named: the
+  pow-exponent-literal elaboration class (ℕ-default vs natCast) at the
+  iff-hypothesis sites — pure elaboration mechanics, zero mathematical content,
+  fix in hand and pre-applied.
+- Sha lineage: 812f7732 (run 1) → 2607e023 (run 2) → 4981ce6e (run 3) → the
+  show-ascribed fix bytes (pre-applied-unfired; re-guard at next grant).
+- N1: its precondition (N2-GREEN) is UNMET — the pre-confirmation does not
+  execute; N1 stands pre-chartered at the precharter's price pending an N2
+  GREEN (the coordinator's call whether the pre-confirmation revives on a
+  future N2 completion).
+- Continuation priced: ONE run at the fix bytes (same stage, same guard
+  pattern). Every lemma name pin-verified; the only unmatched pattern through
+  run 3 is the literal-form class now show-ascribed.

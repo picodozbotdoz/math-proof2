@@ -121,3 +121,70 @@ cited anticipation, never obscured.
 (H commits on main; REPORT ONLY). Companions: the quota disposition
 (`r2-iter7-quota-disposition.md`, same session — §1's selection logic); the
 evaluation `3d40f84e`; the census row 8 `18a904d4`. INDEX row owed.
+
+---
+
+## §6 THE N2 PAYLOAD PLAN (added 2026-11-21 on the standby re-task; the fire WAITS on the grant + R7's concurrence)
+
+**The statement** — NEW self-contained file `pilots/12/N2-witness.lean`
+(≈ 60–90 LoC; the H3-from-H2 precedent: NO import of `CORE.lean`, the
+hyphen→camel staging trap avoided; `EpsData` restated verbatim-marked from
+`CORE.lean:235–241`, `WordRamMMData`'s `ωb` field minimal-restated; the article
+splice composes over the landed 14/14 file):
+
+```lean
+/-- The blockade witness — the PROVABLE half of `flagship_shape`'s conclusion
+    (CORE.lean :392's FIRST conjunct) at hF3b's W-class: any band W with
+    ωb ≤ 9/4 + 1/4 sits strictly below the frozen fiber, where the DECREASING ε
+    EXCEEDS the frozen cap. The second conjunct (Theorem_19_explicit at the
+    larger ε) is the γ-freeze's blocked half — never claimed here. -/
+theorem fiber_cap_blocked_regime (E : EpsData) (W : WordRamMMData)
+    (hband : W.ωb ∈ Set.Ioc 2 2.9) (hW : W.ωb ≤ 9 / 4 + 1 / 4) :
+    0.00175 < E.ε W.ωb
+```
+
+(ε′ fixed at 1/4 at fire time — a member of hF3b's ∀ε′>0 class suffices for
+the witness and keeps the band edges rational; the general ε′-parameterized
+form is a splice-time generalization, R7's call.)
+
+**The proof chain — 4 steps, all landed-API class:** (1) `Real.logb 2 7 > 5/2`
+(from 7² = 49 > 32 = 2⁵, one `norm_num` check); (2) `9/4 + 1/4 = 5/2 <
+Real.logb 2 7` (linear); (3) both of `W.ωb`, `Real.logb 2 7` in `Ioc 2 2.9`
+(the `5/2` edge numeric; the `logb 2 7 ≤ 2.9` glue = R3's `route16_frozen`
+sweep lemma — **consume-if-landed, else the 3-line inline variant, never
+re-prove**); (4) `E.strict_anti` (`StrictAntiOn` on `Ioc 2 2.9`) at
+`W.ωb < Real.logb 2 7` both-in-interval ⇒ `E.ε (Real.logb 2 7) < E.ε W.ωb`;
+rewrite `E.frozen_fiber` ⇒ the goal. ∎ (the `0.00175` literals are the same
+literal — the rewrite is rfl-class.)
+
+**Runner spec (the D5′ discipline):** the pilot-12 family app
+`crossmath-pilot-12core` (warm; `run_core.py`'s anchored `": error"` +
+`error(...)` forms already present, verified at `run_core.py:17` this session);
+the stage = the family `/tmp` world-readable pattern; the D5′ one-liners
+RE-VERIFIED at stage time (the backtick-form sorry filter + the
+display-context path — expected `sorry=0`, the filter matters for honest
+failure accounting); SPEC cpu=2.0 / mem=4096, `LEAN_NUM_THREADS=2` (the CAP
+secret), telemetry @60 s, doz CLI; expected wall ≤ 90 s warm; the axcheck tail
+= one `#print axioms` (triad-only or `[propext]`-class on the numeric check —
+either recorded honestly).
+
+**The 1-run sha guard:** `/tmp/p12-n2w-prefire-sha.txt` = sha256(16) of the
+staged `N2-witness.lean` + the verbatim-marked structure byte-check against
+`CORE.lean:235–241`; no edits between guard and fire (the al3d run-9 pattern).
+
+**GO/NO-GO signal semantics:** GREEN (`OK rc=0 errors=0 sorry=0` + the print
+clean) = the witness basis holds → **N1 unlocks**; RED at elaboration (the
+`strict_anti`/`Ioc` domain-edge class) = ONE mechanical fix round inside the
+same grant (the lemma-name class), else honest-park → the re-scope re-prices
+and re-falls to R3 per §5.
+
+**The N1 follow-on shape (2–3 runs; gated on N2's signal, a fresh grant):**
+`savings_cap_frozen` over the landed `route16_MMgeneral`/`MMgeneral_total_sum`
+chain — the two-term balance monotonicity (instances `n³·D^{η−γ}` ↑η vs scans
+`n³·D^{−η}` ↓η), the unique minimizer η = γ/2, the cap constant exact-rational
+(0.063/36 = 7/4000), MM-independence (the total independent of `W.ωb`);
+consumes R3's `route16_frozen` numeric glue; ≈ 0.15–0.3k LoC; the article path
+opens on N1+N2 GREEN + the S1–S4 gate at draft (per §5).
+
+— §6 added lane R2, 2026-11-21 (the standby re-task); the fire executes ONLY on
+the coordinator's grant following R7's concurrence.
