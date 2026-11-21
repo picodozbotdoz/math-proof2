@@ -57,10 +57,10 @@ prior state in `.carry/2026-11-21-resume/`. NO `git stash` lane-side (shared sta
 | R1 | agent-02 | post-revision integrity sweep (sha-pins / ledger §12 / sorry-free diff) | active |
 | R2 | agent-03 | D1 quota contest: FB-2 follow-on + iter-6 disposition draft | active |
 | R3 | agent-07 | 12-core closing batch (Choice.lean:60–244 rpow port @ η=0.0315; ≤5 fires) | active |
-| R4 | agent-08 | L3 re-charter DONE (verdict BANK, `460a04bc` landed; triggers T1–T4 named) → re-tasked: H3 n≥4 TL hunt seed-2 discovery-prep | active |
+| R4 | agent-08 | seed-2 prep DONE (H4-precharter 6647fbf1 landed 5c7fac7, probe GREEN) → **E1 fire GRANTED, in flight** (self-contained H4, ≤3 runs; E2/F/G BANKED iter-7) | active |
 | R5 | agent-04 | eta-r4 run-14 DONE: **GREEN strict-OK, η-port ledger CLOSED 14-of-12–13** (10/10 triad; log cebc4730 + record 189cd5b0 landed 25879dd; Fourier/identity rungs BANKED iter-7 Tier-2) → re-tasked: port-arc wrap record | active |
 | R6 | agent-06 | introduction verification batch A (8 stems + 41 spot-check) | active |
-| R7 | agent-10 | introduction verification batch B (8 stems) + registry draft | active |
+| R7 | agent-10 | batch B + registry DONE (9cadcbe) + close skeleton DONE (0a93019b @ 2184aea) → standby gates ACTIVE: R4 precharter editorial read + §I6 pre-draft | active |
 | R8 | agent-05 | M3 run-9 DONE: split verdict ⇒ PERMANENT PARK (P0+A1 kernel-GREEN, A2 first-sight mechanical; log f3d6a0d2 + record b9dad480 landed) → re-tasked: seed-1 N2-completion/P3-d discovery-prep | active |
 | R9 | agent-09 | novelty-verification queue (post-referee posture + seed census) | active |
 | helper | agent-01 | carry-scratch triage; INDEX drift prep; substrate draft; health | active |
