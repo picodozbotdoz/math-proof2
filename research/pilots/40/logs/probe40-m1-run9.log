@@ -1,0 +1,26 @@
+# probe40-m1-run9 — diagnostic run on the way to the run-10 GREEN (see run10 header + M1-record.md).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-miX8znYd0wQTXu8UrlI0Uy
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M1.lean
+[probe40] M1.lean: PROBE-OK sorry=0
+---- output tail ----
+M1.lean:176:2: warning: Unused tactic linter: there are no goals left for `try ring`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
+[probe40] SUMMARY
+[probe40]   M1.lean: PROBE-OK sorry=0
+[tele] SUMMARY run: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-miX8znYd0wQTXu8UrlI0Uy

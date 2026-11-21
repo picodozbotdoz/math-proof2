@@ -1,0 +1,49 @@
+# probe40-m1-run10 — the RECORD run of pilot-40 M1 (Stage-1 tranche 1) — GREEN, triad-clean
+# Artifact: research/pilots/40/M1.lean  sha256(16)=71922301cbb0761d (FINAL bytes)
+# Runner: research/pilots/40/run_probe40.sh + run_probe40.py (app crossmath-probe-40; SPEC
+#   cpu=2.0/mem=4096, LEAN_NUM_THREADS=2 inline secret, modal_telemetry staged; doz CLI).
+# Substrate: mathlib4 @ ff2494ea5e438f8a8452db803068acd711fa0059, toolchain v4.36.0-rc2,
+#   elan v4.2.4, lake exe cache get (image layers shared with crossmath-probe/pilot-32).
+# Fired: 2026-11-21, lane R9 = the iter-7 day-1 Xi-K-prime Stage-1 carrier (D2'(a)),
+#   worktree agent-09 @ d429d19.
+# VERDICT: PROBE-OK errors=0 sorry=0 — the KEPT ARTIFACT is sorry-free; 11/11 audited
+#   theorems TRIAD-CLEAN ([propext, Classical.choice, Quot.sound]; zero sorryAx; the
+#   #print axioms block rides the artifact's tail).
+# Telemetry: wall 32 s (warm) — under the 60 s sampling interval, hence samples=0 (NO
+#   SAMPLE, not zero usage). Run family walls 28-55 s, all warm-cache.
+# Run history (10 fires of the 6-14 grant; diagnosis notes per run in M1-record.md):
+#   run1 25 err; run2 13; run3 9; run4 7; run5 5; run6 3; run7 2; run8 1; run9 0 (GREEN,
+#   one cosmetic unused-tactic warning); run10 0 + axioms block (FINAL, warning-free).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-6Spa7cD7aBWe1pyJLnhAyK
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M1.lean
+[probe40] M1.lean: PROBE-OK sorry=0
+---- output tail ----
+'XiKPrime.xiChi_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.xiChi_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.differentiable_xiChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.xiChi_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.symCompleted_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.gProd_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.deriv_div_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.deriv_div_gProd_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.xiChiDeriv_ne_zero_of_re_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.re_inv_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'XiKPrime.re_sub_one_inv_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe40] SUMMARY
+[probe40]   M1.lean: PROBE-OK sorry=0
+[tele] SUMMARY run: wall=56s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-6Spa7cD7aBWe1pyJLnhAyK

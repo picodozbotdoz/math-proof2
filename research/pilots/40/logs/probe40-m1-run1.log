@@ -1,0 +1,670 @@
+# probe40-m1-run1 — diagnostic run on the way to the run-10 GREEN (see run10 header + M1-record.md).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-nMBGqADmVtLeTmB1NfswA2
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M1.lean
+[tele] t=60s cpu=0.81 mem=4722MB anon=0MB peak=-1MB procs=2 OVER mem
+[probe40] M1.lean: PROBE-FAIL rc=1 errors=25 sorry=0
+---- error contexts ----
+M1.lean:41:2: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:57:15: warning: This simp argument is unused:
+  gProd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [XiChi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+M1.lean:60:15: warning: This simp argument is unused:
+  gProd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [XiChi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+M1.lean:62:52: error: Application type mismatch: The argument
+  symFactor ↑N
+has type
+  ℂ
+···
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+M1.lean:62:52: error: Application type mismatch: The argument
+  symFactor ↑N
+has type
+  ℂ
+but is expected to have type
+  ?m.5 → ?m.9
+in the application
+  Differentiable ℂ (symFactor ↑N)
+M1.lean:66:3: error(lean.unknownIdentifier): Unknown identifier `differentiable_symFactor`
+M1.lean:68:0: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+M1.lean:73:24: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.18
+of sort `Type` in the application
+  differentiable_gProd hχ
+M1.lean:78:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.14 ^ ?y
+in the target expression
+···
+M1.lean:66:3: error(lean.unknownIdentifier): Unknown identifier `differentiable_symFactor`
+M1.lean:68:0: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+M1.lean:73:24: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.18
+of sort `Type` in the application
+  differentiable_gProd hχ
+M1.lean:78:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.14 ^ ?y
+in the target expression
+  ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+
+N : ℕ
+inst✝ : NeZero N
+x : ℂ
+⊢ ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+M1.lean:85:31: error: Function expected at
+  IsPrimitive
+but this term has type
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+M1.lean:73:24: error: Application type mismatch: The argument
+  hχ
+has type
+  χ ≠ 1
+of sort `Prop` but is expected to have type
+  DirichletCharacter ℂ ?m.18
+of sort `Type` in the application
+  differentiable_gProd hχ
+M1.lean:78:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.14 ^ ?y
+in the target expression
+  ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+
+N : ℕ
+inst✝ : NeZero N
+x : ℂ
+⊢ ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+M1.lean:85:31: error: Function expected at
+  IsPrimitive
+but this term has type
+  ?m.4
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+···
+  differentiable_gProd hχ
+M1.lean:78:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.14 ^ ?y
+in the target expression
+  ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+
+N : ℕ
+inst✝ : NeZero N
+x : ℂ
+⊢ ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+M1.lean:85:31: error: Function expected at
+  IsPrimitive
+but this term has type
+  ?m.4
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `IsPrimitive` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:85:69: error: Function expected at
+  rootNumber
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+···
+⊢ ↑N ^ x = cexp (x * ↑(Real.log ↑N))
+M1.lean:85:31: error: Function expected at
+  IsPrimitive
+but this term has type
+  ?m.4
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `IsPrimitive` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:85:69: error: Function expected at
+  rootNumber
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `rootNumber` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:90:13: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  (1 - s)
+···
+Hint: The identifier `IsPrimitive` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:85:69: error: Function expected at
+  rootNumber
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `rootNumber` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:90:13: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  (1 - s)
+M1.lean:90:59: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:91:18: error: Failed to rewrite using equation theorems for `symFactor`
+M1.lean:86:45: error: unsolved goals
+···
+Hint: The identifier `rootNumber` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+M1.lean:90:13: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  (1 - s)
+M1.lean:90:59: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:91:18: error: Failed to rewrite using equation theorems for `symFactor`
+M1.lean:86:45: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+x✝¹ : Sort u_1
+IsPrimitive : x✝¹
+x✝ : Sort u_2
+rootNumber : x✝
+hprim : sorry
+hinv : χ⁻¹ = χ
+···
+  (1 - s)
+M1.lean:90:59: error: Function expected at
+  symFactor ↑N
+but this term has type
+  ℂ
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:91:18: error: Failed to rewrite using equation theorems for `symFactor`
+M1.lean:86:45: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+x✝¹ : Sort u_1
+IsPrimitive : x✝¹
+x✝ : Sort u_2
+rootNumber : x✝
+hprim : sorry
+hinv : χ⁻¹ = χ
+hε : sorry = 1
+s : ℂ
+hquad : (1 - s) * (1 - s - 1) = s * (s - 1)
+hz : completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s
+hsF : sorry * ↑N ^ (s - 1 / 2) = sorry
+⊢ XiChi χ (1 - s) = XiChi χ s
+M1.lean:107:2: error(lean.unknownIdentifier): Unknown constant `Complex.exp_ne_zero.mul`
+···
+  s
+M1.lean:91:18: error: Failed to rewrite using equation theorems for `symFactor`
+M1.lean:86:45: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+x✝¹ : Sort u_1
+IsPrimitive : x✝¹
+x✝ : Sort u_2
+rootNumber : x✝
+hprim : sorry
+hinv : χ⁻¹ = χ
+hε : sorry = 1
+s : ℂ
+hquad : (1 - s) * (1 - s - 1) = s * (s - 1)
+hz : completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s
+hsF : sorry * ↑N ^ (s - 1 / 2) = sorry
+⊢ XiChi χ (1 - s) = XiChi χ s
+M1.lean:107:2: error(lean.unknownIdentifier): Unknown constant `Complex.exp_ne_zero.mul`
+M1.lean:114:19: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+s : ℂ
+hs1 : s ≠ 1
+···
+M1.lean:91:18: error: Failed to rewrite using equation theorems for `symFactor`
+M1.lean:86:45: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+x✝¹ : Sort u_1
+IsPrimitive : x✝¹
+x✝ : Sort u_2
+rootNumber : x✝
+hprim : sorry
+hinv : χ⁻¹ = χ
+hε : sorry = 1
+s : ℂ
+hquad : (1 - s) * (1 - s - 1) = s * (s - 1)
+hz : completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s
+hsF : sorry * ↑N ^ (s - 1 / 2) = sorry
+⊢ XiChi χ (1 - s) = XiChi χ s
+M1.lean:107:2: error(lean.unknownIdentifier): Unknown constant `Complex.exp_ne_zero.mul`
+M1.lean:114:19: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+s : ℂ
+hs1 : s ≠ 1
+hζ : completedRiemannZeta₀ s ≠ 0
+···
+M1.lean:107:2: error(lean.unknownIdentifier): Unknown constant `Complex.exp_ne_zero.mul`
+M1.lean:114:19: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+s : ℂ
+hs1 : s ≠ 1
+hζ : completedRiemannZeta₀ s ≠ 0
+h : s = 0
+hs : 1 ≤ 0
+⊢ False
+M1.lean:115:27: error: Type mismatch: After simplification, term
+  h
+ has type
+  s - 1 = 0
+but is expected to have type
+  s = 1
+M1.lean:117:28: error: Function expected at
+  logDeriv ?m.10 fun s => s
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:117:37: error: Application type mismatch: The argument
+···
+⊢ False
+M1.lean:115:27: error: Type mismatch: After simplification, term
+  h
+ has type
+  s - 1 = 0
+but is expected to have type
+  s = 1
+M1.lean:117:28: error: Function expected at
+  logDeriv ?m.10 fun s => s
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:117:37: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:120:39: error: Function expected at
+  logDeriv ?m.10 fun s => s - 1
+but this term has type
+  ?m.5
+···
+  s = 1
+M1.lean:117:28: error: Function expected at
+  logDeriv ?m.10 fun s => s
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:117:37: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:120:39: error: Function expected at
+  logDeriv ?m.10 fun s => s - 1
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:120:48: error: Application type mismatch: The argument
+  ℂ
+has type
+···
+  s
+M1.lean:117:37: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:120:39: error: Function expected at
+  logDeriv ?m.10 fun s => s - 1
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:120:48: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:130:4: error: Function expected at
+  logDeriv ?m.23 (gProd χ)
+···
+  logDeriv ℂ
+M1.lean:120:39: error: Function expected at
+  logDeriv ?m.10 fun s => s - 1
+but this term has type
+  ?m.5
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:120:48: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:130:4: error: Function expected at
+  logDeriv ?m.23 (gProd χ)
+but this term has type
+  ?m.18
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:6: error: Function expected at
+  logDeriv ?m.42 completedRiemannZeta₀
+but this term has type
+···
+  s
+M1.lean:120:48: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.5
+in the application
+  logDeriv ℂ
+M1.lean:130:4: error: Function expected at
+  logDeriv ?m.23 (gProd χ)
+but this term has type
+  ?m.18
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:6: error: Function expected at
+  logDeriv ?m.42 completedRiemannZeta₀
+but this term has type
+  ?m.37
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:53: error: Function expected at
+  logDeriv ?m.53 (symCompleted χ)
+but this term has type
+···
+  logDeriv ℂ
+M1.lean:130:4: error: Function expected at
+  logDeriv ?m.23 (gProd χ)
+but this term has type
+  ?m.18
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:6: error: Function expected at
+  logDeriv ?m.42 completedRiemannZeta₀
+but this term has type
+  ?m.37
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:53: error: Function expected at
+  logDeriv ?m.53 (symCompleted χ)
+but this term has type
+  ?m.48
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:62: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+···
+  s
+M1.lean:131:6: error: Function expected at
+  logDeriv ?m.42 completedRiemannZeta₀
+but this term has type
+  ?m.37
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:53: error: Function expected at
+  logDeriv ?m.53 (symCompleted χ)
+but this term has type
+  ?m.48
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:62: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.48
+in the application
+  logDeriv ℂ
+M1.lean:154:56: error: Function expected at
+  logDeriv ?m.22 (gProd χ)
+but this term has type
+···
+  s
+M1.lean:131:53: error: Function expected at
+  logDeriv ?m.53 (symCompleted χ)
+but this term has type
+  ?m.48
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:131:62: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.48
+in the application
+  logDeriv ℂ
+M1.lean:154:56: error: Function expected at
+  logDeriv ?m.22 (gProd χ)
+but this term has type
+  ?m.17
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:154:65: error: Application type mismatch: The argument
+  ℂ
+has type
+···
+  s
+M1.lean:131:62: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.48
+in the application
+  logDeriv ℂ
+M1.lean:154:56: error: Function expected at
+  logDeriv ?m.22 (gProd χ)
+but this term has type
+  ?m.17
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:154:65: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.17
+in the application
+  logDeriv ℂ
+M1.lean:177:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (Eq.symm (sub_eq_zero.mp h))
+···
+  logDeriv ℂ
+M1.lean:154:56: error: Function expected at
+  logDeriv ?m.22 (gProd χ)
+but this term has type
+  ?m.17
+
+Note: Expected a function because this term is being applied to the argument
+  s
+M1.lean:154:65: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.17
+in the application
+  logDeriv ℂ
+M1.lean:177:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (Eq.symm (sub_eq_zero.mp h))
+has type
+  0 < normSq (1 - s)
+but is expected to have type
+  0 ≤ normSq (s - 1)
+M1.lean:205:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+···
+  s
+M1.lean:154:65: error: Application type mismatch: The argument
+  ℂ
+has type
+  Type
+but is expected to have type
+  (ℂ → ℂ) → ?m.17
+in the application
+  logDeriv ℂ
+M1.lean:177:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (Eq.symm (sub_eq_zero.mp h))
+has type
+  0 < normSq (1 - s)
+but is expected to have type
+  0 ≤ normSq (s - 1)
+M1.lean:205:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  logDeriv ℂ
+M1.lean:177:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (Eq.symm (sub_eq_zero.mp h))
+has type
+  0 < normSq (1 - s)
+but is expected to have type
+  0 ≤ normSq (s - 1)
+M1.lean:205:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  0 ≤ normSq (s - 1)
+M1.lean:205:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+
+[probe40] SUMMARY
+[probe40]   M1.lean: PROBE-FAIL rc=1 errors=25 sorry=0
+[tele] SUMMARY run: wall=61s max_cpu=0.81 max_mem=4722MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-nMBGqADmVtLeTmB1NfswA2

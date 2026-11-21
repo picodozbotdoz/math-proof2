@@ -1,0 +1,36 @@
+# probe40-m1-run7 — diagnostic run on the way to the run-10 GREEN (see run10 header + M1-record.md).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-JSGFE5LoxeBcWXm9Mqbpdj
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M1.lean
+[probe40] M1.lean: PROBE-FAIL rc=1 errors=2 sorry=0
+---- error contexts ----
+M1.lean:170:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  deriv ((fun s => s) * fun y => y - 1) s = deriv (fun s => s) s * (s - 1) + s * deriv (fun s => s) s
+but is expected to have type
+  deriv (fun s => s * (s - 1)) s = 1 * (s - 1) + s * 1
+M1.lean:175:2: error: No goals to be solved
+M1.lean:234:77: error(lean.unknownIdentifier): Unknown constant `Filter.nhds`
+···
+  deriv (fun s => s * (s - 1)) s = 1 * (s - 1) + s * 1
+M1.lean:175:2: error: No goals to be solved
+M1.lean:234:77: error(lean.unknownIdentifier): Unknown constant `Filter.nhds`
+···
+
+[probe40] SUMMARY
+[probe40]   M1.lean: PROBE-FAIL rc=1 errors=2 sorry=0
+[tele] SUMMARY run: wall=53s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-JSGFE5LoxeBcWXm9Mqbpdj

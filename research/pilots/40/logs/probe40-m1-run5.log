@@ -1,0 +1,132 @@
+# probe40-m1-run5 — diagnostic run on the way to the run-10 GREEN (see run10 header + M1-record.md).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-r0Og1pbp71hs0D4D5SjqNX
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['M1.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== M1.lean
+[probe40] M1.lean: PROBE-FAIL rc=1 errors=5 sorry=0
+---- error contexts ----
+M1.lean:89:62: error: Application type mismatch: The argument
+  Nat.pos_of_neZero N
+has type
+  (0 : ℕ) < N
+but is expected to have type
+  (0 : ℝ) < ↑N
+in the application
+  @log_ofReal_mul (↑N) (Nat.pos_of_neZero N)
+M1.lean:165:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv (((fun s => s) * fun y => y - 1) * completedRiemannZeta₀ * symCompleted χ) s /
+    (((fun s => s) * fun y => y - 1) * completedRiemannZeta₀ * symCompleted χ) s
+in the target expression
+  deriv ((fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ) s /
+      ((fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ) s =
+    1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+      deriv (symCompleted χ) s / symCompleted χ s
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hζ : completedRiemannZeta₀ s ≠ 0
+···
+  @log_ofReal_mul (↑N) (Nat.pos_of_neZero N)
+M1.lean:165:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv (((fun s => s) * fun y => y - 1) * completedRiemannZeta₀ * symCompleted χ) s /
+    (((fun s => s) * fun y => y - 1) * completedRiemannZeta₀ * symCompleted χ) s
+in the target expression
+  deriv ((fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ) s /
+      ((fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ) s =
+    1 / s + 1 / (s - 1) + deriv completedRiemannZeta₀ s / completedRiemannZeta₀ s +
+      deriv (symCompleted χ) s / symCompleted χ s
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hζ : completedRiemannZeta₀ s ≠ 0
+hs0 : s ≠ 0
+hs10 : s - 1 ≠ 0
+hsc : symCompleted χ s ≠ 0
+hid : DifferentiableAt ℂ (fun s => s) s
+hA : DifferentiableAt ℂ (((fun s => s) * fun y => y - 1) * completedRiemannZeta₀) s
+hAne : (fun s => s * (s - 1)) s * completedRiemannZeta₀ s ≠ 0
+hpg : gProd χ = (fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ
+⊢ deriv ((fun s => s * (s - 1)) * completedRiemannZeta₀ * symCompleted χ) s /
+···
+      deriv (symCompleted χ) s / symCompleted χ s
+M1.lean:184:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv (gProd χ + fun x => 1) s
+in the target expression
+  deriv (fun t => gProd χ t + 1) s = deriv (gProd χ) s
+
+N : ℕ
+inst✝ : NeZero N
+χ : DirichletCharacter ℂ N
+hχ : χ ≠ 1
+hdev : ∀ (s : ℂ), 1 ≤ s.re → s ≠ 1 → 0 < (deriv (gProd χ) s / gProd χ s).re
+s : ℂ
+hs : 1 ≤ s.re
+hs1 : s ≠ 1
+hcon : deriv (XiChi χ) s = 0
+hEq : XiChi χ = fun t => gProd χ t + 1
+⊢ deriv (fun t => gProd χ t + 1) s = deriv (gProd χ) s
+M1.lean:201:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (sub_eq_zero.mp h)
+has type
+  0 < normSq (s - 1)
+but is expected to have type
+  0 ≤ normSq (s - 1)
+M1.lean:229:77: error: Function expected at
+  𝓝
+but this term has type
+···
+⊢ deriv (fun t => gProd χ t + 1) s = deriv (gProd χ) s
+M1.lean:201:2: error: Type mismatch
+  normSq_pos.mpr fun h => hs1 (sub_eq_zero.mp h)
+has type
+  0 < normSq (s - 1)
+but is expected to have type
+  0 ≤ normSq (s - 1)
+M1.lean:229:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  0 ≤ normSq (s - 1)
+M1.lean:229:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.16
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+
+[probe40] SUMMARY
+[probe40]   M1.lean: PROBE-FAIL rc=1 errors=5 sorry=0
+[tele] SUMMARY run: wall=24s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-r0Og1pbp71hs0D4D5SjqNX
