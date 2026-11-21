@@ -179,10 +179,16 @@ re-derive from mathlib alone (statement-level elaboration checks).
 | openai-math `PolynomialPEPS` (`PEPSFilters/Basic.lean:74–135`) | the `UniformAreaLaw` consumer | Part II's target interface |
 | this project, articles 30/50 | the negative-results lineage | difference of kind per §1: 30 refuted our own conjecture; 50 Part I read our engine; here the refutation is external and hypothesized — the stated no-go is our increment |
 
-Formal-prior-art corroboration: no entropy definitions in mathlib (on the
-pin), in the AFP, or in circuit-level Coq libraries (external prior-art
-survey, `novelty/iter4-external-priorart.md` §2.4) — the entropy definition is
-the verification file's own.
+Formal-prior-art corroboration: no **Rényi-entropy-for-states / H_α** definitions in
+mathlib (on the pin — mathlib carries `Real.binEntropy` and topological entropy, a
+different object class), in the AFP, or in circuit-level Coq libraries (external
+prior-art survey, `novelty/iter4-external-priorart.md` §2.4). In-corpus nearest miss:
+tauceti `TauCeti.renyiEntropy`
+(`MeasureTheory/OptimalTransport/Wasserstein/RenyiEntropy.lean:120`) — the
+CD(K,N)/Sturm **measure-theoretic** Rényi entropy, a different object class from N1's
+distribution/quantum H_α (novelty re-verification 2026-11-21,
+`novelty/r9-novelty-verification-iter6-round2.md`); the fence and the no-go billing
+are unaffected. The entropy definition used here is the verification file's own.
 
 ## 5. Proofs
 
