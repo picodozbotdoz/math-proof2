@@ -1596,3 +1596,30 @@ Cause chain: session on zai-offpeak-idle-plan → platform reclaimed off-peak co
 - **Run 14 GREEN strict-OK first-shot** (log `cebc4730`, payload `285a411e` fired as-is; eta-r4 10/10 triad-clean; anchors 4/4 + 2/2 hold; route (b) discharged-as-pre-applied, (c) never triggered). The D5b resume order is complete; no re-fire.
 - **The 5 owed build-phase OVER-cpu dispositions (task-3 flag, now folded):** runs at walls 421–725 s, max_cpu 11.18–15.26, max_mem 2742–3302 MB, OVER=6–9 — ALL the authorized **m4b2/G2 donor-tree layer-build class** (build subprocess family, taskset-capped on the build command, anon=0 every sample = olean-mmap artifact; elaboration phases proper cpu ≤ 4.21): `eta-r2-run5-eta-r3-run2` (634 s/11.18/3302/OVER=8) · `run6/run3/run1` (725/15.26/3297/9) · `run7/run4/run2` (593/12.13/2742/6) · `run8/run5/run3` (421/12.22/3050/6) · `run9/run6/run4` (626/12.63/2903/8). Action NONE per guideline 3 (investigated = known class; not upgraded). Run 14 itself (649 s/12.78 peak at the cache-get artifact phase/2757 MB/anon=0): same class, disposition carried IN-LOG — the compliant form; no disposition debt on new runs.
 - **Ruling (orchestrator):** the port-plan Fourier/identity rungs (R7 bridge, R8 full-domain assembly + full-coverage axcheck) BANK to the **iter-7 Tier-2 bench** (already rowed in the census DRAFT `422face2`, conditional satisfied) — no fresh iter-6 grant mid-close. R5's next unit: the port-arc wrap record.
+
+## 2026-11-21 — THE ITERATION-6 CLOSE ACT + WRAP (H; the §D choreography, single close commit f0af143 + this wrap)
+
+1. **The gates** (per `iter6-closeout-gates.md` EXECUTED): G1 77/0-unexplained (basis
+   reproduced); **G2 PASS — the Step-B batch 73 stages (log 4b9f411a, wall 979 s):
+   68 OK + 5 FAIL exactly the pre-declared classes, zero other; the whole-tree axiom
+   census 2314 records, zero genuine non-triad on any OK stage; A1's upgrade held;
+   H4 11/11; the H3 16-helper custody DISCHARGED; N2P1 triple-equality re-held**;
+   Part-ii the eta donor-tree full-coverage custody (bd0eaeeb + runner e008dc96):
+   21/21 distinct decls EXACT triad, 0 missing — the port family's custody closed.
+2. **The fire roll-up:** eta-r4 GREEN first-shot (ledger CLOSED 14-of-12–13) ·
+   12-core GREEN 5/5 (S-tranche CLOSED; the two forced amendments verified
+   exactly-honest by the independent read, zero false-form consumers) · E1 GREEN 3/3
+   (the d=8 no-go kernel; E2/F/G banked behind the pre-solve) · **P4 GREEN 3/3 —
+   both uniform theorems triad-only; article-75 v5 LANDED pre-close (gates PASS 7/7 +
+   5/5-after-fixes; the FOURTH and LAST in-scope revision; stem closed)** · M3
+   split-park at the absolute cap (A2 the sole sorryAx park in G2, exactly as
+   predicted).
+3. **The stamps:** KPI 9/17 above-bar; flow 1/1 (41H3); [QUOTA-STATE] UNSPENT /
+   [QUOTA-OUTCOME] THIRD consecutive (Option A adopted for iter-7); R-B CLOSED-NO
+   (the γ-freeze finding resolved V1 record-billed no-row). §I6 + Instruments A+B
+   spliced; census 605 → 666.
+4. **The wrap:** ITER6 tracker FROZEN; ITER7 tracker + RESUME-BRIEF-ITER7 opened;
+   the iter-7 open executes on the charter skeleton + the orchestrator's rulings
+   (D1′ quota Option A; the day-1 grants: Ξ_K′ Stage-1, M3-A2 continuation, η R7/R8
+   fresh-grant, the H4 pre-solve unit, the census consolidation).
+— the orchestrator, 2026-11-21. The loop continues: iteration 7 opens now.

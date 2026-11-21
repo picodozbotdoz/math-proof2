@@ -1,3 +1,12 @@
+> **FROZEN — Iteration 6 CLOSED at `f0af143` (2026-11-21).** Live tracker =
+`ORCHESTRATION-ITER7.md`; launch brief = `RESUME-BRIEF-ITER7.md`. Final KPI: 9/17 ≈
+52.9% discovery-grade (above the ≥half bar); quota UNSPENT (third consecutive);
+verification census 605 → 666 print-verified triad-clean; the close gates =
+`qa/iter6-closeout-gates.md` EXECUTED (G1–G8 PASS); the §I6 addendum + Instruments
+A+B at the close commit. Iter-6 signatures: the external referee set (zero kernel
+falsified), the same-plan pause/resume rule, the ghost containment, two
+forced-honest statement amendments at the 12-core close.
+
 # ORCHESTRATION-ITER6 — Iteration 6 lane tracker
 
 Iteration 6 opened 2026-11-20 (the iter-5 close `6306dbe`; charter = the §Iteration 6
