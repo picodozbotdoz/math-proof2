@@ -225,15 +225,22 @@ structure EpsData where
   limit_three : Filter.Tendsto ε (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
 
 /-- Route 15 at abstract MM (stub): same shape as `route15_frozen` with the `MM`
-slot freed; the conclusion at the ε-fiber of W's exponent. -/
+slot freed; the conclusion at the ε-fiber of W's exponent. MIRROR 2026-11-21 (the
+PENDING-OWE binder pair, per the falsity finding): the ε-fiber enters explicitly —
+`hδ` at route 15's frozen cap `(1/36)/18 = 1/648` and `he` at route 15's log-exponent
+floor `e ≥ 2` (the unconditional form was false; see CORE.lean Part 3f). -/
 theorem route15_MMgeneral (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
+    (hδ : E.ε W.ωb ≤ (1 / 36 : ℝ) / 18) (he : 2 ≤ E.e W.ωb)
     (h17 : Claim.Theorem_17 M W.MM paramD₅ paramG₅)
     (h15 : Claim.Corollary_15_first M) :
     Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
   sorry -- P0 stub
 
-/-- Route 16 at abstract MM (stub). -/
+/-- Route 16 at abstract MM (stub). MIRROR 2026-11-21 (the PENDING-OWE binder
+pair): `hδ` at route 16's frozen cap `0.0315/18 = 0.00175`, `he` at its log-exponent
+floor `e ≥ 1` — the unconditional form was false (CORE.lean Part 3e, landed). -/
 theorem route16_MMgeneral (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
+    (hδ : E.ε W.ωb ≤ 0.0315 / 18) (he : 1 ≤ E.e W.ωb)
     (h17 : Claim.Theorem_17 M W.MM paramD₂₆ paramG₂₆)
     (h16 : Claim.Corollary_16 M) :
     Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
@@ -242,9 +249,14 @@ theorem route16_MMgeneral (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
 /-- The symbolic re-instantiation shape (stub): D and g ALSO abstract, with the
 `Theorem19.Choice` family as an explicit binder — the hypotheses the frozen
 `choice_theorem_5`/`choice_corollary_26` discharge at the frozen params and the
-ω_b-dependent choice must re-provide (dossier route step 1). -/
+ω_b-dependent choice must re-provide (dossier route step 1). MIRROR 2026-11-21 (the
+PENDING-OWE binder pair, minimal form): at the frozen `h16` interface the γ-freeze
+caps savings at `0.0315/18`, so the ε-fiber binders ride as below; the FULL
+γ-freeze-honest re-statement (the re-split one-call binder `Corollary_16_split`) is
+CORE.lean Part 3g. -/
 theorem route16_symbolic (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
     (D g : ℕ → ℕ) (η : ℕ → ℝ) (c : ℝ)
+    (hδ : E.ε W.ωb ≤ 0.0315 / 18) (he : 1 ≤ E.e W.ωb)
     (hchoice : ∀ n : ℕ, 16 ^ 18 ≤ n →
       Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈(D n : ℝ) ^ (η n)⌉₊)
     (h17 : Claim.Theorem_17 M W.MM D g)

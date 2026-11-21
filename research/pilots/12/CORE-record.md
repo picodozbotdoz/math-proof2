@@ -179,3 +179,71 @@ corollary of `route16_MMgeneral_frozen` (a strassen-fiber WordRamMMData instance
 the numeric log₂-7 band facts are the only missing glue).
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-21.
+
+## ITER-7 S-RESIDUE SWEEP (granted batch, 2026-11-21): route-15 mirrored, BOTH frozen routes closed, `route16_symbolic` RE-STATED AND PROVED — 5/5 fires, one-token-from-GREEN park on the analytic-ε artifact
+
+**P0.lean GREEN from run 15 (`PROBE-OK rc=0 errors=0 sorry=7`)** — the three
+PENDING-OWE binder mirrors (route16_MMgeneral :236 hδ/he; route15_MMgeneral
+hδ-at-(1/36)/18/he-2; route16_symbolic minimal hδ/he) elaborate; P0.lean
+`ea5285a32db350c4`. **Run 19 (combined GREEN-attempt + full-coverage axcheck,
+staged `df280de089a7f2ea`)**: everything EXCEPT `epsAnalytic_data`'s `strict_anti`
+field elaborates, and the FULL axiom sweep is TRIAD-ONLY
+`[propext, Classical.choice, Quot.sound]` for all 37 printed declarations —
+the 13 previously-unprinted + every new theorem:
+
+- **route-15 mirror (Parts 3f)**: `one_le_log_of_three_le` (drift fix),
+  `sq_div_rpow_le_sq_mul_log_sq_div`, `sq_div_sqrt_le_thinBound`,
+  `call_cost_corollary_15`, `paramD₅_largest_pow_four`,
+  `Theorem19.Choice.of_largest_pow_four`, `Theorem19.choice_theorem_5`,
+  `explicit_transfer_gen` (the (δ₀, e₀)-general transfer), `route15_core`
+  (E-free frozen-fiber composition, every W), **`route15_MMgeneral` CLOSED**
+  (hδ/he binders at route 15's own cap (1/36)/18 and floor e ≥ 2),
+  `logb_two_seven_mem` (2 < log₂ 7 ≤ 2.9 by the log_pow rational route, 7^10 ≤ 2^29
+  exact), `strassenW` (the Strassen fiber as WordRamMMData), **`route15_frozen` and
+  `route16_frozen` CLOSED** (the Part-1 stubs, as free corollaries).
+- **`route16_symbolic` RE-STATED AND PROVED (Part 3g)** — the γ-freeze-honest form:
+  `Corollary_16_split M γ` (the re-split one-call interface, donor's
+  `Claim.Corollary_16` = the γ = 0.063 instance), `call_cost_corollary_16_split`,
+  `MMgeneral_total_sum_uniform` (the run-9 body with the constant uniformized — for
+  c ≥ 1, η ≤ η₀ ⇒ C(η) ≤ C(η₀)), and the theorem: (D, g, η) all ω_b-choice
+  functions, one-call through the re-split binder at a uniform γ₀ ≥ 2·η n, `η₀` a
+  LOWER bound on the choice (`hηinf` — the deliverable fiber δ = η₀/18; the
+  constant uniformizes through the Choice field η ≤ 1/4, so no upper-bound binder),
+  ε-fiber binders hδ/he. THE M-class centerpiece is now kernel-clean: the symbolic
+  route EXISTS in the honest interface, and the γ-freeze finding is embodied (the
+  re-split binder is exactly what the frozen h16 could not provide).
+- **`epsAnalytic_data` (Part 3h, the fork-exploration artifact)**: PARKED at
+  one token — run 19's two errors are both in its `strict_anti` field
+  (`div_lt_div_iff` → `div_lt_div_iff₀` name drift + a mul-div associativity
+  restructure); the fix is APPLIED-UNFIRED in the repo file (eta-r4 precedent) —
+  CORE.lean `b5e5e1d9bb667597` fire-as-is; expected verdict `PROBE-OK rc=0
+  errors=0 sorry=3`. frozen_fiber/limit_three/elaboration are already clean in
+  run 19.
+
+### Honest-park accounting (D7)
+
+- Residual class: TWO tokens in one proof field (name drift + assoc shape) — the
+  only blockers between this batch and full GREEN.
+- Exact next-action: fire CORE.lean `b5e5e1d9bb667597` as-is (1 fire; P0.lean may
+  ride — it is GREEN and unchanged). On GREEN: epsAnalytic_data is a CONCRETE
+  analytic EpsData (Sec-4-CALIBRATED, not Sec-4-BUILT) — the fork decision's
+  existence question is settled YES in closed form; `epsParam_data.ε`'s obligations
+  hδ/he become dischargeable on the ω_b ≥ log₂ 7 half-band against epsAnalytic.
+- Priced continuation: 1 fire (+ optional re-axcheck of epsAnalytic_data alone).
+- Budget: 5/5 spent (runs 15–19), descent 19 → 10 → 4 → 2 → 2 errors.
+
+### Residue classes (runs 15–18)
+
+postponed-metavar chains in `.trans_le (by norm_num)` (fix: explicit have-typed
+facts); `lt/le/div_lt_div_iff` → the ₀-suffixed v4.36 names; `Real.log_pow`
+backward-rw fails on literal-vs-cast (`↑2 * log 2` pattern — fix: forward haves
+`h2log/h10/h29` with push_cast); structure-field `le_rfl` fails when defeq needs
+`one_mul` (fix: `rw [strassen, one_mul]`); `StrictAntiOn` on this pin has
+INTERLEAVED binders `∀ ⦃a⦄ (_ : a ∈ s) ⦃b⦄ (_ : b ∈ s), a < b → …` (intro
+`a _ha b _hb hab`); `nhdsWithin_le_nhds` is implicit-arg `{a} {s}` + needs
+named-args or pinning; the SYMBOLIC-block direction lesson: the deliverable fiber
+is the INF of η (hηinf), the constant uniformizes via the η ≤ 1/4 field — an
+upper-bound η₀-binder would invert the transfer direction (caught pre-fire as the
+:1283 linarith failure).
+
+— lane R3 (A6 lineage, worktree agent-07), 2026-11-21.

@@ -129,3 +129,14 @@ now). Same mirror owed for `route15_MMgeneral` (:230–233) and `route16_symboli
 `M-CLASS-EVALUATION.md` §0).
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-21.
+
+## PENDING OWE — DISCHARGED (2026-11-21, iter-7 S-residue fire 1)
+
+The three binder mirrors landed in P0.lean and elaborated GREEN on their first
+fire (run 15: `PROBE-OK rc=0 errors=0 sorry=7`, stable through run 19):
+`route16_MMgeneral` + hδ/he (`0.0315/18`, `1 ≤`), `route15_MMgeneral` + hδ/he
+(`(1/36)/18`, `2 ≤`), `route16_symbolic` + the minimal hδ/he pair (the FULL
+γ-freeze-honest re-statement is CORE.lean Part 3g, now PROVED). P0.lean
+`ea5285a32db350c4`. This closes the R5-relayed owe of 2026-11-21.
+
+— lane R3, 2026-11-21.

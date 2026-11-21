@@ -1,0 +1,1107 @@
+# pilot-12 iter-7 S-residue sweep — runs 15–19 (lane R3, worktree agent-07; 2026-11-21)
+# App: crossmath-pilot-12core (ephemeral modal run, doz CLI); substrate mathlib4 @ ff2494ea, v4.36.0-rc2
+# SPEC cpu=2.0/mem=4096 (soft), LEAN_NUM_THREADS=2, telemetry inline; two-file stage (CORE.lean + P0.lean,
+# the P0 binder mirrors riding fire 1 per the PENDING OWE); runner run_core.py 55e541eafc43a704 (both sorry forms).
+# Repo-file sha chain (sha-guarded by stage_and_fire_sresidue.sh, pair-guard):
+#   runs 15–18: pair-guarded by the script (sidecar /tmp/crossmath-12-sresidue-last.sha; the guard's stdout
+#   predates the tee — the transcripts' error positions + the fix-batch list identify each state exactly)
+#   run 16: fix batch 1 (postponed-metavar .le.trans, lt/le_div_iff₀ names, strassenW grows, hnpos Nat-type, g-slot side-conds, (D n : ℝ), pow_one at htr)
+#   run 17: fix batch 2 (log_pow cast-literal route h2log/h10/h29, div_le_iff₀, epsAnalytic: field_simp close, sub_lt_sub_left, named nhdsWithin_le_nhds)
+#   run 18: fix batch 3 (StrictAntiOn interleaved intro, mono_left named-implicits + simpa)
+#   run 19: CORE 804f4c006316b05d + axcheck-append (staged df280de089a7f2ea) — GREEN-except-epsAnalytic + full axiom sweep
+# Verdicts: CORE r15 FAIL e=19 s=3 | r16 FAIL e=10 | r17 FAIL e=4 | r18 FAIL e=2 | r19 FAIL e=2 s=3 (both in epsAnalytic_data;
+#   P0.lean PROBE-OK rc=0 errors=0 sorry=7 from run 15 onward — THE P0 BINDER MIRRORS ELABORATED GREEN)
+# BUDGET: 5/5 fires spent. Post-run-19 repo state: the div_lt_div_iff→div_lt_div_iff₀ + strict_anti restructure
+# APPLIED-UNFIRED (eta-r4 precedent) — one-fire continuation priced in the batch record.
+
+=================== RUN 15 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-sthUJD3kuDmnoaAoUoPDVD
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[p12core] CORE.lean: FAIL rc=1 errors=19 sorry=3
+---- error contexts (19 errors, all shown) ----
+CORE.lean:384:8: warning: declaration uses `sorry`
+CORE.lean:911:54: error: mod_cast has type
+  (3 : ℕ) ≤ D
+but is expected to have type
+  (3 : ℝ) ≤ ?m.38
+CORE.lean:1062:28: error(lean.unknownIdentifier): Unknown identifier `lt_div_iff`
+CORE.lean:1064:28: error(lean.unknownIdentifier): Unknown identifier `le_div_iff`
+CORE.lean:1076:34: error: Type mismatch
+  le_rfl
+has type
+  ?m.25 ≤ ?m.25
+but is expected to have type
+  strassen x✝¹ ≤ 1 * ↑x✝¹ ^ Real.logb 2 7
+CORE.lean:1086:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₅ paramG₅
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₅ paramG₅
+in the application
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+···
+  (3 : ℝ) ≤ ?m.38
+CORE.lean:1062:28: error(lean.unknownIdentifier): Unknown identifier `lt_div_iff`
+CORE.lean:1064:28: error(lean.unknownIdentifier): Unknown identifier `le_div_iff`
+CORE.lean:1076:34: error: Type mismatch
+  le_rfl
+has type
+  ?m.25 ≤ ?m.25
+but is expected to have type
+  strassen x✝¹ ≤ 1 * ↑x✝¹ ^ Real.logb 2 7
+CORE.lean:1086:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₅ paramG₅
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₅ paramG₅
+in the application
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₂₆ paramG₂₆
+in the application
+  route16_core M strassenW h17
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+···
+CORE.lean:1062:28: error(lean.unknownIdentifier): Unknown identifier `lt_div_iff`
+CORE.lean:1064:28: error(lean.unknownIdentifier): Unknown identifier `le_div_iff`
+CORE.lean:1076:34: error: Type mismatch
+  le_rfl
+has type
+  ?m.25 ≤ ?m.25
+but is expected to have type
+  strassen x✝¹ ≤ 1 * ↑x✝¹ ^ Real.logb 2 7
+CORE.lean:1086:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₅ paramG₅
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₅ paramG₅
+in the application
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₂₆ paramG₂₆
+in the application
+  route16_core M strassenW h17
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+···
+CORE.lean:1064:28: error(lean.unknownIdentifier): Unknown identifier `le_div_iff`
+CORE.lean:1076:34: error: Type mismatch
+  le_rfl
+has type
+  ?m.25 ≤ ?m.25
+but is expected to have type
+  strassen x✝¹ ≤ 1 * ↑x✝¹ ^ Real.logb 2 7
+CORE.lean:1086:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₅ paramG₅
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₅ paramG₅
+in the application
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₂₆ paramG₂₆
+in the application
+  route16_core M strassenW h17
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+···
+  strassen x✝¹ ≤ 1 * ↑x✝¹ ^ Real.logb 2 7
+CORE.lean:1086:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₅ paramG₅
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₅ paramG₅
+in the application
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₂₆ paramG₂₆
+in the application
+  route16_core M strassenW h17
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1189:63: error: Application type mismatch: The argument
+  hnpos
+has type
+···
+  route15_core M strassenW h17
+CORE.lean:1097:55: error: Application type mismatch: The argument
+  h17
+has type
+  Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆
+but is expected to have type
+  Claim.Theorem_17 M strassenW.MM paramD₂₆ paramG₂₆
+in the application
+  route16_core M strassenW h17
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1189:63: error: Application type mismatch: The argument
+  hnpos
+has type
+  (0 : ℝ) < ↑n
+but is expected to have type
+  (0 : ℕ) < n
+in the application
+  Nat.ne_of_gt hnpos
+CORE.lean:1257:45: error: Application type mismatch: The argument
+  Theorem19.Choice.one_le_ceil P
+has type
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1189:63: error: Application type mismatch: The argument
+  hnpos
+has type
+  (0 : ℝ) < ↑n
+but is expected to have type
+  (0 : ℕ) < n
+in the application
+  Nat.ne_of_gt hnpos
+CORE.lean:1257:45: error: Application type mismatch: The argument
+  Theorem19.Choice.one_le_ceil P
+has type
+  1 ≤ ⌈↑(D n) ^ η n⌉₊
+but is expected to have type
+  1 ≤ g n
+in the application
+  h17 n κ u P.sixteen_le (Theorem19.Choice.le_n P) (Theorem19.Choice.one_le_ceil P)
+CORE.lean:1261:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1262:21: error: Type mismatch
+  D
+has type
+···
+  Nat.ne_of_gt hnpos
+CORE.lean:1257:45: error: Application type mismatch: The argument
+  Theorem19.Choice.one_le_ceil P
+has type
+  1 ≤ ⌈↑(D n) ^ η n⌉₊
+but is expected to have type
+  1 ≤ g n
+in the application
+  h17 n κ u P.sixteen_le (Theorem19.Choice.le_n P) (Theorem19.Choice.one_le_ceil P)
+CORE.lean:1261:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1262:21: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1264:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+···
+  h17 n κ u P.sixteen_le (Theorem19.Choice.le_n P) (Theorem19.Choice.one_le_ceil P)
+CORE.lean:1261:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1262:21: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1264:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1280:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+···
+  ℝ
+CORE.lean:1262:21: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1264:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1280:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+···
+  ℝ
+CORE.lean:1264:23: error: Type mismatch
+  D
+has type
+  ℕ → ℕ
+but is expected to have type
+  ℝ
+CORE.lean:1280:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18
+hchoice : ∀ (n : ℕ), 16 ^ 18 ≤ n → Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈↑(D n) ^ η n⌉₊
+Cs : ℝ
+Tc Td : ℕ → ℕ → ℕ → ℝ
+hCs : 0 ≤ Cs
+hTd : M.lopDetect Td
+···
+  ℝ
+CORE.lean:1280:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18
+hchoice : ∀ (n : ℕ), 16 ^ 18 ≤ n → Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈↑(D n) ^ η n⌉₊
+Cs : ℝ
+Tc Td : ℕ → ℕ → ℕ → ℝ
+hCs : 0 ≤ Cs
+hTd : M.lopDetect Td
+h16s :
+  ∀ (n D w : ℕ),
+    1 ≤ D →
+      D ^ 18 ≤ n →
+        Tc n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀) ∧
+          Td n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀)
+···
+failed
+CORE.lean:1293:61: error: Application type mismatch: The argument
+  htr
+has type
+  ↑n ^ (3 - η₀ / 18) * Real.log ↑n ^ 1 ≤ ↑n ^ (3 - E.ε W.ωb) * Real.log ↑n ^ E.e W.ωb
+but is expected to have type
+  ↑n ^ (3 - η₀ / 18) * Real.log ↑n ≤ ↑n ^ (3 - E.ε W.ωb) * Real.log ↑n ^ E.e W.ωb
+in the application
+  mul_le_mul_of_nonneg_left htr
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:1285:70: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+···
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CORE.lean:1285:70: error: unsolved goals
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18
+hchoice : ∀ (n : ℕ), 16 ^ 18 ≤ n → Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈↑(D n) ^ η n⌉₊
+Cs : ℝ
+Tc Td : ℕ → ℕ → ℕ → ℝ
+hCs : 0 ≤ Cs
+hTd : M.lopDetect Td
+h16s :
+  ∀ (n D w : ℕ),
+    1 ≤ D →
+      D ^ 18 ≤ n →
+        Tc n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀) ∧
+          Td n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀)
+···
+      C₀ * C * κ * ↑n ^ (3 + η n * (-1 / 18)) * Real.log ↑n * 2
+CORE.lean:1313:4: error: No goals to be solved
+CORE.lean:1319:37: error: Type mismatch
+  sub_lt_sub_right hab 3
+has type
+  a - 3 < b✝ - 3
+but is expected to have type
+  3 - ?m.123 < 3 - a
+CORE.lean:1330:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1331:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1322:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+···
+CORE.lean:1313:4: error: No goals to be solved
+CORE.lean:1319:37: error: Type mismatch
+  sub_lt_sub_right hab 3
+has type
+  a - 3 < b✝ - 3
+but is expected to have type
+  3 - ?m.123 < 3 - a
+CORE.lean:1330:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1331:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1322:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+···
+  3 - ?m.123 < 3 - a
+CORE.lean:1330:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1331:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1322:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1344:4: warning: declaration uses `sorry`
+···
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1331:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1322:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1344:4: warning: declaration uses `sorry`
+···
+  • `U`: c̵U̲
+CORE.lean:1322:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1344:4: warning: declaration uses `sorry`
+···
+
+=== P0.lean
+[tele] t=60s cpu=1.02 mem=1129MB anon=0MB peak=-1MB procs=1
+{'CORE.lean': 'FAIL rc=1 errors=19 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=19 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=71s max_cpu=1.02 max_mem=1129MB max_anon=0MB samples=1 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-sthUJD3kuDmnoaAoUoPDVD
+
+=================== RUN 16 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-K4Z9qlBBL8ZCeZiq75QUsS
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.65 mem=8250MB anon=0MB peak=-1MB procs=2 OVER mem
+[p12core] CORE.lean: FAIL rc=1 errors=10 sorry=3
+---- error contexts (10 errors, all shown) ----
+CORE.lean:384:8: warning: declaration uses `sorry`
+CORE.lean:911:41: error: Application type mismatch: The argument
+  LT.lt.trans_le Real.exp_one_lt_d9 h3
+has type
+  Real.exp 1 < ↑D
+but is expected to have type
+  Real.exp 1 ≤ ↑D
+in the application
+  (Real.le_log_iff_exp_le hD0).mpr (LT.lt.trans_le Real.exp_one_lt_d9 h3)
+CORE.lean:1062:47: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑2 * Real.log 2
+in the target expression
+  2 * Real.log 2 < Real.log 7
+
+case left
+hlog2 : 0 < Real.log 2
+⊢ 2 * Real.log 2 < Real.log 7
+CORE.lean:1064:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.60 ≤ ?m.61 / Real.log 2
+in the target expression
+  Real.log 7 / Real.log 2 ≤ 2.9
+
+case right
+hlog2 : 0 < Real.log 2
+⊢ Real.log 7 / Real.log 2 ≤ 2.9
+CORE.lean:1076:34: error: unsolved goals
+···
+  (Real.le_log_iff_exp_le hD0).mpr (LT.lt.trans_le Real.exp_one_lt_d9 h3)
+CORE.lean:1062:47: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑2 * Real.log 2
+in the target expression
+  2 * Real.log 2 < Real.log 7
+
+case left
+hlog2 : 0 < Real.log 2
+⊢ 2 * Real.log 2 < Real.log 7
+CORE.lean:1064:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.60 ≤ ?m.61 / Real.log 2
+in the target expression
+  Real.log 7 / Real.log 2 ≤ 2.9
+
+case right
+hlog2 : 0 < Real.log 2
+⊢ Real.log 7 / Real.log 2 ≤ 2.9
+CORE.lean:1076:34: error: unsolved goals
+n : ℕ
+x✝ : 1 ≤ n
+⊢ ↑n ^ Real.logb 2 7 ≤ ↑n ^ Real.logb 2 7
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+···
+⊢ 2 * Real.log 2 < Real.log 7
+CORE.lean:1064:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.60 ≤ ?m.61 / Real.log 2
+in the target expression
+  Real.log 7 / Real.log 2 ≤ 2.9
+
+case right
+hlog2 : 0 < Real.log 2
+⊢ Real.log 7 / Real.log 2 ≤ 2.9
+CORE.lean:1076:34: error: unsolved goals
+n : ℕ
+x✝ : 1 ≤ n
+⊢ ↑n ^ Real.logb 2 7 ≤ ↑n ^ Real.logb 2 7
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1283:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+···
+⊢ Real.log 7 / Real.log 2 ≤ 2.9
+CORE.lean:1076:34: error: unsolved goals
+n : ℕ
+x✝ : 1 ≤ n
+⊢ ↑n ^ Real.logb 2 7 ≤ ↑n ^ Real.logb 2 7
+CORE.lean:1122:5: warning: Variable name `hγ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hγ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1283:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18
+hchoice : ∀ (n : ℕ), 16 ^ 18 ≤ n → Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈↑(D n) ^ η n⌉₊
+···
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1283:45: error: linarith failed to find a contradiction
+M : DetTimeModel
+W : WordRamMMData
+E : EpsData
+D g : ℕ → ℕ
+η : ℕ → ℝ
+c γ₀ η₀ : ℝ
+hc1 : 1 ≤ c
+hγ₀ : γ₀ ≤ 1 / 2
+hγ : ∀ (n : ℕ), 16 ^ 18 ≤ n → 2 * η n ≤ γ₀
+hη : ∀ (n : ℕ), 16 ^ 18 ≤ n → η n ≤ η₀
+hδ : E.ε W.ωb ≤ η₀ / 18
+he : 1 ≤ E.e W.ωb
+hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18
+hchoice : ∀ (n : ℕ), 16 ^ 18 ≤ n → Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈↑(D n) ^ η n⌉₊
+Cs : ℝ
+Tc Td : ℕ → ℕ → ℕ → ℝ
+hCs : 0 ≤ Cs
+hTd : M.lopDetect Td
+h16s :
+  ∀ (n D w : ℕ),
+    1 ≤ D →
+      D ^ 18 ≤ n →
+        Tc n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀) ∧
+          Td n D w ≤ Cs * (↑w * ↑D ^ (1 / 2 - γ₀) + ↑n ^ 2 / ↑D ^ γ₀)
+···
+failed
+CORE.lean:1317:4: error: No goals to be solved
+CORE.lean:1323:37: error: Type mismatch
+  sub_lt_sub_right hab 3
+has type
+  a - 3 < b✝ - 3
+but is expected to have type
+  3 - ?m.123 < 3 - a
+CORE.lean:1334:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1335:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1326:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+···
+CORE.lean:1317:4: error: No goals to be solved
+CORE.lean:1323:37: error: Type mismatch
+  sub_lt_sub_right hab 3
+has type
+  a - 3 < b✝ - 3
+but is expected to have type
+  3 - ?m.123 < 3 - a
+CORE.lean:1334:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1335:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1326:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+···
+  3 - ?m.123 < 3 - a
+CORE.lean:1334:28: error: Application type mismatch: The argument
+  nhdsWithin_le_nhds ?m.261
+has type
+  ?m.260 ∈ nhdsWithin ?m.258 ?m.259
+but is expected to have type
+  ?m.254 ≤ nhds 3
+in the application
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1335:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1326:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1348:4: warning: declaration uses `sorry`
+···
+  Filter.Tendsto.mono_left hcont (nhdsWithin_le_nhds ?m.261)
+CORE.lean:1335:32: error: Invalid argument name `c` for function `tendsto_const_nhds`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `α`: c̵α̲
+  • `x`: c̵x̲
+  • `f`: c̵f̲
+  • `U`: c̵U̲
+CORE.lean:1326:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1348:4: warning: declaration uses `sorry`
+···
+  • `U`: c̵U̲
+CORE.lean:1326:17: error: unsolved goals
+h3L : 0 < 3 - Real.logb 2 7
+hbase : Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+⊢ Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1348:4: warning: declaration uses `sorry`
+···
+
+=== P0.lean
+{'CORE.lean': 'FAIL rc=1 errors=10 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=10 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=78s max_cpu=0.65 max_mem=8250MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-K4Z9qlBBL8ZCeZiq75QUsS
+
+=================== RUN 17 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-VkxX3OOXVV1qNeMYXB5SLq
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[p12core] CORE.lean: FAIL rc=1 errors=4 sorry=3
+---- error contexts (4 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1327:37: error: Type mismatch
+  sub_lt_sub_left hab 3
+has type
+  3 - b✝ < 3 - a
+but is expected to have type
+  3 - ?m.123 < 3 - a
+CORE.lean:1338:29: error: Function expected at
+  nhdsWithin_le_nhds ?m.266
+but this term has type
+  ?m.261 ∈ nhdsWithin ?m.259 ?m.260
+
+Note: Expected a function because this term is being applied to the argument
+  (3 : ℝ)
+CORE.lean:1338:48: error: Application type mismatch: The argument
+  Set.Iio 3
+has type
+  Set ℕ
+of sort `Type` but is expected to have type
+  ?m.261 ∈ nhds ?m.259
+of sort `Prop` in the application
+  nhdsWithin_le_nhds (Set.Iio 3)
+CORE.lean:1342:4: error: Type mismatch: After simplification, term
+  hmul
+ has type
+  Filter.Tendsto (fun ω => 175e-5 * ((3 - ω) / (3 - Real.logb 2 7))) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+···
+  3 - ?m.123 < 3 - a
+CORE.lean:1338:29: error: Function expected at
+  nhdsWithin_le_nhds ?m.266
+but this term has type
+  ?m.261 ∈ nhdsWithin ?m.259 ?m.260
+
+Note: Expected a function because this term is being applied to the argument
+  (3 : ℝ)
+CORE.lean:1338:48: error: Application type mismatch: The argument
+  Set.Iio 3
+has type
+  Set ℕ
+of sort `Type` but is expected to have type
+  ?m.261 ∈ nhds ?m.259
+of sort `Prop` in the application
+  nhdsWithin_le_nhds (Set.Iio 3)
+CORE.lean:1342:4: error: Type mismatch: After simplification, term
+  hmul
+ has type
+  Filter.Tendsto (fun ω => 175e-5 * ((3 - ω) / (3 - Real.logb 2 7))) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+but is expected to have type
+  Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1354:4: warning: declaration uses `sorry`
+···
+  (3 : ℝ)
+CORE.lean:1338:48: error: Application type mismatch: The argument
+  Set.Iio 3
+has type
+  Set ℕ
+of sort `Type` but is expected to have type
+  ?m.261 ∈ nhds ?m.259
+of sort `Prop` in the application
+  nhdsWithin_le_nhds (Set.Iio 3)
+CORE.lean:1342:4: error: Type mismatch: After simplification, term
+  hmul
+ has type
+  Filter.Tendsto (fun ω => 175e-5 * ((3 - ω) / (3 - Real.logb 2 7))) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+but is expected to have type
+  Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1354:4: warning: declaration uses `sorry`
+···
+  nhdsWithin_le_nhds (Set.Iio 3)
+CORE.lean:1342:4: error: Type mismatch: After simplification, term
+  hmul
+ has type
+  Filter.Tendsto (fun ω => 175e-5 * ((3 - ω) / (3 - Real.logb 2 7))) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+but is expected to have type
+  Filter.Tendsto (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1354:4: warning: declaration uses `sorry`
+···
+
+=== P0.lean
+[tele] t=60s cpu=1.04 mem=8283MB anon=0MB peak=-1MB procs=1 OVER mem
+{'CORE.lean': 'FAIL rc=1 errors=4 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=4 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=61s max_cpu=1.04 max_mem=8283MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+[modal-client] 2026-11-21T14:33:11+0800 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-VkxX3OOXVV1qNeMYXB5SLq
+
+=================== RUN 18 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-5UcJooOHiIdP3DXGbJRPTg
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[tele] t=60s cpu=0.59 mem=7001MB anon=0MB peak=-1MB procs=2 OVER mem
+[p12core] CORE.lean: FAIL rc=1 errors=2 sorry=3
+---- error contexts (2 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1327:15: error: Application type mismatch: The argument
+  b
+has type
+  a ∈ Set.Ioc 2 2.9
+of sort `Prop` but is expected to have type
+  ℝ
+of sort `Type` in the application
+  3 - b
+CORE.lean:1336:6: error: Type mismatch
+  Filter.Tendsto.mono_left hcont nhdsWithin_le_nhds
+has type
+  Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 ?m.249) (nhds (3 - 3))
+but is expected to have type
+  Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1356:4: warning: declaration uses `sorry`
+···
+  3 - b
+CORE.lean:1336:6: error: Type mismatch
+  Filter.Tendsto.mono_left hcont nhdsWithin_le_nhds
+has type
+  Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 ?m.249) (nhds (3 - 3))
+but is expected to have type
+  Filter.Tendsto (fun ω => 3 - ω) (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
+CORE.lean:1356:4: warning: declaration uses `sorry`
+···
+
+=== P0.lean
+{'CORE.lean': 'FAIL rc=1 errors=2 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=2 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=89s max_cpu=0.59 max_mem=7001MB max_anon=0MB samples=1 OVER=1
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-5UcJooOHiIdP3DXGbJRPTg
+
+=================== RUN 19 (raw transcript) ===================
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-wjHX5qAVCVxYg9XIuyh9Hf
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-sresidue-stage/run_core.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[p12core] staging ['CORE.lean', 'P0.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[p12core] mathlib rev ff2494ea5e43
+[p12core] oleans present: 8710
+
+=== CORE.lean
+[p12core] CORE.lean: FAIL rc=1 errors=2 sorry=3
+---- axioms ----
+'CrossMath.Pilot12P0.time_le_of_calls' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.sq_div_sqrt_le_sq_div_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.call_cost_corollary_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.epsParam_frozen_fiber_claim' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.natPow_rpow_inv_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.rpow_inv_natPow_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.n_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.one_le_D' depends on axioms: [propext,
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.D_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.one_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.ceil_le' depends on axioms: [propext,
+'CrossMath.Pilot12P0.Theorem19.Choice.log_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.saving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.cube_mul_saving_le' depends on axioms: [propext,
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.rpow_le_rpow_div' depends on axioms: [propext,
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.rpow_le_of_le' depends on axioms: [propext,
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.instances_le' depends on axioms: [propext,
+'_private.CORE.0.CrossMath.Pilot12P0.Theorem19.Choice.scans_le' depends on axioms: [propext,
+'CrossMath.Pilot12P0.one_le_log_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.sq_div_rpow_le_sq_mul_log_sq_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.sq_div_sqrt_le_thinBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.call_cost_corollary_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.paramD₅_largest_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.Choice.of_largest_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.Theorem19.choice_theorem_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.explicit_transfer_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route15_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route15_MMgeneral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.logb_two_seven_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.strassenW' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route15_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.call_cost_corollary_16_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.MMgeneral_total_sum_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.route16_symbolic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot12P0.epsAnalytic_data' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+---- error contexts (2 errors, all shown) ----
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CORE.lean:1328:10: error(lean.unknownIdentifier): Unknown identifier `div_lt_div_iff`
+CORE.lean:1330:4: error: Type mismatch
+  mul_lt_mul_of_pos_left h2
+    (Mathlib.Meta.NormNum.isNNRat_lt_true
+      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+      (Mathlib.Meta.NormNum.isNNRat_ofScientific_of_true
+        (Mathlib.Meta.NormNum.isNNRat_nnratCast
+          (Mathlib.Meta.NormNum.isNNRat_divNat (Mathlib.Meta.NormNum.IsNat.raw_refl 175)
+            (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow) (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 10))
+              (Mathlib.Meta.NormNum.IsNat.raw_refl 5)
+              (Mathlib.Meta.NormNum.IsNatPowT.run
+                (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                  Mathlib.Meta.NormNum.IsNatPowT.bit1)))
+            (Mathlib.Meta.NormNum.isNNRat_div
+              (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                  (Mathlib.Meta.NormNum.isNat_natCast 175 175 (Mathlib.Meta.NormNum.IsNat.raw_refl 175)))
+                (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                    (Mathlib.Meta.NormNum.isNat_natCast 100000 100000 (Mathlib.Meta.NormNum.IsNat.raw_refl 100000))))
+                (Eq.refl (Nat.mul 175 1)) (Eq.refl 100000))))))
+      (Eq.refl true))
+has type
+  175e-5 * ((3 - b) / (3 - Real.logb 2 7)) < 175e-5 * ((3 - a) / (3 - Real.logb 2 7))
+but is expected to have type
+···
+CORE.lean:1328:10: error(lean.unknownIdentifier): Unknown identifier `div_lt_div_iff`
+CORE.lean:1330:4: error: Type mismatch
+  mul_lt_mul_of_pos_left h2
+    (Mathlib.Meta.NormNum.isNNRat_lt_true
+      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+      (Mathlib.Meta.NormNum.isNNRat_ofScientific_of_true
+        (Mathlib.Meta.NormNum.isNNRat_nnratCast
+          (Mathlib.Meta.NormNum.isNNRat_divNat (Mathlib.Meta.NormNum.IsNat.raw_refl 175)
+            (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow) (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 10))
+              (Mathlib.Meta.NormNum.IsNat.raw_refl 5)
+              (Mathlib.Meta.NormNum.IsNatPowT.run
+                (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                  Mathlib.Meta.NormNum.IsNatPowT.bit1)))
+            (Mathlib.Meta.NormNum.isNNRat_div
+              (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                  (Mathlib.Meta.NormNum.isNat_natCast 175 175 (Mathlib.Meta.NormNum.IsNat.raw_refl 175)))
+                (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                    (Mathlib.Meta.NormNum.isNat_natCast 100000 100000 (Mathlib.Meta.NormNum.IsNat.raw_refl 100000))))
+                (Eq.refl (Nat.mul 175 1)) (Eq.refl 100000))))))
+      (Eq.refl true))
+has type
+  175e-5 * ((3 - b) / (3 - Real.logb 2 7)) < 175e-5 * ((3 - a) / (3 - Real.logb 2 7))
+but is expected to have type
+  (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) b < (fun ω => 175e-5 * (3 - ω) / (3 - Real.logb 2 7)) a
+···
+
+=== P0.lean
+{'CORE.lean': 'FAIL rc=1 errors=2 sorry=3', 'P0.lean': 'PROBE-OK rc=0 errors=0 sorry=7'}
+[p12core] P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+---- output tail ----
+P0.lean:186:8: warning: declaration uses `sorry`
+P0.lean:194:8: warning: declaration uses `sorry`
+P0.lean:232:8: warning: declaration uses `sorry`
+P0.lean:242:8: warning: declaration uses `sorry`
+P0.lean:257:8: warning: declaration uses `sorry`
+P0.lean:386:8: warning: declaration uses `sorry`
+P0.lean:408:8: warning: declaration uses `sorry`
+
+[p12core] SUMMARY
+[p12core]   CORE.lean: FAIL rc=1 errors=2 sorry=3
+[p12core]   P0.lean: PROBE-OK rc=0 errors=0 sorry=7
+[tele] SUMMARY run: wall=54s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-wjHX5qAVCVxYg9XIuyh9Hf
+

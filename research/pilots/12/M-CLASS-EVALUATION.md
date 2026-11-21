@@ -69,3 +69,31 @@ sha chain and per-fire verdicts in `CORE-record.md` §TRANCHE CLOSE and
 `logs/core-runs10-13.log` / `logs/core-run14-axcheck.log`.
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-21.
+
+## ITER-7 UPDATE (2026-11-21, the S-residue batch — supersedes the §1 rows it names)
+
+- **`route16_symbolic`: RE-STATED AND PROVED** (CORE.lean Part 3g, triad-clean per
+  run 19's sweep). The §0-predicted honest interface is now kernel-real:
+  `Corollary_16_split M γ` (the re-split one-call binder; `Claim.Corollary_16` =
+  the γ = 0.063 instance) + `call_cost_corollary_16_split` +
+  `MMgeneral_total_sum_uniform` (uniform-constant corollary of the run-9 total) +
+  the theorem at (D, g, η) all ω_b-choice, uniform γ₀ ≥ 2·η n, `hηinf`
+  (η₀ a LOWER bound — the deliverable fiber δ = η₀/18), hδ/he. DIRECTION FACT of
+  record: the deliverable fiber is the INF of the choice function; the total's
+  constant uniformizes through the Choice field η ≤ 1/4 (no upper binder needed).
+- **`route15_MMgeneral` CLOSED** (hδ/he at (1/36)/18, e ≥ 2) with its full helper
+  chain; **`route15_frozen` and `route16_frozen` CLOSED** (free corollaries via
+  `strassenW` + `logb_two_seven_mem`, both triad-clean).
+- **`epsParam_data` fork, analytic arm**: `epsAnalytic_data` =
+  `ε(ω) = 0.00175·(3−ω)/(3−log₂ 7)`, `e ≡ 1` — frozen_fiber and limit_three
+  clean in run 19; `strict_anti` parked at ONE TOKEN (name drift + assoc shape —
+  fix APPLIED-UNFIRED at CORE.lean `b5e5e1d9bb667597`, one-fire continuation).
+  On GREEN the fork's EXISTENCE question is settled YES in closed form — the
+  remaining fork question is fidelity (Sec-4-CALIBRATED vs Sec-4-BUILT), i.e. the
+  D4′ precharter's call.
+- Stubs remaining in CORE: `flagship_shape`, `balancePoint_monotone_shape`,
+  `epsParam_data` (3). The §0 flagship verdict is UNCHANGED and now has its
+  engine: whatever re-split input a future hF3b-class consumer provides, the
+  symbolic route consumes it directly.
+
+— lane R3, 2026-11-21.

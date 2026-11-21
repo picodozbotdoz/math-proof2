@@ -193,24 +193,10 @@ end Theorem19
 
 /-! ## Part 1 — the two donor routes, restated at the frozen `strassen` fiber
 The donor's own theorems `Theorem19.explicit_of_theorem_17_corollary_15/16`
-(`TimeClaims/Sec3/Theorem19.lean:85/:107`), as stubs: pins that the ported shapes
-compose to the donor's route shapes verbatim. -/
-
-/-- Donor route 15 restated (stub): Theorem_17 at `strassen` + Corollary 15 first
-case ⇒ Theorem_19_explicit at the frozen (1/648, 2). -/
-theorem route15_frozen (M : DetTimeModel)
-    (h17 : Claim.Theorem_17 M strassen paramD₅ paramG₅)
-    (h15 : Claim.Corollary_15_first M) :
-    Claim.Theorem_19_explicit M (1 / 648) 2 := by
-  sorry -- P0 stub
-
-/-- Donor route 16 restated (stub): Theorem_17 at `strassen` + Corollary 16 ⇒
-Theorem_19_explicit at the frozen (0.00175, 1). -/
-theorem route16_frozen (M : DetTimeModel)
-    (h17 : Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆)
-    (h16 : Claim.Corollary_16 M) :
-    Claim.Theorem_19_explicit M 0.00175 1 := by
-  sorry -- P0 stub
+(`TimeClaims/Sec3/Theorem19.lean:85/:107`): pins that the ported shapes compose to
+the donor's route shapes verbatim. BOTH CLOSED 2026-11-21 (iter-7 S-residue batch,
+Part 3f — the proofs consume the Part 3d/3f ports and the Strassen-fiber
+`WordRamMMData` instance, so the statements moved there). -/
 
 /-! ## Part 2 — the MM-generalized statement set (hypothesis-binder pattern) -/
 
@@ -239,31 +225,20 @@ structure EpsData where
   strict_anti : StrictAntiOn ε (Set.Ioc 2 2.9)
   limit_three : Filter.Tendsto ε (nhdsWithin 3 (Set.Iio 3)) (nhds 0)
 
-/-- Route 15 at abstract MM (stub): same shape as `route15_frozen` with the `MM`
-slot freed; the conclusion at the ε-fiber of W's exponent. -/
-theorem route15_MMgeneral (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
-    (h17 : Claim.Theorem_17 M W.MM paramD₅ paramG₅)
-    (h15 : Claim.Corollary_15_first M) :
-    Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
-  sorry -- P0 stub
+/- Route 15 at abstract MM — CLOSED 2026-11-21, iter-7 S-residue batch (Part 3f,
+with the ε-fiber binders `hδ`/`he` at route 15's own cap/floor — same amendment
+class as route 16's; this Part-2 stub location can't hold the proof because it
+precedes the Part 3d/3f ports it consumes). -/
 
 /- Route 16 at abstract MM — CLOSED 2026-11-21 (Part 3e, with the ε-fiber binders
 `hδ`/`he` — the amendment of record; this Part-2 stub location can't hold the proof
 because it precedes the Part 3d Choice-calculus port it consumes). -/
 
-
-/-- The symbolic re-instantiation shape (stub): D and g ALSO abstract, with the
-`Theorem19.Choice` family as an explicit binder — the hypotheses the frozen
-`choice_theorem_5`/`choice_corollary_26` discharge at the frozen params and the
-ω_b-dependent choice must re-provide (dossier route step 1). -/
-theorem route16_symbolic (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
-    (D g : ℕ → ℕ) (η : ℕ → ℝ) (c : ℝ)
-    (hchoice : ∀ n : ℕ, 16 ^ 18 ≤ n →
-      Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈(D n : ℝ) ^ (η n)⌉₊)
-    (h17 : Claim.Theorem_17 M W.MM D g)
-    (h16 : Claim.Corollary_16 M) :
-    Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
-  sorry -- P0 stub
+/- The symbolic re-instantiation shape — RE-STATED 2026-11-21, iter-7 (Part 3g,
+per the γ-freeze finding: the re-split one-call binder + the uniform-η₀ budget;
+the v1 stub below was false as stated — `Claim.Corollary_16`'s frozen 0.437/0.063
+split caps savings at 0.0315/18, so its unconditional ε-fiber conclusion fails for
+ε > 0.00175). -/
 
 end
 
@@ -918,6 +893,455 @@ theorem route16_MMgeneral_frozen (M : DetTimeModel) (W : WordRamMMData)
   have hnum : (0.0315 : ℝ) / 18 = 0.00175 := by norm_num
   rw [hnum] at hcore
   exact hcore
+
+/-! ## Part 3f — ROUTE 15 mirrored (iter-7 S-residue batch, 2026-11-21): the donor's
+`explicit_of_theorem_17_corollary_15` (`TimeClaims/Sec3/Theorem19.lean:85`) with the
+MM slot freed, its Arithmetic helpers, the frozen route-15 Choice instance (c = 4),
+the Strassen-fiber `WordRamMMData`, and BOTH frozen-route closes (route15_frozen and
+route16_frozen ride as corollaries). Same ε-fiber amendment class as route 16: the
+Corollary-15 one-call cost is frozen at thinBound's `D^{1/18}`, capping savings at
+`(1/36)/18 = 1/648` with a log² floor. -/
+
+/-- v4.36 drift replacement for `Real.one_le_log_natCast_of_three_le` (gone on our
+pin; the `Real.le_log_iff_exp_le` + `Real.exp_one_lt_d9` route). -/
+theorem one_le_log_of_three_le {D : ℕ} (h : 3 ≤ D) : 1 ≤ Real.log D := by
+  have hD0 : (0 : ℝ) < D := by positivity
+  have h3 : (2.7182818286 : ℝ) ≤ (D : ℝ) :=
+    (by norm_num : (2.7182818286 : ℝ) ≤ 3).trans (by exact_mod_cast h)
+  exact (Real.le_log_iff_exp_le hD0).mpr (Real.exp_one_lt_d9.le.trans h3)
+
+/-- Donor `TimeClaims/Sec3/Arithmetic.lean:75` (`sq_div_rpow_le_sq_mul_log_sq_div`),
+drift-corrected via `one_le_log_of_three_le`. -/
+theorem sq_div_rpow_le_sq_mul_log_sq_div (n : ℕ) {D : ℕ} (a : ℝ) (hD : 3 ≤ D) :
+    (n : ℝ) ^ 2 / (D : ℝ) ^ a ≤ (n : ℝ) ^ 2 * Real.log D ^ 2 / (D : ℝ) ^ a :=
+  div_le_div_of_nonneg_right
+    (le_mul_of_one_le_right (by positivity) (one_le_pow₀ (one_le_log_of_three_le hD)))
+    (Real.rpow_nonneg D.cast_nonneg a)
+
+/-- Donor `Arithmetic.lean:94` — reading `n²/√D` answers costs at most Theorem 5's
+bound `n² log² D / D^{1/18}`. -/
+theorem sq_div_sqrt_le_thinBound (n : ℕ) {D : ℕ} (hD : 4 ≤ D) :
+    (n : ℝ) ^ 2 / Real.sqrt D ≤ thinBound n D :=
+  (sq_div_sqrt_le_sq_div_rpow n (by omega) (by norm_num)).trans
+    (sq_div_rpow_le_sq_mul_log_sq_div n _ (by omega))
+
+/-- Donor `TimeClaims/Sec3/Theorem19.lean:75` — one call on the route through
+Corollary 15, with the reading of its answers, costs `O(n² log² D / D^{1/18})`. -/
+theorem call_cost_corollary_15 {n D : ℕ} {t C C₁₅ : ℝ} (hD : 4 ≤ D) (hC : 0 ≤ C)
+    (ht : t ≤ C₁₅ * thinBound n D) :
+    t + C * ((n : ℝ) ^ 2 / Real.sqrt D) ≤ (C₁₅ + C) * thinBound n D :=
+  calc t + C * ((n : ℝ) ^ 2 / Real.sqrt D) ≤ C₁₅ * thinBound n D + C * thinBound n D :=
+        add_le_add ht (mul_le_mul_of_nonneg_left (sq_div_sqrt_le_thinBound n hD) hC)
+    _ = _ := by ring
+
+/-- Donor `Sec3/Theorem19.lean:49` — `paramD₅ n` is "the largest power of four with
+D ≤ n^{1/18}". -/
+theorem paramD₅_largest_pow_four (n : ℕ) (hn : 1 ≤ n) :
+    (∃ k : ℕ, paramD₅ n = 4 ^ k) ∧ (paramD₅ n : ℝ) ≤ (n : ℝ) ^ (1 / 18 : ℝ) ∧
+    ∀ k : ℕ, ((4 : ℝ) ^ k) ≤ (n : ℝ) ^ (1 / 18 : ℝ) → 4 ^ k ≤ paramD₅ n := by
+  have hroot : 1 ≤ (n : ℝ) ^ (1 / 18 : ℝ) := Real.one_le_rpow (Nat.one_le_cast.2 hn) (by norm_num)
+  have hfloor : ⌊(n : ℝ) ^ (1 / 18 : ℝ)⌋₊ ≠ 0 :=
+    Nat.one_le_iff_ne_zero.1 (Nat.le_floor (by simpa only [Nat.cast_one] using hroot))
+  refine ⟨⟨_, rfl⟩, ?_, fun k hk => ?_⟩
+  · exact (Nat.cast_le.2 (Nat.pow_log_le_self 4 hfloor)).trans
+      (Nat.floor_le (zero_le_one.trans hroot))
+  · exact Nat.pow_le_pow_right (by norm_num)
+      (Nat.le_log_of_pow_le (by norm_num) (Nat.le_floor (by push_cast; exact hk)))
+
+namespace Theorem19
+
+/-- Donor `Sec3/Theorem19.lean:62` — the route-15 Choice constructor ("the largest
+power of four with D ≤ n^{1/18}, so D ≥ n^{1/18}/4"). -/
+theorem Choice.of_largest_pow_four {n D : ℕ} (hn : 16 ^ 18 ≤ n) (hD4 : ∃ k : ℕ, D = 4 ^ k)
+    (hDle : (D : ℝ) ≤ (n : ℝ) ^ (1 / 18 : ℝ))
+    (hDmax : ∀ k : ℕ, ((4 : ℝ) ^ k) ≤ (n : ℝ) ^ (1 / 18 : ℝ) → 4 ^ k ≤ D) :
+    Theorem19.Choice n D (1 / 36) 4 where
+  sixteen_le := hDmax 2 (by norm_num; exact Theorem19.sixteen_le_root hn)
+  le_root := hDle
+  root_div_le := by
+    -- Otherwise `4D` would be a larger power of four that is at most `n^{1/18}`.
+    obtain ⟨k, rfl⟩ := hD4
+    by_contra hlt
+    have hquarter : (4 : ℝ) ^ k < (n : ℝ) ^ (1 / 18 : ℝ) / 4 := by exact_mod_cast not_le.mp hlt
+    have hnext : (4 : ℝ) ^ (k + 1) ≤ (n : ℝ) ^ (1 / 18 : ℝ) := by
+      rw [pow_succ]
+      linarith [hquarter]
+    exact absurd (hDmax (k + 1) hnext) (Nat.pow_lt_pow_right (by norm_num) k.lt_succ_self).not_ge
+  c_pos := by norm_num
+  η_nonneg := by norm_num
+  η_le := by norm_num
+
+/-- Donor `Sec3/Theorem19.lean:84` — the frozen route-15 Choice instance (η = 1/36,
+c = 4). -/
+theorem choice_theorem_5 {n : ℕ} (hn : 16 ^ 18 ≤ n) :
+    Theorem19.Choice n (paramD₅ n) (1 / 36) 4 :=
+  have ⟨hD4, hDle, hDmax⟩ := paramD₅_largest_pow_four n (le_trans (by norm_num) hn)
+  Theorem19.Choice.of_largest_pow_four hn hD4 hDle hDmax
+
+end Theorem19
+
+/-- The general ε-fiber transfer (route-15 form; `explicit_transfer` above is the
+route-16 (0.0315/18, e₀ = 1) instance, kept as landed). -/
+theorem explicit_transfer_gen {n δ δ₀ : ℝ} {e e₀ : ℕ} (hn1 : 1 ≤ n) (hlog1 : 1 ≤ Real.log n)
+    (hδ : δ ≤ δ₀) (he : e₀ ≤ e) :
+    n ^ (3 - δ₀) * Real.log n ^ e₀ ≤ n ^ (3 - δ) * Real.log n ^ e := by
+  have h1 : n ^ (3 - δ₀) ≤ n ^ (3 - δ) :=
+    Real.rpow_le_rpow_of_exponent_le hn1 (by linarith)
+  have h2 : Real.log n ^ e₀ ≤ Real.log n ^ e := by
+    have hk : e = e₀ + (e - e₀) := by omega
+    rw [hk, pow_add]
+    calc Real.log n ^ e₀ = Real.log n ^ e₀ * 1 := (mul_one _).symm
+      _ ≤ Real.log n ^ e₀ * Real.log n ^ (e - e₀) :=
+          mul_le_mul_of_nonneg_left (one_le_pow₀ hlog1)
+            (pow_nonneg (Real.log_nonneg hn1) _)
+  exact mul_le_mul h1 h2 (pow_nonneg (Real.log_nonneg hn1) _)
+    (Real.rpow_nonneg (zero_le_one.trans hn1) _)
+
+/-- The route-15 composition at the FROZEN fiber, E-free and W-general (the mirror
+of `route16_core`): for every word-RAM MM in the band, Theorem 17 at
+`paramD₅`/`paramG₅` + Corollary 15 first case give the explicit bound at
+δ = (1/36)/18 = 1/648, e = 2. -/
+theorem route15_core (M : DetTimeModel) (W : WordRamMMData)
+    (h17 : Claim.Theorem_17 M W.MM paramD₅ paramG₅)
+    (h15 : Claim.Corollary_15_first M) :
+    ∃ (K : ℝ) (T : ℕ → ℝ → ℝ), 0 ≤ K ∧ M.exactTriangle T ∧
+      ∀ (n : ℕ) (κ u : ℝ), 16 ^ 18 ≤ n → 1 ≤ κ → u ≤ (n : ℝ) ^ κ →
+        T n u ≤ K * (κ * ((n : ℝ) ^ (3 - (1 / 36 : ℝ) / 18) * Real.log n ^ 2)) := by
+  obtain ⟨C, hC, h17⟩ := h17
+  obtain ⟨C₁₅, _, Td, hC₁₅, -, hTd, h15⟩ := h15
+  obtain ⟨T, hT, h17⟩ := h17 Td hTd
+  -- the ω_b-balance at the frozen route-15 η holds for EVERY W in the band
+  have hbal : W.ωb + 1 / 12 ≤ 3 - (1 / 36 : ℝ) / 18 := by linarith [W.le_band]
+  obtain ⟨C₀, hC₀, htotal⟩ :=
+    MMgeneral_total_sum W (c := 4) (by norm_num) (1 / 36) choiceSumInputs_of_choice hbal
+  refine ⟨C₀ * (C₁₅ + C + C), T, mul_nonneg hC₀ (by linarith [hC₁₅, hC]), hT,
+    fun n κ u hn hκ hu => ?_⟩
+  -- Step 1: the parameters (the frozen route-15 Choice instance).
+  have P := Theorem19.choice_theorem_5 hn
+  have h17 := h17 n κ u P.sixteen_le P.le_n P.one_le_ceil P.ceil_le_sqrt hκ hu
+  -- Step 2: one call, with the reading of its answers.
+  have hD4 : (4 : ℕ) ≤ paramD₅ n := (by norm_num : (4 : ℕ) ≤ 16).trans P.sixteen_le
+  have hcall := call_cost_corollary_15 hD4 hC
+    (h15 n (paramD₅ n) (queryCap n (paramD₅ n)) ⟨_, rfl⟩ hD4 P.pow_eighteen_le
+      (Nat.floor_le (by positivity))).2
+  -- Step 3: the sum, at X = log² D, Λ = log² n.
+  have hXΛ : Real.log (paramD₅ n) ^ 2 ≤ Real.log n ^ 2 :=
+    pow_le_pow_left₀ (Real.log_natCast_nonneg (paramD₅ n)) (Theorem19.Choice.log_le_log P) 2
+  have hlogΛ : Real.log n ≤ Real.log n ^ 2 :=
+    le_self_pow₀ (Theorem19.Choice.one_le_log P) two_ne_zero
+  have hsum := htotal P (a := C₁₅ + C) (b := C) (by linarith [hC₁₅, hC]) hC hκ
+    (X := Real.log (paramD₅ n) ^ 2) (sq_nonneg _) hXΛ hlogΛ
+  rw [show (2 * (1 / 36 : ℝ)) = 1 / 18 by norm_num] at hsum
+  exact (time_le_of_calls h17 hcall hsum (by positivity)).trans_eq (by ring)
+
+/-- ROUTE 15 AT ABSTRACT MM, with the ε-fiber binders (the mirror of route 16's
+amendment of record: hδ at route 15's frozen cap (1/36)/18, he at its log² floor). -/
+theorem route15_MMgeneral (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
+    (hδ : E.ε W.ωb ≤ (1 / 36 : ℝ) / 18) (he : 2 ≤ E.e W.ωb)
+    (h17 : Claim.Theorem_17 M W.MM paramD₅ paramG₅)
+    (h15 : Claim.Corollary_15_first M) :
+    Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
+  obtain ⟨K, T, hK0, hT, hb⟩ := route15_core M W h17 h15
+  refine ⟨K, T, hT, fun n κ u hn hκ hu => ?_⟩
+  have hn1 : (1 : ℝ) ≤ (n : ℝ) :=
+    Nat.one_le_cast.mpr ((by norm_num : (1 : ℕ) ≤ 16 ^ 18).trans hn)
+  have hlog1 : 1 ≤ Real.log n :=
+    Theorem19.Choice.one_le_log (Theorem19.choice_theorem_5 hn)
+  have htr := explicit_transfer_gen (δ₀ := (1 / 36 : ℝ) / 18) (e₀ := 2) hn1 hlog1 hδ he
+  have hκ0 : (0 : ℝ) ≤ κ := zero_le_one.trans hκ
+  calc T n u ≤ K * (κ * ((n : ℝ) ^ (3 - (1 / 36 : ℝ) / 18) * Real.log n ^ 2)) :=
+        hb n κ u hn hκ hu
+    _ ≤ K * (κ * ((n : ℝ) ^ (3 - E.ε W.ωb) * Real.log n ^ E.e W.ωb)) :=
+        mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left htr hκ0) hK0
+
+/-- The Strassen fiber's band facts: `2 < log₂ 7 ≤ 2.9` (both by the
+`log_div_log` + `log_pow` rational route — `7^10 ≤ 2^29` exact). -/
+theorem logb_two_seven_mem : (2 : ℝ) < Real.logb 2 7 ∧ Real.logb 2 7 ≤ 2.9 := by
+  have hlog2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num : (1 : ℝ) < 2)
+  have h2log : (2 : ℝ) * Real.log 2 = Real.log ((2 : ℝ) ^ (2 : ℕ)) := by
+    rw [Real.log_pow]; push_cast; ring
+  have h10 : (10 : ℝ) * Real.log 7 = Real.log ((7 : ℝ) ^ (10 : ℕ)) := by
+    rw [Real.log_pow]; push_cast; ring
+  have h29 : (29 : ℝ) * Real.log 2 = Real.log ((2 : ℝ) ^ (29 : ℕ)) := by
+    rw [Real.log_pow]; push_cast; ring
+  constructor
+  · rw [← Real.log_div_log, lt_div_iff₀ hlog2, h2log]
+    exact Real.log_lt_log (by norm_num) (by norm_num)
+  · rw [← Real.log_div_log, div_le_iff₀ hlog2]
+    have h1 : (10 : ℝ) * Real.log 7 ≤ (29 : ℝ) * Real.log 2 := by
+      rw [h10, h29]
+      exact Real.log_le_log (by norm_num) (by norm_num)
+    linarith
+
+/-- The frozen MM instance as a `WordRamMMData` (ω = log₂ 7 in the band (2, 2.9];
+`MM n ≤ 1 · n^ω` with Cb = 1). -/
+def strassenW : WordRamMMData where
+  MM := strassen
+  ωb := Real.logb 2 7
+  nonneg := fun n => Real.rpow_nonneg (Nat.cast_nonneg n) _
+  grows := ⟨1, le_rfl, fun n _ => by rw [strassen, one_mul]⟩
+  two_lt := logb_two_seven_mem.1
+  le_band := logb_two_seven_mem.2
+
+/-- ROUTE 15 AT THE FROZEN STRASSEN FIBER (the donor's
+`explicit_of_theorem_17_corollary_15` shape — the Part-1 stub, closed). -/
+theorem route15_frozen (M : DetTimeModel)
+    (h17 : Claim.Theorem_17 M strassen paramD₅ paramG₅)
+    (h15 : Claim.Corollary_15_first M) :
+    Claim.Theorem_19_explicit M (1 / 648) 2 := by
+  obtain ⟨K, T, _, hT, hb⟩ := route15_core M strassenW h17 h15
+  refine ⟨K, T, hT, fun n κ u hn hκ hu => ?_⟩
+  rw [show (3 - (1 / 648 : ℝ)) = 3 - (1 / 36 : ℝ) / 18 by norm_num]
+  exact hb n κ u hn hκ hu
+
+/-- ROUTE 16 AT THE FROZEN STRASSEN FIBER (the Part-1 stub, closed — the free
+corollary of `route16_core` at `strassenW`). -/
+theorem route16_frozen (M : DetTimeModel)
+    (h17 : Claim.Theorem_17 M strassen paramD₂₆ paramG₂₆)
+    (h16 : Claim.Corollary_16 M) :
+    Claim.Theorem_19_explicit M 0.00175 1 := by
+  obtain ⟨K, T, _, hT, hb⟩ := route16_core M strassenW h17 h16
+  refine ⟨K, T, hT, fun n κ u hn hκ hu => ?_⟩
+  rw [show (3 - (0.00175 : ℝ)) = 3 - (0.0315 : ℝ) / 18 by norm_num, pow_one]
+  exact hb n κ u hn hκ hu
+
+/-! ## Part 3g — ROUTE 16 SYMBOLIC, re-stated per the γ-freeze finding
+(`M-CLASS-EVALUATION.md` §0). The v1 stub's `h16 : Claim.Corollary_16 M` froze the
+one-call cost at the 0.437/0.063 split, capping savings at 0.0315/18 — its
+unconditional ε-fiber conclusion was false for ε > 0.00175. The honest interface:
+the one-call cost enters through the RE-SPLIT binder `Corollary_16_split` at a
+uniform γ₀ ≥ 2·η n, plus the uniform-η₀ budget, the per-n Choice family, and the
+ε-fiber binders. -/
+
+/-- The re-split one-call interface: Corollary 16's `wantedBound` with the frozen
+0.437/0.063 pair generalized to `(1/2 − γ, γ)`. The donor's `Claim.Corollary_16` is
+the γ = 0.063 instance (`0.437 = 1/2 − 0.063`). -/
+def Corollary_16_split (M : DetTimeModel) (γ : ℝ) : Prop :=
+  ∃ (C : ℝ) (Tc Td : ℕ → ℕ → ℕ → ℝ), 0 ≤ C ∧ M.lopCount Tc ∧ M.lopDetect Td ∧
+    ∀ n D w : ℕ, 1 ≤ D → D ^ 18 ≤ n →
+      Tc n D w ≤ C * ((w : ℝ) * (D : ℝ) ^ (1 / 2 - γ) + (n : ℝ) ^ 2 / (D : ℝ) ^ γ) ∧
+      Td n D w ≤ C * ((w : ℝ) * (D : ℝ) ^ (1 / 2 - γ) + (n : ℝ) ^ 2 / (D : ℝ) ^ γ)
+
+/-- One call at the split γ, with reading: `O(n²/D^γ)` (the `call_cost_corollary_16`
+shape with 0.437/0.063 → (1/2 − γ, γ)). -/
+theorem call_cost_corollary_16_split {n D : ℕ} {γ t C C₁₆ : ℝ} (hD : 1 ≤ D)
+    (hγ0 : 0 ≤ γ) (hγ1 : γ ≤ 1 / 2) (hC : 0 ≤ C) (hC₁₆ : 0 ≤ C₁₆)
+    (ht : t ≤ C₁₆ * ((queryCap n D : ℝ) * (D : ℝ) ^ (1 / 2 - γ)
+      + (n : ℝ) ^ 2 / (D : ℝ) ^ γ)) :
+    t + C * ((n : ℝ) ^ 2 / Real.sqrt D)
+      ≤ (2 * C₁₆ + C) * ((n : ℝ) ^ 2 / (D : ℝ) ^ γ) := by
+  have hD0 : (0 : ℝ) < D := by exact_mod_cast hD
+  have hposγ : 0 < (D : ℝ) ^ γ := Real.rpow_pos_of_pos hD0 γ
+  have hposh : 0 < (D : ℝ) ^ (1 / 2 - γ) := Real.rpow_pos_of_pos hD0 _
+  have hsqrt : Real.sqrt D = (D : ℝ) ^ (1 / 2 - γ) * (D : ℝ) ^ γ := by
+    rw [Real.sqrt_eq_rpow, ← Real.rpow_add hD0]
+    norm_num
+  have hquery : (queryCap n D : ℝ) * (D : ℝ) ^ (1 / 2 - γ)
+      ≤ (n : ℝ) ^ 2 / (D : ℝ) ^ γ :=
+    calc (queryCap n D : ℝ) * (D : ℝ) ^ (1 / 2 - γ)
+        ≤ (n : ℝ) ^ 2 / Real.sqrt D * (D : ℝ) ^ (1 / 2 - γ) :=
+          mul_le_mul_of_nonneg_right (Nat.floor_le (by positivity)) hposh.le
+      _ = (n : ℝ) ^ 2 / (D : ℝ) ^ γ := by
+          rw [hsqrt]
+          field_simp
+  have hread := sq_div_sqrt_le_sq_div_rpow n hD (a := γ) hγ1
+  calc t + C * ((n : ℝ) ^ 2 / Real.sqrt D)
+      ≤ C₁₆ * ((n : ℝ) ^ 2 / (D : ℝ) ^ γ + (n : ℝ) ^ 2 / (D : ℝ) ^ γ)
+          + C * ((n : ℝ) ^ 2 / (D : ℝ) ^ γ) :=
+        add_le_add (ht.trans (mul_le_mul_of_nonneg_left (add_le_add hquery le_rfl) hC₁₆))
+          (mul_le_mul_of_nonneg_left hread hC)
+    _ = (2 * C₁₆ + C) * ((n : ℝ) ^ 2 / (D : ℝ) ^ γ) := by ring
+
+/-- The η-uniform total-sum corollary of `MMgeneral_total_sum` (the run-9 milestone's
+proof body with the constant made uniform: for c ≥ 1, `c ^ η ≤ c ^ η₀` makes
+`8·c^η₀ + Cb + 3` a valid constant for EVERY η ≤ η₀ — the symbolic route's
+uniform-K input). -/
+theorem MMgeneral_total_sum_uniform (W : WordRamMMData) {c η₀ : ℝ} (hc : 0 ≤ c) (hc1 : 1 ≤ c)
+    (hbal : W.ωb + 1 / 12 ≤ 3 - η₀ / 18) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ η : ℝ, η ≤ η₀ → ∀ {n D : ℕ}, Theorem19.Choice n D η c →
+      ∀ {a b κ X Λ : ℝ}, 0 ≤ a → 0 ≤ b → 1 ≤ κ → 0 ≤ X → X ≤ Λ → Real.log n ≤ Λ →
+      4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * (a * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+        + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+          + termBuild n D ⌈(D : ℝ) ^ η⌉₊)
+        ≤ C * ((a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ))) := by
+  obtain ⟨Cb, hCb, hgrow⟩ := W.grows
+  have hCb0 : (0 : ℝ) ≤ Cb := zero_le_one.trans hCb
+  have hcη₀ : (0 : ℝ) ≤ c ^ η₀ := Real.rpow_nonneg hc η₀
+  refine ⟨8 * c ^ η₀ + Cb + 3, by linarith, fun η hη {n D} P {a b κ X Λ} ha hb hκ hX hXΛ hlogΛ => ?_⟩
+  have I := choiceSumInputs_of_choice (η := η) (c := c)
+  have hΛ : 1 ≤ Λ := (I.one_le_log P).trans hlogΛ
+  have hΛκ : Λ ≤ κ * Λ := le_mul_of_one_le_left (zero_le_one.trans hΛ) hκ
+  have hnpos : 0 < n := by
+    rcases Nat.eq_zero_or_pos n with h0 | h1
+    · exfalso
+      have h := P.le_root
+      rw [h0, Nat.cast_zero] at h
+      have h16D : (16 : ℝ) ≤ (D : ℝ) := by exact_mod_cast P.sixteen_le
+      exact absurd (h16D.trans (h.trans (Real.zero_rpow_le_one _))) (by norm_num)
+    · exact h1
+  have hn1 : (1 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hnpos
+  have hn0 : (0 : ℝ) < (n : ℝ) := lt_of_lt_of_le zero_lt_one hn1
+  have hD1 : (1 : ℝ) ≤ (D : ℝ) :=
+    le_trans (by norm_num : (1 : ℝ) ≤ 16) (by exact_mod_cast P.sixteen_le)
+  have hD0 : (0 : ℝ) < (D : ℝ) := lt_of_lt_of_le zero_lt_one hD1
+  have hMM : termPrime W.MM n D ≤ Cb * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ)) := by
+    have hbalη : W.ωb + 1 / 12 ≤ 3 - η / 18 := by linarith
+    have hDp : (D : ℝ) ^ (3 / 2 : ℝ) ≤ (n : ℝ) ^ (1 / 12 : ℝ) := by
+      have h2 : ((n : ℝ) ^ (1 / 18 : ℝ)) ^ (3 / 2 : ℝ) = (n : ℝ) ^ (1 / 12 : ℝ) := by
+        rw [← Real.rpow_mul hn0.le, show (1 / 18 : ℝ) * (3 / 2 : ℝ) = 1 / 12 by norm_num]
+      calc (D : ℝ) ^ (3 / 2 : ℝ) ≤ ((n : ℝ) ^ (1 / 18 : ℝ)) ^ (3 / 2 : ℝ) :=
+            Real.rpow_le_rpow hD0.le P.le_root (by norm_num : (0 : ℝ) ≤ 3 / 2)
+        _ = (n : ℝ) ^ (1 / 12 : ℝ) := h2
+    have hg := hgrow n (Nat.one_le_iff_ne_zero.2 (Nat.ne_of_gt hnpos))
+    have h1κΛ : 1 ≤ κ * Λ := by
+      nlinarith [mul_le_mul hκ hΛ zero_le_one (zero_le_one.trans hκ)]
+    have hωΛ : (n : ℝ) ^ (3 - η / 18) ≤ (n : ℝ) ^ (3 - η / 18) * (κ * Λ) :=
+      le_mul_of_one_le_right (Real.rpow_nonneg hn0.le _) h1κΛ
+    unfold termPrime
+    calc W.MM n * (D : ℝ) ^ (3 / 2 : ℝ)
+        ≤ (Cb * (n : ℝ) ^ W.ωb) * (n : ℝ) ^ (1 / 12 : ℝ) :=
+          mul_le_mul hg hDp (Real.rpow_nonneg hD0.le _)
+            (mul_nonneg hCb0 (Real.rpow_nonneg hn0.le _))
+      _ = Cb * ((n : ℝ) ^ (W.ωb + 1 / 12 : ℝ)) := by rw [Real.rpow_add hn0]; ring
+      _ ≤ Cb * ((n : ℝ) ^ (3 - η / 18 : ℝ)) :=
+          mul_le_mul_of_nonneg_left (Real.rpow_le_rpow_of_exponent_le hn1 hbalη) hCb0
+      _ ≤ Cb * ((n : ℝ) ^ (3 - η / 18) * (κ * Λ)) := mul_le_mul_of_nonneg_left hωΛ hCb0
+  have hinstances := I.instances_le P hX hκ hΛ hXΛ
+  have hscans := I.scans_le P hκ hΛ hlogΛ
+  have hbuild := I.build_le P hκ hΛ
+  set R := (n : ℝ) ^ (3 - η / 18) * (κ * Λ) with hR
+  have hR0 : (0 : ℝ) ≤ R := by positivity
+  have hA0 : (0 : ℝ) ≤ c ^ η := Real.rpow_nonneg hc η
+  have hcηR : (0 : ℝ) ≤ c ^ η * R := mul_nonneg hA0 hR0
+  have hCbR : (0 : ℝ) ≤ Cb * R := mul_nonneg hCb0 hR0
+  have hcμη : c ^ η ≤ c ^ η₀ := Real.rpow_le_rpow_of_exponent_le hc1 hη
+  have hCη : 8 * c ^ η + Cb + 3 ≤ 8 * c ^ η₀ + Cb + 3 := by linarith
+  have hRb : (0 : ℝ) ≤ (a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ)) :=
+    mul_nonneg (by linarith) (mul_nonneg (zero_le_one.trans hκ)
+      (mul_nonneg (Real.rpow_nonneg hn0.le _) (by linarith)))
+  calc 4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * (a * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+          + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+            + termBuild n D ⌈(D : ℝ) ^ η⌉₊)
+      = a * (4 * (n : ℝ) * (⌈(D : ℝ) ^ η⌉₊ : ℝ) * ((n : ℝ) ^ 2 * X / (D : ℝ) ^ (2 * η)))
+          + b * (termScans n ⌈(D : ℝ) ^ η⌉₊ κ + termPrime W.MM n D
+            + termBuild n D ⌈(D : ℝ) ^ η⌉₊) := by ring
+    _ ≤ a * ((8 * c ^ η + Cb + 3) * R) + b * ((8 * c ^ η + Cb + 3) * R) := by
+        apply add_le_add
+        · apply mul_le_mul_of_nonneg_left _ ha
+          linarith [hinstances, hCbR, hR0, hA0]
+        · apply mul_le_mul_of_nonneg_left _ hb
+          linarith [hscans, hMM, hbuild, hcηR, hCbR, hR0]
+    _ = (8 * c ^ η + Cb + 3) * ((a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ))) := by
+        rw [hR]; ring
+    _ ≤ (8 * c ^ η₀ + Cb + 3) * ((a + b) * (κ * ((n : ℝ) ^ (3 - η / 18) * Λ))) :=
+        mul_le_mul_of_nonneg_right hCη hRb
+
+/-- ROUTE 16, SYMBOLIC — RE-STATED and proved per the γ-freeze finding: (D, g, η)
+all ω_b-choice functions; the one-call cost through the re-split binder at a uniform
+γ₀ ≥ 2·η n. `η₀` is a LOWER bound on the choice (`hηinf`): the deliverable fiber is
+δ = η₀/18 (every n delivers at least that); the total's constant uniformizes through
+the Choice field `η ≤ 1/4` (free — no upper-bound binder needed). -/
+theorem route16_symbolic (M : DetTimeModel) (W : WordRamMMData) (E : EpsData)
+    (D g : ℕ → ℕ) (η : ℕ → ℝ) (c γ₀ η₀ : ℝ)
+    (hc1 : 1 ≤ c) (hγ₀ : γ₀ ≤ 1 / 2)
+    (hγ : ∀ n : ℕ, 16 ^ 18 ≤ n → 2 * η n ≤ γ₀)
+    (hηinf : ∀ n : ℕ, 16 ^ 18 ≤ n → η₀ ≤ η n)
+    (hδ : E.ε W.ωb ≤ η₀ / 18) (he : 1 ≤ E.e W.ωb)
+    (hchoice : ∀ n : ℕ, 16 ^ 18 ≤ n →
+      Theorem19.Choice n (D n) (η n) c ∧ g n = ⌈(D n : ℝ) ^ (η n)⌉₊)
+    (h17 : Claim.Theorem_17 M W.MM D g)
+    (h16s : Corollary_16_split M γ₀) :
+    Claim.Theorem_19_explicit M (E.ε W.ωb) (E.e W.ωb) := by
+  obtain ⟨Cs, Tc, Td, hCs, -, hTd, h16s⟩ := h16s
+  obtain ⟨C, hC, h17⟩ := h17
+  obtain ⟨T, hT, h17⟩ := h17 Td hTd
+  -- uniform constant at the η-ceiling 1/4 (the balance there is free from W.le_band)
+  obtain ⟨C₀, hC₀, htotal⟩ :=
+    MMgeneral_total_sum_uniform W (c := c) (η₀ := 1 / 4) (zero_le_one.trans hc1) hc1
+      (by linarith [W.le_band])
+  refine ⟨C₀ * (2 * Cs + C + C), T, hT, fun n κ u hn hκ hu => ?_⟩
+  -- Step 1: the parameters (the ω_b-dependent Choice instance at n).
+  have P := (hchoice n hn).1
+  have hg : g n = ⌈(D n : ℝ) ^ (η n)⌉₊ := (hchoice n hn).2
+  have h1g : 1 ≤ g n := by rw [hg]; exact Theorem19.Choice.one_le_ceil P
+  have hgs : (g n : ℝ) ≤ Real.sqrt (D n) := by
+    rw [hg]; exact Theorem19.Choice.ceil_le_sqrt P
+  have h17n := h17 n κ u P.sixteen_le P.le_n h1g hgs hκ hu
+  rw [hg] at h17n
+  -- Step 2: one call at the split γ₀; the weaker split 2·η n has the larger target.
+  have hD1n : (1 : ℕ) ≤ D n := (by norm_num : (1 : ℕ) ≤ 16).trans P.sixteen_le
+  have hD0 : (0 : ℝ) < (D n : ℝ) := by
+    have : (1 : ℝ) ≤ (D n : ℝ) := by exact_mod_cast hD1n
+    exact lt_of_lt_of_le zero_lt_one this
+  have hD1 : (1 : ℝ) ≤ (D n : ℝ) := by exact_mod_cast hD1n
+  have hcall := call_cost_corollary_16_split (D := D n) (γ := γ₀) hD1n
+    (by linarith [P.η_nonneg, hγ n hn]) hγ₀ hC hCs
+    (h16s n (D n) (queryCap n (D n)) hD1n P.pow_eighteen_le).2
+  have hcall2 := hcall.trans (mul_le_mul_of_nonneg_left
+    (div_le_div_of_nonneg_left (by positivity) (Real.rpow_pos_of_pos hD0 (2 * η n))
+      (Real.rpow_le_rpow_of_exponent_le hD1 (hγ n hn))) (by linarith [hCs, hC]))
+  -- Step 3: the per-n total at η n (uniform constant C₀, per-n exponent), then the
+  -- per-n transfer at the deliverable fiber δ ≤ η n / 18 (η₀ ≤ η n ⇒ δ ≤ η₀/18 ≤ …).
+  have hXΛ : (1 : ℝ) ≤ Real.log n := Theorem19.Choice.one_le_log P
+  have hsum := htotal (η n) (P.η_le) P (a := 2 * Cs + C) (b := C)
+    (by linarith [hCs, hC]) hC hκ (X := 1) zero_le_one hXΛ (le_rfl : Real.log n ≤ Real.log n)
+  rw [mul_one] at hsum
+  have hn1 : (1 : ℝ) ≤ (n : ℝ) :=
+    Nat.one_le_cast.mpr ((by norm_num : (1 : ℕ) ≤ 16 ^ 18).trans hn)
+  have hlog1 : 1 ≤ Real.log n := Theorem19.Choice.one_le_log P
+  have hδn : E.ε W.ωb ≤ η n / 18 := by linarith [hδ, hηinf n hn]
+  have htr := explicit_transfer_gen (δ₀ := η n / 18) (e₀ := 1) hn1 hlog1 hδn he
+  rw [pow_one] at htr
+  have hκ0 : (0 : ℝ) ≤ κ := zero_le_one.trans hκ
+  calc T n u
+      ≤ C₀ * ((2 * Cs + C + C) * (κ * ((n : ℝ) ^ (3 - η n / 18) * Real.log n))) :=
+        (time_le_of_calls h17n hcall2 hsum (by positivity)).trans_eq (by ring)
+    _ = (C₀ * (2 * Cs + C + C)) * (κ * ((n : ℝ) ^ (3 - η n / 18) * Real.log n)) := by
+        ring
+    _ ≤ (C₀ * (2 * Cs + C + C)) * (κ * ((n : ℝ) ^ (3 - E.ε W.ωb) * Real.log n ^ E.e W.ωb)) :=
+        mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left htr hκ0)
+          (mul_nonneg hC₀ (by linarith [hCs, hC]))
+
+/-! ## Part 3h — the ε-construction fork, ANALYTIC arm (fork exploration per the
+`M-CLASS-EVALUATION.md` §2 fork; no fork decision prejudiced — the Sec-4-built stub
+`epsParam_data` stays untouched). A concrete `EpsData`: Sec-4-CALIBRATED (frozen
+fiber + limit) but not Sec-4-BUILT (not the Rc/gammaOf/qOf composition). This
+discharges the ε-stub's INTERFACE obligations outright: a decreasing ε with the
+right fiber and limit EXISTS in closed form — the fork's remaining question is
+fidelity, not existence. -/
+
+/-- The analytic `EpsData`: `ε(ω) = 0.00175 · (3 − ω)/(3 − log₂ 7)`, `e ≡ 1`. -/
+def epsAnalytic_data : EpsData where
+  ε ω := 0.00175 * (3 - ω) / (3 - Real.logb 2 7)
+  e _ := 1
+  frozen_fiber := by
+    have h3L : (3 : ℝ) - Real.logb 2 7 ≠ 0 := by
+      have := logb_two_seven_mem.2
+      linarith
+    field_simp
+  strict_anti := by
+    have h3L : (0 : ℝ) < 3 - Real.logb 2 7 := by
+      have := logb_two_seven_mem.2
+      linarith
+    intro a _ha b _hb hab
+    rw [div_lt_div_iff₀ h3L h3L]
+    exact mul_lt_mul_of_pos_right
+      (mul_lt_mul_of_pos_left (sub_lt_sub_left hab 3) (by norm_num : (0 : ℝ) < 0.00175)) h3L
+  limit_three := by
+    have hbase : Filter.Tendsto (fun ω : ℝ => (3 : ℝ) - ω)
+        (nhdsWithin 3 (Set.Iio 3)) (nhds 0) := by
+      have hcont : Filter.Tendsto (fun ω : ℝ => (3 : ℝ) - ω) (nhds 3) (nhds (3 - 3)) :=
+        (continuous_const.sub continuous_id).tendsto 3
+      have h3 := hcont.mono_left (nhdsWithin_le_nhds (s := Set.Iio 3) (a := (3 : ℝ)))
+      simpa using h3
+    have hmul : Filter.Tendsto (fun ω : ℝ => 0.00175 * (3 - ω) / (3 - Real.logb 2 7))
+        (nhdsWithin 3 (Set.Iio 3)) (nhds 0) := by
+      have h2 : Filter.Tendsto
+          (fun ω : ℝ => 0.00175 * ((3 - ω) / (3 - Real.logb 2 7)))
+          (nhdsWithin 3 (Set.Iio 3)) (nhds (0.00175 * (0 / (3 - Real.logb 2 7)))) :=
+        tendsto_const_nhds.mul (hbase.div_const (3 - Real.logb 2 7))
+      simpa [mul_div_assoc'] using h2
+    exact hmul
 
 /-! ## Part 4 — the core-target stubs (day-1 statement scaffolds)
 The three work items of the iter-6 core charter (per `core-charter-input.md` §1–§3),
