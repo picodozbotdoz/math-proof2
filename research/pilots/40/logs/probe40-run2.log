@@ -1,0 +1,1246 @@
+# probe40-run2 — diagnostic run of the XiKPrime statement-tier checkpoint (see run6 = FINAL).
+# Same substrate/spec/provenance as run6 (mathlib ff2494ea, v4.36.0-rc2, SPEC 2cpu/4GB,
+# LEAN_NUM_THREADS=2, doz CLI, app crossmath-probe-40, fired 2026-11-21 lane R9 worktree
+# agent-09). Intermediate diagnostic state of XiKPrime-stmt-probe.lean on its way to the
+# final bytes (final file sha256(16) a0da3f42877ce404; the bytes AS FIRED for each run are
+# recoverable from the fix classes recorded in run6's header + the file's own RUN HISTORY).
+---
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-dving4EGmL6BeYtN0FV87f
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-probe-40-stage/run_probe40.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[probe40] staging 1 file(s): ['XiKPrime-stmt-probe.lean']
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe40] mathlib rev ff2494ea5e43
+[probe40] oleans present: 8710
+
+=== XiKPrime-stmt-probe.lean
+[probe40] XiKPrime-stmt-probe.lean: PROBE-FAIL rc=1 errors=46 sorry=0
+---- error contexts ----
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+XiKPrime-stmt-probe.lean:55:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:59:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:61:63: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:64:24: error: Application type mismatch: The argument
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:59:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:61:63: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:64:24: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  IsXiChiDerivZero χ
+XiKPrime-stmt-probe.lean:67:45: error: Application type mismatch: The argument
+···
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:61:63: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:64:24: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  IsXiChiDerivZero χ
+XiKPrime-stmt-probe.lean:67:45: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:67:69: error: Application type mismatch: The argument
+···
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:64:24: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  IsXiChiDerivZero χ
+XiKPrime-stmt-probe.lean:67:45: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:67:69: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:70:38: error: Application type mismatch: The argument
+···
+  IsXiChiDerivZero χ
+XiKPrime-stmt-probe.lean:67:45: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:67:69: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:70:38: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:11: error: Application type mismatch: The argument
+···
+  zerosIn χ
+XiKPrime-stmt-probe.lean:67:69: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:70:38: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:11: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:56: error: Application type mismatch: The argument
+···
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:70:38: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:11: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:74:26: error(lean.invalidField): Invalid field notation: Type of
+···
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:11: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:74:26: error(lean.invalidField): Invalid field notation: Type of
+  ρ
+is not known; cannot resolve field `re`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `re`
+  • `RCLike.re`
+  • `TendstoUniformly.re`
+  • `TendstoUniformlyOn.re`
+···
+  zerosIn χ
+XiKPrime-stmt-probe.lean:74:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  xiChiDerivMult χ
+XiKPrime-stmt-probe.lean:74:26: error(lean.invalidField): Invalid field notation: Type of
+  ρ
+is not known; cannot resolve field `re`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `re`
+  • `RCLike.re`
+  • `TendstoUniformly.re`
+  • `TendstoUniformlyOn.re`
+  • `MeasureTheory.AEStronglyMeasurable.re`
+  • `MeasureTheory.Integrable.re`
+  • `MeasureTheory.IntegrableOn.re`
+  • `MeasureTheory.MemLp.re`
+XiKPrime-stmt-probe.lean:85:25: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+···
+  • `MeasureTheory.MemLp.re`
+XiKPrime-stmt-probe.lean:85:25: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:85:43: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:88:33: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:88:77: error: Function expected at
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:85:43: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:88:33: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:88:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:88:33: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:88:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:93:36: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:88:77: error: Function expected at
+  𝓝
+but this term has type
+  ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  c
+
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:93:36: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:93:65: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+···
+Hint: The identifier `𝓝` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:93:36: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:93:65: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:94:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:94:70: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:93:65: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:94:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:94:70: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:97:12: error: Application type mismatch: The argument
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:94:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:94:70: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:97:12: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:97:41: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:94:70: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:97:12: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:97:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:98:17: error: Application type mismatch: The argument
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:97:12: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:97:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:98:17: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:98:43: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:97:41: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:98:17: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:98:43: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:98:75: error: Application type mismatch: The argument
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:98:17: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:98:43: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:98:75: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:103:28: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:98:43: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:98:75: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:103:28: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:103:44: error: Application type mismatch: The argument
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:98:75: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:103:28: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:103:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:107:76: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:103:28: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:103:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:107:76: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:107:88: error: Application type mismatch: The argument
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:103:44: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:107:76: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:107:88: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:114:30: error: Application type mismatch: The argument
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:107:76: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:107:88: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:114:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:114:59: error: Application type mismatch: The argument
+···
+  XiChiDeriv χ
+XiKPrime-stmt-probe.lean:107:88: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℂ
+in the application
+  XiChi χ
+XiKPrime-stmt-probe.lean:114:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:114:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:115:30: error: Application type mismatch: The argument
+···
+  XiChi χ
+XiKPrime-stmt-probe.lean:114:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:114:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:115:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:115:56: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:114:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:115:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:115:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:112:27: error: Function expected at
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:115:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:115:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:112:27: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:115:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:112:27: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:120:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:112:27: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:120:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:120:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+···
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:120:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:120:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:121:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:121:50: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:120:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:121:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:121:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:118:38: error: Function expected at
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:121:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:121:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:118:38: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:121:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:118:38: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:127:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:118:38: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:127:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:127:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+···
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:127:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:127:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:128:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:128:56: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:127:59: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:128:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:128:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:125:30: error: Function expected at
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:128:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:128:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:125:30: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:128:56: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:125:30: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:133:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:125:30: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:133:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:133:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+···
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+XiKPrime-stmt-probe.lean:133:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:133:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:134:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:134:50: error: Application type mismatch: The argument
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:133:53: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  N0simple χ
+XiKPrime-stmt-probe.lean:134:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:134:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:131:41: error: Function expected at
+···
+  N0simple χ
+XiKPrime-stmt-probe.lean:134:30: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ncount χ
+XiKPrime-stmt-probe.lean:134:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:131:41: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  Ncount χ
+XiKPrime-stmt-probe.lean:134:50: error: Application type mismatch: The argument
+  χ
+has type
+  DirichletCharacter ℂ N
+but is expected to have type
+  ℝ
+in the application
+  Ndist χ
+XiKPrime-stmt-probe.lean:131:41: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+  Ndist χ
+XiKPrime-stmt-probe.lean:131:41: error: Function expected at
+  WindowCalculus
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  χ
+
+Hint: The identifier `WindowCalculus` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+···
+
+[probe40] SUMMARY
+[probe40]   XiKPrime-stmt-probe.lean: PROBE-FAIL rc=1 errors=46 sorry=0
+[tele] SUMMARY run: wall=48s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-dving4EGmL6BeYtN0FV87f

@@ -25,6 +25,30 @@ conditional on R5's pending fire), TWO Tier-3 quota contestants (the ζ_K PNT-fo
 Wiener–Ikehara consumer; FB-4's recorded iter-7 path). Fresh-fire cost of the bench ≈
 20–35 runs, ≈2–4k LoC, dominated by the two Tier-1 precharter-gated candidates.**
 
+**CORRECTION 2026-11-21 (v2, post-landing; R8's seed-1 prep course correction, landed
+`106797a` — prep file `candidates/iter6-seed1-n2-uniform-p4-prep.md` `22e40ab5`,
+coordinator-relayed): this census's iter-6-seed-1 provenance framing was STALE.** The
+preamble's "seed-1 prep → R8" allocation describes prep for a seed whose execution was
+ALREADY COMPLETE: P2-b confirm, P2-c confirm, the P3-d fire, and the N3 axcheck were all
+executed GREEN on 2026-11-20 by R6 (units 9–11), and the seed was REALIZED through the
+article-75 v3/v4 revise-in-place path (no new ship). The genuinely-new remainder of the
+N2 line is the UNIFORM composition (P4) — granted and in flight at this correction; R8
+recommends a v5 revise-in-place rather than a new ship. Consequence for THIS census: none
+of the §1 Tier rows change (they are iter-7 seeds); the preamble's "iter-6 bench fully
+allocated" clause should be read with seed-1 = EXECUTED-and-realized (P4 remainder),
+not pending; the iter-7 open consolidates from that corrected accounting.
+
+**Same-stanza second correction (R5's port-wrap, landed `3a752cf` — wrap record
+`pilots/zzv2-lam/zzv2-lam-port-wrap.md` `f8d6ffc`, coordinator-relayed): §1 row 4's
+framing is STALE the same way.** The η rungs R5+R6 are CLOSED — the run-14 GREEN closed
+the port ledger ("rungs R0–R6 kernel-complete, R7/R8 banked to iter-7 Tier-2" per the
+wrap's own header; rung-4 record `189cd5b0`, log `cebc4730`, landed `25879dd`) — not
+"conditional on R5's pending fire". The actual banked iter-7 remainder is the port plan's
+**R7 (the bridge port — the de-freezing move) + R8 (the two-arm assembly + full-coverage
+axcheck), priced 1 fire each, fresh-grant precondition**; billing stays record-billed
+quota-free (DECISION-2 = Option A). Row 4 should be read as: closed-through-R6, R7/R8
+banked Tier-2.
+
 ---
 
 ## 1. The ranked bench (DRAFT)
