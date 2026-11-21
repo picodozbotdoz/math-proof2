@@ -150,3 +150,8 @@ its own fix loop. Until the user decides on the stray host, expect recurring
 DIRTY-VS-HEAD signals on intro stems with bytes ≠ landed; each is quarantine
 material, and H's restore stays zero-corruption (HEAD bytes are the verified set of
 record).
+
+**Final-round watch (12:44:33, the close-evidence sweep unit):** snapshot 19/19 `[ok]`
+— the 41H3/50/71 dirt was restored at the `7d7fcdd`-era gates and the ghost has been
+quiet since its 12:37:50 burst (~7 min silence at watch end). No new quarantine this
+round; the quarantine manifest above remains complete (4 copies, 3 files).

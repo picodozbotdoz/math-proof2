@@ -99,3 +99,70 @@ orchestrator ruling.
    the close commit, transcript rescued w/ provenance (the log-rescue lesson).
 3. Post-close INDEX reconciliation: one final drift pass at the close gate (iter-5 G3
    precedent: 299→7); the close rows ride the same commit.
+
+## §2 — Close-evidence staging sweep (2026-11-21, this lane; HEAD `7d7fcdd`; pre-close gap catcher)
+
+Method: every sha-cited artifact in the skeleton's G1/G2/G3 scopes + REPORT-INPUTS-ITER6
+§2 fire ledger + this checklist's §B/C tables, verified on-disk at HEAD (sha256-16) or
+existence-checked; TARGETS counted by EXECUTING `make_axcheck.TARGETS` (it is
+glob-computed, not literal).
+
+### (a) Fire-set + scope artifacts — 31/31 OK
+
+Sha-verified (cited == disk): `pilots/12/CORE.lean` `7e40dff4` ✓; `core-run{1,2,3}.log`
+`66e0c2ad`/`848d394d`/`a141ca4b` ✓; `core-runs4-9.log` `63307eda` ✓;
+`zzv2-lam/logs/eta-r2-run10-eta-r3-run7-eta-r4-run5.log` `cebc4730` ✓ (= the run-14
+transcript; multi-run filename, the record :20 explains); `eta-r4-record.md` `189cd5b0` ✓;
+`eta-r4.lean` `285a411e` ✓ (fired-as-is, post-fire identical);
+`alp2-m3-run9-variant1fire.log` `f3d6a0d2` ✓ (+ run-8 `bbafa0f4`, run-7 `18cdefae` ✓);
+`feasibility/probe/logs/axcheck-iter6-n2p1rebind-run1.log` `55f7b197` ✓; quota
+disposition `356cff31` ✓; skeleton `0a93019b` ✓; REPORT-INPUTS-ITER6 `2805db70` ✓;
+share-arithmetic `7de17ba7` ✓; novelty round-2 `3879a86b` ✓; fb2-followon `3f850a1d` ✓;
+L3-recharter `460a04bc` ✓. Existence ✓: presolve run_log/archive/README,
+stepA-incremental-iter5.log (the G1 ENTRY-14 basis), article-revisions, introduction
+dir = exactly 19 files (17 stems + `_SPEC` + registry README; marker correctly absent),
+runner trio (`run_axcheck.sh`, `axcheck_probe.py`, `pilots/10/axcheck_full.py`), iter-7
+inputs (seed census, structural draft, watchtick, fb2 precharter). ZERO sha mismatches.
+
+### (b) GAPS FOUND — 3 (all cheap, none blocking if fixed pre-close)
+
+1. **Ledger path error (R6 fix)**: REPORT-INPUTS-ITER6 §2's N2P1 row cites
+   `pilots/75/logs/axcheck-iter6-n2p1rebind-run1.log` — no such file; actual =
+   `research/feasibility/probe/logs/axcheck-iter6-n2p1rebind-run1.log` (`55f7b197`,
+   verified OK).
+2. **Stale TARGETS count in the skeleton**: G2 says "58 rows at prep @ main" — the
+   EXECUTED count at HEAD is **70** (glob-computed; `make_axcheck.py` untouched since
+   `6303aab`, i.e. 70 already at prep — the iter-5 close G2 itself ran a 70-stage
+   batch). The "count at close governs" clause saves the gate; the gates doc should
+   cite 70.
+3. **TARGETS lacks the iter-6 fire-set stages (R1 fix, the material gap)**: no
+   `AxPilot12_*` (CORE.lean) and no zzv2 eta stage exist in TARGETS — the G2 batch as
+   scoped ("eta-r4 runs + the 12-core runs + M3 run-9 + seed-prep probes over
+   make_axcheck TARGETS") CANNOT cover 12-core/eta-r4 without new rows. Covered
+   already: the AL3D trio (M3 run-9's P0/A1/A2). Owed: 12-core CORE.lean + eta-r4.lean
+   rows (+ seed-prep probe stages ONLY if those fires happen — else they stay G1
+   staged-unfired class).
+
+### (c) Expected-open ledger rows (compile-time state, resolve at close)
+
+REPORT-INPUTS-ITER6 §2 was compiled at `221ae37`: the eta-r4 row said UNFIRED — it has
+SINCE FIRED GREEN (run-14 `cebc4730`, landed `25879dd`; ledger must gain the row) and
+the 12-core closing-batch row is still UNFIRED (R3 in flight; outcome resolves before
+close or the close records its state per §4).
+
+### (d) §B/C tables re-anchored at `7d7fcdd` (deltas vs the e61201b refresh)
+
+Changed: `ORCHESTRATION-ITER6.md` `5f560f2e`→**`e884aca6`** (tracker refresh `8849ac9`);
+`INDEX.md` `a9a6dbfd`→**`b9113184`** (+3 rows). Unchanged: REPORT `ca8e79dc`, STATUS
+`70e837e3`, RESEARCH `d9d1b7e2`, VERIFICATION-LEDGER `cbf84118`, r3-tables `148b8080`,
+h-wave4-log `1a240dc2`, make_axcheck `206b0840`, quota disposition `356cff31`,
+structural draft `4955ac91`, fb2-followon `3f850a1d`, seed census `422face2`, watchtick
+`59f6a021`, fb2 precharter `eba7e9b2`. Delivered since §B: #10 REPORT-INPUTS-ITER6
+(`2805db70`), #11 skeleton (`0a93019b`, at `qa/iter4-review/r7-iter6-close-skeleton.md`)
+— **#12 `iter6-closeout-gates.md` still does not exist** (the one remaining prep file).
+New close-inputs landed since §B/F: `r2-mclass-share-arithmetic.md` `7de17ba7` (the
+quota R-B (b2) decision table), `novelty/r9-novelty-verification-iter6-round2.md`
+`3879a86b` (the post-referee 16/17-SURVIVED verification).
+
+**Verdict: evidence base otherwise CLEAN — fix gaps 1–3, land #12, resolve the two
+compile-time rows, and the close is stageable.**
