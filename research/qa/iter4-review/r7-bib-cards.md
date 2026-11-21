@@ -270,9 +270,53 @@ question is a cheap, well-posed follow-up candidate.
   (7/8 → 0.8748867, Hecke ℚ(√−3) + Dirichlet); Ji arXiv:2611.16665 (Re s > 599/600
   for ζ_ℚ(i), weaker constant, number-field ζ_K class).
 
+### C.6 Morin–Duchesne–Rasmussen–Ruelle — the d = 8 kin row for the H4 seed-2 statement set (H4-precharter E1 row 1 + E2 row 3; minted 2026-11-21)
+
+- **Authors**: Alexi Morin-Duchesne, Jørgen Rasmussen, Philippe Ruelle. (The battery
+  and precharter cite "Morin-Duchesne 2015" — first-author shorthand for this paper's
+  journal year.)
+- **Title**: *Dimer representations of the Temperley–Lieb algebra*.
+- **arXiv**: 1409.3416 (math-ph), v1 2014-09-11, v2 2014-11-23, 23 pp; **journal:
+  Nucl. Phys. B, DOI 10.1016/j.nuclphysb.2014.11.016** (the 2015 of record) (abs,
+  verified 2026-11-21).
+- **Content (abs)**: a new spin-chain representation of **TL_n(β = 0)** related to the
+  dimer model; the dimer representations have **dimension 2^{n−1}** (vs the usual XXZ
+  2^n) — at n = 4 exactly the **d = 8** boundary host class, at **loop value 0**, not
+  δ = ±2.
+- **Use**: the H4-precharter's E1/E2 nearest-miss rows — dimension kin ONLY: no
+  realizability or prescribed-table question, no Gram/sign content, not at the closed
+  fibers (the round-7 battery `round7-h3-battery.md:336` verdict NOT-COVERED stands,
+  now with the exact cite). Gates any future H4 article draft's §4 row.
+
+### C.7 Chernyak–Gainutdinov–Jacobsen–Saleur — the two-boundary-TL genre row for H4's E2 (minted 2026-11-21)
+
+- **Authors**: Dmitry Chernyak, Azat M. Gainutdinov, Jesper Lykke Jacobsen, Hubert
+  Saleur. ("Chernyak 2023" = this paper's SIGMA publication year.)
+- **Title**: *Algebraic Bethe Ansatz for the Open XXZ Spin Chain with Non-Diagonal
+  Boundary Terms via U_q sl_2 Symmetry*.
+- **arXiv**: 2212.09696 (hep-th), v1 2022-12-19, v2 2023-07-17; **journal: SIGMA 19
+  (2023) 046, 47 pp, DOI 10.3842/SIGMA.2023.046** (abs, verified 2026-11-21).
+- **Content (abs)**: Bethe equations for the general open XXZ chain with non-diagonal
+  boundary terms under the Nepomechie constraint; the **two-boundary Temperley–Lieb
+  Hamiltonian realised** in a U_q sl_2-invariant spin chain, equivalence via
+  Schur–Weyl duality with the two-boundary TL algebra; infinite-dimensional Verma
+  modules on the edges (companion: Chernyak–Gainutdinov–Saleur,
+  *U_q sl_2-invariant non-compact boundary conditions for the XXZ spin chain*,
+  **arXiv:2207.12772**, JHEP 2022 — the boundary-conditions origin, cite-optional).
+  Note (abs-level): the abstract names the 2BTL Hamiltonian and Schur–Weyl duality;
+  the battery's "tr(K·)-type functionals as standard machinery" gloss
+  (`round7-h3-battery.md:337`) is genre-level — pull the PDF before citing any
+  trace-of-K statement as the paper's own.
+- **Use**: H4-precharter E2 row 2 — spectra/eigenvalue machinery ONLY: no member of
+  the genre poses a prescribed-sign/Gram-table realizability question in any
+  functional class (the battery's NOT-COVERED class-row verdict stands, now with the
+  exact cite). Gates any future H4 article draft's §4 row.
+
 ---
 
 *Tool conditions (for the caveat ledger): zbMATH 403-blocked; DuckDuckGo
 CAPTCHA-blocked; Semantic Scholar partial (429 then OK, empty citation sets on 2026
 preprints); arXiv API rate-flaky (retried). "0 hits" claims carry the query strings
-used, in-line above. CDPS 2017 body = paywalled-unverified (conditional).*
+used, in-line above. CDPS 2017 body = paywalled-unverified (conditional). C.6–C.7
+verified 2026-11-21 against the arXiv abs pages (1409.3416, 2212.09696, 2207.12772);
+genre-gloss caveats marked in-card.*

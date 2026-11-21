@@ -36,7 +36,10 @@ per §Iteration 6 "Close-out" line (`RESEARCH.md`).
 - **G2 — axcheck full-coverage (two-part Step B).** Batch scope THIS iteration = the
   iter-6 fire set: **eta-r4 runs (`pilots/zzv2-lam/`) + the 12-core runs (`pilots/12/`) +
   M3 run-9 (`pilots/al3d/`) + any seed-prep probes**, over make_axcheck TARGETS
-  (**58 rows at prep @ main; the count at close governs**). Class map updates
+  (**70 stages at prep — 60 literal rows + the 10-stage `01/port` glob; make_axcheck
+  untouched since `6303aab`, so 70 already at prep and identical to iter-5's 70-stage
+  close batch; the count at close governs** — gap-relay correction 2026-11-21, this
+  file's earlier "58 rows" was a literal-tuple undercount). Class map updates
   **[PENDING-INPUT at close]**: `AxPilotAL3D_A2` guard MOVES to the run-9 permanent-park
   state (P0+A1 kernel-GREEN, A2 first-sight mechanical — the split-verdict honesty rides
   the row comment); `AxPilot75_N2P1` override re-bound day-1 (R1 `55f7b197`, trio ALL OK —
