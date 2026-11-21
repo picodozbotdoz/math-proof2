@@ -1,0 +1,35 @@
+# N1-CAP fire log — runs 1–3 (2026-11-21, lane R2; the revived pre-confirmation, grant 2–3 runs)
+
+PROVENANCE: fired from worktree agent-03; payload `pilots/12/N1-cap.lean` (the
+cap-theorem trio: `savings_cap_frozen` the discharge-band iff headline;
+`two_term_balance` the η-tradeoff minimum; `cap_constant_exact` the frozen
+arithmetic); staged `/tmp/crossmath-12-n1c-stage/` (lean_probe.py +
+modal_telemetry.py + payload, world-readable); doz CLI; SPEC cpu=2.0/mem=4096,
+LEAN_NUM_THREADS=2 (CAP secret), telemetry in-run; substrate mathlib `ff2494ea`
+/ v4.36.0-rc2. EpsData restate byte-checked VERBATIM vs CORE.lean:235–241 at
+stage time. Design: self-contained (the N2 pattern; the deep /18 transfer =
+the landed `route16_MMgeneral_frozen`'s content, consumed by citation).
+
+## RUN 1 (prefire 9a39ac2413317d37) — RED, 4 errors, all name/structure class
+- `eq_or_lt_of_le` / `le_or_lt` unknown-or-mismatched on this pin (:130/:131);
+  the `.le` composition missing the frozen rewrite (:120); `push_neg`
+  deprecated (:112, cosmetic). Modal: ap-gEDgDjgNXkYn1SBEwgg8BE; wall 44 s,
+  OVER=0. NOTE: `two_term_balance` + `cap_constant_exact` ALREADY triad at this
+  run; only `savings_cap_frozen` carried the error-recovery sorryAx.
+## RUN 2 (the fix round; prefire c1ae4932c1dd9cb4) — RED, 4 errors, MY edit
+dropped `intro hge` from the backward bullet (the by_cases restructure) + the
+`exact_mod_cast` needed the 2-lift; both crisp, decoded. Modal:
+ap-nSlG3QZd8IZ6I3AGd7HfhO; wall 97 s, cpu 0.69, mem 3996 MB IN-SPEC, OVER=0.
+## RUN 3 (the grant's last round; prefire 63a889d2f0d49e9f) — **GREEN**
+[probe] N1-cap.lean: OK
+'savings_cap_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'two_term_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'cap_constant_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Telemetry: wall 50 s, OVER=0. Modal: https://modal.com/apps/semraker/main/ap-RrUQpTJvA3YztVSw84PEuH
+Full transcripts rescued: n1c-run{1,2,3} full logs staged alongside (run 3's =
+the GREEN record). Sha lineage: 9a39ac24 → c1ae4932 → 63a889d2 = the GREEN
+bytes; the statements unchanged throughout (fix rounds = tactic/name mechanics
+only).
+**VERDICT: savings_cap_frozen + two_term_balance + cap_constant_exact all
+PROVED-UNCONDITIONAL, triad-only, 0 sorryAx. The N1 grant closed GREEN at run
+3-of-2–3; the γ-freeze evidence family (N2+N1) is kernel-complete.**

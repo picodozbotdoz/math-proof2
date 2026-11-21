@@ -99,3 +99,15 @@ at the fix bytes; fires as-is on the next grant).
 - Continuation priced: ONE run at the fix bytes (same stage, same guard
   pattern). Every lemma name pin-verified; the only unmatched pattern through
   run 3 is the literal-form class now show-ascribed.
+
+## RUN 4 (the terminal-round grant, 2026-11-21; prefire sha dd611a611ca39b40, GUARD-OK, fired as-is) — **GREEN — THE PARK LIFTS**
+
+[probe] N2-witness.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+'fiber_cap_blocked_regime' depends on axioms: [propext, Classical.choice, Quot.sound]
+Telemetry: wall 33 s, OVER=0. Modal: https://modal.com/apps/semraker/main/ap-K9fpSp235kd4UufiYm8R6D
+Full transcript rescued: logs/n2w-run4-full-transcript.log. The show-ascribed
+hypothesis casts closed the last literal-form site; the claim unchanged across
+the sha lineage (812f7732 → 2607e023 → 4981ce6e → dd611a61 = the GREEN bytes).
+**VERDICT: fiber_cap_blocked_regime PROVED-UNCONDITIONAL, triad-only, 0 sorryAx.**
+On GREEN per the grant: the N1 pre-confirmation REVIVED and executed (see
+logs/n1c-runs1-3.log).

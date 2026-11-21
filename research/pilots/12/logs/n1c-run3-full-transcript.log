@@ -1,0 +1,27 @@
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-RrUQpTJvA3YztVSw84PEuH
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-12-n1c-stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['N1-cap.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== N1-cap.lean
+[probe] N1-cap.lean: OK; errors=0, sorry-warnings=0, other-warnings=0
+---- output head ----
+'savings_cap_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'two_term_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'cap_constant_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   N1-cap.lean: OK
+[tele] SUMMARY probe: wall=50s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-RrUQpTJvA3YztVSw84PEuH
