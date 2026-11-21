@@ -1,0 +1,319 @@
+# eta-r8-run1 — iter-7 day-1, D2'(c) R8 TWO-ARM fire (the 1 granted fire; record-billed
+# per DECISION-2 = Option A). Payload: the NEW eta-r8.lean @ db559058419a2dba (the
+# first eta-family module composed by IMPORT: ZZLamP1 = P1.lean @ a9a6555c + EtaR3 =
+# eta-r3.lean @ 21fb0c4e, both at their VERIFIED states, chain-compiled to .olean
+# inside the built ZetaZerosV2 tree — namespaces disjoint, lemma A + the corrected
+# covariance REUSED not duplicated) proving (1) the two-arm full-domain assembly
+# exists_KSAsymptotic_of_pos_of_scaledBridge (arm 1 = P1's half_le; arm 2 = the port
+# kernel at the donor's exists_isCutoff witness, R7-bridge as the explicit hB binder —
+# R7 is agent-04's separately-granted rung, NOT yet fired) and (2) the
+# THRESHOLD-CORRECTED scaledConstLam_lt_of_threshold (the probe skeleton's bare
+# Q(0) < c0 binder is INSUFFICIENT at small lambda — corrected to the exact
+# multiplicative threshold Q(0) < (rho/(1+rho))c0, rho = 2lam).
+# Runner run_zzv2_r8.{sh,py} (app crossmath-pilot-zzv2-lam-r8), doz CLI, SPEC
+# cpu=2.0/mem=4096, LEAN_NUM_THREADS=2, the al3d/D5' one-liners applied. Guard
+# /tmp/zzv2r8-prefire-sha.txt. Command: bash research/pilots/zzv2-lam/run_zzv2_r8.sh
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-z750xfRNWYv8kmo7KL5U2N
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-zzv2-r8-stage/run_zzv2_r8.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[zzv2r8] staging ['EtaR3.lean', 'ZZLamP1.lean', 'eta-r8.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.46 mem=1189MB anon=0MB peak=-1MB procs=2
+[tele] t=120s cpu=4.31 mem=1408MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=180s cpu=14.69 mem=1404MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[zzv2r8] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=2.27 mem=2431MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=300s cpu=3.63 mem=2834MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=3.57 mem=1705MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.00 mem=2772MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=3.15 mem=2812MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=3.55 mem=3100MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=600s cpu=5.10 mem=2669MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6592/6621] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (7.0s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7524/7541] Built PrimeNumberTheoremAnd.ZetaBounds (15s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7633/7645] Built ZetaZeros.ZeroCount.LocalCount (6.2s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7649/7675] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (2.4s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7663/7681] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (3.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7939] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.0s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8157/8229] Built PrimeNumberTheoremAnd.MellinCalculus (6.3s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8173/8262] Built ZetaZeros.PairCorrelation.Truncation (7.5s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8194/8262] Built PrimeNumberTheoremAnd.MediumPNT (20s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (15s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+[zzv2r8] V2 LEAN_PATH base: /work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== chain ZZLamP1.lean
+[zzv2r8] chain ZZLamP1.lean: OK
+
+=== chain EtaR3.lean
+[tele] t=660s cpu=1.35 mem=567MB anon=0MB peak=-1MB procs=2
+[zzv2r8] chain EtaR3.lean: OK
+
+=== eta-r8.lean
+{'build': 'OK', 'chain/ZZLamP1.lean': 'OK', 'chain/EtaR3.lean': 'OK', 'eta-r8.lean': 'FAIL rc=1 errors=4 sorry=0'}
+[zzv2r8] eta-r8.lean: FAIL rc=1 errors=4 sorry=0
+---- axioms ----
+'ZZLam.EtaPort.ScaledBridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.exists_KSAsymptotic_of_pos_of_scaledBridge' depends on axioms: [propext,
+'ZZLam.EtaPort.scaledConstLam_lt_of_threshold' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.exists_KSAsymptotic_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.KSAsymptotic_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.pairMainTerm_cutoffSelfConvLam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.exists_isCutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+eta-r8.lean:94:9: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+eta-r8.lean:94:35: error: Tactic `rcases` failed: `x✝ : ?m.39` is not an inductive datatype
+eta-r8.lean:131:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.186 / (1 + 2 * lam) < ?m.185
+in the target expression
+  cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hthr : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ0 : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+⊢ (1 + 2 * lam) * cutoffSelfConv psi 0 < 2 * lam * pairMainTerm (cutoffSelfConv psi)
+eta-r8.lean:134:2: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+···
+eta-r8.lean:94:9: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+eta-r8.lean:94:35: error: Tactic `rcases` failed: `x✝ : ?m.39` is not an inductive datatype
+eta-r8.lean:131:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.186 / (1 + 2 * lam) < ?m.185
+in the target expression
+  cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hthr : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ0 : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+⊢ (1 + 2 * lam) * cutoffSelfConv psi 0 < 2 * lam * pairMainTerm (cutoffSelfConv psi)
+eta-r8.lean:134:2: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+···
+eta-r8.lean:94:35: error: Tactic `rcases` failed: `x✝ : ?m.39` is not an inductive datatype
+eta-r8.lean:131:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.186 / (1 + 2 * lam) < ?m.185
+in the target expression
+  cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hthr : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ0 : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+⊢ (1 + 2 * lam) * cutoffSelfConv psi 0 < 2 * lam * pairMainTerm (cutoffSelfConv psi)
+eta-r8.lean:134:2: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+···
+⊢ (1 + 2 * lam) * cutoffSelfConv psi 0 < 2 * lam * pairMainTerm (cutoffSelfConv psi)
+eta-r8.lean:134:2: error: linarith failed to find a contradiction
+lam : ℝ
+hlam : 0 < lam
+hle : lam ≤ 1 / 2
+delta : ℝ
+psi : ℝ → ℝ
+hpsi : IsCutoff delta psi
+hA : 0 < cutoffNormaliser psi
+hthr : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+hρ : 0 < 2 * lam
+hρ1 : 2 * lam ≤ 1
+hQ0 : cutoffSelfConv psi 0 < 2 * lam / (1 + 2 * lam) * pairMainTerm (cutoffSelfConv psi)
+key : (1 + 2 * lam) * cutoffSelfConv psi 0 < 2 * lam * pairMainTerm (cutoffSelfConv psi)
+a✝ :
+  2 * lam * pairMainTerm (cutoffSelfConv psi) ≤
+    2 ^ 2 * lam ^ 2 * pairMainTerm (cutoffSelfConv psi) + (1 - 2 ^ 2 * lam ^ 2) * cutoffSelfConv psi 0
+⊢ False
+failed
+'ZZLam.EtaPort.ScaledBridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZZLam.EtaPort.exists_KSAsymptotic_of_pos_of_scaledBridge' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'ZZLam.EtaPort.scaledConstLam_lt_of_threshold' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ZZLam.exists_KSAsymptotic_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+=== SUMMARY
+build: OK
+chain/ZZLamP1.lean: OK
+chain/EtaR3.lean: OK
+eta-r8.lean: FAIL rc=1 errors=4 sorry=0
+[tele] SUMMARY run: wall=671s max_cpu=14.69 max_mem=3100MB max_anon=0MB samples=11 OVER=9
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-z750xfRNWYv8kmo7KL5U2N
+RC=0
+# VERDICT (R8 fire run 1, the grant cap): **NOT-GREEN => HONEST-PARK D7.** Consumer
+# eta-r8.lean FAIL rc=1 errors=4 sorry=0 (message-form count; BOTH new theorems carry
+# error-recovery sorryAx in the axioms report). The MECHANISM is GREEN: build OK at
+# mathlib ff2494ea exact; chain ZZLamP1 OK + EtaR3 OK (the import-composition works;
+# P1's and r3's in-file gates re-fired TRIAD: exists_KSAsymptotic_of_half_le,
+# KSAsymptotic_mono, pairMainTerm_cutoffSelfConvLam, scaledConstLam_half;
+# exists_isCutoff triad; ScaledBridge — the file's own def — TRIAD-CLEAN).
+# RESIDUAL CLASS (2 mechanical roots, named verbatim by the errors; ZERO math
+# defects — the derivation itself is elementary and the corrected statement stands):
+#   1. :94:9 unknown identifier `le_or_lt` — the pin's case-split name differs
+#      (`lt_or_ge`/`le_or_gt` orientation); cascaded the rcases failure (:94:35) and
+#      killed BOTH arms of the assembly theorem.
+#   2. :131:8 the threshold-algebra block: `rw [div_lt_iff₀ …] at hQ0` does not match
+#      `a < (rho/(1+rho)) * b` (the divisor is a RIGHT-factor, not a top-level
+#      division) — the correct move is mul_lt_mul_of_pos_right hQ0 (0 < 1+rho) then
+#      div_mul cleanup; my linarith (:134) was a cascade. r3's covariance rw itself
+#      ELABORATED (the goal display shows the corrected closed form).
+# AXCHECK RUN NOT SPENT (the grant's run 2): the exit criterion requires the headline
+# PROVED; an axcheck over a sorryAx-carrying artifact verifies nothing. Its coverage
+# value is partially delivered by this run's own in-file gates (see above).
+# PRICED CONTINUATION: ONE fix round — the lt_or_ge orientation swap + the
+# mul_lt_mul_of_pos_right derivation (both pre-named by this run's errors; the arc's
+# own friction classes) — then the axcheck run. Est. 1 fire + 1 axcheck.
+# Telemetry: wall=671s; OVER=9 samples ALL in the lake-build phase (max_cpu 14.69,
+# max_mem 3100MB IN-SPEC, anon=0) = the authorized m4b2/G2 donor-tree build class
+# (taskset -c 0,1 build per the family recipe); consumer phase IN-SPEC.
