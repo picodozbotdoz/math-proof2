@@ -142,6 +142,22 @@ headline.
 
 ## 3. Quota posture + watch rows (cross-references, NOT duplicated here)
 
+- **Row 8 (watch-class, owner's call: editorially gated, not precharter/grant gated —
+  promotes to Tier-1-class on the R2/R7 GO): the γ-freeze negative-kind re-scope — the
+  12-core M-class evaluation's iter-7 discovery-grade CANDIDACY**
+  (`pilots/12/M-CLASS-EVALUATION.md` `3d40f84e` @ `223cfa1`). The central finding: the
+  balanced total `n^{3−0.00175}` is MM-INDEPENDENT (no in-corpus (D, g, η) beats it —
+  η > γ/2 caps every parametric savings at γ = 0.00175); `flagship_shape` is
+  corpus-blocked AS STUBBED (hF3b's ωb ≤ 9/4 + ε′ < log₂ 7 = exactly the frozen regime —
+  not closable as the stub landed); the honest forms are **binder-ride or NEGATIVE-kind
+  re-scope, the article-path call = R2/R7's at iter-7** (the 41H-lineage billing:
+  negative-kind discovery-grade quota-free if the re-scope route is taken). Priced
+  continuations ride the row: the route-15 mirror (`route15_MMgeneral`, 2–3 fires; then
+  `route15_frozen` free), `route16_symbolic` 2–3 fires after its re-statement, and the
+  ε-construction fork (analytic-S (a) vs Sec-4-M (b)) with step-2/F5 OFF the flagship's
+  critical path. Gate: no charter until the R2/R7 call; the watch-class placement keeps
+  the §1 accounting (3/2/2) intact — promotion amends this row's class, not the Tier
+  blocks.
 - **The quota frame is R2's iter-7 structural draft's to rule** (landing separately). The
   one iter-6 disposition finding this bench must respect: the contest's wave-tail/no-slot
   placement biases unspent — "day-1 decision or opportunistic re-class"
