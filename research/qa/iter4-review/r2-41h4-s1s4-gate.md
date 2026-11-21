@@ -74,7 +74,10 @@ no KPI denominator effect). NEVER: §A row, §B technical-record row, headline,
 or quota consumption. The only E1 upgrade path is a STRONGER statement (e.g.
 the G-genericity family closure), which would be a NEW gate, not an E1 ship.
 **The E2/F arms' fits CONFIRMED, two-sided:** F-positive ⇒ a TL₄-hosted
-dictionary ⇒ quota-consuming DISCOVERY (full S1–S4 at ship); E2-positive ⇒ the
+dictionary ⇒ DISCOVERY **quota-free** per the 41/41H lineage (full S1–S4 at
+ship; it IMPROVES the discovery share and consumes no slot — the
+quota-language reconciliation, R7's correction governing, applied 2026-11-21);
+E2-positive ⇒ the
 d = 8 dictionary ⇒ same class; E2-negative ⇒ a FOURTH obstruction class ⇒
 NEGATIVE-kind quota-free (78/41H/41H3 lineage), provided the class reading
 holds (the negative must terminate/extend a tier — the d = 8 structure-constant
@@ -102,8 +105,11 @@ the "elementary certificates, nonelementary closure" register if NEGATIVE-kind;
 ENDORSED as a condition (no blind search/schema fires; the M-candidates
 institutional lesson);
 (iv) **the KPI interaction computed at ship** — F/E2-positive articles are
-quota-consuming: run the share arithmetic at splice per
-`r2-mclass-share-arithmetic.md` §5's recompute rule (2·N ≥ D on final stock);
+DISCOVERY quota-free (they IMPROVE the share, consume no slot; the
+reconciliation above): the splice-time check is the template §9 quota row +
+the README count update per
+`r2-mclass-share-arithmetic.md` §5's recompute rule (2·N ≥ D on final stock —
+improved, not merely preserved, by these arms);
 E2-negative is quota-free;
 (v) **custody-rider compliance** — H4 self-contained leaves the H3.lean
 16-helper print-coverage rider UNTRIGGERED and binding (precharter §5,
