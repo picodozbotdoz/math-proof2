@@ -1,11 +1,15 @@
 # Research articles — iteration 4 index
 
-Honest counts — **FINAL, orchestrator-ratified 2026-11-19, extended 2026-11-20**: **9
-discovery-grade** (01, 30, 32, 41, 41H, 41H3, 42, 75, 78 — 42 and 75 conditional; 78, 41H
-and 41H3 NEGATIVE-kind per the orchestrator rulings 2026-11-17/19/20, the 78
-precedent + BANK-AS-NEGATIVE, quota-free; 41 the first iteration-5 shipment, kind
-DISCOVERY ruled 2026-11-19, quota-free; 41H3 = iteration 6's FIRST ship, 2026-11-20:
-the no-gos unconditional kernel + the pre-solve CERTIFIED-NUMERIC billed)
+Honest counts — **FINAL, orchestrator-ratified 2026-11-19, extended 2026-11-20 and
+2026-11-21 (iter-7's first ship)**: **10 discovery-grade** (01, 12, 30, 32, 41, 41H,
+41H3, 42, 75, 78 — 42 and 75 conditional; 78, 41H, 41H3 and 12 NEGATIVE-kind per the
+orchestrator rulings 2026-11-17/19/20/21, the 78 precedent + BANK-AS-NEGATIVE,
+quota-free; 41 the first iteration-5 shipment, kind DISCOVERY ruled 2026-11-19,
+quota-free; 41H3 = iteration 6's FIRST ship, 2026-11-20: the no-gos unconditional
+kernel + the pre-solve CERTIFIED-NUMERIC billed; **12 = iteration 7's FIRST ship,
+2026-11-21: the γ-freeze interface cap — NEGATIVE-kind quota-free, the D4′ fork
+ruling; four theorems PROVED-UNCONDITIONAL triad; the Remark-20 challenge-stub
+delta)**
 · **7 technical records & formalizations** · **4 notes/certificates (1 pending a branch
 decision)** + 3 relocated notes — down from 17 article files across iterations 1–4. Not every
 verified artifact is an article: donor swaps, binder discharges, statement layers and
@@ -35,6 +39,7 @@ non-normative by their standing marker: the article and its Lean artifacts win.
 | 42 | [Critical-Line Zero Proportions for Quadratic Dedekind Zeta Functions: a Two-Column Assembly](42-quadratic-dedekind-zeta-zero-proportions.md) | new statement class, corollary-level assembly; v3 = statuses re-billed per external review (2026-11-21) | Thms 1–3 PROVED-CONDITIONAL (H + χ-column binder hEχ/hEχdStrip — zeta23 Theorem E, PROVED-UNCONDITIONAL at donor pin, port pending — plus hCZStrip, conjecture-grade, for Thm 3); ζ-column inputs PROVED-CONDITIONAL (hntopζ, hfinζ) over the PROVED-UNCONDITIONAL ZetaZerosV2 endpoints |
 | 75 | [Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower — Two Regimes, Conditional on Component Proportions](75-abelian-assembly-zetaL-proportions.md) | **kind: DISCOVERY-CONDITIONAL** (v4, 2026-11-21 — two regimes, honest conditional billing in title/abstract; DLRT scope corrected per external review) | **Regime 1 (with multiplicity, 2/3)**: Thms A–B PROVED-CONDITIONAL (component proportions = the open core); **Regime 2 (strip-distinct, 5/6)**: Theorems C–E′ PROVED-CONDITIONAL, proved 2026-11-16 (pb-run11/12; hCZStripFam conjecture-grade); the χ-column Dirichlet discharge audited (zeta23 Theorem-E chain, binder swap cleared); ℚ-instantiation (N2) proved at iteration 5 close (v3, 2026-11-20: the dictionary + imprimitivity immunity + dyadic→cumulative conversions kernel-proved; composed card Thm B′ PROVED-CONDITIONAL(DZDF nonprincipality + quoted factorization statement + ℚ↔Dirichlet dictionary + per-primitive component proportions + two ζ↔f_K count identifications + ζ column + structural set); ζ-column endpoint Thm B″ (degenerate tower L = K = ℚ) PROVED-CONDITIONAL(hfinζ, hntopζ) on the V2-import substrate; N3 full-coverage axcheck 358+48 records 0 sorryAx all-⊆-triad); **v5 (2026-11-21)**: Thms U/U′ — the uniform composed card stated (`zetaL_two_thirds_uniform_of_thmE` / `zetaL_two_thirds_uniform_ℚ`, both PROVED-CONDITIONAL, triad; the §7 item-2 pending resolved; fire `n2-p4v2-run3` GREEN 3-of-3) — revision-class revise-in-place (the charter rule's FOURTH application, LAST in-scope), NOT-A-SHIP; counts/KPI untouched |
 | 78 | [Truffet's Tropical Substitution Procedure Terminates Suboptimally on a Bounded Two-Row Instance](78-truffet-substitution-refutation.md) | NEGATIVE — refutation of an external 2026 procedure (does not touch the N=1 quota) | v2 (2026-11-21, external-review revision): A1/A2 PROVED-UNCONDITIONAL (`pilots/78/P0.lean:365/:383`; p0-run4 axiom prints, all ⊆ {propext, Classical.choice, Quot.sound}; no donor hypotheses); the fidelity dictionary + singleton survival PAPER-ONLY (Assumption F, `novelty/iter4-truffet-classical-scope.md` §10.1); the artifact's third statement `instance_unbounded_below` is RETRACTED (2026-11-21 — homogeneity artifact of the WithBot-ℝ encoding — article §7 item 1); the model-level predecessor is the openai-math corpus's (`OAI/Optimization/Tropical/TruffetCounterexample.lean:126`) |
+| 12 | [A Cap Theorem for the 3SUM/APSP Refutation's One-Call Interface: No Expressed Parametric Savings Beyond n^(3−0.00175)](12-gamma-freeze-interface-cap.md) | **NEGATIVE** (quota-free per the D4′ fork, 2026-11-21 — iteration 7's FIRST ship) | Four theorems PROVED-UNCONDITIONAL, all ⊆ {propext, Classical.choice, Quot.sound}: `savings_cap_frozen` (E.ε W.ωb ≤ 0.00175 ↔ log₂ 7 ≤ W.ωb — the cap as the interface's discharge boundary; `N1-cap.lean:run3` triad), `two_term_balance` (the balanced-value bound, min at η = γ/2, NO uniqueness claimed per the gate's c2 strike), `cap_constant_exact` (0.063/(2·18) = 0.00175 exact), `fiber_cap_blocked_regime` (the N2 blockade witness — the interface admits exactly the ω_b ≥ log₂ 7 half-band, excludes exactly the hF3b better-MM regime; `n2w-run4` triad); the /18 transfer consumed by citation over the landed 14/14 chain (CORE.lean:503/:911); nearest-miss: the donor's Remark 20 + `Challenge/PaperStatements.lean:47` sorry-stub — **kernel-proved where the donor stated-as-challenge**; the cap-not-lower-bound lock §7.1 binding |
 
 ## B. Technical records & formalizations
 
