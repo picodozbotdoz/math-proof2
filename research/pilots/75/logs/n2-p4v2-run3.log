@@ -1,0 +1,225 @@
+# n2-p4v2-run3 — iter6 seed-1 FIRE run 3 of <=3 (fix round 2, THE LAST granted run):
+# the docstring/set_option-in parse fix (one standalone `set_option maxHeartbeats
+# 1000000` before the P4-a section; docstrings adjacent to their theorems). Payload:
+# N2-P4V2.lean (final); card pair UNCHANGED at the FIXED grant sha N2-P4
+# 2210fe6e01f1e095; chain at verified shas per /tmp/n2p4v2-prefire-sha.txt. Same
+# runner/mechanism (app crossmath-pilot-75-p4v2, doz CLI, SPEC 2cpu/4GB,
+# LEAN_NUM_THREADS=2). Command: bash research/pilots/75/run_n2p4v2.sh
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-8pdsXb5g7IpYbDSCuTokPF
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p4v2-stage/run_n2p4v2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[n2p4v2] staging ['N2-P4V2.lean', 'N2P0.lean', 'N2P1.lean', 'N2P2c.lean', 'N2P2d.lean', 'N2P3.lean', 'N2P3V2.lean', 'N2P3e.lean', 'N2P4.lean', 'Pa.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.58 mem=1205MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=6.10 mem=1402MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[n2p4v2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+[tele] t=180s cpu=14.28 mem=1192MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=2.44 mem=2798MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.50 mem=2637MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=360s cpu=3.31 mem=2139MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.62 mem=2253MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=480s cpu=2.83 mem=2665MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=4.62 mem=2831MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6608/6633] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (6.0s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7523/7541] Built PrimeNumberTheoremAnd.ZetaBounds (12s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7643/7667] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (1.0s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7644/7669] Built ZetaZeros.ZeroCount.LocalCount (5.6s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7666/7689] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.8s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7935] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.7s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8157/8211] Built PrimeNumberTheoremAnd.MellinCalculus (6.1s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8176/8262] Built ZetaZeros.PairCorrelation.Truncation (7.3s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8195/8262] Built PrimeNumberTheoremAnd.MediumPNT (20s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8236/8262] Built PrimeNumberTheoremAnd.Wiener (16s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+[n2p4v2] V2 LEAN_PATH base: /work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== chain Pa.lean
+[tele] t=600s cpu=2.69 mem=1747MB anon=0MB peak=-1MB procs=2 OVER cpu
+[n2p4v2] chain Pa.lean: OK
+
+=== chain N2P0.lean
+[n2p4v2] chain N2P0.lean: OK
+
+=== chain N2P1.lean
+[n2p4v2] chain N2P1.lean: OK
+
+=== chain N2P2c.lean
+[n2p4v2] chain N2P2c.lean: OK
+
+=== chain N2P3.lean
+[n2p4v2] chain N2P3.lean: OK
+
+=== chain N2P2d.lean
+[n2p4v2] chain N2P2d.lean: OK
+
+=== chain N2P3e.lean
+[n2p4v2] chain N2P3e.lean: OK
+
+=== chain N2P3V2.lean
+[tele] t=660s cpu=1.15 mem=1693MB anon=0MB peak=-1MB procs=2
+[n2p4v2] chain N2P3V2.lean: OK
+
+=== chain N2P4.lean
+[n2p4v2] chain N2P4.lean: OK
+
+=== N2-P4V2.lean
+[n2p4v2] N2-P4V2.lean: OK
+{'build': 'OK', 'chain/Pa.lean': 'OK', 'chain/N2P0.lean': 'OK', 'chain/N2P1.lean': 'OK', 'chain/N2P2c.lean': 'OK', 'chain/N2P3.lean': 'OK', 'chain/N2P2d.lean': 'OK', 'chain/N2P3e.lean': 'OK', 'chain/N2P3V2.lean': 'OK', 'chain/N2P4.lean': 'OK', 'N2-P4V2.lean': 'OK'}
+---- axioms ----
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- output tail ----
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== SUMMARY
+build: OK
+chain/Pa.lean: OK
+chain/N2P0.lean: OK
+chain/N2P1.lean: OK
+chain/N2P2c.lean: OK
+chain/N2P3.lean: OK
+chain/N2P2d.lean: OK
+chain/N2P3e.lean: OK
+chain/N2P3V2.lean: OK
+chain/N2P4.lean: OK
+N2-P4V2.lean: OK
+[tele] SUMMARY run: wall=682s max_cpu=14.28 max_mem=2831MB max_anon=0MB samples=11 OVER=9
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-8pdsXb5g7IpYbDSCuTokPF
+RC=0
+# VERDICT (fire run 3 — FINAL): **GREEN. N2-P4V2.lean OK rc=0 errors=0 sorry=0;
+# build OK at mathlib ff2494ea exact; chain 9/9 OK inside the built V2 tree.**
+# The axioms report: `zetaL_two_thirds_uniform_of_thmE` AND
+# `zetaL_two_thirds_uniform_ℚ` BOTH [propext, Classical.choice, Quot.sound] —
+# triad-only, 0 sorryAx; both bridges (windowFinite_v2_of_pa, epsLowerCum_pa_of_v2)
+# triad; the donor endpoint `ZetaZeros.simple_proportion_d4` re-printed triad on-pin.
+# THE SEED-1 P4 LANDING IS KERNEL-COMPLETE: the uniform composed card (every abelian
+# L/ℚ, >= 2/3 - eps of the window zeros, cumulative with multiplicity, on-line) is
+# PROVED-CONDITIONAL — P4-a (hζ premise) + P4-b (hζ discharged from the V2 d4
+# endpoint), over the GREEN stack B′/P2-d/B″ with the Pa<->Pilot75N2V2 defeq bridge.
+# Fire history (3 runs, the grant cap exactly): 5 errors (1 root: the missing 7th
+# explicit arg hfinζ in B′'s application + cascades) -> 2 (parse artifacts of the
+# insurance edit itself: docstring-then-set_option-in) -> 0. Zero math defects; the
+# run-2 axioms report had already shown both theorems triad (the proofs never
+# changed after the arg fix). Telemetry: wall=682s; OVER=9 samples ALL in the
+# lake-build phase (max_cpu 14.28, max_mem 2831MB IN-SPEC, anon=0) = the authorized
+# m4b2/G2 donor-tree build class; consumer-phase samples IN-SPEC.

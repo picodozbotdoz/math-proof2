@@ -179,5 +179,55 @@ base, it is not a new discovery article.
    is STALE (executed GREEN 2026-11-20; the remaining item is the P4 fire above,
    grant-gated) — R8 files it here rather than editing `novelty/` (one-writer rule).
 
-— lane R8 (worktree agent-05), 2026-11-21. No commits (H commits). No fires (the one
-Modal run is a statement probe within the unit's allowance).
+## 6. FIRE OUTCOME (the granted P4 V2-side proof fire, 2026-11-21): **GREEN in 3 runs — the P4 landing is kernel-complete**
+
+Grant: 1 fire + ≤2 fix rounds (≤3 runs) — SPENT EXACTLY. New mechanism landed with
+it: `run_n2p4v2.{sh,py}` (app `crossmath-pilot-75-p4v2`) = the run_n2p3v2 recipe
+(ZetaZerosV2 + PNT+ tarballs, redirect, lake update → mathlib `ff2494ea` exact,
+cache get, `lake build ZetaZeros`) EXTENDED with the pilot-11 chain pattern — the
+N2 chain (Pa, N2P0, N2P1, N2P2c, N2P3, N2P2d, N2P3e, N2P3V2, N2P4) compiled to
+.olean INSIDE the built V2 tree so the consumer composes `import ZetaZeros` + the
+chain on one LEAN_PATH.
+
+- **Run 1** (`logs/n2-p4v2-run1.log` `8ec7cb18d975338d`, wall 748 s): mechanism
+  GREEN — build OK at the exact pin, chain 9/9 OK, BOTH defeq bridges
+  (`windowFinite_v2_of_pa`, `epsLowerCum_pa_of_v2`) committed triad-clean (the
+  `:= h` coercion route across the verbatim Pa↔Pilot75N2V2 carry WORKS, incl.
+  proof-irrelevant window proofs); consumer FAIL errors=5 — ONE root (the 7th
+  explicit arg `hfinζ` missing in B′'s application) + pure cascades (binder shift,
+  whnf-budget burn, uncommitted-constant reference).
+- **Run 2** (`logs/n2-p4v2-run2.log` `f4d5bef9aa3670e3`, wall 428 s): THE PROOFS
+  GREEN — both uniform theorems committed triad-clean in the axioms report — but
+  rc=1 on 2 PARSE artifacts of the heartbeat-insurance edit itself
+  (docstring-then-`set_option … in` is illegal: "unexpected token 'set_option';
+  expected 'lemma'").
+- **Run 3** (`logs/n2-p4v2-run3.log` `f17acc27ee50dd63`, wall 682 s): **GREEN —
+  `N2-P4V2.lean` OK rc=0 errors=0 sorry=0.** Axioms report:
+  `zetaL_two_thirds_uniform_of_thmE` AND `zetaL_two_thirds_uniform_ℚ` BOTH
+  **[propext, Classical.choice, Quot.sound]** (triad-only, 0 sorryAx); bridges
+  triad; the donor `ZetaZeros.simple_proportion_d4` re-printed triad on-pin.
+  Telemetry all three runs: every OVER sample sits in the lake-build phase (the
+  authorized m4b2/G2 donor-tree class; mem IN-SPEC ≤ 2.8 GB, anon=0); consumer
+  phases IN-SPEC.
+
+**Landed statements (the seed-1 P4 pair, PROVED-CONDITIONAL, triad):** fire file
+`research/pilots/75/N2-P4V2.lean` @ `2c19084aa7e2f2e9` (card pair at the grant sha
+`2210fe6e` unchanged) — P4-a `zetaL_two_thirds_uniform_of_thmE : ZetaLUniformOfThmEQ`
+and P4-b `zetaL_two_thirds_uniform_ℚ : ZetaLUniformQ` — the uniform composed card
+for EVERY abelian L/ℚ (≥ 2/3 − ε of the window zeros, cumulative with multiplicity,
+on the critical line), conditional exactly on the DZDF trio (G1-permanent
+statement-binders), the classical structural set, and the per-primitive hUnbF/hEF
+pair; every proportion input kernel-verified at its own pin (V2 d4 on-pin ff2494ea;
+ThmE donor-pin v4.33). Zero new mathematics (pure application chain over the GREEN
+stack) — the statement is the contribution.
+
+**v5-or-bank disposition (the grant's binding (4)):** the article-75 v5
+revise-in-place payload is READY (two new PROVED-CONDITIONAL rows + the binder
+ledger + the triad evidence above; novelty skeleton §1; the D3/v3 naming caution
+carried). R8 cannot observe the close-act clock — **the begin-vs-bank call is H's**:
+if the close act has not started, hand the payload to R2 (S1–S4 splice-time gates
+per D3); if it has, this record §6 IS the iter-7 bank (everything needed re-derives
+from the shas here). R8's standing recommendation (§4) unchanged: revise-in-place,
+no new-ship slot.
+
+— lane R8 (worktree agent-05), 2026-11-21, fire spent 3/3. No commits (H commits).

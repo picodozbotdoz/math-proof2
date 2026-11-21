@@ -1,0 +1,331 @@
+# n2-p4v2-run1 — iter6 seed-1 FIRE run 1 of <=3 (the P4 V2-side proof fire; grant
+# 2026-11-21: 1 fire + <=2 fix rounds). Payload: N2-P4V2.lean @ d3e046037f1644c1 (the
+# cross-substrate fire file: import ZetaZeros + N2P4 + N2P3V2) + the NEW mechanism —
+# the run_n2p3v2 recipe (ZetaZerosV2 + PNT+ tarballs, redirect, lake update -> mathlib
+# ff2494ea exact, cache get, lake build ZetaZeros) EXTENDED with the pilot-11 chain
+# pattern (Pa..N2P3e, N2P3V2, N2P4 compiled to .olean inside the built V2 tree,
+# LEAN_PATH=chain:v2base). Runner run_n2p4v2.{sh,py}, app crossmath-pilot-75-p4v2,
+# doz CLI, SPEC cpu=2.0/mem=4096, LEAN_NUM_THREADS=2. Guard
+# /tmp/n2p4v2-prefire-sha.txt: the card pair at the FIXED grant sha N2-P4 2210fe6e
+# + every chain file at its verified sha + N2-P3V2 2613cfd2 (the verified V2 state).
+# Command: bash research/pilots/75/run_n2p4v2.sh
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-HADGBHj2wdZutJeMe1inC8
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-n2p4v2-stage/run_n2p4v2.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function run.
+[n2p4v2] staging ['N2-P4V2.lean', 'N2P0.lean', 'N2P1.lean', 'N2P2c.lean', 'N2P2d.lean', 'N2P3.lean', 'N2P3V2.lean', 'N2P3e.lean', 'N2P4.lean', 'Pa.lean']; tarball 1 MB
+[tele] start run: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[tele] t=60s cpu=0.50 mem=1204MB anon=0MB peak=-1MB procs=3
+[tele] t=120s cpu=6.19 mem=1400MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=180s cpu=15.42 mem=1401MB anon=0MB peak=-1MB procs=4 OVER cpu
+
+=== ZetaZerosV2 update (attempt 1): rc=0
+[n2p4v2] resolved mathlib ff2494ea5e438f8a8452db803068acd711fa0059
+
+=== ZetaZerosV2 cache (attempt 1): rc=0
+[tele] t=240s cpu=3.02 mem=1543MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=300s cpu=3.50 mem=1803MB anon=0MB peak=-1MB procs=3 OVER cpu
+[tele] t=360s cpu=3.56 mem=2115MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=420s cpu=3.08 mem=1860MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=480s cpu=3.12 mem=2664MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=540s cpu=2.90 mem=2686MB anon=0MB peak=-1MB procs=4 OVER cpu
+[tele] t=600s cpu=5.36 mem=2633MB anon=0MB peak=-1MB procs=3 OVER cpu
+
+=== ZetaZerosV2 build: rc=0 progress-marks=175
+⚠ [6597/6625] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (7.2s)
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:554:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ResidueCalcOnRectangles.lean:557:6: `push Not` made no progress on the goal
+⚠ [7525/7545] Built PrimeNumberTheoremAnd.ZetaBounds (15s)
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:787:11: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:1077:6: `Asymptotics.IsBigO_def` has been deprecated: Use `Asymptotics.isBigO_iff_isBigOWith` instead
+
+Hint: Replace the deprecated name:
+  A̵s̵y̵m̵p̵t̵o̵t̵i̵c̵s̵.̵I̵s̵B̵i̵g̵O̵_̵d̵e̵f̵i̲s̲B̲i̲g̲O̲_̲i̲f̲f̲_̲i̲s̲B̲i̲g̲O̲W̲i̲t̲h̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2279:44: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2491:6: Unused tactic linter: `any_goals` can be replaced with `all_goals`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2537:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2593:6: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2635:4: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:2647:8: `push Not` made no progress on the goal
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3497:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+warning: PrimeNumberTheoremAnd/ZetaBounds.lean:3552:41: `ENNReal.addLECancellable_iff_ne` has been deprecated: Use `ENNReal.addLECancellable_iff_ne_top` instead
+
+Hint: Replace the deprecated name:
+  ENNReal.addLECancellable_iff_ne_̲t̲o̲p̲
+⚠ [7629/7645] Built ZetaZeros.ZeroCount.LocalCount (6.0s)
+warning: ZetaZeros/ZeroCount/LocalCount.lean:366:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [7649/7675] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (2.4s)
+warning: PrimeNumberTheoremAnd/Mathlib/Topology/MetricSpace/Annulus.lean:8:0: 'Mathlib.Data.Nat.SuccPred' has been deprecated: please replace this import by
+
+import Mathlib.Order.SuccPred.Nat
+⚠ [7671/7691] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (3.2s)
+warning: PrimeNumberTheoremAnd/Mathlib/Analysis/Complex/DivisorPartialProductFactor.lean:45:10: This simp argument is unused:
+  analyticOrderAt_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [7909/7939] Built ZetaZeros.Hilbert.AlphaExpansion.KernelBessel (3.9s)
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:129:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+warning: ZetaZeros/Hilbert/AlphaExpansion/KernelBessel.lean:130:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+⚠ [8157/8229] Built PrimeNumberTheoremAnd.MellinCalculus (5.7s)
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1012:80: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrimeNumberTheoremAnd/MellinCalculus.lean:1300:10: Unused tactic linter: `simp only [← Set.mem_prod, Set.ofPred_mem_eq]` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [8176/8262] Built ZetaZeros.PairCorrelation.Truncation (7.6s)
+warning: ZetaZeros/PairCorrelation/Truncation.lean:1043:10: This simp argument is unused:
+  Real.pi_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8196/8262] Built PrimeNumberTheoremAnd.MediumPNT (20s)
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:13: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:24: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:240:41: `nnnorm_div` has been deprecated: Use `nnNorm_div` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_div
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:242:15: `Complex.nnnorm_real` has been deprecated: Use `Complex.nnNorm_real` instead
+
+Hint: Replace the deprecated name:
+  nnn̵N̲orm_real
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:262:17: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:263:12: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  M̵e̵a̵s̵u̵r̵e̵T̵h̵e̵o̵r̵y̵.̵h̵a̵s̵F̵i̵n̵i̵t̵e̵I̵n̵t̵e̵g̵r̵a̵l̵_̵i̵f̵f̵_̵e̵n̵o̵r̵m̵h̲a̲s̲F̲i̲n̲i̲t̲e̲I̲n̲t̲e̲g̲r̲a̲l̲_̲i̲f̲f̲_̲e̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/MediumPNT.lean:3125:15: `ContinuousOn.nnnorm` has been deprecated: Use `ContinuousOn.nnNorm` instead
+
+Hint: Replace the deprecated name:
+  ContinuousOn.nnn̵N̲orm
+⚠ [8234/8262] Built PrimeNumberTheoremAnd.Wiener (14s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:152:19: `enorm_mul` has been deprecated: Use `eNorm_mul` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵m̵u̵l̵e̲N̲o̲r̲m̲_̲m̲u̲l̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:156:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:13: `MeasureTheory.hasFiniteIntegral_iff_enorm` has been deprecated: Use `MeasureTheory.hasFiniteIntegral_iff_eNorm` instead
+
+Hint: Replace the deprecated name:
+  hasFiniteIntegral_iff_en̵N̲orm
+warning: PrimeNumberTheoremAnd/Wiener.lean:200:42: `enorm_eq_nnnorm` has been deprecated: Use `eNorm_eq_nnNorm` instead
+
+Hint: Replace the deprecated name:
+  e̵n̵o̵r̵m̵_̵e̵q̵_̵n̵n̵n̵o̵r̵m̵e̲N̲o̲r̲m̲_̲e̲q̲_̲n̲n̲N̲o̲r̲m̲
+warning: PrimeNumberTheoremAnd/Wiener.lean:1220:23: `push Not` made no progress on the goal
+Build completed successfully (8262 jobs).
+[n2p4v2] V2 LEAN_PATH base: /work/ZetaZerosV2/.lake/packages/Cli/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanArchitect/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/checkdecls/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/batteries/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/Qq/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/aesop/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/proofwidgets/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/importGraph/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/plausible/.lake/build/lib/lean:/work/PrimeNumberTheoremAnd/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/packages/mathlib/.lake/build/lib/lean:/work/ZetaZerosV2/.lake/build/lib/lean:/opt/elan/toolchains/leanprover--lean4---v4.36.0-rc2/lib/lean
+
+=== chain Pa.lean
+[n2p4v2] chain Pa.lean: OK
+
+=== chain N2P0.lean
+[n2p4v2] chain N2P0.lean: OK
+
+=== chain N2P1.lean
+[tele] t=660s cpu=1.32 mem=875MB anon=0MB peak=-1MB procs=2
+[n2p4v2] chain N2P1.lean: OK
+
+=== chain N2P2c.lean
+[n2p4v2] chain N2P2c.lean: OK
+
+=== chain N2P3.lean
+[n2p4v2] chain N2P3.lean: OK
+
+=== chain N2P2d.lean
+[n2p4v2] chain N2P2d.lean: OK
+
+=== chain N2P3e.lean
+[n2p4v2] chain N2P3e.lean: OK
+
+=== chain N2P3V2.lean
+[n2p4v2] chain N2P3V2.lean: OK
+
+=== chain N2P4.lean
+[tele] t=720s cpu=1.09 mem=2106MB anon=0MB peak=-1MB procs=2
+[n2p4v2] chain N2P4.lean: OK
+
+=== N2-P4V2.lean
+[n2p4v2] N2-P4V2.lean: FAIL rc=1 errors=5 sorry=0
+{'build': 'OK', 'chain/Pa.lean': 'OK', 'chain/N2P0.lean': 'OK', 'chain/N2P1.lean': 'OK', 'chain/N2P2c.lean': 'OK', 'chain/N2P3.lean': 'OK', 'chain/N2P2d.lean': 'OK', 'chain/N2P3e.lean': 'OK', 'chain/N2P3V2.lean': 'OK', 'chain/N2P4.lean': 'OK', 'N2-P4V2.lean': 'FAIL rc=1 errors=5 sorry=0'}
+---- axioms ----
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' does not depend on any axioms
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext,
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+---- error contexts ----
+N2-P4V2.lean:76:4: error: Application type mismatch: The argument
+  hnp
+has type
+  ∀ (i : Fin n), ¬IsDZDFPrincipalQ (m i) (χ i)
+but is expected to have type
+  WindowFinite (multOf riemannZeta)
+in the application
+  zetaL_two_thirds_landed_of_DZDF riemannZeta fL n m χ hfinζ hfinL hnp
+N2-P4V2.lean:77:48: error: Application type mismatch: The argument
+  hN
+has type
+  q ≠ 1
+but is expected to have type
+  ∀ (i : Fin ?m.36), NeZero (?m.37 i)
+in the application
+  componentEpsCum_of_thmE hN
+N2-P4V2.lean:78:13: error: Application type mismatch: The argument
+  q
+has type
+  ℂ
+but is expected to have type
+  Fin n → ℕ
+in the application
+  hUnbF q
+N2-P4V2.lean:67:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+···
+  zetaL_two_thirds_landed_of_DZDF riemannZeta fL n m χ hfinζ hfinL hnp
+N2-P4V2.lean:77:48: error: Application type mismatch: The argument
+  hN
+has type
+  q ≠ 1
+but is expected to have type
+  ∀ (i : Fin ?m.36), NeZero (?m.37 i)
+in the application
+  componentEpsCum_of_thmE hN
+N2-P4V2.lean:78:13: error: Application type mismatch: The argument
+  q
+has type
+  ℂ
+but is expected to have type
+  Fin n → ℕ
+in the application
+  hUnbF q
+N2-P4V2.lean:67:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+N2-P4V2.lean:86:8: error: (kernel) unknown constant 'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE'
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' does not depend on any axioms
+···
+  componentEpsCum_of_thmE hN
+N2-P4V2.lean:78:13: error: Application type mismatch: The argument
+  q
+has type
+  ℂ
+but is expected to have type
+  Fin n → ℕ
+in the application
+  hUnbF q
+N2-P4V2.lean:67:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+N2-P4V2.lean:86:8: error: (kernel) unknown constant 'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE'
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' does not depend on any axioms
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ]
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+  hUnbF q
+N2-P4V2.lean:67:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+N2-P4V2.lean:86:8: error: (kernel) unknown constant 'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE'
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' does not depend on any axioms
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ]
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+N2-P4V2.lean:86:8: error: (kernel) unknown constant 'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE'
+'CrossMath.Pilot75N2.windowFinite_v2_of_pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.epsLowerCum_pa_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE' does not depend on any axioms
+'CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ]
+'ZetaZeros.simple_proportion_d4' depends on axioms: [propext, Classical.choice, Quot.sound]
+···
+
+=== SUMMARY
+build: OK
+chain/Pa.lean: OK
+chain/N2P0.lean: OK
+chain/N2P1.lean: OK
+chain/N2P2c.lean: OK
+chain/N2P3.lean: OK
+chain/N2P2d.lean: OK
+chain/N2P3e.lean: OK
+chain/N2P3V2.lean: OK
+chain/N2P4.lean: OK
+N2-P4V2.lean: FAIL rc=1 errors=5 sorry=0
+[tele] SUMMARY run: wall=748s max_cpu=15.42 max_mem=2686MB max_anon=0MB samples=12 OVER=9
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-HADGBHj2wdZutJeMe1inC8
+RC=0
+# VERDICT (fire run 1): **MECHANISM GREEN, CONSUMER FAIL rc=1 errors=5 sorry=0 —
+# ONE mechanical root + cascades.** (1) The cross-substrate mechanism WORKS: build OK
+# at the exact pin, and the FULL chain 9/9 GREEN inside the built V2 tree — including
+# N2P3V2 (import ZetaZeros + Mathlib only) and N2P4 (the card pair) — so
+# chain+ZetaZeros coexist on one LEAN_PATH. (2) BOTH bridge theorems committed
+# TRIAD-CLEAN (windowFinite_v2_of_pa, epsLowerCum_pa_of_v2 — the `:= h` defeq
+# coercions across the verbatim Pa<->Pilot75N2V2 carry WORK, incl. proof-irrelevant
+# window proofs). (3) ROOT of the 5: P4-a's application of B′ passed 6 of the 7
+# explicit args — the 7th (hfinζ) MISSING — so hnp landed in the hfinζ slot (:76),
+# the hEχcum lambda's binders shifted (:77/:78), the broken application ate the whnf
+# budget (:67 deterministic timeout), and P4-b's reference to the uncommitted P4-a
+# cascaded (unknown constant :86). The axioms lines interleaved with the errors are
+# error-recovery artifacts (a self-referential print), not verdicts. Fix round 1
+# applied on disk: the missing hfinζ arg + set_option maxHeartbeats 1000000
+# insurance on both theorems. The card file N2-P4.lean UNCHANGED (grant sha 2210fe6e).
+# Telemetry: wall=748s; OVER=9 samples all in the lake-build phase (max_cpu 15.42,
+# max_mem 2686MB IN-SPEC, anon=0) = the authorized m4b2/G2 donor-tree build class
+# (lake's own worker pool sizes from nproc=18 despite LEAN_NUM_THREADS=2; the
+# n2-p3v2 runs 3/4 precedent signature) — consumer-phase samples IN-SPEC.
