@@ -1,18 +1,21 @@
 # Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower — Two Regimes, Conditional on Component Proportions
 
-*kind: DISCOVERY-CONDITIONAL · date: 2026-11-21 (v4; v3 2026-11-20, v2 2026-11-17,
-v1 2026-11-16) · supersedes: the v3 text of this same file (revise-in-place; this
-revision corrects the de Laat–Rolen–Tripp–Wagner scope and the "first" claim, names
-B′'s premises in the abstract, renames B″, and compresses §6 to the formal-record
-table — no theorem, status, or evidence change) · artifacts:
+*kind: DISCOVERY-CONDITIONAL · date: 2026-11-21 (v5; v4, v3 2026-11-20, v2 2026-11-17,
+v1 2026-11-16) · supersedes: the v4 text of this same file (revise-in-place; this
+revision STATES the uniform one-application composition — Theorems U/U′, the P4
+cards — resolving the §7 item-2 pending; the charter's revise-in-place rule, FOURTH
+application, and the LAST in-scope revision of this stem — anything beyond is new
+statement territory under a fresh gate; no prior theorem, status, or evidence
+change; counts/KPI untouched) · artifacts:
 `research/pilots/75/Pa.lean`, `research/pilots/75/Pb.lean`,
 `research/pilots/75/logs/run6-final.log`, `research/pilots/75/logs/pb-run11-final.log`,
 `research/pilots/75/logs/pb-run12-auditfix.log`, `research/pilots/zeta23e/P0.lean`,
 `research/pilots/zeta23e/logs/zeta23e-p0-run1.log` +
 `research/pilots/75/N2-P1.lean`, `N2-P2c.lean`, `N2-P2d.lean`, `N2-P3.lean`,
-`N2-P3e.lean`, `N2-P3V2.lean` with their logs under
+`N2-P3e.lean`, `N2-P3V2.lean`, `N2-P4.lean`, `N2-P4V2.lean` with their logs under
 `research/pilots/75/logs/` (n2-p1-run19/26/31, n2-p2c-run8, n2-p2d-run2,
-n2-p3-run2/3, n2-p3e-run1, n2-p3v2-run3/4, axcheck-n3-run1, axcheck-n3v2-run1)*
+n2-p3-run2/3, n2-p3e-run1, n2-p3v2-run3/4, n2-p4-run1, n2-p4v2-run1..3,
+axcheck-n3-run1, axcheck-n3v2-run1)*
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
@@ -20,6 +23,8 @@ n2-p3-run2/3, n2-p3e-run1, n2-p3v2-run3/4, axcheck-n3-run1, axcheck-n3v2-run1)*
 | Thm B `zetaL_two_thirds_conditional` (`Pa.lean:1525`) | PROVED-CONDITIONAL | idem + hCert + hK673 (ζ_K column via the Knausgård 1669159/2478195 ≥ 2/3 certificate slot); hAF at 2/3 | `run6-final.log:32` — triad; re-print `pb-run12-auditfix.log:34` |
 | Thm B′ `zetaL_two_thirds_landed_of_DZDF` (`N2-P3e.lean:62`; card `ZetaLRatTwoThirdsOfDZDF` at `N2-P3.lean:206`) | PROVED-CONDITIONAL | hnp (DedekindZetaZeroFree nonprincipality, ∀ i), hfac (its abelian-factorization statement, quoted verbatim — the direct build fails at the project pin, probe G1, so never an import), hdic (∀ i, HasQDirichletDictionary — dischargeable per member at the project pin), hK/hL, hntopK/hntopL, hfinK/hfinL/hfinζ, hEχcum (component proportions — dischargeable per member from ThmEDyadic + CountsUnbounded at the primitive associate), hccum/hconcum (fK↔ζ count identifications), hζ (ζ-column at 2/3 — dischargeable on the V2-import substrate) | `pilots/75/logs/n2-p3e-run1.log:314` (repeat `:325`) — both declarations triad |
 | Thm B″ (ζ-column endpoint: the degenerate tower L = K = ℚ) `zetaL_two_thirds_landed_ℚ` (`N2-P3V2.lean:298`) | PROVED-CONDITIONAL | hfinζ, hntopζ (classical structural) — no DZDF/family/component premises; the AxiomMath ZetaZerosV2 endpoint `ZetaZeros.simple_proportion_d4` consumed by import and re-printed triad in-log — on the V2-import substrate (ZetaZerosV2 built tree; mathlib `ff2494ea`, Lean v4.36.0-rc2) | `pilots/75/logs/n2-p3v2-run4.log:181` (donor re-print `:182`) — 6/6 prints triad |
+| **Thm U** (the uniform ℚ-tower composition; P4-a) `zetaL_two_thirds_uniform_of_thmE` (`N2-P4V2.lean:75`; card `ZetaLUniformOfThmEQ` at `N2-P4.lean:74`, sha256-16 `2210fe6e`) | PROVED-CONDITIONAL | hnp/hdic/hfac (the DZDF statement-binder trio, G1-permanent — quoted, never imported), hKζ/hL, hntopKζ/hntopL, hfinζ/hfinL (structural set), hUnbF (per-primitive CountsUnbounded — classical), hEF (per-primitive ThmEDyadic — the zeta23 donor endpoint, PROVED-UNCONDITIONAL at the donor pin, audited triad), hζ (ζ-column at 2/3 — still a premise on this card); B′'s hEχcum/hccum/hconcum absorbed at the f_K := ζ specialization (count identifications degenerate to rfl; `componentEpsCum_of_thmE` converts the pair) | `pilots/75/logs/n2-p4v2-run3.log:182` — triad; the Pa↔Pilot75N2V2 defeq bridges triad (`:180–:181`) |
+| **Thm U′** (uniform with the ζ column grounded — the article's strongest row; P4-b) `zetaL_two_thirds_uniform_ℚ` (`N2-P4V2.lean:91`; card `ZetaLUniformQ` at `N2-P4.lean:109`) | PROVED-CONDITIONAL | as Thm U with hζ REMOVED — discharged from the AxiomMath ZetaZerosV2 endpoint `ZetaZeros.simple_proportion_d4` (consumed by import and re-printed triad in-log, through the triad defeq bridges — on the V2-import substrate, the B″-row precedent); the degenerate n-vacuous instance recovers Thm B″ (noted in-row, no separate row) | `pilots/75/logs/n2-p4v2-run3.log:183` (donor re-print `:184`) — triad |
 | Thm C `zetaL_assembly_distinct_defect_landed` (`Pb.lean:2144`) | PROVED-CONDITIONAL | structural set as in Thm A; open core: hAKd/hAFd (component strip-distinct proportions) | `pb-run11-final.log:50` — triad; `pb-run12-auditfix.log:52` |
 | Thm D `zetaL_assembly_distinct_landed_of_negligible` (`Pb.lean:2191`) | PROVED-CONDITIONAL | idem + hCZStripFam (summed common-strip-defect negligibility; conjecture-grade binder) | `pb-run11-final.log:51` — triad (wrapped); `pb-run12-auditfix.log:53` |
 | Thm E `zetaL_distinct_five_sixths_strip_conditional` (`Pb.lean:2229`) | PROVED-CONDITIONAL | idem + hCert + hK839 (ζ_K column via the Knausgård 1645064/1960733 ≥ 5/6 certificate slot); hAFd at 5/6 | `pb-run11-final.log:52` — triad (wrapped); `pb-run12-auditfix.log:54` |
@@ -31,7 +36,8 @@ All Lean-backed rows except the donor row elaborate on the project pin (mathlib
 `ff2494ea`, Lean v4.36.0-rc2), axioms exactly
 `[propext, Classical.choice, Quot.sound]`, zero `sorry`/`sorryAx`, zero donor imports
 (`import Mathlib` only, `Pb.lean:51`; `hAbFac` is the statement-quoted mirror of the
-factorization, never an import).
+factorization, never an import). The V2-substrate rows (B″, U, U′) additionally import
+the built `ZetaZeros` module — the endpoint re-printed triad in-log, as noted in-row.
 
 ## Abstract
 
@@ -271,8 +277,26 @@ endpoint). On these, the composed card `zetaL_two_thirds_landed_of_DZDF` (Thm B�
 and the ζ-column endpoint `zetaL_two_thirds_landed_ℚ` (Thm B″, the degenerate
 tower L = K = ℚ) are theorems; their one-application composition — instantiating
 B′ at f_K := riemannZeta, discharging hccum/hconcum by rfl and hζ by the V2
-endpoint — is a single proof step away and is NOT stated here; it joins only with
-a fresh verified run.
+endpoint — is stated at v5, immediately below.
+
+**The uniform composition (Theorems U/U′, stated at v5).** The fresh verified run
+has landed: fire file `research/pilots/75/N2-P4V2.lean` @ sha256-16 `2c19084aa7e2f2e9`
+(cards at `N2-P4.lean` @ `2210fe6e01f1e095`, unchanged from the grant; run of record
+`pilots/75/logs/n2-p4v2-run3.log` @ `f17acc27ee50dd63`, 3 runs of the ≤3 grant,
+zero math defects, telemetry in the authorized build-phase class).
+`zetaL_two_thirds_uniform_of_thmE` (Thm U) is B′ instantiated at f_K := riemannZeta
+— the f_K↔ζ count identifications degenerate to `rfl` at the specialization, and the
+per-component premise is absorbed into the per-primitive pair
+(`componentEpsCum_of_thmE` converting hUnbF + hEF). `zetaL_two_thirds_uniform_ℚ`
+(Thm U′) additionally discharges hζ from the V2 endpoint
+(`epsLowerCum_zeta_of_V2d4 hntopζ hfinζ V2d4_endpoint`, through the triad defeq
+bridges `windowFinite_v2_of_pa`/`epsLowerCum_pa_of_v2`); both print exactly the
+triad, 0 sorryAx, with the donor endpoint re-printed triad on-pin. The degenerate
+n-vacuous instance recovers Theorem B″. This closes the honest remainder's last
+item: what remains open is exactly the named binder set (the DZDF trio
+hnp/hdic/hfac, the per-primitive
+classical pair, the structural set) — every proportion input in the chain is now
+kernel-verified at its own pin (V2 d4 on-pin; ThmE at the donor pin).
 
 **The quadratic instance.** Article 42 v2's Theorem 1
 (`zetaK_two_thirds_landed_of_V2`, `M4b.lean:1479`) is the n = 2 case of the schema with
@@ -366,6 +390,8 @@ Theorem A with c* = c₀′ = c_i = 2/3, the ζ_K input lowered from 1669159/247
 | Thm B | `CrossMath.Pilot75.zetaL_two_thirds_conditional` | `Pa.lean:1525` | ⊆ triad | `run6-final.log:32`; re-print `pb-run12-auditfix.log:34` |
 | Thm B′ | `CrossMath.Pilot75N2.zetaL_two_thirds_landed_of_DZDF` | `research/pilots/75/N2-P3e.lean:62` | ⊆ triad | `pilots/75/logs/n2-p3e-run1.log:314` (repeat `:325`) |
 | Thm B″ | `CrossMath.Pilot75N2V2.zetaL_two_thirds_landed_ℚ` | `research/pilots/75/N2-P3V2.lean:298` | ⊆ triad | `pilots/75/logs/n2-p3v2-run4.log:181` (donor re-print `:182`) |
+| Thm U | `CrossMath.Pilot75N2.zetaL_two_thirds_uniform_of_thmE` | `research/pilots/75/N2-P4V2.lean:75` (card `N2-P4.lean:74`) | ⊆ triad | `pilots/75/logs/n2-p4v2-run3.log:182` (defeq bridges `:180–:181`) |
+| Thm U′ | `CrossMath.Pilot75N2.zetaL_two_thirds_uniform_ℚ` | `research/pilots/75/N2-P4V2.lean:91` (card `N2-P4.lean:109`) | ⊆ triad | `pilots/75/logs/n2-p4v2-run3.log:183` (donor re-print `:184`) |
 | Thm C | `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed` | `research/pilots/75/Pb.lean:2144` | ⊆ triad | `pb-run11-final.log:50`; `pb-run12-auditfix.log:52` |
 | Thm D | `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible` | `Pb.lean:2191` | ⊆ triad | `pb-run11-final.log:51`; `pb-run12-auditfix.log:53` |
 | Thm E | `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional` | `Pb.lean:2229` | ⊆ triad | `pb-run11-final.log:52`; `pb-run12-auditfix.log:54` |
@@ -375,8 +401,10 @@ Theorem A with c* = c₀′ = c_i = 2/3, the ζ_K input lowered from 1669159/247
 
 "⊆ triad" = exactly `[propext, Classical.choice, Quot.sound]` at the cited print.
 Substrate for all rows except the donor row: mathlib `ff2494ea` @ Lean v4.36.0-rc2,
-`import Mathlib` only, zero `sorry`/`sorryAx` (donor row: Lean v4.33.0-rc2, mathlib
-`51e6992e`). Binder inventories are the status-table rows at the head of this article.
+zero `sorry`/`sorryAx` (donor row: Lean v4.33.0-rc2, mathlib
+`51e6992e`; the V2-substrate rows B″/U/U′ elaborate against the built ZetaZerosV2
+tree on the same mathlib rev, endpoint re-printed in-log). Binder inventories are
+the status-table rows at the head of this article.
 Full-coverage axiom audit of the article's two files `Pa.lean`/`Pb.lean`: all 89
 declarations direct-print exactly the triad with 0 `sorryAx`
 (`pilots/75/logs/axcheck-full-run1.log`, full-coverage audit of 2026-11-17).
@@ -395,10 +423,16 @@ declarations direct-print exactly the triad with 0 `sorryAx`
    conversions, the factorization-binder bridge — is now kernel-proved (§3.3). What
    remains is narrower and named: the DZDF factorization statement-binder (quoted,
    never an import — its direct build fails at the project pin, probe G1), the
-   per-primitive ThmEDyadic/CountsUnbounded binders (classical content), and the
-   structural set (hfinζ/hntopζ at the ℚ endpoint). Theorem B′ carries the first two
-   groups and Theorem B″ the structural set; the final one-application composition is
-   not stated (pending a fresh verified run).
+per-primitive ThmEDyadic/CountsUnbounded binders (classical content), and the
+structural set (hfinζ/hntopζ at the ℚ endpoint). Theorem B′ carries the first two
+groups and Theorem B″ the structural set; the final one-application composition is
+NOW STATED (Theorems U/U′, v5): the uniform, composed on-line zero-proportion
+   statement for every abelian L/ℚ — multiplicity-counted, cumulative (0, T], at
+   2/3 − ε — kernel-proved relative to exactly the named remainder (the DZDF
+   statement-binder trio, the classical structural set, and the per-primitive pair
+   hUnbF/hEF; every proportion input kernel-verified at its own pin — V2 d4 on-pin,
+   ThmE at the donor pin). This closes the v4 honest-remainder ledger's last item;
+   nothing else in this item changes.
 3. **hCZStripFam is conjecture-grade** (Theorems D/E′ only). A common zero of two
    components is a zero of ζ_L of multiplicity ≥ 2; no per-function statistic bounds
    the coincidence count (a project-side analysis, `research/pilots/20-hCZ-NOTE.md`,

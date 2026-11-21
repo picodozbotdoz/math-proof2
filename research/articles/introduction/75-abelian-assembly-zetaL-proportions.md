@@ -7,7 +7,7 @@
 > assumed; no Lean, no analytic number theory, no exposure to this project assumed. Nothing
 > here adds, weakens, or replaces any claim of the article: if this file and the article ever
 > disagree, the article and its Lean artifacts win. Written 2026-11-21 against the article's
-> committed state (v4).
+> committed state (v5).
 
 ## 1. In plain words
 
@@ -146,6 +146,18 @@ kernel proof is complete relative to it; the article names, and does not dischar
   ζ-column endpoint, conditional only on two classical structural binders (window
   finiteness, finite order); donor endpoint consumed by import. PROVED-CONDITIONAL. →
   §3.3.
+- **Theorem U (the uniform ℚ-tower composition, `zetaL_two_thirds_uniform_of_thmE`).**
+  For every abelian L/ℚ: at least (2/3 − ε) of ζ_L's zeros up to T, with multiplicity,
+  lie on the critical line — the ONE composed statement (B′ instantiated at the
+  Riemann zeta itself), conditional on the DZDF statement-binder trio (quoted, never
+  imported), the classical structural set, the ζ-column binder, and the two
+  per-primitive binders hUnbF (classical unboundedness of counts) and hEF (the zeta23
+  donor endpoint, proved at its own pin). PROVED-CONDITIONAL. → article §3.3, Thm U.
+- **Theorem U′ (`zetaL_two_thirds_uniform_ℚ`, the ζ column grounded — the article's
+  strongest row).** The same composed statement with the ζ-column binder removed —
+  discharged by the imported, kernel-verified ZetaZerosV2 endpoint (re-printed
+  machine-checked on the same toolchain); the degenerate no-family instance recovers
+  Theorem B″. PROVED-CONDITIONAL. → article §3.3, Thm U′.
 - **Theorem C (`zetaL_assembly_distinct_defect_landed`).** The distinct regime with the
   defect carried: the distinct proportion of ζ_L is at least c* up to the explicit
   common-zero defect (base-vs-family plus each ordered component pair, each unordered pair
@@ -161,9 +173,7 @@ kernel proof is complete relative to it; the article names, and does not dischar
   hypotheses within the donor. PROVED-UNCONDITIONAL — at donor pin. → §3.3.
 - **Quadratic instance (article 42 v2, Thm 1).** The n = 2 case of the same schema, the ζ
   column already unconditional at this project's pin. PROVED-CONDITIONAL. → §3.3.
-- **What is *not* here:** the composed one-application theorem over ℚ (B′ instantiated at
-  ζ_K := ζ) — proved up to its named binders, one proof step away, not stated pending a
-  fresh verified run (article §3.3, §7 item 2); and any component proportion for Hecke
+- **What is *not* here:** any component proportion for Hecke
   L-functions at a general base K — open everywhere the article looked (§7 item 1).
 
 ## 6. Glossary
@@ -181,8 +191,10 @@ kernel proof is complete relative to it; the article names, and does not dischar
 | c*, ε, T₀ | the weakest component constant; the ε-slack; the height after which the bound holds | 2/3 in Theorem B |
 | 1669159/2478195, 1645064/1960733 | certified ζ proportions: ≈ 0.6735 with multiplicity, ≈ 0.839 distinct | > 2/3 and > 5/6 |
 | certificate slot, at donor pin | a hypothesis-shaped input quoting an external constant; proved in the donor corpus at its own pinned toolchain, audited there | `K673OfLayers`; the Dirichlet column |
+| hUnbF, hEF | the two per-primitive binders of Thm U: classical count-unboundedness; the zeta23 donor endpoint | Thm U's inputs |
+| Thm U, U′ | the uniform composition pair (U keeps the ζ-column binder; U′ grounds it via the V2 import) | the one composed statement |
 | binder | named hypothesis the theorem carries; proof complete relative to it | hAK, hAF |
-| PROVED-CONDITIONAL | kernel-proved relative to named, undischarged binders | Theorems A–E′ |
+| PROVED-CONDITIONAL | kernel-proved relative to named, undischarged binders | Theorems A–E′, U, U′ |
 
 ## 7. What this is — and what it is not
 
@@ -207,7 +219,9 @@ kernel proof is complete relative to it; the article names, and does not dischar
 - Claim in words → §1 here, then the article's abstract and §1.
 - Formal statement → the status table at the article's head and §3; glossary (§6) open.
 - Proof idea → §4 here, then article §5 (§5.1–§5.4).
-- Verification → article §6; `research/pilots/75/{Pa,Pb}.lean` and `logs/`.
+- Verification → article §6; `research/pilots/75/{Pa,Pb}.lean` and `logs/`;
+  the uniform-composition fire: `research/pilots/75/{N2-P4,N2-P4V2}.lean`,
+  `logs/n2-p4v2-run3.log`.
 - Novelty → article §4 (the DLRT and Bansal–Maji rows); what stays open → article §7.
 
 ## 9. What you need going in
