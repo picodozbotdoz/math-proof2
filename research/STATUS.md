@@ -994,3 +994,26 @@ R1's N2P1-override re-bind first; the H3 queue stands by. All fires at SPEC
 Quality gate, quota/watchlist, template gates, and standing rules:
 `RESEARCH.md` §Iteration 6 (normative). Protocols carry over unchanged.
 
+
+## Iteration 6 — CLOSED (2026-11-21)
+
+**Outcome:** 1 ship (article-41H3, NEGATIVE-kind discovery-grade quota-free); KPI
+9/17 ≈ 52.9% discovery-grade — ABOVE the ≥half bar; quota UNSPENT (third
+consecutive; Option-A day-1 placement adopted for Iteration 7). Verification: G1–G8
+all PASS (`qa/iter6-closeout-gates.md` EXECUTED); 605 → 666 print-verified
+triad-clean; the iter-6 fire set all-GREEN-or-declared-parked (eta ledger CLOSED;
+12-core S-tranche CLOSED w/ two forced-honest statement amendments; H4 E1 kernel;
+P4 uniform card landed via article-75 v5, stem closed; M3 permanent park).
+
+**Rulings ledger:** D1–D7 (at open); the 41H3 custody settlement `2ea25a9` (option-a
+archive; the 16-helper print rider DISCHARGED at close G2); the referee disposition
+(zero kernel falsified); the introduction-pass policy (17 companions + registry; the
+companion-sync rule adopted); the pause/plan-check rule; the M3 split-park; the L3
+re-charter BANK `460a04bc` (triggers T1–T4); the post-referee novelty re-verification
+16/17 + the article-72 scoping fix; the eta Fourier/identity rungs BANKED to iter-7;
+the H4 E2/F/G pre-solve gate (charter-GO `cda679ec`, absorbed into the iter-7 bench);
+the P4 course-correction (the census seed-1 stale row; realized via v3/v4).
+
+**Hand:** Iteration 7 opens on the seed census v4 + the charter skeleton
+`37edaaf9` + RESUME-BRIEF-ITER7; the ghost-containment closure carries if the stray
+host lives.

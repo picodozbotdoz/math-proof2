@@ -673,3 +673,26 @@ debts f/h carry. Close-out: the adopted five-rule protocol (scoped final gates,
 gate-run persistence, INDEX reconciliation as a close gate, date discipline,
 staging-file supersession stamps).
 
+
+### Iteration 6 close-out record (2026-11-21)
+
+Closed at the close commit (gates G1–G8 PASS per `qa/iter6-closeout-gates.md`
+EXECUTED, incl. the G2 Step-B batch `4b9f411a` — 73 stages, the 5 FAILs exactly the
+pre-declared classes, zero other — and the eta donor-tree full-coverage custody
+`bd0eaeeb` 21/21 exact-triad). **One ship: article-41H3** (NEGATIVE-kind
+discovery-grade, quota-free; custody settled). **KPI: discovery-grade share 9/17 ≈
+52.9%, ABOVE the ≥half bar.** **Quota: UNSPENT — the THIRD consecutive unspent
+cycle** (the F5-corrected trajectory iter-4 → iter-5 → iter-6); the structural
+finding recorded (the contest's wave-tail placement biases unspent) and the
+Iteration-7 charter adopts the day-1 placement (Option A, `4955ac91`) with the
+opportunistic reclassification as automatic fallback. Article-75 reached v5 (the
+FOURTH and LAST in-scope revision; the uniform composition card Thms U/U′
+PROVED-CONDITIONAL triad — the prior-art pack's landing statement for every abelian
+L/ℚ — NOT-A-SHIP, stem closed to revisions). The iteration survived an external
+termination mid-flight (the off-peak reclaim pause + same-plan resume), an external
+referee set (17 revisions, zero kernel theorems falsified), and a stray-host
+ghost-writer incident (contained; zero corruption). Verification census: 605 → 666
+print-verified triad-clean (+18 donor rows). The M3 AL ladder parks at run-9
+(split-verdict, absolute cap; P0+A1 kernel-GREEN banked; continuation priced).
+Iteration 7 opens on the seed census v4 (three Tier-1-class rows incl. the H4
+charter-GO; the γ-freeze candidacy WATCH-class) — see RESUME-BRIEF-ITER7.
