@@ -106,3 +106,47 @@ deletion is loss-free at the user's discretion**:
 
 These are NOT the ghost (a worktree is a reader of its own checkout; the ghost's
 writes were on the MAIN working tree). No action taken.
+
+## 7. Post-exit evolution + the delta-quarantine protocol (2026-11-21, this lane's round 2)
+
+**Evolution of the ghost's behavior (H's relay + first-hand this round):** after the
+containment exit at `f586b47` (R6's verified half landed 12:34:35), the ghost's writes
+were idempotent for ~1 h (writes == HEAD bytes, no-ops). At the `e61201b` gate
+(12:36:28) it wrote NEW content on `71-splane` (`54527b1a` vs landed `30ed5d7f`;
+restored by H) — the prior-session agent is now progressing **its own fix loop**, no
+longer pure mirroring. First-hand continuation, caught by this round's watch:
+
+| Time | File | sha16 (new) | vs HEAD | Class |
+|---|---|---|---|---|
+| 12:36:38.882 | 41H3 | `484b1c94ac0bc4c9` | ≠ `8d910ce6` (landed) | new content |
+| 12:36:38.910 | 50 | `6b3e5ef8dd9a2792` | ≠ `4c3c37cb` (landed) | new content, then REVISED |
+| 12:37:49.792 | 71 | `54527b1a90360c79` | ≠ `30ed5d7f` (landed) | re-write of the H-relayed content (same sha) |
+| 12:37:50.120 | 50 | `7f7b9fe5aba8589a` | ≠ HEAD | second revision ~70 s after its first |
+
+**Character of the new edits (diff vs HEAD, quarantined copies):** prose-polish
+class — sentence merges in §7/prerequisite lists (41H3, 50), a glossary-row removal
+(71, the "binder" row). Accessibility-agent micro-edits; no math-content change
+observed this round. Still UNVERIFIED bytes — never landed unreviewed.
+
+**Quarantine protocol (this round, standing recommendation):** any intro file whose
+sha ≠ HEAD bytes AND ≠ the landed lane-verified sha = NEW ghost content ⇒ copy to
+`/tmp/ghost-quarantine/<ts>/<file>` (never into main/`research/`), one log line in
+`/tmp/ghost-quarantine/quarantine.log`. This preserves potentially-useful
+prior-session fixes for OPTIONAL lane verification later (a lane may diff a
+quarantined copy and adopt specific edits through the normal verified-fix flow)
+without ever landing unverified bytes. /tmp is ephemeral — H rescues the quarantine
+tree + log into the record (e.g. under `external-doc/` or a committed evidence dir)
+if the user wants it durable.
+
+**This round's quarantine manifest (4 copies, 3 files):**
+`20261121T123732/` = {41H3 @484b1c94, 50 @6b3e5ef8}; `20261121T123800/` = {71
+@54527b1a}; `20261121T124020/` = {50 @7f7b9fe5}. Watch cadence: start + end of the
+unit only (no poll loop); snapshot log `/tmp/ghost-gate.log` (3 snapshots:
+12:33:43 smoke, 12:37:32 baseline, 12:40:10 end).
+
+**Containment implications:** restores at gates remain the mechanism, but the
+idempotence exit is no longer a terminal state — the ghost keeps producing deltas on
+its own fix loop. Until the user decides on the stray host, expect recurring
+DIRTY-VS-HEAD signals on intro stems with bytes ≠ landed; each is quarantine
+material, and H's restore stays zero-corruption (HEAD bytes are the verified set of
+record).
