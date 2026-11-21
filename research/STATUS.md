@@ -1017,3 +1017,46 @@ the P4 course-correction (the census seed-1 stale row; realized via v3/v4).
 **Hand:** Iteration 7 opens on the seed census v4 + the charter skeleton
 `37edaaf9` + RESUME-BRIEF-ITER7; the ghost-containment closure carries if the stray
 host lives.
+
+
+## Iteration 7 — opened 2026-11-21 (orchestrator-ruled)
+- Charter: §Iteration 7 splice @ [sha of this typeset's applied bytes] (basis: census v4
+  18a904d4 = the bench of record + precharter 78c34427 + R2 structural draft 4955ac91 +
+  the iter-6 close-out record; skeleton 37edaaf9, all cells filled).
+- Rulings: D1′ quota = Option A ADOPTED (day-1 placement; B = automatic fallback;
+  day-1 UNSPENT FINAL w/ one R-B(b1)-class re-open trigger) · D2′ launch grants (a) Ξ_K′
+  Stage-1 CHARTERED / (b) M3-A2 GRANTED-QUEUED / (c) η R7+R8 GRANTED / (d) H4 pre-solve
+  CHARTERED (E2/F kernel gated on its output) / (e) census v4 = bench of record · D3′ L3
+  PARKED (T1–T4 watch-only) · D4′ γ-freeze WATCH + precharter OWED · D5′ conventions
+  (runner one-liners + companion-sync bind all iter-7) · D6′ standing notes in the brief.
+- Day-1: the fire table as ruled (Ξ_K′ Stage-1 / M3-A2 2–4 fires / η R7, R8 / H4 pre-solve
+  local-CPU).
+- KPI basis at open: 9/17 ≈ 52.9% discovery-grade (above-bar carry); quota UNSPENT
+  third-consecutive at open.
+- Quota: [QUOTA-STATE] rules AT OPEN per D1′ — outcome stamped at the iter-7 close.
+```
+
+## Sha-verification appendix (all verified at source this session, base `a352952`)
+
+- **Skeleton** `37edaaf9816c91ee` — every [PENDING] cell now filled by the rulings
+  relay; the skeleton's cell-inventory table maps 1:1 onto D1′–D6′ above.
+- **Census v4** `18a904d4f5529c6a` (the bench of record per D2′(e)): three Tier-1-class
+  rows + row 8 WATCH-class (γ-freeze `3d40f84e6ec30c36` verified); the Tier-1
+  accounting block + the precisely-scoped thinness contingency carried into the opening
+  frame above.
+- **Ξ_K′ precharter** `78c344278ba7708b` — the GO scope quoted in D2′(a); the probe
+  family's verdict form (errors-only, both sorry message-forms) is the runner
+  convention the D5′ one-liners generalize.
+- **R2 structural draft** `4955ac9167e04204` — D1′'s quotable [QUOTA-PLACEMENT] text.
+- **Close record** — RESEARCH.md tail at `a352952` (the KPI/quota/census/75-v5 facts
+  quoted verbatim); the close commit `f0af143` (gates G1–G8 PASS; 73 G2 stages;
+  41H3 the one ship).
+- **Frozen M3 triple** `c6752422`/`a8feb25b`/`221eb30b` + the η wrap `f8d6ffcc4e0d5c25`
+  + the L3 re-charter `460a04bc57d785f2` + the H4 presolve-charter `cda679eca1d7fd76`
+  (H4-precharter at the landed `b0eb56b94c3419c7`) — cited in the D2′/D3′ cells.
+- **Diff base** — `a352952:research/RESEARCH.md` sha16 `64f550a944ef0e0b` (698 lines);
+  the splice appends at EOF per the iter-6 precedent; `git apply --check` CLEAN at
+  base; a moved EOF routes back to R9 per the standing conflict rule.
+
+— lane R9 (worktree agent-09), 2026-11-21. NOT APPLIED; H splices ONLY on the
+orchestrator's approval of both shas (typeset + diff). No commits.
