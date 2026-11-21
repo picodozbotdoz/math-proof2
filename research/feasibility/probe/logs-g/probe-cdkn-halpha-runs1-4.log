@@ -1,0 +1,43 @@
+# PROBE LOG — CDKN→H_α statement-tier checkpoint (runs 1–4, 2026-11-21)
+# Lane R6 (worktree agent-06); iter-7 day-1 precharter evidence
+# (candidates/cdkn-halpha-precharter.md §2). Runner: research/pilots/32/run_pilot.sh
+# (generic multi-file runner; ephemeral app crossmath-pilot-32, doz CLI/semraker,
+# SPEC 2cpu/4GB soft, LEAN_NUM_THREADS=2 via the CAP secret per the family).
+# File: research/feasibility/probe/ProbeCDKN_Halpha.lean (probe-convention header;
+# sorries are statement-shape placeholders, never proof claims).
+# Substrate: mathlib ff2494ea, Lean v4.36.0-rc2 (oleans via the image cache).
+
+# Run 1 — https://modal.com/apps/semraker/main/ap-2YiRVErGTiCc9BXVbfgXKU (wall 31 s)
+# VERDICT: FAIL rc=1 errors=9 — parse class: `ℝ≥0∞` scoped-notation missing
+#   (errors at the ≥ token on every statement header; root: no `open scoped ENNReal`).
+# Run 2 — https://modal.com/apps/semraker/main/ap-3Q5V92JjjkW9w88Bm06b6O (wall 71 s)
+#   telemetry: OVER=1 (max_mem 7040 MB, max_anon=0 = the mmapped-mathlib class; IN-SPEC)
+# VERDICT: FAIL rc=1 errors=2 — `Tendsto` unknown (missing `open Filter`).
+# Run 3 — https://modal.com/apps/semraker/main/ap-hSDy6tWKJrqGdNASJYO1WZ (wall 82 s)
+# VERDICT: FAIL rc=1 errors=2 — `𝓝` unknown (missing `open scoped Topology`).
+# Run 4 — https://modal.com/apps/semraker/main/ap-AdWIgdiPR2lERa7ybfNFGV (wall 51 s)
+#   fix: `Measure.univ` → `Set.univ` (the full set, not a measure constant).
+# VERDICT: **GREEN — ProbeCDKN_Halpha.lean: OK rc=0** (only probe-convention
+#   `declaration uses 'sorry'` warnings; every statement shape + the Sexp mirror +
+#   the pmeas/Halpha plumbing elaborate on mathlib at the pin).
+
+# Descent 9 → 2 → 2 → 0 errors; ALL three fix classes are namespace/notation
+# surface (open scoped ENNReal / open Filter / open scoped Topology / Set.univ),
+# zero mathematical content — the checkpoint's own finding: the bridge's mathlib-side
+# notation surface is exactly these four opens (recorded for the pilot's file header).
+
+# WHAT THE GREEN ESTABLISHES (statement-tier only, per the probe convention):
+#   (a) the mirror Sexp (tauceti renyiEntropy_eq_neg_lintegral_rpow :167 unfolded
+#       form) is well-typed on mathlib alone: -((∫⁻ ρ^{1-1/N} ∂m : ℝ≥0∞) : EReal);
+#   (b) the dictionary objects elaborate: pmeas (∑ pᵢ • δᵢ on Fin n), Halpha
+#       (N · log ∑ pᵢ^{1-1/N}), the counting-measure instance;
+#   (c) all five bridge statement shapes typecheck: P1/P1' the RN-density plumbing,
+#       P2 the dictionary equation, P3 the N-monotonicity (direction N ≤ N' ⇒
+#       S_N ≤ S_{N'}), P4 the Boltzmann→Shannon limit as a hypothesis-binder
+#       application, P5 the H_α correspondence arithmetic.
+# WHAT IT DOES NOT: no TauCeti import (name-level elaboration of the real
+#   TauCeti.RenyiEntropy tree rides the first pilot fire — the same-toolchain
+#   direct-dependency class, feasibility D/E/F); no proof content anywhere.
+
+# — persisted 2026-11-21 by lane R6 from the runner transcripts (log-rescue lesson:
+# /tmp staging is ephemeral; this file is the record).
