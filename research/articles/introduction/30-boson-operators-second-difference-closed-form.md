@@ -19,9 +19,9 @@ ways. Then it determines the operators exactly: up to one Kronecker-delta term, 
 is a second difference of "number operators" — the discrete analogue of a Laplacian, not a
 projector. That shape explains everything: summing a second difference over a full window
 gives zero (so the resolution of the identity survives), while squares of second
-differences are nothing like projections (so every Parseval-type identity fails). The
-conjecture refuted was formulated in this project; the discovery billed is the closed form
-and the structure it reveals.
+differences are nothing like projections (so every Parseval-type identity fails) — and
+since the conjecture refuted was formulated in this project, the discovery billed is the
+closed form and the structure it reveals.
 
 ## 2. The background, in one page
 

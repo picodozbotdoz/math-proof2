@@ -159,7 +159,7 @@ mathlib's TM2 model with time c·(calls·(Tn + 1) + 1)·(|x| + 1)^c.
 | DetTimeModel | the donor corpus's abstract record of time claims | — |
 | Claim.Theorem_17, Claim.Corollary_16 | the donor's transfer claims, taken as hypothesis binders | Thms 2–3 |
 | EthExistsTm, EthPoly, EthIsPoly | eth's machine-model interface statements, as binders | Theorem 5 |
-| TM2, Tm2Sol | mathlib's two-stack machine; "computed within time T" | Theorem 5 |
+| TM2, Tm2Sol | mathlib's stack-machine model; "computed within time T" | Theorem 5 |
 | Stepped | eth's packaged stepped-machine calculus used to build the loop | — |
 | triad | the three routine Lean axioms: propext, Classical.choice, Quot.sound | — |
 | PROVED-UNCONDITIONAL / -CONDITIONAL | kernel-checked beyond the triad only / relative to named binders | Thm 1 / Thm 3 |

@@ -126,7 +126,8 @@ that beats the expected constant by a factor of 4 (constant 1).
   hKL without discharging it (formalizing Kuwahara's construction would). → article §3,
   N3a.
 - **Theorem N3b (`rank_area_law_nogo`).** The same with an intermediate rankLogOf and the
-  extra hypothesis hMono: renyiOf n ≤ rankLogOf n (supplied per instance by N2b): a
+  extra hypothesis hMono: renyiOf n ≤ rankLogOf n (supplied per instance by N2b); the
+  area-law hypothesis now binds the intermediate, hArea: rankLogOf n ≤ C·bndOf n — a
   volume-law Rényi family refutes every boundary-linear log-rank law. PROVED-CONDITIONAL
   on hKL, hBnd, hArea, hMono. The α-binders are unused, so both gates hold for every α. →
   article §3, N3b.

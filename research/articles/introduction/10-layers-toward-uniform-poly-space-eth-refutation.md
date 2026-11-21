@@ -164,7 +164,7 @@ polynomial base, so eth's time analysis survives verbatim.
 | k-CNF, k-SAT | AND-of-ORs formula, ≤ k literals per clause; the satisfiability question | (x₁ ∨ ¬x₂) ∧ (x₂ ∨ x₃) |
 | ETH | Exponential Time Hypothesis: no 2^{o(n)} algorithm for 3-SAT (classical bet) | — |
 | eth | the sibling corpus whose MainTheorem is the k-uniform time bound | `anthropics_formal-math/eth` |
-| TM2, M | mathlib's two-stack machine model; an abstract machine over it | — |
+| TM2, M | mathlib's stack-machine model (a Turing-machine variant with finitely many stacks); an abstract machine over it | — |
 | \|x\| | length of the input word x | \|x\| = 4 above |
 | timeMin C k m n | eth's time scale ⌊2^{C·min(expM k m, expN k n)}⌋ | — |
 | CountsWithin M k φ t | M halts within t steps with the satisfying-count in its lowest n+1 bits | — |

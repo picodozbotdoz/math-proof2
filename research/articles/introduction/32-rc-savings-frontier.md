@@ -19,10 +19,10 @@ savings exponents γ can this certificate family achieve at all? The answer has 
 phase transition: below the threshold ε* ≈ 0.1204 there is a unique crossing of two
 explicit monotone curves, the achievable set is exactly an open interval, and the best
 achievable γ is the explicit frontier function Γ(ε); at and above ε*, nothing is
-achievable. All seven theorems are kernel-verified and unconditional. One honesty caveat
-stated in the article itself: the constants are superseded at birth (later work reaches a
-larger range), so the discovery is the frontier's exact shape — unique crossing, exact
-Γ, non-attainment, threshold — not any record value.
+achievable. All seven theorems are kernel-verified and unconditional; one honesty caveat
+is stated in the article itself: the constants are superseded at birth (later work
+reaches a larger range), so the discovery is the frontier's exact shape — unique
+crossing, exact Γ, non-attainment, threshold — not any record value.
 
 ## 2. The background, in one page
 
@@ -36,7 +36,7 @@ certified scheme sits, in logarithmic terms. (classical context for the corpus's
 
 ### 2.2 The certificate family (the donor's Corollary 31, transcribed)
 
-For parameters: width c ≥ 10, density θ ∈ (0, 9/10), savings exponent γ ≥ 0, and range
+For parameters: width c > 10, density θ ∈ (0, 9/10), savings exponent γ ≥ 0, and range
 exponent ε (the data kept is D ≤ N^ε), the corpus certifies a polylog-savings data
 structure whenever
 
