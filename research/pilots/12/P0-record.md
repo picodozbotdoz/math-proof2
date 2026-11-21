@@ -114,3 +114,18 @@ the orchestrator's close signal, 12-core work (if chartered) pauses at a clean
 boundary, the item-13 runbook §7 pre-fire assertions run first, then resume.
 
 — lane R3 (A6 lineage, worktree agent-07), 2026-11-20.
+
+## PENDING OWE (relay 2026-11-21, R5's read via H — track; apply at next P0 touch / iter-7 S-residue unit)
+
+`P0.lean:236` (`route16_MMgeneral` statement-probe stub, file sha `3d924056ed4c3e2c`)
+still restates the OLD unconditional (false-as-shown) form — probe-convention-exempt,
+but the D4 rider binds core prose. OWED: the one-line binder mirror, the
+`(hδ : E.ε W.ωb ≤ 0.0315 / 18) (he : 1 ≤ E.e W.ωb)` pair exactly as CORE.lean
+`:892–896` (`route16_MMgeneral`) and `:941–947` (`parametric_main`) carry
+post-223cfa1; to be applied at the NEXT P0.lean touch — the edit must ride an
+elaboration fire so the probe verdict chain stays sha-verified (no fire granted
+now). Same mirror owed for `route15_MMgeneral` (:230–233) and `route16_symbolic`
+(:244+) when those statements are next touched — same falsity class (γ-freeze,
+`M-CLASS-EVALUATION.md` §0).
+
+— lane R3 (A6 lineage, worktree agent-07), 2026-11-21.
