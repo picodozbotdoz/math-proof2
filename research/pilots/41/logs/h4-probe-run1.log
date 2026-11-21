@@ -1,0 +1,89 @@
+# Provenance: 2026-11-21, lane R4 (worktree agent-08) — iter6-seed-census Tier-1 seed 2
+#   (the H3 n>=4 TL hunt), STATEMENT-ELABORATION PROBE run 1 (probes are not fires;
+#   no fire order needed or consumed — the unit is discovery-PREP + GO/NO-GO input).
+# File fired: research/pilots/41/H4-probe.lean — statement tier ONLY (probe
+#   conventions: NOT A PROOF ARTIFACT; the 8 `sorry` markers are probe-class, one per
+#   new theorem statement so its full binder structure elaborates; the 4 micro-decides
+#   (NonRankOne witnesses x2 fibers, zero-free x2) are real content).
+#   Fired (run 2, verdict of record) bytes = on-disk sha256(16) bef92692230690f5
+#   (290 LoC). Run 1 fired the pre-fix bytes 9e45b29e5dfaec39 (3 statement-shape
+#   errors in §3's vector-valued sums; fix = the lsumV addition).
+# Route: doz CLI /home/doz/dozenv/bin/modal, profile semraker, warm app crossmath-probe;
+#   spec cpu=2.0/memory=4096, LEAN_NUM_THREADS=2, telemetry @60s. Stage
+#   /tmp/crossmath-41-h4stage (world-readable, discarded after).
+# Substrate: mathlib4 ff2494ea..., toolchain v4.36.0-rc2 (warm oleans).
+# Telemetry: run 2 wall=51s; samples=0 (< 60s interval), max_cpu/max_mem not sampled,
+#   OVER=0. Run 1 wall=74s; 1 sample cpu=0.77 mem=5752MB OVER-mem=1 = the documented
+#   olean-mapping artifact (anon=0; AGENTS §Modal 5 class). No investigation triggered.
+# **VERDICT (run 2): GREEN — H4-probe.lean: OK; errors=0; 8 sorry-markers (probe-class,
+#   by design); the four micro-decides certified: sigmaRow_nonRankOne /
+#   sigmaOne_nonRankOne [propext]; sigmaRow_zero_free / sigmaOne_zero_free ⊆ triad.**
+# Statement-set verdicts: E1 (d=8 uniform-diagonal no-go, abstract + 4 fiber finals)
+#   elaborates; E2 (StructureConstantDictionary + SemigroupEvaluationTable +
+#   diagonal8_open_questions : Prop) elaborates; F (CombinationDictionary : Prop +
+#   dictionary_of_combination_data, lsumV form) elaborates; G (sigmaInt + GenericNoDim7
+#   : Prop + no_realization_dim7_generic w/ Matrix.det EnclOK binder) elaborates.
+# Run 1 (superseded, 3 errors): lsum is ℤ-valued — §3's hT/hEq needed vector-valued
+#   sums; fix = lsumV {α H} [AddCommGroup H] (same foldr shape). Transcript below
+#   = RUN 2 (verdict of record); run-1 transcript discarded (errors fully diagnosed).
+# Modal run (2): https://modal.com/apps/semraker/main/ap-OW3SSZJkKxr3kRjCLsJJ2t
+# Modal run (1): https://modal.com/apps/semraker/main/ap-oos7Ml7wv2Gd4ccqNYqURm
+✓ Initialized. View run at 
+https://modal.com/apps/semraker/main/ap-OW3SSZJkKxr3kRjCLsJJ2t
+✓ Created objects.
+├── ✓ Uploaded /tmp/crossmath-41-h4stage/lean_probe.py
+├── ✓ Uploaded PythonPackage:modal_telemetry
+└── ✓ Created Function probe.
+[probe] staging 1 probe file(s): ['H4-probe.lean']
+[tele] start probe: spec cpu=2.0 mem=4096MB nproc=18 interval=60s
+[probe] mathlib rev ff2494ea5e43 (ff2494ea5e438f8a8452db803068acd711fa0059)
+[probe] HEAD in container: ff2494ea5e438f8a8452db803068acd711fa0059
+[probe] toolchain: leanprover/lean4:v4.36.0-rc2
+[probe] oleans present: 8710
+
+=== H4-probe.lean
+[probe] H4-probe.lean: OK; errors=0, sorry-warnings=0, other-warnings=8
+---- output head ----
+H4-probe.lean:75:8: warning: declaration uses `sorry`
+H4-probe.lean:90:8: warning: declaration uses `sorry`
+H4-probe.lean:117:8: warning: declaration uses `sorry`
+H4-probe.lean:127:8: warning: declaration uses `sorry`
+H4-probe.lean:136:8: warning: declaration uses `sorry`
+H4-probe.lean:145:8: warning: declaration uses `sorry`
+StructureConstantDictionary : (Block → Block → ℤ) → Prop
+SemigroupEvaluationTable : (Block → Block → ℤ) → Prop
+diagonal8_open_questions : Prop
+H4-probe.lean:223:8: warning: declaration uses `sorry`
+CombinationDictionary : (Block → Block → ℤ) → Prop
+@dictionary_of_combination_data : ∀ {M : Block → Block → ℤ} {H : Type} [inst : Ring H] (v : Fin 14 → H) (φ : H →ₗ[ℤ] ℤ)
+  (f : Fin 14 → ℤ),
+  (∀ (k : Fin 14), φ (v k) = f k) →
+    ∀ (T : Fin 14 → Fin 14 → Fin 14 → ℤ),
+      (∀ (k l : Fin 14), v k * v l = lsumV idx14 fun r => T k l r • v r) →
+        ∀ (W : Block → Fin 14 → ℤ),
+          (∀ (p q : Block), φ ((lsumV idx14 fun k => W p k • v k) * lsumV idx14 fun l => W q l • v l) = M p q) →
+            ∃ w, ∀ (p q : Block), φ (w p * w q) = M p q
+H4-probe.lean:264:8: warning: declaration uses `sorry`
+sigmaInt : ℤ → Block → Block → ℤ
+GenericNoDim7 : Prop
+no_realization_dim7_generic : ∀ (detMpoly : Polynomial ℤ),
+  detMpoly ≠ 0 →
+    (∀ (qv : ℤ), Polynomial.eval qv detMpoly = Matrix.det fun p q' => sigmaInt qv p q') →
+      ∀ (qv : ℤ),
+        Polynomial.eval qv detMpoly ≠ 0 →
+          ∀ (C : Block → Fin 7 → ℤ) (Φ : Fin 7 → Fin 7 → ℤ),
+            (∀ (p q' : Block),
+                sigmaInt qv p q' =
+                  lsum (List.finRange 7) fun i => lsum (List.finRange 7) fun j => C p i * Φ i j * C q' j) →
+              False
+'Pilot41H4.sigmaRow_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaOne_nonRankOne' depends on axioms: [propext]
+'Pilot41H4.sigmaRow_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot41H4.sigmaOne_zero_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+[probe] SUMMARY
+[probe]   H4-probe.lean: OK
+[tele] SUMMARY probe: wall=51s max_cpu=0.00 max_mem=0MB max_anon=0MB samples=0 OVER=0
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/semraker/main/ap-OW3SSZJkKxr3kRjCLsJJ2t

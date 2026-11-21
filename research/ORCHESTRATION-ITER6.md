@@ -58,7 +58,7 @@ prior state in `.carry/2026-11-21-resume/`. NO `git stash` lane-side (shared sta
 | R2 | agent-03 | D1 quota contest: FB-2 follow-on + iter-6 disposition draft | active |
 | R3 | agent-07 | 12-core closing batch (Choice.lean:60–244 rpow port @ η=0.0315; ≤5 fires) | active |
 | R4 | agent-08 | L3 re-charter DONE (verdict BANK, `460a04bc` landed; triggers T1–T4 named) → re-tasked: H3 n≥4 TL hunt seed-2 discovery-prep | active |
-| R5 | agent-04 | eta-r4 grant-fire-2 @ `285a411e` as-is (≤3 band; no re-fire w/o grant) | active |
+| R5 | agent-04 | eta-r4 run-14 DONE: **GREEN strict-OK, η-port ledger CLOSED 14-of-12–13** (10/10 triad; log cebc4730 + record 189cd5b0 landed 25879dd; Fourier/identity rungs BANKED iter-7 Tier-2) → re-tasked: port-arc wrap record | active |
 | R6 | agent-06 | introduction verification batch A (8 stems + 41 spot-check) | active |
 | R7 | agent-10 | introduction verification batch B (8 stems) + registry draft | active |
 | R8 | agent-05 | M3 run-9 DONE: split verdict ⇒ PERMANENT PARK (P0+A1 kernel-GREEN, A2 first-sight mechanical; log f3d6a0d2 + record b9dad480 landed) → re-tasked: seed-1 N2-completion/P3-d discovery-prep | active |
