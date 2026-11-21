@@ -369,3 +369,29 @@ directly (`research/feasibility/port-probe.md`).
   long-stable mathlib (unprobed but pre-module-era core algebra; churn risk negligible).
 - No F1 corrections. Verdict: keep S–M ((M)+(N) ~0.5–1k LoC; (H) separate); the novelty
   risk flagged in F5(i) remains the dominant one, unchanged by port evidence.
+
+---
+
+## Kernel-upgrade follow-ups (2026-11-21, external-referee revision — recorded per the orchestrator's directive; each needs a NEW PILOT RUN)
+
+1. **41H det M(q) ≠ 0 at generic q** (settles the 41H scope comment): the revision
+   restricted article 41H's no-go to the q = −1 fiber because only that fiber is
+   kernel-closed. The referee's claim — `det M(q) = −512·q·(q⁴+6q²+1)`, non-zero for
+   real q ≠ 0 — was independently recomputed by the revision lane (exact integer
+   interpolation; det M(−1) = 4096 = 8⁴ consistent with the B1 certificate) but is
+   UNFORMALIZED. A Lean determinant proof at generic q (or per-fiber decides over the
+   complex excluded fibers, per the H2.lean §4 comment) would restore the general
+   real-fibre no-go and re-open the "host, if any, at n ≥ 4 strands" corollary at its
+   original strength.
+2. **41H3 per-fiber scan split** (settles the 41H3 "per fiber" count comment): the
+   pre-solve record note states its ~1.39×10⁷ random-sampled / ~2×10⁸ enumerated-system
+   counts "at BOTH closed fibers" with no per-fiber split, and the counts do not
+   decompose arithmetically (13,870,080 ≠ 2500 × 40320). Settled either by the record's
+   author adding the split line, or (better, with item 3) by the archived re-run
+   emitting per-fiber counts.
+3. **41H3 custody archive** (settles the CERTIFIED-NUMERIC custody comment): the
+   pre-solve scripts were ephemeral by design — no archived generator/checker, no exact
+   integer matrices; the certificate artifact is the record note's formulas + the
+   float-validated scanner (planted controls ~1e-14). Archiving scripts + outputs at a
+   re-run (or downgrading the billing — pending orchestrator decision) is the standing
+   custody commitment; see article 41H3 §3/§6 and README row 41H3.

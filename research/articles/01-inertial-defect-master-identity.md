@@ -1,34 +1,27 @@
 # An Exact Five-Defect Identity for the Rank–Trace Inequality
 
-*kind: DISCOVERY (unconditional identity — the strength bar's cleanest pass,
-`qa/iter4-review/r2-discovery-strength.md:202`) · date: 2026-11-09 (template upgrade
-2026-11-17) · supersedes: none (in-place template-compliance upgrade; theorems and
-proofs unchanged) · artifacts:
-`research/pilots/01/port/{09_MasterIdentity,10_TightMult}.lean`,
-`research/pilots/01/logs/axcheck-final.log`; dossier
-`research/candidates/01-ez1-inertial-defect-master-identity.md`*
+*kind: DISCOVERY · date: 2026-11-09 · supersedes: none (in-place
+template-compliance upgrade 2026-11-17; theorems and proofs unchanged) · artifacts:
+`research/pilots/01/port/09_MasterIdentity.lean`,
+`research/pilots/01/port/10_TightMult.lean`,
+`research/pilots/01/logs/axcheck-final.log`*
 
 | theorem | status | hypotheses | evidence |
 |---|---|---|---|
-| Thm 1 `CrossMath.RankTraceDefect.master_identity` (the five-defect identity) | PROVED-UNCONDITIONAL | none | `pilots/01/logs/axcheck-final.log:305` — `[propext, Classical.choice, Quot.sound]`; re-print `:357` (port10 stage) |
-| Thm 2 nonnegativity: `pairingDefect_nonneg` … `pairBlockDefect_nonneg` + anchor `rank_trace_mult_k_of_master` (donor inequality re-derived from the identity) | PROVED-UNCONDITIONAL | none (atoms `m : ι → ℝ_{≥0}` are the statement's data) | `axcheck-final.log:295–299` (the five defects), anchor `:306` — triad; the re-derived donor statements `rank_trace_mult(_k)` print triad in the same sweep at `:246–247` |
-| Thm 3 `CrossMath.RankTraceDefect.tightness_of_master` (simultaneous vanishing on TightMult) | PROVED-UNCONDITIONAL | none (the TightMult configuration is the statement's data; the consumed donor `lemmaR_tight` prints triad alongside at `:359`) | `axcheck-final.log:362` — triad; stage verdicts port09 OK `:253`, port10 OK `:309`, both 0 sorryAx |
+| Thm 1 `CrossMath.RankTraceDefect.master_identity` (the five-defect identity) | PROVED-UNCONDITIONAL | none | `pilots/01/logs/axcheck-final.log:305` — `[propext, Classical.choice, Quot.sound]`; re-print `:357` |
+| Thm 2 nonnegativity: `pairingDefect_nonneg` … `pairBlockDefect_nonneg` + anchor `rank_trace_mult_k_of_master` (donor inequality re-derived from the identity) | PROVED-UNCONDITIONAL | none (atoms `m : ι → ℝ_{≥0}` are the statement's data) | `axcheck-final.log:295–299` (the five defects), anchor `:306` — same axiom triple; the re-derived donor statements `rank_trace_mult(_k)` print it in the same audit at `:246–247` |
+| Thm 3 `CrossMath.RankTraceDefect.tightness_of_master` (simultaneous vanishing on TightMult) | PROVED-UNCONDITIONAL | none (the TightMult configuration is the statement's data; the consumed donor `lemmaR_tight` prints the same axiom triple alongside at `:359`) | `axcheck-final.log:362`; both artifact files audit OK (`:253`, `:309`, 0 `sorryAx`) |
 
 Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
-external CAS (sweep verdict 29/29 stages OK, 0 sorryAx, `axcheck-final.log:1`).
+external CAS (axiom-audit verdict 29/29 modules OK, 0 `sorryAx`, `axcheck-final.log:1`).
 
-Change log (2026-11-17, lane A9 — template-compliance upgrade, theorems/proofs
-untouched): byline brought to the TEMPLATE-iter4 front matter (kind DISCOVERY per the
-iteration-4 strength bar); the prose status line replaced by the per-theorem status
-rows above in the closed vocabulary, with sweep-log line cites verified against disk
-this session; §5's evidence row re-pointed to the exact print lines and its fix-cycle
-narration removed; §6 converted to the mandatory nearest-miss table with the same
-citations. Same-day post-landing passes: A1 pre-check
-(`qa/iter4-review/a1-3x01v2-precheck.md` F01-1) — the §5 axioms row gained the
-evidence-class qualifier (headline decls print-persisted; the ported spine
-stage-verdict-level, 12-of-42/41 records persisted, excerpt class); A7 prior-art
-hardening (`a7-32-01-priorart-hardening.md`) — the Anthropic companion-PDF nearest-miss
-row added to §6 (novelty NOVEL re-confirmed, no 2026 competitor).
+Binder note. The "none" in the table records that there are no mathematical hypotheses:
+the Lean forms of Theorems 1–2 carry only definitional regularity binders
+(Hermitian-ness of `Q`, of `P = Pmat m v` and of `Q₋`, and positive semidefiniteness of
+the parts; `pilots/01/port/09_MasterIdentity.lean:1983–1985, 1795–1825`), and Theorem 3's
+Lean form (`pilots/01/port/10_TightMult.lean:2182–2185`) adds only `0 < c`, the
+multiplicity bound `(m j : ℝ) ≤ c`, and the same Hermitian-ness regularity for the
+configuration's `P` and `Q₋`.
 
 ---
 
@@ -123,7 +116,8 @@ defect is nonnegative. Consequently, for every budget `b ≥ n₊(Q)`,
 
 which is exactly the donor theorem `rank_trace_mult_k`.
 
-**Theorem 3 (simultaneous tightness).** Let `r, b ∈ ℕ`, `m : Fin r → ℕ` with `m_j ≤ c`, and
+**Theorem 3 (simultaneous tightness).** Let `r, b ∈ ℕ`, `m : Fin r → ℕ` (coerced to
+`Fin r → ℝ`, so the hypothesis reads `(m j : ℝ) ≤ c`), and
 consider the TightMult configuration on the index set `Fin r ⊕ Fin b`: `v_j = e_{inl j}`
 (on-line atoms of integer multiplicity `m_j` on orthonormal vectors) and
 `Q = diag(0_r, c·I_b)` (`b` pair-blocks). Then
@@ -134,7 +128,32 @@ In words: the extremal configuration is not merely one where the *sum* of the sl
 vanishes (which is what equality in the inequality says); each of the five independent
 mechanisms of loss is individually switched off.
 
-## 4. Proofs
+## 4. Novelty and nearest misses
+
+| prior work (exact citation) | what it proves | why this differs |
+|---|---|---|
+| zeta23 donor: `rank_trace_mult` / `rank_trace_mult_k` (`Zeta23/ZeroSide/RankTraceMult.lean:281` / `:369`) and `lemmaR_tight` (`Zeta23/ZeroSide/TightMult.lean`) | the certificate upper bound, used one-sidedly, and one special equality configuration | ours is the exact identity beneath the bound: five named defects whose nonnegativity recovers the donor theorem (Thm 2's anchor re-derives `rank_trace_mult_k` from the identity) and whose simultaneous vanishing (Thm 3) refines the equality lemma |
+| Alpöge–Furman v2, arXiv:2608.13637v2, Lemma 3.2 + §7.2(b) | the base-lemma equality case `P = Π₁, Q = 2Π₂`; downstream sharpness discussion | our delta is the *five-defect simultaneous* characterization and the identity itself; no defect decomposition appears there |
+| Anthropic companion PDF, *How the two-thirds argument was found: two agent runs* (`www-cdn.anthropic.com/d7f3ecf1d01392d887f8bc974ca187e2a121b1ed.pdf`, 95 pp., full-text searched 2026-11-17) | documents the rank–trace lemma as a one-sided "five-line proof by von Neumann's trace inequality", its equality case *declared sharp only numerically* (a hundred thousand random and several hundred adversarial trials), the campaign's failed factorization attempts ("no factorisation, no usable difference, no closing relation"), and the polarized-object attempt as a failed moonshot | the informal side confirms the decomposition was sought and not found: our five-defect exact identity is the difference their synthesis records they sought and did not find, and our proved defect-vanishing equality characterization is strictly stronger than their numerical sharpness datum; the failed polarized-object attempt frames our polarized bilinear form (corollary A5, §7) as new |
+| Knausgård, arXiv:2609.33043 (repo `kristianmk/839`), Thm 2 | a "nonnegative correction from overlaps" move resembling Δ₊ | no Frobenius/rank/inertia structure and no identity; does not subsume Thms 1–3; we claim no improved zero-density constants (that race is lost, `research/novelty/VERDICTS.md` row 01) |
+| equality-case literature: So; Golden–Thompson; Carlen 2010; Ipsen–Saibaba 2025 | equality conditions for the constituent classical inequalities | no defect decomposition of this certificate anywhere in that literature (novelty round 2, `research/novelty/round-2.md`) |
+| Lamzouri, arXiv:2609.02882v2 | a matrix-free route to the zero-density constants | orthogonal: it may remove the identity's number-theoretic consumers; the standalone linear-algebra identity stands |
+
+Scope statement. "New" means: no defect decomposition of the rank–trace certificate
+exists in the donor corpus (direct-source query `rg -in "defect|master"` over
+`anthropics_formal-math/zeta23/`; re-run 2026-11-21 — the only hits are the
+Chebyshev/XiPrime prime-power-error "defect" lemmas and one unrelated "master form"
+bound in `PrimeSideA/EndsNu.lean`, and the query is empty over the certificate layers
+`Zeta23/LinAlg/` and `Zeta23/ZeroSide/`; first run recorded at
+`qa/iter4-review/r2-discovery-strength.md` §5 q6), in the
+equality-case literature swept (novelty round 2, `research/novelty/round-2.md`), or in
+the Anthropic companion PDF
+(full-text searched 2026-11-17 — see the table row above). The novelty consolidation
+records the statement as NEW with the converse direction (A4) partially contested by the
+AF v2 equality case and narrowed accordingly (`research/novelty/VERDICTS.md` row 01) —
+which is why §7 lists the converse as open, not proved.
+
+## 5. Proofs
 
 **Proof of Theorem 1.** Since `Q = Q₊ − Q₋` with `Q₊Q₋ = 0`,
 
@@ -155,6 +174,10 @@ Finally, expanding the square in Δ_Q+ over the π positive eigenvalues `q_i` of
 
 Substituting (2)–(4) into (1) and using `rtr Q = rtr Q₊ − rtr Q₋` gives the identity. ∎
 
+The Lean proof mirrors this line by line: five split lemmas (`frob_split_rearrangement`,
+`pairing_split`, `schurJensenSplit`, `pairBlock_split`, `frobSq_add_eq`) are combined by
+`linarith` (`pilots/01/port/09_MasterIdentity.lean:2012`).
+
 **Proof of Theorem 2.** (i) `Δ_pt ≥ 0` termwise because `p_k, μ_k ≥ 0` (both `P` and `Q₋`
 are PSD). (ii) `Δ_SJ ≥ 0`: the numbers `m_j x_j` are the diagonal entries of the Gram matrix
 `WᴴW` (columns `√m_j v_j`), whose nonzero spectrum coincides with that of `P = WWᴴ`; by
@@ -164,7 +187,8 @@ Schur–Horn the diagonal is majorized by the spectrum, and `g_c` is convex with
 in the k-form of Theorem 1 and using `π ≤ b` gives the donor inequality. ∎
 
 **Proof of Theorem 3.** On the TightMult configuration, the donor lemma `lemmaR_tight`
-states that the inequality of Theorem 2 holds with equality at `b = n₊(Q) = b`. Comparing
+states that the inequality of Theorem 2 holds with equality when the budget equals
+`n₊(Q)`, which for this configuration is `b`. Comparing
 with Theorem 1, the *weighted sum* `Δ_pt + Δ_SJ + 2Δ_vN + Δ₊ + Δ_Q+` is zero; since each
 summand is nonnegative (Theorem 2), each is zero. ∎
 
@@ -173,62 +197,60 @@ choice of defects: each is a classical inequality's slack, they are mutually ind
 mechanisms (spectral pairing, majorization, rearrangement, cross-coupling, block
 deviation from `c`), and together they account for *all* of the slack.
 
-## 5. Formal verification
+## 6. Formal record
 
-| item | value |
-|---|---|
-| file | `research/pilots/01/port/10_TightMult.lean` (2,234 LoC: verbatim donor port 01–08 + identity layer + TightMult port + tightness) and `port/09_MasterIdentity.lean` (identity alone) |
-| identity | `CrossMath.RankTraceDefect.master_identity` |
-| defects | `pairingDefect`, `schurJensenDefect`, `rearrangementDefect`, `posCouplingDefect`, `pairBlockDefect` with `*_nonneg` lemmas |
-| anchor | `CrossMath.RankTraceDefect.rank_trace_mult_k_of_master` — the donor statement `rank_trace_mult_k` re-derived from the identity |
-| tightness | `CrossMath.RankTraceDefect.tightness_of_master` |
-| axioms | `[propext, Classical.choice, Quot.sound]` for all of the above and the ported spine (`rank_trace_ineq`, `rank_trace_mult(_k)`, `vonNeumann_trace_ineq`, …) — evidence class, 2026-11-17 qualifier: the named headline declarations are print-persisted at the cited lines; the ported spine is stage-verdict-level (the port09/port10 sections persist 12 of 42 / 12 of 41 records — the Cycle-2 excerpt class) |
-| evidence | final-sweep axcheck `research/pilots/01/logs/axcheck-final.log` (port09 stage OK `:253`, port10 stage OK `:309`; per-theorem prints `:295–306` and `:351–362`); blueprint run logs `research/pilots/01-blueprint.md` §6b–§6d; Modal run logs `research/pilots/01/logs/` |
+| theorem | Lean declaration | file:line | axioms | log path:line |
+|---|---|---|---|---|
+| Thm 1 (master identity) | `CrossMath.RankTraceDefect.master_identity` | `pilots/01/port/09_MasterIdentity.lean:1983` | `[propext, Classical.choice, Quot.sound]` | `pilots/01/logs/axcheck-final.log:305` (re-print `:357`) |
+| Thm 2 (defect nonnegativity) | `pairingDefect_nonneg`, `schurJensenDefect_nonneg`, `rearrangementDefect_nonneg`, `posCouplingDefect_nonneg`, `pairBlockDefect_nonneg` | `pilots/01/port/09_MasterIdentity.lean:1795, 1802, 1813, 1819, 1825` | same triple, each | `pilots/01/logs/axcheck-final.log:295–299` |
+| Thm 2 (anchor) | `CrossMath.RankTraceDefect.rank_trace_mult_k_of_master` | `pilots/01/port/09_MasterIdentity.lean:2019` | `[propext, Classical.choice, Quot.sound]` | `pilots/01/logs/axcheck-final.log:306` |
+| Thm 3 (simultaneous tightness) | `CrossMath.RankTraceDefect.tightness_of_master` | `pilots/01/port/10_TightMult.lean:2182` | `[propext, Classical.choice, Quot.sound]` | `pilots/01/logs/axcheck-final.log:362` |
 
-The donor bundle (9 zeta23 files, Apache-2.0, copyright Anthropic PBC) was ported
-verbatim from Lean v4.33 to v4.36; the new identity layer is ~320 LoC on top. The Lean
-proof of `master_identity` is the `linarith` combination of five split lemmas
-(`frob_split_rearrangement`, `pairing_split`, `schurJensenSplit`, `pairBlock_split`,
-`frobSq_add_eq`), mirroring §4 line by line.
+Evidence note. One closing axiom audit covers all rows (provenance header
+`axcheck-final.log:1`: 29/29 modules OK, 0 `sorryAx`). The log is an excerpt: the audit
+sections for the port's last three files report 20, 42 and 41 axiom records but persist
+only their tails (10, 12 and 12), which cover every row of the table above plus the
+donor-spine prints cited in the status table (`rank_trace_mult` `:246`,
+`rank_trace_mult_k` `:247`, `lemmaR_tight` `:359`); the earlier port files' sections are
+complete. Donor files were ported verbatim from Lean v4.33 to v4.36 (Apache-2.0,
+copyright Anthropic PBC); build history lives in `feasibility/VERIFICATION-LEDGER.md`.
 
-## 6. Novelty and nearest misses
-
-| prior work (exact citation) | what it proves | why this differs |
-|---|---|---|
-| zeta23 donor: `rank_trace_mult` / `rank_trace_mult_k` (`Zeta23/ZeroSide/RankTraceMult.lean:281` / `:369`) and `lemmaR_tight` (`Zeta23/ZeroSide/TightMult.lean`) | the certificate upper bound, used one-sidedly, and one special equality configuration | ours is the exact identity beneath the bound: five named defects whose nonnegativity recovers the donor theorem (Thm 2's anchor re-derives `rank_trace_mult_k` from the identity) and whose simultaneous vanishing (Thm 3) refines the equality lemma |
-| Alpöge–Furman v2, arXiv:2608.13637v2, Lemma 3.2 + §7.2(b) | the base-lemma equality case `P = Π₁, Q = 2Π₂`; downstream sharpness discussion | our delta is the *five-defect simultaneous* characterization and the identity itself; no defect decomposition appears there |
-| Anthropic companion PDF, *How the two-thirds argument was found: two agent runs* (`www-cdn.anthropic.com/d7f3ecf1d01392d887f8bc974ca187e2a121b1ed.pdf`, 95 pp., full-text searched 2026-11-17) | documents the rank–trace lemma as a one-sided "five-line proof by von Neumann's trace inequality", its equality case *declared sharp only numerically* (a hundred thousand random and several hundred adversarial trials), the campaign's failed factorization attempts ("no factorisation, no usable difference, no closing relation"), and the polarized-object attempt as a failed moonshot | the informal side confirms the decomposition was sought and not found: our five-defect exact identity is the difference their synthesis records they sought and did not find, and our proved defect-vanishing equality characterization is strictly stronger than their numerical sharpness datum; the failed polarized-object attempt frames our polarized bilinear form (dossier A5) as new |
-| Knausgård, arXiv:2609.33043 (repo `kristianmk/839`), Thm 2 | a "nonnegative correction from overlaps" move resembling Δ₊ | no Frobenius/rank/inertia structure and no identity; does not subsume Thms 1–3; we claim no improved zero-density constants (that race is lost, `research/novelty/VERDICTS.md` row 01) |
-| equality-case literature: So; Golden–Thompson; Carlen 2010; Ipsen–Saibaba 2025 | equality conditions for the constituent classical inequalities | no defect decomposition of this certificate anywhere in that literature (novelty round 2, R8) |
-| Lamzouri, arXiv:2609.02882v2 | a matrix-free route to the zero-density constants | orthogonal: it may remove the identity's number-theoretic consumers; the standalone linear-algebra identity stands |
-
-Scope statement. "New" means: no defect decomposition of the rank–trace certificate
-exists in the donor corpus (direct-source query `rg -in "defect|master"` over
-`anthropics_formal-math/zeta23/` → only lake-manifest `"master"` strings;
-`qa/iter4-review/r2-discovery-strength.md` §5 q6, re-run 2026-11-16), in the
-equality-case literature swept (novelty round 2), or in the Anthropic companion PDF
-(full-text searched 2026-11-17 — see the table row above). The main-run verdict records the
-statement as NEW with the converse direction (A4) partially contested by the AF v2
-equality case and narrowed accordingly (`research/novelty/VERDICTS.md` row 01) — which
-is why §7 lists the converse as open, not proved.
-
-## 7. Limitations and open directions
+## 7. Limitations and open problems
 
 - The corollaries A2 (diagonal-dominance gain, with `Δ₊ = 0 ⇔ PQ₊ = 0`), A3 (`n₋(Q)`
   tail-mass refinement `‖P+Q‖² ≥ cert + T²/(d−r)`), the converse of A4 (all defects vanish
-  ⇒ TightMult-type structure) and A5 (polarized form) are stated in the dossier but **not**
+  ⇒ TightMult-type structure) and A5 (polarized form) are stated in the candidate dossier
+  `research/candidates/01-ez1-inertial-defect-master-identity.md` but **not**
   formalized.
 - The identity is an equality of real numbers; a module-level (operator) refinement that
   would give a "defect certificate" usable inside the zero-density engine is open.
 - Upstreaming: the defect layer is mathlib-ready modulo naming; the donor port is
   zeta23-specific.
 
-## References
+## 8. Prior work and references
 
-- anthropics_formal-math, `zeta23/Zeta23/LinAlg/*.lean`, `zeta23/Zeta23/ZeroSide/RankTraceMult.lean`
+(a) Literature.
+
+- L. Alpöge, A. Furman, arXiv:2608.13637v2 (Lemma 3.2; §7.2(b)).
+- K. Knausgård, arXiv:2609.33043 (repository `kristianmk/839`), Theorem 2.
+- Y. Lamzouri, arXiv:2609.02882v2.
+- Anthropic, *How the two-thirds argument was found: two agent runs* (companion PDF,
+  `www-cdn.anthropic.com/d7f3ecf1d01392d887f8bc974ca187e2a121b1ed.pdf`, 95 pp.).
+- J. von Neumann, *Some matrix-inequalities and metrization of matric-space* (1937);
+  I. Schur (1923), A. Horn (1954) on diagonal majorization.
+
+(b) Project artifacts.
+
+- Donor corpus (read-only reference tree): `anthropics_formal-math`, files
+  `zeta23/Zeta23/LinAlg/*.lean`, `zeta23/Zeta23/ZeroSide/RankTraceMult.lean`
   (`rank_trace_mult` :281, `rank_trace_mult_k` :369, `sq_sub_ge_gc` :81),
-  `ZeroSide/TightMult.lean` (`lemmaR_tight`).
-- L. Alpöge, A. Furman, arXiv:2608.13637v2. K. Knausgård, arXiv:2609.33043. Y. Lamzouri,
-  arXiv:2609.02882v2.
-- J. von Neumann, *Some matrix-inequalities and metrization of matric-space* (1937); I. Schur
-  (1923) / A. Horn (1954) on diagonal majorization.
+  `zeta23/Zeta23/ZeroSide/TightMult.lean` (`lemmaR_tight` :93).
+- Verification artifacts: `research/pilots/01/port/09_MasterIdentity.lean`,
+  `research/pilots/01/port/10_TightMult.lean`,
+  `research/pilots/01/logs/axcheck-final.log`.
+- Scope and novelty records: `research/candidates/01-ez1-inertial-defect-master-identity.md`,
+  `research/novelty/VERDICTS.md` (row 01), `research/novelty/round-2.md`,
+  `research/qa/iter4-review/r2-discovery-strength.md` (§5 q6),
+  `research/qa/iter4-review/a7-32-01-priorart-hardening.md` (companion-PDF full-text
+  search record),
+  `research/bridges/linear-algebra.md` (empty zone EZ1).

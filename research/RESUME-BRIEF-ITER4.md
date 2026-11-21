@@ -279,7 +279,8 @@ recreate, never delete).
   frontier_unconditional outright); FF-EZ4 P0 + FF-EZ2 battery/P0/P1 (7/7 triad,
   all-m simplicity + density-1; open-Classical axiom-spelling finding recorded);
   74 T1T2T4-P0; pilot-78 Stage-A (tropical substitution refutation: A1+A2+A2′ triad —
-  the discovery carrier paper_run_not_optimal); 10-D tranche **D1/D2/D3 ALL GREEN**
+  the discovery carrier paper_run_not_optimal; **2026-11-21 cross-note: A2′ retracted
+  as an article claim, homogeneity artifact — article v2 + dossier-78 note (b)**); 10-D tranche **D1/D2/D3 ALL GREEN**
   (D2 FINAL via the Nat.log2/Nat.log lemma-not-defeq root cause; D4 → iter-5, unchartered
   by ruling); 22-T2a P0.
 - **Statement-level FINDS (landed record)**: 74-P1's four FINDS (T1(a) per-spectrum floor

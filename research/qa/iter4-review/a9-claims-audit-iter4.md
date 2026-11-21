@@ -158,6 +158,13 @@ no retract; its 2 mandatory nearest-miss adds are routed to the N2 dossier
 
 ## Article 78 — 1 defect (3 sites), FIXED
 
+*(2026-11-21 cross-note: the audit rows below stand as artifact-audit history — the three
+pilot theorems are all proved. Since the external-referee revision of 2026-11-21, A2′
+(`instance_unbounded_below`) is RETRACTED as an ARTICLE claim (homogeneity artifact —
+witness = any feasible point translated) and A1 is relabeled a model lemma; article v2
++ README claim A1/A2 only, fidelity bridge = Assumption F PAPER-ONLY. See the article's
+§7.1 and the dossier-78 retraction note (b).)*
+
 Verified: `p0-run4.log:20` (P0.lean OK), `:22–24` (A1/A2/A2′ triad), `:53–55`
 (repeats) — exact; `P0.lean:365/:383/:405` declarations; 444 lines; sha
 `d94d115e3d8d08d7` on disk = the in-file run-4 bytes (PENDING-CLOSE untouched);

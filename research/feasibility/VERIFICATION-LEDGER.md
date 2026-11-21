@@ -429,3 +429,55 @@ NO ship — counts/KPI untouched by the v3 itself; row of record = r3-tables §1
 
 — pre-staged lane R1, 2026-11-20, worktree agent-02 (base = main's ledger @
 `1c6da8b346c1abba` byte-identical; PREP-ONLY, no instrument executed herein).
+
+## 12 Revision-pass addendum — 2026-11-21 external referee set (entries the per-article referees asked moved here; authored by the revision pass)
+
+Dispositions that the 2026-11-21 article revisions removed from article bodies (the
+articles now cite this ledger as the narration home; per-article detail in
+`research/qa/article-revisions-2026-11-21.md`):
+
+1. **Article 10 (L2 log-truncation disposition).** The L2 full-coverage audit's verdict
+   line (`pilots/10/logs/l2-run5-final-green.log:1`) itself documents the truncation:
+   "the 31 log-truncated names are all M1-region axiom-free reporters, fully audited in
+   `m1-run3-confirm-axcheck.log` over the byte-identical region". Disposition: the
+   truncation is a LOG-FORMATTING artifact of the extractor (names cut at 31 chars),
+   not an audit gap; the M1-region coverage of record is the m1-run3 confirm audit.
+   Article v2 §6 cites the verdict line; this entry is the narration home.
+2. **Article 52 (failed-reverify cause).** The round-8 FAILED-REVERIFY row (§8, 52/M1)
+   recorded the run as an error-recovery artifact with no hidden sorries but omitted the
+   cause: an UNREDUCED SCALAR COEFFICIENT in a hand-rolled `simp only` list (the
+   normalization set missed one coefficient reduction, leaving a non-closed goal shape;
+   purely elaboration-level, zero math defects). Recorded here per the referee.
+3. **Article 71 (P1→P2 transfer fact).** The P1→P2 verbatim-transfer metadata deleted
+   from article v3's formal record: five of P1's seven lemmas are carried verbatim into
+   P2 (diff-verified textual identity; the two absent are the P2-only restructures),
+   plus the P1 sweep `axcheck-c2-final.log:3` (14 axiom lines, 0 sorryAx) and P2 `:4`
+   (22 axiom lines, 0 sorryAx) — all eleven P2 theorems covered, every axiom print the
+   triad.
+4. **Article 78 (A2′ artifact note).** `CrossMath.Truffet78.instance_unbounded_below`
+   (`pilots/78/P0.lean:405`, triad, `p0-run4.log:24`) stays PROVED in the pilot but is
+   RETRACTED as an article claim (2026-11-21 external-referee revision: homogeneity
+   artifact — the witness is any feasible point translated by r−1; the failure-mode
+   restatement is A2's own content). Article v2 + README claim A1/A2 only; A1 is a
+   model lemma; the fidelity bridge is Assumption F (PAPER-ONLY). Propagation:
+   REPORT.md §I4.2, INDEX.md (pilot-78 + article-78 rows), dossier-78 notes (b)/(c),
+   a9-claims-audit + r3-verification-tables cross-notes, RESUME-BRIEF-ITER4 cross-note.
+   Kernel upgrade that would settle the referee's finding-3 comment (A2 back-substitution
+   conjuncts — they hold numerically in P0's identical definition layer): needs a new
+   pilot run; recorded at dossier-78 note (c).
+5. **Article 41H3 (custody state — PENDING ORCHESTRATOR DECISION).** The CERTIFIED-NUMERIC
+   pre-solve (monomial-class scan, ~2×10⁸ enumerated systems + ~1.39×10⁷ random-sampled,
+   both closed fibers) has NO archived generator/checker scripts (ephemeral by design)
+   and NO archived exact integer matrices; the certificate artifact of record is the
+   note's recorded formulas + the float-validated scanner (planted controls ~1e-14),
+   disclosed as such in article v-rev §3/§6 and README row 41H3. Two settlement options:
+   (a) re-run the scan with persisted scripts + per-fiber count outputs (new compute
+   task, Modal CPU; also settles the per-fiber split question), or (b) downgrade the
+   billing to computation-evidence/PAPER-ONLY in article + README. No action taken in
+   this pass; the article's disclosure is accurate as it stands.
+6. **Article 41H (determinant — unformalized, recorded).** The referee's
+   `det M(q) = −512·q·(q⁴+6q²+1)` claim was independently recomputed by the revision
+   lane (exact integer interpolation; det M(−1) = 4096 = 8⁴) but is NOT formalized and
+   is deliberately absent from article v-rev. A generic-q determinant proof (or
+   per-fiber decides) is the kernel upgrade that could restore the general real-fibre
+   no-go; recorded at dossier-41's follow-ups block.

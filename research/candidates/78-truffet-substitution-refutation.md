@@ -150,6 +150,32 @@ triad-clean. One spec correction: A2′'s inequality direction (below, §(a)). *
 `eval initial.cost w < (r : Coeff)` (unbounded *below*). The signature block below is
 kept verbatim as the drafted spec; the executed statement governs.
 
+**[(b) RETRACTION, 2026-11-21 (external-referee revision): A2′ (`instance_unbounded_below`)
+is RETRACTED as an article claim.** The referee's finding, verified three ways by the
+revision lane: (i) the witness `(r−1, r−2, r−1)` is exactly `better = (0,−1,0)` translated
+by r−1 (`P0.lean:207`, `:409`), and `feasible`/`eval` are invariant/equivariant under
+all-ones translation in the WithBot-ℝ encoding — so A2′ follows from ANY feasible point
+and says nothing instance-specific (a homogeneity artifact); (ii) the paper's own
+Theorem 4.2 / Case 2.1 reads the coefficient at h = 𝟙, so the true failure mode is the
+COEFFICIENT GAP (asserted 1, true 0) — which is A2's content, not a separate sharpening;
+(iii) the fixed-h optimum is x₀ = h, so any value-function restatement collapses into A2.
+The kernel decl stays PROVED in `pilots/78/P0.lean:405` (triad, `p0-run4.log:24`) but is
+UNCLAIMED — documented at article v2 §7.1. A1 is likewise relabeled a model lemma; the
+fidelity dictionary + singleton survival ride the explicit PAPER-ONLY **Assumption F**
+row (article v2; `novelty/iter4-truffet-classical-scope.md` §10.1). The drafting blocks
+below that bill A2′ as a headline-adjacent sharpening are historical spec text, superseded
+by this note. **]**
+
+**[(c) KERNEL UPGRADE NOTE (2026-11-21, settles the referee's finding-3 comment):** A2
+carries no back-substitution conjuncts — the article's `output` is a fixed witness for the
+terminal value, not kernel-linked to the substitution path. The donor proved copy has them
+(`output_backsubstitution` at
+`openai-math/lean/OAI/Optimization/Tropical/TruffetCounterexample.lean:109`, conjuncts
+`:133–134`), and they hold numerically in P0's identical definition layer. Adding the two
+conjuncts to A2 (or a separate lemma) requires a NEW PILOT RUN (pilot files read-only at
+revision time) and would settle the referee's comment by tying `output` to the substitution
+in-kernel. Recorded as the artifact-side follow-up at article v2 §7 item 3. **]**
+
 ### (a) Statement list — signatures only (pilot vocabulary; OAI-verbatim substrate)
 
 One file `pilots/78/P0.lean`, `import Mathlib`, namespace `CrossMath.Truffet78`.

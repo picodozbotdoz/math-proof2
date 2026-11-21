@@ -4,6 +4,14 @@
 ruling 2026-11-17 ("dossier-78 Stage-A pilot P0 is GO, executed by you") · lane A7 ·
 2026-11-17. H owns commits; none made here.*
 
+**[2026-11-21 cross-note (external-referee revision): this record stands as the artifact
+audit of the GREEN run — all three theorems including A2′ are proved in `P0.lean` as
+stated here. At the ARTICLE level, A2′ (`instance_unbounded_below`) is RETRACTED as a
+claimed finding (homogeneity artifact — the witness is any feasible point translated;
+kernel decl proved but unclaimed) and A1 is relabeled a model lemma; article v2 + README
+claim A1/A2 only, fidelity bridge = Assumption F PAPER-ONLY. See dossier-78 note (b),
+article v2 §7.1, ledger §12 item 4.]**
+
 ## Verdict
 
 **P0 GREEN** — `P0.lean` elaborates clean on the pin (mathlib `ff2494ea`, toolchain

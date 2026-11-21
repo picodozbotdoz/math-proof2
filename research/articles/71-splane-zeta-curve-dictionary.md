@@ -2,11 +2,12 @@
 
 *kind: FORMALIZATION-FIRST (classical mathematics — Weil 1948 — whose formalization
 forced a statement correction, §3 Remark; the template's named earned status for this
-article) · date: 2026-11-09 (v2 2026-11-17: template upgrade, theorems untouched) ·
-supersedes: the v1 text of this same file (in place; change log below) · artifacts:
+article) · date: 2026-11-09 (v2 2026-11-17: template upgrade, theorems untouched;
+v3 2026-11-21: editorial revisions per external referee report, statements and proofs
+untouched) · supersedes: the v1 text of this same file (revised in place) · artifacts:
 `research/pilots/71/P2.lean` (282 lines, 11 theorems),
-`research/pilots/71/P1.lean` (131 lines, the dictionary layer, carried verbatim into
-P2), `research/pilots/71/logs/p2-run6.log`,
+`research/pilots/71/P1.lean` (131 lines, 7 lemmas — five carried verbatim into P2;
+`one_lt_card_field` and `norm_wOf_pos` dropped), `research/pilots/71/logs/p2-run6.log`,
 `research/pilots/71/logs/axcheck-c2-final.log`; dossier
 `research/candidates/71-function-field-splane-dictionary.md`; prework
 `research/pilots/71-prework.md`; bridge `research/bridges/function-field.md` §4*
@@ -22,24 +23,6 @@ P2), `research/pilots/71/logs/p2-run6.log`,
 Substrate: mathlib `ff2494ea`, Lean v4.36.0-rc2; no `sorry`, no `native_decide`, no
 external CAS; kernel verification only.
 
-Change log (2026-11-17, lane A3 — v2 in place, theorems untouched): (1) front matter
-and per-theorem status rows in the closed vocabulary replace the v1 house status line
-(the R1 audit's named unparseable pattern); (2) the v1 §6 prior-work
-prose becomes the §4 nearest-miss table; (3) the v1 §5 verification prose (per-file
-verdict table, error trajectory, sweep staging) is replaced by the §6 formal-record
-table only — infrastructure narration removed per the template; (4) references split
-into literature and project artifacts; (5) the §3 Remark's process clause ("caught at
-p2-run1/2") rephrased without run identifiers. No mathematical content changed: W1,
-W2, HW, both Core lemmas and all proofs are v1-verbatim.
-
-Change log (2026-11-18, lane A3 — defect A71-1 fix, staged by A9's §extension audit
-`qa/iter4-review/a9-claims-audit-iter4.md:315`): the Weil donor file path corrected at
-4 sites (header row W1, §2, §4 nearest-miss table, §8 references) — `LeanEval/
-WeilConjectures.lean` → `Weil/LeanEval/WeilConjectures.lean` (repo root → inner `Weil/`
-package dir; the `:185–194` line cites were already correct at the true path, and the
-§2 `LeanEval.AlgebraicGeometry.*` namespace cite is a name, not a path — untouched).
-Citation fix only; zero mathematical or verification content changed.
-
 ## Abstract
 
 Let C be a smooth, proper, geometrically irreducible curve over 𝔽_q, with zeta function
@@ -52,11 +35,11 @@ discharged): **(W1)** ζ_C(s) ≠ 0 for Re s > 1/2 outside the pole progression
 1 + (2πi/log q)ℤ; **(W2)** every zero of P₁(q^{−s}) has real part exactly 1/2; **(HW)**
 ‖#C(𝔽_{q^m}) − (q^m+1)‖ ≤ |A₁|·q^{m/2} for m ≥ 1. All three are PROVED-CONDITIONAL on
 W. The novelty is the first formal s-plane dictionary for function-field zetas in the
-surveyed corpora (mathlib, tauceti, the AxiomMath repositories, openai-math).
+surveyed corpora (mathlib, tauceti, the AxiomMath repositories).
 Formalizing W1 forced a statement correction: the number-field-style exclusion
-"s ≠ 1" is false here — the correct hypothesis is the pole-factor exclusion itself
-(§3 Remark). Nearest prior work: AxiomMath's `Weil` repository, which proves the Weil
-conjectures in the T-variable.
+"s ≠ 1" is false for the Lean totalized `zetaC` — the correct exclusion is the
+pole factor itself (§3 Remark). Nearest prior work: AxiomMath's `Weil` repository,
+which proves the Weil conjectures in the T-variable.
 
 ## 1. Introduction
 
@@ -66,10 +49,10 @@ field K (Cureton–Thorner), and the openai-math corpus contains 7/8-type statem
 ζ and Dirichlet L-functions. The function-field analogue is sharper. By Weil's theorem
 the zeros of a curve's zeta function lie exactly on Re s = 1/2, for every curve, every
 q and every genus. Yet no formal corpus we surveyed (mathlib, tauceti, the six
-AxiomMath repositories, openai-math) contains the s-plane function at all. The
+AxiomMath repositories) contains the s-plane function at all. The
 function-field side stops at the T-variable. This article supplies the dictionary
-from T to s and proves the three basic s-plane consequences. Dossiers 73 (Tate-type
-statements) and 74 build on it.
+from T to s and proves the three basic s-plane consequences. Two dossiers
+(candidate-theorem records) build on it: 73 (Tate-type statements) and 74.
 
 **Honesty.** All the mathematics is classical: Weil 1948, Hasse for genus 1, and
 textbook accounts such as Rosen GTM 210 ch. 5 and Stichtenoth Thm 5.1.1. The novelty
@@ -101,8 +84,8 @@ Everything is in `research/pilots/71/P2.lean`. It imports only Mathlib, on mathl
 
   A term of `WeilData` *is* the Weil conjectures for X. Every theorem below takes one as
   a hypothesis. AxiomMath's `Weil` proves the existence of such data, but importing it
-  requires the StacksFrontier tree (about 63k modules). Probe G6a priced that import out
-  (`feasibility/axiommath-donor-probes.md`).
+  requires the StacksFrontier tree (about 63k modules). Probe G6a (the direct-import
+  cost probe of `feasibility/axiommath-donor-probes.md`) priced that import out.
 - **s-plane variable.** `wOf q s := exp(−s · log q)`, i.e. q^{−s}. It is entire, with
   |q^{−s}| = q^{−Re s} (`norm_wOf`).
 - **L-polynomial.** `lPoly A := ∏_{α∈A} (1 − αX)`.
@@ -124,13 +107,13 @@ E/F of degree m,
 **Core lemmas.**
 - `re_eq_half_of_norm_mul` (Core 1): if |α| = √q and |α|·|q^{−s}| = 1, then Re s = 1/2.
 - `re_eq_one_of_card_mul_wOf` (Core 2): if q·q^{−s} = 1, then Re s = 1.
-- Dictionary layer (P1, carried verbatim):
+- Dictionary layer (P1; five of its seven lemmas carried verbatim into P2):
   - `norm_wOf`, `norm_wOf_lt_one` (|q^{−s}| < 1 for Re s > 0);
   - `lPoly_eval` (evaluation of the product);
   - `multiset_norm_sum_le` (the triangle inequality over a multiset);
   - `a2_eq` (A₂ = {q}, from duality and A₀ = {1});
   - `multiset_sum_map_const` (Σ over a multiset of a constant = card · c; a small
-    mathlib gap).
+    mathlib gap; added in P2).
 
 **Remark (the pole-exclusion correction — the formalization's forced fix).** The
 design draft stated W1 with the hypothesis s ≠ 1, mirroring DedekindZetaZeroFree's
@@ -148,17 +131,18 @@ correction is a result of the formalization and not of a typechecker.
 ## 4. Novelty and nearest misses
 
 The claim: the s-plane function ζ_C(s) = Z_C(q^{−s}), the half-plane zero-freeness at
-the optimal constant 1/2, and the s-plane zero-location statement are absent from
+constant 1/2 (optimal when A₁ ≠ ∅, i.e. g ≥ 1 — limitation 3), and the s-plane
+zero-location statement are absent from
 every formal corpus surveyed (mathlib @ `ff2494ea`, tauceti, the six AxiomMath
-repositories, openai-math; rg sweep recorded in dossier 71 and
-`qa/iter4-review/r2-discovery-strength.md` §"s-plane FF zeta absence"). The table's
+repositories; rg sweep recorded in dossier 71 and
+`research/qa/iter4-review/r2-discovery-strength.md` §"s-plane FF zeta absence"). The table's
 rows are the works that could have contained it.
 
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
 | AxiomMath `Weil`, `WeilRiemannHypothesisForm.lean:206, 212–213` and `Weil/LeanEval/WeilConjectures.lean:185–194` (formal) | all four Weil conjectures for curves, in the T-variable, unconditionally | no s-plane object anywhere in the tree; W1/W2/HW are s-plane statements that consume the conjectures as a hypothesis structure (`WeilData`), not T-variable identities |
-| tauceti `Frobenius/Zeta.lean`, `HasseBound.lean:44` (formal, our pin) | the zeta function of an elliptic curve and the genus-1 Hasse bound, T-variable | genus 1 only and T-variable; HW covers every genus via `WeilData`, and the s-plane dictionary is absent |
-| AxiomMath DedekindZetaZeroFree, `Main.lean:9` (formal) | ζ_K(s) ≠ 0 for Re s > 31/32, every number field K (Cureton–Thorner) | the number-field side of the same shape; W1 is its function-field analogue at the optimal constant 1/2 — with the pole clause corrected (§3 Remark), which the number-field shape got wrong here |
+| tauceti `TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Zeta.lean`, `TauCeti/AlgebraicGeometry/EllipticCurve/HasseBound.lean:44` (formal, our pin) | the zeta function of an elliptic curve and the genus-1 Hasse bound, T-variable | genus 1 only and T-variable; HW covers every genus via `WeilData`, and the s-plane dictionary is absent |
+| AxiomMath DedekindZetaZeroFree, `Main.lean:9` (formal) | ζ_K(s) ≠ 0 for Re s > 31/32, every number field K (Cureton–Thorner) | the number-field side of the same shape; W1 is its function-field analogue at the constant 1/2 (optimal when A₁ ≠ ∅ — limitation 3) — with the pole clause corrected (§3 Remark), which the number-field shape got wrong here |
 | J. Suzuki, arXiv:2610.41115 (informal, 2026) | Hilbert-space methods for function-field zetas | a method neighbour on the informal side; no s-plane dictionary, no formalization, no zero-window statement |
 | mathlib @ `ff2494ea` (surveyed) | no function-field zeta function and no transport-theoretic object for it | the dictionary's target tier is empty; the §2 layer is the first formal s-plane function-field zeta in the surveyed corpora |
 
@@ -170,8 +154,8 @@ Real.exp is injective, σ = 1/2. The Lean proof derives the two inequalities fro
 monotonicity of Real.exp.
 
 **Core 2.** q · exp(−σ log q) = |q · q^{−s}| = 1 gives exp((1 − σ) log q) = 1, so
-σ = 1. This uses the *real* exponential's kernel (`Real.exp_eq_one_iff`). The complex
-statement fails, which is the point of the Remark.
+σ = 1. This uses injectivity of the *real* exponential (`Real.exp_eq_exp`). The
+complex statement fails, which is the point of the Remark.
 
 **W2.** By `lPoly_eval`, P₁(q^{−s}) = ∏_{α∈A₁}(1 − α q^{−s}). A product over a multiset
 vanishes iff some factor does, so α q^{−s} = 1 for some α ∈ A₁. Then
@@ -205,12 +189,6 @@ give the bound Σ_{α∈A₁} (√q)^m. This equals |A₁| · (√q)^m by
 | dictionary | `Pilot71.a2_eq` | `pilots/71/P2.lean:99` | `[propext, Classical.choice, Quot.sound]` | `pilots/71/logs/p2-run6.log:24` |
 | dictionary | `Pilot71.multiset_sum_map_const` | `pilots/71/P2.lean:167` | `[propext, Classical.choice, Quot.sound]` | `pilots/71/logs/p2-run6.log:16` |
 
-All eleven theorems of `P2.lean` are covered; every axiom print is exactly the triad.
-The dictionary layer's original home `pilots/71/P1.lean` (131 lines, 7 lemmas) is
-carried verbatim into `P2.lean` and sweep-verified separately
-(`pilots/71/logs/axcheck-c2-final.log:3`, 14 axiom lines, 0 sorryAx; P2 at `:4`, 22
-axiom lines, 0 sorryAx).
-
 ## 7. Limitations and open problems
 
 1. **RH is a hypothesis.** Discharging `WeilData` needs AxiomMath's proof, which sits
@@ -220,12 +198,13 @@ axiom lines, 0 sorryAx).
    are statements about that function and its numerator. Meromorphy and the identity
    Z_C(q^{−s}) = Σ #C(𝔽_{q^m}) q^{−ms}/m (as exp-log) are not formalized here.
 3. **|A₁| = 2g** is not derived: HW is stated with the multiset cardinality.
-4. **Not formalized:** the "exact zero set" form (the zeros form exactly the vertical
-   progressions above each α), and the conjunction of W1 with the number-field 31/32
-   statement (planned optional P2c). Both are short corollaries of W2 and of the
-   DedekindZetaZeroFree statement; neither is claimed.
+4. **Not formalized:** the "exact zero set" form — that the zeros of P₁(q^{−s}) are
+   exactly the discrete sets {1/2 + i(arg α + 2πk)/log q : k ∈ ℤ}, one set per
+   α ∈ A₁ — and the conjunction of W1 with the number-field 31/32
+   statement (planned as an optional variant). Both are short corollaries of W2 and of
+   the DedekindZetaZeroFree statement; neither is claimed.
 5. **Family statements** (proportions over families of curves, e.g. via Bui–Florea pair
-   correlation) are a separate, L-effort objective (dossier 71 [S]).
+   correlation) are a separate, L-effort objective (dossier 71).
 6. **The statement probe** `pilots/71/P0.lean` predates P1/P2 and carries four
    `sorry` stubs under the probe convention ("not a proof artifact"); it is never cited
    as a result here.
@@ -242,7 +221,9 @@ Giulietti–Hirschfeld–Korchmáros–Torres (Zbl 1218.11064); Hirschfeld–Kor
 
 **Formal corpora (surveyed).** AxiomMath `Weil` — `WeilRiemannHypothesisForm.lean:206,
 212–213`, `Weil/LeanEval/WeilConjectures.lean:185–194`. AxiomMath DedekindZetaZeroFree —
-`Main.lean:9`. tauceti — `Frobenius/Zeta.lean`, `HasseBound.lean:44`.
+`Main.lean:9`. tauceti —
+`TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Zeta.lean`,
+`TauCeti/AlgebraicGeometry/EllipticCurve/HasseBound.lean:44`.
 
 **Project artifacts.** Dossier `research/candidates/71-function-field-splane-dictionary.md`;
 prework `research/pilots/71-prework.md` §2–§5; Lean `research/pilots/71/{P0,P1,P2}.lean`;

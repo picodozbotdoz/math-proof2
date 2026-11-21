@@ -344,7 +344,10 @@ dossiers' pilot surfaces is CLEAN (disjoint namespace trees, no shared imports).
   `better` :116; `finite_execution_not_optimal` (`TruffetCounterexample.lean:126`).
   Statement-port ≈ 0 stands; no build dependency. **New since this dossier was
   written: dossier 78's P0 landed the full procedure-layer transcription IN-REPO on
-  our pin** (`pilots/78/P0.lean`, 444 LoC, A1+A2+A2′ triad-clean, run-4 log) —
+  our pin** (`pilots/78/P0.lean`, 444 LoC, A1+A2+A2′ triad-clean, run-4 log —
+  *2026-11-21 cross-note: A2′ remains kernel-proved in the pilot but is RETRACTED as a
+  claimed article finding (homogeneity artifact; dossier-78 note (b)) — reusable here
+  only as a pilot-level fact, not as an article-78 headline*) —
   `paperCandidates`/`paperSelect`/`advance`/`terminal` + the separating instance now
   exist repo-natively and are reusable by any T2 charter (no re-transcription).
 - **G13/seed-13 respect note (per A8's feed note — stands alone, not folded in):** G13

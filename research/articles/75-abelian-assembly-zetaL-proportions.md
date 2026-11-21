@@ -1,8 +1,10 @@
-# Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower — Two Tiers, Conditional on Component Proportions
+# Abelian Assembly: Zero Proportions for ζ_L Across an Abelian Tower — Two Regimes, Conditional on Component Proportions
 
-*kind: DISCOVERY-CONDITIONAL · date: 2026-11-20 (v3; v2 2026-11-17, v1 2026-11-16,
-Cycle-2 original 2026-11-14) · supersedes: the v2 text of this same file (the
-charter's revise-in-place rule, second application; change log in §0) · artifacts:
+*kind: DISCOVERY-CONDITIONAL · date: 2026-11-21 (v4; v3 2026-11-20, v2 2026-11-17,
+v1 2026-11-16) · supersedes: the v3 text of this same file (revise-in-place; this
+revision corrects the de Laat–Rolen–Tripp–Wagner scope and the "first" claim, names
+B′'s premises in the abstract, renames B″, and compresses §6 to the formal-record
+table — no theorem, status, or evidence change) · artifacts:
 `research/pilots/75/Pa.lean`, `research/pilots/75/Pb.lean`,
 `research/pilots/75/logs/run6-final.log`, `research/pilots/75/logs/pb-run11-final.log`,
 `research/pilots/75/logs/pb-run12-auditfix.log`, `research/pilots/zeta23e/P0.lean`,
@@ -16,9 +18,9 @@ n2-p3-run2/3, n2-p3e-run1, n2-p3v2-run3/4, axcheck-n3-run1, axcheck-n3v2-run1)*
 |---|---|---|---|
 | Thm A `zetaL_assembly_landed` (`Pa.lean:1473`) | PROVED-CONDITIONAL | structural: hK/hF (analyticity), hntopK/hntopF (finite order), hAbFac (factorization mirror), hfinK/hfinL/hfinF (window finiteness), hcK/hcF (constants); open core: hAK/hAF (component on-line proportions) | `pilots/75/logs/run6-final.log:31` — triad; re-print `pilots/75/logs/pb-run12-auditfix.log:33` |
 | Thm B `zetaL_two_thirds_conditional` (`Pa.lean:1525`) | PROVED-CONDITIONAL | idem + hCert + hK673 (ζ_K column via the Knausgård 1669159/2478195 ≥ 2/3 certificate slot); hAF at 2/3 | `run6-final.log:32` — triad; re-print `pb-run12-auditfix.log:34` |
-| Thm B′ (N2-d card) `zetaL_two_thirds_landed_of_DZDF` (`N2-P3e.lean`; the card `ZetaLRatTwoThirdsOfDZDF` of `N2-P3.lean:206`) | PROVED-CONDITIONAL | hnp (DZDF nonprincipality, ∀ i), hfac (the DZDF abelian-factorization statement — donor statement-binder, G1-permanent, billed as donor consumption), hdic (∀ i, HasQDirichletDictionary — dischargeable on-pin per member), hK/hL, hntopK/hntopL, hfinK/hfinL/hfinζ, hEχcum (component proportions — dischargeable per member from ThmEDyadic + CountsUnbounded at the primitive associate), hccum/hconcum (fK↔ζ count identifications), hζ (ζ-column at 2/3 — dischargeable on the V2 substrate) | `pilots/75/logs/n2-p3e-run1.log` — both decls triad, wall 100 s, OVER=0 |
-| Thm B″ (the ℚ endpoint) `zetaL_two_thirds_landed_ℚ` (`N2-P3V2.lean`) | PROVED-CONDITIONAL | hfinζ, hntopζ (classical structural) — no DZDF/family/hEχ premises; donor endpoint `ZetaZeros.simple_proportion_d4` consumed by import and re-printed triad in-log — on the V2-import substrate (ZetaZerosV2 built tree; mathlib `ff2494ea`, Lean v4.36.0-rc2) | `pilots/75/logs/n2-p3v2-run4.log` — 6/6 prints triad + donor re-print |
-| Thm C `zetaL_assembly_distinct_defect_landed` (`Pb.lean:2144`) | PROVED-CONDITIONAL | structural tier as Thm A; open core: hAKd/hAFd (component strip-distinct proportions) | `pb-run11-final.log:50` — triad; `pb-run12-auditfix.log:52` |
+| Thm B′ `zetaL_two_thirds_landed_of_DZDF` (`N2-P3e.lean:62`; card `ZetaLRatTwoThirdsOfDZDF` at `N2-P3.lean:206`) | PROVED-CONDITIONAL | hnp (DedekindZetaZeroFree nonprincipality, ∀ i), hfac (its abelian-factorization statement, quoted verbatim — the direct build fails at the project pin, probe G1, so never an import), hdic (∀ i, HasQDirichletDictionary — dischargeable per member at the project pin), hK/hL, hntopK/hntopL, hfinK/hfinL/hfinζ, hEχcum (component proportions — dischargeable per member from ThmEDyadic + CountsUnbounded at the primitive associate), hccum/hconcum (fK↔ζ count identifications), hζ (ζ-column at 2/3 — dischargeable on the V2-import substrate) | `pilots/75/logs/n2-p3e-run1.log:314` (repeat `:325`) — both declarations triad |
+| Thm B″ (ζ-column endpoint: the degenerate tower L = K = ℚ) `zetaL_two_thirds_landed_ℚ` (`N2-P3V2.lean:298`) | PROVED-CONDITIONAL | hfinζ, hntopζ (classical structural) — no DZDF/family/component premises; the AxiomMath ZetaZerosV2 endpoint `ZetaZeros.simple_proportion_d4` consumed by import and re-printed triad in-log — on the V2-import substrate (ZetaZerosV2 built tree; mathlib `ff2494ea`, Lean v4.36.0-rc2) | `pilots/75/logs/n2-p3v2-run4.log:181` (donor re-print `:182`) — 6/6 prints triad |
+| Thm C `zetaL_assembly_distinct_defect_landed` (`Pb.lean:2144`) | PROVED-CONDITIONAL | structural set as in Thm A; open core: hAKd/hAFd (component strip-distinct proportions) | `pb-run11-final.log:50` — triad; `pb-run12-auditfix.log:52` |
 | Thm D `zetaL_assembly_distinct_landed_of_negligible` (`Pb.lean:2191`) | PROVED-CONDITIONAL | idem + hCZStripFam (summed common-strip-defect negligibility; conjecture-grade binder) | `pb-run11-final.log:51` — triad (wrapped); `pb-run12-auditfix.log:53` |
 | Thm E `zetaL_distinct_five_sixths_strip_conditional` (`Pb.lean:2229`) | PROVED-CONDITIONAL | idem + hCert + hK839 (ζ_K column via the Knausgård 1645064/1960733 ≥ 5/6 certificate slot); hAFd at 5/6 | `pb-run11-final.log:52` — triad (wrapped); `pb-run12-auditfix.log:54` |
 | Thm E′ `zetaL_distinct_five_sixths_strip_conditional_of_negligible` (`Pb.lean:2255`) | PROVED-CONDITIONAL | idem + hCZStripFam | `pb-run11-final.log:53` — triad (wrapped); `pb-run12-auditfix.log:55` |
@@ -31,84 +33,26 @@ All Lean-backed rows except the donor row elaborate on the project pin (mathlib
 (`import Mathlib` only, `Pb.lean:51`; `hAbFac` is the statement-quoted mirror of the
 factorization, never an import).
 
-## 0. Change log (v3, 2026-11-20; v2 2026-11-17 below)
-
-The iteration-5 75-N2 arc (units 9–11) discharged §3.3's carried completion to its
-named binders. This revision, in place (the charter's revise-in-place rule, second
-application — this file's internal v3):
-
-1. **NOT-A-SHIP.** This revision revises rows of the one landed article; it does
-   not add a ship: the shipped-articles count, the discovery-share KPI
-   numerator/denominator, and the knowledge-level quota are untouched — the Δ is
-   engineering deliverables (the dictionary, the ports, the discharges), never
-   re-billed as discovery content.
-2. The §3.3 "(not proved here)" remainder is discharged except the DZDF
-   statement-binder itself; §3.3 rewritten as the two-tier N2 ledger (E5); the
-   abstract's accounting sentence flips with it (E3), word count re-verified ≤ 200.
-3. The N2 stack joins: two header-table rows (the composed 2/3 card
-   `zetaL_two_thirds_landed_of_DZDF`; the ℚ endpoint `zetaL_two_thirds_landed_ℚ`)
-   with complete binder lists (E4); the engineering stack (dictionary, identity
-   transports, window finiteness, imprimitivity immunity, the dyadic→cumulative
-   conversion, the imprimitive composition, the ζ column) joins §6 as verification
-   blocks + the N3 audit paragraph (E6). No grade changes: the dictionary stays
-   FORMALIZATION-novel glue; no row is re-graded up.
-4. §7 rows 2 and 6 narrow to the honest remainder (E7); rows 1/3/4/5/7/8 stand.
-5. §9 self-audit re-run: rules 3/4/7/10/11 touched-and-passed at the v3 bytes (E8).
-6. Title, kind, and the §4 scoped-first sentence unchanged — the conditionality is
-   unchanged in kind; the upgrade is depth, not breadth.
-
-## 0. Change log (v2, 2026-11-17)
-
-v1 (2026-11-16; Cycle-2 original 2026-11-14) stated the with-multiplicity tier only and
-listed the 5/6 arm as "carried". This revision, in place:
-
-1. **Two-tier structure per the iteration-4 charter.** Tier 1 (with multiplicity, 2/3:
-   Theorems A–B); tier 2 (strip-distinct, 5/6: Theorems C–E′, landed 2026-11-16); the
-   quadratic-ζ_K instance with its zero-analytic-binders accounting as the third tier
-   (§3.3).
-2. **Dirichlet-column discharge audited (tier-1 news).** zeta23's Theorem E endpoint
-   `thmE_A₀` built and transitively axiom-audited at the donor pin; the χ-column 2/3
-   binder of Theorem B over K = ℚ is dischargeable by donor name; the binder-port shape
-   elaborates in the donor tree (`zeta23e-p0-run1.log`). The unconditional-at-ℚ theorem
-   itself is **not yet proved** — the remaining glue is named in §3.3 and §7.
-3. Status rows rewritten in the closed four-string vocabulary with verbatim binder
-   lists; v1's house-dialect status lines ("PROVED (entry milestone)") removed.
-4. Per-theorem verification blocks (§6) replace v1's run-history narration; counts are
-   extractor-generated where the record chain provides them, and not-yet-computed
-   fields are marked PENDING-CLOSE with an owner.
-5. Nearest-miss table (§4, 5 rows) replaces v1's prose-only comparison; the DLRT
-   citation carries the corrected scope qualifiers (GRH-conditional, fixed quadratic).
-6. The 5/6 arm's design erratum (E4) and the first final log's print-coverage gap are
-   recorded in §7 with their dated corrections.
-7. Section order fixed to the template skeleton.
-8. **A1 pre-check applied (2026-11-17, `qa/iter4-review/a1-75v2-precheck.md` F1–F4):**
-   §6 preamble now carries the Step-B full-coverage closure
-   (`pilots/75/logs/axcheck-full-run1.log` — 89/89 census declarations direct-print
-   triad, 0 sorryAx, 124-record official scan, source sha `da05c60ceb78755b`), with
-   the census split corrected to 82 public + 7 private at the closure bytes (79 + 10
-   at the run-11 bytes), the closure bytes named so the run-12 re-print columns bind
-   to `da05c60c` (not the run-11 `b9ad8816`), closure cites added to the C/D/E/E′
-   rows, and the honest labels upper-cased to the closed vocabulary.
-
 ## Abstract
 
-Let L/K be an abelian extension of number fields; class field theory factors
+For an abelian extension L/K of number fields, class field theory factors
 ζ_L = ζ_K · ∏_χ L(s, χ). We prove in Lean an assembly schema: if ζ_K and every component
-L(s, χ_i) have on-line zero proportion at least c₀ and c_i (multiplicity-counted,
-cumulative windows), then ζ_L has proportion at least min(c₀, min_i c_i) (Theorem A,
-PROVED-CONDITIONAL — the component proportions are open hypotheses); at 2/3,
-Theorem B. Tier two (Theorems C–E′, PROVED-CONDITIONAL) is the 5/6 strip-distinct arm
-with an explicit common-zero defect. Over K = ℚ, tier one's composition is proved to its
-named binders: the ray-class↔Dirichlet dictionary, imprimitivity immunity and the
-donor's dyadic→cumulative conversion are kernel-proved, and the composed 2/3
-endpoint stands as a theorem — conditional on the factorization statement-binder,
-two per-primitive binders and the structural set. Within the corpora and literature surveyed, these are
-the first zero-proportion statements for ζ_L outside the quadratic case; the nearest
-informal results are de Laat–Rolen–Tripp–Wagner's GRH-conditional distinct-zero
-proportion for a fixed quadratic field and Bansal–Maji's Hardy-type on-line infinitude
-for every number field. The mathematics is corollary-level; the contribution is the
-statement class, the hypothesis schema, and its verified closure — including a
-Bonferroni-type defect transport for the distinct tier.
+L(s, χ_i) have on-line zero proportion at least c₀ and c_i (multiplicity-counted),
+then ζ_L has proportion at least min(c₀, min_i c_i) (Theorem A,
+PROVED-CONDITIONAL — open component hypotheses); at 2/3,
+Theorem B. Theorems C–E′ (PROVED-CONDITIONAL) are the 5/6 strip-distinct regime, up to
+an explicit common-zero defect. Over K = ℚ, Theorem B′ is proved conditional on the
+quoted abelian factorization, nonprincipality, the ray-class↔Dirichlet dictionary,
+per-primitive component proportions, two ζ↔f_K count identifications, the ζ column,
+and the structural set; the degenerate tower L = K = ℚ leaves two classical binders
+(Theorem B″). Among surveyed corpora and literature these are
+the first multiplicity-counted on-line and 5/6-class distinct zero-proportion
+statements for ζ_L beyond the quadratic case, and the first with nontrivial base
+K; hypotheses are component proportions, not GRH. Nearest prior work:
+de Laat–Rolen–Tripp–Wagner's GRH-conditional distinct-zero proportions for abelian
+K/ℚ (degrees 2–4); Bansal–Maji's unconditional on-line infinitude for every number
+field. The mathematics is corollary-level; the contribution is the statement class,
+the hypothesis schema, and the Lean-verified Bonferroni-type defect transport.
 
 ## 1. Introduction
 
@@ -118,12 +62,15 @@ work pushes past 2/3 for ζ: Lamzouri's theorem, formalized in AxiomMath's ZetaZ
 gives ≥ 0.6725 simple and on the line; Knausgård's certified constants reach
 ≈ 0.6735 with multiplicity (exactly 1669159/2478195) and ≈ 0.839 distinct (exactly
 1645064/1960733). For a Dedekind zeta function the
-record is thin. The nearest prior result we found is de Laat–Rolen–Tripp–Wagner
-(DLRT, arXiv:1908.04876): for a *fixed quadratic* K, *assuming GRH*, asymptotically in
-T, more than 45% of zeros are *distinct* (Thm 1.1 is the fixed-abelian-K, GRH-conditional
-o_K(1) statement; Cor 1.3(i) the fixed-quadratic one). They state nothing for
-critical-line proportions of ζ_L with [L : ℚ] > 2, nothing unconditional, and nothing
-uniform in K. Beyond DLRT, the unconditional on-line *infinitude* of Bansal–Maji
+record is thin. The nearest prior result is de Laat–Rolen–Tripp–Wagner
+(DLRT, arXiv:1908.04876): *assuming GRH*, for *every* abelian number field K of degree
+n their pair-correlation analysis yields the asymptotic of Thm 1.1 and the multiplicity
+bound N*_K(T) ≤ (c_n + o_K(1)) N_K(T) of Thm 1.2, whence Cor 1.3 gives *distinct*-zero
+proportions N_{K,d}(T) ≥ (0.4585 + o_K(1)) N_K(T) for n = 2, ≥ (0.2794 + o_K(1)) for
+n = 3 and ≥ (0.1127 + o_K(1)) for n = 4. These are distinct-zero statements under GRH:
+they give no multiplicity-counted on-line proportion, nothing unconditional, and
+nothing for a tower ζ_L over a base ζ_K with K ≠ ℚ. Beyond DLRT, the unconditional
+on-line *infinitude* of Bansal–Maji
 (arXiv:2507.18121) holds for ζ_F of *any* number field F — infinitude, not proportion.
 
 **The observation.** When ζ_L factors as a product of entire (or, for ζ_K, meromorphic
@@ -133,23 +80,23 @@ counts. A proportion bound is a linear inequality between the two counts, so it 
 through finite sums when all summands share a constant, and through the minimum of the
 constants in general. Pilot 42 (article 42) did this for two factors
 (ζ_K = ζ · L(s, χ_D)); the abelian tower needs n + 1 factors, with one factor (ζ_K)
-carrying a pole, and — for the distinct tier — a Bonferroni-type control of the
+carrying a pole, and — for the distinct regime — a Bonferroni-type control of the
 pairwise common-zero defects.
 
 **Honesty.** The two-factor counting engine is article 42's; it is not claimed here.
 The new content is:
 
-1. the n-ary statement class over an arbitrary finite index type ι (both tiers);
+1. the n-ary statement class over an arbitrary finite index type ι (both regimes);
 2. the n-fold multiplicity factorization under per-factor hypotheses only (§5.2) — the
    2-factor engine's partial-product non-degeneracy hypothesis is *derived*, not
    assumed;
-3. the distinct tier's n-ary defect transport: the ordered-pair defect inequality closes
+3. the distinct regime's n-ary defect transport: the ordered-pair defect inequality closes
    by superadditivity-up-to-overlap (an abstract Finset Bonferroni inequality plus an
    off-diagonal growth lemma), not by monotonicity (§5.3; the design erratum is
    recorded in §7);
 4. the instantiation schemas at 2/3 and 5/6, which name exactly which inputs are open;
-5. the discharge accounting (§3.3): over K = ℚ, every *analytic* input of the 2/3 tier
-   is now kernel-proved somewhere (ζ column on our pin, Dirichlet column at the zeta23
+5. the discharge accounting (§3.3): over K = ℚ, every *analytic* input of the 2/3 statement
+   is now kernel-proved somewhere (ζ column at the project pin, Dirichlet column at the zeta23
    donor pin, audited); what remains between the schema and an unconditional ζ_L
    theorem is named glue, not an analytic unknown.
 
@@ -159,8 +106,8 @@ L-functions of a general base field.
 
 ## 2. Setting and notation
 
-All objects live in `research/pilots/75/Pa.lean` (tier 1) and
-`research/pilots/75/Pb.lean` (tier 2; carries `Pa.lean` verbatim below its `## P-b
+All objects live in `research/pilots/75/Pa.lean` (regime 1) and
+`research/pilots/75/Pb.lean` (regime 2; carries `Pa.lean` verbatim below its `## P-b
 layer` banner — the self-contained-file convention; `import Mathlib` only, `Pb.lean:51`).
 
 - **Windows.** `stripWindow T₁ T₂ = {ρ | 0 < Re ρ < 1, T₁ < Im ρ ≤ T₂}` and
@@ -184,7 +131,8 @@ layer` banner — the self-contained-file convention; `import Mathlib` only, `Pb
   (exactly the rationals shown, ≈ 0.6735 and ≈ 0.839); the slot's `hyps` is an opaque
   certificate proposition, exactly
   as in article 42 v1 — a *conditional* ζ_K-column route (the unconditional route is
-  the ZetaZerosV2 import of article 42 v2; see §3.3).
+  the ZetaZerosV2 import of article 42 v2; see §3.3). The slot is a hypothesis:
+  the external theorems behind the numerals are for ζ, and no ζ_K analogue is claimed.
 - **Donor statements (never imported; quoted).** The factorization is
   AxiomMath DedekindZetaZeroFree's `abelianFactorization`
   (`AbelianRayCharacterFactorization.lean:62`): for abelian Galois L/K there exist
@@ -201,7 +149,7 @@ Let ι be a finite type. Let f_K, f_L : ℂ → ℂ and F : ι → ℂ → ℂ. 
 N⁰_f(T) for the cumulative strip and line counts of `multOf f`, D_f(T) for the
 cumulative distinct strip count.
 
-### 3.1 Tier 1 — with multiplicity
+### 3.1 Regime 1 — with multiplicity
 
 **Theorem A (`zetaL_assembly_landed`, n+1-factor assembly; `Pa.lean:1473`).** Assume:
 
@@ -225,10 +173,10 @@ at Knausgård's 1669159/2478195 > 2/3), and `hAF`: for every i,
 `EpsLowerCum ⟨multOf f_L, hfinL⟩ (2/3)`: at least two thirds of ζ_L's nontrivial zeros
 up to height T (with multiplicity) lie on the critical line, for all large T.
 
-### 3.2 Tier 2 — strip-distinct, 5/6
+### 3.2 Regime 2 — strip-distinct, 5/6
 
 **Theorem C (`zetaL_assembly_distinct_defect_landed`, n-fold defect form;
-`Pb.lean:2144`).** Under the structural tier of Theorem A (hK, hF, hntopK, hntopF,
+`Pb.lean:2144`).** Under the structural set of Theorem A (hK, hF, hntopK, hntopF,
 hAbFac, hfinK, hfinL, hfinF, hcK, hcF) assume the component *strip-distinct*
 proportions `hAKd : EpsLowerDistinctStripCum ⟨multOf f_K, hfinK⟩ c₀` and
 `hAFd : ∀ i, EpsLowerDistinctStripCum ⟨multOf (F i), hfinF i⟩ (c i)`. Then for every
@@ -249,8 +197,8 @@ summed defect of Theorem C is ≤ ε · N_{f_L}(T). Then
 E′ (`…_of_negligible`; `Pb.lean:2255`).** The 5/6 instantiations: ζ_K column via
 `hCert` + `hK839 : K839OfLocalStrip cert ⟨multOf f_K, hfinK⟩` (Knausgård
 1645064/1960733 > 5/6), family components at 5/6 binders (`hAFd` at 5/6); conclusions
-as in Theorems C and D at c* = 5/6. These are article 42's two quadratic distinct
-landings one degree up the tower.
+as in Theorems C and D at c* = 5/6. These instantiate article 42's two quadratic
+distinct-zero theorems one degree up the tower.
 
 **Reading the theorems.** Take L/K abelian. Put f_K = ζ_K, f_L = ζ_L and F i = L(s, χ_i)
 for the nontrivial ray-class characters of the factorization; each F i is entire by
@@ -286,22 +234,23 @@ with-multiplicity — distinct ≤ with-multiplicity, so the donor bound implies
 a fortiori; (b) the donor window is dyadic (T, 2T], the binder's cumulative (0, T] —
 conversion sums the inequality over the O(log T) dyadic blocks and absorbs the initial
 segment (the pattern zeta23 itself uses for ζ). Neither piece of glue is formalized
-here. Consequence, in the record's words: the χ-column 2/3 binder of Theorem B (over
-ℚ) *is dischargeable at the donor pin by donor name*; on-pin consumers keep the binder
-until an on-pin port, then gain supersession rows, not edits.
+here. Consequence: the χ-column 2/3 binder of Theorem B (over ℚ) is dischargeable
+at the donor pin by name; on the project pin it remains an explicit binder pending a
+port — a substrate gap, not an analytic one.
 
 **The ζ columns.** Over ℚ, f_K = ζ: the ζ column is discharged unconditionally on the
 project pin by the ZetaZerosV2 import (article 42 v2, Thm 1's `V2d4_endpoint` route).
 At a general base K, Theorems B and E use the Knausgård certificate slots (§2) — the
-stronger constants, tool-conditional route.
+stronger constants, tool-conditional route (the slot is a hypothesis: the external
+theorem is for ζ, and no ζ_K analogue is claimed).
 
-**The N2 discharge ledger (iteration 5; what the carried completion became).** The
-two named pieces of v2's remainder are now kernel-proved on this project's pin:
+**The over-ℚ discharge record.** Two named pieces of the previous version's
+remainder are now kernel-proved on this project's pin:
 (i) the ℚ dictionary — `hasQDirichletDictionary` with the L-series identification
 (`heckeTsum_eq_ratCharOf_LFunction`, `ratCharOf_eq_one_iff`, `chi_span_residue`)
 and the imprimitivity immunity `eulerStripImmunity_changeLevel` (an imprimitive L
 differs from its primitive associate by finitely many Euler factors off the
-critical strip — v2 narrated this; it is now proved), plus the component window
+critical strip — the previous version narrated this; it is now proved), plus the component window
 finiteness `windowFinite_LFunction` for every nontrivial Dirichlet component;
 (ii) the factorization-binder bridge — `identity_theorem_extension` /
 `factorization_identity_extension` (half-plane → ℂ∖{1} transport) and
@@ -313,42 +262,44 @@ fortiori and dyadic→cumulative block-sum, including at imprimitive characters 
 the primitive associate.
 
 **What remains (the honest remainder, all named).** The DZDF
-abelian-factorization statement-binder `hfac` (G1-permanent: its direct build is
-dead at our pin; billed as donor consumption, never as an import); the
+abelian-factorization statement-binder `hfac` (its direct build fails at the
+project pin — probe G1 — so it enters as a quoted statement, never an import); the
 per-primitive classical binders ThmEDyadic (content = `thmE_A₀`,
 PROVED-UNCONDITIONAL at the donor pin) and CountsUnbounded (zero infinitude,
 Titchmarsh §5.8/Davenport ch. 9); and the structural set (hfinζ/hntopζ at the ℚ
 endpoint). On these, the composed card `zetaL_two_thirds_landed_of_DZDF` (Thm B′)
-and the ℚ endpoint `zetaL_two_thirds_landed_ℚ` (Thm B″) are theorems; their
-one-application fusion (hζ by the V2 side, hccum/hconcum by rfl at
-f_K := riemannZeta) is one exact-chain away and is NOT stated here — it joins only
-with a fresh verified run. On-pin consumers note: v2's supersession sentence
-resolves — the on-pin port has now landed, and the supersession rows are exactly
-B′/B″ and the §6 stack.
+and the ζ-column endpoint `zetaL_two_thirds_landed_ℚ` (Thm B″, the degenerate
+tower L = K = ℚ) are theorems; their one-application composition — instantiating
+B′ at f_K := riemannZeta, discharging hccum/hconcum by rfl and hζ by the V2
+endpoint — is a single proof step away and is NOT stated here; it joins only with
+a fresh verified run.
 
-**The quadratic instance (third tier).** Article 42 v2's Theorem 1
+**The quadratic instance.** Article 42 v2's Theorem 1
 (`zetaK_two_thirds_landed_of_V2`, `M4b.lean:1479`) is the n = 2 case of the schema with
-the ζ column already unconditional on our pin and `hEχ` — whose content is `thmE_A₀`
+the ζ column already unconditional at the project pin and `hEχ` — whose content is `thmE_A₀`
 above — as its one analytic binder. The donor-pin audit therefore reduces the
-quadratic case to *zero analytic open binders*, pending the same port glue; it is
+quadratic case to *zero analytic open binders*, pending the same port; it is
 billed there, not re-proved here.
 
 ## 4. Novelty and nearest misses
 
 | prior work (exact citation) | what it proves | why this differs |
 |---|---|---|
-| de Laat–Rolen–Tripp–Wagner, arXiv:1908.04876, Thm 1.1 / Cor 1.3(i) | for a *fixed* (quadratic) K, *under GRH*, as T → ∞: > 45% of zeros are *distinct* (SDP method) | ours: on-line proportions with multiplicity (Thm B) and 5/6-class distinct up to an explicit defect (Thm E) for *every* abelian L/K; hypothesis shape is component-proportion binders, not GRH; comparison is hypothesis-shape-to-hypothesis-shape (their GRH binder vs our component binders) |
+| de Laat–Rolen–Tripp–Wagner, arXiv:1908.04876, Thm 1.1 / Thm 1.2 / Cor 1.3(i)–(iii) | *under GRH*, for every abelian number field K/ℚ of degree n: the pair-correlation asymptotic (Thm 1.1); N*_K(T) ≤ (c_n + o_K(1)) N_K(T) (Thm 1.2); distinct-zero proportions N_{K,d}(T) ≥ (0.4585 / 0.2794 / 0.1127 + o_K(1)) N_K(T) for n = 2 / 3 / 4 (Cor 1.3, SDP method) | ours: multiplicity-counted on-line proportions (Thm B), which DLRT do not state, and 5/6-class distinct proportions, far above their 0.1127–0.4585 constants, up to an explicit defect (Thm C/E) for *every* abelian tower L/K, including nontrivial base K ≠ ℚ, which their K/ℚ setting does not cover; hypothesis shape is component-proportion binders, not GRH; comparison is hypothesis-shape-to-hypothesis-shape (their GRH binder vs our component binders) |
 | Bansal–Maji, arXiv:2507.18121 (v1 2025-07-24) | via a number-field Jacobi-theta relation, *infinitely many* nontrivial zeros of ζ_F on Re s = 1/2 for *any* number field F — Hardy-type, unconditional at abstract level | infinitude, not proportion: an infinitude theorem cannot feed Thm A's component-proportion hypotheses; no multiplicity or distinct statements, no constants |
 | Lamzouri arXiv:2609.02882 / AxiomMath ZetaZerosV2 (`ZetaZeros/Main.lean:130,149`) | ζ-only proportions: > 0.6725 simple on-line, > 0.83625 distinct (kernel-verified) | the ζ column only, imported there; no product, no ζ_K or ζ_L statement |
 | Knausgård arXiv:2609.33043, arXiv:2610.08965 | ζ constants ≈ 0.6735 with multiplicity (exactly 1669159/2478195) and ≈ 0.839 distinct (exactly 1645064/1960733), behind an externally checked certificate layer (author-disclosed extra axioms, one per inequality) | our ζ_K-column certificate slots quote these constants as binders; stronger constants, tool-conditional route (see §2) |
 | article 42 v2 (this project, 2026-11-16) | the n = 2 instances with the ζ column discharged unconditionally (ZetaZerosV2 import) | Thms A–E′ here are the n+1-factor generalization over an arbitrary finite family; 42's Thm 1 is this schema's quadratic instance (§3.3) |
 
-Scope statement. "First zero-proportion statements for ζ_L outside the quadratic case"
-means first among the corpora surveyed (mathlib, tauceti, the AxiomMath repositories,
-openai-math, anthropics/zeta23) and the informal literature searched (arXiv queries
-recorded in the project's novelty records; DLRT scope re-confirmed 2026-11-16). The
-assembly mathematics is corollary-level; the claim is about the statement class, not
-the difficulty.
+Scope statement. "First multiplicity-counted on-line and 5/6-class distinct
+zero-proportion statements for ζ_L beyond the quadratic case" means first among the
+corpora surveyed (mathlib, tauceti, the AxiomMath repositories, openai-math,
+anthropics/zeta23) and the informal literature searched (arXiv queries recorded in
+the project's novelty records; DLRT scope re-checked 2026-11-21 against the arXiv
+full text — Thm 1.1 covers abelian K of every degree, Cor 1.3(i)–(iii) give
+distinct-zero proportions for n = 2/3/4, all GRH-conditional). The assembly
+mathematics is corollary-level; the claim is about the statement class, not the
+difficulty.
 
 ## 5. Proofs
 
@@ -376,7 +327,7 @@ designed. For ρ ≠ 1 the factorization holds on a neighbourhood ({s ≠ 1} is 
 `multOf` depends only on the germ, and `multOf_mul` applied to (∏_i F i) · f_K gives
 `multOf_of_abelFac`: multOf f_L ρ = multOf f_K ρ + Σ_i multOf (F i) ρ.
 
-### 5.3 The distinct tier (Bonferroni transport)
+### 5.3 The distinct regime (Bonferroni transport)
 
 Distinct strip counts satisfy, for two factors, the inclusion–exclusion identity
 D_{zw} = D_z + D_w − commonStrip(z, w) (article 42's M4a engine, carried). For a
@@ -391,11 +342,12 @@ erratum, §7). The ordered-pair `Finset.offDiag` convention needs no linear orde
 the factor 2 is absorbed at the negligibility stage. Combining with the n-ary distinct
 identification `distinctCountCum_of_abelFac` and the ε-wiring
 `assemble_eps_defect_strip_cum_fin` proves Theorem C; Theorem D splits δ = δ/2 + δ/2
-and absorbs the defect with hCZStripFam (`nlinarith` on the nonnegative count-cast).
+and absorbs the defect with hCZStripFam (`nlinarith` on the nonnegative count-cast;
+the binder is uniform in ε — its T₀ may depend on ε — so each half may take δ/2).
 Theorems E/E′ instantiate at 5/6 via `five_sixths_le_839` (`Pb.lean`, carried from
 `Pa.lean:904`) and `EpsLowerDistinctStripCum_mono`.
 
-### 5.4 Assembly (tier 1)
+### 5.4 Assembly (regime 1)
 
 Every point of a strip or line window has Re ρ ∈ (0, 1), so ρ ≠ 1 and §5.2 applies
 throughout; §5.1 gives N_{f_L} = N_{f_K} + Σ_i N_{F i} and the same for N⁰. Lower every
@@ -412,8 +364,8 @@ Theorem A with c* = c₀′ = c_i = 2/3, the ζ_K input lowered from 1669159/247
 |---|---|---|---|---|
 | Thm A | `CrossMath.Pilot75.zetaL_assembly_landed` | `research/pilots/75/Pa.lean:1473` | ⊆ triad | `pilots/75/logs/run6-final.log:31`; re-print `pb-run12-auditfix.log:33` |
 | Thm B | `CrossMath.Pilot75.zetaL_two_thirds_conditional` | `Pa.lean:1525` | ⊆ triad | `run6-final.log:32`; re-print `pb-run12-auditfix.log:34` |
-| Thm B′ | `zetaL_two_thirds_landed_of_DZDF` | `research/pilots/75/N2-P3e.lean` | ⊆ triad | `pilots/75/logs/n2-p3e-run1.log` |
-| Thm B″ | `zetaL_two_thirds_landed_ℚ` | `research/pilots/75/N2-P3V2.lean` | ⊆ triad | `pilots/75/logs/n2-p3v2-run4.log` |
+| Thm B′ | `CrossMath.Pilot75N2.zetaL_two_thirds_landed_of_DZDF` | `research/pilots/75/N2-P3e.lean:62` | ⊆ triad | `pilots/75/logs/n2-p3e-run1.log:314` (repeat `:325`) |
+| Thm B″ | `CrossMath.Pilot75N2V2.zetaL_two_thirds_landed_ℚ` | `research/pilots/75/N2-P3V2.lean:298` | ⊆ triad | `pilots/75/logs/n2-p3v2-run4.log:181` (donor re-print `:182`) |
 | Thm C | `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed` | `research/pilots/75/Pb.lean:2144` | ⊆ triad | `pb-run11-final.log:50`; `pb-run12-auditfix.log:52` |
 | Thm D | `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible` | `Pb.lean:2191` | ⊆ triad | `pb-run11-final.log:51`; `pb-run12-auditfix.log:53` |
 | Thm E | `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional` | `Pb.lean:2229` | ⊆ triad | `pb-run11-final.log:52`; `pb-run12-auditfix.log:54` |
@@ -422,129 +374,38 @@ Theorem A with c* = c₀′ = c_i = 2/3, the ζ_K input lowered from 1669159/247
 | Quadratic instance | `CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2` | `research/pilots/42/M4b.lean:1479` | ⊆ triad | `pilots/42/logs/m4b2-axcheck-run1.log:139` |
 
 "⊆ triad" = exactly `[propext, Classical.choice, Quot.sound]` at the cited print.
-Per-theorem verification blocks (binder inventories, coverage, substrate) follow.
-
 Substrate for all rows except the donor row: mathlib `ff2494ea` @ Lean v4.36.0-rc2,
-`import Mathlib` only. Extractor-generated counts per the verification-tables census
-(`qa/iter4-review/r3-verification-tables.md` §10.4): `Pb.lean` 89 declarations (82
-public + 7 private at the closure bytes; 79 + 10 at the run-11 bytes, before the three
-helpers of §5.3 were exposed), `Pa.lean` carried verbatim inside it (1,557 lines; 68
-declarations = 65 public + 3 private, per the same census); `Pb.lean` 2,302 LoC at the
-audit-fix run header (2,303 lines by `wc -l` on the 2026-11-17 tree — final-newline
-convention). Bytes of record: the run-11 audit's sha256(16) is `b9ad881689927936`
-(census §10.4); the run-12 re-print columns below and the closure log cite the
-current/closure bytes, sha256(16) `da05c60ceb78755b`. **Step-B full-coverage closure
-(2026-11-17, `pilots/75/logs/axcheck-full-run1.log`): all 89 census declarations
-direct-print exactly `[propext, Classical.choice, Quot.sound]`, 0 `sorryAx`, official
-scan 124 records all-triad, at source sha `da05c60ceb78755b`** — the per-row evidence
-below is complete at the closure bytes, with the run-11/12 prints as the per-theorem
-pointers. sha256-at-sweep (final sweep, 2026-11-19): `Pa.lean` `d61eb0485a6ff672`
-(1,557 LoC; `AxPilot75_Pa` drift-check re-stage); `Pb.lean` `da05c60ceb78755b`
-(2,303 LoC; = the closure bytes above — standing log `axcheck-full-run1.log` cited,
-not re-run); `P0.lean` (zeta23e) `986f1ce879786f33` (59 LoC; probe-convention file,
-log-header stamp, never a Step-B stage).
-
-### Verification: Theorem A — `CrossMath.Pilot75.zetaL_assembly_landed`
-- file: `research/pilots/75/Pa.lean:1473–1518` (carried verbatim in `Pb.lean`)
-- exact statement form: binders verbatim as listed in §3.1
-- binder inventory: hK/hF/hntopK/hntopF structural (well-formedness); hAbFac = the
-  statement-quoted mirror of DZDF `abelianFactorization`
-  (`AbelianRayCharacterFactorization.lean:62` — donor statement, never imported);
-  hfinK/hfinL/hfinF structural (window finiteness); hcK/hcF parameters of the statement
-  class; hAK/hAF the open core (component proportions — parameters no donor supplies at
-  general base)
-- substrate: mathlib `ff2494ea` / Lean v4.36.0-rc2
-- evidence: elaboration `run6-final.log:6` (GREEN rc=0, 0 errors, 0 sorry); axioms
-  `run6-final.log:31` — `[propext, Classical.choice, Quot.sound]`; re-print
-  `pb-run12-auditfix.log:33`; coverage: 17 of 17 in-file audit declarations printed
-  (heritage 3 + public 11 + private 3), `run6-final.log:6`
-- honest label: PROVED-CONDITIONAL(hK, hF, hntopK, hntopF, hAbFac, hfinK, hfinL, hfinF,
-  hcK, hcF, hAK, hAF)
-
-### Verification: Theorem B — `CrossMath.Pilot75.zetaL_two_thirds_conditional`
-- file: `research/pilots/75/Pa.lean:1525–1539`
-- binder inventory: as Theorem A, plus hCert (opaque certificate proposition) + hK673 =
-  the Knausgård 1669159/2478195 slot (`Pa.lean:911`, donor constants
-  arXiv:2609.33043/2610.08965); hAF at 2/3 — over K = ℚ its content is discharged at
-  the donor pin (see the Dirichlet-column row below), kept as a binder on our pin
-- evidence: elaboration `run6-final.log:6`; axioms `run6-final.log:32` — triad;
-  re-print `pb-run12-auditfix.log:34`; coverage as Theorem A
-- honest label: PROVED-CONDITIONAL(structural set + hCert + hK673 + hAF)
-
-### Verification: Theorem C — `CrossMath.Pilot75.zetaL_assembly_distinct_defect_landed`
-- file: `research/pilots/75/Pb.lean:2144–2186`
-- binder inventory: structural tier as Theorem A; hAKd/hAFd the open core (component
-  strip-distinct proportions — no donor at any base; over ℚ the distinct form is *not*
-  supplied by thmE_C₀, whose 3/4 is weaker than the 5/6 slot)
-- evidence: elaboration `pb-run11-final.log:4` (GREEN rc=0, 0 errors, 0 sorry) with the
-  complete direct-print re-record `pb-run12-auditfix.log:2` (GREEN re-confirmed);
-  axioms `pb-run11-final.log:50` and `pb-run12-auditfix.log:52` — triad; closure
-  direct-print `axcheck-full-run1.log` (all-89 record)
-- honest label: PROVED-CONDITIONAL(structural set + hAKd + hAFd)
-
-### Verification: Theorem D — `CrossMath.Pilot75.zetaL_assembly_distinct_landed_of_negligible`
-- file: `research/pilots/75/Pb.lean:2191–2223`
-- binder inventory: as Theorem C + hCZStripFam — binder by design: the summed
-  common-strip-defect negligibility, conjecture-grade (the project's seam note records
-  it not provable today); stated in the summed form, discharge-equivalent to the per-pair
-  form (`Pb.lean` file-header design remark, `:41–45`)
-- evidence: axioms `pb-run11-final.log:51` (wrapped) and `pb-run12-auditfix.log:53` —
-  triad; elaboration as Theorem C; closure direct-print `axcheck-full-run1.log`
-  (all-89 record)
-- honest label: PROVED-CONDITIONAL(structural set + hAKd + hAFd + hCZStripFam)
-
-### Verification: Theorems E/E′ — `CrossMath.Pilot75.zetaL_distinct_five_sixths_strip_conditional(_of_negligible)`
-- file: `research/pilots/75/Pb.lean:2229–2277`
-- binder inventory: as Theorems C/D with hCert + hK839 (Knausgård 1645064/1960733 slot,
-  `Pb.lean:935`) for the ζ_K column; hAFd at 5/6; hCZStripFam in E′ only
-- evidence: axioms `pb-run11-final.log:52–53` (wrapped) and `pb-run12-auditfix.log:54–55`
-  — triad; elaboration as Theorem C; closure direct-print `axcheck-full-run1.log`
-  (all-89 record)
-- honest label: PROVED-CONDITIONAL(structural set + hCert + hK839 + hAFd(+hCZStripFam))
-
-### Verification: Dirichlet-column input — `Zeta23.ThmE.thmE_A₀` (donor)
-- file: zeta23 `Zeta23/ThmE/Final.lean:93–96` (donor tree, read-only sibling); donor
-  pin Lean v4.33.0-rc2 / mathlib `51e6992e`; the 144-file pruned closure built in-tree
-- exact statement form: quoted verbatim in §3.3; hypothesis binders are scope only
-  (`1 < q`, `χ.IsPrimitive`)
-- binder inventory: none (no donor statement as binder; no open problem assumed)
-- evidence: build + transitive chain audit `zeta23e-p0-run1.log` — hygiene gate PASS
-  `:15–18`; `thmE_A₀` print `:190` (repeat `:203`) —
-  `[propext, Classical.choice, Quot.sound]`; chain prints `:190–194` (repeats
-  `:203–207`); 0 sorryAx in the closure; binder-port elaboration `P0.lean` OK
-  (`pilots/zeta23e/P0.lean:54`, probe-convention file — the elaboration is the
-  evidence, never cited as a result)
-- honest label: PROVED-UNCONDITIONAL — at donor pin (Lean v4.33.0-rc2, mathlib
-  `51e6992e`)
-
-### Verification: Quadratic instance — `CrossMath.Pilot42.zetaK_two_thirds_landed_of_V2`
-- file: `research/pilots/42/M4b.lean:1479–1492` (article 42 v2 Thm 1; billed there)
-- binder inventory: structural set H + hEχ (the χ-column 2/3 binder; content =
-  `thmE_A₀`, now audited at the donor pin — discharge pending the port glue)
-- evidence: axioms `pilots/42/logs/m4b2-axcheck-run1.log:139` — triad; substrate
-  mathlib `ff2494ea` / v4.36.0-rc2
-- honest label: PROVED-CONDITIONAL(H + hEχ)
+`import Mathlib` only, zero `sorry`/`sorryAx` (donor row: Lean v4.33.0-rc2, mathlib
+`51e6992e`). Binder inventories are the status-table rows at the head of this article.
+Full-coverage axiom audit of the article's two files `Pa.lean`/`Pb.lean`: all 89
+declarations direct-print exactly the triad with 0 `sorryAx`
+(`pilots/75/logs/axcheck-full-run1.log`, full-coverage audit of 2026-11-17).
 
 ## 7. Limitations and open problems
 
 1. **The component hypotheses are the open core.** At a general base K, "≥ 2/3
    (with multiplicity) / ≥ 5/6 (distinct) of the zeros of L(s, χ) lie on the line" is
    not known for Hecke L-functions in any corpus or paper we surveyed. Theorems B and
-   E/E′ are exactly as strong as their inputs.
-2. **The composed-at-ℚ theorem is proved to its named binders (v3).** The
-   v2 glue — the ℚ dictionary with L-series identification and imprimitivity immunity,
-   the dyadic→cumulative and distinct→with-multiplicity conversions, the
-   factorization-binder bridge — is now kernel-proved (§3.3 ledger). What remains is
-   narrower and named: the DZDF factorization statement-binder (G1-permanent, billed as
-   donor consumption), the per-primitive ThmEDyadic/CountsUnbounded binders (classical
-   content), and the structural set (hfinζ/hntopζ at the ℚ endpoint). Theorems B′/B″
-   carry exactly these; the final one-application fusion is not stated (fresh-run
-   rule).
+   E/E′ are exactly as strong as their inputs. (The nearest formal relative, zeta23's
+   `thmE_C₀` — 3/4 distinct for Dirichlet L — is weaker than the 5/6 slot and is not a
+   ζ_K-column statement.)
+2. **The composed-at-ℚ theorem is proved to its named binders.** The
+   previous version's glue — the ℚ dictionary with L-series identification and
+   imprimitivity immunity, the dyadic→cumulative and distinct→with-multiplicity
+   conversions, the factorization-binder bridge — is now kernel-proved (§3.3). What
+   remains is narrower and named: the DZDF factorization statement-binder (quoted,
+   never an import — its direct build fails at the project pin, probe G1), the
+   per-primitive ThmEDyadic/CountsUnbounded binders (classical content), and the
+   structural set (hfinζ/hntopζ at the ℚ endpoint). Theorem B′ carries the first two
+   groups and Theorem B″ the structural set; the final one-application composition is
+   not stated (pending a fresh verified run).
 3. **hCZStripFam is conjecture-grade** (Theorems D/E′ only). A common zero of two
    components is a zero of ζ_L of multiplicity ≥ 2; no per-function statistic bounds
-   the coincidence count (the seam analysis shows it would follow from S₁ = o(N) plus
-   density-zero multiplicity, both open). The defect forms (Theorems C/E) are free of
-   it.
+   the coincidence count (a project-side analysis, `research/pilots/20-hCZ-NOTE.md`,
+   records that it would follow from S₁ = o(N) plus density-zero multiplicity, both
+   open). The defect forms (Theorems C/E) are free of it. The binder is stated in the
+   summed form, discharge-equivalent to the per-pair form (`Pb.lean` file-header
+   design remark, `:41–45`).
 4. **Design erratum, recorded (dated correction, 2026-11-16).** The 5/6 arm's design
    claimed the cons-step of the defect induction "closes trivially" by monotonicity.
    Wrong: monotonicity alone does not close it. The corrected invariant —
@@ -552,31 +413,25 @@ log-header stamp, never a Step-B stage).
    off-diagonal growth lemma — is what `Pb.lean` proves (§5.3). This re-architecture is
    the mathematical content of the n-ary defect lift beyond the 2-factor
    inclusion–exclusion.
-5. **Print-coverage gap, remediated (dated correction, 2026-11-17).** The 5/6 arm's
-   first final log was head/tail-excerpted: its hand-written audit tails printed 32 of
-   89 declarations, the persisted log body recorded only ≈ 40 of the file's prints,
-   and 57 of 89 declarations — including three private helpers — had no direct axiom
-   print in the persisted evidence; the header's "every declaration prints triad" was
-   tally-only-broad (true for everything printed). The remediation exposed the three
-   helpers and re-ran with every P-b-layer declaration printed directly
-   (`pb-run12-auditfix.log`, GREEN re-confirmed); the verdicts were unchanged. Coverage
-   above cites the complete record.
-6. **Window finiteness.** The Dirichlet component side is discharged on-pin
-   (`windowFinite_LFunction`, run 26, every nontrivial Dirichlet component). The ζ-side
+5. **Window finiteness.** The Dirichlet component side is discharged at the project
+   pin (`windowFinite_LFunction`, every nontrivial Dirichlet component). The ζ-side
    and general-ζ_K/ζ_L finiteness remain assumed (hfinζ/hfinK/hfinL binders) — the
    classical discreteness glue is still not formalized here.
-7. **The ζ_K-column certificate slots are tool-conditional.** The Knausgård constants
+6. **The ζ_K-column certificate slots are tool-conditional.** The Knausgård constants
    are stronger but ride an externally checked certificate layer (author-disclosed
-   extra axioms); the unconditional-on-our-pin alternative (ZetaZerosV2, weaker
-   constants) is the article-42-v2 route and is what §3.3's accounting uses over ℚ.
-8. **No per-field uniformity:** all statements are asymptotic in T for a fixed tower;
+   extra axioms); the unconditional-at-the-project-pin alternative (ZetaZerosV2,
+   weaker constants) is the article-42-v2 route and is what §3.3's accounting uses
+   over ℚ.
+7. **No per-field uniformity:** all statements are asymptotic in T for a fixed tower;
    nothing is uniform over discriminants. The donor's `thmE_A₀` is uniform in q, but
    the assembly's structural set is per-tower.
 
 ## 8. Prior work and references
 
-**Literature.** D. de Laat, L. Rolen, Z. Tripp, I. Wagner, arXiv:1908.04876 (scope as
-in §4: GRH-conditional, fixed quadratic/abelian K, T → ∞, distinct zeros). D. R.
+**Literature.** D. de Laat, L. Rolen, Z. Tripp, I. Wagner, arXiv:1908.04876
+(GRH-conditional: Thm 1.1 pair correlation for abelian K of any degree n; Thm 1.2
+multiplicity bound with explicit c_n; Cor 1.3(i)–(iii) distinct-zero proportions for
+n = 2/3/4). D. R.
 Bansal, B. Maji, *Number Field Analogue of Jacobi Theta Relation And Zeros of Dedekind
 zeta function on Re(s)=1/2*, arXiv:2507.18121. Y. Lamzouri, arXiv:2609.02882.
 K. Knausgård, arXiv:2609.33043, arXiv:2610.08965. L. Alpöge, A. Furman,
@@ -589,7 +444,7 @@ Theorems A–E′).
 `research/pilots/75-prework.md`, `research/pilots/75/Pb-design.md`;
 `research/pilots/zeta23e/P0.lean` + `research/pilots/zeta23e/logs/zeta23e-p0-run1.log`;
 article 42 v2 (`research/articles/42-quadratic-dedekind-zeta-zero-proportions.md`) and
-the pilot-42 stack `research/pilots/42/{M1,M2a,M3,M2b,M4a,M4b}.lean` + logs;
+the article-42 verification stack `research/pilots/42/{M1,M2a,M3,M2b,M4a,M4b}.lean` + logs;
 `research/pilots/20-seam-analysis.md`, `research/pilots/20-hCZ-NOTE.md` (the hCZ
 verdict); AxiomMath DedekindZetaZeroFree
 (`AbelianRayCharacterFactorization.lean:62`, `EntireAbelianQuotient.lean:13`);
@@ -597,27 +452,3 @@ AxiomMath ZetaZerosV2 (`ZetaZeros/Main.lean:130,149`); zeta23
 (`Zeta23/ThmE/Final.lean:93–105`, `Challenge.lean:92–108` counting conventions);
 verification tables `research/qa/iter4-review/r3-verification-tables.md` §§6-row-75,
 10.4, 10.5.
-
----
-
-## Shipping-gate self-audit (TEMPLATE-iter4 §9) — lane A9, 2026-11-17
-
-| # | hard rule | result |
-|---|---|---|
-| 1 | kind is a §0 article kind; not donor-swap/tranche/addendum clothing | PASS — `DISCOVERY-CONDITIONAL` (statement class, S4(b) title); the hEχ discharge content is a *section* of the one statement-class article (companion billing), not a separate article; kind unchanged at v3 — the engineering rows are sections of the one statement-class article per the NOT-A-SHIP box in §0 |
-| 2 | title free of project-internal tokens | PASS — no dossier/pilot/probe/run tokens; conditionality carried in the title |
-| 3 | status row per theorem, closed vocabulary, every binder listed | PASS — 10 rows (8 carried + B′/B″); all conditional rows carry verbatim binder lists; the donor row keeps its at-donor-pin qualifier; B″ carries the V2-import-substrate qualifier, not "at donor pin" |
-| 4 | abstract ≤ 200 words, theorem + hypotheses + status + scoped novelty + nearest prior | PASS at splice — word count re-verified after the E3 sentence flip (baseline arithmetic 194 − 40 + 46 = 200; mandated re-count; offered trim named in the edit plan); both tiers' statuses in the closed vocabulary; scope qualifier in the novelty sentence; DLRT + Bansal–Maji named |
-| 5 | novelty table ≥ 2 rows; "first" scoped in-sentence | PASS — 5 rows; scope paragraph below the table |
-| 6 | no bracketed errata | PASS — the DLRT comparison and the design erratum are written correctly once |
-| 7 | no section contradicts another; no addendum | PASS — §3.3/§7/abstract agree on the v3 remainder (all three rewritten together); one versioned v3; no addendum |
-| 8 | formal record table-only; no infrastructure narration | PASS — §6 opens with the §6-format table and adds the per-theorem verification blocks (R3 §5 format; charter-mandated); the coverage corrections in §7.5 are stated as record facts, not run histories; error-descent numbers of v1 removed |
-| 9 | internal vocabulary ≤ 3 glosses | PASS — "donor" appears only as the substrate qualifier sanctioned by the template; no dossier/pilot IDs in body prose (paths only in §6/§8 evidence cells, where they are citations) |
-| 10 | citations spot-checked (5+) | PASS this draft — checked against disk/sibling trees this session: `Pa.lean:1473/:1525/:902/:911`, `Pb.lean:51/:935/:1678/:1797/:1873/:1910/:2144/:2191/:2229/:2255`, `run6-final.log:6/:31–32`, `pb-run11-final.log:4/:50–53`, `pb-run12-auditfix.log:2/:52–55`, zeta23 `Final.lean:93` (sibling, verbatim), `zeta23e-p0-run1.log:15–18/:190/:203`, `P0.lean:54`, `m4b2-axcheck-run1.log:139`; plus A1's pre-check pass (all rows verified against the record chain; closure log `axcheck-full-run1.log` added per F1); re-verify at splice — **v3: re-run at splice, every new log:line cite re-verified against pilots/75/logs/ on the pulled tree; the record chain pilots/75/N2-P1-record.md §ledger is the index; the N3 axcheck pair is the coverage evidence** |
-| 11 | README row updated in the same commit | SATISFIED at splice — README row 75 gains the v3 counts line in the same commit (H's checklist; the E9 tail, gated on R2's splice-time PASS) |
-| 12 | superseded files marked; edit-state claims git-checked | PASS — v1 superseded in place by this file (§0); no claim about another article's edit state is made beyond cited record paths |
-
-Closed at the final sweep (2026-11-19): sha256-at-sweep and final LoC re-measure
-of `Pa.lean`/`Pb.lean`/`P0.lean` STAMPED (§6 preamble); any G-class evidence beyond the recorded zeta23e audit (none needed by
-this draft's claims) — **owner A1** for ledger rows. Rubric floor: (a) precision 2,
-(b) status honesty 2, (d) citations 2 — self-assessed; R1/gate re-check at splice.
