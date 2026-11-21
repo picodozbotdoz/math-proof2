@@ -90,3 +90,18 @@ detected and planned; agent-06 clean at `15bf11a`); invalid-BASE assert fires
 (`deadbeef` → hard error); MODE=ff emits `merge --ff-only` on the carry branch.
 No execution performed (DRY only, per the unit order). Script sha at test:
 see the landing commit.
+
+## 5. Addendum (2026-11-21, the actual iter-7 open): the mass-forward was SKIPPED
+
+At the real iteration-7 open (`4906376` opening commit → `d429d19` tracker), the
+en-masse forward was deliberately NOT run: the lanes **self-ff per task** — the
+established same-session pattern (each lane ff's its own worktree to the commit its
+task brief names; the mixed-HEAD state is normal mid-session). The mass-forward
+(`forward_worktrees.sh --go`) remains the **fresh-session path** (post-pause/resume,
+new spawn wave, or any state where lane self-ff cannot be assumed). No safety
+consequence: the skip only affects when worktrees reach the open commit, not whether
+backups/asserts apply — lanes still never stash, and dirty-forward still requires
+the carry-backup discipline (this lane's own iter-7-open refresh executed the
+residue-backup + `merge --ff-only` path: 10 untracked files all byte-identical to
+their landed blobs → carry-copied to `agent-01.carry/2026-11-21-iter7open/`, removed,
+ff'd clean to `d429d19`).
