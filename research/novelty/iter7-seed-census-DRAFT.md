@@ -17,13 +17,17 @@ T1–T4 `pilots/72-M1/L3-recharter.md` §6; the η port plan `pilots/zzv2-lam/et
 rungs R5–R8); (c) the quota posture (R2's iter-7 structural draft lands separately —
 cross-referenced at §3, NOT duplicated here).
 
-**Census verdict line (DRAFT): TWO Tier-1 discovery-grade candidates (the Ξ_K′ proportion
-transport — dossier-40 T3, the strongest, engine proved in-corpus; the CD(K,N)→H_α
-dictionary bridge — thinner math, both sides in-corpus), TWO Tier-2 completion seeds (the
+**Census verdict line (DRAFT, v3 post-absorption): THREE Tier-1-class discovery-grade
+candidates (the Ξ_K′ proportion transport — dossier-40 T3, the strongest, engine proved
+in-corpus; the CD(K,N)→H_α dictionary bridge — thinner math, both sides in-corpus; the
+H4 E2/F resumption — charter-GO via the constraint-propagation pre-solve, absorbed by
+the orchestrator's ruling 2026-11-21, see row 7), TWO Tier-2 completion seeds (the
 M3 A2 fix-round — 2–4 fires, ~80% pre-diagnosed; the η R5+R6 Fourier/identity rungs —
 conditional on R5's pending fire), TWO Tier-3 quota contestants (the ζ_K PNT-for-ideals
 Wiener–Ikehara consumer; FB-4's recorded iter-7 path). Fresh-fire cost of the bench ≈
-20–35 runs, ≈2–4k LoC, dominated by the two Tier-1 precharter-gated candidates.**
+20–35 runs, ≈2–4k LoC, dominated by the two precharter-gated Tier-1 candidates (+ the
+H4 kernel arms, priced separately by the charter's three-tier design; the pre-solve
+itself is local-CPU, zero Modal by design).**
 
 **CORRECTION 2026-11-21 (v2, post-landing; R8's seed-1 prep course correction, landed
 `106797a` — prep file `candidates/iter6-seed1-n2-uniform-p4-prep.md` `22e40ab5`,
@@ -61,11 +65,16 @@ banked Tier-2.
 | **4** | **η R5+R6 — the Fourier/identity rungs at κ=1** (zzv2-λ port plan): donor-verbatim mirror proofs against the re-censused PUBLIC layer (`Zeta/Basic.lean` + `Zeta/CutoffSelfConv.lean`) | **LOW (by ruling)**: record-billed quota-free per [DECISION-2] = Option A; value = the de-freezing infrastructure feeding R7 (the bridge port — the actual discovery-adjacent rung) | R5 (agent-04), the port's owner | **SMALL**: 1–2 fires post-re-census (band 8 of 6–10 spent, ceiling 12–13) | **CONDITIONAL on R5's eta-r4 grant-fire-2 @ `285a411e` landing GREEN** (unfired at this DRAFT); the public-layer re-census FIRST (the amendment's own discovery) |
 | **5** | **ζ_K PNT-for-ideals** (tauceti DedekindZeta × mathlib WienerIkehara): the first Wiener–Ikehara consumer for ζ_K — a prime-ideal-counting PNT on-pin, article-22's consumer pattern transplanted | **KNOWLEDGE-LEVEL (formalization-first)**: the mathematics is classical (Landau's prime-ideal theorem); the formal statement is absent everywhere (round-2: tauceti's layer is Tauberian substrate only — no PNT theorem in it; mathlib has no PNT at pin) | any drained lane; the 22-lineage pattern (M4 template) | **L-grade**: substrate pre-certified — tauceti `isBigO_card_idealsLE_sub` (:109), `exists_differentiableOn_eq_dedekindZeta_sub` (:154), the H/(s−1) log-deriv decomposition (file tail); the consumer is the article-22 shape | competes for the single N=1 quota slot ONLY (never displaces a discovery lead); cross-ref §3 |
 | **6** | **FB-4 (FF-PNT)** — the recorded iter-7 path per `fb2-followon-evaluation.md` (`3f850a1d`: "FB-4 defaults out (not charter-ready; iter-7 path)") | KNOWLEDGE-LEVEL (unchanged ruling) | quota slot | M-effort (tauceti Wiener–Ikehara × Weil rationality) | not charter-ready; needs its own precharter before it can contest |
+| **7** | **H4 E2/F resumption via the constraint-propagation pre-solve** — charter GO (`pilots/41/H4-presolve-charter.md` `cda679ec` @ `b19b3ee`; E1 landed GREEN `cc7ef3c` engineering-billed; the discovery payload = the E2/F two-sided resolution; R2's gate cleared the article path) | **HIGH (two-sided, Tier-1-class — the orchestrator's absorption ruling, 2026-11-21)**: a survivor is dictionary DATA (the DISCOVERY route, quota-free per R2's reconciliation); a bounded miss is a band-scoped CERTIFIED-NUMERIC negative; E1's kernel (the d=8 uniform-diagonal no-go, 11/11 print-verified, `H4.lean` `768c6f5d`) is the floor rung, never standalone | **R4-lineage (agent-08)** — the charter's own authority chain (the `5c7fac7` landing ruling → the iter-7 brief's R4-class row → R2's S4(iii) gate `r2-41h4-s1s4-gate.md` endorsing the NO-GO on blind E2/F fires) | **local-CPU pre-solve FIRST (custody-archive class, zero Modal by design)**, then the kernel arms per the charter's three-tier propagation design (semigroup tier finite-domain; the d=14 combination-word tier bounded-search) | the pre-solve gate instrument itself binds (no kernel fire before the pre-solve reports); the M-candidates lesson institutionalized (random search cannot see the combination tier); numbered **7** (not 3) to preserve the landed cross-references to rows 1–6 by number (the correction stanza's "row 4" et al.) |
 
-Tier-1 subtotal: two precharter-gated candidates; if BOTH fail precharter the bench still
-holds two Tier-2 completions + two Tier-3 contestants — thin for the ≥half discovery bar,
-so the iter-7 open should ALSO commission one fresh scan (the standing 12-DEFER bench and
-the drain-activation rule remain available; not priced here — outside this lane's mandate).
+**Tier-1 accounting (v3, post-absorption — census owner's call, stated):** the bench now
+carries **THREE Tier-1-class rows — #1/#2 precharter-gated + #7 charter-GO (absorbed by
+the orchestrator's ruling on R4's flag)**. The thinness contingency is UNCHANGED and
+expressly scoped to the two PRECHARTER-GATED seeds: "if both Tier-1 precharters (#1/#2)
+fail, commission one fresh scan" — #7 cannot fail a precharter (it is GO), so it is
+outside that contingency and does not weaken it. Subtotal arithmetic: the bench holds
+two precharter-gated Tier-1, one charter-GO Tier-1, two Tier-2 completions, two Tier-3
+contestants (the standing 12-DEFER bench + the drain-activation rule remain fallbacks).
 
 ## 2. Seed detail notes (direct-source checks, this session)
 
